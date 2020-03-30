@@ -1,6 +1,6 @@
 ---
-title: Início de sessão único para aplicações com o Proxy de aplicações do Azure AD | Documentos da Microsoft
-description: Ative o único início de sessão em seus aplicativos publicados no local com o Proxy de aplicações do Azure AD no portal do Azure.
+title: Inscrição única em apps com procuração de aplicação ad do Azure AD [ Microsoft Docs
+description: Ligue o único sinal para as suas aplicações publicadas no local com a Procuração de Aplicação AD Azure no portal Azure.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,45 +15,45 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025746"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Abóbada de senha para inscrição única com Procuração de Aplicação
 
-Proxy de aplicação do Active Directory do Azure ajuda-o a melhorar a produtividade ao publicar aplicações no local para que os empregados remotos podem aceder em segurança, também. No portal do Azure, pode também configurar início de sessão único (SSO) a estas aplicações. Os utilizadores só tem de autenticar com o Azure AD e eles podem aceder a sua aplicação empresarial sem ter de iniciar sessão novamente.
+A Procuração de Aplicação de Diretório Ativo Azure ajuda-o a melhorar a produtividade através da publicação de aplicações no local para que os colaboradores remotos também possam aceder de forma segura. No portal Azure, também pode configurar um único sinal (SSO) para estas aplicações. Os seus utilizadores apenas precisam de autenticar com a AD Azure, e podem aceder à sua aplicação de empresa sem ter de voltar a fazer sessão.
 
-Proxy de aplicações suporta vários [único início de sessão em modos](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Com base em palavra-passe de início de sessão foi concebido para aplicações que utilizam uma combinação de nome de utilizador/palavra-passe para autenticação. Quando configura com base em palavra-passe de início de sessão para a sua aplicação, os utilizadores têm de iniciar sessão uma vez a aplicação de no local. Depois disso, o Azure Active Directory armazena as informações de início de sessão e disponibiliza-lo automaticamente para a aplicação quando os utilizadores aceder remotamente.
+Application Proxy suporta vários [modos de inscrição simples](what-is-single-sign-on.md#choosing-a-single-sign-on-method). O sign-on baseado em palavra-passe destina-se a aplicações que utilizem uma combinação de nome de utilizador/palavra-passe para autenticação. Quando configura o início de sessão com base em palavra-passe para a sua aplicação, os seus utilizadores têm de iniciar sessão na aplicação no local uma vez. Depois disso, o Azure Ative Directory armazena as informações de entrada e fornece-as automaticamente à aplicação quando os seus utilizadores acedem remotamente.
 
-Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se não for, siga os passos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md) , em seguida, volte aqui.
+Já devia ter publicado e testado a sua aplicação com procuração de aplicação. Caso contrário, siga os passos em aplicações da Publicação utilizando o Proxy de [Aplicação AD Azure](application-proxy-add-on-premises-application.md) e volte aqui.
 
-## <a name="set-up-password-vaulting-for-your-application"></a>Configurar a palavra-passe vaulting para a sua aplicação
+## <a name="set-up-password-vaulting-for-your-application"></a>Configurar abóbada de senha para a sua aplicação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**.
-1. Na lista, selecione a aplicação que pretende configurar com o SSO.  
-1. Selecione **Proxy de aplicações**. 
+1. Selecione**Aplicações** >  **Azure Ative Directory** > Enterprise**Todas as aplicações**.
+1. A partir da lista, selecione a aplicação que pretende configurar com o SSO.  
+1. Selecione **Procuração de Aplicação**. 
 1. Mude o **tipo de Pré-Autenticação** para **passar** e selecione **Guardar**. Mais tarde, pode voltar a mudar para o tipo **de Diretório Ativo Azure** novamente! 
-1. Selecione **início de sessão único**.
+1. Selecione **um único sinal .**
 
    ![Selecione single sign-on a partir da página de visão geral da aplicação](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-1. Para o modo SSO, escolha **baseado em palavra-passe de início de sessão**.
-1. Para o URL de início de sessão, introduza o URL para a página onde os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão na sua aplicação fora da rede empresarial. Isto pode ser o URL externo que criou quando que publicou a aplicação através do Proxy de aplicações.
+1. Para o modo SSO, escolha **o Sign-on baseado em palavra-passe**.
+1. Para o URL de iniciar sessão, introduza o URL para a página onde os utilizadores introduzem o seu nome de utilizador e palavra-passe para iniciar sessão na sua aplicação fora da rede corporativa. Este pode ser o URL Externo que criou quando publicou a aplicação através do Application Proxy.
 
-   ![Escolher com base em palavra-passe de início de sessão e introduza o URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
+   ![Escolha o Sign-on baseado em palavra-passe e introduza o seu URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Selecione **Guardar**.
-1. Selecione **Proxy de aplicações**. 
+1. Selecione **Procuração de Aplicação**. 
 1. Mude o **tipo de pré-autenticação** para **O Diretório Ativo Azure** e selecione **Guardar**. 
 1. Selecione **Utilizadores e Grupos**.
 1. Atribuir os utilizadores à aplicação com a seleção **De adicionar utilizador**. 
 1. Se pretender pré-definir credenciais para um utilizador, verifique a frente da caixa do nome do utilizador e selecione **credenciais de Atualização**.
-1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **todas as aplicações.**
+1. Selecione**Registos** > de Aplicações **de Diretório** > Ativo Azure**Todas as aplicações**.
 1. A partir da lista, selecione a aplicação que configuracom Password SSO.
-1. Selecione **identidade visual**. 
+1. Selecione **Branding**. 
 1. Atualize o **URL da página inicial** com o URL do **URL** da página Password SSO e selecione **Guardar**.  
 
 
@@ -68,5 +68,5 @@ Vá ao portal My Apps. Inscreva-se com as suas credenciais (ou as credenciais pa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre outras formas de implementar [início de sessão único](what-is-single-sign-on.md)
-- Saiba mais sobre [considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD](application-proxy-security.md)
+- Leia sobre outras formas de implementar [o único sign-on](what-is-single-sign-on.md)
+- Conheça [as considerações de Segurança para aceder remotamente a apps com procuração de aplicação ad-ad-azure](application-proxy-security.md)

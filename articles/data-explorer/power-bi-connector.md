@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560495"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualizar dados utilizando o conector Azure Data Explorer para Power BI
@@ -44,9 +44,9 @@ Primeiro, liga-se ao cluster de ajuda do Azure Data Explorer, depois traz um sub
 
     **Definição** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | Cluster | *https://help.kusto.windows.net* | O URL para o cluster de ajuda. Para outros clusters, o URL está sob a forma *https://\<ClusterName\>.\<Region\>.kusto.windows.net*. |
+    | Cluster | *https://help.kusto.windows.net* | O URL para o cluster de ajuda. Para outros clusters, o URL está na forma *https://\<ClusterName\>.\< \>Região .kusto.windows.net*. |
     | Base de Dados | Deixar em branco | Uma base de dados que está alojada no cluster a que está a ligar. Vamos selecionar isto num passo mais tarde. |
-    | Nome da tabela | Deixar em branco | Uma das tabelas na base de dados, ou uma consulta como <code>StormEvents \| take 1000</code>. Vamos selecionar isto num passo mais tarde. |
+    | Nome da tabela | Deixar em branco | Uma das tabelas na base de <code>StormEvents \| take 1000</code>dados, ou uma consulta como. Vamos selecionar isto num passo mais tarde. |
     | Opções avançadas | Deixar em branco | Opções para as suas consultas, tais como o tamanho do conjunto de resultados. |
     | Modo de conectividade de dados | *DirectQuery* | Determina se o Power BI importa os dados ou se liga diretamente à fonte de dados. Pode utilizar qualquer uma das opções com este conector. |
     | | | |
@@ -81,7 +81,7 @@ Primeiro, liga-se ao cluster de ajuda do Azure Data Explorer, depois traz um sub
 
     ![Mantenha as filas de cima](media/power-bi-connector/keep-top-rows.png)
 
-1. No separador **Home,** selecione **Fechar e Aplicar**.
+1. No separador **Home,** selecione **Fechar & Aplicar**.
 
     ![Fechar e aplicar](media/power-bi-connector/close-apply.png)
 

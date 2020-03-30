@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77016567"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Criar soluções para o setor energético com o IoT Central 
@@ -41,7 +41,7 @@ Pode experimentar [gratuitamente](https://apps.azureiotcentral.com/build/new/sma
 Depois de implementar a aplicação, verá os dados simulados do medidor no painel de instrumentos, como mostra a figura abaixo. Este modelo é uma aplicação de amostra que pode facilmente estender e personalizar para os seus casos de uso específicos.
 
 > [!div class="mx-imgBorder"]
-> ![smart meter App dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+> ![Painel de aplicações de contador inteligente](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>O que é a aplicação de monitorização do painel solar?
@@ -61,7 +61,7 @@ Pode experimentar gratuitamente a aplicação de monitorização de [painéis so
 Depois de implementar a aplicação, verá os dados simulados do painel solar dentro de 1-2 minutos, como mostra o painel abaixo. Este modelo é uma aplicação de amostra que pode facilmente estender e personalizar para os seus casos de uso específicos. 
 
 > [!div class="mx-imgBorder"]
-> ![painel solar app dashboard](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
+> ![Painel de Aplicativo seleções do painel solar](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

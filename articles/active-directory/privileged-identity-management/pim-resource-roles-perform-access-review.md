@@ -1,6 +1,6 @@
 ---
-title: Examinar o acesso às funções de recurso do Azure no PIM – Azure AD | Microsoft Docs
-description: Saiba como examinar o acesso das funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
+title: Rever o acesso às funções de recurso azure na PIM - Azure AD [ Microsoft Docs
+description: Saiba como rever o acesso às funções de recurso Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,37 +17,37 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847007"
 ---
-# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Examinar o acesso às funções de recurso do Azure no Privileged Identity Management
+# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Rever o acesso às funções de recurso Azure na Gestão de Identidade Privilegiada
 
-As revisões de acesso do Privileged Identity Management (PIM) podem ajudar a proteger o acesso a funções com privilégios no Azure Active Directory (AD do Azure). Este artigo as etapas para concluir uma análise das atribuições de função com privilégios em uma revisão de acesso do Azure AD.
+As avaliações de acesso privilegiadas à Gestão de Identidade (PIM) podem ajudar a garantir o acesso a papéis privilegiados no Azure Ative Directory (Azure AD). Este artigo são os passos para concluir uma revisão das suas atribuições privilegiadas numa revisão de acesso a AD Azure.
 
-Se você estiver atribuído a uma função administrativa, talvez seja necessário concluir uma análise de acesso por seu administrador para confirmar a necessidade de uma função. A solicitação de confirmação pode vir um email que inclui um link ou você pode confirmar na [portal do Azure](https://portal.azure.com).
+Se for designado para um papel administrativo, poderá ser-lhe exigido que complete uma revisão de acesso pelo seu administrador para confirmar a sua necessidade de um papel. O pedido de confirmação pode chegar a um email que inclui um link, ou pode confirmar no [portal Azure](https://portal.azure.com).
 
-Se você for um administrador de função com privilégios interessado em revisões de acesso, obtenha mais detalhes em [como iniciar uma revisão de acesso](pim-resource-roles-start-access-review.md).
+Se é um administrador privilegiado interessado em avaliações de acesso, obtenha mais detalhes em [Como iniciar uma revisão](pim-resource-roles-start-access-review.md)de acesso .
 
-## <a name="approve-or-deny-access"></a>Aprovar ou negar acesso
+## <a name="approve-or-deny-access"></a>Aprovar ou negar o acesso
 
-Você pode aprovar ou negar o acesso com base em se você ainda usa essa função ou não. Escolha **aprovar** se você quiser permanecer na função ou **negar** se não precisar mais do acesso. Seu status será alterado somente depois que o revisor aplicar os resultados.
+Pode aprovar ou negar o acesso com base no facto de ainda utilizar este papel ou não. Escolha **Aprovar** se quiser permanecer no papel, ou **negá-lo** se já não precisar de acesso. O seu estado só muda depois de o revisor aplicar os resultados.
 
-Siga estas etapas para localizar e concluir a revisão de acesso:
+Siga estes passos para encontrar e completar a revisão de acesso:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Azure Active Directory** e abra **Privileged Identity Management**.
-1. Selecione **examinar acesso**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Selecione **Diretório Ativo Azure** e abra a Gestão de **Identidade Privilegiada.**
+1. Selecione **Rever o acesso**.
 
-   ![Captura de tela de Privileged Identity Management aplicativo, com a folha de acesso de revisão selecionada](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+   ![Screenshot da aplicação de Gestão de Identidade Privilegiada, com lâmina de acesso rever selecionada](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
-1. Selecione a revisão que você deseja concluir.
-1. Escolha **aprovar** ou **negar**. Na **caixa fornecer um motivo**, insira uma justificativa de negócios para sua decisão, se necessário.
+1. Selecione a avaliação que pretende completar.
+1. Escolha **Aprovar** ou **Negar**. Na **caixa de motivos Provide,** insira uma justificação de negócio para a sua decisão, se necessário.
 
-   ![Captura de tela da página de detalhes da revisão](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
+   ![Screenshot da página de detalhes da revisão](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Executar uma revisão de acesso das minhas funções do Azure AD no Privileged Identity Management](pim-how-to-perform-security-review.md)
+- [Realizar uma revisão de acesso das minhas funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-perform-security-review.md)

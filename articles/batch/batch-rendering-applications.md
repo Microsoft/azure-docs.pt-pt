@@ -1,6 +1,6 @@
 ---
-title: Aplicativos de renderização – lote do Azure
-description: É possível usar qualquer aplicativo de renderização com o lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos comuns pré-instalados.
+title: Aplicações de renderização - Lote Azure
+description: É possível usar quaisquer aplicações de renderização com o Lote Azure. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 services: batch
 ms.service: batch
 author: LauraBrenner
@@ -8,87 +8,87 @@ ms.author: labrenne
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.openlocfilehash: 77672534b2aad993a44e9b637fbed58df8610e97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022992"
 ---
-# <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicativos pré-instalados ao renderizar imagens de VM
+# <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas na renderização de imagens VM
 
-É possível usar qualquer aplicativo de renderização com o lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos comuns pré-instalados.
+É possível usar quaisquer aplicações de renderização com o Lote Azure. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 
-Quando aplicável, o licenciamento de pagamento por uso está disponível para os aplicativos de renderização pré-instalados. Quando um pool do lote é criado, os aplicativos necessários podem ser especificados e o custo da VM e dos aplicativos será cobrado por minuto. Os preços de aplicativo são listados na [página de preços do lote do Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+Se for caso disso, o licenciamento pay-per-use está disponível para as aplicações de renderização pré-instaladas. Quando um pool de lote é criado, as aplicações necessárias podem ser especificadas e tanto o custo de VM como as aplicações serão faturadas por minuto. Os preços da aplicação estão listados na página de preços do [Lote Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
-Alguns aplicativos dão suporte apenas ao Windows, mas há suporte para a maioria no Windows e no Linux.
+Algumas aplicações suportam apenas o Windows, mas a maioria é suportada tanto no Windows como no Linux.
 
-## <a name="applications-on-centos-7-rendering-images"></a>Aplicativos em imagens de renderização CentOS 7
+## <a name="applications-on-centos-7-rendering-images"></a>Aplicações em Imagens de renderização do CentOS 7
 
-A lista a seguir se aplica a imagens de renderização CentOS 7,6, 1.1.6 de versão.
+A lista seguinte aplica-se ao CentOS 7.6, versão 1.1.6 imagens de renderização.
 
 * Autodesk Maya I/O 2017 Atualização 5 (versão 201708032230)
-* Autodesk Maya de e/s 2018 atualização 2 (recortar 201711281015)
-* Autodesk Maya de e/s 2019 atualização 1
-* Autodesk Arnold para Maya 2017 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2017
-* Autodesk Arnold para Maya 2018 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2018
-* Autodesk Arnold para Maya 2019 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2019
+* Autodesk Maya I/O 2018 Update 2 (corte 201711281015)
+* Autodesk Maya I/O 2019 Update 1
+* Autodesk Arnold para Maya 2017 (versão Arnold 5.3.1.1) MtoA-3.2.1-2017
+* Autodesk Arnold para Maya 2018 (versão Arnold 5.3.1.1) MtoA-3.2.1-2018
+* Autodesk Arnold para Maya 2019 (versão Arnold 5.3.1.1) MtoA-3.2.1-1-2019
 * Chaos Group V-Ray for Maya 2017 (versão 3.60.04)
 * Chaos Group V-Ray for Maya 2018 (versão 3.60.04)
 * Blender (2.68)
-* Blender (2,8)
+* Liquidificador (2.8)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Aplicativos nas imagens mais recentes de renderização do Windows Server 2016
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Aplicações sobre imagens mais recentes do Windows Server 2016
 
-A lista a seguir se aplica às imagens de renderização do Windows Server 2016, versão 1.3.8.
+A lista seguinte aplica-se ao Windows Server 2016, versão 1.3.8 imagens de renderização.
 
 * Autodesk Maya I/O 2017 Atualização 5 (versão 17.4.5459)
-* Autodesk Maya atualização 6 de e/s 2018 (versão 18.4.0.7622)
-* Autodesk Maya e/s 2019
+* Autodesk Maya I/O 2018 Update 6 (versão 18.4.0.7622)
+* Autodesk Maya I/O 2019
 * Autodesk 3ds Max I/O 2018 Atualização 4 (versão 20.4.0.4254)
-* Autodesk 3ds Max e/s 2019 atualização 1 (versão 21.2.0.2219)
-* Autodesk 3ds Max e/s 2020 atualização 2
-* Autodesk Arnold para Maya 2017 (Arnold versão 5.3.0.2) MtoA-3.2.0.2-2017
-* Autodesk Arnold para Maya 2018 (Arnold versão 5.3.0.2) MtoA-3.2.0.2-2018
-* Autodesk Arnold para Maya 2019 (Arnold versão 5.3.0.2) MtoA-3.2.0.2-2019
-* Autodesk Arnold para 3ds Max 2018 (Arnold versão 5.3.0.2) (versão 1.2.926)
-* Autodesk Arnold para 3ds Max 2019 (Arnold versão 5.3.0.2) (versão 1.2.926)
-* Autodesk Arnold para 3ds Max 2020 (Arnold versão 5.3.0.2) (versão 1.2.926)
-* Grupo de caos V-Ray para Maya 2017 (versão 4.12.01)
-* Grupo de caos V-Ray para Maya 2018 (versão 4.12.01)
-* Grupo de caos V-Ray para Maya 2019 (versão 4.04.03)
-* Grupo de caos V-Ray para 3ds Max 2018 (versão 4.20.01)
-* Grupo de caos V-Ray para 3ds Max 2019 (versão 4.20.01)
-* Grupo de caos V-Ray para 3ds Max 2020 (versão 4.20.01)
+* Autodesk 3ds Max I/O 2019 Update 1 (versão 21.2.0.2219)
+* Autodesk 3ds Max I/O 2020 Update 2
+* Autodesk Arnold para Maya 2017 (versão Arnold 5.3.0.2) MtoA-3.2.0.2-2017
+* Autodesk Arnold para Maya 2018 (versão Arnold 5.3.0.2) MtoA-3.2.0.2-2018
+* Autodesk Arnold para Maya 2019 (versão Arnold 5.3.0.2) MtoA-3.2.0.2-2019
+* Autodesk Arnold para 3ds Max 2018 (versão Arnold 5.3.0.2)(versão 1.2.926)
+* Autodesk Arnold para 3ds Max 2019 (versão Arnold 5.3.0.2)(versão 1.2.926)
+* Autodesk Arnold para 3ds Max 2020 (versão Arnold 5.3.0.2)(versão 1.2.926)
+* Grupo Caos V-Ray para Maya 2017 (versão 4.12.01)
+* Grupo Caos V-Ray para Maya 2018 (versão 4.12.01)
+* Grupo Caos V-Ray para Maya 2019 (versão 4.04.03)
+* Grupo Caos V-Ray para 3ds Max 2018 (versão 4.20.01)
+* Grupo Caos V-Ray para 3ds Max 2019 (versão 4.20.01)
+* Grupo Caos V-Ray para 3ds Max 2020 (versão 4.20.01)
 * Blender (2.79)
-* Blender (2,80)
+* Liquidificador (2.80)
 * AZ 10
 
 > [!IMPORTANT]
-> Para executar o V-Ray com Maya fora dos [modelos de extensão do lote do Azure](https://github.com/Azure/batch-extension-templates), inicie `vrayses.exe` antes de executar a renderização. Para iniciar as vrayses.exe fora dos modelos pode utilizar o comando seguinte `%MAYA_2017%\vray\bin\vrayses.exe"`.
+> Para executar o V-Ray com maya fora dos `vrayses.exe` modelos de [extensão do Lote Azure,](https://github.com/Azure/batch-extension-templates)comece antes de executar o render. Para iniciar as vrayses.exe fora dos modelos `%MAYA_2017%\vray\bin\vrayses.exe"`pode utilizar o seguinte comando .
 >
-> Para obter um exemplo, consulte a tarefa inicial do [modelo Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) no github.
+> Por exemplo, consulte a tarefa inicial do [modelo Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) no GitHub.
 
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Aplicativos nas imagens de renderização anteriores do Windows Server 2016
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Aplicações em imagens anteriores do Windows Server 2016
 
-A lista a seguir se aplica às imagens de renderização do Windows Server 2016, versão 1.3.7.
+A lista seguinte aplica-se ao Windows Server 2016, versão 1.3.7 imagens de renderização.
 
 * Autodesk Maya I/O 2017 Atualização 5 (versão 17.4.5459)
-* Autodesk Maya e/s 2018 atualização 4 (versão 18.4.0.7622)
-* Autodesk 3ds Max e/s 2019 atualização 1 (versão 21.2.0.2219)
+* Autodesk Maya I/O 2018 Update 4 (versão 18.4.0.7622)
+* Autodesk 3ds Max I/O 2019 Update 1 (versão 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 Atualização 4 (versão 20.4.0.4254)
-* Autodesk Arnold para Maya 2017 (Arnold versão 5.2.0.1) MtoA-3.1.0.1-2017
-* Autodesk Arnold para Maya 2018 (Arnold versão 5.2.0.1) MtoA-3.1.0.1-2018
-* Autodesk Arnold para 3ds Max 2018 (Arnold versão 5.0.2.4) (versão 1.2.926)
-* Autodesk Arnold para 3ds Max 2019 (Arnold versão 5.0.2.4) (versão 1.2.926)
-* Grupo de caos V-Ray para Maya 2018 (versão 3.52.03)
-* Grupo de caos V-Ray para 3ds Max 2018 (versão 3.60.02)
-* Grupo de caos V-Ray para Maya 2019 (versão 3.52.03)
-* Grupo de caos V-Ray para 3ds Max 2019 (versão 4.10.01)
+* Autodesk Arnold para Maya 2017 (versão Arnold 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold para Maya 2018 (versão Arnold 5.2.0.1) MtoA-3.1.0.1-2018
+* Autodesk Arnold para 3ds Max 2018 (versão Arnold 5.0.2.4)(versão 1.2.926)
+* Autodesk Arnold para 3ds Max 2019 (versão Arnold 5.0.2.4)(versão 1.2.926)
+* Grupo Caos V-Ray para Maya 2018 (versão 3.52.03)
+* Grupo Caos V-Ray para 3ds Max 2018 (versão 3.60.02)
+* Grupo Caos V-Ray para Maya 2019 (versão 3.52.03)
+* Grupo Caos V-Ray para 3ds Max 2019 (versão 4.10.01)
 * Blender (2.79)
 
 > [!NOTE]
-> O grupo de caos V-Ray para 3ds Max 2019 (versão 4.10.01) apresenta alterações significativas no V-Ray. Para usar a versão anterior (versão 3.60.02), use os nós de renderização do Windows Server 2016, versão 1.3.2.
+> O Grupo Caótico V-Ray para 3ds Max 2019 (versão 4.10.01) introduz alterações de rutura no raio-V. Para utilizar a versão anterior (versão 3.60.02), utilize os nódosos de renderização do Windows Server 2016, versão 1.3.2.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para usar as imagens de VM de renderização, elas precisam ser especificadas na configuração do pool quando um pool é criado; consulte os [recursos do pool do lote para renderização](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+Para utilizar as imagens VM de renderização, elas precisam de ser especificadas na configuração da piscina quando uma piscina é criada; ver as capacidades da [piscina do Lote para renderização](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).

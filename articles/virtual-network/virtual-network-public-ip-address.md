@@ -1,5 +1,5 @@
 ---
-title: Criar, alterar ou apagar um endereço IP público do Azure  Microsoft Docs
+title: Criar, alterar ou apagar um endereço IP público do Azure [ Microsoft Docs
 description: Aprenda a criar, alterar ou apagar um endereço IP público.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 38ff40b537730418fe9f0f8295884dae98a2fe0d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244917"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar endereços IP públicos
@@ -35,9 +35,9 @@ Saiba mais sobre um endereço IP público e como criar, alterar e apagar um. Um 
 Complete as seguintes tarefas antes de completar os passos em qualquer secção deste artigo:
 
 - Se ainda não tem uma conta Azure, inscreva-se numa [conta de teste gratuita.](https://azure.microsoft.com/free)
-- Se utilizar o portal, abra https://portal.azure.come faça login na sua conta Azure.
+- Se utilizar o https://portal.azure.comportal, abra e faça login na sua conta Azure.
 - Se utilizar os comandos PowerShell para completar tarefas neste artigo, execute os comandos na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando powerShell a partir do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr para criar uma ligação com o Azure.
 
 A conta em que inicia sessão, ou liga-se ao Azure, deve ser atribuída à função de contribuinte da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que lhe seja atribuída as ações adequadas enumeradas nas [Permissões](#permissions).
 
@@ -45,7 +45,7 @@ Os endereços IP públicos têm uma taxa nominal. Para ver os preços, leia a p�
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 2. Insira o *endereço IP público* na caixa Do *Mercado.* Quando o **endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 3. Sob **o endereço IP público,** selecione **Criar**.
 4. Introduza ou selecione valores para as seguintes definições, sob o **endereço IP criar público,** e depois selecione **Criar:**
@@ -109,10 +109,10 @@ Para executar tarefas em endereços IP públicos, a sua conta deve ser atribuíd
 
 | Ação                                                             | Nome                                                           |
 | ---------                                                          | -------------                                                  |
-| Microsoft.Network/publicIPAddresses/read                           | Leia um endereço IP público                                          |
-| Microsoft.Network/publicIPAddresses/write                          | Criar ou atualizar um endereço IP público                           |
-| Microsoft.Network/publicIPAddresses/delete                         | Apagar um endereço IP público                                     |
-| Microsoft.Network/publicIPAddresses/join/action                    | Associar um endereço IP público a um recurso                    |
+| Microsoft.Network/publicIPAddresss/read                           | Leia um endereço IP público                                          |
+| Microsoft.Network/publicIPAddresss/write                          | Criar ou atualizar um endereço IP público                           |
+| Microsoft.Network/publicIPAddresss/delete                         | Apagar um endereço IP público                                     |
+| Microsoft.Network/publicIPAddresss/join/action                    | Associar um endereço IP público a um recurso                    |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,10 +10,10 @@ ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062071"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Quickstart: Construa uma base de dados de gráficos com o Java SDK e o Azure Cosmos DB Gremlin API
@@ -22,8 +22,8 @@ ms.locfileid: "77062071"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [python](create-graph-python.md)
+> * [Nó.js](create-graph-nodejs.md)
+> * [Pitão](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
@@ -31,9 +31,9 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB Gremlin 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
-- Kit de [Desenvolvimento Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte a sua variável ambiente `JAVA_HOME` para a pasta onde o JDK está instalado.
+- Kit de [Desenvolvimento Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte `JAVA_HOME` a sua variável ambiental para a pasta onde o JDK está instalado.
 - Um [arquivo binário Maven.](https://maven.apache.org/download.cgi) 
-- [Git](https://www.git-scm.com/downloads). 
+- [Git.](https://www.git-scm.com/downloads) 
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -47,7 +47,7 @@ Antes de poder criar uma base de dados de gráficos, tem de criar uma conta de b
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos trabalhar com código. Vamos clonar uma aplicação da API do Gremlin a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
+Agora, vamos trabalhar com código. Vamos clonar uma aplicação API do Gremlin a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.  
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -75,7 +75,7 @@ Os seguintes cortes são todos retirados do ficheiro *C:\git-samples\azure-cosmo
 
 Esta aplicação de consola Java utiliza uma base de dados [Gremlin API](graph-introduction.md) com o controlador OSS [Apache TinkerPop.](https://tinkerpop.apache.org/) 
 
-- O `Client` Gremlin é inicializado a partir da configuração no ficheiro *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.*
+- O Gremlin `Client` é inicializado a partir da configuração no ficheiro *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml* file.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -96,7 +96,7 @@ Esta aplicação de consola Java utiliza uma base de dados [Gremlin API](graph-i
     }
     ```
 
-## <a name="update-your-connection-information"></a>Atualizar a informação de ligação
+## <a name="update-your-connection-information"></a>Atualizar as informações da ligação
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
@@ -105,7 +105,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     Copie a primeira parte do valor do URI.
 
     ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. Abra o ficheiro *src/remote.yaml* e colá o valor único de identificação sobre `$name$` em `hosts: [$name$.graphs.azure.com]`.
+2. Abra o ficheiro *src/remote.yaml* e colá `$name$` `hosts: [$name$.graphs.azure.com]`o valor único de ID em .
 
     Linha 1 de *remote.yaml* deve agora parecer semelhante a 
 
@@ -207,11 +207,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 10. Selecione **OK**. 
 
-11. Selecione o botão **'Aplicar filtro'** com o filtro `g.V()` predefinido para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
+11. Selecione o botão `g.V()` **'Aplicar filtro'** com o filtro predefinido para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
 
-    À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se mudar o filtro, mude o filtro para `g.V()` e selecione **Apply Filter** para mostrar todos os resultados novamente.
+    À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se alterou o filtro, mude `g.V()` o filtro de volta para e selecione **Apply Filter** para mostrar todos os resultados novamente.
 
-12. Agora, pode ligar rakesh e ashley. Certifique-se de que a **ashley** é selecionada na lista **de Resultados** e, em seguida, selecione ![Mude o alvo de um vértice num gráfico](./media/create-graph-java/edit-pencil-button.png) ao lado dos **Alvos** no lado inferior direito. Poderá ter de alargar a janela para ver o botão.
+12. Agora, pode ligar rakesh e ashley. Certifique-se de que a **ashley** é selecionada na lista de](./media/create-graph-java/edit-pencil-button.png) **Resultados** e, em seguida, selecione ![Alterar o alvo de um vértice num gráfico ao lado dos **Alvos** no lado direito inferior. Poderá ter de alargar a janela para ver o botão.
 
     ![Alterar o alvo de um vértice num gráfico - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

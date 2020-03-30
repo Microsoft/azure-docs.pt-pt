@@ -1,5 +1,5 @@
 ---
-title: Aceda e personalize o portal de desenvolvimento gerido - Azure API Management  Microsoft Docs
+title: Aceda e personalize o portal de desenvolvimento gerido - Azure API Management [ Microsoft Docs
 description: Saiba como utilizar a versão gerida do portal de desenvolvimento em Gestão API.
 services: api-management
 documentationcenter: API Management
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244098"
 ---
 # <a name="access-and-customize-developer-portal"></a>Aceder e personalizar portal de desenvolvimento
@@ -38,7 +38,7 @@ Pode encontrar mais detalhes sobre o portal de desenvolvimento no portal de dese
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+- Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
 - Importar e publicar uma instância de Gestão API Azure. Para mais informações, consulte [Importar e publicar](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -68,7 +68,7 @@ Pode adicionar linhas a uma página clicando num ícone azul com um sinal de mai
 
 Os layouts definem como as páginas são exibidas. Por exemplo, no conteúdo predefinido, existem dois layouts - um aplica-se à página inicial e o outro a todas as páginas restantes.
 
-Um layout é aplicado a uma página combinando o seu modelo de URL com o URL da página. Por exemplo, o layout com um modelo de URL de `/wiki/*` será aplicado em todas as páginas com o segmento `/wiki/` no URL: `/wiki/getting-started`, `/wiki/styles`, etc.
+Um layout é aplicado a uma página combinando o seu modelo de URL com o URL da página. Por exemplo, o layout `/wiki/*` com um modelo de `/wiki/` URL será aplicado `/wiki/getting-started` `/wiki/styles`em todas as páginas com o segmento no URL: , etc.
 
 Na imagem acima, o conteúdo pertencente ao layout é marcado em azul, enquanto a página é marcada a vermelho. As secções do menu estão marcadas respectivamente.
 
@@ -91,13 +91,13 @@ Sempre que fizer uma alteração no portal, tem de guardá-la manualmente premin
 Antes de disponibilizar o seu portal aos visitantes, deverá personalizar o conteúdo gerado automaticamente. As alterações recomendadas incluem os layouts, estilos e o conteúdo da página inicial.
 
 > [!NOTE]
-> Devido a considerações de integração, as páginas seguintes não podem ser removidas ou movidas sob um URL diferente: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
+> Devido a considerações de integração, as seguintes páginas não `/404` `/500`podem `/captcha` `/change-password`ser `/config.json` `/confirm/invitation`removidas ou movidas sob um URL `/confirm-v2/identities/basic/signup`diferente: `/confirm-v2/password` `/internal-status-0123456789abcdef`. , , , , , `/publish`, , , `/signin`, , . `/signin-sso` `/signup`
 
 ### <a name="home-page"></a>Página de boas-vindas
 
 A página **inicial** predefinida está cheia de conteúdo sonoro. Pode remover as secções inteiras com o conteúdo ou manter a estrutura e ajustar os elementos uma a uma. Substitua o texto e as imagens gerados por si próprio e certifique-se de que as ligações apontam para os locais pretendidos.
 
-### <a name="layouts"></a>Esquemas
+### <a name="layouts"></a>Layouts
 
 Substitua o logótipo gerado automaticamente na barra de navegação pela sua própria imagem.
 
@@ -111,7 +111,7 @@ No vídeo abaixo demonstramos como editar o conteúdo do portal, personalizar o 
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish"> </a>Publicar o portal
+## <a name="publish-the-portal"></a><a name="publish"> </a>Publicar o portal
 
 Para disponibilizar o seu portal e as suas últimas alterações aos visitantes, tem de publicá-lo.
 
@@ -124,13 +124,13 @@ Para disponibilizar o seu portal e as suas últimas alterações aos visitantes,
 
 ## <a name="visit-the-published-portal"></a>Visite o portal publicado
 
-Depois de publicar o portal, pode acessá-lo no mesmo URL que o painel administrativo, por exemplo `https://contoso-api.developer.azure-api.net`. Veja-o numa sessão separada de navegador (modo de navegação incógnita/privada) como um visitante externo.
+Depois de publicar o portal, pode acessá-lo no `https://contoso-api.developer.azure-api.net`mesmo URL que o painel administrativo, por exemplo. Veja-o numa sessão separada de navegador (modo de navegação incógnita/privada) como um visitante externo.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Aplicar a política cors em APIs
 
 Tem de ativar o CORS (partilha de recursos de origem cruzada) nas suas APIs para permitir que os visitantes do seu portal testem as APIs através da consola interativa incorporada. Consulte [este artigo de documentação](api-management-howto-developer-portal.md#cors) para mais detalhes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o portal de desenvolvimento:
 

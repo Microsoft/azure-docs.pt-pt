@@ -1,5 +1,5 @@
 ---
-title: Monitorize tópicos e assinaturas de eventos - Azure Event Grid IoT Edge  Microsoft Docs
+title: Monitorize tópicos e assinaturas de eventos - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Monitorize tópicos e assinaturas de eventos
 author: banisadr
 ms.author: babanisa
@@ -9,10 +9,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086669"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorize tópicos e assinaturas de eventos
@@ -21,7 +21,7 @@ A Grelha de Eventos no Edge expõe uma série de métricas para tópicos e subsc
 
 ## <a name="enable-metrics"></a>Ativar métricas
 
-Configure o módulo para emitir métricas definindo a variável ambiente `metrics__reporterType` para `prometheus` no recipiente criar opções:
+Configure o módulo para emitir métricas, definindo a `metrics__reporterType` variável ambiental para `prometheus` no recipiente criar opções:
 
  ```json
         {
@@ -40,7 +40,7 @@ Configure o módulo para emitir métricas definindo a variável ambiente `metric
         }
  ```    
 
-As métricas estarão disponíveis em `5888/metrics` do módulo para http e `4438/metrics` para https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto final para recolher métricas como neste [exemplo arquitetura](https://github.com/veyalla/ehm).
+As métricas estarão disponíveis no `5888/metrics` `4438/metrics` módulo para http e para https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto final para recolher métricas como neste [exemplo arquitetura](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
@@ -62,10 +62,10 @@ Tanto os tópicos como as subscrições de eventos emitem métricas para lhe dar
 
 | Métrica | Descrição |
 | ------ | ----------- |
-| entregaSuccessCounts | Número de eventos entregues com sucesso no ponto final configurado
-| entregaPrazosDefalhas | Número de eventos que não foram entregues ao ponto final configurado
-| entregaSuccessLatencyMs | Latência de eventos entregues com sucesso em milissegundos
-| entregaFalhaLncyMs | Latência de falhas na entrega de eventos em milissegundos
-| systemDelayForFirstAttemptMs | Atraso do sistema de eventos antes da primeira tentativa de entrega em milissegundos
-| entregasTentativasCount | Número de tentativas de entrega de eventos - sucesso e fracasso
-| contagem expirada | Número de eventos que expiraram e não foram entregues no ponto final configurado
+| EntregaSSuccessCounts | Número de eventos entregues com sucesso no ponto final configurado
+| Contagem de falhas de entrega | Número de eventos que não foram entregues ao ponto final configurado
+| DeliverySuccessLatencyMs | Latência de eventos entregues com sucesso em milissegundos
+| Falha de entregaAtrasom | Latência de falhas na entrega de eventos em milissegundos
+| Atraso do sistemaForFirstAttemptMs | Atraso do sistema de eventos antes da primeira tentativa de entrega em milissegundos
+| EntregaTentativasCount | Número de tentativas de entrega de eventos - sucesso e fracasso
+| Contagem expirada | Número de eventos que expiraram e não foram entregues no ponto final configurado

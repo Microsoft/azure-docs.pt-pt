@@ -4,13 +4,13 @@ services: azure-dev-spaces
 ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas a algumas das perguntas comuns sobre os Espaços Azure Dev
-keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 7439af9c5f936d309df655ca6fa301c39fa3f9ec
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
+ms.openlocfilehash: e7b4620faa01aa9f6d46c34bafb1c623c338beb7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240504"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre espaços Azure Dev
 
@@ -26,7 +26,7 @@ Sim, se quiser mover o seu cluster AKS com o Azure Dev Spaces para outra [regiã
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Posso usar espaços Azure Dev com ficheiros Dev existentes ou gráficos Helm?
 
-Sim, se o seu projeto já tiver um Dockerfile ou um gráfico Helm, pode usar esses ficheiros com o Azure Dev Spaces. Quando executar `azds prep`, utilize o parâmetro `--chart` e especifique a localização do gráfico. A Azure Dev Spaces continuará a gerar um ficheiro *azds.yaml* e *Dockerfile.develop,* mas não substituirá ou modificará um Dockerfile existente ou um gráfico Helm. Pode ser necessário modificar os *ficheiros azds.yaml* e *Dockerfile.de forma* a que tudo funcione corretamente com a sua aplicação existente ao executar `azds up`.
+Sim, se o seu projeto já tiver um Dockerfile ou um gráfico Helm, pode usar esses ficheiros com o Azure Dev Spaces. Quando correr, `azds prep`utilize `--chart` o parâmetro e especifique a localização do gráfico. A Azure Dev Spaces continuará a gerar um ficheiro *azds.yaml* e *Dockerfile.develop,* mas não substituirá ou modificará um Dockerfile existente ou um gráfico Helm. Pode ser necessário modificar os *ficheiros azds.yaml* e *Dockerfile.de forma* a que `azds up`tudo funcione corretamente com a sua aplicação existente durante a execução .
 
 Ao utilizar o seu próprio Dockerfile ou gráfico Helm, existem as seguintes limitações:
 * Se utilizar apenas um Dockerfile, deve incluir tudo o que precisa para permitir cenários de desenvolvimento, como o SDK linguístico e não apenas o tempo de execução. Se utilizar um Dockerfile separado para espaços Azure Dev, como um Dockerfile.develop, tudo o que precisa para permitir cenários de desenvolvimento deve ser incluído nesse Dockerfile.
@@ -89,8 +89,8 @@ Atualmente, a Azure Dev Spaces não suporta a utilização de [identidades gerid
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
-[dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
-[dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
+[dev-spaces-prep]: how-dev-spaces-works-prep.md
+[dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https

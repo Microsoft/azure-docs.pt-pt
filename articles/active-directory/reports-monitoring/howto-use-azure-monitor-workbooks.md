@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor pastas de trabalho para relatórios | Microsoft Docs
-description: Saiba como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory.
+title: Livros azure Monitor para relatórios Microsoft Docs
+description: Saiba como utilizar os livros de trabalho do Azure Monitor para relatórios de Diretório Ativo Azure.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -15,95 +15,95 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014367"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros de trabalho do Azure Monitor para relatórios de Diretório Ativo Azure
 
 > [!IMPORTANT]
-> Para otimizar as consultas subjacentes nesta pasta de trabalho, clique em "Editar", clique no ícone de configurações e selecione o espaço de trabalho onde você deseja executar essas consultas. Por padrão, as pastas de trabalho selecionarão todos os espaços de trabalho nos quais você está roteando seus logs do Azure AD. 
+> Para otimizar as consultas subjacentes neste livro, clique em "Editar", clique no ícone Definições e selecione o espaço de trabalho onde pretende executar estas consultas. Os livros de trabalho por padrão selecionarão todos os espaços de trabalho onde estiver a encaminhar os seus registos de AD Azure. 
 
-Deseja:
+Quer:
 
-- Entender o efeito de suas [políticas de acesso condicional](../conditional-access/overview.md) na experiência de entrada de seus usuários?
+- Compreender o efeito das suas políticas de [Acesso Condicional](../conditional-access/overview.md) na experiência de inscrição dos seus utilizadores?
 
-- Solucionar problemas de falhas de entrada para obter uma exibição melhor da integridade de entrada da sua organização e resolver problemas rapidamente?
+- Falhas de sessão de problemas para ter uma melhor visão da saúde da sua organização e resolver os problemas rapidamente?
 
-- Sabe quem está usando autenticações herdadas para entrar em seu ambiente? (Ao [bloquear a autenticação herdada](../conditional-access/block-legacy-authentication.md), você pode melhorar a proteção do locatário.)
+- Sabe quem está a usar autenticações antigas para se inscrever no seu ambiente? [(Bloqueando a autenticação do legado,](../conditional-access/block-legacy-authentication.md)pode melhorar a proteção do seu inquilino.)
 
-- Você precisa entender o impacto das políticas de acesso condicional em seu locatário?
+- Precisa entender o impacto das políticas de Acesso Condicional no seu inquilino?
 
-- Você gostaria de poder examinar: consultas de log de entrada, a pasta de trabalho informa quantos usuários tiveram o acesso concedido ou negado, bem como quantos usuários ignoraram as políticas de acesso condicional ao acessar recursos?
+- Gostaria de rever: consultas de login, o livro informa quantos utilizadores receberam ou não tiveram acesso, bem como quantos utilizadores contornaram as políticas de Acesso Condicional ao aceder aos recursos?
 
-- Interessado em desenvolver uma compreensão mais profunda de: os detalhes da pasta de trabalho por condição para que o impacto de uma política possa ser contextual por condição, incluindo a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, o local e o aplicativo?
+- Interessado em desenvolver uma compreensão mais profunda de: os detalhes do livro por condição para que o impacto de uma apólice possa ser contextualizado por condição, incluindo plataforma de dispositivos, estado do dispositivo, app do cliente, risco de entrada, localização e aplicação?
 
-- Obter informações mais aprofundadas sobre consultas de log de entrada, a pasta de trabalho relata quantos usuários tiveram acesso concedido ou negado, bem como quantos usuários ignoraram as políticas de acesso condicional ao acessar recursos.
+- Obtenha informações mais profundas sobre consultas de login, o livro informa quantos utilizadores receberam ou negaram o acesso, bem como quantos utilizadores contornaram as políticas de Acesso Condicional ao aceder aos recursos.
 
-- Para ajudá-lo a resolver essas perguntas, Active Directory fornece pastas de trabalho para monitoramento. [Azure monitor pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos sofisticados.
+- Para ajudá-lo a resolver estas questões, o Ative Directy fornece livros de monitorização. [Os livros Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos ricos.
 
 
 
 Este artigo:
 
-- Pressupõe que você esteja familiarizado com a [criação de relatórios interativos usando as pastas de trabalho do monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Assume que está familiarizado com a forma [de criar relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)monitor .
 
-- Explica como usar pastas de trabalho do monitor para entender o efeito de suas políticas de acesso condicional, para solucionar problemas de falhas de entrada e para identificar autenticações herdadas.
+- Explica como usar os livros monitor para compreender o efeito das suas políticas de Acesso Condicional, para resolver falhas de registo e identificar autenticações antigas.
  
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar pastas de trabalho de monitoramento, você precisa de:
+Para utilizar os livros monitor, precisa de:
 
-- Um locatário Active Directory com uma licença Premium (P1 ou P2). Saiba como [obter uma licença Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Um inquilino de Diretório Ativo com licença premium (P1 ou P2). Saiba como [obter uma licença premium.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)
 
 - Um [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
-- Funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
+- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de registo
+- Seguindo funções no Diretório Ativo Azure (se estiver a aceder ao Log Analytics através do portal de diretório ativo Azure)
     - Administrador de segurança
     - Leitor de segurança
     - Leitor de relatórios
     - Administrador global
 
 ## <a name="roles"></a>Funções
-Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço de trabalho de [log Analytics subjacente](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para gerenciar as pastas de trabalho:
+Deve estar numa das seguintes funções, bem como ter acesso ao espaço de trabalho [subjacente ao Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para gerir os livros de trabalho:
 -   Administrador global
 -   Administrador de segurança
 -   Leitor de segurança
 -   Leitor de relatórios
--   Administrador de aplicativos
+-   Administrador de candidatura
 
-## <a name="workbook-access"></a>Acesso à pasta de trabalho 
+## <a name="workbook-access"></a>Acesso a livro 
 
-Para acessar pastas de trabalho:
+Para aceder a livros:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Navegue até **Azure Active Directory** > **monitorar** **pastas de trabalho** > . 
+1. Navegue para **o Azure Ative Directory** > **Monitoring** > **Books**. 
 
-1. Selecione um relatório ou modelo ou, na barra de ferramentas, selecione **abrir**. 
+1. Selecione um relatório ou modelo, ou na barra de ferramentas **selecione Open**. 
 
-![Localizar as pastas de trabalho do Azure Monitor no Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
+![Encontre os livros azure monitor em Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
-## <a name="sign-in-analysis"></a>Análise de entrada
+## <a name="sign-in-analysis"></a>Análise de insessão
 
-Para acessar a pasta de trabalho de análise de entrada, na seção **uso** , selecione **entradas**. 
+Para aceder ao livro de trabalho de análise de sessão, na secção **Utilização,** selecione **Sign-ins**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+Este livro mostra as seguintes tendências de inscrição:
 
-- Todas as entradas
+- Todos os inscrições
 
 - Êxito
 
-- Ação pendente do usuário
+- Ação pendente do utilizador
 
 - Falha
 
-Você pode filtrar cada tendência pelas seguintes categorias:
+Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
@@ -111,33 +111,33 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Utilizadores
 
-![Análise de entrada](./media/howto-use-azure-monitor-workbooks/43.png)
+![Análise de insessão](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Para cada tendência, você obtém uma divisão das seguintes categorias:
+Para cada tendência, obtém uma desagregação pelas seguintes categorias:
 
 - Localização
 
-    ![Entradas por local](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Inscrições por localização](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Dispositivo
 
-    ![Entradas por dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Inscrições por dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
-## <a name="sign-ins-using-legacy-authentication"></a>Entradas usando autenticação herdada 
+## <a name="sign-ins-using-legacy-authentication"></a>Inscrições usando autenticação legado 
 
 
-Para acessar a pasta de trabalho para entradas que usam [autenticação herdada](../conditional-access/block-legacy-authentication.md), na seção **uso** , selecione **entradas usando autenticação herdada**. 
+Para aceder ao livro de trabalho para inscrições que utilizem [a autenticação do legado,](../conditional-access/block-legacy-authentication.md)na secção **Utilização,** selecione **Sign-ins utilizando a Autenticação Legacy**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+Este livro mostra as seguintes tendências de inscrição:
 
-- Todas as entradas
+- Todos os inscrições
 
 - Êxito
 
 
-Você pode filtrar cada tendência pelas seguintes categorias:
+Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
@@ -147,21 +147,21 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Protocolos
 
-![Entradas por autenticação herdada](./media/howto-use-azure-monitor-workbooks/47.png)
+![Inscrições por autenticação legado](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
-Para cada tendência, você obtém uma divisão por aplicativo e protocolo.
+Para cada tendência, obtém-se uma avaria por app e protocolo.
 
-![Herdado-entradas de autenticação por aplicativo e protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
-
-
-
-## <a name="sign-ins-by-conditional-access"></a>Entradas por acesso condicional 
+![Inscrições de autenticação legado por app e protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
-Para acessar a pasta de trabalho para entradas por [políticas de acesso condicional](../conditional-access/overview.md), na seção **acesso condicional** , selecione **entradas por acesso condicional**. 
 
-Esta pasta de trabalho mostra as tendências para as entradas desabilitadas. Você pode filtrar cada tendência pelas seguintes categorias:
+## <a name="sign-ins-by-conditional-access"></a>Inscrições por Acesso Condicional 
+
+
+Para aceder ao livro de trabalho para inscrições por políticas de [Acesso Condicional,](../conditional-access/overview.md)na secção **acesso condicional,** selecione **Sign-ins por Acesso Condicional**. 
+
+Este livro mostra as tendências para os inscrições para deficientes. Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
@@ -172,69 +172,69 @@ Esta pasta de trabalho mostra as tendências para as entradas desabilitadas. Voc
 ![Inícios de Sessão com Acesso Condicional](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-Para entradas desabilitadas, você obtém uma divisão pelo status de acesso condicional.
+Para inscrições desativadas, obtém uma avaria pelo estado de Acesso Condicional.
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Estado de Acesso Condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Informações de Acesso Condicional
 
 ### <a name="overview"></a>Descrição geral
 
-As pastas de trabalho contêm consultas de log de entrada que podem ajudar os administradores de ti a monitorar o impacto das políticas de acesso condicional em seu locatário. Você tem a capacidade de relatar o acesso concedido ou negado a muitos usuários. A pasta de trabalho contém informações sobre quantos usuários ignoraram as políticas de acesso condicional com base nos atributos dos usuários no momento da entrada. Ele contém detalhes por condição para que o impacto de uma política possa ser contextual por condição, incluindo a plataforma do dispositivo, o estado do dispositivo, o aplicativo cliente, o risco de entrada, o local e o aplicativo.
+Os livros de trabalho contêm consultas de log in sessão que podem ajudar os administradores de TI a monitorizar o impacto das políticas de Acesso Condicional no seu inquilino. Tem a capacidade de informar quantos utilizadores teriam sido concedidos ou negados acessos. O livro contém informações sobre quantos utilizadores teriam ignorado as políticas de Acesso Condicional com base nos atributos desses utilizadores no momento do início de sessão. Contém detalhes por condição para que o impacto de uma apólice possa ser contextualizado por condição, incluindo plataforma de dispositivos, estado do dispositivo, aplicação do cliente, risco de login, localização e aplicação.
 
 ### <a name="instructions"></a>Instruções 
-Para acessar a pasta de trabalho para informações de acesso condicional, selecione a pasta de trabalho de **informações** de acesso condicional na seção acesso condicional. Esta pasta de trabalho mostra o impacto esperado de cada política de acesso condicional em seu locatário. Selecione uma ou mais políticas de acesso condicional na lista suspensa e restrinja o escopo da pasta de trabalho aplicando os seguintes filtros: 
+Para aceder ao livro de trabalho para Insights de Acesso Condicional, selecione o livro de informação de **acesso condicional** insights na secção acesso condicional. Este livro mostra o impacto esperado de cada política de Acesso Condicional no seu inquilino. Selecione uma ou mais políticas de Acesso Condicional da lista de abandono escolar e reduza o âmbito do livro aplicando os seguintes filtros: 
 
-- **Intervalo de tempo**
+- **Intervalo de Tempo**
 
-- **Usuário**
+- **Utilizador**
 
-- **Os**
+- **Aplicações**
 
-- **Exibição de dados**
+- **Vista de dados**
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Estado de Acesso Condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
-O resumo de impacto mostra o número de usuários ou de entradas para os quais as políticas selecionadas tinham um resultado específico. Total é o número de usuários ou entradas para os quais as políticas selecionadas foram avaliadas no intervalo de tempo selecionado. Clique em um bloco para filtrar os dados na pasta de trabalho por esse tipo de resultado. 
+O Resumo de Impacto mostra o número de utilizadores ou inscrições para os quais as políticas selecionadas tiveram um resultado particular. Total é o número de utilizadores ou inscrições para os quais as políticas selecionadas foram avaliadas na Faixa de Tempo selecionada. Clique num azulejo para filtrar os dados do livro por esse tipo de resultado. 
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Estado de Acesso Condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
-Essa pasta de trabalho também mostra o impacto das políticas selecionadas divididas por cada uma das seis condições: 
+Este livro também mostra o impacto das políticas selecionadas discriminadas por cada uma das seis condições: 
 - **Estado do dispositivo**
-- **Plataforma de dispositivo**
-- **Aplicativos cliente**
-- **Risco de entrada**
+- **Plataforma de dispositivos**
+- **Aplicações do cliente**
+- **Risco de inscrição**
 - **Localização**
 - **Aplicações**
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Estado de Acesso Condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
-Você também pode investigar entradas individuais filtradas pelos parâmetros selecionados na pasta de trabalho. Pesquise por usuários individuais, classificados por frequência de entrada e exiba seus eventos de entrada correspondentes. 
+Também pode investigar inscrições individuais, filtradas pelos parâmetros selecionados no livro. Procure por utilizadores individuais, classificados por frequência de sessão e veja os seus eventos de inscrição correspondentes. 
 
-![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
+![Estado de Acesso Condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
-## <a name="sign-ins-by-grant-controls"></a>Entradas por conceder controles
 
-Para acessar a pasta de trabalho para entradas por meio de [controles de concessão](../conditional-access/controls.md), na seção **acesso condicional** , selecione **entradas por conceder controles**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada desabilitadas:
+## <a name="sign-ins-by-grant-controls"></a>Inscrições por controlo de subvenções
+
+Para aceder ao livro de trabalho para inscrições por controlo de [subvenção,](../conditional-access/controls.md)na secção **acesso condicional,** selecione **Sign-ins by Grant Controls**. 
+
+Este livro mostra as seguintes tendências de inscrição para deficientes:
 
 - Requerer MFA
  
 - Pedir os termos de utilização
 
-- Exigir política de privacidade
+- Exigir declaração de privacidade
 
 - Outros
 
 
-Você pode filtrar cada tendência pelas seguintes categorias:
+Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
@@ -242,30 +242,30 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Utilizadores
 
-![Entradas por conceder controles](./media/howto-use-azure-monitor-workbooks/50.png)
+![Inscrições por controlo de subvenções](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
-Para cada tendência, você obtém uma divisão por aplicativo e protocolo.
+Para cada tendência, obtém-se uma avaria por app e protocolo.
 
-![Divisão de entradas recentes](./media/howto-use-azure-monitor-workbooks/51.png)
-
-
+![Desagregação de inscrições recentes](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
-## <a name="sign-ins-failure-analysis"></a>Análise de falha de entradas
 
-Use a pasta de trabalho **análise de falhas de entradas** para solucionar erros com:
+
+## <a name="sign-ins-failure-analysis"></a>Análise de falha de insalo
+
+Utilize o livro de análise de falhas de **insucesso do Sign-ins** para resolver erros com:
 
 - Inícios de sessão
-- Políticas de acesso condicional
-- Autenticação herdada 
+- Políticas de Acesso Condicional
+- Autenticação legado 
 
 
-Para acessar as entradas por dados de acesso condicional, na seção **solucionar problemas** , selecione **entradas usando a autenticação herdada**. 
+Para aceder aos dados de acesso condicional, na secção **Troubleshoot,** selecione **Sign-ins utilizando a Autenticação Legacy**. 
 
-Esta pasta de trabalho mostra as seguintes tendências de entrada:
+Este livro mostra as seguintes tendências de inscrição:
 
-- Todas as entradas
+- Todos os inscrições
 
 - Êxito
 
@@ -274,7 +274,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 - Falha
 
 
-Você pode filtrar cada tendência pelas seguintes categorias:
+Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
@@ -282,18 +282,18 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 - Utilizadores
 
-![Solucionando problemas de entradas](./media/howto-use-azure-monitor-workbooks/52.png)
+![Inscrições de resolução de problemas](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divisão das seguintes categorias:
+Para ajudá-lo a resolver os seus sign-ins, o Azure Monitor dá-lhe uma avaria pelas seguintes categorias:
 
-- Principais erros
+- Erros de topo
 
-    ![Resumo dos principais erros](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Resumo dos erros de topo](./media/howto-use-azure-monitor-workbooks/53.png)
 
-- Entradas aguardando a ação do usuário
+- Inscrições à espera da ação do utilizador
 
-    ![Resumo de entradas aguardando a ação do usuário](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Resumo dos inscrições à espera da ação do utilizador](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -302,4 +302,4 @@ Para ajudá-lo a solucionar problemas de entrada, Azure Monitor oferece uma divi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Crie relatórios interativos usando monitorar pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Crie relatórios interativos utilizando livros](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)monitor .

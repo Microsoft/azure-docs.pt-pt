@@ -1,5 +1,5 @@
 ---
-title: MSAL para diferenças iOS e macOS  Azure
+title: MSAL para iOS & diferenças macOS [ Azure
 titleSuffix: Microsoft identity platform
 description: Descreve as diferenças de utilização da Microsoft Authentication Library (MSAL) entre iOS e macOS.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084974"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Diferenças entre a Biblioteca de Autenticação da Microsoft para iOS e macOS
@@ -33,7 +33,7 @@ MSAL para macOS é um subconjunto da funcionalidade disponível para iOS.
 
 MSAL para macOS não suporta:
 
-- diferentes tipos de navegador, como `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`.
+- diferentes tipos `ASWebAuthenticationSession`de `SFAuthenticationSession` `SFSafariViewController`navegador, tais como, .
 - a autenticação intermediada através da aplicação Microsoft Authenticator não é suportada para o macOS.
 
 A partilha de keychain entre apps da mesma editora é mais limitada no macOS 10.14 e anteriormente. Utilize [listas](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) de controlo de acesso para especificar os caminhos para as aplicações que devem partilhar o porta-chaves. O utilizador pode ver instruções adicionais sobre o porta-chaves.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
 ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128408"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
@@ -45,7 +45,7 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
   | **Arquivo de cópia** | Não | Não aplicável |
   | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
-  | **Eliminar ficheiro** | Não aplicável | Não aplicável |
+  | **Eliminar mosaico** | Não aplicável | Não aplicável |
   | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
   | **Obtenha conteúdo de ficheiro** | Sim | Sim |
   | **Obtenha conteúdo de ficheiro usando o caminho** | Sim | Sim |
@@ -58,7 +58,7 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
 
 * Os gatilhos SFTP-SSH não suportam o corte da mensagem. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros superiores a 15 MB, siga este padrão em vez disso:
 
-  1. Utilize um gatilho SFTP-SSH que retorna apenas as propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)** .
+  1. Utilize um gatilho SFTP-SSH que retorna apenas as propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)**.
 
   1. Siga o gatilho com a ação de conteúdo de ficheiro SFTP-SSH **Get,** que lê o ficheiro completo e utiliza implicitamente a utilização de peças de texto.
 
@@ -105,8 +105,8 @@ A SFTP-SSH desencadeia o trabalho através da sondagem do sistema de ficheiros S
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Ir a **Opções** > **Preferências** > **transferência** > **editar** > **preservar carimbo** de tempo > **Desativar** |
-| FileZilla | Vá para **transferir** > **preservar selos de tempo de ficheiros transferidos** > **Desativar** |
+| Estação Winscp | Ir para **opções** > **Preferências** > **Transferência** > Editar**Editar** > Carimbo de**Tempo** > **Desativar** |
+| FileZilla | Vá para **transferir** > **preservar selos de tempo dos ficheiros transferidos** > **Desativar** |
 |||
 
 Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo ficheiro está completo e não parcialmente escrito. Por exemplo, um ficheiro pode ter alterações em andamento quando o gatilho verificar o servidor de ficheiros. Para evitar a devolução de um ficheiro parcialmente escrito, o gatilho assinala a marca ção do ficheiro que tem alterações recentes, mas não devolve imediatamente esse ficheiro. O gatilho devolve o ficheiro apenas quando voltar a votar no servidor. Às vezes, este comportamento pode causar um atraso que é até o dobro do intervalo de votação do gatilho.
@@ -131,7 +131,7 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
-### <a name="windows-os"></a>Windows OS
+### <a name="windows-os"></a>SO Windows
 
 1. Se ainda não o fez, [descarregue a mais recente ferramenta PuTTY Generator (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)e, em seguida, lance a ferramenta.
 
@@ -145,7 +145,7 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
    ![Selecione "Export OpenSSH key"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Guarde o ficheiro de chave privada com a extensão de nome de ficheiro `.pem`.
+1. Guarde o ficheiro `.pem` de chave privada com a extensão do nome do ficheiro.
 
 <a name="connect"></a>
 
@@ -159,9 +159,9 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo**. Na caixa de pesquisa, introduza `sftp ssh` como filtro. Na lista de ações, selecione a ação que deseja.
+   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo**. Na caixa de `sftp ssh` pesquisa, introduza como filtro. Na lista de ações, selecione a ação que deseja.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação.
 
@@ -175,7 +175,7 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
    1. No menu **'Editar'** de notas, **selecione Selecione All**.
 
-   1. **Selecione Editar** > **Copiar**.
+   1. Selecione **Editar** > **Cópia**.
 
    1. No gatilho ou ação SFTP-SSH adicionado, cola a chave *completa* que copiou na propriedade **chave privada SSH,** que suporta várias linhas.  ***Certifique-se de colar*** a chave. ***Não introduza manualmente ou edite a tecla***.
 
@@ -193,7 +193,7 @@ Para anular o comportamento adaptativo padrão que o chunking utiliza, pode espe
 
    ![Abrir definições SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. No âmbito **da Transferência de Conteúdos,** na propriedade do tamanho do **pedaço,** insira um valor inteiro de `5` a `50`, por exemplo: 
+1. No âmbito **da Transferência de Conteúdos,** na propriedade do `50`tamanho do **pedaço,** insira um valor inteiro de, `5` por exemplo: 
 
    ![Especificar o tamanho do pedaço para usar em vez disso](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 

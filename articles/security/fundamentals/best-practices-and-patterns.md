@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas de segurança e padrões-Microsoft Azure | Microsoft Docs
-description: Este artigo o vincula a práticas recomendadas e padrões de segurança para diferentes recursos do Azure.
+title: Segurança boas práticas e padrões - Microsoft Azure / Microsoft Docs
+description: Este artigo liga-o às melhores práticas e padrões de segurança para diferentes recursos Azure.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -16,34 +16,34 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889845"
 ---
-# <a name="azure-security-best-practices-and-patterns"></a>Melhores práticas e padrões de segurança do Azure
+# <a name="azure-security-best-practices-and-patterns"></a>Boas práticas e padrões de segurança azure
 
-Os artigos abaixo contêm as práticas recomendadas de segurança a serem usadas quando você estiver projetando, implantando e gerenciando suas soluções de nuvem usando o Azure. Essas práticas recomendadas são de nossa experiência com a segurança do Azure e as experiências de clientes como você.
+Os artigos abaixo contêm boas práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure. Estas boas práticas vêm da nossa experiência com a segurança Azure e as experiências de clientes como você.
 
-As práticas recomendadas devem ser um recurso para os profissionais de ti. Isso pode incluir designers, arquitetos, desenvolvedores e testadores que criam e implantam soluções seguras do Azure.
+As melhores práticas destinam-se a ser um recurso para profissionais de TI. Isto pode incluir designers, arquitetos, desenvolvedores e testadores que constroem e implementam soluções Azure seguras.
 
-* [Práticas recomendadas de segurança de limite do Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
-* [Práticas recomendadas de segurança do banco de dados do Azure](database-best-practices.md)
-* [Práticas recomendadas de segurança de dados e criptografia do Azure](data-encryption-best-practices.md)
-* [Práticas recomendadas de segurança de controle de acesso e gerenciamento de identidade do Azure](identity-management-best-practices.md)
-* [Práticas recomendadas de segurança de rede do Azure](network-best-practices.md)
-* [Práticas recomendadas de segurança operacional do Azure](operational-best-practices.md)
-* [Práticas recomendadas de PaaS do Azure](paas-deployments.md)
-* [Práticas recomendadas de segurança do Azure Service Fabric](service-fabric-best-practices.md)
-* [Práticas recomendadas para segurança de VM do Azure](iaas.md)
+* [Melhores práticas da segurança de limites do Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
+* [Melhores práticas de segurança de bases de dados do Azure](database-best-practices.md)
+* [Segurança de dados azure e práticas de encriptação](data-encryption-best-practices.md)
+* [Gestão de identidade azure e controlo de acesso saem boas práticas](identity-management-best-practices.md)
+* [Boas práticas de segurança da rede Azure](network-best-practices.md)
+* [Melhores práticas de segurança operacional do Azure](operational-best-practices.md)
+* [Boas Práticas Azure PaaS](paas-deployments.md)
+* [Melhores práticas de segurança do Service Fabric](service-fabric-best-practices.md)
+* [Melhores práticas de segurança das VMs do Azure](iaas.md)
 * [Implementar uma arquitetura de rede híbrida segura no Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Práticas recomendadas de segurança Internet das Coisas](iot-best-practices.md)
-* [Protegendo bancos de dados PaaS no Azure](paas-applications-using-sql.md)
-* [Protegendo aplicativos Web e móveis de PaaS usando o serviço Azure App](paas-applications-using-app-services.md)
-* [Proteger aplicações Web e móveis PaaS com o Armazenamento do Azure](paas-applications-using-storage.md)
-* [Práticas recomendadas de segurança para cargas de trabalho de IaaS no Azure](iaas.md)
+* [Melhores práticas de segurança da Internet das Coisas](iot-best-practices.md)
+* [Proteger bases de dados de PaaS no Azure](paas-applications-using-sql.md)
+* [Proteger aplicações Web e móveis PaaS através do Serviço de Aplicações do Azure](paas-applications-using-app-services.md)
+* [Proteger aplicações Web e móveis PaaS com o Armazenamento do Microsoft Azure](paas-applications-using-storage.md)
+* [Melhores práticas de segurança para cargas de trabalho IaaS no Azure](iaas.md)
 
-As [práticas recomendadas de segurança White Paper para soluções do Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) são uma coleção das práticas recomendadas de segurança encontradas nos artigos listados acima.
+As [melhores práticas de segurança para soluções Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) em papel branco são uma coleção das melhores práticas de segurança encontradas nos artigos acima listados.
 
-[Baixar o white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
+[Descarregue o livro branco](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)

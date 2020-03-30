@@ -5,11 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081697"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrando o seu cluster de tecido de serviço
@@ -114,7 +114,7 @@ via ClusterConfig.json para implantações autónomas ou template.json para clus
 
 <center>
 
-![limiar de equilíbrio exemplo][Image1]
+![Exemplo de limiar de equilíbrio][Image1]
 </center>
 
 Neste exemplo, cada serviço está a consumir uma unidade de alguma métrica. No exemplo superior, a carga máxima num nó é de cinco e o mínimo é dois. Digamos que o limiar de equilíbrio para esta métrica é três. Uma vez que o rácio no cluster é de 5/2 = 2,5 e que é inferior ao limiar de equilíbrio especificado de três, o cluster é equilibrado. Não é acionado qualquer equilíbrio quando o Gestor de Recursos de Cluster verificar.
@@ -123,7 +123,7 @@ No exemplo inferior, a carga máxima num nó é de 10, enquanto o mínimo é doi
 
 <center>
 
-![balanço limiar de exemplo ações][Image2]
+![Equilibrar ações de exemplo de limiar][Image2]
 </center>
 
 > [!NOTE]
@@ -139,7 +139,7 @@ Digamos que mantemos o nosso Limiar de Equilíbrio de três para esta métrica. 
 
 <center>
 
-![limiar de atividade][Image3]
+![Exemplo de limiar de atividade][Image3]
 </center>
 
 Tal como os limiares de equilíbrio, os limiares de atividade são definidos por métrica através da definição de cluster:
@@ -205,7 +205,6 @@ O Cluster Resource Manager descobre automaticamente quais os serviços relaciona
 * As métricas são como o Manjedoura de Recursos de Cluster de Tecido de Serviço gere o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 * O Custo de Movimento é uma forma de sinalizar ao Gestor de Recursos cluster que certos serviços são mais caros para se movimentardo do que outros. Para mais informações sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 * O Cluster Resource Manager tem vários aceleradores que pode configurar para abrandar o ressurgimento do cluster. Normalmente não são necessários, mas se precisares deles podes aprender sobre eles [aqui.](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* O Cluster Resource Manager pode reconhecer e lidar com o subagrupamento (uma situação que por vezes surge quando se utilizam restrições de colocação e equilíbrio). Para aprender como o subagrupamento pode afetar o equilíbrio e como você pode lidar com isso, veja [aqui](service-fabric-cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

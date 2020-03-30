@@ -1,7 +1,7 @@
 ---
-title: Habilidade cognitiva de reconhecimento de entidade nomeada
+title: Habilidade cognitiva de reconhecimento de entidades
 titleSuffix: Azure Cognitive Search
-description: Extraia entidades nomeadas para pessoa, local e organização do texto em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Extrair entidades nomeadas para pessoa, localização e organização a partir de texto num oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,58 +9,58 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72791940"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade nomeada
+#    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidades
 
-A habilidade de **reconhecimento de entidade nomeada** extrai entidades nomeadas do texto. As entidades disponíveis incluem os tipos `person`, `location` e `organization`.
+A habilidade **de reconhecimento de entidades nomeada** extrai entidades nomeadas a partir de texto. As entidades disponíveis `person` `location` incluem os tipos, e `organization`.
 
 > [!IMPORTANT]
-> A habilidade de reconhecimento de entidade nomeada agora foi descontinuada substituída por [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O suporte parou em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações em [habilidades de pesquisa cognitiva preteridas](cognitive-search-skill-deprecated.md) para migrar para uma habilidade com suporte.
+> A habilidade de reconhecimento de entidades nomeada é agora descontinuada substituída por [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O apoio parou no dia 15 de fevereiro de 2019 e a API foi removida do produto no dia 2 de maio de 2019. Siga as recomendações em habilidades de [pesquisa cognitiva deprecatadas](cognitive-search-skill-deprecated.md) para migrar para uma habilidade apoiada.
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. Text. NamedEntityRecognitionSkill
+Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o extrator de frases-chave, considere usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caracteres medido por . Se precisar de separar os seus dados antes de enviá-los para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
-|defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas: `de, en, es, fr, it`|
-| minimumPrecision  | Um número entre 0 e 1. Se a precisão for menor que esse valor, a entidade não será retornada. O padrão é 0.|
+| categories    | Conjunto de categorias que devem ser extraídas.  Possíveis tipos `"Person"` `"Location"`de `"Organization"`categoria: . . Se não for fornecida nenhuma categoria, todos os tipos são devolvidos.|
+|código de idioma padrão |  Código linguístico do texto de entrada. As seguintes línguas são suportadas:`de, en, es, fr, it`|
+| mínimoPrecisão  | Um número entre 0 e 1. Se a precisão for inferior a este valor, a entidade não é devolvida. A predefinição é 0.|
 
-## <a name="skill-inputs"></a>Entradas de habilidades
+## <a name="skill-inputs"></a>Inputs de habilidade
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
-| texto          | O texto a ser analisado.          |
+| texto          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome da saída     | Descrição                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
-| pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia representa o nome de uma pessoa. |
-| locais  | Uma matriz de cadeias de caracteres em que cada cadeia representa um local. |
-| organizações  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma organização. |
-| contabilidade | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>Categoria (`"person"`, `"organization"`ou `"location"`)</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa a confiança de que o valor é uma entidade real)</li></ul> |
+| pessoas      | Uma variedade de cordas onde cada corda representa o nome de uma pessoa. |
+| locais  | Uma variedade de cordas onde cada corda representa uma localização. |
+| organizações  | Uma variedade de cordas onde cada corda representa uma organização. |
+| entidades | Uma variedade de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>categoria`"person"`( `"organization"` `"location"`ou)</li> <li>valor (o nome da entidade real)</li><li>offset (A localização onde foi encontrado no texto)</li><li>confiança (Um valor entre 0 e 1 que representa a confiança de que o valor é uma entidade real)</li></ul> |
 
-##  <a name="sample-definition"></a>Definição de exemplo
+##  <a name="sample-definition"></a>Definição de amostra
 
 ```json
   {
@@ -81,7 +81,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
     ]
   }
 ```
-##  <a name="sample-input"></a>Entrada de exemplo
+##  <a name="sample-input"></a>Entrada da amostra
 
 ```json
 {
@@ -151,10 +151,10 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 
 ## <a name="error-cases"></a>Casos de erro
-Se não houver suporte para o código de idioma do documento, um erro será retornado e nenhuma entidade será extraída.
+Se o código linguístico do documento não for suportado, um erro é devolvido e nenhuma entidade é extraída.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Habilidade de Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md)

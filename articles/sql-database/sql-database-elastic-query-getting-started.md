@@ -1,6 +1,6 @@
 ---
-title: Comunicar entre bases de dados de cloud escaladas horizontalmente
-description: Use consultas de banco de dados de banco de dados cruzado para relatar em vários bancos de dados.
+title: Relatório através de bases de dados de nuvem escaldada
+description: Utilize consultas de base de dados cruzadas para reportar em várias bases de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,55 +12,55 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823779"
 ---
-# <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório entre bancos de dados de nuvem expandidos (visualização)
+# <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório através de bases de dados de nuvem escalada (pré-visualização)
 
-Você pode criar relatórios de vários bancos de dados SQL do Azure de um único ponto de conexão usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentado").
+Pode criar relatórios a partir de várias bases de dados Azure SQL a partir de um único ponto de ligação utilizando uma [consulta elástica](sql-database-elastic-query-overview.md). As bases de dados devem ser divididas horizontalmente (também conhecidas como "fragmentos").
 
-Se você tiver um banco de dados existente, consulte [migrando bancos de dados existentes para bancos de dados escalados horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
+Se tiver uma base de dados existente, consulte as bases de dados existentes para bases [de dados dimensionadas](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para entender os objetos SQL necessários para consultar, consulte [consultar em bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
+Para compreender os objetos SQL necessários para consultar, consulte a Consulta através de bases de [dados horizontalmente divididas](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Baixe e execute o [exemplo introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
+Descarregue e execute o Getting started com a amostra de [ferramentas de Base de Dados Elásticas](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um Gerenciador de mapa de fragmentos usando o aplicativo de exemplo
-Aqui, você criará um Gerenciador de mapa de fragmentos junto com vários fragmentos, seguidos pela inserção de dados nos fragmentos. Se você já tiver os fragmentos configurados com dados fragmentados neles, poderá ignorar as etapas a seguir e mover para a próxima seção.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um gestor de mapas de fragmentos usando a app de amostra
+Aqui você vai criar um gestor de mapas de fragmentos juntamente com vários fragmentos, seguido de inserção de dados nos fragmentos. Se por acaso já tiver fragmentos configurados com dados fragmentos, pode saltar os seguintes passos e passar para a secção seguinte.
 
-1. Crie e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** seguindo as etapas na seção do artigo [baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de concluir todas as etapas, você verá o seguinte prompt de comando:
+1. Construa e execute o **Getting started com elástico ferramentas de base** de dados aplicação, seguindo os passos na secção de [artigoS Descarregue e execute a aplicação de amostra](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Assim que terminar todos os passos, verá o seguinte pedido de comando:
 
-    ![prompt de comando][1]
-2. Na janela de comando, digite "1" e pressione **Enter**. Isso cria o Gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**; Repita a ação quatro vezes. Isso insere linhas de dados de exemplo em seus fragmentos.
-3. O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
+    ![pedido de comando][1]
+2. Na janela de comando, escreva "1" e prima **Enter**. Isto cria o gestor de mapas de fragmentos, e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e prima **Enter;** repetir a ação quatro vezes. Isto insere as linhas de dados da amostra nos seus fragmentos.
+3. O [portal Azure](https://portal.azure.com) deve apresentar três novas bases de dados no seu servidor:
 
-   ![Confirmação do Visual Studio][2]
+   ![Confirmação do Estúdio Visual][2]
 
-   Neste ponto, há suporte para consultas entre bancos de dados por meio das bibliotecas de cliente do banco de dados elástico. Por exemplo, use a opção 4 na janela de comando. Os resultados de uma consulta de vários fragmentos sempre são uma **União de todos** os resultados de todos os fragmentos.
+   Neste ponto, as consultas de base de dados cruzadas são suportadas através das bibliotecas de clientes da Base de Dados Elástica. Por exemplo, utilize a opção 4 na janela de comando. Os resultados de uma consulta multi-fragmentos são sempre uma **UNIÃO TODOS** os resultados de todos os fragmentos.
 
-   Na próxima seção, criamos um ponto de extremidade de banco de dados de exemplo que oferece suporte a consultas mais ricas nos fragmentos.
+   Na secção seguinte, criamos um ponto final de base de dados de amostras que suporta a consulta mais rica dos dados em fragmentos.
 
-## <a name="create-an-elastic-query-database"></a>Criar um banco de dados de consulta elástica
-1. Abra o [portal do Azure](https://portal.azure.com) e faça logon.
-2. Crie um novo banco de dados SQL do Azure no mesmo servidor que a configuração de seu fragmento. Nomeie o banco de dados "ElasticDBQuery".
+## <a name="create-an-elastic-query-database"></a>Criar uma base de dados de consulta elástica
+1. Abra o [portal Azure](https://portal.azure.com) e faça login.
+2. Crie uma nova base de dados Azure SQL no mesmo servidor que a sua configuração de fragmentos. Nomeie a base de dados "ElasticDBQuery".
 
-    ![portal do Azure e tipo de preço][3]
+    ![Portal azure e nível de preços][3]
 
     > [!NOTE]
-    > Você pode usar um banco de dados existente. Se você puder fazer isso, ele não deverá ser um dos fragmentos nos quais você gostaria de executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de banco de dados elástico.
+    > pode utilizar uma base de dados existente. Se o conseguires fazer, não deve ser um dos cacos em que gostarias de executar as tuas perguntas. Esta base de dados será utilizada para a criação dos objetos de metadados para uma consulta de base de dados elástica.
     >
 
-## <a name="create-database-objects"></a>Criar objetos de banco de dados
-### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra com escopo de banco de dados e credenciais
-Eles são usados para se conectar ao Gerenciador de mapa de fragmentos e aos fragmentos:
+## <a name="create-database-objects"></a>Criar objetos de base de dados
+### <a name="database-scoped-master-key-and-credentials"></a>Chave e credenciais de base de dados com âmbito de base de dados
+Estes são usados para ligar ao gestor de mapas de fragmentos e aos fragmentos:
 
-1. Abra SQL Server Management Studio ou SQL Server Data Tools no Visual Studio.
-2. Conecte-se ao banco de dados ElasticDBQuery e execute os seguintes comandos T-SQL:
+1. Abra o Estúdio de Gestão de Servidores SQL ou as Ferramentas de Dados do Servidor SQL no Estúdio Visual.
+2. Ligue-se à base de dados ElasticDBQuery e execute os seguintes comandos T-SQL:
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
@@ -68,10 +68,10 @@ Eles são usados para se conectar ao Gerenciador de mapa de fragmentos e aos fra
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" e "password" devem ser iguais às informações de logon usadas na etapa 3 da seção [download e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) no artigo **introdução às ferramentas de banco de dados elástico** .
+    "username" e "password" devem ser os mesmos que as informações de login utilizadas no passo 3 da secção [Descarregue e execute a aplicação de amostra](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) no **artigo de ferramentas** De base de dados elástica.
 
 ### <a name="external-data-sources"></a>Fontes de dados externas
-Para criar uma fonte de dados externa, execute o seguinte comando no banco de ElasticDBQuery:
+Para criar uma fonte de dados externa, execute o seguinte comando na base de dados ElasticDBQuery:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
@@ -81,10 +81,10 @@ Para criar uma fonte de dados externa, execute o seguinte comando no banco de El
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- "CustomerIDShardMap" é o nome do mapa de fragmentos, se você criou o mapa de fragmentos e o Gerenciador de mapa de fragmentos usando o exemplo de ferramentas de banco de dados elástico. No entanto, se você usou a configuração personalizada para este exemplo, ele deve ser o nome do mapa de fragmentos que você escolheu em seu aplicativo.
+ "CustomerIDShardMap" é o nome do mapa do fragmento, se criou o mapa de fragmentos e o gestor de mapas de fragmentos utilizando a amostra de ferramentas de base de dados elástica. No entanto, se usou a sua configuração personalizada para esta amostra, então deve ser o nome do mapa de fragmentos que escolheu na sua aplicação.
 
 ### <a name="external-tables"></a>Tabelas externas
-Crie uma tabela externa que corresponda à tabela Customers nos fragmentos executando o seguinte comando no banco de dados ElasticDBQuery:
+Crie uma tabela externa que corresponda à tabela Clientes nos fragmentos executando o seguinte comando na base de dados ElasticDBQuery:
 
     CREATE EXTERNAL TABLE [dbo].[Customers]
     ( [CustomerId] [int] NOT NULL,
@@ -95,46 +95,46 @@ Crie uma tabela externa que corresponda à tabela Customers nos fragmentos execu
       DISTRIBUTION = SHARDED([CustomerId])
     ) ;
 
-## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Executar uma consulta T-SQL de banco de dados elástico de exemplo
-Depois de definir sua fonte de dados externa e suas tabelas externas, agora você pode usar o T-SQL completo em suas tabelas externas.
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Executar uma consulta de base de dados elástica t-SQL de amostra
+Depois de definir a sua fonte de dados externo e as suas tabelas externas, pode agora utilizar t-SQL completo sobre as suas tabelas externas.
 
-Execute esta consulta no banco de dados ElasticDBQuery:
+Execute esta consulta na base de dados ElasticDBQuery:
 
     select count(CustomerId) from [dbo].[Customers]
 
-Você observará que a consulta agrega resultados de todos os fragmentos e fornece a seguinte saída:
+Note que os agregados de consulta resultam de todos os fragmentos e dá a seguinte saída:
 
 ![Detalhes da saída][4]
 
-## <a name="import-elastic-database-query-results-to-excel"></a>Importar resultados da consulta do banco de dados elástico para o Excel
- Você pode importar os resultados de uma consulta para um arquivo do Excel.
+## <a name="import-elastic-database-query-results-to-excel"></a>Importar resultados de consulta de base de dados elástica seletos para Excel
+ Pode importar os resultados de uma consulta para um ficheiro Excel.
 
-1. Inicie o Excel 2013.
-2. Navegue até a faixa de de **dados** .
-3. Clique em **de outras fontes** e clique em **de SQL Server**.
+1. Lançamento Excel 2013.
+2. Navegue para a fita **Data.**
+3. Clique **em Outras Fontes** e clique **no Servidor SQL**.
 
-   ![Importação do Excel de outras fontes][5]
-4. No **Assistente de conexão de dados** , digite o nome do servidor e as credenciais de logon. Clique depois em **Seguinte**.
-5. Na caixa de diálogo, **Selecione o banco de dados que contém o dado que você deseja**, selecione o banco de **ElasticDBQuery** .
-6. Selecione a tabela **clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **concluir**.
-7. No formulário **importar dados** , em **selecionar como você deseja exibir esses dados em sua pasta de trabalho**, selecione **tabela** e clique em **OK**.
+   ![Excel importa de outras fontes][5]
+4. No Assistente de **Ligação** de Dados digite o nome do servidor e as credenciais de login. Em seguida, clique em **Seguinte**.
+5. Na caixa de diálogo **Selecione a base**de dados que contém os dados que deseja , selecione a base de dados **ElasticDBQuery.**
+6. Selecione a tabela **Clientes** na vista da lista e clique **em Next**. Em seguida, clique em **Concluir**.
+7. No formulário **Dados de Importação,** em **Select como pretende visualizar estes dados no seu livro**de trabalho, selecione **Tabela** e clique **EM OK**.
 
-Todas as linhas da tabela **Customers** , armazenadas em fragmentos diferentes, preenchem a planilha do Excel.
+Todas as filas da tabela **Clientes,** armazenadas em diferentes fragmentos povoam a folha excel.
 
-Agora você pode usar as poderosas funções de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, o nome do banco de dados e as credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dado de consulta elástica. Verifique se SQL Server tem suporte como uma fonte de dados para sua ferramenta. Você pode consultar o banco de dados de consulta elástica e tabelas externas, assim como qualquer outro banco de dados SQL Server e SQL Server tabelas às quais você se conectaria com sua ferramenta.
+Agora pode utilizar as poderosas funções de visualização de dados do Excel. Pode utilizar a cadeia de ligação com o nome do servidor, nome da base de dados e credenciais para ligar as ferramentas de BIO e integração de dados à base de dados de consulta elástica. Certifique-se de que o SQL Server é suportado como fonte de dados para a sua ferramenta. Pode consultar a base de dados de consultas elásticas e as tabelas externas, tal como qualquer outra base de dados do SQL Server e as tabelas do SQL Server a que se ligaria à sua ferramenta.
 
 ### <a name="cost"></a>Custo
-Não há nenhum custo adicional para usar o recurso de consulta de banco de dados elástico.
+Não existe qualquer custo adicional para a utilização da funcionalidade Deconsulta de Base de Dados Elástica.
 
-Para obter informações sobre preços, consulte [detalhes de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre preços consulte os detalhes de preços da base de [dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma visão geral da consulta elástica, consulte [visão geral da consulta elástica](sql-database-elastic-query-overview.md).
-* Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
-* Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
-* Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Para uma visão geral da consulta elástica, consulte a visão geral da [consulta elástica](sql-database-elastic-query-overview.md).
+* Para um tutorial de partição vertical, consulte [Iniciar-se com consulta de base de dados cruzada (partição vertical)](sql-database-elastic-query-getting-started-vertical.md).
+* Para consultas de sintaxe e amostras para dados verticalmente divididos, consulte a [consulta de dados verticalmente divididos)](sql-database-elastic-query-vertical-partitioning.md)
+* Para consultas de sintaxe e amostras para dados horizontalmente divididos, consulte dados [horizontalmente divididos)](sql-database-elastic-query-horizontal-partitioning.md)
+* Consulte o [sp\_execute \_o controlo remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem como fragmentos num esquema de partição horizontal.
 
 
 <!--Image references-->

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 02/10/2020
 ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77122367"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que é ml serviços em Azure HDInsight
@@ -95,7 +95,7 @@ Para marcar no HDInsight, escreva uma função R que ligue para o seu modelo par
 
 Para pontuar utilizando o Azure Machine Learning, utilize o pacote Azure Machine Learning R de código aberto conhecido como [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) para publicar o seu modelo como um serviço web Azure. Por conveniência, este pacote é pré-instalado no nó de borda. Em seguida, utilize as instalações do Azure Machine Learning para criar uma interface de utilizador para o serviço web e, em seguida, ligue para o serviço web conforme necessário para pontuar.
 
-Se escolher esta opção, tem de converter quaisquer objetos do modelo ScaleR em objetos de modelo de código aberto equivalentes para utilização com o serviço web. Utilize funções de coação ScaleR, tais como `as.randomForest()` para modelos baseados em conjunto, para esta conversão.
+Se escolher esta opção, tem de converter quaisquer objetos do modelo ScaleR em objetos de modelo de código aberto equivalentes para utilização com o serviço web. Utilize funções de coação `as.randomForest()` ScaleR, como para modelos baseados em conjunto, para esta conversão.
 
 ### <a name="score-on-premises"></a>Pontuação no local
 
@@ -105,7 +105,7 @@ Para marcar no local após a criação do seu modelo, pode serializar o modelo e
 
 ### <a name="install-and-maintain-r-packages"></a>Instalar e manter pacotes R
 
-A maioria dos pacotes R que utiliza são necessários no nó da borda, uma vez que a maioria dos passos dos seus scripts R correm lá. Para instalar pacotes R adicionais no nó de borda, pode utilizar o método `install.packages()` em R.
+A maioria dos pacotes R que utiliza são necessários no nó da borda, uma vez que a maioria dos passos dos seus scripts R correm lá. Para instalar pacotes R adicionais no nó `install.packages()` de borda, pode utilizar o método em R.
 
 Se estiver apenas a utilizar rotinas da biblioteca ScaleR através do cluster, normalmente não precisa de instalar pacotes R adicionais nos nós de dados. No entanto, poderá necessitar de pacotes adicionais para apoiar a utilização da execução **rxExec** ou **RxDataStep** nos nós de dados.
 

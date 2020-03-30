@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: API Gremlin com PHP-Azure Cosmos DB'
+title: 'Quickstart: Gremlin API com PHP - Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e PHP
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736653"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando PHP e o portal do Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB utilizando PHP e o portal Azure
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [Python](create-graph-python.md)
+> * [Nó.js](create-graph-nodejs.md)
+> * [Pitão](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
@@ -32,7 +32,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso:
 * [PHP](https://php.net/) 5.6 ou mais recente
@@ -194,7 +194,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e observe que eles estão conectados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -204,13 +204,13 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 4. Introduza uma etiqueta de *pessoa*.
 
-5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Somente a chave de **ID** é necessária.
+5. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de **identificação.**
 
     Chave | Valor | Notas
     ----|----|----
-    **id** | ashley | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
-    **sexo** | feminino | 
-    **R905** | java | 
+    **ID** | ashley | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **género** | feminino | 
+    **técnico** | java | 
 
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
@@ -223,11 +223,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 9. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
     
-    Chave | Value | Notas
+    Chave | Valor | Notas
     ----|----|----
-    **id** | rakesh | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
-    **sexo** | masculino | 
-    **trabalhos** | MIT | 
+    **ID** | rakesh | O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
+    **género** | masculino | 
+    **escola** | MIT | 
 
 10. Clique em **OK**. 
 
@@ -257,7 +257,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

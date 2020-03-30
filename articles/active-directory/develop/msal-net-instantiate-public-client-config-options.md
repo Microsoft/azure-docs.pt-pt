@@ -14,20 +14,20 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1dd06e139f931bbf8554f05f05c5d9b9ccf200e8
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083592"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiate uma aplicação de cliente público com opções de configuração usando MSAL.NET
 
 Este artigo descreve como instantaneamente uma [aplicação de cliente público](msal-client-applications.md) usando a Microsoft Authentication Library para .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
 
-Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
+Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
 
 - O ID do cliente (uma corda que representa um GUID)
-- A URL do provedor de identidade (chamada de instância) e o público-alvo de entrada para seu aplicativo. Esses dois parâmetros são coletivamente conhecidos como autoridade.
+- O URL do fornecedor de identidade (nome ou a instância) e o público de inscrição para a sua aplicação. Estes dois parâmetros são coletivamente conhecidos como autoridade.
 - O ID do inquilino se estiver a escrever uma linha de aplicação de negócios exclusivamente para a sua organização (também nomeada candidatura de inquilino único).
 - Para aplicações web, e por vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 

@@ -1,6 +1,6 @@
 ---
-title: Dimensionar um serviço de nuvem do Azure no Windows PowerShell | Microsoft Docs
-description: clássico Saiba como usar o PowerShell para dimensionar uma função Web ou função de trabalho para dentro ou para fora no Azure.
+title: Scale um serviço de nuvem Azure no Windows PowerShell / Microsoft Docs
+description: (clássico) Aprenda a usar o PowerShell para escalar um papel web ou papel de trabalhador dentro ou fora em Azure.
 services: cloud-services
 author: mmccrory
 ms.service: cloud-services
@@ -8,68 +8,68 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: memccror
 ms.openlocfilehash: a1945aad12eb34bad1b593878779e1ceb0dae686
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359034"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como dimensionar um serviço de nuvem no PowerShell
+# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como escalar um serviço de nuvem no PowerShell
 
-Você pode usar o Windows PowerShell para dimensionar uma função Web ou função de trabalho para dentro ou para fora adicionando ou removendo instâncias.  
+Pode utilizar o Windows PowerShell para escalar uma função web ou um papel de trabalhador dentro ou fora, adicionando ou removendo instâncias.  
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Antes de executar qualquer operação em sua assinatura por meio do PowerShell, você deve fazer logon:
+Antes de poder efetuar quaisquer operações na sua subscrição através do PowerShell, deve iniciar sessão:
 
 ```powershell
 Add-AzureAccount
 ```
 
-Se você tiver várias assinaturas associadas à sua conta, talvez seja necessário alterar a assinatura atual dependendo de onde o serviço de nuvem reside. Para verificar a assinatura atual, execute:
+Se tiver várias subscrições associadas à sua conta, poderá ter de alterar a subscrição atual dependendo do local onde o seu serviço na nuvem reside. Para verificar a subscrição atual, executar:
 
 ```powershell
 Get-AzureSubscription -Current
 ```
 
-Se você precisar alterar a assinatura atual, execute:
+Se precisar de alterar a subscrição atual, execute:
 
 ```powershell
 Set-AzureSubscription -SubscriptionId <subscription_id>
 ```
 
-## <a name="check-the-current-instance-count-for-your-role"></a>Verificar a contagem de instâncias atual para sua função
+## <a name="check-the-current-instance-count-for-your-role"></a>Verifique a contagem de exemplos atuais para o seu papel
 
-Para verificar o estado atual da sua função, execute:
+Para verificar o estado atual do seu papel, corra:
 
 ```powershell
 Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 ```
 
-Você deve obter informações sobre a função, incluindo a versão atual do sistema operacional e a contagem de instâncias. Nesse caso, a função tem uma única instância.
+Deve obter informações sobre o papel, incluindo a versão atual do SO e a contagem de instâncias. Neste caso, o papel tem um único exemplo.
 
-![Informações sobre a função](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
+![Informação sobre o papel](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
-## <a name="scale-out-the-role-by-adding-more-instances"></a>Escalar horizontalmente a função adicionando mais instâncias
+## <a name="scale-out-the-role-by-adding-more-instances"></a>Esforce o papel adicionando mais casos
 
-Para escalar horizontalmente sua função, passe o número desejado de instâncias como o parâmetro de **contagem** para o cmdlet **set-AzureRole** :
+Para escalonar o seu papel, passe o número desejado de instâncias como parâmetro **count** para o cmdlet **Set-AzureRole:**
 
 ```powershell
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-O cmdlet é bloqueado momentaneamente enquanto as novas instâncias são provisionadas e iniciadas. Durante esse tempo, se você abrir uma nova janela do PowerShell e chamar **Get-AzureRole** conforme mostrado anteriormente, verá a nova contagem de instâncias de destino. E se você inspecionar o status da função no portal, verá a nova instância iniciando:
+O cmdlet bloqueia momentaneamente enquanto as novas instâncias são aprovisionadas e iniciadas. Durante este tempo, se abrir uma nova janela PowerShell e ligar para **get-AzureRole** como mostrado anteriormente, verá a nova contagem de exemplos alvo. E se inspecionar o estado do papel no portal, deve ver a nova instância a começar:
 
-![Instância de VM iniciada no portal](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
+![Caso VM a partir do portal](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
-Depois que as novas instâncias forem iniciadas, o cmdlet retornará com êxito:
+Uma vez iniciadas as novas instâncias, o cmdlet regressará com sucesso:
 
-![A instância de função aumenta o êxito](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
+![Exemplo de exemplo aumentar o sucesso](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
-## <a name="scale-in-the-role-by-removing-instances"></a>Dimensionar na função removendo instâncias
+## <a name="scale-in-the-role-by-removing-instances"></a>Escala no papel removendo instâncias
 
-Você pode dimensionar em uma função removendo instâncias da mesma maneira. Defina o parâmetro de **contagem** em **set-AzureRole** como o número de instâncias que você deseja ter após a conclusão da operação de dimensionamento.
+Pode escalar um papel removendo os casos da mesma forma. Defina o parâmetro **Count** no **Set-AzureRole** para o número de casos que pretende ter após a escala em funcionamento estar completa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Não é possível configurar o dimensionamento automático para serviços de nuvem do PowerShell. Para fazer isso, consulte [como dimensionar automaticamente um serviço de nuvem](cloud-services-how-to-scale-portal.md).
+Não é possível configurar automaticamente para serviços em nuvem a partir da PowerShell. Para isso, veja como escalar automaticamente um serviço de [nuvem.](cloud-services-how-to-scale-portal.md)

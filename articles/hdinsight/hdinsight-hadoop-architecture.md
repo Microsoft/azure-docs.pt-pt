@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162213"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
@@ -66,7 +66,7 @@ Para desapagar um ficheiro da sua Conta de Armazenamento, consulte:
 
 ## <a name="trash-purging"></a>Purga do lixo
 
-A propriedade `fs.trash.interval` do **HDFS** > **O core-site avançado** deve permanecer no valor padrão `0` porque não deve armazenar quaisquer dados no sistema de ficheiros local. Este valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
+A `fs.trash.interval` propriedade do **hDFS** > **Advanced core-site** `0` deve permanecer no valor padrão porque você não deve armazenar quaisquer dados no sistema de ficheiros local. Este valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
-ms.date: 01/28/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6a5f4ce03f762b5903e8b3d6f10810819e02e422
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246879"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -66,6 +66,9 @@ Como prestador de serviços, poderá querer realizar múltiplas tarefas para um 
 
 Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores Da Azure AD para cada função, permitindo-lhe adicionar ou remover utilizadores individuais ao grupo em vez de atribuir permissões diretamente a esse utilizador. Também pode querer atribuir funções a um diretor de serviço. Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para recomendações e informações sobre papéis suportados, consulte [Inquilinos, utilizadores e papéis em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
 
+> [!IMPORTANT]
+> Para adicionar permissões a um grupo Azure AD, o **tipo de grupo** deve ser **segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para mais informações, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
 Para definir as autorizações, terá de conhecer os valores de ID para cada utilizador, grupo de utilizadores ou diretor de serviço no inquilino do prestador de serviços a que pretende conceder acesso. Você também vai precisar da definição de papel ID para cada papel incorporado que você quer atribuir. Se ainda não os tiver, pode recuperá-los executando os comandos abaixo do inquilino do prestador de serviços.
 
 ### <a name="powershell"></a>PowerShell
@@ -106,7 +109,7 @@ az role definition list --name "<roleName>" | grep name
 > [!TIP]
 > Recomendamos a atribuição da Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente, para que os utilizadores do seu inquilino possam [remover o acesso à delegação](#remove-access-to-a-delegation) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
 
-## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
+## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Gestor de Recursos Azure
 
 Para embarcar no seu cliente, terá de criar um modelo de Gestor de [Recursos Azure](../../azure-resource-manager/index.yml) para a sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDescription** serão visíveis para o cliente ao visualizar em detalhes da oferta na página de fornecedores de [serviços](view-manage-service-providers.md) do portal Azure.
 

@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214482"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerir trabalhos elásticos
@@ -41,7 +41,7 @@ Se não utilizou trabalhos elásticos, saiba mais sobre os conceitos de automaç
 6. Faça um trabalho usando [PowerShell](elastic-jobs-powershell.md#run-the-job) ou [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
 7. Monitorize o estado de execução do trabalho utilizando o portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
-   ![vários inquilinos](media/elastic-jobs-overview/elastic-job-executions-overview.png)
+   ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
 ## <a name="credentials-for-running-jobs"></a>Credenciais para executar tarefas
 
@@ -50,7 +50,7 @@ As tarefas utilizam [credenciais com âmbito de base de dados](/sql/t-sql/statem
 A configuração das credenciais corretas para executar uma tarefa pode ser um pouco confusa, por isso, tenha em consideração os seguintes pontos:
 
 - As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa*.
-- Todas as bases de **dados-alvo devem ter um login com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho esteja concluído com sucesso** (`jobuser` no diagrama abaixo).
+- **Todas as bases de dados-alvo devem ter um login com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho esteja concluído com sucesso** (no`jobuser` diagrama abaixo).
 - As credenciais podem ser reutilizadas em todos os trabalhos, e as palavras-passe credenciais são encriptadas e protegidas por utilizadores que tenham acesso apenas a objetos de trabalho.
 
 A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino*) onde a tarefa tenha de ser executada**.
@@ -77,7 +77,7 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-Definir o número de bases de dados simultâneas em que um trabalho funciona, definindo o parâmetro `@max_parallelism` do procedimento armazenado `sp_add_jobstep` em T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` na PowerShell.
+Definir o número de bases de dados simultâneas em que um trabalho funciona, definindo o `sp_add_jobstep` parâmetro do `@max_parallelism` procedimento armazenado em T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Melhores práticas para criar tarefas
 
@@ -97,7 +97,7 @@ Da mesma forma, um script tem de poder ser executado com êxito ao testar logica
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

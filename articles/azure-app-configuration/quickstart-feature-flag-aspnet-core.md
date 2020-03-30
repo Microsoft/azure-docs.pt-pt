@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163884"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245417"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação ASP.NET Core
 
@@ -28,12 +28,12 @@ As bibliotecas .NET Core Feature Management alargam o quadro com um suporte abra
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione Gestor de **Funcionalidades** >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta`.
+6. Selecione > Gestor de **Funcionalidades** `Beta`**+Adicione** para adicionar uma bandeira de recurso chamada .
 
     > [!div class="mx-imgBorder"]
-    > ![ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
+    > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
-    Deixe `label` indefinida por enquanto.
+    Deixe `label` indefinido por enquanto. Selecione **Aplicar** para salvar a nova bandeira de recurso.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
@@ -49,45 +49,57 @@ Utilize a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
 
 ## <a name="add-secret-manager"></a>Adicionar Gestor Secreto
 
-Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Secret Manager armazena dados confidenciais para trabalhos de desenvolvimento fora da árvore do seu projeto. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
-
-> [!IMPORTANT]
-> Existem diferenças significativas entre .NET Core 2.x e 3.x.  Selecione a sintaxe correta com base no seu ambiente.
+Para utilizar o Secret `UserSecretsId` Manager, adicione um elemento ao seu ficheiro *.csproj.*
 
 1. Abra o ficheiro *.csproj.*
-1. Adicione um elemento `UserSecretsId` como mostrado no exemplo seguinte, e substitua o seu valor pelo seu próprio, que normalmente é um GUID:
+
+1.  Adicione `UserSecretsId` um elemento como mostrado aqui. Pode utilizar o mesmo GUID, ou pode substituir este valor pelo seu.
+
+    > [!IMPORTANT]
+    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
 
     </Project>
     ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
-    
+
         <PropertyGroup>
             <TargetFramework>netcoreapp3.1</TargetFramework>
             <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
         </PropertyGroup>
+
     </Project>
     ```
     ---
 
+1. Guarde o ficheiro *.csproj.*
+
+Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
+
+> [!TIP]
+> Para saber mais sobre o Secret Manager, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` e aos pacotes nuGet `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
+1. Adicione referência `Microsoft.Azure.AppConfiguration.AspNetCore` aos `Microsoft.FeatureManagement.AspNetCore` pacotes NuGet e NuGet executando os seguintes comandos:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -102,7 +114,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
 
 1. Adicione um segredo chamado **ConnectionStrings:AppConfig** ao Secret Manager.
 
-    Este segredo contém a cadeia de ligação para aceder à sua loja de configuração de aplicações. Substitua o valor `<your_connection_string>` no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações.
+    Este segredo contém a cadeia de ligação para aceder à sua loja de configuração de aplicações. Substitua `<your_connection_string>` o valor no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações. Pode encontrar a cadeia de ligação sob **teclas** de acesso no portal Azure.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -114,10 +126,10 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
 
     Pode aceder a este segredo com a API de Configuração de Aplicações. Um cólon (:) trabalha no nome de configuração com a API de Configuração de Aplicações em todas as plataformas suportadas. Ver [Configuração por ambiente.](https://docs.microsoft.com/aspnet/core/fundamentals/configuration)
 
-1. Atualize o método `CreateWebHostBuilder` para utilizar a Configuração da App, ligando para o método `config.AddAzureAppConfiguration()`.
+1. Atualize `CreateWebHostBuilder` o método para utilizar `config.AddAzureAppConfiguration()` a Configuração da Aplicação, ligando para o método.
     
     > [!IMPORTANT]
-    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     
@@ -159,7 +171,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize o método `ConfigureServices` para adicionar suporte à bandeira, chamando o método `services.AddFeatureManagement()`. Opcionalmente, pode incluir qualquer filtro a ser utilizado com bandeiras de características, chamando `services.AddFeatureFilter<FilterType>()`:
+1. Atualize `ConfigureServices` o método para adicionar `services.AddFeatureManagement()` suporte à bandeira de recurso, chamando o método. Opcionalmente, pode incluir qualquer filtro a ser `services.AddFeatureFilter<FilterType>()`utilizado com bandeiras de características, chamando:
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
@@ -179,7 +191,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
     ```
     ---
 
-1. Atualize o método `Configure` para adicionar um middleware para permitir que os valores da bandeira da funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web ASP.NET Core continua a receber pedidos.
+1. Atualize `Configure` o método para adicionar um middleware para permitir que os valores da bandeira da funcionalidade sejam atualizados num intervalo recorrente, enquanto a aplicação web ASP.NET Core continua a receber pedidos.
     
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
@@ -276,7 +288,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Abra *_Layout.cshtml* no diretório de *opinião*\\*partilhado* e substitua o código de barras `<nav>` sob `<body>` > `<header>` pelo seguinte código:
+1. Abra *_Layout.cshtml* no diretório*partilhado* *views*\\e `<body>`  >  `<header>` substitua o código de `<nav>` barras por baixo do seguinte código:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -331,19 +343,19 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
     dotnet run
     ```
 
-1. Abra uma janela do navegador e vá para `https://localhost:5000`, que é o URL padrão para a aplicação web hospedada localmente.
+1. Abra uma janela do `https://localhost:5000`navegador e vá para , que é o URL padrão para a aplicação web hospedada localmente.
     Se estiver a trabalhar na Casca de Nuvem Azure, selecione o botão *de pré-visualização web* seguido de *Configurar*.  Quando solicitado, selecione a porta 5000.
 
     ![Localizar o botão de pré-visualização da Web](./media/quickstarts/cloud-shell-web-preview.png)
 
     O seu navegador deve apresentar uma página semelhante à imagem abaixo.
-    ![app Quickstart lançam](./media/quickstarts/aspnet-core-feature-flag-local-before.png) local
+    ![Lançamento de app Quickstart local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Gestor de **Funcionalidades**e altere o estado da chave **Beta** para **On**.
 
-1. Volte ao pedido de comando e cancele o processo de `dotnet` em funcionamento pressionando `Ctrl-C`.  Reinicie a sua aplicação utilizando `dotnet run`.
+1. Volte ao pedido de comando `dotnet` e `Ctrl-C`cancele o processo de funcionamento premindo .  Reiniciar a `dotnet run`sua aplicação utilizando .
 
 1. Refresque a página do navegador para ver as novas configurações de configuração.
 

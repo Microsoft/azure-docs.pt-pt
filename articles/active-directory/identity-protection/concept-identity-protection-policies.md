@@ -1,6 +1,6 @@
 ---
-title: Políticas de Azure AD Identity Protection
-description: Identificando as três políticas que são habilitadas com a proteção de identidade
+title: Políticas de Proteção de Identidade da AD Azure
+description: Identificação das três políticas que estão habilitadas com proteção de identidade
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,54 +12,54 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a44e32efa3e38cf9c4df7dc00e3189c129db418
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72887419"
 ---
-# <a name="identity-protection-policies"></a>Políticas de proteção de identidade
+# <a name="identity-protection-policies"></a>Políticas do Identity Protection
 
-Azure Active Directory Identity Protection inclui três políticas padrão que os administradores podem optar por habilitar. Essas políticas incluem personalização limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem a exclusão de usuários, como [contas de administrador de acesso de emergência ou](../users-groups-roles/directory-emergency-access.md)de usuário de vidro.
+A Azure Ative Directory Identity Protection inclui três políticas padrão que os administradores podem escolher para ativar. Estas políticas incluem personalização limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem excluir utilizadores como o seu [acesso de emergência ou contas de administrador de vidro partido](../users-groups-roles/directory-emergency-access.md).
 
-![Políticas de proteção de identidade](./media/concept-identity-protection-policies/identity-protection-policies.png)
+![Políticas do Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Política de registro do Azure MFA
+## <a name="azure-mfa-registration-policy"></a>Política de registo do Azure MFA
 
-A proteção de identidade pode ajudar as organizações a distribuir a MFA (autenticação multifator) do Azure usando uma política de acesso condicional que requer registro na entrada. Habilitar essa política é uma ótima maneira de garantir que novos usuários em sua organização tenham se registrado para MFA no primeiro dia. A autenticação multifator é um dos métodos de AutoCorreção para eventos de risco dentro da proteção de identidade. A AutoCorreção permite que os usuários tomem providências por conta própria para reduzir o volume de chamadas da assistência técnica.
+A Proteção de Identidade pode ajudar as organizações a lançar a Autenticação Multi-Factor Azure (MFA) utilizando uma política de Acesso Condicional que exige o registo no início do sessão. Ativar esta política é uma ótima maneira de garantir que novos utilizadores da sua organização se registaram para mfa no seu primeiro dia. A autenticação multifactor é um dos métodos de autorreparação para eventos de risco no âmbito da Proteção de Identidade. A autorreparação permite que os seus utilizadores tomem medidas por si próprios para reduzir o volume de chamadas de helpdesk.
 
-Mais informações sobre a autenticação multifator do Azure podem ser encontradas no artigo [como funciona: autenticação multifator do Azure](../authentication/concept-mfa-howitworks.md).
+Mais informações sobre a autenticação de multifactor azure podem ser encontradas no artigo, [Como funciona: Autenticação Multi-Factor Azure](../authentication/concept-mfa-howitworks.md).
 
-## <a name="sign-in-risk-policy"></a>Política de risco de entrada
+## <a name="sign-in-risk-policy"></a>Política de risco de inscrição
 
-A proteção de identidade analisa os sinais de cada entrada, tanto em tempo real quanto offline, e calcula uma pontuação de risco com base na probabilidade de que a entrada não tenha sido executada pelo usuário. Os administradores podem tomar uma decisão com base nesse sinal de Pontuação de risco para impor os requisitos organizacionais. Os administradores podem optar por bloquear o acesso, permitir acesso ou permitir acesso, mas exigem a autenticação multifator.
+A Identity Protection analisa sinais de cada entrada, em tempo real e offline, e calcula uma pontuação de risco com base na probabilidade de o inato não ter sido realizado pelo utilizador. Os administradores podem tomar uma decisão com base neste sinal de pontuação de risco para fazer cumprir os requisitos organizacionais. Os administradores podem optar por bloquear o acesso, permitir o acesso ou permitir o acesso, mas exigem a autenticação de vários fatores.
 
-Se o risco for detectado, os usuários poderão executar a autenticação multifator para remediar e fechar o evento de entrada arriscado para evitar ruídos desnecessários para os administradores.
-
-> [!NOTE] 
-> Os usuários devem ter registrado anteriormente para a autenticação multifator do Azure antes de disparar a política de risco de entrada.
-
-### <a name="custom-conditional-access-policy"></a>Política de acesso condicional personalizada
-
-Os administradores também podem optar por criar uma política de acesso condicional personalizada, incluindo o risco de entrada como uma condição de atribuição. Mais informações sobre o acesso condicional podem ser encontradas no artigo [o que é acesso condicional?](../conditional-access/overview.md)
-
-![Política de risco de entrada de acesso condicional personalizado](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
-
-## <a name="user-risk-policy"></a>Política de risco do usuário
-
-A proteção de identidade pode calcular o que acredita ser normal para o comportamento de um usuário e usá-lo para basear as decisões em risco. O risco do usuário é um cálculo da probabilidade de que uma identidade tenha sido comprometida. Os administradores podem tomar uma decisão com base nesse sinal de Pontuação de risco para impor os requisitos organizacionais. Os administradores podem optar por bloquear o acesso, permitir acesso ou permitir acesso, mas exigem uma alteração de senha usando a [redefinição de senha de autoatendimento do Azure ad](../authentication/howto-sspr-deployment.md).
-
-Se o risco for detectado, os usuários poderão executar a redefinição de senha de autoatendimento para corrigir automaticamente e fechar o evento de risco do usuário para evitar ruídos desnecessários para os administradores.
+Se o risco for detetado, os utilizadores podem efetuar a autenticação de vários fatores para auto-remediar e fechar o sinal de risco para evitar ruídos desnecessários para os administradores.
 
 > [!NOTE] 
-> Os usuários devem ter sido previamente registrados para redefinição de senha de autoatendimento antes de disparar a política de risco do usuário.
+> Os utilizadores devem ter registado previamente a autenticação de multifactor estonteante antes de desencadear a política de risco de entrada.
+
+### <a name="custom-conditional-access-policy"></a>Política de acesso condicional personalizado
+
+Os administradores também podem optar por criar uma política personalizada de Acesso Condicional, incluindo o risco de inscrição como condição de atribuição. Mais informações sobre acesso condicional podem ser encontradas no artigo, [O que é acesso condicional?](../conditional-access/overview.md)
+
+![Política de risco de acesso condicional personalizado](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
+
+## <a name="user-risk-policy"></a>Política de risco do utilizador
+
+A Proteção de Identidade pode calcular o que acredita ser normal para o comportamento de um utilizador e usá-la para basear decisões para o seu risco. O risco do utilizador é um cálculo de probabilidade de uma identidade ter sido comprometida. Os administradores podem tomar uma decisão com base neste sinal de pontuação de risco para fazer cumprir os requisitos organizacionais. Os administradores podem optar por bloquear o acesso, permitir o acesso ou permitir o acesso, mas exigem uma alteração de senha usando o reset da [palavra-passe de autosserviço Daa Azure](../authentication/howto-sspr-deployment.md).
+
+Se o risco for detetado, os utilizadores podem efetuar o reset da palavra-passe self-service para auto-remediar e fechar o evento de risco do utilizador para evitar ruídos desnecessários para os administradores.
+
+> [!NOTE] 
+> Os utilizadores devem ter registado previamente para redefinir a palavra-passe de self-service antes de desencadear a política de risco do utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Habilitar redefinição de senha de autoatendimento do Azure AD](../authentication/howto-sspr-deployment.md)
+- [Ativar o reset da palavra-passe autosserviço Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitar a autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+- [Ativar a Multi-Factor Authentication do Azure](../authentication/howto-mfa-getstarted.md)
 
-- [Habilitar a política de registro da autenticação multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Ativar a política de registo de autenticação multi-factor azure](howto-identity-protection-configure-mfa-policy.md)
 
-- [Habilitar as políticas de entrada e de risco do usuário](howto-identity-protection-configure-risk-policies.md)
+- [Ativar políticas de risco de inscrição e utilizador](howto-identity-protection-configure-risk-policies.md)

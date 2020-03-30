@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588064"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
@@ -44,7 +44,7 @@ O conector de firewall windows permite-lhe ligar facilmente os registos de firew
 
 2. Se a sua máquina Windows não for um VM Azure:
     1. Clique **em instalar o agente em máquinas não-Azure**.
-    1. Na janela **do agente Direct,** selecione o **agente Descarregamento do Windows (64 bits)** ou **o agente Dowindows (32 bits)** .
+    1. Na janela **do agente Direct,** selecione o **agente Descarregamento do Windows (64 bits)** ou **o agente Dowindows (32 bits)**.
     1. Instale o agente na sua máquina Windows. Copie o **ID workspace,** **a chave primária**e a tecla **secundária** e utilize-os quando solicitado durante a instalação.
 
 4. Selecione quais os tipos de dados que pretende transmitir.

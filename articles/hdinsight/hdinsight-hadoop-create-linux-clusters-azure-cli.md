@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
 ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77199046"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
@@ -23,11 +23,11 @@ Os passos neste documento através da criação de um cluster HDInsight 3.6 util
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-CLI do Azure. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para os passos.
+Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para os passos.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,12 +46,12 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI
 
     |Parâmetro | Descrição |
     |---|---|
-    |`--workernode-count`| O número de nós operários no agrupamento. Este artigo usa a variável `clusterSizeInNodes` à medida que o valor passou para `--workernode-count`. |
-    |`--version`| A versão do cluster HDInsight. Este artigo usa a variável `clusterVersion` à medida que o valor passou para `--version`. Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Tipo de cluster HDInsight, como: hadoop, interactivehive, hbase, kafka, tempestade, faísca, rserver, mlservices.  Este artigo usa a variável `clusterType` à medida que o valor passou para `--type`. Ver também: [Tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo usa a variável `componentVersion` à medida que o valor passou para `--component-version`. Ver também: [Componentes Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--workernode-count`| O número de nós operários no agrupamento. Este artigo usa `clusterSizeInNodes` a variável `--workernode-count`à medida que o valor passou para . |
+    |`--version`| A versão do cluster HDInsight. Este artigo usa `clusterVersion` a variável `--version`à medida que o valor passou para . Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
+    |`--type`| Tipo de cluster HDInsight, como: hadoop, interactivehive, hbase, kafka, tempestade, faísca, rserver, mlservices.  Este artigo usa `clusterType` a variável `--type`à medida que o valor passou para . Ver também: [Tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
+    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo usa `componentVersion` a variável `--component-version`à medida que o valor passou para . Ver também: [Componentes Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
-    Substitua `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`e `PASSWORD` os valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, introduza os comandos CLI.
+    Substitua, `CLUSTERNAME` `RESOURCEGROUPNAME` `LOCATION` `STORAGEACCOUNTNAME`, `PASSWORD` e com os valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, introduza os comandos CLI.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -76,7 +76,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI
         --name $resourceGroupName
     ```
 
-    Para uma lista de locais válidos, utilize o comando `az account list-locations` e, em seguida, utilize uma das localizações a partir do valor `name`.
+    Para uma lista de locais `az account list-locations` válidos, utilize o comando e, em seguida, utilize uma das localizações a partir do `name` valor.
 
 4. [Crie uma conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) inserindo o comando abaixo:
 

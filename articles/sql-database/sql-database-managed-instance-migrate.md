@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
 ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208931"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instância migração para A Base de Dados Azure SQL gerida
@@ -107,7 +107,7 @@ O caso gerido é um serviço gerido que lhe permite delegar algumas das atividad
 A instância gerida suporta as seguintes opções de migração de bases de dados (atualmente estes são os únicos métodos de migração suportados):
 
 - Serviço de Migração de Bases de Dados Azure - migração com tempo de paragem quase nulo,
-- Native `RESTORE DATABASE FROM URL` - usa backups nativos do SQL Server e requer algum tempo de inatividade.
+- Nativo `RESTORE DATABASE FROM URL` - usa backups nativos do SQL Server e requer algum tempo de inatividade.
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -117,7 +117,7 @@ Se utilizar os Serviços de Integração do Servidor SQL (SSIS) no seu Servidor 
 
 Para saber mais sobre este cenário e etapas de configuração para DMS, consulte [Migrate a sua base de dados no local para gerir a instância usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
-### <a name="native-restore-from-url"></a>Restauro nativo da URL
+### <a name="native-restore-from-url"></a>RESTAURO nativo a partir do URL
 
 Restaurar as cópias de segurança nativas (ficheiros.bak) tiradas do SQL Server no local ou [do SQL Server em Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponível no [Armazenamento Azure,](https://azure.microsoft.com/services/storage/)é uma das principais capacidades da opção de implementação de instâncias geridas que permite uma migração rápida e fácil da base de dados offline.
 
@@ -181,7 +181,7 @@ Faça a alteração dos parâmetros ou dos níveis de serviço de upgrade para c
 A Managed Instance fornece um monte de ferramentas avançadas para monitorização e resolução de problemas, e você deve usá-las para monitorizar o desempenho na sua instância. Alguns dos parâmetros que a sua necessidade de monitorizar são:
 - A utilização do CPU na instância para determinar o número de vCores que você provisionou é a combinação certa para a sua carga de trabalho.
 - A esperança de vida de página na sua Instância Gerida para determinar [se precisa de memória adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Espere estatísticas como `INSTANCE_LOG_GOVERNOR` ou `PAGEIOLATCH` que dirão que você tem problemas de IO de armazenamento, especialmente no nível De Propósito Geral, onde você pode precisar pré-alocar ficheiros para obter um melhor desempenho io.
+- Espere estatísticas `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` como ou que dirão que tem problemas de IO de armazenamento, especialmente no nível De Propósito Geral, onde poderá ser necessário pré-atribuir ficheiros para obter um melhor desempenho io.
 
 ## <a name="leverage-advanced-paas-features"></a>Alavancar funcionalidades avançadas do PaaS
 

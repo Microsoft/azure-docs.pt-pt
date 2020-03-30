@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: f651beb181430f65d0b4c86f285e74958f8366eb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588888"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de processadores de feed de mudança para o Azure Cosmos DB .NET V3 SDK
@@ -21,23 +21,23 @@ Este artigo descreve as etapas necessárias para migrar o código de uma aplica�
 
 O .NET V3 SDK tem várias alterações de rutura, as seguintes são os passos-chave para migrar a sua aplicação:
 
-1. Converter as `DocumentCollectionInfo` instâncias em referências `Container` para os contentores monitorizados e de arrendamento.
-1. As personalizações que utilizam `WithProcessorOptions` devem ser atualizadas para utilizar `WithLeaseConfiguration` e `WithPollInterval` para intervalos, `WithStartTime` para a hora de [início,](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima do artigo.
-1. Detete o `processorName` `GetChangeFeedProcessorBuilder` para corresponder ao valor configurado no `ChangeFeedProcessorOptions.LeasePrefix`, ou utilize `string.Empty` de outra forma.
-1. As alterações já não são entregues como `IReadOnlyList<Document>`, em vez disso, é um `IReadOnlyCollection<T>` em que `T` é um tipo que precisa definir, já não há classe de item base.
+1. Converter `DocumentCollectionInfo` as instâncias em `Container` referências para os contentores monitorizados e aluga.
+1. As personalizações `WithProcessorOptions` que utilizam devem `WithLeaseConfiguration` `WithPollInterval` ser atualizadas `WithStartTime` para utilização `WithMaxItems` e para intervalos, para a hora de [início,](how-to-configure-change-feed-start-time.md)e para definir a contagem máxima do artigo.
+1. `processorName` Desloque o `GetChangeFeedProcessorBuilder` on para `ChangeFeedProcessorOptions.LeasePrefix`combinar `string.Empty` com o valor configurado ou utilize de outra forma.
+1. As alterações já não `IReadOnlyList<Document>`são entregues como `IReadOnlyCollection<T>` um `T` , em vez disso, é um tipo onde é um tipo que você precisa definir, não há mais classe de item base.
 1. Para lidar com as alterações, já não precisa de uma implementação, em vez disso precisa de [definir um delegado.](change-feed-processor.md#implementing-the-change-feed-processor) O delegado pode ser uma Função Estática ou, se precisar manter o estado através das execuções, pode criar a sua própria classe e passar um método de instância como delegado.
 
 Por exemplo, se o código original para construir o processador de feed de mudança for o seguinte:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorLibrary":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorLibrary)]
 
 O código migrado vai parecer:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorMigrated":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
 
 E o delegado pode ser um método estático:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="Delegate":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
 
 ## <a name="state-and-lease-container"></a>Contentor do Estado e do arrendamento
 
@@ -62,5 +62,5 @@ Pode parar com segurança a aplicação utilizando o código antigo, migrar o c�
 Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do processador de feed de mudança](change-feed-processor.md)
-* [Utilização do estimador de alimentação de alteração](how-to-use-change-feed-estimator.md)
-* [Alterar a hora de início do processador de feed](how-to-configure-change-feed-start-time.md)
+* [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
+* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

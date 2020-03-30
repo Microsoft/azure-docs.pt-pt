@@ -1,5 +1,5 @@
 ---
-title: 'Guia de introdução: Tabela API com Python - Azure Cosmos DB'
+title: 'Quickstart: Tabela API com Python - Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a API de Tabela do Azure Cosmos DB para criar uma aplicação com o portal do Azure e Python
 author: SnehaGunda
 ms.service: cosmos-db
@@ -10,10 +10,10 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77212738"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com Python e Azure Cosmos DB
@@ -21,17 +21,17 @@ ms.locfileid: "77212738"
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
-> * [python](create-table-python.md)
+> * [Nó.js](create-table-nodejs.md)
+> * [Pitão](create-table-python.md)
 > 
 
 Neste arranque rápido, cria-se e gere-se uma conta API de Mesa Azure Cosmos DB a partir do portal Azure, e do Visual Studio com uma aplicação Python clonada do GitHub. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
 - [Visual Studio 2019,](https://www.visualstudio.com/downloads/)com o **desenvolvimento azure** e as cargas de trabalho de **desenvolvimento python** selecionadas durante a configuração. 
-- [Git](https://git-scm.com/downloads).
+- [Git.](https://git-scm.com/downloads)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -101,7 +101,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 3. Prima F5 para executar a aplicação. A aplicação é apresentada no browser. 
 
-Agora pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com estes dados novos. 
+Agora pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com estes novos dados. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

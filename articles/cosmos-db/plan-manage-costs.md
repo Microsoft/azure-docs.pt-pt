@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152589"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planear e gerir custos para a Azure Cosmos DB
@@ -22,7 +22,7 @@ Entenda que os custos para o Azure Cosmos DB são apenas uma parte dos custos me
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custo dá suporte a diferentes tipos de tipos de conta do Azure. Para ver a lista completa dos tipos de conta suportados, consulte [compreender os dados da Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md). Para exibir dados de custo, você precisa de pelo menos acesso de leitura para sua conta do Azure. Para obter informações sobre a atribuição de acesso aos dados da Azure Cost Management, consulte [O acesso atribuído aos dados.](../cost-management-billing/costs/assign-access-acm-data.md)
+A análise de custos suporta diferentes tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure. Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md).
 
 ## <a name="review-estimated-costs-with-capacity-calculator"></a>Rever os custos estimados com calculadora de capacidade
 
@@ -47,7 +47,7 @@ Se a sua subscrição Azure tiver um limite de gastos, o Azure impede-o de gasta
 
 ## <a name="use-budgets-and-cost-alerts"></a>Utilizar orçamentos e alertas de custo
 
-Pode criar [orçamentos](../cost-management/tutorial-acm-create-budgets.md) para gerir custos e criar alertas que notificam automaticamente as partes interessadas de gastar anomalias e riscos de gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições do Azure e grupos de recursos, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, podem ter uma funcionalidade limitada para gerir custos individuais de serviço Azure, como o custo do Azure Cosmos DB, porque são projetados para rastrear custos a um nível mais elevado.
+Pode criar [orçamentos](../cost-management/tutorial-acm-create-budgets.md) para gerir custos e criar alertas que notifiquem automaticamente as partes interessadas das anomalias nos gastos e do risco em fazer gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições do Azure e grupos de recursos, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, podem ter uma funcionalidade limitada para gerir custos individuais de serviço Azure, como o custo do Azure Cosmos DB, porque são projetados para rastrear custos a um nível mais elevado.
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 
@@ -55,7 +55,7 @@ Ao utilizar recursos com a Azure Cosmos DB, incorre em custos. Os custos da unid
 
 Quando utilizar a análise de custos, pode ver os custos do Azure Cosmos DB em gráficos e tabelas para diferentes intervalos de tempo. Alguns exemplos são de dia, corrente, mês anterior e ano. Pode também ver os custos com orçamentos e os custos previstos. Mudar para vistas mais longas ao longo do tempo pode ajudá-lo a identificar as tendências de gastos e ver onde poderia ter ocorrido gastos excessivos. Se criou orçamentos, também pode facilmente ver onde foram ultrapassados. Para ver os custos da DB da Azure Cosmos na análise de custos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Assine no [portal Azure.](https://portal.azure.com)
 
 1. Abra a janela **Cost Management + Billing,** selecione Gestão de **Custos** do menu e, em seguida, selecione **análise de custos**. Em seguida, pode alterar a margem de manobra para uma subscrição específica a partir do **dropdown** scope.
 

@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77210374"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
@@ -20,18 +20,18 @@ ms.locfileid: "77210374"
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
-> * [Node.js](create-cassandra-nodejs.md)
-> * [python](create-cassandra-python.md)
+> * [Nó.js](create-cassandra-nodejs.md)
+> * [Pitão](create-cassandra-python.md)
 >  
 
 Neste arranque rápido, cria-se uma conta API da API da Azure Cosmos DB Cassandra, e usa-se uma aplicação Cassandra Node.js clonada do GitHub para criar uma base de dados e um contentor da Cassandra. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso, necessita:
-* Versão de [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) v0.10.29 ou superior
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) versão v0.10.29 ou superior
 * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -196,7 +196,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
-1. Transfira o certificado de raiz da CyberTrust Baltimore localmente a partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Mude o nome do ficheiro através da extensão de ficheiro `.cer`.
+1. Descarregue o certificado Baltimore [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)CyberTrust Root localmente a partir de . Mude o nome do ficheiro através da extensão de ficheiro `.cer`.
 
    O certificado tem o número de série `02:00:00:b9` e a identificação digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -209,16 +209,16 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 > 
 > Clique duas vezes no ficheiro .crt para o abrir no visor do certificado. 
 >
-> ![Verificar a saída](./media/create-cassandra-nodejs/crtcer1.gif)
+> ![Ver e verificar a saída](./media/create-cassandra-nodejs/crtcer1.gif)
 >
 > Prima next on the Certificate Wizard. Selecione Base-64 codificada X.509 (. CER), então Seguinte.
 >
-> ![Verificar a saída](./media/create-cassandra-nodejs/crtcer2.gif)
+> ![Ver e verificar a saída](./media/create-cassandra-nodejs/crtcer2.gif)
 >
 > Selecione Browse (para localizar um destino) e escreva num nome de ficheiro.
 > Selecione Seguinte e depois termine.
 >
-> Agora deve ter um ficheiro .cer devidamente formatado. Certifique-se de que o caminho em `uprofile.js` aponta para este ficheiro.
+> Agora deve ter um ficheiro .cer devidamente formatado. Certifique-se de `uprofile.js` que o caminho em pontos para este ficheiro.
 
 ## <a name="run-the-nodejs-app"></a>Execute a aplicação Node.js
 
@@ -228,13 +228,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     cd azure-cosmos-db-cassandra-nodejs-getting-started
     ```
 
-2. Executar `npm install` para instalar os módulos npm necessários.
+2. Corra `npm install` para instalar os módulos npm necessários.
 
 3. Execute `node uprofile.js` para iniciar a aplicação de nó.
 
 4. Verifique os resultados como esperado na linha de comandos.
 
-    ![Verificar a saída](./media/create-cassandra-nodejs/output.png)
+    ![Ver e verificar a saída](./media/create-cassandra-nodejs/output.png)
 
     Prima CTRL+C para parar a execução do programa e fechar a janela da consola. 
 

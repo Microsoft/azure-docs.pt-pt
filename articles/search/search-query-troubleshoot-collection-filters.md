@@ -1,7 +1,7 @@
 ---
-title: Solucionando problemas de filtros de coleção OData
+title: Resolução de problemas filtros de recolha oData
 titleSuffix: Azure Cognitive Search
-description: Aprenda as abordagens para resolver erros de filtro de coleção OData em consultas de Pesquisa Cognitiva do Azure.
+description: Aprenda abordagens para resolver erros de filtro de recolha oData em consultas de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,57 +20,57 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113091"
 ---
-# <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Solução de problemas de filtros de coleção OData no Azure Pesquisa Cognitiva
+# <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Filtros de recolha de OData de resolução de problemas em Pesquisa Cognitiva Azure
 
-Para [Filtrar](query-odata-filter-orderby-syntax.md) os campos de coleção no Azure pesquisa cognitiva, você pode usar os [operadores`any` e `all`](search-query-odata-collection-operators.md) juntos com **expressões lambda**. Uma expressão lambda é um subfiltro que é aplicado a cada elemento de uma coleção.
+Para [filtrar](query-odata-filter-orderby-syntax.md) em campos de recolha em Azure Cognitive Search, pode utilizar os [ `any` e `all` operadores](search-query-odata-collection-operators.md) juntamente com **expressões de lambda.** Uma expressão lambda é um sub-filtro que é aplicado a cada elemento de uma coleção.
 
-Nem todo recurso de expressões de filtro está disponível dentro de uma expressão lambda. Quais recursos estão disponíveis diferem dependendo do tipo de dados do campo de coleção que você deseja filtrar. Isso pode resultar em um erro se você tentar usar um recurso em uma expressão lambda que não tenha suporte nesse contexto. Se você estiver encontrando esses erros ao tentar escrever um filtro complexo nos campos de coleção, este artigo o ajudará a solucionar o problema.
+Nem todas as características das expressões de filtro estão disponíveis dentro de uma expressão lambda. Quais as funcionalidades disponíveis diferem consoante o tipo de dados do campo de recolha que pretende filtrar. Isto pode resultar num erro se tentar usar uma característica numa expressão lambda que não é suportada nesse contexto. Se você está encontrando tais erros enquanto tenta escrever um filtro complexo sobre campos de coleção, este artigo vai ajudá-lo a resolver o problema.
 
-## <a name="common-collection-filter-errors"></a>Erros de filtro de coleção comum
+## <a name="common-collection-filter-errors"></a>Erros comuns do filtro de recolha
 
-A tabela a seguir lista os erros que você pode encontrar ao tentar executar um filtro de coleção. Esses erros ocorrem quando você usa um recurso de expressões de filtro que não tem suporte dentro de uma expressão lambda. Cada erro fornece algumas diretrizes sobre como você pode reescrever seu filtro para evitar o erro. A tabela também inclui um link para a seção relevante deste artigo que fornece mais informações sobre como evitar esse erro.
+A tabela seguinte enumera erros que poderá encontrar ao tentar executar um filtro de recolha. Estes erros acontecem quando se usa uma característica de expressões de filtro que não é suportada dentro de uma expressão de lambda. Cada erro dá alguma orientação sobre como pode reescrever o filtro para evitar o erro. O quadro inclui também um link para a secção relevante deste artigo que fornece mais informações sobre como evitar esse erro.
 
-| Mensagem de erro | Ocorrer | Para obter mais informações, veja |
+| Mensagem de erro | Situação | Para obter mais informações, veja |
 | --- | --- | --- |
-| A função ' IsMatch ' não tem parâmetros associados ao ' s da variável de intervalo '. Só há suporte para referências de campo associadas dentro de expressões lambda (' any ' ou ' all'). Altere seu filtro para que a função ' IsMatch ' esteja fora da expressão lambda e tente novamente. | Usando `search.ismatch` ou `search.ismatchscoring` dentro de uma expressão lambda | [Regras para filtrar coleções complexas](#bkmk_complex) |
-| Expressão lambda inválida. Foi encontrado um teste para igualdade ou desigualdade em que o oposto era esperado em uma expressão lambda que itera em um campo da coleção de tipos (EDM. String). Para ' any ', use expressões do formato ' x EQ y ' ou ' search.in (...) '. Para ' all', use expressões do formato ' x ne y ', ' not (x EQ y) ' ou ' not search.in (...) '. | Filtragem em um campo do tipo `Collection(Edm.String)` | [Regras para filtrar coleções de cadeias de caracteres](#bkmk_strings) |
-| Expressão lambda inválida. Encontrada uma forma sem suporte de expressão booliana complexa. Para ' any ', use expressões que sejam ' ORs de ANDs ', também conhecida como forma normal disjunctive. Por exemplo: ' (a e b) ou (c e d) ', em que a, b, c e d são subexpressãos de comparação ou de igualdade. Para ' all', use expressões que sejam ' ANDs of ORs ', também conhecidas como forma normal conjuntiva. Por exemplo: ' (a ou b) e (c ou d) ', em que a, b, c e d são subexpressãos de comparação ou desigualdade. Exemplos de expressões de comparação: ' x gt 5 ', ' x Le 2 '. Exemplo de uma expressão de igualdade: ' x EQ 5 '. Exemplo de uma expressão de desigualdade: ' x ne 5 '. | Filtragem em campos do tipo `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`ou `Collection(Edm.Int64)` | [Regras para filtragem de coleções comparáveis](#bkmk_comparables) |
-| Expressão lambda inválida. Foi encontrado um uso sem suporte de geograficamente. distance () ou Geo. interseccionations () em uma expressão lambda que itera sobre um campo da coleção de tipos (EDM. GeographyPoint). Para ' any ', certifique-se de comparar Geo. distance () usando os operadores ' lt ' ou ' Le ' e certifique-se de que qualquer uso de geográfico. Intersects () não seja negado. Para ' todos ', certifique-se de comparar a área geográfica. distance () usando os operadores ' gt ' ou ' ge ' e certifique-se de que qualquer uso de Geo. interseção () seja negado. | Filtragem em um campo do tipo `Collection(Edm.GeographyPoint)` | [Regras para filtragem de coleções GeographyPoint](#bkmk_geopoints) |
-| Expressão lambda inválida. Não há suporte para expressões booleanas complexas em expressões lambda que iteram em campos da coleção de tipos (EDM. GeographyPoint). Para ' any ', ingresse em subexpressãos com ' or '; Não há suporte para ' and '. Para ' all', junte-se a subexpressãos com ' and '; Não há suporte para ' or '. | Filtragem em campos do tipo `Collection(Edm.String)` ou `Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções de cadeias de caracteres](#bkmk_strings) <br/><br/> [Regras para filtragem de coleções GeographyPoint](#bkmk_geopoints) |
-| Expressão lambda inválida. Encontrado um operador de comparação (um de ' lt ', ' Le ', ' gt ' ou ' ge '). Somente operadores de igualdade são permitidos em expressões lambda que iteram sobre campos da coleção de tipos (EDM. String). Para ' any ', use expressões do formato ' x EQ y '. Para ' all', use expressões do formato ' x ne y ' ou ' not (x EQ y) '. | Filtragem em um campo do tipo `Collection(Edm.String)` | [Regras para filtrar coleções de cadeias de caracteres](#bkmk_strings) |
+| A função 'ismatch' não tem parâmetros ligados à variável de gama 's'. Apenas as referências de campo encadernadas são suportadas dentro das expressões lambda ('qualquer' ou 'all'). Por favor, mude o filtro para que a função 'ismatch' fique fora da expressão lambda e tente novamente. | Usando `search.ismatch` `search.ismatchscoring` ou dentro de uma expressão lambda | [Regras para filtrar coleções complexas](#bkmk_complex) |
+| Expressão de lambda inválida. Encontrou um teste para a igualdade ou desigualdade onde se esperava o contrário numa expressão de lambda que iterates sobre um campo de tipo Collection (Edm.String). Para "qualquer", utilize expressões do formulário 'x eq y' ou 'search.in(...)'. Para 'todos', utilize expressões da forma 'x ne y', 'not (x eq y)', ou 'não search.in(...)'. | Filtragem em um campo de tipo`Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
+| Expressão de lambda inválida. Encontrou uma forma não apoiada de expressão booleancomplexa complexa. Para "qualquer", utilize expressões que sejam "ORs of ANDs", também conhecidacomo Forma Normal Disjuntiva. Por exemplo: «a e b) ou (c e d)» quando as subexpressões de comparação ou de igualdade. Para "todos", utilize expressões que são "ANDs of ORs", também conhecidacomo Forma Normal Conjuntiva. Por exemplo: «a ou b) e c ou d, quando as subexpressões de comparação ou de desigualdade são subexpressões de comparação ou desigualdade. Exemplos de expressões de comparação: 'x gt 5', 'x le 2'. Exemplo de uma expressão de igualdade: 'x eq 5'. Exemplo de uma expressão de desigualdade: 'x ne 5'. | Filtragem em campos `Collection(Edm.DateTimeOffset)` `Collection(Edm.Double)`de `Collection(Edm.Int32)`tipo, , ou`Collection(Edm.Int64)` | [Regras para a filtragem de coleções comparáveis](#bkmk_comparables) |
+| Expressão de lambda inválida. Encontrou um uso não suportado de geo.distance() ou geo.intersects() numa expressão lambda que iterates sobre um campo de coleção tipo (Edm.GeographyPoint). Para "qualquer", certifique-se de comparar geo.distance() utilizando os operadores 'lt' ou 'le' e certifique-se de que qualquer utilização de geo.intersects() não é negada. Para 'todos', certifique-se de comparar geo.distance() utilizando os operadores 'gt' ou 'ge' e certifique-se de que qualquer utilização de geo.intersects() é negada. | Filtragem em um campo de tipo`Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções de GeografiaPoint](#bkmk_geopoints) |
+| Expressão de lambda inválida. Expressões booleanas complexas não são suportadas em expressões de lambda que iteram sobre campos de tipo Coleção (Edm.GeographyPoint). Para "qualquer", por favor, junte-se às subexpressões com 'ou'; "e" não é apoiado. Para 'todos', por favor junte-se a subexpressões com 'e'; "ou" não é apoiado. | Filtragem em campos `Collection(Edm.String)` de tipo ou`Collection(Edm.GeographyPoint)` | [Regras para filtrar coleções de cordas](#bkmk_strings) <br/><br/> [Regras para filtrar coleções de GeografiaPoint](#bkmk_geopoints) |
+| Expressão de lambda inválida. Encontrou um operador de comparação (um de 'lt', 'le', 'gt' ou 'ge'). Apenas os operadores de igualdade são permitidos em expressões de lambda que iteram sobre campos de tipo Coleção (Edm.String). Para "qualquer", utilize expressões do formulário 'x eq y'. Para 'todos', utilize expressões do formulário 'x ne y' ou 'not (x eq y)'. | Filtragem em um campo de tipo`Collection(Edm.String)` | [Regras para filtrar coleções de cordas](#bkmk_strings) |
 
 <a name="bkmk_examples"></a>
 
-## <a name="how-to-write-valid-collection-filters"></a>Como escrever filtros de coleção válidos
+## <a name="how-to-write-valid-collection-filters"></a>Como escrever filtros de recolha válidos
 
-As regras para gravar filtros de coleção válidos são diferentes para cada tipo de dados. As seções a seguir descrevem as regras mostrando exemplos de quais recursos de filtro têm suporte e quais não são:
+As regras para a escrita de filtros de recolha válidos são diferentes para cada tipo de dados. As seguintes secções descrevem as regras mostrando exemplos de que as funcionalidades do filtro são suportadas e que não são:
 
-- [Regras para filtrar coleções de cadeias de caracteres](#bkmk_strings)
-- [Regras para filtragem de coleções booleanas](#bkmk_bools)
-- [Regras para filtragem de coleções GeographyPoint](#bkmk_geopoints)
-- [Regras para filtragem de coleções comparáveis](#bkmk_comparables)
+- [Regras para filtrar coleções de cordas](#bkmk_strings)
+- [Regras para filtrar coleções Boolean](#bkmk_bools)
+- [Regras para filtrar coleções de GeografiaPoint](#bkmk_geopoints)
+- [Regras para a filtragem de coleções comparáveis](#bkmk_comparables)
 - [Regras para filtrar coleções complexas](#bkmk_complex)
 
 <a name="bkmk_strings"></a>
 
-## <a name="rules-for-filtering-string-collections"></a>Regras para filtrar coleções de cadeias de caracteres
+## <a name="rules-for-filtering-string-collections"></a>Regras para filtrar coleções de cordas
 
-Dentro de expressões lambda para coleções de cadeias de caracteres, os únicos operadores de comparação que podem ser usados são `eq` e `ne`.
+Dentro de expressões de lambda para coleções de `eq` cordas, os únicos operadores de comparação que podem ser usados são e `ne`.
 
 > [!NOTE]
-> O Azure Pesquisa Cognitiva não dá suporte aos operadores `lt`/`le`/`gt`/`ge` para cadeias de caracteres, dentro ou fora de uma expressão lambda.
+> A Azure Cognitive Search `lt` / `le` / `gt` / `ge` não suporta os operadores para cordas, seja dentro ou fora de uma expressão de lambda.
 
-O corpo de um `any` só pode testar a igualdade, enquanto o corpo de um `all` só pode testar desigualdade.
+O corpo `any` de um só pode testar a `all` igualdade enquanto o corpo de um só pode testar a desigualdade.
 
-Também é possível combinar várias expressões por meio de `or` no corpo de um `any`e por meio de `and` no corpo de um `all`. Como a função `search.in` é equivalente a combinar verificações de igualdade com `or`, ela também é permitida no corpo de uma `any`. Por outro lado, `not search.in` é permitido no corpo de um `all`.
+Também é possível combinar múltiplas `or` expressões através `any`do `and` corpo de um `all`, e via no corpo de um . Uma `search.in` vez que a função é `or`equivalente a combinar verificações de `any`igualdade com, também é permitida no corpo de um . Inversamente, `not search.in` é permitido no `all`corpo de um .
 
-Por exemplo, essas expressões são permitidas:
+Por exemplo, estas expressões são permitidas:
 
 - `tags/any(t: t eq 'books')`
 - `tags/any(t: search.in(t, 'books, games, toys'))`
@@ -80,7 +80,7 @@ Por exemplo, essas expressões são permitidas:
 - `tags/any(t: t eq 'books' or t eq 'games')`
 - `tags/all(t: t ne 'books' and not (t eq 'games'))`
 
-Embora essas expressões não sejam permitidas:
+enquanto estas expressões não são permitidas:
 
 - `tags/any(t: t ne 'books')`
 - `tags/any(t: not search.in(t, 'books, games, toys'))`
@@ -91,11 +91,11 @@ Embora essas expressões não sejam permitidas:
 
 <a name="bkmk_bools"></a>
 
-## <a name="rules-for-filtering-boolean-collections"></a>Regras para filtragem de coleções booleanas
+## <a name="rules-for-filtering-boolean-collections"></a>Regras para filtrar coleções Boolean
 
-O tipo `Edm.Boolean` dá suporte apenas aos operadores `eq` e `ne`. Assim, não faz muito sentido permitir a combinação dessas cláusulas que verificam a mesma variável de intervalo com `and`/`or` já que isso sempre levaria a tautologies ou contraditórias.
+O `Edm.Boolean` tipo suporta `eq` apenas os operadores e operadores. `ne` Como tal, não faz muito sentido permitir combinar tais cláusulas que `and` / `or` verificam a mesma variável de gama, uma vez que isso levaria sempre a tautologias ou contradições.
 
-Aqui estão alguns exemplos de filtros em coleções booleanas que são permitidos:
+Aqui estão alguns exemplos de filtros em coleções Boolean as que são permitidas:
 
 - `flags/any(f: f)`
 - `flags/all(f: f)`
@@ -104,9 +104,9 @@ Aqui estão alguns exemplos de filtros em coleções booleanas que são permitid
 - `flags/all(f: not f)`
 - `flags/all(f: not (f eq true))`
 
-Ao contrário das coleções de cadeias de caracteres, as coleções booleanas não têm limites em qual operador pode ser usado em qual tipo de expressão lambda. Tanto `eq` quanto `ne` podem ser usados no corpo de `any` ou `all`.
+Ao contrário das coleções de cordas, as coleções Boolean não têm limites para que o operador possa ser utilizado em que tipo de expressão lambda. Ambos `eq` `ne` e podem ser usados no corpo de `any` ou `all`.
 
-Expressões como as seguintes não são permitidas para coleções boolianas:
+Expressões como as seguintes não são permitidas para coleções booleanas:
 
 - `flags/any(f: f or not f)`
 - `flags/any(f: f or f)`
@@ -115,17 +115,17 @@ Expressões como as seguintes não são permitidas para coleções boolianas:
 
 <a name="bkmk_geopoints"></a>
 
-## <a name="rules-for-filtering-geographypoint-collections"></a>Regras para filtragem de coleções GeographyPoint
+## <a name="rules-for-filtering-geographypoint-collections"></a>Regras para filtrar coleções de GeografiaPoint
 
-Os valores do tipo `Edm.GeographyPoint` em uma coleção não podem ser comparados diretamente entre si. Em vez disso, eles devem ser usados como parâmetros para as funções `geo.distance` e `geo.intersects`. A função `geo.distance`, por sua vez, deve ser comparada a um valor de distância usando um dos operadores de comparação `lt`, `le`, `gt`ou `ge`. Essas regras também se aplicam aos campos de não coleção EDM. GeographyPoint.
+Valores `Edm.GeographyPoint` de tipo numa coleção não podem ser comparados diretamente uns com os outros. Em vez disso, devem ser `geo.distance` utilizados como parâmetros para as funções e funções. `geo.intersects` A `geo.distance` função, por sua vez, deve ser comparada `lt` `le`a `gt`um `ge`valor de distância utilizando um dos operadores de comparação, ou . Estas regras aplicam-se também aos campos Edm.GeographyPoint não-colectores.
 
-Assim como as coleções de cadeias de caracteres, `Edm.GeographyPoint` coleções têm algumas regras sobre como as funções geoespaciais podem ser usadas e combinadas nos diferentes tipos de expressões lambda:
+Tal como as `Edm.GeographyPoint` coleções de cordas, as coleções têm algumas regras para a forma como as funções geo-espaciais podem ser usadas e combinadas nos diferentes tipos de expressões de lambda:
 
-- Quais operadores de comparação você pode usar com a função `geo.distance` depende do tipo de expressão lambda. Por `any`, você pode usar somente `lt` ou `le`. Por `all`, você pode usar somente `gt` ou `ge`. Você pode negar expressões que envolvam `geo.distance`, mas precisará alterar o operador de comparação (`geo.distance(...) lt x` se torna `not (geo.distance(...) ge x)` e `geo.distance(...) le x` se torna `not (geo.distance(...) gt x)`).
-- No corpo de um `all`, a função `geo.intersects` deve ser negada. Por outro lado, no corpo de um `any`, a função `geo.intersects` não deve ser negada.
-- No corpo de uma `any`, as expressões espaciais geográficas podem ser combinadas usando `or`. No corpo de um `all`, essas expressões podem ser combinadas usando `and`.
+- Que operadores de comparação pode usar com a `geo.distance` função depende do tipo de expressão lambda. Para, `any`só pode `lt` `le`utilizar ou . Para, `all`só pode `gt` `ge`utilizar ou . Pode anular expressões `geo.distance`envolvendo, mas terá de mudar`geo.distance(...) lt x` o `not (geo.distance(...) ge x)` `geo.distance(...) le x` operador `not (geo.distance(...) gt x)`de comparação ( torna-se e torna-se).
+- No corpo de `all`um, a `geo.intersects` função deve ser negada. Inversamente, no corpo `any`de `geo.intersects` um, a função não deve ser negada.
+- No corpo de `any`uma , expressões geo-espaciais podem ser combinadas usando `or`. No corpo de `all`um, tais expressões `and`podem ser combinadas usando .
 
-As limitações acima existem por motivos semelhantes como a limitação de igualdade/desigualdade em coleções de cadeias de caracteres. Consulte [noções básicas sobre filtros de coleção OData no Azure pesquisa cognitiva](search-query-understand-collection-filters.md) para obter uma visão mais profunda desses motivos.
+As limitações acima existem por razões semelhantes à limitação da igualdade/desigualdade nas coleções de cordas. Consulte [a Compreensão dos filtros de recolha oData em Azure Cognitive Search](search-query-understand-collection-filters.md) para uma análise mais profunda destas razões.
 
 Aqui estão alguns exemplos de filtros em `Edm.GeographyPoint` coleções que são permitidas:
 
@@ -133,7 +133,7 @@ Aqui estão alguns exemplos de filtros em `Edm.GeographyPoint` coleções que s�
 - `locations/any(l: not (geo.distance(l, geography'POINT(-122 49)') ge 10) or geo.intersects(l, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))`
 - `locations/all(l: geo.distance(l, geography'POINT(-122 49)') ge 10 and not geo.intersects(l, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))`
 
-Expressões como as seguintes não são permitidas para coleções de `Edm.GeographyPoint`:
+Não são permitidas expressões `Edm.GeographyPoint` como as seguintes coleções:
 
 - `locations/any(l: l eq geography'POINT(-122 49)')`
 - `locations/any(l: not geo.intersects(l, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))`
@@ -145,88 +145,88 @@ Expressões como as seguintes não são permitidas para coleções de `Edm.Geogr
 
 <a name="bkmk_comparables"></a>
 
-## <a name="rules-for-filtering-comparable-collections"></a>Regras para filtragem de coleções comparáveis
+## <a name="rules-for-filtering-comparable-collections"></a>Regras para a filtragem de coleções comparáveis
 
-Esta seção se aplica a todos os seguintes tipos de dados:
+Esta secção aplica-se a todos os seguintes tipos de dados:
 
 - `Collection(Edm.DateTimeOffset)`
 - `Collection(Edm.Double)`
 - `Collection(Edm.Int32)`
 - `Collection(Edm.Int64)`
 
-Tipos como `Edm.Int32` e `Edm.DateTimeOffset` oferecem suporte a todos os seis operadores de comparação: `eq`, `ne`, `lt`, `le`, `gt`e `ge`. Expressões lambda sobre coleções desses tipos podem conter expressões simples usando qualquer um desses operadores. Isso se aplica a `any` e `all`. Por exemplo, esses filtros são permitidos:
+Tipos como `Edm.Int32` `Edm.DateTimeOffset` e suporte aos seis `eq`operadores `lt` `le`de `gt`comparação: , `ge` `ne`, , e . As expressões da Lambda sobre coleções deste tipo podem conter expressões simples usando qualquer um destes operadores. Isto aplica-se `any` `all`tanto a ambos como . Por exemplo, estes filtros são permitidos:
 
 - `ratings/any(r: r ne 5)`
 - `dates/any(d: d gt 2017-08-24T00:00:00Z)`
 - `not margins/all(m: m eq 3.5)`
 
-No entanto, há limitações sobre como essas expressões de comparação podem ser combinadas em expressões mais complexas dentro de uma expressão lambda:
+No entanto, existem limitações na forma como tais expressões de comparação podem ser combinadas em expressões mais complexas dentro de uma expressão lambda:
 
-- Regras para `any`:
-  - Expressões de desigualdade simples não podem ser combinadas de forma útil com nenhuma outra expressão. Por exemplo, essa expressão é permitida:
+- Regras `any`para:
+  - Expressões simples de desigualdade não podem ser úteis combinadas com quaisquer outras expressões. Por exemplo, esta expressão é permitida:
     - `ratings/any(r: r ne 5)`
 
-    Mas essa expressão não é:
+    mas esta expressão não é:
     - `ratings/any(r: r ne 5 and r gt 2)`
 
-    e embora essa expressão seja permitida, ela não é útil porque as condições se sobrepõem:
+    e enquanto esta expressão é permitida, não é útil porque as condições se sobrepõem:
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - As expressões de comparação simples que envolvem `eq`, `lt`, `le`, `gt`ou `ge` podem ser combinadas com `and`/`or`. Por exemplo:
+  - Expressões de `eq`comparação `gt`simples `ge` que envolvam, `and` / `or` `lt` `le`, ou podem ser combinadas com . Por exemplo:
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - Expressões de comparação combinadas com `and` (conconjuntos) podem ser combinadas usando `or`. Esse formulário é conhecido em lógica booleana como "[disjunctive normal](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Por exemplo:
+  - As expressões `and` de comparação combinadas `or`com (conjunções) podem ser combinadas utilizando . Esta forma é conhecida na lógica booleana como "[Disjunctive Normal Form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Por exemplo:
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
-- Regras para `all`:
-  - Expressões de igualdade simples não podem ser combinadas de forma útil com outras expressões. Por exemplo, essa expressão é permitida:
+- Regras `all`para:
+  - Expressões simples de igualdade não podem ser úteis combinadas com quaisquer outras expressões. Por exemplo, esta expressão é permitida:
     - `ratings/all(r: r eq 5)`
 
-    Mas essa expressão não é:
+    mas esta expressão não é:
     - `ratings/all(r: r eq 5 or r le 2)`
 
-    e embora essa expressão seja permitida, ela não é útil porque as condições se sobrepõem:
+    e enquanto esta expressão é permitida, não é útil porque as condições se sobrepõem:
     - `ratings/all(r: r eq 5 and r le 7)`
-  - As expressões de comparação simples que envolvem `ne`, `lt`, `le`, `gt`ou `ge` podem ser combinadas com `and`/`or`. Por exemplo:
+  - Expressões de `ne`comparação `gt`simples `ge` que envolvam, `and` / `or` `lt` `le`, ou podem ser combinadas com . Por exemplo:
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - Expressões de comparação combinadas com `or` (disjunçãos) podem ser combinadas usando `and`. Esse formulário é conhecido em lógica booleana como "[conjuntiva normal](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Por exemplo:
+  - As expressões `or` de comparação combinadas com `and`(disjunções) podem ser combinadas utilizando . Esta forma é conhecida na lógica booleana como "[Forma Normal Conjuntiva](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Por exemplo:
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>
 
 ## <a name="rules-for-filtering-complex-collections"></a>Regras para filtrar coleções complexas
 
-Expressões lambda sobre coleções complexas dão suporte a uma sintaxe muito mais flexível do que expressões lambda em coleções de tipos primitivos. Você pode usar qualquer constructo de filtro dentro de uma expressão lambda que você pode usar fora de uma, com apenas duas exceções.
+As expressões lambda sobre coleções complexas suportam uma sintaxe muito mais flexível do que expressões de lambda sobre coleções de tipos primitivos. Você pode usar qualquer construção de filtro dentro de uma expressão de lambda que você pode usar fora de uma, com apenas duas exceções.
 
-Primeiro, as funções `search.ismatch` e `search.ismatchscoring` não têm suporte dentro de expressões lambda. Para obter mais informações, consulte [noções básicas sobre filtros de coleção OData no Azure pesquisa cognitiva](search-query-understand-collection-filters.md).
+Primeiro, as `search.ismatch` funções e `search.ismatchscoring` não são suportadas dentro de expressões de lambda. Para mais informações, consulte [A Compreensão dos filtros de recolha oData em Pesquisa Cognitiva Azure](search-query-understand-collection-filters.md).
 
-Segundo, a referência de campos que não estão *associados* à variável de intervalo (portanto, chamadas de *variáveis livres*) não é permitida. Por exemplo, considere as duas expressões de filtro OData equivalentes a seguir:
+Em segundo lugar, não é permitido fazer referência a campos que não estejam *ligados* à variável de gama (as chamadas *variáveis livres).* Por exemplo, considere as seguintes duas expressões equivalentes de filtro OData:
 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking')) and details/margin gt 0.5`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and details/margin gt 0.5))`
 
-A primeira expressão será permitida, enquanto o segundo formulário será rejeitado porque `details/margin` não está associado à variável de intervalo `s`.
+A primeira expressão será permitida, enquanto a `details/margin` segunda forma será rejeitada `s`porque não está ligada à variável de gama.
 
-Essa regra também se estende a expressões que têm variáveis associadas em um escopo externo. Essas variáveis são gratuitas em relação ao escopo no qual aparecem. Por exemplo, a primeira expressão é permitida, enquanto a segunda expressão equivalente não é permitida porque `s/name` é gratuita em relação ao escopo da variável de intervalo `a`:
+Esta regra estende-se também a expressões que têm variáveis ligadas num âmbito exterior. Tais variáveis são livres no que diz respeito ao âmbito em que aparecem. Por exemplo, a primeira expressão é permitida, enquanto `s/name` a segunda expressão equivalente não é `a`permitida porque é livre no que diz respeito ao âmbito da variável gama:
 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking') and s/name ne 'Flagship')`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and s/name ne 'Flagship'))`
 
-Essa limitação não deve ser um problema na prática, pois sempre é possível construir filtros, de modo que as expressões lambda contenham apenas variáveis associadas.
+Esta limitação não deve ser um problema na prática, uma vez que é sempre possível construir filtros de tal forma que as expressões de lambda contêm apenas variáveis ligadas.
 
-## <a name="cheat-sheet-for-collection-filter-rules"></a>Roteiro para regras de filtro de coleção
+## <a name="cheat-sheet-for-collection-filter-rules"></a>Folha de batota para regras de filtro de coleção
 
-A tabela a seguir resume as regras para construir filtros válidos para cada tipo de dados de coleção.
+O quadro seguinte resume as regras para a construção de filtros válidos para cada tipo de dados de recolha.
 
 [!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-Para obter exemplos de como construir filtros válidos para cada caso, consulte [como escrever filtros de coleção válidos](#bkmk_examples).
+Para exemplos de como construir filtros válidos para cada caso, consulte [Como escrever filtros de recolha válidos](#bkmk_examples).
 
-Se você escrever filtros com frequência e entender as regras dos primeiros princípios ajudaria mais do que apenas memorizar, consulte [noções básicas sobre filtros de coleção OData no Azure pesquisa cognitiva](search-query-understand-collection-filters.md).
+Se escrever filtros com frequência, e compreender as regras dos primeiros princípios, ajudá-lo-ia mais do que apenas memorizá-los, consulte a compreensão dos filtros de [recolha OData em Pesquisa Cognitiva Azure](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Noções básicas sobre filtros de coleção OData no Azure Pesquisa Cognitiva](search-query-understand-collection-filters.md)
-- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Compreender filtros de recolha oData em Pesquisa Cognitiva Azure](search-query-understand-collection-filters.md)
+- [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
+- [Visão geral da linguagem de expressão OData para pesquisa cognitiva azure](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
+- [Documentos de pesquisa &#40;pesquisa cognitiva azure REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: configurar NPM para circuitos'
-description: Configure monitorização (NPM) para circuitos do ExpressRoute do Azure de rede com base na cloud. Isto inclui a monitorização ao longo do peering privado do ExpressRoute e peering da Microsoft.
+title: 'Azure ExpressRoute: Configure NPM para circuitos'
+description: Configure a monitorização da rede baseada na nuvem (NPM) para os circuitos Azure ExpressRoute. Isto cobre a monitorização sobre o peering privado ExpressRoute e o peering da Microsoft.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,261 +8,261 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076596"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
-Este artigo ajuda-o a configurar uma extensão de Monitor de desempenho de rede para monitorizar o ExpressRoute. O Monitor de Desempenho de Rede (NPM) é uma solução de monitorização de rede com base na cloud que monitoriza a conectividade entre implementações na cloud do Azure e as localizações no local (sucursais, etc.). O NPM faz parte dos registos do Azure Monitor. O NPM oferece uma extensão para o ExpressRoute que permite monitorizar o desempenho da rede através dos circuitos do ExpressRoute que estão configurados para recorrer ao peering privado ou ao peering da Microsoft. Quando configurar o NPM para o ExpressRoute, poderá detetar problemas de rede relacionados com a identificação e eliminação. Este serviço também está disponível para a Cloud do Azure Government.
+Este artigo ajuda-o a configurar uma extensão do Monitor de Desempenho da Rede para monitorizar o ExpressRoute. O Monitor de Desempenho de Rede (NPM) é uma solução de monitorização de rede com base na cloud que monitoriza a conectividade entre implementações na cloud do Azure e as localizações no local (sucursais, etc.). O NPM faz parte dos registos do Azure Monitor. O NPM oferece uma extensão para o ExpressRoute que permite monitorizar o desempenho da rede através dos circuitos do ExpressRoute que estão configurados para recorrer ao peering privado ou ao peering da Microsoft. Quando configurar o NPM para o ExpressRoute, poderá detetar problemas de rede relacionados com a identificação e eliminação. Este serviço também está disponível para a Cloud do Azure Government.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Pode:
 
-* Monitorize perdas e latência em várias VNets e definir alertas
+* Monitorizar perda e latência em vários VNets e definir alertas
 
-* Monitorizar todos os caminhos (incluindo caminhos redundantes) na rede
+* Monitorize todos os caminhos (incluindo caminhos redundantes) na rede
 
-* Resolver problemas de rede transitórios e de ponto no tempo difíceis de replicar
+* Problemas transitórios e problemas de rede pontual que são difíceis de replicar
 
-* Ajudar a determinar um segmento específico na rede que é responsável pela diminuição do desempenho
+* Ajude a determinar um segmento específico na rede que é responsável pelo desempenho degradado
 
-* Obtenção de débito por rede virtual (se tiver de agentes instalados em cada VNet)
+* Obtenha a entrada por rede virtual (se tiver agentes instalados em cada VNet)
 
-* Ver o estado do sistema de ExpressRoute a partir de um ponto anterior no tempo
+* Consulte o estado do sistema ExpressRoute a partir de um ponto anterior no tempo
 
-## <a name="workflow"></a>Workflow
+## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
-Agentes de monitorização é instalado em vários servidores, no local e no Azure. Os agentes comunicarem entre si, mas não enviar dados, enviam pacotes de handshake TCP. A comunicação entre os agentes permite ao Azure mapear a topologia de rede e o caminho que pode levar o tráfego.
+Os agentes de monitorização estão instalados em vários servidores, tanto no local como no Azure. Os agentes comunicam uns com os outros, mas não enviam dados, enviam pacotes de aperto de mão da TCP. A comunicação entre os agentes permite ao Azure mapear a topologia da rede e o caminho que o tráfego poderia tomar.
 
-1. Crie uma área de trabalho do NPM. Este é o mesmo que uma área de trabalho do Log Analytics.
-2. Instalar e configurar agentes de software. (Se você quiser monitorar apenas o emparelhamento da Microsoft, não será necessário instalar e configurar agentes de software.): 
-    * Instale agentes de monitorização nos servidores no local e as VMs do Azure (para peering privado).
-    * Configure as definições nos servidores do agente de monitorização para permitir que os agentes de monitorização para se comunicar. (Abrir portas de firewall, etc.)
-3. Configurar regras de grupo (NSG) de segurança de rede para permitir que o agente de monitorização instalado em VMs do Azure para comunicar com locais agentes de monitorização.
-4. Configurar a monitorização: detetar automaticamente e gerir as redes que estão visíveis no NPM.
+1. Crie um espaço de trabalho NPM. Isto é o mesmo que um espaço de trabalho log Analytics.
+2. Instale e configure agentes de software. (Se apenas quiser monitorizar o Microsoft Peering, não precisa de instalar e configurar agentes de software.): 
+    * Instale agentes de monitorização nos servidores no local e nos VMs Azure (para espreitar privados).
+    * Configure as definições nos servidores do agente de monitorização para permitir a comunicação dos agentes de monitorização. (Portas de firewall abertas, etc.)
+3. Configure as regras do grupo de segurança da rede (NSG) para permitir que o agente de monitorização instalado em VMs Azure comunique com os agentes de monitorização no local.
+4. Configurar a monitorização: Descubra automaticamente e gere quais as redes visíveis em NPM.
 
-Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os outros serviços ou objetos e já tiver área de trabalho em uma das regiões suportadas, pode ignorar o passo 1 e 2 e iniciar a configuração com o passo 3.
+Se já estiver a utilizar o Monitor de Desempenho da Rede para monitorizar outros objetos ou serviços, e já tiver espaço de trabalho numa das regiões suportadas, pode saltar o Passo 1 e o Passo 2 e iniciar a sua configuração com o Passo 3.
 
-## <a name="configure"></a>Passo 1: Criar uma área de trabalho
+## <a name="step-1-create-a-workspace"></a><a name="configure"></a>Passo 1: Criar um espaço de trabalho
 
-Crie uma área de trabalho na subscrição que tem a ligação de VNets a circuitos do ExpressRoute.
+Crie um espaço de trabalho na subscrição que tenha a ligação VNets ao circuito ExpressRoute.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione a subscrição que tem as VNETs em modo de peering para o seu circuito do ExpressRoute. Em seguida, procure a lista de serviços no **Marketplace** para Monitor de desempenho da rede. No retorno, clique para abrir o **Monitor de desempenho de rede** página.
+1. No [portal Azure,](https://portal.azure.com)selecione a Subscrição que tem os VNETs espreitadas para o seu circuito ExpressRoute. Em seguida, procure na lista de serviços no **Marketplace** o 'Network Performance Monitor'. Na devolução, clique para abrir a página do Monitor de Desempenho da **Rede.**
 
    >[!NOTE]
-   >Pode criar uma nova área de trabalho ou utilizar uma área de trabalho existente. Se pretender utilizar uma área de trabalho existente, tem de certificar-se de que a área de trabalho foi migrada para a nova linguagem de consulta. [Obter mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Pode criar um novo espaço de trabalho ou utilizar um espaço de trabalho existente. Se quiser utilizar um espaço de trabalho existente, deve certificar-se de que o espaço de trabalho foi migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
-2. Na parte inferior da principal **Monitor de desempenho de rede** página, clique em **Create** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **registo de área de trabalho Analytics - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página de área de trabalho.
-3. Na página **log Analytics espaço de trabalho** , selecione **criar novo**e defina as seguintes configurações:
+2. Na parte inferior da página principal do Monitor de Desempenho da **Rede,** clique em **Criar** para abrir o Monitor de Desempenho da Rede - Criar uma nova página de **solução.** Clique em **Log Analytics Workspace - selecione um espaço de trabalho** para abrir a página Workspaces. Clique **+ Criar novo espaço** de trabalho para abrir a página Workspace.
+3. Na página **do espaço de trabalho Log Analytics,** selecione Criar **Novo**e, em seguida, configurar as seguintes definições:
 
-   * Área de trabalho de análise de registo - escreva um nome para a área de trabalho.
-   * Subscrição - se tiver várias subscrições, selecione aquele que pretende associar a área de trabalho.
-   * Grupo de recursos - crie um grupo de recursos ou utilize um já existente.
-   * -Esta localização é utilizada para especificar a localização da conta de armazenamento que é utilizada para os registos de ligação do agente.
-   * Escalão de preço - selecione o escalão de preço.
+   * Log Analytics Workspace - Digite um nome para o seu Espaço de Trabalho.
+   * Subscrição - Se tiver várias subscrições, escolha a que pretende associar ao novo Espaço de Trabalho.
+   * Grupo de recursos - Criar um grupo de recursos, ou usar um existente.
+   * Localização - Esta localização é utilizada para especificar a localização da conta de armazenamento que é utilizada para os registos de ligação do agente.
+   * Nível de preços - Selecione o nível de preços.
   
      >[!NOTE]
-     >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Não tem de estar na mesma região que a área de trabalho.
+     >O circuito ExpressRoute pode estar em qualquer lugar do mundo. Não tem de ser na mesma região que o Espaço de Trabalho.
      >
   
      ![área de trabalho](./media/how-to-npm/4.png)<br><br>
-4. Clique em **OK** para guardar e implementar o modelo de definições. Depois de valida o modelo, clique em **criar** para implementar a área de trabalho.
-5. Depois da área de trabalho ter sido implementada, navegue para o **NetworkMonitoring(name)** recurso que criou. Validar as definições, em seguida, clique em **solução requer configuração adicional**.
+4. Clique em **OK** para guardar e implementar o modelo de definições. Uma vez que o modelo validar, clique **em Criar** para implementar o Espaço de Trabalho.
+5. Depois de implementado o Workspace, navegue para o recurso **NetworkMonitoring (nome)** que criou. Validar as definições e, em seguida, clicar na **Solução requer configuração adicional**.
 
    ![configuração adicional](./media/how-to-npm/5.png)
 
-## <a name="agents"></a>Passo 2: Instalar e configurar agentes
+## <a name="step-2-install-and-configure-agents"></a><a name="agents"></a>Passo 2: Instalar e configurar agentes
 
-### <a name="download"></a>2.1: Transfira o ficheiro de configuração do agente
+### <a name="21-download-the-agent-setup-file"></a><a name="download"></a>2.1: Descarregue o ficheiro de configuração do agente
 
-1. Vá para o **definições comuns** separador da **configuração do Monitor de desempenho de rede** página para o seu recurso. Clique no agente que corresponde ao processador de seu servidor do **instalar agentes do Log Analytics** secção e transfira o ficheiro de configuração.
-2. Em seguida, copie os **ID da área de trabalho** e **chave primária** ao bloco de notas.
-3. Partir do **configurar agentes do Log Analytics para monitorizar através do protocolo TCP** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
+1. Vá ao separador **Definições Comuns** da página de **configuração** do Monitor de Desempenho da Rede para o seu recurso. Clique no agente que corresponde ao processador do seu servidor a partir da secção **Deinstalar agentes de registo** e descarregue o ficheiro de configuração.
+2. Em seguida, copie o ID do **espaço de trabalho** e a chave **primária** para o bloco de notas.
+3. A partir dos agentes de análise de **registo configure para monitorização utilizando** a secção de protocolo TCP, descarregue o Script Powershell. O script PowerShell ajuda-o a abrir a porta de firewall relevante para as transações de TCP.
 
    ![Script do PowerShell](./media/how-to-npm/7.png)
 
-### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
+### <a name="22-install-a-monitoring-agent-on-each-monitoring-server-on-each-vnet-that-you-want-to-monitor"></a><a name="installagent"></a>2.2: Instale um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
-Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do ExpressRoute para fornecer redundância (por exemplo, no local, VNETs do Azure). O agente tem de ser instalado num servidor do Windows (2008 SP1 ou posterior). A monitorização de circuitos do ExpressRoute com o sistema operacional de Desktop do Windows e o SO Linux não é suportada. Utilize os seguintes passos para instalar agentes:
+Recomendamos que instale pelo menos dois agentes em cada lado da ligação ExpressRoute para despedimento (por exemplo, no local, VNETs Azure). O agente deve ser instalado num Servidor do Windows (2008 SP1 ou posterior). Não é suportado o monitoramento dos circuitos ExpressRoute utilizando o Windows Desktop OS e o Linux OS. Utilize os seguintes passos para instalar agentes:
    
   >[!NOTE]
-  >Agentes promovida pelo SCOM (inclui [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) pode não ser capaz de detetar consistentemente a respetiva localização se estes estão alojados no Azure. Recomendamos que não use esses agentes em VNETs do Azure para monitorizar o ExpressRoute.
+  >Os agentes empurrados pela SCOM (inclui [MMA)](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)podem não ser capazes de detetar consistentemente a sua localização se estiverem hospedados em Azure. Recomendamos que não utilize estes agentes em VNETs Azure para monitorizar a ExpressRoute.
   >
 
-1. Execute **configuração** para instalar o agente em cada servidor que pretende utilizar para monitorizar o ExpressRoute. O servidor que utiliza para a monitorização pode ser uma VM ou no local e tem de ter acesso à Internet. Tem de instalar pelo menos um agente no local e outra um agente em cada segmento de rede que pretende monitorizar no Azure.
+1. Executar **Configuração** para instalar o agente em cada servidor que pretende utilizar para monitorizar o ExpressRoute. O servidor que utiliza para monitorização pode ser um VM, ou no local, e deve ter acesso à Internet. Precisa instalar pelo menos um agente no local e um agente em cada segmento de rede que pretende monitorizar no Azure.
 2. Na página **Bem-vindo**, clique em **Seguinte**.
-3. Sobre o **termos de licenciamento** página, leia a licença e, em seguida, clique em **concordo**.
-4. Sobre o **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **próxima**.
-5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de fazer sua selection(s), clique em **seguinte**.
+3. Na página Termos de **Licença,** leia a licença e clique em **I Agree**.
+4. Na página **da Pasta destino,** altere ou mantenha a pasta de instalação predefinida e, em seguida, clique **em Seguinte**.
+5. Na página Opções de Configuração do **Agente,** pode optar por ligar o agente aos registos do Monitor Azure ou ao Gestor de Operações. Ou pode deixar as escolhas em branco se quiser configurar o agente mais tarde. Depois de fazer a sua seleção, clique **em Seguinte**.
 
-   * Se optar por ligar à **do Azure Log Analytics**, cole a **ID de área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
+   * Se optou por ligar-se ao **Azure Log Analytics,** colá-lo o ID do **espaço de trabalho** e a chave do espaço de **trabalho** (Chave Primária) que copiou para o Bloco de Notas na secção anterior. Em seguida, clique **em Next**.
 
-     ![ID e a chave](./media/how-to-npm/8.png)
-   * Se tiver escolhido estabelecer ligação ao **Operations Manager**, no **configuração do grupo de gestão** página, escreva o **nome do grupo de gestão**, **servidor de gestão** e o **porta do servidor de gestão**. Clique depois em **Seguinte**.
+     ![ID e Chave](./media/how-to-npm/8.png)
+   * Se optou por ligar-se ao Gestor de **Operações,** na página de Configuração do **Grupo de Gestão,** digite o Nome do **Grupo de Gestão,** Servidor de **Gestão**e a Porta do Servidor de **Gestão.** Em seguida, clique **em Next**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Sobre o **conta de ação do agente** página, escolha o o **Sistema Local** conta, ou **domínio ou conta de computador Local**. Clique depois em **Seguinte**.
+   * Na página **da Conta de Ação do Agente,** escolha a conta do Sistema **Local,** ou **o Domínio ou a Conta De Computador Local**. Em seguida, clique **em Next**.
 
      ![Conta](./media/how-to-npm/10.png)
-6. Sobre o **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
+6. Na página **Ready to Install,** reveja as suas escolhas e, em seguida, clique em **Instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
-8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Você pode examinar a configuração ali e verificar se o agente está conectado a Azure Monitor logs. Quando estiver ligado, o agente apresenta uma mensagem que diz: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
+8. Quando estiver concluído, o Agente de Monitorização da Microsoft aparece no Painel de Controlo. Pode rever a sua configuração e verificar se o agente está ligado aos registos do Monitor Azure. Quando ligado, o agente apresenta uma mensagem indicando: O Agente de Monitorização da **Microsoft ligou-se com sucesso ao serviço Microsoft Operations Management Suite**.
 
-9. Repita este procedimento para cada VNET que tem de ser monitorizados.
+9. Repita este procedimento para cada VNET que precisa de ser monitorizado.
 
-### <a name="proxy"></a>2.3: Configurar definições de proxy (opcionais)
+### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: Configurar as definições de procuração (opcional)
 
-Se estiver a utilizar um proxy web para aceder à Internet, utilize os seguintes passos para configurar definições de proxy para o Microsoft Monitoring Agent. Efetue estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Se assim for, veja [para configurar definições de proxy para o Microsoft Monitoring Agent utilizando um script](../log-analytics/log-analytics-windows-agent.md).
+Se estiver a utilizar um representante web para aceder à Internet, utilize os seguintes passos para configurar as definições de procuração para o Microsoft Monitoring Agent. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Em caso afirmativo, consulte [Para configurar as definições de procuração para o Microsoft Monitoring Agent utilizando um script](../log-analytics/log-analytics-windows-agent.md).
 
-Para configurar definições de proxy para o Microsoft Monitoring Agent com o painel de controlo:
+Para configurar as definições de procuração para o Agente de Monitorização da Microsoft utilizando o Painel de Controlo:
 
-1. Abra o **painel de controlo**.
+1. Abra o Painel de **Controlo**.
 2. Abra o **Agente de Monitorização da Microsoft**.
 3. Clique no separador **Definições de Proxy**.
-4. Selecione **utilizar um servidor proxy** e escreva o URL e o número de porta, se for necessária. Se o servidor proxy requer autenticação, escreva o nome de utilizador e a palavra-passe para aceder ao servidor proxy.
+4. Selecione **Utilize um servidor proxy** e escreva o URL e o número de porta, se for necessário. Se o servidor proxy requer autenticação, escreva o nome de utilizador e a palavra-passe para aceder ao servidor proxy.
 
-   ![Proxy](./media/how-to-npm/11.png)
+   ![proxy](./media/how-to-npm/11.png)
 
-### <a name="verifyagent"></a>2.4: verificar a conectividade de agente
+### <a name="24-verify-agent-connectivity"></a><a name="verifyagent"></a>2.4: Verificar a conectividade do agente
 
-Pode verificar facilmente se os agentes estão a comunicar.
+Pode verificar facilmente se os seus agentes estão a comunicar.
 
-1. Num servidor com o agente de monitorização, abra a **painel de controlo**.
-2. Abra o **Microsoft Monitoring Agent**.
-3. Clique nas **do Azure Log Analytics** separador.
-4. Na coluna **status** , você verá que o agente conectou-se com êxito aos logs de Azure monitor.
+1. Num servidor com o agente de monitorização, abra o Painel de **Controlo**.
+2. Abra o **Agente de Monitorização**da Microsoft .
+3. Clique no separador **Azure Log Analytics.**
+4. Na coluna **'Estado',** deve ver se o agente ligou com sucesso aos registos do Monitor Azure.
 
    ![status](./media/how-to-npm/12.png)
 
-### <a name="firewall"></a>2.5: abrir as portas de firewall nos servidores de agente de monitorização
+### <a name="25-open-the-firewall-ports-on-the-monitoring-agent-servers"></a><a name="firewall"></a>2.5: Abra as portas de firewall nos servidores do agente de monitorização
 
-Para utilizar o protocolo TCP, é necessário abrir as portas de firewall para se certificar de que os agentes de monitorização podem comunicar.
+Para utilizar o protocolo TCP, deve abrir portas de firewall para garantir que os agentes de monitorização possam comunicar.
 
-Pode executar um script do PowerShell para criar as chaves de registo que são necessários para o Monitor de desempenho de rede. Este script cria também as regras de Firewall do Windows para permitir a monitorização de agentes para criar conexões TCP entre si. As chaves de registo criadas pelo script Especifique se pretende registar os registos de depuração e o caminho para o ficheiro de registos. Também define a porta TCP de agente utilizada para comunicação. Os valores para estas chaves são definidos automaticamente pelo script. Não deve alterar manualmente essas chaves.
+Pode executar um script PowerShell para criar as teclas de registo que são exigidas pelo Monitor de Desempenho da Rede. Este script também cria as regras do Windows Firewall para permitir que os agentes de monitorização criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se devem registar os registos de depuração e o caminho para o ficheiro de registos. Também define a porta tCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não deve mudar manualmente estas chaves.
 
-Por predefinição a porta 8084 está aberta. Pode utilizar uma porta personalizada, fornecendo o parâmetro portNumber ao script. No entanto, se fizer isso, tem de especificar a mesma porta para todos os servidores em que executa o script.
+A porta 8084 é aberta por defeito. Pode utilizar uma porta personalizada fornecendo o parâmetro 'portNumber' para o script. No entanto, se o fizer, deve especificar a mesma porta para todos os servidores em que executa o script.
 
 >[!NOTE]
->O script do PowerShell 'EnableRules' configura regras de Firewall do Windows apenas no servidor onde o script é executado. Se tiver uma firewall de rede, certifique-se de que ela permite que o tráfego destinado a porta TCP utilizada pelo Monitor de desempenho de rede.
+>O script PowerShell 'EnableRules' configura as regras do Windows Firewall apenas no servidor onde o script é executado. Se tiver uma firewall de rede, deve certificar-se de que permite o tráfego destinado à porta TCP ser utilizado pelo Monitor de Desempenho da Rede.
 >
 >
 
-Nos servidores de agente, abra uma janela do PowerShell com privilégios administrativos. Executar o [EnableRules](https://aka.ms/npmpowershellscript) script do PowerShell (que transferiu anteriormente). Não utilize quaisquer parâmetros.
+Nos servidores do agente, abra uma janela PowerShell com privilégios administrativos. Execute o script [EnableRules](https://aka.ms/npmpowershellscript) PowerShell (que descarregou anteriormente). Não use nenhum parâmetro.
 
 ![PowerShell_Script](./media/how-to-npm/script.png)
 
-## <a name="opennsg"></a>Passo 3: Configurar regras de grupo de segurança de rede
+## <a name="step-3-configure-network-security-group-rules"></a><a name="opennsg"></a>Passo 3: Configurar as regras do grupo de segurança da rede
 
-Para monitorizar os servidores de agente que estão no Azure, tem de configurar regras de grupo (NSG) de segurança de rede para permitir o tráfego TCP numa porta utilizada pelo NPM para transações sintéticas. A porta predefinida é 8084. Isso permite que um agente de monitorização instalado numa VM do Azure para comunicar com uma local do agente de monitorização.
+Para monitorizar os servidores de agentes que se encontram no Azure, é necessário configurar as regras do grupo de segurança de rede (NSG) para permitir o tráfego de TCP numa porta utilizada pela NPM para transações sintéticas. A porta padrão é 8084. Isto permite que um agente de monitorização instalado num VM Azure comunique com um agente de monitorização no local.
 
-Para obter mais informações sobre o NSG, consulte [grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Para obter mais informações sobre o NSG, consulte [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
 >[!NOTE]
->Certifique-se de que instalou os agentes (o agente do server no local e o agente do servidor do Azure) e executou o script do PowerShell antes de continuar com este passo.
+>Certifique-se de que instalou os agentes (tanto o agente de servidores no local como o agente de servidores Azure), e executou o script PowerShell antes de prosseguir com este passo.
 >
 
-## <a name="setupmonitor"></a>Passo 4: Detetar ligações de peering
+## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Passo 4: Descubra as ligações de observação
 
-1. Navegue para o mosaico de descrição geral do Monitor de desempenho de rede ao aceder a **todos os recursos** página, em seguida, clique na lista de permissões NPM área de trabalho.
+1. Navegue para o azulejo de visão geral do Monitor de Desempenho da Rede indo para a página **All Resources** e, em seguida, clique no espaço de trabalho nPM listado em branco.
 
-   ![área de trabalho do npm](./media/how-to-npm/npm.png)
-2. Clique nas **Monitor de desempenho de rede** mosaico de descrição geral para apresentar o dashboard. O dashboard contém uma página do ExpressRoute, que mostra que o ExpressRoute é um "Estado não configurado". Clique em **configuração de funcionalidade** para abrir a página de configuração de Monitor de desempenho de rede.
+   ![npm espaço de trabalho](./media/how-to-npm/npm.png)
+2. Clique no azulejo de visão geral do Monitor de Desempenho da **Rede** para elevar o painel de instrumentos. O painel contém uma página ExpressRoute, que mostra que o ExpressRoute está num "estado não configurado". Clique na **configuração** da funcionalidade para abrir a página de configuração do Monitor de Desempenho da Rede.
 
-   ![configuração de funcionalidade](./media/how-to-npm/npm2.png)
-3. Na página de configuração, navegue até a guia "Peerings do ExpressRoute", localizada no painel do lado esquerdo. Em seguida, clique em **detetar agora**.
+   ![configuração de recurso](./media/how-to-npm/npm2.png)
+3. Na página de configuração, navegue para o separador 'ExpressRoute Peerings', localizado no painel lateral esquerdo. Em seguida, clique **em Descobrir Agora**.
 
-   ![detetar](./media/how-to-npm/13.png)
-4. Quando tiver concluído a deteção, verá uma lista que contém os seguintes itens:
-   * Todas as ligações de peering da Microsoft em circuitos de ExpressRoute que estão associados esta subscrição.
-   * Todas as ligações de peering privadas que ligar às VNets associada a esta subscrição.
+   ![descobrir](./media/how-to-npm/13.png)
+4. Quando a descoberta estiver concluída, verá uma lista contendo os seguintes itens:
+   * Todas as ligações de observação da Microsoft nos circuitos ExpressRoute(s) estão associadas a esta subscrição.
+   * Todas as ligações de observação privada que se ligam aos VNets associados a esta subscrição.
             
-## <a name="configmonitor"></a>Passo 5: Configurar monitores
+## <a name="step-5-configure-monitors"></a><a name="configmonitor"></a>Passo 5: Monitores de configuração
 
-Nesta secção, vai configurar os monitores. Siga os passos para o tipo de peering que pretende monitorizar: **peering privado**, ou **peering da Microsoft**.
+Nesta secção, configura os monitores. Siga os passos para o tipo de observação que pretende monitorizar: **peering privado**, ou **Microsoft peering**.
 
 ### <a name="private-peering"></a>Peering privado
 
-Para peering privado, quando a deteção for concluído, verá serão regras para exclusivo **nome do circuito** e **nome da VNet**. Inicialmente, estas regras estão desativadas.
+Para espreitar privados, quando a descoberta estiver concluída, você verá regras para nome de **circuito** único e **nome VNet**. Inicialmente, estas regras são desativadas.
 
 ![regras](./media/how-to-npm/14.png)
 
-1. Verifique os **monitorizar este peering** caixa de verificação.
-2. Selecione a caixa de verificação **ativar a monitorização de estado de funcionamento para este peering**.
-3. Escolha as condições de monitorização. Pode definir limiares personalizados para gerar eventos de estado de funcionamento ao escrever os valores de limiar. Sempre que o valor da condição mais do seu limiar selecionado para o par de rede/sub-rede selecionada, é gerado um evento de estado de funcionamento.
-4. Clique nos agentes do ON-PREM **adicionar agentes** botão para adicionar os servidores no local a partir do qual pretende monitorizar a ligação de peering privada. Certifique-se de que escolha apenas os agentes que tenham conectividade com o ponto final do serviço Microsoft que especificou na secção para o passo 2. Os agentes no local tem de ser capazes de alcançar o ponto de extremidade usando a ligação do ExpressRoute.
+1. Verifique o Monitor esta caixa de **verificação de pares.**
+2. Selecione a caixa de verificação **Activaa a monitorização da saúde para este epeering**.
+3. Escolha as condições de monitorização. Pode definir limiares personalizados para gerar eventos de saúde digitando valores limiares. Sempre que o valor da circunstância ultrapassa o limiar selecionado para o par de rede/subrede selecionado, gera-se um evento de saúde.
+4. Clique no botão ON-PREM **Agentes adicionar agentes** para adicionar os servidores no local a partir dos quais pretende monitorizar a ligação de pares privados. Certifique-se de que escolhe apenas agentes que tenham conectividade com o ponto final do serviço da Microsoft que especificou na secção para o Passo 2. Os agentes no local devem poder chegar ao ponto final utilizando a ligação ExpressRoute.
 5. Guarde as definições.
-6. Depois de ativar as regras e selecionar os valores e os agentes que pretende monitorizar, há uma espera de aproximadamente 30 a 60 minutos para os valores começar a preencher e o **a monitorização de ExpressRoute** mosaicos para se tornarem disponíveis.
+6. Depois de ativar as regras e selecionar os valores e agentes que pretende monitorizar, há uma espera de aproximadamente 30-60 minutos para que os valores comecem a povoar e os azulejos **de Monitorização ExpressRoute** fiquem disponíveis.
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
 
-Para peering da Microsoft, clique em do Microsoft peering ligação (ões) que pretende monitorizar e configurar as definições.
+Para o peering da Microsoft, clique na ligação de peering da Microsoft que pretende monitorizar e configurar as definições.
 
-1. Verifique os **monitorizar este peering** caixa de verificação. 
-2. (Opcional) Pode alterar o ponto de extremidade de serviço da Microsoft de destino. Por predefinição, o NPM escolhe um ponto de extremidade de serviço do Microsoft como o destino. NPM monitora a conectividade dos seus servidores no local para este ponto de extremidade de destino através do ExpressRoute. 
-    * Para alterar este ponto de extremidade de destino, clique a **(editar)** ligação sob **destino:** e selecione outro ponto final do destino de serviço Microsoft na lista de URLs.
-      ![Editar o destino](./media/how-to-npm/edit_target.png)<br>
+1. Verifique o Monitor esta caixa de **verificação de pares.** 
+2. (Opcional) Pode alterar o ponto final do serviço da Microsoft alvo. Por predefinição, a NPM escolhe um ponto final do serviço microsoft como alvo. O NPM monitoriza a conectividade dos seus servidores no local até este ponto final de destino através do ExpressRoute. 
+    * Para alterar este ponto final do alvo, clique no link **(editar)** em **Target:**, e selecione outro ponto final do serviço microsoft da lista de URLs.
+      ![editar alvo](./media/how-to-npm/edit_target.png)<br>
 
-    * Pode utilizar um URL ou endereço IP personalizado. Esta opção é especialmente relevante se estiver a utilizar o peering para estabelecer uma ligação a serviços de PaaS do Azure, como o armazenamento do Azure, bases de dados SQL e sites que são oferecidos em endereços IP públicos da Microsoft. Para tal, clique no link **(Utilize URL personalizado ou o endereço IP em vez disso)** na parte inferior da lista de URL, em seguida, introduza o ponto final público do seu serviço de PaaS do Azure que está ligado através do peering da Microsoft do ExpressRoute.
+    * Pode utilizar um URL ou endereço IP personalizado. Esta opção é particularmente relevante se estiver a usar o peering da Microsoft para estabelecer uma ligação aos serviços Do Azure PaaS, tais como Armazenamento Azure, bases de dados SQL e Websites que são oferecidos em endereços IP públicos. Para isso, clique no link (Use o URL personalizado ou o **endereço IP)** na parte inferior da lista de URL e, em seguida, introduza o ponto final público do seu serviço Azure PaaS que está ligado através do peering expressRoute Microsoft.
     ![URL personalizado](./media/how-to-npm/custom_url.png)<br>
 
-    * Se estiver a utilizar estas definições opcionais, certifique-se de que apenas o Microsoft ponto final de serviço está selecionado aqui. O ponto final tem de ser ligada ao ExpressRoute e pode ser acedida pelos agentes no local.
-3. Selecione a caixa de verificação **ativar a monitorização de estado de funcionamento para este peering**.
-4. Escolha as condições de monitorização. Pode definir limiares personalizados para gerar eventos de estado de funcionamento ao escrever os valores de limiar. Sempre que o valor da condição mais do seu limiar selecionado para o par de rede/sub-rede selecionada, é gerado um evento de estado de funcionamento.
-5. Clique nos agentes do ON-PREM **adicionar agentes** botão para adicionar os servidores no local a partir do qual pretende monitorizar a ligação de peering da Microsoft. Certifique-se de que escolha apenas os agentes que tenham conectividade com as Microsoft pontos finais de serviço que especificou na secção para o passo 2. Os agentes no local tem de ser capazes de alcançar o ponto de extremidade usando a ligação do ExpressRoute.
+    * Se estiver a utilizar estas definições opcionais, certifique-se de que apenas o ponto final do serviço da Microsoft é selecionado aqui. O ponto final deve ser ligado ao ExpressRoute e acessível pelos agentes no local.
+3. Selecione a caixa de verificação **Activaa a monitorização da saúde para este epeering**.
+4. Escolha as condições de monitorização. Pode definir limiares personalizados para gerar eventos de saúde digitando valores limiares. Sempre que o valor da circunstância ultrapassa o limiar selecionado para o par de rede/subrede selecionado, gera-se um evento de saúde.
+5. Clique no botão ON-PREM **Agents Add Agents** para adicionar os servidores no local a partir dos quais pretende monitorizar a ligação de peering da Microsoft. Certifique-se de que escolhe apenas agentes que tenham conectividade com os pontos finais do serviço da Microsoft que especificou na secção para o Passo 2. Os agentes no local devem poder chegar ao ponto final utilizando a ligação ExpressRoute.
 6. Guarde as definições.
-7. Depois de ativar as regras e selecionar os valores e os agentes que pretende monitorizar, há uma espera de aproximadamente 30 a 60 minutos para os valores começar a preencher e o **a monitorização de ExpressRoute** mosaicos para se tornarem disponíveis.
+7. Depois de ativar as regras e selecionar os valores e agentes que pretende monitorizar, há uma espera de aproximadamente 30-60 minutos para que os valores comecem a povoar e os azulejos **de Monitorização ExpressRoute** fiquem disponíveis.
 
-## <a name="explore"></a>Passo 6: Ver mosaicos de monitorização
+## <a name="step-6-view-monitoring-tiles"></a><a name="explore"></a>Passo 6: Ver telhas de monitorização
 
-Quando vir os mosaicos de monitorização, os circuitos do ExpressRoute e os recursos de ligação estão a ser monitorizados pelo NPM. Pode clicar num mosaico do Peering da Microsoft para fazer uma busca detalhada no estado de funcionamento de ligações de Peering da Microsoft.
+Assim que vir os azulejos de monitorização, os circuitos ExpressRoute e os recursos de ligação estão a ser monitorizados pela NPM. Pode clicar em azulejo sinuoso da Microsoft para aprofundar a saúde das ligações Microsoft Peering.
 
-![monitorização de mosaicos](./media/how-to-npm/15.png)
+![monitorização de azulejos](./media/how-to-npm/15.png)
 
-### <a name="dashboard"></a>Página de Monitor de desempenho de rede
+### <a name="network-performance-monitor-page"></a><a name="dashboard"></a>Página do Monitor de Desempenho da Rede
 
-A página NPM contém uma página para o ExpressRoute, que mostra uma descrição geral do Estado de funcionamento dos circuitos do ExpressRoute e de peerings.
+A página NPM contém uma página para expressRoute que mostra uma visão geral da saúde dos circuitos e espreitamentos ExpressRoute.
 
 ![Dashboard](./media/how-to-npm/dashboard.png)
 
-### <a name="circuits"></a>Lista de circuitos
+### <a name="list-of-circuits"></a><a name="circuits"></a>Lista de circuitos
 
-Para ver uma lista de todos os monitorizados circuitos do ExpressRoute, clique nas **circuitos do ExpressRoute** mosaico. Pode selecionar um circuito e ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. Os gráficos são interativos. Pode selecionar uma janela de tempo personalizado para desenhar gráficos. É possível arrastar o mouse sobre uma área no gráfico para ampliar e ver os pontos de dados detalhados.
+Para ver uma lista de todos os circuitos ExpressRoute monitorizados, clique nos **circuitos ExpressRoute.** Pode selecionar um circuito e visualizar o seu estado de saúde, gráficos de tendências para perda de pacotes, utilização da largura de banda e latência. Os gráficos são interativos. Pode selecionar uma janela de tempo personalizada para traçar as tabelas. Você pode arrastar o rato sobre uma área na tabela para ampliar e ver pontos de dados de grãos finos.
 
 ![circuit_list](./media/how-to-npm/circuits.png)
 
-#### <a name="trend"></a>Tendência de perda, latência e débito
+#### <a name="trend-of-loss-latency-and-throughput"></a><a name="trend"></a>Tendência de Perda, Latência e Entrada
 
-Os gráficos de largura de banda, latência e perda são interativos. Pode ampliar a qualquer seção de nestes gráficos, usando controles de mouse. Também pode ver as largura de banda, latência e perda de dados para outros intervalos clicando **data/hora**, localizado abaixo do botão de ações no canto superior esquerdo.
+A largura de banda, a latência e as tabelas de perdas são interativas. Pode ampliar qualquer secção destes gráficos, utilizando controlos de rato. Também pode ver os dados de largura de banda, latência e perda para outros intervalos clicando na **Data/Hora**, localizado abaixo do botão Ações na parte superior esquerda.
 
 ![tendência](./media/how-to-npm/16.png)
 
-### <a name="peerings"></a>Lista de Peerings
+### <a name="peerings-list"></a><a name="peerings"></a>Lista de pares
 
-Para ver a lista de todas as ligações a redes virtuais através do peering privado, clique nas **Peerings privados** mosaico no dashboard. Aqui, pode selecionar um virtual ligação de rede e para ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência.
+Para ver a lista de todas as ligações a redes virtuais através de um epeering privado, clique no azulejo **Private Peerings** no painel de instrumentos. Aqui, você pode selecionar uma conexão de rede virtual e ver o seu estado de saúde, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência.
 
-![lista de circuito](./media/how-to-npm/peerings.png)
+![lista de circuitos](./media/how-to-npm/peerings.png)
 
-### <a name="nodes"></a>Vista de nós
+### <a name="nodes-view"></a><a name="nodes"></a>Vista de nódosos
 
-Para ver a lista de todas as ligações entre os nós no local e pontos finais de serviço de Azure VMs/Microsoft para a ligação de peering do ExpressRoute escolhido, clique em **ver ligações de nó**. Pode ver o estado de funcionamento de cada ligação, bem como a tendência de perda e latência associados aos mesmos.
+Para visualizar a lista de todas as ligações entre os nós no local e os pontos finais do serviço Azure VMs/Microsoft para a ligação de peering ExpressRoute escolhida, clique em **ver links**de nó . Pode ver o estado de saúde de cada ligação, bem como a tendência de perda e latência associada a eles.
 
-![Vista de nós](./media/how-to-npm/nodes.png)
+![pontos de vista](./media/how-to-npm/nodes.png)
 
-### <a name="topology"></a>Topologia de circuito
+### <a name="circuit-topology"></a><a name="topology"></a>Topologia de circuito
 
-Para ver a topologia de circuito, clique a **topologia** mosaico. Isto leva-o para a vista de topologia selecionado de circuito ou o peering. O diagrama de topologia fornece a latência para cada segmento na rede. Cada salto de camada 3 é representado por um nó do diagrama. Clicar num salto revela mais detalhes sobre o salto.
+Para ver topologia de circuito, clique no azulejo **topologia.** Isto leva-o à vista de topologia do circuito selecionado ou do olhar. O diagrama de topologia proporciona a latência para cada segmento da rede. Cada lúpulo de camada 3 é representado por um nó do diagrama. Clicar num salto revela mais detalhes sobre o lúpulo.
 
-Pode aumentar o nível de visibilidade para incluir saltos no local ao mover a barra de controlo de deslize abaixo **filtros**. Mover a barra de controlo de deslize para a esquerda ou direita, aumentos/diminui o número de saltos no gráfico de topologia. A latência em cada segmento é visível, que permitem o isolamento mais rápido de segmentos de alta latência na sua rede.
+Pode aumentar o nível de visibilidade para incluir lúpulo no local, movendo a barra de slider abaixo dos **Filtros**. Mover a barra de slider para a esquerda ou direita, aumenta/diminui o número de lúpulo no gráfico de topologia. A latência em cada segmento é visível, o que permite um isolamento mais rápido de segmentos de latência na sua rede.
 
 ![filtros](./media/how-to-npm/topology.png)
 
-#### <a name="detailed-topology-view-of-a-circuit"></a>Vista de topologia detalhada de um circuito
+#### <a name="detailed-topology-view-of-a-circuit"></a>Vista detalhada de Topologia de um circuito
 
-Esta vista mostra as ligações de VNet.
-![topologia detalhados](./media/how-to-npm/17.png)
+Esta vista mostra ligações VNet.
+![topologia detalhada](./media/how-to-npm/17.png)

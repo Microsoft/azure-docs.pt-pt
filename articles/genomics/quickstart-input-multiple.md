@@ -1,7 +1,7 @@
 ---
-title: Enviar um fluxo de trabalho usando várias entradas
+title: Submeta um fluxo de trabalho usando várias inputs
 titleSuffix: Microsoft Genomics
-description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for vários arquivos FASTQ ou BAM do mesmo exemplo.
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se o seu ficheiro de entrada for múltiplos ficheiros FASTQ ou BAM da mesma amostra.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -10,25 +10,25 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248573"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Submeter um fluxo de trabalho através de várias entradas do mesmo exemplo
 
-Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for vários arquivos FASTQ ou BAM **provenientes do mesmo exemplo**. Por exemplo, se executou o **mesmo exemplo** em múltiplas faixas no sequenciador, o sequenciador poderá criar como resultado um par de ficheiros FASTQ para cada faixa. Em vez de concatenar esses ficheiros FASTQ antes do alinhamento e pesquisa de variantes, pode submeter diretamente todas estas entradas no cliente `msgen`. O resultado do cliente `msgen` seria um **conjunto único** de ficheiros, incluindo um ficheiro .bam, .bai, .vcf. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se o seu ficheiro de entrada for múltiplos ficheiros FASTQ ou BAM **provenientes da mesma amostra**. Por exemplo, se executou o **mesmo exemplo** em múltiplas faixas no sequenciador, o sequenciador poderá criar como resultado um par de ficheiros FASTQ para cada faixa. Em vez de concatenar esses ficheiros FASTQ antes do alinhamento e pesquisa de variantes, pode submeter diretamente todas estas entradas no cliente `msgen`. O resultado do cliente `msgen` seria um **conjunto único** de ficheiros, incluindo um ficheiro .bam, .bai, .vcf. 
 
 No entanto, tenha em atenção que **não pode** misturar ficheiros FASTQ e BAM na mesma submissão. Além disso, **não pode** submeter múltiplos ficheiros FASTQ ou BAM a partir de múltiplos indivíduos. 
 
-Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
+Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se submeteu com sucesso um fluxo de trabalho utilizando os dados da amostra fornecidos, está pronto para prosseguir com este artigo. 
 
 
 ## <a name="multiple-bam-files"></a>Múltiplos ficheiros BAM
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Carregar os ficheiros de entrada para o armazenamento do Azure
-Vamos supor que tem múltiplos ficheiros BAM como entrada, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e os carregou para a sua conta de armazenamento *myaccount* no Azure. Tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Vamos supor que tem múltiplos ficheiros BAM como entrada, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e os carregou para a sua conta de armazenamento *myaccount* no Azure. Tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Submeter a tarefa para o cliente `msgen` 
@@ -91,7 +91,7 @@ Submeta o ficheiro `config.txt` com esta invocação: `msgen submit -f config.tx
 ## <a name="multiple-paired-fastq-files"></a>Múltiplos ficheiros FASTQ emparelhados
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Carregar os ficheiros de entrada para o armazenamento do Azure
-Vamos supor que tem múltiplos ficheiros FASTQ emparelhados como entrada, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. Carregou-os para a sua conta de armazenamento *myaccount* no Azure e tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Vamos supor que tem múltiplos ficheiros FASTQ emparelhados como entrada, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. Carregou-os para a sua conta de armazenamento *myaccount* no Azure e tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Submeter a tarefa para o cliente `msgen` 

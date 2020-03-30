@@ -1,6 +1,6 @@
 ---
-title: Pesquisar categorias | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre as categorias de pesquisa com suporte no Microsoft Azure Maps.
+title: Categorias de Pesquisa [ Categorias de Pesquisa] Microsoft Azure Maps
+description: Neste artigo, você aprenderá sobre categorias de pesquisa suportadas no Microsoft Azure Maps.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -9,124 +9,124 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988297"
 ---
-# <a name="azure-maps-supported-categories"></a>Categorias com suporte do Azure Maps
+# <a name="azure-maps-supported-categories"></a>Azure Maps suportacategorias
 
-Ao fazer uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) por pontos de interesse, há mais de cem categorias com suporte. Abaixo está uma lista dos códigos de categoria para os nomes de categoria com suporte. Os códigos de categoria são gerados para categorias de alto nível. Todas as subcategorias compartilham o mesmo código de categoria. Esta lista de categorias está sujeita a alterações com novas versões de dados.
+Ao fazer uma [categoria de busca](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) de pontos de interesse, existem mais de uma centena de categorias apoiadas. Abaixo está uma lista dos códigos de categoria para nomes de categorias suportadas. Os códigos de categoria são gerados para categorias de alto nível. Todas as subcategorias partilham o mesmo código de categoria. Esta lista de categorias está sujeita a alterações com novas versões de dados.
 
 <br/>
 
-| **Código de categoria** | **Código de correspondência de categorias** |
+| **Código de categoria** | **Categorias código de correspondência** |
 | --- | --- |
-| ACESSO\_GATEWAY | acesso à companhia aérea, portão de segurança, acesso à estação, gateway de acesso |
-| DIVISÃO de\_Administrativo | província, divisão administrativa de ordem quarta, divisão administrativa de primeira ordem, divisão administrativa de terceiro histórico, assento de uma divisão administrativa de quarta ordem, assento de uma divisão administrativa de segunda ordem, dependente de política entidade, lugar preenchido, assento de uma divisão administrativa de terceiro pedido, lugares populados, divisão administrativa de segunda ordem, assento de uma divisão administrativa de primeiro pedido, divisão administrativa, localidade preenchida, região histórica, histórica site, histórico popular preenchido, liquidação de Israel, divisão administrativa de quarta ordem histórica, divisão administrativa de quinta ordem, divisão administrativa de primeiro pedido histórica, divisão administrativa de terceira ordem, histórico político entidade, divisão administrativa histórica, assento do governo de uma entidade política, divisão administrativa de segundo ordem histórica, capital de uma entidade política |
-| ADVENTURE\_SPORTS\_LOCAL | local esportivo da Adventure |
-| AGRICULTURA | horticulture, produtor principal, agricultura, Farm, Farm vila, Farmstead, Homestead, área de grazing, comum, instalação de Aquaculture, farms, área de pesca, laticínios, campo (s) |
-| Aeroporto | autoridade privada, autoridade militar, heliport, fechada, aeroporto médio, aeroporto grande, aeroporto pequeno, Airfield, seaplane base, autoridade pública, porta de balão, aeroporto |
-| PARQUE\_DE DIVERSÃO | diversão, diversão, local diversão Park |
-| CONCESSIONÁRIO de\_AUTOMÓVEL | ATV/snowmobile, barco, barramento, Motorcycle, caminhão, Van, veículos de recriação, carro, carteador automotivo |
-| BANCO | banco, bancos, banco (es) |
-| BEACH | praia, praias |
-| CONSTRUÇÃO\_PONTO | compilação (ponto) |
-| PARQUE\_DE NEGÓCIOS | Parque de negócios, área industrial |
-| PUB\_CAFÉ | Internet café, casa de chá, café, café da Internet, café, cafeteria, microbrewery/Beer jardim, pub, café/pub, café/pub |
-| CAMPING\_GROUND | recriação, site Caravan, solo acampar |
-| LAVAGEM de\_de carros | lava a carro |
-| DISPENSADOR de\_de caixa | computador caixa eletrônico, dispensador de dinheiro |
-| CASINO | Casino |
-| CINEMA | drive-in cinema, cinema |
-| CENTRO\_DA CIDADE | vizinhança, área administrativa, centro da cidade, centro |
-| ASSOCIAÇÃO\_CLUBE | Clube de praia, hóquei Club, associação de clube |
-| UNIVERSIDADE DE\_ | Júnior/faculdade da Comunidade, faculdade/universidade, faculdade, escola de preparação da Universidade, Universidade |
-| EDIFÍCIO\_COMERCIAL | prédio de escritórios, sede de estacionamento, prédio comercial |
-| CENTRO de\_COMUNITÁRIO | centro da Comunidade |
-| CORPORATIVA | eletrônicos, manufatura, serviços de dados de computador, tecnologias de integridade pública, finanças diversificadas, animal abrigar, companhia aérea, aluguel de equipamentos, serviço, entrega de email/pacote/frete, linhas de barramento, reparo de dispositivo doméstico, serviços de limpeza, OEM, serviços de impostos, gás natural de petróleo, serviços legais, construção, telecomunicações, transporte, manufatura, serviços, consultores de investimentos, publicidade/marketing, movimentação de armazenamento, instituição de poupança, seguro, software de computador, farmacêuticos, atendimento, serviços de casamento, tecnologia agricultural, imóveis, táxi, serviço de vaivém limusines, aluguel de departamento de ônibus, mineração, tecnologias de publicação, telefone de cabo, distribuição de importação/exportação, empresa, Asylum, carvão mina (s), imóveis, Brewery, mina (s) |
-| COURTHOUSE | courthouse |
-| CENTRO de\_CULTURAL | centro cultural |
-| IR | ir |
-| LOJA DE DEPARTAMENTO\_ | loja de departamentos |
-| MÉDICO | profissional geral, especialista, médico |
-| ESTAÇÃO de\_de veículos\_elétricos | Estação de veículo elétrica |
-| EMBASSY | Embassy |
-| Serviço de\_médico de emergência\_ | serviço médico de emergência |
+| GATEWAY\_DE ACESSO | acesso à companhia aérea, portão de segurança, acesso à estação, gateway de acesso |
+| DIVISÃO\_ADMINISTRATIVA | província, divisão administrativa de quarta ordem, divisão administrativa de primeira ordem, divisão administrativa histórica de terceira ordem, sede de uma divisão administrativa de quarta ordem, sede de uma divisão administrativa de segunda ordem, política dependente entidade, lugar povoado, sede de uma divisão administrativa de terceira ordem, lugares povoados, divisão administrativa de segunda ordem, sede de uma divisão administrativa de primeira ordem, divisão administrativa, localidade povoada, região histórica, histórica local, local povoado histórico, colonato israelita, divisão administrativa histórica de quarta ordem, divisão administrativa de quinta ordem, divisão administrativa histórica de primeira ordem, divisão administrativa de terceira ordem, política histórica entidade, divisão administrativa histórica, sede de governo de uma entidade política, divisão administrativa histórica de segunda ordem, capital de uma entidade política |
+| ESPAÇO\_\_DE ESPORTES DE AVENTURA | local de esportes de aventura |
+| AGRICULTURA | horticultura, produtor primário, agricultura, exploração agrícola, aldeia agrícola, exploração agrícola, herdade, zona de pastoreio, comum, instalações de aquicultura, explorações, zona de pesca, laticínios, campo ou campo |
+| AEROPORTO | autoridade privada, autoridade militar, heliporto, aeroporto fechado, aeroporto médio, grande aeroporto, pequeno aeroporto, aeródromo, base marítima, autoridade pública, porto de balões, aeroporto |
+| PARQUE\_DE DIVERSÕES | salão de diversões, lugar de diversão, parque de diversões |
+| CONCESSIONÁRIO\_AUTOMÓVEL | atv/snowmobile, barco, autocarro, motociclo, caminhão, carrinha, veículos recreativos, carro, concessionário automóvel |
+| BANCO | bancos, bancos, bancos ou bancos |
+| PRAIA | praia, praias |
+| PONTO\_DE CONSTRUÇÃO | construção (ponto) |
+| PARQUE\_DE NEGÓCIOS | parque de negócios, área industrial |
+| PUB\_CAFÉ | internet café, casa de chá, café, internet café, café, café, café, microcervejaria/beer garden, pub, café/pub, café/pub |
+| ACAMPAMENTO\_ | local de recreação, caravana, acampamento |
+| LAVAGEM\_DE CARROS | lavagem de carros |
+| DISPENSADOR DE DINHEIRO\_ | caixa automática, distribuidor de dinheiro |
+| CASINO | casino |
+| CINEMA | cinema drive-in, cinema |
+| CENTRO\_DA CIDADE | bairro, área administrativa, centro da cidade, centro |
+| ASSOCIAÇÃO\_CLUB | clube de praia, clube de hóquei, associação de clubes |
+| UNIVERSIDADE\_UNIVERSITÁRIA | faculdade/comunidade júnior, faculdade/universidade, faculdade, escola de preparação universitária, universidade |
+| EDIFÍCIO\_COMERCIAL | edifício de escritórios, sede do parque, edifício comercial |
+| CENTRO\_COMUNITÁRIO | centro comunitário |
+| EMPRESA | electrónica, fabrico, serviços informáticos, tecnologias de saúde pública, finanças diversificadas, abrigo para animais, companhia aérea, aluguer de equipamentos, serviço, correio/entrega de mercadorias, linhas de autocarro, reparação de eletrodomésticos, serviços de limpeza, oem, serviços fiscais, gás natural petrolífero, serviços jurídicos, construção, telecomunicações, transportes, fabrico automóvel, produtos químicos, funerárias, operações de túneis de ponte, automóvel, engenharia mecânica, serviços, consultores de investimento, serviço de publicidade/marketing, armazenamento em movimento, instituição de poupança, seguros, software informático, produtos farmacêuticos, restauração, serviços de casamento, tecnologia agrícola, imobiliário, táxi, serviço de transporte de limusina, aluguer de charters de autocarros, mineração, tecnologias editoriais, cabo, importação/distribuição de exportação, empresa, asilo, mina de carvão(s), cervejaria, mina de ouro ou |
+| TRIBUNAL | tribunal |
+| CENTRO\_CULTURAL | centro cultural |
+| DENTISTA | dentista |
+| LOJA\_DE DEPARTAMENTOs | loja de departamentos |
+| MÉDICO | clínico geral, especialista, médico |
+| ESTAÇÃO\_DE VEÍCULOS ELÉTRICOS\_ | estação de veículos elétricos |
+| EMBAIXADA | embaixada |
+| SERVIÇO\_\_DE EMERGÊNCIA MÉDICA | serviço médico de emergência |
 | ENTRETENIMENTO | entretenimento |
-| TRANSFERÊNCIA | troca de ouro, câmbio de moeda, troca de ações, Exchange |
-| CENTRO DE\_DE CONVENÇÃO\_DE EXPOSIÇÃO | exibição Convention Center |
-| FERRY\_TERMINAL | Ferry, terminal ferry |
-| Bombeiros\_Brigada\_ | Estação de incêndio/Brigade |
-| TRAVESSIA\_FRONTEIRA | cruzamento de fronteira |
-| INSTALAÇÕES de\_de COMBUSTÍVEL | instalações de combustível |
-| RECURSO DE\_GEOGRÁFICO | Bay, Cove, Pan, localidade, saliência, mineral/molas, bem, reservatório, representante Marsh/pântano/Vlei, Quarry, passagem de rio, vale, Mountain pico, Kingman, Duna, Lagoon, Plain/Flat, Rapids, Cape, limite, Oasis, Harbor, côncavo, Rocks, recurso geográfico, Promontory (-s), Ilhas, Headland, Pier, Crater Lake, Cliff (s), Hill, deserto, Portage, Glacier (s), Gully, geyser, coral Kingman (s), Gap, Golfo, Jetty, Ghat, buraco, Crater lagos, campo de gás, Islet, Crater, Cove, grassland, Gravel, área de, zona de interrupção, integridade, (s), ilha, headwaters, vale suspenso, Hills, molas quentes, Furrow, anabranch |
-| CAMPO de\_DE GOLFE | curso de golfe |
-| Gabinete\_do Governo | ordem 5 área, ordem 8 área, ordem 9 área, ordem 2 área, ordem 7 área, ordem 3 área, supra National, ordem 4 área, ordem 6 área, escritório governamental, instalação do Diplomatic, estabelecimento governamental dos Estados Unidos, escritório governamental local, casa da alfândega, agência alfandegária |
-| Serviço de\_de cuidados de saúde\_cuidados de saúde | banco de sangue, serviço pessoal, recurso de atendimento pessoal, unidade ambulância, serviço de assistência médica, leprosarium, Sanatorium, hospital, centro médico, clínica |
-| HELIPAD\_helicóptero\_aterragem | pouso de Helipad/Helicopter |
-| ALUGUER de\_de férias | Bungalow, Cottage, Chalet, Villa, apartamento, aluguel de Natal |
-| HOSPITAL\_POLYCLINIC | especial, hospital de medicina do chinês, hospital para crianças e mulheres, geral, hospital/Policlínica |
-| HOTEL\_MOTEL | Cabins encaixos, camas de café da manhã convidado, Hotel, REST acampamentos, motel, Resort, Hostel, Hotel/Motel, Resthouse, hammock (s), casa convidada |
-| ICE\_SKATING\_RINK | Patinação Rink Ice |
-| ATRAÇÃO de\_turística seleto de\_importante | prédio, Observatório, arquear, túnel, escultura, torre, ponte, Planetarium, Mausoleum/grave, monumentos, buraco de água, atração natural, Tourist importante atração, Promenade, pirâmides, Pagoda, Castle, Palace, Hermitage, pirâmide, Fort, portão, país da casa, Dam, Lighthouse, grave |
-| EDIFÍCIO\_INDUSTRIAL | encontrado, depósito de combustível, prédio industrial, fábrica |
-| CENTRO DE\_DE LAZER | boliche, snooker, Pool Billiard, clube voador, escola do dança Studio, sauna, solarium mensagem, lazer Center, Spa |
+| TROCA | bolsa de ouro, bolsa de valores, bolsa de valores, bolsa de valores |
+| CENTRO\_\_DE CONVENÇÕES DE EXPOSIÇÃO | centro de convenções de exposição |
+| FERRY\_TERMINAL | ferry, terminal de ferry |
+| BRIGADA\_\_DE BOMBEIROS | bombeiros/brigada |
+| PASSAGEM\_FRONTEIRIÇA | passagem fronteiriça |
+| INSTALAÇÕES DE COMBUSTÍVEL\_ | instalações de combustível |
+| RECURSO\_GEOGRÁFICO | baía, enseada, panela, localidade, cume, fontes minerais/termais, poço, reservatório, pântano/pântano/vlei, pedreira, travessia fluvial, vale, pico de montanha, recife, duna, lagoa, planície/plana, rápidos, cabo, planalto, oásis, porto, caverna, rochas, característica geográfica, promontório(-ies), ilhas, promontórios, cais, lago de crateras, penhascos, colina, deserto, portage, glaciares( s), ravina, geiser, recifes de coral( s), lacuna, golfo, cais, ghat, buraco, lagos de crateras, campo de gás, ilhota, cratera(s), enseada(s), zonas de cascalho, zona de fratura, charro, ilha de sutique, s. cabeceiras, vale suspenso, colinas, fontes termais( s), sulco, anabranch |
+| CAMPO\_DE GOLFE | campo de golfe |
+| ESCRITÓRIO\_DO GOVERNO | ordem 5 área, ordem 8 área, área de ordem 9, área de ordem 2, área de ordem 7, área de ordem 3, supra nacional, área de ordem 4, ordem 6 área, escritório do governo, instalações diplomáticas, estabelecimento do governo dos Estados Unidos, escritório do governo local, alfândega, posto aduaneiro |
+| SERVIÇO\_\_DE SAÚDE | banco de sangue, serviço pessoal, instalação de cuidados pessoais, unidade de ambulância, serviço de saúde, leprosarium, sanatório, hospital, centro médico, clínica |
+| ATERRAGEM\_\_DE HELICÓPTERO HELIPAD | heliporto/helicóptero aterrando |
+| ALUGUER\_DE FÉRIAS | Bangalô, casa de campo, chalé, villa, apartamento, aluguel de férias |
+| POLICLÍNICA HOSPITALAR\_ | especial, hospital de medicina chinesa, hospital para crianças, geral, hospital/policlínica |
+| HOTEL\_MOTEL | cabanas, casas de hóspedes de pequeno-almoço, hotel, acampamentos de descanso, motel, resort, hostel, hotel/motel, casa de repouso, rede(s), casa de hóspedes |
+| RINQUE DE PATINAÇÃO NO\_\_GELO | pista de patinação no gelo |
+| IMPORTANTE\_\_ATRAÇÃO TURÍSTICA | edifício, observatório, arco, túnel, estátua, torre, ponte, planetário, mausoléu/sepultura, monumento, furo de água, atração natural, importante atração turística, passeio, pirâmides, pagode, castelo, palácio, ermida, pirâmide, forte, portão, casa de campo, barragem, farol, sepultura |
+| EDIFÍCIO\_INDUSTRIAL | fundaria, depósito de combustível, edifício industrial, fábrica |
+| CENTRO\_DE LAZER | bowling, snooker, bilhar de piscina, clube voador, escola de estúdio de dança, sauna, massagem solarium, centro de lazer, spa |
 | BIBLIOTECA | biblioteca |
-| INSTALAÇÃO de\_de fabrico | instalação de fabricação |
-| MARINA | Yacht, Marina |
-| ANUNCIAR | hipermercados de supermercados, fazendeiros, público, informais, mercado |
-| MEDIA\_FACILITY | instalação de mídia |
-| INSTALAÇÃO\_militar | base militar, estação de proteção de costa, instalação militar, naval base |
-| ESCRITÓRIO de\_da Organização\_do AUTOMOBILISMO | escritório da organização motora |
-| MOUNTAIN\_PASS | passagem de montanhas |
-| Museu | Museu |
-| RESERVA DE\_NATIVO | Reserva nativa, reserva |
-| NIGHTLIFE | barra, clube de karaokê, clube de jazz, clube privado, barra de vinhos, comédia Club, barra de cocktail, Discotheque, Nightlife |
-| ORGANIZAÇÃO\_\_Governamental | organização não governamental |
-| ÁREA DE\_de estacionamento de\_aberta | abrir área de estacionamento, estacionamento |
+| INSTALAÇÃO DE FABRICO\_ | instalação de fabrico |
+| MARINA | bacia do iate, marina |
+| MERCADO | hipermercados de supermercados, agricultores, público, informal, mercado |
+| INSTALAÇÃO DOS MEDIA\_ | facilidade dos meios de comunicação |
+| INSTALAÇÃO MILITAR\_ | base militar, estação de guarda costeira, instalação militar, base naval |
+| ESCRITÓRIO\_DE\_ORGANIZAÇÃO AUTOMOBILAGEM | escritório de organização de automobilismo |
+| PASSAGEM\_DA MONTANHA | passagem de montanha |
+| MUSEU | museu |
+| RESERVA\_NATIVA | reserva nativa, reserva |
+| VIDA NOTURNA | bar, clube de karaoke, clube de jazz, clube privado, wine bar, clube de comédia, bar de coquetéis, discoteca, vida noturna |
+| ORGANIZAÇÃO\_\_NÃO-GOVERNAMENTAL | organização não governamental |
+| ÁREA\_\_DE ESTACIONAMENTO ABERTO | área de estacionamento aberto, estacionamento |
 | OUTROS | localidade, zona de comércio livre, círculo de tráfego, desconhecido |
-| ESTACIONAMENTO\_GARAGEM | garagem de estacionamento |
-| ÁREA\_de recreação\_parque | site histórico, Lakeshore, litoral, rio deslumbrante, área de busca de pesca, batalha, esporte de inverno, rampa de lançamento de barco, preservar, área da floresta, área de recreação, Resort de esqui, Cemetery, estacionamento histórico, Parkway, Memorial, Fairground, área de piquenique, área selva, área de recreação de estacionamento, floresta (s), floresta fossilized, jardim (s), reserva de vida selvagem, reserva de natureza, estação de floresta, reserva de busca, reserva de floresta, parque |
-| ESTAÇÃO de\_DE GASOLINA | estação petrol |
-| FARMÁCIA | farmácia, inpensador |
-| LUGAR\_DE ADORAÇÃO DE\_ | Ashram, Synagogue, Mosque, gurudwara, eslavo, modelo, lugar de culto, missão, Retreat, modelo (s), site religiosas, centro religiosas, Monastery, Convent |
-| ESQUADRA de\_de Polícia | ordem 1 área, estação de polícia, publicação de polícia |
-| INSTALAÇÃO de\_armazém de\_do porto | Porto (s), portal de encaixe, porta, instalação de porta/depósito, Dockyard, Dock (s) |
-| CORREIO\_OFFICE | local, Post Office |
-| UTILIDADE de\_de recursos de\_primário | recurso principal/utilitário, estação de alimentação, planta do separador de petróleo-óleo |
-| Estabelecimento prisional\_ESTABELECIMENTO DE\_CORRECIONAL | recursos de prisão, prisão/correção |
-| PÚBLICO\_AMENITY | básicos metrô, vaso sanitário, resgate de estrada, escritório de tíquetes de transporte de passageiro, caixa de chamada pública, amenidade públicas, centro de comunicação |
-| PARAGENS de\_ transportes públicos\_ | a parada do monitor, parada do barramento, ponto de táxi, parada tram, parada de transporte público, estação de ferrovia, estação de ferro, estação de barramento, parada de ferrovia |
-| Estação de\_ferroviária | nacional, ferrovia da empresa, metro, (sub) urbano, estação ferroviária |
-| RENT\_Uma instalação de\_de carros\_ | recurso de aluguel-a-carro |
-| RENT\_Um estacionamento\_\_ESTACIONAMENTO | aluguel-a-carro-estacionamento |
-| INSTALAÇÃO DE REPARAÇÃO\_ | serviços de aro (bodyshops, Tyre), lojas de consertos, lojas de substituição de carro, manutenção geral de conserto de carros, venda de acessórios de carros, reparo de Motorcycle, serviço de reparo de caminhão, reinstalação de reparo |
-| INVESTIGAÇÃO\_FACILITY | recurso de pesquisa |
-| Alojamento residencial\_ | Comunidade de aposentadoria, Townhouse complexo, simples/apartamento complexo, condomínio complexo, imóvel residencial, acomodação residencial |
-| RESTAURANTES | Alemão, crioulo-Cajun, holandês, salas de banquetes, bistrô, israelita, eslovaco, jamaicano, vegetariano, frutos do mar, vietnamitas, maltês, sichuan, galês, chinês, japonês, argelino, californiano, fusão, Shandong, salad bar, Savoy an, Espanhol, Etíope, Taiwan, donuts, iraniano, canadiano, americano, norueguês, francês, hunan, polinésio, afegão, à beira da estrada, asiático, suíço, erótico, crêperie, Surinamese, Egípcio, Húngaro, Nepalese, churrasco, hot pot, hambúrgueres, Mediterrâneo, , Guangdong, Asiático (outro), buffet, sushi, Mongólia, internacional, mexilhões, tailandês, venezuelano, rumaniano, frango, sopa, kosher, churrasqueira, iogurte/bar de sumo, italiano, coreano, cipriota, bósnio, boliviano, dominicano, belga, tunisino, escocês, inglês, paquistanês, checo, havaiano, maghrib, tibetano, árabe, médio oriente, chileno, Xangai, polaco, filipino, sudanês, arménio, birmanês, brasileiro, escandinavo, búlgaro, soul food, colombiano, judeu, Uruguaio, refeitórios, Finlandês, africano, corso, sírio, caraíbas, Dongbei, russo, grelhador, take away, fast food, australiano, irlandês, comida de bar, fondue, libanês, indonésio, dinamarquês, provençal, teppanyaki, indiano, mauritano, continental ocidental, peruano, cambojano, snacks, sueco, macrobiótico, sorvete, slavic, turco, argentino, austríaco, exótico, |
-| ÁREA\_RESTAURANTE | área de restaurante |
-| REST\_AREA | área REST, parada |
-| VISTA panorâmica\_panorâmica\_ | exibição deslumbrante/panorâmica, ponto de observação |
-| TRABALHOS | Culinary School, escola principal, escola de arte, ensino médio sênior, escola escolar, escola de idioma, ensino de esporte, Preschool, ensino médio, escola Central, treinamento de ponta, escola especial, instalações de atendimento infantil, escola, escola técnica, escola humana, escola agricultural |
-| SALÃO | tomada de fábrica, produtos de segurança, loja de natal/férias, ótica, jardim da casa: iluminação, lotaria, instrumentos musicais, salão de unhas, jardim da casa: pintura decorativo, hobby/tempo livre, tabacarias de quiosque, acessórios de vestuário: especialidade, lavandaria, calçado, pet wear, pet supplys, acessórios de vestuário: crianças, equipamento de material de construção, joalharia, relógios relógios, acessórios de vestuário: reparações de sapatos de calçado, jardim da casa: cortinas/têxteis, escritório elétrico eletrónica, elétrica, escritório:&#39;fotografia de câmara, cd&#39;s, vídeos de DVD, lavandaria, acessórios de vestuário: homens, floristas, loja de penhores, livrarias, equipamentos eletrónicos marinhos, bebidas alimentares: mercados alimentares, jardim da casa: revestimentos de tapetes/pavimentos, fotocópia, acessórios de equipamento de barco, loja de telemóveis, jogos de brinquedos, alimentos especiais, acessórios de vestuário: geral, bebidas alimentares: padeiros, alfaiate, presentes, cartões, novidades, produtos de vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, vestuário, eletrodomésticos, elétricos, escritórios: equipamento de escritório, laboratório de fotos/desenvolvimento, clubes grossistas, jardim da casa: acessórios de mobiliário, especialidades locais, bebidas alimentares: talhos, loja de variedades, bebidas alimentares: bebidas alimentares: bebidas alcoólicas, mobiliário, mobiliário/ mobiliário doméstico, eletricidade, escritório: material informático, cd/aluguer de vídeo, equipamento de fornecimento médico, suprimentos agrícolas, salão de beleza, jardim da casa: serviços de centros de jardim, bebidas alimentares: produtos de mobiliário, produtos de higiene, produtos de beleza acessórios: mulheres, agentes de viagens, ponto de venda a retalho, loja de reciclagem, jardim da casa: janelas de vidro, hardware, agentes imobiliários, vidros/cerâmica, delicatessen, jardim da casa: casas de banho de cozinha, estação de apostas, cabeleireiros, bebidas alimentares: mercearias, bebidas alimentares: mercearias verdes, lojas de conveniência, drive através de loja de garrafas, jardim da casa: centros do-it-yourself, antiguidade/arte, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja, loja |
-| CENTRO DE\_DE COMPRAS | shopping, centro de compras |
-| CENTRO de\_desportivo | esporte temática, Tribunal de comprimição, centro de clube de boa forma, centro esportivo |
-| Estádio | netbalance, futebol, beisebol, faixa de corrida, multiuso, esporte de motor, Cricket terra, rúgbi terra, Ice hóquei, atleta, corrida de cavalo, basquete, futebol, estádio, atleta campo, Racetrack |
-| Piscina\_PISCINA | pool de nada |
-| CAMPO DE\_DE TÉNIS | Tribunal de tênis |
-| CARÁTER | Amphitheater, Concert Hall, jantar, Music Center, Opera, cabaret, teatro, Opera House |
-| \_DE TURISMO INFORMAÇÃO\_OFFICE | Tourist Information Office |
-| TRÁFEGO\_LUZ | semáforo de tráfego |
-| CENTRO DE\_DE SERVIÇO de\_DE TRÁFEGO | departamento de controle de tráfego, Service Center de tráfego |
-| SINAL de\_de trânsito | sinal de tráfego |
-| SISTEMA DE\_TRAIL | veículo da Adventure, escalada de rock, cavalo de Troia, bicicleta de Mountain Bike, caminhada, sistema de trilha |
-| TRANSPORTE\_REGISTO DE\_de veículos | autoridade de transporte/registro de veículo |
-| CAMINHÃO\_STOP | parada do caminhão |
-| VETERINARIAN | veterinária, veterinarian |
-| ÁGUA\_DESPORTO | esporte de água |
-| PESAM\_ESTAÇÃO | escalas de peso, estação de pesagem |
-| ORGANIZAÇÃO\_BEM-ESTAR | organização Welfare |
-| WINERY | Winery |
-| ZOOS\_ARBORETA\_JARDIM botânico\_ | vida selvagem Park, Aquatic Zoo náuticos Park, arboreta botânico jardins, Zoo, zoológicos, arboreta botânico Garden |
+| ESTACIONAMENTO\_ | estacionamento |
+| ÁREA\_\_DE RECREAÇÃO DO PARQUE | local histórico, lakeshore, praia, área panorâmica do rio, área de pesca, campo de batalha, esporte de inverno, rampa de lançamento de barcos, preserve, área florestal, área de lazer, estância de esqui, cemitério, parque histórico, parque, memorial, fairground, área de piquenique, área de área selvagem, área de recreação do parque, floresta(s), floresta fossilizada, jardim ou s), reserva da vida selvagem, reserva natural, estação florestal, reserva de caça, reserva florestal, parque |
+| POSTO\_DE GASOLINA | posto de gasolina |
+| FARMÁCIA | farmácia, dispensário |
+| LOCAL\_\_DE CULTO | ashram, sinagoga, mesquita, gurudwara, igreja, templo, local de adoração, missão, retiro, templo ou local religioso, centro religioso, mosteiro, convento |
+| DELEGACIA\_DE POLÍCIA | ordem 1 área, delegacia de polícia, posto policial |
+| INSTALAÇÃO\_DE ARMAZÉM PORTUÁRIO\_ | porto(s), bacia de ancoragem, porto, instalação portuária/armazém, estaleiro, doca ou doca |
+| CORREIOS\_ | local, correios |
+| UTILIDADE\_DE\_RECURSOS PRIMÁRIOS | recurso/utilidade primário, central elétrica, central de separador de gás |
+| ESTABELECIMENTO\_PRISIONAL\_ | prisão, prisão/estabelecimento prisional |
+| PÚBLICO\_ | metro pedonal, wc, salvamento rodoviário, bilheteira de transporte de passageiros, caixa de chamadas públicas, amenidade pública, centro de comunicação |
+| PARAGEM\_\_DOS TRANSPORTES PÚBLICOS | paragem de autocarros, paragem de autocarro, paragem de táxi, paragem de elétricos, paragem de transportes públicos, estação de metro, estação ferroviária, rodoviária, paragem ferroviária |
+| ESTAÇÃO FERROVIÁRIA\_ | nacional, desvio ferroviário, metro, (sub) estação ferroviária urbana |
+| \_ALUGAR\_\_UMA INSTALAÇÃO DE CARRO | facilidade de rent-a-car |
+| \_ALUGAR\_\_Um ESTACIONAMENTO DE CARRO | rent-a-carro-estacionamento |
+| INSTALAÇÕES DE REPARAÇÃO\_ | oficinas, serviços de pneus , oficinas de reparação, lojas de substituição de vidro de automóveis, manutenção geral de reparação de automóveis, instalação de venda de acessórios para automóveis, reparação de motociclos, serviço de reparação de camiões, instalações de reparação |
+| INSTALAÇÃO DE INVESTIGAÇÃO\_ | instalação de pesquisa |
+| ALOJAMENTO\_RESIDENCIAL | comunidade de aposentadoria, complexo de moradias, apartamentos/complexo de apartamentos, complexo de condomínios, propriedade residencial, alojamento residencial |
+| RESTAURANTE | Alemão, crioulo-Cajun, holandês, salas de banquetes, bistrô, israelita, eslovaco, jamaicano, vegetariano, frutos do mar, vietnamitas, maltês, sichuan, galês, chinês, japonês, argelino, californiano, fusão, Shandong, salad bar, Savoy an, Espanhol, Etíope, Taiwan, donuts, iraniano, canadiano, americano, norueguês, francês, hunan, polinésio, afegão, à beira da estrada, asiático, suíço, erótico, crêperie, Surinamese, Egípcio, Húngaro, Nepalese, churrasco, hot pot, hambúrgueres, Mediterrâneo, , Guangdong, Asiático (outro), buffet, sushi, Mongólia, internacional, mexilhões, tailandês, venezuelano, rumaniano, frango, sopa, kosher, churrasqueira, iogurte/bar de sumo, italiano, coreano, cipriota, bósnio, boliviano, dominicano, belga, tunisino, escocês, inglês, paquistanês, checo, havaiano, maghrib, tibetano, árabe, médio oriente, chileno, Xangai, polaco, filipino, sudanês, arménio, birmanês, brasileiro, escandinavo, búlgaro, soul food, colombiano, judeu, Uruguaio, refeitórios, Finlandês, africano, corso, sírio, caraíbas, Dongbei, russo, grelhador, take away, fast food, australiano, irlandês, comida de bar, fondue, libanês, indonésio, dinamarquês, provençal, teppanyaki, indiano, mauritano, continental ocidental, peruano, cambojano, snacks, sueco, macrobiótico, sorvete, slavic, turco, argentino, austríaco, exótico, |
+| ÁREA\_DO RESTAURANTE | área de restaurante |
+| ÁREA\_DE DESCANSO | área de descanso, lugar de paragem |
+| VISTA\_\_PANORÂMICA PANORÂMICA PANORÂMICA | vista panorâmica/panorâmica, ponto de observação |
+| ESCOLA | escola de culinária, escola primária, escola de arte, escola sénior, escola de condução, escola de línguas, escola desportiva, pré-escolar, ensino secundário, ensino médio, formação profissional, escola especial, creche, escola, escola técnica, escola militar, escola agrícola |
+| LOJA | tomada de fábrica, produtos de segurança, loja de natal/férias, ótica, jardim da casa: iluminação, lotaria, instrumentos musicais, salão de unhas, jardim da casa: pintura decorativo, hobby/tempo livre, tabacarias de quiosque, acessórios de vestuário: especialidade, lavandaria, calçado, pet wear, pet supplys, acessórios de vestuário: crianças, equipamento de material de construção, joalharia, relógios relógios, acessórios de vestuário: reparações de sapatos de calçado, jardim da casa: cortinas/têxteis, escritório elétrico electrónica, elétrico, escritório-lo: fotografia de&#39;, cd&#39;s, vídeos de DVD, lavandaria, acessórios de vestuário: homens, floristas, loja de penhores, livrarias, equipamentos eletrónicos marinhos, bebidas alimentares: mercados alimentares, jardim da casa: revestimentos de tapetes/pavimentos, fotocópia, acessórios de equipamento de barco, loja de telemóveis, jogos de brinquedos, alimentos especiais, acessórios de vestuário: geral, bebidas alimentares: padeiros, alfaiate, presentes, cartões, novidades, produtos de higiene, produtos de equipamento, vestuário, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, eletrodomésticos, elétrica, escritório: equipamento de escritório, laboratório fotográfico/desenvolvimento, clubes grossistas, jardim da casa: móveis, especialidades locais, bebidas alimentares: talhos, loja de variedades, bebidas alimentares: food drinks, food drinks: wine spirits, farmácia, mobiliário/mobiliário, mobiliário elétrico, escritório- material: material informático, cd/vídeo aluguer, equipamento de fornecimento médico, suprimentos agrícolas, beleza, salão de beleza, jardim da casa: serviços de centros de jardim, bebidas alimentares: peixeiros, produtos de beleza, acessórios de vestuário, acessórios de vestuário, vestuário agentes, loja de retalho, loja de reciclagem, jardim da casa: janelas de vidro, hardware, agentes imobiliários, vidros/cerâmica, delicatessen, jardim da casa: casas de banho de cozinha, estação de apostas, barbeiros de cabeleireiro, bebidas alimentares: mercearias, bebidas alimentares: mercearias verdes, lojas de conveniência, drive através de loja de garrafas, jardim da casa: centros de do-it-yourself, antiguidade/arte, loja, loja |
+| CENTRO\_COMERCIAL | centro comercial, centro comercial |
+| CENTRO\_DESPORTIVO | desporto temático, campo de squash, centro de clubes de fitness, centro desportivo |
+| ESTÁDIO | netball, futebol, beisebol, pista de corrida, multiusos, desportos motorizados, campo de críquete, campo de râguebi, hóquei no gelo, atletismo, corrida seleção, basquetebol, futebol, estádio, campo atlético, pista de corridas |
+| PISCINA\_ | piscina |
+| CAMPO\_DE TÉNIS | campo de ténis |
+| TEATRO | anfiteatro, sala de concertos, teatro de jantar, centro de música, ópera, cabaret, teatro, ópera |
+| GABINETE\_\_DE INFORMAÇÃO TURÍSTICA | escritório de informação turística |
+| SEMÁFORO\_ | semáforo |
+| CENTRO\_\_DE SERVIÇO DE TRÁFEGO | departamento de controlo de tráfego, centro de serviço de tráfego |
+| SINAL\_DE TRÂNSITO | sinal de trânsito |
+| SISTEMA\_TRAIL | veículo de aventura, escalada, equitação, bTT, caminhadas, sistema de trilhos |
+| REGISTO\_DE\_VEÍCULOS DA AUTORIDADE DOS TRANSPORTES | autoridade de transporte/matrícula de veículos |
+| PARAGEM\_DO CAMINHÃO | paragem de caminhão |
+| VETERINÁRIO | instalação veterinária, veterinário |
+| DESPORTO\_AQUÁTICO | desporto aquático |
+| ESTAÇÃO DE PESAGEM\_ | balanças de pesagem, estação de pesagem |
+| ORGANIZAÇÃO\_DO BEM-ESTAR | organização de bem-estar |
+| ADEGA | adega |
+| JARDIM\_BOTÂNICO\_\_ZOOETA | parque da vida selvagem, parque marinho do zoológico aquático, jardins botânicos de arboreta, zoológico, zoológicos, jardim botânico de arboreta |

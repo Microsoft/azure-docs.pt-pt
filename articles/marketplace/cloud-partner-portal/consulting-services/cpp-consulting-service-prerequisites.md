@@ -1,19 +1,18 @@
 ---
 title: O serviço de consultoria Azure e Dynamics 365 oferece pré-requisitos / Mercado Azure
 description: Pré-requisitos para uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: 88a317fde3d8e3490741b87d6015556fde593ecd
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.author: dsindona
+ms.openlocfilehash: b7a3374e8b1bb5c7624f41c994f7f9a6135506c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268283"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278523"
 ---
 # <a name="consulting-service-prerequisites"></a>Pré-requisitos do serviço de consultoria
 
@@ -21,10 +20,10 @@ Reveja a descrição e os requisitos para este tipo de oferta em [Serviços de C
 
 | Tipo de oferta | Requisito |
 |---------|---------|
-| Dinâmica 365 Vendas <br> Dinâmica 365 Marketing <br> Serviço ao Cliente Da Dinâmica 365 <br> Serviço de Campo 365 <br> Dinâmica 365 Recursos Humanos |   Deve ser certificado gold ou silver na [cloud business applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de envolvimento com o cliente.    | 
+| Vendas do Dynamics 365 <br> Dinâmica 365 Marketing <br> Serviço ao Cliente Da Dinâmica 365 <br> Serviço de Campo 365 <br> Dinâmica 365 Recursos Humanos |   Deve ser certificado gold ou silver na [cloud business applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de envolvimento com o cliente.    | 
 | Dinâmica 365 Finanças <br> Dinâmica 365 Gestão da Cadeia de Abastecimento <br> Dinâmica 365 Comércio <br> Dinâmica 365 Recursos Humanos <br> Dinâmica 365 Project Service Automation |  Deve ser certificado gold ou silver em [Cloud Business Applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção Operações Unificadas.       |
 | Dynamics 365 for Customer Insights | Deve ter pelo menos 1 implementação bem sucedida na produção da [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) com pelo menos 5 medidas e 5 segmentos. |
-| Dinâmica 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
+| Dynamics 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
 | Power BI | Deve estar listado na montra do [parceiro Power BI.](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)|
 |Power Apps | Deve ser elegível para Benefícios Avançados no Programa de [Parceria PowerApps](https://aka.ms/PowerAppsPartner). |
 

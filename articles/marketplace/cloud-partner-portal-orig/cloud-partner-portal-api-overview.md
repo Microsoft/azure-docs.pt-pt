@@ -1,37 +1,36 @@
 ---
-title: Referência de API de Portal do Cloud Partner | Azure Marketplace
-description: Descrição de, pré-requisitos para usar e lista de operações de API do Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Cloud Partner Portal Referência API [ Mercado Azure
+description: Descrição dos pré-requisitos para utilização e lista de operações de API no mercado.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 296c667876807bdd05a6281de461df76207b5490
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819635"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288551"
 ---
-<a name="cloud-partner-portal-api-reference"></a>Referência de API de Portal do Cloud Partner
+<a name="cloud-partner-portal-api-reference"></a>Referência api do portal de parceiro de nuvem
 ==================================
 
-As APIs REST Portal do Cloud Partner permitem a recuperação programática e a manipulação de cargas de trabalho, ofertas e perfis de Publicador. As APIs usam o RBAC (controle de acesso baseado em função) para impor as permissões corretas no momento do processamento.
+O Portal de Parceiros cloud REST APIs permite a recuperação programática e manipulação de cargas de trabalho, ofertas e perfis de editor. As APIs utilizam o controlo de acesso baseado em funções (RBAC) para impor permissões corretas no momento do processamento.
 
-Esta referência fornece os detalhes técnicos para as APIs REST do Portal do Cloud Partner. Os exemplos de carga neste documento são apenas para referência e estão sujeitos a alterações à medida que a nova funcionalidade é adicionada.
+Esta referência fornece os detalhes técnicos para as APIs REST REST Do Portal do Parceiro cloud. As amostras de carga útil neste documento são apenas para referência e estão sujeitas a alterações à medida que é adicionada uma nova funcionalidade.
 
 
 <a name="prerequisites-and-considerations"></a>Pré-requisitos e considerações
 -------------------------------
 
-Antes de usar as APIs, você deve examinar:
+Antes de utilizar as APIs, deve rever:
 
-- O artigo [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para saber como adicionar uma entidade de serviço à sua conta e obter um token de acesso Azure Active Directory (AD do Azure) para autenticação. 
-- O dois [controles de simultaneidade](./cloud-partner-portal-api-concurrency-control.md).
-estratégias disponíveis para chamar essas APIs.
-- Considerações adicionais [sobre](./cloud-partner-portal-api-considerations.md)API, como controle de versão e tratamento de erros.
+- O artigo [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para aprender a adicionar um principal de serviço à sua conta, e obter um sinal de acesso azure Ative Directory (Azure AD) para autenticação. 
+- O controlo das duas [moedas.](./cloud-partner-portal-api-concurrency-control.md)
+estratégias disponíveis para chamar estas APIs.
+- [Considerações](./cloud-partner-portal-api-considerations.md)adicionais da API, tais como versão e manipulação de erros.
 
 
 <a name="common-tasks"></a>Tarefas comuns
@@ -52,13 +51,13 @@ Esta referência detalha as APIs para executar as seguintes tarefas comuns.
 -   [Obter operações](./cloud-partner-portal-api-retrieve-operations.md)
 -   [Cancelar operações](./cloud-partner-portal-api-cancel-operations.md)
 
-### <a name="publish-an-app"></a>Publicar um aplicativo
+### <a name="publish-an-app"></a>Publicar uma aplicação
 
 -   [Entrar em direto](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Outras tarefas
 
--   [Definir preços para ofertas de máquina virtual](./cloud-partner-portal-api-setting-price.md)
+-   [Definir preços para ofertas de máquinas virtuais](./cloud-partner-portal-api-setting-price.md)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

@@ -9,36 +9,36 @@ ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
 ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73182262"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é o ExpressRoute Direct?
 
-O ExpressRoute Direct oferece aos clientes a possibilidade de se ligarem diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. O ExpressRoute Direct fornece conectividade dual de 100 ou 10 Gbps, que dá suporte à conectividade ativa/ativa em escala. 
+O ExpressRoute Direct oferece aos clientes a possibilidade de se ligarem diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. O ExpressRoute Direct fornece conectividade dupla de 100 ou 10 Gbps, que suporta conectividade Ative/Ative em escala. 
 
-### <a name="how-do-customers-connect-to-expressroute-direct"></a>Como os clientes se conectam ao ExpressRoute Direct? 
+### <a name="how-do-customers-connect-to-expressroute-direct"></a>Como é que os clientes se ligam ao ExpressRoute Direct? 
 
-Os clientes precisarão trabalhar com suas operadoras locais e provedores de colocalização para obter conectividade com os roteadores do ExpressRoute para tirar proveito do ExpressRoute Direct.
+Os clientes terão de trabalhar com as suas transportadoras locais e fornecedores de co-localização para obter conectividade com os routers ExpressRoute para tirar partido do ExpressRoute Direct.
 
-### <a name="what-locations-currently-support-expressroute-direct"></a>Quais locais atualmente dão suporte ao ExpressRoute Direct? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Que localizações suportam atualmente o ExpressRoute Direct? 
 
-Verifique a disponibilidade na [página local](../articles/expressroute/expressroute-locations-providers.md). 
+Por favor, verifique a disponibilidade na página de [localização](../articles/expressroute/expressroute-locations-providers.md). 
 
-### <a name="what-is-the-sla-for-expressroute-direct"></a>O que é o SLA para o ExpressRoute Direct?
+### <a name="what-is-the-sla-for-expressroute-direct"></a>O que é o SLA para ExpressRoute Direct?
 
-O ExpressRoute Direct usará a mesma [classificação empresarial do expressroute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
+O ExpressRoute Direct utilizará o mesmo [grau de empresa da ExpressRoute.](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) 
 
-### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Quais cenários os clientes devem considerar com o ExpressRoute Direct?  
+### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Que cenários os clientes devem considerar com o ExpressRoute Direct?  
 
-O ExpressRoute Direct fornece aos clientes pares de portas diretas de 100 ou 10 Gbps no backbone global da Microsoft. Os cenários que fornecerão aos clientes os melhores benefícios incluem: ingestão maciça de dados, isolamento físico para mercados regulamentados e capacidade dedicada para o cenário de intermitência, como renderização. 
+O ExpressRoute Direct fornece aos clientes pares de portas diretas de 100 ou 10 Gbps na espinha dorsal global da Microsoft. Os cenários que proporcionarão aos clientes os maiores benefícios incluem: Ingestão massiva de dados, isolamento físico para mercados regulados e capacidade dedicada para cenário de explosão, como renderização. 
 
-### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Qual é o modelo de cobrança do ExpressRoute Direct? 
+### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Qual é o modelo de faturação do ExpressRoute Direct? 
 
-O ExpressRoute Direct será cobrado pelo par de portas em um valor fixo. Os circuitos padrão serão incluídos sem horas adicionais e o Premium terá um pequeno encargo de complemento. A saída será cobrada por circuito com base na zona do local de emparelhamento.
+O ExpressRoute Direct será cobrado para o par de portas a um valor fixo. Os circuitos standard serão incluídos sem horas adicionais e o prémio terá uma ligeira carga adicional. A egress será cobrada por circuito com base na zona do local de observação.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Quando a cobrança começa para os pares de porta direto do ExpressRoute?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Quando começa a faturação para os pares de portas ExpressRoute Direct?
 
-Os pares de porta do ExpressRoute Direct são cobrados 45 dias na criação do recurso do ExpressRoute Direct ou quando um ou ambos os links são habilitados, o que ocorrer primeiro. O período de carência de 45 dias é concedido para permitir que os clientes concluam o processo de conexão cruzada com o provedor de colocalização.
+Os pares portuários do ExpressRoute Direct são faturados 45 dias para a criação do recurso ExpressRoute Direct ou quando 1 ou ambos os links estão ativados, o que vier em primeiro lugar. O período de carência de 45 dias é concedido para permitir que os clientes completem o processo de ligação cruzada com o fornecedor de co-localização.

@@ -1,6 +1,6 @@
 ---
-title: Consultar dados de um ambiente de visualização C# usando-Azure Time Series insights | Microsoft Docs
-description: Saiba como consultar dados de um ambiente de Azure Time Series Insights usando um aplicativo escrito em C#.
+title: Dados de consulta de um ambiente de pré-visualização usando C# - Azure Time Series Insights [ Microsoft Docs
+description: Saiba como consultar dados de um ambiente de Insights da Série De Tempo Azure utilizando uma aplicação escrita em C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 76e3ac85a6725976ebd14dac1805079613c94ec6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76980992"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados do ambiente de visualização de Azure Time Series Insights usandoC#
+# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Dados de consulta do ambiente de pré-visualização da Série de Tempo Azure insights usando C #
 
-Este C# exemplo demonstra como consultar dados das APIs de acesso a dados de [pré-visualização](https://docs.microsoft.com/rest/api/time-series-insights/preview) em ambientes de pré-visualização da Série de Tempo Azure Insights.
+Este exemplo C# demonstra como consultar dados das APIs de acesso a dados de [pré-visualização](https://docs.microsoft.com/rest/api/time-series-insights/preview) em ambientes de pré-visualização da Série de Tempo Azure Insights.
 
 > [!TIP]
-> Ver C# amostras de código de pré-visualização em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> Ver Amostras de [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)código Preview C# em .
 
 ## <a name="summary"></a>Resumo
 
@@ -31,7 +31,7 @@ O código da amostra abaixo demonstra as seguintes características:
 
 * Suporte para a geração automática SDK a partir do [Azure AutoRest](https://github.com/Azure/AutoRest).
 * Como adquirir um token de acesso através do Diretório Ativo Azure utilizando [o Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
-* Como passar aquele símbolo de acesso adquirido no `Authorization` cabeçalho dos pedidos subsequentes da API de Acesso a Dados. 
+* Como passar aquele símbolo de acesso `Authorization` adquirido no cabeçalho dos pedidos subsequentes da API de Acesso a Dados. 
 * A amostra fornece uma interface de consola demonstrando como os pedidos http são feitos para:
 
     * [Pré-visualização Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
@@ -46,20 +46,20 @@ O código da amostra abaixo demonstra as seguintes características:
 
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
-Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
+Complete os seguintes passos antes de compilar e executar o código da amostra:
 
 1. Fornecer um ambiente [de Insights da Série de Tempo Azure.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment)
-1. Configure seu ambiente de Azure Time Series Insights para Azure Active Directory conforme descrito em [autenticação e autorização](time-series-insights-authentication-and-authorization.md). 
+1. Configure o seu ambiente de Insights da Série De Tempo Azure para o Diretório Ativo Azure, conforme descrito na [Autenticação e autorização.](time-series-insights-authentication-and-authorization.md) 
 1. Executar o [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) conforme especificado no [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) para gerar as dependências do cliente de Pré-visualização da Série De Tempo.
-1. Abra a solução `TSIPreviewDataPlaneclient.sln` e coloque `DataPlaneClientSampleApp` como o projeto padrão no Estúdio Visual.
-1. Instale as dependências de projeto sinuosas utilizando os passos [descritos abaixo](#project-dependencies) e compilar o exemplo para um ficheiro `.exe` executável.
-1. Faça o ficheiro `.exe` clicando duas vezes nele.
+1. Abra `TSIPreviewDataPlaneclient.sln` a solução e definido `DataPlaneClientSampleApp` como o projeto padrão no Estúdio Visual.
+1. Instale as dependências de projeto sinuosas utilizando os `.exe` passos [descritos abaixo](#project-dependencies) e compilar o exemplo num ficheiro executável.
+1. Faça `.exe` o ficheiro clicando duas vezes nele.
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 
 Recomenda-se que use a mais recente versão do Visual Studio:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -versão 16.4.2 +
+* [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
 
 O código da amostra tem várias dependências necessárias que podem ser vistas no ficheiro [embalagem.config.](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config)
 
@@ -69,7 +69,7 @@ Em alternativa, adicione cada pacote utilizando [NuGet 2.12+](https://www.nuget.
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
-## <a name="c-sample-code"></a>C#código de exemplo
+## <a name="c-sample-code"></a>Código da amostra C#
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
 
@@ -79,6 +79,6 @@ Em alternativa, adicione cada pacote utilizando [NuGet 2.12+](https://www.nuget.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre consultas, leia a [referência de API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
+- Para saber mais sobre consulta, leia a referência da [Consulta API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Leia como [conectar um aplicativo JavaScript usando o SDK do cliente](https://github.com/microsoft/tsiclient) para Time Series insights.
+- Leia como [ligar uma aplicação JavaScript utilizando o SDK do cliente](https://github.com/microsoft/tsiclient) para time series Insights.

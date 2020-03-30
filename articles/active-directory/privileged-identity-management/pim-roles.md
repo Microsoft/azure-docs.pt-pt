@@ -1,6 +1,6 @@
 ---
-title: Funções que você não pode gerenciar em Privileged Identity Management Azure Active Directory | Microsoft Docs
-description: Descreve as funções que você não pode gerenciar no Azure AD Privileged Identity Management (PIM).
+title: Funções que não pode gerir na Gestão de Identidade Privilegiada - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+description: Descreve as funções que não pode gerir na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,34 +15,34 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fac7074cf85a585c93ece60be9eea8ffb9a6345
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72895207"
 ---
-# <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que você não pode gerenciar no Privileged Identity Management
+# <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
 
-O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite que você gerencie todas as [funções do Azure ad](../users-groups-roles/directory-assign-admin-roles.md) e todas as [funções de recursos do Azure](../../role-based-access-control/built-in-roles.md). Essas funções também incluem suas funções personalizadas anexadas aos grupos de gerenciamento, assinaturas, grupos de recursos e recursos. No entanto, há poucas funções que você não pode gerenciar. Este artigo descreve as funções que você não pode gerenciar no Privileged Identity Management.
+O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe gerir todas as [funções de AD Azure](../users-groups-roles/directory-assign-admin-roles.md) e todas as funções de [recursos Azure.](../../role-based-access-control/built-in-roles.md) Estas funções também incluem as suas funções personalizadas anexadas aos seus grupos de gestão, subscrições, grupos de recursos e recursos. No entanto, há poucos papéis que não consegues gerir. Este artigo descreve as funções que não pode gerir na Gestão de Identidade Privilegiada.
 
 ## <a name="classic-subscription-administrator-roles"></a>Funções de administrador de subscrição clássica
 
-Você não pode gerenciar as seguintes funções de administrador de assinatura clássica no Privileged Identity Management:
+Não é possível gerir as seguintes funções clássicas de administrador de subscrição na Gestão de Identidade Privilegiada:
 
 - Administrador de Conta
 - Administrador de Serviços
 - Coadministrador
 
-Para obter mais informações sobre as funções de administrador de assinatura clássica, consulte [funções de administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte funções de administrador de [subscrição Classic, funções de Azure RBAC e funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)de administrador da AD Azure.
 
-## <a name="what-about-office-365-admin-roles"></a>E quanto às funções de administrador do Office 365?
+## <a name="what-about-office-365-admin-roles"></a>E os papéis de administrador do Office 365?
 
-As funções no Exchange Online ou no SharePoint Online, exceto para o administrador do Exchange e o administrador do SharePoint, não são representadas no Azure AD e, portanto, não podem ser gerenciadas no Privileged Identity Management. Para obter mais informações sobre esses serviços do Office 365, consulte [funções de administrador do office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+As funções no Exchange Online ou SharePoint Online, com exceção do Administrador de Câmbio e administrador do SharePoint, não estão representadas no Azure AD e por isso não podem ser geridas na Gestão de Identidade Privilegiada. Para obter mais informações sobre estes serviços do Office 365, consulte as [funções de administrador do Office 365.](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles)
 
 > [!NOTE]
-> O administrador do SharePoint tem acesso administrativo ao SharePoint Online por meio do centro de administração do SharePoint Online e pode executar quase qualquer tarefa no SharePoint Online. Os usuários qualificados podem experimentar atrasos usando essa função no SharePoint após a ativação no Privileged Identity Management.
+> O Administrador SharePoint tem acesso administrativo ao SharePoint Online através do centro de administração SharePoint Online, e pode executar quase qualquer tarefa no SharePoint Online. Os utilizadores elegíveis podem experimentar atrasos na utilização desta função no SharePoint após a ativação na Gestão de Identidade Privilegiada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
+- [Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

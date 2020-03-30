@@ -1,6 +1,6 @@
 ---
-title: Monitorar eventos agendados para suas VMs do Windows no Azure
-description: Saiba como monitorar suas máquinas virtuais do Azure para eventos agendados.
+title: Monitorize eventos agendados para os seus VMs Windows em Azure
+description: Saiba como monitorizar as suas máquinas virtuais Azure para eventos agendados.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -11,38 +11,38 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
 ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073321"
 ---
-# <a name="monitoring-scheduled-events"></a>Eventos Agendados de monitoramento
+# <a name="monitoring-scheduled-events"></a>Monitorização de Eventos Agendados
 
-As atualizações são aplicadas a diferentes partes do Azure todos os dias, para manter os serviços em execução neles seguros e atualizados. Além das atualizações planejadas, eventos não planejados também podem ocorrer. Por exemplo, se alguma degradação ou falha de hardware for detectada, os serviços do Azure talvez precisem executar a manutenção não planejada. Usando a migração dinâmica, preservando as atualizações de memória e geralmente mantendo uma barra estrita sobre o impacto das atualizações, na maioria dos casos esses eventos são quase transparentes para os clientes e não têm impacto ou, no máximo, causam alguns segundos de congelamento da máquina virtual. No entanto, para alguns aplicativos, até alguns segundos de congelamento da máquina virtual podem causar um impacto. Saber com antecedência sobre a futura manutenção do Azure é importante, para garantir a melhor experiência para esses aplicativos. [Eventos agendados serviço](scheduled-events.md) fornece uma interface programática para ser notificada sobre a manutenção futura e permite que você manipule a manutenção normalmente. 
+As atualizações são aplicadas a diferentes partes do Azure todos os dias, para manter os serviços em funcionamento seguros e atualizados. Além das atualizações planeadas, podem também ocorrer eventos não planeados. Por exemplo, se for detetada qualquer degradação ou falha de hardware, os serviços do Azure poderão ter de realizar uma manutenção não planeada. Utilizando a migração ao vivo, a memória preservando atualizações e geralmente mantendo uma barra rígida no impacto das atualizações, na maioria dos casos estes eventos são quase transparentes para os clientes, e não têm qualquer impacto ou, no máximo, causam alguns segundos de congelamento virtual da máquina. No entanto, para algumas aplicações, mesmo alguns segundos de congelamento virtual da máquina podem causar um impacto. É importante conhecer antecipadamente a próxima manutenção do Azure, para garantir a melhor experiência para essas aplicações. [O serviço de Eventos Agendados](scheduled-events.md) fornece-lhe uma interface programática para ser notificado sobre a manutenção futura, e permite-lhe lidar graciosamente com a manutenção. 
 
-Neste artigo, mostraremos como você pode usar eventos agendados para ser notificado sobre eventos de manutenção que poderiam estar afetando suas VMs e criar uma automação básica que pode ajudar no monitoramento e na análise.
+Neste artigo, vamos mostrar como você pode usar eventos programados para ser notificado sobre eventos de manutenção que podem estar afetando seus VMs e construir alguma automatização básica que pode ajudar na monitorização e análise.
 
 
-## <a name="routing-scheduled-events-to-log-analytics"></a>Roteamento de eventos agendados para Log Analytics
+## <a name="routing-scheduled-events-to-log-analytics"></a>Encaminhamento de eventos agendados para Log Analytics
 
-Eventos Agendados está disponível como parte do [serviço de metadados de instância do Azure](instance-metadata-service.md), que está disponível em todas as máquinas virtuais do Azure. Os clientes podem escrever automação para consultar o ponto de extremidade de suas máquinas virtuais a fim de encontrar notificações de manutenção agendadas e realizar atenuações, como salvar o estado e levar a máquina virtual fora de rotação. É recomendável criar a automação para registrar o Eventos Agendados para que você possa ter um log de auditoria dos eventos de manutenção do Azure. 
+Os Eventos Agendados estão disponíveis no âmbito do Serviço de [Metadados de Instâncias Azure,](instance-metadata-service.md)que está disponível em todas as máquinas virtuais do Azure. Os clientes podem escrever automação para consultar o ponto final das suas máquinas virtuais para encontrar notificações de manutenção programadas e realizar mitigações, como salvar o estado e tirar a máquina virtual da rotação. Recomendamos que a automação de edifícios registe os Eventos Agendados para que possa ter um registo de auditoria de eventos de manutenção do Azure. 
 
-Neste artigo, descreveremos como capturar Eventos Agendados de manutenção para Log Analytics. Em seguida, dispararemos algumas ações básicas de notificação, como enviar um email para sua equipe e obter uma exibição histórica de todos os eventos que afetaram suas máquinas virtuais. Para a agregação e a automação de eventos, usaremos [log Analytics](/azure/azure-monitor/learn/quick-create-workspace), mas você pode usar qualquer solução de monitoramento para coletar esses logs e disparar a automação.
+Neste artigo, vamos acompanhá-lo através de como capturar eventos agendados de manutenção para Registar Analytics. Em seguida, vamos desencadear algumas ações básicas de notificação, como enviar um e-mail para a sua equipa e obter uma visão histórica de todos os eventos que afetaram as suas máquinas virtuais. Para a agregação e automatização do evento usaremos [log Analytics,](/azure/azure-monitor/learn/quick-create-workspace)mas você pode usar qualquer solução de monitorização para recolher estes registos e automatização de gatilhos.
 
 ![Diagrama mostrando o ciclo de vida do evento](./media/notifications/events.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este exemplo, será necessário criar uma [máquina virtual do Windows em um conjunto de disponibilidade](tutorial-availability-sets.md). Eventos Agendados fornecer notificações sobre as alterações que podem afetar qualquer uma das máquinas virtuais em seu conjunto de disponibilidade, serviço de nuvem, conjunto de dimensionamento de máquinas virtuais ou VMs autônomas. Executaremos um [serviço](https://github.com/microsoft/AzureScheduledEventsService) que sonda eventos agendados em uma das VMs que atuarão como coletor, para obter eventos para todas as outras VMs no conjunto de disponibilidade.    
+Para este exemplo, terá de criar uma [Máquina Virtual do Windows num Conjunto](tutorial-availability-sets.md)de Disponibilidade . Os Eventos Agendados fornecem notificações sobre alterações que podem afetar qualquer uma das máquinas virtuais no seu conjunto de disponibilidade, Serviço de Nuvem, Conjunto de Escala de Máquina Virtual ou VMs autónomos. Vamos executar um [serviço](https://github.com/microsoft/AzureScheduledEventsService) que faz sondagens para eventos agendados num dos VMs que funcionarão como colecionadores, para obter eventos para todos os outros VMs no conjunto de disponibilidade.    
 
-Não exclua o grupo de recursos de grupo no final do tutorial.
+Não apague o grupo de recursos de grupo no final do tutorial.
 
-Você também precisará [criar um log Analytics espaço de trabalho](/azure/azure-monitor/learn/quick-create-workspace) que usaremos para agregar informações das VMs no conjunto de disponibilidade.
+Também terá de criar um espaço de [trabalho de Log Analytics](/azure/azure-monitor/learn/quick-create-workspace) que utilizaremos para agregar informações dos VMs no conjunto de disponibilidade.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
-Agora você deve ter duas VMs iniciais em um conjunto de disponibilidade. Agora, precisamos criar uma 3ª VM, chamada myCollectorVM, no mesmo conjunto de disponibilidade. 
+Deverá agora ter 2 VMs iniciais num conjunto de disponibilidade. Agora precisamos criar um 3º VM, chamado myCollectorVM, no mesmo conjunto de disponibilidade. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -59,9 +59,9 @@ New-AzVm `
 ```
  
 
-Baixe o arquivo. zip de instalação do projeto do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
+Descarregue a instalação .zip file do projeto a partir do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`e configure o serviço.
+Ligue-se ao **myCollectorVM** e copie o ficheiro .zip para a máquina virtual e extrai todos os ficheiros. No seu VM, abra um pedido powerShell. Mova o seu pedido `SchService.ps1`para a `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`pasta contendo, por exemplo: - e instale o serviço.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -73,71 +73,71 @@ Inicie o serviço.
 .\SchService.ps1 -Start
 ```
 
-Agora, o serviço iniciará a sondagem a cada 10 segundos para todos os eventos agendados e aprovar os eventos para agilizar a manutenção.  Congelar, reinicializar, reimplantar e preempção são os eventos capturados por eventos de agendamento.   Observe que você pode estender o script para disparar algumas mitigações antes de aprovar o evento.
+O serviço começará agora a fazer sondagens a cada 10 segundos para quaisquer eventos agendados e aprovará os eventos para acelerar a manutenção.  Congelar, Reiniciar, Reimplantar e Preempt são os eventos capturados pelos eventos da Agenda.   Note que pode estender o script para desencadear algumas mitigações antes de aprovar o evento.
 
-Valide o status do serviço e verifique se ele está em execução.
+Valide o estado do serviço e certifique-se de que está em funcionamento.
 
 ```powershell
 .\SchService.ps1 -status  
 ```
 
-Isso deve retornar `Running`.
+Isto deve `Running`voltar.
 
-Agora, o serviço iniciará a sondagem a cada 10 segundos para todos os eventos agendados e aprovar os eventos para agilizar a manutenção.  Congelar, reinicializar, reimplantar e preempção são os eventos capturados por eventos de agendamento. Você pode estender o script para disparar algumas mitigações antes de aprovar o evento.
+O serviço começará agora a fazer sondagens a cada 10 segundos para quaisquer eventos agendados e aprovará os eventos para acelerar a manutenção.  Congelar, Reiniciar, Reimplantar e Preempt são os eventos capturados pelos eventos da Agenda. Pode estender o guião para desencadear algumas mitigações antes de aprovar o evento.
 
-Quando qualquer um dos eventos acima for capturado pelo serviço de eventos de agendamento, ele será registrado no status do evento do log de eventos do aplicativo, tipo de evento, recursos (nomes de máquina virtual) e não antes (período de aviso mínimo). Você pode localizar os eventos com a ID 1234 no log de eventos do aplicativo.
+Quando qualquer um dos eventos acima referidos for capturado pelo serviço Schedule Event, será registado no Status de Evento de Registo de Eventos de Eventos de Aplicação, Tipo de Evento, Recursos (nomes de máquinas virtuais) e NotBefore (período mínimo de aviso). Pode localizar os eventos com id 1234 no Registo de Eventos de Aplicação.
 
-Depois que o serviço for configurado e iniciado, ele registrará eventos nos logs de aplicativos do Windows.   Para verificar se isso funciona, reinicie uma das máquinas virtuais no conjunto de disponibilidade e você deverá ver um evento sendo registrado no Visualizador de eventos nos logs do Windows > log de aplicativo mostrando a VM reiniciada. 
+Assim que o serviço estiver configurado e iniciado, irá registar eventos nos registos da Aplicação do Windows.   Para verificar se isto funciona, reinicie uma das máquinas virtuais no conjunto de disponibilidade e deverá ver um evento a ser registado no Espectador do Evento em Registos do Windows > Registos de Aplicações mostrando o VM reiniciado. 
 
-![Captura de tela do Visualizador de eventos.](./media/notifications/event-viewer.png)
+![Screenshot do espectador do evento.](./media/notifications/event-viewer.png)
 
-Quando os eventos são capturados pelo serviço de eventos de agendamento, eles serão registrados no aplicativo até mesmo log com status do evento, tipo de evento, recursos (nome da VM) e não antes (período de aviso mínimo). Você pode localizar os eventos com a ID 1234 no log de eventos do aplicativo.
+Quando os eventos forem captados pelo serviço Schedule Event, será registado na aplicação até mesmo com o Estado do Evento, Tipo de Evento, Recursos (nome VM) e NotBefore (período mínimo de aviso). Pode localizar os eventos com id 1234 no Registo de Eventos de Aplicação.
 
 > [!NOTE] 
-> Neste exemplo, as máquinas virtuais estavam em um conjunto de disponibilidade, o que nos permitiu designar uma única máquina virtual como o coletor para escutar e rotear eventos agendados para nosso espaço de trabalhos do log Analytics. Se você tiver máquinas virtuais autônomas, poderá executar o serviço em cada máquina virtual e, em seguida, conectá-las individualmente ao seu espaço de trabalho do log Analytics.
+> Neste exemplo, as máquinas virtuais estavam num conjunto de disponibilidade, o que nos permitiu designar uma única máquina virtual como colecionador para ouvir e encaminhar eventos programados para o nosso espaço de trabalho slog analytics. Se tiver máquinas virtuais autónomas, pode executar o serviço em todas as máquinas virtuais e, em seguida, conectá-las individualmente ao seu espaço de trabalho de análise de registo.
 >
-> Para nossa configuração, escolhemos o Windows, mas você pode criar uma solução semelhante no Linux.
+> Para a nossa configuração, escolhemos o Windows, mas pode desenhar uma solução semelhante no Linux.
 
-A qualquer momento, você pode parar/remover o serviço de evento agendado usando as opções `–stop` e `–remove`.
+Em qualquer momento pode parar/remover o Serviço de `–stop` Eventos Agendadoutilizando os interruptores e `–remove`.
 
-## <a name="connect-to-the-workspace"></a>Conectar-se ao espaço de trabalho
+## <a name="connect-to-the-workspace"></a>Ligue-se ao espaço de trabalho
 
 
-Agora queremos conectar um espaço de trabalho Log Analytics à VM do coletor. O espaço de trabalho Log Analytics atua como um repositório e configuraremos a coleta de log de eventos para capturar os logs de aplicativo da VM do coletor. 
+Queremos agora ligar um Espaço de Trabalho de Log Analytics ao VM do colecionador. O espaço de trabalho Log Analytics funciona como um repositório e vamos configurar a recolha de registos de eventos para capturar os registos de aplicação do VM do colecionador. 
 
- Para rotear o Eventos Agendados para o log de eventos, que será salvo como log do aplicativo pelo nosso serviço, você precisará conectar sua máquina virtual ao seu espaço de trabalho do Log Analytics.  
+ Para encaminhar os Eventos Agendados para o Registo de Eventos, que será guardado como registo de aplicação pelo nosso serviço, terá de ligar a sua máquina virtual ao seu espaço de trabalho Log Analytics.  
  
-1. Abra a página do espaço de trabalho que você criou.
-1. Em **conectar a uma fonte de dados** , selecione **VMS (máquinas virtuais) do Azure**.
+1. Abra a página para o espaço de trabalho que criou.
+1. Em **Connect a uma fonte de dados** selecione **máquinas virtuais Azure (VMs)**.
 
-    ![Conectar-se a uma VM como uma fonte de dados](./media/notifications/connect-to-data-source.png)
+    ![Ligue-se a um VM como fonte de dados](./media/notifications/connect-to-data-source.png)
 
 1. Procure e selecione **myCollectorVM**. 
-1. Na página novo para **myCollectorVM**, selecione **conectar**.
+1. Na nova página para **myCollectorVM,** selecione **Connect**.
 
-Isso instalará o [Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows) em sua máquina virtual. Levará alguns minutos para conectar sua VM ao espaço de trabalho e instalar a extensão. 
+Isto irá instalar o [agente de monitorização](/azure/virtual-machines/extensions/oms-windows) da Microsoft na sua máquina virtual. Levará alguns minutos para ligar o vM ao espaço de trabalho e instalar a extensão. 
 
-## <a name="configure-the-workspace"></a>Configurar o espaço de trabalho
+## <a name="configure-the-workspace"></a>Configure o espaço de trabalho
 
-1. Abra a página do seu espaço de trabalho e selecione **Configurações avançadas**.
-1. Selecione **dados** no menu à esquerda e, em seguida, selecione **logs de eventos do Windows**.
-1. Em **coletar dos seguintes logs de eventos**, comece a digitar *aplicativo* e, em seguida, selecione **aplicativo** na lista.
+1. Abra a página para o seu espaço de trabalho e selecione **Definições Avançadas**.
+1. Selecione **Dados** do menu esquerdo e, em seguida, selecione Registos de **Eventos do Windows**.
+1. Em **Recolher a partir dos registos de eventos seguintes,** comece a digitar a *aplicação* e, em seguida, selecione **A Aplicação** da lista.
 
-    ![Selecionar configurações avançadas](./media/notifications/advanced.png)
+    ![Selecione configurações avançadas](./media/notifications/advanced.png)
 
-1. Deixe **erro**, **aviso**e **informações** selecionadas e, em seguida, selecione **salvar** para salvar as configurações.
+1. Deixe **ERRO,** **AVISO**e **INFORMAÇÃO** selecionada e, em seguida, selecione **Guardar** para guardar as definições.
 
 
 > [!NOTE]
-> Haverá algum atraso e poderá levar até 10 minutos para que o log esteja disponível. 
+> Haverá algum atraso, e pode demorar até 10 minutos antes do registo estar disponível. 
 
 
-## <a name="creating-an-alert-rule-with-azure-monitor"></a>Criando uma regra de alerta com Azure Monitor 
+## <a name="creating-an-alert-rule-with-azure-monitor"></a>Criar uma regra de alerta com o Monitor Azure 
 
 
-Depois que os eventos forem enviados para Log Analytics, você poderá executar a [consulta](/azure/azure-monitor/log-query/get-started-portal) a seguir para procurar os eventos de agendamento.
+Uma vez que os eventos são empurrados para log Analytics, você pode executar a seguinte [consulta](/azure/azure-monitor/log-query/get-started-portal) para procurar os eventos de agenda.
 
-1. Na parte superior da página, selecione **logs** e cole o seguinte na caixa de texto:
+1. Na parte superior da página, selecione **Registos** e cola o seguinte na caixa de texto:
 
     ```
     Event
@@ -153,28 +153,28 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Selecione **salvar**e, em seguida, digite *logQuery* para o nome, deixe **consulta** como o tipo, digite *VMLogs* como a **categoria**e, em seguida, selecione **salvar**. 
+1. Selecione **Guardar**, e, em seguida, *digitar logquery* para o nome, deixe **a Consulta** como o tipo, escreva *VMLogs* como **categoria**, e, em seguida, selecione **Guardar**. 
 
-    ![Salvar a consulta](./media/notifications/save-query.png)
+    ![Salve a consulta](./media/notifications/save-query.png)
 
 1. Selecione **Nova regra de alerta**. 
-1. Na página **criar regra** , deixe `collectorworkspace` como o **recurso**.
-1. Em **condição**, selecione a entrada *sempre que a pesquisa de logs do cliente for <login undefined>* . A página **Configurar lógica de sinal** será aberta.
-1. Em **valor do limite**, insira *0* e, em seguida, selecione **concluído**.
-1. Em **ações**, selecione **Criar grupo de ações**. A página **Adicionar grupo de ações** será aberta.
-1. Em **nome do grupo de ações**, digite *myaction*.
-1. Em **nome curto**, digite **myaction**.
-1. Em **grupo de recursos**, selecione **myResourceGroupAvailability**.
-1. Em ações, em **nome da ação** , digite **email**e, em seguida, selecione **email/SMS/Push/voz**. A página **email/SMS/Push/voz** será aberta.
-1. Selecione **email**, digite seu endereço de email e, em seguida, selecione **OK**.
-1. Na página **Adicionar grupo de ações** , selecione **OK**. 
-1. Na página **criar regra** , em **detalhes do alerta**, digite *MyALERT* para o **nome da regra de alerta**e digite *regra de alerta de email* para a **Descrição**.
-1. Quando tiver terminado, selecione **criar regra de alerta**.
-1. Reinicie uma das VMs no conjunto de disponibilidade. Em alguns minutos, você deve receber um email de que o alerta foi disparado.
+1. Na página de regra `collectorworkspace` **Criar,** deixe como **Recurso**.
+1. Em **Condições,** selecione a entrada Sempre que a procura de *registo do cliente for <login undefined> *. A página lógica do **sinal Configurar** será aberta.
+1. Sob **o valor limiar,** insira *0* e, em seguida, selecione **Done**.
+1. Under **Actions**, selecione **Create action group**. A página do **grupo de ação Add** será aberta.
+1. Em **nome de grupo action**, *digite myActionGroup*.
+1. Em **nome curto,** escreva **myActionGroup**.
+1. No **grupo Recursos,** selecione **myResourceGroupAvailability**.
+1. Em Ações, no tipo DE **E-mail**DE **NOME AÇÃO,** e, em seguida, selecione **Email/SMS/Push/Voice**. A página **de e-mail/SMS/Push/Voice** será aberta.
+1. Selecione **Email,** escreva no seu endereço de e-mail e, em seguida, selecione **OK**.
+1. Na página do **grupo de ação Adicionar,** selecione **OK**. 
+1. Na página de **regra Criar,** em DETALHES DE **ALERTA,** digite *myAlert* para o nome da **regra alerta,** e, em seguida, digite a regra de alerta de *e-mail* para a **Descrição**.
+1. Quando terminar, selecione **Criar a regra**de alerta .
+1. Reinicie um dos VMs no conjunto de disponibilidade. Dentro de alguns minutos, deve receber um e-mail que o alerta foi desencadeado.
 
-Para gerenciar suas regras de alerta, vá para o grupo de recursos, selecione **alertas** no menu à esquerda e, em seguida, selecione **gerenciar regras de alerta** na parte superior da página.
+Para gerir as suas regras de alerta, dirija-se ao grupo de recursos, selecione **Alertas** do menu esquerdo e, em seguida, **selecione Gerir regras** de alerta a partir do topo da página.
 
      
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais, consulte a página de [serviço de eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no github.
+Para saber mais, consulte a página de serviço de [eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no GitHub.

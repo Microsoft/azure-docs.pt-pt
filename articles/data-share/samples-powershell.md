@@ -1,35 +1,35 @@
 ---
-title: Exemplos de Azure PowerShell para o compartilhamento de dados do Azure
-description: Saiba mais sobre Azure PowerShell scripts de exemplo para ajudá-lo a criar e gerenciar compartilhamentos de dados no compartilhamento de dados do Azure.
+title: Amostras azure PowerShell para partilha de dados do Azure
+description: Saiba mais sobre os scripts da amostra Da PowerShell Azurshell para ajudá-lo a criar e gerir partilhas de dados em Azure Data Share.
 ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/06/2019
 ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73499287"
 ---
-# <a name="azure-powershell-samples-for-azure-data-share"></a>Exemplos de Azure PowerShell para o compartilhamento de dados do Azure
+# <a name="azure-powershell-samples-for-azure-data-share"></a>Amostras da Azure PowerShell para a Partilha de Dados do Azure
 
-A tabela a seguir inclui links para exemplos de scripts de Azure PowerShell para o compartilhamento de dados do Azure.
+A tabela seguinte inclui links para provar scripts Azure PowerShell para Partilha de Dados Azure.
 
 | |  |
 |---|---|
-|**Exemplos do PowerShell**||
-|[Criar uma nova conta de compartilhamento de dados](scripts/powershell/create-new-share-account-powershell.md)| Esse script do PowerShell cria uma nova conta de compartilhamento de dados. |
-|[Criar um novo compartilhamento de dados](scripts/powershell/create-new-share-powershell.md)| Esse script do PowerShell cria um novo compartilhamento de dados. |
-|[Adicionar conjuntos de valores a um compartilhamento](scripts/powershell/add-datasets-powershell.md)| Esse script do PowerShell adiciona um conjunto de dados de blob a uma conta de compartilhamento de dado existente. |
-|[Definir e exibir sincronizações de um compartilhamento](scripts/powershell/set-view-synchronizations-powershell.md)| Este script do PowerShell cria e exibe sincronizações de um compartilhamento de dados existente. |
-|[Criar um convite de compartilhamento de dados](scripts/powershell/create-share-invitation-powershell.md)| Este script do PowerShell de exemplo cria um convite para acesso a um compartilhamento de dados existente. |
-|[Exibir convites de compartilhamento enviados](scripts/powershell/view-sent-invitations-powershell.md)| Este script do PowerShell de exemplo recupera uma lista de convites enviados de um compartilhamento de dados existente. |
-|[Aceitar convites de compartilhamento recebidos](scripts/powershell/accept-share-invitations-powershell.md)| Este script do PowerShell de exemplo aceita um convite de compartilhamento de dados|
-|[Exibir detalhes de um compartilhamento de dados](scripts/powershell/view-share-details-powershell.md)| Este script do PowerShell de exemplo lista e recupera detalhes de compartilhamentos de dados. |
-|[Monitorar o uso de dados compartilhados](scripts/powershell/monitor-usage-powershell.md)| Este script do PowerShell de exemplo monitora o uso de dados compartilhados enviados. |
-|[Criar e exibir gatilhos de instantâneo](scripts/powershell/create-view-trigger-powershell.md)| Este script do PowerShell de exemplo cria gatilhos de instantâneo de um compartilhamento.
+|**Amostras powershell**||
+|[Criar uma nova conta de partilha de dados](scripts/powershell/create-new-share-account-powershell.md)| Este script PowerShell cria uma nova conta de partilha de dados. |
+|[Criar uma nova partilha de dados](scripts/powershell/create-new-share-powershell.md)| Este script PowerShell cria uma nova partilha de dados. |
+|[Adicionar conjuntos de dados a uma parte](scripts/powershell/add-datasets-powershell.md)| Este script PowerShell adiciona um conjunto de dados blob a uma conta de partilha de dados existente. |
+|[Definir e ver sincronizações de uma parte](scripts/powershell/set-view-synchronizations-powershell.md)| Este script PowerShell cria e vê sincronizações de uma partilha de dados existente. |
+|[Criar um convite para partilha de dados](scripts/powershell/create-share-invitation-powershell.md)| Este script de amostra PowerShell cria um convite para o acesso a uma partilha de dados existente. |
+|[Ver convites de partilha enviados](scripts/powershell/view-sent-invitations-powershell.md)| Esta amostra de script PowerShell recupera uma lista de convites enviados a partir de uma partilha de dados existente. |
+|[Aceitar convites de partilha recebidos](scripts/powershell/accept-share-invitations-powershell.md)| Este script da amostra PowerShell aceita um convite de partilha de dados|
+|[Ver detalhes de uma partilha de dados](scripts/powershell/view-share-details-powershell.md)| Esta amostra de scripts PowerShell lista e recupera detalhes de partilhas de dados. |
+|[Monitorizar a utilização de dados partilhados](scripts/powershell/monitor-usage-powershell.md)| Esta amostra de script PowerShell monitoriza o uso de dados partilhados enviados. |
+|[Criar e ver gatilhos instantâneos](scripts/powershell/create-view-trigger-powershell.md)| Este script da amostra PowerShell cria gatilhos instantâneos de uma parte.
 
 
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77209363"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço de Pesquisa Cognitiva Azure no portal
@@ -21,7 +21,7 @@ A Azure Cognitive Search é um recurso autónomo usado para ligar uma experiênc
 
 Neste artigo, aprenda a criar um recurso no [portal Azure.](https://portal.azure.com/)
 
-[GIF animado ![](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![Gif animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar, consulte [Manage Azure Cognitive Search com PowerShell](search-manage-powershell.md).
 
@@ -35,7 +35,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de mais ("+ Criar Recurso") no canto superior esquerdo.
-3. Utilize a barra de pesquisa para encontrar "Azure Cognitive Search" ou navegue para o recurso através da **Web** > **Azure Cognitive Search**.
+3. Utilize a barra de pesquisa para encontrar "Azure Cognitive Search" ou navegue para o recurso através da Pesquisa Cognitiva **Web** > **Azure**.
 
 ![Criar um recurso no portal](./media/search-create-service-portal/find-search3.png "Criar um recurso no portal")
 
@@ -60,7 +60,7 @@ Com o tempo, pode rastrear os custos atuais e projetados ou pode ver os encargos
 
 ## <a name="name-the-service"></a>Nomeie o serviço
 
-Em detalhes, forneça um nome de serviço no campo **URL.** O nome faz parte do ponto final do URL contra o qual são emitidas chamadas API: `https://your-service-name.search.windows.net`. Por exemplo, se quiser que o ponto final seja `https://myservice.search.windows.net`, entraria `myservice`.
+Em detalhes, forneça um nome de serviço no campo **URL.** O nome faz parte do ponto final do URL `https://your-service-name.search.windows.net`contra o qual são emitidas chamadas API: . Por exemplo, se quiser que `https://myservice.search.windows.net`o ponto `myservice`final seja, entraria.
 
 Requisitos do nome do serviço:
 
@@ -71,7 +71,7 @@ Requisitos do nome do serviço:
 * Você pode não usar traços consecutivos ("--") em qualquer lugar
 
 > [!TIP]
-> Se pensa que vai utilizar vários serviços, recomendamos que inclua a região (ou localização) no nome do serviço como convenção de nomeação. Os serviços dentro da mesma região podem trocar dados gratuitamente, por isso, se a Pesquisa Cognitiva Azure estiver no Oeste dos EUA, e tiver outros serviços também nos EUA Ocidentais, um nome como `mysearchservice-westus` pode poupar-lhe uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
+> Se pensa que vai utilizar vários serviços, recomendamos que inclua a região (ou localização) no nome do serviço como convenção de nomeação. Os serviços dentro da mesma região podem trocar dados gratuitamente, por isso, se a Pesquisa Cognitiva `mysearchservice-westus` Azure estiver no Oeste dos EUA, e tiver outros serviços também nos EUA Ocidentais, um nome como pode poupar-lhe uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
 
 ## <a name="choose-a-location"></a>Escolha um local
 
@@ -128,7 +128,7 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 > Um serviço tem de ter [2 réplicas para SLA só de leitura e 3 réplicas para SLA de leitura/escrita](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Aceda à página do serviço de pesquisa no portal do Azure.
-2. No painel de navegação esquerdo, selecione **Definições** > **Dimensionar**.
+2. No painel de navegação à esquerda, selecione**Escala de** **Definições** > .
 3. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
 
 ![Adicionar capacidade](./media/search-create-service-portal/settings-scale.png "Adicionar capacidade através de réplicas e divisórias")

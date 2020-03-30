@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 943e3e153411459a66aaffac68658e0780a25734
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69638303"
 ---
 > [!div class="op_single_selector"]

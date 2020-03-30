@@ -9,20 +9,20 @@ ms.date: 02/04/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 3bc481cfc35ac94699d2795862f1fe8e4decf875
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77027098"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Firewall de aplicação web Azure na visão geral da proteção do bot de aplicação Azure
 
 Cerca de 20% de todo o tráfego da Internet vem de bots maus. Fazem coisas como raspar, digitalizar e procurar vulnerabilidades na sua aplicação web. Quando estes bots são parados na Firewall de Aplicação Web (WAF), não podem atacá-lo. Também não podem usar os seus recursos e serviços, como os seus backends e outras infraestruturas subjacentes.
 
-Pode ativar uma regra de proteção de bots gerida definida para o seu WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos. Os endereços IP são obtidos a partir do feed da Microsoft Threat Intelligence. O Grafo de Segurança Inteligente da Microsoft é a tecnologia das Informações sobre Ameaças da Microsoft e é utilizado por vários serviços, incluindo o Centro de Segurança do Azure.
+Pode ativar uma regra de proteção de bots gerida definida para o seu WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos. Os endereços IP são obtidos a partir do feed da Microsoft Threat Intelligence. O Smart Security Graph alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.
 
 > [!IMPORTANT]
-> O conjunto de regras de proteção de bots está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Consulte os [Termos De Utilização Suplementares para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure para obter mais detalhes.
+> O conjunto de regras de proteção de bots está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Consulte os [Termos De Utilização Suplementares para visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure para mais detalhes.
 
 ## <a name="use-with-owasp-rulesets"></a>Utilização com conjuntos de regras OWASP
 

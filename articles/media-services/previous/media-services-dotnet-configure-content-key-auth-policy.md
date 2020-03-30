@@ -1,5 +1,5 @@
 ---
-title: Configure uma política de autorização de chave de conteúdo utilizando o Media Services .NET SDK  Microsoft Docs
+title: Configure uma política de autorização de chave de conteúdo utilizando o Media Services .NET SDK [ Microsoft Docs
 description: Saiba como configurar uma política de autorização para uma chave de conteúdo utilizando o Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251209"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurar uma política de autorização de chave de conteúdo
@@ -51,7 +51,7 @@ Para obter mais informações, veja os artigos seguintes:
 * O serviço de entrega chave caches ContentKeyAuthorizationPolicy e seus objetos relacionados (opções de política e restrições) durante 15 minutos. Pode criar contentKeyAuthorizationPolicy e especificar usar uma restrição simbólica, testá-la e, em seguida, atualizar a política para a restrição aberta. Este processo demora cerca de 15 minutos até que a política mude para a versão aberta da política.
 * Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar qualquer localizador existente e criar um novo.
 * Atualmente, não é possível encriptar downloads progressivos.
-* Um ponto final de streaming dos Media Services define o valor do cabeçalho CORS 'Access-Control-Allow-Origin' em resposta pré-voo como o wildcard '\*'. Este valor funciona bem com a maioria dos jogadores, incluindo Azure Media Player, Roku e JWPlayer, entre outros. No entanto, alguns jogadores que usam dashjs não funcionam porque, com o modo de credenciais definido para "incluir", xMLHttpRequest nos seus traços não permite que o wildcard "\*" como o valor de 'Access-Control-Allow-Origin'. Como suposições para esta limitação em dashjs, se hospedar o seu cliente a partir de um único domínio, a Media Services pode especificar esse domínio no cabeçalho de resposta pré-voo. Para assistência, abra um bilhete de apoio através do portal Azure.
+* Um ponto final de streaming dos Media Services define o valor do cabeçalho CORS 'Access-Control-Allow-Origin' em resposta pré-voo como wildcard\*' ' ' ' Este valor funciona bem com a maioria dos jogadores, incluindo Azure Media Player, Roku e JWPlayer, entre outros. No entanto, alguns jogadores que usam dashjs não funcionam porque, com o modo de credenciais definido\*para "incluir", xMLHttpRequest nos seus traços não permite que o wildcard " " como o valor de 'Access-Control-Allow-Origin'. Como suposições para esta limitação em dashjs, se hospedar o seu cliente a partir de um único domínio, a Media Services pode especificar esse domínio no cabeçalho de resposta pré-voo. Para assistência, abra um bilhete de apoio através do portal Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Encriptação dinâmica AES-128
 ### <a name="open-restriction"></a>Restrição aberta
@@ -149,7 +149,7 @@ Para configurar a opção de restrição simbólica, é necessário utilizar um 
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 ```
-Quando configurar a política restrita de fichas, deve especificar a chave de verificação primária, o emitente e os parâmetros do público. A chave de verificação primária contém a chave de que o token foi assinado com. O emitente é o STS que emite o símbolo. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
+Quando configurar a política restrita de fichas, deve especificar a chave de verificação primária, o emitente e os parâmetros do público. A chave de verificação primária contém a chave com a que o símbolo foi assinado. O emitente é o STS que emite o símbolo. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chaves media services valida que estes valores no token correspondem aos valores do modelo.
 
 Quando utilizar o SDK dos Serviços de Media para .NET, pode utilizar a classe TokenRestrictionTemplate para gerar o símbolo de restrição.
 O exemplo seguinte cria uma política de autorização com uma restrição simbólica. Neste exemplo, o cliente deve apresentar um símbolo que contenha uma chave de assinatura (VerificationKey), um emitente simbólico e reclamações necessárias.
@@ -392,8 +392,8 @@ Para configurar a opção de restrição simbólica, é necessário utilizar um 
 
 Para obter um símbolo de teste baseado na restrição simbólica que foi usada para a política de autorização chave, consulte a secção "[Test token](#test-token)". 
 
-## <a id="types"></a>Tipos utilizados quando define contentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>Tipo de restrição de chaves de conteúdo
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipos utilizados quando define contentKeyAuthorizationPolicy
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>Tipo de restrição de chaves de conteúdo
 
 ```csharp
     public enum ContentKeyRestrictionType
@@ -404,7 +404,7 @@ Para obter um símbolo de teste baseado na restrição simbólica que foi usada 
     }
 ```
 
-### <a id="ContentKeyDeliveryType"></a>Tipo de entrega de chaves de conteúdo
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>Tipo de entrega de chaves de conteúdo
 
 ```csharp 
     public enum ContentKeyDeliveryType
@@ -416,7 +416,7 @@ Para obter um símbolo de teste baseado na restrição simbólica que foi usada 
     }
 ```
 
-### <a id="TokenType"></a>TokenType
+### <a name="tokentype"></a><a id="TokenType"></a>TokenType
 
 ```csharp
     public enum TokenType

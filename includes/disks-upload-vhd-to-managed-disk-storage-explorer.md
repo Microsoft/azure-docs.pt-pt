@@ -9,122 +9,122 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74013780"
 ---
-Gerenciador de Armazenamento 1.10.0 permite que os usuários carreguem, baixem e copiem discos gerenciados, bem como criem instantâneos. Por causa desses recursos adicionais, você pode usar Gerenciador de Armazenamento para migrar dados do local para o Azure e migrar dados entre regiões do Azure.
+O Storage Explorer 1.10.0 permite que os utilizadores carreguem, descarreguem e copiem discos geridos, bem como criem instantâneos. Devido a estas capacidades adicionais, você pode usar o Storage Explorer para migrar dados do local para O Azure, e migrar dados através das regiões de Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisará do seguinte:
+Para completar este artigo, vai precisar do seguinte:
 - Uma subscrição do Azure.
-- Um ou mais Azure Managed disks
-- A versão mais recente do [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+- Um ou mais discos geridos pelo Azure
+- A versão mais recente do [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 
-Se o Gerenciador de Armazenamento não estiver conectado ao Azure, você não poderá usá-lo para gerenciar recursos. Esta seção vai se conectar à sua conta do Azure para que você possa gerenciar recursos usando Gerenciador de Armazenamento.
+Se o seu Explorador de Armazenamento não estiver ligado ao Azure, não poderá utilizá-lo para gerir recursos. Esta secção passa por ligá-la à sua conta Azure para que possa gerir os recursos utilizando o Storage Explorer.
 
-1. Inicie o Gerenciador de Armazenamento do Azure e clique no ícone de **plug-in** à esquerda.
+1. Lance o Azure Storage Explorer e clique no ícone **plug-in** à esquerda.
 
-    ![Clique no ícone de plug-in](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
+    ![Clique no ícone plug-in](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
 
-1. Selecione **Adicionar uma conta do Azure**e clique em **Avançar**.
+1. Selecione **Adicionar uma Conta Azure**e, em seguida, clicar **em Seguinte**.
 
     ![Adicionar uma Conta do Azure](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure.png)
 
-1. Na caixa de diálogo **entrar no Azure** , insira suas credenciais do Azure.
+1. Na caixa de diálogo **Azure Sign in,** introduza as suas credenciais Azure.
 
-    ![Caixa de diálogo entrar no Azure](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
+    ![Sinal azul no diálogo](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
 1. Selecione a sua subscrição na lista e clique em **Aplicar**.
 
     ![Selecione a sua subscrição](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
-## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>Carregar um disco gerenciado de um VHD local
+## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>Faça upload de um disco gerido a partir de um VHD on-prem
 
-1. No painel esquerdo, expanda **discos** e selecione o grupo de recursos no qual você deseja carregar o disco.
+1. No painel esquerdo, expanda **discos** e selecione o grupo de recursos para o que pretende fazer upload do disco.
 
-    ![Selecionar grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    ![Selecione grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
 1. Selecione **Upload**.
 
     ![Selecionar a operação carregar](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 
-1. Em **carregar VHD** , ESPECIFIQUE o VHD de origem, o nome do disco, o tipo de sistema operacional, a região em que você deseja carregar o disco, bem como o tipo de conta. Em algumas regiões, as zonas de disponibilidade têm suporte, para essas regiões, você pode selecionar uma zona de sua escolha.
-1. Selecione **criar** para começar a carregar o disco.
+1. No **Upload VHD** especifique a sua fonte VHD, o nome do disco, o tipo OS, a região para a qual pretende fazer o upload do disco, bem como o tipo de conta. Em algumas regiões as zonas de disponibilidade são suportadas, para essas regiões você pode selecionar uma zona à sua escolha.
+1. Selecione **Criar** para começar a carregar o disco.
 
-    ![Caixa de diálogo Carregar VHD](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
+    ![Carregar diálogo vhd](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
 
-1. O status do carregamento agora será exibido em **atividades**.
+1. O estado do upload irá agora ser exibido em **Atividades**.
 
-    ![Status do carregamento](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
+    ![Estado de upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
 
-1. Se o upload tiver sido concluído e você não vir o disco no painel direito, selecione **Atualizar**.
+1. Se o upload tiver terminado e não vir o disco no painel direito, selecione **Refresh**.
 
-## <a name="download-a-managed-disk"></a>Baixar um disco gerenciado
+## <a name="download-a-managed-disk"></a>Descarregue um disco gerido
 
-As etapas a seguir explicam como baixar um disco gerenciado para um VHD local. O estado de um disco deve ser **desanexado** para ser baixado, você não pode baixar um disco **anexado** .
+Os seguintes passos explicam como transferir um disco gerido para um VHD on-prem. O estado de um disco deve ser **desvinculado** para ser descarregado, não pode ndo descarregar um disco **Anexo.**
 
-1. No painel esquerdo, se ainda não estiver expandido, expanda **discos** e selecione o grupo de recursos do qual você deseja baixar o disco.
+1. No painel esquerdo, se ainda não estiver expandido, expanda **discos** e selecione o grupo de recursos a que pretende descarregar o disco.
 
-    ![Selecionar grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    ![Selecione grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. No painel direito, selecione o disco que você deseja baixar.
-1. Selecione **baixar** e, em seguida, escolha onde deseja salvar o disco.
+1. No painel direito, selecione o disco que pretende descarregar.
+1. Selecione **Baixar** e, em seguida, escolher onde pretende guardar o disco.
 
-    ![Baixar um disco gerenciado](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button.png)
+    ![Descarregue um disco gerido](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button.png)
 
-1. Selecione **salvar** e seu disco começará a ser baixado. O status do download será exibido em **atividades**.
+1. Selecione **Guardar** e o seu disco começará a descarregar. O estado do download será exibido em **Atividades.**
 
-    ![Status do download](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading.png)
+    ![Estado de descarregamento](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading.png)
 
 ## <a name="copy-a-managed-disk"></a>Copiar um disco gerido
 
-Com o Gerenciador de Armazenamento, você pode copiar um disco de gerenciada dentro ou entre regiões. Para copiar um disco:
+Com o Storage Explorer, pode copiar um disco de manhoso dentro ou em todas as regiões. Para copiar um disco:
 
-1. No menu suspenso **discos** à esquerda, selecione o grupo de recursos que contém o disco que você deseja copiar.
+1. A partir do **dropdown dos Discos** à esquerda, selecione o grupo de recursos que contém o disco que pretende copiar.
 
-    ![Selecionar grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    ![Selecione grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. No painel direito, selecione o disco que você deseja copiar e selecione **copiar**.
+1. No painel direito, selecione o disco que pretende copiar e selecionar **Copiar**.
 
     ![Copiar um disco gerido](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button.png)
 
-1. No painel esquerdo, selecione o grupo de recursos no qual você gostaria de colar o disco.
+1. No painel esquerdo, selecione o grupo de recursos em que gostaria de colar o disco.
 
-    ![Selecionar grupo de recursos 2](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2.png)
+    ![Selecione grupo de recursos 2](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg2.png)
 
-1. Selecione **colar** no painel à direita.
+1. Selecione **Pasta** no painel direito.
 
-    ![Colar um disco gerenciado](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button.png)
+    ![Colar um disco gerido](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-button.png)
 
-1. Na caixa de diálogo **colar disco** , preencha os valores. Você também pode especificar uma zona de disponibilidade em regiões com suporte.
+1. No diálogo do **Disco de Pasta,** preencha os valores. Também pode especificar uma zona de disponibilidade em regiões apoiadas.
 
-    ![Caixa de diálogo colar disco](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog.png)
+    ![Diálogo do disco de pasta](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog.png)
 
-1. Selecione **colar** e o disco começará a ser copiado, o status será exibido em **atividades**.
+1. Selecione **Pasta** e o seu disco começará a copiar, o estado é apresentado em **Atividades**.
 
-    ![Copiar status de colagem](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying.png)
+    ![Copiar estado da pasta](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying.png)
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
-1. No menu suspenso **discos** à esquerda, selecione o grupo de recursos que contém o disco que você deseja fazer o instantâneo.
+1. A partir do **dropdown** dos Discos à esquerda, selecione o grupo de recursos que contém o disco que pretende tirar o instantâneo.
 
-    ![Selecionar grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
+    ![Selecione grupo de recursos 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. À direita, selecione o disco que você gostaria de fazer o instantâneo e selecione **criar instantâneo**.
+1. À direita, selecione o disco que deseja tirar o instantâneo e **selecione Create Snapshot**.
 
     ![Criar um instantâneo](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. Em **criar instantâneo**, especifique o nome do instantâneo, bem como o grupo de recursos no qual você deseja criá-lo. Em seguida, selecione **Criar**.
+1. No **Create Snapshot,** especifique o nome do instantâneo, bem como o grupo de recursos em que pretende criá-lo. Em seguida, selecione **Criar**.
 
-    ![Caixa de diálogo Criar instantâneo](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
+    ![Criar diálogo instantâneo](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 
-1. Depois que o instantâneo tiver sido criado, você poderá selecionar **abrir no portal** em **atividades** para exibir o instantâneo no portal do Azure.
+1. Uma vez criado o instantâneo, pode selecionar **Open in Portal** em **Atividades** para ver o instantâneo no portal Azure.
 
     ![Abrir instantâneo no portal](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de implantação do serviço de nuvem | Microsoft Docs
-description: Há alguns problemas comuns que você pode encontrar ao implantar um serviço de nuvem no Azure. Este artigo fornece soluções para algumas delas.
+title: Problemas de implantação do serviço de nuvem de resolução de problemas / Microsoft Docs
+description: Existem alguns problemas comuns que poderá encontrar ao implementar um serviço de nuvem para o Azure. Este artigo fornece soluções para alguns deles.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -15,73 +15,73 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122756"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
-Ao implantar um pacote de aplicativo de serviço de nuvem no Azure, você pode obter informações sobre a implantação no painel **Propriedades** na portal do Azure. Você pode usar os detalhes neste painel para ajudá-lo a solucionar problemas com o serviço de nuvem e pode fornecer essas informações para o suporte do Azure ao abrir uma nova solicitação de suporte.
+# <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemas de implementação do serviço de nuvem de resolução de problemas
+Ao implementar um pacote de aplicação de serviço na nuvem para o Azure, pode obter informações sobre a implementação do painel **Properties** no portal Azure. Pode utilizar os detalhes deste painel para o ajudar a resolver problemas com o serviço de nuvem, e pode fornecer esta informação ao Suporte Azure ao abrir um novo pedido de suporte.
 
-Você pode encontrar o painel **Propriedades** da seguinte maneira:
+Pode encontrar o painel **das Propriedades** da seguinte forma:
 
-* No portal do Azure, clique na implantação do serviço de nuvem, clique em **todas as configurações**e clique em **Propriedades**.
+* No portal Azure, clique na implementação do seu serviço na nuvem, clique em **todas as definições**, e clique em **Propriedades**.
 
 > [!NOTE]
-> Você pode copiar o conteúdo do painel **Propriedades** para a área de transferência clicando no ícone no canto superior direito do painel.
+> Pode copiar o conteúdo do painel **Properties** para a área de sobre-ré, clicando no ícone no canto superior direito do painel.
 >
 >
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Persisti Não consigo acessar meu site, mas minha implantação foi iniciada e todas as instâncias de função estão prontas
-O link de URL do site mostrado no portal não inclui a porta. A porta padrão para sites é 80. Se seu aplicativo estiver configurado para ser executado em uma porta diferente, você deverá adicionar o número de porta correto à URL ao acessar o site.
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: Não posso aceder ao meu website, mas a minha implantação está iniciada e todas as instâncias de papéis estão prontas
+O link URL do site mostrado no portal não inclui a porta. A porta padrão para sites é de 80. Se a sua aplicação estiver configurada para funcionar numa porta diferente, deve adicionar o número de porta correto ao URL ao aceder ao website.
 
-1. No portal do Azure, clique na implantação do serviço de nuvem.
-2. No painel **Propriedades** da portal do Azure, verifique as portas das instâncias de função (em pontos de **extremidade de entrada**).
-3. Se a porta não for 80, adicione o valor correto da porta à URL ao acessar o aplicativo. Para especificar uma porta não padrão, digite a URL, seguida por dois-pontos (:), seguido pelo número da porta, sem espaços.
+1. No portal Azure, clique na implementação do seu serviço na nuvem.
+2. No painel **Propriedades** do portal Azure, verifique as portas para obter as instâncias de função (em **pontos finais**de entrada).
+3. Se a porta não tiver 80, adicione o valor de porta correto ao URL quando aceder à aplicação. Para especificar uma porta não predefinida, digite o URL, seguido de um cólon (:), seguido do número da porta, sem espaços.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Persisti Minhas instâncias de função recicladas sem me fazer nada
-A recuperação de serviço ocorre automaticamente quando o Azure detecta nós com problemas e, portanto, move as instâncias de função para novos nós. Quando isso ocorrer, você poderá ver as instâncias de função se reciclando automaticamente. Para descobrir se a recuperação do serviço ocorreu:
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: As minhas instâncias de papel recicladas sem eu fazer nada
+A cicatrização do serviço ocorre automaticamente quando o Azure deteta nódosos problemáticos e, portanto, move as instâncias de função para novos nódosos. Quando isto ocorrer, poderá ver as suas instâncias de função reciclando automaticamente. Para saber se ocorreu a cura do serviço:
 
-1. No portal do Azure, clique na implantação do serviço de nuvem.
-2. No painel **Propriedades** da portal do Azure, examine as informações e determine se a recuperação de serviço ocorreu durante o tempo em que você observou a reciclagem de funções.
+1. No portal Azure, clique na implementação do seu serviço na nuvem.
+2. No painel **De Propriedades** do portal Azure, reveja a informação e determine se a cicatrização do serviço ocorreu durante o tempo em que observou as funções de reciclagem.
 
-As funções também serão recicladas aproximadamente uma vez por mês durante as atualizações do so do host e do sistema operacional convidado.  
-Para obter mais informações, consulte a postagem de blog [reinicializações de instância de função devido a atualizações do so](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+As funções também reciclarão aproximadamente uma vez por mês durante as atualizações host-OS e guest-OS.  
+Para mais informações, consulte o blog post [Role Instance Restarts Devido a Atualizações do OS](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Persisti Não consigo fazer uma permuta de VIP e recebo um erro
-Uma permuta de VIP não será permitida se uma atualização de implantação estiver em andamento. As atualizações de implantação podem ocorrer automaticamente quando:
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Não posso fazer uma troca VIP e receber um erro
+Não é permitida uma troca VIP se estiver em curso uma atualização de implantação. As atualizações de implementação podem ocorrer automaticamente quando:
 
-* Um novo sistema operacional convidado está disponível e você está configurado para atualizações automáticas.
-* A recuperação do serviço ocorre.
+* Um novo sistema operativo de hóspedes está disponível e está configurado para atualizações automáticas.
+* A cura do serviço ocorre.
 
-Para descobrir se uma atualização automática está impedindo a realização de uma permuta de VIP:
+Para saber se uma atualização automática está a impedir-lhe de fazer uma troca VIP:
 
-1. No portal do Azure, clique na implantação do serviço de nuvem.
-2. No painel **Propriedades** da portal do Azure, examine o valor de **status**. Se estiver **pronto**, verifique a **última operação** para ver se ocorreu um recentemente que pode impedir a permuta de VIP.
-3. Repita as etapas 1 e 2 para a implantação de produção.
-4. Se uma atualização automática estiver em andamento, aguarde até que ela seja concluída antes de tentar realizar a permuta de VIP.
+1. No portal Azure, clique na implementação do seu serviço na nuvem.
+2. No painel **De Propriedades** do portal Azure, veja o valor do **Estado.** Se estiver **pronto,** verifique a **última operação** para ver se aconteceu recentemente uma operação que possa impedir a troca VIP.
+3. Repita os passos 1 e 2 para a implantação da produção.
+4. Se estiver em curso uma atualização automática, aguarde que termine antes de tentar fazer a troca VIP.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Persisti Uma instância de função está fazendo um loop entre iniciado, inicializando, ocupado e parado
-Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, você deve ser capaz de ver o status mudando a cada poucos minutos e o portal do Azure pode dizer algo como **reciclagem**, **ocupado**ou **inicialização**. Isso indica que há algo errado com o aplicativo que está impedindo a execução da instância de função.
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Uma instância de papel está a circular entre Iniciado, Inicializando, Ocupado e Parado
+Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, deverá poder ver o estado a mudar a cada poucos minutos e o portal Azure pode dizer algo como **Reciclagem,** **Ocupado**ou **Inicialização.** Isto indica que há algo de errado com a aplicação que está a impedir que o exemplo de função seja decorrido.
 
-Para obter mais informações sobre como solucionar esse problema, consulte a postagem de blog [dados de diagnóstico de computação de PaaS do Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [problemas comuns que fazem com que as funções sejam recicladas](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Para obter mais informações sobre como resolver problemas para este problema, consulte o blog post [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [questões comuns que fazem com que as funções reciclem.](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 
-## <a name="problem-my-application-stopped-working"></a>Persisti Meu aplicativo parou de funcionar
-1. Na portal do Azure, clique na instância de função.
-2. No painel **Propriedades** da portal do Azure, considere as seguintes condições para resolver o problema:
-   * Se a instância de função foi interrompida recentemente (você pode verificar o valor de **contagem de anulação**), a implantação pode estar sendo atualizada. Aguarde para ver se a instância de função continua funcionando por conta própria.
-   * Se a instância de função estiver **ocupada**, verifique o código do aplicativo para ver se o evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) é manipulado. Talvez seja necessário adicionar ou corrigir algum código que manipule esse evento.
-   * Percorra os dados de diagnóstico e os cenários de solução de problemas na postagem [do blog dados de diagnóstico de computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+## <a name="problem-my-application-stopped-working"></a>Problema: A minha candidatura deixou de funcionar
+1. No portal Azure, clique na instância de funções.
+2. No painel **De Propriedades** do portal Azure, considere as seguintes condições para resolver o seu problema:
+   * Se a instância de funções tiver parado recentemente (pode verificar o valor da contagem de **Aborto),** a implementação poderá estar a ser atualizada. Aguarde para ver se a instância de funções retoma o funcionamento por si só.
+   * Se a instância de funções estiver **ocupada,** verifique o código de aplicação para ver se o evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) é tratado. Pode ser necessário adicionar ou corrigir algum código que trate deste evento.
+   * Acompanhe os dados de diagnóstico e cenários de resolução de problemas no blog post [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
-> Se você reciclar seu serviço de nuvem, redefina as propriedades da implantação, apagando efetivamente as informações do problema original.
+> Se reciclar o seu serviço de nuvem, redefinir ás propriedades para a implementação, apagando efetivamente a informação para o problema original.
 >
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja mais [artigos de solução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços de nuvem.
+Veja mais artigos de [resolução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços na nuvem.
 
-Para saber como solucionar problemas de função de serviço de nuvem usando dados de diagnóstico de computador de PaaS do Azure, consulte a [série de Blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para aprender a resolver problemas de papel de serviço na nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson.](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)

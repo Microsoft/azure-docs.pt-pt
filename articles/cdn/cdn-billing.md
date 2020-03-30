@@ -1,6 +1,6 @@
 ---
-title: Compreendendo a cobrança da CDN do Azure | Microsoft Docs
-description: Estas perguntas frequentes descrevem como funciona a cobrança da CDN do Azure.
+title: Compreensão da faturação do CDN azure [ Microsoft Docs
+description: Este FAQ descreve como funciona a faturação do Azure CDN.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
 ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73495474"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
 
-Estas perguntas frequentes descrevem a estrutura de cobrança para o conteúdo hospedado pela CDN (rede de distribuição de conteúdo) do Azure.
+Este FAQ descreve a estrutura de faturação para conteúdos hospedados pela Azure Content Delivery Network (CDN).
 
-## <a name="what-is-a-billing-region"></a>O que é uma região de cobrança?
-Uma região de cobrança é uma área geográfica usada para determinar qual taxa é cobrada para a entrega de objetos da CDN do Azure. As zonas de cobrança atuais e suas regiões são as seguintes:
+## <a name="what-is-a-billing-region"></a>O que é uma região de faturação?
+Uma região de faturação é uma área geográfica usada para determinar que taxa é cobrada para a entrega de objetos do Azure CDN. As atuais zonas de faturação e as suas regiões são as seguintes:
 
-- Zona 1: América do Norte, Europa, Oriente Médio e África
+- Zona 1: América do Norte, Europa, Médio Oriente e África
 
-- Zona 2: Ásia-Pacífico (incluindo Japão)
+- Zona 2: Ásia-Pacífico (incluindo japão)
 
 - Zona 3: América do Sul
 
@@ -38,64 +38,64 @@ Uma região de cobrança é uma área geográfica usada para determinar qual tax
 
 - Zona 5: Índia
 
-Para obter informações sobre regiões de ponto de presença (POP), consulte [locais pop de CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região de América do Norte e, portanto, é incluído na zona 1. 
+Para obter informações sobre as regiões do ponto de presença (POP), consulte as [localizações pop do Azure CDN POP por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região da América do Norte e está, portanto, incluído na zona 1. 
 
-Para obter informações sobre os preços da CDN do Azure, consulte [preços de rede de distribuição de conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
+Para obter informações sobre os preços do CDN Azure, consulte [os preços da Rede](https://azure.microsoft.com/pricing/details/cdn/)de Entrega de Conteúdos .
 
-## <a name="how-are-delivery-charges-calculated-by-region"></a>Como as cobranças de entrega são calculadas por região?
-A região de cobrança da CDN do Azure baseia-se no local do servidor de origem que fornece o conteúdo para o usuário final. O destino (local físico) do cliente não é considerado a região de cobrança.
+## <a name="how-are-delivery-charges-calculated-by-region"></a>Como são calculados os encargos de entrega por região?
+A região de faturação do CDN Azure baseia-se na localização do servidor de origem que entrega o conteúdo ao utilizador final. O destino (localização física) do cliente não é considerado a região de faturação.
 
-Por exemplo, se um usuário localizado no México emitir uma solicitação e essa solicitação for atendida por um servidor localizado em um Estados Unidos POP devido a condições de tráfego ou de emparelhamento, a região de cobrança será a Estados Unidos.
+Por exemplo, se um utilizador localizado no México emitir um pedido e este pedido for servido por um servidor localizado num POP dos Estados Unidos devido a condições de observação ou de tráfego, a região de faturação será os Estados Unidos.
 
-## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação da CDN do Azure Faturável?
-Qualquer solicitação HTTP (S) que termina na CDN é um evento Faturável, que inclui todos os tipos de resposta: êxito, falha ou outro. No entanto, respostas diferentes podem gerar diferentes quantidades de tráfego. Por exemplo, *304 não modificado* e outras respostas somente de cabeçalho geram pouco tráfego porque elas são uma pequena resposta de cabeçalho; da mesma forma, as respostas de erro (por exemplo, *404 não encontradas*) são faturáveis, mas incorrem em um pequeno custo devido à pequena carga de resposta.
+## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação de CDN Azure faturada?
+Qualquer pedido http(S) que termina no CDN é um evento faturado, que inclui todos os tipos de resposta: sucesso, falha ou outros. No entanto, respostas diferentes podem gerar diferentes quantidades de tráfego. Por exemplo, *304 respostas não modificadas* e outras respostas apenas para cabeçalho geram pouco tráfego porque são uma pequena resposta cabeçalho; da mesma forma, as respostas de erro (por exemplo, *404 Não Encontradas)* são faturadas, mas incorrem num pequeno custo devido à carga útil da resposta minúscula.
 
-## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Quais outros custos do Azure estão associados ao uso da CDN do Azure?
-Usar a CDN do Azure também incorre em alguns encargos de uso sobre os serviços usados como a origem de seus objetos. Normalmente, esses custos são uma pequena fração do custo geral do uso da CDN.
+## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Que outros custos do Azure estão associados à utilização do Azure CDN?
+A utilização do Azure CDN também incorre em algumas taxas de utilização nos serviços utilizados como origem para os seus objetos. Estes custos são tipicamente uma pequena fração do custo total de utilização do CDN.
 
-Se você estiver usando o armazenamento de BLOBs do Azure como a origem do seu conteúdo, você também incorrerá nos seguintes encargos de armazenamento para os preenchimentos de cache:
+Se estiver a utilizar o armazenamento Azure Blob como origem para o seu conteúdo, também incorre nas seguintes despesas de armazenamento para enchimentos de cache:
 
-- GB reais usados: o armazenamento real de seus objetos de origem.
+- Gb real utilizado: O armazenamento real dos seus objetos de origem.
 
-- Transações: conforme necessário para preencher o cache.
+- Transações: Conforme necessário para preencher a cache.
 
-- Transferências em GB: a quantidade de dados transferidos para preencher os caches da CDN.
+- Transferências em GB: A quantidade de dados transferidos para preencher os caches da CDN.
 
 > [!NOTE]
-> A partir de outubro de 2019, se você estiver usando a CDN do Azure da Microsoft, o custo da transferência de dados de origens hospedadas no Azure para PoPs da CDN será gratuito. A CDN do Azure da Verizon e a CDN do Azure da Akamai estão sujeitas às tarifas descritas abaixo.
+> A partir de outubro de 2019, se estiver a utilizar o Azure CDN da Microsoft, o custo da transferência de dados das Origens hospedadas em Azure para CDN PoPs é gratuito. O Azure CDN da Verizon e o Azure CDN da Akamai estão sujeitos às taxas descritas abaixo.
 
-Para obter mais informações sobre a cobrança de armazenamento do Azure, consulte [noções básicas sobre cobrança de armazenamento do Azure – largura de banda, transações e capacidade](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Para obter mais informações sobre a faturação de armazenamento azure, consulte [Understanding Azure Storage Billing – Width, Transactions e Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Se estiver usando a *entrega de serviço hospedado*, você incorrerá em encargos da seguinte maneira:
+Se estiver a utilizar a entrega de *serviço hospedada,* incorrerá em encargos da seguinte forma:
 
-- Tempo de computação do Azure: as instâncias de computação que atuam como a origem.
+- Tempo de computação azure: Os casos computacionais que funcionam como a origem.
 
-- Transferência de computação do Azure: os dados são transferidos das instâncias de computação para preencher os caches da CDN do Azure.
+- Transferência de cálculo Azure: Os dados transferem-se das instâncias computadas para preencher os caches Azure CDN.
 
-Se o cliente usar solicitações de intervalo de bytes (independentemente do serviço de origem), as seguintes considerações se aplicarão:
+Se o seu cliente utilizar pedidos de gama byte (independentemente do serviço de origem), aplicam-se as seguintes considerações:
 
-- Uma *solicitação de intervalo de bytes* é uma transação FATURÁVEL na CDN. Quando um cliente emite uma solicitação de intervalo de bytes, essa solicitação é para um subconjunto (intervalo) do objeto. A CDN responde com apenas uma parte parcial do conteúdo solicitado. Essa resposta parcial é uma transação Faturável e o valor da transferência é limitado ao tamanho da resposta do intervalo (mais cabeçalhos).
+- Um *pedido de byte-range* é uma transação faturada na CDN. Quando um cliente emite um pedido de byte-range, este pedido é para um subconjunto (intervalo) do objeto. O CDN responde apenas com uma parte parcial do conteúdo solicitado. Esta resposta parcial é uma transação faturada e o valor da transferência está limitado ao tamanho da resposta de intervalo (mais cabeçalhos).
 
-- Quando uma solicitação chega apenas a uma parte de um objeto (especificando um cabeçalho de intervalo de bytes), a CDN pode buscar todo o objeto em seu cache. Como resultado, embora a transação Faturável da CDN seja para uma resposta parcial, a transação Faturável da origem pode envolver o tamanho total do objeto.
+- Quando um pedido chega apenas para uma parte de um objeto (especificando um cabeçalho de alcance byte), o CDN pode levar todo o objeto para a sua cache. Como resultado, embora a transação faturada do CDN seja para uma resposta parcial, a transação faturada da origem pode envolver a dimensão total do objeto.
 
-## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Quanta atividade de transferência ocorre para dar suporte ao cache?
-Cada vez que um POP CDN precisa preencher seu cache, ele faz uma solicitação para a origem do objeto que está sendo armazenado em cache. Como resultado, a origem incorre em uma transação Faturável em cada erro de cache. O número de erros de cache depende de vários fatores:
+## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Quanta atividade de transferência ocorre para suportar a cache?
+Cada vez que um CDN POP precisa preencher a sua cache, faz um pedido à origem para o objeto ser cache. Como resultado, a origem incorre numa transação faturada em cada cache miss. O número de caches falha depende de uma série de fatores:
 
-- Como armazenar em cache o conteúdo é: se o conteúdo tiver valores de/Expiration de TTL altos (vida útil) e for acessado com frequência para que ele permaneça popular no cache, a grande maioria da carga será tratada pela CDN. Um bom índice de acertos de cache é muito mais de 90%, o que significa que menos de 10% das solicitações de cliente precisam retornar à origem, seja para um erro de cache ou atualização de objeto.
+- Quão cacheable o conteúdo é: Se o conteúdo tiver valores elevados de TTL (tempo de vida)/expiração e for acedido frequentemente para que permaneça popular em cache, então a grande maioria da carga é manuseada pelo CDN. Uma relação típica de bom cache-hit é bem superior a 90%, o que significa que menos de 10% dos pedidos de clientes têm de voltar à origem, seja para uma falha de cache ou para a atualização de objetos.
 
-- Quantos nós precisam carregar o objeto: cada vez que um nó carrega um objeto da origem, ele incorre em uma transação faturável. Como resultado, mais conteúdo global (acessado de mais nós) resulta em mais transações faturáveis.
+- Quantos nós precisam carregar o objeto: Cada vez que um nó carrega um objeto da origem, incorre numa transação faturada. Como resultado, um conteúdo mais global (acedido a partir de mais nós) resulta em transações mais faturadas.
 
-- Influência de TTL: uma TTL maior para um objeto significa que ele precisa ser buscado da origem com menos frequência. Isso também significa que os clientes, como navegadores, podem armazenar em cache o objeto mais longo, o que pode reduzir as transações para a CDN.
+- Influência TTL: Um TTL mais alto para um objeto significa que precisa de ser recolhido da origem com menos frequência. Também significa que os clientes, como os navegadores, podem cache o objeto por mais tempo, o que pode reduzir as transações para o CDN.
 
-## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quais serviços de origem estão qualificados para a transferência de dados gratuita com a CDN do Azure da Microsoft? 
-Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não será cobrado da transferência de dados da origem para os PoPs da CDN. 
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quais os serviços de origem elegíveis para transferência gratuita de dados com o Azure CDN da Microsoft? 
+Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado a partir da transferência de Dados da Origem para os PoPs cDN. 
 
-- Armazenamento do Azure
-- Serviços de Multimédia do Azure
+- Storage do Azure
+- Serviços Azure Media
 - Máquinas Virtuais do Azure
 - Rede Virtual
-- Balanceador de Carga
-- Gateway da Aplicação
+- Load balancer
+- Gateway de Aplicação
 - DNS do Azure
 - ExpressRoute
 - Gateway de VPN
@@ -104,7 +104,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Firewall
 - Azure Front Door Service
 - Azure Bastion
-- Serviço de Azure App
+- Serviço de Aplicações Azure
 - Funções do Azure
 - Azure Data Factory
 - API Management do Azure
@@ -117,5 +117,5 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Base de dados SQL do Azure
 - Cache do Azure para Redis
 
-## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como fazer gerenciar meus custos com mais eficiência?
-Defina o TTL mais longo possível em seu conteúdo. 
+## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como posso gerir os meus custos de forma mais eficaz?
+Detete o TTL mais longo possível no seu conteúdo. 

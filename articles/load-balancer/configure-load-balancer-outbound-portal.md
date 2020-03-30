@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77590016"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configure regras de equilíbrio de carga e saída no Balancer de Carga Padrão utilizando o portal Azure
@@ -25,17 +25,17 @@ Cada extremidade frontal faz referência a um endereço IP público. Neste cená
 
 O cenário utiliza duas piscinas de back-end: uma para tráfego de entrada e outra para tráfego de saída. Estas piscinas ilustram a capacidade e proporcionam flexibilidade para o cenário.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 
 Nesta secção, cria-se um equilibrador de carga que carregará as máquinas virtuais de equilíbrio. Pode criar um equilibrador de carga pública ou um equilibrador interno de carga. Quando cria um equilibrador de carga pública, cria-se um novo endereço IP público que é configurado como o frontend para o equilibrador de carga. O frontend será nomeado **LoadBalancerFrontEnd** por padrão.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Networking** > **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um** > equilíbrio de**carga**de**rede** > de recursos .
 2. No separador Basics da página de equilíbrio de **carga Criar,** introduza ou selecione as **seguintes** informações:
 
     | Definição                 | Valor                                              |
@@ -85,11 +85,11 @@ Uma sonda de saúde é usada para monitorizar o estado da sua aplicação. A son
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira **80**.|
     | Intervalo | Introduza **15** para o número de **intervalos** em segundos entre as tentativas de sonda. |
-    | Limiar insalubre | Selecione **2** para o número de falhas de **limiar não saudáveis** ou de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
+    | Limiar com funcionamento incorreto | Selecione **2** para o número de falhas de **limiar não saudáveis** ou de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
     | | |
 4. Selecione **OK**.
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. 
 
 Define o:
@@ -112,7 +112,7 @@ Na secção seguinte, cria-se um:
     | Protocolo | Selecione **TCP**. |
     | Porta | Insira **80**.|
     | Porto backend | Insira **80**. |
-    | Piscina de backend | Selecione **myBackendPool**.|
+    | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
     | Criar regras implícitas de saída | Selecione **Não**. Criaremos regras de saída numa secção posterior usando um IP público dedicado. |
 4. Deixe o resto das predefinições e, em seguida, selecione **OK**.
@@ -156,13 +156,13 @@ Regras de saída do equilibrador de carga configuram SNAT de saída para VMs na 
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Introduza **o myOutboundRule**. |
-    | Endereço IP frontend | Selecione **LoadBalancerFrontEndOutbound**. |
+    | Endereço IP de front-end | Selecione **LoadBalancerFrontEndOutbound**. |
     | Tempo limite (minutos) | Mova o slider para **15 minutos.|
     | TCP Reset | Selecione **Ativado**.|
-    | Piscina de backend | Selecione **myBackendPoolOutbound** |
-    | Atribuição portuária -> Atribuição portuária | **Selecione manualmente, escolha o número de portas de saída** |
-    | Portas de saída -> Escolha por | Selecione **Portas por instância** |
-    | Portas de saída -> Portos por exemplo | **Insira 10.000.** |
+    | Conjunto de back-end | Selecione **myBackendPoolOutbound** |
+    | Atribuição portuária -> atribuição portuária | **Selecione manualmente, escolha o número de portas de saída** |
+    | Portas de saída - > Escolha por | Selecione **Portas por instância** |
+    | Portas de saída - portas > por exemplo | **Insira 10.000.** |
 
 4. Selecione **Adicionar**.
 

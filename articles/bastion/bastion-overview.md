@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 01/31/2020
 ms.author: cherylmc
 ms.openlocfilehash: e995cba1c2ba06333d7bee507182693002cf4bbf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76989501"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
-O serviço Azure Bastion é um novo serviço PaaS totalmente gerido pela plataforma que você disponibiliza dentro da sua rede virtual. Fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre o SSL. Ao ligar através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
+O serviço Azure Bastion é um novo serviço PaaS totalmente gerido pela plataforma que você disponibiliza dentro da sua rede virtual. Fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre o SSL. Ao ligar-se através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
 
 A Bastion fornece conectividade segura de RDP e SSH a todos os VMs na rede virtual em que é provisionado. A utilização do Azure Bastion protege as suas máquinas virtuais de expor portas RDP/SSH ao mundo exterior, ao mesmo tempo que proporciona acesso seguro utilizando RDP/SSH. Com o Azure Bastion, ligue-se à máquina virtual diretamente do portal Azure. Não precisa de um cliente, agente ou peça de software adicional.
 
@@ -31,10 +31,10 @@ RDP e SSH são alguns dos meios fundamentais através dos quais pode ligar-se à
 Esta figura mostra a arquitetura de uma implantação do Azure Bastion. Neste diagrama:
 
 * O anfitrião bastião está implantado na rede virtual.
-* O usuário se conecta ao portal do Azure usando qualquer navegador HTML5.
+* O utilizador liga-se ao portal Azure utilizando qualquer navegador HTML5.
 * O utilizador seleciona a máquina virtual para se ligar.
 * Com um único clique, a sessão RDP/SSH abre no navegador.
-* Nenhum IP público é necessário na VM do Azure.
+* Não é necessário ip público no Azure VM.
 
 ## <a name="key-features"></a>Principais funcionalidades
 

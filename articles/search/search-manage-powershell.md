@@ -10,19 +10,19 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209301"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de pesquisa cognitiva Azure com a PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [> python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) 
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar a Pesquisa Cognitiva Azure. O módulo **Az.Search** estende o [Azure PowerShell](https://docs.microsoft.com/powershell/) com total paridade às APIs REST de [Gestão](https://docs.microsoft.com/rest/api/searchmanagement) de Pesquisa e a capacidade de executar as seguintes tarefas:
 
@@ -80,7 +80,7 @@ Se tiver várias subscrições do Azure, detete a sua subscrição Azure. Para v
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 ```
 
-Para especificar a subscrição, execute o seguinte comando. No exemplo seguinte, o nome da subscrição é `ContosoSubscription`.
+Para especificar a subscrição, execute o seguinte comando. No exemplo seguinte, o `ContosoSubscription`nome da subscrição é .
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName ContosoSubscription
@@ -90,7 +90,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-services-in-a-subscription"></a>Listar serviços numa subscrição
 
-Os seguintes comandos são da [**Az.Resources,** ](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)devolvendo informações sobre os recursos e serviços existentes já prestados na sua subscrição. Se não sabe quantos serviços de pesquisa já foram criados, estes comandos devolvem essa informação, poupando-lhe uma viagem ao portal.
+Os seguintes comandos são da [**Az.Resources,**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)devolvendo informações sobre os recursos e serviços existentes já prestados na sua subscrição. Se não sabe quantos serviços de pesquisa já foram criados, estes comandos devolvem essa informação, poupando-lhe uma viagem ao portal.
 
 O primeiro comando devolve todos os serviços de pesquisa.
 
@@ -193,11 +193,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) é usado para rolar sobre [as teclas API](search-security-api-keys.md)de administrador . São criadas duas chaves de administração com cada serviço para acesso autenticado. As chaves são necessárias em todos os pedidos. Ambas as teclas de administração são funcionalmente equivalentes, concedendo acesso por escrito completo a um serviço de pesquisa com a capacidade de recuperar qualquer informação, ou criar e eliminar qualquer objeto. Existem duas teclas para que possa usar uma enquanto substitui a outra. 
 
-Só é possível regenerar um de cada vez, especificado como a chave `primary` ou `secondary`. Para um serviço ininterrupto, lembre-se de atualizar todo o código do cliente para utilizar uma chave secundária enquanto passa a tecla primária. Evite mudar as teclas durante o voo.
+Só se pode regenerar um de cada `primary` vez, especificado como a ou `secondary` a chave. Para um serviço ininterrupto, lembre-se de atualizar todo o código do cliente para utilizar uma chave secundária enquanto passa a tecla primária. Evite mudar as teclas durante o voo.
 
 Como seria de esperar, se regenerar as chaves sem atualizar o código do cliente, os pedidos que utilizam a tecla antiga falharão. Regenerar todas as chaves novas não o bloqueia permanentemente fora do seu serviço, podendo ainda aceder ao serviço através do portal. Depois de regenerar as teclas primárias e secundárias, pode atualizar o código do cliente para utilizar as novas teclas e as operações serão retomadas em conformidade.
 
-Os valores das teclas API são gerados pelo serviço. Não é possível fornecer uma chave personalizada para a pesquisa cognitiva azure para usar. Da mesma forma, não existe um nome definido pelo utilizador para as teclas API do administrador. As referências à chave são cordas fixas, `primary` ou `secondary`. 
+Os valores das teclas API são gerados pelo serviço. Não é possível fornecer uma chave personalizada para a pesquisa cognitiva azure para usar. Da mesma forma, não existe um nome definido pelo utilizador para as teclas API do administrador. As referências à chave são `primary` cordas `secondary`fixas, quer quer. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

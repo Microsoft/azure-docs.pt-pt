@@ -1,6 +1,6 @@
 ---
-title: Monitorar suas VMs do Windows no Azure
-description: Saiba mais sobre as opções de monitoramento para máquinas virtuais do Windows no Azure.
+title: Monitorize os seus VMs Windows em Azure
+description: Saiba mais sobre as opções de monitorização para máquinas virtuais Windows em Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.date: 08/14/2017
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: b08c63d544ce40b439ce179621f323e99fcb55e5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033191"
 ---
-# <a name="how-to-monitor-virtual-machines-in-azure"></a>Como monitorar máquinas virtuais no Azure
+# <a name="how-to-monitor-virtual-machines-in-azure"></a>Como monitorizar máquinas virtuais em Azure
 
 [!INCLUDE [virtual-machines-monitor](../../../includes/virtual-machines-monitor.md)]

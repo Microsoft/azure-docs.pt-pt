@@ -1,6 +1,6 @@
 ---
-title: Enviar notificações por push localizadas para o iOS usando os hubs de notificação do Azure | Microsoft Docs
-description: Saiba como usar notificações localizadas por push para dispositivos iOS usando os hubs de notificação do Azure.
+title: Envie notificações push localizadas para o iOS utilizando hubs de notificação do Azure [ Hubs de Notificação Azure] Microsoft Docs
+description: Saiba como utilizar notificações localizadas para dispositivos iOS utilizando hubs de notificação Do Azure.
 services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
@@ -17,41 +17,41 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72385647"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push localizadas para o iOS usando os hubs de notificação do Azure
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: Envie notificações de push localizadas para o iOS usando hubs de notificação azure
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-Este tutorial mostra como usar o recurso de [modelos](notification-hubs-templates-cross-platform-push-messages.md) dos hubs de notificação do Azure para transmitir notificações de últimas notícias que foram localizadas por idioma e dispositivo. Neste tutorial, você começa com o aplicativo iOS criado em [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)]. Ao concluir, você pode se registrar em categorias nas quais está interessado, especificar um idioma no qual receber as notificações e receber notificações por push para as categorias selecionadas nesse idioma.
+Este tutorial mostra-lhe como usar a funcionalidade de modelos dos [Hubs](notification-hubs-templates-cross-platform-push-messages.md) de Notificação Azure para transmitir notificações de notícias de última hora que foram localizadas por linguagem e dispositivo. Neste tutorial, começa com a aplicação iOS criada nos Centros de [Notificação de Utilização para enviar notícias]de última hora. Quando estiver concluído, pode inscrever-se nas categorias em que está interessado, especificar um idioma para receber as notificações e receber apenas notificações push para as categorias selecionadas nessa língua.
 
-Há duas partes nesse cenário:
+Há duas partes neste cenário:
 
-* o aplicativo iOS permite que os dispositivos cliente especifiquem um idioma e assinem diferentes categorias de notícias.
-* O back-end transmite as notificações, usando os recursos de **marca** e **modelo** dos hubs de notificação do Azure.
+* A aplicação iOS permite que os dispositivos clientes especifiquem um idioma e subscrevam diferentes categorias de notícias de última hora;
+* O back-end transmite as notificações, utilizando as características de **etiqueta** e **modelo** dos Hubs de Notificação Azure.
 
 Neste tutorial, siga os seguintes passos:
 
 > [!div class="checklist"]
-> * Atualizar a interface do usuário do aplicativo
-> * Compilar o aplicativo iOS
-> * Enviar notificações de modelo localizadas do aplicativo de console do .NET
-> * Enviar notificações de modelo localizadas do dispositivo
+> * Atualizar a interface do utilizador da aplicação
+> * Construa a app iOS
+> * Envie notificações de modelo localizadas a partir da aplicação de consola .NET
+> * Enviar notificações de modelo localizadas a partir do dispositivo
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Em [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)], você criou um aplicativo que usava **marcas** para assinar notificações para diferentes categorias de notícias. Muitos aplicativos, no entanto, têm como alvo vários mercados e exigem localização. Isso significa que o conteúdo das notificações em si precisa ser localizado e entregue ao conjunto correto de dispositivos. Este tutorial mostra como usar o recurso de **modelo** dos hubs de notificação para entregar facilmente notificações de últimas notícias localizadas.
+Em [Use Notification Hubs para enviar notícias]de última hora, construiu uma aplicação que usou **tags** para subscrever notificações para diferentes categorias de notícias. Muitas aplicações, no entanto, visam vários mercados e requerem localização. Significa que o conteúdo das notificações em si tem de ser localizado e entregue ao conjunto correto de dispositivos. Este tutorial mostra-lhe como usar a funcionalidade de **modelo** de Centros de Notificação para entregar facilmente notificações de notícias de última hora localizadas.
 
 > [!NOTE]
-> Uma maneira de enviar notificações localizadas é criar várias versões de cada marca. Por exemplo, para dar suporte a inglês, francês e Mandarim, você precisaria de três marcas diferentes para notícias mundiais: "world_en", "world_fr" e "world_ch". Em seguida, você precisaria enviar uma versão localizada do mundo notícias para cada uma dessas marcas. Neste tópico, você usa modelos para evitar a proliferação de marcas e o requisito de envio de várias mensagens.
+> Uma forma de enviar notificações localizadas é criar várias versões de cada etiqueta. Por exemplo, para apoiar inglês, francês e mandarim, precisaria de três tags diferentes para notícias mundiais: "world_en", "world_fr" e "world_ch". Teria então de enviar uma versão localizada das notícias mundiais para cada uma destas etiquetas. Neste tópico, utiliza modelos para evitar a proliferação de tags e a exigência de envio de várias mensagens.
 
-Os modelos são uma maneira de especificar como um dispositivo específico deve receber uma notificação. O modelo especifica o formato de payload exato ao consultar as propriedades que fazem parte da mensagem enviada pelo back-end da sua aplicação. No seu caso, você envia uma mensagem independente de localidade contendo todos os idiomas com suporte:
+Os modelos são uma forma de especificar como um dispositivo específico deve receber uma notificação. O modelo especifica o formato de payload exato ao consultar as propriedades que fazem parte da mensagem enviada pelo back-end da sua aplicação. No seu caso, envia uma mensagem agnóstica local contendo todas as línguas apoiadas:
 
 ```json
 {
@@ -61,7 +61,7 @@ Os modelos são uma maneira de especificar como um dispositivo específico deve 
 }
 ```
 
-Em seguida, você garante que os dispositivos se registrem com um modelo que se refere à propriedade correta. Por exemplo, um aplicativo iOS que deseja registrar para as notícias francesas registra usando a seguinte sintaxe:
+Em seguida, certifique-se de que os dispositivos se registam com um modelo que se refere à propriedade correta. Por exemplo, uma aplicação iOS que pretende registar-se para registos de notícias franceses utilizando a seguinte sintaxe:
 
 ```json
 {
@@ -71,28 +71,28 @@ Em seguida, você garante que os dispositivos se registrem com um modelo que se 
 }
 ```
 
-Para obter mais informações sobre modelos, consulte o artigo [modelos](notification-hubs-templates-cross-platform-push-messages.md) .
+Para obter mais informações sobre os modelos, consulte o artigo [Modelos.](notification-hubs-templates-cross-platform-push-messages.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua o tutorial [notificações por push para dispositivos IOS específicos](notification-hubs-ios-xplat-segmented-apns-push-notification.md) e tenha o código disponível, pois este tutorial se baseia diretamente no código.
+* Complete as notificações push para o tutorial específico de [dispositivos iOS](notification-hubs-ios-xplat-segmented-apns-push-notification.md) e tenha o código disponível, porque este tutorial baseia-se diretamente nesse código.
 * O Visual Studio 2019 é opcional.
 
-## <a name="update-the-app-user-interface"></a>Atualizar a interface do usuário do aplicativo
+## <a name="update-the-app-user-interface"></a>Atualizar a interface do utilizador da aplicação
 
-Nesta seção, você modificará o aplicativo de últimas notícias criado no tópico [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)] para enviar últimas notícias localizadas usando modelos.
+Nesta secção, modifica a aplicação Breaking News que criou no tópico [Use Notification Hubs para enviar notícias] de última hora para enviar notícias de última hora localizadas usando modelos.
 
-No `MainStoryboard_iPhone.storyboard`, adicione um controle segmentado com os três idiomas: Inglês, francês e Mandarim.
+No `MainStoryboard_iPhone.storyboard`seu , adicione um Controlo Segmentado com as três línguas: inglês, francês e mandarim.
 
-![Criando o storyboard da interface do usuário do iOS][13]
+![Criação do storyboard iOS UI][13]
 
-Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, conforme mostrado na imagem a seguir:
+Em seguida, certifique-se de adicionar um IBOutlet no seu ViewController.h, conforme mostrado na seguinte imagem:
 
-![Criar saídas para os comutadores][14]
+![Criar saídas para os interruptores][14]
 
-## <a name="build-the-ios-app"></a>Compilar o aplicativo iOS
+## <a name="build-the-ios-app"></a>Construa a app iOS
 
-1. No `Notification.h`, adicione o método `retrieveLocale` e modifique os métodos de repositório e assinatura, conforme mostrado no código a seguir:
+1. No `Notification.h`seu , `retrieveLocale` adicione o método e modifique a loja e subscreva métodos como mostrado no seguinte código:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -103,7 +103,7 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
 
     - (int) retrieveLocale;
     ```
-    No `Notification.m`, modifique o método `storeCategoriesAndSubscribe`, adicionando o parâmetro `locale` e armazenando-o nos padrões do usuário:
+    No `Notification.m`seu , `storeCategoriesAndSubscribe` modifique o `locale` método, adicionando o parâmetro e armazenando-o nos predefinidos do utilizador:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -116,7 +116,7 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
     }
     ```
 
-    Em seguida, modifique o método *Subscribe* para incluir a localidade:
+    Em seguida, modifique o método de *subscrição* para incluir o local:
 
     ```objc
     - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
@@ -141,9 +141,9 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
     }
     ```
 
-    Você usa o método `registerTemplateWithDeviceToken`, em vez de `registerNativeWithDeviceToken`. Ao se registrar para um modelo, você precisa fornecer o modelo JSON e também um nome para o modelo (já que o aplicativo talvez queira registrar modelos diferentes). Certifique-se de registrar suas categorias como marcas, pois você deseja ter certeza de receber as notificações para essas notícias.
+    Usa-se `registerTemplateWithDeviceToken`o método, em vez de. `registerNativeWithDeviceToken` Quando se regista para um modelo, tem de fornecer o modelo json e também um nome para o modelo (como a app pode querer registar diferentes modelos). Certifique-se de registar as suas categorias como tags, pois pretende receber as notificações para essas notícias.
 
-    Adicione um método para recuperar a localidade das configurações padrão do usuário:
+    Adicione um método para recuperar o local das definições predefinidas do utilizador:
 
     ```objc
     - (int) retrieveLocale {
@@ -155,13 +155,13 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
     }
     ```
 
-2. Agora que você modificou a classe `Notifications`, precisará certificar-se de que o `ViewController` usa o novo `UISegmentControl`. Adicione a seguinte linha no método `viewDidLoad` para ter certeza de mostrar a localidade selecionada no momento:
+2. Agora que modificou `Notifications` a aula, tem de `ViewController` se certificar `UISegmentControl`de que o novo. Adicione a seguinte `viewDidLoad` linha no método para se certificar de que mostra o local que está atualmente selecionado:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Em seguida, no método `subscribe`, altere sua chamada para o `storeCategoriesAndSubscribe` para o código a seguir:
+    Em seguida, `subscribe` no seu método, `storeCategoriesAndSubscribe` altere a sua chamada para o seguinte código:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -176,7 +176,7 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
     }];
     ```
 
-3. Por fim, você precisa atualizar o método `didRegisterForRemoteNotificationsWithDeviceToken` em seu AppDelegate. m, para que você possa atualizar corretamente o registro quando seu aplicativo for iniciado. Altere sua chamada para o método `subscribe` de notificações com o seguinte código:
+3. Por fim, tem `didRegisterForRemoteNotificationsWithDeviceToken` de atualizar o método no seu AppDelegate.m, para que possa atualizar corretamente o seu registo quando a sua aplicação começar. Altere a `subscribe` sua chamada para o método de notificações com o seguinte código:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -188,13 +188,13 @@ Em seguida, certifique-se de adicionar um IBOutlet em seu ViewController. h, con
     }];
     ```
 
-## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>adicional Enviar notificações de modelo localizadas do aplicativo de console do .NET
+## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>(opcional) Envie notificações de modelo localizadas a partir da aplicação de consola .NET
 
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
-## <a name="optional-send-localized-template-notifications-from-the-device"></a>adicional Enviar notificações de modelo localizadas do dispositivo
+## <a name="optional-send-localized-template-notifications-from-the-device"></a>(opcional) Enviar notificações de modelo localizadas a partir do dispositivo
 
-Se você não tiver acesso ao Visual Studio ou quiser apenas testar o envio das notificações de modelo localizadas diretamente do aplicativo no dispositivo. Você pode adicionar os parâmetros de modelo localizados ao método `SendNotificationRESTAPI` que você definiu no tutorial anterior.
+Se não tiver acesso ao Estúdio Visual, ou pretender apenas testar o envio das notificações do modelo localizado diretamente da aplicação no dispositivo. Pode adicionar os parâmetros do `SendNotificationRESTAPI` modelo localizados ao método definido no tutorial anterior.
 
 ```objc
 - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -263,7 +263,7 @@ Se você não tiver acesso ao Visual Studio ou quiser apenas testar o envio das 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você enviou notificações localizadas para dispositivos iOS. Para saber como enviar notificações por push a usuários específicos de aplicativos iOS, avance para o tutorial a seguir:
+Neste tutorial, enviou notificações localizadas para dispositivos iOS. Para saber como empurrar notificações a utilizadores específicos de aplicações iOS, avance para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
 >[Enviar notificações push para utilizadores específicos](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
@@ -274,7 +274,7 @@ Neste tutorial, você enviou notificações localizadas para dispositivos iOS. P
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
-[Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Utilizar Notification Hubs para enviar notícias de última hora]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

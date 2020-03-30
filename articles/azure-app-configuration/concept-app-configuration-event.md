@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523803"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagir a eventos de configuração de aplicações do Azure
@@ -29,7 +29,7 @@ Veja os eventos de configuração da [Aplicação Route Azure para um ponto fina
 ## <a name="available-azure-app-configuration-events"></a>Eventos de configuração de aplicações azure disponíveis
 A grelha do evento utiliza subscrições de [eventos](../event-grid/concepts.md#event-subscriptions) para direcionar mensagens de eventos para assinantes. As subscrições de eventos de configuração de aplicações do Azure podem incluir dois tipos de eventos:  
 
-> |Nome do evento|Descrição|
+> |Nome do Evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Disparado quando um valor-chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Disparado quando um valor-chave é eliminado|
@@ -40,16 +40,16 @@ Os eventos de configuração de aplicações do Azure contêm todas as informaç
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |tópico|string|Full Azure Resource Manager id da Configuração da App que emite o evento.|
-> |subject|string|O URI do valor-chave que é o tema do evento.|
-> |eventoTime|string|A data/hora que o evento foi gerado, no formato ISO 8601.|
+> |Assunto|string|O URI do valor-chave que é o tema do evento.|
+> |eventTime|string|A data/hora que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModificado" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
 > |Id|string|Um identificador único deste evento.|
-> |dataVersion|string|A versão esquema do objeto de dados.|
+> |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão de esquema sinuoso de propriedades de alto nível.|
 > |data|objeto|Recolha de dados específicos de eventos de configuração de aplicações do Azure|
 > |data.key|string|A chave do valor-chave que foi modificado ou eliminado.|
 > |data.label|string|A etiqueta, se houver, do valor-chave que foi modificado ou eliminado.|
-> |data.etag|string|Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag etag do valor-chave que foi eliminado.|
+> |data.etag|string|Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag do valor-chave que foi eliminado.|
 
 Aqui está um exemplo de um evento KeyValueModificado:
 ```json

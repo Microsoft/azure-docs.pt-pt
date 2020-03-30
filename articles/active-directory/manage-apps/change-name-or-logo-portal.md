@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138506"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Alterar o nome ou logotipo de uma aplicação empresarial no Diretório Ativo azure
@@ -42,12 +42,12 @@ ms.locfileid: "79138506"
 7. No marcador de ficheiros, selecione o ficheiro que pretende como novo logótipo. O nome do ficheiro aparece na caixa abaixo da imagem do logotipo atual.
 
    > [!NOTE]
-   > O Azure requer que a imagem do logotipo seja um ficheiro PNG, e aplica limites no tamanho da largura, altura e arquivo. Os logótipos personalizados devem ter exatamente 215 &times; 215 pixels de tamanho e estar em formato PNG. Recomendamos que utilize um fundo de cores sólidas sem transparência no logotipo da sua aplicação para aparecer melhor para os utilizadores.
+   > O Azure requer que a imagem do logotipo seja um ficheiro PNG, e aplica limites no tamanho da largura, altura e arquivo. Os logótipos personalizados devem &times; ter exatamente 215 215 pixels de tamanho e estar em formato PNG. Recomendamos que utilize um fundo de cores sólidas sem transparência no logotipo da sua aplicação para aparecer melhor para os utilizadores.
 8. Selecione **Guardar**. Se escolheu um novo logótipo, a imagem do campo **Logo** muda para refletir o novo ficheiro de logotipo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Veja os grupos e membros da sua organização no Diretório Ativo Azure](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Início Rápido: ver os grupos e membros da sua organização no Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)
 * [Remova uma atribuição de utilizador ou grupo de uma aplicação empresarial](remove-user-or-group-access-portal.md)
 * [Desativar os sintetantes do utilizador para uma aplicação empresarial](disable-user-sign-in-portal.md)

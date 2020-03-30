@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
 ms.openlocfilehash: e0870ac9dc818ca07e149421b486136c76dd61a4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208824"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução das diferenças Transact-SQL durante a migração para a Base de Dados SQL
@@ -57,7 +57,7 @@ Para além das declarações da Transact-SQL relacionadas com as funcionalidades
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: Syntax relacionado com definições de servidor relacionados com hardware: tais como memória, fios de trabalhador, afinidade cpu, trace flags. Utilize níveis de serviço e tamanhos de cálculo.
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`e nomes em quatro partes
+- `OPENQUERY`, `OPENROWSET` `OPENDATASOURCE`, e nomes de quatro partes
 - .QUADRO .NET: Integração CLR com Servidor SQL
 - Pesquisa semântica
 - Credenciais do servidor: Utilize [as credenciais de base de dados.](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -82,10 +82,10 @@ Para obter mais informações sobre gramática, uso e exemplos transact-SQL, con
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as etiquetas "Aplica-se a"
 
-A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo o título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O [grupo de](https://msdn.microsoft.com/library/ff878399.aspx) disponibilidade create artigo indica que a declaração se aplica ao **SQL Server (a partir de 2012)** . A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
+A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo o título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo do [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indica que a declaração se aplica ao **SQL Server (a partir de 2012)**. A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
 
 Em alguns casos, o tema geral de um artigo pode ser usado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas a meio ponto do artigo, conforme adequado. Em alguns casos, o tema geral de um artigo pode ser usado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas a meio ponto do artigo, conforme adequado. Por exemplo, o artigo CREATE TRIGGER está disponível na Base de Dados SQL. Mas a opção **ALL SERVER** para os gatilhos do nível do servidor indica que os gatilhos de nível de servidor não podem ser usados na Base de Dados SQL. Utilize os gatilhos do nível da base de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte a [comparação de funcionalidades azure SQL](sql-database-features.md)Database . A lista nesta página complementa que orienta e apresenta artigo, e centra-se nas declarações da Transact-SQL.

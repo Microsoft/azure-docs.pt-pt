@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka aumentar a escala-Azure HDInsight
+title: Apache Kafka aumentar escala - Azure HDInsight
 description: Saiba como configurar discos geridos para o cluster do Apache Kafka no Azure HDInsight para aumentar a escalabilidade.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: 56c25b7c77809a5cb7f4e539cff8e1815cd9976f
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031715"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurar o armazenamento e a escalabilidade para o Apache Kafka no HDInsight
@@ -23,18 +23,18 @@ O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster do 
 
 O diagrama seguinte estabelece uma comparação entre o Kafka no HDInsight antes dos discos geridos e o Kafka no HDInsight com os discos geridos:
 
-![Kafka com arquitetura de Managed disks](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+![kafka com arquitetura de discos geridos](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>Configurar discos geridos: portal do Azure
 
-1. Siga os passos em [Create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md) (Criar um cluster no HDInsight) para compreender os passos comuns de criação de um cluster com o portal. Não conclua o processo de criação do Portal.
+1. Siga os passos em [Create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md) (Criar um cluster no HDInsight) para compreender os passos comuns de criação de um cluster com o portal. Não complete o processo de criação do portal.
 
-2. A partir da secção **de Configuração e Preços,** utilize o campo __Número de Nós__ para configurar o número de discos.
+2. A partir da secção **de configuração & preços,** utilize o campo __Número de Nós__ para configurar o número de discos.
 
     > [!NOTE]  
     > O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). Os discos Premium são utilizados com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard.
 
-    ![seção tamanho do cluster com os discos por nó de trabalho realçados](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
+    ![secção de tamanho de cluster com os discos por nó de trabalhador destacado](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurar discos geridos: modelo do Resource Manager
 
@@ -48,11 +48,11 @@ Para controlar o número de discos utilizados por nós de trabalho num cluster d
     ],
 ```
 
-Pode encontrar um modelo completo que demonstre como configurar discos geridos em [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
+Pode encontrar um modelo completo que demonstre como configurar [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json)discos geridos em .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como trabalhar com Apache Kafka no HDInsight, consulte os seguintes documentos:
+Para obter mais informações sobre o trabalho com Apache Kafka no HDInsight, consulte os seguintes documentos:
 
 * [Use mirrormaker para criar uma réplica de Apache Kafka no HDInsight](apache-kafka-mirroring.md)
 * [Use Apache Storm com Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)

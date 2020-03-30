@@ -1,6 +1,6 @@
 ---
-title: Resultados do teste de benchmark de desempenho para Azure NetApp Files | Microsoft Docs
-description: Descreve os resultados de testes de benchmark de desempenho para Azure NetApp Files no nível de volume.
+title: Resultados dos testes de referência de desempenho para ficheiros Azure NetApp / Microsoft Docs
+description: Descreve os resultados dos testes de benchmark de desempenho para ficheiros Azure NetApp a nível de volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,81 +15,81 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
 ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68881741"
 ---
-# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Resultados do teste de benchmark de desempenho para Azure NetApp Files
+# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Resultados do teste da referência de desempenho do Azure NetApp Files
 
-Este artigo descreve os resultados de testes de benchmark de desempenho para Azure NetApp Files no nível de volume. 
+Este artigo descreve os resultados dos testes de benchmark de desempenho para ficheiros Azure NetApp a nível de volume. 
 
-## <a name="sample-application-used-for-the-tests"></a>Aplicativo de exemplo usado para os testes
+## <a name="sample-application-used-for-the-tests"></a>Aplicação da amostra utilizada para os testes
 
-Os testes de desempenho foram executados com um aplicativo de exemplo usando Azure NetApp Files. O aplicativo tem as seguintes características: 
+Os testes de desempenho foram realizados com uma aplicação de amostra utilizando ficheiros Azure NetApp. O pedido tem as seguintes características: 
 
-* Um aplicativo baseado em Linux criado para a nuvem
-* Pode escalar linearmente com VMs (máquinas virtuais) adicionadas para aumentar a capacidade de computação conforme necessário
-* Requer acessibilidade rápida do data Lake
-* Tem padrões de e/s que às vezes são aleatórios e, às vezes, sequenciais 
-    * Um padrão aleatório requer baixa latência para grandes quantidades de e/s. 
+* Uma aplicação baseada em Linux construída para a nuvem
+* Pode escalar linearmente com máquinas virtuais adicionadas (VMs) para aumentar a potência do cálculo conforme necessário
+* Requer uma rápida acessibilidade do lago de dados
+* Tem padrões de I/O que às vezes são aleatórios e às vezes sequenciais 
+    * Um padrão aleatório requer baixa latência para grandes quantidades de E/O. 
     * Um padrão sequencial requer grandes quantidades de largura de banda. 
 
 ## <a name="about-the-workload-generator"></a>Sobre o gerador de carga de trabalho
 
-Os resultados são provenientes de arquivos de Resumo de Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) é um utilitário de linha de comando que gera cargas de trabalho de e/s de disco para validar o desempenho do armazenamento. A configuração de cliente-servidor usada é escalonável.  Ele inclui um único mestre misto/cliente e 14 VMs de cliente dedicadas.
+Os resultados vêm de ficheiros resumos da Vdbench. [A Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) é um utilitário de linha de comando que gera cargas de trabalho em I/S do disco para validar o desempenho do armazenamento. A configuração cliente-servidor utilizada é escalável.  Inclui um único mestrado/cliente misto e 14 VMs de clientes dedicados.
 
 ## <a name="about-the-tests"></a>Sobre os testes
 
-Os testes foram projetados para identificar os limites que o aplicativo de exemplo pode ter e o tempo de resposta que se curva até os limites.  
+Os testes foram concebidos para identificar os limites que a aplicação da amostra pode ter e o tempo de resposta que se curva até aos limites.  
 
-Os seguintes testes foram executados: 
+Foram realizados os seguintes testes: 
 
-* 100% 8-leitura aleatória KiB
-* 100% 8-gravação aleatória KiB
-* 100% 64-leitura sequencial KiB
-* 100% 64-gravação sequencial KiB
-* 50% 64-KiB leitura sequencial, 50% 64-KiB de gravação sequencial
-* 50% 8-leitura aleatória KiB, 50% 8-gravação aleatória KiB
+* 100% 8-KiB leitura aleatória
+* 100% 8-KiB escrita aleatória
+* Leitura sequencial 100% 64-KiB
+* 100% 64-KiB escrita sequencial
+* 50% 64-KiB leitura sequencial, 50% 64-KiB escrita sequencial
+* 50% 8-KiB leitura aleatória, 50% 8-KiB escrita aleatória
 
 ## <a name="bandwidth"></a>Largura de banda
 
-O Azure NetApp Files oferece vários [níveis de serviço](azure-netapp-files-service-levels.md). Cada nível de serviço oferece uma quantidade diferente de largura de banda por TiB de capacidade provisionada (cota de volume). O limite de largura de banda para um volume é provisionado com base na combinação do nível de serviço e da cota de volume. O limite de largura de banda é apenas um fator para determinar a quantidade real de taxa de transferência que será realizada.  
+O Azure NetApp Files oferece [vários níveis](azure-netapp-files-service-levels.md)de serviço. Cada nível de serviço oferece uma quantidade diferente de largura de banda por TiB de capacidade provisionada (quota de volume). O limite de largura de banda para um volume é provisionado com base na combinação do nível de serviço e da quota de volume. O limite de largura de banda é apenas um fator para determinar a quantidade real de produção que será realizada.  
 
-Atualmente, 4.500 MiB é a taxa de transferência mais alta que foi obtida por uma carga de trabalho em relação a um único volume em teste.  Com o nível de serviço Premium, uma cota de volume de 70,31 TiB irá provisionar largura de banda suficiente para obter essa taxa de transferência de acordo com o cálculo abaixo: 
+Atualmente, 4.500 MiB é o maior produto que foi alcançado por uma carga de trabalho contra um único volume em testes.  Com o nível de serviço Premium, uma quota de volume de 70.31 TiB fornecerá largura de banda suficiente para realizar este produto de acordo com o cálculo abaixo: 
 
 ![Fórmula de largura de banda](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
-![Nível de cota e de serviço](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
+![Quota e nível de serviço](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Cargas de trabalho com uso intensivo de produtividade
+## <a name="throughput-intensive-workloads"></a>Cargas de trabalho intensivas em termos de entrada
 
-O teste de taxa de transferência usou Vdbench e uma combinação de VMs de armazenamento 12xD32s v3. O volume de exemplo no teste obteve os seguintes números de taxa de transferência:
+O teste de entrada utilizou vdbench e uma combinação de VMs de armazenamento V3 de 12xD32s. O volume da amostra no ensaio obteve os seguintes números de saída:
 
-![Teste de taxa de transferência](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
+![Teste de entrada](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
-## <a name="io-intensive-workloads"></a>Cargas de trabalho com uso intensivo de e/s
+## <a name="io-intensive-workloads"></a>Cargas de trabalho intensivas em I/O
 
-O teste de e/s usou Vdbench e uma combinação de VMs de armazenamento 12xD32s v3. O volume de exemplo no teste obteve os seguintes números de e/s:
+O teste de I/S utilizou vdbench e uma combinação de VMs de armazenamento V3 de 12xD32s. O volume da amostra no ensaio obteve os seguintes números de E/S:
 
-![Teste de e/s](../media/azure-netapp-files/azure-netapp-files-io-test.png)
+![Teste de I/O](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Latência
 
-A distância entre as VMs de teste e o volume de Azure NetApp Files tem um impacto no desempenho de e/s.  O gráfico a seguir compara as curvas IOPS versus resposta de latência para dois conjuntos diferentes de VMs.  Um conjunto de VMs é próximo de Azure NetApp Files e o outro conjunto está mais distante.  A maior latência para o conjunto adicional de VMs tem um impacto na quantidade de IOPS obtida em um determinado nível de paralelismo.  Independentemente disso, as leituras em um volume podem exceder 300.000 IOPS, conforme ilustrado abaixo: 
+A distância entre os VMs de teste e o volume de Ficheiros Azure NetApp tem um impacto no desempenho de I/S.  O gráfico abaixo compara as curvas de resposta iops versus latência para dois conjuntos diferentes de VMs.  Um conjunto de VMs está perto do Azure NetApp Files e o outro conjunto está mais longe.  O aumento da latência para o conjunto de VMs mais aprofundado tem um impacto na quantidade de IOPS alcançada a um determinado nível de paralelismo.  Independentemente disso, as leituras contra um volume podem exceder 300.000 IOPS, conforme ilustrado abaixo: 
 
 ![Estudo de latência](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Resumo
 
-Cargas de trabalho sensíveis à latência (bancos de dados) podem ter um tempo de resposta de um milissegundo. O desempenho transacional pode ter mais de 300 mil IOPS para um único volume.
+As cargas de trabalho sensíveis à latência (bases de dados) podem ter um tempo de resposta de milissegundos. O desempenho transacional pode ser superior a 300 k IOPS para um único volume.
 
-Aplicativos sensíveis à taxa de transferência (para streaming e geração de imagens) podem ter 4,5 taxa de transferência de GiB/s.
+Aplicações sensíveis à entrada (para streaming e imagem) podem ter 4.5GiB/s de entrada.
 
-## <a name="example-scripts"></a>Scripts de exemplo
+## <a name="example-scripts"></a>Exemplo de scripts
 
-Os scripts de exemplo a seguir são apenas para fins de demonstração.  Eles não devem ser usados para fins de produção.  
+Os seguintes exemplos são apenas para fins de demonstração.  Não devem ser utilizados para fins produtivos.  
 
     #
     #This script makes the following assumptions about the environment

@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 1ea19b8b76f4eb4a2c984f0e39eb0fd373c8b83c
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132394"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparar aplicativos móveis para produção

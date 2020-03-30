@@ -14,10 +14,10 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425549"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novidades para o Azure Ative Directory no Governo da Microsoft 365
@@ -36,7 +36,7 @@ Este artigo não se aplica aos clientes do Microsoft 365 Government – GCC.
 
 Durante a inscrição inicial da sua organização para um serviço online do Governo Microsoft 365, foi-lhe pedido que escolhesse o nome de domínio da sua organização, `<your-domain-name>.onmicrosoft.com`. Se já tiver um nome de domínio com o sufixo .com, nada mudará.
 
-No entanto, se estiver a inscrever-se num novo serviço do Governo Microsoft 365, será-lhe pedido que escolha um nome de domínio usando o sufixo `.us`. Então, será `<your-domain-name>.onmicrosoft.us`.
+No entanto, se estiver a inscrever-se num novo serviço do Governo Microsoft 365, será-lhe pedido que escolha um nome de domínio usando o `.us` sufixo. Então, vai `<your-domain-name>.onmicrosoft.us`ser.
 
 >[!Note]
 >Esta alteração não se aplica a nenhum cliente que seja gerido por fornecedores de serviços na nuvem (CSPs).
@@ -53,7 +53,7 @@ A tabela seguinte mostra os pontos finais para todos os clientes:
 
 | Nome | Detalhes do ponto final |
 |------|------------------|
-| Portais |Governo do Microsoft Azure: https://portal.azure.us<p>Microsoft 365 Governo – GCC High: https://portal.office365.us<p>Microsoft 365 Governo – DoD: https://portal.apps.mil |
+| Portals |Governo microsoft Azure:https://portal.azure.us<p>Microsoft 365 Governo – GCC High:https://portal.office365.us<p>Microsoft 365 Governo – DoD:https://portal.apps.mil |
 | Ponto final da Autoridade de Diretório Ativo Azure | https://login.microsoftonline.us |
 | Microsoft Graph API para o Governo Microsoft 365 - GCC High | https://graph.microsoft.us |
 | Microsoft Graph API para o Governo Microsoft 365 - DoD | https://dod-graph.microsoft.us |

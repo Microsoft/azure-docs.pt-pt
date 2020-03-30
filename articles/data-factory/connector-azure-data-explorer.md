@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
 ms.openlocfilehash: 4c265cb0cdc665ef52f4dc6e69440e83c22db449
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460982"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer utilizando a Azure Data Factory
@@ -31,7 +31,7 @@ Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory p
 Este conector Azure Data Explorer é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
 Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Data Explorer. Também pode copiar dados do Azure Data Explorer para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que a atividade de cópia suporta como fontes ou pias, consulte a tabela de [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -53,14 +53,14 @@ Com o conector Azure Data Explorer, pode fazer o seguinte:
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Azure Data Explorer.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 O conector Azure Data Explorer utiliza a autenticação principal do serviço. Siga estes passos para obter um diretor de serviço e para conceder permissões:
 
-1. Registe uma entidade de aplicação no Diretório Ativo Azure seguindo as etapas em Registar a [sua candidatura com um inquilino da AD Azure.](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant) Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+1. Registe uma entidade de aplicação no Diretório Ativo Azure seguindo as etapas em Registar a [sua candidatura com um inquilino da AD Azure.](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant) Tome nota dos seguintes valores, que utiliza para definir o serviço vinculado:
 
     - ID da aplicação
-    - Chave da aplicação
+    - Chave de aplicação
     - ID do inquilino
 
 2. Conceda ao diretor de serviço as permissões corretas no Azure Data Explorer. Consulte [a Manage Azure Data Explorer permissões](../data-explorer/manage-database-permissions.md) para obter informações detalhadas sobre papéis e permissões e sobre gestão de permissões. Em geral, deve:
@@ -77,10 +77,10 @@ As seguintes propriedades são suportadas para o serviço ligado ao Explorador d
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** deve ser definida para **AzureDataExplorer**. | Sim |
 | endpoint | URL endpoint do cluster Azure Data Explorer, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
-| database | Nome da base de dados. | Sim |
-| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Isto é conhecido como "Id da Autoridade" na cadeia de [ligação kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o pairando sobre o ponteiro do rato no canto superior direito do portal Azure. | Sim |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação Isto é conhecido como "Id cliente de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação. Isto é conhecido como "chave de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory ou dados [seguros de referência armazenados no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
+| base de dados | Nome da base de dados. | Sim |
+| inquilino | Especifique as informações do arrendatário (nome de domínio ou ID do inquilino) sob a qual reside a sua candidatura. Isto é conhecido como "Id da Autoridade" na cadeia de [ligação kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o pairando sobre o ponteiro do rato no canto superior direito do portal Azure. | Sim |
+| serviçoPrincipalId | Especifique a identificação do cliente do pedido. Isto é conhecido como "Id cliente de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
+| serviçoPrincipalKey | Especifique a chave da aplicação. Isto é conhecido como "chave de aplicação AAD" na cadeia de [ligação Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como um **SecureString** para o armazenar de forma segura na Data Factory ou dados [seguros de referência armazenados no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
 
 **As propriedades de serviço ligadas exemplo:**
 
@@ -103,18 +103,18 @@ As seguintes propriedades são suportadas para o serviço ligado ao Explorador d
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets na Azure Data Factory](concepts-datasets-linked-services.md). Esta secção lista propriedades que o conjunto de dados do Azure Data Explorer suporta.
 
 Para copiar dados para o Azure Data Explorer, detete a propriedade do tipo do conjunto de dados para **o AzureDataExplorerTable**.
 
-São suportadas as seguintes propriedades:
+As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** deve ser definida para **AzureDataExplorerTable**. | Sim |
-| table | O nome da tabela a que o serviço ligado se refere. | Sim para afundar; Não para a fonte |
+| tabela | O nome da tabela a que o serviço ligado se refere. | Sim para afundar; Não para a fonte |
 
 **As propriedades do conjunto de dados exemplo:**
 
@@ -147,11 +147,11 @@ Para copiar dados do Azure Data Explorer, delineie a propriedade do **tipo** na 
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** da fonte de atividade de cópia deve ser definida para: **AzureDataExplorerSource** | Sim |
 | consulta | Um pedido de leitura apenas dado em [formato KQL](/azure/kusto/query/). Utilize a consulta kQL personalizada como referência. | Sim |
-| queryTimeout | O tempo de espera antes da consulta pedir tempo saem. O valor predefinido é de 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
+| consultaTimeout | O tempo de espera antes da consulta pedir tempo saem. O valor predefinido é de 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
 | noTruncation | Indica se trunca o conjunto de resultados devolvidos. Por padrão, o resultado é truncado após 500.000 registos ou 64 megabytes (MB). A truncação é fortemente recomendada para garantir o comportamento correto da atividade. |Não |
 
 >[!NOTE]
->Por padrão, a fonte do Azure Data Explorer tem um limite de tamanho de 500.000 registos ou 64 MB. Para recuperar todos os registos sem truncation, pode especificar `set notruncation;` no início da sua consulta. Para mais informações, consulte os [limites](https://docs.microsoft.com/azure/kusto/concepts/querylimits)de consulta .
+>Por padrão, a fonte do Azure Data Explorer tem um limite de tamanho de 500.000 registos ou 64 MB. Para recuperar todos os registos sem `set notruncation;` truncation, pode especificar no início da sua consulta. Para mais informações, consulte os [limites](https://docs.microsoft.com/azure/kusto/concepts/querylimits)de consulta .
 
 **Exemplo:**
 

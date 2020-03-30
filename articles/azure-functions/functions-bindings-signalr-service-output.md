@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530253"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Ligação de saída do serviço SignalR para funções Azure
@@ -27,7 +27,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 O exemplo seguinte mostra uma função que envia uma mensagem usando a ligação de saída a todos os clientes conectados. O *alvo* é o nome do método a ser invocado em cada cliente. A propriedade *Arguments* é uma variedade de objetos zero ou mais a serem passados para o método do cliente.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -44,7 +44,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 Aqui estão os dados vinculativos no ficheiro *fun.json:*
 
@@ -60,7 +60,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está C# o código script:
+Aqui está o código c# script:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -95,7 +95,7 @@ Função exemplo.json:
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -106,7 +106,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Aqui estão os dados vinculativos no ficheiro *fun.json:*
 
@@ -157,7 +157,7 @@ public SignalRMessage sendMessage(
 
 Só pode enviar uma mensagem a penas para ligações que tenham sido autenticadas a um utilizador, definindo o ID do *utilizador* na mensagem SignalR.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -176,7 +176,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 Função exemplo.json:
 
@@ -190,7 +190,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está C# o código script:
+Aqui está o código c# script:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -225,7 +225,7 @@ Função exemplo.json:
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -238,7 +238,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Aqui estão os dados vinculativos no ficheiro *fun.json:*
 
@@ -292,7 +292,7 @@ public SignalRMessage sendMessage(
 
 Só pode enviar uma mensagem para ligações que tenham sido adicionadas a um grupo, definindo o nome de *grupo* na mensagem SignalR.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -311,7 +311,7 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 Função exemplo.json:
 
@@ -325,7 +325,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está C# o código script:
+Aqui está o código c# script:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -360,7 +360,7 @@ Função exemplo.json:
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -373,7 +373,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Aqui estão os dados vinculativos no ficheiro *fun.json:*
 
@@ -425,9 +425,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="group-management"></a>Gestão de grupos
 
-O Serviço SignalR permite que os utilizadores sejam adicionados aos grupos. As mensagens podem então ser enviadas para um grupo. Pode utilizar o `SignalR` de ligação de saída para gerir a adesão de um utilizador ao grupo.
+O Serviço SignalR permite que os utilizadores sejam adicionados aos grupos. As mensagens podem então ser enviadas para um grupo. Pode utilizar `SignalR` a ligação de saída para gerir a adesão de um utilizador ao grupo.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ### <a name="add-user-to-a-group"></a>Adicionar utilizador a um grupo
 
@@ -476,9 +476,9 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> Para obter o `ClaimsPrincipal` corretamente ligado, deve ter configurado as definições de autenticação nas Funções Azure.
+> Para obter a `ClaimsPrincipal` ligação correta, deve ter configurado as definições de autenticação nas Funções Azure.
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 ### <a name="add-user-to-a-group"></a>Adicionar utilizador a um grupo
 
@@ -557,7 +557,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Para obter o `ClaimsPrincipal` corretamente ligado, deve ter configurado as definições de autenticação nas Funções Azure.
+> Para obter a `ClaimsPrincipal` ligação correta, deve ter configurado as definições de autenticação nas Funções Azure.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -617,7 +617,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ### <a name="add-user-to-a-group"></a>Adicionar utilizador a um grupo
 
@@ -725,12 +725,12 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `SignalRConnectionInfo`.
+A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `SignalRConnectionInfo` atributo.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|propriedade fun.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**| n/d | deve ser definido para `signalRConnectionInfo`.|
-|**direção**| n/d | deve ser definido para `in`.|
+|**tipo**| n/d | Tem de `signalRConnectionInfo`ser definido para.|
+|**direção**| n/d | Tem de `in`ser definido para.|
 |**nome**| n/d | Nome variável utilizado no código de função para objeto de informação de ligação. |
 |**hubName**|**HubName**| Este valor deve ser definido para o nome do centro SignalR para o qual a informação de ligação é gerada.|
 |**userId**|**Userid**| Opcional: O valor do identificador utilizador afirma ser definido no símbolo da chave de acesso. |
@@ -738,12 +738,12 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 ### <a name="signalr"></a>SignalR
 
-A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `SignalR`.
+A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `SignalR` atributo.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|propriedade fun.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**| n/d | deve ser definido para `signalR`.|
-|**direção**| n/d | deve ser definido para `out`.|
+|**tipo**| n/d | Tem de `signalR`ser definido para.|
+|**direção**| n/d | Tem de `out`ser definido para.|
 |**nome**| n/d | Nome variável utilizado no código de função para objeto de informação de ligação. |
 |**hubName**|**HubName**| Este valor deve ser definido para o nome do centro SignalR para o qual a informação de ligação é gerada.|
 |**conexãoStringSetting**|**Definição de cordas de ligação**| O nome da definição da aplicação que contém a cadeia de ligação do Serviço SignalR (predefinições de "AzureSignalRConnectionString") |

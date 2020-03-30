@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7b89696e60189a8ab2585f8511be32ddaa89e826
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c156d5f1242674adc53a2a813e9b2c140221ecfb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79216783"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245315"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Crie uma app Java Spring com configuração de aplicações azure
 
@@ -31,13 +31,15 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Selecione O Explorador de **Configuração** >  **+ Criar** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Select Configuration Explorer** > **+ Criar** > o**valor-chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | /application/config.message | Olá |
+    | /aplicação/config.mensagem | Hello |
 
     Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
+
+7. Selecione **Aplicar**.
 
 ## <a name="create-a-spring-boot-app"></a>Crie uma aplicação spring boot
 
@@ -58,7 +60,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. Depois de extrair os ficheiros do seu sistema local, a sua simples aplicação Spring Boot está pronta para ser editada. Localize o ficheiro *pom.xml* no diretório raiz da sua aplicação.
 
-1. Abra o ficheiro *pom.xml* num editor de texto e adicione o arranque da Spring Cloud Azure Config à lista de `<dependencies>`:
+1. Abra o ficheiro *pom.xml* num editor de texto e adicione o arranque `<dependencies>`da Spring Cloud Azure Config à lista de:
 
     **Nuvem de primavera 1.1.x**
 
@@ -124,7 +126,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-1. Abra o ficheiro Java da aplicação principal e adicione `@EnableConfigurationProperties` para ativar esta funcionalidade.
+1. Abra o ficheiro Java da `@EnableConfigurationProperties` aplicação principal e adicione para ativar esta funcionalidade.
 
     ```java
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -138,7 +140,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-1. Crie um novo ficheiro chamado `bootstrap.properties` sob o diretório de recursos da sua app e adicione as seguintes linhas ao ficheiro. Substitua os valores da amostra pelas propriedades apropriadas para a sua loja de configuração de aplicações.
+1. Crie um `bootstrap.properties` novo ficheiro nomeado no diretório de recursos da sua app e adicione as seguintes linhas ao ficheiro. Substitua os valores da amostra pelas propriedades apropriadas para a sua loja de configuração de aplicações.
 
     ```CLI
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
@@ -146,7 +148,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. Detete uma variável ambiental chamada **APP_CONFIGURATION_CONNECTION_STRING,** e deite-a na chave de acesso à sua loja de configuração de aplicações. Na linha de comando, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração faça efeito:
 
-    ```CLI
+    ```cmd
         setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
@@ -158,7 +160,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
     Se utilizar macOS ou Linux, execute o seguinte comando:
 
-    ```console
+    ```cmd
         export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
@@ -166,14 +168,14 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. Construa a sua aplicação Spring Boot com a Maven e execute-a, por exemplo:
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. Depois de a sua aplicação estar em execução, utilize *caracóis* para testar a sua aplicação, por exemplo:
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 

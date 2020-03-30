@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 96b1bd86576f8cf34428eb60e2d3f476312311c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249428"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Monitor Azure
@@ -48,7 +48,7 @@ Em seguida, o guia detalhado é o guia passo a passo para utilizar alertas de re
 
    > [!NOTE]
    > Para criar um alerta de registo - verifique se o sinal de **registo** está disponível para o recurso selecionado antes de proceder.
-   >  ![Selecione](media/alerts-log/Alert-SelectResourceLog.png) de recursos
+   >  ![Selecione recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Alertas de registo*: Certifique-se de que o **Tipo de Recursos** é uma fonte de análise como Log *Analytics* ou *Application Insights* e tipo de sinal como **Log**, e ntão, uma vez escolhido **o recurso** apropriado, clique em *Done*. Em seguida, utilize o botão **adicionar critérios** para visualizar a lista de opções de sinal disponíveis para o recurso e a partir da lista de sinais Opção de **pesquisa de registo personalizado** para o serviço de monitor de registo escolhido, como Log *Analytics* ou *Application Insights*.
 
@@ -56,7 +56,7 @@ Em seguida, o guia detalhado é o guia passo a passo para utilizar alertas de re
 
    > [!NOTE]
    > 
-   > As listas de alertas podem importar consulta de análise como tipo de sinal - **Log (Consulta Guardada)** , como visto na ilustração acima. Para que os utilizadores possam aperfeiçoar a sua consulta no Analytics e, em seguida, guardá-las para uso futuro em alertas - mais detalhes sobre a utilização de consultas de poupança disponíveis na utilização de consulta de [log no Monitor Azure](../log-query/log-query-overview.md) ou consulta partilhada na análise de insights de [aplicações](../app/app-insights-overview.md).
+   > As listas de alertas podem importar consulta de análise como tipo de sinal - **Log (Consulta Guardada)**, como visto na ilustração acima. Para que os utilizadores possam aperfeiçoar a sua consulta no Analytics e, em seguida, guardá-las para uso futuro em alertas - mais detalhes sobre a utilização de consultas de poupança disponíveis na utilização de consulta de [log no Monitor Azure](../log-query/log-query-overview.md) ou consulta partilhada na análise de insights de [aplicações](../app/app-insights-overview.md).
 
 1. *Alertas de log*: Uma vez selecionado, a consulta para alerta pode ser indicada no campo **Search Query;** se a sintaxe de consulta estiver incorreta, o campo apresenta erro em VERMELHO. Se a sintaxe de consulta estiver correta - Para os dados históricos de referência da consulta declarada é mostrado como um gráfico com opção de ajustar a janela de tempo das últimas seis horas para a semana passada.
 
@@ -108,7 +108,7 @@ Os utilizadores também podem finalizar a sua consulta de análise em análise d
 
  ![Log Analytics - Definir alerta](media/alerts-log/AlertsAnalyticsCreate.png)
 
-### <a name="view--manage-log-alerts-in-azure-portal"></a>Ver e gerir alertas de registo no portal Azure
+### <a name="view--manage-log-alerts-in-azure-portal"></a>Ver & gerir alertas de registo no portal Azure
 
 1. No [portal](https://portal.azure.com/), selecione **Monitor** e sob a secção MONITOR - escolha **Alertas**.
 
@@ -117,11 +117,11 @@ Os utilizadores também podem finalizar a sua consulta de análise em análise d
     > As regras de alerta de log são constituídas por lógica personalizada baseada em consultas fornecidas pelos utilizadores e, portanto, sem um estado resolvido. Devido ao qual cada vez que as condições especificadas na regra de alerta de registo são cumpridas, é disparada.
 
 1. Selecione o botão **de regras de Gestão** na barra superior, para navegar para a secção de gestão de regras - onde todas as regras de alerta criadas estão listadas; incluindo alertas que foram desativados.
-    ![ gerir as regras de alerta](media/alerts-log/manage-alert-rules.png)
+    ![gerir regras de alerta](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gerir alertas de registo usando o modelo de recurso Azure
 
-Os alertas de registo no Monitor Azure estão associados ao tipo de recursos `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre este tipo de recurso, consulte [O Monitor Azure -](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Referência a API regras de consulta programada . Os alertas de registo para Insights de Aplicação ou Log Analytics podem ser criados usando [a API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Regras de Consulta Agendada .
+Os alertas de registo no Monitor `Microsoft.Insights/scheduledQueryRules/`Azure estão associados ao tipo de recurso . Para obter mais informações sobre este tipo de recurso, consulte [O Monitor Azure -](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Referência a API regras de consulta programada . Os alertas de registo para Insights de Aplicação ou Log Analytics podem ser criados usando [a API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Regras de Consulta Agendada .
 
 > [!NOTE]
 > Os alertas de log para Log Analytics também podem ser geridos usando a [API](api-alerts.md) de Alerta de Log Analytics e modelos legados de [Log Analytics também guardavam pesquisas e alertas.](../insights/solutions-resources-searches-alerts.md) Para obter mais informações sobre a utilização da nova API ScheduledQueryRules detalhado aqui por padrão, consulte [a Switch para nova API para Alertas de Análise](alerts-log-api-switch.md)de Registo .

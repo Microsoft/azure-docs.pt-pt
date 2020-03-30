@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243955"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil do utilizador na Gestão API azure
@@ -40,7 +40,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a>Perfil  
+##  <a name="profile"></a><a name="Profile"></a>Perfil  
  O modelo de **perfil** permite-lhe personalizar a secção de perfil do utilizador da página de perfil do utilizador no portal do desenvolvedor.  
   
  ![Página do perfil do utilizador](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil do utilizador da APIM")  
@@ -185,7 +185,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```  
   
-##  <a name="Subscriptions"></a>Assinaturas  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a>Assinaturas  
  O modelo **de Subscrições** permite personalizar a secção de subscrições da página de perfil do utilizador no portal do desenvolvedor.  
   
  ![Página de subscrição do utilizador](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de subscrição do utilizador DaPiM")  
@@ -406,7 +406,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```  
   
-##  <a name="Applications"></a>Candidaturas  
+##  <a name="applications"></a><a name="Applications"></a>Candidaturas  
  O modelo **de Aplicações** permite-lhe personalizar a secção de subscrições da página de perfil do utilizador no portal do desenvolvedor.  
   
  ![Página de Aplicações da Conta do Utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de Aplicações de Conta de Utilizador APIM")  
@@ -569,7 +569,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a>Atualizar informações sobre contas  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Atualizar informações sobre contas  
  O modelo de **informação da conta Update** permite-lhe personalizar a página de **informação** da conta Update no portal do desenvolvedor.  
   
  ![Modelos de portal de página de informação de conta de utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelos de portal de página de página de página de conta de utilizador APIM")  

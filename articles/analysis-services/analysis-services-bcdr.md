@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services alta disponibilidade | Microsoft Docs
-description: Este artigo descreve como Azure Analysis Services fornece alta disponibilidade durante a interrupção do serviço.
+title: Serviços de Análise Azure elevada disponibilidade Microsoft Docs
+description: Este artigo descreve como os Serviços de Análise Azure proporcionam uma elevada disponibilidade durante a interrupção do serviço.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,31 +8,31 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2e750dce804ea93f3d3068ffd36bc7a73a50906a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573364"
 ---
-# <a name="analysis-services-high-availability"></a>Analysis Services alta disponibilidade
+# <a name="analysis-services-high-availability"></a>Serviços de Análise alta disponibilidade
 
-Este artigo descreve como garantir a alta disponibilidade para servidores de Azure Analysis Services. 
+Este artigo descreve a elevada disponibilidade para servidores dos Serviços de Análise Azure. 
 
-## <a name="assuring-high-availability-during-a-service-disruption"></a>Garantindo alta disponibilidade durante uma interrupção do serviço
+## <a name="assuring-high-availability-during-a-service-disruption"></a>Garantir a elevada disponibilidade durante uma interrupção do serviço
 
-Embora seja raro, um data center do Azure pode ter uma interrupção. Quando ocorre uma interrupção, ela causa uma interrupção de negócios que pode durar alguns minutos ou pode durar horas. A alta disponibilidade geralmente é obtida com a redundância do servidor. Com o Azure Analysis Services, você pode obter redundância criando servidores secundários adicionais em uma ou mais regiões. Ao criar servidores redundantes, para garantir que os dados e metadados nesses servidores estejam em sincronia com o servidor em uma região que ficou offline, você pode:
+Embora raro, um centro de dados Azure pode ter uma paragem. Quando ocorre uma paragem, causa uma perturbação no negócio que pode durar alguns minutos ou pode durar horas. A elevada disponibilidade é mais frequentemente conseguida com a redundância do servidor. Com os Serviços de Análise Azure, pode obter redundância criando servidores secundários adicionais em uma ou mais regiões. Ao criar servidores redundantes, para garantir que os dados e metadados desses servidores estão em sintonia com o servidor numa região que ficou offline, pode:
 
-* Implante modelos em servidores redundantes em outras regiões. Esse método requer o processamento de dados no servidor primário e servidores redundantes em paralelo, garantindo que todos os servidores estejam em sincronia.
+* Implementar modelos para servidores redundantes noutras regiões. Este método requer o processamento de dados tanto no seu servidor primário como em servidores redundantes em paralelo, garantindo que todos os servidores estão em sincronização.
 
-* [Faça backup](analysis-services-backup.md) de bancos de dados do seu servidor primário e restaure em servidores redundantes. Por exemplo, você pode automatizar backups noturnos para o armazenamento do Azure e restaurar para outros servidores redundantes em outras regiões. 
+* [Backup](analysis-services-backup.md) bases de dados do seu servidor principal e restaurar em servidores redundantes. Por exemplo, pode automatizar cópias de segurança noturnas para o armazenamento do Azure e restaurar outros servidores redundantes noutras regiões. 
 
-Em ambos os casos, se o servidor primário sofrer uma interrupção, você deverá alterar as cadeias de conexão em clientes de relatório para se conectar ao servidor em um datacenter regional diferente. Essa alteração deve ser considerada um último recurso e somente se ocorrer uma interrupção de data center regional catastrófica. É mais provável que uma interrupção de data center que hospeda seu servidor primário volte a ficar online antes de você poder atualizar as conexões em todos os clientes. 
+Em qualquer dos casos, se o seu servidor principal experimentar uma falha, deve alterar as cadeias de ligação em reportar clientes para se conectar ao servidor num centro de dados regional diferente. Esta alteração deve ser considerada um último recurso e apenas se ocorrer uma interrupção catastrófica do centro de dados regional. É mais provável que uma falha no data center que aloja o seu servidor principal volte a estar online antes de poder atualizar as ligações em todos os clientes. 
 
-Para evitar a alteração de cadeias de conexão em clientes de relatório, você pode criar um [alias](analysis-services-server-alias.md) de servidor para o servidor primário. Se o servidor primário falhar, você poderá alterar o alias para apontar para um servidor redundante em outra região. Você pode automatizar o alias para o nome do servidor codificando uma verificação de integridade do ponto de extremidade no servidor primário. Se a verificação de integridade falhar, o mesmo ponto de extremidade poderá direcionar para um servidor redundante em outra região. 
+Para evitar ter de alterar as cadeias de ligação em clientes reportados, pode criar um [pseudónimo](analysis-services-server-alias.md) de servidor para o seu servidor principal. Se o servidor primário cair, pode alterar o pseudónimo para apontar para um servidor redundante noutra região. Pode automatizar pseudónimos ao nome do servidor, codificando uma verificação de saúde no servidor primário. Se o exame de saúde falhar, o mesmo ponto final pode dirigir-se a um servidor redundante noutra região. 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-[Backup e restauração](analysis-services-backup.md)   
-[Gerenciar Azure Analysis Services](analysis-services-manage.md)   
-[Nomes de servidor de alias](analysis-services-server-alias.md) 
+[Backup e restauro](analysis-services-backup.md)   
+[Gerir serviços de análise azure](analysis-services-manage.md)   
+[Nomes de servidores de Alias](analysis-services-server-alias.md) 
 

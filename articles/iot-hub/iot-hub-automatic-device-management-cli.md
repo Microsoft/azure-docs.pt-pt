@@ -1,5 +1,5 @@
 ---
-title: Gestão automática de dispositivos em escala com Hub Azure IoT (CLI)  Microsoft Docs
+title: Gestão automática de dispositivos em escala com Hub Azure IoT (CLI) [ Microsoft Docs
 description: Utilize configurações automáticas Azure IoT Hub para gerir vários dispositivos ou módulos IoT
 author: ChrisGMsft
 manager: bruz
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: 381f550f6d64dee3c7649a040c1e24b7c9d42f2c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 748f3e09fd03a6f37954c8dfaf4b6ae9144384bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669444"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235608"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Dispositivo automático IoT e gestão de módulos utilizando o Azure CLI
 
@@ -45,7 +45,7 @@ As configurações automáticas funcionam pela primeira vez pouco depois da conf
 
 ## <a name="implement-twins"></a>Implementar gémeos
 
-As configurações automáticas do dispositivo requerem a utilização de gémeos dispositivos para sincronizar o estado entre a nuvem e os dispositivos.  Para obter mais informações, veja [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
+As configurações automáticas do dispositivo requerem a utilização de gémeos dispositivos para sincronizar o estado entre a nuvem e os dispositivos.  Para mais informações, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](iot-hub-devguide-device-twins.md).
 
 As configurações automáticas do módulo requerem a utilização de gémeos módulos para sincronizar o estado entre a nuvem e os módulos. Para mais informações, consulte [Compreender e utilizar gémeos módulos no IoT Hub](iot-hub-devguide-module-twins.md).
 
@@ -80,7 +80,7 @@ Aqui está uma amostra básica de conteúdo de destino para uma configuração a
 }
 ```
 
-As configurações automáticas do módulo comportam-se de forma muito semelhante, mas apontam-se `moduleContent` em vez de `deviceContent`.
+As configurações automáticas do módulo comportam-se de forma muito semelhante, mas o seu alvo `moduleContent` em vez de `deviceContent`.
 
 ```json
 {
@@ -106,7 +106,7 @@ Aqui estão exemplos de consultas métricas:
 }
 ```
 
-As consultas métricas para os módulos também são semelhantes às consultas para dispositivos, mas seleciona-se para `moduleId` a partir de `devices.modules`. Por exemplo: 
+As consultas métricas para os módulos também são semelhantes `moduleId` `devices.modules`às consultas para dispositivos, mas seleciona para . Por exemplo: 
 
 ```json
 {
@@ -122,22 +122,22 @@ Configura os dispositivos-alvo criando uma configuração que consiste no conte�
 
 Utilize o seguinte comando para criar uma configuração:
 
-```cli
+```azurecli
    az iot hub configuration create --config-id [configuration id] \
      --labels [labels] --content [file path] --hub-name [hub name] \
      --target-condition [target query] --priority [int] \
      --metrics [metric queries]
 ```
 
-* --**config-id** - O nome da configuração que será criado no centro IoT. Dê à sua configuração um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
+* --**config-id** - O nome da configuração que será criada no centro IoT. Dê à sua configuração um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
 
-* --**etiquetas** - Adicione etiquetas para ajudar a rastrear a sua configuração. As etiquetas são pares de valor que descrevem a implementação, nome de. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`
+* --**etiquetas** - Adicione etiquetas para ajudar a rastrear a sua configuração. As etiquetas são Nome, pares de valor que descrevem a sua implantação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`
 
 * --**conteúdo** - Inline JSON ou caminho de ficheiro para o conteúdo do alvo a definir como propriedades duplas desejadas. 
 
-* --**nome do hub** - Nome do hub IoT no qual a configuração será criada. O hub tem de ser na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
+* --**hub-name** - Nome do hub IoT no qual a configuração será criada. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
 
-* --**condição-alvo** - Introduza uma condição de destino para determinar quais os dispositivos ou módulos que serão direcionados com esta configuração. Para a configuração automática do dispositivo, a condição baseia-se em etiquetas duplas do dispositivo ou propriedades gémeas do dispositivo e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. Para a configuração automática do módulo, a condição baseia-se em etiquetas duplas de módulos ou propriedades duplas de módulos.. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**condição do alvo** - Introduza uma condição-alvo para determinar quais os dispositivos ou módulos que serão alvo com esta configuração.Para a configuração automática do dispositivo, a condição baseia-se em etiquetas duplas do dispositivo ou propriedades gémeas do dispositivo e deve corresponder ao formato de expressão.Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`.Para a configuração automática do módulo, a condição baseia-se em etiquetas duplas de módulos ou propriedades duplas de módulos.. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**prioridade** - Um inteiro positivo. No caso de duas ou mais configurações serem direcionadas para o mesmo dispositivo ou módulo, aplicar-se-á a configuração com o valor numérico mais elevado para a Priority.
 
@@ -147,16 +147,16 @@ Utilize o seguinte comando para criar uma configuração:
 
 Utilize o seguinte comando para visualizar o conteúdo de uma configuração:
 
-```cli
+```azurecli
 az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
 
 * --**config-id** - O nome da configuração que existe no centro ioT.
 
-* --**nome do hub** - Nome do hub IoT em que a configuração existe. O hub tem de ser na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
+* --**nome** do hub - Nome do hub IoT em que a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
 
-Inspecione a configuração na janela de comando. A propriedade métrica lista uma contagem para cada métrica que é avaliada por cada hub:
+Inspecione a configuração na janela de comando.A **metrics** propriedade métrica lista uma contagem para cada métrica que é avaliada por cada hub:
 
 * **targetedCount** - Uma métrica do sistema que especifica o número de gémeos de dispositivo ou gémeos módulo sintetizadores no IoT Hub que correspondem à condição de alvo.
 
@@ -166,24 +166,24 @@ Inspecione a configuração na janela de comando. A propriedade métrica lista 
 
 Pode apresentar uma lista de IDs, IDs de módulos ou objetos para cada uma das métricas utilizando o seguinte comando:
 
-```cli
+```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
 
 * --**config-id** - O nome da implantação que existe no centro ioT.
 
-* --**id métrico** - O nome da métrica para a qual pretende ver a lista de IDs ou iDs de módulos, por exemplo, `appliedCount`.
+* --**metric-id** - O nome da métrica para a qual pretende ver a lista de `appliedCount`IDs ou iDs de módulos, por exemplo.
 
-* --**nome do hub** - Nome do centro IoT em que a implantação existe. O hub tem de ser na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`.
+* --**nome** do hub - Nome do centro IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição `az account set -s [subscription name]`desejada com o comando .
 
-* --**tipo métrico** - O tipo métrico pode ser `system` ou `user`.  As métricas do sistema são `targetedCount` e `appliedCount`. Todas as outras métricas são métricas de utilizador.
+* --**tipo métrico** - O `system` tipo `user`métrico pode ser ou .  As métricas `targetedCount` `appliedCount`do sistema são e. Todas as outras métricas são métricas de utilizador.
 
 ## <a name="modify-a-configuration"></a>Modificar uma configuração
 
 Quando modifica uma configuração, as alterações replicam-se imediatamente para todos os dispositivos visados. 
 
-Se atualizar a condição de destino, ocorrem as seguintes atualizações:
+Se atualizar a condição-alvo, ocorrem as seguintes atualizações:
 
 * Se um gémeo não cumpriu a condição de alvo antiga, mas cumpre a nova condição-alvo e esta configuração é a maior prioridade para esse gémeo, então esta configuração é aplicada. 
 
@@ -193,20 +193,20 @@ Se atualizar a condição de destino, ocorrem as seguintes atualizações:
 
 Utilize o seguinte comando para atualizar uma configuração:
 
-```cli
+```azurecli
 az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
 
 * --**config-id** - O nome da configuração que existe no centro ioT.
 
-* --**nome do hub** - Nome do hub IoT em que a configuração existe. O hub tem de ser na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`.
+* --**nome** do hub - Nome do hub IoT em que a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição `az account set -s [subscription name]`desejada com o comando .
 
 * --**conjunto** - Atualizar uma propriedade na configuração. Pode atualizar as seguintes propriedades:
 
-    * targetCondition - por exemplo, `targetCondition=tags.location.state='Oregon'`
+    * targetCondition - por exemplo`targetCondition=tags.location.state='Oregon'`
 
-    * etiquetas 
+    * rótulos 
 
     * prioridade
 
@@ -216,13 +216,14 @@ Ao eliminar uma configuração, quaisquer gémeos ou gémeos de módulos assumem
 
 Utilize o seguinte comando para eliminar uma configuração:
 
-```cli
+```azurecli
 az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
+
 * --**config-id** - O nome da configuração que existe no centro ioT.
 
-* --**nome do hub** - Nome do hub IoT em que a configuração existe. O hub tem de ser na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`.
+* --**nome** do hub - Nome do hub IoT em que a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição `az account set -s [subscription name]`desejada com o comando .
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -235,7 +236,7 @@ Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Si
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
-* [Implementação de IA para dispositivos de borda com Borda Azure IoT](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar a utilização do Serviço de Provisionamento de Dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 

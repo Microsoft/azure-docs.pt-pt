@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: 12bf5d131001d95a3f4327f95c24125dbf3fb510
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086701"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefini
@@ -35,14 +35,14 @@ O esquema para a maioria dos elementos é o seguinte:
 
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
-| nome | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. O uso mais comum do nome do elemento é em `outputs`, onde os valores de saída dos elementos especificados são mapeados para os parâmetros do modelo. Também pode usá-lo para ligar o valor de saída de um elemento à `defaultValue` de outro elemento. |
+| nome | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. O uso mais comum do `outputs`nome do elemento está em , onde os valores de saída dos elementos especificados são mapeados para os parâmetros do modelo. Também pode usá-lo para ligar o valor `defaultValue` de saída de um elemento ao de outro elemento. |
 | tipo | Sim | O controlo da UI para renderizar para o elemento. Para obter uma lista de tipos suportados, consulte [Elementos](#elements). |
 | label | Sim | O texto de exibição do elemento. Alguns tipos de elementos contêm várias etiquetas, por isso o valor pode ser um objeto que contém várias cordas. |
-| defaultValue | Não | O valor padrão do elemento. Alguns tipos de elementos suportam valores padrão complexos, para que o valor possa ser um objeto. |
-| ferramentaTip | Não | O texto a exibir na ponta da ferramenta do elemento. Semelhante a `label`, alguns elementos suportam várias cordas de ponta da ferramenta. As ligações inline podem ser incorporadas usando a sintaxe Markdown.
-| constraints | Não | Uma ou mais propriedades que são usadas para personalizar o comportamento de validação do elemento. As propriedades suportadas para constrangimentos variam por tipo de elemento. Alguns tipos de elementos não suportam a personalização do comportamento de validação, pelo que não têm nenhuma propriedade de restrições. |
-| options | Não | Propriedades adicionais que personalizam o comportamento do elemento. Semelhante a `constraints`, as propriedades suportadas variam por tipo de elemento. |
-| visível | Não | Indica se o elemento é apresentado. Se `true`, o elemento e os elementos infantis aplicáveis são apresentados. O valor predefinido é `true`. Use [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
+| defaultValor | Não | O valor padrão do elemento. Alguns tipos de elementos suportam valores padrão complexos, para que o valor possa ser um objeto. |
+| ferramentaTip | Não | O texto a exibir na ponta da ferramenta do elemento. Semelhante `label`a, alguns elementos suportam várias cordas de ponta da ferramenta. As ligações inline podem ser incorporadas usando a sintaxe Markdown.
+| constrangimentos | Não | Uma ou mais propriedades que são usadas para personalizar o comportamento de validação do elemento. As propriedades suportadas para constrangimentos variam por tipo de elemento. Alguns tipos de elementos não suportam a personalização do comportamento de validação, pelo que não têm nenhuma propriedade de restrições. |
+| opções | Não | Propriedades adicionais que personalizam o comportamento do elemento. Semelhante `constraints`a, as propriedades suportadas variam por tipo de elemento. |
+| visível | Não | Indica se o elemento é apresentado. Se, `true`o elemento e os elementos infantis aplicáveis forem apresentados. O valor predefinido é `true`. Use [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
 
 ## <a name="elements"></a>Elementos
 

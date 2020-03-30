@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061432"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planeie um reset de senha de autosserviço do Azure Ative Diretório
 
 > [!NOTE]
-> Este plano de implementação oferece orientação de planeamento e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR). <br>**Se procura a ferramenta SSPR para voltar à sua conta, vá a [https://aka.ms/sspr](https://aka.ms/sspr)** .
+> Este plano de implementação oferece orientação de planeamento e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR). <br>**Se procura a ferramenta SSPR para voltar à sua [https://aka.ms/sspr](https://aka.ms/sspr)conta, vá para **.
 
 [O Reset de Passwords self-Service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade azure Ative Directory (AD) que permite aos utilizadores redefinir as suas palavras-passe sem contactar o pessoal de TI para obter ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou da hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de apoio para as questões mais comuns relacionadas com a palavra-passe. 
 
@@ -64,9 +64,9 @@ Para obter mais informações sobre preços, consulte [o preço do Diretório At
 * Uma conta com privilégios de Administrador Global.
 
 
-### <a name="training-resources"></a>Recursos de treinamento
+### <a name="training-resources"></a>Recursos de formação
 
-| Recursos| Link e descrição |
+| Recursos| Link e Descrição |
 | - | - |
 | Vídeos| [Capacitar os seus utilizadores com melhor escalabilidade de TI](https://youtu.be/g9RpRnylxS8) 
 | |[O que é o reset da palavra-passe self-service?](https://youtu.be/hc97Yx5PJiM)|
@@ -110,13 +110,13 @@ A Microsoft recomenda que as organizações permitam a experiência de registo c
 
 A experiência de registo combinado não requer que as organizações permitam tanto a Autenticação Multi-Factor SSPR como a Azure. O registo combinado proporciona às organizações uma melhor experiência de utilizador. Para mais informações, consulte o registo combinado de informações de [segurança (pré-visualização)](concept-registration-mfa-sspr-combined.md)
 
-## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
+## <a name="plan-the-deployment-project"></a>Planear o projeto de implantação
 
-Considere suas necessidades organizacionais enquanto determina a estratégia para essa implantação em seu ambiente.
+Considere as suas necessidades organizacionais enquanto determina a estratégia para esta implantação no seu ambiente.
 
-### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
+### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar estas armadilhas, [certifique-se](https://aka.ms/deploymentplans) de que está a envolver as partes interessadas certas e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e as suas inputs e responsabilidades do projeto.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas sobre impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se](https://aka.ms/deploymentplans) de que está a envolver as partes interessadas certas e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e as suas inputs e responsabilidades do projeto.
 
 #### <a name="required-administrator-roles"></a>Funções de administrador necessárias
 
@@ -124,15 +124,15 @@ Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a ex
 | Papel Empresarial/Persona| Função Azure AD (se necessário) |
 | - | - |
 | Mesa de apoio de nível 1| Administrador de palavras-passe |
-| Mesa de apoio de nível 2| Administrador do usuário |
+| Mesa de apoio de nível 2| Administrador de utilizadores |
 | Administrador da SSPR| Administrador global |
 
 
-### <a name="plan-communications"></a>Plan communications
+### <a name="plan-communications"></a>Planear as comunicações
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Você deve se comunicar proativamente com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas. Reveja a [palavra-passe self-service redefinir materiais de lançamento no centro de descarregamento da Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) para ideias sobre como planear a sua estratégia de comunicação de utilizador final.
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Deve comunicar proativamente com os seus utilizadores como a sua experiência mudará, quando irá mudar e como obter suporte se experimentarem problemas. Reveja a [palavra-passe self-service redefinir materiais de lançamento no centro de descarregamento da Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) para ideias sobre como planear a sua estratégia de comunicação de utilizador final.
 
-### <a name="plan-a-pilot"></a>Planejar um piloto
+### <a name="plan-a-pilot"></a>Planeie um piloto
 
 Recomendamos que a configuração inicial do SSPR seja num ambiente de teste. Comece com um grupo piloto, permitindo a SSPR para um subconjunto de utilizadores na sua organização. Consulte [as melhores práticas para um piloto.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)
 
@@ -175,7 +175,7 @@ Recomendamos as seguintes definições do método de autenticação:
 
 Nota: O utilizador deve ter os métodos de autenticação configurados nas políticas e restrições de [password no Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
-### <a name="registration-settings"></a>Configurações de registro
+### <a name="registration-settings"></a>Configurações de registo
 
 Definir **Exigir que os utilizadores se registem ao iniciar sessão** no **Yes**. Esta definição requer que os utilizadores se registem ao iniciar sessão, garantindo que todos os utilizadores estão protegidos.
 
@@ -219,7 +219,7 @@ Alguns ambientes têm múltiplos sistemas de gestão de identidade. Os gestores 
 
 Em cada fase da sua implantação de grupos piloto iniciais através de toda a organização, certifique-se de que os resultados são como esperado.
 
-### <a name="plan-testing"></a>Teste de plano
+### <a name="plan-testing"></a>Teste de planos
 
 Para garantir que a sua implementação funciona como esperado, planeje um conjunto de casos de teste para validar a implementação. Para avaliar os casos de teste, precisa de um utilizador de teste não administrador com uma palavra-passe. Se precisar de criar um utilizador, consulte [Adicionar novos utilizadores ao Diretório Ativo Do Azure](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -265,7 +265,7 @@ Para reverter a implantação:
 
 * Para todos, desabilite o SSPR para o inquilino da AD Azure
 
-## <a name="deploy-sspr"></a>Implementar SSPR
+## <a name="deploy-sspr"></a>Implementar a SSPR
 
 Antes de ser implementado, certifique-se de que fez o seguinte:
 
@@ -303,7 +303,7 @@ A Azure AD pode fornecer informações adicionais sobre o seu desempenho sspr at
 
 ### <a name="password-management-activity-reports"></a>Relatórios de atividade de gestão de passwords 
 
-Pode utilizar relatórios pré-construídos no portal Azure para medir o desempenho do SSPR. Se você estiver licenciado adequadamente, também poderá criar consultas personalizadas. Para mais informações, consulte [opções de Reporte para gestão de passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
+Pode utilizar relatórios pré-construídos no portal Azure para medir o desempenho do SSPR. Se você estiver devidamente licenciado, você também pode criar consultas personalizadas. Para mais informações, consulte [opções de Reporte para gestão de passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
 
 > [!NOTE]
 >  Você deve ser [um administrador global](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles), e você deve optar por que estes dados sejam recolhidos para a sua organização. Para optar, deve visitar o separador Relatório ou os registos de auditoria no Portal Azure pelo menos uma vez. Até lá, os dados não recolhem para a sua organização.

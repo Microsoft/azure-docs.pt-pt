@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
 ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77117922"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Criar, consultar e atravessar uma base de dados de gráficos Azure Cosmos DB utilizando a consola Gremlin
@@ -20,12 +20,12 @@ ms.locfileid: "77117922"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [python](create-graph-python.md)
+> * [Nó.js](create-graph-nodejs.md)
+> * [Pitão](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
 Este quickstart demonstra como criar uma conta API, base de dados e gráfico Azure Cosmos DB [Gremlin](graph-introduction.md) utilizando o portal Azure e, em seguida, usar a [Consola Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da Apache [TinkerPop](https://tinkerpop.apache.org) para trabalhar com dados da API Gremlin. Neste tutorial, vai criar e consultar vértices e margens, atualizar uma propriedade de vértice, consultar vértices, percorrer o gráfico e eliminar um vértice.
 
@@ -49,7 +49,7 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Ligue-se ao seu serviço de aplicações/Gráfico
+## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Ligue-se ao seu serviço de aplicações/Gráfico
 1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*, conforme definido na seguinte tabela:
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471185"
 ---
-# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise os registos de Apache Kafka no HDInsight
+# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analisar registos do Apache Kafka no HDInsight)
 
 Aprenda a utilizar os registos do Monitor Azure para analisar os registos gerados por Apache Kafka no HDInsight.
 
@@ -23,7 +23,7 @@ Aprenda a utilizar os registos do Monitor Azure para analisar os registos gerado
 
 ## <a name="logs-location"></a>Localização de registos
 
-Os registos apache Kafka no cluster estão localizados em `/var/log/kafka`. Os troncos de Kafka não são salvos ou persistidos em ciclos de vida de cluster, independentemente de serem usados discos geridos. A tabela seguinte mostra os registos disponíveis.
+Os registos Apache Kafka no `/var/log/kafka`cluster estão localizados em . Os troncos de Kafka não são salvos ou persistidos em ciclos de vida de cluster, independentemente de serem usados discos geridos. A tabela seguinte mostra os registos disponíveis.
 
 |Registar |Descrição |
 |---|---|
@@ -68,7 +68,7 @@ Os passos para ativar os registos do Monitor Azure para o HDInsight são os mesm
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Mensagens de entrada por segundo: (Substitua `your_kafka_cluster_name` pelo nome do cluster.)
+* Mensagens de entrada por `your_kafka_cluster_name` segundo: (Substitua pelo nome do cluster.)
 
     ```kusto
     metrics_kafka_CL 
@@ -76,7 +76,7 @@ Os passos para ativar os registos do Monitor Azure para o HDInsight são os mesm
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Bytes de entrada por segundo: (Substitua `wn0-kafka` por um nome de anfitrião do nó operário.)
+* Bytes de entrada por `wn0-kafka` segundo: (Substitua por um nome de anfitrião do nó operário.)
 
     ```kusto
     metrics_kafka_CL 
@@ -84,7 +84,7 @@ Os passos para ativar os registos do Monitor Azure para o HDInsight são os mesm
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Bytes de saída por segundo: (Substitua `your_kafka_cluster_name` pelo nome do cluster.)
+* Bytes de saída por `your_kafka_cluster_name` segundo: (Substitua pelo nome do cluster.)
 
     ```kusto
     metrics_kafka_CL 
@@ -92,13 +92,13 @@ Os passos para ativar os registos do Monitor Azure para o HDInsight são os mesm
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-    Também pode entrar `*` para pesquisar todos os tipos registados. Atualmente estão disponíveis os seguintes registos para consultas:
+    Também pode `*` entrar para pesquisar todos os tipos registados. Atualmente estão disponíveis os seguintes registos para consultas:
 
     | Tipo de log | Descrição |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Controlador de corretor kafka.log |
-    | métricas\_kafka\_CL | Métricas Kafka JMX |
+    | métricas\_\_kafka CL | Métricas Kafka JMX |
 
     ![Apache kafka log analytics cpu uso](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 

@@ -16,13 +16,13 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 464fa05f658dd6e6e25d79f8840ceeb939383149
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77467220"
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação de desastres e falha no dispositivo para o seu StorSimple Virtual Array via portal Azure
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
 
 ## <a name="overview"></a>Descrição geral
 Este artigo descreve a recuperação de desastres para o seu Microsoft Azure StorSimple Virtual Array, incluindo os passos detalhados para falhar em outra matriz virtual. Uma falha permite-lhe mover os seus dados de um dispositivo *de origem* no datacenter para um *dispositivo-alvo.* O dispositivo-alvo pode estar localizado na mesma localização geográfica ou numa localização geográfica diferente. A falha do dispositivo é para todo o dispositivo. Durante o failover, os dados da nuvem para o dispositivo de origem alteram a propriedade para a do dispositivo alvo.
@@ -42,7 +42,7 @@ O DR é modelado como um dispositivo completo restaurar usando o tiering e rastr
 
 A recuperação de desastres é orquestrada através da funcionalidade failover do dispositivo e é iniciada a partir da lâmina **dispositivos.** Esta lâmina tabula todos os dispositivos StorSimple ligados ao seu serviço StorSimple Device Manager. Para cada dispositivo, pode ver o nome, estado, capacidade e capacidade máxima, tipo e modelo amigáveis.
 
-## <a name="prerequisites-for-device-failover"></a>Pré-requisitos para falha no dispositivo
+## <a name="prerequisites-for-device-failover"></a>Pré-requisitos para a ativação pós-falha do dispositivo
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +108,7 @@ Execute os seguintes passos para restaurar o dispositivo num dispositivo virtual
    
     1. Vá à lâmina **do Dispositivo e** selecione o seu dispositivo.
    
-    2. Vá a **Definições > Gerir > Ações** (ou **Definições > Gerir > Volumes).** 
+    2. Vá a **Definições > Gerir > Partilhas** (ou **Configurações > Gerir volumes de >).** 
    
     3. Selecione uma partilha/volume, clique à direita e selecione **Desligar**. 
    
@@ -141,7 +141,7 @@ Execute os seguintes passos para restaurar o dispositivo num dispositivo virtual
     4. Clique **em Falhar mais .**
     
         ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
-11. Inicia-se um trabalho de failover e recebe uma notificação. Vá a **Devices > Jobs** para monitorizar a falha.
+11. Inicia-se um trabalho de failover e recebe uma notificação. Vá ao **Devices > Jobs** para monitorizar a falha.
     
      ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. Na lâmina **Jobs,** vê-se um trabalho de falha criado para o dispositivo de origem. Este trabalho realiza os pré-controlos do DR.

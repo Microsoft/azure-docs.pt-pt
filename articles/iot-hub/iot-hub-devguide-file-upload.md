@@ -1,5 +1,5 @@
 ---
-title: Compreenda o upload de ficheiros Azure IoT Hub  Microsoft Docs
+title: Compreenda o upload de ficheiros Azure IoT Hub [ Microsoft Docs
 description: Guia de desenvolvimento - utilize a funcionalidade de upload de ficheiros do IoT Hub para gerir o upload de ficheiros de um dispositivo para um recipiente de armazenamento Azure.
 author: robinsh
 manager: philmea
@@ -9,13 +9,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209159"
 ---
-# <a name="upload-files-with-iot-hub"></a>Upload de ficheiros com IoT Hub
+# <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT
 
 Conforme detalhado no artigo de [pontos finais do IoT Hub,](iot-hub-devguide-endpoints.md) um dispositivo pode iniciar um upload de ficheiro enviando uma notificação através de um ponto final virado para dispositivos **(/dispositivos/{deviceId}/ficheiros**). Quando um dispositivo notifica o IoT Hub de que um upload está completo, o IoT Hub envia uma mensagem de notificação de envio de ficheiros através do ponto final virado para o serviço **/mensagens/notificações de serviço/notificações de ficheiros.**
 
@@ -41,7 +41,7 @@ Os [ficheiros Upload do seu dispositivo para a nuvem com guias IoT Hub](iot-hub-
 > Os [SDKs Azure IoT](iot-hub-devguide-sdks.md) lidam automaticamente com a recuperação do SAS URI, fazendo o upload do ficheiro e notificando o IoT Hub de um upload concluído.
 
 ## <a name="initialize-a-file-upload"></a>Inicializar um upload de ficheiro
-O IoT Hub tem um ponto final especificamente para os dispositivos solicitarem um SAS URI para armazenamento para fazer o upload de um ficheiro. Para iniciar o processo de upload de ficheiros, o dispositivo envia um pedido post para `{iot hub}.azure-devices.net/devices/{deviceId}/files` com o seguinte corpo JSON:
+O IoT Hub tem um ponto final especificamente para os dispositivos solicitarem um SAS URI para armazenamento para fazer o upload de um ficheiro. Para iniciar o processo de upload de `{iot hub}.azure-devices.net/devices/{deviceId}/files` ficheiros, o dispositivo envia um pedido post para com o seguinte corpo JSON:
 
 ```json
 {
@@ -66,7 +66,7 @@ O IoT Hub devolve os seguintes dados, que o dispositivo utiliza para fazer o upl
 > [!NOTE]
 > Esta secção descreve a funcionalidade depreciada para como receber um SAS URI do IoT Hub. Utilize o método POST descrito anteriormente.
 
-O IoT Hub tem dois pontos finais REST para suportar o upload de ficheiros, um para obter o SAS URI para armazenamento e o outro para notificar o centro IoT de um upload concluído. O dispositivo inicia o processo de upload de ficheiros enviando um GET para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. O hub ioT retorna:
+O IoT Hub tem dois pontos finais REST para suportar o upload de ficheiros, um para obter o SAS URI para armazenamento e o outro para notificar o centro IoT de um upload concluído. O dispositivo inicia o processo de upload de ficheiros `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`enviando um GET para o hub IoT em . O hub ioT retorna:
 
 * Um SAS URI específico do ficheiro a ser carregado.
 
@@ -74,7 +74,7 @@ O IoT Hub tem dois pontos finais REST para suportar o upload de ficheiros, um pa
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifique o IoT Hub de um upload de ficheiro completo
 
-O dispositivo envia o ficheiro para armazenamento utilizando os SDKs de Armazenamento Azure. Quando o upload estiver concluído, o dispositivo envia um pedido post para `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` com o seguinte corpo JSON:
+O dispositivo envia o ficheiro para armazenamento utilizando os SDKs de Armazenamento Azure. Quando o upload estiver concluído, o `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` dispositivo envia um pedido post para com o seguinte corpo JSON:
 
 ```json
 {
@@ -85,7 +85,7 @@ O dispositivo envia o ficheiro para armazenamento utilizando os SDKs de Armazena
 }
 ```
 
-O valor da `isSuccess` é um Boolean que indica se o ficheiro foi carregado com sucesso. O código de estado para `statusCode` é o estado do upload do ficheiro para armazenamento, e o `statusDescription` corresponde ao `statusCode`.
+O valor `isSuccess` de é um Boolean que indica se o ficheiro foi carregado com sucesso. O código `statusCode` de estado para é o estado do `statusDescription` upload do `statusCode`ficheiro para armazenamento, e o corresponde ao .
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 

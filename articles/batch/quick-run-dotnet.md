@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure – Executar trabalho do Batch – .NET
-description: Execute rapidamente um trabalho de exemplo do lote do Azure e C# tarefas de um aplicativo com a biblioteca de cliente .net do lote.
+description: Execute rapidamente um trabalho de amostra de Lote Azure e tarefas a partir de uma aplicação C# com a biblioteca de clientes Batch .NET.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -11,10 +11,10 @@ ms.date: 11/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77017212"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
@@ -27,13 +27,13 @@ Este início rápido executa um trabalho do Azure Batch a partir de uma aplicaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs), ou [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, MacOS ou Windows. 
+* [Visual Studio 2017 ou mais tarde](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
 
 * Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -70,7 +70,7 @@ Para ver o fluxo de trabalho do Batch em ação, crie e execute a aplicação no
 
 * Confirme o restauro de quaisquer pacotes NuGet, se lhe for pedido. Se precisar de transferir pacotes em falta, certifique-se de que o [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) está instalado.
 
-Em seguida, execute-o. Quando executar a aplicação de exemplo, o resultado da consola é semelhante ao seguinte. Durante a execução, ocorre uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do conjunto são iniciados. As tarefas são colocadas em fila para serem executadas assim que o primeiro nó de computação estiver em execução. Aceda à conta do Batch no [portal do Azure](https://portal.azure.com) para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas.
+Em seguida, execute-o. Quando executar a aplicação de exemplo, o resultado da consola é semelhante ao seguinte. Durante a execução, ocorre uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do conjunto são iniciados. As tarefas são colocadas em fila para serem executadas assim que o primeiro nó de computação estiver em execução. Vá à sua conta de Lote no [portal Azure](https://portal.azure.com) para monitorizar a piscina, calcular nós, trabalho e tarefas.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -227,7 +227,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
 
-### <a name="view-task-output"></a>Ver o resultado das tarefas
+### <a name="view-task-output"></a>Ver resultado das tarefas
 
 A aplicação cria um [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) para monitorizar as tarefas para assegurar a sua conclusão. Em seguida, a aplicação utiliza a propriedade [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) para apresentar o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 

@@ -5,10 +5,10 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120722"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mova um cofre de serviços de recuperação através de assinaturas e grupos de recursos do Azure
@@ -25,7 +25,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Pré-requisitos para mover o cofre dos Serviços de Recuperação
 
-- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo a escrita e a eliminação de operações. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) artigo.
+- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo a escrita e a eliminação de operações. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Só a assinatura do administrador tem permissão para mover um cofre.
 - Para mover o cofre através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a subscrição de origem e o seu estado deve ser ativado.
 - Deve ter permissão para realizar operações de escrita no grupo de recursos alvo.
@@ -35,7 +35,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 - Quer o VM seja movido com o cofre ou não, pode sempre restaurar o VM do histórico de reserva retido no cofre.
 - A Encriptação do Disco Azure requer que o cofre chave e os VMs residam na mesma região azure e subscrição.
 - Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- As opções para movimentar recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou para uma nova subscrição. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) artigo.
+- As opções para movimentar recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou para uma nova subscrição. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - As políticas de backup definidas para o cofre são retidas após a abóbada se mover através de subscrições ou para um novo grupo de recursos.
 - O cofre em movimento com os Ficheiros Azure, O Sincronizado de Ficheiros Azure ou SQL em VMs IaaS através de subscrições e grupos de recursos não é suportado.
 - Se mover um cofre contendo dados de backup VM, através de subscrições, tem de mover os seus VMs para a mesma subscrição e utilizar o mesmo nome de grupo de recursos VM alvo (como era em subscrição antiga) para continuar as cópias de segurança.
@@ -108,7 +108,7 @@ Você pode mover um cofre de Serviços de Recuperação e seus recursos associad
 
 ## <a name="use-powershell-to-move-recovery-services-vault"></a>Use a PowerShell para mover o cofre dos Serviços de Recuperação
 
-Para mover um cofre dos Serviços de Recuperação para outro grupo de recursos, utilize o `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` requer o nome do recurso e o tipo de recurso. Pode obter os dois da `Get-AzureRmRecoveryServicesVault` cmdlet.
+Para mover um cofre dos Serviços `Move-AzureRMResource` de Recuperação para outro grupo de recursos, use o cmdlet. `Move-AzureRMResource`requer o nome do recurso e o tipo de recurso. Pode obter os `Get-AzureRmRecoveryServicesVault` dois do cmdlet.
 
 ```powershell
 $destinationRG = "<destinationResourceGroupName>"
@@ -116,7 +116,7 @@ $vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <
 Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
-Para mover os recursos para diferentes subscrições, inclua o parâmetro `-DestinationSubscriptionId`.
+Para mover os recursos para `-DestinationSubscriptionId` diferentes subscrições, inclua o parâmetro.
 
 ```powershell
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
@@ -132,7 +132,7 @@ Para mover um cofre de Serviços de Recuperação para outro grupo de recursos, 
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 
-Para passar para uma nova subscrição, forneça o parâmetro `--destination-subscription-id`.
+Para passar para uma nova `--destination-subscription-id` subscrição, forneça o parâmetro.
 
 ## <a name="post-migration"></a>Pós-migração
 
@@ -141,6 +141,6 @@ Para passar para uma nova subscrição, forneça o parâmetro `--destination-sub
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e assinaturas.
+Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e subscrições.
 
 Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).

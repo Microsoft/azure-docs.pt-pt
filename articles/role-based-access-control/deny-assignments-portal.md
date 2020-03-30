@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137428"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Lista nega atribuições para recursos Azure utilizando o portal Azure
@@ -32,7 +32,7 @@ ms.locfileid: "77137428"
 
 Para obter informações sobre uma atribuição de negação, deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`permissão, que está incluída na maioria das [funções incorporadas para os recursos Azure.](built-in-roles.md)
 
 ## <a name="list-deny-assignments"></a>Listar atribuições de negação
 
@@ -42,7 +42,7 @@ Siga estes passos para listar a negação de atribuições no âmbito do grupo d
 
 1. Clique no grupo de gestão ou subscrição que pretende listar.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **de atribuições Negar** (ou clique no botão **'Ver'** no 'Ver negar o azulejo de atribuição').
 
@@ -57,7 +57,7 @@ Siga estes passos para listar a negação de atribuições no âmbito do grupo d
     |  |  |
     | --- | --- |
     | **Nome** | Nome da missão de negação. |
-    | **Tipo principal** | Utilizador, grupo, grupo definido pelo sistema ou diretor de serviço. |
+    | **Tipo de principal** | Utilizador, grupo, grupo definido pelo sistema ou diretor de serviço. |
     | **Negado**  | Nome do diretor de segurança que está incluído na missão de negação. |
     | **Id** | Identificador único para a atribuição de negação. |
     | **Principais excluídos** | Se há diretores de segurança que estão excluídos da missão de negação. |
@@ -93,7 +93,7 @@ Siga estes passos para listar detalhes adicionais sobre uma atribuição de nega
     | Tipo de ação | Descrição |
     | --- | --- |
     | **Ações**  | Operações de gestão negadas. |
-    | **NotAções** | Operações de gestão excluídas da operação de gestão negada. |
+    | **NotActions** | Operações de gestão excluídas da operação de gestão negada. |
     | **Ações de Dados**  | Operações de dados negadas. |
     | **NotDataActions** | Operações de dados excluídas da operação de dados negados. |
 

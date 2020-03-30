@@ -14,24 +14,24 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 94c9a2b6a46262ad293da9ca3ba493d6f898c870
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085838"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Utilizador obtém consentimento para vários recursos usando MSAL.NET
-O ponto final da plataforma de identidade da Microsoft não lhe permite obter um símbolo para vários recursos ao mesmo tempo. Ao utilizar a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método do token adquirente só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir antecipadamente vários recursos, especificando âmbitos adicionais utilizando o método `.WithExtraScopeToConsent` construtor.
+O ponto final da plataforma de identidade da Microsoft não lhe permite obter um símbolo para vários recursos ao mesmo tempo. Ao utilizar a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método do token adquirente só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir antecipadamente vários recursos, especificando âmbitos adicionais utilizando o método do `.WithExtraScopeToConsent` construtor.
 
 > [!NOTE]
 > Obter o consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure AD B2C. O Azure AD B2C suporta apenas o consentimento do administrador, não o consentimento do utilizador.
 
 Por exemplo, se tiver dois recursos que têm 2 âmbitos cada:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (com 2 âmbitos `customer.read` e `customer.write`)
-- https:\//mytenant.onmicrosoft.com/vendorapi (com 2 âmbitos `vendor.read` e `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (com `customer.read` 2 `customer.write`âmbitos e)
+- https:\//mytenant.onmicrosoft.com/vendorapi (com `vendor.read` 2 `vendor.write`âmbitos e)
 
-Deve utilizar o modificador `.WithExtraScopeToConsent` que tenha o parâmetro *extraScopesToConsent,* como mostra o seguinte exemplo:
+Deve utilizar `.WithExtraScopeToConsent` o modificador que tem o parâmetro *extraScopesToConsent,* como mostra o seguinte exemplo:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]

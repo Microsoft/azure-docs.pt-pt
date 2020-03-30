@@ -18,10 +18,10 @@ ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75cfd304869bfb63131dfd2afed9f925c86d32fb
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132447"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registe aplicações móveis que liguem para apis web
@@ -38,7 +38,7 @@ A maioria das aplicações móveis usam autenticação interativa. Se a sua apli
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público para autenticação integrada do Windows, username-password e B2C
 
-Se tiver uma aplicação Universal Windows Platform (UWP), pode utilizar a autenticação Integrada do Windows para iniciar sessão nos utilizadores. Para utilizar a autenticação integrada do Windows ou a autenticação de palavra-passe de username, a sua aplicação precisa de iniciar sessão de informação sobre os utilizadores no seu próprio inquilino de desenvolvimento de linha de negócio (LOB). Num cenário independente de fornecedor de software (ISV), a sua aplicação pode inscrever utilizadores em organizações de Diretório Sonérrios Ativos do Azure. Esses fluxos de autenticação não têm suporte para contas pessoais da Microsoft.
+Se tiver uma aplicação Universal Windows Platform (UWP), pode utilizar a autenticação Integrada do Windows para iniciar sessão nos utilizadores. Para utilizar a autenticação integrada do Windows ou a autenticação de palavra-passe de username, a sua aplicação precisa de iniciar sessão de informação sobre os utilizadores no seu próprio inquilino de desenvolvimento de linha de negócio (LOB). Num cenário independente de fornecedor de software (ISV), a sua aplicação pode inscrever utilizadores em organizações de Diretório Sonérrios Ativos do Azure. Estes fluxos de autenticação não são suportados para contas pessoais da Microsoft.
 
 Também pode inscrever os utilizadores utilizando identidades sociais que passam por uma autoridade e política B2C. Para utilizar este método, só pode utilizar autenticação interativa e autenticação de palavra-passe de utilizador. A autenticação username-password é atualmente suportada apenas em Xamarin.iOS, Xamarin.Android e UWP.
 
@@ -76,18 +76,18 @@ Quando completar os passos, o URI redirecionamento é calculado para si, como na
 
 Se preferir configurar manualmente o URI redirecionamento, pode fazê-lo através do manifesto de aplicação. Aqui está o formato recomendado para o manifesto:
 
-- **iOS**: `msauth.<BUNDLE_ID>://auth` 
-  - Por exemplo, introduza `msauth.com.yourcompany.appName://auth`
-- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **iOS**:`msauth.<BUNDLE_ID>://auth` 
+  - Por exemplo, inserir`msauth.com.yourcompany.appName://auth`
+- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Pode gerar o hash de assinatura Android utilizando a chave de lançamento ou chave de depuração através do comando KeyTool.
 
 ### <a name="username-password-authentication"></a>Autenticação de palavra-passe-nome de utilizador
 
-Se a sua aplicação utilizar apenas a autenticação de username-password, não precisa de registar um URI redirecionado para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 final da plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico. 
+Se a sua aplicação utilizar apenas a autenticação de username-password, não precisa de registar um URI redirecionado para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 final da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta a nenhum URI específico. 
 
 No entanto, precisa identificar a sua aplicação como uma aplicação de cliente público. Para isso, comece na secção **autenticação** da sua aplicação. Na subsecção **de configurações Avançadas,** no parágrafo **do tipo de cliente Predefinido,** para a pergunta **Tratar aplicação como cliente público,** selecione **Sim**.
 
-## <a name="api-permissions"></a>Permissões DaPI
+## <a name="api-permissions"></a>Permissões de API
 
 As aplicações móveis ligam para APIs em nome do utilizador inscrito. A sua aplicação precisa de solicitar permissões delegadas. Estas permissões também são chamadas de âmbitos. Dependendo da experiência que deseja, pode solicitar permissões delegadas estáticamente através do portal Azure. Ou pode solicitá-los dinamicamente no tempo de execução. 
 

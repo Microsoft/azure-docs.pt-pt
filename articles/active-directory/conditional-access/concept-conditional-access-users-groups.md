@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36898e75680771a9cb084fa142bb635ddbf51c70
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77192132"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
@@ -34,7 +34,7 @@ As seguintes opções estão disponíveis para incluir na criação de uma polí
    - Nenhum utilizador selecionado
 - Todos os utilizadores
    - Todos os utilizadores que existam no diretório, incluindo convidados B2B.
-- Selecione utilizadores e grupos
+- Selecionar utilizadores e grupos
    - Todos os utilizadores convidados e externos (pré-visualização)
       - Esta seleção inclui quaisquer hóspedes B2B e utilizadores externos, incluindo qualquer utilizador com o `user type` atributo definido para `guest`. Esta seleção também se aplica a qualquer utilizador externo que tenha assinado a partir de uma organização diferente, como um Fornecedor de Soluções cloud (CSP). 
    - Funções de diretório (pré-visualização)

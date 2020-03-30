@@ -1,5 +1,5 @@
 ---
-title: Cenários de dados envolvendo Azure Data Lake Storage Gen2  Microsoft Docs
+title: Cenários de dados envolvendo Azure Data Lake Storage Gen2 [ Microsoft Docs
 description: Compreenda os diferentes cenários e ferramentas utilizando quais dados podem ingerir, processar, descarregar e visualizar em Data Lake Storage Gen2 (anteriormente conhecido como Azure Data Lake Store)
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: b0ebe6cb505fa2a145dd3cbb94398912f2933a4b
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77369711"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilização do Azure Data Lake Storage Gen2 para grandes necessidades de dados
@@ -43,8 +43,8 @@ Aqui está uma lista de ferramentas que pode usar para ingerir dados ad hoc.
 
 | Origem de Dados | Ingelhe-lo usando |
 | --- | --- |
-| Computador local |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)<br><br>[Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)|
-| Blob de armazenamento azure |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[DistCp em execução no cluster HDInsight](data-lake-storage-use-distcp.md)|
+| Computador local |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Azure CLI](data-lake-storage-directory-file-acl-cli.md)<br><br>[Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)|
+| Blob de armazenamento azure |[Fábrica de Dados Azure](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[DistCp em execução no cluster HDInsight](data-lake-storage-use-distcp.md)|
 
 ### <a name="streamed-data"></a>Dados transmitidos
 
@@ -54,7 +54,7 @@ Aqui está uma lista de ferramentas que pode usar para ingerir dados transmitido
 
 |Ferramenta | Orientação |
 |---|--|
-|Azure Stream Analytics|[Quickstart: Criar um trabalho de Stream Analytics utilizando o portal Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Egress para Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
+|Azure Stream Analytics|[Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Egress para Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
 |Tempestade Azure HDInsight | [Escreva para Apache Hadoop HDFS da Tempestade Apache no HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
 ### <a name="relational-data"></a>Dados relacionais
@@ -76,7 +76,7 @@ Aqui está uma lista de ferramentas que pode usar para ingerir dados de registo 
 |Ferramenta | Orientação |
 |---|--|
 |Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) (Atividade de Cópia no Azure Data Factory)  |
-|CLI do Azure|[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)|
+|CLI do Azure|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
 Para fazer o upload de dados de registo de servidores web, e também para o upload de outros tipos de dados (por exemplo, dados de sentimentos sociais), é uma boa abordagem para escrever os seus próprios scripts/aplicações personalizadas porque lhe dá a flexibilidade para incluir o seu componente de carregamento de dados como parte da sua aplicação de big data maior. Em alguns casos, este código pode assumir a forma de um script ou de uma simples linha de comando. Noutros casos, o código pode ser utilizado para integrar o processamento de big data numa aplicação ou solução de negócio.
@@ -100,7 +100,7 @@ Grandes quantidades de dados podem ser armazenadas em aglomerados hadoop existen
 | Abordagem | Detalhes | Vantagens | Considerações |
 | --- | --- | --- | --- |
 | Utilize a Azure Data Factory (ADF) para copiar dados diretamente dos clusters Hadoop para o Azure Data Lake Storage Gen2 |[ADF suporta HDFS como fonte de dados](../../data-factory/connector-hdfs.md) |A ADF fornece suporte fora da caixa para HDFS e gestão e monitorização de ponta a ponta de primeira classe |Requer que o Portal de Gestão de Dados seja implantado no local ou no cluster IaaS |
-| Utilize a Distcp para copiar dados de Hadoop para o Armazenamento Azure. Em seguida, copie os dados do Armazenamento Azure para data Lake Storage Gen2 utilizando o mecanismo apropriado. |Pode copiar dados do Armazenamento Azure para data Lake Storage Gen2 usando: <ul><li>[Azure Data Factory](../../data-factory/copy-activity-overview.md)</li><li>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)</li><li>[Apache DistCp em execução em clusters HDInsight](data-lake-storage-use-distcp.md)</li></ul> |Pode utilizar ferramentas de código aberto. |Processo em várias etapas que envolve múltiplas tecnologias |
+| Utilize a Distcp para copiar dados de Hadoop para o Armazenamento Azure. Em seguida, copie os dados do Armazenamento Azure para data Lake Storage Gen2 utilizando o mecanismo apropriado. |Pode copiar dados do Armazenamento Azure para data Lake Storage Gen2 usando: <ul><li>[Fábrica de Dados Azure](../../data-factory/copy-activity-overview.md)</li><li>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)</li><li>[Apache DistCp em execução em clusters HDInsight](data-lake-storage-use-distcp.md)</li></ul> |Pode utilizar ferramentas de código aberto. |Processo em várias etapas que envolve múltiplas tecnologias |
 
 ### <a name="really-large-datasets"></a>Conjuntos de dados realmente grandes
 

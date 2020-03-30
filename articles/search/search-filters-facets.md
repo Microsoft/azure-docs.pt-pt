@@ -1,7 +1,7 @@
 ---
-title: Filtros de faceta para navegação de pesquisa em aplicativos
+title: Filtros de faceta para navegação de pesquisa em apps
 titleSuffix: Azure Cognitive Search
-description: Filtrar critérios por identidade de segurança do usuário, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Pesquisa Cognitiva, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
+description: Filtrar critérios por identidade de segurança do utilizador, geolocalização ou valores numéricos para reduzir os resultados de pesquisa em consultas em Azure Cognitive Search, um serviço de pesquisa em nuvem hospedado no Microsoft Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,51 +9,51 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792901"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como criar um filtro de faceta no Azure Pesquisa Cognitiva 
+# <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
 
-A navegação facetada é usada para a filtragem autodirigida nos resultados da consulta em um aplicativo de pesquisa, em que seu aplicativo oferece controles de interface do usuário para a pesquisa de escopo para grupos de documentos (por exemplo, categorias ou marcas) e Pesquisa Cognitiva do Azure fornece a estrutura de dados para fazer a experiência. Neste artigo, examine rapidamente as etapas básicas para criar uma estrutura de navegação facetada que faça backup da experiência de pesquisa que você deseja fornecer. 
+A navegação facetada é usada para filtragem auto-direcionada em resultados de consulta numa aplicação de pesquisa, onde a sua aplicação oferece controlos ui para pesquisa de scoping a grupos de documentos (por exemplo, categorias ou marcas) e a Pesquisa Cognitiva Azure fornece a estrutura de dados para apoiar a experiência. Neste artigo, reveja rapidamente os passos básicos para criar uma estrutura de navegação facetada apoiando a experiência de pesquisa que pretende proporcionar. 
 
 > [!div class="checklist"]
-> * Escolher campos para filtragem e faceta
+> * Escolha campos para filtragem e faceta
 > * Definir atributos no campo
-> * Compilar o índice e carregar dados
-> * Adicionar filtros de faceta a uma consulta
+> * Construir os dados de índice e carga
+> * Adicione filtros de faceta a uma consulta
 > * Processar resultados
 
-As facetas são dinâmicas e retornadas em uma consulta. As respostas de pesquisa trazem a elas as categorias de faceta usadas para navegar nos resultados. Se você não estiver familiarizado com facetas, o exemplo a seguir é uma ilustração de uma estrutura de navegação de faceta.
+As facetas são dinâmicas e devolvidas numa consulta. As respostas de pesquisa trazem consigo as categorias de facetas usadas para navegar nos resultados. Se não está familiarizado com as facetas, o exemplo seguinte é uma ilustração de uma estrutura de navegação faceta.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Novo para navegação facetada e deseja obter mais detalhes? Veja [como implementar a navegação facetada no pesquisa cognitiva do Azure](search-faceted-navigation.md).
+Nova navegação facetada e quer mais detalhes? Ver [Como implementar navegação faceada na Pesquisa Cognitiva Azure](search-faceted-navigation.md).
 
-## <a name="choose-fields"></a>Escolher campos
+## <a name="choose-fields"></a>Escolha campos
 
-As facetas podem ser calculadas sobre campos de valor único, bem como coleções. Os campos que funcionam melhor na navegação facetada têm baixa cardinalidade: um pequeno número de valores distintos que se repetem em documentos em seu corpus de pesquisa (por exemplo, uma lista de cores, países/regiões ou nomes de marca). 
+As facetas podem ser calculadas sobre campos de valor único, bem como coleções. Os campos que funcionam melhor na navegação facetada têm baixa cardeal: um pequeno número de valores distintos que se repetem ao longo de documentos no seu corpus de pesquisa (por exemplo, uma lista de cores, países/regiões ou marcas). 
 
-A facetação é habilitada em uma base de campo por campo quando você cria o índice definindo o atributo `facetable` como `true`. Normalmente, você também deve definir o atributo `filterable` como `true` para esses campos para que o aplicativo de pesquisa possa filtrar esses campos com base em facetas que o usuário final seleciona. 
+O faceting é ativado numa base campo a campo quando `facetable` se `true`cria o índice, fixando o atributo para . Geralmente, também deve `filterable` definir `true` o atributo para tais campos para que a sua aplicação de pesquisa possa filtrar nesses campos com base em facetas que o utilizador final seleciona. 
 
-Ao criar um índice usando a API REST, qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que possivelmente possa ser usado na navegação facetada é marcado como `facetable` por padrão:
+Ao criar um índice utilizando a API REST, qualquer [tipo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) de campo `facetable` que possa ser utilizado na navegação faceada é marcado como por padrão:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Tipos de campo numéricos: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
-+ Coleções dos tipos acima (por exemplo, `Collection(Edm.String)` ou `Collection(Edm.Double)`)
++ Tipos de campo `Edm.Int32` `Edm.Int64`numéricos: ,`Edm.Double`
++ Coleções dos tipos acima referidos (por exemplo, `Collection(Edm.String)` ou `Collection(Edm.Double)`)
 
-Você não pode usar os campos `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)` na navegação facetada. As facetas funcionam melhor em campos com baixa cardinalidade. Devido à resolução de coordenadas geográficas, é raro que quaisquer dois conjuntos de coestações sejam iguais em um determinado conjunto de dados. Dessa forma, as facetas não têm suporte para coordenadas geográficas. Você precisaria de um campo de cidade ou região para facetar por local.
+Não é `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)` possível utilizar ou campos na navegação faceada. As facetas funcionam melhor em campos com baixa cardeal. Devido à resolução de geo-coordenadas, é raro que quaisquer dois conjuntos de coordenadas sejam iguais num determinado conjunto de dados. Como tal, as facetas não são apoiadas para geo-coordenadas. Precisaria de uma cidade ou campo regional para enfrentar a localização.
 
 ## <a name="set-attributes"></a>Definir atributos
 
-Atributos de índice que controlam como um campo é usado são adicionados a definições de campo individuais no índice. No exemplo a seguir, os campos com baixa cardinalidade, úteis para facetar, consistem em: `category` (Hotel, motel, Hostel), `tags`e `rating`. Esses campos têm os atributos `filterable` e `facetable` definidos explicitamente no exemplo a seguir para fins ilustrativos. 
+Os atributos de índice que controlam a forma como um campo é usado são adicionados às definições individuais de campo no índice. No exemplo seguinte, campos com baixa cardeal, úteis `category` para enfrentar, consistem em: (hotel, motel, hostel), `tags`e `rating`. Estes campos `filterable` têm `facetable` os e atributos definidos explicitamente no exemplo seguinte para fins ilustrativos. 
 
 > [!Tip]
-> Como prática recomendada para otimização de desempenho e armazenamento, desative a faceta para campos que nunca devem ser usados como uma faceta. Em particular, os campos de cadeia de caracteres para valores exclusivos, como uma ID ou nome de produto, devem ser definidos como `"facetable": false` para evitar seu uso acidental (e ineficaz) na navegação facetada.
+> Como uma boa prática para otimização de desempenho e armazenamento, desligue-se de campos que nunca devem ser usados como faceta. Em particular, devem ser definidos campos de cordas para valores únicos, como identificação ou nome do produto, para `"facetable": false` evitar a sua utilização acidental (e ineficaz) na navegação facial.
 
 
 ```json
@@ -77,15 +77,15 @@ Atributos de índice que controlam como um campo é usado são adicionados a def
 ```
 
 > [!Note]
-> Essa definição de índice é copiada de [criar um índice de pesquisa cognitiva do Azure usando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). É idêntico, exceto pelas diferenças superficial nas definições de campo. Os atributos `filterable` e `facetable` são explicitamente adicionados nos campos `category`, `tags`, `parkingIncluded`, `smokingAllowed`e `rating`. Na prática, `filterable` e `facetable` seriam habilitados por padrão nesses campos ao usar a API REST. Ao usar o SDK do .NET, esses atributos devem ser habilitados explicitamente.
+> Esta definição de índice é copiada a partir de Criar um índice de [Pesquisa Cognitiva Azure utilizando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). É idêntico, exceto diferenças superficiais nas definições de campo. Os `filterable` `facetable` atributos e `category`atributos `smokingAllowed`são `rating` explicitamente adicionados em campos `tags`e `parkingIncluded`campos. Na `filterable` prática, `facetable` e seria ativado por padrão nestes campos ao utilizar a API REST. Ao utilizar o .NET SDK, estes atributos devem ser ativados explicitamente.
 
-## <a name="build-and-load-an-index"></a>Criar e carregar um índice
+## <a name="build-and-load-an-index"></a>Construir e carregar um índice
 
-Uma etapa intermediária (e talvez óbvia) é que você precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) antes de formular uma consulta. Mencionamos esta etapa aqui para fins de integridade. Uma maneira de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que você tem que [construir e povoar o índice](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) antes de formular uma consulta. Mencionamos este passo aqui para a completude. Uma forma de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Adicionar filtros de faceta a uma consulta
+## <a name="add-facet-filters-to-a-query"></a>Adicione filtros de faceta a uma consulta
 
-No código do aplicativo, construa uma consulta que especifica todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas, filtros, perfis de Pontuação – qualquer coisa usada para formular uma solicitação. O exemplo a seguir cria uma solicitação que cria a navegação da faceta com base no tipo de acomodação, classificação e outros comodidades.
+No código de aplicação, construa uma consulta que especifique todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas, filtros, perfis de pontuação, qualquer coisa usada para formular um pedido. O exemplo seguinte constrói um pedido que cria navegação de faceta com base no tipo de alojamento, classificação e outras comodidades.
 
 ```csharp
 var sp = new SearchParameters()
@@ -96,33 +96,33 @@ var sp = new SearchParameters()
 };
 ```
 
-### <a name="return-filtered-results-on-click-events"></a>Retornar resultados filtrados em eventos de clique
+### <a name="return-filtered-results-on-click-events"></a>Volte a ter resultados filtrados em eventos de clique
 
-Quando o usuário final clica em um valor de faceta, o manipulador para o evento de clique deve usar uma expressão de filtro para perceber a intenção do usuário. Dada uma faceta de `category`, clicar na categoria "Motel" é implementada com uma expressão `$filter` que seleciona acomodações desse tipo. Quando um usuário clica em "Motel" para indicar que apenas motéis deve ser mostrado, a próxima consulta que o aplicativo envia inclui `$filter=category eq 'motel'`.
+Quando o utilizador final clica num valor facial, o manipulador para o evento clique deve utilizar uma expressão de filtro para perceber a intenção do utilizador. Dada `category` uma faceta, clicar na categoria "motel" é implementado com uma `$filter` expressão que seleciona acomodações desse tipo. Quando um utilizador clica em "motel" para indicar que apenas os motéis devem ser mostrados, a próxima consulta que a aplicação envia inclui `$filter=category eq 'motel'`.
 
-O trecho de código a seguir adicionará a categoria ao filtro se um usuário selecionar um valor da faceta de categoria.
+O seguinte código de corte adiciona categoria ao filtro se um utilizador selecionar um valor a partir da faceta da categoria.
 
 ```csharp
 if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Se o usuário clicar em um valor de faceta para um campo de coleção como `tags`, por exemplo, o valor "pool", seu aplicativo deverá usar a seguinte sintaxe de filtro: `$filter=tags/any(t: t eq 'pool')`
+Se o utilizador clicar num valor facial para `tags`um campo de recolha como, por exemplo, o valor "pool", a sua aplicação deve utilizar a seguinte sintaxe do filtro:`$filter=tags/any(t: t eq 'pool')`
 
-## <a name="tips-and-workarounds"></a>Dicas e soluções alternativas
+## <a name="tips-and-workarounds"></a>Dicas e suposições
 
-### <a name="initialize-a-page-with-facets-in-place"></a>Inicializar uma página com facetas em vigor
+### <a name="initialize-a-page-with-facets-in-place"></a>Inicialize uma página com facetas no lugar
 
-Se você quiser inicializar uma página com facetas em vigor, poderá enviar uma consulta como parte da inicialização da página para propagar a página com uma estrutura de faceta inicial.
+Se quiser inicializar uma página com facetas no lugar, pode enviar uma consulta como parte da inicialização da página para semear a página com uma estrutura inicial de faceta.
 
-### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Preservar uma estrutura de navegação de faceta de forma assíncrona de resultados filtrados
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Preservar uma estrutura de navegação faceta assincronicamente de resultados filtrados
 
-Um dos desafios da navegação de faceta no Azure Pesquisa Cognitiva é que as facetas existem apenas para os resultados atuais. Na prática, é comum manter um conjunto estático de facetas para que o usuário possa navegar na ordem inversa, redirecionando etapas para explorar caminhos alternativos por meio de conteúdo de pesquisa. 
+Um dos desafios com a navegação faceta na Pesquisa Cognitiva Azure é que as facetas existem apenas para os resultados atuais. Na prática, é comum reter um conjunto estático de facetas para que o utilizador possa navegar em marcha-atrás, retirando passos para explorar caminhos alternativos através de conteúdos de pesquisa. 
 
-Embora esse seja um caso de uso comum, não é algo que a estrutura de navegação da faceta atualmente fornece prontamente. Os desenvolvedores que desejam facetas estáticas normalmente configuram a limitação emitindo duas consultas filtradas: um com escopo para os resultados, o outro usado para criar uma lista estática de facetas para fins de navegação.
+Embora este seja um caso de uso comum, não é algo que a estrutura de navegação faceta atualmente fornece fora da caixa. Os desenvolvedores que querem facetas estáticas normalmente trabalham em torno da limitação através da emissão de duas consultas filtradas: uma com vista aos resultados, a outra usada para criar uma lista estática de facetas para fins de navegação.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-+ [Criar API REST de índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Pesquisar API REST de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
++ [Criar API de REPOUSO De Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)

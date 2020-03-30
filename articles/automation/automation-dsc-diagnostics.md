@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430725"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Forward Azure Automation Configuração de relatórios de dados para registos do Monitor Azure
@@ -37,7 +37,7 @@ Para começar a enviar os seus relatórios de Configuração do Estado de Automa
 
 - O lançamento de novembro de 2016 ou posterior lançamento da [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 - Uma conta de Automatização do Azure. Para mais informações, consulte [Uma introdução à Automação Azure.](automation-intro.md)
-- Um espaço de trabalho log Analytics com uma oferta de serviço de Automação e Controlo. Para mais informações, consulte [Iniciar com Log Analytics no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+- Um espaço de trabalho log Analytics com uma oferta de serviço de controlo de & automation. Para mais informações, consulte [Iniciar com Log Analytics no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 - Pelo menos um nó de configuração do Estado da Automação Azure. Para mais informações, consulte [máquinas de embarque para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - O módulo [xDscDiagnostics,](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) versão 2.7.0.0 ou superior. Para os passos de instalação, consulte [Troubleshoot Azure Automation Desired State Configuration](./troubleshoot/desired-state-configuration.md).
 
@@ -100,7 +100,7 @@ Um dos nossos principais pedidos de cliente é para a capacidade de enviar um e-
 Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os registos do relatório de Configuração do Estado que devem invocar o alerta. Clique no botão **+ Nova Regra** de Alerta para criar e configurar a regra de alerta.
 
 1. A partir da página de visualização geral do espaço de trabalho Log Analytics, clique em **Registos**.
-1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Se tiver configurado registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. Obtenha o nome da conta Automation a partir do campo Derecurso na pesquisa de DscNodeStatusData.
 1. Para abrir o ecrã de **regra Criar,** clique + **Nova Regra** de Alerta no topo da página. 
@@ -113,7 +113,7 @@ Uma vantagem de utilizar os registos do Monitor Azure é que pode procurar verif
 Para encontrar todos os casos de recursos da DSC que falharam:
 
 1. Na página de visualização geral do espaço de trabalho Log Analytics, clique em **Registos**.
-1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
+1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Ver histórico estado do nó DSC
 
@@ -140,9 +140,9 @@ Os diagnósticos da Azure Automation criam duas categorias de registos nos regis
 | NodeName_s |O nome do nó gerido. |
 | NodeComplianceStatus_s |Se o nó é compatível. |
 | DscReportStatus |Se a verificação de conformidade correu com sucesso. |
-| ConfigurationMode | Como a configuração é aplicada ao nó. Os valores possíveis são: <ul><li>*Aplicação Apenas:* O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. O DSC tenta aplicar a configuração até que tenha sucesso antes que o valor *ApplyOnly* entre em vigor. </li><li>*ApplyAndMonitor*: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. O DSC tenta aplicar a configuração até que tenha sucesso antes que o valor *ApplyAndMonitor* entre em vigor.</li><li>*AplicaçãoAndAutoCorrect*: DSC aplica quaisquer novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
+| Modo de Configuração | Como a configuração é aplicada ao nó. Os valores possíveis são: <ul><li>*Aplicação Apenas:* O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. O DSC tenta aplicar a configuração até que tenha sucesso antes que o valor *ApplyOnly* entre em vigor. </li><li>*ApplyAndMonitor*: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. O DSC tenta aplicar a configuração até que tenha sucesso antes que o valor *ApplyAndMonitor* entre em vigor.</li><li>*AplicaçãoAndAutoCorrect*: DSC aplica quaisquer novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerido. |
-| iPAddress | O endereço IPv4 do nó gerido. |
+| IPAddress | O endereço IPv4 do nó gerido. |
 | Categoria | DscNodeStatus. |
 | Recurso | O nome da conta Azure Automation. |
 | Tenant_g | GUID que identifica o inquilino para o Chamador. |

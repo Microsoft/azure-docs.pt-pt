@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 82e5221daefaecb687ad9feb79305e546d4ec17e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68424154"
 ---
 > [!NOTE]
-> Um aplicativo Web pode atingir o tempo limite após 20 minutos de inatividade. Somente as solicitações para o aplicativo Web real redefinem o temporizador. Exibir a configuração do aplicativo no portal do Azure ou fazer solicitações para o site de ferramentas avançadas (`https://<app_name>.scm.azurewebsites.net`) não redefine o timer. Se seu aplicativo executar trabalhos Web contínuos ou agendados (gatilho de temporizador), habilite **Always on** para garantir que os trabalhos Web sejam executados de forma confiável. Esse recurso está disponível apenas nos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)básico, Standard e Premium.
+> Uma aplicação web pode sair após 20 minutos de inatividade. Apenas solicita à aplicação web real redefinir o temporizador. Visualizar a configuração da aplicação no portal Azure ou`https://<app_name>.scm.azurewebsites.net`fazer pedidos para o site de ferramentas avançadas ( ) não redefinir o temporizador. Se a sua aplicação funcionar continuamente ou programada (gatilho do temporizador), ative **sempre on** para garantir que os WebJobs funcionam de forma fiável. Esta funcionalidade está disponível apenas nos níveis de [preços](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)Básico, Standard e Premium.

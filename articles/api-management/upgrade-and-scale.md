@@ -1,6 +1,6 @@
 ---
-title: Atualizar e dimensionar uma instância de gerenciamento de API do Azure | Microsoft Docs
-description: Este tópico descreve como atualizar e dimensionar uma instância de gerenciamento de API do Azure.
+title: Upgrade e escala uma instância de Gestão API Azure [ Microsoft Docs
+description: Este tópico descreve como atualizar e escalar uma instância de Gestão API Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,69 +12,69 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70018244"
 ---
-# <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e dimensionar uma instância de gerenciamento de API do Azure  
+# <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Upgrade e escala uma instância de Gestão API Azure  
 
-Os clientes podem dimensionar uma instância do APIM (gerenciamento de API do Azure) adicionando e removendo unidades. Uma **unidade** é composta de recursos dedicados do Azure e tem uma determinada capacidade de carga expressa como um número de chamadas à API por mês. Esse número não representa um limite de chamada, mas sim um valor máximo de taxa de transferência para permitir o planejamento de capacidade aproximada. A taxa de transferência e a latência reais variam em larga escala, dependendo de fatores como número e taxa de conexões simultâneas, o tipo e o número de políticas configuradas, tamanhos de solicitação e resposta e latência de back-end.
+Os clientes podem escalar uma instância de Gestão De API Azure (APIM) adicionando e removendo unidades. Uma **unidade** é composta por recursos Azure dedicados e tem uma certa capacidade de suporte de carga expressa como uma série de chamadas API por mês. Este número não representa um limite de chamada, mas sim um valor máximo de entrada para permitir um planeamento de capacidade brusco. A produção e a latência reais variam em geral dependendo de fatores como o número e a taxa de ligações simultâneas, o tipo e o número de políticas configuradas, tamanhos de pedido e resposta, e latência de backend.
 
-A capacidade e o preço de cada unidade dependem da **camada** na qual a unidade existe. Você pode escolher entre quatro camadas: **Developer**, **básico**, **Standard**, **Premium**. Se precisar aumentar a capacidade de um serviço dentro de uma camada, você deverá adicionar uma unidade. Se a camada selecionada no momento em sua instância do APIM não permitir a adição de mais unidades, você precisará atualizar para uma camada de nível superior.
+A capacidade e o preço de cada unidade dependem do **nível** em que a unidade existe. Pode escolher entre quatro níveis: **Developer,** **Basic**, **Standard,** **Premium**. Se precisar de aumentar a capacidade de um serviço dentro de um nível, deve adicionar uma unidade. Se o nível atualmente selecionado na sua instância APIM não permitir adicionar mais unidades, precisa de atualizar para um nível mais elevado.
 
-O preço de cada unidade e os recursos disponíveis (por exemplo, implantação em várias regiões) depende da camada que você escolheu para sua instância do APIM. O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) explica o preço por unidade e os recursos que você obtém em cada camada. 
+O preço de cada unidade e as funcionalidades disponíveis (por exemplo, implantação em várias regiões) depende do nível que escolheu para a sua instância APIM. O artigo de detalhes de [preços,](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) explica o preço por unidade e as funcionalidades que obtém em cada nível. 
 
 >[!NOTE]
->O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) mostra números aproximados de capacidade de unidade em cada camada. Para obter números mais precisos, você precisa examinar um cenário realista para suas APIs. Consulte o artigo [capacidade de uma instância de gerenciamento de API do Azure](api-management-capacity.md) .
+>O artigo [de pormenores](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sobre preços mostra números aproximados de capacidade unitária em cada nível. Para obter números mais precisos, precisa olhar para um cenário realista para as suas APIs. Consulte a Capacidade de um artigo de gestão da [API Azure.](api-management-capacity.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir as etapas deste artigo, você deve:
+Para seguir os passos deste artigo, deve:
 
-+ Ter uma assinatura ativa do Azure.
++ Tenha uma subscrição azure ativa.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Ter uma instância de APIM. Para obter mais informações, consulte [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Tenha uma instância da APIM. Para mais informações, consulte Criar uma instância de [Gestão API Azure.](get-started-create-service-instance.md)
 
-+ Entenda o conceito de [capacidade de uma instância de gerenciamento de API do Azure](api-management-capacity.md).
++ Compreender o conceito de Capacidade de uma instância de [Gestão API Azure.](api-management-capacity.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="upgrade-and-scale"></a>Atualizar e dimensionar  
 
-Você pode escolher entre quatro camadas: **Developer**, **básico**, **Standard** e **Premium**. A camada de **desenvolvedor** deve ser usada para avaliar o serviço; Ele não deve ser usado para produção. A camada de **desenvolvedor** não tem SLA e você não pode dimensionar essa camada (Adicionar/remover unidades). 
+Pode escolher entre quatro níveis: **Developer,** **Basic,** **Standard** e **Premium.** O nível **de Desenvolvimento** deve ser utilizado para avaliar o serviço; não deve ser utilizado para a produção. O nível **de Desenvolvimento** não tem SLA e não pode escalar este nível (adicionar/remover unidades). 
 
-**Basic**, **Standard** e **Premium** são as camadas de produção que têm SLA e podem ser dimensionadas. A camada **básica** é a camada mais barata que tem SLA e pode ser dimensionada para até 2 unidades, a camada **Standard** pode ser dimensionada para até quatro unidades. Você pode adicionar qualquer número de unidades à camada **Premium** .
+**Básico**, **Standard** e **Premium** são níveis de produção que têm SLA e podem ser dimensionados. O nível **Básico** é o nível mais barato que tem SLA e pode ser dimensionado até 2 unidades, o nível **Standard** pode ser dimensionado até quatro unidades. Pode adicionar qualquer número de unidades ao nível **Premium.**
 
-A camada **Premium** permite distribuir uma única instância de gerenciamento de API do Azure em qualquer número de regiões do Azure desejadas. Quando você cria inicialmente um serviço de gerenciamento de API do Azure, a instância contém apenas uma unidade e reside em uma única região do Azure. A região inicial é designada como a região **primária** . Regiões adicionais podem ser facilmente adicionadas. Ao adicionar uma região, você especifica o número de unidades que deseja alocar. Por exemplo, você pode ter uma unidade na região **primária** e cinco unidades em alguma outra região. Você pode personalizar o número de unidades para o tráfego que você tem em cada região. Para obter mais informações, consulte [como implantar uma instância do serviço de gerenciamento de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md).
+O nível **Premium** permite-lhe distribuir uma única instância de Gestão API Azure em várias regiões azure desejadas. Quando inicialmente cria um serviço de Gestão API Azure, a instância contém apenas uma unidade e reside numa única região do Azure. A região inicial é designada como a região **primária.** Regiões adicionais podem ser facilmente adicionadas. Ao adicionar uma região, especifice o número de unidades que pretende alocar. Por exemplo, pode ter uma unidade na região **primária** e cinco unidades em alguma outra região. Pode adaptar o número de unidades ao tráfego que tem em cada região. Para mais informações, consulte como implementar uma instância de serviço de [Gestão API Azure para várias regiões do Azure.](api-management-howto-deploy-multi-region.md)
 
-Você pode atualizar e fazer downgrade de e para qualquer camada. Observe que a atualização ou o downgrade pode remover alguns recursos, por exemplo, VNETs ou implantação de várias regiões, ao fazer downgrade para Standard ou básico da camada Premium.
-
-> [!NOTE]
-> O processo de atualização ou de dimensionamento pode demorar de 15 a 45 minutos a aplicar. Você será notificado quando terminar.
+Pode atualizar e desvalorizar de e para qualquer nível. Note que a atualização ou a degradação podem remover algumas funcionalidades - por exemplo, VNETs ou implantação multi-região, ao degradar-se para Standard ou Basic do nível Premium.
 
 > [!NOTE]
-> O serviço de gerenciamento de API na camada de **consumo** é dimensionado automaticamente com base no tráfego.
+> O processo de atualização ou escala pode demorar de 15 a 45 minutos a aplicar. É notificado quando estiver feito.
 
-## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Usar o portal do Azure para atualizar e dimensionar
+> [!NOTE]
+> Serviço de Gestão API nas escalas de nível de **consumo** automaticamente com base no tráfego.
 
-![Dimensionar APIM em portal do Azure](./media/upgrade-and-scale/portal-scale.png)
+## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Use o portal Azure para atualizar e escalar
 
-1. Navegue até sua instância do APIM no [portal do Azure](https://portal.azure.com/).
-2. Selecione **escala e preços** no menu.
-3. Escolha a camada desejada.
-4. Especifique o número de **unidades** que você deseja adicionar. Você pode usar o controle deslizante ou digitar o número de unidades.  
-    Se você escolher a camada **Premium** , precisará primeiro selecionar uma região.
+![Escala APIM no portal Azure](./media/upgrade-and-scale/portal-scale.png)
+
+1. Navegue para a sua instância APIM no [portal Azure.](https://portal.azure.com/)
+2. Selecione **Escala e preços** no menu.
+3. Escolha o nível desejado.
+4. Especifique o número de **unidades** que pretende adicionar. Pode utilizar o slider ou escrever o número de unidades.  
+    Se escolher o nível **Premium,** primeiro terá de selecionar uma região.
 5. Prima **Guardar**.
 
-## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
-Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
+## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a escala para cima e para baixo
+Se estiver a escalonar de ou para o nível de Desenvolvimento, haverá tempo de inatividade. Caso contrário, não há tempo de descanso. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
-- [Como dimensionar automaticamente uma instância do serviço de gerenciamento de API do Azure](api-management-howto-autoscale.md)
+- [Como escalar automaticamente uma instância de serviço de Gestão API Azure](api-management-howto-autoscale.md)

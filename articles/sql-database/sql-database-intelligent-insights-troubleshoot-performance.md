@@ -1,5 +1,5 @@
 ---
-title: Problemas de desempenho com Insights Inteligentes
+title: Resolução de problemas de desempenho com o Intelligent Insights
 description: A Intelligent Insights ajuda-o a resolver problemas de desempenho na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 739bba7ed9ab4770a762c08fccc422ce048ae11d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214081"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Problemas de resolução de problemas Azure SQL Problemas de desempenho da base de dados com Insights Inteligentes
@@ -34,7 +34,7 @@ A Intelligent Insights deteta automaticamente problemas de desempenho com bases 
 | [Atingir limites de recursos](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), linhas de trabalho de base de dados ou sessões de login disponíveis na subscrição monitorizada atingiu limites. Isto está a afetar o desempenho da Base de Dados SQL. | O consumo de recursos da CPU está a atingir limites de Instância Gerida. Isto está a afetar o desempenho da base de dados. |
 | [Aumento da carga de trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detetado um aumento da carga de trabalho ou acumulação contínua de carga de trabalho na base de dados. Isto está a afetar o desempenho da Base de Dados SQL. | O aumento da carga de trabalho foi detetado. Isto está a afetar o desempenho da base de dados. |
 | [Pressão da memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os trabalhadores que solicitaram subsídios de memória têm de esperar por dotações de memória por quantidades estatisticamente significativas de tempo, ou existe um aumento da acumulação de trabalhadores que solicitaram subsídios de memória. Isto está a afetar o desempenho da Base de Dados SQL. | Os trabalhadores que solicitaram subsídios de memória aguardam a atribuição de memória por um período de tempo estatisticamente significativo. Isto está a afetar o desempenho da base de dados. |
-| [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Foi detetado um bloqueio excessivo de bases de dados que afeta o desempenho da Base de Dados SQL. | Foi detetado um bloqueio excessivo na base de dados que afeta o desempenho da base de dados. |
+| [Bloquear](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Foi detetado um bloqueio excessivo de bases de dados que afeta o desempenho da Base de Dados SQL. | Foi detetado um bloqueio excessivo na base de dados que afeta o desempenho da base de dados. |
 | [MAXDOP aumentado](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | O grau máximo de opção de paralelismo (MAXDOP) alterou-se afetando a eficiência da execução da consulta. Isto está a afetar o desempenho da Base de Dados SQL. | O grau máximo de opção de paralelismo (MAXDOP) alterou-se afetando a eficiência da execução da consulta. Isto está a afetar o desempenho da base de dados. |
 | [Contenção de Pagelatch](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários fios estão simultaneamente a tentar aceder às mesmas páginas tampão de dados na memória, resultando num aumento dos tempos de espera e na contenção do pagelatch. Isto está a afetar a base de dados SQL do desempenho. | Vários fios estão simultaneamente a tentar aceder às mesmas páginas tampão de dados na memória, resultando num aumento dos tempos de espera e na contenção do pagelatch. Isto está a afetar a base de dados do desempenho. |
 | [Índice em falta](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | O índice em falta foi detetado afetando o desempenho da base de dados SQL. | O índice desaparecido foi detetado afetando o desempenho da base de dados. |
@@ -109,7 +109,7 @@ Também pode reduzir a carga de trabalho otimizando ou distribuindo-a através d
 
 Para sugestões adicionais de resolução de problemas, consulte [Memória concede meditação: O misterioso consumidor de memória SQL Server com muitos nomes](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994).
 
-## <a name="locking"></a>Bloqueio
+## <a name="locking"></a>Bloquear
 
 ### <a name="what-is-happening"></a>O que é que está a acontecer
 
@@ -187,7 +187,7 @@ Os diagnósticos registam as hashes de consulta para as consultas que foram iden
 > Para uma otimização contínua do desempenho da Base de Dados SQL, recomendamos que ative a [sintonização automática sQL Database](sql-database-automatic-tuning.md). Esta característica única da Inteligência Incorporada da Base de Dados SQL monitoriza continuamente a sua base de dados SQL e afina automaticamente e cria índices para as suas bases de dados.
 >
 
-## <a name="new-query"></a>Nova Consulta
+## <a name="new-query"></a>New Query
 
 ### <a name="what-is-happening"></a>O que é que está a acontecer
 
@@ -319,7 +319,7 @@ Se reduziu o seu nível de preços e, portanto, as DTUs disponíveis para a Base
 
 Aceda a Smart Insights através do portal Azure, indo para a Azure SQL Analytics. Tente localizar o alerta de desempenho e selecione-o. Identifique o que está a acontecer na página de deteções. Observe a análise de causa seleção fornecida do problema, texto de consulta, tendências de tempo de consulta e evolução do incidente. Tente resolver o problema utilizando a recomendação Da Insights Inteligentes para atenuar a questão do desempenho.
 
-[gráfico de fluxo de resolução de problemas ![](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[![Gráfico de fluxo de resolução de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
 > Selecione o fluxograma para descarregar uma versão PDF.

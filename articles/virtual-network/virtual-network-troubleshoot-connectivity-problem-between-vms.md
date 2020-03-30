@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de conectividade entre VMs do Azure | Microsoft Docs
-description: Saiba como solucionar problemas de conectividade entre VMs do Azure.
+title: Problemas de conectividade entre Os VMs do Azure Microsoft Docs
+description: Saiba como resolver os problemas de conectividade entre Os VMs Azure.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -15,69 +15,69 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056806"
 ---
-# <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solucionando problemas de conectividade entre VMs do Azure
+# <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Troubleshooting connectivity problems between Azure VMs (Resolver problemas de conectividade entre VMs do Azure)
 
-Você pode enfrentar problemas de conectividade entre as VMs (máquinas virtuais) do Azure. Este artigo fornece etapas de solução de problemas para ajudá-lo a resolver esse problema. 
+Pode experimentar problemas de conectividade entre máquinas virtuais Azure (VMs). Este artigo fornece medidas de resolução de problemas para ajudá-lo a resolver este problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Sintoma
 
-Uma VM do Azure não pode se conectar a outra VM do Azure.
+Um Azure VM não pode ligar-se a outro Azure VM.
 
 ## <a name="troubleshooting-guidance"></a>Orientação na resolução de problemas 
 
-1. [Verifique se a NIC está configurada incorretamente](#step-1-check-whether-nic-is-misconfigured)
+1. [Verifique se nic está mal configurado](#step-1-check-whether-nic-is-misconfigured)
 2. [Verifique se o tráfego de rede está bloqueado por NSG ou UDR](#step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr)
-3. [Verifique se o tráfego de rede está bloqueado pelo firewall da VM](#step-3-check-whether-network-traffic-is-blocked-by-vm-firewall)
-4. [Verificar se o aplicativo ou serviço de VM está escutando na porta](#step-4-check-whether-vm-app-or-service-is-listening-on-the-port)
-5. [Verifique se o problema é causado por SNAT](#step-5-check-whether-the-problem-is-caused-by-snat)
-6. [Verificar se o tráfego está bloqueado pelas ACLs para a VM clássica](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
-7. [Verificar se o ponto de extremidade foi criado para a VM clássica](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
-8. [Tentar se conectar a um compartilhamento de rede de VM](#step-8-try-to-connect-to-a-vm-network-share)
-9. [Verificar conectividade entre vnet](#step-9-check-inter-vnet-connectivity)
+3. [Verifique se o tráfego de rede está bloqueado por firewall VM](#step-3-check-whether-network-traffic-is-blocked-by-vm-firewall)
+4. [Verifique se a aplicação ou serviço VM está a ouvir na porta](#step-4-check-whether-vm-app-or-service-is-listening-on-the-port)
+5. [Verifique se o problema é causado pela SNAT](#step-5-check-whether-the-problem-is-caused-by-snat)
+6. [Verifique se o tráfego está bloqueado por ACLs para o Clássico VM](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
+7. [Verifique se o ponto final é criado para o Clássico VM](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
+8. [Tente ligar-se a uma partilha de rede VM](#step-8-try-to-connect-to-a-vm-network-share)
+9. [Verifique a conectividade Inter-Vnet](#step-9-check-inter-vnet-connectivity)
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-Siga estas etapas para solucionar o problema. Depois de concluir cada etapa, verifique se o problema foi resolvido. 
+Siga estes passos para resolver o problema. Depois de completar cada passo, verifique se o problema está resolvido. 
 
-### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passo 1: Verifique se a NIC está configurada incorretamente
+### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passo 1: Verifique se nic está mal configurado
 
-Siga as etapas em [como redefinir a interface de rede para a VM do Windows do Azure](../virtual-machines/windows/reset-network-interface.md). 
+Siga os passos em [Como redefinir a interface de rede para o Azure Windows VM](../virtual-machines/windows/reset-network-interface.md). 
 
-Se o problema ocorrer depois que você modificar a NIC (interface de rede), siga estas etapas:
+Se o problema ocorrer depois de modificar a interface de rede (NIC), siga estes passos:
 
-**VMs com várias NICs**
+**Multi-NIC VMs**
 
-1. Adicione uma NIC.
-2. Corrija os problemas na NIC inadequada ou remova a NIC inadequada.  Em seguida, adicione a NIC novamente.
+1. Adicione um NIC.
+2. Corrija os problemas no NIC mau ou retire o NIC mau.  Em seguida, adicione o NIC novamente.
 
-Para obter mais informações, consulte [Adicionar adaptadores de rede ou remover de máquinas virtuais](virtual-network-network-interface-vm.md).
+Para mais informações, consulte Adicionar interfaces de [rede para ou remover de máquinas virtuais](virtual-network-network-interface-vm.md).
 
-**VM de NIC única** 
+**Single-NIC VM** 
 
-- [Reimplantar a VM do Windows](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Reimplantar VM Linux](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Reimplantar O VM do Windows](../virtual-machines/windows/redeploy-to-new-node.md)
+- [Reimplantação de Linux VM](../virtual-machines/linux/redeploy-to-new-node.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passo 2: Verifique se o tráfego de rede está bloqueado por NSG ou UDR
 
-Use a [verificação de fluxo de IP do observador de rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e o log de [fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se há um NSG (grupo de segurança de rede) ou UDR (rota definida pelo usuário) que está interferindo com o fluxo de tráfego.
+Utilize o [Verificador](../network-watcher/network-watcher-ip-flow-verify-overview.md) de Fluxo IP do Observador de Rede e o [Registo de Fluxo nsg](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um Grupo de Segurança de Rede (NSG) ou uma Rota Definida pelo Utilizador (UDR) que está a interferir com o fluxo de tráfego.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Passo 3: Verifique se o tráfego de rede está bloqueado pelo firewall da VM
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Passo 3: Verifique se o tráfego de rede está bloqueado por firewall VM
 
-Desabilite o firewall e, em seguida, teste o resultado. Se o problema for resolvido, verifique as configurações do firewall e habilite novamente o firewall.
+Desative a firewall e, em seguida, teste o resultado. Se o problema estiver resolvido, verifique as definições de firewall e, em seguida, reative a firewall.
 
-### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Passo 4: Verificar se o aplicativo ou serviço de VM está escutando na porta
+### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Passo 4: Verifique se a aplicação ou o serviço VM estão a ouvir na porta
 
-Você pode usar um dos métodos a seguir para verificar se o aplicativo ou serviço de VM está escutando na porta.
+Pode utilizar um dos seguintes métodos para verificar se a aplicação ou serviço VM está a ouvir na porta.
 
-- Execute os comandos a seguir para verificar se o servidor está escutando nessa porta.
+- Execute os seguintes comandos para verificar se o servidor está a ouvir nessa porta.
 
 **VM do Windows**
 
@@ -87,27 +87,27 @@ Você pode usar um dos métodos a seguir para verificar se o aplicativo ou servi
 
     netstat -l
 
-- Execute o comando **Telnet** na própria máquina virtual para testar a porta. Se o teste falhar, o aplicativo ou serviço não será configurado para escutar nessa porta.
+- Mande o comando da **rede** na própria máquina virtual para testar a porta. Se o teste falhar, a aplicação ou serviço não está configurado para ouvir nessa porta.
 
-### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Passo 5: Verifique se o problema é causado por SNAT
+### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Passo 5: Verifique se o problema é causado pela SNAT
 
-Em alguns cenários, a VM é colocada atrás de uma solução de balanceamento de carga que tem uma dependência de recursos fora do Azure. Nesses cenários, se você tiver problemas intermitentes de conexão, o problema poderá ser causado pelo [esgotamento da porta SNAT](../load-balancer/load-balancer-outbound-connections.md). Para resolver o problema, crie um VIP (ou ILPIP para clássico) para cada VM que está atrás do balanceador de carga e proteja-se com NSG ou ACL. 
+Em alguns cenários, o VM é colocado atrás de uma solução de equilíbrio de carga que tem uma dependência de recursos fora do Azure. Nestes cenários, se tiver problemas de ligação intermitentes, o problema pode ser causado pela exaustão da [porta SNAT](../load-balancer/load-balancer-outbound-connections.md). Para resolver o problema, crie um VIP (ou ILPIP para clássico) para cada VM que esteja por trás do equilibrador de carga e proteja com NSG ou ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Passo 6: Verificar se o tráfego está bloqueado pelas ACLs para a VM clássica
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Passo 6: Verifique se o tráfego está bloqueado por ACLs para o clássico VM
 
-Uma ACL (lista de controle de acesso) fornece a capacidade de permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Para obter mais informações, consulte [gerenciar a ACL em um ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
+Uma lista de controlo de acesso (ACL) fornece a capacidade de permitir ou negar seletivamente o tráfego para um ponto final de máquina virtual. Para mais informações, consulte [Gerir o ACL num ponto final](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
-### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passo 7: Verificar se o ponto de extremidade foi criado para a VM clássica
+### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passo 7: Verifique se o ponto final é criado para o Clássico VM
 
-Todas as VMs que você cria no Azure usando o modelo de implantação clássico podem se comunicar automaticamente por meio de um canal de rede privada com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual. No entanto, computadores em outras redes virtuais exigem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Para obter mais informações, consulte [como configurar pontos de extremidade](../virtual-machines/windows/classic/setup-endpoints.md).
+Todos os VMs que cria em Azure utilizando o modelo de implementação clássico podem comunicar automaticamente através de um canal de rede privado com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual. No entanto, os computadores de outras redes virtuais requerem pontos finais para direcionar o tráfego da rede de entrada para uma máquina virtual. Para mais informações, consulte [Como configurar pontos finais](../virtual-machines/windows/classic/setup-endpoints.md).
 
-### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Passo 8: Tentar se conectar a um compartilhamento de rede de VM
+### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Passo 8: Tente ligar-se a uma partilha de rede VM
 
-Se você não puder se conectar a um compartilhamento de rede VM, o problema poderá ser causado por NICs não disponíveis na VM. Para excluir as NICs não disponíveis, consulte [como excluir as NICs não disponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Se não conseguir ligar-se a uma partilha de rede VM, o problema pode ser causado por NICs indisponíveis no VM. Para eliminar os NICs indisponíveis, consulte [Como eliminar os NICs indisponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: Verificar conectividade entre vnet
+### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: Verificar conectividade Inter-Vnet
 
-Use a [verificação de fluxo de IP do observador de rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e o log de [fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se há um NSG ou UDR que está interferindo no fluxo de tráfego. Você também pode verificar sua configuração entre vnet [aqui](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
+Utilize o [Verificador de Fluxo IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) do Observador de Rede e o [Registo de Fluxo nsg](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um NSG ou UDR que está a interferir com o fluxo de tráfego. Também pode verificar a sua configuração Inter-Vnet [aqui](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
 ### <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.
+Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.

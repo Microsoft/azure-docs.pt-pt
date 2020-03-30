@@ -1,6 +1,6 @@
 ---
-title: Arquitetura do cofre OPC – Azure | Microsoft Docs
-description: Arquitetura do serviço de gerenciamento de certificados do cofre OPC
+title: Arquitetura OPC Vault - Azure Microsoft Docs
+description: Arquitetura de serviço de gestão de certificados OPC Vault
 author: mregen
 ms.author: mregen
 ms.date: 08/16/2019
@@ -9,81 +9,81 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 1e08968034134e2b9ab3b8064387d18663d5c866
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71200157"
 ---
-# <a name="opc-vault-architecture"></a>Arquitetura do cofre OPC
+# <a name="opc-vault-architecture"></a>Arquitetura do Cofre OPC
 
-Este artigo fornece uma visão geral sobre o microserviço do cofre OPC e o módulo de IoT Edge do cofre OPC.
+Este artigo dá uma visão geral sobre o microserviço opc vault e o módulo OPC Vault IoT Edge.
 
-Os aplicativos OPC UA usam certificados de instância de aplicativo para fornecer segurança em nível de aplicativo. Uma conexão segura é estabelecida usando a criptografia assimétrica, para a qual os certificados de aplicativo fornecem o par de chaves pública e privada. Os certificados podem ser autoassinados ou assinados por uma autoridade de certificação (CA).
+Os pedidos da OPC UA utilizam certificados de instância de aplicação para garantir a segurança do nível de pedido. Uma ligação segura é estabelecida utilizando a criptografia assimétrica, para a qual os certificados de candidatura fornecem o par de chaves público e privado. Os certificados podem ser auto-assinados ou assinados por uma Autoridade de Certificados (AC).
 
-Um aplicativo OPC UA tem uma lista de certificados confiáveis que representa os aplicativos aos quais ele confia. Esses certificados podem ser autoassinados ou assinados por uma CA, ou podem ser uma CA raiz ou uma subautoridade de certificação em si. Se um certificado confiável fizer parte de uma cadeia de certificados maior, o aplicativo confiará em todos os certificados que se encadeadom ao certificado na lista de confiança. Isso é verdadeiro, desde que a cadeia de certificados completa possa ser validada.
+Um pedido da OPC UA tem uma lista de certificados fidedignos que representam as aplicações em que confia. Estes certificados podem ser auto-assinados ou assinados por um CA, ou podem ser um Root-CA ou um Sub-CA em si. Se um certificado fidedigno fizer parte de uma cadeia de certificados maior, o pedido confia em todos os certificados que acorrentam ao certificado na lista fidedigna. Isto é verdade desde que a cadeia de certificados completo possa ser validada.
 
-A principal diferença entre a confiança de certificados autoassinados e a confiança de um certificado de autoridade de certificação é o esforço de instalação necessário para implantar e manter a confiança. Também há um esforço adicional para hospedar uma autoridade de certificação específica da empresa. 
+A grande diferença entre confiar nos certificados auto-assinados e confiar num certificado de AC é o esforço de instalação necessário para implantar e manter a confiança. Há também um esforço adicional para acolher uma AC específica da empresa. 
 
-Para distribuir a confiança para certificados autoassinados para vários servidores com um único aplicativo cliente, você deve instalar todos os certificados de aplicativo do servidor na lista de confiança do aplicativo cliente. Além disso, você deve instalar o certificado do aplicativo cliente em todas as listas de confiança do aplicativo do servidor. Esse esforço administrativo é um fardo e até mesmo aumenta quando você precisa considerar os tempos de vida do certificado e renovar os certificados.
+Para distribuir a confiança para certificados auto-assinados para vários servidores com uma única aplicação de cliente, deve instalar todos os certificados de aplicação do servidor na lista de confiança da aplicação do cliente. Além disso, deve instalar o certificado de aplicação do cliente em todas as listas de confiança da aplicação do servidor. Este esforço administrativo é um grande fardo, e até aumenta quando se tem de considerar a vida útil dos certificados e renovar os certificados.
 
-O uso de uma autoridade de certificação específica da empresa pode simplificar muito o gerenciamento da confiança com vários servidores e clientes. Nesse caso, o administrador gera um certificado de instância de aplicativo assinado por AC uma vez para cada cliente e servidor usado. Além disso, o certificado de autoridade de certificação é instalado em todas as listas de confiança de aplicativos, em todos os servidores e clientes. Com essa abordagem, somente os certificados expirados precisam ser renovados e substituídos para os aplicativos afetados.
+O uso de uma AC específica da empresa pode simplificar consideravelmente a gestão da confiança com vários servidores e clientes. Neste caso, o administrador gera um certificado de instância de aplicação assinado pela AC uma vez para cada cliente e servidor utilizado. Além disso, o Certificado CA está instalado em todas as listas de fidedignidade de aplicações, em todos os servidores e clientes. Com esta abordagem, apenas os certificados caducados devem ser renovados e substituídos para as aplicações afetadas.
 
-O serviço de gerenciamento de certificados do IoT UA do Azure industrial do OPC ajuda a gerenciar uma AC específica da empresa para aplicativos OPC UA. Esse serviço é baseado no microserviço do cofre OPC. O cofre OPC fornece um microserviço para hospedar uma AC específica da empresa em uma nuvem segura. Essa solução é apoiada por serviços protegidos pelo Azure Active Directory (Azure AD), Azure Key Vault com HSMs (módulos de segurança de hardware), Azure Cosmos DB e, opcionalmente, o Hub IoT como um repositório de aplicativos.
+O serviço de gestão de certificados Azure Industrial IoT OPC UA ajuda-o a gerir um CA específico da empresa para aplicações da OPC UA. Este serviço baseia-se no microserviço OPC Vault. O OPC Vault fornece um microserviço para alojar um CA específico da empresa numa nuvem segura. Esta solução é apoiada por serviços assegurados pela Azure Ative Directory (Azure AD), Azure Key Vault com Módulos de Segurança de Hardware (HSMs), Azure Cosmos DB e opcionalmente IoT Hub como loja de aplicações.
 
-O microserviço do cofre OPC foi projetado para oferecer suporte ao fluxo de trabalho baseado em função, em que administradores de segurança e aprovadores com direitos de assinatura no Azure Key Vault aprovar ou rejeitar solicitações.
+O microserviço OPC Vault foi concebido para apoiar o fluxo de trabalho baseado em papéis, onde administradores de segurança e aprovadores com direitos de assinatura no Cofre chave azure aprovam ou rejeitam pedidos.
 
-Para compatibilidade com as soluções de OPC UA existentes, os serviços incluem suporte para um módulo de borda com backup em microserviço do compartimento OPC. Isso implementa o **servidor de descoberta global do OPC UA e** a interface de gerenciamento de certificados, para distribuir certificados e listas de confiança de acordo com a parte 12 da especificação. 
+Para compatibilidade com as soluções existentes da OPC UA, os serviços incluem suporte para um módulo de borda apoiada por microserviço OPC Vault. Isto implementa a interface **OPC UA Global Discovery Server e Certificate Management,** para distribuir certificados e listas fiduciários de acordo com a Parte 12 da especificação. 
 
 
 ## <a name="architecture"></a>Arquitetura
 
-A arquitetura é baseada no microserviço do cofre OPC, com um cofre do OPC IoT Edge módulo para a rede de fábrica e um exemplo de UX da Web para controlar o fluxo de trabalho:
+A arquitetura baseia-se no microserviço OPC Vault, com um módulo OPC Vault IoT Edge para a rede de fábrica e uma amostra web UX para controlar o fluxo de trabalho:
 
-![Diagrama da arquitetura do cofre do OPC](media/overview-opc-vault-architecture/opc-vault.png)
+![Diagrama da arquitetura do Cofre opc](media/overview-opc-vault-architecture/opc-vault.png)
 
-## <a name="opc-vault-microservice"></a>Microserviço do cofre OPC
+## <a name="opc-vault-microservice"></a>Microserviço do Cofre OPC
 
-O microserviço do cofre OPC consiste nas seguintes interfaces para implementar o fluxo de trabalho para distribuir e gerenciar uma AC específica da empresa para aplicativos OPC UA.
+O microserviço OPC Vault consiste nas seguintes interfaces para implementar o fluxo de trabalho para distribuir e gerir um CA específico da empresa para aplicações OPC UA.
 
 ### <a name="application"></a>Aplicação 
-- Um aplicativo OPC UA pode ser um servidor ou um cliente, ou ambos. O cofre OPC serve, nesse caso, como uma autoridade de registro de aplicativo. 
-- Além das operações básicas para registrar, atualizar e cancelar o registro de aplicativos, também há interfaces para localizar e consultar aplicativos com expressões de pesquisa. 
-- As solicitações de certificado devem fazer referência a um aplicativo válido, a fim de processar uma solicitação e emitir um certificado assinado com todas as extensões específicas do OPC UA. 
-- O serviço de aplicativo é apoiado por um banco de dados no Azure Cosmos DB.
+- Uma aplicação OPC UA pode ser um servidor ou um cliente, ou ambos. O PcPc Vault serve neste caso como uma autoridade de registo de candidaturas. 
+- Para além das operações básicas de registo, atualização e desregisto de aplicações, existem também interfaces para encontrar e consultar aplicações com expressões de pesquisa. 
+- Os pedidos de certificado devem fazer referência a um pedido válido, a fim de processar um pedido e emitir um certificado assinado com todas as extensões específicas da OPC UA. 
+- O serviço de aplicação é apoiado por uma base de dados em Azure Cosmos DB.
 
 ### <a name="certificate-group"></a>Grupo de certificados
-- Um grupo de certificados é uma entidade que armazena uma autoridade de certificação raiz ou um certificado sub-AC, incluindo a chave privada para assinar certificados. 
-- O comprimento de chave RSA, o comprimento do hash SHA-2 e os tempos de vida são configuráveis para a AC do emissor e certificados de aplicativo assinados. 
-- Você armazena os certificados de autoridade de certificação em Azure Key Vault, apoiado com o FIPS 140-2 nível 2 HSM. A chave privada nunca deixa o armazenamento seguro, pois a assinatura é feita por uma operação Key Vault protegida pelo Azure AD. 
-- Você pode renovar os certificados de autoridade de certificação ao longo do tempo e fazer com que eles permaneçam no armazenamento seguro devido ao histórico de Key Vault. 
-- A lista de revogação de cada certificado de autoridade de certificação também é armazenada em Key Vault como um segredo. Quando um aplicativo tem o registro cancelado, o certificado do aplicativo também é revogado na CRL (lista de certificados revogados) por um administrador.
-- Você pode revogar certificados únicos, bem como certificados em lote.
+- Um grupo de certificados é uma entidade que armazena um certificado ca raiz ou sub CA, incluindo a chave privada para assinar certificados. 
+- O comprimento da chave RSA, o comprimento do hash SHA-2, e as vidas são configuráveis tanto para o Emitente CA como para os certificados de candidatura assinados. 
+- Guarde os certificados ca no Cofre de Chaves Azure, apoiado seleção fips 140-2 Nível 2 HSM. A chave privada nunca sai do armazenamento seguro, porque a assinatura é feita por uma operação key vault protegida pela Azure AD. 
+- Você pode renovar os certificados de AC ao longo do tempo, e fazê-los permanecer em armazenamento seguro devido ao histórico do Cofre chave. 
+- A lista de revogação de cada certificado ca também é armazenada no Cofre chave como um segredo. Quando um pedido não está registado, o certificado de pedido também é revogado na Lista de Revogação de Certificados (CRL) por um administrador.
+- Pode revogar certificados únicos, bem como certificados emlotas.
 
-### <a name="certificate-request"></a>Solicitação de certificado
-Uma solicitação de certificado implementa o fluxo de trabalho para gerar um novo par de chaves ou um certificado assinado, usando uma CSR (solicitação de assinatura de certificado) para um aplicativo OPC UA. 
-- A solicitação é armazenada em um banco de dados com informações fornecidas, como o assunto ou um CSR, e uma referência ao aplicativo OPC UA. 
-- A lógica de negócios no serviço valida a solicitação em relação às informações armazenadas no banco de dados do aplicativo. Por exemplo, o URI do aplicativo no banco de dados deve corresponder ao URI do aplicativo no CSR.
-- Um administrador de segurança com direitos de assinatura (ou seja, a função de aprovador) aprova ou rejeita a solicitação. Se a solicitação for aprovada, um novo par de chaves ou certificado assinado (ou ambos) será gerado. A nova chave privada é armazenada com segurança em Key Vault e o novo certificado público assinado é armazenado no banco de dados de solicitação de certificado.
-- O solicitante pode sondar o status da solicitação até que seja aprovado ou revogado. Se a solicitação foi aprovada, a chave privada e o certificado podem ser baixados e instalados no repositório de certificados do aplicativo OPC UA.
-- O solicitante agora pode aceitar a solicitação para excluir informações desnecessárias do banco de dados de solicitação. 
+### <a name="certificate-request"></a>Pedido de certificado
+Um pedido de certificado implementa o fluxo de trabalho para gerar um novo par de chaves ou um certificado assinado, utilizando um Pedido de Assinatura de Certificado (CSR) para um pedido de UA opc. 
+- O pedido é armazenado numa base de dados com informações de acompanhamento, como o sujeito ou uma RSE, e uma referência à aplicação da OPC UA. 
+- A lógica empresarial do serviço valida o pedido contra a informação armazenada na base de dados de aplicações. Por exemplo, a aplicação Uri na base de dados deve corresponder à aplicação Uri na RSE.
+- Um administrador de segurança com direitos de assinatura (isto é, a função de Aprovador) aprova ou rejeita o pedido. Se o pedido for aprovado, é gerado um novo par de chaves ou certificado assinado (ou ambos). A nova chave privada está guardada de forma segura no Key Vault, e o novo certificado público assinado está guardado na base de dados de pedidos de certificados.
+- O solicitor pode fazer uma sondagem ao estado do pedido até ser aprovado ou revogado. Se o pedido for aprovado, a chave privada e o certificado podem ser descarregados e instalados na loja de certificados da aplicação OPC UA.
+- O solicitador pode agora aceitar o pedido de eliminação de informações desnecessárias da base de dados de pedidos. 
 
-Durante o tempo de vida de um certificado assinado, um aplicativo pode ser excluído ou uma chave pode ficar comprometida. Nesse caso, um Gerenciador de CA pode:
-- Exclua um aplicativo, que também exclui todas as solicitações de certificado pendentes e aprovadas do aplicativo. 
-- Exclua apenas uma solicitação de certificado único, se apenas uma chave for renovada ou comprometida.
+Ao longo da vida útil de um certificado assinado, um pedido pode ser eliminado ou uma chave pode ficar comprometida. Neste caso, um gestor de AC pode:
+- Apagar uma aplicação, que também elimina todos os pedidos de certificado pendentes e aprovados da app. 
+- Apague apenas um pedido de certificado, se apenas uma chave for renovada ou comprometida.
 
-Agora, as solicitações de certificado aprovadas e aceitas são marcadas como excluídas.
+Os pedidos de certificado aprovados e aceites comprometidos estão marcados como eliminados.
 
-Um gerente pode renovar regularmente a CRL da autoridade de certificação do emissor. No momento da renovação, todas as solicitações de certificado excluídas são revogadas e os números de série do certificado são adicionados à lista de revogação de CRL. As solicitações de certificado revogadas são marcadas como revogadas. Em eventos urgentes, as solicitações de certificado único também podem ser revogadas.
+Um gestor pode regularmente renovar o EMitente CA CRL. No momento da renovação, todos os pedidos de certificado eliminados são revogados e os números de série do certificado são adicionados à lista de revogação do CRL. Os pedidos de certificado revogados são marcados como revogados. Em eventos urgentes, os pedidos de certificado único também podem ser revogados.
 
-Por fim, as CRLs atualizadas estão disponíveis para distribuição para os clientes e servidores do OPC UA participantes.
+Finalmente, os CRLs atualizados estão disponíveis para distribuição para os clientes e servidores opc ua participantes.
 
-## <a name="opc-vault-iot-edge-module"></a>Módulo de IoT Edge do cofre OPC
-Para dar suporte a um servidor de descoberta global de rede de fábrica, você pode implantar o módulo do cofre OPC na borda. Execute-o como um aplicativo local do .NET Core ou inicie-o em um contêiner do Docker. Observe que, devido à falta de suporte à autenticação Auth2 na pilha de .NET Standard do OPC UA atual, a funcionalidade do módulo de borda do OPC Vault é limitada a uma função de leitor. Um usuário não pode ser representado do módulo de borda para o microserviço usando a interface padrão OPC UA GDS.
+## <a name="opc-vault-iot-edge-module"></a>Módulo OPC Vault IoT Edge
+Para suportar uma rede de fábrica Global Discovery Server, pode implantar o módulo OPC Vault na borda. Execute-o como uma aplicação local .NET Core, ou inicie-o num recipiente Docker. Note que devido à falta de suporte de autenticação Auth2 na atual stack OPC UA .NET Standard, a funcionalidade do módulo de borda do Cofre OPC está limitada a uma função de Leitor. Um utilizador não pode ser personificado do módulo de borda para o microserviço utilizando a interface padrão OPC UA GDS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre a arquitetura do cofre do OPC, você pode:
+Agora que aprendeu sobre a arquitetura do Cofre opc, pode:
 
 > [!div class="nextstepaction"]
-> [Compilar e implantar o cofre OPC](howto-opc-vault-deploy.md)
+> [Construir e implementar o Cofre OPC](howto-opc-vault-deploy.md)

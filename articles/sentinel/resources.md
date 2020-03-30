@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
 ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585276"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com o Azure Sentinel
@@ -28,7 +28,7 @@ ms.locfileid: "77585276"
 
 Este artigo lista recursos que podem ajudá-lo a obter mais informações sobre o trabalho com o Azure Sentinel.
 
-Conectores de aplicativos da Lógica Azure: <https://docs.microsoft.com/connectors/>
+Conectores de aplicativos lógicas azure:<https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Auditoria e relatórios
@@ -55,7 +55,7 @@ As seguintes operações apoiadas podem ser auditadas.
 |Criar comentários de caso   |Microsoft.SecurityInsights/Cases/comments|
 |Atualizar Conectores de Dados |Microsoft.SecurityInsights/dataConnectors|
 |Eliminar Conectores de Dados |Microsoft.SecurityInsights/dataConnectors|
-|Definições de atualização    |Microsoft.SecurityInsights/definições|
+|Atualizar Definições    |Microsoft.SecurityInsights/definições|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Ver dados de auditoria e reporte em Azure Sentinel
 
@@ -72,7 +72,7 @@ Pode ver estes dados transmitindo-os a partir do log institulado da Atividade Az
 |----|----|----|
 | GitHub| Usado para aceder à página comunitária| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configurar CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Curso de Língua seleção de Kusto Consulta| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| PluralSight | Kusto Query Language course (Curso sobre Kusto Query Language)| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
 ## <a name="blogs-and-forums"></a>Blogs e fóruns
 

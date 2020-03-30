@@ -5,50 +5,50 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73182265"
 ---
-## <a name="tagging-a-virtual-machine-through-templates"></a>Marcando uma máquina virtual por meio de modelos
-Primeiro, vamos dar uma olhada na marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca marcas nos seguintes recursos: computação (máquina virtual), armazenamento (conta de armazenamento) e rede (endereço IP público, rede virtual e interface de rede). Este modelo é para uma VM do Windows, mas pode ser adaptado para VMs do Linux.
+## <a name="tagging-a-virtual-machine-through-templates"></a>Marcação de uma máquina virtual através de modelos
+Primeiro, vamos ver a marcação através de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca etiquetas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede). Este modelo é para um VM do Windows, mas pode ser adaptado para VMs Linux.
 
-Clique no botão **implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Isso navegará até o [portal do Azure](https://portal.azure.com/) onde você pode implantar este modelo.
+Clique no botão **'Enviar para Azure'** a partir do link do [modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Isto irá navegar para o [portal Azure](https://portal.azure.com/) onde você pode implementar este modelo.
 
-![Implantação simples com marcas](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Implantação simples com tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Este modelo inclui as seguintes marcas: *Departamento*, *aplicativo*e *criado por*. Você pode adicionar/editar essas marcas diretamente no modelo se desejar nomes de marca diferentes.
+Este modelo inclui as seguintes tags: *Departamento,* *Aplicação,* e *Criado por*. Pode adicionar/editar estas tags diretamente no modelo, se quiser diferentes nomes de etiquetas.
 
-![Marcas do Azure em um modelo](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Tags azure em um modelo](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-Como você pode ver, as marcas são definidas como pares de chave/valor, separados por dois-pontos (:). As marcas devem ser definidas neste formato:
+Como pode ver, as etiquetas são definidas como pares chave/valor, separados por um cólon (:). As etiquetas devem ser definidas neste formato:
 
         "tags": {
             "Key1" : "Value1",
             "Key2" : "Value2"
         }
 
-Salve o arquivo de modelo depois de terminar de editá-lo com as marcas de sua escolha.
+Guarde o ficheiro do modelo depois de terminar de o editar com as etiquetas à sua escolha.
 
-Em seguida, na seção **Editar parâmetros** , você pode preencher os valores de suas marcas.
+Em seguida, na secção Parâmetros de **Edição,** pode preencher os valores das suas etiquetas.
 
-![Editar marcas no portal do Azure](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Editar tags no portal Azure](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Clique em **criar** para implantar esse modelo com os valores de marca.
+Clique **em Criar** para implementar este modelo com os valores da etiqueta.
 
-## <a name="tagging-through-the-portal"></a>Marcação por meio do portal
-Depois de criar seus recursos com marcas, você pode exibir, adicionar e excluir marcas no Portal.
+## <a name="tagging-through-the-portal"></a>Marcação através do Portal
+Depois de criar os seus recursos com tags, pode visualizar, adicionar e apagar etiquetas no portal.
 
-Selecione o ícone de marcas para exibir suas marcas:
+Selecione o ícone de tags para visualizar as suas etiquetas:
 
-![Ícone de marcas no portal do Azure](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Ícone de tags no portal Azure](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
-Adicione uma nova marca por meio do portal definindo seu próprio par de chave/valor e salve-o.
+Adicione uma nova etiqueta através do portal definindo o seu próprio par chave/valor e guarde-o.
 
-![Adicionar nova marca no portal do Azure](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Adicione nova Tag no portal Azure](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
-Agora, sua nova marca deve aparecer na lista de marcas do recurso.
+A sua nova etiqueta deve agora figurar na lista de etiquetas para o seu recurso.
 
-![Nova marca salva em portal do Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![Nova Tag guardada no portal Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

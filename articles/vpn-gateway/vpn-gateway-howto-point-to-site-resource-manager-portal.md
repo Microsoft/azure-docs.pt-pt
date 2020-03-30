@@ -1,5 +1,5 @@
 ---
-title: 'Ligue-se a uma VNet utilizando a autenticação p2S VPN e certificado: portal'
+title: 'Ligue-se a uma VNet utilizando a autenticação do certificado p2S VPN &: portal'
 titleSuffix: Azure VPN Gateway
 description: Conecte os clientes Windows, Mac OS X e Linux de forma segura a uma rede virtual Azure utilizando certificados P2S e certificados emitidos por auto-assinados ou CA. Este artigo utiliza o portal do Azure.
 services: vpn-gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: cherylmc
 ms.openlocfilehash: 013ebc2a1343c8eab3d477023e36660c93fa6da5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244488"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação VPN Ponto-a-Local a uma VNet utilizando autenticação de certificado azure nativo: portal Azure
@@ -30,7 +30,7 @@ As ligações de autenticação de certificados nativos do Azure Ponto a Site ut
 * Um certificado de cliente que é gerado a partir do certificado de raiz. O certificado de cliente instalado em cada computador cliente que vai ligar à VNet. Este certificado é utilizado para autenticação de cliente.
 * Uma configuração de cliente VPN. Os ficheiros de configuração de cliente VPN contêm as informações necessárias para o cliente se ligar à VNet. Os ficheiros configuram o cliente VPN existente que é nativo ao sistema operativo. Cada cliente que estabelece ligação tem de ser configurado com as definições dos ficheiros de configuração.
 
-#### <a name="example"></a>Valores de exemplo
+#### <a name="example-values"></a><a name="example"></a>Valores de exemplo
 
 Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo:
 
@@ -40,21 +40,21 @@ Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-
 * Intervalo de **endereços de sub-rede:** 10.1.0.0/24
 * **Subscrição:** se tiver várias subscrições, verifique se tem a correta.
 * **Grupo de Recursos:** TestRG1
-* **Localização:** E.U.A. Leste
+* **Localização:** Leste dos EUA
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **Nome do gateway de rede virtual:** VNet1GW
+* Nome de **gateway de rede virtual:** VNet1GW
 * **Tipo de gateway:** VPN
 * **Tipo de VPN:** baseado na rota
 * **Nome do endereço IP público:** VNet1GWpip
 * **Tipo de ligação:** Ponto a site
-* **Conjunto de endereços do cliente:** 172.16.201.0/24<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente especificado.
+* Conjunto de **endereços do cliente:** 172.16.201.0/24<br>Os clientes VPN que se ligam à VNet através desta ligação Ponto a Site recebem um endereço IP a partir do conjunto de endereços de cliente especificado.
 
-## <a name="createvnet"></a>1. Criar uma rede virtual
+## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1. Criar uma rede virtual
 
 Antes de começar, verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="creategw"></a>2. Criar um portal de rede virtual
+## <a name="2-create-a-virtual-network-gateway"></a><a name="creategw"></a>2. Criar um portal de rede virtual
 
 Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muitas vezes, pode demorar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
@@ -66,32 +66,32 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 [!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="generatecert"></a>3. Gerar certificados
+## <a name="3-generate-certificates"></a><a name="generatecert"></a>3. Gerar certificados
 
 Os certificados são utilizados pelo Azure para autenticar clientes que se ligam a uma VNet através de uma ligação VPN Ponto a Site. Quando conseguir obter um certificado de raiz, [carregue](#uploadfile) as informações da chave pública do certificado de raiz para o Azure. O certificado de raiz é então considerado "fidedigno" pelo Azure para a ligação através do P2S para a rede virtual. Também pode gerar certificados de cliente a partir do certificado de raiz fidedigna e, em seguida, instalá-los em cada computador do cliente. O certificado de cliente é utilizado para autenticar o cliente quando é iniciada uma ligação à VNet. 
 
-### <a name="getcer"></a>1. Obtenha o ficheiro .cer para o certificado de raiz
+### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>1. Obtenha o ficheiro .cer para o certificado de raiz
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generateclientcert"></a>2. Gerar um certificado de cliente
+### <a name="2-generate-a-client-certificate"></a><a name="generateclientcert"></a>2. Gerar um certificado de cliente
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="addresspool"></a>4. Adicione o conjunto de endereços do cliente
+## <a name="4-add-the-client-address-pool"></a><a name="addresspool"></a>4. Adicione o conjunto de endereços do cliente
 
 O conjunto de endereços de cliente é um conjunto de endereços IP privados que especificar. Os clientes que se ligam através da VPN Ponto a Site recebem dinamicamente um endereço IP deste intervalo. Utilize um intervalo de endereços IP privados que não se sobreponha à localização no local a partir da qual se ligou ou à VNet à qual se quer ligar. Se configurar vários protocolos e o SSTP for um dos protocolos, então o conjunto de endereços configurado é dividido entre os protocolos configurados igualmente.
 
 1. Assim que o gateway da rede virtual for criado, navegue até à secção **Definições** da página do gateway de rede virtual. Na secção **Definições,** selecione **a configuração ponto-a-local**. **Selecione configurar agora** para abrir a página de configuração.
 
-   ![Página ponto-a-site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Configurar ponto-a-local agora")
+   ![Página Ponto a Site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Configurar ponto-a-local agora")
 2. Na página **de configuração Ponto-a-site,** pode configurar uma variedade de configurações. Se não vir o tipo de túnel ou tipo de autenticação nesta página, o seu portal está a utilizar o SKU Básico. A SKU Básica não suporta a autenticação IKEv2 ou RADIUS. Se pretender utilizar estas definições, tem de eliminar e recriar o gateway utilizando um Portal De entrada diferente SKU.
 
    [![Página de configuração ponto-a-local](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-address.png "especificar o conjunto de endereços")](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-expanded.png#lightbox)
 3. Na caixa de **piscina address,** adicione a gama de endereços IP privado que pretende utilizar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que especificou. A máscara de sub-rede mínima é de 29 bits para configuração ativa/passiva e de 28 bits para configuração ativa/ativa.
 4. Mova-se para a secção seguinte para configurar o tipo de túnel.
 
-## <a name="tunneltype"></a>5. Configurar tipo de túnel
+## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. Configurar tipo de túnel
 
 Pode selecionar o tipo de túnel. As opções do túnel são OpenVPN, SSTP e IKEv2.
 
@@ -101,13 +101,13 @@ Pode selecionar o tipo de túnel. As opções do túnel são OpenVPN, SSTP e IKE
 
 ![Tipo de túnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel.png "especificar tipo de túnel")
 
-## <a name="authenticationtype"></a>6. Configurar o tipo de autenticação
+## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Configurar o tipo de autenticação
 
 Para **o tipo de autenticação,** selecione certificado **Azure**.
 
   ![Tipo de autenticação](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "especificar tipo de autenticação")
 
-## <a name="uploadfile"></a>7. Faça upload dos dados do certificado de raiz do certificado público
+## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. Faça upload dos dados do certificado de raiz do certificado público
 
 Pode carregar certificados de raiz fidedigna adicionais até um total de 20. Assim que os dados do certificado público forem carregados, o Azure pode utilizá-lo para autenticar clientes que tenham instalado um certificado de cliente gerado a partir do certificado de raiz fidedigna. Pode carregar as informações da chave pública do certificado de raiz para o Azure.
 
@@ -115,7 +115,7 @@ Pode carregar certificados de raiz fidedigna adicionais até um total de 20. Ass
 2. Certifique-se de que exportou o certificado de raiz como um ficheiro X.509 codificado com Base-64 (.cer). Tem de exportar o certificado neste formato para poder abrir o certificado com o editor de texto.
 3. Abra o certificado com um editor de texto, como o Bloco de Notas. Quando copiar os dados de certificado, certifique-se de que copia o texto como uma linha contínua sem símbolos de retorno ou avanços de linha. Poderá ter de modificar a sua vista no editor de texto para "Mostrar Símbolo/Mostrar todos os carateres" para ver os símbolos de retorno ou avanços de linha. Copie apenas a secção seguinte como uma linha contínua:
 
-   ![Dados do certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "copiar dados de certificado de raiz")
+   ![Dados de certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "copiar dados de certificado de raiz")
 4. Cole os dados de certificado no campo **Dados de Certificado Público**. **Nomeie** o certificado e, em seguida, selecione **Guardar**. Pode adicionar até 20 certificados de raiz fidedigna.
 
    ![Dados do certificado de pasta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "dados do certificado de pasta")
@@ -123,7 +123,7 @@ Pode carregar certificados de raiz fidedigna adicionais até um total de 20. Ass
 
    ![Salvar a configuração](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png "salvar a configuração")
 
-## <a name="installclientcert"></a>8. Instalar um certificado de cliente exportado
+## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. Instalar um certificado de cliente exportado
 
 Se quiser criar uma ligação P2S a partir de um computador cliente sem ser o utilizado para gerar os certificados de cliente, tem de instalar um certificado de cliente. Ao instalar um certificado de cliente, vai precisar da palavra-passe que foi criada quando o certificado de cliente foi exportado.
 
@@ -131,11 +131,11 @@ Certifique-se de que o certificado de cliente foi exportado como um ficheiro. pf
 
 Para obter os passos de instalação, veja [Instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="clientconfig"></a>9. Gerar e instalar o pacote de configuração do cliente VPN
+## <a name="9-generate-and-install-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>9. Gerar e instalar o pacote de configuração do cliente VPN
 
 Os ficheiros de configuração de cliente VPN contêm as definições para configurar dispositivos para ligar a uma VNet através de uma ligação P2S. Para obter instruções sobre como gerar e instalar ficheiros de configuração de cliente VPN, veja [Criar e instalar ficheiros de configuração de cliente VPN para configurações P2S da autenticação de certificados nativa do Azure](point-to-site-vpn-client-configuration-azure-cert.md).
 
-## <a name="connect"></a>10. Ligar-se a Azure
+## <a name="10-connect-to-azure"></a><a name="connect"></a>10. Ligar-se a Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para ligar a partir de um cliente VPN do Windows
 
@@ -148,7 +148,7 @@ Os ficheiros de configuração de cliente VPN contêm as definições para confi
 
 2. Na página de estado de **Ligação,** selecione **Ligar** para iniciar a ligação. Se vir um ecrã **Selecionar Certificado**, verifique se o certificado de cliente apresentado é aquele que pretende utilizar para se ligar. Se não for, utilize a seta de lançamento para selecionar o certificado correto e, em seguida, selecione **OK**.
 
-   ![Cliente VPN liga-se ao Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "ligar")
+   ![O cliente VPN liga-se ao Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "ligar")
 3. A ligação é estabelecida.
 
    ![Ligação estabelecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "conexão estabelecida")
@@ -163,9 +163,9 @@ A partir da caixa de diálogo da Rede, localize o perfil do cliente que pretende
 
 Verifique [instalar - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se estiver com problemas de ligação, verifique se o portal de rede virtual não está a utilizar um SKU Básico. O Basic SKU não é suportado para clientes Mac.
 
-  ![Conexão Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Ligar")
+  ![Ligação do Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Ligar")
 
-## <a name="verify"></a>Para verificar a ligação
+## <a name="to-verify-your-connection"></a><a name="verify"></a>Para verificar a ligação
 
 Estas instruções aplicam-se aos clientes Windows.
 
@@ -185,13 +185,13 @@ Estas instruções aplicam-se aos clientes Windows.
       NetBIOS over Tcpip..............: Enabled
    ```
 
-## <a name="connectVM"></a>Ligar a uma máquina virtual
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Ligar a uma máquina virtual
 
 Estas instruções aplicam-se aos clientes Windows.
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="add"></a>Para adicionar ou remover certificados de raiz fidedigna
+## <a name="to-add-or-remove-trusted-root-certificates"></a><a name="add"></a>Para adicionar ou remover certificados de raiz fidedigna
 
 Pode adicionar e remover certificados de raiz fidedigna do Azure. Quando remove um certificado de raiz, os clientes que tenham um certificado gerado a partir dessa raiz não conseguirão autenticar-se e, por conseguinte, não conseguirão estabelecer ligação. Se quiser que um cliente faça a autenticação e estabeleça ligação, terá de instalar um novo certificado de cliente gerado a partir de um certificado de raiz considerado fidedigno (carregado) no Azure.
 
@@ -205,7 +205,7 @@ Pode adicionar até 20 ficheiros .cer de certificado de raiz fidedigna ao Azure.
 2. Na secção **Certificado de raiz** da página, localize o certificado que pretende remover.
 3. Selecione a elipse junto ao certificado e, em seguida, selecione 'Remover'.
 
-## <a name="revokeclient"></a>Para revogar um certificado de cliente
+## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>Revogar um certificado de cliente
 
 Pode revogar certificados de cliente. A lista de revogação de certificado permite-lhe negar seletivamente a conectividade de Ponto a Site, com base em certificados de cliente individuais. Isto é diferente da remoção de um certificado de raiz fidedigna. Se remover um certificado de raiz .cer fidedigno do Azure, revoga o acesso a todos os certificados de cliente gerados/assinados pelo certificado de raiz revogado. A revogação de um certificado de cliente, em vez do certificado de raiz, permite que os outros certificados que foram gerados a partir do certificado de raiz continuem a ser utilizados para autenticação.
 
@@ -223,7 +223,7 @@ Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de re
 6. O thumbprint valida e é adicionado automaticamente à lista de revogação. Verá uma mensagem no ecrã a indicar que a lista está a atualizar. 
 7. Depois de concluída a atualização, o certificado já não pode ser utilizado para ligar. Os clientes que se tentarem ligar com este certificado irão receber uma mensagem a indicar que o certificado já não é válido.
 
-## <a name="faq"></a>FAQ Ponto a Site
+## <a name="point-to-site-faq"></a><a name="faq"></a>FAQ ponto-a-local
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

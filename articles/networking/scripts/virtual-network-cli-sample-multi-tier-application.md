@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: c211a476c31e386c9c74fcb0139fc61dad0a8eb8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889396"
 ---
-# <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
+# <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicações de vários níveis
 
 Este script de exemplo cria uma rede virtual com as sub-redes de front-end e back-end. O tráfego para a sub-rede do front-end está limitado a HTTP e SSH, enquanto o tráfego para a sub-rede de back-end está limitado a MySQL, porta 3306. Depois de executar o script, tem duas máquinas virtuais, uma em cada sub-rede nas quais pode implementar software MySQL e o servidor Web.
 
@@ -50,7 +50,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual de front-end do Azure. |
 | [az network subnet create](/cli/azure/network/vnet/subnet) | Cria uma sub-rede de back-end. |
-| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público para acessar a VM da Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público para aceder ao VM a partir da Internet. |
 | [az network nic create](/cli/azure/network/nic) | Cria interfaces de rede virtual e anexa-as a sub-redes de front-end e back-end da rede virtual. |
 | [az network nsg create](/cli/azure/network/nsg) | Cria grupos de segurança (NSG) que estão associados às sub-redes de front-end e back-end. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) |Cria regras do NSG que permitem ou bloquear portas específicas para sub-redes específicas. |
@@ -61,4 +61,4 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de rede adicional podem ser encontrados na [documentação de visão geral da rede do Azure](../cli-samples.md)
+Amostras adicionais de script cli em rede podem ser encontradas na documentação de visão geral de [rede Azure](../cli-samples.md)

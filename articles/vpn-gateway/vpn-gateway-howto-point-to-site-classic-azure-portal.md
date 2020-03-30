@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244579"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configure uma ligação Ponto-a-Local utilizando a autenticação de certificado (clássico)
@@ -21,7 +21,7 @@ ms.locfileid: "79244579"
 Este artigo mostra-lhe como criar um VNet com uma ligação Ponto-a-Local. Cria este Vnet com o modelo de implantação clássico utilizando o portal Azure. Esta configuração utiliza certificados para autenticar o cliente da ligação, seja autoassinado ou emitido pela AC. Também pode criar esta configuração com uma ferramenta ou modelo de implementação diferente utilizando opções descritas nos seguintes artigos:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Portal Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -124,7 +124,7 @@ Neste passo, cria-se uma subnet de gateway e um gateway de encaminhamento dinâm
 
    ![Selecione a configuração opcional do gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
-6. A partir da página de **configuração gateway,** selecione **Subnet** para adicionar a sub-rede gateway. É possível criar uma sub-rede de porta tão pequena como /29. No entanto, recomendamos que crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Ao fazê-lo, permitirá endereços suficientes para acomodar possíveis configurações adicionais que poderá desejar no futuro. Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) às mesmas. Associar um grupo de segurança de rede a esta subrede pode fazer com que o seu gateway VPN não funcione como esperado. Selecione **OK** para guardar esta definição.
+6. A partir da página de **configuração gateway,** selecione **Subnet** para adicionar a sub-rede gateway. É possível criar uma sub-rede de porta tão pequena como /29. No entanto, recomendamos que crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Ao fazê-lo, permitirá endereços suficientes para acomodar possíveis configurações adicionais que poderá desejar no futuro. Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) à sub-rede do gateway. Associar um grupo de segurança de rede a esta subrede pode fazer com que o seu gateway VPN não funcione como esperado. Selecione **OK** para guardar esta definição.
 
    ![Adicionar GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Selecione o **Tamanho** do gateway. O tamanho é o SKU de gateway para o gateway de rede virtual. No portal Azure, o SKU padrão é **Padrão**. Para mais informações sobre as SKUs de gateway, consulte as definições de [gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
@@ -136,7 +136,7 @@ Neste passo, cria-se uma subnet de gateway e um gateway de encaminhamento dinâm
 
 9. Na página **new VPN Connection,** selecione **OK** na parte inferior da página para começar a criar o seu portal de rede virtual. Um gateway VPN pode demorar até 45 minutos a ser concluído, dependendo do gateway SKU que selecionar.
  
-## <a name="generatecerts"></a>Criar certificados
+## <a name="create-certificates"></a><a name="generatecerts"></a>Criar certificados
 
 A Azure utiliza certificados para autenticar clientes VPN para VPNs ponto-a-site. Carrega as informações da chave pública do certificado de raiz para o Azure. A chave pública é então considerada *de confiança.* Os certificados de cliente devem ser gerados a partir do certificado raiz de confiança e, em seguida, instalados em cada computador cliente na loja de certificados Certificados-Utilizador/Utilizador Corrente\Certificados Pessoais\Certificados. O certificado é utilizado para autenticar o cliente quando se conecta ao VNet. 
 
@@ -235,7 +235,7 @@ Para criar uma ligação P2S a partir de um computador cliente diferente daquele
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-classic-include.md)]
 
-## <a name="add-or-remove-trusted-root-certificates"></a>Adicionar ou remover certificados de raiz fidedignos
+## <a name="add-or-remove-trusted-root-certificates"></a>Adicionar ou remover certificados de raiz fidedigna
 
 Pode adicionar e remover certificados de raiz fidedigna do Azure. Ao remover um certificado de raiz, os clientes que tenham um certificado gerado a partir dessa raiz já não podem autenticar e ligar. Para que esses clientes autentiquem e se conectem novamente, é necessário instalar um novo certificado de cliente gerado a partir de um certificado de raiz que é confiado pelo Azure.
 
@@ -267,7 +267,7 @@ A prática comum é utilizar o certificado de raiz para gerir o acesso nos níve
 
 Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de revogação.
 
-1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, veja [Como: Obter o Thumbprint de um Certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Obtenha o thumbprint do certificado de cliente. Para mais informações, consulte [Como: Recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie a informação para um editor de texto e remova os seus espaços de modo a que seja uma corda contínua.
 3. Vá à rede virtual clássica. Selecione **a ligação VPN ponto-a-local**e, em seguida, selecione **'Gerir certificado'** para abrir a página **certificados.**
 4. Selecione lista de **revogação** para abrir a lista de **revogação.** 

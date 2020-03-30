@@ -1,7 +1,7 @@
 ---
-title: 'Exemplo: Modele o banco de dados de inventário AdventureWorks'
+title: 'Exemplo: Modelar a base de dados de inventário AdventureWorks'
 titleSuffix: Azure Cognitive Search
-description: Saiba como modelar dados relacionais, transformando-os em um conjunto de dados mesclado, para indexação e pesquisa de texto completo no Azure Pesquisa Cognitiva.
+description: Aprenda a modelar dados relacionais, transformando-os num conjunto de dados achatado, para indexação e pesquisa completa de texto em Pesquisa Cognitiva Azure.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,65 +9,65 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792999"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemplo: Modele o banco de dados de inventário AdventureWorks para o Azure Pesquisa Cognitiva
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemplo: Modelar a base de dados de inventário AdventureWorks para pesquisa cognitiva azure
 
-O Azure Pesquisa Cognitiva aceita um conjunto de linhas achatado como entradas para o [pipeline de indexação (ingestão de dados)](search-what-is-an-index.md). Se os dados de origem forem provenientes de um SQL Server banco de dado relacional, este artigo demonstra uma abordagem para criar um conjunto de linhas achatado antes da indexação, usando o banco de dados de exemplo AdventureWorks como exemplo.
+A Pesquisa Cognitiva Azure aceita um conjunto de linhas achatado como inputs para o [pipeline de indexação (ingestão](search-what-is-an-index.md)de dados). Se os seus dados de origem forem originários de uma base de dados relacional do SQL Server, este artigo demonstra uma abordagem para criar um conjunto de linhas achatado antes da indexação, utilizando a base de dados da amostra AdventureWorks como exemplo.
 
-## <a name="about-adventureworks"></a>Sobre o AdventureWorks
+## <a name="about-adventureworks"></a>Sobre a AdventureWorks
 
-Se você tiver uma instância do SQL Server, talvez esteja familiarizado com o [banco de dados de exemplo AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Entre as tabelas incluídas neste banco de dados estão cinco tabelas que expõem informações do produto.
+Se tiver uma instância do SQL Server, poderá estar familiarizado com a base de dados de [amostras AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Entre as tabelas incluídas nesta base de dados estão cinco tabelas que expõem a informação do produto.
 
 + **ProductModel**: nome
-+ **Produto**: nome, cor, custo, tamanho, peso, imagem, categoria (cada linha se une a um ProductModel específico)
-+ **ProductDescription**: Descrição
-+ **ProductModelProductDescription**: locale (cada linha une um ProductModel a um ProductDescription específico para um idioma específico)
-+ **ProductCategory**: nome, categoria pai
++ **Produto**: nome, cor, custo, tamanho, peso, imagem, categoria (cada linha une-se a um Modelo de Produto específico)
++ **Descrição do produto**: descrição
++ **ProductModelProductDescription**: local (cada linha une um ProductModel a um ProdutoDescription para um idioma específico)
++ **Categoria de Produtos**: nome, categoria de pais
 
-Combinar todos esses dados em um conjunto de linhas achatado que pode ser ingerido em um índice de pesquisa é o objetivo deste exemplo. 
+Combinar todos estes dados num conjunto de linhas achatado que pode ser ingerido num índice de pesquisa é o objetivo deste exemplo. 
 
-## <a name="considering-our-options"></a>Considerando nossas opções
+## <a name="considering-our-options"></a>Considerando as nossas opções
 
-A abordagem ingênua seria indexar todas as linhas da tabela Product (Unidas quando apropriado), já que a tabela Product tem as informações mais específicas. No entanto, essa abordagem exporia o índice de pesquisa a duplicatas observadas em um ResultSet. Por exemplo, o modelo Road-650 está disponível em duas cores e seis tamanhos. Uma consulta para "bicicletas de estrada" seria dominada por doze instâncias do mesmo modelo, diferenciadas apenas por tamanho e cor. Os outros seis modelos específicos de estrada seriam relegados ao mundo nem da pesquisa: a página dois.
+A abordagem ingénua seria indexar todas as linhas da tabela produto (adesão, se for caso disso), uma vez que a tabela produto tem as informações mais específicas. No entanto, essa abordagem exporia o índice de pesquisa a duplicados percebidos num conjunto de resultados. Por exemplo, o modelo Road-650 está disponível em duas cores e seis tamanhos. Uma consulta para "bicicletas de estrada" seria então dominada por doze instâncias do mesmo modelo, diferenciadas apenas pelo tamanho e cor. Os outros seis modelos específicos da estrada seriam todos relegados para o mundo mais macio da pesquisa: a página dois.
 
   ![Lista de produtos](./media/search-example-adventureworks/products-list.png "Lista de produtos")
  
-Observe que o modelo Road-650 tem doze opções. As linhas de entidade de um para muitos são mais bem representadas como campos de valores múltiplos ou campos de valor agregado no índice de pesquisa.
+Note que o modelo Road-650 tem doze opções. As filas de entidades de um a muitas entidades são melhor representadas como campos de vários valores ou campos de valor pré-agregado no índice de pesquisa.
 
-Resolver esse problema não é tão simples quanto mover o índice de destino para a tabela ProductModel. Isso ignoraria os dados importantes na tabela Product que ainda devem ser representados nos resultados da pesquisa.
+Resolver esta questão não é tão simples como mover o índice-alvo para a tabela ProductModel. Ao fazê-lo, ignoraria os dados importantes da tabela Produto que ainda deveriam estar representados nos resultados da pesquisa.
 
-## <a name="use-a-collection-data-type"></a>Usar um tipo de dados de coleção
+## <a name="use-a-collection-data-type"></a>Utilize um tipo de dados de recolha
 
-A "abordagem correta" é utilizar um recurso de esquema de pesquisa que não tenha um paralelo direto no modelo de banco de dados: **coleção (EDM. String)** . Esse constructo é definido no esquema do índice de Pesquisa Cognitiva do Azure. Um tipo de dados de coleção é usado quando você precisa representar uma lista de cadeias de caracteres individuais, em vez de uma cadeia de caracteres muito longa (única). Se você tiver marcas ou palavras-chave, use um tipo de dados de coleção para esse campo.
+A "abordagem correta" é utilizar uma funcionalidade de search-schema que não tenha um paralelo direto no modelo de base de dados: **Collection(Edm.String)**. Esta construção é definida no esquema do índice de pesquisa cognitiva Azure. Um tipo de dados de recolha é usado quando você precisa representar uma lista de cordas individuais, em vez de uma corda muito longa (única). Se tiver etiquetas ou palavras-chave, utilizará um tipo de dados de Recolha para este campo.
 
-Ao definir campos de índice de vários valores da **coleção (EDM. String)** para "Color", "Size" e "Image", as informações complementares são mantidas para facetar e filtrar sem poluir o índice com entradas duplicadas. Da mesma forma, aplique funções de agregação aos campos numéricos do produto, indexando **minListPrice** em vez de cada único produto **listPrice**.
+Ao definir campos de índice de vários valores de **Coleção (Edm.String)** para "cor", "tamanho" e "imagem", a informação acessória é mantida para enfrentar e filtrar sem poluir o índice com entradas duplicadas. Da mesma forma, aplique funções agregadas nos campos de produtos numéricos, indexando **minListPrice** em vez de cada lista de **produtosPrice**.
 
-Dado um índice com essas estruturas, uma pesquisa por "Mountain Bikes" mostraria modelos de bicicleta discretos, preservando metadados importantes como cor, tamanho e preço mais baixo. A captura de tela a seguir fornece uma ilustração.
+Dado um índice com estas estruturas, uma procura por "bicicletas de montanha" mostraria modelos de bicicletas discretos, preservando ao mesmo tempo metadados importantes como a cor, o tamanho e o preço mais baixo. A seguinte imagem fornece uma ilustração.
 
   ![Exemplo de pesquisa de bicicletas de montanha](./media/search-example-adventureworks/mountain-bikes-visual.png "Exemplo de pesquisa de bicicletas de montanha")
 
-## <a name="use-script-for-data-manipulation"></a>Usar script para manipulação de dados
+## <a name="use-script-for-data-manipulation"></a>Utilizar script para manipulação de dados
 
-Infelizmente, esse tipo de modelagem não pode ser facilmente conseguido através de instruções SQL. Em vez disso, use um script NodeJS simples para carregar os dados e, em seguida, mapeá-los em entidades JSON amigáveis para pesquisa.
+Infelizmente, este tipo de modelação não pode ser facilmente alcançado apenas através de declarações SQL. Em vez disso, use um simples script NodeJS para carregar os dados e, em seguida, mapeá-los em entidades JSON amigas da pesquisa.
 
-O mapeamento de pesquisa de banco de dados final tem esta aparência:
+O mapeamento final de pesquisa de base de dados é assim:
 
-+ modelo (EDM. String: pesquisável, filtrável, recuperável) de "ProductModel.Name"
-+ description_en (EDM. String: pesquisável) de "ProductDescription" para o modelo em que Culture = ' en '
-+ Color (coleção (EDM. String): pesquisável, filtrável, facetable, recuperável): valores exclusivos de "Product. Color" para o modelo
-+ Size (coleção (EDM. String): pesquisável, filtrável, facetable, recuperável): valores exclusivos de "Product. Size" para o modelo
-+ Image (coleção (EDM. String): Retrieve): valores exclusivos de "Product. ThumbnailPhoto" para o modelo
-+ minStandardCost (EDM. Double: filtrável, facetable, classificável, recuperável): o mínimo agregado de todos os "Product. StandardCost" para o modelo
-+ minListPrice (EDM. Double: filtrável, facetable, classificável, recuperável): o mínimo agregado de todos os "Product. ListPrice" para o modelo
-+ minWeight (EDM. Double: filtrável, facetable, classificável, recuperável): o mínimo agregado de todos os "Product. Weight" para o modelo
-+ produtos (coleção (EDM. String): pesquisável, filtrável, recuperável): valores exclusivos de "Product.Name" para o modelo
++ modelo (Edm.String: pesquisável, filterável, recuperável) de "ProductModel.Name"
++ description_en (Edm.String: pesquisável) de "ProductDescription" para o modelo onde cultura='en'
++ cor (Coleção(Edm.String): pesquisável, filterável, facetable, recuperável): valores únicos de "Product.Color" para o modelo
++ tamanho (Coleção(Edm.String): pesquisável, filterável, facetable, recuperável): valores únicos de "Produto.Tamanho" para o modelo
++ imagem (Coleção(Edm.String): recuperável): valores únicos de "Product.MiniaturaPhoto" para o modelo
++ minStandardCost (Edm.Double: filterable, facetable, sortable, recuperável): mínimo agregado de todos os "Product.StandardCost" para o modelo
++ minListPrice (Edm.Double: filterable, facetable, sortable, recuperável): mínimo agregado de todos os "Produto.ListPrice" para o modelo
++ minWeight (Edm.Double: filterable, facetable, sortable, recuperável): mínimo agregado de todos os "Produto.Peso" para o modelo
++ produtos (Coleção(Edm.String): pesquisável, filterável, recuperável): valores únicos de "Product.Name" para o modelo
 
-Depois de ingressar na tabela ProductModel com Product e ProductDescription, use [lodash](https://lodash.com/) (ou LINQ C#no) para transformar rapidamente o ResultSet:
+Depois de juntar a tabela ProductModel com produto, e ProductDescription, use [lodash](https://lodash.com/) (ou Linq em C#) para transformar rapidamente o conjunto de resultados:
 
 ```javascript
 var records = queryYourDatabase();
@@ -93,7 +93,7 @@ var models = _(records)
   .value();
 ```
 
-O JSON resultante é semelhante a este:
+O JSON resultante é assim:
 
 ```json
 [
@@ -137,7 +137,7 @@ O JSON resultante é semelhante a este:
 ]
 ```
 
-Finalmente, aqui está a consulta SQL para retornar o conjunto de registros inicial. Usei o módulo [MSSQL](https://www.npmjs.com/package/mssql) NPM para carregar os dados em meu aplicativo NodeJS.
+Finalmente, aqui está a consulta SQL para devolver o recorde inicial. Usei o módulo [Mssql](https://www.npmjs.com/package/mssql) npm para carregar os dados na minha aplicação NodeJS.
 
 ```T-SQL
 SELECT
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Exemplo: taxonomias de faceta de vários níveis no Azure Pesquisa Cognitiva](search-example-adventureworks-multilevel-faceting.md)
+> [Exemplo: Taxonomies facet multinível na Pesquisa Cognitiva Azure](search-example-adventureworks-multilevel-faceting.md)

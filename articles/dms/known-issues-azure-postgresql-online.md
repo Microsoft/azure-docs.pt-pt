@@ -3,8 +3,8 @@ title: 'Questões conhecidas: Migrações online de PostgreSQL para Base de Dado
 titleSuffix: Azure Database Migration Service
 description: Conheça questões conhecidas e limitações de migração com migrações online de PostgreSQL para Azure Database para PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f149d8de6b736379388c4a93045b6a0178067892
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79138302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235271"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Questões conhecidas/limitações de migração com migrações on-line de PostgreSQL para Azure DB para PostgreSQL
 

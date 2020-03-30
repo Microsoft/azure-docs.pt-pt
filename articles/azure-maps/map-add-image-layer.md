@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209720"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicione uma camada de imagem a um mapa
@@ -38,7 +38,7 @@ A camada de imagem suporta os seguintes formatos de imagem:
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-O código que se segue sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando um URL para uma imagem, e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+O código que se segue sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando um URL para uma imagem, `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`e coordena para os quatro cantos no formato .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -57,18 +57,18 @@ Aqui está a amostra completa do código de execução do código anterior.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Camada de imagem simples' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a camada de <a href='https://codepen.io/azuremaps/pen/eQodRo/'>imagem simples</a> pen por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Camada de imagem simples' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a camada de <a href='https://codepen.io/azuremaps/pen/eQodRo/'>imagem</a> simples<a href='https://codepen.io/azuremaps'>@azuremaps</a>pen por Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importar um ficheiro KML como sobreposição de solo
 
 Esta amostra demonstra como adicionar informação sobreposta de terra KML como uma camada de imagem no mapa. As sobreposições terrestres kml fornecem coordenadas norte, sul, leste e oeste, e uma rotação no sentido contrário ao dos ponteiros do relógio. Mas, a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição do solo KML nesta amostra é para a catedral de Chartres, e é proveniente da [Wikimedia.](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)
 
-O código utiliza a função estática `getCoordinatesFromEdges` da classe [ImageLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) Calcula os quatro cantos da imagem utilizando a informação de norte, sul, leste, oeste e rotação da sobreposição do solo KML.
+O código utiliza `getCoordinatesFromEdges` a função estática da classe [ImageLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) Calcula os quatro cantos da imagem utilizando a informação de norte, sul, leste, oeste e rotação da sobreposição do solo KML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='KmL Ground Overlay como Camada de Imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a sobreposição do <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>solo pen KML como Camada de Imagem</a> por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='KmL Ground Overlay como Camada de Imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a sobreposição do <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>solo pen KML como Camada de Imagem</a> por Azure Maps ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-an-image-layer"></a>Personalize uma camada de imagem
@@ -77,7 +77,7 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>opções</a> de camada de imagem da Caneta por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>opções</a> de camada<a href='https://codepen.io/azuremaps'>@azuremaps</a>de imagem da caneta por Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -93,4 +93,4 @@ Saiba mais sobre as aulas e métodos utilizados neste artigo:
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de azulejos](./map-add-tile-layer.md)
+> [Adicionar uma camada de mosaico](./map-add-tile-layer.md)

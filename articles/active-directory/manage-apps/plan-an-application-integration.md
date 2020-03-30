@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063385"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrando o Diretório Ativo Azure com candidaturas a serem iniciadas guia
@@ -31,7 +31,7 @@ Para descarregar planos de implantação aprofundados, consulte [os próximos pa
 ## <a name="take-inventory"></a>Faça o inventário
 Antes de integrar aplicações com a Azure AD, é importante saber onde está e para onde quer ir.  As seguintes questões destinam-se a ajudá-lo a pensar no seu projeto de integração de aplicações Azure AD.
 
-### <a name="application-inventory"></a>Inventário de candidaturas
+### <a name="application-inventory"></a>Inventário de aplicações
 * Onde estão todas as suas candidaturas? Quem é o dono deles?
 * Que tipo de autenticação exigem as suas aplicações?
 * Quem precisa de acesso a que aplicações?
@@ -45,7 +45,7 @@ Antes de integrar aplicações com a Azure AD, é importante saber onde está e 
   * Azure AD
   * Dentro de uma base de dados de aplicações separada que possui
   * Em pedidos não sancionados
-  * Todos os acima
+  * Todos os anteriores
 * Que permissões e atribuições de funções têm atualmente os utilizadores individuais? Precisa de rever o seu acesso ou tem a certeza de que o acesso ao utilizador e as atribuições de papéis são apropriados agora?
 * Os grupos já estão estabelecidos no seu Diretório Ativo no local?
   * Como estão organizados os seus grupos?
@@ -63,7 +63,7 @@ Talvez não tenhas as respostas para todas estas perguntas, mas não faz mal.  E
 
 Como mencionado acima, pode haver aplicações que não foram geridas pela sua organização até agora.  Como parte do processo de inventário, é possível encontrar aplicações em nuvem não autorizadas. Ver [Configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
-## <a name="integrating-applications-with-azure-ad"></a>Integração de aplicações com AD Azure
+## <a name="integrating-applications-with-azure-ad"></a>Integrara aplicações com o Azure AD
 Os seguintes artigos discutem as diferentes formas como as aplicações se integram com a AD Azure, e fornecem alguma orientação.
 
 * [Determinar qual o Diretório Ativo a utilizar](../fundamentals/active-directory-administer.md)
@@ -88,14 +88,14 @@ Os seguintes artigos descrevem formas de gerir o acesso a aplicações uma vez q
 * [Automatização com Conectores AD Azure](../app-provisioning/user-provisioning.md)
 * [Atribuir utilizadores a uma aplicação](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Atribuir grupos a uma aplicação](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Partilha de contas](../active-directory-sharing-accounts.md)
+* [Partilhar contas](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter informações aprofundadas, pode baixar os planos de implementação do Azure Ative Directory a partir do [GitHub](https://aka.ms/deploymentplans). Para aplicações de galeria, pode descarregar planos de implementação para um único sinal, acesso condicional e fornecimento de utilizadores através do [portal Azure](https://portal.azure.com). 
 
 Para descarregar um plano de implementação do portal Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **aplicações empresariais** | Escolha um Plano de **Implementação**de | de **aplicações** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Selecione **Aplicações empresariais** | Escolha um Plano de**Implementação**de**Aplicações** | .
 
 Por favor, forneça feedback sobre os planos de implantação, fazendo o levantamento do plano de [implantação.](https://aka.ms/DeploymentPlanFeedback)

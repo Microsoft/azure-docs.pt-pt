@@ -16,13 +16,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031361"
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações de segurança para o Servidor SQL em Máquinas Virtuais Azure
+# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações de Segurança para SQL Server em Máquinas Virtuais do Azure
 
 Este tópico inclui diretrizes de segurança globais que ajudam a estabelecer acesso seguro às instâncias do SQL Server numa máquina virtual Azure (VM).
 
@@ -41,7 +41,7 @@ As seguintes secções fornecem sugestões sobre a reflexão através destes pon
 
 ## <a name="secure-connections"></a>Ligações seguras
 
-Quando cria uma máquina virtual SQL Server com uma imagem de galeria, a opção **de conectividade do Servidor SQL** dá-lhe a escolha de Local (dentro de **VM)** , **Privado (dentro da Rede Virtual)** ou **Público (Internet)** .
+Quando cria uma máquina virtual SQL Server com uma imagem de galeria, a opção **de conectividade do Servidor SQL** dá-lhe a escolha de Local (dentro de **VM)**, **Privado (dentro da Rede Virtual)** ou **Público (Internet)**.
 
 ![Conectividade Do Servidor SQL](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -63,7 +63,7 @@ Os discos geridos oferecem encriptação lateral do servidor e encriptação do 
 
 ## <a name="use-a-non-default-port"></a>Utilize uma porta não predefinida
 
-Por padrão, o SQL Server ouve uma porta conhecida, 1433. Para uma maior segurança, configure o SQL Server para ouvir uma porta não predefinida, como o 1401. Se fornecer uma imagem de galeria SQL Server no portal Azure, pode especificar esta porta na lâmina de definições do **Servidor SQL.**
+Por predefinição, o SQL Server escuta numa porta bem conhecida, a 1433. Para uma maior segurança, configure o SQL Server para ouvir uma porta não predefinida, como o 1401. Se fornecer uma imagem de galeria SQL Server no portal Azure, pode especificar esta porta na lâmina de definições do **Servidor SQL.**
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -78,7 +78,7 @@ Para configurar isto após o fornecimento, tem duas opções:
 > [!IMPORTANT]
 > Especificar uma porta não predefinida é uma boa ideia se a sua porta SQL Server estiver aberta a ligações de internet pública.
 
-Quando o SQL Server estiver a ouvir uma porta não predefinida, deve especificar a porta quando se ligar. Por exemplo, considere um cenário em que o endereço IP do servidor é 13.55.255.255 e o Servidor SQL está a ouvir na porta 1401. Para ligar ao SQL Server, especifice `13.55.255.255,1401` na cadeia de ligação.
+Quando o SQL Server estiver a ouvir uma porta não predefinida, deve especificar a porta quando se ligar. Por exemplo, considere um cenário em que o endereço IP do servidor é 13.55.255.255 e o Servidor SQL está a ouvir na porta 1401. Para ligar ao SQL Server, especificaria `13.55.255.255,1401` na cadeia de ligação.
 
 ## <a name="manage-accounts"></a>Gerir contas
 

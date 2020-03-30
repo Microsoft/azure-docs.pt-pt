@@ -7,10 +7,10 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
 ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191339"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Aplicativos de call, trigger ou nest logic usando pontos finais HTTP em Aplicações Lógicas Azure
@@ -40,7 +40,7 @@ Se você é novo em aplicativos lógicos, veja [What is Azure Logic Apps](../log
 
    Este exemplo utiliza o gatilho do Pedido, mas pode utilizar qualquer gatilho que possa receber pedidos http recebidos. Todos os princípios se aplicam de forma idêntica a estes gatilhos. Para mais informações sobre o gatilho do Pedido, consulte [Receber e responder às chamadas HTTPS recebidas utilizando aplicações lógicas do Azure](../connectors/connectors-native-reqres.md).
 
-1. Sob a caixa **de**pesquisa, selecione Incorporado . Na caixa de pesquisa, introduza `request` como filtro. A partir da lista de gatilhos, selecione **Quando um pedido HTTP for recebido**.
+1. Sob a caixa **de**pesquisa, selecione Incorporado . Na caixa de `request` pesquisa, introduza como filtro. A partir da lista de gatilhos, selecione **Quando um pedido HTTP for recebido**.
 
    ![Localizar e selecionar o gatilho do Pedido](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -146,23 +146,23 @@ Quando pretender que o URL do ponto final aceite parâmetros, especifique o cami
 
    ![Adicione a propriedade "Caminho Relativo" para desencadear](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Na propriedade **relativa,** especifique o caminho relativo para o parâmetro no seu esquema JSON que pretende que o seu URL aceite, por exemplo, `address/{postalCode}`.
+1. Na propriedade **relativa,** especifique o caminho relativo para o parâmetro no seu esquema JSON `address/{postalCode}`que pretende que o seu URL aceite, por exemplo, .
 
    ![Especificar o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. Para utilizar o parâmetro, encontre e adicione uma ação **de Resposta** à sua aplicação lógica.
 
-   1. Sob o gatilho pedido, selecione **Novo passo** > Adicionar **uma ação**.
+   1. Sob o gatilho pedido, selecione **Novo passo** > **Adicione uma ação**.
 
-   1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza `response` como filtro.
+   1. Em **'Escolha uma ação**' `response` na caixa de pesquisa, introduza como filtro.
 
    1. Na lista de ações, selecione a ação **Resposta.**
 
 1. Na propriedade do **Corpo** da Ação resposta, inclua o símbolo que representa o parâmetro que especificou no caminho relativo do seu gatilho.
 
-   Por exemplo, suponha que quer que a ação resposta volte `Postal Code: {postalCode}`.
+   Por exemplo, suponha que quer `Postal Code: {postalCode}`que a ação de resposta regresse.
 
-   Na propriedade **Body,** entre `Postal Code: ` com um espaço de trailing. A partir da lista de conteúdos dinâmicos que aparece, selecione o símbolo **do Código Postal.**
+   Na propriedade Do `Postal Code: ` **Corpo,** entre com um espaço de trailing. A partir da lista de conteúdos dinâmicos que aparece, selecione o símbolo **do Código Postal.**
 
    ![Adicione o parâmetro especificado ao corpo de resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
@@ -178,13 +178,13 @@ Quando pretender que o URL do ponto final aceite parâmetros, especifique o cami
     https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
-1. Para testar o seu ponto final http, copie e cole o URL atualizado em outra janela do navegador, mas substitua `{postalCode}` por `123456`, e prima Enter.
+1. Para testar o seu ponto final http, copie e cole `{postalCode}` `123456`o URL atualizado em outra janela do navegador, mas substitua por , e prima Enter.
 
-   O seu navegador mostra este texto: `Postal Code: 123456`
+   O seu navegador mostra este texto:`Postal Code: 123456`
 
 ## <a name="call-logic-app-through-http-endpoint"></a>Call logic app através do ponto final http
 
-Depois de criar o ponto final http, pode acionar a aplicação lógica enviando um pedido de `POST` HTTP para o URL completo do ponto final. As aplicações lógicas têm suporte incorporado para pontos finais de acesso direto.
+Depois de criar o ponto final http, pode acionar a aplicação lógica enviando um pedido HTTP `POST` para o URL completo do ponto final. As aplicações lógicas têm suporte incorporado para pontos finais de acesso direto.
 
 <a name="generated-tokens"></a>
 
@@ -192,7 +192,7 @@ Depois de criar o ponto final http, pode acionar a aplicação lógica enviando 
 
 Quando fornece um esquema JSON no gatilho request, o Logic App Designer gera fichas para as propriedades nesse esquema. Em seguida, pode utilizar esses tokens para passar dados através do fluxo de trabalho da sua aplicação lógica.
 
-Por exemplo, se adicionar mais propriedades, como `"suite"`, ao seu esquema JSON, os tokens para essas propriedades estão disponíveis para que possa usar nos passos posteriores para a sua aplicação lógica. Aqui está o completo esquema jSON:
+Por exemplo, se adicionar mais `"suite"`propriedades, como, ao seu esquema JSON, os tokens para essas propriedades estão disponíveis para que possa usar nos passos posteriores para a sua aplicação lógica. Aqui está o completo esquema jSON:
 
 ```json
    {
@@ -226,9 +226,9 @@ Por exemplo, se adicionar mais propriedades, como `"suite"`, ao seu esquema JSON
 
 Pode nidificar fluxos de trabalho na sua aplicação lógica adicionando outras aplicações lógicas que podem receber pedidos. Para incluir estas aplicações lógicas, siga estes passos:
 
-1. Sob o passo onde você quer chamar outra aplicação lógica, selecione **Novo passo** > Adicionar **uma ação**.
+1. Sob o passo onde você quer chamar outra aplicação lógica, selecione **Novo passo** > **Adicione uma ação**.
 
-1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de pesquisa, introduza `logic apps` como filtro. Na lista de ações, selecione Escolha um fluxo de trabalho de **Aplicações Lógicas**.
+1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de `logic apps` pesquisa, introduza como filtro. Na lista de ações, selecione Escolha um fluxo de trabalho de **Aplicações Lógicas**.
 
    ![App lógica nest dentro da aplicação lógica atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -240,11 +240,11 @@ Pode nidificar fluxos de trabalho na sua aplicação lógica adicionando outras 
 
 ## <a name="reference-content-from-an-incoming-request"></a>Conteúdo de referência a partir de um pedido de entrada
 
-Se o tipo de conteúdo do pedido de entrada for `application/json`, pode fazer referência às propriedades no pedido de entrada. Caso contrário, este conteúdo é tratado como uma única unidade binária que pode passar para outras APIs. Para fazer referência a este conteúdo dentro do fluxo de trabalho da sua aplicação lógica, é necessário converter primeiro esse conteúdo.
+Se o tipo de conteúdo `application/json`do pedido de entrada for, pode fazer referência às propriedades no pedido de entrada. Caso contrário, este conteúdo é tratado como uma única unidade binária que pode passar para outras APIs. Para fazer referência a este conteúdo dentro do fluxo de trabalho da sua aplicação lógica, é necessário converter primeiro esse conteúdo.
 
-Por exemplo, se estiver a passar conteúdo que tenha `application/xml` tipo, pode utilizar a [expressão`@xpath()`](../logic-apps/workflow-definition-language-functions-reference.md#xpath) para realizar uma extração XPath, ou usar a [expressão`@json()`](../logic-apps/workflow-definition-language-functions-reference.md#json) para converter XML para JSON. Saiba mais sobre trabalhar com tipos de [conteúdo](../logic-apps/logic-apps-content-type.md)suportados.
+Por exemplo, se estiver a `application/xml` passar conteúdo que tenha tipo, pode usar a [ `@xpath()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#xpath) para realizar uma extração XPath, ou usar a [ `@json()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#json) para converter xML para JSON. Saiba mais sobre trabalhar com tipos de [conteúdo](../logic-apps/logic-apps-content-type.md)suportados.
 
-Para obter a saída a partir de um pedido de entrada, pode utilizar a [expressão`@triggerOutputs`](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Por exemplo, suponha que tem saída que se parece com este exemplo:
+Para obter a saída a partir de [ `@triggerOutputs` ](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs)um pedido de entrada, pode usar a expressão . Por exemplo, suponha que tem saída que se parece com este exemplo:
 
 ```json
 {
@@ -257,7 +257,7 @@ Para obter a saída a partir de um pedido de entrada, pode utilizar a [expressã
 }
 ```
 
-Para aceder especificamente à propriedade `body`, pode usar a [expressão`@triggerBody()`](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) como atalho.
+Para aceder `body` especificamente à propriedade, pode usar a [ `@triggerBody()` expressão](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) como atalho.
 
 ## <a name="respond-to-requests"></a>Responder a pedidos
 
@@ -269,7 +269,7 @@ Para aplicações lógicas aninhadas, a aplicação lógica dos pais continua à
 
 ### <a name="construct-the-response"></a>Construir a resposta
 
-No corpo de resposta, pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho desta resposta especifica que o tipo de conteúdo da resposta é `application/json` e que o corpo contém valores para as propriedades `town` e `postalCode`, com base no esquema JSON descrito anteriormente neste tópico para o gatilho do Pedido.
+No corpo de resposta, pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho desta resposta especifica que `application/json` o tipo de conteúdo `town` da `postalCode` resposta é e que o corpo contém valores para o e propriedades, com base no esquema JSON descrito anteriormente neste tópico para o gatilho do Pedido.
 
 ![Fornecer conteúdo de resposta para a ação de resposta http](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
@@ -278,7 +278,7 @@ As respostas têm estas propriedades:
 | Propriedade (Exibição) | Propriedade (JSON) | Descrição |
 |--------------------|-----------------|-------------|
 | **Código de Estado** | `statusCode` | O código de estado HTTP a utilizar na resposta para o pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, não são permitidos códigos de estado 3xx. |
-| **Headers** (Cabeçalhos) | `headers` | Um ou mais cabeçalhos para incluir na resposta |
+| **Cabeçalhos** | `headers` | Um ou mais cabeçalhos para incluir na resposta |
 | **Corpo** | `body` | Um objeto corporal que pode ser uma corda, um objeto JSON, ou mesmo conteúdo binário referenciado a partir de um passo anterior |
 ||||
 
@@ -302,7 +302,7 @@ Para ver a definição JSON para a ação Resposta e a definição completa jSON
 }
 ```
 
-## <a name="q--a"></a>Q e A
+## <a name="q--a"></a>Perguntas e Respostas
 
 #### <a name="q-what-about-url-security"></a>P: E a segurança url?
 

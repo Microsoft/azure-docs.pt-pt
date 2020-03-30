@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
 ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77187016"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desenvolvimento e integração da API da ExpressRoute CrossConnnections
@@ -20,7 +20,7 @@ O API do ExpressRoute Partner Resource Manager permite aos parceiros expressRout
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-O recurso expressRouteCrossConnections é um recurso-sombra para o circuito ExpressRoute. Quando um cliente Azure cria um circuito ExpressRoute e seleciona um parceiro ExpressRoute específico, a Microsoft cria um recurso expressRouteCrossConnections na subscrição de gestão do parceiro Azure ExpressRoute. Ao fazê-lo, a Microsoft define um grupo de recursos para criar o recurso expressRouteCrossConnections. O padrão de nomeação para o grupo de recursos é * CrossConnection-PeeringLocation***; onde peeringLocation = a Localização ExpressRoute. Por exemplo, se um cliente criar um circuito ExpressRoute em Denver, o CrossConnection será criado na subscrição azure do parceiro no seguinte grupo de recursos: **CrossConnnection-Denver**.
+O recurso expressRouteCrossConnections é um recurso-sombra para o circuito ExpressRoute. Quando um cliente Azure cria um circuito ExpressRoute e seleciona um parceiro ExpressRoute específico, a Microsoft cria um recurso expressRouteCrossConnections na subscrição de gestão do parceiro Azure ExpressRoute. Ao fazê-lo, a Microsoft define um grupo de recursos para criar o recurso expressRouteCrossConnections. O padrão de nomeação para o grupo de recursos é * CrossConnection-PeeringLocation***;*CrossConnection-* onde peeringLocation = a Localização ExpressRoute. Por exemplo, se um cliente criar um circuito ExpressRoute em Denver, o CrossConnection será criado na subscrição azure do parceiro no seguinte grupo de recursos: **CrossConnnection-Denver**.
 
 Os parceiros ExpressRoute gerem a configuração da camada 2 e da camada 3 através da emissão de operações REST contra o recurso expressRouteCrossConnections.
 
@@ -72,7 +72,7 @@ Uma vez configurada com sucesso a autenticação, é necessário conceder ao Col
 4. Selecione a função de colaborador de rede
 5. Atribuir acesso ao Utilizador, Grupo ou Diretor de Serviço da AD Azure
 6. Selecione a sua aplicação de cliente
-7. Salvar alterações
+7. Guardar alterações
 
 ### <a name="5-develop"></a>5. Desenvolver
 

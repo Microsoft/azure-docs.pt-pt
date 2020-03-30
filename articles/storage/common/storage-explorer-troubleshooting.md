@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561685"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento Azure
@@ -81,7 +81,7 @@ Os erros de certificado ocorrem tipicamente numa das seguintes situações:
 Quando o Storage Explorer vê um certificado auto-assinado ou não confiável, já não sabe se a mensagem HTTPS recebida foi alterada. Se tiver uma cópia do certificado auto-assinado, pode instruir o Explorador de Armazenamento a confiar nele seguindo estes passos:
 
 1. Obtenha uma cópia codificada da Base-64 X.509 (.cer) do certificado.
-2. Vá **editar** > **Certificados SSL** > Certificados de **Importação,** e depois use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
+2. Vá à **Edição** > de**Certificados SSL** > **Import Certificates,** e, em seguida, use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
 
 Esta emissão também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir este erro, ambos os certificados devem ser adicionados.
 
@@ -92,21 +92,21 @@ Se não tem a certeza de onde vem o certificado, siga estes passos para encontr�
     * Mac e Linux: Deve ser incluído no seu sistema operativo.
 2. Run OpenSSL.
     * Janelas: Abra o diretório de instalação, selecione **/bin/** e, em seguida, clique duas **vezes openssl.exe**.
-    * Mac e Linux: Executar `openssl` de um terminal.
+    * Mac e Linux: Corram `openssl` de um terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
-4. Procure certificados autoassinados. Se não tem a certeza de quais os certificados auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e emissor `("i:")` são os mesmos.
-5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` através de `-----END CERTIFICATE-----` num novo ficheiro .cer.
-6. Open Storage Explorer e vá à **Edição** > **Certificados SSL** > Certificados de **Importação.** Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
+4. Procure certificados autoassinados. Se não tem a certeza de quais os certificados auto-assinados, note que em qualquer lugar o sujeito `("s:")` e emissor `("i:")` são os mesmos.
+5. Quando encontrar certificados auto-assinados, para cada um, copie `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` cole tudo desde (e incluindo) até um novo ficheiro .cer.
+6. Open Storage Explorer e vá para **editar** >  > **certificados**de importação de**certificados SSL**. Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
 
-Se não encontrar certificados auto-assinados seguindo estes passos, contacte-nos através da ferramenta de feedback. Também pode abrir o Storage Explorer a partir da linha de comando utilizando a bandeira `--ignore-certificate-errors`. Quando aberto com esta bandeira, o Storage Explorer ignora erros de certificado.
+Se não encontrar certificados auto-assinados seguindo estes passos, contacte-nos através da ferramenta de feedback. Também pode abrir o Storage Explorer a `--ignore-certificate-errors` partir da linha de comando utilizando a bandeira. Quando aberto com esta bandeira, o Storage Explorer ignora erros de certificado.
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
 
 ### <a name="blank-sign-in-dialog-box"></a>Caixa de diálogo de entrada em branco
 
-As caixas de diálogo em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretórios Ativos (AD FS) solicitam ao Explorer de Armazenamento que realize um redirecionamento, que não é suportado por Eletrões. Para resolver este problema, pode tentar utilizar o Device Code Flow para iniciar sessão. Para isso, siga estes passos:
+As caixas de diálogo em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretórios Ativos (AD FS) solicitam ao Explorer de Armazenamento que realize um redirecionamento, que não é suportado por Eletrões. Para resolver este problema, pode tentar utilizar o Device Code Flow para iniciar sessão. Para o fazer, siga estes passos:
 
-1. Na barra de ferramentas vertical esquerda, abra **As definições**. No Painel definições, vá à **aplicação** > **Iniciar sessão**. Ativar **Utilização Utilização**de código de fluxo de código .
+1. Na barra de ferramentas vertical esquerda, abra **As definições**. No Painel definições, vá ao **Signo** > de**Inscrição .** Ativar **Utilização Utilização**de código de fluxo de código .
 2. Abra a caixa de diálogo **Connect** (através do ícone da ficha na barra vertical do lado esquerdo ou selecionando a **Conta Add** no painel de conta).
 3. Escolha o ambiente a que pretende assinar.
 4. Selecione **Iniciar sessão**.
@@ -122,7 +122,7 @@ Se não conseguir iniciar sessão na conta que pretende utilizar porque o seu na
 Se estiver num ciclo de reautenticação ou tiver alterado a UPN de uma das suas contas, siga estes passos:
 
 1. Remova todas as contas e, em seguida, feche o Storage Explorer.
-2. Apagar o . Pasta IdentityService da sua máquina. No Windows, a pasta encontra-se em `C:\users\<username>\AppData\Local`. Para O Mac e o Linux, pode encontrar a pasta na raiz do seu diretório de utilizador.
+2. Apagar o . Pasta IdentityService da sua máquina. No Windows, a pasta `C:\users\<username>\AppData\Local`está localizada a . Para O Mac e o Linux, pode encontrar a pasta na raiz do seu diretório de utilizador.
 3. Se estiver a executar o Mac ou o Linux, também terá de eliminar a entrada do Microsoft.Developer.IdentityService na loja de chaves do seu sistema operativo. No Mac, a porta-chaves é a aplicação *Gnome Keychain.* Em Linux, a aplicação é tipicamente chamada _de Keyring_, mas o nome pode diferir dependendo da sua distribuição.
 
 ### <a name="conditional-access"></a>Acesso Condicional
@@ -168,15 +168,15 @@ Se não conseguir recuperar as suas subscrições depois de iniciar sessão com 
 
 Se não conseguir remover uma conta ou recurso de armazenamento anexado através da UI, pode eliminar manualmente todos os recursos anexados eliminando as seguintes pastas:
 
-* Janelas: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux: `~/.config/StorageExplorer`
+* Janelas:`%AppData%/StorageExplorer`
+* macOS:`/Users/<your_name>/Library/Application Support/StorageExplorer`
+* Linux:`~/.config/StorageExplorer`
 
 > [!NOTE]
 > Feche o Explorer antes de eliminar estas pastas.
 
 > [!NOTE]
-> Se já tiver importado quaisquer certificados SSL, faça o backo do conteúdo do diretório `certs`. Mais tarde, pode utilizar o backup para reimportar os seus certificados SSL.
+> Se já tiver importado quaisquer certificados SSL, `certs` faça o seu conteúdo do diretório. Mais tarde, pode utilizar o backup para reimportar os seus certificados SSL.
 
 ## <a name="proxy-issues"></a>Questões de procuração
 
@@ -204,7 +204,7 @@ Se tiver ferramentas de networking, como o Fiddler para Windows, pode diagnostic
 
 * Se tiver de trabalhar através do seu representante, poderá ter de configurar a sua ferramenta de rede para se ligar através do proxy.
 * Verifique o número da porta utilizado pela sua ferramenta de rede.
-* Introduza o URL do hospedeiro local e o número de porta da ferramenta de rede como configurações de procuração no Storage Explorer. Quando o fizer corretamente, a sua ferramenta de networking inicia a sessão de pedidos de rede feitos pelo Storage Explorer para pontos finais de gestão e serviço. Por exemplo, introduza `https://cawablobgrs.blob.core.windows.net/` para o seu ponto final blob num browser, e receberá uma resposta que se assemelha ao seguinte:
+* Introduza o URL do hospedeiro local e o número de porta da ferramenta de rede como configurações de procuração no Storage Explorer. Quando o fizer corretamente, a sua ferramenta de networking inicia a sessão de pedidos de rede feitos pelo Storage Explorer para pontos finais de gestão e serviço. Por exemplo, `https://cawablobgrs.blob.core.windows.net/` introduza o seu ponto final blob num browser, e receberá uma resposta que se assemelha ao seguinte:
 
   ![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -231,8 +231,8 @@ Se vir as chaves da conta, apresente um problema no GitHub para que possamos aju
 
 Se receber esta mensagem de erro quando tentar adicionar uma ligação personalizada, os dados de ligação armazenados no gestor de credenciais locais podem ser corrompidos. Para resolver este problema, tente apagar as suas ligações locais corrompidas e, em seguida, readicione-as:
 
-1. Inicie o Storage Explorer. A partir do menu, vá para **ajudar > ** Ferramentas de Desenvolvimento de **Alternância**.
-2. Na janela aberta, no separador **Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://** .
+1. Inicie o Storage Explorer. A partir do menu, vá para ajudar a > **alternar ferramentas**de desenvolvimento . **Help**
+2. Na janela aberta, no separador **Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://**.
 3. Dependendo do tipo de ligação com que está a ter um problema, procure a sua chave e, em seguida, copie o seu valor para um editor de texto. O valor é uma variedade dos seus nomes de ligação personalizados, como os seguintes:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -245,7 +245,7 @@ Se receber esta mensagem de erro quando tentar adicionar uma ligação personali
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelas
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Depois de guardar os nomes de ligação atuais, detete o valor em Ferramentas de Desenvolvimento para `[]`.
+4. Depois de guardar os nomes de ligação `[]`atuais, detete o valor em Ferramentas de Desenvolvimento para .
 
 Se quiser preservar as ligações que não estão corrompidas, pode usar os seguintes passos para localizar as ligações corrompidas. Se não se importar de perder todas as ligações existentes, pode saltar estes passos e seguir as instruções específicas da plataforma para limpar os dados de ligação.
 
@@ -259,13 +259,13 @@ Depois de analisar todas as suas ligações, para todas as ligações nomes que 
 
 1. No menu **Iniciar,** procure o **Credential Manager** e abra-o.
 2. Vá para **as credenciais do Windows.**
-3. Sob **credenciais genéricas,** procure entradas com a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Sob **credenciais genéricas,** procure `<connection_type_key>/<corrupted_connection_name>` entradas que `StorageExplorer_CustomConnections_Accounts_v1/account1`tenham a chave (por exemplo, ).
 4. Apague estas entradas e readicione as ligações.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Holofotes Abertos (Barra de Comando+Spacebar) e procurem acesso ao **Keychain**.
-2. Procure entradas que tenham a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que `<connection_type_key>/<corrupted_connection_name>` tenham a chave `StorageExplorer_CustomConnections_Accounts_v1/account1`(por exemplo, ).
 3. Apague estas entradas e readicione as ligações.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +273,7 @@ Depois de analisar todas as suas ligações, para todas as ligações nomes que 
 A gestão da credencial local varia consoante a distribuição do Linux. Se a sua distribuição Linux não fornecer uma ferramenta GUI incorporada para gestão de credenciais locais, pode instalar uma ferramenta de terceiros para gerir as suas credenciais locais. Por exemplo, você pode usar [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta GUI de código aberto para gerir credenciais locais Linux.
 
 1. Abra a sua ferramenta local de gestão de credenciais e encontre as suas credenciais guardadas.
-2. Procure entradas que tenham a chave `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que `<connection_type_key>/<corrupted_connection_name>` tenham a chave `StorageExplorer_CustomConnections_Accounts_v1/account1`(por exemplo, ).
 3. Apague estas entradas e readicione as ligações.
 ---
 
@@ -290,8 +290,8 @@ Se estiver a ligar-se a um serviço através de um URL SAS e a experimentar um e
 Se tiver acidentalmente ligado utilizando um URL SAS inválido e agora não conseguir separar-se, siga estes passos:
 
 1. Quando estiver a executar o Storage Explorer, prima F12 para abrir a janela Ferramentas de Desenvolvimento.
-2. No separador **Aplicação,** selecione **Local Storage** > **file://** na árvore à esquerda.
-3. Encontre a chave associada ao tipo de serviço do problemático SAS URI. Por exemplo, se o mau SAS URI for para um recipiente de bolhas, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
+2. No separador **Aplicação,** selecione **File:// de Armazenamento** > Local**na** árvore à esquerda.
+3. Encontre a chave associada ao tipo de serviço do problemático SAS URI. Por exemplo, se o mau SAS URI for para um `StorageExplorer_AddStorageServiceSAS_v1_blob`recipiente de bolhas, procure a chave chamada .
 4. O valor da chave deve ser uma matriz JSON. Encontre o objeto associado ao URI mau e, em seguida, apague-o.
 5. Prima Ctrl+R para recarregar o Explorador de Armazenamento.
 
@@ -362,10 +362,10 @@ Estes pacotes são os requisitos mais comuns para o Storage Explorer em Linux:
 Para o Storage Explorer 1.7.0 ou mais cedo, poderá ter de remendar a versão do Núcleo .NET utilizado pelo Storage Explorer:
 
 1. Descarregue a versão 1.5.43 do StreamJsonRpc [a partir de NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "Pacote de descarregamento" no lado direito da página.
-2. Depois de descarregar o pacote, altere a extensão do ficheiro de `.nupkg` para `.zip`.
+2. Depois de descarregar o pacote, `.nupkg` altere a extensão do ficheiro para `.zip`.
 3. Desaperte o pacote.
-4. Abra a pasta `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
-5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta Storage Explorer:
+4. Abra `streamjsonrpc.1.5.43/lib/netstandard1.1/` a pasta.
+5. Copiar `StreamJsonRpc.dll` para os seguintes locais na pasta Storage Explorer:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 

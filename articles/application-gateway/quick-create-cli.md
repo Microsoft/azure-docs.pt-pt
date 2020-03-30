@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5512e44ab52a3c3d957bbc0d0a07a7a1e7b6f50e
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: f60b26756c0affffbd45c8596fdf73d11ffa8e81
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399572"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239518"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
 
@@ -33,7 +33,7 @@ Também pode completar este quickstart utilizando o [Azure PowerShell](quick-cre
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Em Azure, você aloca recursos relacionados a um grupo de recursos. Crie um grupo de recursos utilizando `az group create`. 
+Em Azure, você aloca recursos relacionados a um grupo de recursos. Criar um grupo `az group create`de recursos utilizando . 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAG* na localização *eastus*.
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Para que o Azure se comunique entre os recursos que cria, precisa de uma rede virtual.  A sub-rede de gateway de aplicação só pode conter gateways de aplicação. Não são permitidos outros recursos.  Pode criar uma nova sub-rede para o Application Gateway ou utilizar uma existente. Neste exemplo, cria-se duas subredes: uma para o portal da aplicação e outra para os servidores de backend. Pode configurar o IP Frontend do Gateway de Aplicação para ser público ou privado de acordo com o seu caso de utilização. Neste exemplo, você escolherá um endereço IP Frontend Público.
 
-Para criar a rede virtual e a sub-rede, utilize `az network vnet create`. Executar `az network public-ip create` para criar o endereço IP público.
+Para criar a rede virtual `az network vnet create`e a sub-rede, utilize. Corra `az network public-ip create` para criar o endereço IP público.
 
 ```azurecli-interactive
 az network vnet create \
@@ -119,7 +119,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Crie as interfaces de rede com `az network nic create`. Para criar as máquinas virtuais, utiliza-se `az vm create`.
+Criar as interfaces `az network nic create`de rede com . Para criar as máquinas `az vm create`virtuais, utiliza-se.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -141,7 +141,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Criar um portal de aplicação utilizando `az network application-gateway create`. Quando cria um portal de aplicação com o Azure CLI, especifica informações de configuração, tais como capacidade, definições de SKU e HTTP. O Azure adiciona então os endereços IP privados das interfaces de rede como servidores no pool de backend do gateway da aplicação.
+Criar um portal `az network application-gateway create`de aplicação utilizando . Quando cria um portal de aplicação com o Azure CLI, especifica informações de configuração, tais como capacidade, definições de SKU e HTTP. O Azure adiciona então os endereços IP privados das interfaces de rede como servidores no pool de backend do gateway da aplicação.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -169,9 +169,9 @@ Pode levar até 30 minutos para o Azure criar o portal de aplicação. Depois de
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Embora o Azure não exija um servidor web NGINX para criar o portal de aplicações, instalou-o neste quickstart para verificar se o Azure criou com sucesso o portal da aplicação. Para obter o endereço IP público da nova porta de entrada de aplicações, utilize `az network public-ip show`. 
+Embora o Azure não exija um servidor web NGINX para criar o portal de aplicações, instalou-o neste quickstart para verificar se o Azure criou com sucesso o portal da aplicação. Para obter o endereço IP público da `az network public-ip show`nova porta de entrada de aplicações, utilize . 
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -187,7 +187,7 @@ Ao atualizar o navegador, deverá ver o nome do segundo VM. Isto indica que o ga
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não precisar dos recursos que criou com o portal de aplicação, utilize o comando `az group delete` para eliminar o grupo de recursos. Ao eliminar o grupo de recursos, também elimina o gateway da aplicação e todos os seus recursos relacionados.
+Quando já não precisar dos recursos que criou com `az group delete` o portal de aplicação, utilize o comando para eliminar o grupo de recursos. Ao eliminar o grupo de recursos, também elimina o gateway da aplicação e todos os seus recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

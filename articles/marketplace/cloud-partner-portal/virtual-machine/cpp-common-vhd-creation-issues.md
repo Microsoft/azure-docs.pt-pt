@@ -1,87 +1,86 @@
 ---
-title: Problemas comuns durante a criação do VHD (FAQ) para o Azure Marketplace
-description: Perguntas frequentes sobre a criação de VHD e problemas associados.
-services: Azure Marketplace
-author: MaggiePucciEvans
+title: Questões comuns durante a criação de VHD (FAQ) para o Mercado Azure
+description: Perguntas frequentes sobre a criação de VHD e questões associadas.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
+ms.author: dsindona
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278114"
 ---
-# <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (FAQ)
+# <a name="common-issues-during-vhd-creation-faq"></a>Questões comuns durante a criação de VHD (FAQ)
 
-As perguntas frequentes a seguir abordam problemas comuns encontrados durante o VHD (disco rígido virtual) e a criação de VM (máquina virtual) para ofertas de VM. 
+As seguintes perguntas frequentes (FAQ) cobrem questões comuns encontradas durante o disco rígido virtual (VHD) e a criação de máquina virtual (VM) para ofertas vm. 
 
-## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Como criar uma VM do portal do Azure usando o VHD que é carregado no armazenamento Premium?
+## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Como criar um VM a partir do portal Azure utilizando o VHD que é carregado para armazenamento premium?
 
-Atualmente, o Azure Marketplace não dá suporte à criação de ofertas de VM de imagens que residem no armazenamento gerenciado ou no armazenamento Premium do Azure.  Para obter mais informações sobre essas opções de armazenamento, consulte [visão geral do Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
-
-
-## <a name="can-you-use-generation-2-vms-for-offers"></a>Você pode usar VMs de geração 2 para ofertas?
-
-Não, somente VHDs de geração 1 têm suporte.  No entanto, estamos trabalhando atualmente com a equipe da plataforma Microsoft Azure para investigar o suporte para VMs de geração 2.  Para obter mais informações sobre as diferenças, consulte [devo criar uma máquina virtual de geração 1 ou 2 no Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+Atualmente, o Azure Marketplace não suporta a criação de ofertas VM a partir de imagens que residem no armazenamento gerido ou no Armazenamento Premium Azure.  Para obter mais informações sobre estas opções de armazenamento, consulte a [visão geral dos discos geridos](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)pelo Azure .
 
 
-## <a name="how-do-you-change-the-name-of-the-host"></a>Como alterar o nome do host?
+## <a name="can-you-use-generation-2-vms-for-offers"></a>Pode usar vMs de geração 2 para ofertas?
 
-Você não pode.  Depois que a VM é criada, os usuários (incluindo os proprietários) não podem atualizar o nome do host.
+Não, apenas os VHDs da geração 1 são apoiados.  No entanto, estamos neste momento a trabalhar com a Equipa de Plataforma Microsoft Azure para investigar o suporte para os VMs da geração 2.  Para mais informações sobre as diferenças, consulte se devo criar uma máquina virtual de [geração 1 ou 2 em Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 
-## <a name="how-do-you-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Como você redefine o serviço de Área de Trabalho Remota ou sua senha de entrada?
+## <a name="how-do-you-change-the-name-of-the-host"></a>Como muda o nome do hospedeiro?
 
-Os artigos a seguir explicam como executar redefinições de RDS para VMs baseadas em Windows e Linux:   
+Não pode.  Uma vez que a VM é criada, os utilizadores (incluindo os proprietários) não podem atualizar o nome do anfitrião.
+
+
+## <a name="how-do-you-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Como redefinir o serviço Remote Desktop ou a sua senha de entrada?
+
+Os seguintes artigos explicam como realizar resets RDS para VMs baseados no Windows e Linux:   
 
 - [Como repor o serviço Ambiente de Trabalho Remoto ou a respetiva palavra-passe de início de sessão numa VM do Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-- [Como redefinir uma senha de VM do Linux ou chave SSH, corrigir a configuração de SSH e verificar a consistência do disco usando a extensão VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+- [Como redefinir uma palavra-passe Linux VM ou uma chave SSH, corrigir a configuração SSH e verificar a consistência do disco utilizando a extensão VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 
 
-## <a name="how-do-you-generate-new-ssh-certificates"></a>Como você gera novos certificados SSH?
+## <a name="how-do-you-generate-new-ssh-certificates"></a>Como gera novos certificados SSH?
 
-A geração de certificados é explicada no artigo [obter o URI de assinatura de acesso compartilhado para sua imagem de VM](./cpp-get-sas-uri.md) na seção subsequente [criar ativos técnicos para uma oferta de VM](./cpp-create-technical-assets.md).
-
-
-## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>Como configurar uma VPN (rede virtual privada) para trabalhar com minhas VMs?
-
-Se você estiver usando o modelo de implantação Azure Resource Manager, terá três opções comuns de configuração de uma VPN:
-- [Criar um gateway de VPN baseado em rota usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-- [Criar um gateway de VPN baseado em rota usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-- [Criar um gateway de VPN baseado em rota usando a CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+Geração de certificados é explicada no artigo Obter assinatura de [acesso partilhado URI para a sua imagem VM](./cpp-get-sas-uri.md) na secção subsequente Criar ativos [técnicos para uma oferta VM](./cpp-create-technical-assets.md).
 
 
-## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Quais são as políticas de suporte da Microsoft para executar o software de servidor da Microsoft em VMs baseadas no Azure?
+## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>Como configurar uma rede privada virtual (VPN) para trabalhar com os meus VMs?
 
-Essas políticas de suporte são detalhadas no artigo [suporte a software de servidor da Microsoft para Microsoft Azure máquinas virtuais](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
-
-
-## <a name="do-virtual-machines-have-unique-identifiers-associated-with-them"></a>As máquinas virtuais têm identificadores exclusivos associados a elas?
-
-Sim, se hospedado no Azure.  O Azure atribui um identificador exclusivo, denominado ID exclusiva da máquina virtual do Azure, a cada novo recurso da VM criado.  Para obter mais informações, leia a postagem do blog [ID exclusiva da máquina virtual do Azure](https://blogs.msdn.microsoft.com/wasimbloch/2016/10/20/azure-virtual-machine-unique-id/).  Você também pode obter esse identificador programaticamente por meio da [API de lista](https://docs.microsoft.com/rest/api/compute/virtualmachines/list).
+Se estiver a utilizar o modelo de implementação do Gestor de Recursos Azure, então tem três opções comuns de configurar uma VPN:
+- [Criar um gateway VPN baseado em rota usando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
+- [Criar um gateway VPN baseado em rotas usando powerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
+- [Criar um gateway VPN baseado em rota usando cli](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
 
 
-## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Em uma VM, como você gerencia a extensão de script personalizado na tarefa de inicialização?
+## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Quais são as políticas de suporte da Microsoft para executar o software de servidores da Microsoft em VMs baseados no Azure?
 
-O artigo a seguir fornece detalhes sobre como usar a extensão de script personalizado usando o módulo Azure PowerShell, modelos de Azure Resource Manager e detalhes de solução de problemas em sistemas Windows: [extensão de script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+Estas políticas de suporte são detalhadas no artigo suporte de software do [servidor Microsoft para máquinas virtuais Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 
-## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Há suporte para aplicativos de 32 bits ou serviços no Azure Marketplace?
+## <a name="do-virtual-machines-have-unique-identifiers-associated-with-them"></a>As máquinas virtuais têm identificadores únicos associados a eles?
 
-Geralmente, não.  Os sistemas operacionais com suporte e os serviços padrão para VMs do Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operacionais de 64 bits dá suporte à execução de versões de 32 bits de aplicativos para compatibilidade com versões anteriores.  No entanto, o uso de aplicativos de 32 bits como parte de sua solução de VM não tem suporte e, portanto, é *altamente desencorajado*.  Em vez disso, recompile seu aplicativo como um projeto de 64 bits.
+Sim, se hospedado no Azure.  O Azure atribui um identificador único, denominado Id Exclusivo máquina virtual Azure a cada novo recurso VM que é criado.  Para mais informações, leia o post de blog [Azure Virtual Machine Unique ID](https://blogs.msdn.microsoft.com/wasimbloch/2016/10/20/azure-virtual-machine-unique-id/).  Também pode obter este identificador programáticamente através da [Lista API](https://docs.microsoft.com/rest/api/compute/virtualmachines/list).
+
+
+## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Num VM, como gere a extensão personalizada do script na tarefa de arranque?
+
+O seguinte artigo detalha como usar a extensão do script personalizado utilizando o módulo PowerShell Azure, modelos do Gestor de Recursos Azure e detalha passos de resolução de problemas nos sistemas Windows: [Extensão personalizada do script para windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+
+
+## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>As aplicações ou serviços de 32 bits são suportados no Mercado Azure?
+
+Geralmente, não.  Os sistemas operativos suportados e os serviços standard para Os VMs Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operativos de 64 bits suportam versões de aplicações de 32 bits para retrocompatibilidade.  No entanto, a utilização de aplicações de 32 bits como parte da sua solução VM não é suportada e, portanto, é *altamente desencorajada*.  Em vez disso, recompile a sua aplicação como um projeto de 64 bits.
 
 Para obter mais informações, veja os artigos seguintes:
-- [Executando aplicativos de 32 bits](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
-- [Suporte para sistemas operacionais de 32 bits em máquinas virtuais do Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
+- [Executar aplicações de 32 bits](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [Suporte para sistemas operativos de 32 bits nas máquinas virtuais do Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Suporte de software de servidor da Microsoft para máquinas virtuais do Microsoft Azure)
 
 
-## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Toda vez que tento criar uma imagem de meus VHDs, obtenho o erro `.VHD is already registered with image repository as the resource` no PowerShell. Eu não criei nenhuma imagem antes nem encontrei nenhuma imagem com esse nome no Azure. Como fazer resolver esse problema?
+## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Sempre que tento criar uma imagem dos meus VHDs, tenho o erro `.VHD is already registered with image repository as the resource` na PowerShell. Não criei nenhuma imagem antes, nem encontrei qualquer imagem com este nome em Azure. Como posso resolver esta questão?
 
-Esse problema geralmente ocorre se o usuário provisionou uma VM de um VHD que tem um bloqueio.  Verifique se não há nenhuma VM alocada a partir deste VHD e repita a operação.  Se esse problema persistir, abra um tíquete de suporte, conforme explicado em [suporte para Portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal). 
+Este problema ocorre geralmente se o utilizador forprovisionado um VM de um VHD que tem um bloqueio no mesmo.  Verifique se não há VM atribuído a partir deste VHD e, em seguida, tente novamente a operação.  Se esta questão persistir, abra um bilhete de apoio, como explica do [Portal de Suporte para Parceiros cloud.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal) 
 

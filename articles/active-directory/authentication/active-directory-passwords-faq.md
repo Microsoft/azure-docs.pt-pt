@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061459"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de passwords frequentemente perguntas
@@ -36,7 +36,7 @@ Este FAQ é dividido nas seguintes secções:
 
 * **P: Os meus utilizadores podem registar os seus próprios dados de redefinição de palavra-passe?**
 
-  > **R:** Sim. Enquanto a redefinição da palavra-passe estiver ativada e estiverem licenciadas, os utilizadores podem ir ao portal de registo de redefinição de passwords (https://aka.ms/ssprsetup) registar as suas informações de autenticação. Os utilizadores também podem registar-se através do Painel de Acesso (https://myapps.microsoft.com). Para se registar através do Painel de Acesso, eles precisam selecionar a sua imagem de perfil, selecionar **Perfil,** e, em seguida, selecionar o Registo para a opção de **redefinição de palavra-passe.**
+  > **R:** Sim. Enquanto a redefinição da palavra-passe estiver ativada e estiveremhttps://aka.ms/ssprsetup) licenciadas, os utilizadores podem ir ao portal de registo de redefinição de passwords ( para registar as suas informações de autenticação. Os utilizadores também podem registar-se através do Painel de Acesso .https://myapps.microsoft.com) Para se registar através do Painel de Acesso, eles precisam selecionar a sua imagem de perfil, selecionar **Perfil,** e, em seguida, selecionar o Registo para a opção de **redefinição de palavra-passe.**
   >
   >
 * **P: Se eu ativar o reset de palavra-passe para um grupo e, em seguida, decidir enableit-lo para todos os meus utilizadores são obrigados a reregistar??**
@@ -101,7 +101,7 @@ Este FAQ é dividido nas seguintes secções:
   > Se não receber a notificação neste período de tempo:
   > * Verifique a sua pasta de lixo.
   > * Verifique se o número ou e-mail que está a ser contactado é o que espera.
-  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *\@utilizador contoso.com*. 
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *contoso.com do utilizador\@*. 
 * **P: Que idiomas são suportados por reset de palavra-passe?**
 
   > **A:** A palavra-passe repõe UI, Mensagens SMS e chamadas de voz estão localizadas nas mesmas línguas que são suportadas no Office 365.
@@ -280,7 +280,7 @@ Este FAQ é dividido nas seguintes secções:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)

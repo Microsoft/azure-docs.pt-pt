@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190255"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
@@ -29,7 +29,7 @@ Em ambos os modelos de consumo, existem algumas dependências na especificação
 * Se for especificada **a aceleraçãoEficiência** e **desaceleração A eficiência,** o produto dos seus valores não deve ser superior a 1 (para evitar o movimento perpétuo).
 * **uphillEficiência** e **descidaA eficiência** deve ser sempre especificada como um par (isto é, ambos ou nenhum).
 * Se for especificada **a eficiência ascendente** e a **descida,** o produto dos seus valores não deve ser superior a 1 (para evitar o movimento perpétuo).
-* Se os parâmetros de __eficiência__ \*forem especificados pelo utilizador, então o **veículoPeso** também deve ser especificado. Quando **o veículoEngineType** é _combustão,_ **fuelEnergyDensitYInMJoulesPerLiter** também deve ser especificado.
+* Se \*os parâmetros __de eficiência__ forem especificados pelo utilizador, então o **veículoPeso** também deve ser especificado. Quando **o veículoEngineType** é _combustão,_ **fuelEnergyDensitYInMJoulesPerLiter** também deve ser especificado.
 * **maxChargeInkWh** e **currentChargeInkWh** devem ser sempre especificados como um par (isto é, ambos ou nenhum).
 
 > [!NOTE]
@@ -40,11 +40,11 @@ Em ambos os modelos de consumo, existem algumas dependências na especificação
 O Modelo de Consumo de Combustão é utilizado quando **o veículoEngineType** está definido para _a combustão_.
 A lista de parâmetros que pertencem a este modelo está abaixo. Consulte a secção Parâmetros para uma descrição detalhada.
 
-* constantSpeedConsumptionInLitersPerHundredkm
+* constanteSpeedConsumptionInLitersPerHundredkm
 * veículoPeso
 * actualFuelInLiters
-* auxiliaryPowerInLitersPerHour
-* fuelEnergyDensityInMJoulesPerLiter
+* auxiliarPowerInLitersPerHour
+* fuelEnergyDensitInMJoulesPerLiter
 * aceleraçãoEficiência
 * desaceleraçãoEficiência
 * uphillEficiência
@@ -55,11 +55,11 @@ A lista de parâmetros que pertencem a este modelo está abaixo. Consulte a sec�
 O Modelo de Consumo Elétrico é utilizado quando o **veículoEngineType** está definido para _elétrico_.
 A lista de parâmetros que pertencem a este modelo está abaixo. Consulte a secção Parâmetros para uma descrição detalhada.
 
-* constantSpeedConsumptionInkWhPerHundredkm
+* constanteSpeedConsumptionInkWhPerHundredkm
 * veículoPeso
 * currentChargeInkWh
 * maxChargeInkWh
-* auxiliaryPowerInkW
+* auxiliarPowerInkW
 * aceleraçãoEficiência
 * desaceleraçãoEficiência
 * uphillEficiência

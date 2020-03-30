@@ -1,6 +1,6 @@
 ---
-title: Codificação avançada com Media Encoder Premium Workflow | Microsoft Docs
-description: Saiba como codificar com Media Encoder Premium Workflow. Os exemplos de código são C# escritos em e usam o SDK dos serviços de mídia para .net.
+title: Codificação avançada com media encoder Premium Workflow [ Microsoft Docs
+description: Aprenda a codificar com media Encoder Premium Workflow. As amostras de código são escritas em C# e utilizam o SDK de Serviços de Media para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,33 +14,33 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ca5de657ad45f53cff0cb01d5fe9cc412baf4533
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792292"
 ---
-# <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificação avançada com Media Encoder Premium Workflow
+# <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)
 > [!NOTE]
-> Media Encoder Premium Workflow processador de mídia discutido neste artigo não está disponível na China.
+> O processador de mídia Media Encoder Premium Workflow, discutido neste artigo, não está disponível na China.
 >
 >
 
-## <a name="overview"></a>Visão geral
-Serviços de Mídia do Microsoft Azure está introduzindo o processador de mídia **Media Encoder Premium Workflow** . Esse processador oferece recursos de codificação avançados para seus fluxos de trabalho Premium sob demanda.
+## <a name="overview"></a>Descrição geral
+O Microsoft Azure Media Services está a introduzir o processador de mídia **Media Encoder Premium Workflow.** Este processador oferece capacidades de codificação antecipada para os seus fluxos de trabalho premium a pedido.
 
-Os tópicos a seguir descrevem detalhes relacionados a **Media Encoder Premium Workflow**:
+Os seguintes tópicos delineiam detalhes relacionados com o Fluxo de Trabalho Premium Media **Encoder:**
 
-* [Formatos com suporte no Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – discute os formatos de arquivo e codecs com suporte pelo **Media Encoder Premium Workflow**.
-* [Visão geral e comparação de codificadores de mídia sob demanda do Azure](media-services-encode-asset.md) compara os recursos de codificação de **Media Encoder Premium Workflow** e **Media Encoder Standard**.
+* [Formatos Suportados pelo Fluxo de Trabalho Premium Media Encoder](media-services-premium-workflow-encoder-formats.md) – Discute os formatos de ficheiros e os codecs suportados pelo **Media Encoder Premium Workflow**.
+* [A visão geral e a comparação dos codificadores de mídia Azure on-demand](media-services-encode-asset.md) compara as capacidades de codificação do **Media Encoder Premium Workflow** e **da Media Encoder Standard**.
 
-Este artigo demonstra como codificar com **Media Encoder Premium Workflow** usando o .net.
+Este artigo demonstra como codificar com **o Media Encoder Premium Workflow** utilizando .NET.
 
-As tarefas de codificação para o **Media Encoder Premium Workflow** exigem um arquivo de configuração separado, chamado de arquivo de fluxo de trabalho. Esses arquivos têm uma extensão. Workflow e são criados usando a ferramenta [Designer de fluxo de trabalho](media-services-workflow-designer.md) .
+As tarefas de codificação para o Fluxo de Trabalho Premium Media **Encoder** requerem um ficheiro de configuração separado, chamado ficheiro Workflow. Estes ficheiros têm uma extensão de fluxo de trabalho .e são criados utilizando a ferramenta [Workflow Designer.](media-services-workflow-designer.md)
 
-Você também pode obter os arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
+Também pode obter os ficheiros de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição destes ficheiros.
 
-Os arquivos de fluxo de trabalho precisam ser carregados em sua conta de serviços de mídia como um ativo, e esse ativo deve ser passado para a tarefa de codificação.
+Os ficheiros de fluxo de trabalho precisam de ser enviados para a sua conta de Serviços de Media como Ativo, e este Ativo deve ser transmitido para a Tarefa de codificação.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -48,26 +48,26 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 ## <a name="encoding-example"></a>Exemplo de codificação
 
-O exemplo a seguir demonstra como codificar com **Media Encoder Premium Workflow**.
+O exemplo que se segue demonstra como codificar com **o Media Encoder Premium Workflow**.
 
-As etapas a seguir são executadas:
+São realizados os seguintes passos:
 
-1. Criar um ativo e carregar um arquivo de fluxo de trabalho.
-2. Crie um ativo e carregue um arquivo de mídia de origem.
+1. Crie um ativo e carregue um ficheiro de fluxo de trabalho.
+2. Crie um ativo e carregue um ficheiro de mídia de origem.
 3. Obtenha o processador de mídia "Media Encoder Premium Workflow".
-4. Crie um trabalho e uma tarefa.
+4. Criar um emprego e uma tarefa.
 
-    Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente). nesse caso, você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criar uma sobreposição, junção de mídia paralela ou sequencial, colocação.
+    Na maioria dos casos, a cadeia de configuração para a tarefa está vazia (como no exemplo seguinte). Existem alguns cenários avançados (que exigem que você estabeleça propriedades de tempo de execução dinamicamente) nesse caso você forneceria uma corda XML para a tarefa de codificação. Exemplos de tais cenários são: criação de uma costura de meios de sobreposição, paralela ou sequencial, legendagem.
 5. Adicione dois ativos de entrada à tarefa.
 
    1. 1º – o ativo do fluxo de trabalho.
    2. 2º – o ativo de vídeo.
 
       >[!NOTE]
-      >O ativo do fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia.
-      A cadeia de caracteres de configuração para essa tarefa deve estar vazia.
+      >O ativo do fluxo de trabalho deve ser adicionado à tarefa antes do ativo dos meios de comunicação.
+      O fio de configuração para esta tarefa deve estar vazio.
    
-6. Envie o trabalho de codificação.
+6. Submeta o trabalho de codificação.
 
 ```csharp
 using System;
@@ -231,7 +231,7 @@ namespace MediaEncoderPremiumWorkflowSample
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) de apoio
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

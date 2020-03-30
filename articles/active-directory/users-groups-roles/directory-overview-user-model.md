@@ -15,10 +15,10 @@ services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77046328"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilizadores, grupos, licenciamento e funções para grandes organizações

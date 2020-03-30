@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161149"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Quadro de consentimento do Diretório Ativo Azure
@@ -38,9 +38,9 @@ Os seguintes passos mostram-lhe como funciona a experiência de consentimento ta
 
     ![Permissões a outras aplicações](./media/consent-framework/permissions.png)
 
-1. Considere que as permissões da sua aplicação foram atualizadas, a aplicação está em execução e um utilizador está prestes a usá-lo pela primeira vez. Em primeiro lugar, o pedido precisa de obter um código de autorização do ponto final `/authorize` da Azure AD. O código de autorização pode então ser utilizado para adquirir um novo acesso e um sinal de atualização.
+1. Considere que as permissões da sua aplicação foram atualizadas, a aplicação está em execução e um utilizador está prestes a usá-lo pela primeira vez. Em primeiro lugar, o pedido precisa de obter `/authorize` um código de autorização do ponto final da Azure AD. O código de autorização pode então ser utilizado para adquirir um novo acesso e um sinal de atualização.
 
-1. Se o utilizador ainda não estiver autenticado, o ponto final `/authorize` da Azure AD leva o utilizador a iniciar sessão.
+1. Se o utilizador ainda não estiver autenticado, `/authorize` o ponto final da Azure AD leva o utilizador a iniciar sessão.
 
     ![Utilizador ou administrador iniciar sessão na Azure AD](./media/consent-framework/usersignin.png)
 

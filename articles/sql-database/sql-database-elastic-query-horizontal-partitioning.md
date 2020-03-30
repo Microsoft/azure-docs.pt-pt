@@ -1,6 +1,6 @@
 ---
-title: Relatórios entre bancos de dados de nuvem expandidos
-description: como configurar consultas elásticas em partições horizontais
+title: Reportagem através de bases de dados de nuvem escaldada
+description: como configurar consultas elásticas sobre divisórias horizontais
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,41 +12,41 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823766"
 ---
-# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados de nuvem expandidos (visualização)
+# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem através de bases de dados de nuvem escalada (pré-visualização)
 
-![Consultar entre fragmentos][1]
+![Consulta através de fragmentos][1]
 
-Os bancos de dados fragmentados distribuem linhas por uma camada horizontal. O esquema é idêntico em todos os bancos de dados participantes, também conhecido como particionamento horizontal. Usando uma consulta elástica, você pode criar relatórios que abrangem todos os bancos de dados em um banco de dados fragmentado.
+As bases de dados estampadas distribuem linhas através de um nível de dados escalado. O esquema é idêntico em todas as bases de dados participantes, também conhecidas como partição horizontal. Utilizando uma consulta elástica, pode criar relatórios que abrangem todas as bases de dados numa base de dados espumosa.
 
-Para um início rápido, consulte [relatórios entre bancos de dados de nuvem expandidos](sql-database-elastic-query-getting-started.md).
+Para um início rápido, consulte relatórios através de [bases de dados de nuvem escaldada](sql-database-elastic-query-getting-started.md).
 
-Para bancos de dados não fragmentados, consulte [consultar entre bancos de dados de nuvem com esquemas diferentes](sql-database-elastic-query-vertical-partitioning.md).
+Para bases de dados não esfarditas, consulte a Consulta através de bases de [dados em nuvem com diferentes esquemas](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie um mapa de fragmentos usando a biblioteca de cliente do banco de dados elástico. consulte [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Ou use o aplicativo de exemplo em introdução [às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
-* Como alternativa, consulte [migrar bancos de dados existentes para bancos de dados escalados horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
-* O usuário deve ter a permissão alterar qualquer fonte de dados externa. Essa permissão está incluída com a permissão ALTER DATABASE.
-* As permissões alterar qualquer fonte de dados externa são necessárias para fazer referência à fonte de dados subjacente.
+* Crie um mapa de fragmentos utilizando a biblioteca de clientes de base de dados elástica. ver gestão de [mapas shard](sql-database-elastic-scale-shard-map-management.md). Ou use a aplicação de amostra [sintetizada com ferramentas](sql-database-elastic-scale-get-started.md)de base de dados elásticas.
+* Em alternativa, consulte as bases de dados existentes para as [bases de dados dimensionadas](sql-database-elastic-convert-to-use-elastic-tools.md).
+* O utilizador deve possuir qualquer permissão DE DADOS EXTERNA FONTE. Esta permissão está incluída com a permissão alter DATABASE.
+* ALTERE quaisquer permissões externas de FONTE DE DADOS são necessárias para se referir à fonte de dados subjacente.
 
 ## <a name="overview"></a>Descrição geral
 
-Essas instruções criam a representação de metadados da camada de dados fragmentados no banco de dado de consulta elástica.
+Estas declarações criam a representação de metadados do seu nível de dados fragmentos na base de dados de consultas elásticas.
 
-1. [CRIAR CHAVE MESTRA](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CRIAR CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CRIAR FONTE DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
+1. [CRIAR CHAVE MESTRE](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [CRIAR BASE DE DADOS CREDENCIAL SCOPED](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [CRIAR FONTE DE DADOS EXTERNAS](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
 
-## <a name="11-create-database-scoped-master-key-and-credentials"></a>1,1 criar chave mestra no escopo do banco de dados e credenciais
+## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave-mestra e credenciais de base de dados
 
-A credencial é usada pela consulta elástica para se conectar aos seus bancos de dados remotos.  
+A credencial é utilizada pela consulta elástica para se ligar às suas bases de dados remotas.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -54,11 +54,11 @@ A credencial é usada pela consulta elástica para se conectar aos seus bancos d
     [;]
 
 > [!NOTE]
-> Verifique se o *"\<nome de usuário\>"* não inclui nenhum sufixo *"\@ServerName"* .
+> Certifique-se de que o *"\<nome\>de utilizador "* não inclui qualquer sufixo de *"nome\@de servidor".*
 
-## <a name="12-create-external-data-sources"></a>1,2 criar fontes de dados externas
+## <a name="12-create-external-data-sources"></a>1.2 Criar fontes de dados externas
 
-Sintaxe
+Sintaxe:
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
@@ -81,16 +81,16 @@ Sintaxe
         SHARD_MAP_NAME='ShardMap'
     );
 
-Recupere a lista de fontes de dados externas atuais:
+Recuperar a lista das fontes de dados externas atuais:
 
     select * from sys.external_data_sources;
 
-A fonte de dados externa referencia seu mapa de fragmentos. Em seguida, uma consulta elástica usa a fonte de dados externa e o mapa de fragmentos subjacente para enumerar os bancos de dados que participam da camada de dado.
-As mesmas credenciais são usadas para ler o mapa de fragmentos e para acessar os dados nos fragmentos durante o processamento de uma consulta elástica.
+A fonte de dados externa refere o seu mapa de fragmentos. Uma consulta elástica utiliza então a fonte de dados externa e o mapa de fragmentos subjacente para enumerar as bases de dados que participam no nível de dados.
+As mesmas credenciais são usadas para ler o mapa do fragmento e aceder aos dados sobre os fragmentos durante o processamento de uma consulta elástica.
 
-## <a name="13-create-external-tables"></a>1,3 criar tabelas externas
+## <a name="13-create-external-tables"></a>1.3 Criar tabelas externas
 
-Sintaxe  
+Sintaxe:  
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])
@@ -126,37 +126,37 @@ Sintaxe
         DISTRIBUTION=SHARDED(ol_w_id)
     );
 
-Recupere a lista de tabelas externas do banco de dados atual:
+Recuperar a lista de tabelas externas da base de dados atual:
 
     SELECT * from sys.external_tables;
 
-Para descartar tabelas externas:
+Para deixar cair as tabelas externas:
 
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
 ### <a name="remarks"></a>Observações
 
-A cláusula DATA\_SOURCE define a fonte de dados externa (um mapa de fragmentos) que é usada para a tabela externa.  
+A\_cláusula FONTE DE DADOS define a fonte de dados externa (um mapa de fragmentos) que é utilizada para a tabela externa.  
 
-O esquema\_nome e objeto\_cláusulas de nome mapeiam a definição da tabela externa para uma tabela em um esquema diferente. Se for omitido, o esquema do objeto remoto será considerado "dbo" e seu nome será considerado idêntico ao nome da tabela externa que está sendo definido. Isso será útil se o nome da sua tabela remota já estiver no banco de dados em que você deseja criar a tabela externa. Por exemplo, você deseja definir uma tabela externa para obter uma exibição agregada de exibições de catálogo ou DMVs em sua camada de dados expandida. Como as exibições de catálogo e DMVs já existem localmente, você não pode usar seus nomes para a definição de tabela externa. Em vez disso, use um nome diferente e use a exibição do catálogo ou o nome da DMV no esquema\_nome e/ou objeto\_cláusulas NAME. (Consulte o exemplo abaixo.)
+As cláusulas\_SCHEMA NAME e OBJECT\_NAME mapeiam a definição de tabela externa para uma tabela num esquema diferente. Se omitido, presume-se que o esquema do objeto remoto é "dbo" e o seu nome é assumido como idêntico ao nome de tabela externo que está a ser definido. Isto é útil se o nome da sua tabela remota já estiver na base de dados onde pretende criar a tabela externa. Por exemplo, pretende definir uma tabela externa para obter uma visão agregada das vistas do catálogo ou dMVs no seu nível de dados escalonado. Uma vez que as vistas do catálogo e os DMVs já existem localmente, não é possível utilizar os seus nomes para a definição de tabela externa. Em vez disso, utilize um nome diferente e utilize o nome da vista\_de catálogo\_ou o nome do DMV nas cláusulas SCHEMA NAME e/ou OBJECT NAME. (Ver o exemplo abaixo.)
 
-A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula DISTRIBUTION para criar os planos de consulta mais eficientes.
+A cláusula DE DISTRIBUIÇÃO especifica a distribuição de dados utilizada para esta tabela. O processador de consulta utiliza as informações fornecidas na cláusula DISTRIBUTION para construir os planos de consulta mais eficientes.
 
-1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é a **< sharding_column_name parâmetro >** .
-2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade garantir que as réplicas sejam idênticas em todos os bancos de dados.
-3. **Round\_Robin** significa que a tabela é particionada horizontalmente usando um método de distribuição dependente de aplicativo.
+1. **SHARDED** significa que os dados são horizontalmente divididos através das bases de dados. A chave de divisão para a distribuição de dados é o **<sharding_column_name>** parâmetro.
+2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada base de dados. É da sua responsabilidade garantir que as réplicas são idênticas nas bases de dados.
+3. **ROUND\_ROBIN** significa que a tabela é horizontalmente dividida utilizando um método de distribuição dependente da aplicação.
 
-**Referência da camada de dados**: a DDL da tabela externa se refere a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece a tabela externa com as informações necessárias para localizar todos os bancos de dados em sua camada.
+**Referência do nível**de dados : A tabela externa DDL refere-se a uma fonte externa de dados. A fonte de dados externa especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todas as bases de dados no seu nível de dados.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 
-Os usuários com acesso à tabela externa têm acesso automaticamente às tabelas remotas subjacentes sob a credencial fornecida na definição da fonte de dados externa. Evite a elevação de privilégios indesejados por meio da credencial da fonte de dados externa. Use GRANT ou REVOKE para uma tabela externa, assim como se fosse uma tabela normal.  
+Os utilizadores com acesso à tabela externa obtêm automaticamente acesso às tabelas remotas subjacentes sob a credencial dada na definição externa de fonte de dados. Evite a elevação indesejada dos privilégios através da credencial da fonte de dados externa. Utilize o GRANT ou o REVOGATO para uma mesa externa, tal como se fosse uma tabela regular.  
 
-Depois de definir sua fonte de dados externa e suas tabelas externas, agora você pode usar o T-SQL completo em suas tabelas externas.
+Depois de definir a sua fonte de dados externa e as suas tabelas externas, pode agora utilizar o T-SQL completo sobre as suas tabelas externas.
 
-## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consultando bancos de dados particionados horizontais
+## <a name="example-querying-horizontal-partitioned-databases"></a>Exemplo: consulta de bases de dados horizontais divididas
 
-A consulta a seguir executa uma junção de três vias entre depósitos, pedidos e linhas de ordem e usa várias agregações e um filtro seletivo. Ele pressupõe (1) particionamento horizontal (fragmentação) e (2) que os depósitos, pedidos e linhas de ordem são fragmentados pela coluna ID do depósito e que a consulta elástica pode colocalizar as junções nos fragmentos e processar a parte cara da consulta nos fragmentos em completa.
+A seguinte consulta realiza uma ligação tridireccional entre armazéns, encomendas e linhas de encomendas e utiliza vários agregados e um filtro seletivo. Assume (1) divisória horizontal (sharding) e (2) que os armazéns, encomendas e linhas de ordem são esfumaçados pela coluna id do armazém, e que a consulta elástica pode co-localizar as juntas nos fragmentos e processar a parte cara da consulta nos fragmentos em paralelo.
 
 ```sql
     select  
@@ -175,16 +175,16 @@ A consulta a seguir executa uma junção de três vias entre depósitos, pedidos
     group by w_id, o_c_id
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimento armazenado para execução remota de T-SQL: SP\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimento armazenado para execução remota de T-SQL: sp\_execute_remote
 
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código t-SQL nos bancos de dados remotos. Ele usa os seguintes parâmetros:
+A consulta elástica também introduz um procedimento armazenado que proporciona acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados à distância ou código T-SQL nas bases de dados remotas. São precisos os seguintes parâmetros:
 
-* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS.
-* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento.
-* Declaração de parâmetro (nvarchar)-opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro de consulta (como sp_executesql).
-* Lista de valores de parâmetro-opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
+* Nome da fonte de dados (nvarchar): O nome da fonte externa de dados do tipo RDBMS.
+* Consulta (nvarchar): A consulta T-SQL a ser executada em cada fragmento.
+* Declaração de parâmetro (nvarchar) - opcional: Corda com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql).
+* Lista de valor dos parâmetros - opcional: Lista separada da vírmets com a vírpar (como sp_executesql).
 
-O SP\_executar\_remoto usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL fornecida nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para conectar-se ao banco de dado do shardmap Manager e aos bancos de dados remotos.  
+O\_sp\_executar remote utiliza a fonte de dados externa fornecida nos parâmetros de invocação para executar a declaração T-SQL dada nas bases de dados remotas. Utiliza a credencial da fonte externa de dados para se ligar à base de dados do gestor de mapas de fragmentos e às bases de dados remotas.  
 
 Exemplo:
 
@@ -196,22 +196,22 @@ Exemplo:
 
 ## <a name="connectivity-for-tools"></a>Conectividade para ferramentas
 
-Use as cadeias de conexão SQL Server regulares para conectar seu aplicativo, suas ferramentas de integração de BI e dados ao banco de dado com suas definições de tabela externa. Verifique se SQL Server tem suporte como uma fonte de dados para sua ferramenta. Em seguida, referencie o banco de dados de consulta elástica como qualquer outro banco de dados SQL Server conectado à ferramenta e use tabelas externas de sua ferramenta ou aplicativo como se fossem tabelas locais.
+Utilize as cadeias regulares de ligação do SQL Server para ligar a sua aplicação, o seu BI e as ferramentas de integração de dados à base de dados com as definições de tabela externa. Certifique-se de que o SQL Server é suportado como fonte de dados para a sua ferramenta. Em seguida, consulte a base de dados de consulta elástica como qualquer outra base de dados do SQL Server ligada à ferramenta e utilize tabelas externas da sua ferramenta ou aplicação como se fossem mesas locais.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-* Verifique se o banco de dados de ponto de extremidade de consulta elástica recebeu acesso ao banco de dados shardmap e a todos os fragmentos por meio dos firewalls de BD SQL.  
-* Validar ou impor a distribuição de dados definida pela tabela externa. Se sua distribuição de dados real for diferente da distribuição especificada na definição de tabela, suas consultas poderão gerar resultados inesperados.
-* Atualmente, a consulta elástica não executa a eliminação de fragmentos quando os predicados sobre a chave de fragmentação permitiriam que a ti excluisse com segurança determinados fragmentos do processamento.
-* A consulta elástica funciona melhor para consultas em que a maior parte da computação pode ser feita nos fragmentos. Normalmente, você obtém o melhor desempenho de consulta com predicados de filtro seletivo que podem ser avaliados nos fragmentos ou junções sobre as chaves de particionamento que podem ser executadas em uma maneira alinhada à partição em todos os fragmentos. Outros padrões de consulta podem precisar carregar grandes quantidades de dados dos fragmentos para o nó principal e podem funcionar de forma ruim
+* Certifique-se de que a base de dados de pontofinal de consulta elástica teve acesso à base de dados do shardmap e a todos os fragmentos através das firewalls SQL DB.  
+* Validar ou impor a distribuição de dados definida pela tabela externa. Se a distribuição real de dados for diferente da distribuição especificada na definição da tabela, as suas consultas podem produzir resultados inesperados.
+* A consulta elástica atualmente não realiza a eliminação do fragmento quando predica sobre a tecla sharding permitir-lhe-ia excluir com segurança certos fragmentos do processamento.
+* A consulta elástica funciona melhor para consultas onde a maior parte da computação pode ser feita nos fragmentos. Normalmente obtém-se o melhor desempenho de consulta com predicados de filtro seletivo que podem ser avaliados nos fragmentos ou se juntam sobre as teclas de partição que podem ser realizadas de forma alinhada com divisórias em todos os fragmentos. Outros padrões de consulta podem precisar de carregar grandes quantidades de dados dos fragmentos para o nó da cabeça e podem ter um desempenho fraco
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma visão geral da consulta elástica, consulte [visão geral da consulta elástica](sql-database-elastic-query-overview.md).
-* Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
-* Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
-* Para obter um tutorial horizontal de particionamento (fragmentação), consulte [introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
-* Consulte [sp\_execute \_Remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Para uma visão geral da consulta elástica, consulte a visão geral da [consulta elástica](sql-database-elastic-query-overview.md).
+* Para um tutorial de partição vertical, consulte [Iniciar-se com consulta de base de dados cruzada (partição vertical)](sql-database-elastic-query-getting-started-vertical.md).
+* Para consultas de sintaxe e amostras para dados verticalmente divididos, consulte a [consulta de dados verticalmente divididos)](sql-database-elastic-query-vertical-partitioning.md)
+* Para um tutorial de partição horizontal (sharding), consulte [Iniciar-se com consulta elástica para partição horizontal (sharding)](sql-database-elastic-query-getting-started.md).
+* Consulte o [sp\_execute \_o controlo remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem como fragmentos num esquema de partição horizontal.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

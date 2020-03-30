@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services limites de recurso e objeto | Microsoft Docs
-description: Este artigo descreve os limites de recurso e objeto para um servidor de Azure Analysis Services.
+title: Recursos dos Serviços de Análise Azure e limites de objetos Microsoft Docs
+description: Este artigo descreve limites de recursos e objetos para um servidor de Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573202"
 ---
-# <a name="analysis-services-resource-and-object-limits"></a>Analysis Services limites de recurso e objeto
+# <a name="analysis-services-resource-and-object-limits"></a>Recursos de serviços de análise e limites de objetos
 
-Este artigo descreve os limites de objeto de modelo e de recurso.
+Este artigo descreve os limites de objetos de recursos e modelos.
 
-## <a name="tier-limits"></a>Limites de camada
+## <a name="tier-limits"></a>Limites de nível
 
-Para obter limites de QPU e memória para as camadas de desenvolvedor, básica e Standard, consulte a [página de preços Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Para os limites de QPU e Memória para os níveis de programador, básicos e standard, consulte a página de preços dos Serviços de [Análise Azure](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="object-limits"></a>Limites de objeto
+## <a name="object-limits"></a>Limites de objetos
 
-Esses limites são teóricos. O desempenho será reduzido em números inferiores.
+Estes limites são teóricos. O desempenho será diminuído em números mais baixos.
 
-|Object|Tamanhos/números máximos|  
+|Objeto|Tamanhos/números máximos|  
 |------------|----------------------------|  
-|Bancos de dados em uma instância|16.000|  
-|Número combinado de tabelas e colunas em um banco de dados|16.000|  
-|Linhas em uma tabela|Ilimitado<br /><br /> **AVISO:** Com a restrição de que nenhuma coluna única na tabela pode ter mais de 1.999.999.997 valores distintos.|  
-|Hierarquias em uma tabela|15.999|  
-|Níveis em uma hierarquia|15.999|  
+|Bases de dados, num caso,|16 000|  
+|Número combinado de tabelas e colunas numa base de dados|16 000|  
+|Filas em uma mesa|Ilimitado<br /><br /> **Aviso:** Com a restrição de que nenhuma coluna na tabela pode ter mais de 1.999.999.997 valores distintos.|  
+|Hierarquias em uma mesa|15,999|  
+|Níveis numa hierarquia|15,999|  
 |Relações|8,000|  
-|Colunas de chave em todas as tabelas|15.999|  
-|Medidas em tabelas|2 ^ 31-1 = 2.147.483.647|  
-|Células retornadas por uma consulta|2 ^ 31-1 = 2.147.483.647|  
-|Tamanho do registro da consulta de origem|64 K|  
-|Comprimento dos nomes de objeto|512 caracteres|  
+|Colunas-chave em todas as tabelas|15,999|  
+|Medidas em mesas|2^31-1 = 2.147.483.647|  
+|Células devolvidas por uma consulta|2^31-1 = 2.147.483.647|  
+|Tamanho recorde da consulta de origem|64 K|  
+|Comprimento dos nomes dos objetos|512 caracteres|  
 
 

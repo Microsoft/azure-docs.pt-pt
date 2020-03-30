@@ -5,10 +5,10 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247621"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consórcio Azure Blockchain Service
@@ -31,7 +31,7 @@ Com a gestão do consórcio no Azure Blockchain Service, pode gerir os participa
 
 Os participantes num consórcio podem ser indivíduos ou organizações e podem ser atribuídos a uma função de utilizador ou administrador. A tabela que se segue enumera as diferenças de alto nível entre as duas funções:
 
-| Ação | Função de utilizador | Papel de administrador
+| Ação | Função de utilizador | Função de administrador
 |--------|:----:|:------------:|
 | Criar novo membro | Sim | Sim |
 | Convide novos membros | Não | Sim |

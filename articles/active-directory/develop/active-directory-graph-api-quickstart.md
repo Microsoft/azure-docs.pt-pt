@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161346"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: Utilizar a API do gráfico Azure AD
@@ -31,9 +31,9 @@ Este artigo aplica-se à API do Gráfico AD Azure. Para obter informações seme
 
 ## <a name="how-to-construct-a-graph-api-url"></a>Como construir um URL API gráfico
 
-Na API graph, para aceder a dados e objetos de diretório (ou seja, recursos ou entidades) contra os quais pretende realizar operações CRUD, pode utilizar URLs com base no Protocolo de Dados Abertos (OData). Os URLs utilizados no Gráfico API consistem em quatro partes principais: raiz de serviço, identificador de inquilino, caminho de recursos e opções de cordas de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Tome o exemplo do seguinte URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
+Na API graph, para aceder a dados e objetos de diretório (ou seja, recursos ou entidades) contra os quais pretende realizar operações CRUD, pode utilizar URLs com base no Protocolo de Dados Abertos (OData). Os URLs utilizados no Gráfico API consistem em quatro partes principais: raiz `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`de serviço, identificador de inquilino, caminho de recursos e opções de cordas de consulta: . Tome o exemplo do `https://graph.windows.net/contoso.com/groups?api-version=1.6`seguinte URL: .
 
-* **Raiz de serviço**: Em Azure AD Graph API, a raiz de serviço é sempre https://graph.windows.net.
+* **Raiz de serviço**: Em Azure AD Graph https://graph.windows.netAPI, a raiz de serviço é sempre .
 * **Identificador de inquilino**: Esta secção pode ser um nome de domínio verificado (registado), no exemplo anterior, contoso.com. Também pode ser um objeto de inquilino id ou o pseudónimo "myorganization" ou "me". Para mais informações, consulte [As entidades e operações endereçadas na API do Gráfico AD Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
 * **Percurso de recursos**: Esta secção de um URL identifica o recurso a interagir (utilizadores, grupos, um utilizador específico ou um determinado grupo, etc.) No exemplo acima, são os "grupos" de nível superior a abordar esse conjunto de recursos. Também pode dirigir-se a uma entidade específica, por exemplo "utilizadores/{objectId}" ou "user/userPrincipalName".
 * **Parâmetros**de consulta: Um ponto de interrogação (?) separa a secção do caminho do recurso da secção de parâmetros de consulta. O parâmetro de consulta "api-version" é necessário em todos os pedidos na API do Gráfico AD Azure. A APi ad graph ad também suporta as seguintes opções de consulta oOData: **$filter,** **$orderby,** **$expand,** **$top**e **$format.** As seguintes opções de consulta não são atualmente suportadas: **$count,** **$inlinecount**e **$skip.** Para mais informações, consulte Opções de [Consultas, Filtros e Paging suportadas no Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
@@ -44,7 +44,7 @@ Especifica a versão para um pedido de API de gráfico no parâmetro de consulta
 
 ## <a name="graph-api-metadata"></a>Metadados gráficos DaPi
 
-Para devolver o ficheiro de metadados APi do Gráfico AD Azure, adicione o segmento "$metadata" após o identificador de inquilinos no URL Por exemplo, o url seguinte devolve metadados para uma empresa de demonstração: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. Pode introduzir este URL na barra de endereços de um navegador web para ver os metadados. O documento de metadados CSDL devolvido descreve as entidades e tipos complexos, as suas propriedades e as funções e ações expostas pela versão do Graph API que solicitou. Omitir o parâmetro da versão api devolve metadados para a versão mais recente.
+Para devolver o ficheiro de metadados APi do Gráfico AD Azure, adicione o segmento "$metadata" após o identificador `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`de inquilinos no URL Por exemplo, o url seguinte devolve metadados para uma empresa de demonstração: . Pode introduzir este URL na barra de endereços de um navegador web para ver os metadados. O documento de metadados CSDL devolvido descreve as entidades e tipos complexos, as suas propriedades e as funções e ações expostas pela versão do Graph API que solicitou. Omitir o parâmetro da versão api devolve metadados para a versão mais recente.
 
 ## <a name="common-queries"></a>Consultas comuns
 
@@ -57,7 +57,7 @@ Ou `https://graph.windows.net/contoso.com/users?api-version=1.6` lista todos os 
 ## <a name="using-the-azure-ad-graph-explorer"></a>Usando o Explorador de Gráficos Azure AD
 Pode utilizar o Azure AD Graph Explorer para a API do Gráfico AD Azure para consultar os dados do diretório à medida que constrói a sua aplicação.
 
-A seguinte imagem é a saída que veria se navegasse para o Azure AD Graph Explorer, iniciar sessão e introduzir `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` para exibir todos os utilizadores no diretório do utilizador inscrito:
+A seguinte imagem é a saída que veria se navegasse para o Azure `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` AD Graph Explorer, iniciar sessão e introduzir para exibir todos os utilizadores no diretório do utilizador inscrito:
 
 ![Saída de exemplo no Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
@@ -69,15 +69,15 @@ Note as seguintes funcionalidades e limitações do Explorador de Gráficos AD A
 
 * Capacidade de completar automaticamente em conjuntos de recursos. Para ver esta funcionalidade, clique na caixa de texto de pedido (onde aparece o URL da empresa). Pode selecionar um conjunto de recursos da lista de dropdown.
 * Peça histórico.
-* Apoia o "eu" e a "minha organização" que aborda maçais. Por exemplo, pode utilizar `https://graph.windows.net/me?api-version=1.6` para devolver o objeto de utilizador do utilizador ou `https://graph.windows.net/myorganization/users?api-version=1.6` de retornar todos os utilizadores no diretório do utilizador inscrito.
-* Suporta operações crud completas contra o seu próprio diretório utilizando `POST`, `GET`, `PATCH` e `DELETE`.
+* Apoia o "eu" e a "minha organização" que aborda maçais. Por exemplo, pode `https://graph.windows.net/me?api-version=1.6` utilizar para devolver o objeto de `https://graph.windows.net/myorganization/users?api-version=1.6` utilizador do utilizador inscrito ou para devolver todos os utilizadores no diretório do utilizador inscrito.
+* Suporta operações crud completas contra `POST` `GET`o `PATCH` `DELETE`seu próprio diretório usando , e .
 * Uma secção de cabeçalhos de resposta. Esta secção pode ser usada para ajudar a resolver problemas que ocorrem quando se executam consultas.
 * Um espectador JSON para a resposta com capacidades de expansão e colapso.
 * Não há suporte para exibir ou carregar uma foto de miniatura.
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Usando o Violinista para escrever para o diretório
 
-Para efeitos deste guia Quickstart, pode utilizar o Fiddler Web Debugger para praticar a realização de operações de "write" contra o seu diretório Azure AD. Por exemplo, pode obter e carregar a foto de perfil de um utilizador (o que não é possível com o Azure AD Graph Explorer). Para mais informações e para instalar o Violinista, consulte [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
+Para efeitos deste guia Quickstart, pode utilizar o Fiddler Web Debugger para praticar a realização de operações de "write" contra o seu diretório Azure AD. Por exemplo, pode obter e carregar a foto de perfil de um utilizador (o que não é possível com o Azure AD Graph Explorer). Para mais informações e para [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler)instalar o Violinista, consulte .
 
 No exemplo abaixo, você usa Fiddler Web Debugger para criar um novo grupo de segurança 'MyTestGroup' no seu diretório Azure AD.
 
@@ -87,7 +87,7 @@ No exemplo abaixo, você usa Fiddler Web Debugger para criar um novo grupo de se
 
 1. Abra o Fiddler Web Debugger e mude para o separador **Compositor.**
 2. Uma vez que pretende criar um novo grupo de segurança, selecione **Post** como o método HTTP do menu suspenso. Para obter mais informações sobre operações e permissões num objeto de grupo, consulte [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) dentro da [referência AD Graph REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. No campo ao lado do **Post**, digite o seguinte URL de pedido: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
+3. No campo ao lado do **Post,** digite o seguinte URL de pedido: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
    
    > [!NOTE]
    > Deve substituir {mytenantdomain} com o nome de domínio do seu próprio diretório Azure AD.
@@ -101,7 +101,7 @@ No exemplo abaixo, você usa Fiddler Web Debugger para criar um novo grupo de se
    ```
    
    > [!NOTE]
-   > Substitua o seu &lt;o seu&gt; de acesso com o sinal de acesso para o seu diretório Azure AD.
+   > Substitua &lt;o seu&gt; sinal de acesso com o sinal de acesso para o seu diretório Azure AD.
 
 5. No campo **do corpo do Pedido,** digite o seguinte JSON:
    

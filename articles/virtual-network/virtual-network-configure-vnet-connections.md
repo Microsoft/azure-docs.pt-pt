@@ -1,6 +1,6 @@
 ---
-title: Configurar e validar conexões VPN ou de rede virtual
-description: Diretrizes passo a passo para configurar e validar várias implantações de rede virtual e VPN do Azure
+title: Configure e valide ligações de rede virtual ou VPN
+description: Orientação passo a passo para configurar e validar várias vpn azure e implementações de redes virtuais
 services: virtual-network
 documentationcenter: na
 author: v-miegge
@@ -15,56 +15,56 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71099063"
 ---
-# <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurar e validar conexões VPN ou de rede virtual
+# <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configure e valide ligações de rede virtual ou VPN
 
-Este tutorial fornece orientações passo a passo para configurar e validar várias implantações de rede virtual e VPN do Azure. Os cenários incluem roteamento de trânsito, conexões de rede para rede, Border Gateway Protocol (BGP), conexões multissite e conexões ponto a site.
+Este walkthrough fornece orientação passo a passo para configurar e validar várias VPN Azure e implementações de rede virtual. Os cenários incluem o encaminhamento de trânsito, ligações de rede para rede, Protocolo border gateway (BGP), ligações multilocais e ligações ponto-a-local.
 
-Os gateways de VPN do Azure habilitam a flexibilidade na organização de praticamente qualquer tipo de topologia de rede virtual conectada no Azure. Por exemplo, você pode conectar redes virtuais:
+Os gateways Azure VPN permitem flexibilidade na organização de quase qualquer tipo de topologia de rede virtual conectada em Azure. Por exemplo, pode ligar redes virtuais:
 
-- Entre regiões.
-- Entre os tipos de rede virtual (Azure Resource Manager versus clássico).
-- No Azure ou em um ambiente híbrido local.
-- Em assinaturas diferentes. 
+- Através de regiões.
+- Entre tipos de rede virtuais (Azure Resource Manager versus classic).
+- Dentro do Azure ou dentro de um ambiente híbrido no local.
+- Em diferentes assinaturas. 
 
-## <a name="network-to-network-vpn-connection"></a>Conexão VPN de rede para rede
+## <a name="network-to-network-vpn-connection"></a>Ligação VPN de rede-rede
 
-Conectar uma rede virtual a outra rede virtual (rede a rede) via VPN é semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro por meio de IPsec e IKE. As redes virtuais podem estar nas mesmas regiões ou em regiões diferentes e pertencer às mesmas subscrições ou a subscrições diferentes.
+Ligar uma rede virtual a outra rede virtual (rede-rede) via VPN é semelhante à ligação de uma rede virtual a uma localização no local no local. Ambos os tipos de conectividade usam um gateway VPN para fornecer um túnel seguro através de IPsec e IKE. As redes virtuais podem estar nas mesmas regiões ou em regiões diferentes e pertencer às mesmas subscrições ou a subscrições diferentes.
 
-![Conexão de rede para rede com IPsec](./media/virtual-network-configure-vnet-connections/4034386_en_2.png)
+![Ligação rede-rede com IPsec](./media/virtual-network-configure-vnet-connections/4034386_en_2.png)
  
-Se suas redes virtuais estiverem na mesma região, talvez você queira considerar conectá-las usando o emparelhamento de rede virtual. O emparelhamento de rede virtual não usa um gateway de VPN. Ele aumenta a taxa de transferência e diminui a latência. Para configurar uma conexão de emparelhamento de rede virtual, selecione **configurar e validar emparelhamento VNet**.
+Se as suas redes virtuais estiverem na mesma região, é melhor considerar ligá-las utilizando o peering virtual da rede. O epeering virtual da rede não usa um gateway VPN. Aumenta a entrada e diminui a latência. Para configurar uma ligação de peering de rede virtual, **selecione Configurar e validar o Peering VNet**.
 
-Se suas redes virtuais foram criadas por meio do modelo de implantação do Azure Resource Manager, selecione **configurar e validar uma vnet do Resource Manager para uma conexão vnet do Gerenciador de recursos** para configurar uma conexão VPN.
+Se as suas redes virtuais foram criadas através do modelo de implementação de Dispositivos Azure, **selecione Configure e valide um VNet do Gestor de Recursos para uma ligação VNet do Gestor** de Recursos para configurar uma ligação VPN.
 
-Se uma das redes virtuais foi criada por meio do modelo de implantação clássico do Azure e a outra foi criada por meio do Resource Manager, selecione **configurar e validar uma vnet clássica para uma conexão vnet do Gerenciador de recursos** para configurar uma conexão VPN.
+Se uma das redes virtuais foi criada através do modelo de implantação clássico do Azure, e a outra foi criada através do Gestor de Recursos, **selecione Configure e valide uma vNet clássica a uma ligação VNet de Gestor de Recursos** para configurar uma ligação VPN.
 
-### <a name="configure-virtual-network-peering-for-two-virtual-networks-in-the-same-region"></a>Configurar o emparelhamento de rede virtual para duas redes virtuais na mesma região
+### <a name="configure-virtual-network-peering-for-two-virtual-networks-in-the-same-region"></a>Configure o peering da rede virtual para duas redes virtuais na mesma região
 
-Antes de começar a implementar e configurar o emparelhamento de rede virtual do Azure, certifique-se de atender aos seguintes pré-requisitos:
+Antes de começar a implementar e configurar o peering da rede virtual Azure, certifique-se de que cumpre os seguintes pré-requisitos:
 
 * As redes virtuais no modo de peering têm de estar na mesma região do Azure.
-* As redes virtuais emparelhadas devem ter espaços de endereço IP que não se sobrepõem.
-* O peering de rede virtual é feito entre duas redes virtuais. Não há nenhuma relação transitiva derivada entre emparelhamentos. Por exemplo, se VNetA estiver emparelhado com VNetB e VNetB estiver emparelhado com VNetC, VNetA *não* será emparelhado com VNetC.
+* As redes virtuais espreitadas devem ter espaços de endereço IP que não se sobrepõem.
+* O peering de rede virtual é feito entre duas redes virtuais. Não há uma relação transitiva derivada entre os pares. Por exemplo, se a VNetA for espreitada com VNetB, e vNetB for espreitada com VNetC, vNetA *não* é espreitada com VNetC.
 
-Ao atender aos requisitos, você pode seguir [o tutorial: Conecte redes virtuais com o emparelhamento de rede virtual usando o portal do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) para criar e configurar o emparelhamento.
+Quando cumprir os requisitos, pode seguir o [Tutorial: Conectar redes virtuais com o peering de rede virtual utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) para criar e configurar o peering.
 
-Para verificar a configuração de emparelhamento, use o seguinte método:
+Para verificar a configuração do peering, utilize o seguinte método:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions)necessárias.
-2. Na caixa que contém os recursos de **pesquisa** de texto na parte superior do portal, digite **redes virtuais**. Quando **redes virtuais** aparecerem nos resultados da pesquisa, selecione-as.
-3. Na folha **redes virtuais** que aparece, selecione a rede virtual para a qual você deseja criar um emparelhamento.
-4. No painel que aparece para a rede virtual, selecione **emparelhamentos** na seção **configurações** .
-5. Selecione um emparelhamento e exiba os resultados da configuração.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta que tenha as [funções e permissões necessárias.](virtual-network-manage-peering.md#permissions)
+2. Na caixa que contém os recursos de **pesquisa** de texto no topo do portal, digite **redes virtuais.** Quando **as redes Virtuais** aparecerem nos resultados da pesquisa, selecione-as.
+3. Na lâmina de **redes Virtuais** que aparece, selecione a rede virtual para a qual pretende criar um epeering.
+4. No painel que aparece para a rede virtual, selecione **Peerings** na secção **Definições.**
+5. Selecione um olhar e veja os resultados da configuração.
 
-![Seleções para verificar a configuração de emparelhamento de rede virtual](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
+![Seleções para verificar a configuração de peering de rede virtual](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Para Azure PowerShell, execute o comando [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) para obter o emparelhamento de rede virtual. Segue-se um exemplo:
+Para o Azure PowerShell, execute o comando [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) para obter o peering da rede virtual. Segue-se um exemplo:
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -87,178 +87,178 @@ RemoteGateways                   : null
 RemoteVirtualNetworkAddressSpace : null
 ```
 
-### <a name="connect-a-resource-manager-virtual-network-to-another-resource-manager-virtual-network"></a>Conectar uma rede virtual do Resource Manager a outra rede virtual do Resource Manager
+### <a name="connect-a-resource-manager-virtual-network-to-another-resource-manager-virtual-network"></a>Ligue uma rede virtual do Gestor de Recursos a outra rede virtual do Gestor de Recursos
 
-Você pode configurar uma conexão de uma rede virtual do Gerenciador de recursos para outra rede virtual do Resource Manager diretamente. Ou você pode configurar a conexão usando o IPsec.
+Pode configurar uma ligação de uma rede virtual do Gestor de Recursos para outra rede virtual do Gestor de Recursos diretamente. Ou pode configurar a ligação utilizando o IPsec.
 
-### <a name="configure-a-vpn-connection-between-resource-manager-virtual-networks"></a>Configurar uma conexão VPN entre as redes virtuais do Gerenciador de recursos
+### <a name="configure-a-vpn-connection-between-resource-manager-virtual-networks"></a>Configure uma ligação VPN entre redes virtuais do Gestor de Recursos
 
-Para configurar uma conexão entre as redes virtuais do Gerenciador de recursos sem IPsec, consulte [Configurar uma conexão de gateway de VPN de rede para rede usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+Para configurar uma ligação entre redes virtuais do Gestor de Recursos sem IPsec, consulte [configurar uma ligação vpn de rede para rede utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
-Para configurar uma conexão com IPsec entre duas redes virtuais do Gerenciador de recursos, siga as etapas 1 a 5 em [criar uma conexão site a site no portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) para cada rede virtual.
+Para configurar uma ligação com o IPsec entre duas redes virtuais do Gestor de Recursos, siga os passos 1 a 5 em [Criar uma ligação site-a-site no portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) para cada rede virtual.
 
 > [!Note]
-> Essas etapas funcionam apenas para redes virtuais na mesma assinatura. Se suas redes virtuais estiverem em assinaturas diferentes, você deverá usar o PowerShell para fazer a conexão. Consulte o artigo [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps).
+> Estes passos funcionam apenas para redes virtuais na mesma subscrição. Se as suas redes virtuais estiverem em subscrições diferentes, tem de utilizar o PowerShell para efazer a ligação. Consulte o artigo [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps).
 
-### <a name="validate-the-vpn-connection-between-resource-manager-virtual-networks"></a>Validar a conexão VPN entre as redes virtuais do Gerenciador de recursos
+### <a name="validate-the-vpn-connection-between-resource-manager-virtual-networks"></a>Validar a ligação VPN entre redes virtuais do Gestor de Recursos
 
-![Conexão de rede virtual clássica para uma rede virtual Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034493_en_2.png)
+![Conexão clássica de rede virtual a uma rede virtual do Gestor de Recursos Azure](./media/virtual-network-configure-vnet-connections/4034493_en_2.png)
 
-Para verificar se a conexão VPN está configurada corretamente, siga estas instruções.
-
-> [!Note] 
-> Os números após os componentes de rede virtual nessas etapas correspondem aos números no diagrama anterior.
-
-1. Verifique se não há espaços de endereço sobrepostos nas redes virtuais conectadas.
-2. Verifique se o intervalo de endereços para a rede virtual Azure Resource Manager (1) está definido com precisão na instância do **objeto de conexão** (4).
-3. Verifique se o intervalo de endereços para a rede virtual de Azure Resource Manager (6) está definido com precisão na instância do **objeto de conexão** (3).
-4. Verifique se as chaves pré-compartilhadas estão combinando nos objetos de conexão.
-5. Verifique se o VIP do gateway de rede virtual Azure Resource Manager (2) está definido com precisão na instância do **objeto de conexão** (4).
-6. Verifique se o VIP do gateway de rede virtual Azure Resource Manager (5) está definido com precisão na instância do **objeto de conexão** (3).
-
-### <a name="connect-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Conectar uma rede virtual clássica a uma rede virtual do Resource Manager
-
-Você pode criar uma conexão entre redes virtuais que estão em assinaturas diferentes e em regiões diferentes. Você também pode conectar redes virtuais que já têm conexões com redes locais, desde que você tenha configurado o tipo de gateway como baseado em rota.
-
-Para configurar uma conexão entre uma rede virtual clássica e uma rede virtual do Resource Manager, consulte [conectar redes virtuais de diferentes modelos de implantação usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
-
-![Conexão de rede virtual clássica para uma rede virtual Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
-
-Para verificar a configuração ao conectar uma rede virtual clássica a uma Azure Resource Manager rede virtual, siga estas instruções.
+Para verificar se a sua ligação VPN está corretamente configurada, siga estas instruções.
 
 > [!Note] 
-> Os números após os componentes de rede virtual nessas etapas correspondem aos números no diagrama anterior. 
+> Os números após os componentes de rede virtuais nestes passos correspondem aos números do diagrama anterior.
 
-1. Verifique se não há espaços de endereço sobrepostos nas redes virtuais conectadas.
-2. Verifique se o intervalo de endereços para a rede virtual de Azure Resource Manager (6) está definido com precisão na definição de rede local clássica (3).
-3. Verifique se o intervalo de endereços da rede virtual clássica (1) está definido com precisão na instância do **objeto de conexão** Azure Resource Manager (4).
-4. Verifique se o VIP (2) do gateway de rede virtual clássica está definido com precisão na instância do **objeto de conexão** Azure Resource Manager (4).
-5. Verifique se o gateway de rede virtual Azure Resource Manager (5) está definido com precisão na instância de **definição de rede local** clássica (3).
-6. Verifique se as chaves pré-compartilhadas estão combinando em ambas as redes virtuais conectadas:
-   - Rede virtual clássica: **Definição de rede local** Beta
-   - Azure Resource Manager rede virtual: **Objeto de conexão** quatro
+1. Certifique-se de que não existem espaços de endereços sobrepostos nas redes virtuais conectadas.
+2. Verifique se a gama de endereços da rede virtual do Gestor de Recursos Azure (1) é definida com precisão na instância do **objeto de ligação** (4).
+3. Verifique se a gama de endereços da rede virtual do Gestor de Recursos Azure (6) é definida com precisão na instância do **objeto de ligação** (3).
+4. Verifique se as teclas pré-partilhadas estão a condizer com os objetos de ligação.
+5. Verifique se o gateway de rede virtual DO Gestor de Recursos Azure VIP (2) é definido com precisão na instância do **objeto de ligação** (4).
+6. Verifique se o gateway de rede virtual DO Gestor de Recursos Azure VIP (5) é definido com precisão na instância do **objeto de ligação** (3).
 
-## <a name="create-a-point-to-site-vpn-connection"></a>Criar uma conexão VPN ponto a site
+### <a name="connect-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Ligue uma rede virtual clássica a uma rede virtual do Gestor de Recursos
 
-Uma configuração ponto a site (*P2S* no diagrama a seguir) permite que você crie uma conexão segura de um computador cliente individual para uma rede virtual. As conexões ponto a site são úteis quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência. Eles também são úteis quando você tem apenas alguns clientes que precisam se conectar a uma rede virtual. 
+Pode criar uma ligação entre redes virtuais que estão em diferentes subscrições e em diferentes regiões. Também pode ligar redes virtuais que já têm ligações a redes no local, desde que tenha configurado o tipo de gateway como baseado em rotas.
 
-A conexão VPN ponto a site é iniciada no computador cliente por meio do cliente VPN do Windows nativo. Os clientes de ligação utilizam certificados para autenticar.
+Para configurar uma ligação entre uma rede virtual clássica e uma rede virtual do Gestor de Recursos, consulte [redes virtuais Connect de diferentes modelos de implementação utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
+
+![Conexão clássica de rede virtual a uma rede virtual do Gestor de Recursos Azure](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+
+Para verificar a configuração quando ligar uma rede virtual clássica a uma rede virtual do Gestor de Recursos Azure, siga estas instruções.
+
+> [!Note] 
+> Os números após os componentes de rede virtuais nestes passos correspondem aos números do diagrama anterior. 
+
+1. Certifique-se de que não existem espaços de endereços sobrepostos nas redes virtuais conectadas.
+2. Verifique se a gama de endereços da rede virtual Do Gestor de Recursos Azure (6) é definida com precisão na definição clássica de rede local (3).
+3. Verifique se a gama de endereços para a rede virtual clássica (1) é definida com precisão na instância de objeto seletiva de **ligação** ao gestor de recursos do Azure (4).
+4. Verifique se o gateway de rede virtual clássico VIP (2) é definido com precisão na instância de objeto de **ligação** do Gestor de Recursos Azure (4).
+5. Verifique se o portal de rede virtual do Gestor de Recursos Azure (5) é definido com precisão na clássica instância de **Definição** de Rede Local (3).
+6. Verifique se as teclas pré-partilhadas estão a condizer em ambas as redes virtuais conectadas:
+   - Rede virtual clássica: **Definição** de Rede Local (3)
+   - Rede virtual do Gestor de Recursos Azure: Objeto de **ligação** (4)
+
+## <a name="create-a-point-to-site-vpn-connection"></a>Criar uma ligação VPN ponto-a-local
+
+Uma configuração ponto-a-local *(P2S* no diagrama seguinte) permite criar uma ligação segura de um computador cliente individual para uma rede virtual. As ligações ponto-a-local são úteis quando pretende ligar-se à sua rede virtual a partir de um local remoto, como em casa ou numa conferência. Também são úteis quando se tem apenas alguns clientes que precisam de se conectar a uma rede virtual. 
+
+A ligação VPN ponto-a-site é iniciada a partir do computador cliente através do cliente VPN nativo do Windows. Os clientes de ligação utilizam certificados para autenticar.
 
 ![Ligação Site a Site](./media/virtual-network-configure-vnet-connections/4034387_en_3.png)
 
-As conexões ponto a site não exigem um dispositivo VPN. Eles criam a conexão VPN sobre SSTP (Secure Socket encapsulating Protocol). Você pode conectar uma conexão ponto a site a uma rede virtual usando várias ferramentas de implantação e modelos de implantação:
+As ligações ponto-a-local não requerem um dispositivo VPN. Criam a ligação VPN sobre o Protocolo de Túnel de Tomada Segura (SSTP). Pode ligar uma ligação ponto-a-local a uma rede virtual utilizando várias ferramentas de implementação e modelos de implementação:
 
-* [Configurar uma conexão ponto a site com uma rede virtual usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
-* [Configurar uma conexão ponto a site com uma rede virtual usando o portal do Azure (clássico)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal)
-* [Configurar uma conexão ponto a site com uma rede virtual usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+* [Configure uma ligação ponto-a-local a uma rede virtual utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [Configure uma ligação ponto-a-local a uma rede virtual utilizando o portal Azure (clássico)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal)
+* [Configure uma ligação ponto-a-local a uma rede virtual utilizando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
-### <a name="validate-your-point-to-site-connection"></a>Validar sua conexão ponto a site
+### <a name="validate-your-point-to-site-connection"></a>Validar a sua ligação ponto-a-local
 
-O artigo [solução de problemas: Os problemas](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems) de conexão de ponto a site do Azure orientam os problemas comuns com conexões ponto a site.
+O artigo Resolução de [problemas: Os problemas de ligação ponto-a-local do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems) passam por questões comuns com ligações ponto-a-local.
 
-## <a name="create-a-multisite-vpn-connection"></a>Criar uma conexão VPN multissite
+## <a name="create-a-multisite-vpn-connection"></a>Criar uma ligação VPN multilocal
 
-Você pode adicionar uma conexão site a site (*S2S* no diagrama a seguir) a uma rede virtual que já tenha uma conexão site a site, uma conexão ponto a site ou uma conexão de rede para rede. Esse tipo de conexão é geralmente chamado de configuração *multissite* . 
+Pode adicionar uma ligação site-a-site *(S2S* no diagrama seguinte) a uma rede virtual que já tem uma ligação site-a-site, ligação ponto-a-local ou ligação rede-a-rede. Este tipo de ligação é muitas vezes chamada de configuração *multilocal.* 
 
-![Conexão multissite](./media/virtual-network-configure-vnet-connections/4034497_en_2.png)
+![Conexão multilocal](./media/virtual-network-configure-vnet-connections/4034497_en_2.png)
 
-Atualmente, o Azure funciona com dois modelos de implantação: Resource Manager e clássico. Os dois modelos não são totalmente compatíveis entre si. Para configurar uma conexão multissite com modelos diferentes, consulte os seguintes artigos:
+O Azure funciona atualmente com dois modelos de implementação: Resource Manager e clássica. Os dois modelos não são completamente compatíveis um com o outro. Para configurar uma ligação multi-local com diferentes modelos, consulte os seguintes artigos:
 
-* [Adicionar uma conexão site a site a uma rede virtual com uma conexão de gateway de VPN existente](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal)
-* [Adicionar uma conexão site a site a uma rede virtual com uma conexão de gateway de VPN existente (clássica)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)
-
-> [!Note]
-> As etapas nesses artigos não se aplicam às configurações de conexão coexistentes do Azure ExpressRoute e site a site. Para obter mais informações, consulte [ExpressRoute e conexões coexistentes site a site](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
-
-## <a name="configure-transit-routing"></a>Configurar roteamento de trânsito
-
-O roteamento de trânsito é um cenário de roteamento específico em que você conecta várias redes em uma topologia de rede de Margarida. Esse roteamento permite que os recursos em redes virtuais em qualquer extremidade da cadeia se comuniquem entre si por meio de redes virtuais entre elas. Sem roteamento de trânsito, redes ou dispositivos emparelhados por meio de um Hub não podem alcançar um ao outro.
-
-### <a name="configure-transit-routing-in-a-point-to-site-connection"></a>Configurar o roteamento de trânsito em uma conexão ponto a site
-
-Imagine um cenário no qual você deseja configurar uma conexão VPN site a site entre VNetA e VNetB. Você também deseja configurar uma VPN ponto a site para o cliente se conectar ao gateway de VNetA. Em seguida, você deseja habilitar o roteamento de trânsito para os clientes ponto a site se conectarem ao VNetB, que passa pelo VNetA. 
-
-Esse cenário tem suporte quando o BGP está habilitado na VPN site a site entre VNetA e VNetB. Para obter mais informações, consulte [sobre o roteamento de VPN ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing).
-
-### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Configurar o roteamento de trânsito em uma conexão do ExpressRoute
-
-O Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada dedicada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365. Para obter mais informações, consulte [visão geral do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
-
-![Conexão de emparelhamento privado do ExpressRoute para redes virtuais do Azure](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
+* [Adicione uma ligação site-a-site a uma rede virtual com uma conexão de gateway VPN existente](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal)
+* [Adicione uma ligação site-a-site a uma rede virtual com uma conexão de gateway VPN existente (clássica)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)
 
 > [!Note]
-> Recomendamos que, se VNetA e VNetB estiverem na mesma região de geopolítica, você [vincular ambas as redes virtuais ao circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm) em vez de configurar o roteamento de trânsito. Se suas redes virtuais estiverem em regiões geopolítica diferentes, você também poderá vinculá-las ao seu circuito diretamente se tiver o [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium). 
+> Os passos nesses artigos não se aplicam às configurações de ligação do Azure ExpressRoute e do site-a-site. Para mais informações, consulte [expressRoute e ligações coexistentes site-to-site](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
-Se você tiver a coexistência de ExpressRoute e site a site, o roteamento de trânsito não terá suporte. Para obter mais informações, consulte [Configurar o ExpressRoute e site a site usando o PowerShell](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
+## <a name="configure-transit-routing"></a>Configure o encaminhamento de trânsito
 
-Se você tiver habilitado o ExpressRoute para conectar suas redes locais a uma rede virtual do Azure, poderá habilitar o emparelhamento entre as redes virtuais em que você deseja ter roteamento de trânsito. Para permitir que suas redes locais se conectem à rede virtual remota, você deve configurar o [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity). 
+O encaminhamento de trânsito é um cenário específico de encaminhamento onde se conectam várias redes numa topologia da cadeia de margaridas. Este encaminhamento permite que os recursos em redes virtuais em cada extremidade da cadeia se comuniquem entre si através de redes virtuais pelo meio. Sem o encaminhamento de trânsito, redes ou dispositivos espreitados através de um hub não podem alcançar uns aos outros.
 
-> [!Note]
-> O emparelhamento de rede virtual está disponível somente para redes virtuais na mesma região.
+### <a name="configure-transit-routing-in-a-point-to-site-connection"></a>Configure o encaminhamento de trânsito numa ligação ponto-a-local
 
-Para verificar se você configurou o roteamento de trânsito para o emparelhamento de rede virtual, siga estas instruções:
+Imagine um cenário em que pretende configurar uma ligação VPN site-to-site entre VNetA e VNetB. Também pretende configurar uma VPN ponto-a-local para o cliente se ligar à porta de entrada da VNetA. Em seguida, pretende permitir o encaminhamento de trânsito para que os clientes ponto-a-site se conectem ao VNetB, que passa pela VNetA. 
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions)necessárias.
-2. [Crie um emparelhamento entre VNetA e VNetB](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) , conforme mostrado no diagrama anterior. 
-3. No painel que aparece para a rede virtual, selecione **emparelhamentos** na seção **configurações** .
-4. Selecione o emparelhamento que você deseja exibir. Em seguida, selecione **configuração** para validar que você habilitou **permitir** que o gateway esteja em trânsito na rede VNetA conectada ao circuito do Expressroute e **use o gateway remoto** na rede VNetB remota não conectada ao ExpressRoute elétrico.
+Este cenário é suportado quando o BGP está ativado no site-to-site VPN entre VNetA e VNetB. Para mais informações, consulte [sobre o encaminhamento VPN ponto-a-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing).
 
-### <a name="configure-transit-routing-in-a-virtual-network-peering-connection"></a>Configurar o roteamento de trânsito em uma conexão de emparelhamento de rede virtual
+### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Configure o encaminhamento de trânsito numa ligação ExpressRoute
 
-Quando as redes virtuais estão em modo de peering, pode, igualmente, configurar o gateway na rede virtual em modo de peering como um ponto de trânsito para uma rede no local. Para configurar uma rota de trânsito no emparelhamento de rede virtual, consulte conexões de rede [para rede](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=/azure/virtual-network/toc.json).
+O Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada dedicada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365. Para obter mais informações, veja [Descrição geral do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+
+![Ligação privada expressRoute às redes virtuais azure](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 
 > [!Note]
-> O tráfego de gateway não tem suporte na relação de emparelhamento entre redes virtuais criadas por meio de modelos de implantação diferentes. Ambas as redes virtuais na relação de emparelhamento devem ter sido criadas por meio do Gerenciador de recursos para que o gateway funcione.
+> Recomendamos que se vNetA e VNetB estiverem na mesma região geopolítica, você [liga ambas as redes virtuais ao circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm) em vez de configurar o encaminhamento de trânsito. Se as suas redes virtuais estiverem em diferentes regiões geopolíticas, também pode ligá-las diretamente ao seu circuito se tiver [o ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium). 
 
-Para verificar se você configurou uma rota de trânsito para o emparelhamento de rede virtual, siga estas instruções:
+Se tiver a ExpressRoute e a coexistência local-a-local, o encaminhamento de trânsito não é suportado. Para mais informações, consulte [configure ExpressRoute e site-to-site utilizando powerShell](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions)necessárias.
-2. Na caixa que contém os recursos de **pesquisa** de texto na parte superior do portal, digite **redes virtuais**. Quando **redes virtuais** aparecerem nos resultados da pesquisa, selecione-as.
-3. Na folha **redes virtuais** que aparece, selecione a rede virtual para a qual você deseja verificar a configuração de emparelhamento.
-4. No painel que aparece para a rede virtual que você selecionou, selecione **emparelhamentos** na seção **configurações** .
-5. Selecione o emparelhamento que você deseja exibir. Valide se você habilitou **Permitir trânsito de gateway** e **usa gateways remotos** em **configuração**.
-
-![Seleções para verificar se você configurou uma rota de trânsito para o emparelhamento de rede virtual](./media/virtual-network-configure-vnet-connections/4035414_en_1.png)
-
-### <a name="configure-transit-routing-in-a-network-to-network-connection"></a>Configurar o roteamento de trânsito em uma conexão de rede para rede
-
-Para configurar o roteamento de trânsito entre redes virtuais, você deve habilitar o BGP em todas as conexões de rede para rede intermediárias usando o modelo de implantação do Gerenciador de recursos e o PowerShell. Para obter instruções, consulte [como configurar o BGP em gateways de VPN do Azure usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
-
-O tráfego de trânsito por meio de gateways de VPN do Azure é possível por meio do modelo de implantação clássico, mas isso depende de espaços de endereço estaticamente definidos no arquivo de configuração de rede. O BGP ainda não tem suporte com redes virtuais do Azure e gateways de VPN por meio do modelo de implantação clássico. Sem o BGP, definir manualmente espaços de endereço de trânsito é propenso a erros e não é recomendável.
+Se permitiu que o ExpressRoute ligasse as suas redes locais a uma rede virtual Azure, pode permitir o peering entre as redes virtuais onde pretende ter encaminhamento de trânsito. Para permitir que as suas redes locais se conectem à rede virtual remota, tem de configurar [o peering de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity). 
 
 > [!Note]
-> Configure conexões de rede para rede clássicas usando o portal clássico do Azure ou usando um arquivo de configuração de rede no portal clássico. Você não pode criar ou modificar uma rede virtual clássica por meio do modelo de implantação Azure Resource Manager ou do portal do Azure. Para obter mais informações sobre roteamento de trânsito para redes virtuais clássicas, consulte o [blog do desenvolvedor da Microsoft](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
+> O epeering de rede virtual está disponível apenas para redes virtuais na mesma região.
 
-### <a name="configure-transit-routing-in-a-site-to-site-connection"></a>Configurar o roteamento de trânsito em uma conexão site a site
+Para verificar se configurao encaminhamento de trânsito para o epeering virtual da rede, siga estas instruções:
 
-Para configurar o roteamento de trânsito entre sua rede local e uma rede virtual com uma conexão site a site, você deve habilitar o BGP em todas as conexões intermediárias site a site usando o modelo de implantação do Gerenciador de recursos e o PowerShell. Consulte [como configurar o BGP em gateways de VPN do Azure usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps) para obter instruções.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta que tenha as [funções e permissões necessárias.](virtual-network-manage-peering.md#permissions)
+2. [Crie um olhar entre VNetA e VNetB,](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) como mostrado no diagrama anterior. 
+3. No painel que aparece para a rede virtual, selecione **Peerings** na secção **Definições.**
+4. Selecione o epeering que deseja ver. Em seguida, selecione **Configuração** para validar que ativou **permitir o trânsito** de gateway na rede VNetA ligada ao circuito ExpressRoute e utilize gateway **remoto** na rede VNetB remota não ligada ao circuito ExpressRoute.
 
-O tráfego de trânsito por meio de gateways de VPN do Azure é possível por meio do modelo de implantação clássico, mas isso depende de espaços de endereço estaticamente definidos no arquivo de configuração de rede. O BGP ainda não tem suporte com redes virtuais do Azure e gateways de VPN por meio do modelo de implantação clássico. Sem o BGP, definir manualmente espaços de endereço de trânsito é propenso a erros e não é recomendável.
+### <a name="configure-transit-routing-in-a-virtual-network-peering-connection"></a>Configure o encaminhamento de trânsito numa ligação virtual de peering de rede
+
+Quando as redes virtuais estão em modo de peering, pode, igualmente, configurar o gateway na rede virtual em modo de peering como um ponto de trânsito para uma rede no local. Para configurar uma rota de trânsito no peering de rede virtual, consulte [as ligações Rede-a-rede](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=/azure/virtual-network/toc.json).
 
 > [!Note]
-> Configure conexões site a site clássicas usando o portal clássico do Azure ou usando um arquivo de configuração de rede no portal clássico. Você não pode criar ou modificar uma rede virtual clássica por meio do modelo de implantação Azure Resource Manager ou do portal do Azure. Para obter mais informações sobre roteamento de trânsito para redes virtuais clássicas, consulte o [blog do desenvolvedor da Microsoft](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
+> O trânsito gateway não é suportado na relação de pares entre redes virtuais criadas através de diferentes modelos de implementação. Ambas as redes virtuais na relação de peering devem ter sido criadas através do Gestor de Recursos para o trânsito de gateway para funcionar.
+
+Para verificar se configurauma rota de trânsito para o epeering virtual da rede, siga estas instruções:
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta que tenha as [funções e permissões necessárias.](virtual-network-manage-peering.md#permissions)
+2. Na caixa que contém os recursos de **pesquisa** de texto no topo do portal, digite **redes virtuais.** Quando **as redes Virtuais** aparecerem nos resultados da pesquisa, selecione-as.
+3. Na lâmina de **redes Virtuais** que aparece, selecione a rede virtual para a qual pretende verificar a definição de peering.
+4. No painel que aparece para a rede virtual que selecionou, selecione **Peerings** na secção **Definições.**
+5. Selecione o olhar que pretende ver. Valide que ativou **permitir o trânsito** de gateway e utilize **gateways remotos** sob **configuração**.
+
+![Seleções para verificar se configurauma rota de trânsito para o peering de rede virtual](./media/virtual-network-configure-vnet-connections/4035414_en_1.png)
+
+### <a name="configure-transit-routing-in-a-network-to-network-connection"></a>Configure o encaminhamento de trânsito numa ligação rede-rede
+
+Para configurar o encaminhamento de trânsito entre redes virtuais, deve ativar o BGP em todas as ligações intermédias de rede-rede utilizando o modelo de implementação do Gestor de Recursos e o PowerShell. Para obter instruções, consulte [Como configurar bGP nos gateways Azure VPN utilizando powerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
+
+O tráfego de trânsito através dos portões Azure VPN é possível através do modelo de implementação clássico, mas que se baseia em espaços de endereço státicamente definidos no ficheiro de configuração da rede. O BGP ainda não é suportado com redes virtuais Azure e gateways VPN através do modelo de implementação clássico. Sem BGP, definir manualmente os espaços de endereço de trânsito é propenso a erros, e não o recomendamos.
+
+> [!Note]
+> Configura as ligações clássicas de rede-rede utilizando o portal clássico Azure, ou utilizando um ficheiro de configuração de rede no portal clássico. Não é possível criar ou modificar uma rede virtual clássica através do modelo de implementação do Gestor de Recursos Azure ou do portal Azure. Para obter mais informações sobre o encaminhamento de trânsito para redes virtuais clássicas, consulte o [blog Microsoft Developer](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
+
+### <a name="configure-transit-routing-in-a-site-to-site-connection"></a>Configure o encaminhamento de trânsito numa ligação site-a-local
+
+Para configurar o encaminhamento de trânsito entre a sua rede no local e uma rede virtual com uma ligação site-to-site, deve ativar o BGP em todas as ligações intermédias do site-para-local utilizando o modelo de implementação do Gestor de Recursos e a PowerShell. Consulte [como configurar bGP nos portões Azure VPN utilizando](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps) o PowerShell para obter instruções.
+
+O tráfego de trânsito através dos portões Azure VPN é possível através do modelo de implementação clássico, mas que se baseia em espaços de endereço státicamente definidos no ficheiro de configuração da rede. O BGP ainda não é suportado com redes virtuais Azure e gateways VPN através do modelo de implementação clássico. Sem BGP, definir manualmente os espaços de endereço de trânsito é propenso a erros, e não o recomendamos.
+
+> [!Note]
+> Configura as ligações clássicas site-to-site utilizando o portal clássico Azure, ou utilizando um ficheiro de configuração de rede no portal clássico. Não é possível criar ou modificar uma rede virtual clássica através do modelo de implementação do Gestor de Recursos Azure ou do portal Azure. Para obter mais informações sobre o encaminhamento de trânsito para redes virtuais clássicas, consulte o [blog Microsoft Developer](https://blogs.msdn.microsoft.com/igorpag/2015/10/01/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-using-vpn-v1/).
 
 ## <a name="configure-bgp-for-a-vpn-gateway"></a>Configurar o BGP para um gateway de VPN
 
-O BGP é o protocolo de roteamento padrão usado na Internet para trocar informações de roteamento e acessibilidade entre duas ou mais redes. Quando o BGP é usado no contexto de redes virtuais do Azure, ele habilita os gateways de VPN do Azure e seus dispositivos VPN locais, conhecidos como vizinhos ou pares de BGP. Eles trocam "rotas" que informarão os dois gateways sobre a disponibilidade e a acessibilidade para que esses prefixos passem pelos gateways ou roteadores envolvidos. 
+BGP é o protocolo padrão de encaminhamento usado na internet para trocar informações de encaminhamento e alcance entre duas ou mais redes. Quando o BGP é utilizado no contexto das redes virtuais Azure, permite os gateways VPN Azure e os seus dispositivos VPN no local, conhecidos como pares de BGP ou vizinhos. Trocam "rotas" que informarão tanto os gateways sobre a disponibilidade e a capacidade de acesso para que esses prefixos passem pelos gateways ou routers envolvidos. 
 
-O BGP também pode habilitar o roteamento de trânsito entre várias redes propagando rotas que um gateway de BGP aprende de um par de BGP para todos os outros pares de BGP. Para obter mais informações, consulte [visão geral do BGP com o gateway de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview).
+O BGP também pode permitir o encaminhamento de trânsito entre várias redes, propagando rotas que um gateway BGP aprende de um par de BGP para todos os outros pares do BGP. Para mais informações, consulte a [visão geral do BGP com o Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview).
 
-### <a name="configure-bgp-for-a-vpn-connection"></a>Configurar o BGP para uma conexão VPN
+### <a name="configure-bgp-for-a-vpn-connection"></a>Configure BGP para uma ligação VPN
 
-Para configurar uma conexão VPN que usa o BGP, consulte [como configurar o BGP em gateways de VPN do Azure usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
+Para configurar uma ligação VPN que utiliza BGP, consulte [como configurar bGP em gateways VPN Azure utilizando powerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
 
-Habilite o BGP no gateway de rede virtual criando um número de sistema autônomo (AS) para ele. Os gateways básicos não dão suporte a BGP. Para verificar a SKU do gateway, vá para a seção **visão geral** da folha **Gateway de VPN** no portal do Azure. Se sua SKU for **básica**, você precisará alterar a SKU (consulte [redimensionando o gateway](https://docs.microsoft.com/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)) para **VpnGw1**. 
+Ative o BGP na porta de entrada da rede virtual, criando um número de sistema autónomo (AS) para o mesmo. Os portões básicos não suportam o BGP. Para verificar o SKU do portal gateway, vá à secção **de visão geral** da lâmina **VPN Gateway** no portal Azure. Se o seu SKU for **Básico,** tem de mudar o SKU (ver [Redimensionar a porta](https://docs.microsoft.com/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)de entrada) para **VpnGw1**. 
 
-A verificação da SKU causará 20 a 30 minutos de tempo de inatividade. Assim que o gateway tiver a SKU correta, você poderá adicionar o número de as usando o commandlet do PowerShell [set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) . Depois de configurar o número as, um IP de par de BGP para o gateway será fornecido automaticamente.
+Verificar o SKU causará 20 a 30 minutos de tempo de inatividade. Assim que o portal tiver o SKU correto, pode adicionar o número AS utilizando o comando [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) PowerShell. Depois de configurar o número AS, será fornecido automaticamente um IP de pares BGP para o gateway.
 
-Você deve fornecer `LocalNetworkGateway` manualmente com um número de as e um endereço de par de BGP. Você pode definir os `ASN` valores `-BgpPeeringAddress` e usando o commandlet do PowerShell [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) ou [set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) . Alguns números AS são reservados para o Azure e você não pode usá-los conforme descrito em [sobre o BGP com o gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
+Deve fornecer `LocalNetworkGateway` manualmente um número AS e um endereço de pares BGP. Pode definir `ASN` os `-BgpPeeringAddress` valores e valores utilizando o [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) ou o comando [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) PowerShell. Alguns números AS estão reservados para O Azure, e não pode usá-los como descrito em [Sobre BGP com Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
 
-O objeto de conexão deve ter o BGP habilitado. Você pode definir o `-EnableBGP` valor para `$True` por meio de [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) ou [set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
+O objeto de ligação deve ter BGP ativado. Pode definir `-EnableBGP` o `$True` valor através do [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) ou [do Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
 
-### <a name="validate-the-bgp-configuration"></a>Validar a configuração de BGP
+### <a name="validate-the-bgp-configuration"></a>Validar a configuração do BGP
 
-Para verificar se o BGP está configurado corretamente, você pode executar `get-AzureRmVirtualNetworkGateway` o `get-AzureRmLocalNetworkGateway` e o commandlets. Em seguida, você notará a `BgpSettingsText` saída relacionada ao BGP na parte. Por exemplo:
+Para verificar se o BGP está configurado `get-AzureRmVirtualNetworkGateway` corretamente, pode executar os comandos e `get-AzureRmLocalNetworkGateway` comandos. Em seguida, você vai notar a `BgpSettingsText` saída relacionada com BGP na peça. Por exemplo:
 
 ```
 {
@@ -272,37 +272,37 @@ Para verificar se o BGP está configurado corretamente, você pode executar `get
 }
 ```
 
-## <a name="create-a-highly-available-activeactive-vpn-connection"></a>Criar uma conexão VPN ativa/ativa altamente disponível
+## <a name="create-a-highly-available-activeactive-vpn-connection"></a>Criar uma ligação VPN ativa/ativa altamente disponível
 
-As principais diferenças entre os gateways ativo/ativo e ativo/em espera são:
+As principais diferenças entre os gateways ativos/ativos e ativos/ativos/de espera são:
 
-* Você deve criar duas configurações de IP de gateway com dois endereços IP públicos.
-* Você deve definir o sinalizador **EnableActiveActiveFeature** .
-* A SKU do gateway deve ser **VpnGw1**, **VpnGw2**ou **VpnGw3**.
+* Deve criar duas configurações IP de gateway com dois endereços IP públicos.
+* Tem de definir a bandeira **EnableActiveActiveFeature.**
+* O gateway SKU deve ser **VpnGw1,** **VpnGw2**, ou **VpnGw3**.
 
-Para obter alta disponibilidade para conectividade entre locais e de rede para rede, você deve implantar vários gateways de VPN e estabelecer várias conexões paralelas entre suas redes e o Azure. Para obter uma visão geral das opções de conectividade e topologia, consulte [conectividade altamente disponível entre locais e de rede para rede](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable).
+Para obter uma elevada disponibilidade para as instalações cruzadas e conectividade rede-rede, deverá implementar vários gateways VPN e estabelecer múltiplas ligações paralelas entre as suas redes e o Azure. Para uma visão geral das opções de conectividade e topologia, consulte as [instalações transversais altamente disponíveis e a conectividade rede-rede.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
 
-Para criar conexões ativas/ativas entre locais e de rede para rede, siga as instruções em [Configurar conexões VPN S2S ativas/ativas com gateways de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-activeactive-rm-powershell) para configurar um gateway de VPN do Azure no modo ativo/ativo.
+Para criar instalações cruzadas ativas/ativas e ligações de rede-rede, siga as instruções em [ligações S2S VPN ativas/ativas com gateways VPN Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-activeactive-rm-powershell) para configurar um gateway VpN Azure em modo ativo/ativo.
 
 > [!Note]  
-> * Ao adicionar endereços ao gateway de rede local para o modo ativo/ativo habilitado para BGP, *adicione somente os endereços/32 dos pares BGP*. Se você adicionar mais endereços, eles serão considerados rotas estáticas e terão precedência sobre rotas BGP.
-> * Você deve usar BGP diferentes como números para suas redes locais que estão se conectando ao Azure. (Se eles forem os mesmos, você precisará alterar sua rede virtual como número se o dispositivo VPN local já usa o ASN para emparelhar com outros vizinhos de BGP.)
+> * Quando adicionar endereços à porta de entrada de rede local para o modo ativo/ativo ativa ativa ativa ativa/ativa ativa ativa, *adicione apenas os endereços /32 dos pares BGP*. Se adicionar mais endereços, serão consideradas rotas estáticas e terão precedência sobre as rotas do BGP.
+> * Você deve usar diferentes números De BGP AS para as suas redes no local que estão conectando-se ao Azure. (Se forem iguais, tem de alterar o número AS da sua rede virtual se o seu dispositivo VPN no local já utilizar o ASN para espreitar com outros vizinhos do BGP.)
 
-## <a name="change-an-azure-vpn-gateway-type-after-deployment"></a>Alterar um tipo de gateway de VPN do Azure após a implantação
+## <a name="change-an-azure-vpn-gateway-type-after-deployment"></a>Alterar um tipo de gateway Azure VPN após a implantação
 
-Você não pode alterar um tipo de gateway de rede virtual do Azure de baseado em política para baseado em rota ou de outra maneira diretamente. Primeiro, você deve excluir o gateway. Depois disso, o endereço IP e a chave pré-compartilhada não serão preservados. Em seguida, você pode criar um novo gateway do tipo desejado. 
+Não é possível alterar um tipo de gateway de rede virtual Azure de baseado em políticas para baseado em rotas ou o contrário diretamente. Primeiro deve apagar o portal. Depois disso, o endereço IP e a chave pré-partilhada não serão preservados. Então pode criar uma nova porta de entrada do tipo desejado. 
 
-Para excluir e criar um gateway, siga estas etapas:
+Para eliminar e criar um portal, siga estes passos:
 
-1. Exclua todas as conexões associadas ao gateway original.
-2. Exclua o gateway usando o portal do Azure, o PowerShell ou o PowerShell clássico: 
-   * [Excluir um gateway de rede virtual usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal)
-   * [Excluir um gateway de rede virtual usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-powershell)
-   * [Excluir um gateway de rede virtual usando o PowerShell (clássico)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
-3. Siga as etapas em [criar o gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway) para criar o novo gateway do tipo desejado e conclua a configuração de VPN.
+1. Elimine quaisquer ligações associadas ao gateway original.
+2. Elimine o portal Azure, PowerShell ou powerShell clássico: 
+   * [Eliminar um portal de rede virtual utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal)
+   * [Eliminar um portal de rede virtual utilizando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-powershell)
+   * [Eliminar um portal de rede virtual utilizando o PowerShell (clássico)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
+3. Siga os passos em [Criar o gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway) para criar a nova porta de entrada do tipo pretendido e completar a configuração VPN.
 
 > [!Note]
-> Esse processo levará cerca de 60 minutos.
+> Este processo levará cerca de 60 minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

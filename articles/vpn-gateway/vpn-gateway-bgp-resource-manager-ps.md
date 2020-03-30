@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 78147a96d6d9e92c2602b6a83cbed743cf2abf37
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152045"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways VPN Azure usando powerShell
@@ -38,7 +38,7 @@ Cada parte das instruções forma um bloco básico de construção para permitir
 
 Você pode combinar peças em conjunto para construir uma rede de trânsito mais complexa, multi-hop, que atenda às suas necessidades.
 
-## <a name ="enablebgp"></a>Parte 1 - Configure BGP no Gateway Azure VPN
+## <a name="part-1---configure-bgp-on-the-azure-vpn-gateway"></a><a name ="enablebgp"></a>Parte 1 - Configure BGP no Gateway Azure VPN
 Os passos de configuração configuram os parâmetros BGP do gateway VPN Azure, como mostrado no seguinte diagrama:
 
 ![BGP Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
@@ -135,7 +135,7 @@ $vnet1gw.BgpSettingsText
 
 Uma vez criado o gateway, pode utilizar esta porta de entrada para estabelecer a ligação cross-premises ou a ligação VNet-to-VNet com BGP. As seguintes secções percorrem os degraus para completar o exercício.
 
-## <a name ="crossprembbgp"></a>Parte 2 - Estabelecer uma ligação transversal com o BGP
+## <a name="part-2---establish-a-cross-premises-connection-with-bgp"></a><a name ="crossprembbgp"></a>Parte 2 - Estabelecer uma ligação transversal com o BGP
 
 Para estabelecer uma ligação transversal às instalações, é necessário criar um Gateway de Rede Local para representar o seu dispositivo VPN no local e uma Ligação para ligar o gateway VPN com o portal de rede local. Embora existam artigos que o percorrem através destes passos, este artigo contém as propriedades adicionais necessárias para especificar os parâmetros de configuração bGP.
 
@@ -209,7 +209,7 @@ O exemplo seguinte lista os parâmetros que introduz na secção de configuraç�
 
 A ligação é estabelecida após alguns minutos, e a sessão de peering bGP começa assim que a ligação IPsec é estabelecida.
 
-## <a name ="v2vbgp"></a>Parte 3 - Estabelecer uma ligação VNet-to-VNet com BGP
+## <a name="part-3---establish-a-vnet-to-vnet-connection-with-bgp"></a><a name ="v2vbgp"></a>Parte 3 - Estabelecer uma ligação VNet-to-VNet com BGP
 
 Esta secção adiciona uma ligação VNet-to-VNet com BGP, como mostra o seguinte diagrama:
 

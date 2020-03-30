@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: habilitar BYOK TDE-Instância Gerenciada do Banco de Dados SQL do Azure '
-description: Saiba como configurar um Instância Gerenciada SQL do Azure para começar a usar o BYOK Transparent Data Encryption (TDE) para criptografia em repouso usando o PowerShell.
+title: 'PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance '
+description: Aprenda a configurar um Caso Gerido Azure SQL para começar a usar encriptação transparente de dados (TDE) para encriptação em repouso usando powerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,25 +12,25 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ms.openlocfilehash: ddffda5229c9c0d33c563e3ae7b4a884f0f92dff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73691402"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerenciar Transparent Data Encryption em um Instância Gerenciada usando sua própria chave de Azure Key Vault
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerencie a encriptação de dados transparente sintetizado numa instância gerida utilizando a sua própria chave do Cofre de Chaves Azure
 
-Este exemplo de script do PowerShell configura Transparent Data Encryption (TDE) com a chave gerenciada pelo cliente para o SQL Instância Gerenciada do Azure, usando uma chave de Azure Key Vault. Isso é muitas vezes chamado de cenário de Bring Your Own Key para TDE. Para saber mais sobre o TDE com a chave gerenciada pelo cliente, confira [TDE Bring your own Key ao Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Este exemplo de script PowerShell configura encriptação de dados transparentes (TDE) com chave gerida pelo cliente para a Instância Gerida Azure SQL, utilizando uma chave do Cofre de Chaves Azure. Isto é frequentemente referido como um cenário de trazer a sua própria chave para tDE. Para saber mais sobre o TDE com a chave gerida pelo cliente, consulte [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um Instância Gerenciada existente. Consulte [usar o PowerShell para criar uma instância gerenciada do banco de dados SQL do Azure](sql-database-create-configure-managed-instance-powershell.md).
+- Uma instância gerida existente. Consulte a Utilização powerShell para criar uma instância gerida pela Base de [Dados Azure SQL](sql-database-create-configure-managed-instance-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Usar o PowerShell localmente ou usando Azure Cloud Shell requer AZ PowerShell 2.3.2 ou uma versão posterior. Se você precisar atualizar, consulte [instalar Azure PowerShell módulo](/powershell/azure/install-az-ps)ou execute o script de exemplo abaixo para instalar o módulo para o usuário atual:
+A utilização da PowerShell localmente ou a utilização da Azure Cloud Shell requer a AZ PowerShell 2.3.2 ou uma versão posterior. Se precisar de fazer o upgrade, consulte instalar o [módulo PowerShell Azure,](/powershell/azure/install-az-ps)ou executar o script de amostra abaixo para instalar o módulo para o utilizador atual:
 
 `Install-Module -Name Az -AllowClobber -Scope CurrentUser`
 

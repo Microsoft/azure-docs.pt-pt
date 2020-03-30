@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084129"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Pedidos de cliente público e confidenciais
@@ -26,12 +26,12 @@ A Microsoft Authentication Library (MSAL) define dois tipos de clientes: cliente
 - **Aplicações confidenciais** de clientes são aplicações que funcionam em servidores (aplicações web, aplicações Web API ou até aplicações de serviço/daemon). São considerados de difícil acesso, e por isso são capazes de manter uma aplicação em segredo. Os clientes confidenciais podem guardar segredos de tempo de configuração. Cada instância do cliente tem uma configuração distinta (incluindo id do cliente e segredo do cliente). Estes valores são difíceis de extrair pelos utilizadores finais. Uma aplicação web é o cliente confidencial mais comum. O ID do cliente é exposto através do navegador web, mas o segredo é passado apenas no canal traseiro e nunca diretamente exposto.
 
     Aplicativos confidenciais de clientes: <BR>
-    ![aplicação web](media/msal-client-applications/web-app.png) ![Web API](media/msal-client-applications/web-api.png) ![Daemon/serviço](media/msal-client-applications/daemon-service.png)
+    ![Web](media/msal-client-applications/web-app.png) ![app Web](media/msal-client-applications/web-api.png) ![API Daemon/serviço](media/msal-client-applications/daemon-service.png)
 
 - **As aplicações públicas** do cliente são aplicações que funcionam em dispositivos ou computadores de secretária ou num navegador web. Não são de confiança para guardar em segurança os segredos da aplicação, pelo que apenas acedem a APIs web em nome do utilizador. (Apoiam apenas os fluxos públicos de clientes.) Os clientes públicos não podem guardar segredos de tempo de configuração, por isso não têm segredos de clientes.
 
     Aplicativos de clientes públicos: <BR>
-    app ![Desktop](media/msal-client-applications/desktop-app.png) ![a ![](media/msal-client-applications/mobile-app.png) aplicação móvel](media/msal-client-applications/browserless-app.png) da API sem navegador
+    ![Aplicativo](media/msal-client-applications/desktop-app.png) ![de ambiente](media/msal-client-applications/browserless-app.png) ![de trabalho Aplicação API Mobile sem navegador](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
 > Em MSAL.js, não há separação de aplicações públicas e confidenciais de clientes.  MSAL.js representa aplicações de clientes como aplicações baseadas em agentes de utilizador, clientes públicos em que o código do cliente é executado num agente de utilizador como um navegador web. Estes clientes não armazenam segredos porque o contexto do navegador é abertamente acessível.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/25/2020
 ms.author: victorh
-ms.openlocfilehash: dc5a05c672df1b4f9db764b58db93279c4be7570
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 60beccc2f2679a18903b74b84f48afebfb3b69da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272893"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257756"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -78,7 +78,7 @@ O Azure Firewall é um serviço gerido com múltiplas camadas de proteção, inc
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Azure Firewall com os meus pontos finais de serviço?
 
-Para acesso seguro aos serviços PaaS, recomendamos pontos finais de serviço. Pode optar por ativar pontos finais de serviço na subnet Azure Firewall e desativá-los nas redes virtuais de raios ligados. Desta forma, beneficia de ambas as funcionalidades... segurança de ponto final de serviço e registo central para todo o tráfego.
+Para acesso seguro aos serviços PaaS, recomendamos pontos finais de serviço. Pode optar por ativar pontos finais de serviço na subnet Azure Firewall e desativá-los nas redes virtuais de raios ligados. Desta forma, beneficia de ambas as funcionalidades: segurança de ponto final de serviço e registo central para todo o tráfego.
 
 ## <a name="what-is-the-pricing-for-azure-firewall"></a>Qual é o preço do Azure Firewall?
 
@@ -145,14 +145,18 @@ Não. As regras do NAT adicionam implicitamente uma regra de rede correspondente
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
-Se configurar * **.contoso.com,** permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice de domínio). Se pretender permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
+Se configurar ***.contoso.com,** permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice de domínio). Se pretender permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que significa *provisionamento: Falhado?*
 
 Sempre que é aplicada uma alteração de configuração, o Azure Firewall tenta atualizar todas as suas instâncias de backend subjacentes. Em casos raros, um destes casos de backend pode não atualizar com a nova configuração e o processo de atualização para com um estado de provisionamento falhado. O seu Firewall Azure ainda está operacional, mas a configuração aplicada pode estar num estado inconsistente, onde alguns casos têm a configuração anterior onde outros têm o conjunto de regras atualizado. Se isso acontecer, tente atualizar a sua configuração mais uma vez até que a operação tenha sucesso e a sua Firewall esteja num estado de provisionamento *bem sucedido.*
 
-### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como é que a Azure Firewall lida com a manutenção planeada e falhas não planeadas?
+## <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Como é que a Azure Firewall lida com a manutenção planeada e falhas não planeadas?
 O Azure Firewall é composto por vários nódeos traseiros numa configuração ativa.  Para qualquer manutenção planeada, temos a lógica de drenagem de ligação para atualizar graciosamente os nós.  Estão previstas atualizações durante o horário não comercial para cada uma das regiões de Azure para limitar ainda mais o risco de perturbação.  Para questões não planeadas, nós instantaneamente um novo nó para substituir o nó falhado.  A conectividade com o novo nó é normalmente restabelecida em 10 segundos após a hora da falha.
+
+## <a name="how-does-connection-draining-work"></a>Como funciona a drenagem da ligação?
+
+Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza graciosamente os nós de backend. A Firewall Azure aguarda 90 segundos para que as ligações existentes fechem. Se necessário, os clientes podem restabelecer automaticamente a conectividade com outro nó de backend.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de carácter para um nome de firewall?
 
@@ -168,11 +172,17 @@ Não. A Firewall Azure não precisa de uma sub-rede maior que a de 1,26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha entrada de firewall?
 
-A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps e escala para 30 Gbps. Esescala-se com base na utilização e na entrada do CPU. Suporte de contato para aumentar a capacidade de entrada da sua firewall se a sua firewall não estiver a escalonar para satisfazer as suas necessidades e precisar de uma maior capacidade de entrada.
+A capacidade inicial de entrada da Azure Firewall é de 2,5 - 3 Gbps e escala para 30 Gbps. Esescala-se com base na utilização e na entrada do CPU. Suporte de contato para aumentar a capacidade de entrada da sua firewall.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Azure Firewall aumentar a escala?
 
 Leva de cinco a sete minutos para o Azure Firewall escalar. Suporte de contato para aumentar a capacidade inicial de entrada da sua firewall se tiver explosões que requerem uma escala automática mais rápida.
+
+Os seguintes pontos devem ser tidos em conta quando testar a escala automática da firewall:
+
+- O desempenho único do fluxo de TCP é limitado a 1,4 Gbps. Então, um teste de desempenho precisa estabelecer vários fluxos de TCP.
+- As ferramentas de desempenho devem estabelecer continuamente novas ligações para que se conectem com as instâncias de firewall de backend dimensionadas. Se o teste estabelecer ligações uma vez no início, então estas apenas se ligarão às instâncias iniciais de backend. Mesmo que a firewall aumente, não verá nenhum aumento de desempenho porque as ligações estão associadas às instâncias iniciais.
+
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall Azure permite o acesso ao Diretório Ativo por defeito?
 
@@ -180,7 +190,7 @@ Não. O Azure Firewall bloqueia o acesso ao Diretório Ativo por defeito. Para p
 
 ## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Posso excluir um FQDN ou um endereço IP da filtragem baseada em Inteligência de Ameaça de Firewall do Azure?
 
-Sim, pode usar o Azure PowerShell para fazer isto:
+Sim, podeusar o Azure PowerShell para o fazer:
 
 ```azurepowershell
 # Add a Threat Intelligence Whitelist to an Existing Azure Firewall
@@ -189,13 +199,13 @@ Sim, pode usar o Azure PowerShell para fazer isto:
 
 $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
 $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
-   -FQDN @(“fqdn1”, “fqdn2”, …) -IpAddress @(“ip1”, “ip2”, …)
+   -FQDN @("fqdn1", "fqdn2", …) -IpAddress @("ip1", "ip2", …)
 
 ## Or Update FQDNs and IpAddresses separately
 
 $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
-$fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
-$fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
+$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
+$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```

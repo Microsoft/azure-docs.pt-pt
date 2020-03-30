@@ -1,6 +1,6 @@
 ---
-title: Funções de cadeia de caracteres na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre as funções do sistema SQL de cadeia de caracteres no Azure Cosmos DB.
+title: Funções de corda na linguagem de consulta de Azure Cosmos DB
+description: Conheça as funções do sistema SQL de cadeia em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,35 +8,35 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 84d1ca9f8a0a67a4e0459bc78e71d9118451e75b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349295"
 ---
-# <a name="string-functions-azure-cosmos-db"></a>Funções de cadeia de caracteres (Azure Cosmos DB)
+# <a name="string-functions-azure-cosmos-db"></a>Funções de corda (Azure Cosmos DB)
 
-As funções String permitem executar operações em cadeias de caracteres no Azure Cosmos DB.
+As funções de corda permitem-lhe executar operações em cordas em Azure Cosmos DB.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funções
 
-As seguintes funções escalares executam uma operação em um valor de entrada de cadeia de caracteres e retornam um valor de cadeia de caracteres, numérico ou booliano:
+As seguintes funções escalar executam uma operação sobre um valor de entrada de cordas e devolvem um valor de cadeia, numérico ou booleano:
   
 ||||  
 |-|-|-|  
-|[CONCAT](sql-query-concat.md)|[CONTÉM](sql-query-contains.md)|[ENDSWITH](sql-query-endswith.md)|  
-|[INDEX_OF](sql-query-index-of.md)|[À ESQUERDA](sql-query-left.md)|[LENGTH](sql-query-length.md)|  
-|[INFERIOR](sql-query-lower.md)|[LTRIM](sql-query-ltrim.md)|[SUBSTITUIR](sql-query-replace.md)|  
-|[REPLICAR](sql-query-replicate.md)|[INVERTER](sql-query-reverse.md)|[DIREITA](sql-query-right.md)|  
+|[CONCAT](sql-query-concat.md)|[CONTAINS](sql-query-contains.md)|[ENDSWITH](sql-query-endswith.md)|  
+|[INDEX_OF](sql-query-index-of.md)|[LEFT](sql-query-left.md)|[COMPRIMENTO](sql-query-length.md)|  
+|[LOWER](sql-query-lower.md)|[LTRIM](sql-query-ltrim.md)|[SUBSTITUIR](sql-query-replace.md)|  
+|[REPLICAR](sql-query-replicate.md)|[REVERSE](sql-query-reverse.md)|[RIGHT](sql-query-right.md)|  
 |[RTRIM](sql-query-rtrim.md)|[STARTSWITH](sql-query-startswith.md)|[StringToArray](sql-query-stringtoarray.md)|
 |[StringToBoolean](sql-query-stringtoboolean.md)|[StringToNull](sql-query-stringtonull.md)|[StringToNumber](sql-query-stringtonumber.md)|
-|[StringToObject](sql-query-stringtoobject.md)|[SUBCADEIA](sql-query-substring.md)|[ToString](sql-query-tostring.md)|
-|[TRIM](sql-query-trim.md)|[SUPERIOR](sql-query-upper.md)||
+|[StringToObject](sql-query-stringtoobject.md)|[SUBSTRING](sql-query-substring.md)|[ToString](sql-query-tostring.md)|
+|[TRIM](sql-query-trim.md)|[UPPER](sql-query-upper.md)||
   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Funções Definidas pelo Utilizador](sql-query-udfs.md)
+- [Agregados](sql-query-aggregates.md)

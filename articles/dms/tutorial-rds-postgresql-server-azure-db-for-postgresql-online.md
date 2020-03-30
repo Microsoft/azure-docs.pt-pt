@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar RDS PostgreSQL on-line para A Base de Dados Azure para 
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de RDS PostgreSQL para Azure Database for PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: 33d39be071591071d88bb5a95c3cfcbb458d85a8
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 12aa11aa5064b3a0a2ff18f88161f44f37208aec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255713"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240681"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migrar RDS PostgreSQL para Azure DB para PostgreSQL online usando DMS
 
@@ -27,14 +27,14 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema da amostra utilizando o utilitário pg_dump.
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
 > * Executar a redução da migração.
 
 > [!NOTE]
-> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium. Para mais informações, consulte a página de preços do Serviço de [Migração](https://azure.microsoft.com/pricing/details/database-migration/) da Base de Dados Azure.
+> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium. Para mais informações, consulte a página de preços do Serviço de [Migração](https://azure.microsoft.com/pricing/details/database-migration/) da Base de Dados Azure. Encriptamos o disco para evitar o roubo de dados durante o processo de migração.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.

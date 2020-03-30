@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o Write-back SuccessFactors no Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Write-back de atributo para SuccessFactors do Azure AD
+title: 'Tutorial: Configure SuccessFactors reescreve no Diretório Ativo do Azure [ Microsoft Docs'
+description: Saiba como configurar a atribuição de reemputações a SuccessFactors da Azure AD
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,94 +15,94 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77060053"
 ---
-# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o SAP SuccessFactors (versão prévia)
-O objetivo deste tutorial é mostrar as etapas que você precisa executar para os atributos de write-back do Azure AD para o SuccessFactors Employee central. O único atributo com suporte no momento para Write-back é o atributo de email. 
+# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: Configure atributo redação de Azure AD para SAP SuccessFactors (Pré-visualização)
+O objetivo deste tutorial é mostrar os passos que precisa de executar para reescrever atributos de Azure AD para SuccessFactors Employee Central. O único atributo atualmente suportado para redevolução é o atributo de e-mail. 
 
 ## <a name="overview"></a>Descrição geral
 
 Depois de configurar a integração de fornecimento de entrada utilizando a App de fornecimento de [Anúncios No local](sap-successfactors-inbound-provisioning-tutorial.md) ou a aplicação de provisionamento De [AD Para Azure,](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) pode configurar opcionalmente a app SuccessFactors Writeback para escrever o endereço de e-mail de volta para SuccessFactors. 
 
-### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>A qual esta solução de provisionamento de usuário mais adequada?
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é esta solução de fornecimento de utilizadores mais adequada?
 
-Essa solução de provisionamento de usuário SuccessFactors write-back é ideal para:
+Esta solução de provisionamento de utilizadores Writeback SuccessFactors é ideal para:
 
-* Organizações que usam o Office 365 que desejam fazer write-back de atributos autoritativos gerenciados por ele (como endereço de email) de volta para SuccessFactors
+* Organizações que usam o Office 365 que desejam reescrever atributos autoritários geridos por TI (como endereço de e-mail) de volta ao SuccessFactors
 
-## <a name="configuring-successfactors-for-the-integration"></a>Configurando o SuccessFactors para a integração
+## <a name="configuring-successfactors-for-the-integration"></a>Configurar Fatores de Sucesso para a integração
 
-Um requisito comum de todos os conectores de provisionamento do SuccessFactors é que eles exigem credenciais de uma conta SuccessFactors com as permissões corretas para invocar as APIs OData do SuccessFactors. Esta seção descreve as etapas para criar a conta de serviço no SuccessFactors e conceder as permissões apropriadas. 
+Um requisito comum de todos os conectores de fornecimento de SuccessFactors é que eles requerem credenciais de uma conta SuccessFactors com as permissões certas para invocar as APIs OData SuccessFactors. Esta secção descreve passos para criar a conta de serviço em SuccessFactors e conceder permissões apropriadas. 
 
 * [Criar/identificar conta de utilizador da API em SuccessFactors](#createidentify-api-user-account-in-successfactors)
 * [Criar um papel de permissões DaPI](#create-an-api-permissions-role)
 * [Criar um Grupo de Permissão para o utilizador da API](#create-a-permission-group-for-the-api-user)
 * [Papel de permissão de concessão para o Grupo de Permissão](#grant-permission-role-to-the-permission-group)
 
-### <a name="createidentify-api-user-account-in-successfactors"></a>Criar/identificar conta de usuário de API no SuccessFactors
-Trabalhe com sua equipe de administração do SuccessFactors ou com o parceiro de implementação para criar ou identificar uma conta de usuário no SuccessFactors que será usada para invocar as APIs OData. As credenciais de nome de usuário e senha desta conta serão necessárias ao configurar os aplicativos de provisionamento no Azure AD. 
+### <a name="createidentify-api-user-account-in-successfactors"></a>Criar/identificar conta de utilizador da API em SuccessFactors
+Trabalhe com a sua equipa de administração do SuccessFactors ou parceiro de implementação para criar ou identificar uma conta de utilizador em SuccessFactors que será usada para invocar as APIs oData. O nome de utilizador e as credenciais de senha desta conta serão necessários ao configurar as aplicações de provisionamento em Azure AD. 
 
-### <a name="create-an-api-permissions-role"></a>Criar uma função de permissões de API
+### <a name="create-an-api-permissions-role"></a>Criar um papel de permissões DaPI
 
-* Faça logon no SAP SuccessFactors com uma conta de usuário que tenha acesso ao centro de administração.
+* Inicie sessão no SAP SuccessFactors com uma conta de utilizador que tenha acesso ao Centro De Administração.
 * Procure *funções*de permissão de gestão e, em seguida, selecione **'Gerir funções de permissão'** a partir dos resultados da pesquisa.
-  ![gerir papéis de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
+  ![Gerir funções de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 * A partir da Lista de Papéis de Permissão, clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
-  > ![criar novos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png) de permissão
-* Adicione um **nome** e **descrição** para o novo papel de permissão. O nome e a descrição devem indicar que a função é para permissões de uso da API.
+  > ![Criar novo papel de permissão](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+* Adicione um **nome** e **descrição** para o novo papel de permissão. O nome e a descrição devem indicar que o papel é para permissões de utilização da API.
   > [!div class="mx-imgBorder"]
-  > ![permissão detalhe](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+  > ![Detalhe de papel de permissão](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 * Sob as definições de Permissão, clique em **Permissão...** em seguida, percorra a lista de permissão e clique em **Gerir Ferramentas**de Integração . Verifique a caixa para permitir que o **Administrador aceda à API OData através**da autenticação básica .
   > [!div class="mx-imgBorder"]
   > ![Gerir ferramentas de integração](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desloque-se para baixo na mesma caixa e selecione **API Central do Empregado**. Adicione permissões conforme mostrado abaixo para ler usando a API do ODATA e editar usando a API do ODATA. Selecione a opção Editar se você planeja usar a mesma conta para o SuccessFactors cenário de write-back. 
+* Desloque-se para baixo na mesma caixa e selecione **API Central do Empregado**. Adicione permissões como mostrado abaixo para ler usando ODATA API e edite usando API ODATA. Selecione a opção de edição se planeia utilizar a mesma conta para o cenário Writeback to SuccessFactors. 
   > [!div class="mx-imgBorder"]
-  > ![Ler permissões](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+  > ![Ler permissões de escrita](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 * Clique em **Done**. Clique em **Guardar Alterações**.
 
-### <a name="create-a-permission-group-for-the-api-user"></a>Criar um grupo de permissões para o usuário da API
+### <a name="create-a-permission-group-for-the-api-user"></a>Criar um Grupo de Permissão para o utilizador da API
 
 * No Centro de Administração SuccessFactors, procure grupos de *permissão de gestão*e, em seguida, selecione **Manage Permission Groups** a partir dos resultados da pesquisa.
   > [!div class="mx-imgBorder"]
   > ![Gerir grupos de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 * A partir da janela 'Gerir grupos de permissão', clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
-  > ![Adicionar novos](./media/sap-successfactors-inbound-provisioning/create-new-group.png) de grupo
-* Adicione um nome de grupo para o novo grupo. O nome do grupo deve indicar que o grupo é para usuários de API.
+  > ![Adicionar novo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+* Adicione um Nome de Grupo para o novo grupo. O nome do grupo deve indicar que o grupo é para utilizadores de API.
   > [!div class="mx-imgBorder"]
-  > ![nome do grupo de permissão](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+  > ![Nome de grupo de permissão](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
 * Adicione membros ao grupo. Por exemplo, pode selecionar o **username** do menu de entrega do People Pool e, em seguida, introduzir o nome de utilizador da conta API que será usada para a integração. 
   > [!div class="mx-imgBorder"]
   > ![Adicionar membros do grupo](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
 * Clique em **Feito** para terminar de criar o Grupo de Permissões.
 
-### <a name="grant-permission-role-to-the-permission-group"></a>Conceder a função de permissão ao grupo de permissões
+### <a name="grant-permission-role-to-the-permission-group"></a>Papel de permissão de concessão para o Grupo de Permissão
 
 * No SuccessFactors Admin Center, procure funções de permissão de *gestão*e, em seguida, selecione **'Gerir funções de permissão'** a partir dos resultados da pesquisa.
 * A partir da Lista de Papéis de **Permissão,** selecione o papel que criou para permissões de utilização da API.
-* Sob **o Grant este papel para...** , clique em **Adicionar...** botão.
+* Sob **o Grant este papel para...**, clique em **Adicionar...** botão.
 * Selecione **Grupo de Permissões...** a partir do menu suspenso e, em seguida, clique em **Select...** para abrir a janela Grupos para pesquisar e selecionar o grupo acima criado. 
   > [!div class="mx-imgBorder"]
-  > ![Adicionar](./media/sap-successfactors-inbound-provisioning/add-permission-group.png) de grupo de permissão
-* Examine a concessão da função de permissão para o grupo de permissões. 
+  > ![Adicionar grupo de permissão](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+* Reveja a concessão de funções de permissão ao Grupo de Permissão. 
   > [!div class="mx-imgBorder"]
-  > ![Papel de Permissão e](./media/sap-successfactors-inbound-provisioning/permission-role-group.png) de pormenor do Grupo
+  > ![Papel de permissão e detalhe do grupo](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 * Clique em **Guardar Alterações**.
 
-## <a name="configuring-successfactors-writeback"></a>Configurando o Write-back SuccessFactors
+## <a name="configuring-successfactors-writeback"></a>Configurar a writeback de SuccessFactors
 
-Esta seção fornece as etapas para 
+Esta secção fornece passos para 
 
 * [Adicione a aplicação de conector de provisionamento e configure a conectividade aos SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
 * [Configure mapeamentos de atributos](#part-2-configure-attribute-mappings)
 * [Ativar e lançar o fornecimento de utilizadores](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Parte 1: Adicionar o aplicativo do conector de provisionamento e configurar a conectividade com o SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Parte 1: Adicione a aplicação de conector de provisionamento e configure a conectividade aos SuccessFactors
 
 **Para configurar successFactors Writeback:**
 
@@ -122,31 +122,31 @@ Esta seção fornece as etapas para
 
 8. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * Nome de **utilizador da Administração** – Introduza o nome de utilizador da conta de utilizador da API SuccessFactors, com o ID da empresa anexado. Tem o formato: **username\@companyID**
+   * Nome de **utilizador da Administração** – Introduza o nome de utilizador da conta de utilizador da API SuccessFactors, com o ID da empresa anexado. Tem o formato: **\@username companyID**
 
    * **Senha de administração –** Introduza a palavra-passe da conta de utilizador da API SuccessFactors. 
 
-   * **URL do inquilino –** Insira o nome dos serviços SuccessFactors OData API endpoint. Insira apenas o nome do host do servidor sem http ou HTTPS. Este valor deve parecer: **api-server-name.successfactors.com.**
+   * **URL do inquilino –** Insira o nome dos serviços SuccessFactors OData API endpoint. Basta introduzir o nome de anfitrião do servidor sem http ou https. Este valor deve parecer: **api-server-name.successfactors.com.**
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
     > [!NOTE]
     > O Serviço de Provisionamento de AD Azure envia notificação por e-mail se o trabalho de provisionamento entrar em estado de [quarentena.](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
-   * Clique no botão **de ligação** de teste. Se o teste de ligação for bem sucedido, clique no botão **Guardar** na parte superior. Se falhar, verifique se as credenciais e a URL do SuccessFactors são válidas.
+   * Clique no botão **de ligação** de teste. Se o teste de ligação for bem sucedido, clique no botão **Guardar** na parte superior. Se falhar, verifique duas vezes se as credenciais successFactors e URL são válidas.
     >[!div class="mx-imgBorder"]
     >![Portal do Azure](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
    * Uma vez que as credenciais são guardadas com sucesso, a secção **De Mapeamentoapresentará** o mapeamento padrão **Synchronize Azure Ative Directory Users to SuccessFactors**
 
-### <a name="part-2-configure-attribute-mappings"></a>Parte 2: configurar mapeamentos de atributo
+### <a name="part-2-configure-attribute-mappings"></a>Parte 2: Configurar mapeamentos de atributos
 
-Nesta seção, você configurará como os dados do usuário fluem do SuccessFactors para o Active Directory.
+Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessFactors para Ative Directory.
 
 1. No separador Provisioning em **Mapeamentos,** clique em **Synchronize Azure Ative Directory Users to SuccessFactors**.
 
-1. No campo **Source Object Scope,** pode selecionar quais os conjuntos de utilizadores em AD Azure devem ser considerados para writeback, definindo um conjunto de filtros baseados em atributos. O escopo padrão é "todos os usuários no Azure AD". 
+1. No campo **Source Object Scope,** pode selecionar quais os conjuntos de utilizadores em AD Azure devem ser considerados para writeback, definindo um conjunto de filtros baseados em atributos. O âmbito padrão é "todos os utilizadores em Azure AD". 
    > [!TIP]
-   > Quando você estiver configurando o aplicativo de provisionamento pela primeira vez, será necessário testar e verificar os mapeamentos e as expressões de atributo para garantir que ele esteja dando o resultado desejado. A Microsoft recomenda a utilização dos filtros de deteção no âmbito do Âmbito do **Objeto Fonte** para testar os seus mapeamentos com alguns utilizadores de teste da AD Azure. Depois de verificar se os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
+   > Quando estiver a configurar a aplicação de provisionamento pela primeira vez, terá de testar e verificar os seus mapeamentos e expressões de atributos para se certificar de que está a dar-lhe o resultado desejado. A Microsoft recomenda a utilização dos filtros de deteção no âmbito do Âmbito do **Objeto Fonte** para testar os seus mapeamentos com alguns utilizadores de teste da AD Azure. Uma vez verificado que os mapeamentos funcionam, então pode remover o filtro ou expandi-lo gradualmente para incluir mais utilizadores.
 
 1. O campo **target object Actions** apenas suporta a operação **Update.**
 
@@ -155,31 +155,31 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
     >![Portal do Azure](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
 
    >[!NOTE]
-   >O Write-back SuccessFactors só dá suporte ao atributo email. Por favor, não utilize **adicionar novo mapeamento** para adicionar novos atributos. 
+   >O Writeback SuccessFactors apenas suporta o atributo de e-mail. Por favor, não utilize **adicionar novo mapeamento** para adicionar novos atributos. 
 
 1. Para guardar os seus mapeamentos, clique em **Guardar** no topo da secção Attribute-Mapping.
 
 Uma vez concluída a configuração de mapeamento do atributo, pode agora [ativar e lançar o serviço](#enable-and-launch-user-provisioning)de fornecimento do utilizador .
 
-## <a name="enable-and-launch-user-provisioning"></a>Habilitar e iniciar o provisionamento de usuário
+## <a name="enable-and-launch-user-provisioning"></a>Ativar e lançar o fornecimento de utilizadores
 
-Depois que as configurações do aplicativo de provisionamento do SuccessFactors tiverem sido concluídas, você poderá ativar o serviço de provisionamento no portal do Azure.
+Uma vez concluídas as configurações de aplicações de provisionamento SuccessFactors, pode ligar o serviço de provisionamento no portal Azure.
 
 > [!TIP]
-> Por padrão, quando você ativa o serviço de provisionamento, ele inicia as operações de provisionamento para todos os usuários no escopo. Se houver erros no mapeamento ou nos problemas de dados do workday, o trabalho de provisionamento poderá falhar e entrar no estado de quarentena. Para evitar isto, como uma boa prática, recomendamos configurar o filtro **Source Object Scope** e testar os seus mapeamentos de atributos com alguns utilizadores de teste antes de lançar a sincronização completa para todos os utilizadores. Depois de verificar se os mapeamentos funcionam e estão fornecendo os resultados desejados, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
+> Por predefinição, quando ligar o serviço de provisionamento, iniciará operações de provisionamento para todos os utilizadores no âmbito. Se houver erros nas questões de mapeamento ou dados do Dia do Trabalho, então o trabalho de provisionamento pode falhar e ir para o estado de quarentena. Para evitar isto, como uma boa prática, recomendamos configurar o filtro **Source Object Scope** e testar os seus mapeamentos de atributos com alguns utilizadores de teste antes de lançar a sincronização completa para todos os utilizadores. Uma vez verificado que os mapeamentos funcionam e estão a dar-lhe os resultados desejados, então pode remover o filtro ou expandi-lo gradualmente para incluir mais utilizadores.
 
 1. No separador **provisionamento,** coloque o estado de **provisionamento** **ligado**.
 
 2. Clique em **Guardar**.
 
-3. Esta operação iniciará a sincronização inicial, que pode usar um número variável de horas dependendo de quantos usuários estiverem no locatário SuccessFactors. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
+3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino SuccessFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 
-4. A qualquer momento, verifique o separador de **registos de auditoria** no portal Azure para ver que ações o serviço de provisionamento realizou. Os logs de auditoria listam todos os eventos de sincronização individuais executados pelo serviço de provisionamento, como quais usuários estão sendo lidos do workday e, posteriormente, adicionados ou atualizados para Active Directory. 
+4. A qualquer momento, verifique o separador de **registos de auditoria** no portal Azure para ver que ações o serviço de provisionamento realizou. Os registos de auditoria listam todos os eventos de sincronização individuais realizados pelo serviço de provisionamento, tais como os utilizadores que estão a ser lidos fora do Workday e, posteriormente, adicionados ou atualizados para o Ative Directory. 
 
 5. Uma vez concluída a sincronização inicial, escreverá um relatório resumo de auditoria no separador **Provisioning,** como mostrado abaixo.
 
    > [!div class="mx-imgBorder"]
-   > ![provisionamento de](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png) de progresso
+   > ![Fornecimento de barra de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

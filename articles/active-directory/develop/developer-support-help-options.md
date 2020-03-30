@@ -1,5 +1,5 @@
 ---
-title: Opções de suporte e ajuda para programadores de aplicações DaD Azure  Microsoft Docs
+title: Opções de suporte e ajuda para programadores de aplicações DaD Azure [ Microsoft Docs
 description: Saiba como obter ajuda e suporte para questões e problemas relacionados com o desenvolvimento ao criar uma aplicação que se integre com identidades da Microsoft (Azure Ative Directory e conta Microsoft)
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160972"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
@@ -35,7 +35,7 @@ Se está apenas a começar a integrar-se com o Azure Ative Directory (Azure AD),
 
 Se tiver uma pergunta relacionada com o desenvolvimento, poderá encontrar a resposta na documentação, [amostras gitHub](https://github.com/azure-samples)ou respostas às perguntas do [Stack Overflow.](https://www.stackoverflow.com)
 
-### <a name="scoped-search"></a>Pesquisa com escopo
+### <a name="scoped-search"></a>Pesquisa de âmbito
 
 Para obter resultados mais rápidos, procure o Stack Overflow, a documentação e as amostras de código utilizando a seguinte consulta no seu motor de pesquisa favorito:
 
@@ -54,7 +54,7 @@ Onde *{Os seus termos* de pesquisa} correspondem às suas palavras-chave de pesq
 
 ## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
 
-Stack Overflow é o canal preferido para perguntas relacionadas ao desenvolvimento. Aqui, membros da comunidade de desenvolvedores e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
+Stack Overflow é o canal preferido para questões relacionadas com o desenvolvimento. Aqui, membros da comunidade de desenvolvedores e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
 
 Se não encontrar uma resposta à sua pergunta através de pesquisa, envie uma nova pergunta ao Stack Overflow. Use uma das seguintes tags ao fazer perguntas para ajudar a comunidade a identificar e responder mais rapidamente à sua pergunta:
 
@@ -73,7 +73,7 @@ Os seguintes posts do Stack Overflow contêm dicas sobre como fazer perguntas e 
 * [Como faço uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
 * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
-## <a name="create-a-github-issue"></a>Criar um problema do GitHub
+## <a name="create-a-github-issue"></a>Criar um problema GitHub
 
 Se encontrar um bug ou problema relacionado com as nossas bibliotecas, levante um problema nos nossos repositórios GitHub. Como as nossas bibliotecas são de código aberto, também pode apresentar um pedido de pull.
 

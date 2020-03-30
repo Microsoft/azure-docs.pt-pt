@@ -1,6 +1,6 @@
 ---
-title: Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD & T v1 | Microsoft Docs
-description: Execute um ambiente de desenvolvimento e teste do IBM Z (zD & T) em VMs (máquinas virtuais) do Azure.
+title: Criar uma distribuição controlada por desenvolvedores de aplicações (ADCD) na IBM zD&T v1 / Microsoft Docs
+description: Gere um ambiente IBM Z Development and Test Environment (zD&T) em Máquinas Virtuais Azure (VMs).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
 documentationcenter: ''
@@ -13,185 +13,185 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68841382"
 ---
-# <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD & T v1
+# <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Criar uma distribuição controlada por desenvolvedores de aplicações (ADCD) em IBM zD&T v1
 
-Você pode executar um ambiente de desenvolvimento e teste do IBM Z (zD & T) em VMs (máquinas virtuais) do Azure. Esse ambiente emula a arquitetura IBM Z Series. Ele pode hospedar uma variedade de sistemas operacionais ou instalações da série Z (também chamadas de instâncias Z ou pacotes), disponibilizados por meio de grupos personalizados chamados de ADCDs (distribuições controladas por desenvolvedores de aplicativos IBM).
+Você pode executar um ambiente IBM Z Desenvolvimento e Teste Ambiente (zD&T) em Máquinas Virtuais Azure (VMs). Este ambiente imita a arquitetura ibm Z Series. Pode alojar uma variedade de sistemas operativos ou instalações da Série Z (também chamadas Deexemplos ou Pacotes Z), que são disponibilizados através de pacotes personalizados chamados IBM Application Developers Controlled Distributions (ADCDs).
 
-Este artigo mostra como configurar uma instância do ADCD em um ambiente zD & T no Azure. ADCDs criar implementações completas do sistema operacional da série Z para ambientes de desenvolvimento e teste executados no zD & T.
+Este artigo mostra-lhe como configurar uma instância ADCD num ambiente zD&T em Azure. Os ADCDs criam implementações completas do sistema operativo série Z para ambientes de desenvolvimento e teste que funcionam em zD&T.
 
-Como zD & T, ADCDs estão disponíveis apenas para clientes e parceiros da IBM e são exclusivamente para fins de desenvolvimento e teste. Eles não devem ser usados para ambientes de produção. Vários pacotes de instalação IBM estão disponíveis para download por meio do [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) ou [IBM Partnerworld](https://www.ibm.com/partnerworld/public).
+Tal como o zD&T, os ADCDs estão disponíveis apenas para clientes e parceiros da IBM e são exclusivamente para fins de desenvolvimento e teste. Não devem ser utilizados para ambientes de produção. Numerosos pacotes de instalação IBM estão disponíveis para download através [de Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) ou IBM [PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- O [ambiente zD & T][ibm-install-z] configurado anteriormente no Azure. Este artigo pressupõe que você esteja usando a mesma imagem de VM Ubuntu 16, 4 criada anteriormente.
+- O [ambiente zD&T][ibm-install-z] previamente criado em Azure. Este artigo assume que está a usar a mesma imagem Ubuntu 16.04 VM criada anteriormente.
 
-- Acesso à mídia ADCD por meio do IBM PartnerWorld ou do Passport Advantage.
+- Acesso aos meios de comunicação da ADCD através do IBM PartnerWorld ou Da Vantagem de Passaportes.
 
-- Um [servidor](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html)de licenciamento. Isso é necessário para executar o IBM zD & T. A maneira como você cria isso depende de como você licencia o software da IBM:
+- Um [servidor de licenciamento.](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html) Isto é necessário para executar IBM zD&T. A forma como o cria depende da forma como licencia o software da IBM:
 
-  - O **servidor de licenciamento baseado em hardware** requer um dispositivo de hardware USB que contenha os tokens racional necessários para acessar todas as partes do software. Você deve obtê-lo da IBM.
+  - **O servidor de licenciamento baseado em hardware** requer um dispositivo de hardware USB que contenha os Tokens Racionais necessários para aceder a todas as partes do software. Deve obter isto da IBM.
 
-  - O **servidor de licenciamento baseado em software** exige que você configure um servidor centralizado para o gerenciamento das chaves de licenciamento. Esse método é preferencial e exige que você configure as chaves que você recebe da IBM no servidor de gerenciamento.
+  - **O servidor de licenciamento baseado em software** requer que você configurar um servidor centralizado para a gestão das chaves de licenciamento. Este método é preferido e requer que configurar as chaves que recebe da IBM no servidor de gestão.
 
-## <a name="download-the-installation-packages-from-passport-advantage"></a>Baixar os pacotes de instalação do Passport Advantage
+## <a name="download-the-installation-packages-from-passport-advantage"></a>Descarregue os pacotes de instalação da Passport Advantage
 
-O acesso à mídia ADCD é necessário. As etapas a seguir pressupõem que você seja um cliente da IBM e possa usar o Passport Advantage. Os parceiros da IBM podem usar o [IBM Partnerworld](https://www.ibm.com/partnerworld/public).
+É necessário o acesso aos meios de comunicação DaDCD. Os passos abaixo assumem que são clientes da IBM e podem usar a Vantagem de Passaporte. Os parceiros da IBM podem usar o [IBM PartnerWorld.](https://www.ibm.com/partnerworld/public)
 
 > [!NOTE]
-> Este artigo pressupõe que um computador Windows é usado para acessar portal do Azure e baixar a mídia IBM. Se você estiver usando uma área de trabalho do Mac ou Ubuntu, os comandos e o processo para obter a mídia IBM podem diferir ligeiramente.
+> Este artigo assume que um PC do Windows é usado para aceder ao portal Azure e para descarregar os meios IBM. Se estiver a utilizar um ambiente de trabalho Mac ou Ubuntu, os comandos e o processo de obtenção dos meios de comunicação IBM podem diferir ligeiramente.
 
-1. Faça logon no [Passport Advantage](https://www.ibm.com/software/howtobuy/passportadvantage/paocustomer).
+1. Inicie sessão na [Vantagem do Passaporte](https://www.ibm.com/software/howtobuy/passportadvantage/paocustomer).
 
-2. Selecione **downloads de software** e **acesso à mídia**.
+2. Selecione **Downloads** de Software e **Acesso aos Media**.
 
-3. Selecione **oferta do programa e número do contrato**e clique em **continuar**.
+3. Selecione oferta de programa e número de **acordo,** e clique **Em Continuar**.
 
-4. Insira a descrição da parte ou o número da peça e clique em **Finder**.
+4. Introduza a descrição da peça ou o número da peça e clique em **Finder**.
 
-5. Opcionalmente, clique na lista ordem alfabética para exibir e exibir o produto por nome.
+5. Opcionalmente, clique na lista de encomendas alfabéticas para visualizar e ver o produto pelo nome.
 
-6. Selecione **todos os sistemas operacionais** no **campo sistema operacional**e **todos os idiomas** no **campo idiomas**. Em seguida, clique em **ir**.
+6. Selecione **todos os sistemas operativos** no **campo do sistema operativo**e todos os **idiomas** no **campo Idiomas**. Então, clique em **Ir.**
 
-7. Clique em **selecionar arquivos individuais** para expandir a lista e exibir a mídia individual a ser baixada.
+7. Clique em **Selecionar ficheiros individuais** para expandir a lista e mostrar os meios individuais para descarregar.
 
-8. Verifique os pacotes que você deseja baixar, selecione **baixar**e, em seguida, baixe os arquivos para o diretório desejado.
+8. Verifique o (s) pacote(s) que pretende descarregar, selecione **Download,** e depois descarregue os ficheiros para o diretório que deseja.
 
-## <a name="upload-the-adcd-packages"></a>Carregar os pacotes ADCD
+## <a name="upload-the-adcd-packages"></a>Faça upload do pacote aDCD
 
-Agora que você tem os pacotes, você deve carregá-los em sua VM no Azure.
+Agora que tem o(s pacote', tem de os enviar para o seu VM no Azure.
 
-1. Na portal do Azure, inicie uma sessão **SSH** com a VM do Ubuntu que você criou. Vá para sua VM, selecione a folha **visão geral** e, em seguida, selecione **conectar**.
+1. No portal Azure, inicie uma sessão de **SSH** com o Ubuntu VM que criou. Vá ao seu VM, selecione a lâmina **de visão geral** e, em seguida, selecione **Connect**.
 
-2. Selecione a guia **SSH** e copie o comando ssh para a área de transferência.
+2. Selecione o separador **SSH** e, em seguida, copie o comando SSH para a área de reparação.
 
-3. Faça logon em sua VM usando suas credenciais e o [cliente SSH](/azure/virtual-machines/linux/use-remote-desktop) de sua escolha. Esta demonstração usa as extensões do Linux para Windows 10, que adiciona um shell bash ao prompt de comando do Windows. A reproduzida também funciona muito bem.
+3. Inicie sessão no seu VM usando as suas credenciais e o [cliente ssh](/azure/virtual-machines/linux/use-remote-desktop) de eleição. Esta demonstração utiliza as extensões Linux para o Windows 10, o que adiciona uma concha de corte ao pedido de comando do Windows. Putty também funciona.
 
-4. Quando conectado, crie um diretório para carregar os pacotes IBM. Tenha em mente que o Linux diferencia maiúsculas de minúsculas. Por exemplo, esta demonstração pressupõe que os pacotes sejam carregados para:
+4. Quando iniciar sessão, crie um diretório para carregar os pacotes IBM. Lembre-se que Linux é sensível ao caso. Por exemplo, esta demonstração pressupõe que os pacotes são enviados para:
 
         /home/MyUserID/ZDT/adcd/nov2017/volumes
 
-5. Carregue os arquivos usando um cliente SSH, como[WinSCP](https://winscp.net/eng/index.php). Como o SCP faz parte do SSH, ele usa a porta 22, que é usada pelo SSH. Se o computador local não for Windows, você poderá digitar o [comando scp](http://man7.org/linux/man-pages/man1/scp.1.html) em sua sessão SSH.
+5. Faça upload dos ficheiros utilizando um cliente SSH, como[o WinSCP](https://winscp.net/eng/index.php). Uma vez que o SCP faz parte do SSH, utiliza a porta 22, que é o que o SSH utiliza. Se o seu computador local não for Windows, pode escrever o [comando scp](http://man7.org/linux/man-pages/man1/scp.1.html) na sua sessão SSH.
 
-6. Inicie o upload para o diretório de VM do Azure que você criou, que se torna o armazenamento de imagem para zD & T.
+6. Inicie o upload para o diretório Azure VM que criou, que se torna o armazenamento de imagem para zD&T.
 
     > [!NOTE]
-    > Certifique-se de que **ADCDTOOLS. O XML** está incluído no upload para o diretório **Home/myuserid/ZDT/adcd/nov2017** . Precisará dele mais tarde.
+    > Certifique-se de que **a ADCDTOOLS. O XML** está incluído no upload para o diretório **home/MyUserID/ZDT/adcd/nov2017.** Precisará dele mais tarde.
 
-7. Aguarde até que os arquivos sejam carregados, o que pode levar algum tempo, dependendo de sua conexão com o Azure.
+7. Aguarde que os ficheiros carreguem, o que pode demorar algum tempo dependendo da sua ligação ao Azure.
 
-8. Quando os carregamentos forem concluídos, navegue até o diretório volumes e descompacte todos os volumes **gz** :
+8. Quando os uploads estiverem completos, navegue para o diretório de volumes e descomprima todos os volumes **gz:**
 
     ```
         gunzip \*.gz
     ```
     
-![Explorador de arquivos mostrando volumes gz descompactados](media/01-gunzip.png)
+![Explorador de ficheiros mostrando volumes gz descomprimidos](media/01-gunzip.png)
 
-## <a name="configure-the-image-storage"></a>Configurar o armazenamento de imagens
+## <a name="configure-the-image-storage"></a>Configure o armazenamento de imagem
 
-A próxima etapa é configurar zD & T para usar os pacotes carregados. O processo de armazenamento de imagens no zD & T permite que você monte e use as imagens. Ele pode usar SSH ou FTP.
+O próximo passo é configurar o zD&T para utilizar o ou os pacotes carregados. O processo de armazenamento de imagem dentro do zD&T permite-lhe montar e utilizar as imagens. Pode utilizar SSH ou FTP.
 
-1. Inicie o **zDTServer**. Para fazer isso, você deve estar no nível raiz. Insira os dois comandos a seguir na ordem:
+1. Inicie o **zDTServer**. Para isso, deve estar no nível de raiz. Insira os seguintes dois comandos por ordem:
     ```
         sudo su -
         /opt/ibm/zDT/bin/startServer
     ```
-2. Observe a saída da URL pelo comando e use essa URL para acessar o servidor Web. Ele é semelhante a:
-     > https://(seu nome de VM ou endereço IP): 9443/ZDTMC/index. html
+2. Note a saída de URL pelo comando e utilize este URL para aceder ao servidor web. Parece semelhante a:
+     > https://(o seu nome VM ou endereço IP):9443/ZDTMC/index.html
      >
-     > Lembre-se de que o acesso à Web usa a porta 9443. Use isso para fazer logon no servidor Web. A ID de usuário para ZD & T é **zdtadmin** e a senha é **password**.
+     > Lembre-se, o seu acesso à web utiliza a porta 9443. Use isto para iniciar sessão no servidor web. O ID do utilizador para ZD&T é **zdtadmin** e a palavra-passe é **palavra-passe**.
 
-    ![Tela de boas-vindas do IBM zD & T Enterprise Edition](media/02-welcome.png)
+    ![IBM zD&T Enterprise Edition Welcome screen](media/02-welcome.png)
 
-3. Na página **início rápido** , em **Configurar**, selecione **armazenamento de imagem**.
+3. Na página **De Início Rápido,** em **Configurar, selecione**Image **Storage**.
 
-     ![Tela do IBM zD & T Enterprise Edition Início Rápido](media/03-quickstart.png)
+     ![IBM zD&T Enterprise Edition Quick Start](media/03-quickstart.png)
 
-4. Na página **Configurar armazenamento de imagem** , selecione **SSH protocolo FTP**.
+4. Na página de armazenamento de **imagem Configure, selecione** O Protocolo de **Transferência de Ficheiros SSH**.
 
-5. Para **nome do host**, digite **localhost** e insira o caminho do diretório para onde você carregou as imagens. Por exemplo,/home/MyUserID/ZDT/adcd/nov2017/volumes.
+5. Para **o nome anfitrião,** digite **O Localhost** e insira o caminho do diretório para onde fez o upload das imagens. Por exemplo, /home/MyUserID/ZDT/adcd/nov2017/volumes.
 
-6. Insira a **ID de usuário** e a **senha** da VM. Não use o ZD & T ID de usuário e a senha.
+6. Introduza o ID do **utilizador** e a **palavra-passe** para o VM. Não utilize o ID e a palavra-passe do utilizador ZD&T.
 
-7. Teste a conexão para certificar-se de que você tem acesso e, em seguida, selecione **salvar** para salvar a configuração.
+7. Teste a ligação para se certificar de que tem acesso e, em seguida, selecione **Guardar** para salvar a configuração.
 
-## <a name="configure-the-target-environments"></a>Configurar os ambientes de destino
+## <a name="configure-the-target-environments"></a>Configure os ambientes-alvo
 
-A próxima etapa é configurar o ambiente de destino zD & T. Esse ambiente hospedado emulado é onde as imagens são executadas.
+O próximo passo é configurar o ambiente-alvo zD&T. Este ambiente emulado é onde as suas imagens funcionam.
 
-1. Na página **início rápido** , em **Configurar**, selecione **ambientes de destino**.
+1. Na página **De Início Rápido,** em **Configurar, selecione** **ambientes target**.
 
-2. Na página **configurar ambientes de destino** , selecione **Adicionar destino**.
+2. Na página de **ambientes-alvo configure, selecione** **Adicionar Target**.
 
-3. Selecione **Linux**. A IBM dá suporte a dois tipos de ambientes, Linux e nuvem (OpenStack), mas essa demonstração é executada no Linux.
+3. Selecione **Linux**. A IBM suporta dois tipos de ambientes, Linux e Cloud(OpenStack), mas esta demonstração funciona em Linux.
 
-4. Na página **Adicionar ambiente de destino** , em **nome do host**, digite **localhost**. Mantenha a **porta SSH** definida como **22**.
+4. Na página adicionar o **ambiente alvo,** para **nome anfitrião,** insira **o hospedeiro local**. Mantenha a **porta SSH** definida para **22**.
 
-5. Na caixa **rótulo do ambiente de destino** , insira um rótulo, como **MyCICS.**
+5. Na caixa de **etiquetas Target Environment,** introduza uma etiqueta como **myCICS.**
 
-     ![Tela Adicionar ambiente de destino](media/04-add-target.png)
+     ![Adicionar ecrã de ambiente alvo](media/04-add-target.png)
 
-## <a name="configure-adcd-and-deploy"></a>Configurar o ADCD e implantar
+## <a name="configure-adcd-and-deploy"></a>Configure a ADCD e implemente
 
-Depois de concluir as etapas de configuração anteriores, você deve configurar o zD & T para usar os pacotes e o ambiente de destino. Novamente, você usa o processo de armazenamento de imagem no zD & T, que permite montar e usar as imagens. Ele pode usar SSH ou FTP.
+Depois de completar os passos de configuração anteriores, deve configurar o zD&T para utilizar o (s) pacote e o ambiente-alvo. Mais uma vez, utiliza o processo de armazenamento de imagem em zD&T, que lhe permite montar e utilizar as imagens. Pode utilizar SSH ou FTP.
 
-1. Na página **início rápido** , em **Configurar**, selecione **ADCD**. Um conjunto de instruções é exibido, informando as etapas que precisam ser concluídas para que um pacote ADCD possa ser montado. Isso explica por que nomeamos o diretório de destino da maneira que fizemos anteriormente.
+1. Na página **De Início Rápido,** em **Configuração, selecione** **ADCD**. Um conjunto de instruções aparecem, informando-lhe os passos que precisam de ser concluídos antes de um pacote ADCD poder ser montado. Isto explica porque nomeámos o directório-alvo como fizemos antes.
 
-2. Supondo que todas as imagens foram carregadas nos diretórios corretos, clique na **imagem do link ADCD** exibido no canto inferior direito (mostrado na etapa 7 na captura de tela a seguir).
+2. Assumindo que todas as imagens foram enviadas para os diretórios corretos, clique na imagem do link **ADCD** exibido no lado inferior direito (mostrado no passo 7 na seguinte imagem).
 
-     ![IBM zD & T Enterprise Edition – configurar a tela do ADCD](media/05-adcd.png)
+     ![IBM zD&T Enterprise Edition - Configure Ecrã ADCD](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Quando a etapa de configuração anterior for concluída, a página **criar uma imagem usando componentes do ADCD** será exibida.
+Quando o passo de configuração anterior estiver completo, aparece uma imagem utilizando a página **De componentes ADCD.**
 
-1. Selecione o volume (novembro de 2017, nesse caso) para exibir os diferentes pacotes que estão nesse volume.
+1. Selecione o volume (nov 2017 neste caso) para exibir os diferentes pacotes que estão nesse volume.
 
-2. Para esta demonstração, selecione **sistema de controle de informações do cliente (CICS)-5,3**.
+2. Para esta demonstração, selecione Sistema de Controlo de **Informações do Cliente (CICS) - 5.3**.
 
-3. Na caixa **nome da imagem** , digite um nome para a imagem, como **imagem MyCICS**.
+3. Na caixa de nome sinuosa, digite um nome para a imagem como **MyCICS Image**. **Image name**
 
-4. Selecione o botão **criar imagem** no canto inferior direito.
+4. Selecione o botão **Criar imagem** na direita inferior.
 
-     ![IBM zD & T Enterprise Edition – criar uma imagem usando a tela de componentes do ADCD](media/06-adcd.png)
+     ![IBM zD&T Enterprise Edition - Crie uma imagem usando o ecrã de componentes ADCD](media/06-adcd.png)
 
-5. Na janela exibida, informando que a imagem foi implantada com êxito, escolha **implantar imagens**.
+5. Na janela que aparece, dizendo-lhe que a imagem foi implementada com sucesso, escolha **imagens de Implantação**.
 
-6. Na página **implantar uma imagem em um ambiente de destino** , selecione a imagem que você criou na página anterior (**imagem MyCICS**) e o ambiente de destino criado anteriormente (**MyCICS**).
+6. Na implementação de uma imagem para uma página de **ambiente-alvo,** selecione a imagem que criou na página anterior (**MyCICS Image**) e o ambiente-alvo criado anteriormente **(MyCICS).**
 
-7. Na próxima tela, forneça suas credenciais para a VM (ou seja, não a credencial ztadmin).
+7. No ecrã seguinte, forneça as suas credenciais para o VM (isto é, não a credencial de ztadmin).
 
-8. No painel Propriedades, insira o número de **processadores centrais (CPS)** , a quantidade de **memória do sistema (GB)** e o **diretório de implantação** para a imagem em execução. Como esta é uma demonstração, mantenha-a pequena.
+8. No painel Propriedades, insira o número de **processadores Centrais (CPs),** a quantidade de memória do **Sistema (GB)** e o **diretório** de implementação para a imagem em execução. Como isto é uma demonstração, mantenha-a pequena.
 
-9. Verifique se a caixa está selecionada para **emitir automaticamente o comando IPL para z/os após a implantação**.
+9. Certifique-se de que a caixa está selecionada para **emitir automaticamente o comando IPL para z/OS após a sua implantação**.
 
      ![Tela de propriedades](media/07-properties.png)
 
-10. Selecione **concluir**.
+10. Selecione **Complete**.
 
-11. Selecione **implantar imagem** na página **implantar uma imagem em um ambiente de destino** .
+11. Selecione **Implementar imagem** da imagem de implantar uma imagem para uma página de **ambiente alvo.**
 
-Sua imagem agora pode implantar e está pronta para ser montada por um emulador de terminal 3270.
+A sua imagem pode agora ser implantada e está pronta para ser montada por um emulador terminal 3270.
 
 > [!NOTE]
-> Se você receber um erro dizendo que não tem espaço em disco suficiente, observe que a região requer 151 GB.
+> Se receber um erro dizendo que não tem espaço suficiente para o disco, note que a região requer 151 Gb.
 
-Parabéns! Agora você está executando um ambiente de mainframe IBM no Azure.
+Parabéns! Está agora a gerir um ambiente de mainframe da IBM no Azure.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
-- [Migração de mainframe: mitos e fatos](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [Migração mainframe: mitos e factos](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
 - [Resolução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Desmistificando o mainframe para a migração de Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

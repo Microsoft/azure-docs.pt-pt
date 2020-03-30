@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588404"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Ligue cisco ASA ao Sentinela Azure
@@ -38,7 +38,7 @@ A Cisco ASA não suporta o CEF, pelo que os registos são enviados como Syslog e
     - Detete a **porta** para 514 ou a porta que coloque no agente.
     - Coloque **syslog_ip** no endereço IP do agente.
 
-1. Para utilizar o esquema relevante no Log Analytics para os eventos cisco, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos cisco, procure .
 
 1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
 

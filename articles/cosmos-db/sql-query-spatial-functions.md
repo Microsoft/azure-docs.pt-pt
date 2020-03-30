@@ -1,6 +1,6 @@
 ---
-title: Funções espaciais na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre as funções espaciais do sistema SQL no Azure Cosmos DB.
+title: Funções espaciais na linguagem de consulta do Azure Cosmos DB
+description: Conheça as funções espaciais do sistema SQL em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,19 +8,19 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 1d523b09cb3d7142a6c375a0ffde77f8ca1153b0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349451"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Funções espaciais (Azure Cosmos DB)
 
-O cosmos DB suporta as seguintes funções internas de Open Geoespacial Consortium (OGC) para consultar dados geoespaciais. 
+Cosmos DB suporta as seguintes funções do Consórcio Geoespacial Aberto (OGC) incorporados para consulta geoespacial. 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funções
 
-As seguintes funções escalares realizar uma operação num valor de entrada do objeto espacial e retornam um valor numérico ou booleano.  
+As seguintes funções escalar executam uma operação sobre um valor de entrada de objeto espacial e devolvem um valor numérico ou booleano.  
   
 |||||
 |-|-|-|-|
@@ -30,7 +30,7 @@ As seguintes funções escalares realizar uma operação num valor de entrada do
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
-- [Funções definidas pelo usuário](sql-query-udfs.md)
-- [Agregações](sql-query-aggregates.md)
+- [Funções Definidas pelo Utilizador](sql-query-udfs.md)
+- [Agregados](sql-query-aggregates.md)

@@ -4,10 +4,10 @@ description: Aprenda a usar o PowerShell para gerir e monitorizar as ações de 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: a9dc421db740963fc5cd11e868eb383694376ce1
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083176"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gerir cópias de partilha de ficheiros Azure com a PowerShell
@@ -30,7 +30,7 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
 ```
 
-## <a name="track-backup-and-restore-jobs"></a>Acompanhar trabalhos de backup e restauração
+## <a name="track-backup-and-restore-jobs"></a>Rastrear backup e restaurar empregos
 
 Backup a pedido e restaurar operações devolvem um trabalho juntamente com uma identificação, como mostra quando [executa um backup](backup-azure-afs-automation.md#trigger-an-on-demand-backup)a pedido . Utilize o [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet para acompanhar o progresso do trabalho e detalhes.
 
@@ -67,7 +67,7 @@ Existem duas formas de parar a proteção de partilhas de ficheiros do Azure:
 * Pare todos os futuros trabalhos de backup e *elimine* todos os pontos de recuperação
 * Pare todos os futuros trabalhos de backup, mas *deixe* os pontos de recuperação
 
-Pode haver um custo associado à saída dos pontos de recuperação no armazenamento, pois os instantâneos subjacentes criados pelo backup do Azure serão mantidos. No entanto, o benefício de deixar os pontos de recuperação é que pode restaurar a parte do ficheiro mais tarde, se desejar. Para obter informações sobre o custo de saída dos pontos de recuperação, consulte os detalhes dos [preços.](https://azure.microsoft.com/pricing/details/storage/files/) Se optar por eliminar todos os pontos de recuperação, não pode restaurar a parte do ficheiro.
+Pode haver um custo associado à saída dos pontos de recuperação no armazenamento, uma vez que os instantâneos subjacentes criados pela Azure Backup serão mantidos. No entanto, o benefício de deixar os pontos de recuperação é que pode restaurar a parte do ficheiro mais tarde, se desejar. Para obter informações sobre o custo de saída dos pontos de recuperação, consulte os detalhes dos [preços.](https://azure.microsoft.com/pricing/details/storage/files/) Se optar por eliminar todos os pontos de recuperação, não pode restaurar a parte do ficheiro.
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Parar a proteção e reter pontos de recuperação
 

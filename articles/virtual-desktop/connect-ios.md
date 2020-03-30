@@ -9,10 +9,10 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3bf9ea6c68e4cbbe721705639e6c6416c0e93c9d
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128247"
 ---
 # <a name="connect-with-the-ios-client"></a>Ligar ao cliente de iOS
@@ -31,9 +31,9 @@ Subscreva o feed fornecido pelo seu administrador para obter a lista de recursos
 
 Para subscrever um feed:
 
-1. No Centro de Ligação, toque **em+** , e toque em Adicionar Espaço **de Trabalho**.
+1. No Centro de **+** Ligação, toque , toque em **Adicionar Espaço de Trabalho**.
 2. Introduza o URL de alimentação no campo **URL** feed. O URL de alimentação pode ser um URL ou um endereço de e-mail.
-   - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o URL é <https://rdweb.wvd.microsoft.com>.
+   - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o <https://rdweb.wvd.microsoft.com>URL é .
    - Para utilizar o seu email, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
 3. Toque **em Seguida**.
 4. Forneça as suas credenciais quando solicitado.

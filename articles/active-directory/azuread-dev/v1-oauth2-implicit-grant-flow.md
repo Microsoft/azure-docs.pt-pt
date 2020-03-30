@@ -1,28 +1,25 @@
 ---
-title: Compreender o fluxo implícito de subvenção Da OAuth2 em Azure AD  Microsoft Docs
+title: Compreender o fluxo implícito de subvenção Da OAuth2 em Azure AD [ Microsoft Docs
 description: Saiba mais sobre a implementação do fluxo de subvenção implícita o OAuth2 da Azure Ative Directory e se é adequado para a sua aplicação.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ec9d58c517cca354b00af25e1f0204460f2851bb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: eaa3844bfbbef8cb71dbe8691cab894c921ce00a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154513"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Compreender o fluxo implícito de subvenção OAuth2 no Diretório Ativo azure (AD)
 

@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd319dd6a83a392f6df26d07a58be22a9c8bdb61
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063684"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
@@ -81,25 +81,25 @@ Se tiver algum feedback sobre as funcionalidades de Governança de Identidade, c
 
 Embora não exista uma solução ou recomendação perfeita para cada cliente, os seguintes guias de configuração também fornecem as políticas de base que a Microsoft recomenda que siga para garantir uma mão de obra mais segura e produtiva.
 
-- [Configurações de acesso a identidade e dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso aos dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [A proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Apêndice - funções menos privilegiadas para a gestão de funcionalidades de Governança de Identidade
 
 É uma boa prática usar o papel menos privilegiado para executar tarefas administrativas na Governação da Identidade. Recomendamos que utilize o AZURE AD PIM para ativar uma função necessária para executar estas tarefas. Seguem-se as funções de diretório menos privilegiadas para configurar as funcionalidades de Governança de Identidade:
 
-| Funcionalidade | Função com privilégios mínimos |
+| Funcionalidade | Papel menos privilegiado |
 | ------- | --------------------- |
 | Gestão de direitos | Administrador de utilizador (com exceção da adição de sites SharePoint Online a catálogos, o que requer administrador global) |
 | Revisões de acesso | Administrador de utilizadores (com exceção das revisões de acesso das funções Azure ou Azure AD, que requer administrador privilegiado de funções) |
-|Privileged Identity Management | Administrador de função com privilégios |
+|Privileged Identity Management | Administrador privilegiado |
 | Termos de utilização | Administrador de segurança ou administrador de acesso condicional |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a gestão de direitos do Azure AD?](entitlement-management-overview.md)
-- [O que são as revisões de acesso do Azure AD?](access-reviews-overview.md)
-- [O que é a Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-- [O que posso fazer com os Termos de Utilização?](active-directory-tou.md)
+- [O que são as avaliações de acesso da Azure AD?](access-reviews-overview.md)
+- [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+- [O que posso fazer com os Termos de utilização?](active-directory-tou.md)
 
 

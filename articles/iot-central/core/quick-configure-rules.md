@@ -10,17 +10,17 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77169483"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Quickstart: Configure regras e ações para o seu dispositivo em Azure IoT Central
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Neste arranque rápido, cria-se uma regra que envia um e-mail quando a temperatura reportada por um sensor de dispositivo salta para 90&deg; F.
+Neste arranque rápido, cria-se uma regra que envia um e-mail&deg; quando a temperatura reportada por um sensor de dispositivo supõe que seja superior a 90 F.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Antes de começar, deve completar os dois quickstarts anteriores [Criar uma apli
 
 1. Para adicionar uma nova regra baseada na telemetria à sua aplicação, no painel esquerdo, selecione **Regras**.
 
-1. Para criar uma nova regra, selecione **+** .
+1. Para criar uma nova **+** regra, selecione .
 
 1. Introduza a **temperatura ambiental** como o nome da regra.
 
@@ -41,7 +41,7 @@ Antes de começar, deve completar os dois quickstarts anteriores [Criar uma apli
     | Campo        | Valor            |
     | ------------ | ---------------- |
     | Medida  | Temperatura      |
-    | Operador     | é maior do que  |
+    | Operador     | é maior que  |
     | Valor        | 90               |
 
     Para adicionar mais condições, selecione **+ Condição**.

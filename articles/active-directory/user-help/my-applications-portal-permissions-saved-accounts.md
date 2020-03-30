@@ -13,45 +13,45 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77022414"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de candidatura no portal My Apps
 
-Quando utiliza aplicações organizacionais no portal **My Apps,** muitas vezes concede permissões e guarda informações sobre contas. Para manter seus dados seguros, talvez você queira examinar e revogar permissões ou limpar as credenciais da conta salva. A remoção de permissões ou contas pode interromper algumas funcionalidades de aplicativo. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o helpdesk da sua organização para obter assistência adicional.
+Quando utiliza aplicações organizacionais no portal **My Apps,** muitas vezes concede permissões e guarda informações sobre contas. Para manter os seus dados seguros, pode querer rever e revogar permissões ou limpar credenciais de conta guardadas. Remover permissões ou contas pode quebrar alguma funcionalidade da aplicação. Se tiver problemas depois de remover permissões ou contas, contacte o Helpdesk da sua organização para obter assistência adicional.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na Documentação de Gestão de [Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces)
 
 ## <a name="manage-app-permissions"></a>Gerir permissões de aplicações
 
-Para exibir as permissões consentidas por você ou seu administrador, selecione **...** quando você passa o mouse sobre um aplicativo no portal **meus aplicativos** e seleciona **gerenciar seu aplicativo**:
+Para ver as permissões consentidas por **...** si ou pelo seu administrador, selecione... quando pairar sobre uma aplicação no portal **My Apps,** e, em seguida, selecione Gerir a **sua aplicação:**
 
-![Gerenciar um aplicativo no portal meus aplicativos](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Gerir uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 
-A parte superior da janela de permissões mostra o que você consentiu pessoalmente. Os exemplos de permissões de aplicativos incluem a capacidade de acessar seu calendário, seus contatos ou sua câmera.
+A parte superior da janela de permissões mostra o que você pessoalmente consentiu. Exemplos de permissões de apps incluem a capacidade de aceder ao seu calendário, contactos ou câmara.
 
-Você pode revogar qualquer uma das permissões para as quais você consentiu selecionando **revogar permissões**. no entanto, a remoção de uma permissão pode interromper algumas das funcionalidades dos aplicativos. Se você tiver problemas depois de remover permissões ou contas, entre em contato com o helpdesk da sua organização para obter assistência adicional.
+Pode revogar qualquer uma das permissões que consentiu selecionando **Permissões De revogação**, no entanto, remover uma permissão pode quebrar algumas das funcionalidades das aplicações. Se tiver problemas depois de remover permissões ou contas, contacte o Helpdesk da sua organização para obter assistência adicional.
 
-![Revogar permissões para um aplicativo no portal meus aplicativos](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
+![Revogar permissões para uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 
-A parte inferior da janela permissões mostra o que o administrador consentiu em seu nome. Esta seção não será mostrada se não houver permissões de administrador consentidas. Você não pode revogar essas permissões porque o administrador consentiu a elas e geralmente é necessário para a política da sua organização.
+A parte inferior da janela de permissões mostra o que o seu administrador consentiu em seu nome. Esta secção não é mostrada se não há permissões consentidas com a administração. Não pode revogar estas permissões porque o administrador consentiu com elas, e muitas vezes são necessárias para a política da sua organização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de gerenciar as permissões do aplicativo e as contas salvas no portal **meus aplicativos** , você pode:
+Depois de gerir permissões de aplicações e contas guardadas no portal **My Apps,** pode:
 
-- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para mais informações, consulte [O Acesso e utilize coleções no portal My Apps](my-applications-portal-workspaces.md).
+- Organize as suas aplicações nas várias categorias criadas e fornecidas pela sua organização. Para mais informações, consulte [O Acesso e utilize coleções no portal My Apps](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar as suas informações pessoais que aparecem no portal **My Profile.**
+- [Atualize o seu perfil e informações sobre a conta.](my-account-portal-overview.md) Instruções sobre como atualizar as suas informações pessoais que aparecem no portal **My Profile.**
 
-- [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
+- [Gerencie as suas organizações.](my-account-portal-organizations-page.md) Instruções sobre como visualizar e gerir as suas informações relacionadas com a organização na página das **Organizações** do portal **My Profile.**
 
-- [Gerencie seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .
+- [Gerencie os seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerir os dispositivos a que está ligado a utilizar o seu trabalho ou conta escolar, na página de **Dispositivos** do portal **My Profile.**

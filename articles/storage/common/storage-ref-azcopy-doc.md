@@ -1,6 +1,6 @@
 ---
-title: azcopy doc | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy doc.
+title: azcopy doc [ Microsoft Docs
+description: Este artigo fornece informações de referência para o comando do doc da azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,21 +9,21 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: d071517377053e8f4f22ad00966e2be688b0d486
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74029862"
 ---
 # <a name="azcopy-doc"></a>azcopy doc
 
-Gera documentação para a ferramenta no formato de redução.
+Gera documentação para a ferramenta em formato Markdown.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
-Gera a documentação para a ferramenta no formato de redução e as armazena no local designado.
+Gera documentação para a ferramenta em formato Markdown, e armazena-as no local designado.
 
-Por padrão, os arquivos são armazenados em uma pasta chamada ' Doc ' dentro do diretório atual.
+Por predefinição, os ficheiros são armazenados numa pasta denominada 'doc' dentro do diretório atual.
 
 ```azcopy
 azcopy doc [flags]
@@ -32,22 +32,22 @@ azcopy doc [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 
 |Opção|Descrição|
 |--|--|
-|-h,--ajuda|Mostra o conteúdo da ajuda para o comando doc.|
+|-h, --ajuda|Mostra conteúdo de ajuda para o comando do doc.|
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
 |Opção|Descrição|
 |---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--cap-mbps uint32|Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.|
+|--cadeia tipo saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 
 ## <a name="see-also"></a>Consulte também
 

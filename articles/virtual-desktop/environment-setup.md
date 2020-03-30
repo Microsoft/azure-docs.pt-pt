@@ -9,10 +9,10 @@ ms.date: 04/12/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127914"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
@@ -64,5 +64,5 @@ Para aprender a configurar o seu inquilino de ambiente de trabalho virtual Windo
 
 Para aprender a ligar-se ao Windows Virtual Desktop, consulte um dos seguintes artigos:
 
-- [Ligue-se a partir do Windows 10 ou do Windows 7](connect-windows-7-and-10.md)
-- [Conecte-se a partir de um navegador web](connect-web.md)
+- [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Ligar a partir de um browser web](connect-web.md)
