@@ -1,5 +1,5 @@
 ---
-title: Provision StorSimple Virtual Array em Hyper-V  Microsoft Docs
+title: Provision StorSimple Virtual Array em Hyper-V [ Microsoft Docs
 description: Este segundo tutorial na implementação da StorSimple Virtual Array envolve o fornecimento de uma matriz virtual em Hyper-V.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267537"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar Matriz Virtual StorSimple - Provisão em Hiper-V
@@ -31,7 +31,7 @@ ms.locfileid: "79267537"
 
 Este tutorial descreve como fornecer um StorSimple Virtual Array num sistema de anfitriões que executa Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Este artigo aplica-se à implementação de Matrizes Virtuais StorSimple no portal Azure e Microsoft Azure Government Cloud.
 
-Precisa de privilégios de administrador para fornecer e configurar uma matriz virtual. O aprovisionamento e a configuração inicial demoram cerca de dez minutos a concluir.
+Precisa de privilégios de administrador para fornecer e configurar uma matriz virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
 
 ## <a name="provisioning-prerequisites"></a>Predisposição de pré-requisitos
 Aqui encontrará os pré-requisitos para fornecer uma matriz virtual num sistema de anfitriões que executa Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
@@ -92,7 +92,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
-   Se estiver a executar o Windows Server 2008 R2, abra o Hyper-V Manager. No Server Manager, clique em **Roles > Hyper-V > Hyper-V Manager**.
+   Se estiver a executar o Windows Server 2008 R2, abra o Hyper-V Manager. No Gestor do Servidor, clique em **Funções > Hiper-V > Hiper-V Manager**.
 3. No **Hyper-V Manager**, no painel de âmbito, clique com o botão direito do rato no nó do seu sistema para abrir o menu de contexto e clique em **Novo** > **Máquina Virtual**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
@@ -185,7 +185,7 @@ Execute os seguintes passos para iniciar a sua matriz virtual e ligar-se à sua.
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
     Em seguida, configurar a rede.
-7. Utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas na sua matriz virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a esta interface é `Ethernet`.
+7. Utilize `Get-HcsIpAddress` o comando para listar as interfaces de rede ativadas na sua matriz virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja o seguinte exemplo:

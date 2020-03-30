@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268746"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar uma base de dados Azure SQL utilizando cópias de dados automatizadas
@@ -147,7 +147,7 @@ A partir do portal Azure, cria uma nova base de dados de instâncias únicaou ge
 
 Para restaurar uma única base de dados SQL do portal Azure na região e servidor à sua escolha, siga estes passos:
 
-1. A partir **do Dashboard,** selecione **Adicionar** > Criar base de **dados SQL**. No separador Basics, introduza as informações **necessárias.**
+1. A partir **do Dashboard,** selecione **Criar** > base**de dados SQL**. No separador Basics, introduza as informações **necessárias.**
 2. Selecione **definições adicionais**.
 3. Para **utilizar os dados existentes,** selecione **Backup**.
 4. Para **backup,** selecione uma cópia de segurança da lista de cópias de segurança de georestauro disponíveis.

@@ -1,7 +1,7 @@
 ---
-title: 'Treinar modelo de clustering: referência de módulo'
+title: 'Modelo de clustering de comboio: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo treinar modelo de clustering em Azure Machine Learning para treinar modelos de clustering.
+description: Aprenda a utilizar o módulo modelo de clustering de comboios em Azure Machine Learning para treinar modelos de agrupamento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 7053fab28b4a231c92f31e344cf09ffef3a6b146
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477430"
 ---
 # <a name="train-clustering-model"></a>Preparar Modelo de Clustering
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para treinar um modelo de clustering.
+Utilize este módulo para formar um modelo de agrupamento.
 
-O módulo pega num modelo de agrupamento não treinado que já configuraste utilizando o módulo [de agrupamento K-Means](k-means-clustering.md) e treina o modelo utilizando um conjunto de dados rotulado ou não rotulado. O módulo cria um modelo treinado que você pode usar para previsão e um conjunto de atribuições de cluster para cada caso nos dados de treinamento.
+O módulo pega num modelo de agrupamento não treinado que já configuraste utilizando o módulo [de agrupamento K-Means](k-means-clustering.md) e treina o modelo utilizando um conjunto de dados rotulado ou não rotulado. O módulo cria um modelo treinado que pode utilizar para previsão, como um conjunto de atribuições de cluster para cada caso nos dados de treino.
 
 > [!NOTE]
-> Um modelo de agrupamento não pode ser treinado utilizando o módulo [Train Model,](train-model.md) que é o módulo genérico para treinar modelos de aprendizagem automática. Isto porque [o Modelo de Comboio](train-model.md) funciona apenas com algoritmos de aprendizagem supervisionados. K-means e outros algoritmos de clustering permitem aprendizado não supervisionado, o que significa que o algoritmo pode aprender com dados não rotulados.  
+> Um modelo de agrupamento não pode ser treinado utilizando o módulo [Train Model,](train-model.md) que é o módulo genérico para treinar modelos de aprendizagem automática. Isto porque [o Modelo de Comboio](train-model.md) funciona apenas com algoritmos de aprendizagem supervisionados. Os meios K e outros algoritmos de agrupamento permitem uma aprendizagem sem supervisão, o que significa que o algoritmo pode aprender com dados não rotulados.  
   
-## <a name="how-to-use-train-clustering-model"></a>Como usar o modelo treinar clustering  
+## <a name="how-to-use-train-clustering-model"></a>Como usar o modelo de clustering de comboios  
 
 1.  Adicione o módulo Modelo de **Clustering de Comboios** ao seu pipeline no designer. Pode encontrar o módulo em **Módulos de Aprendizagem automática,** na categoria **Comboio.**  
   
@@ -35,19 +35,19 @@ O módulo pega num modelo de agrupamento não treinado que já configuraste util
     
 3.  Fixe um conjunto de dados de treino à entrada direita do Modelo de Agrupamento de **Comboios**.
   
-5.  No **Conjunto de Colunas,** selecione as colunas do conjunto de dados para utilizar em clusters de construção. Certifique-se de selecionar colunas que tenham bons recursos: por exemplo, evite usar IDs ou outras colunas que tenham valores exclusivos ou colunas que tenham os mesmos valores.
+5.  No **Conjunto de Colunas,** selecione as colunas do conjunto de dados para utilizar em clusters de construção. Certifique-se de selecionar colunas que façam boas características: por exemplo, evite utilizar IDs ou outras colunas que tenham valores únicos, ou colunas com todos os mesmos valores.
 
-    Se um rótulo estiver disponível, você poderá usá-lo como um recurso ou deixá-lo fora.  
+    Se estiver disponível uma etiqueta, pode utilizá-la como recurso ou deixá-la de fora.  
   
 6. Selecione a opção, **verifique se o apêndice ou não verifique apenas**o resultado, se pretender obter os dados de treino juntamente com a nova etiqueta de cluster.
 
-    Se você desmarcar essa opção, somente as atribuições de cluster serão geradas. 
+    Se desseleccionar esta opção, apenas as atribuições de cluster são de saída. 
 
-7. Executar o gasoduto ou clicar no módulo Modelo de **Clustering de Comboios** e selecionar **Executar Selecionado**.  
+7. Submeta o gasoduto ou clique no módulo modelo de **clustering de comboios** e selecione **Executar Selecionado**.  
   
 ### <a name="results"></a>Resultados
 
-Após a conclusão do treinamento:
+Após o treino ter concluído:
 
 + Para guardar uma imagem do modelo treinado, selecione o separador **Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone do conjunto de **dados Register** para salvar o modelo como um módulo reutilizável.
 

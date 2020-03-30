@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272308"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
@@ -87,11 +87,11 @@ Utilizando o Ambari UI, pode descarregar a configuração para quaisquer (ou tod
 
 ### <a name="view-the-script-action-logs"></a>Ver os registos de ação do script
 
-[As ações](hdinsight-hadoop-customize-cluster-linux.md) do script HDInsight executam scripts num cluster, manualmente ou quando especificados. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou para alterar as definições de configuração dos valores predefinidos. Os registos de ação do script podem fornecer informações sobre os erros ocorridos durante a configuração do cluster, bem como alterações de configuração que podem afetar o desempenho e disponibilidade do cluster.  Para ver o estado de uma ação de script, selecione o botão **de operações** no seu Ambari UI ou aceda aos registos de estado na conta de armazenamento predefinido. Os registos de armazenamento estão disponíveis em `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
+[As ações](hdinsight-hadoop-customize-cluster-linux.md) do script HDInsight executam scripts num cluster, manualmente ou quando especificados. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou para alterar as definições de configuração dos valores predefinidos. Os registos de ação do script podem fornecer informações sobre os erros ocorridos durante a configuração do cluster, bem como alterações de configuração que podem afetar o desempenho e disponibilidade do cluster.  Para ver o estado de uma ação de script, selecione o botão **de operações** no seu Ambari UI ou aceda aos registos de estado na conta de armazenamento predefinido. Os registos de `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`armazenamento estão disponíveis em .
 
 ### <a name="view-ambari-alerts-status-logs"></a>Ver Registos de estado de alerta de Ambari
 
-Apache Ambari escreve alterações de estado de alerta para `ambari-alerts.log`. O caminho completo é `/var/log/ambari-server/ambari-alerts.log`. Para permitir a depuração do registo, altere uma propriedade em `/etc/ambari-server/conf/log4j.properties.` Alterar e, em seguida, entrar sob `# Log alert state changes` a partir de:
+Apache Ambari escreve alterações `ambari-alerts.log`de estado de alerta para . O caminho `/var/log/ambari-server/ambari-alerts.log`completo é. Para permitir a depuração do registo, altere uma propriedade em `/etc/ambari-server/conf/log4j.properties.` Change e, em seguida, entre em: `# Log alert state changes`
 
 ```
 log4j.logger.alerts=INFO,alerts
@@ -131,7 +131,7 @@ Os registos agregados não são diretamente legíveis, uma vez que estão escrit
 
 #### <a name="yarn-cli-tools"></a>Ferramentas DE CLI de FIOS
 
-Para utilizar as ferramentas YARN CLI, tem primeiro de se ligar ao cluster HDInsight utilizando o SSH. Especifique as informações `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`e `<worker-node-address>` ao executar estes comandos. Pode ver os registos como texto simples com um dos seguintes comandos:
+Para utilizar as ferramentas YARN CLI, tem primeiro de se ligar ao cluster HDInsight utilizando o SSH. Especifique `<containerId>`as `<worker-node-address>` `<applicationId>`informações `<user-who-started-the-application>`e informações ao executar estes comandos. Pode ver os registos como texto simples com um dos seguintes comandos:
 
 ```bash
 yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
@@ -142,7 +142,7 @@ yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-applica
 
 O YARN ResourceManager UI funciona no nó da cabeça do cluster, e é acedido através da UI web ambari. Utilize os seguintes passos para visualizar os registos de ARN:
 
-1. Num navegador web, navegue para `https://CLUSTERNAME.azurehdinsight.net`. Substitua o CLUSTERNAME pelo nome do seu cluster HDInsight.
+1. Num browser, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERNAME pelo nome do cluster do HDInsight.
 2. A partir da lista de serviços à esquerda, selecione YARN.
 3. A partir do dropdown quick Links, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos do ResourceManager**. É-lhe apresentada uma lista de links para registos de ARN.
 
@@ -171,10 +171,10 @@ Pode utilizar o .NET SDK para hadoop para examinar os ficheiros de registo gerad
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controlar o tamanho e o número de índices de backup para ficheiros de registo antigos
 
-Para controlar o tamanho e o número de ficheiros de registo retidos, detete as seguintes propriedades do `RollingFileAppender`:
+Para controlar o tamanho e o número de ficheiros `RollingFileAppender`de registo retidos, detete as seguintes propriedades do :
 
-* `maxFileSize` é o tamanho crítico do ficheiro, acima do qual o ficheiro é enrolado. O valor padrão é de 10 MB.
-* `maxBackupIndex` especifica o número de ficheiros de backup a criar, padrão 1.
+* `maxFileSize`é o tamanho crítico do ficheiro, acima do qual o ficheiro é enrolado. O valor padrão é de 10 MB.
+* `maxBackupIndex`especifica o número de ficheiros de backup a criar, padrão 1.
 
 ### <a name="other-log-management-techniques"></a>Outras técnicas de gestão de registos
 

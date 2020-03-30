@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257254"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
@@ -37,18 +37,18 @@ Quando implementa um servidor de processo no local, ou como um VM Azure para fai
 
 Equilibre a carga movendo VMs entre dois servidores de processo, da seguinte forma:
 
-1. No cofre, sob **a Manage clique** na Infraestrutura de **Recuperação do Local**. **Para VMware e máquinas físicas,** clique em Servidores de **Configuração**.
+1. No cofre, sob **a Manage clique** na Infraestrutura de **Recuperação do Local**. **Em For VMware & Máquinas Físicas,** clique em Servidores de **Configuração**.
 2. Clique no servidor de configuração com o qual os servidores de processo estão registados.
 3. Clique no servidor de processos para o qual pretende carregar o tráfego de equilíbrio.
 
     ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-4. Clique no **equilíbrio de carga,** selecione o servidor de processo de destino para o qual pretende mover as máquinas. Em seguida, clique em **OK**
+4. Clique no **equilíbrio de carga,** selecione o servidor de processo de destino para o qual pretende mover as máquinas. Em seguida, clique **OK**
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Clique em **Selecionar máquinas**e escolha as máquinas que pretende mover da corrente para o servidor de processo-alvo. Os detalhes da alteração média dos dados são apresentados contra cada máquina virtual. Em seguida, clique em **OK**. 
-3. No cofre, monitorize o progresso do trabalho no âmbito da **monitorização** > trabalhos de recuperação do **local.**
+3. No cofre, monitorize o progresso do trabalho no âmbito dos**trabalhos**de recuperação do site **de monitorização.** > 
 
 Levará cerca de 15 minutos para que as alterações se reflitam no portal. Para um efeito mais rápido, [refresque o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -56,14 +56,14 @@ Levará cerca de 15 minutos para que as alterações se reflitam no portal. Para
 
 Mova toda a carga de trabalho manuseada por um servidor de processo para um servidor de processo diferente, da seguinte forma:
 
-1. No cofre, sob **a Manage clique** na Infraestrutura de **Recuperação do Local**. **Para VMware e máquinas físicas,** clique em Servidores de **Configuração**.
+1. No cofre, sob **a Manage clique** na Infraestrutura de **Recuperação do Local**. **Em For VMware & Máquinas Físicas,** clique em Servidores de **Configuração**.
 2. Clique no servidor de configuração com o qual os servidores de processo estão registados.
 3. Clique no servidor de processos a partir do qual pretende mudar a carga de trabalho.
-4. Clique no **Switch,** selecione o servidor de processo de destino para o qual pretende mover a carga de trabalho. Em seguida, clique em **OK**
+4. Clique no **Switch,** selecione o servidor de processo de destino para o qual pretende mover a carga de trabalho. Em seguida, clique **OK**
 
     ![Comutador](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. No cofre, monitorize o progresso do trabalho no âmbito da **monitorização** > trabalhos de recuperação do **local.**
+5. No cofre, monitorize o progresso do trabalho no âmbito dos**trabalhos**de recuperação do site **de monitorização.** > 
 
 Levará cerca de 15 minutos para que as alterações se reflitam no portal. Para um efeito mais rápido, [refresque o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3452fc68f7add40979513d3e3956f1c93e327f0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: eddfcacd01a67fffa8e3e992e021ed1771d25944
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943954"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471341"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança azure para HDInsight
 
@@ -113,11 +113,11 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 Existem várias dependências para o Azure HDInsight que requerem tráfego de entrada. O tráfego de gestão de entrada não pode ser enviado através de um dispositivo de firewall. Os endereços de origem para o tráfego de gestão exigido são conhecidos e publicados. Crie regras do Grupo de Segurança da Rede com esta informação para permitir o tráfego de apenas locais confiáveis, garantindo o tráfego de entrada para os clusters.
 
-Como implantar o HDInsight dentro de uma Rede Virtual e Proteger com um Grupo de Segurança de Rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Como implantar o HDInsight dentro de uma Rede Virtual e Proteger com um Grupo de Segurança de Rede:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Compreender as dependências do HDInsight e o uso da firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Compreender as dependências do HDInsight e o uso da firewall:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-Endereços IP de gestão HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+Endereços IP de gestão HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -209,7 +209,7 @@ Como visualizar e recuperar eventos de registo de atividade sinuosa:
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
 
-Como criar alertas no Monitor Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -579,14 +579,14 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 **Orientação**: Não disponível; O Lockbox do cliente ainda não foi suportado para o Azure HDInsight.
 
-Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista de serviços suportados pelo Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
-## <a name="data-protection"></a>Proteção de dados
+## <a name="data-protection"></a>Proteção de Dados
 
 *Para mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
@@ -689,9 +689,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Configurar as políticas de RBAC com o Apache Ranger permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para desempenhar as suas responsabilidades de trabalho.
 
-Configurações do Pacote de Segurança Empresarial com Serviços de Domínio de Diretório Ativo Azure em HDInsight: https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
+Configurações do Pacote de Segurança Empresarial com Serviços de Domínio de Diretório Ativo Azure em HDInsight:https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
 
-Visão geral da segurança da empresa em Azure HDInsight: https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
+Visão geral da segurança da empresa em Azure HDInsight:https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
 
 
 
@@ -854,10 +854,10 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro da sua subscrição(s).  Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
 
-Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Gestor de Recursos Azure para avançar.
+Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Gráfico de Recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -928,9 +928,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
@@ -950,7 +950,7 @@ Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governa
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro da sua subscrição(s).  Remova quaisquer recursos Azure não aprovados que descubra. Para os nós de cluster Azure HDInsight, implemente uma solução de terceiros para remover ou alertar em software não aprovado.
 
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Gráfico de Recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -974,10 +974,10 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Tipos de recursos permitidos
 
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo específico de recurso com a Política Azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -996,7 +996,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 **Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
 
 
-Como configurar o Acesso Condicional ao acesso ao Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1350,7 +1350,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança de teste
 
-**Orientação**: Realizar exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário. Consulte a publicação do NIST: Guia para programas de teste, formação e exercício para planos e capacidades de TI: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Orientação**: Realizar exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário. Consulte a publicação do NIST: Guia para programas de teste, formação e exercício para planos e capacidades de TI:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1416,13 +1416,13 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 
 
-Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra a Microsoft gerida infraestruturas, serviços e aplicações em nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra a Microsoft gerida por infraestruturas, serviços e aplicações em nuvem, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorização**do Azure Security Center : Não aplicável
 
 **Responsabilidade**: Partilhado
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

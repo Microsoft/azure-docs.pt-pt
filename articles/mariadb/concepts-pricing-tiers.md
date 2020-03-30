@@ -1,27 +1,27 @@
 ---
-title: Níveis de preços - Base de Dados Azure para MariaDB
+title: Escalões de preço – Azure Database for MariaDB
 description: Conheça os vários níveis de preços para a Base de Dados Azure para OMariaDB, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 57671aa170e02cd773ba927a698d3ecece2ab4e3
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 3/18/2020
+ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528035"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para níveis de preços MariaDB
 
 Pode criar uma Base de Dados Azure para o servidor MariaDB num dos três diferentes níveis de preços: Básico, Propósito Geral e Otimização da Memória. Os níveis de preços são diferenciados pela quantidade de computação em vCores que pode ser provisionado, memória por vCore, e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor MariaDB. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
+|    | **Básico** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração computacional | Geração 5 |Geração 5 | Geração 5 |
+| Geração computacional | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Período de retenção de backup de base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -29,9 +29,9 @@ Para escolher um nível de preços, utilize a tabela seguinte como ponto de part
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho que requerem computação leve e desempenho em I/S. Exemplos incluem servidores usados para desenvolvimento ou teste ou aplicações de pequena escala pouco utilizadas. |
+| Básico | Cargas de trabalho que requerem computação leve e desempenho em I/S. Exemplos incluem servidores usados para desenvolvimento ou teste ou aplicações de pequena escala pouco utilizadas. |
 | Fins Gerais | A maioria das cargas de trabalho empresariais que requerem computação equilibrada e memória com uma potência de I/S escalável. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
-| Memória Otimizada | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento mais rápido de transações e uma maior conmoedação. Exemplos incluem servidores para processamento de dados em tempo real e aplicações transalíticas ou analíticas de alto desempenho.|
+| Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento mais rápido de transações e uma maior conmoedação. Exemplos incluem servidores para processamento de dados em tempo real e aplicações transalíticas ou analíticas de alto desempenho.|
 
 Depois de criar um servidor, o número de vCores e o nível de preços (exceto de e para o Basic) podem ser alterados para cima ou para baixo em segundos. Também pode ajustar a quantidade de armazenamento para cima e o período de retenção de reserva para cima ou para baixo sem tempo de inatividade de aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor ser criado. Para mais informações, consulte a secção de [recursos da Escala.](#scale-resources)
 
@@ -39,11 +39,11 @@ Depois de criar um servidor, o número de vCores e o nível de preços (exceto d
 
 Os recursos computacionais são fornecidos como vCores, que representam o CPU lógico do hardware subjacente. Os CPUs lógicos da Gen 5 baseiam-se em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 O armazenamento que você disponibiliza é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MariaDB. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MariaDB. A quantidade total de armazenamento que disponibiliza também define a capacidade de I/S disponível para o seu servidor.
 
-|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
+|    | **Básico** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Básico | Armazenamento de propósito geral | Armazenamento de propósito geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08852a9421d714b601d724c5309153a028c960bb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460794"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>O software SAP é suportado para implementações do Azure
 Este artigo descreve como pode descobrir qual o software SAP suportado para implementações do Azure e quais são as versões necessárias do sistema operativo ou lançamentos dbmS.
@@ -94,6 +94,9 @@ Para executar o SAP HANA, a SAP tem condições mais e mais fortes que a infraes
 > [!NOTE]
 > As unidades que começam com a letra 'S' são [unidades HANA Large Instances.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 
 
+> [!NOTE]
+> A SAP não tem nenhuma certificação específica dependente das principais versões SAP HANA. Contrariamente à opinião comum, o cenário de **certificação** da coluna nas [plataformas IaaS certificadas pela HANA,](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)a coluna não faz qualquer declaração sobre a versão importante ou menor certificada da **HANA.** Deve assumir que todas as unidades listadas que podem ser utilizadas para HANA 1.0 e HANA 2.0, desde que o sistema operativo certificado seja suportado também por lançamentos HANA 1.0. 
+
 Para a utilização do SAP HANA, podem ser aplicadas diferentes libertações mínimas de SO Do que para os casos gerais da NetWeaver. É necessário verificar individualmente os sistemas operativos suportados para cada unidade, uma vez que estes podem variar. Fá-lo clicando em cada unidade. Mais detalhes aparecerão. Um dos detalhes listados são os diferentes sistemas operativos suportados para esta unidade específica.
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Como sabe, as versões específicas da HANA que pode executar na infraestrutura 
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>VMs Azure certificados e unidades de grande instância HANA e entrada de transações comerciais
-Além de avaliar as versões suportadas do sistema operativo, lançamentos dbmS e lançamentos de software sAP de suporte dependente para unidades de infraestrutura Azure, você tem a necessidade de qualificar estas unidades através de uma entrada de transação de negócios, que é expressa na unidade 'SAP' por SAP. Todos os círculos de sizing SAP em torno do SAPS. Avaliando os sistemas SAP existentes, normalmente pode, com a ajuda do seu fornecedor de infraestruturas, calcular o SAPS das unidades. Para a camada DBMS, bem como para a camada de aplicação. Noutros casos em que é criada uma nova funcionalidade, um exercício de dimensionamento com SAP pode revelar os números SAPS necessários para a camada de aplicação e a camada DBMS. Como fornecedor de infraestruturas, a Microsoft é obrigada a fornecer a caracterização de entrada sap das diferentes unidades que são certificadas pela NetWeaver e/ou HANA.
+Além de avaliar as versões suportadas do sistema operativo, lançamentos dbmS e lançamentos de software sAP de suporte dependente para unidades de infraestrutura Azure, você tem a necessidade de qualificar estas unidades através de uma entrada de transação de negócios, que é expressa na unidade 'SAP' por SAP. Todo o tamanho sAP depende dos cálculos do SAPS. Avaliando os sistemas SAP existentes, normalmente pode, com a ajuda do seu fornecedor de infraestruturas, calcular o SAPS das unidades. Para a camada DBMS, bem como para a camada de aplicação. Noutros casos em que é criada uma nova funcionalidade, um exercício de dimensionamento com SAP pode revelar os números SAPS necessários para a camada de aplicação e a camada DBMS. Como fornecedor de infraestruturas, a Microsoft é obrigada a fornecer a caracterização de entrada sap das diferentes unidades que são certificadas pela NetWeaver e/ou HANA.
 
 Para os VMs Azure, estes números de entrada SAPS estão documentados na nota de [suporte SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Para as unidades de grande instância Azure HANA, os números de entrada sAPS são documentados na nota de [suporte SAP #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
@@ -128,7 +131,7 @@ No caso dos Serviços de Dados de Objetos Empresariais, [a nota de suporte da SA
 > [!NOTE]
 > Como indicado na nota de suporte do SAP, é necessário verificar o SAP PAM para identificar o nível correto do pacote de suporte a suportar no Azure
 
-SAP Datahub/Vora support Azure Kubernetes Services (AKS) é detalhado na nota de [suporte sAP #2464722](https://launchpad.support.sap.com/#/notes/2464722)
+O suporte SAP Datahub/Vora nos Serviços Azure Kubernetes (AKS) é detalhado na nota de [suporte da SAP #2464722](https://launchpad.support.sap.com/#/notes/2464722)
 
 O suporte para SAP BPC 10.1 SP08 é descrito na nota de [suporte SAP #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 

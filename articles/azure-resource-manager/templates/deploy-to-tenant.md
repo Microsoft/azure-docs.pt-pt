@@ -2,13 +2,13 @@
 title: Desloque recursos para o inquilino
 description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.date: 03/16/2020
+ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460267"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -43,7 +43,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Acesso obrigatório
 
-O principal desdobramento do modelo deve ter permissões para criar recursos no âmbito do arrendatário. O diretor deve ter permissão para executar as ações de implantação (`Microsoft.Resources/deployments/*`) e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o diretor deve ter autorização do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o diretor deve ter permissão do Proprietário.
+O principal desdobramento do modelo deve ter permissões para criar recursos no âmbito do arrendatário. O principal deve ter permissão`Microsoft.Resources/deployments/*`para executar as ações de implantação e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o diretor deve ter autorização do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o diretor deve ter permissão do Proprietário.
 
 O Administrador Global do Diretório Ativo Azure não tem automaticamente permissão para atribuir funções. Para permitir a implantação do modelo no âmbito do arrendatário, o Administrador Global deve fazer os seguintes passos:
 
@@ -65,10 +65,20 @@ O diretor tem agora as permissões necessárias para implementar o modelo.
 
 Os comandos para destacamentos de inquilinos são diferentes dos comandos para implantações de grupos de recursos.
 
+Para o Azure CLI, utilize o inquilino de [implantação az criar:](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)
+
+```azurecli-interactive
+az deployment tenant create \
+  --name demoTenantDeployment \
+  --location WestUS \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+```
+
 Para a Azure PowerShell, utilize [new-azTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
+  -Name demoTenantDeployment `
   -Location "West US" `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
@@ -81,7 +91,7 @@ Para implementações de nível de inquilino, você deve fornecer um local para 
 
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo com o código de erro `InvalidDeploymentLocation`, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código `InvalidDeploymentLocation`de erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Funções de modelo de utilização
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79208842"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500753"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma única base de dados na Base de Dados Azure SQL
 
@@ -33,11 +33,11 @@ Pode construir a sua primeira aplicação numa pequena base de dados única a ba
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de dados individuais e conjuntos elásticos
 
-Uma única base de dados pode ser movida para dentro ou para fora de um [pool elástico](sql-database-elastic-pool.md) para partilha de recursos. Para muitas empresas e aplicações, ser capaz de criar bases de dados individuais e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. As piscinas elásticas são projetadas para resolver este problema. O conceito é simples. Você aloca recursos de desempenho a uma piscina em vez de uma base de dados individual e paga pelos recursos de desempenho coletivos da piscina em vez de um desempenho único na base de dados.
+Uma única base de dados pode ser movida para dentro ou para fora de um [pool elástico](sql-database-elastic-pool.md) para partilha de recursos. Para muitas empresas e aplicações, ser capaz de criar bases de dados individuais e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Os conjuntos elásticos foram concebidos para resolver este problema. O conceito é simples. Você aloca recursos de desempenho a uma piscina em vez de uma base de dados individual e paga pelos recursos de desempenho coletivos da piscina em vez de um desempenho único na base de dados.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
-Utiliza as ferramentas de [monitorização](sql-database-performance.md) e alerta de desempenho [incorporadas,](sql-database-insights-alerts-portal.md)combinadas com as classificações de desempenho. Com estas ferramentas, pode avaliar rapidamente o impacto de aumentar ou reduzir verticalmente consoante as necessidades de desempenho atuais ou do projeto. Além disso, a Base de Dados SQL pode [emitir métricas e registos](sql-database-metrics-diag-logging.md) de recursos para uma monitorização mais fácil.
+Utiliza as ferramentas de [monitorização](sql-database-performance-guidance.md) e alerta de desempenho [incorporadas,](sql-database-insights-alerts-portal.md)combinadas com as classificações de desempenho. Com estas ferramentas, pode avaliar rapidamente o impacto de aumentar ou reduzir verticalmente consoante as necessidades de desempenho atuais ou do projeto. Além disso, a Base de Dados SQL pode [emitir métricas e registos](sql-database-metrics-diag-logging.md) de recursos para uma monitorização mais fácil.
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 

@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Início rápido-cluster do Docker CE do Azure para Linux
+title: (DEPRECIADO) Quickstart - Cluster CE Azure Docker para Linux
 description: Aprenda rapidamente a criar um cluster Docker CE para contentores do Linux no Azure Container Service com a CLI do Azure.
 author: iainfoulds
 ms.service: container-service
@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274884"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481743"
 ---
-# <a name="deprecated-deploy-docker-ce-cluster"></a>PRETERIDO Implantar o cluster do Docker CE
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(DEPRECIADO) Implementar cluster CE docker
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Neste guia rápido, verá como implementar um cluster Docker CE com a CLI do Azure. Depois, é implementada e executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet.
+Neste arranque rápido, um cluster CE Docker é implantado usando o Azure CLI. Depois, é implementada e executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet.
 
 O Docker CE no Azure Container Service encontra-se em pré-visualização e **não deve ser utilizado em cargas de trabalho de produção**.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -30,7 +30,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos.
 
-O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *westus2* .
+O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *westus2.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -53,7 +53,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a região availaiblity do Docker CE, consulte [regiões do ACS para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a disponibilidade da região do Docker CE, consulte [as regiões acs para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 O exemplo seguinte cria um cluster com o nome *mySwarmCluster* com um nó principal do Linux e três nós de agente do Linux.
 
@@ -67,16 +67,15 @@ Ao fim de vários minutos, o comando é concluído e devolve informações sobre
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Ao longo deste guia de início rápido, precisará do FQDN do conjunto principal do Docker Swarm e do conjunto de agentes do Docker. Execute o seguinte comando para devolver os FQDNs principal e de agente.
+Durante este arranque rápido, você precisa do FQDN do Mestre Docker Swarm e da piscina de agente Docker. Execute o seguinte comando para devolver os FQDNs principal e de agente.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Saída:
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -125,7 +124,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 Saída:
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -139,7 +138,7 @@ docker stack ps azure-vote
 
 Quando o `CURRENT STATE` de cada serviço for `Running`, a aplicação está pronta.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
 tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
@@ -160,15 +159,15 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Obter o código
 
-Neste início rápido, foram utilizadas imagens de contentor pré-criadas para criar um serviço do Docker. O código da aplicação relacionado, o Dockerfile, e o ficheiro Compor estão disponíveis no GitHub.
+Neste arranque rápido, imagens de contentores pré-criadas têm sido usadas para criar um serviço Docker. O código da aplicação relacionado, o Dockerfile, e o ficheiro Compor estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, implementou um cluster do Docker Swarm e implementou uma aplicação de vários contentores no mesmo.
+Neste arranque rápido, implantou um cluster Docker Swarm e lançou-lhe uma aplicação multi-contentor.
 
-Para saber mais sobre como integrar o Docker Swarm com o Azure DevOps, vá para o CI/CD com o Docker Swarm e o Azure DevOps.
+Para aprender sobre a integração do enxame de Docker com A Azure DevOps, continue para o CI/CD com Docker Swarm e Azure DevOps.
 
 > [!div class="nextstepaction"]
 > [CI/CD com Docker Swarm e DevOps do Azure](./container-service-docker-swarm-setup-ci-cd.md)

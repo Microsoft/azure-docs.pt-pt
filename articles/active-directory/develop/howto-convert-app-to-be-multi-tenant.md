@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/19/2020
+ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 33116039d5e47b95322ffafb4e8f4eef31bd84cf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e15fb60ec339eae45f9f14a3333e8afe51fc05c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79262948"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480866"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Inscrever em qualquer utilizador do Diretório Ativo Azure utilizando o padrão de aplicação multi-inquilino
 
@@ -45,16 +45,16 @@ Por predefinição, as inscrições de aplicação web/API em Azure AD são inqu
 
 Antes de uma aplicação poder ser feita multi-inquilino, a Azure AD exige que o APP ID URI da aplicação seja globalmente único. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD.
 
-Por padrão, as aplicações criadas através do portal Azure têm um conjunto de Aplicações ID URI globalmente exclusivos na criação de apps, mas pode alterar este valor. Por exemplo, se o nome do seu inquilino fosse contoso.onmicrosoft.com então um App ID URI válido seria `https://contoso.onmicrosoft.com/myapp`. Se o seu inquilino tivesse um domínio verificado de `contoso.com`, então um App ID URI válido também seria `https://contoso.com/myapp`. Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
+Por padrão, as aplicações criadas através do portal Azure têm um conjunto de Aplicações ID URI globalmente exclusivos na criação de apps, mas pode alterar este valor. Por exemplo, se o nome do seu inquilino fosse `https://contoso.onmicrosoft.com/myapp`contoso.onmicrosoft.com então um App ID URI válido seria . Se o seu inquilino tivesse `contoso.com`um domínio verificado de, `https://contoso.com/myapp`então um APP ID URI válido também seria . Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
 
 > [!NOTE]
 > Os registos de clientes nativos, bem como [as aplicações](./active-directory-appmodel-v2-overview.md) da plataforma de identidade microsoft são multi-inquilinos por padrão. Você não precisa tomar nenhuma ação para fazer estas inscrições de inscrição multi-inquilinos.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Atualize o seu código para enviar pedidos para /comum
 
-Num único pedido de inquilino, os pedidos de inscrição são enviados para o ponto final de inscrição do inquilino. Por exemplo, para contoso.onmicrosoft.com o ponto final seria: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Os pedidos enviados para o ponto final de um inquilino podem inscrever utilizadores (ou hóspedes) nesse inquilino para aplicações nesse inquilino.
+Num único pedido de inquilino, os pedidos de inscrição são enviados para o ponto final de inscrição do inquilino. Por exemplo, para contoso.onmicrosoft.com o `https://login.microsoftonline.com/contoso.onmicrosoft.com`ponto final seria: . Os pedidos enviados para o ponto final de um inquilino podem inscrever utilizadores (ou hóspedes) nesse inquilino para aplicações nesse inquilino.
 
-Com uma aplicação multi-inquilino, a aplicação não sabe antecipadamente de que inquilino é o utilizador, pelo que não pode enviar pedidos para o ponto final de um inquilino. Em vez disso, os pedidos são enviados para um ponto final que multiplexes em todos os inquilinos da AD Azure: `https://login.microsoftonline.com/common`
+Com uma aplicação multi-inquilino, a aplicação não sabe antecipadamente de que inquilino é o utilizador, pelo que não pode enviar pedidos para o ponto final de um inquilino. Em vez disso, os pedidos são enviados para um ponto final que multiplexes em todos os inquilinos da AD Azure:`https://login.microsoftonline.com/common`
 
 Quando a plataforma de identidade da Microsoft recebe um pedido sobre o ponto final /ponto final comum, assina o utilizador e, consequentemente, descobre de que inquilino o utilizador é. O ponto final/ponto final comum trabalha com todos os protocolos de autenticação suportados pela Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
 
@@ -82,7 +82,7 @@ para descarregar duas peças críticas de informação que são usadas para vali
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-onde o valor GUID é a versão renome-safe da identificação do inquilino do inquilino. Se selecionar a ligação de metadados anterior para `contoso.onmicrosoft.com`, pode ver este valor emitente no documento.
+onde o valor GUID é a versão renome-safe da identificação do inquilino do inquilino. Se selecionar a ligação de `contoso.onmicrosoft.com`metadados anterior, pode ver este valor emitente no documento.
 
 Quando um único pedido de inquilino valida um símbolo, verifica a assinatura do símbolo com as chaves de assinatura do documento de metadados. Este teste permite-lhe certificar-se de que o valor do emitente no token corresponde ao que foi encontrado no documento de metadados.
 
@@ -90,9 +90,9 @@ Como o ponto final /comum não corresponde a um inquilino e não é um emitente,
 
     https://sts.windows.net/{tenantid}/
 
-Portanto, uma aplicação multi-inquilino não pode validar fichas apenas combinando o valor emitente nos metadados com o valor `issuer` no token. Uma aplicação multi-arrendatária precisa de lógica para decidir quais os valores emitentes válidos e que não se baseiam na parte de identificação do inquilino do valor emitente. 
+Portanto, uma aplicação multi-inquilino não pode validar fichas apenas combinando `issuer` o valor emitente nos metadados com o valor no token. Uma aplicação multi-arrendatária precisa de lógica para decidir quais os valores emitentes válidos e que não se baseiam na parte de identificação do inquilino do valor emitente. 
 
-Por exemplo, se um pedido multi-inquilino apenas permite o check-in de inquilinos específicos que se inscreveram para o seu serviço, então deve verificar o valor do emitente ou o valor de reclamação `tid` no símbolo para garantir que o inquilino está na sua lista de subscritores. Se um pedido multi-inquilino suver apenas com indivíduos e não tomar nenhuma decisão de acesso com base nos inquilinos, então pode ignorar completamente o valor do emitente.
+Por exemplo, se um pedido multi-inquilino apenas permite o check-in de inquilinos específicos que se `tid` inscreveram para o seu serviço, então deve verificar o valor do emitente ou o valor de reclamação no símbolo para garantir que o inquilino está na sua lista de assinantes. Se um pedido multi-inquilino suver apenas com indivíduos e não tomar nenhuma decisão de acesso com base nos inquilinos, então pode ignorar completamente o valor do emitente.
 
 Nas [amostras multi-inquilinos,][AAD-Samples-MT]a validação do emitente é desativada para permitir que qualquer inquilino da AD Azure assine.
 
@@ -117,13 +117,13 @@ As permissões apenas para aplicações requerem sempre o consentimento de um ad
 
 Algumas permissões delegadas também requerem o consentimento de um administrador inquilino. Por exemplo, a capacidade de reescrever para a AD Azure como o utilizador assinado requer o consentimento de um administrador inquilino. Tal como as permissões apenas para aplicações, se um utilizador comum tentar iniciar sessão numa aplicação que solicite uma permissão delegada que requer o consentimento do administrador, a sua aplicação recebe um erro. Se uma permissão requer consentimento administrativo é determinado pelo desenvolvedor que publicou o recurso, e pode ser encontrado na documentação para o recurso. A documentação de permissões para a [API do Microsoft Graph][MSFT-Graph-permission-scopes] indica quais as permissões que requerem consentimento administrativo.
 
-Se o seu pedido utilizar permissões que requerem consentimento administrativo, precisa de ter um gesto como um botão ou link onde o administrador possa iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de corda de consulta `prompt=admin_consent`. Uma vez que o administrador tenha consentido e o diretor de serviço seja criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do parâmetro `prompt=admin_consent`. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizador no inquilino é solicitado para o consentimento a partir desse ponto.
+Se o seu pedido utilizar permissões que requerem consentimento administrativo, precisa de ter um gesto como um botão ou link onde o administrador possa iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual `prompt=admin_consent` pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de corda de consulta. Uma vez que o administrador tenha consentido e o diretor de serviço seja criado no `prompt=admin_consent` inquilino do cliente, os pedidos subsequentes de inscrição não precisam do parâmetro. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizador no inquilino é solicitado para o consentimento a partir desse ponto.
 
 Um administrador de inquilino pode desativar a capacidade de os utilizadores regulares consentirem com as candidaturas. Se esta capacidade for desativada, o consentimento do administrador é sempre necessário para que o pedido seja utilizado no inquilino. Se pretender testar a sua aplicação com o consentimento do utilizador final desativado, pode encontrar o interruptor de configuração no [portal Azure][AZURE-portal] na secção de **[definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** do Utilizador nas **aplicações Enterprise**.
 
-O parâmetro `prompt=admin_consent` também pode ser usado por pedidos que solicitam permissões que não requerem consentimento administrativo. Um exemplo de quando isso seria usado é se a aplicação requer uma experiência em que o administrador do inquilino "se inscreve" uma vez, e nenhum outro utilizador é solicitado para o consentimento a partir desse ponto.
+O `prompt=admin_consent` parâmetro também pode ser utilizado por pedidos que solicitam permissões que não requerem consentimento administrativo. Um exemplo de quando isso seria usado é se a aplicação requer uma experiência em que o administrador do inquilino "se inscreve" uma vez, e nenhum outro utilizador é solicitado para o consentimento a partir desse ponto.
 
-Se um pedido necessitar de consentimento administrativo e um administrador entrar sem o `prompt=admin_consent` parâmetro, quando o administrador consentir com sucesso com a aplicação, aplicar-se-á **apenas à sua conta de utilizador**. Os utilizadores regulares ainda não poderão iniciar sessão ou consentir a aplicação. Esta funcionalidade é útil se pretender dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso a outros utilizadores.
+Se um pedido necessitar de consentimento administrativo e `prompt=admin_consent` um administrador entrar sem que o parâmetro seja enviado, quando o administrador consentir com sucesso com a aplicação, aplicar-se-á **apenas à sua conta de utilizador**. Os utilizadores regulares ainda não poderão iniciar sessão ou consentir a aplicação. Esta funcionalidade é útil se pretender dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso a outros utilizadores.
 
 > [!NOTE]
 > Algumas aplicações querem uma experiência em que os utilizadores regulares possam consentir inicialmente, e mais tarde a aplicação pode envolver o administrador e solicitar permissões que requerem consentimento administrativo. Não há como fazê-lo com uma inscrição de pedido v1.0 hoje em Azure AD; no entanto, a utilização da plataforma de identidade da Microsoft (v2.0) permite que as aplicações solicitem permissões no prazo de execução em vez de no momento de registo, o que permite este cenário. Para mais informações, consulte o ponto final da [plataforma de identidade da Microsoft][AAD-V2-Dev-Guide].
@@ -134,7 +134,7 @@ A sua aplicação pode ter vários níveis, cada um representado pelo seu própr
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Vários níveis em um único inquilino
 
-Isto pode ser um problema se a sua aplicação lógica for composta por dois ou mais registos de candidaturas, por exemplo, um cliente e recurso separados. Como é que se consegue que o recurso entre o inquilino do cliente primeiro? A Azure AD cobre este caso permitindo que o cliente e o recurso sejam consentidos num único passo. O utilizador vê a soma total das permissões solicitadas tanto pelo cliente como pelo recurso na página de consentimento. Para permitir este comportamento, o registo de aplicação do recurso deve incluir o ID da aplicação do cliente como `knownClientApplications` no seu manifesto de [aplicação.][AAD-App-Manifest] Por exemplo:
+Isto pode ser um problema se a sua aplicação lógica for composta por dois ou mais registos de candidaturas, por exemplo, um cliente e recurso separados. Como é que se consegue que o recurso entre o inquilino do cliente primeiro? A Azure AD cobre este caso permitindo que o cliente e o recurso sejam consentidos num único passo. O utilizador vê a soma total das permissões solicitadas tanto pelo cliente como pelo recurso na página de consentimento. Para permitir este comportamento, o registo de aplicação do recurso `knownClientApplications` deve incluir o ID da aplicação do cliente como um manifesto de [aplicação.][AAD-App-Manifest] Por exemplo:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -176,10 +176,10 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Amostra de candidatura de vários inquilinos](https://github.com/mspnp/multitenant-saas-guidance)
-* [Diretrizes de branding para aplicações][AAD-App-Branding]
+* [Amostra de candidatura de vários inquilinos](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
+* [Diretrizes de imagem corporativa para aplicações][AAD-App-Branding]
 * [Objetos de aplicação e objetos principais de serviço][AAD-App-SP-Objects]
-* [Integração de aplicações com o Azure Active Directory][AAD-Integrating-Apps]
+* [Integrar aplicações com o Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral do Quadro de Consentimento][AAD-Consent-Overview]
 * [Âmbitos de permissão da Microsoft Graph API][MSFT-Graph-permission-scopes]
 

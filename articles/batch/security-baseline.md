@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: a9569c1f5de797c77f447b5df15e85a57e8be84b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472933"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança azure para lote
 
@@ -199,9 +199,9 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Orientação**: Utilize o Registo de Atividade seleções do Azure para monitorizar as configurações de recursos de rede e detetar alterações para os recursos de rede relacionados com as piscinas do Lote Azure. Crie alertas dentro do Monitor Azure que irão desencadear quando ocorrerem alterações aos recursos críticos da rede.
 
-Como visualizar e recuperar eventos de registo de atividade seleções do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
+Como visualizar e recuperar eventos de registo de atividade sinuosa:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
 
-Como criar alertas no Monitor Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -553,7 +553,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 ### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13: <div>Fornecer à Microsoft acesso aos dados relevantes dos clientes durante os cenários de suporte<br></div>
 
-**Orientação**: Não disponível; O Lockbox do cliente ainda não foi suportado para o Lote Azure. Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+**Orientação**: Não disponível; O Lockbox do cliente ainda não foi suportado para o Lote Azure. Lista de serviços suportados pelo Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -788,10 +788,10 @@ Opcionalmente, se tiver uma assinatura rápida 7, Qualys ou qualquer outra subsc
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, etc.) dentro da sua subscrição. Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
 
-Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager (ARM) em curso.
+Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph Explorer, é altamente recomendado criar e utilizar recursos do Azure Resource Manager (ARM) para avançar.
 
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Explorador de Gráficos de Recursos Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -840,7 +840,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-Como criar e user Tags:
+Como criar e utilizar Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -867,10 +867,10 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Explorador de Gráficos de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -909,10 +909,10 @@ Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governa
 - Tipos de recursos permitidos
 
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo específico de recurso com a Política Azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -931,7 +931,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 **Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
 
 
-Como configurar o Acesso Condicional ao acesso ao Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -994,10 +994,10 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 - Microsoft.Network
 
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Compreender efeitos políticos do Azure: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Compreender efeitos políticos do Azure:https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1076,9 +1076,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 - As subredes devem ser associadas a um Grupo de Segurança da Rede -Contas de Armazenamento devem utilizar um ponto final do serviço de rede virtual
 - Os registos de diagnóstico nas contas do Lote devem ser ativados
 
-Como ver os Aliases políticos do Azure disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar os aliases de política do Azure disponíveis:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
@@ -1128,7 +1128,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Orientação**: Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure. 
 
-Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
+Como configurar o Scanner Credencial:https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1266,13 +1266,13 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Orientação**: Realizar exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
 
-Consulte a publicação do NIST: Guia para programas de teste, formação e exercício para planos e capacidades de TI: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Consulte a publicação do NIST: Guia para programas de teste, formação e exercício para planos e capacidades de TI:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorização**do Azure Security Center : Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Fornecer detalhes de contacto com incidentes de segurança e configurar notificações de alerta &nbsp;para incidentes de segurança
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4: Fornecer detalhes de contacto com &nbsp;incidentes de segurança e configurar notificações de alerta para incidentes de segurança
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos por uma parte ilegal ou não autorizada.
 

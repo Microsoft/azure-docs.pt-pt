@@ -11,12 +11,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
-ms.openlocfilehash: 49b384e9e2d9b77179a0154bf2d96524c064c2ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960974"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247185"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um pipeline de ingestão de dados
 
@@ -28,7 +28,7 @@ Considere o seguinte fluxo de trabalho de ingestão de dados:
 
 ![gasoduto de ingestão de dados](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-Nesta abordagem, os dados de formação são armazenados num armazenamento de blob Azure. Um oleoduto Azure Data Factory rebusca os dados de um recipiente de entrada blob, transforma-os e guarda os dados para o recipiente de saída blob. Este recipiente serve como armazenamento de [dados](https://docs.microsoft.com/azure/machine-learning/concept-data#access-data-in-storage) para o serviço de Aprendizagem automática Azure. Tendo os dados preparados, o pipeline Data Factory invoca um gasoduto de aprendizagem automática de formação para treinar um modelo. Neste exemplo específico, a transformação de dados é realizada por um caderno Python, em execução num cluster de Databricks Azure. 
+Nesta abordagem, os dados de formação são armazenados num armazenamento de blob Azure. Um oleoduto Azure Data Factory rebusca os dados de um recipiente de entrada blob, transforma-os e guarda os dados para o recipiente de saída blob. Este recipiente serve como armazenamento de [dados](concept-data.md) para o serviço de Aprendizagem automática Azure. Tendo os dados preparados, o pipeline Data Factory invoca um gasoduto de aprendizagem automática de formação para treinar um modelo. Neste exemplo específico, a transformação de dados é realizada por um caderno Python, em execução num cluster de Databricks Azure. 
 
 ## <a name="what-we-are-building"></a>O que estamos construindo
 
@@ -44,7 +44,7 @@ Os membros da equipa trabalham de formas ligeiramente diferentes para colaborar 
 
 ### <a name="python-notebook-source-code"></a>Código fonte do caderno Python
 
-Os engenheiros de dados trabalham com o código fonte do caderno Python, quer localmente num IDE (por exemplo, [Código de Estúdio Visual)](https://code.visualstudio.com)quer diretamente no espaço de trabalho dos Databricks. Este último dá a capacidade de depurar o código sobre o ambiente de desenvolvimento. Em todo o caso, o código será fundido no repositório na sequência de uma política de ramificação. É altamente recomendado armazenar o código em ficheiros `.py` e não em `.ipynb` formato de portátil Jupyter. Melhora a legibilidade do código e permite controlos automáticos de qualidade de código no processo de CI.
+Os engenheiros de dados trabalham com o código fonte do caderno Python, quer localmente num IDE (por exemplo, [Código de Estúdio Visual)](https://code.visualstudio.com)quer diretamente no espaço de trabalho dos Databricks. Este último dá a capacidade de depurar o código sobre o ambiente de desenvolvimento. Em todo o caso, o código será fundido no repositório na sequência de uma política de ramificação. É altamente recomendado armazenar o `.py` código em `.ipynb` ficheiros e não em formato de portátil Jupyter. Melhora a legibilidade do código e permite controlos automáticos de qualidade de código no processo de CI.
 
 ### <a name="azure-data-factory-source-code"></a>Código Fonte da Fábrica de Dados Azure
 
@@ -450,6 +450,6 @@ stages:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Controlo de Fontes na Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/source-control)
+* [Controlo de Origem no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control)
 * [Integração e entrega contínuas na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment)
 * [DevOps para Tijolos de Dados Azure](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

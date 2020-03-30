@@ -1,7 +1,7 @@
 ---
-title: Configurar portas elevada disponibilidade para o Balanceador de carga do Azure
+title: Configure portas de alta disponibilidade para balanceor de carga Azure
 titleSuffix: Azure Load Balancer
-description: Saiba como utilizar as portas de elevada disponibilidade para o tráfego interno em todas as portas de balanceamento de carga
+description: Saiba como utilizar portas de alta disponibilidade para equilibrar tráfego interno em todos os portos
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c6b8ecb443408f23ae604bd9c8139cb0a2afcd12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477787"
 ---
-# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar portas elevada disponibilidade para um balanceador de carga interno
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configure portas de alta disponibilidade para um equilibrador de carga interna
 
-Este artigo fornece um exemplo de implementação de elevada disponibilidade portas no balanceador de carga interno. Para obter mais informações sobre configurações específicas de aplicações virtuais (NVAs) de rede, consulte os sites correspondentes do fornecedor.
+Este artigo fornece um exemplo de implantação de Portas de Alta Disponibilidade num equilibrador de carga interna. Para obter mais informações sobre configurações específicas para rede de aparelhos virtuais (NVAs), consulte os sites correspondentes do fornecedor.
 
 >[!NOTE]
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de carga Standard. Para obter mais informações sobre Load Balancer básicas, consulte [Load Balancer visão geral](load-balancer-overview.md).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo discute o Standard Load Balancer. Para obter mais informações sobre o Equilíbrio de Carga Básica, consulte a [visão geral do Balancer de Carga](load-balancer-overview.md).
 
-A ilustração mostra o exemplo de implementação descrito neste artigo, a seguinte configuração:
+A ilustração mostra a seguinte configuração do exemplo de implantação descrito neste artigo:
 
-- As NVAs são implementadas no conjunto de back-end de Balanceador de carga interno subjacente à configuração de portas de elevada disponibilidade. 
-- A rota definida pelo utilizador (UDR) aplicado as rotas de sub-rede de rede de Perímetro todo o tráfego para as NVAs, tornando o salto seguinte como o internos IP virtual do Balanceador de carga. 
-- O Balanceador de carga interno distribui o tráfego para uma das NVAs Active Directory, de acordo com o algoritmo do Balanceador de carga.
-- A NVA processa o tráfego e a encaminha para o destino original na sub-rede de back-end.
-- O caminho de retorno pode seguir a mesma rota, se um UDR correspondente está configurado na sub-rede de back-end. 
+- Os NVAs são implantados na piscina traseira de um equilibrador de carga interna por trás da configuração das Portas de Alta Disponibilidade. 
+- A rota definida pelo utilizador (UDR) aplicada na sub-rede DMZ faz todo o tráfego para os NVAs, fazendo o próximo salto como o IP virtual do equilíbrio de carga interna. 
+- O equilibrador de carga interno distribui o tráfego para um dos NVAs ativos de acordo com o algoritmo de equilíbrio de carga.
+- A NVA processa o tráfego e encaminha-o para o destino original na sub-rede de back-end.
+- O caminho de retorno pode tomar o mesmo caminho se um UDR correspondente estiver configurado na sub-rede de back-end. 
 
-![Exemplo de implementação de portas de elevada disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
+![Implantação de exemplo de portas de alta disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
 
-## <a name="configure-high-availability-ports"></a>Configurar portas elevada disponibilidade
+## <a name="configure-high-availability-ports"></a>Configure portas de alta disponibilidade
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para configurar portas elevada disponibilidade, configure um balanceador de carga interno com as NVAs no conjunto de back-end. Configure uma configuração de pesquisa do Estado de funcionamento de Balanceador de carga correspondente para detetar o estado de funcionamento da NVA e a regra de Balanceador de carga com portas de elevada disponibilidade. A configuração relacionada ao balanceador de carga geral é abordada em [introdução.](load-balancer-get-started-ilb-arm-portal.md) Este artigo destaca a configuração de portas de elevada disponibilidade.
+Para configurar portas de alta disponibilidade, configure um equilibrador de carga interno com os NVAs na piscina traseira. Configurar uma configuração correspondente da sonda de saúde do equilibrante para detetar a saúde nva e a regra do equilíbrio de carga com portas de alta disponibilidade. A configuração geral relacionada com o equilíbrio de carga está coberta em [Get started](load-balancer-get-started-ilb-arm-portal.md). Este artigo destaca a configuração das Portas de Alta Disponibilidade.
 
-A configuração basicamente envolve a definição da porta de front-end e o valor da porta de back-end como **0**. Defina o valor de protocolo como **todos**. Este artigo descreve como configurar portas de elevada disponibilidade com o portal do Azure, PowerShell e CLI do Azure.
+A configuração envolve essencialmente a definição da porta frontal e do valor da porta traseira para **0**. Detete o valor do protocolo para **Todos**. Este artigo descreve como configurar portas de alta disponibilidade utilizando o portal Azure, PowerShell e Azure CLI.
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com o portal do Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configure uma regra de balancedor de carga de portas de alta disponibilidade com o portal Azure
 
-Para configurar portas de alta disponibilidade usando o portal do Azure, marque a caixa de seleção **portas de ha** . Quando selecionada, a configuração de porta e protocolo relacionada é preenchida automaticamente. 
+Para configurar portas de alta disponibilidade utilizando o portal Azure, selecione a caixa de verificação ha **ports.** Quando selecionado, a configuração da porta e do protocolo relacionadas é automaticamente povoada. 
 
-![Configuração de portas de elevada disponibilidade através do portal do Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Configuração de Portas de Alta Disponibilidade através do portal Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configurar uma regra de balanceamento de carga para portas de alta disponibilidade por meio do modelo do Resource Manager
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configure uma regra de equilíbrio de carga das portas de alta disponibilidade através do modelo de Gestor de Recursos
 
-Pode configurar portas de elevada disponibilidade, utilizando a versão de API de 2017-08-01 para Network/loadbalancers no recurso do Balanceador de carga. O fragmento JSON seguinte ilustra as alterações na configuração de Balanceador de carga para alta disponibilidade portas através da API REST:
+Pode configurar Portas de Alta Disponibilidade utilizando a versão API 2017-08-01 para microsoft.Network/loadBalancers no recurso Balancer de Carga. O seguinte snippet JSON ilustra as alterações na configuração do equilíbrio de carga para portas de alta disponibilidade através da API REST:
 
 ```json
     {
@@ -85,22 +85,22 @@ Pode configurar portas de elevada disponibilidade, utilizando a versão de API d
     }
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com o PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configure uma regra de balancer de carga de portas de alta disponibilidade com powerShell
 
-Utilize o seguinte comando para criar a regra de Balanceador de carga de alta disponibilidade portas enquanto cria o Balanceador de carga interno com o PowerShell:
+Utilize o seguinte comando para criar a regra do equilibrador de carga das Portas de Alta Disponibilidade enquanto cria o equilibrador de carga interna com a PowerShell:
 
 ```powershell
 lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com a CLI do Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configure uma regra de equilíbrio de carga de portas de alta disponibilidade com o Azure CLI
 
-Na etapa 4 de [criar um conjunto de balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md), use o seguinte comando para criar a regra de balanceador de carga de portas de alta disponibilidade:
+No passo 4 de Criar um conjunto interno de [equilíbrio de carga,](load-balancer-get-started-ilb-arm-cli.md)utilize o seguinte comando para criar a regra do equilibrador de carga das Portas de Alta Disponibilidade:
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [as portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
+Saiba mais sobre [portas de alta disponibilidade.](load-balancer-ha-ports-overview.md)

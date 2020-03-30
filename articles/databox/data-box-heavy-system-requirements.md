@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260075"
 ---
 # <a name="azure-data-box-heavy-system-requirements"></a>Requisitos do sistema de caixa de dados Azure
@@ -40,7 +40,7 @@ Os requisitos do software incluem a informação sobre os sistemas operativos su
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
-### <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
+### <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
 [!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 

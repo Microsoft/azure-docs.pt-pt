@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368728"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Planejador de Implantação de Recuperação de Sítios Azure para recuperação de desastres hiper-V para Azure
@@ -106,7 +106,7 @@ A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, cria
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Transferir e extrair a ferramenta Planeador de Implementações
 
-1.  Transfira a versão mais recente do [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
+1.  Descarregue a versão mais recente do planejador de implantação de recuperação de [sites do Azure](https://aka.ms/asr-deployment-planner).
 A ferramenta está comprimida numa pasta .zip. A mesma ferramenta suporta os cenários de recuperação após desastre VMware para o Azure e Hyper-V para o Azure. Também pode utilizar esta ferramenta para o cenário de recuperação após desastre Hyper-V para site secundário, mas ignore a recomendação de infraestrutura do Azure do relatório.
 
 1.  Copie a pasta .zip para o Windows Server no qual pretende executar a ferramenta. Pode executar a ferramenta num Windows Server 2012 R2 ou Windows Server 2016. O servidor tem de ter acesso de rede para ligar ao cluster Hyper-V ou anfitrião Hyper-V que contém as VMs das quais quer criar perfis. Recomendamos que tenha a mesma configuração de hardware da VM onde a ferramenta vai ser executada que a do servidor Hyper-V que pretende proteger. Esta configuração garante que o débito obtido comunicado pela ferramenta corresponde ao débito real que o Azure Site Recovery pode obter durante a replicação. O cálculo de débito depende da largura de banda de rede disponível na configuração do servidor e do hardware (CPU, armazenamento e assim sucessivamente) do servidor. O débito é calculado do servidor onde a ferramenta está a ser executada para o Azure. Se a configuração de hardware do servidor diferir da do servidor Hyper-V, o débito obtido que a ferramenta comunica irá estar incorreto.
@@ -140,4 +140,4 @@ Consulte a página de histórico de versão de implementação de implementaçã
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Executar o planeador de implementação](site-recovery-hyper-v-deployment-planner-run.md).
+* [Executar o planejador de implantação.](site-recovery-hyper-v-deployment-planner-run.md)

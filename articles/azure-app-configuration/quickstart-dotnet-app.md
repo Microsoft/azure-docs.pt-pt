@@ -1,6 +1,6 @@
 ---
-title: Início rápido para configuração de Azure App com .NET Framework | Microsoft Docs
-description: Um guia de início rápido para usar a configuração de Azure App com aplicativos .NET Framework
+title: Quickstart para Configuração de Aplicações Azure com .NET Framework [ Microsoft Docs
+description: Um arranque rápido para usar a configuração da app Azure com aplicações .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -8,46 +8,48 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 8190265753bddb3038c5403411c4be193dd8075c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433628"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245400"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo .NET Framework com a configuração Azure App
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma app .NET Framework com configuração de app Azure
 
-Neste guia de início rápido, você incorpora Azure App configuração em um aplicativo de console baseado em .NET Framework para centralizar o armazenamento e o gerenciamento das configurações de aplicativo separadas do seu código.
+Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação de consola baseada em .NET para centralizar o armazenamento e a gestão das definições de aplicações separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
+- [.Quadro líquido 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer** > **criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Select Configuration Explorer** > **Create** > **Key-value** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
-    Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
+    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
 
-## <a name="create-a-net-console-app"></a>Criar um aplicativo de console .NET
+7. Selecione **Aplicar**.
 
-1. Inicie o Visual Studio e selecione **arquivo** > **novo** **projeto**de > .
+## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
-1. Em **criar um novo projeto**, filtre o tipo de projeto de **console** e clique em **aplicativo de console (.NET Framework)** . Selecione **Seguinte**.
+1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
 
-1. Em **configurar seu novo projeto**, insira um nome de projeto. Em **estrutura**, selecione **.NET Framework 4.7.1** ou superior. Selecione **Criar**.
+1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Selecione **Next**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
+1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.7.1** ou superior. Selecione **Criar**.
 
-1. Clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet**. Na guia **procurar** , pesquise e adicione os seguintes pacotes NuGet ao seu projeto. Se você não conseguir encontrá-los, marque a caixa de seleção **incluir pré-lançamento** .
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
+
+1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione os seguintes pacotes NuGet ao seu projeto. Se não os encontrar, selecione a caixa de verificação **de pré-lançamento Incluir.**
 
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
@@ -55,7 +57,7 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
     System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-1. Atualize o arquivo *app. config* do seu projeto da seguinte maneira:
+1. Atualize o ficheiro *App.config* do seu projeto da seguinte forma:
 
     ```xml
     <configSections>
@@ -75,9 +77,9 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
     </appSettings>
     ```
 
-   A cadeia de conexão do repositório de configuração do aplicativo é lida na variável de ambiente `ConnectionString`. Adicione o construtor de configuração `Environment` antes da `MyConfigStore` na propriedade `configBuilders` da seção `appSettings`.
+   A cadeia de ligação da sua loja `ConnectionString`de configuração de aplicações é lida a partir da variável ambiente . Adicione `Environment` o construtor `MyConfigStore` de `configBuilders` configuração `appSettings` antes da propriedade da secção.
 
-1. Abra *Program.cs*e atualize o método `Main` para usar a configuração de aplicativo chamando `ConfigurationManager`.
+1. Abra *Program.cs*e `Main` atualize o método `ConfigurationManager`para utilizar a Configuração da Aplicação através da chamada .
 
     ```csharp
     static void Main(string[] args)
@@ -88,20 +90,20 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
     }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
+## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
 
-1. Defina uma variável de ambiente chamada **ConnectionString** para a cadeia de conexão de seu repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando:
+1. Detete uma variável ambiental chamada **ConnectionString** para a cadeia de ligação da sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
-1. Reinicie o Visual Studio para permitir que a alteração entre em vigor. Pressione CTRL + F5 para compilar e executar o aplicativo de console.
+1. Reiniciar o Estúdio Visual para permitir que a alteração faça efeito. Prima Ctrl + F5 para construir e executar a aplicação de consola.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -109,7 +111,7 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo de console .NET Framework. O valor `AppSettings` de `ConfigurationManager` não será alterado depois que o aplicativo for iniciado. A biblioteca do provedor de configuração do .NET Standard de configuração do aplicativo, no entanto, também pode ser usada em um aplicativo .NET Framework. Para saber como habilitar seu aplicativo .NET Framework para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
+Neste arranque rápido, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação de consola .NET Framework. O `AppSettings` valor `ConfigurationManager` não mudará após o início da aplicação. A biblioteca de fornecedores de configuração .NET Standard configuração da App Configuração, no entanto, também pode ser usada numa aplicação .NET Framework. Para aprender como permitir que a sua aplicação .NET Framework aprenda dinamicamente as definições de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Habilitar configuração dinâmica](./enable-dynamic-configuration-dotnet.md)
+> [Ativar a configuração dinâmica](./enable-dynamic-configuration-dotnet.md)

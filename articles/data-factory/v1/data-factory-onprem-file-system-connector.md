@@ -13,10 +13,10 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265938"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local utilizando a Azure Data Factory
@@ -67,27 +67,27 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas para sistema de ficheiros:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 Pode ligar um sistema de ficheiros no local a uma fábrica de dados Azure com o serviço ligado ao **Servidor de Ficheiros On-Premises.** A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado ao Servidor de Ficheiros No Local.
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |Certifique-se de que a propriedade do tipo está definida para **onPremisesFileServer**. |Sim |
-| host |Especifica o caminho de raiz da pasta que pretende copiar. Use o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo. |Sim |
-| ID de utilizador |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher o Credential encriptado) |
-| palavra-passe |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher o Credential encriptado |
-| encryptedCredential |Especifique as credenciais encriptadas que pode obter executando o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar userid e palavra-passe em texto simples) |
-| gatewayName |Especifica o nome do portal que a Data Factory deve utilizar para se ligar ao servidor de ficheiros no local. |Sim |
+| anfitrião |Especifica o caminho raiz da pasta que pretende copiar. Use o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo. |Sim |
+| usado |Especifique a identificação do utilizador que tem acesso ao servidor. |Não (se escolher o Credential encriptado) |
+| palavra-passe |Especifique a palavra-passe para o utilizador (userid). |Não (se escolher o Credential encriptado |
+| credenta encriptado |Especifique as credenciais encriptadas que pode obter executando o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar userid e palavra-passe em texto simples) |
+| nome gateway |Especifica o nome do portal que a Data Factory deve utilizar para se ligar ao servidor de ficheiros no local. |Sim |
 
 
-### <a name="sample-linked-service-and-dataset-definitions"></a>Serviço ligado e as definições do conjunto de dados de exemplo
+### <a name="sample-linked-service-and-dataset-definitions"></a>Definições de serviço ligados à amostra e conjunto de dados
 | Cenário | Anfitrião na definição de serviço ligado | pastaCaminho na definição de conjunto de dados |
 | --- | --- | --- |
-| Pasta local na máquina Gateway de Gestão de Dados: <br/><br/>Exemplos: D:\\\* ou D:\folder\subpasta\\\* |D:\\\\ (para data Management Gateway 2.0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gateway 2.0 de Gestão de Dados) |.\\\\ ou pasta\\\\subpasta (para versões Gateway 2.0 e versões posteriores) <br/><br/>D:\\\\ ou D:\\pasta \\\\\\subpasta (para versão gateway abaixo de 2.0) |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\\\\\servidor partilhar\\\* ou \\\\\\\\pasta\\subpasta\\\* |\\\\\\\\\\   do my\\server |.\\\\ ou pasta\\\\subpasta |
+| Pasta local na máquina Gateway de Gestão de Dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subpasta\\\* |D:\\ \\ (para data Management Gateway 2.0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gateway 2.0 de Gestão de Dados) |. ou\\\\subpasta de pasta (para data Management Gateway 2.0 e versões posteriores) \\ \\ <br/><br/>D:\\ \\ ou\\\\D: subpasta de pasta\\\\(para versão gateway abaixo de 2.0) |
+| Pasta partilhada remota: <br/><br/>Exemplos: \\ \\\\myserver\\ \* \\ \\share\\ou\\\\myserver share folder subfolder\\\* |\\\\\\\\myserver\\\\partilhar |. ou\\subpasta de pasta\\ \\ \\ |
 
 >[!NOTE]
->Ao ser autor através da UI, não é necessário inserir o duplo backslash (`\\`) para escapar, como faz através da JSON, especifique um único backslash.
+>Ao ser autor através da UI, não é necessário`\\`inserir o duplo backslash ( ) para escapar como faz através da JSON, especifique um único backslash.
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Usar o nome de utilizador e a palavra-passe em texto simples
 
@@ -122,19 +122,19 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados Azure com o 
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Criar conjuntos](data-factory-create-datasets.md)de dados . Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados. Fornece informações como a localização e o formato dos dados na loja de dados. A secção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Especifica o subcaminho para a pasta. Use o personagem de fuga\' para personagens especiais na corda. Não é suportado o filtro de carateres universais. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo.<br/><br/>Pode combinar esta propriedade com **partiçãoBy** para ter caminhos de pastas baseados em datas de início/fim de fatias. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificado no sumidouro de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na pastaPath em vez de todos os ficheiros. <br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?. txt "<br/><br/>Note que o filtro de ficheiros é aplicável para um conjunto de dados de FileShare de entrada. |Não |
+| folderPath |Especifica o subcaminho para a pasta. Use o personagem de fuga para\' personagens especiais na corda. O filtro Wildcard não é suportado. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo.<br/><br/>Pode combinar esta propriedade com **partiçãoBy** para ter caminhos de pastas baseados em datas de início/fim de fatias. |Sim |
+| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificado no sumidouro de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Dados.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na pastaPath em vez de todos os ficheiros. <br/><br/>Os valores `*` permitidos são: (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?. txt "<br/><br/>Note que o filtro de ficheiros é aplicável para um conjunto de dados de FileShare de entrada. |Não |
 | divididoBy |Pode utilizar o divididoBy para especificar uma pasta dinâmicaPath/fileName para dados da série de tempo. Um exemplo é a pastaPath parametrizada para cada hora de dados. |Não |
-| format | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. ver [formatos de ficheiros e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. ver [formatos de ficheiros e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
 > Não é possível utilizar o nome de ficheiro e o ficheiroFilter simultaneamente.
@@ -173,35 +173,35 @@ Neste exemplo, {Slice} é substituído pelo valor da variável sliceStart do sis
 Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que as propriedades da pastaPath e fileName usam.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, conjuntos de dados de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades. Considerando que as propriedades disponíveis na secção **typeProperties** da atividade variam com cada tipo de atividade.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, conjuntos de dados de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades. Considerando que as propriedades disponíveis na secção **typeProperties** da atividade variam com cada tipo de atividade.
 
 Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias. Se estiver a mover dados de um sistema de ficheiros no local, delineie o tipo de origem na atividade de cópia para **FileSystemSource**. Da mesma forma, se estiver a mover dados para um sistema de ficheiros no local, delineie o tipo de pia na atividade de cópia para **FileSystemSink**. Esta secção fornece uma lista de propriedades suportadas por FileSystemSource e FileSystemSink.
 
 **FileSystemSource** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursive |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |Verdade, Falso (padrão) |Não |
+| recursivo |Indica se os dados são lidos recursivamente a partir das subpastas ou apenas a partir da pasta especificada. |Verdade, Falso (padrão) |Não |
 
 **FileSystemSink** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| copyBehavior |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |**PreserveHierarchy:** Preserva a hierarquia dos ficheiros na pasta-alvo. Ou seja, o caminho relativo do ficheiro fonte para a pasta fonte é o mesmo que o caminho relativo do ficheiro alvo para a pasta-alvo.<br/><br/>**Hierarquia do Achatamento:** Todos os ficheiros da pasta fonte são criados no primeiro nível da pasta alvo. Os ficheiros-alvo são criados com um nome autogerado.<br/><br/>**Ficheiros de fusão:** Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro/nome blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, trata-se de um nome de ficheiro gerado automaticamente. |Não |
+| copiarComportamento |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |**PreserveHierarchy:** Preserva a hierarquia dos ficheiros na pasta-alvo. Ou seja, o caminho relativo do ficheiro fonte para a pasta fonte é o mesmo que o caminho relativo do ficheiro alvo para a pasta-alvo.<br/><br/>**Hierarquia do Achatamento:** Todos os ficheiros da pasta fonte são criados no primeiro nível da pasta alvo. Os ficheiros-alvo são criados com um nome autogerado.<br/><br/>**Ficheiros de fusão:** Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro/nome blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, trata-se de um nome de ficheiro gerado automaticamente. |Não |
 
-### <a name="recursive-and-copybehavior-examples"></a>Exemplos de recursiva e copyBehavior
+### <a name="recursive-and-copybehavior-examples"></a>exemplos recursivos e copyBehavior
 Esta secção descreve o comportamento resultante da operação Copy para diferentes combinações de valores para as propriedades recursivas e copyBehavior.
 
 | valor recursivo | cópiaValor de comportamento | Comportamento resultante |
 | --- | --- | --- |
-| true |preserveHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a mesma estrutura que a fonte:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5 |
-| true |flattenHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp; &nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
-| true |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 conteúdos são fundidos num só ficheiro com um nome de ficheiro gerado automaticamente. |
-| false |preserveHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;conteúdo do File1 + File2 são fundidos num só ficheiro com um nome de ficheiro gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| true |preservar Hierarquia |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo Pasta 1 é criada com a mesma estrutura que a fonte:<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5 |
+| true |achatar a hierarquia |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
+| true |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + Ficheiro 5 conteúdos são fundidos num só ficheiro com um nome de ficheiro gerado automaticamente. |
+| false |preservar Hierarquia |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/>Subpasta1 com File3, File4 e File5 não é captada. |
+| false |achatar a hierarquia |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Subpasta1 com File3, File4 e File5 não é captada. |
+| false |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura,<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo 5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura:<br/><br/>Pasta 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos File1 + File2 são fundidos num só ficheiro com um nome de ficheiro gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/><br/>Subpasta1 com File3, File4 e File5 não é captada. |
 
-## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiros e compressão suportados
+## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 Consulte [os formatos de Arquivo e compressão no](data-factory-supported-file-and-compression-formats.md) artigo da Azure Data Factory sobre detalhes.
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Exemplos jSON para copiar dados de e para o sistema de ficheiros
@@ -257,7 +257,7 @@ Recomendamos a utilização da propriedade **Credential encriptada,** em vez das
 
 Os dados são recolhidos de um novo ficheiro a cada hora. As propriedades do folderPath e do fileName são determinadas com base na hora de início da fatia.
 
-A definição `"external": "true"` informa a Data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A `"external": "true"` definição informa a Data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```JSON
 {
@@ -477,7 +477,7 @@ Recomendamos a utilização da propriedade **Credential encriptada** em vez de u
 
 A amostra pressupõe que criou uma tabela "MyTable" no Azure SQL, e contém uma coluna chamada "timestampcolumn" para dados da série time.
 
-A definição ``“external”: ”true”`` informa a Data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A ``“external”: ”true”`` definição informa a Data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```JSON
 {

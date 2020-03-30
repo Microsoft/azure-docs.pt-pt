@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: a668c1f7cf401c109c1041232d7f28dd2accd750
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4f8c8d4ff0a8014fe0b9a6ae4aead35ec7df4bf6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760407"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501963"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas azure DevTest Labs
 
@@ -38,38 +38,39 @@ Para obter mais informações sobre a adição de utilizadores e permissões, co
 ### <a name="create-a-formula-from-a-base"></a>Criar uma fórmula a partir de uma base
 Os seguintes passos guiam-no através do processo de criação de uma fórmula a partir de uma imagem personalizada, imagem do Marketplace ou outra fórmula.
 
-1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
-3. Na lista de laboratórios, selecione o laboratório desejado.  
+3. Da lista de laboratórios, selecione o laboratório desejado.  
 
-4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)** .
-   
-    ![Menu de fórmula](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
-
+4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)** no menu esquerdo.
 5. Na página **Fórmulas,** selecione **+ Adicionar**.
    
     ![Adicione uma fórmula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Na página **Base Escolha uma** base, selecione a base (imagem personalizada, imagem do Mercado ou fórmula) a partir da qual pretende criar a fórmula.
-   
-    ![Lista de base](./media/devtest-lab-create-formulas/base-list.png)
-
+6. Na página **Base Escolha uma** base, selecione a base (imagem personalizada ou imagem do Mercado) a partir da qual pretende criar a fórmula.
 7. No separador **Definições Básicas** da página **de fórmula Criar,** especifique os seguintes valores:
    
     * **Nome da fórmula** - Introduza um nome para a sua fórmula. Este valor é apresentado na lista de imagens base quando cria um VM. O nome é validado à medida que o escreve, e se não for válido, uma mensagem indica os requisitos para um nome válido.
+    - Introduza uma **descrição** opcional para a fórmula. 
     * **Nome do utilizador** - Introduza um nome de utilizador que lhe seja concedido privilégios de administrador.
     * **Palavra-passe** - Introduza - ou selecione a partir do dropdown - um valor que esteja associado ao segredo (palavra-passe) que pretende utilizar para o utilizador especificado. Para aprender sobre guardar segredos num cofre chave e usá-los ao criar recursos de laboratório, consulte [os segredos da Loja no Cofre chave azure.](devtest-lab-store-secrets-in-key-vault.md)
-    * **Tamanho VM** - Selecione **Alterar tamanho** para alterar o tamanho do VM. 
+
+        Selecione **Utilize um segredo guardado** se pretender utilizar um segredo do Cofre de Chaves Azure em vez de utilizar uma palavra-passe. 
+    * **Tamanho** da máquina virtual - Selecione **Alterar tamanho** para alterar o tamanho do VM. 
+    - **Tipo de disco OS** - selecione o tipo de disco que pretende utilizar (Standard HDD, Standard SSD ou Premium SSD).
     * **Artefactos** - Selecione **adicionar ou remover artefactos,** no qual seleciona e configura os artefactos que pretende adicionar à imagem base. Para obter mais informações sobre artefactos, consulte [Criar artefactos personalizados para a sua máquina virtual Azure DevTest Labs](devtest-lab-artifact-author.md).
+
+        ![Página de configurações básicas](./media/devtest-lab-create-formulas/basic-settings.png)
 8. Mude para o separador de **definições Avançada** e especifique os seguintes valores:
     - **Rede virtual** - Para alterar a rede virtual, selecione **Change Vnet**. 
     - **Sub-rede** - Para alterar a sub-rede, selecione **Alterar sub-rede**. 
     - **Configuração** do endereço IP - Especifique se deseja os endereços IP públicos, privados ou partilhados. Para obter mais informações sobre endereços IP partilhados, consulte [Understand endereços IP partilhados em Azure DevTest Labs](./devtest-lab-shared-ip.md).
-    - **Data e hora** de validade - Especifique a data e a hora de validade do VM de modo a que o VM seja automaticamente eliminado. 
-    - **Tornar esta máquina reivível** - Tornar uma máquina "repreensível" significa que não será atribuída propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderão tomar posse ("claim") da máquina na página do laboratório.     
-    - **Número de casos repreensíveis** - especifique quantas instâncias requisitáveis quer criar. 
+    - **Data e hora** de validade - Não pode editar este campo. 
+    - **Tornar esta máquina reivível** - Tornar uma máquina "repreensível" significa que não será atribuída propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderão tomar posse ("claim") da máquina na página do laboratório.  
+
+        ![Página de configurações básicas](./media/devtest-lab-create-formulas/advanced-settings.png)
 8. Selecione **Submeter** para criar a fórmula.
 
 9. Quando a fórmula foi criada, aparece na lista na página **de Fórmulas.**
@@ -83,12 +84,12 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula b
 > 
 
 1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
-3. Na lista de laboratórios, selecione o laboratório desejado.  
+2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página de **visão geral** do laboratório, selecione o VM a partir do qual pretende criar a fórmula.
    
     ![VMs de laboratório](./media/devtest-lab-create-formulas/my-vms.png)
-5. Na página do VM, selecione **Fórmula Criar (base reutilizável)** .
+5. Na página do VM, selecione **Fórmula Criar (base reutilizável)**.
    
     ![Criar fórmula](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. Na página de **fórmula Criar,** introduza um **Nome** e **Descrição** para a sua nova fórmula.
@@ -100,9 +101,9 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula b
 Para modificar uma fórmula, siga estes passos:
 
 1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
-3. Na lista de laboratórios, selecione o laboratório desejado.  
-4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)** .
+2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+3. Da lista de laboratórios, selecione o laboratório desejado.  
+4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)**.
    
     ![Menu de fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Na página de fórmulas do **Laboratório,** selecione a fórmula que pretende modificar.
@@ -112,8 +113,8 @@ Para modificar uma fórmula, siga estes passos:
 Para eliminar uma fórmula, siga estes passos:
 
 1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
-3. Na lista de laboratórios, selecione o laboratório desejado.  
+2. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** da lista.
+3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página **Definições** do laboratório, selecione **Fórmulas**.
    
     ![Menu de fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
@@ -127,7 +128,7 @@ Para eliminar uma fórmula, siga estes passos:
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Postagens de blog relacionadas
+## <a name="related-blog-posts"></a>Posts de blog relacionados
 * [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Passos seguintes

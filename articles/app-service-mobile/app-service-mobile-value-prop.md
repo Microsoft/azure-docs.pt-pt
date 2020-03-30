@@ -3,16 +3,16 @@ title: Sobre aplicativos móveis
 description: Conheça as vantagens que o Serviço de Aplicações traz para as suas aplicações móveis.
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
-ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 33548f202046310b91fc79d38ac7d8fb18a8727e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461441"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499419"
 ---
-# <a name="getting-started"> </a>Sobre aplicativos móveis no Serviço de Aplicações Azure
+# <a name="about-mobile-apps-in-azure-app-service"></a><a name="getting-started"> </a>Sobre Aplicações Móveis no Serviço de Aplicações do Azure
 
 O Serviço de Aplicações do Azure é uma oferta de [plataforma como um serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente gerida para programadores profissionais. O serviço oferece um conjunto avançado de capacidades para cenários Web, móveis e de integração. 
 
@@ -26,7 +26,7 @@ Com a funcionalidade Aplicações Móveis, pode:
 * **Compilar aplicações de plataformas nativas e cruzadas**: esteja a compilar aplicações nativas Windows, Android e iOS ou aplicações de plataformas cruzadas Xamarin ou Cordova (PhoneGap), pode tirar partido do Serviço de Aplicações com SDKs nativos.
 * **Ligar aos seus sistemas empresariais**: com a funcionalidade Aplicações Móveis, pode adicionar um início de sessão empresarial em minutos e ligar-se à sua empresa no local ou aos recursos na cloud.
 * **Compilar aplicações preparadas para trabalho offline com sincronização de dados**: torne a sua mão-de-obra móvel mais produtiva através da compilação de aplicações que funcionam offline e utilize Mobile Apps para sincronizar dados em segundo plano quando existe conectividade com qualquer uma das suas fontes de dados empresariais ou APIs software como um serviço (SaaS).
-* **Notificações push para milhões em segundos**: interaja com os seus clientes com notificações push instantâneas em qualquer dispositivo, personalizadas para as suas necessidades e enviadas no momento ideal.
+* **Empurre notificações para milhões em segundos**: Envolva os seus clientes com notificações instantâneas de push em qualquer dispositivo, personalizados às suas necessidades, e enviados quando for a hora certa.
 
 ## <a name="mobile-apps-features"></a>Funcionalidades das Aplicações Móveis
 As seguintes funcionalidades são importantes para o desenvolvimento móvel preparados para nuvem:
@@ -35,7 +35,7 @@ As seguintes funcionalidades são importantes para o desenvolvimento móvel prep
 
     Saiba mais sobre as nossas [funcionalidades de autenticação].
 
-* **Acesso a dados**: as Aplicações Móveis oferecem uma origem de dados OData v3 compatível com dispositivos móveis que está ligada à Base de Dados SQL do Azure ou a um SQL Server no local. Uma vez que este serviço pode ser baseado em Entity Framework, pode integrar facilmente com outros fornecedores de dados NoSQL e SQL, incluindo [Armazenamento de Tabelas do Azure], MongoDB, [BD do Cosmos para o Azure] e fornecedores de API SaaS, como o Office 365 e Salesforce.com.
+* **Acesso a dados**: as Aplicações Móveis oferecem uma origem de dados OData v3 compatível com dispositivos móveis que está ligada à Base de Dados SQL do Azure ou a um SQL Server no local. Uma vez que este serviço pode ser baseado em Entity Framework, pode integrar facilmente com outros fornecedores de dados NoSQL e SQL, incluindo [Armazenamento de Tabelas do Azure], MongoDB, [Azure Cosmos DB] e fornecedores de API SaaS, como o Office 365 e Salesforce.com.
 
 * **Sincronização offline**: os SDKs do cliente facilitam a compilação de aplicações móveis robustas e reativas que funcionam com um conjunto de dados offline. Pode sincronizar este conjunto de dados automaticamente com os dados de back-end, incluindo o suporte de resolução de conflitos.
 
@@ -68,20 +68,20 @@ As seguintes funcionalidades da plataforma são úteis para sites de produção 
 
 * **Ambientes isolados e dedicados**: para uma execução segura de aplicações do Serviço de Aplicações do Azure, pode executar o Serviço de Aplicações num ambiente completamente isolado e dedicado. Este ambiente é ideal para cargas de trabalho de aplicações que exijam uma escala, isolamento ou um acesso de rede elevados.
 
-  Saiba mais sobre os [ambientes do Serviço de Aplicações].
+  Descubra mais sobre [ambientes de Serviço de Aplicações.]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para começar a utilizar as Aplicações Móveis no Serviço de Aplicações do Azure, conclua o tutorial [introdução] . O tutorial abrange as noções básicas da produção de um back-end móvel e cliente da sua preferência. Inclui também a integração de autenticação, sincronização offline e notificações push. Pode concluir o tutorial várias vezes, uma vez para cada aplicação de cliente.
 
 Para obter mais informações sobre as Aplicações Móveis, veja o nosso [mapa de aprendizagem].
-Para obter mais informações sobre a plataforma do Serviço de Aplicações do Azure, veja [App Service do Azure].
+Para mais informações sobre a plataforma Azure App Service, consulte [o Azure App Service].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[introdução]: app-service-mobile-ios-get-started.md
-[Armazenamento de tabelas do Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[BD do Cosmos para o Azure]: ../cosmos-db/sql-api-get-started.md
+[começar]: app-service-mobile-ios-get-started.md
+[Armazenamento de mesa azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [funcionalidades de autenticação]: ./app-service-mobile-auth.md
 [funcionalidades de dados]: ./app-service-mobile-offline-data-sync.md
 [funcionalidades de notificação push]: ../notification-hubs/notification-hubs-push-notification-overview.md
@@ -91,11 +91,11 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicações do 
 [Xamarin.iOS e Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[escala automática]: ../app-service/manage-scale-up.md
+[autoscalcificação]: ../app-service/manage-scale-up.md
 [ambientes de teste]: ../app-service/deploy-staging-slots.md
-[ligações híbridas]: ../biztalk-services/integration-hybrid-connection-overview.md
+[conexões híbridas]: ../biztalk-services/integration-hybrid-connection-overview.md
 [redes virtuais]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
-[ambientes do Serviço de Aplicações]: ../app-service/environment/intro.md
+[Ambientes de serviço de aplicativos]: ../app-service/environment/intro.md
 [mapa de aprendizagem]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
-[App Service do Azure]: ../app-service/overview.md
+[Serviço de Aplicações do Azure]: ../app-service/overview.md

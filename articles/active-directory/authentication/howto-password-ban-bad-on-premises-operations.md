@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263819"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local a Proteção de Palavras-passe de Diretório Ativo Azure
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como ativar a Proteção de Passwords Azure AD para o seu
 
 ## <a name="enable-on-premises-password-protection"></a>Ativar a proteção de senhas no local
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue no **Azure Ative Directory** > **Métodos** de **autenticação** > de segurança > **proteção de palavra-passe.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue pelos**métodos** > de autenticação de > **segurança** > do **Diretório Ativo Azure****.**
 1. Detete a opção para ativar a proteção de **passwords no Diretório Ativo do Servidor do Windows** para *Sim*.
 
     Quando esta definição está definida para *Nº ,* todos os agentes de proteção de senhas Azure AD implantados entram num modo quiescente onde todas as palavras-passe são aceites como está. Não são realizadas atividades de validação e não são gerados eventos de auditoria.
@@ -67,7 +67,7 @@ Os utilizadores finais afetados podem ter de trabalhar com o seu pessoal de TI p
 > [!NOTE]
 > A Proteção de Palavras-passe Azure AD não tem controlo sobre a mensagem de erro específica exibida pela máquina cliente quando uma palavra-passe fraca é rejeitada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para personalizar a lista de palavras-passe proibida para a sua organização, consulte Configurar a lista de [senhas proibida selada](tutorial-configure-custom-password-protection.md)por Código de Acesso AD .
 

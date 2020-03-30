@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faecb0bc8cbb5ca84e9fc8bfc3cb99e2ccef1f11
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 2a71c5328c6fa85f85db4bd7e6103f6470b86d99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894557"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258333"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização de ligação de diretório ativo Azure: Configure localização de dados preferenciais para os recursos do Office 365
 O objetivo deste tópico é acompanhá-lo sobre como configurar o atributo para localização de dados preferido no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Office 365, utiliza-se este atributo para designar a geolocalização dos dados do Office 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
@@ -49,7 +49,7 @@ Os geos do Office 365 disponíveis para multi-Geo são:
 | França | FRA |
 | Índia | IND |
 | Japão | JPN |
-| Coreia | RIO KOR |
+| Coreia | KOR |
 | África do Sul | ZAF |
 | Emirados Árabes Unidos | SÃO |
 | Reino Unido | GBR |
@@ -69,7 +69,7 @@ O Azure AD Connect suporta a sincronização do atributo **preferido dataLocatio
 Por predefinição, o **PreferredDataLocation** não está ativado para sincronização. Esta funcionalidade destina-se a organizações maiores. O esquema de Diretório Ativo no Windows Server 2019 tem um atributo **msDS preferidoDataLocation** que deve utilizar para este fim. Se não atualizou o esquema do Diretório Ativo e não o pode fazer, então deve identificar um atributo para manter o Artigo 365 geo do Office 365 para os seus utilizadores. Isto vai ser diferente para cada organização.
 
 > [!IMPORTANT]
-> O Azure AD permite que o atributo **preferido DataLocation** em **objetos** de utilizador em nuvem seja configurado diretamente utilizando o Azure AD PowerShell. A Azure AD já não permite que o atributo **preferido DataLocation** em **objetos de utilizador sincronizados** seja configurado diretamente utilizando o Azure AD PowerShell. Para configurar este atributo em **objetos de utilizador sincronizados,** tem de utilizar o Azure AD Connect.
+> O Azure AD permite que o atributo **preferido DataLocation** em **objetos** de utilizador em nuvem seja configurado diretamente utilizando o Azure AD PowerShell. Para configurar este atributo em **objetos de utilizador sincronizados,** tem de utilizar o Azure AD Connect.
 
 Antes de permitir a sincronização:
 
@@ -91,7 +91,7 @@ Para evitar que alterações não intencionais sejam exportadas para a AD Azure,
 
 1. Inicie uma sessão powerShell no servidor Azure AD Connect.
 2. Desative a sincronização programada executando este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
-3. Inicie o Gestor de **Serviços** de Sincronização indo para **start** > Serviço **de Sincronização.**
+3. Inicie o Gestor de Serviços de **Sincronização** indo para o **START** > **Synchronization Service**.
 4. Selecione o separador **Operações** e confirme que não existe nenhuma operação com o estado *em curso*.
 
 ![Screenshot do Gestor de Serviços de Sincronização](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
@@ -134,7 +134,7 @@ Por predefinição, o atributo **preferido dataLocation** não é importado para
 ## <a name="step-5-create-an-inbound-synchronization-rule"></a>Passo 5: Criar uma regra de sincronização de entrada
 A regra de sincronização de entrada permite que o valor do atributo flua do atributo de origem no diretório ativo no local ao metaverso.
 
-1. Inicie o Editor de Regras de **Sincronização** indo para **start** > Editor de Regras de **Sincronização.**
+1. Inicie o Editor de Regras de **Sincronização** indo para **start** > **Synchronization Rules Editor**.
 2. Desloque o filtro de procura **Direção** para estar **a caminho**de entrada .
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Sob o separador **Descrição,** forneça a seguinte configuração:
@@ -146,7 +146,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Sistema Conectado | *Escolha o conector de diretório ativo no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
-    | Tipo de ligação | **Associar** |  |
+    | Tipo de ligação | **Aderir** |  |
     | Precedência | *Escolha um número entre 1-99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de deteção** vazio, para incluir todos os objetos. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
@@ -154,7 +154,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Escolha o atributo de origem | Sem controlo | Atualizar |
+    |Direct | preferredDataLocation | Escolha o atributo de origem | Desselecionado | Atualizar |
 
 7. Para criar a regra de entrada, selecione **Adicionar**.
 
@@ -175,15 +175,15 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Sistema Conectado | *Selecione o Conector Azure AD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
-    | Tipo de ligação | **Associar** ||
+    | Tipo de ligação | **Aderir** ||
     | Precedência | *Escolha um número entre 1-99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao separador **de filtro Scoping** e adicione um único grupo de filtros de deteção com duas cláusulas:
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | Utilizador |
-    | cloudMastered | NOTEQUAL | Verdadeiro |
+    | fonteObjectType | IGUAL | Utilizador |
+    | cloudMastered | NÃO IGUAL | Verdadeiro |
 
     O filtro de deteção determina a que objetos Da AD Azure é aplicado a esta regra de sincronização de saída. Neste exemplo, utilizamos o mesmo filtro de digitalização de "out to Azure AD – User Identity" OOB (fora da caixa) regra de sincronização. Impede que a regra de sincronização seja aplicada a objetos **do Utilizador** que não sejam sincronizados a partir de um Diretório Ativo no local. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
 
@@ -191,7 +191,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Sem controlo | Atualizar |
+    | Direct | preferredDataLocation | preferredDataLocation | Desselecionado | Atualizar |
 
 7. Fechar **Adicionar** para criar a regra de saída.
 
@@ -249,7 +249,7 @@ Em geral, é necessário um ciclo de sincronização total. Isto porque adiciono
 Reativar o programador de sincronização incorporado:
 
 1. Inicie uma sessão powerShell.
-2. Reativar a sincronização programada executando este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Reativar a sincronização programada executando este cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 ## <a name="step-9-verify-the-result"></a>Passo 9: Verificar o resultado
 Chegou a hora de verificar a configuração e de a ativar para os seus utilizadores.

@@ -1,51 +1,49 @@
 ---
-title: Gerenciar o perfil do Azure Marketplace e do AppSource Publisher
-description: Gerenciando o Azure Marketplace e o perfil do AppSource Publisher
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Gerir o perfil da editora Azure Marketplace e AppSource
+description: Gerir o perfil da editora Azure Marketplace e AppSource
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pabutler
-ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9b89ff803e08d0ca929eea913be9a1c87664b124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826356"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280240"
 ---
-# <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerenciar o perfil do Publicador ' Azure Marketplace ' e ' AppSource '
+# <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerir o perfil da editora 'Azure Marketplace' e 'AppSource'
 
-Este documento é um passo a passo sobre como exibir e gerenciar usuários para seu perfil de editor registrado.
+Este documento é um walk-through na visualização e gestão dos utilizadores para o seu perfil de editor registado.
 
-Neste momento, você concluiu as etapas para se tornar um Azure Marketplace e um Publicador do AppSource. O perfil do Publicador é registrado no **[portal do Cloud Partner](https://cloudpartner.azure.com/)** seguinte aprovação de sua solicitação de parceiro. Seu perfil de editor será aplicado a todas as ofertas e SKUs publicados da conta usada durante o registro do parceiro.
+Por esta altura, já completou os passos para se tornar um editor do Azure Marketplace e appSource. O perfil da editora está registado no Portal do **[Parceiro cloud](https://cloudpartner.azure.com/)** após a aprovação do pedido do seu parceiro. O seu perfil de editor aplicar-se-á a todas as ofertas e SKUs publicadas a partir da conta utilizada durante o registo do parceiro.
 
-Se você ainda não registrou sua empresa como um parceiro de nuvem, consulte Introdução [ao portal de parceiros de nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
+Se ainda não registou a sua empresa como parceiro de nuvem, consulte [O Get começou com o portal de parceiros de nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
-**Perfil do Publicador**: seu perfil de editor distingue sua empresa no Azure Marketplace e AppSource. Ele consiste em sua ID de editor, nome de exibição e email (s) de proprietário. Um perfil bem gerenciado aumentará sua visibilidade e ajudará os usuários do Marketplace a identificar e selecionar facilmente uma oferta apropriada.
+**Perfil da Editora**: O seu perfil de editor distingue a sua empresa no Azure Marketplace e appSource. É composto pelo seu ID de editor, nome de exibição e e-mail do proprietário. Um perfil bem gerido aumentará a sua visibilidade e ajudará os utilizadores do mercado a identificar e selecionar uma oferta adequada.
 
 > [!NOTE]
-> A ID do editor e o email do proprietário registrado não são editáveis quando você publica sua primeira oferta. No entanto, você pode exibir seu perfil e editar o nome de exibição do Publicador do Portal do Cloud Partner.
+> O seu ID de editor e o e-mail do proprietário registado não são editáveis uma vez que publica a sua primeira oferta. No entanto, pode ver o seu perfil e editar o nome de exibição da editora a partir do Portal do Parceiro cloud.
 
 <!-- Dummy comment added to suppress MD linter warning -->
 
 > [!NOTE]
-> Adicionar usuários (colaboradores e proprietários) ao seu perfil de publicação na seção usuários no painel de navegação esquerdo da seção usuários do portal do Cloud Partner '
+> Adicione utilizadores (colaboradores e proprietários) ao seu perfil de publicação a partir da secção Utilizadores no painel de navegação à esquerda da Secção de Utilizadores do portal do parceiro da nuvem.
 
-**Para exibir e gerenciar seu perfil de editor**, na barra de menus superior direita, clique na **guia perfil do Publicador**.
+**Para visualizar e gerir o seu perfil**de editor , a partir da barra de menu seleto direito, clique no **separador**de perfil da Editora .
 
-![Guia perfil do Publicador-perfil do Publicador](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
+![Perfil da editora- perfil de editor](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
 
-![Detalhes do perfil do Publicador-detalhes do perfil do Publicador](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
+![Detalhes do perfil da editora - detalhes do perfil da editora](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
 
-**Vincular sua conta do centro de desenvolvimento**: você também pode vincular sua conta do centro de desenvolvimento existente ao seu perfil do editor na portal do Cloud Partner.
-Primeiro, entre no portal com o mesmo endereço de email usado para registrar sua conta do centro de desenvolvimento. Em seguida, a página perfil do editor exibe o status da conta do centro de desenvolvimento, email do proprietário da conta do centro de desenvolvimento e nome da conta do centro de desenvolvimento.
+**Ligue a sua Conta Dev Center:** Também pode ligar a sua conta Dev Center existente ao seu perfil de editor no Portal do Parceiro cloud.
+Primeiro insera no portal com o mesmo endereço de e-mail usado para registar a sua conta Dev Center. Em seguida, a página de perfil do seu editor exibe o estado da conta de Dev Center, o e-mail do proprietário da conta Dev Center e o nome da conta Dev Center.
 
 >[!NOTE]
->O registro da conta do centro de desenvolvimento é obrigatório para a publicação de SKUs pagas no mercado.
+>O registo da Conta Dev Center é obrigatório para a publicação de SKUs de mercado remunerado.
 
-Se você não tiver uma [conta do centro de desenvolvedores](./cloud-partner-portal-dev-center-accounts-registration.md), poderá criar uma conta. Em seguida, adicione o endereço de email registrado como um proprietário no Portal do Cloud Partner para sua oferta. Um proprietário só pode adicionar o endereço de email registrado ao seu perfil de publicação na seção do **usuário** . Em seguida, entre no portal usando o mesmo endereço de email e vincule sua conta do centro de desenvolvimento.
+Se não tiver uma Conta de Centro de [Desenvolvimento,](./cloud-partner-portal-dev-center-accounts-registration.md)pode criar uma conta. Em seguida, adicione o endereço de e-mail registado como proprietário no Portal do Parceiro cloud para a sua oferta. O proprietário só pode adicionar o endereço de e-mail registado ao seu perfil de publicação a partir da secção **Utilizador.** Em seguida, inscreva-se no portal usando o mesmo endereço de e-mail e ligue a sua conta Dev Center.
 
-![Detalhes do perfil do Publicador-descrição do perfil do Publicador](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)
+![Detalhes do perfil da editora - descrição do perfil da editora](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

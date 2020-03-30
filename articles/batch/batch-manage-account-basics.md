@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72630a2003b63e60ba79882e1861283173840425
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375190"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479795"
 ---
 # <a name="manage-your-batch-account"></a>Gerir a sua conta Lote
 
@@ -61,3 +61,4 @@ A conta Batch permite-lhe executar trabalhos de computação em grande escala pa
 - Crie uma conta Batch programáticamente, como na [biblioteca Batch Management .NET](batch-management-dotnet.md).
 - [Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure](pool-endpoint-configuration.md).
 - [Executar tarefas de preparação de emprego e libertação de emprego em nódos de computação batch](batch-job-prep-release.md)
+

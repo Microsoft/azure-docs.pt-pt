@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/11/2020
-ms.openlocfilehash: a8f62a24ff2c6571b5267fdbf4f23bd9e05ee499
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 38d44f5a2ce22de15cb14ea5aa7a9ca1ea7c03cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481070"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra vCore
 
@@ -47,9 +47,9 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|154|307|307|307|461|
 |Tamanho dos dados máximos tempDB (GB)|32|64|128|192|256|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|320|640|1280|1920|2560|
-|Taxa de registo máxima (MBps)|3.8|7.5|15|22.5|30|
+|Taxa de registo máxima (MBps)|3.8|7,5|15|22.5|30|
 |Trabalhadores simultâneos max (pedidos)|75|150|300|450|600|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -57,7 +57,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de cálculo gen5 (parte 2)
 
@@ -73,7 +73,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|461|461|461|922|
 |Tamanho dos dados máximos tempDB (GB)|320|384|448|512|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|3200|3840|4480|5120|
 |Taxa de registo máxima (MBps)|30|30|30|30|
 |Trabalhadores simultâneos max (pedidos)|750|900|1050|1200|
@@ -83,7 +83,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Hiperescala - calculador - Gen4
 
@@ -102,8 +102,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
-|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |
-|Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Taxa de registo máxima (MBps)|100 |100 |100 |100 |100 |100 |
+|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -127,8 +127,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
-|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |
-|Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Taxa de registo máxima (MBps)|100 |100 |100 |100 |100 |100 |
+|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -137,7 +137,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Retenção de armazenamento de reserva|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Hiperescala - calculador - Gen5
 
@@ -156,8 +156,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
-|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |105 |
-|Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Taxa de registo máxima (MBps)|100 |100 |100 |100 |100 |100 |100 |
+|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -166,7 +166,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Retenção de armazenamento de reserva|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de cálculo gen5 (parte 2)
 
@@ -183,8 +183,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
-|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |105 |
-|Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
+|Taxa de registo máxima (MBps)|100 |100 |100 |100 |100 |100 |100 |
+|Latência IO (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -193,7 +193,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Retenção de armazenamento de reserva|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 #### <a name="notes"></a>Notas
 
@@ -221,9 +221,9 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|307|307|461|461|461|922|
 |Tamanho dos dados máximos tempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|320|640|960|1280|1600|1920|
-|Taxa de registo máxima (MBps)|3.75|7.5|11.25|15|18.75|22.5|
+|Taxa de registo máxima (MBps)|3,75|7,5|11.25|15|18.75|22.5|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -231,7 +231,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de cálculo gen4 (parte 2)
 
@@ -246,7 +246,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|922|922|922|922|1229|1229|
 |Tamanho dos dados máximos tempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)
 |IOPS de dados max *|2240|2560|2880|3200|5120|7680|
 |Taxa de registo máxima (MBps)|26.3|30|30|30|30|30|
 |Trabalhadores simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
@@ -256,7 +256,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Finalidade geral - calculado - Gen5
 
@@ -273,9 +273,9 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|307|307|461|461|461|922|922|
 |Tamanho dos dados máximos tempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|640|1280|1920|2560|3200|3840|4480|
-|Taxa de registo máxima (MBps)|7.5|15|22.5|30|30|30|30|
+|Taxa de registo máxima (MBps)|7,5|15|22.5|30|30|30|30|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -283,7 +283,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de cálculo gen5 (parte 2)
 
@@ -298,7 +298,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|922|922|922|1229|1229|1229|1229|
 |Tamanho dos dados máximos tempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|5120|5760|6400|7680|10240|12800|25600|
 |Taxa de registo máxima (MBps)|30|30|30|30|30|30|30|
 |Trabalhadores simultâneos max (pedidos)|1600|1800|2000|2400|3200|4000|8000|
@@ -308,7 +308,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Finalidade geral - calculado - Série Fsv2
 
@@ -325,7 +325,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|1024|
 |Tamanho dos dados máximos tempDB (GB)|333|
 |Tipo de armazenamento|SSD remoto|
-|Latência de e/s (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|
+|Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|
 |IOPS de dados max *|12,800|
 |Taxa de registo máxima (MBps)|30|
 |Trabalhadores simultâneos max (pedidos)|3600|
@@ -336,7 +336,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|N/D|
 |Incluído armazenamento de backup|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Business critical - calculado - Gen4
 
@@ -356,8 +356,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo (GB)|307|307|307|307|307|307|
 |Tamanho dos dados máximos tempDB (GB)|32|64|96|128|160|192|
-|Latência de e/s (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
-|IOPS de dados max *|4,000|8,000|12.000|16,000|20,000|24,000|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|IOPS de dados max *|4000|8,000|12.000|16 000|20 000|24,000|
 |Taxa de registo máxima (MBps)|8|16|24|32|40|48|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|
 |Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|
@@ -367,7 +367,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Geração de cálculo gen4 (parte 2)
 
@@ -382,8 +382,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo (GB)|307|307|307|307|307|307|
 |Tamanho dos dados máximos tempDB (GB)|224|256|288|320|512|768|
-|Latência de e/s (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
-|IOPS de dados max |28,000|32,000|36,000|40,000|64,000|76,800|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|IOPS de dados max |28,000|32,000|36,000|40.000|64,000|76 800|
 |Taxa de registo máxima (MBps)|56|64|64|64|64|64|
 |Trabalhadores simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
 |Logins simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
@@ -393,7 +393,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen5"></a>Business critical - calculado - Gen5
 
@@ -410,8 +410,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|307|307|461|461|461|922|922|
 |Tamanho dos dados máximos tempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Latência de e/s (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
-|IOPS de dados max *|8000|16,000|24,000|32,000|40,000|48,000|56,000|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|IOPS de dados max *|8000|16 000|24,000|32,000|40.000|48,000|56,000|
 |Taxa de registo máxima (MBps)|24|48|72|96|96|96|96|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|1400|
 |Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|1400|
@@ -421,7 +421,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de cálculo gen5 (parte 2)
 
@@ -431,13 +431,13 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|83|93.4|103.8|124.6|166.1|207.6|415.2|
 |Suporte de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP em memória (GB)|15.77|18.14|20.51|25.25|37.94|52.23|131.64|
+|Armazenamento OLTP em memória (GB)|15,77|18.14|20.51|25.25|37.94|52.23|131.64|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo do registo (GB)|922|922|922|1229|1229|1229|1229|
 |Tamanho dos dados máximos tempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Latência de e/s (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
-|IOPS de dados max *|64,000|72,000|80,000|96,000|128,000|160,000|204,800|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|IOPS de dados max *|64,000|72,000|80.000|96,000|128,000|160 000|204,800|
 |Taxa de registo máxima (MBps)|96|96|96|96|96|96|96|
 |Trabalhadores simultâneos max (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Inícios de sessão simultâneos máx.|1600|1800|2000|2400|3200|4000|8000|
@@ -447,7 +447,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Incluído armazenamento de backup|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Business critical - calculado - Série M
 
@@ -464,8 +464,8 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho máximo do registo (GB)|2048|
 |Tamanho dos dados máximos tempDB (GB)|4096|
 |Tipo de armazenamento|Local SSD|
-|Latência de e/s (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|
-|IOPS de dados max *|160,000|
+|Latência IO (aproximada)|1-2 ms (escrever)<br>1-2 ms (ler)|
+|IOPS de dados max *|160 000|
 |Taxa de registo máxima (MBps)|264|
 |Trabalhadores simultâneos max (pedidos)|12,800|
 |Inícios de sessão simultâneos máx.|12,800|
@@ -475,10 +475,10 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Escalamento Horizontal de Leituras|Sim|
 |Incluído armazenamento de backup|Tamanho 1X DB|
 
-\* O valor máximo para tamanhos io que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
+\*O valor máximo para tamanhos IO que variam entre 8 KB e 64 KB. Os IOPS reais são dependentes da carga de trabalho. Para mais detalhes, consulte [Data IO Governance](sql-database-resource-limits-database-server.md#resource-governance).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

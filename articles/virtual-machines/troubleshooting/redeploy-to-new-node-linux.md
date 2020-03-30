@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 2c4152ec5e67761ce9be9a81bfbf39e1591787da
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 18e96f9463176b0fce04252492eea6dbede416c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913519"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531112"
 ---
-# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Recolocar a máquina virtual Linux para o novo nó Azure
+# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina virtual do Linux no novo nó do Azure
 Se enfrentar dificuldades em resolver problemas de resolução de SSH ou acesso a aplicação a uma máquina virtual Linux (VM) em Azure, a reimplantação do VM pode ajudar. Quando reimplanta um VM, move o VM para um novo nó dentro da infraestrutura Azure e, em seguida, alimenta-o de volta. Todas as suas opções de configuração e recursos associados são retidas. Este artigo mostra-lhe como reimplantar um VM utilizando o Azure CLI ou o portal Azure.
 
 > [!NOTE]
@@ -41,11 +41,11 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 
-Instale o [mais recente CLI clássico do Azure](../../cli-install-nodejs.md) e faça login na sua conta Azure. Certifique-se de que está no modo Gestor de Recursos (`azure config mode arm`).
+Instale o [mais recente CLI clássico do Azure](../../cli-install-nodejs.md) e faça login na sua conta Azure. Certifique-se de que está`azure config mode arm`no modo Gestor de Recursos ().
 
 O exemplo seguinte reimplanta o VM denominado *myVM* no grupo de recursos chamado *myResourceGroup*:
 
-```azurecli
+```console
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 

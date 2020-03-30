@@ -1,6 +1,6 @@
 ---
-title: Serviço de porta frontal do Azure-monitoramento de integridade de back-end | Microsoft Docs
-description: Este artigo ajuda você a entender como o serviço de porta frontal do Azure monitora a integridade dos back-ends
+title: Porta da Frente Azure - monitorização da saúde de backend / Microsoft Docs
+description: Este artigo ajuda-o a entender como a Porta Frontal Azure monitoriza a saúde dos seus backends
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,53 +11,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742394"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471579"
 ---
-# <a name="health-probes"></a>Sondas de estado de funcionamento
+# <a name="health-probes"></a>Sondas do estado de funcionamento
 
-Para determinar a integridade de cada back-end, cada ambiente de porta de entrada periodicamente envia uma solicitação de HTTP/HTTPS sintéticas para cada um dos seus front-ends configurados. Depois, utiliza as respostas dessas sondas para determinar os “melhores” back-ends para os quais encaminhar os pedidos reais do cliente. Observe que, como a porta frontal tem muitos ambientes de borda globalmente, o volume de solicitações de investigação de integridade para seus back-ends pode ser tão alto quanto mais de uma solicitação por segundo depende da frequência de investigação de integridade configurada. 
+Para determinar a saúde e proximidade de cada backend a partir de um dado ambiente porta da frente, cada ambiente porta da frente envia periodicamente um pedido sintético HTTP/HTTPS para cada um dos seus backends configurados. Depois, utiliza as respostas dessas sondas para determinar os “melhores” back-ends para os quais encaminhar os pedidos reais do cliente. 
 
-
+> [!WARNING]
+> Uma vez que a Porta Da Frente tem muitos ambientes de borda a nível global, a sonda de saúde pede volume para as suas costas pode ser bastante alta - variando de 25 pedidos a cada minuto até 1200 pedidos por minuto, dependendo da frequência da sonda de saúde configurada. Com a frequência de sonda padrão de 30 segundos, o volume da sonda no seu backend deve ser de cerca de 200 pedidos por minuto.
 
 ## <a name="supported-protocols"></a>Protocolos suportados
 
-A porta frontal dá suporte ao envio de investigações por meio de protocolos HTTP ou HTTPS. Estas sondas são enviadas através das mesmas portas TCP configuradas para encaminhar pedidos do cliente e não podem ser anuladas.
+A Porta da Frente suporta o envio de sondas através de protocolos HTTP ou HTTPS. Estas sondas são enviadas através das mesmas portas TCP configuradas para encaminhar pedidos do cliente e não podem ser anuladas.
 
-## <a name="health-probe-responses"></a>Respostas de investigação de integridade
+## <a name="supported-http-methods-for-health-probes"></a>Métodos HTTP suportados para sondas de saúde
 
-| Responses  | Descrição | 
+A Porta da Frente suporta os seguintes métodos HTTP para o envio das sondas de saúde:
+
+1. **GET:** O método GET significa recuperar qualquer informação (sob a forma de uma entidade) identificada pelo Request-URI.
+2. **CABEÇA:** O método HEAD é idêntico ao GET exceto que o servidor NÃO DEVE devolver um corpo de mensagem na resposta. Para novos perfis front door, por padrão, o método da sonda é definido como HEAD.
+
+> [!NOTE]
+> Para uma carga mais baixa e um custo nas suas costas, a Porta da Frente recomenda a utilização de pedidos HEAD para sondas de saúde.
+
+## <a name="health-probe-responses"></a>Respostas de sonda de saúde
+
+| Respostas  | Descrição | 
 | ------------- | ------------- |
-| Determinando a integridade  |  Um código de status de 200 OK indica que o back-end está íntegro. Tudo o mais é considerado uma falha. Se por qualquer motivo (incluindo falha de rede) uma resposta HTTP válida não for recebida para uma investigação, a investigação será contada como uma falha.|
-| Medindo a latência  | Latência é o tempo de relógio de parede medido desde o momento imediatamente antes de enviarmos a solicitação de investigação ao momento em que recebemos o último byte da resposta. Usamos uma nova conexão TCP para cada solicitação, portanto, essa medida não é ajustada em relação aos back-ends com conexões passivas existentes.  |
+| Determinação da Saúde  |  Um código de estado de 200 OK indica que o backend é saudável. Todo o resto é considerado um fracasso. Se por qualquer razão (incluindo falha de rede) não for recebida uma resposta HTTP válida para uma sonda, a sonda é contada como uma falha.|
+| Medindo a Latência  | Latência é o tempo de tempo de parede medido a partir do momento imediatamente antes de enviarmos o pedido da sonda para o momento em que recebemos o último byte da resposta. Utilizamos uma nova ligação TCP para cada pedido, pelo que esta medida não é tendenciosa para backends com ligações quentes existentes.  |
 
-## <a name="how-front-door-determines-backend-health"></a>Como a porta frontal determina a integridade do back-end
+## <a name="how-front-door-determines-backend-health"></a>Como a Porta da Frente determina a saúde do backend
 
-O serviço de porta frontal do Azure usa o mesmo processo de três etapas abaixo em todos os algoritmos para determinar a integridade.
+A Porta Frontal Azure usa o mesmo processo de três passos abaixo em todos os algoritmos para determinar a saúde.
 
-1. Excluir back-ends desabilitados.
+1. Excluir backends para deficientes.
 
-2. Exclua os back-ends que têm erros de investigação de integridade:
-    * Essa seleção é feita examinando as últimas _n_ respostas de investigação de integridade. Se pelo menos _x_ estiverem íntegros, o back-end será considerado íntegro.
+2. Exclua backends que tenham erros de sondas de saúde:
+    * Esta seleção é feita olhando para as últimas respostas da sonda _de_ saúde. Se pelo menos _x_ são saudáveis, o backend é considerado saudável.
 
-    * _n_ é configurado alterando a propriedade Samples em configurações de balanceamento de carga.
+    * _n_ é configurado alterando a propriedade SampleSize em definições de equilíbrio de carga.
 
-    * _x_ é configurado alterando a propriedade SuccessfulSamplesRequired nas configurações de balanceamento de carga.
+    * _x_ é configurado alterando a propriedade Bem SucedidaSamplesRequired em definições de equilíbrio de carga.
 
-3. Fora do conjunto de back-ends íntegros no pool de back-end, a porta da frente também mede e mantém a latência (tempo de ida e volta) para cada back-end.
+3. Fora do conjunto de backends saudáveis na piscina de backend, a Porta da Frente mede adicionalmente e mantém a latência (tempo de ida e volta) para cada backend.
 
 
-## <a name="complete-health-probe-failure"></a>Falha na investigação de integridade completa
+## <a name="complete-health-probe-failure"></a>Falha completa da sonda de saúde
 
-Se as investigações de integridade falharem para cada back-end em um pool de back-end, a porta da frente considerará todos os front-ends íntegros e roteará o tráfego em uma distribuição de round robin entre todos eles.
+Se as sondas de saúde falharem por cada backend numa piscina de backend, então a Porta da Frente considera todos os backends saudáveis e encaminha o tráfego numa distribuição de robin redondo em todos eles.
 
-Depois que qualquer back-end retornar a um estado íntegro, a porta da frente retomará o algoritmo normal de balanceamento de carga.
+Assim que qualquer backend voltar a um estado saudável, então a Porta da Frente retomará o algoritmo normal de equilíbrio de carga.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="disabling-health-probes"></a>Sondas de saúde incapacitantes
+
+Se tiver um único backend na sua piscina de backend, pode optar por desativar as sondas de saúde reduzindo a carga no seu backend de aplicação. Mesmo que tenha várias costas na piscina de backend, mas apenas uma delas está em estado habilitado, pode desativar as sondas de saúde.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

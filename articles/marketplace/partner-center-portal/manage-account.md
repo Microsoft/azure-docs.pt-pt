@@ -1,21 +1,20 @@
 ---
 title: Como gerir uma conta de Marketplace Comercial no Partner Center
 description: Saiba como gerir uma conta de Marketplace Comercial no Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275820"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta de Mercado Comercial no Partner Center
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a conta do Marketplace Comercial no Centro de Parceiros
 
 Depois de [criar uma conta partner center,](./create-account.md)pode gerir a sua conta e oferecer através do [dashboard Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
@@ -28,7 +27,7 @@ Neste artigo, vamos mergulhar em como gerir a sua conta de Partner Center, inclu
 - [Gerir utilizadores](#manage-users)
 - [Gerir grupos](#manage-groups)
 - [Gerir aplicações da AD Azure](#manage-azure-ad-applications)
-- [Definir funções e permissões do utilizador](#define-user-roles-and-permissions)
+- [Definir funções e permissões de utilizadores](#define-user-roles-and-permissions)
 - [Gerir os inquilinos da AD Azure (contas de trabalho)](#manage-tenants)
 - [Gerir acordos de centro de parceiros](#agreements)
 
@@ -136,7 +135,7 @@ Para mais informações, consulte o uso do [cliente Tracking Azure com GUIDs FAQ
 
 ## <a name="create-a-billing-profile"></a>Criar um perfil de faturação
 
-Se está a publicar uma [Oferta de Dinâmica 365 para O Envolvimento e Energia](./create-new-customer-engagement-offer.md) do Cliente ou para a Oferta De [Operações,](./create-new-operations-offer.md) precisa de completar o seu perfil de **faturação.**
+Se estiver a publicar uma [Oferta De Sem](./create-new-customer-engagement-offer.md) Acordo para o Envolvimento com o Cliente & Power Apps ou [A Dinâmica 365 para Operações,](./create-new-operations-offer.md) precisa de completar o seu perfil de **faturação**.
 
 O endereço de faturação é pré-povoado da sua entidade legal, e você pode atualizar este endereço mais tarde. Os campos de IDENTIFICAÇÃO DE IVA são opcionais.  O nome do país e o nome da empresa não podem ser editados.
 
@@ -154,7 +153,7 @@ Uma vez que você é inscrito na sua conta de trabalho (inquilino Da AD Azure), 
 - [Adicionar ou remover grupos](#add-or-remove-users)
 - [Adicionar ou remover aplicações da AD Azure](#add-new-azure-ad-applications)
 - [Gerir chaves para uma aplicação Azure AD](#manage-keys-for-an-azure-ad-application)
-- [Definir funções e permissões do utilizador](#define-user-roles-and-permissions)
+- [Definir funções e permissões de utilizadores](#define-user-roles-and-permissions)
 
 Tenha em mente que todos os utilizadores do Partner Center (incluindo grupos e aplicações Azure AD) devem ter uma conta de trabalho ativa num [inquilino da Azure AD](#manage-tenants) que esteja associado à sua conta partner Center.
 
@@ -175,7 +174,7 @@ Para adicionar utilizadores à sua conta Partner Center que já existem na conta
 
 #### <a name="create-new-users"></a>Criar novos utilizadores
 
-Para criar novas contas de utilizador, deve ter uma conta com permissões de [**administrador global.** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
+Para criar novas contas de utilizador, deve ter uma conta com permissões de [**administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
 1. Vá para **utilizadores** (em **definições de Conta),** selecione **Adicionar utilizadores**e, em seguida, escolher Criar **novos utilizadores**.
 1. Introduza um primeiro nome, apelido e nome de utilizador para cada novo utilizador. 
@@ -189,7 +188,7 @@ A criação de um novo utilizador no Partner Center também criará uma conta pa
 
 #### <a name="invite-new-users-by-email"></a>Convide novos utilizadores por e-mail
 
-Para convidar utilizadores que não fazem parte da sua conta de trabalho da empresa (inquilino da AD Azure) por e-mail, você deve ter uma conta com permissões [**de administrador global.** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+Para convidar utilizadores que não fazem parte da sua conta de trabalho da empresa (inquilino da AD Azure) por e-mail, você deve ter uma conta com permissões [**de administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
 1. Vá aos **Utilizadores** (em **definições de Conta),** selecione **Adicionar utilizadores**e, em seguida, escolha utilizadores de convidar **por e-mail**.
 2. Introduza um ou mais endereços de e-mail (até dez), separados por vírgulas ou pontos evívias.
@@ -209,7 +208,7 @@ Para remover um utilizador da sua conta de trabalho (inquilino da AD Azure), vá
 
 #### <a name="change-a-user-password"></a>Alterar uma palavra-passe do utilizador
 
-Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-lo por si mesmo se forneceu um **e-mail** de recuperação de passwords ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador seguindo os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino da Azure AD), deve ser inscrito numa conta com permissões de [**administrador global.** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) Note que isso irá alterar a palavra-passe do utilizador no seu inquilino Azure AD, juntamente com a palavra-passe que usam para aceder ao Partner Center.
+Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-lo por si mesmo se forneceu um **e-mail** de recuperação de passwords ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador seguindo os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino da Azure AD), deve ser inscrito numa conta com permissões de [**administrador global.**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) Note que isso irá alterar a palavra-passe do utilizador no seu inquilino Azure AD, juntamente com a palavra-passe que usam para aceder ao Partner Center.
 
 1. Na página **Utilizadores** (em definições de **Conta),** selecione o nome da conta de utilizador que pretende editar.
 2. Selecione o botão de **palavra-passe Reset** na parte inferior da página.
@@ -232,7 +231,7 @@ Se selecionar mais de um grupo para adicionar à sua conta Partner Center, deve 
 
 Quando adicionar um grupo existente, todos os utilizadores que forem membros desse grupo poderão aceder à sua conta Partner Center, com as permissões associadas à função atribuída pelo grupo.
 
-#### <a name="add-a-new-group"></a>Adicione um novo grupo
+#### <a name="add-a-new-group"></a>Adicionar um novo grupo
 
 Para adicionar um novo grupo à sua conta Partner Center:
 
@@ -291,7 +290,7 @@ Se a sua aplicação Azure AD ler e escrever dados no Microsoft Azure AD, precis
 4. Verá um ecrã mostrando o ID do **cliente** e **valores chave.** Certifique-se de imprimir ou copiar esta informação, uma vez que não poderá aceder novamente depois de deixar esta página.
 5. Se quiser criar mais teclas, selecione **Adicionar outra tecla**.
 
-## <a name="define-user-roles-and-permissions"></a>Definir funções e permissões do utilizador
+## <a name="define-user-roles-and-permissions"></a>Definir funções e permissões de utilizadores
 
 Os utilizadores da sua empresa podem ser atribuídos as seguintes funções e permissões para o programa Mercado Comercial no Partner Center:
 

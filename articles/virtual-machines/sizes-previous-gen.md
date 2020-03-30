@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e5fe58891aa901509dc44d3b2465c794bd92b22d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226781"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476574"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -87,7 +87,7 @@ Cada GPU em instâncias NVv2 vem com uma licença GRID. Esta licença dá-lhe a 
 
 Esta secção fornece informações sobre gerações mais velhas de tamanhos de máquinas virtuais. Estes tamanhos ainda são suportados, mas não receberão capacidade adicional. Existem tamanhos mais recentes ou alternativos que geralmente estão disponíveis. Consulte os [tamanhos das máquinas virtuais Linux em Azure](linux/sizes.md) para escolher os tamanhos VM que melhor se adequam às suas necessidades.  
 
-Para obter mais informações sobre a redimensionamento de um VM do Windows, consulte [Resize a Linux VM](linux/change-vm-size.md).  
+Para obter mais informações sobre a redimensionamento de um VM Linux, consulte [Resize a Linux VM](linux/change-vm-size.md).  
 
 <br>
 
@@ -160,7 +160,7 @@ Os tamanhos das séries A8-A11 e H também são conhecidos como *instâncias de 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (HDD) temporário: GiB | Discos de dados máximos | Débito máximo do disco de dados: IOPS | NICs máximos|
 |---|---|---|---|---|---|---|
-| Standard_A8&nbsp;<sup>1</sup> | 8  | 56  | 382 | 32 | 32x500 | 2 |
+| &nbsp;<sup>Standard_A8 1</sup> | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A9&nbsp;<sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
@@ -292,7 +292,7 @@ Caching de armazenamento premium: Não suportado
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8000  |
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
-| Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
+| &nbsp;<sup>Standard_L32s 1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
 A entrada máxima de disco possível com VMs da série Ls pode ser limitada pelo número, tamanho e tiragem de quaisquer discos anexados. Para mais detalhes, consulte o design para um alto desempenho para [Windows](windows/premium-storage-performance.md) ou [Linux](linux/premium-storage-performance.md).
 
@@ -312,7 +312,7 @@ Caching de armazenamento premium: Suportado
 | Standard_GS2 | 4 | 56  | 112 | 16 | 20000/200 (528)  | 10000/ 250 | 2/4000 |
 | Standard_GS3 | 8 | 112 | 224 | 32 | 40000/400 (1056) | 20000/ 500 | 4/8000 |
 | Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
-| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
+| &nbsp;<sup>Standard_GS5 2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
 <sup>1</sup> A entrada máxima de disco (IOPS ou MBps) possível com um VM série GS pode ser limitada pelo número, tamanho e tiragem do disco anexo. Para mais detalhes, consulte o design para um alto desempenho para [Windows](windows/premium-storage-performance.md) ou [Linux](linux/premium-storage-performance.md).
 
@@ -336,7 +336,7 @@ Caching de armazenamento premium: Não suportado
 | Standard_G2  | 4  | 56  | 768  | 12000/187/93  | 16/16x500 | 2/4000  |
 | Standard_G3  | 8  | 112 | 1536 | 24000/375/187 | 32/32x500 | 4/8000  |
 | Standard_G4  | 16 | 224 | 3072 | 48000/750/375 | 64/64x500 | 8/16000 |
-| Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
+| &nbsp;<sup>Standard_G5 1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> A instância está isolada em hardware dedicado a um único cliente.
 <br>

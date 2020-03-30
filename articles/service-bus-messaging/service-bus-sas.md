@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259477"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso partilhado
@@ -45,7 +45,7 @@ O token [Signature de Acesso Partilhado](/dotnet/api/microsoft.servicebus.shared
 
 Cada espaço de nome de ônibus de serviço e cada entidade de ônibus de serviço tem uma política de autorização de acesso partilhado composta por regras. A política a nível do espaço de nome aplica-se a todas as entidades dentro do espaço de nome, independentemente da sua configuração política individual.
 
-Para cada regra da política de autorização, você decide sobre três peças de informação: **nome,** **âmbito,** e **direitos**. O **nome** é apenas isso; um nome único dentro desse âmbito. O âmbito é fácil o suficiente: é o URI do recurso em questão. Para um espaço de nome do Ônibus de serviço, o âmbito é o nome de domínio totalmente qualificado (FQDN), como `https://<yournamespace>.servicebus.windows.net/`.
+Para cada regra da política de autorização, você decide sobre três peças de informação: **nome,** **âmbito,** e **direitos**. O **nome** é apenas isso; um nome único dentro desse âmbito. O âmbito é fácil o suficiente: é o URI do recurso em questão. Para um espaço de nome do Ônibus de serviço, o âmbito `https://<yournamespace>.servicebus.windows.net/`é o nome de domínio totalmente qualificado (FQDN), como .
 
 Os direitos conferidos pela regra política podem ser uma combinação de:
 
@@ -77,10 +77,10 @@ Qualquer cliente que tenha acesso ao nome de uma regra de autorização e uma da
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** - Token expira instantaneamente. Inteiro refletindo segundos desde que a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o símbolo expira.
-* **`skn`** - Nome da regra de autorização.
-* **`sr`** - URI do recurso a ser acedido.
-* **`sig`** - Assinatura.
+* **`se`**- Token expira instantaneamente. Inteiro refletindo segundos desde `00:00:00 UTC` a época em 1 de janeiro de 1970 (época UNIX) quando o token expira.
+* **`skn`**- Nome da regra da autorização.
+* **`sr`**- URI do recurso a ser acedido.
+* **`sig`** A assinatura.
 
 O `signature-string` é o hash SHA-256 computado sobre o recurso URI **(âmbito** descrito na secção anterior) e a representação de cordas do instante de validade do símbolo, separado por LF.
 
@@ -92,13 +92,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 O símbolo contém os valores não hashed para que o destinatário possa recomputar o hash com os mesmos parâmetros, verificando que o emitente está na posse de uma chave de assinatura válida.
 
-O recurso URI é o URI completo do recurso Service Bus a que o acesso é reclamado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; isto é, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+O recurso URI é o URI completo do recurso Service Bus a que o acesso é reclamado. Por `http://<namespace>.servicebus.windows.net/<entityPath>` exemplo, `sb://<namespace>.servicebus.windows.net/<entityPath>`ou; isto é, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
 **O URI deve ser codificado por [cento.](https://msdn.microsoft.com/library/4fkewx0t.aspx)**
 
-A regra de autorização de acesso partilhado utilizada para a assinatura deve ser configurada na entidade especificada por este URI, ou por um dos seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
+A regra de autorização de acesso partilhado utilizada para a assinatura deve ser configurada na entidade especificada por este URI, ou por um dos seus pais hierárquicos. Por `http://contoso.servicebus.windows.net/contosoTopics/T1` exemplo, `http://contoso.servicebus.windows.net` ou no exemplo anterior.
 
-Um token SAS é válido para todos os recursos pré-fixados com o `<resourceURI>` utilizado na `signature-string`.
+Um token SAS é válido para `<resourceURI>` todos os `signature-string`recursos pré-fixados com o utilizado na .
 
 ## <a name="regenerating-keys"></a>Chaves regeneradoras
 
@@ -191,7 +191,7 @@ Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para
 
 Antes de começar a enviar dados para o Service Bus, a editora deve enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (pode vê-lo como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **AnswerTo** dentro da mensagem AMQP; este é o nó em que o serviço responde à editora com o resultado da validação simbólica (um simples padrão de pedido/resposta entre o editor e o serviço). Este nó de resposta é criado "on the fly", falando sobre a "criação dinâmica do nó remoto", conforme descrito pela especificação AMQP 1.0. Depois de verificar se o token SAS é válido, a editora pode avançar e começar a enviar dados para o serviço.
 
-Os seguintes passos mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.NET Lite.](https://github.com/Azure/amqpnetlite) Isto é útil se não puder utilizar o SDK oficial do bus de serviço (por exemplo, no WinRT, .NET Compact Framework, .NET Micro Framework e Mono) em C\#. É claro que esta biblioteca é útil para ajudar a entender como funciona a segurança baseada em sinistros ao nível da AMQP, como viu como funciona a nível HTTP (com um pedido HTTP POST e o token SAS enviado dentro do cabeçalho "Autorização"). Se não precisar de conhecimentos tão profundos sobre a AMQP, pode utilizar o Service Bus SDK oficial com aplicações .NET Framework, que o farão por si.
+Os seguintes passos mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.NET Lite.](https://github.com/Azure/amqpnetlite) Isto é útil se não puder utilizar o SDK oficial do bus de serviço (por exemplo no WinRT,\#.NET Compact Framework, .NET Micro Framework e Mono) desenvolvendo-se em C . É claro que esta biblioteca é útil para ajudar a entender como funciona a segurança baseada em sinistros ao nível da AMQP, como viu como funciona a nível HTTP (com um pedido HTTP POST e o token SAS enviado dentro do cabeçalho "Autorização"). Se não precisar de conhecimentos tão profundos sobre a AMQP, pode utilizar o Service Bus SDK oficial com aplicações .NET Framework, que o farão por si.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,7 +244,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-O método `PutCbsToken()` recebe a *ligação* (instância de classe de ligação AMQP fornecida pela [biblioteca AMQP .NET Lite)](https://github.com/Azure/amqpnetlite)que representa a ligação TCP ao serviço e ao parâmetro *sasToken* que é o símbolo SAS a enviar.
+O `PutCbsToken()` método recebe a *ligação* (instância de classe de ligação AMQP fornecida pela [biblioteca AMQP .NET Lite)](https://github.com/Azure/amqpnetlite)que representa a ligação TCP ao serviço e o parâmetro *sasToken* que é o símbolo SAS a enviar.
 
 > [!NOTE]
 > É importante que a ligação seja criada com o mecanismo de **autenticação SASL definido para ANONYMOUS** (e não a PLAIN padrão com nome de utilizador e palavra-passe usado quando não precisa enviar o token SAS).
@@ -253,7 +253,7 @@ O método `PutCbsToken()` recebe a *ligação* (instância de classe de ligaçã
 
 Em seguida, a editora cria dois links AMQP para o envio do token SAS e recebendo a resposta (o resultado da validação do token) do serviço.
 
-A mensagem AMQP contém um conjunto de propriedades, e mais informações do que uma simples mensagem. O símbolo SAS é o corpo da mensagem (utilizando o seu construtor). A propriedade **"AnswerTo"** está definida no nome do nó para receber o resultado da validação no link do recetor (pode alterar o seu nome se quiser, e será criada dinamicamente pelo serviço). As três últimas propriedades de aplicação/costume são utilizadas pelo serviço para indicar que tipo de operação tem para executar. Tal como descrito pelo projeto de especificação da CBS, devem ser o nome de **funcionamento** ("put-token"), o **tipo de ficha** (neste caso, um `servicebus.windows.net:sastoken`) e o **"nome" do público** a que o símbolo se aplica (toda a entidade).
+A mensagem AMQP contém um conjunto de propriedades, e mais informações do que uma simples mensagem. O símbolo SAS é o corpo da mensagem (utilizando o seu construtor). A propriedade **"AnswerTo"** está definida no nome do nó para receber o resultado da validação no link do recetor (pode alterar o seu nome se quiser, e será criada dinamicamente pelo serviço). As três últimas propriedades de aplicação/costume são utilizadas pelo serviço para indicar que tipo de operação tem para executar. Tal como descrito pelo projeto de especificação da CBS, devem ser o nome de **funcionamento** ("put-token"), o **tipo de ficha** (neste caso, a `servicebus.windows.net:sastoken`), e o **"nome" do público** a que o símbolo se aplica (toda a entidade).
 
 Depois de enviar o token SAS no link do remetente, o editor deve ler a resposta no link recetor. A resposta é uma simples mensagem AMQP com uma propriedade de aplicação chamada **"status-code"** que pode conter os mesmos valores que um código de estado HTTP.
 
@@ -269,7 +269,7 @@ A tabela que se segue mostra os direitos de acesso necessários para várias ope
 | Enumerar políticas privadas |Gerir |Qualquer endereço espaço de nome |
 | Comece a ouvir em um espaço de nome |Escutar |Qualquer endereço espaço de nome |
 | Envie mensagens a um ouvinte num espaço de nome |Enviar |Qualquer endereço espaço de nome |
-| **Fila** | | |
+| **Filas** | | |
 | Criar uma fila |Gerir |Qualquer endereço espaço de nome |
 | Eliminar uma fila |Gerir |Qualquer endereço de fila válido |
 | Enumerar filas |Gerir |/$Resources/Filas |
@@ -290,27 +290,27 @@ A tabela que se segue mostra os direitos de acesso necessários para várias ope
 | Obtenha a descrição do tópico |Gerir |Qualquer endereço de tópico válido |
 | Configurar a regra de autorização para um tópico |Gerir |Qualquer endereço de tópico válido |
 | Enviar para o tópico |Enviar |Qualquer endereço de tópico válido |
-| **Subscrição** | | |
+| **Assinatura** | | |
 | Criar uma subscrição |Gerir |Qualquer endereço espaço de nome |
-| Eliminar subscrição |Gerir |../myTopic/subscriptions/mySubscription |
-| Enumerar assinaturas |Gerir |../myTopic/subscrições |
-| Obtenha descrição da subscrição |Gerir |../myTopic/subscriptions/mySubscription |
-| Abandone ou complete mensagens depois de receber a mensagem no modo de bloqueio de peek |Escutar |../myTopic/subscriptions/mySubscription |
-| Adique uma mensagem para a recuperação posterior |Escutar |../myTopic/subscriptions/mySubscription |
-| Deadletter uma mensagem |Escutar |../myTopic/subscriptions/mySubscription |
-| Obter o estado associado a uma sessão de tópicos |Escutar |../myTopic/subscriptions/mySubscription |
-| Definir o estado associado a uma sessão de tópicos |Escutar |../myTopic/subscriptions/mySubscription |
+| Eliminar subscrição |Gerir |.. /myTopic/Subscrições/mySubscription |
+| Enumerar assinaturas |Gerir |.. /myTopic/Subscrições |
+| Obtenha descrição da subscrição |Gerir |.. /myTopic/Subscrições/mySubscription |
+| Abandone ou complete mensagens depois de receber a mensagem no modo de bloqueio de peek |Escutar |.. /myTopic/Subscrições/mySubscription |
+| Adique uma mensagem para a recuperação posterior |Escutar |.. /myTopic/Subscrições/mySubscription |
+| Deadletter uma mensagem |Escutar |.. /myTopic/Subscrições/mySubscription |
+| Obter o estado associado a uma sessão de tópicos |Escutar |.. /myTopic/Subscrições/mySubscription |
+| Definir o estado associado a uma sessão de tópicos |Escutar |.. /myTopic/Subscrições/mySubscription |
 | **Regras** | | |
-| Criar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
-| Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
-| Regras enumeradas |Gerir ou ouvir |../myTopic/subscriptions/mySubscription/Rules
+| Criar uma regra |Gerir |.. /myTopic/Subscrições/mySubscription |
+| Eliminar uma regra |Gerir |.. /myTopic/Subscrições/mySubscription |
+| Enumerar regras |Gerir ou ouvir |.. /myTopic/Subscrições/mySubscription/Rules
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Como utilizar as filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Como usar as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com

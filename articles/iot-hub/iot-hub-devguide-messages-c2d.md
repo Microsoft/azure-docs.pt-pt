@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271242"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envie mensagens cloud-to-device a partir de um hub IoT
@@ -87,19 +87,19 @@ Como explicado em [Endpoints,](iot-hub-devguide-endpoints.md)o hub IoT fornece f
 | Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Uma marca de tempo que indica quando a mensagem de feedback foi recebida pelo centro |
-| UserId       | `{iot hub name}` |
-| ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+| IDUtilizador       | `{iot hub name}` |
+| Tipo de conteúdo  | `application/vnd.microsoft.iothub.feedback.json` |
 
 O corpo é um conjunto de registos em série JSON, cada um com as seguintes propriedades:
 
 | Propriedade           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Uma marca de tempo que indica quando o resultado da mensagem aconteceu (por exemplo, o centro recebeu a mensagem de feedback ou a mensagem original expirou) |
-| OriginalMessageId  | O *MessageId* da mensagem cloud-to-device a que esta informação de feedback diz |
-| StatusCode         | Uma corda necessária, usada em mensagens de feedback que são geradas pelo centro IoT: <br/> *Sucesso* <br/> *Expirado* <br/> *DeliveryCountExceeded* <br/> *Rejeitado* <br/> *Purgado* |
+| Mensagem Original  | O *MessageId* da mensagem cloud-to-device a que esta informação de feedback diz |
+| Código de Estado         | Uma corda necessária, usada em mensagens de feedback que são geradas pelo centro IoT: <br/> *Sucesso* <br/> *Expirado* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purgado* |
 | Descrição        | Valores de cadeia para *StatusCode* |
 | DeviceId           | O *DispositivoId* do dispositivo-alvo da mensagem cloud-to-device a que se refere este pedaço de feedback |
-| DeviceGenerationId | O *DispositivoGeração Id* do dispositivo-alvo da mensagem cloud-to-device a que se refere este pedaço de feedback |
+| DispositivoGerada | O *DispositivoGeração Id* do dispositivo-alvo da mensagem cloud-to-device a que se refere este pedaço de feedback |
 
 Para que a mensagem cloud-to-device correlacionar o seu feedback com a mensagem original, o serviço deve especificar um *MessageId*.
 
@@ -134,7 +134,7 @@ Cada hub IoT expõe as seguintes opções de configuração para mensagens cloud
 
 | Propriedade                  | Descrição | Alcance e padrão |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | TTL padrão para mensagens cloud-to-device | ISO_8601 intervalo até 2 dias (mínimo 1 minuto); padrão: 1 hora |
+| defaultTTLAsIso8601       | TTL padrão para mensagens cloud-to-device | ISO_8601 intervalo até 2 dias (mínimo 1 minuto); padrão: 1 hora |
 | maxDeliveryCount          | Contagem máxima de entrega para filas de cloud-to-device por dispositivo | 1 a 100; padrão: 10 |
 | feedback.ttlAsIso8601     | Retenção de mensagens de feedback ligadas ao serviço | ISO_8601 intervalo até 2 dias (mínimo 1 minuto); padrão: 1 hora |
 | feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários | 1 a 100; padrão: 10 |

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259646"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)
@@ -42,12 +42,12 @@ Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e 
 
 O plano de controlo inclui os seguintes componentes kubernetes centrais:
 
-- *kube-apiserver* - O servidor API é como as APIs kubernetes subjacentes são expostas. Este componente proporciona a interação para ferramentas de gestão, como `kubectl` ou o dashboard Kubernetes.
+- *kube-apiserver* - O servidor API é como as APIs kubernetes subjacentes são expostas. Este componente proporciona a interação para `kubectl` ferramentas de gestão, como ou o dashboard Kubernetes.
 - *etcd* - Para manter o estado do seu cluster e configuração Kubernetes, o *etcd* altamente disponível é uma loja de valor chave dentro de Kubernetes.
 - *kube-scheduler* - Quando cria ou escala aplicações, o Scheduler determina quais os nós que podem executar a carga de trabalho e inicia-as.
 - *kube-controller-manager* - O Controlador Gestor supervisiona uma série de controladores menores que realizam ações como replicar cápsulas e manusear operações de nó.
 
-A AKS fornece um plano de controlo de um único inquilino, com um servidor API dedicado, Scheduler, etc. Define o número e o tamanho dos nós, e a plataforma Azure configura a comunicação segura entre o plano de controlo e os nós. A interação com o plano de controlo ocorre através de APIs kubernetes, como `kubectl` ou o painel de instrumentos Kubernetes.
+A AKS fornece um plano de controlo de um único inquilino, com um servidor API dedicado, Scheduler, etc. Define o número e o tamanho dos nós, e a plataforma Azure configura a comunicação segura entre o plano de controlo e os nós. A interação com o plano de controlo ocorre `kubectl` através de APIs kubernetes, como ou o painel de instrumentos Kubernetes.
 
 Este plano de controlo gerido significa que não precisa de configurar componentes como uma loja *de etcaltamente* disponível, mas também significa que não pode aceder diretamente ao plano de controlo. As atualizações para Kubernetes são orquestradas através do portal Azure CLI ou Azure, que atualiza o plano de controlo e, em seguida, os nós. Para resolver possíveis problemas, pode rever os registos dos planos de controlo através dos registos do Monitor De controlo.
 
@@ -59,7 +59,7 @@ Para as melhores práticas associadas, consulte [as melhores práticas para a se
 
 Para executar as suas aplicações e serviços de apoio, precisa de um *nó*Kubernetes. Um cluster AKS tem um ou mais nós, que é uma máquina virtual Azure (VM) que executa os componentes do nó Kubernetes e o tempo de funcionamento do contentor:
 
-- O `kubelet` é o agente kubernetes que processa os pedidos de orquestração do plano de controlo e agendamento de funcionamento dos contentores solicitados.
+- É `kubelet` o agente Kubernetes que processa os pedidos de orquestração do plano de controlo e agendamento de funcionamento dos contentores solicitados.
 - A rede virtual é manuseada pelo *kube-proxy* em cada nó. O proxy routes tráfego de rede e gere endereços IP para serviços e casulos.
 - O tempo de *execução* do contentor é o componente que permite que as aplicações contentorizadas executem e interajam com recursos adicionais, como a rede virtual e o armazenamento. No AKS, Moby é usado como o tempo de execução do contentor.
 
@@ -69,7 +69,7 @@ O tamanho do VM Azure para os seus nós define quantos CPUs, quanto memória e o
 
 No AKS, a imagem VM para os nós do seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando se cria um cluster AKS ou escala o número de nós, a plataforma Azure cria o número solicitado de VMs e os confunde. Não há configuração manual para realizar. Os nós de agente são cobrados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que você está usando (incluindo [reservas Azure][reservation-discounts]) são automaticamente aplicados.
 
-Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O `aks-engine` a montante lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportadas em clusters AKS. Por exemplo, se desejar utilizar um tempo de execução de um contentor que não seja o Moby, pode utilizar `aks-engine` para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
+Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportadas em clusters AKS. Por exemplo, se desejar utilizar um tempo de execução `aks-engine` de um contentor que não seja o Moby, pode utilizar para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -94,7 +94,7 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 
 - **Memória** - memória utilizada pela AKS inclui a soma de dois valores.
 
-1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e a rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.available<750Mi*, o que significa que um nó deve ter sempre pelo menos 750 Mi alocadas em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de corrida para libertar a memória na máquina hospedeira e protegê-la. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
+1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e a rescisão de contentores. Por defeito no AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve ter sempre pelo menos 750 Mi alocadas.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de corrida para libertar a memória na máquina hospedeira e protegê-la. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
 
 2. O segundo valor é uma taxa progressiva de reservas de memória para o daemon kubelet funcionar corretamente (reservado para kube).
     - 25% dos primeiros 4 GB de memória
@@ -165,7 +165,7 @@ A maioria das aplicações apátridas no AKS deve usar o modelo de implantação
 
 Se uma aplicação requer um quórum de instâncias para estar sempre disponível para as decisões de gestão a serem tomadas, você não quer um processo de atualização para perturbar essa capacidade. *Os Orçamentos de Disrupção* de Pod podem ser usados para definir quantas réplicas numa implementação podem ser retiradas durante uma atualização ou atualização do nó. Por exemplo, se tiver *5* réplicas na sua implementação, pode definir uma rutura de *4* cápsulas para permitir que apenas uma réplica seja eliminada/reagendada de cada vez. Tal como acontece com os limites de recursos da cápsula, a melhor prática é definir orçamentos de disrupção de casulos em aplicações que exijam um número mínimo de réplicas para estarem sempre presentes.
 
-As implantações são tipicamente criadas e geridas com `kubectl create` ou `kubectl apply`. Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo seguinte cria uma implementação básica do servidor web NGINX. A implantação especifica *3* réplicas a criar e que a porta *80* esteja aberta no recipiente. Os pedidos e limites de recursos também estão definidos para CPU e memória.
+As implementações são tipicamente `kubectl create` criadas e geridas com ou `kubectl apply`. Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo seguinte cria uma implementação básica do servidor web NGINX. A implantação especifica *3* réplicas a criar e que a porta *80* esteja aberta no recipiente. Os pedidos e limites de recursos também estão definidos para CPU e memória.
 
 ```yaml
 apiVersion: apps/v1
@@ -223,7 +223,7 @@ Existem dois recursos Kubernetes que lhe permitem gerir este tipo de aplicaçõe
 
 O desenvolvimento moderno de aplicações visa frequentemente aplicações apátridas, mas *statefulSets* podem ser usados para aplicações imponentes, tais como aplicações que incluem componentes de base de dados. Um StatefulSet é semelhante a uma implementação na medida em que uma ou mais cápsulas idênticas são criadas e geridas. As réplicas num StatefulSet seguem uma abordagem graciosa e sequencial de implantação, escala, upgrades e rescisões. Com um StatefulSet (à medida que as réplicas são reagendadas) persistem a convenção de nomeação, os nomes da rede e o armazenamento.
 
-Define a aplicação em formato YAML utilizando `kind: StatefulSet`, e o Controlador StatefulSet lida com a implementação e gestão das réplicas necessárias. Os dados são escritos para armazenamento persistente, fornecidos por Discos Geridos Azure ou Ficheiros Azure. Com statefulSets, o armazenamento persistente subjacente permanece mesmo quando o StatefulSet é eliminado.
+Define a aplicação no formato YAML utilizando `kind: StatefulSet`, e o Controlador StatefulSet lida com a implementação e gestão das réplicas necessárias. Os dados são escritos para armazenamento persistente, fornecidos por Discos Geridos Azure ou Ficheiros Azure. Com statefulSets, o armazenamento persistente subjacente permanece mesmo quando o StatefulSet é eliminado.
 
 Para mais informações, consulte [Kubernetes StatefulSets][kubernetes-statefulsets].
 
@@ -235,7 +235,7 @@ Para obter necessidades específicas de recolha de registos ou de monitorizaçã
 
 O Controlador DaemonSet pode agendar cápsulas em nós no início do processo de arranque do cluster, antes do programador padrão Kubernetes ter começado. Esta capacidade garante que as cápsulas de um DaemonSet são iniciadas antes de estarem programadas cápsulas tradicionais num Deployment ou StatefulSet.
 
-Tal como statefulSets, um DaemonSet é definido como parte de uma definição YAML usando `kind: DaemonSet`.
+Tal como statefulSets, um DaemonSet é definido como `kind: DaemonSet`parte de uma definição YAML usando .
 
 Para mais informações, consulte [Kubernetes DaemonSets][kubernetes-daemonset].
 
@@ -250,7 +250,7 @@ Os recursos kubernetes, tais como cápsulas e implantações, são logicamente a
 
 Quando se cria um cluster AKS, estão disponíveis os seguintes espaços de nome:
 
-- *predefinição* - Este espaço de nome é onde as cápsulas e as implementações são criadas por padrão quando nenhuma é fornecida. Em ambientes mais pequenos, pode implementar aplicações diretamente no espaço de nome padrão sem criar separações lógicas adicionais. Quando interage com a API kubernetes, como com `kubectl get pods`, o espaço de nome padrão é usado quando nenhum é especificado.
+- *predefinição* - Este espaço de nome é onde as cápsulas e as implementações são criadas por padrão quando nenhuma é fornecida. Em ambientes mais pequenos, pode implementar aplicações diretamente no espaço de nome padrão sem criar separações lógicas adicionais. Quando interage com a API kubernetes, como por exemplo, `kubectl get pods`o espaço de nome padrão é usado quando nenhum é especificado.
 - *kube-system* - Este espaço de nome é onde existem recursos centrais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente não se implantam as suas próprias aplicações neste espaço de nome.
 - *kube-público* - Este espaço de nome normalmente não é usado, mas pode ser usado para que os recursos sejam visíveis em todo o cluster, e pode ser visto por qualquer utilizador.
 

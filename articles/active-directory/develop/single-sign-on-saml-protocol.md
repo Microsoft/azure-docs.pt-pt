@@ -18,23 +18,23 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262428"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início único
 
 Este artigo abrange os pedidos de autenticação SAML 2.0 e respostas que o Azure Ative Directory (Azure AD) suporta para o Single Sign-On.
 
-O diagrama de protocolo abaixo descreve a sequência de inscrição única. O serviço de nuvem (o prestador de serviços) utiliza um código DE Redirecionamento HTTP para passar um elemento `AuthnRequest` (pedido de autenticação) ao Azure AD (o fornecedor de identidade). A Azure AD utiliza então um post HTTP vinculativo para colocar um elemento `Response` no serviço de nuvem.
+O diagrama de protocolo abaixo descreve a sequência de inscrição única. O serviço de nuvem (o prestador de serviços) utiliza uma ligação HTTP Redirecionamento para passar um `AuthnRequest` elemento (pedido de autenticação) ao Azure AD (o fornecedor de identidade). A Azure AD utiliza então `Response` um post HTTP vinculativo para colocar um elemento no serviço de nuvem.
 
 ![Sinal único no fluxo de trabalho](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 ## <a name="authnrequest"></a>AuthnRequest
 
-Para solicitar a autenticação de um utilizador, os serviços na nuvem enviam um elemento `AuthnRequest` para a AD Azure. Uma amostra SAML 2.0 `AuthnRequest` pode parecer o seguinte exemplo:
+Para solicitar a autenticação de `AuthnRequest` um utilizador, os serviços de cloud enviam um elemento para a AD Azure. Uma amostra SAML `AuthnRequest` 2.0 pode parecer o seguinte exemplo:
 
 ```
 <samlp:AuthnRequest
@@ -48,59 +48,59 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| ID | Necessário | A Azure AD usa este atributo para povoar o atributo `InResponseTo` da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma identificação válida. |
+| ID | Necessário | A Azure AD usa este `InResponseTo` atributo para preencher o atributo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma identificação válida. |
 | Versão | Necessário | Este parâmetro deve ser definido para **2.0**. |
 | EmissãoInstant | Necessário | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). A Azure AD espera um valor DateTime deste tipo, mas não avalia nem utiliza o valor. |
-| AssertionConsumerServiceUrl | Opcional | Se fornecido, este parâmetro deve coincidir com o `RedirectUri` do serviço de nuvem em Azure AD. |
+| AssertionConsumerServiceUrl | Opcional | Se fornecido, este parâmetro `RedirectUri` deve coincidir com o serviço de nuvem em Azure AD. |
 | ForceAuthn | Opcional | Este é um valor booleano. Se for verdade, significa que o utilizador será obrigado a reautenticar, mesmo que tenha uma sessão válida com a AD Azure. |
 | IsPassive | Opcional | Este é um valor booleano que especifica se o Azure AD deve autenticar o utilizador em silêncio, sem interação do utilizador, utilizando o cookie de sessão se existir. Se isso for verdade, a Azure AD tentará autenticar o utilizador utilizando o cookie de sessão. |
 
-Todos os outros atributos `AuthnRequest`, tais como Consentimento, Destino, AfirmaçãoConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorados**.
+Todos `AuthnRequest` os outros atributos, tais como Consentimento, Destino, AfirmaçãoConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorados**.
 
-A AD Azure também ignora o elemento `Conditions` em `AuthnRequest`.
+A AD Azure `Conditions` também `AuthnRequest`ignora o elemento em .
 
 ### <a name="issuer"></a>Emissor
 
-O elemento `Issuer` numa `AuthnRequest` deve corresponder exatamente a um dos **ServicePrincipaNames** no serviço de cloud em Azure AD. Normalmente, isto é definido para o **ID da aplicação URI** que é especificado durante o registo da aplicação.
+O `Issuer` elemento `AuthnRequest` num must exatamente coincidir com um dos **ServicePrincipaNames** no serviço de nuvem em Azure AD. Normalmente, isto é definido para o **ID da aplicação URI** que é especificado durante o registo da aplicação.
 
-Um excerto saml contendo o elemento `Issuer` se parece com a seguinte amostra:
+Um excerto saml `Issuer` contendo o elemento parece a seguinte amostra:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
-### <a name="nameidpolicy"></a>NameIDPolicy
+### <a name="nameidpolicy"></a>Política de NameID
 
-Este elemento solicita um formato de ID de nome específico na resposta e é opcional em `AuthnRequest` elementos enviados para a AD Azure.
+Este elemento solicita um formato de ID de `AuthnRequest` nome específico na resposta e é opcional em elementos enviados para a AD Azure.
 
-Um elemento `NameIdPolicy` se parece com a seguinte amostra:
+Um `NameIdPolicy` elemento parece a seguinte amostra:
 
 ```
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
-Se for fornecida `NameIDPolicy`, pode incluir o seu atributo opcional `Format`. O atributo `Format` só pode ter um dos seguintes valores; qualquer outro valor resulta num erro.
+Se `NameIDPolicy` for fornecido, pode `Format` incluir o seu atributo opcional. O `Format` atributo pode ter apenas um dos seguintes valores; qualquer outro valor resulta num erro.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: O Diretório Ativo azure emite a alegação NameID como um identificador em pares.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: O Diretório Ativo do Azure emite a reclamação do NameID no formato de endereço de e-mail.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: O Diretório Ativo Azure emite a alegação NameID como identificador em pares.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: O Diretório Ativo azure emite a reclamação do NameID no formato de endereço de e-mail.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Este valor permite ao Azure Ative Directory selecionar o formato de reclamação. O Diretório Ativo Azure emite o NameID como um identificador em pares.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: O Diretório Ativo azure emite a alegação NameID como um valor gerado aleatoriamente que é exclusivo da operação SSO atual. Isto significa que o valor é temporário e não pode ser utilizado para identificar o utilizador autenticador.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: O Diretório Ativo Azure emite a alegação NameID como um valor gerado aleatoriamente que é exclusivo da operação SSO atual. Isto significa que o valor é temporário e não pode ser utilizado para identificar o utilizador autenticador.
 
-A AD Azure ignora o atributo `AllowCreate`.
+A AD Azure `AllowCreate` ignora o atributo.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional em `AuthnRequest` elementos enviados para a AD Azure. A Azure AD suporta `AuthnContextClassRef` valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+O `RequestedAuthnContext` elemento especifica os métodos de autenticação desejados. É opcional `AuthnRequest` em elementos enviados para a AD Azure. A Azure AD suporta valores `AuthnContextClassRef` como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
-O elemento `Scoping`, que inclui uma lista de fornecedores de identidade, é opcional em elementos `AuthnRequest` enviados para a AD Azure.
+O `Scoping` elemento, que inclui uma lista de `AuthnRequest` fornecedores de identidade, é opcional em elementos enviados à AD Azure.
 
-Se fornecido, não inclua o `ProxyCount` elemento atributo, `IDPListOption` ou `RequesterID`, uma vez que não são suportados.
+Se fornecido, não inclua `ProxyCount` o `IDPListOption` `RequesterID` atributo, ou elemento, uma vez que não são suportados.
 
 ### <a name="signature"></a>Assinatura
-Não inclua um elemento `Signature` em elementos `AuthnRequest`, uma vez que a Azure AD não suporta pedidos de autenticação assinados.
+Não inclua `Signature` um `AuthnRequest` elemento em elementos, uma vez que a AD Azure não suporta pedidos de autenticação assinados.
 
-### <a name="subject"></a>Requerente
-A AD Azure ignora o elemento `Subject` de elementos `AuthnRequest`.
+### <a name="subject"></a>Assunto
+A AD Azure `Subject` ignora o elemento dos `AuthnRequest` elementos.
 
 ## <a name="response"></a>Resposta
 Quando um sinal solicitado completa com sucesso, a Azure AD publica uma resposta ao serviço de nuvem. Uma resposta a uma tentativa de inscrição bem sucedida parece a seguinte amostra:
@@ -150,14 +150,14 @@ Quando um sinal solicitado completa com sucesso, a Azure AD publica uma resposta
 
 ### <a name="response"></a>Resposta
 
-O elemento `Response` inclui o resultado do pedido de autorização. A AD Azure define os valores `ID`, `Version` e `IssueInstant` no elemento `Response`. Também define os seguintes atributos:
+O `Response` elemento inclui o resultado do pedido de autorização. A AD Azure `ID` `Version` define `IssueInstant` os `Response` valores e valores no elemento. Também define os seguintes atributos:
 
-* `Destination`: Quando o início de sessão for concluído com sucesso, este é definido para o `RedirectUri` do prestador de serviços (serviço na nuvem).
-* `InResponseTo`: Isto é definido para o atributo `ID` do elemento `AuthnRequest` que iniciou a resposta.
+* `Destination`: Quando o início de sessão termina `RedirectUri` com sucesso, este é definido para o prestador de serviços (serviço na nuvem).
+* `InResponseTo`: Isto é `ID` definido para `AuthnRequest` o atributo do elemento que iniciou a resposta.
 
 ### <a name="issuer"></a>Emissor
 
-A Azure AD define o elemento `Issuer` para `https://login.microsoftonline.com/<TenantIDGUID>/` onde \<TenantIDGUID> é a identificação do inquilino do inquilino azure AD.
+A Azure AD `Issuer` define `https://login.microsoftonline.com/<TenantIDGUID>/` \<o elemento onde o TenantIDGUID> é a identificação do inquilino do inquilino Azure AD.
 
 Por exemplo, uma resposta com elemento emitente pode parecer a seguinte amostra:
 
@@ -167,7 +167,7 @@ Por exemplo, uma resposta com elemento emitente pode parecer a seguinte amostra:
 
 ### <a name="status"></a>Estado
 
-O elemento `Status` transmite o sucesso ou falha do sign-on. Inclui o elemento `StatusCode`, que contém um código ou um conjunto de códigos aninhados que representam o estado do pedido. Também inclui o elemento `StatusMessage`, que contém mensagens de erro personalizadas que são geradas durante o processo de iniciar sessão.
+O `Status` elemento transmite o sucesso ou falha do sign-on. Inclui o `StatusCode` elemento, que contém um código ou um conjunto de códigos aninhados que representam o estado do pedido. Também inclui `StatusMessage` o elemento, que contém mensagens de erro personalizadas que são geradas durante o processo de iniciar sessão.
 
 <!-- TODO: Add an authentication protocol error reference -->
 
@@ -188,11 +188,11 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 ### <a name="assertion"></a>Afirmação
 
-Além da `ID`, `IssueInstant` e `Version`, a AD Azure define os seguintes elementos no elemento `Assertion` da resposta.
+Além do `ID` `IssueInstant` , `Version`e , Azure AD define `Assertion` os seguintes elementos no elemento da resposta.
 
 #### <a name="issuer"></a>Emissor
 
-Isto está programado para `https://sts.windows.net/<TenantIDGUID>/`onde \<TenantIDGUID> é o Id inquilino do inquilino azure AD.
+Isto é `https://sts.windows.net/<TenantIDGUID>/`definido \<para onde o TenantIDGUID> é a identificação do inquilino azure ad.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -200,9 +200,9 @@ Isto está programado para `https://sts.windows.net/<TenantIDGUID>/`onde \<Tenan
 
 #### <a name="signature"></a>Assinatura
 
-A Azure AD assina a afirmação em resposta a uma inscrição bem sucedida. O elemento `Signature` contém uma assinatura digital que o serviço de nuvem pode usar para autenticar a fonte para verificar a integridade da afirmação.
+A Azure AD assina a afirmação em resposta a uma inscrição bem sucedida. O `Signature` elemento contém uma assinatura digital que o serviço de nuvem pode usar para autenticar a fonte para verificar a integridade da afirmação.
 
-Para gerar esta assinatura digital, a Azure AD utiliza a chave de assinatura no elemento `IDPSSODescriptor` do seu documento de metadados.
+Para gerar esta assinatura digital, a Azure `IDPSSODescriptor` AD utiliza a chave de assinatura no elemento do seu documento de metadados.
 
 ```
 <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
@@ -210,11 +210,11 @@ Para gerar esta assinatura digital, a Azure AD utiliza a chave de assinatura no 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Requerente
+#### <a name="subject"></a>Assunto
 
-Isto especifica o principal que é objeto das declarações na afirmação. Contém um elemento `NameID`, que representa o utilizador autenticado. O valor `NameID` é um identificador direcionado que é direcionado apenas para o prestador de serviços que é o público para o token. É persistente - pode ser revogado, mas nunca é reatribuído. É também opaco, na medida em que não revela nada sobre o utilizador e não pode ser usado como um identificador para consultas de atributos.
+Isto especifica o principal que é objeto das declarações na afirmação. Contém um `NameID` elemento que representa o utilizador autenticado. O `NameID` valor é um identificador direcionado que é direcionado apenas para o prestador de serviços que é o público para o símbolo. É persistente - pode ser revogado, mas nunca é reatribuído. É também opaco, na medida em que não revela nada sobre o utilizador e não pode ser usado como um identificador para consultas de atributos.
 
-O atributo `Method` do elemento `SubjectConfirmation` está sempre definido para `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
+O `Method` atributo `SubjectConfirmation` do elemento está `urn:oasis:names:tc:SAML:2.0:cm:bearer`sempre definido para .
 
 ```
 <Subject>
@@ -237,14 +237,14 @@ Este elemento especifica condições que definem a utilização aceitável de af
 </Conditions>
 ```
 
-Os atributos `NotBefore` e `NotOnOrAfter` especificam o intervalo durante o qual a afirmação é válida.
+Os `NotBefore` `NotOnOrAfter` atributos e atributos especificam o intervalo durante o qual a afirmação é válida.
 
-* O valor do atributo `NotBefore` é igual ou ligeiramente (inferior a um segundo) mais tarde do que o valor do atributo `IssueInstant` do elemento `Assertion`. A Azure AD não explica qualquer diferença de tempo entre si e o serviço de nuvem (prestador de serviços), e não adiciona nenhum tampão a este tempo.
-* O valor do atributo `NotOnOrAfter` é 70 minutos mais tarde do que o valor do atributo `NotBefore`.
+* O valor `NotBefore` do atributo é igual ou ligeiramente (menos de `IssueInstant` um segundo) `Assertion` mais tarde do que o valor do atributo do elemento. A Azure AD não explica qualquer diferença de tempo entre si e o serviço de nuvem (prestador de serviços), e não adiciona nenhum tampão a este tempo.
+* O valor `NotOnOrAfter` do atributo é 70 minutos `NotBefore` mais tarde do que o valor do atributo.
 
 #### <a name="audience"></a>Audiência
 
-Isto contém um URI que identifica um público pretendido. A Azure AD define o valor deste elemento no valor de `Issuer` elemento da `AuthnRequest` que iniciou o signo. Para avaliar o valor `Audience`, utilize o valor do `App ID URI` especificado durante o registo da candidatura.
+Isto contém um URI que identifica um público pretendido. A Azure AD define o valor deste `Issuer` elemento `AuthnRequest` ao valor do elemento que iniciou o sign-on. Para avaliar `Audience` o valor, utilize `App ID URI` o valor do que foi especificado durante o registo da candidatura.
 
 ```
 <AudienceRestriction>
@@ -252,11 +252,11 @@ Isto contém um URI que identifica um público pretendido. A Azure AD define o v
 </AudienceRestriction>
 ```
 
-Tal como o valor `Issuer`, o valor `Audience` deve corresponder exatamente a um dos principais nomes de serviço que representa o serviço de nuvem em Azure AD. No entanto, se o valor do elemento `Issuer` não for um valor URI, o valor `Audience` na resposta é o valor `Issuer` prefixado com `spn:`.
+Tal `Issuer` como o `Audience` valor, o valor deve corresponder exatamente a um dos principais nomes de serviço que representa o serviço de nuvem em Azure AD. No entanto, se `Issuer` o valor do elemento `Audience` não for um `Issuer` valor URI, o valor na resposta é o valor prefixado com `spn:`.
 
 #### <a name="attributestatement"></a>Declaração de Atributo
 
-Isto contém reclamações sobre o assunto ou o utilizador. O seguinte excerto contém uma amostra `AttributeStatement` elemento. A elipse indica que o elemento pode incluir múltiplos atributos e valores de atributo.
+Isto contém reclamações sobre o assunto ou o utilizador. O seguinte excerto `AttributeStatement` contém um elemento de amostra. A elipse indica que o elemento pode incluir múltiplos atributos e valores de atributo.
 
 ```
 <AttributeStatement>
@@ -270,15 +270,15 @@ Isto contém reclamações sobre o assunto ou o utilizador. O seguinte excerto c
 </AttributeStatement>
 ```        
 
-* **Reivindicação** de nome - O valor do atributo `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome principal do utilizador autenticado, como `testuser@managedtenant.com`.
-* **Reclamação ObjectIdentifier** - O valor do atributo `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório que representa o utilizador autenticado em Azure AD. `ObjectId` é um identificador imutável, globalmente único, e reutilizar o identificador seguro do utilizador autenticado.
+* **Pedido de Nome** - `Name` O`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`valor do atributo é o nome principal `testuser@managedtenant.com`do utilizador autenticado, como .
+* **Reclamação ObjectIdentifier** - `ObjectIdentifier` O valor`http://schemas.microsoft.com/identity/claims/objectidentifier`do `ObjectId` atributo é o do objeto de diretório que representa o utilizador autenticado em Azure AD. `ObjectId`é um imutável, globalmente único, e reutilizar identificador seguro do utilizador autenticado.
 
 #### <a name="authnstatement"></a>AuthnStatement
 
 Este elemento afirma que o sujeito de afirmação foi autenticado por um determinado meio num determinado momento.
 
-* O atributo `AuthnInstant` especifica o tempo em que o utilizador autenticou com a AD Azure.
-* O elemento `AuthnContext` especifica o contexto de autenticação utilizado para autenticar o utilizador.
+* O `AuthnInstant` atributo especifica o tempo em que o utilizador autenticou com a AD Azure.
+* O `AuthnContext` elemento especifica o contexto de autenticação utilizado para autenticar o utilizador.
 
 ```
 <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">

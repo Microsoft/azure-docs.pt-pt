@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cf78f3cc5399a9e974cd9b4f0b3f24c80dacce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 35d4d44f0b9f1b210f38a034575b589c7211d55c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79214127"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246675"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança azure para base de dados Azure SQL
 
@@ -124,7 +124,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Orientação**: Ativar a Proteção Avançada de Ameaças (ATP) para a Base de Dados Azure SQL.  Os utilizadores recebem um alerta sobre atividades suspeitas de bases de dados, potenciais vulnerabilidades e ataques de injeção SQL, bem como padrões anómalos de acesso à base de dados e consultas. A Advanced Threat Protection também integra alertas com o Centro de Segurança Azure.
 
-Compreender e utilizar proteção avançada de ameaças para base de dados Azure SQL: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Compreender e utilizar proteção avançada de ameaças para base de dados Azure SQL:https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -167,10 +167,10 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 Utilize as plantas Azure para simplificar as implantações azure em larga escala através da embalagem de artefactos ambientais chave, tais como modelos de Gestão de Recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas, numa única definição de blueprint. Aplique facilmente o projeto a novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-Como criar um Projeto Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Como criar um Projeto Azure:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -250,7 +250,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 Como transmitir diagnósticos para AnaLítica Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#configure-the-streaming-export-of-diagnostic-telemetry
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -488,7 +488,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 **Orientação**: Utilizar locais de acesso condicional nomeados para permitir o acesso do Portal e da Gestão de Recursos Azure a partir de apenas agrupamentos lógicos específicos de gamas de endereços IP ou países/regiões.
 
 
-Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Como configurar localizações nomeadas em Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -663,7 +663,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#inf
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
-**Orientação**: Utilize a funcionalidade de deteção e classificação de dados da Base de Dados Azure SQL. A descoberta e classificação de dados fornece capacidades avançadas incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular &amp; proteger os dados sensíveis nas suas bases de dados.
+**Orientação**: Utilize a funcionalidade de deteção e classificação de dados da Base de Dados Azure SQL. A descoberta e classificação de dados fornece capacidades avançadas incorporadas na &amp; Base de Dados Azure SQL para descobrir, classificar, rotular protegendo os dados sensíveis nas suas bases de dados.
 
 
 
@@ -707,7 +707,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Encriptar informações sensíveis em repouso
 
-**Orientação**: A encriptação transparente de dados (TDE) ajuda a proteger a Base de Dados Azure SQL, a instância gerida pelo Azure SQL e o Azure Data Warehouse contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Executa encriptação em tempo real e desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transações em repouso sem exigir alterações na aplicação. Por predefinição, o TDE está ativado para todas as bases de dados Azure SQL recentemente implantadas. A chave de encriptação TDE pode ser gerida pela Microsoft ou pelo cliente.
+**Orientação**: A encriptação transparente de dados (TDE) ajuda a proteger a Base de Dados Azure SQL, a instância gerida pelo Azure SQL e o Azure Data Warehouse contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, a Encriptação de Dados Transparente está ativada para todas as Bases de Dados SQL do Azure recém-implementadas. A chave de encriptação TDE pode ser gerida pela Microsoft ou pelo cliente.
 
 
 Como gerir a encriptação transparente de dados e usar as suas próprias chaves de encriptação:
@@ -786,7 +786,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 Como exportar um relatório de avaliação de vulnerabilidade no Centro de Segurança Azure:
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implement-vulnerability-assessment
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -796,7 +796,7 @@ https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#imple
 
 **Orientação**: Utilize as classificações de risco padrão (Pontuação Segura) fornecidas pelo Azure Security Center.
 
-Compreender o Centro de Segurança Azure Secure Score: https://docs.microsoft.com/azure/security-center/security-center-secure-score
+Compreenda a pontuação segura do Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -814,13 +814,13 @@ Compreender o Centro de Segurança Azure Secure Score: https://docs.microsoft.co
 Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
 
-Como criar consultas com o Gráfico de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
-Como visualizar as suas Assinaturas Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como visualizar as suas Assinaturas Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
 
-Compreender Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
+Compreender o Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -883,9 +883,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o Gráfico de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -924,9 +924,9 @@ Como criar consultas com o Gráfico de Recursos Azure: https://docs.microsoft.co
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo específico de recurso com a Política Azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -946,7 +946,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 **Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
 
 
-Como configurar o Acesso Condicional ao acesso ao Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1129,7 +1129,7 @@ https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou
 
 **Orientação**: Implemente o Scanner Credencial para identificar credenciais dentro do seu código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure. 
 
-Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
+Como configurar o Scanner Credencial:https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1155,7 +1155,7 @@ Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/help
 Pré-digitalização de qualquer conteúdo que seja enviado para recursos não computacionais do Azure, tais como Serviço de Aplicações, Armazenamento de Data Lake, Armazenamento Blob, Servidor Azure SQL, etc. A Microsoft não pode aceder aos seus dados nestes casos.
 
 
-Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais:https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1262,7 +1262,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Criar um procedimento de pontuação e priorização de incidentes
 
 **Orientação**: O Centro de Segurança atribui uma severidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que, quando um recurso estiver comprometido, possa chegar ao mesmo imediatamente. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
-Alertas de segurança no Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+Alertas de segurança no Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 
 **Monitorização do Centro de Segurança Azure:** Sim
@@ -1341,7 +1341,7 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 
 
-Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra a Microsoft gerida infraestruturas, serviços e aplicações em nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra a Microsoft gerida por infraestruturas, serviços e aplicações em nuvem, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorização**do Azure Security Center : Não aplicável
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266445"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar registos de AD Azure com registos do Monitor Azure
@@ -62,9 +62,9 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="send-logs-to-azure-monitor"></a>Enviar registos para o Monitor Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Diretório Ativo Azure** > **Definições** de diagnóstico -> **Adicione a definição de diagnóstico**. Também pode selecionar Definições de **Exportação** a partir da página **Registos** de Auditoria ou **Iniciars de Sessão** para aceder à página de configuração de configurações de diagnóstico.  
+2. Selecione > **Definições** -> de diagnóstico de **diretório ativo Azure****Adicione a definição de diagnóstico**. Também pode selecionar Definições de **Exportação** a partir da página **Registos** de Auditoria ou **Iniciars de Sessão** para aceder à página de configuração de configurações de diagnóstico.  
     
 3. No menu de **definições** de diagnóstico, selecione a caixa de verificação do espaço de **trabalho Enviar para Registar Analytics** e, em seguida, selecione **Configurar**.
 

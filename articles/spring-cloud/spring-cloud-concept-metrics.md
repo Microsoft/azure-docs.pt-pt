@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256760"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para a Nuvem de primavera Azure
@@ -100,7 +100,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| Percentagem de utilização do CPU da aplicação | Percentagem de utilização do CPU da aplicação | Percentagem | Utilização recente do CPU para o processo da Máquina Virtual Java. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o período de tempo recente observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente a ser observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
 >| Memória de aplicativo atribuída | jvm.memory.comprometido | Bytes | Representa a quantidade de memória que é garantida para ser utilizada pelo JVM. O JVM pode libertar memória para o sistema e comprometido pode ser menor do que o init. comprometido será sempre maior ou igual a usado. |
 >| Memória de aplicativo usada | jvm.memory.used | Bytes | Representa a quantidade de memória atualmente utilizada em bytes. |
->| Memória de aplicativo Max | jvm.memory.max | Bytes | Representa a quantidade máxima de memória que pode ser usada para a gestão da memória. A quantidade de memória usada e comprometida será sempre inferior ou igual a máx se for definida no máximo. Uma alocação de memória pode falhar se tentar aumentar a memória usada de tal forma que usada > comprometida mesmo que usada <= max ainda seria verdade (por exemplo, quando o sistema está baixo na memória virtual). |
+>| Memória de aplicativo Max | jvm.memory.max | Bytes | Representa a quantidade máxima de memória que pode ser usada para a gestão da memória. A quantidade de memória usada e comprometida será sempre inferior ou igual a máx se for definida no máximo. Uma alocação de memória pode falhar se tentar aumentar a memória usada de tal forma que a utilizada > cometida mesmo que seja usada <= max ainda seria verdade (por exemplo, quando o sistema está baixo na memória virtual). |
 >| Tamanho de dados de geração antiga disponível Max | jvm.gc.max.data.size | Bytes | O uso máximo da memória da antiga geração de memória desde que a máquina virtual java foi iniciada. |
 >| Tamanho dos dados da geração antiga | jvm.gc.live.data.size | Bytes | Tamanho da piscina de memória de geração antiga depois de um GC completo. |
 >| Promover o tamanho dos dados da geração antiga | jvm.gc.memory.promovido | Bytes | Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes de GC para depois de GC. |

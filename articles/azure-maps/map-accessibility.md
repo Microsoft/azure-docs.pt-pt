@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação de mapa acessível com o Azure Maps  Microsoft Azure Maps
+title: Criar uma aplicação de mapa acessível com o Azure Maps [ Microsoft Azure Maps
 description: Neste artigo, você vai aprender a construir uma aplicação com funcionalidades de acessibilidade usando o Microsoft Azure Maps.
 services: azure-maps
 author: rbrundritt
@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672468"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473324"
 ---
 # <a name="building-an-accessible-application"></a>Construção de uma aplicação acessível
 
@@ -41,10 +41,10 @@ Existem várias maneiras diferentes em que o mapa pode ser zoomed, panned, rodad
 - Usando um rato, percorra a roda para ampliar o mapa.
 - Utilizando um ecrã tátil, toque no mapa com dois dedos e belisque-o para ampliar ou espalhar os dedos para ampliar.
 - Utilizando um ecrã tátil, toque duas vezes no mapa para ampliar num só nível.
-- Com o mapa focado, utilize o sinal Plus (`+`) ou o sinal de "Iguala " (`=`) para ampliar num só nível.
-- Com o mapa focado, use o sinal De Sem, Hyphen (`-`) ou Sublinhar (`_`) para ampliar um nível.
+- Com o mapa focado, utilize`+`o sinal Plus`=`( ) ou igual a igual para ampliar num só nível.
+- Com o mapa focado, use o sinal`-`De Sem, Hyphen ( ou Sublinhado )`_`para ampliar um nível.
 - Utilizando o controlo de zoom com um separador de rato, toque ou teclado/introduza teclas.
-- Pressione e segure o botão `Shift` e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
+- Pressione e `Shift` segure o botão e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
 
 **Pan o mapa**
 
@@ -70,13 +70,13 @@ Existem várias maneiras diferentes em que o mapa pode ser zoomed, panned, rodad
 
 Nem todos os desenvolvedores querem que todos os estilos de mapas possíveis estejam disponíveis na sua aplicação. Se o desenvolvedor apresentar o controlo do apanhador de estilo do mapa, o utilizador poderá alterar o estilo do mapa utilizando o rato, um toque ou o teclado com o separador ou a tecla de entrada. O desenvolvedor pode especificar quais os estilos de mapa que querem disponibilizar no controlo do picker de estilo do mapa. Além disso, o desenvolvedor pode definir programáticamente e alterar o estilo do mapa.
 
-**Use alto contraste**
+**Utilizar alto contraste**
 
 - Quando o controlo do mapa é carregado, verifica se o alto contraste está ativado e o navegador suporta-o.
 - O controlo do mapa não monitoriza o modo de contraste elevado do dispositivo. Se o modo de dispositivo mudar, o mapa não. Assim, o utilizador terá de recarregar o mapa refrescando a página.
 - Quando for detetado um contraste elevado, o estilo do mapa mudará automaticamente para um contraste elevado, e todos os controlos incorporados usarão um estilo de alto contraste. Por exemplo, zoomControl, PitchControl, CompassControl, StyleControl e outros controlos incorporados, usarão um estilo de alto contraste.
 - Há dois tipos de alto contraste, luz e escuro. Se o tipo de alto contraste pode ser detetado pelos controlos do mapa, então o comportamento do mapa irá ajustar-se em conformidade. Se for leve, o grayscale_light estilo mapa será carregado. Se o tipo não puder ser detetado ou estiver escuro, o estilo high_contrast_dark será carregado.
-- Se criar controlos personalizados, é útil saber se os controlos incorporados estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css no div de contentores do mapa para verificar. As aulas css que seriam adicionadas são `high-contrast-dark` e `high-contrast-light`. Para verificar a utilização do JavaScript, utilize:
+- Se criar controlos personalizados, é útil saber se os controlos incorporados estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css no div de contentores do mapa para verificar. As classes css que `high-contrast-dark` seriam `high-contrast-light`adicionadas são e . Para verificar a utilização do JavaScript, utilize:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
@@ -97,23 +97,23 @@ O mapa tem uma série de atalhos de teclado incorporados que facilitam a utiliza
 | `Tab` | Navegue pelos controlos e popups no mapa. |
 | `ESC` | Mova o foco de qualquer elemento no mapa para o elemento de mapa de nível superior. |
 | `Ctrl` + `Shift` + `D` | Alternar o nível de detalhe do leitor de ecrã.  |
-| Chave de seta esquerda | Pan o mapa deixou 100 pixels |
-| Chave de seta direita | Pan o mapa direito 100 pixels |
+| Tecla Seta Para a Esquerda | Pan o mapa deixou 100 pixels |
+| Tecla Seta Para a Direita | Pan o mapa direito 100 pixels |
 | Tecla de seta para baixo | Pan o mapa para baixo 100 pixels |
 | Chave de seta para cima | Pan o mapa até 100 pixels |
-| `Shift` + seta para cima | Aumentar o tom do mapa em 10 graus |
-| `Shift` + seta para baixo | Diminuir o tom do mapa em 10 graus |
-| `Shift` + seta direita | Rode o mapa 15 graus no sentido horário |
-| `Shift` + seta esquerda | Rode o mapa 15 graus no sentido contrário ao dos ponteiros do relógio |
-| Sinal mais (`+`) ou <sup>*</sup>igual sinal (`=`) | Zoom dentro |
-| Menos sinal, Hífen (`-`) ou <sup>sublinhado*</sup>(`_`) | Zoom para fora | 
-| `Shift` + arrasto de rato no mapa para desenhar área | Zoom para a área |
+| `Shift`+ seta para cima | Aumentar o tom do mapa em 10 graus |
+| `Shift`+ seta para baixo | Diminuir o tom do mapa em 10 graus |
+| `Shift`+ seta direita | Rode o mapa 15 graus no sentido horário |
+| `Shift`+ seta esquerda | Rode o mapa 15 graus no sentido contrário ao dos ponteiros do relógio |
+| Sinal mais`+`() ou <sup>*</sup>`=`sinal igual ( ) | Ampliar |
+| Menos sinal, Hífen (),`-`ou <sup>*</sup>Sublinhado (`_`) | Reduzir | 
+| `Shift`+ arrasto de rato no mapa para desenhar área | Zoom para a área |
 
-<sup>*</sup> Estes atalhos principais geralmente partilham a mesma chave num teclado. Estes atalhos foram adicionados para melhorar a experiência do utilizador. Também não importa se o utilizador usa a chave de turno ou não para estes atalhos.
+<sup>*</sup>Estes atalhos principais geralmente partilham a mesma chave num teclado. Estes atalhos foram adicionados para melhorar a experiência do utilizador. Também não importa se o utilizador usa a chave de turno ou não para estes atalhos.
 
 ## <a name="screen-reader-support"></a>Suporte do Leitor de Ecrã
 
-Os utilizadores podem navegar no mapa usando o teclado. Se um leitor de ecrã estiver a funcionar, o mapa notificará o utilizador das alterações ao seu estado. Por exemplo, os utilizadores são notificados das alterações do mapa quando o mapa é panned ou zoomed. Por padrão, o mapa fornece descrições simplificadas que excluem o nível de zoom e as coordenadas do centro do mapa. O utilizador pode alternar o nível de detalhe destas descrições utilizando o `Ctrl`de corte curto do teclado  + `Shift``D` + .
+Os utilizadores podem navegar no mapa usando o teclado. Se um leitor de ecrã estiver a funcionar, o mapa notificará o utilizador das alterações ao seu estado. Por exemplo, os utilizadores são notificados das alterações do mapa quando o mapa é panned ou zoomed. Por padrão, o mapa fornece descrições simplificadas que excluem o nível de zoom e as coordenadas do centro do mapa. O utilizador pode alternar o nível de detalhe `Ctrl`  +  `Shift`  + destas descrições utilizando o atalho `D`do teclado .
 
 Qualquer informação adicional que seja colocada no mapa base deve ter informações texuais correspondentes para os utilizadores de leitores de ecrã. Certifique-se de adicionar aplicações de [Internet ricas acessíveis (ARIA),](https://www.w3.org/WAI/standards-guidelines/aria/)alt e atributos de título, sempre que apropriado. 
 
@@ -125,7 +125,7 @@ O exemplo seguinte carrega pontos de interesse no mapa usando uma camada de sím
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Faça uma aplicação acessível' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Faça uma aplicação acessível</a> pela Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Faça uma aplicação acessível' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Faça uma aplicação acessível</a> pelo Azure Maps ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>no <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 
@@ -140,7 +140,7 @@ Aqui ficam algumas dicas adicionais para tornar a sua aplicação de web mapping
     - Espere até que o mapa termine de se mover para atualizar o leitor de ecrã.
     - Acelere as atualizações para uma vez a cada poucos segundos. 
     - Combine mensagens de uma forma lógica. 
-- Evite utilizar a cor como único meio de transmitir informação. Utilize texto, ícones ou padrões para complementar ou substituir a cor. Algumas considerações:
+- Evite utilizar cores como a única forma de transmitir informações. Utilize texto, ícones ou padrões para complementar ou substituir a cor. Algumas considerações:
     - Se utilizar uma camada de bolha para mostrar o valor relativo entre os pontos de dados, considere escalar o raio de cada bolha, colorindo a bolha, ou ambos. 
     - Considere usar uma camada de símbolo com diferentes ícones para diferentes categorias métricas, tais como triângulos, estrelas e quadrados. A camada de símbolo também suporta a escala do tamanho do ícone. Também pode ser apresentada uma etiqueta de texto.
     - Se apresentar dados da linha, a largura pode ser utilizada para representar peso ou tamanho. Um padrão de matriz de traços pode ser usado para representar diferentes categorias de linhas. Uma camada de símbolo pode ser usada em combinação com uma linha para sobrepor ícones ao longo da linha. A utilização de um ícone de seta é útil para mostrar o fluxo ou direção da linha.

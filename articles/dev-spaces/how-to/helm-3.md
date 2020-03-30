@@ -5,12 +5,12 @@ ms.date: 02/28/2020
 ms.topic: conceptual
 description: Saiba como configurar o seu cluster Dev Spaces para usar o Helm 3
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 9e3f3ff90d36215c386bf1d8b8ec1edd54ebfb6a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: dbccb2618fd5a27805261d60e7891d920e0bc372
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454300"
 ---
 # <a name="configure-your-azure-dev-spaces-cluster-to-use-helm-3-preview"></a>Configure o seu cluster Dev Spaces Azure para utilizar o Helm 3 (pré-visualização)
 
@@ -26,13 +26,13 @@ Quando ativa o Helm 3, o Azure Dev Spaces comporta-se de forma diferente ao inst
 Neste guia, você aprenderá a permitir que o Helm 3 para a Azure Dev Spaces instale serviços de utilizador em espaços de v.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 * A [CLI do Azure instalada][azure-cli].
 
 ### <a name="register-the-helm3preview-preview-feature"></a>Registe a função de pré-visualização Helm3Preview
@@ -66,7 +66,7 @@ Aplicam-se as seguintes limitações enquanto esta funcionalidade se encontra em
 
 ## <a name="create-your-cluster"></a>Crie o seu cluster
 
-Crie um novo cluster AKS numa região que tenha esta funcionalidade de pré-visualização. Os comandos abaixo criam um grupo de recursos chamado *MyResourceGroup* e um novo cluster AKS chamado *MyAKS* na região *centro-sul dos EUA:*
+Crie um novo cluster AKS numa região que tenha esta funcionalidade de pré-visualização. Os comandos abaixo criam um grupo de recursos chamado *MyResourceGroup* e um novo cluster AKS chamado *MyAKS:*
 
 ```azure-cli
 az group create --name MyResourceGroup --location eastus

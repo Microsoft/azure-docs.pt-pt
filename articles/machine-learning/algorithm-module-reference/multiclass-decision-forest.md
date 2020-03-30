@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a0a70f94be337eedf8f8ba4cc17af896f7a03b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921373"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477549"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo De Floresta de Decisão Multiclasse
 
@@ -75,7 +75,7 @@ A decisão da escola florestal em Azure Machine Learning consiste num conjunto d
 
     + Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](./train-model.md)
 
-11. Executar o pipeline.
+11. Submeta o oleoduto.
 
 
 

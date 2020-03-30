@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: b0b0bb5eefde9e744b1f30109d60ded91d3b44e8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455796"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Execute código Python em designer de machine learning azure
 
@@ -36,7 +36,7 @@ O ambiente de execução padrão usa a distribuição de Anacondas de Python. Pa
 
 ### <a name="connect-input-datasets"></a>Ligar conjuntos de dados de entrada
 
-Este artigo utiliza o conjunto de dados da amostra, **dados sobre o preço do automóvel (Cru)** . 
+Este artigo utiliza o conjunto de dados da amostra, **dados sobre o preço do automóvel (Cru)**. 
 
 1. Arraste e largue o seu conjunto de dados para a tela do oleoduto.
 
@@ -47,7 +47,7 @@ Este artigo utiliza o conjunto de dados da amostra, **dados sobre o preço do au
     ![Ligar conjuntos de dados](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Tome nota da porta de entrada que utiliza. O designer atribui a porta de entrada esquerda à variável `dataset1` e à porta de entrada média para `dataset2`. 
+1. Tome nota da porta de entrada que utiliza. O designer atribui a porta de `dataset1` entrada esquerda à variável e à porta de entrada média para `dataset2`. 
 
 Os módulos de entrada são opcionais, uma vez que pode gerar ou importar dados diretamente no módulo **Execute Python Script.**
 
@@ -74,11 +74,11 @@ Neste exemplo, você usa Pandas para combinar duas colunas encontradas no conjun
     
     ![Executar o gasoduto Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    O script do ponto de entrada deve conter a função `azureml_main`. Existem dois parâmetros de função que mapeiam as duas portas de entrada para o módulo **execute Python Script.**
+    O script do ponto `azureml_main`de entrada deve conter a função . Existem dois parâmetros de função que mapeiam as duas portas de entrada para o módulo **execute Python Script.**
 
     O valor de retorno deve ser um Quadro de Dados pandas. Pode devolver até dois quadros de dados como saídas de módulos.
     
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 Agora, você tem um conjunto de dados com a nova funcionalidade **Dólares/HP**, que pode ser útil na formação de um recomendador de carro. Este é um exemplo de extração de recursos e redução da dimensionalidade. 
 

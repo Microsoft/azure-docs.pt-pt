@@ -4,10 +4,10 @@ description: Aprenda a embarcar um cliente para a gestão de recursos delegados 
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270644"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
@@ -64,7 +64,7 @@ O exemplo seguinte mostra uma atribuição de funções com um **delegadoManaged
 > [!TIP]
 > Uma [amostra semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) está disponível para demonstrar como implementar uma política que adiciona ou remove uma etiqueta (utilizando o efeito modificado) a uma subscrição delegada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça a [Política Azure.](../../governance/policy/index.yml)
 - Saiba mais sobre [identidades geridas para os recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)

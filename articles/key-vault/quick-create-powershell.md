@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: set & recuperar um segredo do Cofre chave usando powerShell'
-description: Neste arranque rápido, aprenda a criar, recuperar e apagar segredos de um cofre de chaves Azure usando powerShell
+title: 'Quickstart: Despezindo & recuperar um segredo do Cofre chave usando powerShell'
+description: Neste arranque rápido, aprenda a criar, recuperar e apagar segredos de um Cofre de Chaves Azure usando o Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f2b3b7d42ec7eac6dba402c0f553760548c78044
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 627d74f48c0f2b3da8665cd255102f36869477c2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197798"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79472763"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "78197798"
 
 O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para obter mais informações sobre o Key Vault, pode ver a [Descrição Geral](key-vault-overview.md). Neste início rápido, vai utilizar o PowerShell para criar um cofre de chaves. Em seguida, vai armazenar um segredo no cofre recém-criado.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 Login-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
@@ -50,7 +50,7 @@ Embora utilizemos "Contoso KeyVault2" como o nome do nosso Key Vault neste iníc
 
 - **Nome do cofre**: Contoso-Vault2.
 - **Nome do grupo de recursos**: ContosoResourceGroup.
-- **Localização**: E.U.A Leste.
+- **Localização** Leste dos EUA.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'

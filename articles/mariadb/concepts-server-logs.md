@@ -1,92 +1,92 @@
 ---
-title: Logs de consulta lentos-banco de dados do Azure para MariaDB
-description: Descreve os logs disponíveis no banco de dados do Azure para MariaDB e os parâmetros disponíveis para habilitar diferentes níveis de log.
+title: Registos de consultas lentas - Base de Dados Azure para MariaDB
+description: Descreve os registos disponíveis na Base de Dados Azure para o MariaDB e os parâmetros disponíveis para permitir diferentes níveis de exploração madeireira.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 3f82a061f276aaf786bc0a9bae15b60e8bdda009
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 3/18/2020
+ms.openlocfilehash: 2c07e5eeedd2e4f42ec7b165bf161e142421df58
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846335"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527899"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
-No banco de dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. Não há suporte para o acesso ao log de transações. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registos de consultas lentas na Base de Dados Azure para MariaDB
+Na Base de Dados Azure para MariaDB, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para resolução de problemas.
 
-Para obter mais informações sobre o log de consultas lentas, consulte a documentação do MariaDB para o [log de consultas lentas](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+Para obter mais informações sobre o registo de consultas lentas, consulte a documentação mariaDB para registo de [consultas lentas](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-slow-query-logs"></a>Acessar logs de consulta lentos
-Você pode listar e baixar logs de consultas lentas do banco de dados do Azure para MariaDB usando o portal do Azure e o CLI do Azure.
+## <a name="access-slow-query-logs"></a>Aceder a registos de consultas lentas
+Pode listar e baixar a Base de Dados Azure para registos de consultas lentas MariaDB utilizando o portal Azure e o Azure CLI.
 
-Na portal do Azure, selecione o banco de dados do Azure para o servidor MariaDB. No cabeçalho **monitoramento** , selecione a página **logs do servidor** .
+No portal Azure, selecione a sua Base de Dados Azure para o servidor MariaDB. Na rubrica **Monitoring,** selecione a página Registos do **Servidor.**
 
-Para obter mais informações sobre CLI do Azure, consulte [configurar e acessar logs de servidor usando CLI do Azure](howto-configure-server-logs-cli.md).
+Para obter mais informações sobre o Azure CLI, consulte os registos de [configuração e de acesso do servidor utilizando o Azure CLI](howto-configure-server-logs-cli.md).
 
-Da mesma forma, você pode canalizar os logs para Azure Monitor usando os logs de diagnóstico. Consulte [abaixo](concepts-server-logs.md#diagnostic-logs) para obter mais informações.
+Da mesma forma, pode canalizar os troncos para o Monitor Azure utilizando registos de diagnóstico. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
 
-## <a name="log-retention"></a>Retenção de log
-Os logs estão disponíveis por até sete dias a partir da criação. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
+## <a name="log-retention"></a>Retenção de registos
+Os registos estão disponíveis até sete dias após a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, então os ficheiros mais antigos são eliminados até que o espaço esteja disponível.
 
-Os logs são girados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
+Os registos são rodados a cada 24 horas ou 7 GB, o que vier primeiro.
 
-## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas
-Por padrão, o log de consultas lentas está desabilitado. Para o ativar, coloque slow_query_log para ON.
+## <a name="configure-slow-query-logging"></a>Configure a exploração de consultas lentas
+Por defeito, o registo de consulta lenta é desativado. Para o ativar, coloque slow_query_log para ON.
 
-Outros parâmetros que você pode ajustar incluem:
+Outros parâmetros que pode ajustar incluem:
 
-- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. O padrão é de 10 segundos.
+- **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) que a consulta é registada. A predefinição é de 10 segundos.
 - **log_slow_admin_statements:** se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
 - **log_queries_not_using_indexes:** determina se as consultas que não utilizam índices estão registadas na slow_query_log
 - **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexadas que podem ser escritas no registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
-- **log_output:** se "File", permitir que o registo de consulta lenta seja escrito tanto no armazenamento do servidor local como nos registos de diagnóstico do Monitor Azure. Se "None", o log de consultas lentas só será gravado em Azure Monitor logs de diagnóstico. 
+- **log_output:** se "File", permitir que o registo de consulta lenta seja escrito tanto no armazenamento do servidor local como nos registos de diagnóstico do Monitor Azure. Se "Nenhum", o registo de consulta lenta só será escrito para registos de diagnóstico do Monitor Azure. 
 
 > [!IMPORTANT]
-> Se as suas tabelas não estiverem indexadas, a definição dos parâmetros `log_queries_not_using_indexes` e `log_throttle_queries_not_using_indexes` para ON pode afetar o desempenho do MariaDB, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
-> Se planeia registar consultas lentas durante um longo período de tempo, recomenda-se definir `log_output` para "Nenhuma". Se definido como "File", esses logs são gravados no armazenamento do servidor local e podem afetar o desempenho do MariaDB. 
+> Se as suas tabelas não `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` estiverem indexadas, a definição dos parâmetros e parâmetros para ON pode afetar o desempenho do MariaDB, uma vez que todas as consultas que correm contra estas tabelas não indexadas serão escritas para o registo de consulta lenta.<br><br>
+> Se planeia registar consultas lentas durante um longo período de `log_output` tempo, recomenda-se que se ajuste a "Nenhuma". Se definidos para "File", estes registos são escritos para o armazenamento do servidor local e podem afetar o desempenho de MariaDB. 
 
-Consulte a [documentação do log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para obter descrições completas dos parâmetros de log de consulta lenta.
+Consulte a [documentação](https://mariadb.com/kb/en/library/slow-query-log-overview/) de registo de consulta lenta MariaDB para obter descrições completas dos parâmetros de registo de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-O banco de dados do Azure para MariaDB é integrado a logs de diagnóstico Azure Monitor. Depois de habilitar os logs de consulta lentos em seu servidor MariaDB, você pode optar por que eles sejam emitidos para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como habilitar os logs de diagnóstico, consulte a seção como da [documentação dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
+A Base de Dados Azure para MariaDB está integrada com registos de diagnóstico do Monitor Azure. Depois de ter ativado registos de consultas lentas no seu servidor MariaDB, pode optar por que sejam emitidos para registos do Monitor Azure, Hubs de Eventos ou Armazenamento Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte como secção da documentação de [registos](../azure-monitor/platform/platform-logs-overview.md)de diagnóstico .
 
-A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem na qual eles aparecem podem variar.
+A tabela seguinte descreve o que está em cada tronco. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
 | **Propriedade** | **Descrição** |
 |---|---|
-| `TenantId` | Sua ID de locatário |
+| `TenantId` | Sua identificação do inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de data/hora quando o log foi gravado em UTC |
-| `Type` | Tipo do log. Sempre `AzureDiagnostics` |
-| `SubscriptionId` | GUID da assinatura à qual o servidor pertence |
-| `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
-| `ResourceProvider` | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
+| `TimeGenerated`[UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
+| `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | URI de recurso |
+| `ResourceId` | Recurso URI |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t` [UTC] | Hora em que a consulta começou |
-| `query_time_s` | Tempo total que a consulta levou para ser executada |
-| `lock_time_s` | Tempo total de bloqueio da consulta |
+| `start_time_t`[UTC] | Hora da consulta começar |
+| `query_time_s` | O tempo total que a consulta demorou a executar |
+| `lock_time_s` | O tempo total da consulta foi bloqueado |
 | `user_host_s` | Nome de utilizador |
-| `rows_sent_s` | Número de linhas enviadas |
+| `rows_sent_s` | Número de filas enviadas |
 | `rows_examined_s` | Número de linhas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
 | `server_id_s` | ID do servidor |
 | `thread_id_s` | ID da linha |
-| `\_ResourceId` | URI de recurso |
+| `\_ResourceId` | Recurso URI |
 
-## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar logs em logs de Azure Monitor
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar registos em registos do Monitor Azure
 
-Depois que os logs de consulta lentos são canalizados para Azure Monitor logs por meio de logs de diagnóstico, você pode executar uma análise adicional de suas consultas lentas. Abaixo estão algumas consultas de exemplo para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do servidor.
+Uma vez que os seus registos de consulta lenta são canalizados para registos do Monitor Azure através de registos de diagnóstico, pode efetuar uma análise mais aprofundada das suas consultas lentas. Abaixo estão algumas consultas de amostra para ajudá-lo a começar. Certifique-se de atualizar o abaixo com o nome do servidor.
 
-- Consultas com mais de 10 segundos em um servidor específico
+- Consultas superiores a 10 segundos num determinado servidor
 
     ```Kusto
     AzureDiagnostics
@@ -96,7 +96,7 @@ Depois que os logs de consulta lentos são canalizados para Azure Monitor logs p
     | where query_time_d > 10
     ```
 
-- Listar as 5 principais consultas mais longas em um servidor específico
+- Lista rindo as 5 consultas mais longas num determinado servidor
 
     ```Kusto
     AzureDiagnostics
@@ -107,7 +107,7 @@ Depois que os logs de consulta lentos são canalizados para Azure Monitor logs p
     | take 5
     ```
 
-- Resumir consultas lentas pelo mínimo, máximo, média e tempo de consulta de desvio padrão em um servidor específico
+- Resumir consultas lentas pelo mínimo, máximo, média e tempo padrão de consulta de desvio em um determinado servidor
 
     ```Kusto
     AzureDiagnostics
@@ -117,7 +117,7 @@ Depois que os logs de consulta lentos são canalizados para Azure Monitor logs p
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
-- Grafar a distribuição de consulta lenta em um servidor específico
+- Grafe a distribuição de consulta lenta num determinado servidor
 
     ```Kusto
     AzureDiagnostics
@@ -128,7 +128,7 @@ Depois que os logs de consulta lentos são canalizados para Azure Monitor logs p
     | render timechart
     ```
 
-- Exibir consultas com mais de 10 segundos em todos os servidores MariaDB com logs de diagnóstico habilitados
+- Consultas de exibição superiores a 10 segundos em todos os servidores MariaDB com Registos de Diagnóstico ativados
 
     ```Kusto
     AzureDiagnostics
@@ -137,6 +137,6 @@ Depois que os logs de consulta lentos são canalizados para Azure Monitor logs p
     | where query_time_d > 10
     ```    
     
-## <a name="next-steps"></a>Próximos Passos
-- [Como configurar logs de consulta lentos no portal do Azure](howto-configure-server-logs-portal.md)
-- [Como configurar logs de consulta lentos no CLI do Azure](howto-configure-server-logs-cli.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Como configurar registos de consulta lenta do portal Azure](howto-configure-server-logs-portal.md)
+- [Como configurar registos de consulta lenta do Azure CLI](howto-configure-server-logs-cli.md)

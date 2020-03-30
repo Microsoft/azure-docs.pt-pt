@@ -7,10 +7,10 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258242"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do tecido de serviço
@@ -21,7 +21,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 
 **Cluster**: Um conjunto de máquinas virtuais ou físicas ligadas à rede nas quais os seus microserviços são implantados e geridos.  Os clusters podem ser dimensionados para milhares de máquinas.
 
-**Nó**: Uma máquina ou VM que faz parte de um aglomerado é chamado de *nó*. Cada nó é atribuído um nome de nó (corda). Os nós têm características, como propriedades de colocação. Cada máquina ou VM tem um serviço Windows de arranque automático, `FabricHost.exe`, que começa a funcionar sobre o arranque e, em seguida, inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Estes dois executáveis compõem o nó. Para cenários de teste, pode hospedar vários nós numa única máquina ou VM executando várias instâncias de `Fabric.exe` e `FabricGateway.exe`.
+**Nó**: Uma máquina ou VM que faz parte de um aglomerado é chamado de *nó*. Cada nó é atribuído um nome de nó (corda). Os nós têm características, como propriedades de colocação. Cada máquina ou VM tem um `FabricHost.exe`serviço Windows de arranque automático, que começa `Fabric.exe` `FabricGateway.exe`a funcionar sobre o arranque e depois inicia dois executáveis: e . Estes dois executáveis compõem o nó. Para cenários de teste, pode hospedar vários nós numa única máquina `Fabric.exe` `FabricGateway.exe`ou VM executando várias instâncias de e .
 
 ## <a name="application-and-service-concepts"></a>Conceitos de aplicação e serviço
 
@@ -54,15 +54,15 @@ Todos os pacotes de código definidos como parte de um recurso de aplicação s�
 
 **Serviço**: Um serviço desempenha uma função completa e autónoma e pode iniciar e funcionar independentemente de outros serviços. Um serviço é composto por código, configuração e dados. Para cada serviço, o código consiste nos binários executáveis, a configuração consiste em definições de serviço que podem ser carregadas no tempo de execução, e os dados consistem em dados estáticos arbitrários a serem consumidos pelo serviço.
 
-Tipo de **aplicação**: O nome/versão atribuído a uma coleção de tipos de serviço. É definido num ficheiro `ApplicationManifest.xml` e incorporado num diretório de pacotes de aplicações. O diretório é então copiado para a loja de imagens do cluster Service Fabric. Em seguida, pode criar uma aplicação nomeada deste tipo de aplicação dentro do cluster.
+Tipo de **aplicação**: O nome/versão atribuído a uma coleção de tipos de serviço. É definido num `ApplicationManifest.xml` ficheiro e incorporado num diretório de pacotes de aplicações. O diretório é então copiado para a loja de imagens do cluster Service Fabric. Em seguida, pode criar uma aplicação nomeada deste tipo de aplicação dentro do cluster.
 
 Leia o artigo modelo [da Aplicação](service-fabric-application-model.md) para mais informações.
 
-**Pacote de aplicação**: Um diretório de disco contendo o ficheiro `ApplicationManifest.xml` do tipo de aplicação. Referencia os pacotes de serviço para cada tipo de serviço que compõe o tipo de aplicação. Os ficheiros do diretório do pacote de aplicações são copiados para a loja de imagens do cluster Service Fabric. Por exemplo, um pacote de aplicação para um tipo de pedido de e-mail pode conter referências a um pacote de serviço de fila, um pacote de serviço frontend e um pacote de serviço de base de dados.
+**Pacote de aplicação**: Um diretório `ApplicationManifest.xml` de disco contendo o ficheiro do tipo de aplicação. Referencia os pacotes de serviço para cada tipo de serviço que compõe o tipo de aplicação. Os ficheiros do diretório do pacote de aplicações são copiados para a loja de imagens do cluster Service Fabric. Por exemplo, um pacote de aplicação para um tipo de pedido de e-mail pode conter referências a um pacote de serviço de fila, um pacote de serviço frontend e um pacote de serviço de base de dados.
 
-**Aplicação nomeada**: Depois de copiar um pacote de aplicação para a loja de imagens, cria uma instância da aplicação dentro do cluster. Cria uma instância quando especifica o tipo de aplicação do pacote de aplicação, utilizando o seu nome ou versão. Cada instância do tipo de aplicação é atribuída a um nome de identificador de recursos uniforme (URI) que se parece com: `"fabric:/MyNamedApp"`. Dentro de um cluster, pode criar múltiplas aplicações nomeadas a partir de um único tipo de aplicação. Também pode criar aplicações nomeadas de diferentes tipos de aplicações. Cada aplicação nomeada é gerida e versão independentemente.
+**Aplicação nomeada**: Depois de copiar um pacote de aplicação para a loja de imagens, cria uma instância da aplicação dentro do cluster. Cria uma instância quando especifica o tipo de aplicação do pacote de aplicação, utilizando o seu nome ou versão. Cada instância do tipo de aplicação é atribuída a um `"fabric:/MyNamedApp"`nome de identificador de recursos uniforme (URI) que se parece com: . Dentro de um cluster, pode criar múltiplas aplicações nomeadas a partir de um único tipo de aplicação. Também pode criar aplicações nomeadas de diferentes tipos de aplicações. Cada aplicação nomeada é gerida e versão independentemente.
 
-**Tipo**de serviço : O nome/versão atribuído aos pacotes de código de um serviço, pacotes de dados e pacotes de configuração. O tipo de serviço é definido no ficheiro `ServiceManifest.xml` e incorporado num diretório de pacote de serviço. O diretório do pacote de serviço é então referenciado pelo ficheiro `ApplicationManifest.xml` de um pacote de aplicações. Dentro do cluster, depois de criar uma aplicação nomeada, pode criar um serviço nomeado a partir de um dos tipos de serviço do tipo de aplicação. O ficheiro `ServiceManifest.xml` do tipo de serviço descreve o serviço.
+**Tipo**de serviço : O nome/versão atribuído aos pacotes de código de um serviço, pacotes de dados e pacotes de configuração. O tipo de serviço `ServiceManifest.xml` é definido no ficheiro e incorporado num diretório de pacote de serviço. O diretório do pacote de serviço é `ApplicationManifest.xml` então referenciado por um ficheiro de um pacote de aplicação. Dentro do cluster, depois de criar uma aplicação nomeada, pode criar um serviço nomeado a partir de um dos tipos de serviço do tipo de aplicação. O ficheiro do `ServiceManifest.xml` tipo de serviço descreve o serviço.
 
 Leia o artigo modelo [da Aplicação](service-fabric-application-model.md) para mais informações.
 
@@ -75,18 +75,18 @@ Existem dois tipos de serviços:
 
 **A reconfiguração** refere-se ao processo de qualquer alteração no conjunto de réplicas de um serviço. Ver [Reconfiguração](service-fabric-concepts-reconfiguration.md).
 
-**Pacote de serviço**: Um diretório de disco contendo o ficheiro `ServiceManifest.xml` do tipo de serviço. Este ficheiro refere o código, os dados estáticos e os pacotes de configuração para o tipo de serviço. Os ficheiros do diretório do pacote de serviço são referenciados pelo ficheiro `ApplicationManifest.xml` do tipo de aplicação. Por exemplo, um pacote de serviço pode referir-se ao código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
+**Pacote de serviço**: Um diretório `ServiceManifest.xml` de disco contendo o ficheiro do tipo de serviço. Este ficheiro refere o código, os dados estáticos e os pacotes de configuração para o tipo de serviço. Os ficheiros do diretório do pacote de serviço `ApplicationManifest.xml` são referenciados pelo ficheiro do tipo de aplicação. Por exemplo, um pacote de serviço pode referir-se ao código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
 
-**Serviço nomeado**: Depois de criar uma aplicação nomeada, pode criar uma instância de um dos seus tipos de serviço dentro do cluster. Especifica o tipo de serviço utilizando o seu nome/versão. Cada instância do tipo de serviço é atribuída a um nome URI com o nome URI da sua aplicação. Por exemplo, se criar um serviço "MyDatabase" nomeado dentro de uma aplicação nomeada "MyNamedApp", o URI parece: `"fabric:/MyNamedApp/MyDatabase"`. Dentro de uma aplicação nomeada, pode criar vários serviços nomeados. Cada serviço nomeado pode ter o seu próprio esquema de partição e contagens de instância ou réplica.
+**Serviço nomeado**: Depois de criar uma aplicação nomeada, pode criar uma instância de um dos seus tipos de serviço dentro do cluster. Especifica o tipo de serviço utilizando o seu nome/versão. Cada instância do tipo de serviço é atribuída a um nome URI com o nome URI da sua aplicação. Por exemplo, se criar um serviço "MyDatabase" nomeado dentro de uma aplicação `"fabric:/MyNamedApp/MyDatabase"`nomeada "MyNamedApp", o URI parece: . Dentro de uma aplicação nomeada, pode criar vários serviços nomeados. Cada serviço nomeado pode ter o seu próprio esquema de partição e contagens de instância ou réplica.
 
-**Pacote de código**: Um diretório de disco contendo os ficheiros executáveis do tipo de serviço, normalmente ficheiros EXE/DLL. Os ficheiros do diretório do pacote de código são referenciados pelo ficheiro `ServiceManifest.xml` do tipo de serviço. Quando cria um serviço nomeado, o pacote de código é copiado para o nó ou nós selecionados para executar o serviço nomeado. Então o código começa a funcionar. Existem dois tipos de executáveis em pacotes de código:
+**Pacote de código**: Um diretório de disco contendo os ficheiros executáveis do tipo de serviço, normalmente ficheiros EXE/DLL. Os ficheiros do diretório do pacote de código `ServiceManifest.xml` são referenciados pelo ficheiro do tipo de serviço. Quando cria um serviço nomeado, o pacote de código é copiado para o nó ou nós selecionados para executar o serviço nomeado. Então o código começa a funcionar. Existem dois tipos de executáveis em pacotes de código:
 
 * **Executáveis de hóspedes**: Executáveis que funcionam como está no sistema operativo anfitrião (Windows ou Linux). Estes executíveis não ligam ou referenciam quaisquer ficheiros de execução do Tecido de Serviço e, portanto, não utilizam nenhum modelo de programação do Tecido de Serviço. Estes executáveis são incapazes de usar algumas funcionalidades de Tecido de Serviço, como o serviço de nomeação para descoberta de ponto final. Executáveis de hóspedes não podem reportar métricas de carga específicas para cada instância de serviço.
 * **Executáveis executáveis**do anfitrião do serviço : Executáveis que utilizam modelos de programação de tecido de serviço ligando-se a ficheiros de tempo de execução de tecido de serviço, permitindo funcionalidades de Tecido de Serviço. Por exemplo, uma instância de serviço nomeada pode registar pontos finais com o Serviço de Nomeação do Tecido de Serviço e também pode reportar métricas de carga.
 
-**Pacote de dados**: Um diretório de disco que contém os ficheiros de dados estáticos e apenas de leitura do tipo de serviço, tipicamente ficheiros de fotografia, som e vídeo. Os ficheiros no diretório do pacote de dados são referenciados pelo ficheiro `ServiceManifest.xml` do tipo de serviço. Quando cria um serviço nomeado, o pacote de dados é copiado para o nó ou nós selecionados para executar o serviço nomeado. O código começa a funcionar e agora pode aceder aos ficheiros de dados.
+**Pacote de dados**: Um diretório de disco que contém os ficheiros de dados estáticos e apenas de leitura do tipo de serviço, tipicamente ficheiros de fotografia, som e vídeo. Os ficheiros no diretório do pacote de dados `ServiceManifest.xml` são referenciados pelo ficheiro do tipo de serviço. Quando cria um serviço nomeado, o pacote de dados é copiado para o nó ou nós selecionados para executar o serviço nomeado. O código começa a funcionar e agora pode aceder aos ficheiros de dados.
 
-**Pacote de configuração**: Um diretório de disco que contém os ficheiros estáticos e de configuração do tipo de serviço, normalmente ficheiros de texto. Os ficheiros do diretório do pacote de configuração são referenciados pelo ficheiro `ServiceManifest.xml` do tipo de serviço. Quando cria um serviço nomeado, os ficheiros do pacote de configuração são copiados para um ou mais nós selecionados para executar o serviço nomeado. Em seguida, o código começa a ser executado e pode agora aceder aos ficheiros de configuração.
+**Pacote de configuração**: Um diretório de disco que contém os ficheiros estáticos e de configuração do tipo de serviço, normalmente ficheiros de texto. Os ficheiros no diretório do pacote de configuração são referenciados pelo ficheiro do tipo de `ServiceManifest.xml` serviço. Quando cria um serviço nomeado, os ficheiros do pacote de configuração são copiados para um ou mais nós selecionados para executar o serviço nomeado. Em seguida, o código começa a ser executado e pode agora aceder aos ficheiros de configuração.
 
 **Contentores**: Por padrão, o Tecido de Serviço implanta e ativa os serviços como processos. O Serviço Fabric também pode implantar serviços em imagens de contentores. Os contentores são uma tecnologia de virtualização que abstrata o sistema operativo subjacente a partir de aplicações. Uma aplicação e o seu tempo de funcionamento, dependências e bibliotecas de sistemas funcionam dentro de um contentor. O contentor tem acesso total e privado à vista isolada do próprio contentor das construções do sistema operativo. O Serviço Fabric suporta recipientes windows server e recipientes Docker no Linux. Para mais informações, leia [O Tecido de Serviço e os recipientes.](service-fabric-containers-overview.md)
 
@@ -131,7 +131,7 @@ Recursos de Tecido de Serviço são tudo o que pode ser implantado individualmen
 
 O modelo de aplicação nativa fornece às suas aplicações acesso completo de baixo nível ao Tecido de Serviço. As aplicações e serviços são definidos como tipos registados em ficheiros manifestos XML.
 
-O modelo nativo suporta os quadros Reliable Services and Reliable Actors, que proporciona acesso às C# APIs de tempo de execução do Tecido de Serviço e apis de gestão de clusters em Java. O modelo nativo também suporta recipientes arbitrários e executáveis. O modelo nativo não é suportado no ambiente de malha de [tecido de serviço.](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+O modelo nativo suporta os quadros Reliable Services and Reliable Actors, que proporciona acesso às APIs de tempo de execução do Tecido de Serviço e APIs de gestão de clusters em C# e Java. O modelo nativo também suporta recipientes arbitrários e executáveis. O modelo nativo não é suportado no ambiente de malha de [tecido de serviço.](/azure/service-fabric-mesh/service-fabric-mesh-overview)
 
 **Serviços fiáveis**: Uma API para a construção de serviços apátridas e apátridas. Os serviços estatais armazenam o seu estado em Coleções Fiáveis, como um dicionário ou uma fila. Também pode ligar várias pilhas de comunicação, tais como Web API e Windows Communication Foundation (WCF).
 
@@ -164,21 +164,21 @@ Ambientes diferentes têm diferentes níveis de apoio a quadros e modelos de imp
 
 | Tipo de Aplicação | Descrito por | Malha de tecido de serviço azure | Clusters de tecido de serviço Azure (qualquer Os)| Aglomerado local | Cluster autónomo |
 |---|---|---|---|---|---|
-| Aplicações de malha de tecido de serviço | Modelo de Recursos (YAML e JSON) | Suportado |Não suportado | Suportado pelo Windows, Linux e Mac não suportados | Windows- não suportado |
-|Aplicações nativas de tecido de serviço | Modelo de aplicação nativa (XML) | Não Suportado| Suportado|Suportado|Suportado pelo Windows|
+| Aplicações de malha de tecido de serviço | Modelo de Recursos (YAML & JSON) | Suportado |Não suportado | Suportado pelo Windows, Linux e Mac não suportados | Windows- não suportado |
+|Aplicações nativas de tecido de serviço | Modelo de aplicação nativa (XML) | Não suportado| Suportado|Suportado|Suportado pelo Windows|
 
 A tabela seguinte descreve os diferentes modelos de aplicação e a ferramenta que existe para eles contra o Tecido de Serviço.
 
 | Tipo de Aplicação | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
-| Aplicações de malha de tecido de serviço | Modelo de Recursos (YAML e JSON) | VS 2017 |Não suportado |Não suportado | Suportado - Apenas ambiente de malha | Não Suportado|
+| Aplicações de malha de tecido de serviço | Modelo de Recursos (YAML & JSON) | VS 2017 |Não suportado |Não suportado | Suportado - Apenas ambiente de malha | Não suportado|
 |Aplicações nativas de tecido de serviço | Modelo de aplicação nativa (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Suportado|
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Tecido de Serviço:
 
-* [Visão geral do tecido de serviço](service-fabric-overview.md)
+* [Descrição Geral do Service Fabric](service-fabric-overview.md)
 * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Porquê seguir a abordagem de microsserviços para criar aplicações?)
 * [Cenários de aplicações](service-fabric-application-scenarios.md)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f4be3343f090c4d31ccb85eba8e99f22a3b1fcae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271935"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529480"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -33,7 +33,7 @@ A orquestração é necessária para executar o trabalho adequado no momento apr
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
-Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere os empregos de Hadoop. Oozie funciona dentro de um cluster HDInsight e está integrado com a pilha Hadoop. Oozie apoia os trabalhos de Hadoop para Apache Hadoop MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Oozie também pode ser usado para agendar trabalhos específicos para um sistema, como programas Java ou scripts de conchas.
+O Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere as tarefas do Hadoop. Oozie funciona dentro de um cluster HDInsight e está integrado com a pilha Hadoop. Oozie apoia os trabalhos de Hadoop para Apache Hadoop MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Oozie também pode ser usado para agendar trabalhos específicos para um sistema, como programas Java ou scripts de conchas.
 
 Para obter mais informações, consulte [Oozie De utilizar Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md) Para um mergulho profundo que mostre como usar o Oozie para conduzir um oleoduto de ponta a ponta, consulte [Operacionalize o Pipeline de Dados](../hdinsight-operationalize-data-pipeline.md).
 
@@ -85,7 +85,7 @@ Para o upload de conjuntos de dados na gama terabyte, a latência da rede pode s
 
 O Azure SQL DW é uma ótima escolha para armazenar resultados limpos e preparados para análisefutura.  O Azure HDInsight pode ser utilizado para realizar esses serviços para o Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) é uma loja de bases de dados relacional otimizada para cargas de trabalho analíticas.  Balanças de DW Azure SQL baseadas em mesas divididas.  As mesas podem ser divididas em vários nódosos.  Os nódosos Azure SQL DW são selecionados no momento da criação.  Podem escalar depois do facto, mas é um processo ativo que pode exigir movimento de dados. Para mais informações, consulte [SQL Data Warehouse - Manage Compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure SQL Data Warehouse (SQL DW) é uma loja de bases de dados relacional otimizada para cargas de trabalho analíticas.  Balanças de DW Azure SQL baseadas em mesas divididas.  As mesas podem ser divididas em vários nódosos.  Os nódosos Azure SQL DW são selecionados no momento da criação.  Podem escalar depois do facto, mas é um processo ativo que pode exigir movimento de dados. Para mais informações, consulte [SQL Data Warehouse - Manage Compute](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -129,7 +129,7 @@ O Apache Flume é um serviço distribuído, fiável e disponível para recolher,
 
 O Apache Flume não pode ser usado com o Azure HDInsight.  Uma instalação hadoop no local pode usar flume para enviar dados para Azure Storage Blobs ou Azure Data Lake Storage.  Para mais informações, consulte [A Utilização do Flume Apache com HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Transformar
+## <a name="transform"></a>Transformação
 
 Uma vez que os dados existam no local escolhido, é necessário limpá-lo, combiná-lo ou prepará-lo para um padrão de utilização específico.  Colmeia, Porco e Spark SQL são boas escolhas para este tipo de trabalho.  São todos apoiados no HDInsight.
 

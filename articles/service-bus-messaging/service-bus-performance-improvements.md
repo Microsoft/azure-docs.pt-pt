@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: aschhab
 ms.openlocfilehash: b864f433c67d47b4b92a1d4b98693ebd42806dd3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259464"
 ---
-# <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Boas Práticas para melhorias de desempenho usando mensagens de ônibus de serviço
+# <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus
 
 Este artigo descreve como usar o Azure Service Bus para otimizar o desempenho ao trocar mensagens intermediadas. A primeira parte deste artigo descreve os diferentes mecanismos que são oferecidos para ajudar a aumentar o desempenho. A segunda parte fornece orientações sobre como usar o Service Bus de uma forma que pode oferecer o melhor desempenho num determinado cenário.
 
@@ -29,9 +29,9 @@ Estas secções introduzem vários conceitos que o Service Bus usa para ajudar a
 
 O Service Bus permite que os clientes enviem e recebam mensagens através de um dos três protocolos:
 
-1. Protocolo avançado de fila de mensagens (AMQP)
+1. Avançadas Message Queuing Protocol (AMQP)
 2. Protocolo de Mensagens de Autocarro de Serviço (SBMP)
-3. Protocolo de Transferência de Hipertextos (HTTP)
+3. Protocolo HTTP (Hypertext Transfer Protocol)
 
 A AMQP é a mais eficiente, porque mantém a ligação ao Service Bus. Também implementa lotação e prebuscação. Salvo indicação explícita, todos os conteúdos deste artigo assumem a utilização de AMQP ou SBMP.
 
@@ -53,11 +53,11 @@ Para obter mais informações sobre o suporte mínimo da plataforma .NET Standar
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Os objetos do cliente do Bus de Serviço, tais como implementações de [`IQueueClient`][QueueClient] ou [`IMessageSender`, ][MessageSender]devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). Recomenda-se que não feche fábricas de mensagens ou clientes de fila, tópico e subscrição depois de enviar uma mensagem e, em seguida, recriá-las quando envia a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço service bus, e uma nova ligação é estabelecida ao recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos de cliente para múltiplas operações. Pode utilizar com segurança estes objetos de cliente para operações assíncronas simultâneas e a partir de vários fios.
+Os objetos do cliente do [`IQueueClient`][QueueClient] [`IMessageSender`][MessageSender]bus de serviço, tais como implementações de ou , devem ser registados para injeção de dependência como singletons (ou instantâneos uma vez e partilhados). Recomenda-se que não feche fábricas de mensagens ou clientes de fila, tópico e subscrição depois de enviar uma mensagem e, em seguida, recriá-las quando envia a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço service bus, e uma nova ligação é estabelecida ao recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos de cliente para múltiplas operações. Pode utilizar com segurança estes objetos de cliente para operações assíncronas simultâneas e a partir de vários fios.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-Os objetos clientes do Service Bus, como `QueueClient` ou `MessageSender`, são criados através de um objeto de [MessagingFactory,][MessagingFactory] que também fornece gestão interna de ligações. Recomenda-se que não feche fábricas de mensagens ou clientes de fila, tópico e subscrição depois de enviar uma mensagem e, em seguida, recriá-las quando envia a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço service bus, e uma nova ligação é estabelecida ao recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos de cliente para múltiplas operações. Pode utilizar com segurança estes objetos de cliente para operações assíncronas simultâneas e a partir de vários fios.
+Os objetos clientes `QueueClient` do `MessageSender`Service Bus, tais como ou, são criados através de um objeto de [MessagingFactory,][MessagingFactory] que também fornece gestão interna de ligações. Recomenda-se que não feche fábricas de mensagens ou clientes de fila, tópico e subscrição depois de enviar uma mensagem e, em seguida, recriá-las quando envia a próxima mensagem. O encerramento de uma fábrica de mensagens elimina a ligação ao serviço service bus, e uma nova ligação é estabelecida ao recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar reutilizando a mesma fábrica e objetos de cliente para múltiplas operações. Pode utilizar com segurança estes objetos de cliente para operações assíncronas simultâneas e a partir de vários fios.
 
 ---
 
@@ -139,7 +139,7 @@ receiver.RegisterMessageHandler(
     });
 ```
 
-O objeto `MessageReceiver` é instantâneo com a corda de ligação, o nome da fila e um modo de receção de olhar espreito. Em seguida, a `receiver` instância é usada para registar o manipulador de mensagens.
+O `MessageReceiver` objeto é instantâneo com a corda de ligação, o nome da fila e um modo de receção de olhar espreito. Em seguida, a `receiver` instância é usada para registar o manipulador de mensagens.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -163,15 +163,15 @@ receiver.OnMessageAsync(
     });
 ```
 
-O `MessagingFactory` cria um objeto `factory` a partir da corda de ligação. Com o caso `factory`, um `MessageReceiver` é instantâneo. Em seguida, a `receiver` instância é usada para registar o manipulador de mensagens.
+O `MessagingFactory` cria `factory` um objeto a partir da corda de ligação. Com `factory` o caso, um `MessageReceiver` é instantâneo. Em seguida, a `receiver` instância é usada para registar o manipulador de mensagens.
 
 ---
 
 ## <a name="receive-mode"></a>Receber modo
 
-Ao criar uma fila ou cliente de subscrição, pode especificar um modo de receção: *Peek-lock* ou *Receive and Delete*. O modo de receção predefinido é `PeekLock`. Ao operar no modo predefinido, o cliente envia um pedido para receber uma mensagem do Service Bus. Depois de o cliente ter recebido a mensagem, envia um pedido para completar a mensagem.
+Ao criar uma fila ou cliente de subscrição, pode especificar um modo de receção: *Peek-lock* ou *Receive and Delete*. O modo de `PeekLock`receção predefinido é . Ao operar no modo predefinido, o cliente envia um pedido para receber uma mensagem do Service Bus. Depois de o cliente ter recebido a mensagem, envia um pedido para completar a mensagem.
 
-Ao definir o modo de receção para `ReceiveAndDelete`, ambos os passos são combinados num único pedido. Estes passos reduzem o número total de operações e podem melhorar o resultado global da mensagem. Este ganho de desempenho surge com o risco de perder mensagens.
+Ao definir o `ReceiveAndDelete`modo de receção para , ambos os passos são combinados num único pedido. Estes passos reduzem o número total de operações e podem melhorar o resultado global da mensagem. Este ganho de desempenho surge com o risco de perder mensagens.
 
 O Service Bus não suporta transações para operações de receção e eliminação. Além disso, são necessárias semânticas de bloqueio de espreitar para quaisquer cenários em que o cliente queira adiar ou enviar uma mensagem de [carta morta.](service-bus-dead-letter-queues.md)
 
@@ -203,7 +203,7 @@ var factory = MessagingFactory.Create(namespaceUri, settings);
 O loteamento não afeta o número de operações de mensagens faturadas, e está disponível apenas para o protocolo de cliente do Service Bus utilizando a biblioteca [Microsoft.ServiceBus.Messaging.](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) O protocolo HTTP não suporta o loteamento.
 
 > [!NOTE]
-> A definição `BatchFlushInterval` garante que o loteamento está implícito do ponto de vista da aplicação. ou é, e.; a aplicação faz `SendAsync` e `CompleteAsync` chamadas e não faz chamadas específicas do Lote.
+> A `BatchFlushInterval` definição garante que o lote está implícito do ponto de vista da aplicação. ou é, e.; a aplicação faz `SendAsync` e `CompleteAsync` chama e não faz chamadas específicas do Lote.
 >
 > O lote explícito do lado do cliente pode ser implementado utilizando a chamada de método abaixo:
 > ```csharp
@@ -226,7 +226,7 @@ Ao criar uma nova fila, tópico ou subscrição, o acesso à loja em lotação �
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Para desativar o acesso à loja em lotação, necessitará de uma instância de `ManagementClient`. Crie uma fila a partir de uma descrição da fila que define a propriedade `EnableBatchedOperations` para `false`.
+Para desativar o acesso à loja em `ManagementClient`lotação, necessitará de uma instância de . Crie uma fila a partir `EnableBatchedOperations` de `false`uma descrição da fila que define a propriedade para .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -236,14 +236,14 @@ var queueDescription = new QueueDescription(path)
 var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
-Para mais informações, consulte o seguinte:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
+Para obter mais informações, consulte o seguinte:
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-Para desativar o acesso à loja em lotação, necessitará de uma instância de `NamespaceManager`. Crie uma fila a partir de uma descrição da fila que define a propriedade `EnableBatchedOperations` para `false`.
+Para desativar o acesso à loja em `NamespaceManager`lotação, necessitará de uma instância de . Crie uma fila a partir `EnableBatchedOperations` de `false`uma descrição da fila que define a propriedade para .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -253,10 +253,10 @@ var queueDescription = new QueueDescription(path)
 var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
-Para mais informações, consulte o seguinte:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
+Para obter mais informações, consulte o seguinte:
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
@@ -264,11 +264,11 @@ O acesso à loja em lotação não afeta o número de operações de mensagens f
 
 ## <a name="prefetching"></a>Prefetching
 
-[A prebuscação](service-bus-prefetch.md) permite ao cliente de fila ou subscrição carregar mensagens adicionais do serviço quando executa uma operação de receção. O cliente guarda estas mensagens numa cache local. O tamanho da cache é determinado pelas propriedades `QueueClient.PrefetchCount` ou `SubscriptionClient.PrefetchCount`. Cada cliente que permite a pré-busca mantém a sua própria cache. Uma cache não é partilhada entre os clientes. Se o cliente iniciar uma operação de receção e a sua cache estiver vazia, o serviço transmite um lote de mensagens. O tamanho do lote é igual ao tamanho da cache ou 256 KB, o que for menor. Se o cliente iniciar uma operação de receção e a cache contiver uma mensagem, a mensagem é retirada da cache.
+[A prebuscação](service-bus-prefetch.md) permite ao cliente de fila ou subscrição carregar mensagens adicionais do serviço quando executa uma operação de receção. O cliente guarda estas mensagens numa cache local. O tamanho da cache é `QueueClient.PrefetchCount` `SubscriptionClient.PrefetchCount` determinado pelas propriedades ou propriedades. Cada cliente que permite a pré-busca mantém a sua própria cache. Uma cache não é partilhada entre os clientes. Se o cliente iniciar uma operação de receção e a sua cache estiver vazia, o serviço transmite um lote de mensagens. O tamanho do lote é igual ao tamanho da cache ou 256 KB, o que for menor. Se o cliente iniciar uma operação de receção e a cache contiver uma mensagem, a mensagem é retirada da cache.
 
 Quando uma mensagem é prefetchda, o serviço bloqueia a mensagem pré-rebuscada. Com o cadeado, a mensagem pré-rebuscada não pode ser recebida por um recetor diferente. Se o recetor não conseguir completar a mensagem antes de o bloqueio expirar, a mensagem fica disponível para outros recetores. A cópia prefetchda da mensagem permanece na cache. O recetor que consome a cópia em cache expirada receberá uma exceção quando tentar completar essa mensagem. Por predefinição, o bloqueio da mensagem expira após 60 segundos. Este valor pode ser alargado a 5 minutos. Para evitar o consumo de mensagens expiradas, o tamanho da cache deve ser sempre menor do que o número de mensagens que podem ser consumidas por um cliente dentro do intervalo de tempo de bloqueio.
 
-Ao utilizar a expiração do bloqueio predefinido de 60 segundos, um bom valor para `PrefetchCount` é 20 vezes superior às taxas máximas de processamento de todos os recetores da fábrica. Por exemplo, uma fábrica cria três recetores, e cada recetor pode processar até 10 mensagens por segundo. A contagem de pré-fetch não deve exceder 20 X 3 X 10 = 600. Por predefinição, `PrefetchCount` está definido para 0, o que significa que não são recolhidas mensagens adicionais do serviço.
+Ao utilizar a expiração do bloqueio predefinido `PrefetchCount` de 60 segundos, um bom valor para é 20 vezes superior às taxas máximas de processamento de todos os recetores da fábrica. Por exemplo, uma fábrica cria três recetores, e cada recetor pode processar até 10 mensagens por segundo. A contagem de pré-fetch não deve exceder 20 X 3 X 10 = 600. Por predefinição, `PrefetchCount` está definido para 0, o que significa que não são recolhidas mensagens adicionais do serviço.
 
 As mensagens prefetching aumentam o serviço global de uma fila ou subscrição porque reduz o número total de operações de mensagens, ou viagens de ida e volta. Buscar a primeira mensagem, no entanto, demorará mais tempo (devido ao aumento do tamanho da mensagem). Receber mensagens pré-rebuscadas será mais rápido porque estas mensagens já foram descarregadas pelo cliente.
 
@@ -278,17 +278,17 @@ A prebuscação não afeta o número de operações de mensagens faturadas, e es
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Para mais informações, consulte as seguintes propriedades `PrefetchCount`:
+Para mais informações, `PrefetchCount` consulte as seguintes propriedades:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-Para mais informações, consulte as seguintes propriedades `PrefetchCount`:
+Para mais informações, `PrefetchCount` consulte as seguintes propriedades:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount`. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
@@ -297,13 +297,13 @@ Para mais informações, consulte as seguintes propriedades `PrefetchCount`:
 > [!NOTE]
 > Esta secção aplica-se apenas ao WindowsAzure.ServiceBus SDK, uma vez que o Microsoft.Azure.ServiceBus SDK não expõe as funções do lote.
 
-Embora os conceitos de pré-rebuscamento de várias mensagens em conjunto tenham semântica semelhante ao processamento de mensagens num lote (`ReceiveBatch`), há algumas pequenas diferenças que devem ser mantidas em mente ao alavancar em conjunto.
+Embora os conceitos de pré-rebuscamento de várias mensagens`ReceiveBatch`em conjunto tenham semântica semelhante ao processamento de mensagens num lote , existem algumas pequenas diferenças que devem ser mantidas em mente ao alavancar em conjunto.
 
-Prefetch é uma configuração (ou modo) no cliente (`QueueClient` e `SubscriptionClient`) e `ReceiveBatch` é uma operação (que tem semântica de resposta a pedidos).
+Prefetch é uma configuração (ou`QueueClient` modo) no cliente ( e `SubscriptionClient`) e `ReceiveBatch` é uma operação (que tem semântica de resposta a pedido).
 
 Ao usá-los juntos, considere os seguintes casos -
 
-* A prefetch deve ser maior ou igual ao número de mensagens que espera receber de `ReceiveBatch`.
+* A prefetch deve ser maior ou igual ao número `ReceiveBatch`de mensagens que espera receber de .
 * A prefetch pode ser até n/3 vezes o número de mensagens processadas por segundo, onde n é a duração padrão do bloqueio.
 
 Existem alguns desafios em ter uma abordagem gananciosa (isto é, manter a contagem de pré-fetch muito alta), porque implica que a mensagem está bloqueada a um determinado recetor. A recomendação é experimentar valores de prefetch entre os limiares acima mencionados e identificar empiricamente o que se encaixa.
@@ -317,7 +317,7 @@ Se a carga esperada não puder ser tratada por uma única fila ou tópico, deve 
 > [!NOTE]
 > Esta secção aplica-se apenas ao WindowsAzure.ServiceBus SDK, uma vez que o Microsoft.Azure.ServiceBus SDK não expõe esta funcionalidade.
 
-O Service Bus tem uma funcionalidade, utilizada especificamente para o desenvolvimento, que **nunca deve ser utilizada em configurações**de produção : [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
+O Service Bus tem uma funcionalidade, utilizada especificamente para o desenvolvimento, que **nunca deve ser utilizada em configurações**de produção: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
 
 Quando forem adicionadas novas regras ou filtros ao tópico, pode utilizar [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] para verificar se a nova expressão do filtro está a funcionar como esperado.
 

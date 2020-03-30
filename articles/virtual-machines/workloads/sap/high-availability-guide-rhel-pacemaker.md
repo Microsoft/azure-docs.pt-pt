@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: radeltch
 ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264482"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker no Red Hat Enterprise Linux em Azure
@@ -27,14 +27,14 @@ ms.locfileid: "79264482"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
 [virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
@@ -124,13 +124,13 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Configuração resolução de nome de anfitrião
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independente de DNS, que também poderia ser um ponto único de falhas.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. O benefício de usar /etc/anfitriões é que o seu cluster se torna independente do DNS, que pode ser um único ponto de falhas também.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as seguintes linhas para /etc/anfitriões. Altere o endereço IP e o nome de anfitrião para combinar com o seu ambiente
 
    <pre><code># IP address of the first cluster node
    <b>10.0.0.6 prod-cl1-0</b>
@@ -198,26 +198,26 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 ## <a name="create-stonith-device"></a>Criar dispositivo STONITH
 
-O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
+O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Microsoft Azure. Siga estes passos para criar um Diretor de Serviço.
 
 1. Ir para <https://portal.azure.com>
-1. Abra o painel Azure Active Directory  
-   Vá para propriedades e anote o ID de diretório. Esta é a identificação do **inquilino.**
-1. Clique em registos de aplicações
+1. Abra a lâmina do Diretório Ativo Azure  
+   Vá à Properties e escreva a identificação do Diretório. Esta é a identificação do **inquilino.**
+1. Clique nas inscrições da App
 1. Clique em Novo Registo
 1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione Tipo de Aplicação Tipo "Web", introduza um URL de entrada (por exemplo, http:\//localhost) e clique em Adicionar  
-   O URL de início de sessão não é utilizado e pode ser qualquer URL válido
+2. Selecione Tipo de Aplicação Tipo "Web",\/introduza um URL de inscrição (por exemplo http: /localhost) e clique em Adicionar  
+   O URL de inscrição não é usado e pode ser qualquer URL válido
 1. Selecione Certificados e Segredos e, em seguida, clique em novo segredo de cliente
 1. Introduza uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
-1. Anote o valor. É usado como **palavra-passe** para o Diretor de Serviço
-1. Selecione visão geral. Anote o ID da aplicação. É utilizado como nome de utilizador (ID de**login** nos passos abaixo) do Diretor de Assistência
+1. Escreva o Valor. É usado como **palavra-passe** para o Diretor de Serviço
+1. Selecione Descrição geral. Escreva o ID da inscrição. É utilizado como nome de utilizador (ID de**login** nos passos abaixo) do Diretor de Assistência
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
 
-O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. É necessário dar ao Diretor de Serviço permissões para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. É necessário dar ao Diretor de Serviço permissões para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
-Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada assignablescopes.
+Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada em Assalgências.
 
 ```json
 {
@@ -241,15 +241,15 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Atribuir o papel personalizado ao Diretor de Serviço
 
-Atribua a função personalizada "Linux cerca agente de função" que foi criado no último capítulo para o Principal de serviço. Não utilize a função de proprietário mais!
+Atribuir o papel personalizado "Função de Agente de Cerca de Linux" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
 
 1. Ir para https://portal.azure.com
-1. Abra o painel de todos os recursos
+1. Abra a lâmina de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
-1. Clique em controle de acesso (IAM)
-1. Clique em Adicionar atribuição de função
-1. Selecione a função de "Função de agente de cerca de Linux"
-1. Introduza o nome da aplicação que criou acima
+1. Clique no controlo de acesso (IAM)
+1. Clique em Adicionar atribuição de funções
+1. Selecione o papel "Função do Agente da Cerca de Linux"
+1. Insira o nome da aplicação que criou acima
 1. Clicar em Guardar
 
 Repita os passos acima para o segundo nó de cluster.

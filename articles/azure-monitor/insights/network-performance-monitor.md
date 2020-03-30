@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480883"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de Desempenho de Rede em Azure
 
@@ -37,9 +37,10 @@ Mais informações sobre as várias capacidades suportadas pelo [Network Perform
 ## <a name="supported-regions"></a>Regiões Apoiadas
 O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer parte do mundo, a partir de um espaço de trabalho que está alojado numa das seguintes regiões:
 * Europa do Norte
-* Europa Ocidental
+* Europa ocidental
 * França Central
-
+* Canadá Central
+* E.U.A. Oeste
 * E.U.A. Centro-Oeste
 * E.U.A. Centro-Norte
 * E.U.A. Centro-Sul
@@ -85,7 +86,7 @@ O Network Performance Monitor utiliza transações sintéticas para monitorizar 
 
 * **Protocolo TCP**: Se escolher o TCP como protocolo de monitorização, abra a porta de firewall dos agentes utilizados para o Monitor de Desempenho da Rede e o Monitor ExpressRoute para se certificar de que os agentes podem ligar-se entre si. Para abrir a porta, execute o script [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell sem quaisquer parâmetros numa janela PowerShell com privilégios administrativos.
 
-    O script cria chaves de registo exigidas pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se devem registar os registos de depuração e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores para estas chaves são definidos automaticamente pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo a porta de parâmetroNúmero para o script. Utilize a mesma porta em todos os computadores onde o script é executado. 
+    O script cria chaves de registo exigidas pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se devem registar os registos de depuração e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo a porta de parâmetroNúmero para o script. Utilize a mesma porta em todos os computadores onde o script é executado. 
 
     >[!NOTE]
     > O script configura apenas o Windows Firewall localmente. Se tiver uma firewall de rede, certifique-se de que permite o tráfego destinado à porta TCP utilizada pelo Monitor de Desempenho da Rede.
@@ -107,7 +108,7 @@ O Network Performance Monitor utiliza transações sintéticas para monitorizar 
    ```
  
 
-### <a name="configure-the-solution"></a>Configurar a solução 
+### <a name="configure-the-solution"></a>Configure a solução 
 
 1. Adicione a solução de Monitor de Desempenho da Rede ao seu espaço de trabalho a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito nas [soluções Add Azure Monitor da Galeria Solutions](../../azure-monitor/insights/solutions.md). 
 2. Abra o seu espaço de trabalho Log Analytics e selecione o azulejo **de visão geral.** 
@@ -159,13 +160,13 @@ Todos os nós que têm um agente instalado neles estão listados no separador **
 
 Configure as capacidades que deseja:
 
-- [Monitor de Desempenho](network-performance-monitor-performance-monitor.md#configuration)
-- [Monitor de Conectividade de Serviço](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitorização de Desempenho](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
 
  
 
-## <a name="data-collection-details"></a>Detalhes de recolha de dados
+## <a name="data-collection-details"></a>Detalhes da recolha de dados
 Para recolher informações sobre perdas e latências, o Network Performance Monitor utiliza pacotes de aperto de mão TCP SYN-SYNACK-ACK quando escolhe o TCP como protocolo. O Monitor de Desempenho da Rede utiliza o ICMP ECHO ECHO ANSWER quando escolhe o ICMP como protocolo. A rota de rastreio também é usada para obter informações de topologia.
 
 O quadro seguinte mostra métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Monitor de Desempenho da Rede.
@@ -183,7 +184,7 @@ A solução utiliza transações sintéticas para avaliar a saúde da rede. Agen
 >[!NOTE]
 > Embora os agentes comuniquem-se frequentemente, não geram tráfego de rede significativo enquanto realizam os testes. Os agentes dependem apenas de pacotes de aperto de mão Da TCP SYN-SYNACK-ACK para determinar a perda e a latência. Não são trocados pacotes de dados. Durante este processo, os agentes comunicam-se uns com os outros apenas quando necessário. A topologia de comunicação do agente está otimizada para reduzir o tráfego de rede.
 
-## <a name="use-the-solution"></a>Utilizar a solução 
+## <a name="use-the-solution"></a>Use a solução 
 
 ### <a name="network-performance-monitor-overview-tile"></a>Azulejo de visão geral do monitor de desempenho da rede 
 

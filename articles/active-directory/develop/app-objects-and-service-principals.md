@@ -1,5 +1,5 @@
 ---
-title: Apps & service principais em Azure AD  Azure
+title: Apps & diretores de serviço sinuosos em Azure AD Azure
 titleSuffix: Microsoft identity platform
 description: Conheça a relação entre os objetos principais de aplicação e serviço no Diretório Ativo Azure.
 author: rwike77
@@ -15,13 +15,13 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263013"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos principais de aplicação e serviço no Diretório Ativo azure
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
 Por vezes, o significado do termo "aplicação" pode ser mal compreendido quando usado no contexto do Azure Ative Directory (Azure AD). Este artigo clarifica os aspetos conceptuais e concretos da integração de aplicações da AD Azure, com uma ilustração de registo e consentimento para uma [aplicação multi-arrendatária.](developer-glossary.md#multi-tenant-application)
 
@@ -44,7 +44,7 @@ Nas seguintes secções, verá como o modelo de aplicação Azure AD representa 
 Ao registar uma aplicação Azure AD no [portal Azure,][AZURE-Portal]são criados dois objetos no seu inquilino Azure AD:
 
 - Um objeto de aplicação, e
-- Um objeto principal de serviço
+- Um objeto do principal de serviço
 
 ### <a name="application-object"></a>Objeto de aplicação
 
@@ -58,13 +58,13 @@ O responsável pela segurança define a política de acesso e as permissões par
 
 Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
-### <a name="application-and-service-principal-relationship"></a>Relação principal de aplicação e serviço
+### <a name="application-and-service-principal-relationship"></a>Relação do principal de serviço e aplicação
 
 Considere o objeto de candidatura como a representação *global* do seu pedido de utilização em todos os inquilinos, e o diretor de serviço como a representação *local* para uso em um inquilino específico.
 
-O objeto de aplicação serve como modelo a partir do qual são *derivadas* propriedades comuns e predefinidas para utilização na criação de objetos principais de serviço correspondentes. Um objeto de aplicação tem, portanto, uma relação 1:1 com a aplicação de software, e uma relação de 1:muitas relações com o seu principal objeto de serviço correspondente.
+O objeto da aplicação serve como o modelo a partir do qual as propriedades comuns e predefinidas são *derivadas* para utilização na criação de objetos correspondentes do principal de serviço. Um objeto de aplicação tem, portanto, uma relação 1:1 com a aplicação de software, e uma relação de 1:muitas relações com o seu principal objeto de serviço correspondente.
 
-Deve ser criado um diretor de serviço em cada inquilino onde o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para o acesso e/ou acesso aos recursos garantidos pelo arrendatário. Um pedido de inquilino único tem apenas um diretor de serviço (no seu inquilino de casa), criado e consentido para uso durante o registo de candidatura. Uma aplicação Web/API multi-inquilino também tem um diretor de serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
+Deve ser criado um diretor de serviço em cada inquilino onde o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para o acesso e/ou acesso aos recursos garantidos pelo arrendatário. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e com permissão para utilização durante o registo da aplicação. Uma aplicação Web/API multi-inquilino também tem um diretor de serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
 
 > [!NOTE]
 > Quaisquer alterações que efaça ao seu objeto de candidatura, também se refletem no seu principal objeto de serviço apenas no inquilino da casa da aplicação (o inquilino onde foi registado). Para aplicações multi-arrendatárias, as alterações ao objeto de pedido não se refletem em quaisquer objetos principais de serviço dos inquilinos de consumo, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.
@@ -89,7 +89,7 @@ Neste cenário de exemplo:
 | 2    | Quando os administradores de Contoso e Fabrikam completam o consentimento, um objeto principal de serviço é criado no inquilino Azure AD da sua empresa e atribuído as permissões que o administrador concedeu. Note também que a aplicação HR pode ser configurada/concebida para permitir o consentimento dos utilizadores para uso individual. |
 | 3    | Os inquilinos consumidores da aplicação HR (Contoso e Fabrikam) têm cada um o seu próprio objeto principal de serviço. Cada um representa a sua utilização de uma instância do pedido em tempo de execução, regida pelas permissões conferidas pelo respetivo administrador. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode utilizar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar tanto a aplicação como os principais objetos de serviço.
 - Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o manifesto editor de aplicações [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell, representados](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)pela sua entidade de [Aplicação][MS-Graph-App-Entity]OData.

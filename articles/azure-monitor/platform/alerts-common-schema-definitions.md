@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: b0b398be919364b5a146e86ca1a1790674bb7d01
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275025"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
@@ -74,18 +74,18 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | Campo | Descrição|
 |:---|:---|
 | alertId | O GUID identifica exclusivamente a instância de alerta. |
-| alertRule | O nome da regra de alerta que gerou a instância de alerta. |
+| alertaRule | O nome da regra de alerta que gerou a instância de alerta. |
 | Gravidade | A gravidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
 | sinalTipo | Identifica o sinal em que a regra de alerta foi definida. Valores possíveis: Registo métrico, log ou registo de atividade. |
 | monitorCondição | Quando um alerta dispara, o estado de monitorização do alerta está definido para **disparar**. Quando a condição subjacente que causou o alerta a disparar, a condição do monitor está definida para **resolver**.   |
-| monitoringService | O serviço de monitorização ou solução que gerou o alerta. Os campos para o contexto de alerta são ditados pelo serviço de monitorização. |
+| serviço de monitorização | O serviço de monitorização ou solução que gerou o alerta. Os campos para o contexto de alerta são ditados pelo serviço de monitorização. |
 | alertTargetIds | A lista dos IDs do Gestor de Recursos Azure que são alvos afetados de um alerta. Para um alerta de log definido num espaço de trabalho log Analytics ou na instância de Insights de Aplicação, é o respetivo espaço de trabalho ou aplicação. |
-| originAlertId | A identificação da instância de alerta, gerada pelo serviço de monitorização que o gere. |
+| origemAlertId | A identificação da instância de alerta, gerada pelo serviço de monitorização que o gere. |
 | despedidoDateTime | A data e a hora em que a instância de alerta foi disparada em Tempo Universal Coordenado (UTC). |
 | resolvidoDataTime | A data e a hora em que a condição do monitor para a instância de alerta está definida para **resolver** na UTC. Atualmente apenas aplicável para alertas métricos.|
 | descrição | A descrição, tal como definida na regra de alerta. |
-|essentialsVersion| O número da versão para a secção essencial.|
-|alertContextVersion | O número da versão para a secção `alertContext`. |
+|essencialVersão| O número da versão para a secção essencial.|
+|alertContextVersion | O número da `alertContext` versão para a secção. |
 
 **Valores da amostra**
 ```json
@@ -149,7 +149,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registo
 
 > [!NOTE]
-> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando a bandeira `IncludeSearchResults`. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/query/get)log analytics . 
+> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando `IncludeSearchResults`a bandeira. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/query/get)log analytics . 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

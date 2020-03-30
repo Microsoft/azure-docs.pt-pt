@@ -1,111 +1,111 @@
 ---
-title: Criar uma porta de entrada com HTTP para redirecionamento a HTTPS com o portal do Azure
-description: Saiba como criar uma porta de entrada com o tráfego redirecionado de HTTP para HTTPS com o portal do Azure.
+title: Crie uma Porta Da Frente com http para HTTPS redirecionamento usando o portal Azure
+description: Saiba como criar uma Porta Da Frente com tráfego redirecionado de HTTP para HTTPS utilizando o portal Azure.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246862"
 ---
-# <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Criar uma porta de entrada com HTTP para redirecionamento a HTTPS com o portal do Azure
+# <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Crie uma Porta Da Frente com http para HTTPS redirecionamento usando o portal Azure
 
-Pode utilizar o portal do Azure para criar uma [desde início](front-door-overview.md) com um certificado para a terminação de SSL. Uma regra de roteamento é utilizada para redirecionar o tráfego HTTP para HTTPS.
+Pode utilizar o portal Azure para criar uma [Porta Frontal](front-door-overview.md) com um certificado para a rescisão de SSL. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para HTTPS.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Criar uma porta de entrada com um recurso de aplicação Web existente
-> * Adicionar um domínio personalizado com o certificado SSL 
-> * Configurar o redirecionamento HTTPS no domínio personalizado
+> * Crie uma porta da frente com um recurso web app existente
+> * Adicione um domínio personalizado com certificado SSL 
+> * Configurar https redirecionamento no domínio personalizado
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Criar uma porta de entrada com um recurso de aplicação Web existente
+## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Crie uma porta da frente com um recurso web app existente
 
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-3. Procure **porta da frente** utilizando a pesquisa da barra e depois de localizar o tipo de recurso, clique em **criar**.
-4. Escolha uma subscrição e, em seguida, utilizar um grupo de recursos existente ou crie um novo. Tenha em atenção de que a localização mais frequentes na interface de Usuário destina-se apenas o grupo de recursos. A configuração de porta de entrada será implementada em todos os [localizações de POP da porta da frente do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+3. Procure a **Porta da Frente** utilizando a barra de pesquisa e assim que encontrar o tipo de recurso, clique em **Criar**.
+4. Escolha uma subscrição e, em seguida, use um grupo de recursos existente ou crie um novo. Note que a localização pedida na UI é apenas para o grupo de recursos. A configuração da Porta Frontal será implantada em todas as [localizações POP da Porta Frontal Azure.](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door)
 
-    ![Configurar as noções básicas para a nova porta de entrada](./media/front-door-url-redirect/front-door-create-basics.png)
+    ![Configurar os fundamentos para a nova Porta da Frente](./media/front-door-url-redirect/front-door-create-basics.png)
 
-5. Clique em **seguinte** para introduzir o separador de configuração. A configuração de porta de entrada ocorre em três passos - adicionar um anfitrião de front-end predefinido, a adição de back-ends num conjunto de back-end e, em seguida, criar regras de encaminhamento para mapear o comportamento de encaminhamento de anfitrião de front-end. 
+5. Clique em **Seguir** para introduzir o separador de configuração. A configuração para porta frontal acontece em três passos - adicionando um hospedeiro frontal padrão, adicionando backends em uma piscina de backend e, em seguida, criando regras de encaminhamento para mapear o comportamento de encaminhamento para o anfitrião frontend. 
 
-     ![Estruturador de configuração de porta de entrada](./media/front-door-url-redirect/front-door-designer.png)
+     ![Designer de configuração da porta da frente](./media/front-door-url-redirect/front-door-designer.png)
 
-6. Clique em do ' **+** ' ícone na _anfitriões de front-end_ para criar um anfitrião de front-end, introduza um nome globalmente exclusivo para o anfitrião de front-end predefinido para a porta de entrada (`\<**name**\>.azurefd.net`). Clique em **adicionar** para continuar para o passo seguinte.
+6. Clique no**+** ícone ' ' ' ' nos _anfitriões frontend_ para criar um anfitrião frontend,`\<**name**\>.azurefd.net`insira um nome globalmente único para o seu anfitrião frontal padrão para a sua Porta frontal (). Clique em **Adicionar** para passar ao próximo passo.
 
-     ![Adicionar um anfitrião de front-end](./media/front-door-url-redirect/front-door-create-fehost.png)
+     ![Adicione um anfitrião frontend](./media/front-door-url-redirect/front-door-create-fehost.png)
 
-7. Clique em do ' **+** ' ícone na _conjuntos back-end_ para criar um conjunto de back-end. Forneça um nome para o conjunto de back-end e, em seguida, clique em '**adicionar um back-end**'.
-8. Selecione o tipo de anfitrião de back-end como _serviço de aplicações_. Selecione a subscrição em que a sua aplicação web está alojada e, em seguida, selecione a aplicação web específica na lista pendente para **nome de anfitrião de back-end**.
-9. Clique em **Add** para guardar o back-end e clique em **Add** novamente para guardar a configuração de conjunto de back-end.   ![Adicionar um back-end de um conjunto de back-end](./media/front-door-url-redirect/front-door-create-backendpool.png)
+7. Clique no**+** ícone ' ' ' ' nas _piscinas backend_ para criar uma piscina de backend. Forneça um nome para a piscina de backend e, em seguida, clique em '**Adicionar um backend**'.
+8. Selecione o Tipo de Anfitrião backend como serviço de _aplicação_. Selecione a subscrição onde a sua aplicação web está hospedada e, em seguida, selecione a aplicação web específica a partir do dropdown para o nome do **anfitrião Backend**.
+9. Clique em **Adicionar** para guardar o backend e clique em **Adicionar** novamente para salvar o config de piscina de backend.   ![Adicione uma parte de trás em uma piscina de backend](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
-10. Clique em do ' **+** ' ícone na _regras de encaminhamento_ para criar uma rota. Forneça um nome para a rota, diga "HttpToHttpsRedirect" e, em seguida, defina o _aceites protocolos_ campo **"Apenas HTTP"** . Certifique-se de que o adequado _anfitrião de front-end_ está selecionada.  
-11. Na _detalhes de rota_ secção, defina o _tipo de rota_ para **redirecionar**, certifique-se de que o _tipo de redirecionamento_ está definido como  **Encontrado (302)** e _redirecionar o protocolo_ está definido como **apenas HTTPS**. 
-12. Clique em Adicionar para guardar a regra de encaminhamento para HTTP para redirecionamento HTTPS.
-     ![Adicionar um HTTP para rotas de redirecionamento HTTPS](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. Adicione outra regra de encaminhamento para processar o tráfego HTTPS. Clique no ' **+** "início de sessão a _regras de encaminhamento_ e forneça um nome para a rota, diga"DefaultForwardingRoute"e, em seguida, defina o _aceites protocolos_ campo para **"Apenas HTTPS"** . Certifique-se de que o adequado _anfitrião de front-end_ está selecionada.
-14. Na secção de detalhes de rota, defina o _tipo de rota_ para **reencaminhar**, certifique-se de que o conjunto de back-end correto está selecionado e o _reencaminhamento protocolo_ está definido como  **Apenas HTTPS**. 
-15. Clique em Adicionar para guardar a regra de encaminhamento para o reencaminhamento do pedido.
-     ![Adicione uma rota de encaminhamento para tráfego HTTPS](./media/front-door-url-redirect/front-door-forward-route-example.png)
-16. Clique em **rever + criar** e, em seguida **criar**, para criar seu perfil de porta de entrada. Vá para o recurso uma vez criado.
+10. Clique no**+** ícone ' ' ' ' nas _regras de Encaminhamento_ para criar uma rota. Forneça um nome para a rota, diga 'HttpToHttpsRedirect', e, em seguida, definir o campo _de Protocolos Aceites_ para **'http only'.** Certifique-se de que o _hospedeiro frontal_ apropriado é selecionado.  
+11. Na secção Detalhes da _Rota,_ detete o _Tipo de Rota_ para **Redirecionar,** certifique-se de que o _tipo de redirecionamento_ está definido para **Found (302)** e _o protocolo de redirecionamento_ está definido **apenas**para HTTPS . 
+12. Clique em Adicionar para guardar a regra de encaminhamento para HTTP para Redirecionar HTTPS.
+     ![Adicione uma rota de redirecionamento HTTP para HTTPS](./media/front-door-url-redirect/front-door-redirect-config-example.png)
+13. Adicione outra regra de encaminhamento para manusear o tráfego HTTPS. Clique no**+**'sinal ' ' nas regras de _Encaminhamento_ e forneça um nome para a rota, diga 'DefaultForwardingRoute', e, em seguida, detete o campo de _Protocolos Aceites_ para **'Apenas HTTPS'.** Certifique-se de que o _hospedeiro frontal_ apropriado é selecionado.
+14. Na secção Detalhes da Rota, derpor o _Tipo de Rota_ para A **Frente,** certifique-se de que a piscina traseira direita é selecionada e o Protocolo de _Encaminhamento_ está definido **apenas**para HTTPS . 
+15. Clique em Adicionar para guardar a regra de encaminhamento para reencaminhamento de pedidos.
+     ![Adicione uma rota para a frente para o tráfego HTTPS](./media/front-door-url-redirect/front-door-forward-route-example.png)
+16. Clique em **Rever + criar** e, em seguida, **criar,** para criar o seu perfil porta da frente. Vá ao recurso que uma vez foi criado.
 
-## <a name="add-a-custom-domain-to-your-front-door-and-enable-https-on-it"></a>Adicionar um domínio personalizado à sua porta de entrada e ativar o HTTPS no mesmo
-Os passos seguintes demonstram como pode adicionar um domínio personalizado num recurso de porta de entrada existente e, em seguida, habilitar HTTP para redirecionamento a HTTPS no mesmo. 
+## <a name="add-a-custom-domain-to-your-front-door-and-enable-https-on-it"></a>Adicione um domínio personalizado à sua Porta da Frente e ative HTTPS nele
+Os seguintes passos mostram como pode adicionar um domínio personalizado num recurso de porta frontal existente e, em seguida, permitir http para HTTPS redirecioná-lo. 
 
 ### <a name="add-a-custom-domain"></a>Adicionar um domínio personalizado
 
-Neste exemplo, adicionar um registo CNAME para o `www` subdomínio (por exemplo, `www.contosonews.com`).
+Neste exemplo, adicione um registo CNAME para o `www` `www.contosonews.com`subdomínio (por exemplo, ).
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um subdomínio para o anfitrião de front-end de predefinição da porta da frente (`<name>.azurefd.net`, onde `<name>` é o nome do seu perfil de porta de entrada).
+Adicione um disco CNAME para mapear um subdomínio ao hospedeiro`<name>.azurefd.net`frontal `<name>` padrão da Porta da Frente ( onde está o nome do seu perfil front door).
 
-Para o `www.contoso.com` domínio, por exemplo, adicione um registo CNAME que mapeia o nome `www` para `<name>.azurefd.net`.
+Para `www.contoso.com` o domínio, como exemplo, adicione um registo `www` `<name>.azurefd.net`CNAME que mapeie o nome para .
 
 Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhante ao seguinte exemplo:
 
-![Domínio personalizado de CNAME para a porta de entrada](./media/front-door-url-redirect/front-door-dns-cname.png)
+![Domínio personalizado CNAME para porta da frente](./media/front-door-url-redirect/front-door-dns-cname.png)
 
-#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Carregar o domínio personalizado em sua porta de entrada
+#### <a name="onboard-the-custom-domain-on-your-front-door"></a>A bordo do domínio personalizado na sua porta da frente
 
-1. No separador de designer da porta de entrada, clique em "+" secção de ícone nos anfitriões de front-end para adicionar um novo domínio personalizado. 
-2. Introduza o nome DNS personalizado completamente qualificado no campo de nome de anfitrião personalizado, exemplo `www.contosonews.com`. 
-3. Depois do mapeamento CNAME do domínio para a porta de entrada é validado, clique em **adicionar** para adicionar o domínio personalizado.
-4. Clique em **guardar** para submeter as alterações.
+1. No separador de design da Porta Frontal, clique no ícone '+' na secção de anfitriões frontend para adicionar um novo domínio personalizado. 
+2. Introduza o nome DNS personalizado totalmente qualificado `www.contosonews.com`no campo de nome do anfitrião personalizado, exemplo . 
+3. Assim que o mapeamento CNAME do domínio para a porta da frente for validado, clique em **Adicionar** para adicionar o domínio personalizado.
+4. Clique em **Guardar** para submeter as alterações.
 
 ![Menu de domínio personalizado](./media/front-door-url-redirect/front-door-add-custom-domain.png)
 
-### <a name="enable-https-on-your-custom-domain"></a>Ativar o HTTPS no seu domínio personalizado
+### <a name="enable-https-on-your-custom-domain"></a>Ativar HTTPS no seu domínio personalizado
 
-1. Clique no domínio personalizado que foi adicionado e na secção **HTTPS de domínio personalizado**, altere o estado para **ativado**.
-2. Pode deixar a **tipo de gestão de certificado** definida como _porta da frente geridos_ para o certificado gratuito mantido, gerenciado e autorotated por porta de entrada. Também pode optar por utilizar o seu próprio certificado SSL personalizado armazenado com o Azure Key Vault. Este tutorial parte do princípio de que a utilização da porta da frente gerida certificado.
-![Ativar HTTPS para o domínio personalizado](./media/front-door-url-redirect/front-door-custom-domain-https.png)
+1. Clique no domínio personalizado que foi adicionado e sob a secção **Domínio personalizado HTTPS,** altere o estado para **Ativado**.
+2. Pode deixar o tipo de **gestão** de Certificado definido para _a Porta Da Frente gerida_ para o certificado gratuito mantido, gerido e rodado automaticamente pela Porta Da Frente. Também pode optar por utilizar o seu próprio certificado SSL personalizado armazenado com cofre de chaves Azure. Este tutorial assume que o uso do certificado gerido pela Porta Da Frente.
+![Habilitar https para domínio personalizado](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
-3. Clique em **atualização** para guardar a seleção e, em seguida, clique em **guardar**.
-4. Clique em **atualizar** após alguns minutos e, em seguida, clique no domínio personalizado novamente para ver o progresso do aprovisionamento de certificados. 
+3. Clique em **Atualizar** para salvar a seleção e, em seguida, clique em **Guardar**.
+4. Clique em **Refresh** após alguns minutos e, em seguida, clique no domínio personalizado novamente para ver o progresso do fornecimento de certificados. 
 
 > [!WARNING]
-> Ativar o HTTPS para um domínio personalizado pode demorar vários minutos e também depende de validação de propriedade do domínio se o CNAME não for diretamente mapeado para o anfitrião de porta de entrada `<name>.azurefd.net`. Saiba mais sobre [como ativar o HTTPS num domínio personalizado](./front-door-custom-domain-https.md).
+> Ativar HTTPS para um domínio personalizado pode demorar vários minutos e também depende da validação da `<name>.azurefd.net`propriedade do domínio se o CNAME não estiver diretamente mapeado para o seu anfitrião porta da frente . Saiba mais sobre [como ativar HTTPS para um domínio personalizado](./front-door-custom-domain-https.md).
 
-## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Configurar as regras de encaminhamento para o domínio personalizado
+## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Configure as regras de encaminhamento para o domínio personalizado
 
 1. Clique na regra de encaminhamento de redirecionamento criada anteriormente.
-2. Clique no menu pendente para anfitriões de front-end e selecione o seu domínio personalizado para aplicar esta rota para o seu domínio também.
+2. Clique na dropdown para anfitriões Frontend e selecione o seu domínio personalizado para aplicar esta rota para o seu domínio também.
 3. Clique em **Atualizar**.
-4. Fazer a mesma operação para a outra regra de encaminhamento também ou seja, para a rota de reencaminhamento adicionar o domínio personalizado.
-5. Clique em **guardar** para submeter as alterações.
+4. Faça a mesma operação para a outra regra de encaminhamento, isto é, para a sua rota de encaminhamento adicionar o domínio personalizado.
+5. Clique em **Guardar** para submeter as suas alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).
-- Saiba mais sobre [URL de redirecionamento na porta da frente](front-door-url-redirect.md).
+- Saiba mais sobre [o redirecionamento](front-door-url-redirect.md)de URL na Porta da Frente .

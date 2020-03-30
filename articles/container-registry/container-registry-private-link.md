@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Criar um ponto final privado num registo de contentores e permitir um link privado numa rede virtual local
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: de8228d84497e71f24dba3dd4e6162cb6735a8c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203360"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498909"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Link Privado Azure para um registo de contentores Azure 
 
@@ -19,7 +19,7 @@ Pode [configurar as definições de DNS](../private-link/private-endpoint-overvi
 Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se atualmente em pré-visualização e aplicam-se [algumas limitações.](#preview-limitations) As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se atualmente em pré-visualização e aplicam-se [algumas limitações.](#preview-limitations) As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
@@ -27,8 +27,8 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar os passos Do CLI Azure neste artigo, recomenda-se a versão 2.2.0 do Azure CLI. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli]. Ou correr em [Azure Cloud Shell.](../cloud-shell/quickstart.md)
-* Se ainda não tiver um registo de contentores, crie um (nível Premium necessário) e empurre uma imagem de amostra como `hello-world` do Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [Azure CLI][quickstart-cli] para criar um registo.
+* Para utilizar os passos Do CLI Azure neste artigo, recomenda-se a versão 2.2.0 do Azure CLI. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli]. Ou correr em [Azure Cloud Shell.](../cloud-shell/quickstart.md)
+* Se ainda não tiver um registo de contentores, crie um (nível `hello-world` Premium necessário) e empurre uma imagem de amostra como o Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [Azure CLI][quickstart-cli] para criar um registo.
 * Se pretender configurar o acesso ao registo utilizando um link privado numa subscrição azure diferente, tem de registar o fornecedor de recursos para o Registo de Contentores Azure nessa subscrição. Por exemplo:
 
   ```azurecli
@@ -67,7 +67,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Demora alguns minutos até que a VM seja criada. Quando o comando estiver concluído, tome nota da `publicIpAddress` exibida pelo Azure CLI. Utilize este endereço para efazer ligações SSH ao VM.
+Demora alguns minutos até que a VM seja criada. Quando o comando estiver concluído, `publicIpAddress` tome nota do mostrado pelo Azure CLI. Utilize este endereço para efazer ligações SSH ao VM.
 
 ### <a name="install-docker-on-the-vm"></a>Instale docker no VM
 
@@ -177,7 +177,7 @@ registryID=$(az acr show --name $registryName \
 
 Executar a [rede az private-endpoint criar][az-network-private-endpoint-create] comando para criar o ponto final privado do registo.
 
-O exemplo seguinte cria o ponto final *myPrivateEndpoint* e a ligação de serviço *myConnection*. Para especificar um recurso de registo de contentores para o ponto final, passe `--group-ids registry`:
+O exemplo seguinte cria o ponto final *myPrivateEndpoint* e a ligação de serviço *myConnection*. Para especificar um recurso de registo de `--group-ids registry`contentores para o ponto final, passe:
 
 ```azurecli
 az network private-endpoint create \
@@ -219,7 +219,7 @@ dataEndpointPrivateIP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Criar registos DNS na zona privada
 
-Os seguintes comandos criam registos DNS na zona privada para o ponto final do registo e o seu ponto final de dados. Por exemplo, se tiver um registo chamado *myregistry* na região da *Europa Ocidental,* os nomes finais são `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io`. 
+Os seguintes comandos criam registos DNS na zona privada para o ponto final do registo e o seu ponto final de dados. Por exemplo, se tiver um registo chamado *myregistry* na região `myregistry.azurecr.io` da `myregistry.westeurope.data.azurecr.io` *Europa Ocidental,* os nomes finais são e . 
 
 Primeiro executar a [rede az private-dns estabeleceu uma criação][az-network-private-dns-record-set-a-create] para criar conjuntos de recordes vazios A para o ponto final do registo e ponto final de dados:
 
@@ -262,7 +262,7 @@ Os seguintes passos assumem que já tem uma rede virtual e uma subnet configurad
 ### <a name="create-a-private-endpoint"></a>Criar um ponto final privado
 
 1. No portal, navegue para o seu registo de contentores.
-1. Em **Definições,** selecione **ligações de ponto final privados (Pré-visualização)** .
+1. Em **Definições,** selecione **ligações de ponto final privados (Pré-visualização)**.
 1. Selecione **+ Ponto final privado**.
 1. No separador **Basics,** introduza ou selecione as seguintes informações:
 
@@ -272,8 +272,8 @@ Os seguintes passos assumem que já tem uma rede virtual e uma subnet configurad
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
     | **Detalhes da instância** |  |
-    | Nome | Introduza um nome único. |
-    |Região|Selecione uma região.|
+    | Nome | Introduza um nome exclusivo. |
+    |Região|selecione uma região.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Insira ou selecione as seguintes informações:
@@ -314,7 +314,7 @@ Deve validar que os recursos dentro da subnet do ponto final privado se ligam ao
 
 Para validar a ligação de ligação privada, SSH à máquina virtual que configura na rede virtual.
 
-Execute o comando `nslookup` para resolver o endereço IP do seu registo sobre o link privado:
+Executar `nslookup` o comando para resolver o endereço IP do seu registo sobre o link privado:
 
 ```bash
 nslookup $registryName.azurecr.io
@@ -329,7 +329,7 @@ Name:   myregistry.privatelink.azurecr.io
 Address: 10.0.0.6
 ```
 
-Compare este resultado com o endereço IP público na produção `nslookup` para o mesmo registo sobre um ponto final público:
+Compare este resultado com o `nslookup` endereço IP público na produção para o mesmo registo sobre um ponto final público:
 
 ```console
 [...]
@@ -340,13 +340,13 @@ Address: 40.78.103.41
 
 ### <a name="registry-operations-over-private-link"></a>Operações de registo sobre ligação privada
 
-Verifique também se pode efetuar operações de registo a partir da máquina virtual na sub-rede. Faça uma ligação SSH à sua máquina virtual e faça [login az acr][az-acr-login] para iniciar sessão no seu registo. Dependendo da configuração do VM, poderá ter de pré-fixar os seguintes comandos com `sudo`.
+Verifique também se pode efetuar operações de registo a partir da máquina virtual na sub-rede. Faça uma ligação SSH à sua máquina virtual e faça [login az acr][az-acr-login] para iniciar sessão no seu registo. Dependendo da configuração do VM, poderá ter de `sudo`pré-fixar os seguintes comandos com .
 
 ```bash
 az acr login --name $registryName
 ```
 
-Efetuar operações de registo como `docker pull` para retirar uma amostra de imagem do registo. Substitua `hello-world:v1` por uma imagem e etiqueta apropriadas para o seu registo, pré-fixada com o nome do servidor de login de registo (todas as minúsculas):
+Efetuar operações de registo, de modo `docker pull` a retirar uma amostra de imagem do registo. Substitua `hello-world:v1` por uma imagem e etiqueta apropriadas para o seu registo, pré-fixada com o nome do servidor de login de registo (todas as minúsculas):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
@@ -409,10 +409,10 @@ Para limpar os seus recursos no portal, navegue para o seu grupo de recursos. As
 [az-network-vnet-list]: /cli/azure/network/vnet/#az-network-vnet-list
 [az-network-private-endpoint-create]: /cli/azure/network/private-endpoint#az-network-private-endpoint-create
 [az-network-private-endpoint-show]: /cli/azure/network/private-endpoint#az-network-private-endpoint-show
-[az-network-private-dns-zone-create]: /cli/azure/network/private-dns-zone/create#az-network-private-dns-zone-create
-[az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns-link/vnet#az-network-private-dns-link-vnet-create
-[az-network-private-dns-record-set-a-create]: /cli/azure/network/private-dns-record/set/a#az-network-private-dns-record-set-a-create
-[az-network-private-dns-record-set-a-add-record]: /cli/azure/network/private-dns-record/set/a#az-network-private-dns-record-set-a-add-record
+[az-network-private-dns-zone-create]: /cli/azure/network/private-dns/zone#az-network-private-dns-zone-create
+[az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az-network-private-dns-link-vnet-create
+[az-network-private-dns-record-set-a-create]: /cli/azure/network/private-dns/record-set/a#az-network-private-dns-record-set-a-create
+[az-network-private-dns-record-set-a-add-record]: /cli/azure/network/private-dns/record-set/a#az-network-private-dns-record-set-a-add-record
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273049"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
@@ -39,7 +39,7 @@ Pode utilizar endereços IP privados ou endereços IP públicos para configurar 
   * É necessário configurar as duas sessões de BGP para que o nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### <a name="example-for-private-peering"></a>Exemplo de peering privado
-Se optar por utilizar a.b.c.d/29 para configurar o peering, este está dividido em duas sub-redes /30. No exemplo a seguir, observe como a sub-rede a.b.c.d/29 é usada:
+Se optar por utilizar a.b.c.d/29 para configurar o peering, este está dividido em duas sub-redes /30. No exemplo seguinte, note como a sub-rede a.b.c.d/29 é utilizada:
 
 * A a.b.c.d/29 está dividida em a.b.c.d/30 e a.b.c.d+4/30 e transmitida à Microsoft através de APIs de aprovisionamento.
   * Utilize a a.b.c.d+1 como IP VRF do PE primário e a Microsoft consumirá a a.b.c.d+2 como IP VRF do MSEE primário.
@@ -83,7 +83,7 @@ Tem de utilizar endereços IP públicos da sua propriedade para configurar as se
 Pode optar por utilizar endereços IPv4 públicos ou privados para o peering privado. Oferecemos um isolamento do tráfego ponto a ponto, de modo a que a sobreposição de endereços com outros clientes não seja possível em caso de peering privado. Estes endereços não são anunciados na Internet. 
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
-O caminho de peering da Microsoft permite-lhe ligar a serviços cloud da Microsoft. A lista de serviços inclui serviços do Office 365, tais como Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
+O caminho de observação da Microsoft permite-lhe ligar-se aos serviços de cloud da Microsoft. A lista de serviços inclui serviços do Office 365, tais como Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
 
 Certifique-se de que o endereço IP e o número AS estão registados em seu nome num dos registos seguintes:
 
@@ -100,18 +100,18 @@ Se os prefixos e o número SA não estiverem atribuídos a si nos registos anter
 É permitido um Número AS privado com Peering da Microsoft, mas também irá precisar de validação manual. Além disso, removemos os números privados COMO no COMO Caminho para os prefixos recebidos. Por consequência, não pode acrescentar números privados COMO no COMO Caminho de modo a [influenciar o encaminhamento para o Peering da Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Não anuncie a mesma rota IP pública para a Internet pública e através do ExpressRoute. Para reduzir o risco de configuração incorreta que causa encaminhamento assimétrico, recomendamos vivamente que os [endereços IP NAT anunciados](expressroute-nat.md) à Microsoft sobre o ExpressRoute sejam de uma gama que não é publicitada para a internet. Se isso não for possível, é essencial garantir que publicita uma gama mais específica sobre o ExpressRoute do que a da ligação à Internet. Além da rota pública para NAT, também pode anunciar através do ExpressRoute o IP público endereços utilizados pelos servidores na sua rede no local que comunicam com pontos finais do Office 365 na Microsoft. 
+> Não divulgue a mesma rota pública de IP para a Internet pública e através do ExpressRoute. Para reduzir o risco de configuração incorreta que causa encaminhamento assimétrico, recomendamos vivamente que os [endereços IP NAT anunciados](expressroute-nat.md) à Microsoft sobre o ExpressRoute sejam de uma gama que não é publicitada para a internet. Se isso não for possível, é essencial garantir que publicita uma gama mais específica sobre o ExpressRoute do que a da ligação à Internet. Além da rota pública para o NAT, também pode anunciar através do ExpressRoute os endereços IP públicos utilizados pelos servidores na sua rede no local que comunicam com o Office 365 pontos finais dentro da Microsoft. 
 > 
 > 
 
-### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Público peering (preterido - não está disponível para novos circuitos do)
+### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Peering público (depreciado - não disponível para novos circuitos)
 O caminho de peering público Azure permite-lhe ligar a todos os serviços alojados no Azure ao longo dos respetivos endereços IP públicos. Estes incluem os serviços listados nas [FAQ do ExpressRoute](expressroute-faqs.md) e quaisquer serviços alojados pelos ISVs no Microsoft Azure. A conectividade aos serviços do Microsoft Azure em peering público é sempre iniciada a partir da sua rede para a rede da Microsoft. Tem de utilizar endereços IP Públicos para o tráfego destinado à rede da Microsoft.
 
 > [!IMPORTANT]
-> Todos os serviços de PaaS do Azure são acessíveis através do peering da Microsoft.
+> Todos os serviços Azure PaaS são acessíveis através do peering da Microsoft.
 >   
 
-Um número AS privado é permitido com peering público.
+Um número de AS Privado é permitido com o público espreitar.
 
 ## <a name="dynamic-route-exchange"></a>Troca de rotas dinâmicas
 A troca do encaminhamento será feita através do protocolo eBGP. São estabelecidas sessões de EBGP entre os MSEEs e os seus routers. A autenticação das sessões de BGP não é um requisito. Se necessário, pode ser configurado um hash MD5. Veja [Configurar encaminhamento](how-to-routefilter-portal.md) e [Fluxos de trabalho de aprovisionamento dos circuitos e estados dos circuitos](expressroute-workflows.md) para obter informações sobre como configurar sessões de BGP.
@@ -142,7 +142,7 @@ As rotas predefinidas só são permitidas em sessões do peering privado do Azur
 > 
 > 
 
-## <a name="bgp"></a>Suporte para comunidades de BGP
+## <a name="support-for-bgp-communities"></a><a name="bgp"></a>Suporte para comunidades de BGP
 Esta secção apresenta uma descrição geral de como as comunidades de BGP serão utilizadas com o ExpressRoute. A Microsoft anuncia as rotas nos caminhos do peering público e do peering da Microsoft com rotas etiquetadas com valores de comunidade apropriados. A lógica por detrás disto e os detalhes sobre os valores das comunidades são descritos abaixo. A Microsoft não irá, no entanto, honrar os valores das comunidades marcadas em rotas anunciadas para a Microsoft.
 
 Se estiver a ligar à Microsoft através do ExpressRoute numa localização de peering dentro de uma região geopolítica, terá acesso a todos os serviços em nuvem da Microsoft em todas as regiões dentro dos limites geopolíticos. 
@@ -151,7 +151,7 @@ Por exemplo, se ligar à Microsoft em Amesterdão através do ExpressRoute, ter�
 
 Veja a página [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, das regiões do Azure associadas e das localizações de peering do ExpressRoute correspondentes.
 
-Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. Ter várias ligações oferece vantagens significativas de elevada disponibilidade, devido à georredundância. Em casos em que tem vários circuitos do ExpressRoute, receberá o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos do peering públicos e peering da Microsoft. o que significa que terá vários caminhos da sua rede para a Microsoft. Esta situação pode, potencialmente, levar a decisões de encaminhamento inferiores às ideais na sua rede. Sendo assim, poderá ter experiências de conectividade aos diferentes serviços inferiores às ideais. Também pode utilizar os valores das comunidades para tomar decisões de encaminhamento adequadas para oferecer [encaminhamento ideal aos utilizadores](expressroute-optimize-routing.md).
+Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. Ter várias ligações oferece vantagens significativas de elevada disponibilidade, devido à georredundância. Nos casos em que tem vários circuitos ExpressRoute, receberá o mesmo conjunto de prefixos anunciados pela Microsoft nos caminhos de espreitar e espreitar públicos da Microsoft. o que significa que terá vários caminhos da sua rede para a Microsoft. Esta situação pode, potencialmente, levar a decisões de encaminhamento inferiores às ideais na sua rede. Sendo assim, poderá ter experiências de conectividade aos diferentes serviços inferiores às ideais. Também pode utilizar os valores das comunidades para tomar decisões de encaminhamento adequadas para oferecer [encaminhamento ideal aos utilizadores](expressroute-optimize-routing.md).
 
 | **Região do Microsoft Azure** | **Comunidade Regional de BGP** | **Comunidade BGP de armazenamento** | **Comunidade SQL BGP** | **Cosmos DB BGP comunidade** |
 | --- | --- | --- | --- | --- |
@@ -170,7 +170,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
 | Europa do Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Europa ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
@@ -203,7 +203,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | **África do Sul**| |
 | África do Sul Norte | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | África do Sul Ocidental | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
-| **Emirados Sea**| |
+| **E.A.U.**| |
 | Emirados Unidos norte | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | Central dos Emirados Emirados Unidos | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
@@ -218,18 +218,18 @@ Todas as rotas anunciadas a partir da Microsoft serão etiquetadas com o valor d
 ### <a name="service-to-bgp-community-value"></a>Serviço ao valor comunitário do BGP
 Para além do que foi dito acima, a Microsoft também marcará prefixos baseados no serviço a que pertencem. Este caso aplica-se apenas ao peering da Microsoft. A tabela abaixo fornece um mapeamento de serviço para o valor das comunidades de BGP. Pode executar o cmdlet 'Get-AzBgpServiceCommunity' para obter uma lista completa dos valores mais recentes.
 
-| **Serviço** | **Valor da comunidade BGP** |
+| **Serviço** | **Valor das comunidades de BGP** |
 | --- | --- |
 | Troca online** | 12076:5010 |
 | SharePoint Online** | 12076:5020 |
 | Skype para negócios online** | 12076:5030 |
 | CRM Online*** |12076:5040 |
-| Serviços globais do Azure * | 12076:5050 |
+| Serviços Globais Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Outros Serviços Online do Office 365** | 12076:5100 |
 
 *A Azure Global Services inclui apenas A Azure DevOps neste momento.\
-** Autorização necessária da Microsoft, consulte filtros de [rota Configure para Microsoft Peering](how-to-routefilter-portal.md)\
+** Autorização necessária da Microsoft, consulte filtros de [rotas Configure para Microsoft Peering](how-to-routefilter-portal.md)\
 CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a comunidade regional para as suas implementações De Dinâmica.
 
 > [!NOTE]
@@ -239,9 +239,9 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 
 ### <a name="bgp-community-support-in-national-clouds"></a>Suporte da Comunidade BGP nas Clouds National
 
-| **Região do Azure de Clouds Nacionais**| **Valor da comunidade BGP** |
+| **Região do Azure de Clouds Nacionais**| **Valor das comunidades de BGP** |
 | --- | --- |
-| **US Gov da América** |  |
+| **Governo dos EUA** |  |
 | US Gov - Arizona | 12076:51106 |
 | US Gov - Iowa | 12076:51109 |
 | US Gov - Virginia | 12076:51105 |
@@ -250,9 +250,9 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 | US DoD - Leste | 12076:51205 |
 
 
-| **Serviço nas Clouds Nacionais** | **Valor da comunidade BGP** |
+| **Serviço nas Clouds Nacionais** | **Valor das comunidades de BGP** |
 | --- | --- |
-| **US Gov da América** |  |
+| **Governo dos EUA** |  |
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype para Empresas Online |12076:5130 |

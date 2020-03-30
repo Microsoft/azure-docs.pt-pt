@@ -1,6 +1,6 @@
 ---
-title: Serviço de porta de entrada do Azure - encaminhamento da regra de monitorização correspondentes | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender como o serviço de porta de entrada do Azure corresponde à regra de encaminhamento que a utilizar para uma solicitação de entrada
+title: Porta da Frente Azure - Regra de encaminhamento que combina com a monitorização [ Microsoft Docs
+description: Este artigo ajuda-o a entender como a Porta da Frente Azure corresponde à regra de encaminhamento para um pedido de entrada
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,74 +11,74 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736293"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471596"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como porta de entrada corresponde à pedidos para uma regra de encaminhamento
+# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como a Porta da Frente corresponde aos pedidos de uma regra de encaminhamento
 
-Depois de estabelecer uma ligação e fazer um handshake SSL, quando um pedido pousar num ambiente de porta de entrada, uma das primeiras coisas que faz de porta de entrada é determinar de todas as configurações, que regra de encaminhamento específica para corresponder o pedido para e, em seguida, colocar a ação definida. O documento seguinte explica como a porta de entrada determina que configuração de rota para utilizar ao processar um pedido HTTP.
+Depois de estabelecer uma ligação e fazer um aperto de mão SSL, quando um pedido aterra em um ambiente porta da frente uma das primeiras coisas que a Porta da Frente faz é determinar a partir de todas as configurações, que regra de encaminhamento particular para corresponder ao pedido e, em seguida, tomar a ação definida. O seguinte documento explica como a Porta Frontal determina qual a configuração da Rota a utilizar ao processar um pedido http.
 
-## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota de porta de entrada
-Porta de Front uma configuração de regra de encaminhamento é composta por duas partes principais: um "lado esquerdo" e "lado direito". Podemos corresponder a solicitação de entrada para o lado esquerdo da rota, enquanto o lado direito define como conseguimos processar o pedido.
+## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota da porta da frente
+Uma configuração de regra de encaminhamento da Porta Frontal é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Combinamos com o pedido de entrada para o lado esquerdo da rota, enquanto o lado direito define como processamos o pedido.
 
-### <a name="incoming-match-left-hand-side"></a>Correspondência de entrada (lado esquerdo)
-As seguintes propriedades de determinam se a solicitação de entrada coincide com a regra de encaminhamento (ou o lado esquerdo):
+### <a name="incoming-match-left-hand-side"></a>Jogo de entrada (lado esquerdo)
+As seguintes propriedades determinam se o pedido de entrada corresponde à regra de encaminhamento (ou lado esquerdo):
 
-* **Protocolos HTTP** (HTTP/HTTPS)
-* **Hosts** (por exemplo, www\.foo.com, \*. bar.com)
-* **Caminhos** (por exemplo, /\*, /users/\*, /file.gif)
+* **PROTOCOLOS HTTP** (HTTP/HTTPS)
+* **Anfitriões** (por\.exemplo, \*www foo.com, .bar.com)
+* **Caminhos** (por exemplo, /\*\*/ /utilizadores/ /file.gif)
 
-Estas propriedades são expandidas horizontalmente internamente, para que cada combinação de protocolo/anfitrião/caminho é um conjunto de correspondência de potenciais.
+Estas propriedades são expandidas internamente de modo que cada combinação de Protocolo/Anfitrião/Caminho é um conjunto de correspondência potencial.
 
-### <a name="route-data-right-hand-side"></a>Dados da rota (direita)
-A decisão de como processar o pedido, depende se a colocação em cache está ativada ou não para a rota específica. Então, se não tivermos uma resposta em cache para o pedido, podemos irá reencaminhar o pedido para o back-end apropriado no conjunto de back-end configurado.
+### <a name="route-data-right-hand-side"></a>Dados de rota (lado direito)
+A decisão de como processar o pedido depende de se o cache está ou não habilitado para a rota específica. Então, se não tivermos uma resposta em cache para o pedido, vamos reencaminhar o pedido para o backend apropriado na piscina configurada backend.
 
-## <a name="route-matching"></a>Encaminhar correspondência
-Esta secção irá focar-se em como podemos corresponder a uma determinada regra de encaminhamento de porta de entrada. O conceito básico é que podemos corresponder sempre para o **mais específica corresponde ao primeiro** apenas verificando "esquerda".  Podemos primeiro corresponder com base no protocolo HTTP, em seguida, o anfitrião de front-end, em seguida, o caminho.
+## <a name="route-matching"></a>Correspondência de rotas
+Esta secção vai focar-se na forma como combinamos com uma regra de encaminhamento da Porta da Frente. O conceito básico é que sempre nos coatemos com o **jogo mais específico, primeiro** olhando apenas para o "lado esquerdo".  Nós primeiro combinamos com base no protocolo HTTP, depois frontend host, em seguida, o Caminho.
 
-### <a name="frontend-host-matching"></a>Anfitrião de front-end correspondentes
-Quando os anfitriões de front-end de correspondência, utilizamos a lógica como abaixo:
+### <a name="frontend-host-matching"></a>Correspondência do anfitrião frontend
+Ao combinar anfitriões Frontend, usamos a lógica como abaixo:
 
-1. Procure qualquer roteamento com uma correspondência exata no anfitrião.
-2. Se não existem anfitriões de front-end exatamente iguais, rejeitar a solicitação e enviar um erro de 400 pedido inválido.
+1. Procure qualquer encaminhamento com uma correspondência exata no hospedeiro.
+2. Se não houver anfitriões frontais exatos, rejeite o pedido e envie um erro de 400 Bad Request.
 
-Para explicar esse processo ainda mais, vamos examinar um exemplo de configuração de rotas de porta de entrada (apenas no lado esquerdo):
+Para explicar mais este processo, vamos olhar para uma configuração exemplo das rotas da Porta Da Frente (apenas do lado esquerdo):
 
-| Regra de encaminhamento | Anfitriões de front-end | Caminho |
+| Regra de encaminhamento | Anfitriões frontend | Caminho |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
-| B | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| B | foo.contoso.com | /utilizadores/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /imagens/\* |
 
-Se os seguintes pedidos de entrada foram enviados para a porta da frente, eles seriam correspondência com as seguintes regras de encaminhamento acima:
+Se os seguintes pedidos de entrada fossem enviados para a Porta da Frente, corresponderiam às seguintes regras de encaminhamento de cima:
 
-| Anfitrião de front-end recebidos | Corresponde a regra ou regras de encaminhamento |
+| Anfitrião de frontend | Regra de encaminhamento compatível |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
-| images.fabrikam.com | Erro 400: Pedido Inválido |
+| images.fabrikam.com | Erro 400: Pedido mau |
 | foo.adventure-works.com | C |
-| contoso.com | Erro 400: Pedido Inválido |
-| www\.adventure-works.com | Erro 400: Pedido Inválido |
-| www\.northwindtraders.com | Erro 400: Pedido Inválido |
+| contoso.com | Erro 400: Pedido mau |
+| www\.adventure-works.com | Erro 400: Pedido mau |
+| www\.northwindtraders.com | Erro 400: Pedido mau |
 
 ### <a name="path-matching"></a>Correspondência de caminho
-Depois de determinar o anfitrião de front-end específicas e filtragem de possíveis regras de encaminhamento para apenas as rotas com esse anfitrião de front-end, porta de entrada, em seguida, filtra as regras de encaminhamento com base no caminho de pedido. Podemos usar uma lógica semelhante a como anfitriões de front-end:
+Depois de determinar o anfitrião frontal específico e filtrar possíveis regras de encaminhamento apenas para as rotas com o anfitrião frontal, a Porta frontal filtra as regras de encaminhamento com base na trajetória de pedido. Usamos uma lógica semelhante como os anfitriões frontendas:
 
-1. Procure qualquer regra de encaminhamento com uma correspondência exata no caminho
-2. Se nenhum caminho de correspondência exata, procure as regras de encaminhamento com o caminho que corresponde a caráter universal
-3. Se não existem regras de encaminhamento encontram-se com um caminho correspondente, em seguida, rejeitar a solicitação e retornar um 400: Erro de pedido incorreto resposta HTTP.
+1. Procure qualquer regra de encaminhamento com uma correspondência exata no Caminho
+2. Se não combinar exatamente Caminhos, procure regras de encaminhamento com um caminho wildcard que corresponda
+3. Se não forem encontradas regras de encaminhamento com um Caminho correspondente, então rejeite o pedido e devolva uma resposta HTTP de erro de pedido de mau pedido.
 
 >[!NOTE]
-> Qualquer caminhos sem um caráter universal são considerados como caminhos com correspondência exacta. Mesmo que o caminho termina dentro de uma barra, ainda é considerada como correspondência exata.
+> Quaisquer Caminhos sem wildcard são considerados caminhos exatamente compatíveis. Mesmo que o Caminho termine num corte, ainda é considerado compatível.
 
-Explicar mais detalhes, vamos examinar outro conjunto de exemplos:
+Para explicar mais, vamos olhar para outro conjunto de exemplos:
 
-| Regra de encaminhamento | Anfitrião de front-end    | Caminho     |
+| Regra de encaminhamento | Anfitrião frontend    | Caminho     |
 |-------|---------|----------|
 | A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
@@ -87,11 +87,11 @@ Explicar mais detalhes, vamos examinar outro conjunto de exemplos:
 | E     | www\.contoso.com | /abc/    |
 | F     | www\.contoso.com | /abc/\*  |
 | G     | www\.contoso.com | /abc/def |
-| H     | www\.contoso.com | /path/   |
+| H     | www\.contoso.com | /caminho/   |
 
-Tendo em conta que a configuração, resultaria-se a tabela correspondente de exemplo seguinte:
+Tendo em conta esta configuração, resultaria o seguinte exemplo de quadro correspondente:
 
-| Solicitação de entrada    | Rotas correspondentes |
+| Pedido de Entrada    | Rota igualada |
 |---------------------|---------------|
 | www\.contoso.com/            | A             |
 | www\.contoso.com/a           | B             |
@@ -108,24 +108,24 @@ Tendo em conta que a configuração, resultaria-se a tabela correspondente de ex
 | www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
-> </br> Se existirem não existem regras de encaminhamento para um anfitrião de front-end de com correspondência exacta com uma grande detectora encaminhar caminho (`/*`), em seguida, não haverá uma correspondência para qualquer regra de encaminhamento.
+> </br> Se não houver regras de encaminhamento para um anfitrião frontal`/*`de correspondência exata com um caminho catch-all ( caminho de captura) então não haverá uma correspondência com qualquer regra de encaminhamento.
 >
-> Exemplo de configuração:
+> Configuração do exemplo:
 >
-> | Encaminhar | Host             | Caminho    |
+> | Encaminhar | Anfitrião             | Caminho    |
 > |-------|------------------|---------|
 > | A     | profile.contoso.com | /api/\* |
 >
 > Tabela correspondente:
 >
-> | Solicitação de entrada       | Rotas correspondentes |
+> | Pedido de entrada       | Rota igualada |
 > |------------------------|---------------|
-> | profile.domain.com/other | Nenhum. Erro 400: Pedido Inválido |
+> | profile.domain.com/other | Nenhum. Erro 400: Pedido mau |
 
 ### <a name="routing-decision"></a>Decisão de encaminhamento
-Assim que podemos ter correspondido a uma única regra de encaminhamento de porta de entrada, em seguida, precisamos escolha como pretende processar o pedido. Se para a regra de encaminhamento correspondente, porta de entrada tem uma resposta em cache disponível, em seguida, o mesmo obtém fornecido ao cliente. Caso contrário, a próxima coisa que obtém valores é se configurou [(caminho de encaminhamento personalizado) de reescrita de URLs](front-door-url-rewrite.md) para o encaminhamento correspondentes da regra ou não. Se não existir um caminho de encaminhamento personalizado definido, a solicitação é encaminhada para o back-end apropriado no conjunto de back-end configurado, conforme é. Caso contrário, o caminho da solicitação é atualizado, de acordo a [caminho de encaminhamento personalizado](front-door-url-rewrite.md) definido e, em seguida, encaminhar para o back-end.
+Uma vez que correspondamos a uma única regra de encaminhamento da Porta Da Frente, precisamos escolher como processar o pedido. Se para a regra de encaminhamento compatível, a Porta da Frente tem uma resposta em cache disponível, então o mesmo é servido de volta para o cliente. Caso contrário, a próxima coisa que é avaliada é se você configurado [URL Rewrite (caminho de encaminhamento personalizado)](front-door-url-rewrite.md) para a regra de encaminhamento combinado ou não. Se não houver um caminho de encaminhamento personalizado definido, então o pedido é encaminhado para o backend apropriado na piscina de backend configurada como está. Caso contrário, o caminho de pedido é atualizado de acordo com o [caminho de encaminhamento personalizado](front-door-url-rewrite.md) definido e, em seguida, encaminhado para o backend.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

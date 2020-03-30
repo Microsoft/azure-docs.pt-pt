@@ -11,19 +11,19 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: b036dd9c440e01bf32b35ee01c1d39d4ce6e129b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472363"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são matrizes de porta programáveis de campo (FPGA) e como implementar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo fornece uma introdução a matrizes de portaprogramáveis de campo (FPGA), e mostra-lhe como implementar os seus modelos usando o Azure Machine Learning para um Azure FPGA. 
+Este artigo fornece uma introdução a matrizes de portaprogramáveis de campo (FPGA), e mostra-lhe como implementar os seus modelos usando o Azure Machine Learning para um Azure FPGA.
 
-As FPGAs contêm uma série de blocos lógicos programáveis, e uma hierarquia de interligações reconfiguráveis. As interligações permitem que estes blocos sejam configurados de várias formas após a fabricação. Em comparação com outras fichas, as FPGAs proporcionam uma combinação de programabilidade e desempenho.
+As FPGAs contêm uma matriz de blocos de lógica programáveis e uma hierarquia de interligações reconfiguráveis. As interligações permitem que estes blocos sejam configurados de várias formas após a fabricação. Em comparação com outras fichas, as FPGAs proporcionam uma combinação de programabilidade e desempenho.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGAs vs CPU, GPU e ASIC
 
@@ -33,26 +33,26 @@ O diagrama e a tabela que se aseguir mostram como as FPGAs se comparam a outros 
 
 |Processador||Descrição|
 |---|:-------:|------|
-|Circuitos do integrado específicas da aplicação|ASICs|Circuitos personalizados, como o da Google TensorFlow processador unidades (TPU), fornecem a mais alta eficiência. Não podem ser reconfigurados à medida que as suas necessidades mudam.|
-|Matrizes de porta de campos programáveis|FPGAs|As FPGAs, como as disponíveis no Azure, proporcionam um desempenho próximo dos ASICs. São também flexíveis e reconfiguráveis ao longo do tempo, para implementar uma nova lógica.|
+|Circuitos integrados específicos da aplicação|ASICs|Circuitos personalizados, como as Unidades de Processador TensorFlow da Google (TPU), proporcionam a maior eficiência. Não podem ser reconfigurados à medida que as suas necessidades mudam.|
+|Matrizes de portão programáveis de campo|FPGAs|As FPGAs, como as disponíveis no Azure, proporcionam um desempenho próximo dos ASICs. São também flexíveis e reconfiguráveis ao longo do tempo, para implementar uma nova lógica.|
 |Unidades de processamento de gráficos|GPUs|Uma escolha popular para computações de IA. As GPUs oferecem capacidades de processamento paralelas, tornando-as mais rápidas na renderização de imagem do que cpus.|
-|Unidades de processamento central|CPUs|Processadores de uso geral, o desempenho dos quais não é ideal para gráficos e processamento de vídeo.|
+|Unidades centrais de processamento|CPUs|Processadores de uso geral, o desempenho dos quais não é ideal para gráficos e processamento de vídeo.|
 
 As FPGAs no Azure baseiam-se nos dispositivos FPGA da Intel, que os cientistas de dados e desenvolvedores usam para acelerar os cálculos de IA em tempo real. Esta arquitetura ativada pela FPGA oferece desempenho, flexibilidade e escala, e está disponível no Azure.
 
 As FPGAs possibilitam obter baixa latência para pedidos de inferência em tempo real (ou pontuação de modelos). Não são necessários pedidos assíncronos (loting). O loteamento pode causar latência, porque mais dados precisam de ser processados. Implementações de unidades de processamento neural não requerem lotação; portanto, a latência pode ser muitas vezes menor, em comparação com os processadores CPU e GPU.
 
-### <a name="reconfigurable-power"></a>Power reconfiguráveis
-Pode reconfigurar as FPGAs para diferentes tipos de modelos de aprendizagem automática. Esta flexibilidade torna mais fácil acelerar as aplicações com a mais precisão numérica ideal e o modelo de memória que está a ser utilizado. Como os FPGAs são reconfiguráveis, pode manter-se atual com os requisitos de algoritmos de IA em rápida mudança.
+### <a name="reconfigurable-power"></a>Potência reconfigurável
+Pode reconfigurar as FPGAs para diferentes tipos de modelos de aprendizagem automática. Esta flexibilidade facilita a aceleração das aplicações com base no modelo de precisão numérica e memória mais ideal que está a ser utilizado. Como os FPGAs são reconfiguráveis, pode manter-se atual com os requisitos de algoritmos de IA em rápida mudança.
 
-## <a name="whats-supported-on-azure"></a>O que é suportado no Azure
-O Microsoft Azure é o maior investimento em nuvem do mundo em FPGAs. Com esta arquitetura de hardware habilitados em FPGA, redes neurais treinadas executam rapidamente e com uma latência mais baixa. O Azure pode paralelamente a redes neuronais profundas pré-treinadas (DNN) através de FPGAs para ampliar o seu serviço. Os DNNs podem ser previamente treinados, como um featurizer profunda para a transferência de aprendizado ou otimizar com pesos atualizados.
+## <a name="whats-supported-on-azure"></a>O que é apoiado em Azure
+O Microsoft Azure é o maior investimento em nuvem do mundo em FPGAs. Utilizando esta arquitetura de hardware ativada pela FPGA, as redes neurais treinadas funcionam rapidamente e com menor latência. O Azure pode paralelamente a redes neuronais profundas pré-treinadas (DNN) através de FPGAs para ampliar o seu serviço. Os DNNs podem ser pré-treinados, como um profundo característica para a aprendizagem de transferências, ou afinados com pesos atualizados.
 
 FPGAs em Suportes Azure:
 
 + Cenários de classificação e reconhecimento de imagem
-+ Implementação do TensorFlow
-+ Hardware da Intel FPGA 
++ Implementação tensorFlow
++ Hardware Intel FPGA
 
 Estes modelos DNN estão atualmente disponíveis:
   - ResNet 50
@@ -64,7 +64,7 @@ Estes modelos DNN estão atualmente disponíveis:
 As FPGAs estão disponíveis nestas regiões de Azure:
   - E.U.A. Leste
   - Ásia Sudeste
-  - Europa Ocidental
+  - Europa ocidental
   - E.U.A.Oeste 2
 
 > [!IMPORTANT]
@@ -81,12 +81,9 @@ Os seguintes cenários utilizam FPGAs:
 
 + [Mapeamento de cobertura de terra](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-
-
-## <a name="example-deploy-models-on-fpgas"></a>Exemplo: Implementar modelos em FPGAs 
+## <a name="example-deploy-models-on-fpgas"></a>Exemplo: Implementar modelos em FPGAs
 
 Pode implementar um modelo como serviço web em FPGAs com modelos acelerados de hardware de aprendizagem automática Azure. A utilização de FPGAs proporciona inferência de latência ultra-baixa, mesmo com um único tamanho de lote. Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para previsão, mais frequentemente em dados de produção.
-
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,12 +91,12 @@ Pode implementar um modelo como serviço web em FPGAs com modelos acelerados de 
 
 - Quota FPGA. Utilize o Azure CLI para verificar se tem quota:
 
-    ```shell
+    ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
     > [!TIP]
-    > Os outros locais possíveis são ``southeastasia``, ``westeurope``e ``westus2``.
+    > Os outros locais ``southeastasia`` ``westeurope``possíveis ``westus2``são, e .
 
     O comando devolve texto semelhante ao seguinte:
 
@@ -111,13 +108,13 @@ Pode implementar um modelo como serviço web em FPGAs com modelos acelerados de 
 
     Certifique-se de que tem pelo menos 6 vCPUs no âmbito do __CurrentValue__.
 
-    Se não tiver quota, submeta um pedido a [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+    Se não tiver quota, em seguida, submeta um pedido em [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
 - Um espaço de trabalho azure machine learning e o Azure Machine Learning SDK para Python instalado. Para mais informações, consulte [Criar um espaço de trabalho.](how-to-manage-workspace.md)
  
 - O Python SDK para modelos acelerados por hardware:
 
-    ```shell
+    ```bash
     pip install --upgrade azureml-accel-models
     ```
 
@@ -131,8 +128,8 @@ Siga as instruções para:
 * Defina o modelo TensorFlow
 * Converter o modelo
 * Implementar o modelo
-* Consumir o modelo implementado
-* Eliminar serviços implementados
+* Consumir o modelo implantado
+* Eliminar serviços implantados
 
 Utilize o [SDK de Aprendizagem automática Azure para python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) para criar uma definição de serviço. Uma definição de serviço é um ficheiro que descreve um pipeline de gráficos (entrada, característica e classificação) com base no TensorFlow. O comando de implantação comprime automaticamente a definição e os gráficos num ficheiro ZIP e envia o ZIP para o armazenamento da Blob Azure. O DNN já está implantado para funcionar na FPGA.
 
@@ -150,7 +147,7 @@ ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
 ```
 
-### <a name="preprocess-image"></a>Pré-processar a imagem
+### <a name="preprocess-image"></a>Imagem pré-processada
 
 A entrada para o serviço web é uma imagem JPEG.  O primeiro passo é descodificar a imagem JPEG e processá-la.  As imagens JPEG são tratadas como cordas e o resultado são tensores que serão a entrada para o modelo ResNet 50.
 
@@ -166,7 +163,7 @@ print(image_tensors.shape)
 
 ### <a name="load-featurizer"></a>Carregador de características
 
-Inicializar o modelo e transfira um ponto de verificação do TensorFlow da versão quantificada do ResNet50 para ser utilizado como um featurizer.  Pode substituir "QuantizedResnet50" no código abaixo por importar outras redes neuronais profundas:
+Inicialize o modelo e baixe um ponto de verificação TensorFlow da versão quantificada do ResNet50 para ser usado como um featurizer.  Pode substituir "QuantizedResnet50" no código abaixo por importar outras redes neuronais profundas:
 
 - QuantizedResnet152
 - QuantizedVgg16
@@ -191,7 +188,7 @@ classifier_output = model_graph.get_default_classifier(feature_tensor)
 print(classifier_output)
 ```
 
-### <a name="save-the-model"></a>Salve o modelo
+### <a name="save-the-model"></a>Guardar o modelo
 
 Agora que o pré-processador, o resNet 50, e o classificador foram carregados, guarde o gráfico e as variáveis associadas como modelo.
 
@@ -289,7 +286,7 @@ print("\nSuccessfully converted: ", converted_model.name, converted_model.url, c
       converted_model.id, converted_model.created_time, '\n')
 ```
 
-### <a name="create-docker-image"></a>Criar imagem docker
+### <a name="create-docker-image"></a>Criar imagem do Docker
 
 O modelo convertido e todas as dependências são adicionadas a uma imagem do Docker.  Esta imagem do Docker pode então ser implantada e instantânea.  Os alvos de implementação suportados incluem AKS na nuvem ou um dispositivo de borda como [O Edge De Data Box](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Também pode adicionar etiquetas e descrições para a sua imagem registada do Docker.
 
@@ -320,7 +317,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>Desdobre-se para a nuvem
 
-Para implementar o seu modelo como um serviço da web de produção de grande escala, utilize o Azure Kubernetes Service (AKS). Pode criar um novo utilizando o estúdio Azure Machine Learning SDK, CLI ou [Azure Machine Learning.](https://ml.azure.com)
+Para implementar o seu modelo como um serviço web de produção de alta escala, utilize o Serviço Azure Kubernetes (AKS). Pode criar um novo utilizando o estúdio Azure Machine Learning SDK, CLI ou [Azure Machine Learning.](https://ml.azure.com)
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -366,8 +363,8 @@ aks_service.wait_for_deployment(show_output=True)
 
 #### <a name="test-the-cloud-service"></a>Teste o serviço de nuvem
 A imagem do Docker suporta o gRPC e o TensorFlow servindo "previsão" da API.  Use o cliente da amostra para ligar para a imagem do Docker para obter previsões do modelo.  O código do cliente da amostra está disponível:
-- [python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [Pitão](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
+- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Se quiser utilizar o TensorFlow Serving, pode [descarregar um cliente](https://www.tensorflow.org/serving/setup)de amostra .
 
@@ -424,7 +421,7 @@ converted_model.delete()
 Todos os [dispositivos Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) contêm uma FPGA para executar o modelo.  Só um modelo pode estar a funcionar na FPGA de uma só vez.  Para executar um modelo diferente, basta colocar um novo recipiente. As instruções e o código da amostra podem ser encontrados [nesta amostra Azure](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
-## <a name="secure-fpga-web-services"></a>Proteger serviços da web FPGA
+## <a name="secure-fpga-web-services"></a>Serviços web Seguros FPGA
 
 Para garantir os seus serviços web da FPGA, consulte o documento [de serviços web Secure.](how-to-secure-web-service.md)
 

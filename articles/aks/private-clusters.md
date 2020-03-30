@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: b8b4f8062d9f60648e22ab4eb0be78eb47159834
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cdefcfe460a97f647afa05947e92fae0c4d07001
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79205174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499298"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviço Azure Kubernetes
 
@@ -23,7 +23,7 @@ O plano de controlo ou servidor API está numa subscrição Azure Kubernetes Ser
 
 ## <a name="create-a-private-aks-cluster"></a>Criar um cluster PRIVADO AKS
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos ou utilize um grupo de recursos existente para o seu cluster AKS.
 
@@ -76,7 +76,7 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 3. No painel esquerdo, selecione o link de **rede Virtual.**  
 4. Crie um novo link para adicionar a rede virtual do VM à zona privada de DNS. Leva alguns minutos para que a ligação de zona DNS fique disponível.  
 5. Volte para o grupo de recursos MC_* no portal Azure.  
-6. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet-\** .  
+6. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet-\**.  
 7. No painel esquerdo, selecione **Peerings**.  
 8. Selecione **Adicionar,** adicione a rede virtual do VM e, em seguida, crie o peering.  
 9. Vá à rede virtual onde tem o VM, selecione **Peerings,** selecione a rede virtual AKS e, em seguida, crie o peering. Se o endereço variar na rede virtual AKS e no choque de rede virtual do VM, o olhar falha. Para mais informações, consulte o peering da [rede Virtual.][virtual-network-peering]
@@ -84,7 +84,7 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 ## <a name="dependencies"></a>Dependências  
 
 * O serviço Private Link é suportado apenas no Standard Azure Load Balancer. O Equilíbrio básico de carga azure não é suportado.  
-* Para utilizar um servidor DNS personalizado, implemente um servidor AD com DNS para encaminhar para este IP 168.63.129.16
+* Para utilizar um servidor DNS personalizado, adicione o Azure DNS IP 168.63.129.16 como o servidor DNS a montante no servidor DNS personalizado.
 
 ## <a name="limitations"></a>Limitações 
 * As gamas autorizadas IP não podem ser aplicadas ao ponto final do servidor api privado, aplicam-se apenas ao servidor público da API
@@ -104,7 +104,7 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

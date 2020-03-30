@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d1e6d6db1465b20f1f32a8ffb2f978d0a04a1033
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201441"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470848"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Quickstart: Lançar uma aplicação Azure Spring Cloud utilizando o plug-in Maven
 
@@ -35,7 +35,7 @@ Após este arranque rápido, aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instalar o Git](https://git-scm.com/).
+1. [Instale Git](https://git-scm.com/).
 2. [Instale jDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Instale maven 3.0 ou mais tarde.](https://maven.apache.org/download.cgi)
 4. [Inscreva-se para uma subscrição azure gratuita.](https://azure.microsoft.com/free/)
@@ -47,13 +47,13 @@ Para concluir este guia de início rápido:
 1. Forneça os Detalhes do **Projeto** para a aplicação da amostra da seguinte forma:
 
     1. Selecione a **Subscrição** com a qual a aplicação será associada.
-    1. Selecione ou crie um grupo de recursos para a aplicação. Recomendamos a criação de um novo grupo de recursos.  O exemplo abaixo mostra um novo grupo de recursos chamado `myspringservice`.
-    1. Forneça um nome para o novo serviço Azure Spring Cloud.  O nome deve ter entre 4 e 32 caracteres de comprimento e só pode conter letras minúsculas, números e hífenes. O primeiro carácter do nome de serviço deve ser uma letra e o último personagem deve ser uma letra ou um número.  O serviço no exemplo abaixo tem o nome `contosospringcloud`.
+    1. Selecione ou crie um grupo de recursos para a aplicação. Recomendamos a criação de um novo grupo de recursos.  O exemplo abaixo mostra um `myspringservice`novo grupo de recursos chamado .
+    1. Forneça um nome para o novo serviço Azure Spring Cloud.  O nome deve ter entre 4 e 32 caracteres de comprimento e só pode conter letras minúsculas, números e hífenes. O primeiro carácter do nome de serviço deve ser uma letra e o último personagem deve ser uma letra ou um número.  O serviço no exemplo abaixo `contosospringcloud`tem o nome .
     1. Selecione um local para a sua aplicação a partir das opções fornecidas.  Neste exemplo, selecionamos `East US`.
     1. Selecione **Review + crie** para rever um resumo do seu novo serviço.  Se tudo parecer correto, selecione **Criar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Selecione Review + crie](media/maven-qs-review-create.jpg)
+    > ![Selecione Review + criar](media/maven-qs-review-create.jpg)
 
 Leva cerca de 5 minutos para o serviço ser implantado. Depois de o serviço ser implementado, selecione **Ir para o recurso** e aparece a página de visão **geral** para a instância de serviço.
 
@@ -63,7 +63,7 @@ Leva cerca de 5 minutos para o serviço ser implantado. Depois de o serviço ser
 ## <a name="set-up-your-configuration-server"></a>Configurar o seu servidor de configuração
 
 1. Na página **de visão geral** do serviço, selecione **Config Server**.
-1. Na secção de **reposição Predefinido,** coloque **uri** para **https://github.com/Azure-Samples/piggymetrics-config** , e, em seguida, selecione **Aplicar** para guardar as suas alterações.
+1. Na secção de **reposição Predefinido,** coloque **uri** para **https://github.com/Azure-Samples/piggymetrics-config**, e, em seguida, selecione **Aplicar** para guardar as suas alterações.
 
     > [!div class="mx-imgBorder"]
     > ![Definir e aplicar definições de config](media/maven-qs-apply-config.jpg)
@@ -77,13 +77,13 @@ Leva cerca de 5 minutos para o serviço ser implantado. Depois de o serviço ser
 
 1. Clone o repositório Git executando o seguinte comando:
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Alterar o diretório e construir o projeto executando o seguinte comando:
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -92,21 +92,21 @@ Leva cerca de 5 minutos para o serviço ser implantado. Depois de o serviço ser
 
 1. Gere configurações executando o seguinte comando na pasta raiz da PiggyMetrics contendo o POM-mãe:
 
-    ```azurecli
+    ```console
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
-    a. Selecione os módulos `gateway`,`auth-service`e `account-service`.
+    a. Selecione `gateway`os`auth-service`módulos, e `account-service`.
 
     b. Selecione a sua subscrição e o cluster de serviço Azure Spring Cloud.
 
-    c. Na lista de projetos fornecidos, insira o número que corresponde a `gateway` para lhe dar acesso público.
+    c. Na lista de projetos fornecidos, insira o número que corresponde `gateway` para lhe dar acesso público.
     
     d. Confirme a configuração.
 
 1. O POM agora contém as dependências e configurações do plugin. Implementar as aplicações utilizando o seguinte comando:
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274063"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
@@ -28,7 +28,7 @@ ms.locfileid: "79274063"
 
 Neste artigo, aprenda a registar-se para o Azure NetApp Files para que possa começar a utilizar o serviço.
 
-## <a name="waitlist"></a>Enviar um pedido de lista de espera para aceder ao serviço
+## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Enviar um pedido de lista de espera para aceder ao serviço
 
 1. Envie um pedido de lista de espera para aceder ao serviço Deficheiros Azure NetApp através da página de submissão da lista de espera do [Azure NetApp Files](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
 
@@ -36,7 +36,7 @@ Neste artigo, aprenda a registar-se para o Azure NetApp Files para que possa com
 
 2. Aguarde um e-mail oficial de confirmação da equipa de Ficheiros Azure NetApp antes de continuar com outras tarefas. 
 
-## <a name="resource-provider"></a>Registe o Fornecedor de Recursos NetApp
+## <a name="register-the-netapp-resource-provider"></a><a name="resource-provider"></a>Registe o Fornecedor de Recursos NetApp
 
 Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para ficheiros Azure NetApp.
 
@@ -63,15 +63,15 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
        "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
        "name": "Microsoft.NetApp/ANFGA" 
        
-   `<SubID>` é o seu ID de subscrição.
+   `<SubID>`é o seu ID de subscrição.
 
-    Se não vir o nome da funcionalidade `Microsoft.NetApp/ANFGA`, não tem acesso ao serviço. Pare neste degrau. Siga as instruções em Enviar um pedido de lista de [espera para aceder ao serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
+    Se não vir o `Microsoft.NetApp/ANFGA`nome da funcionalidade, não tem acesso ao serviço. Pare neste degrau. Siga as instruções em Enviar um pedido de lista de [espera para aceder ao serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
 
 4. Na consola Azure Cloud Shell, insira o seguinte comando para registar o Fornecedor de Recursos Azure: 
     
         az provider register --namespace Microsoft.NetApp --wait
 
-   O parâmetro `--wait` instrui a consola a aguardar que o registo esteja concluído. O processo de registo pode levar algum tempo a concluir.
+   O `--wait` parâmetro instrui a consola a esperar que o registo esteja concluído. O processo de registo pode levar algum tempo a concluir.
 
 5. Na consola Azure Cloud Shell, insira o seguinte comando para verificar se o Fornecedor de Recursos Azure foi registado: 
     
@@ -85,7 +85,7 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
         "registrationState": "Registered", 
         "resourceTypes": […. 
 
-   `<SubID>` é o seu ID de subscrição.  O valor do parâmetro `state` indica `Registered`.
+   `<SubID>`é o seu ID de subscrição.  O `state` valor do `Registered`parâmetro indica .
 
 6. A partir do portal Azure, clique na lâmina **de Assinaturas.**
 7. Na lâmina de Subscrição, clique no ID de subscrição. 

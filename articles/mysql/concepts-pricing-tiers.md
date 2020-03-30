@@ -1,5 +1,5 @@
 ---
-title: Níveis de preços - Base de Dados Azure para MySQL
+title: Escalões de preço – Base de Dados do Azure para MySQL
 description: Conheça os vários níveis de preços para a Base de Dados Azure para o MySQL, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
 author: jan-eng
 ms.author: janeng
@@ -7,21 +7,21 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269448"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para níveis de preços MySQL
 
 Pode criar uma Base de Dados Azure para servidor MySQL num dos três diferentes níveis de preços: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de computação em vCores que pode ser provisionado, memória por vCore, e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor MySQL. Um servidor pode ter uma ou muitas bases de dados.
 
-|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
+|    | **Básico** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
+| Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Período de retenção de backup de base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -29,9 +29,9 @@ Para escolher um nível de preços, utilize a tabela seguinte como ponto de part
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho que requerem computação leve e desempenho em I/S. Exemplos incluem servidores usados para desenvolvimento ou teste ou aplicações de pequena escala pouco utilizadas. |
+| Básico | Cargas de trabalho que requerem computação leve e desempenho em I/S. Exemplos incluem servidores usados para desenvolvimento ou teste ou aplicações de pequena escala pouco utilizadas. |
 | Fins Gerais | A maioria das cargas de trabalho empresariais que requerem computação equilibrada e memória com uma potência de I/S escalável. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
-| Memória Otimizada | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento mais rápido de transações e uma maior conmoedação. Exemplos incluem servidores para processamento de dados em tempo real e aplicações transalíticas ou analíticas de alto desempenho.|
+| Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento mais rápido de transações e uma maior conmoedação. Exemplos incluem servidores para processamento de dados em tempo real e aplicações transalíticas ou analíticas de alto desempenho.|
 
 Depois de criar um servidor, o número de vCores, geração de hardware e nível de preços (exceto de e para o Basic) pode ser alterado para cima ou para baixo em segundos. Também pode ajustar a quantidade de armazenamento para cima e o período de retenção de reserva para cima ou para baixo sem tempo de inatividade de aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor ser criado. Para mais informações, consulte a secção de [recursos da Escala.](#scale-resources)
 
@@ -39,11 +39,11 @@ Depois de criar um servidor, o número de vCores, geração de hardware e nível
 
 Os recursos computacionais são fornecidos como vCores, que representam o CPU lógico do hardware subjacente. China East 1, China North 1, US DoD Central e US DoD East utilizam cpUs lógicos Gen 4 que são baseados em processadores Intel E5-2673 v3 (Haswell) 2.4-GHz. Todas as outras regiões utilizam cpUs lógicos da Gen 5 que se baseiam em processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 O armazenamento que você fornecer é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MySQL. A quantidade total de armazenamento que disponibiliza também define a capacidade de I/S disponível para o seu servidor.
 
-|    | **Básica** | **Propósito Geral** | **Memória Otimizada** |
+|    | **Básico** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Básico | Armazenamento de propósito geral | Armazenamento de propósito geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -99,7 +99,7 @@ O armazenamento de escala e a alteração do período de retenção de cópias d
 
 Para obter as informações mais atualizadas sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/mysql/)do serviço . Para ver o custo da configuração que deseja, o [portal Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal no separador **de nível** de preços com base nas opções que selecionar. Se não tiver uma subscrição Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da calculadora de [preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria Bases de **Dados** e escolher a Base de Dados Azure para o **MySQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a [criar um servidor MySQL no portal](howto-create-manage-server-portal.md).
 - Conheça [os limites](concepts-limits.md)de serviço.

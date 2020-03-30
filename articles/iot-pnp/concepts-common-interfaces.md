@@ -1,64 +1,64 @@
 ---
-title: Interfaces comuns – visualização de Plug and Play de IoT | Microsoft Docs
-description: Descrição de interfaces comuns para desenvolvedores de Plug and Play IoT
+title: Interfaces comuns - IoT Plug e Pré-visualização de reprodução / Microsoft Docs
+description: Descrição das interfaces comuns para desenvolvedores ioT Plug e Play
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234710"
 ---
-# <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comuns da visualização de Plug and Play de IoT
+# <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT Plug e Play Preview interfaces comuns
 
-Espera-se que todos os dispositivos IoT Plug and Play implementem algumas interfaces comuns. As interfaces comuns beneficiam as soluções de IoT porque fornecem funcionalidade consistente. A [certificação](tutorial-build-device-certification.md) exige que seu dispositivo implemente várias interfaces comuns. Você pode recuperar definições de interface comuns do repositório de modelos públicos.
+Espera-se que todos os dispositivos IoT Plug e Play implementem algumas interfaces comuns. As interfaces comuns beneficiam as soluções IoT porque fornecem uma funcionalidade consistente. [A certificação](tutorial-build-device-certification.md) requer que o seu dispositivo implemente várias interfaces comuns. Pode obter definições comuns de interface a partir do repositório de modelos públicos.
 
-## <a name="summary-of-common-interfaces"></a>Resumo de interfaces comuns
+## <a name="summary-of-common-interfaces"></a>Resumo das interfaces comuns
 
-| Nome | ID | Descrição | Implementado pelo SDK do Azure IoT | Deve ser declarado no modelo de funcionalidade |
+| Nome | ID | Descrição | Implementado por Azure IoT SDK | Deve ser declarado no modelo de capacidade |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Informações do modelo | urn: azureiot: ModelDiscovery: ModelInformation: 1 | Para dispositivos declararem a ID e as interfaces do modelo de funcionalidade. Necessário para todos os dispositivos de Plug and Play IoT. | Sim | Não |
-| Informações do SDK do cliente digital de dados | urn: azureiot: Client: SDKInformation: 1 | SDK do cliente para conectar o dispositivo com o Azure. Necessário para a [certificação](tutorial-build-device-certification.md) | Sim | Não |
-| Informações do dispositivo | urn: azureiot: DeviceManagement: DeviceInformation: 1 | Informações de hardware e do sistema operacional sobre o dispositivo. Necessário para a [certificação](tutorial-build-device-certification.md) | Não | Sim |
-| Definição do modelo | urn: azureiot: ModelDiscovery: ModelDefinition: 1 | Para dispositivos declarar a definição completa para seu modelo de funcionalidade e interfaces. Deve ser implementado quando as definições de modelo não são hospedadas em um repositório de modelo. | Não | Sim |
-| Entrelaçar digital | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | Para que os desenvolvedores de soluções recuperem a ID do modelo de funcionalidade e as IDs de interface para um ' digital. Essa interface não é declarada ou implementada por um dispositivo de Plug and Play de IoT. | Não | Não |
+| Informação do Modelo | urn:azureiot:ModelDiscovery:ModelInformation:1 | Para que os dispositivos declarem o ID e as interfaces do modelo de capacidade. Necessário para todos os dispositivos IoT Plug and Play. | Sim | Não |
+| Informação Digital Twin Client SDK | urn:azureiot:Cliente:SDKInformation:1 | Client SDK para ligar o dispositivo ao Azure. Necessário para [a certificação](tutorial-build-device-certification.md) | Sim | Não |
+| Informações do dispositivo | urn:azureiot:DeviceManagement:DeviceInformation:1 | Informações sobre o dispositivo e hardware e sistema operativo. Necessário para [a certificação](tutorial-build-device-certification.md) | Não | Sim |
+| Definição de Modelo | urn:azureiot:ModelDiscovery:ModelDefinition:1 | Para que os dispositivos declarem a definição completa para o seu modelo de capacidade e interfaces. Deve ser implementado quando as definições de modelo não são hospedadas num repositório modelo. | Não | Sim |
+| Digital Twin | urn:azureiot:ModelDiscovery:DigitalTwin:1 | Para que os desenvolvedores de soluções recuperem os ID do modelo de capacidade e os IDs de interface para um gémeo digital. Esta interface não é declarada ou implementada por um dispositivo IoT Plug and Play. | Não | Não |
 
-- Implementado pelo SDK do Azure IoT – se o SDK do Azure IoT implementa os recursos declarados nas interfaces. Os dispositivos IoT Plug and Play que usam o SDK do Azure IoT não precisam implementar essa interface.
-- Deve ser declarado no modelo de funcionalidade-se ' Sim ', essa interface deverá ser declarada dentro da seção de `"implements":` do modelo de funcionalidade do dispositivo para este dispositivo de Plug and Play IoT.
+- Implementado por Azure IoT SDK - Se o Azure IoT SDK implementa as capacidades declaradas nas interfaces. Os dispositivos IoT Plug and Play que utilizam o SDK Azure IoT não precisam de implementar esta interface.
+- Deve ser declarado no modelo de capacidade - Se 'sim', esta interface deve ser declarada dentro da `"implements":` secção do modelo de capacidade do dispositivo para este dispositivo IoT Plug and Play.
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>Recuperar definições de interface do repositório público
 
 ### <a name="cli"></a>CLI
 
-Você pode usar a extensão do Azure IoT para CLI do Azure recuperar as interfaces comuns do repositório de modelos públicos.
+Pode utilizar a extensão Azure IoT para o Azure CLI para recuperar as interfaces comuns do repositório de modelos públicos.
 
-```cmd/sh
+```azurecli
 az iot pnp interface show --interface {InterfaceID}
 ```
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model show --model {ModelID}
 ```
 
-### <a name="vs-code"></a>VS Code
+### <a name="vs-code"></a>Código VS
 
-1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
+1. Utilize **ctrl+Shift+P** para abrir a paleta de comando.
 
-1. Insira **plug and Play** e, em seguida, selecione o comando **IOT plug and Play: abrir o repositório de modelos** . Escolha **repositório público**. O repositório de modelo público é aberto no VS Code.
+1. Introduza **plug and play** e, em seguida, selecione o **IoT Plug and Play: Open Model Repository** Command. Escolha **o repositório público.** O repositório de modelopúblico abre no Código VS.
 
-1. No repositório de modelos públicos, insira o nome da interface no campo de pesquisa.
+1. No repositório de modelo público, introduza o nome da interface no campo de pesquisa.
 
-1. Para criar uma cópia local da interface, selecione-a nos resultados da pesquisa e, em seguida, selecione **baixar**.
+1. Para criar uma cópia local da interface, selecione-a nos resultados da pesquisa e, em seguida, selecione **Download**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre interfaces comuns, aqui estão alguns recursos adicionais:
+Agora que aprendeu sobre interfaces comuns, aqui estão alguns recursos adicionais:
 
-- [DTDL (digital treme Definition Language)](https://aka.ms/DTDL)
-- [SDK de dispositivo C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [API REST de IoT](https://docs.microsoft.com/rest/api/iothub/device)
+- [Linguagem de Definição Dupla Digital (DTDL)](https://aka.ms/DTDL)
+- [Dispositivo C SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)

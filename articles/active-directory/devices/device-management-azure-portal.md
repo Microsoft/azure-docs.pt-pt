@@ -1,5 +1,5 @@
 ---
-title: Como gerir os dispositivos utilizando o portal Azure  Microsoft Docs
+title: Como gerir os dispositivos utilizando o portal Azure [ Microsoft Docs
 description: Aprenda a utilizar o portal Azure para gerir dispositivos.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262246"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades do dispositivo utilizando o portal Azure
@@ -31,8 +31,8 @@ Este artigo:
 
 O portal Azure AD fornece-lhe um local central para gerir as identidades do seu dispositivo. Pode chegar a este local usando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue pelos **dispositivos**de > **de diretório ativo do Azure.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue em > **Dispositivos** **de Diretório Ativo Azure**.
 
 A página **Dispositivos** permite::
 
@@ -41,7 +41,7 @@ A página **Dispositivos** permite::
 - Executar tarefas de gestão de identidade do dispositivo
 - Rever registos de auditoria relacionados com dispositivos  
   
-## <a name="configure-device-settings"></a>Configurar as definições do dispositivo
+## <a name="configure-device-settings"></a>Configurar definições de dispositivos
 
 Para gerir as identidades do seu dispositivo utilizando o portal Azure AD, os seus dispositivos precisam de ser [registados ou unidos à](overview.md) AD Azure. Como administrador, pode afinar o processo de registo e junção de dispositivos configurando as definições do dispositivo.
 
@@ -49,7 +49,7 @@ A página de definições do dispositivo permite configurar definições relacio
 
 ![Gerir um dispositivo Intune](./media/device-management-azure-portal/21.png)
 
-- **Os utilizadores podem juntar dispositivos ao Azure AD** - Esta definição permite selecionar os utilizadores que podem registar os seus dispositivos à medida que o Azure AD se juntou a dispositivos. A predefinição é **Todos**.
+- **Os utilizadores podem juntar dispositivos ao Azure AD** - Esta definição permite selecionar os utilizadores que podem registar os seus dispositivos à medida que o Azure AD se juntou a dispositivos. O padrão é **All**.
 
 > [!NOTE]
 > **Os utilizadores podem aderir a dispositivos à** definição de AD Azure só se aplica à adesão do Azure AD no Windows 10.
@@ -135,7 +135,7 @@ Para eliminar um dispositivo, tem duas opções:
 
 - A barra de ferramentas na página **dispositivos**
 
-   ![Apagar um dispositivo](./media/device-management-azure-portal/34.png)
+   ![Eliminar um dispositivo](./media/device-management-azure-portal/34.png)
 
 **Observações:**
 
@@ -185,7 +185,7 @@ O registo de auditoria tem uma visão de lista predefinida que mostra:
 
 - A data e a hora da ocorrência
 - Os alvos
-- o iniciador /ator (que) de uma atividade
+- O iniciador /ator (que) de uma atividade
 - A atividade (o que)
 
 ![Registos de auditoria](./media/device-management-azure-portal/63.png)

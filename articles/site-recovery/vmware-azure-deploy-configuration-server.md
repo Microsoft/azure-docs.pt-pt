@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257384"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
@@ -38,12 +38,12 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 
 1. O utilizador deve ter uma função de desenvolvedor de aplicações para criar uma aplicação.
     - Para verificar, inscreva-se no portal Azure.</br>
-    - Vá ao **Diretório Ativo da Azure** > **Funções e administradores.**</br>
+    - Vá a > **Funções e administradores**de **Diretório Ativo Azure.**</br>
     - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para permitir a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
 2. Se a função de desenvolvedor de aplicações não puder ser atribuída, certifique-se de que o Utilizador pode registar a bandeira das **aplicações** é definida como **verdadeira** para o utilizador criar uma identidade. Para permitir estas permissões:
     - Inicie sessão no Portal do Azure.
-    - Vá ao **Diretório Ativo do Azure** > **definições de utilizador**.
+    - Vá às > **definições**de utilizador **do Diretório Ativo Azure**.
     - Nos **registos da App,** **os utilizadores podem registar aplicações,** selecionar **Sim.**
 
       ![AD_application_permission Azul](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
@@ -53,7 +53,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 
 ## <a name="download-the-template"></a>Transferir o modelo
 
-1. No cofre, vá para **Preparar Infraestrutura** > **Origem**.
+1. No cofre, vá para preparar**a Fonte de** **Infraestruturas.** > 
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
 4. Descarregue o modelo OVA para o servidor de configuração.
@@ -78,7 +78,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 7. Nas restantes páginas do assistente, aceite as predefinições.
 8. Em **Pronto para concluir**:
 
-    * Para configurar a VM com as predefinições, selecione **Ligar após a implementação** > **Concluir**.
+    * Para configurar o VM com as definições predefinidas, selecione **A alimentação após a colocação** > de acabamento **.**
     * Para adicionar uma interface de rede adicional, limpe **a alimentação após a implementação**, e, em seguida, selecione **Terminar**. Por predefinição, o modelo do servidor de configuração é implementado com um único NIC. Pode adicionar mais NICs após a implementação.
 
 > [!IMPORTANT]
@@ -132,7 +132,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 7. Introduza as credenciais que o servidor de configuração irá utilizar para ligar ao servidor VMware. O Site Recovery utiliza estas credenciais para detetar automaticamente as VMs VMware que estão disponíveis para replicação. **Selecione Adicionar** > **Continuar**. As credenciais aqui introduzidas são guardadas localmente.
 8. No **Configure credenciais de máquina virtual,** introduza o nome de utilizador e a palavra-passe das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para as máquinas **Windows,** a conta necessita de privilégios de administrador local nas máquinas que pretende replicar. Para **linux,** forneça detalhes para a conta raiz.
 9. Selecione **Finalizar configuração** para concluir o registo.
-10. Após o registo terminar, abra o portal Azure e verifique se o servidor de configuração e vMware estão listados no Cofre de Serviços de **Recuperação** > **Gerir** > Infraestrutura de **Recuperação** do Site > Servidores de **Configuração**.
+10. Após o registo terminar, abra o portal Azure e verifique se o servidor de configuração e vMware estão listados nos servidores de configuração de infraestrutura**Manage** >  > de recuperação de**serviços**de **recuperação** > do cofre de**recuperação**do site .
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
@@ -144,7 +144,7 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 
-Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-configuration-server.md) para resolver problemas de implementação e conectividade.
+Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-configuration-server.md) para resolver problemas de implantação & conectividade.
 
 ## <a name="faqs"></a>FAQs
 
@@ -175,7 +175,7 @@ Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-
     Não. Não altere a frase de passe do servidor de configuração. Uma mudança na frase-passe quebra a replicação de máquinas protegidas e leva a um estado de saúde crítico.
 * Onde posso baixar as chaves de registo do cofre?
 
-    No **Cofre de Serviços de Recuperação,** selecione **Gerir** > Infraestrutura de **Recuperação** de > Servidores de **Configuração**. Nos **Servidores,** selecione **a chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
+    No **Cofre de Serviços de Recuperação,** selecione **Gerir** > servidores de**configuração**de**infraestruturas** > de recuperação do local . Nos **Servidores,** selecione **a chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
 * Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
     Não. A utilização de um componente de servidor de configuração clonado não é suportada. A clonagem de um servidor de processo sem escala salta também é um cenário não suportado. Os componentes de recuperação do site de clonagem afetam as replicações em curso.
@@ -193,6 +193,6 @@ Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-
 
 Para mais PERGUNTAS nas Perguntas de Configuração, consulte [as questões comuns](vmware-azure-common-questions.md#configuration-server)do servidor de configuração .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Instale a recuperação de desastres de [VMware VMs](vmware-azure-tutorial.md) para o Azure.

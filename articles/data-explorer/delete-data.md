@@ -7,12 +7,12 @@ ms.reviewer: avneraa
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 681cfd71d2666630b192935d66ba32eaf16c92de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dd0f8740d148a7817bcfe2fbad591ceeb1610d0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79204618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501423"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Eliminar dados do Azure Data Explorer
 
@@ -52,5 +52,5 @@ Pode eliminar todas as linhas numa mesa ou apenas numa extensão específica.
 
 ## <a name="delete-individual-rows-using-purge"></a>Eliminar linhas individuais usando purga
 
-[A purga](/azure/kusto/management/data-purge) de dados pode ser usada para eliminar as linhas individuais. A eliminação não é imediata e requer recursos significativos do sistema. Como tal, é apenas aconselhado para cenários de conformidade.  
+[A purga](/azure/kusto/concepts/data-purge) de dados pode ser usada para eliminar as linhas individuais. A eliminação não é imediata e requer recursos significativos do sistema. Como tal, é apenas aconselhado para cenários de conformidade.  
 

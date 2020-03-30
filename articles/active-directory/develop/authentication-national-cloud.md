@@ -1,5 +1,5 @@
 ---
-title: Autenticação e nuvens nacionais da AD Azure Azure
+title: Autenticação da AD Azure & nuvens nacionais Azure
 titleSuffix: Microsoft identity platform
 description: Conheça o registo de aplicativos e os pontos finais de autenticação para as nuvens nacionais.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263000"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
@@ -60,8 +60,8 @@ A tabela seguinte lista os URLs base para os pontos finais da AD Azure usados pa
 
 Pode fornecer pedidos à autorização da AD Azure ou pontos finais simbólicos utilizando o URL de base específico da região apropriado. Por exemplo, para a Alemanha Azure:
 
-  - O ponto final comum de autorização é `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - O ponto final comum é `https://login.microsoftonline.de/common/oauth2/token`.
+  - Autorização ponto final `https://login.microsoftonline.de/common/oauth2/authorize`comum é .
+  - Símbolo ponto final `https://login.microsoftonline.de/common/oauth2/token`comum é .
 
 Para pedidos de inquilino único, substitua "comum" nos URLs anteriores pelo seu ID ou nome de inquilino. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
 
@@ -74,7 +74,7 @@ Para aprender a chamar as APIs do Microsoft Graph num ambiente nacional de nuvem
 
 Para aprender a construir uma aplicação utilizando a plataforma de identidade da Microsoft, siga o tutorial da [Microsoft Authentication Library (MSAL).](msal-national-cloud.md) Especificamente, esta aplicação irá assinar num utilizador e obter um sinal de acesso para ligar para a Microsoft Graph API.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 

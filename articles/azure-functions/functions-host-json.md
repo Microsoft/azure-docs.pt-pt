@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3d98be2dcc351aa88b9e126c883865079e407c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79277001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473375"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -132,7 +132,7 @@ As seguintes secções deste artigo explicam cada propriedade de alto nível. To
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>applicationInsights
+## <a name="applicationinsights"></a>aplicaçãoInsights
 
 Esta definição é uma criança de [exploração madeireira.](#logging)
 
@@ -141,13 +141,11 @@ Controla as opções de Insights de Aplicação, incluindo [opções de amostrag
 Para obter a estrutura json completa, consulte o [ficheiro host.json](#sample-hostjson-file)exemplo anterior .
 
 > [!NOTE]
-> A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Deinsights de Aplicação. Para evitar a amostragem de registo, adicione `samplingExcludedTypes: "Request"` ao valor `applicationInsights`.
+> A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Deinsights de Aplicação. Para evitar a `samplingExcludedTypes: "Request"` amostragem `applicationInsights` de registo, adicione ao valor.
 
 | Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | amostragemDefinições | n/d | Consulte [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| amostrasExcluiosTipos excluídos | nulo | Uma lista de tipos deslimitadas do cólon que não queres ser amostradas. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
-| amostragemIncluídos | nulo | Uma lista de tipos deslimitada seletiva que pretende ser amostrada; uma lista vazia implica todos os tipos. Tipo listado em tipos de substituição `samplingExcludedTypes` listados aqui. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
 | enableLiveMetrics | true | Permite a recolha de métricas ao vivo. |
 | enableDependencyTracking | true | Permite o rastreio da dependência. |
 | enablePerformanceCountersCollection | true | Permite a coleção de contadores de desempenho kudu. |
@@ -160,7 +158,7 @@ Para obter a estrutura json completa, consulte o [ficheiro host.json](#sample-ho
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | isEnabled | true | Permite ou desativa a amostragem. | 
-| maxTelemetryItemsPerSecond | 20 | O número de alvos de artigos de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
+| maxTelemettryItemsPerSecond | 20 | O número de alvos de artigos de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
 | avaliaçãoInterval | 01:00:00 | O intervalo em que a taxa atual de telemetria é reavaliada. A avaliação é feita como uma média móvel. Talvez queira encurtar este intervalo se a sua telemetria for suscetível de explosões repentinas. |
 | inicialSamplingPercentage| 1.0 | A percentagem inicial de amostragem aplicada no início do processo de amostragem para variar dinamicamente a percentagem. Não reduza o valor enquanto está a depurar. |
 | amostragemPercentualIncreaseTimeout | 00:00:01 | Quando o valor percentual de amostragem muda, este imóvel determina quanto tempo depois os Insights de Aplicação são autorizados a aumentar a percentagem de amostragem novamente para capturar mais dados. |
@@ -168,14 +166,16 @@ Para obter a estrutura json completa, consulte o [ficheiro host.json](#sample-ho
 | minSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, este imóvel determina a percentagem mínima de amostragem permitida. |
 | maxSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, este imóvel determina a percentagem máxima permitida de amostragem. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
+| excluídosTipos | nulo | Uma lista de tipos deslimitadas do cólon que não queres ser amostradas. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
+| incluídoTipos | nulo | Uma lista de tipos deslimitada seletiva que pretende ser amostrada; uma lista vazia implica todos os tipos. Tipo listado `excludedTypes` em tipos de substituição listados aqui. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Request, Trace. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não estão especificados são amostrados. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>aplicaçõesInsights.httpAutoCollectionOptions
 
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Permite ou desativa informações estendidas sobre pedidos http para os gatilhos HTTP: cabeçalhos de correlação de pedido de entrada, suporte de chaves multi-instrumentação, método HTTP, caminho e resposta. |
-| enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído w3C (e liga o esquema de correlação do legado). Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Se `enableHttpTriggerExtendedInfoCollection` é falso, esta bandeira aplica-se apenas aos pedidos de saída, e não aos pedidos de entrada. |
-| enableResponseHeaderInjection | true | Permite ou desativa a injeção de cabeçalhos de correlação multicomponentes em respostas. Permitir a injeção permite que os Insights de Aplicação construam um Mapa de Aplicação para quando várias teclas de instrumentação são usadas. Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Esta definição não se aplica se `enableHttpTriggerExtendedInfoCollection` for falsa. |
+| enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído w3C (e liga o esquema de correlação do legado). Ativado por `enableHttpTriggerExtendedInfoCollection` padrão se for verdade. Se `enableHttpTriggerExtendedInfoCollection` for falso, esta bandeira aplica-se apenas aos pedidos de saída, e não aos pedidos de entrada. |
+| enableResponseHeaderInjection | true | Permite ou desativa a injeção de cabeçalhos de correlação multicomponentes em respostas. Permitir a injeção permite que os Insights de Aplicação construam um Mapa de Aplicação para quando várias teclas de instrumentação são usadas. Ativado por `enableHttpTriggerExtendedInfoCollection` padrão se for verdade. Esta definição não `enableHttpTriggerExtendedInfoCollection` se aplica se for falsa. |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>aplicaInsights.snapshotConfiguration
 
@@ -193,8 +193,8 @@ Para obter mais informações sobre instantâneos, consulte [as imagens do Debug
 | isExceptionSnappointsEnabled | false | Permite ou desativa a filtragem de exceções. |
 | isLowPrioritySnapshotUploader | true | Determina se deve executar o processo SnapshotUploader abaixo da prioridade normal. |
 | maximumCollectionPlanSize | 50 | O número máximo de problemas que podemos rastrear a qualquer momento num intervalo de um a 9999. |
-| máximoSnapshotsNecessários | 3 | O número máximo de instantâneos recolhidos para um único problema, num intervalo de um a 999. Um problema pode ser considerado como uma declaração individual de lançamento na sua aplicação. Uma vez que o número de instantâneos recolhidos para um problema atinge este valor, não serão recolhidos mais instantâneos para esse problema até que os contadores de problemas sejam reiniciados (ver `problemCounterResetInterval`) e o limite de `thresholdForSnapshotting` seja novamente atingido. |
-| problemaCounterResetInterval | 24:00:00 | Com que frequência repor os contadores de problemas num intervalo de um minuto a sete dias. Quando este intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Os problemas existentes que já atingiram o limiar para fazer instantâneos, mas que ainda não geraram o número de instantâneos em `maximumSnapshotsRequired`, permanecem ativos. |
+| máximoSnapshotsNecessários | 3 | O número máximo de instantâneos recolhidos para um único problema, num intervalo de um a 999. Um problema pode ser considerado como uma declaração individual de lançamento na sua aplicação. Uma vez que o número de instantâneos recolhidos para um problema atinge este valor, não serão recolhidos mais instantâneos para esse problema até que os contadores de problemas sejam reiniciados (ver) `problemCounterResetInterval`e o `thresholdForSnapshotting` limite seja novamente atingido. |
+| problemaCounterResetInterval | 24:00:00 | Com que frequência repor os contadores de problemas num intervalo de um minuto a sete dias. Quando este intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Os problemas existentes que já atingiram o limiar para fazer instantâneos, mas `maximumSnapshotsRequired`que ainda não geraram o número de instantâneos, permanecem ativos. |
 | fornecerTelemetria Anonymous | true | Determina se deve enviar telemetria de uso anónimo e erro para a Microsoft. Esta telemetria pode ser usada se contactar a Microsoft para ajudar a resolver problemas com o Snapshot Debugger. Também é usado para monitorizar os padrões de utilização. |
 | reconectarIntervalado | 00:15:00 | Quantas vezes nos reconectamos ao ponto final do Debugger Instantâneo. O alcance permitido é de um minuto a um dia. |
 | shadowCopyFolder | nulo | Especifica a pasta a utilizar para copiar binários de cópia de sombras. Se não for definido, as pastas especificadas pelas seguintes variáveis ambientais são experimentadas por ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
@@ -214,7 +214,7 @@ A configuração de configuração pode ser encontrada em [gatilhos e encaderna�
 
 A definição de configuração pode ser encontrada em [encadernações para funções duráveis](durable/durable-functions-bindings.md#host-json).
 
-## <a name="eventhub"></a>eventHub
+## <a name="eventhub"></a>eventoHub
 
 As definições de configuração podem ser encontradas em [gatilhos e encadernações do Event Hub](functions-bindings-event-hubs-output.md#host-json). 
 
@@ -238,13 +238,13 @@ Uma lista de funções que o anfitrião do emprego dirige. Uma matriz vazia sign
 }
 ```
 
-## <a name="functiontimeout"></a>functionTimeout
+## <a name="functiontimeout"></a>funçãoTimeout
 
 Indica a duração do tempo de paragem para todas as funções. Segue o formato de corda timepan. Num plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos, e o valor predefinido é de 5 minutos.  
 
 No plano Premium, o intervalo válido é de 1 segundo a 60 minutos, e o valor predefinido é de 30 minutos.
 
-Num plano dedicado (App Service), não existe um limite global, e o valor padrão é de 30 minutos. Recomenda-se um valor de `-1` uma execução não limitada, mas é recomendado manter um limite superior fixo.
+Num plano dedicado (App Service), não existe um limite global, e o valor padrão é de 30 minutos. Recomenda-se `-1` um valor de execução não limitada, mas manter um limite superior fixo é recomendado.
 
 ```json
 {
@@ -270,17 +270,17 @@ Configurações de configuração para monitor de [saúde anfitrião](https://gi
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|enabled|true|Especifica se a funcionalidade está ativada. | 
-|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações periódicas de saúde de fundo. | 
-|healthCheckWindow|2 minutos|Uma janela de tempo deslizante utilizada em conjunto com a definição `healthCheckThreshold`.| 
-|healthCheckThreshold|6|Número máximo de vezes que o exame de saúde pode falhar antes de iniciar um ciclo de acolhimento.| 
+|ativado|true|Especifica se a funcionalidade está ativada. | 
+|saúdeCheckInterval|10 segundos|O intervalo de tempo entre as verificações periódicas de saúde de fundo. | 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante `healthCheckThreshold` utilizada em conjunto com a definição.| 
+|saúdeCheckThreshold|6|Número máximo de vezes que o exame de saúde pode falhar antes de iniciar um ciclo de acolhimento.| 
 |contralimiar|0.80|O limiar em que um contador de desempenho será considerado insalubre.| 
 
 ## <a name="http"></a>http
 
 As definições de configuração podem ser encontradas em [gatilhos e encadernações de http](functions-bindings-http-webhook-output.md#hostjson-settings).
 
-## <a name="logging"></a>exploração madeireira
+## <a name="logging"></a>registo
 
 Controla os comportamentos de registo da aplicação de função, incluindo os Insights da Aplicação.
 
@@ -302,10 +302,10 @@ Controla os comportamentos de registo da aplicação de função, incluindo os I
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|fileLoggingMode|debugsó|Define o nível de registo de ficheiros ativado.  As opções são `never`, `always`, `debugOnly`. |
+|fileLoggingMode|debugsó|Define o nível de registo de ficheiros ativado.  As `never`opções são, `always`. . `debugOnly` |
 |logLevel|n/d|Objeto que define a categoria de log filtrando funções na aplicação. Versões 2.x e, posteriormente, siga o layout ASP.NET Core para filtragem da categoria de log. Esta definição permite filtrar o registo para funções específicas. Para mais informações, consulte a [filtragem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) de Registo na documentação do Núcleo de ASP.NET. |
 |consola|n/d| A definição de registo da [consola.](#console) |
-|applicationInsights|n/d| A definição [de applicationInsights.](#applicationinsights) |
+|aplicaçãoInsights|n/d| A definição [de applicationInsights.](#applicationinsights) |
 
 ## <a name="console"></a>consola
 
@@ -329,7 +329,7 @@ Esta definição é uma criança de [exploração madeireira.](#logging) Control
 
 ## <a name="manageddependency"></a>managedDependência
 
-A dependência gerida é uma funcionalidade que atualmente é suportada apenas com funções baseadas na PowerShell. Permite que as dependências sejam geridas automaticamente pelo serviço. Quando a propriedade `enabled` está definida para `true`, o ficheiro `requirements.psd1` é processado. As dependências são atualizadas quando quaisquer versões menores são lançadas. Para mais informações, consulte a [dependência gerida](functions-reference-powershell.md#dependency-management) no artigo powerShell.
+A dependência gerida é uma funcionalidade que atualmente é suportada apenas com funções baseadas na PowerShell. Permite que as dependências sejam geridas automaticamente pelo serviço. Quando `enabled` a propriedade `true`está `requirements.psd1` definida, o ficheiro é processado. As dependências são atualizadas quando quaisquer versões menores são lançadas. Para mais informações, consulte a [dependência gerida](functions-reference-powershell.md#dependency-management) no artigo powerShell.
 
 ```json
 {
@@ -371,13 +371,13 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o período em que as fechaduras de nível de função são tomadas. As fechaduras renovam automaticamente.| 
 |listenerLockPeriod|00:01:00|O período para o que as fechaduras dos ouvintes são tomados.| 
-|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo utilizado para a recuperação do bloqueio do ouvinte se não fosse adquirido um bloqueio de ouvintes no arranque.| 
+|listenerLockRecoveryPollingIntervalo|00:01:00|O intervalo de tempo utilizado para a recuperação do bloqueio do ouvinte se não fosse adquirido um bloqueio de ouvintes no arranque.| 
 |lockAcquisitionTimeout|00:01:00|O tempo máximo de tempo que o tempo de execução tentará adquirir um cadeado.| 
 |lockAcquisitionPollingInterval|n/d|O intervalo entre tentativas de aquisição de fechaduras.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>versão
 
-Este valor indica a versão schema do host.json. A versão `"version": "2.0"` é necessária para uma aplicação de função que se direcione para o tempo de execução v2, ou uma versão posterior. Não há mudanças de esquema son.json entre v2 e v3.
+Este valor indica a versão schema do host.json. A cadeia `"version": "2.0"` de versão é necessária para uma aplicação de função que direciona o tempo de execução v2, ou uma versão posterior. Não há mudanças de esquema son.json entre v2 e v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

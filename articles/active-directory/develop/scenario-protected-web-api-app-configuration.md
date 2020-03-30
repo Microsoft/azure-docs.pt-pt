@@ -1,5 +1,5 @@
 ---
-title: Configure aplicações web API protegidas  Azure
+title: Configure aplicações web API protegidas [ Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a construir uma API web protegida e configure o código da sua aplicação.
 services: active-directory
@@ -17,10 +17,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262519"
 ---
 # <a name="protected-web-api-code-configuration"></a>API da web protegida: Configuração de código
@@ -35,7 +35,7 @@ Para configurar o código para a sua API web protegida, precisa entender:
 
 Tal como as aplicações web, as APIs web ASP.NET e ASP.NET Core estão protegidas porque as suas ações de controlador são pré-fixadas com o atributo **[Autorizar].** As ações do controlador só podem ser chamadas se a API for chamada com uma identidade autorizada.
 
-Considere as seguintes perguntas:
+Considere as perguntas seguintes:
 
 - Apenas uma aplicação pode chamar uma API web. Como é que a API sabe a identidade da app que a chama?
 - Se a aplicação chamar a API em nome de um utilizador, qual é a identidade do utilizador?
@@ -44,7 +44,7 @@ Considere as seguintes perguntas:
 
 O token portador que está definido no cabeçalho quando a aplicação é chamada contém informações sobre a identidade da aplicação. Também detém informações sobre o utilizador, a menos que a aplicação web aceite chamadas de serviço a serviço a partir de uma aplicação daemon.
 
-Aqui está C# um exemplo de código que mostra um cliente a ligar para a API depois de adquirir um símbolo com a Microsoft Authentication Library para .NET (MSAL.NET):
+Aqui está um exemplo de código C# que mostra um cliente a ligar para a API depois de adquirir um símbolo com a Microsoft Authentication Library para .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -138,7 +138,7 @@ O snippet de código anterior é extraído do tutorial incremental web API ASP.N
 
 ## <a name="token-validation"></a>Validação de fichas
 
-No snippet anterior, o middleware JwtBearer, como o OpenID Connect middleware em aplicações web, valida o símbolo com base no valor de `TokenValidationParameters`. O símbolo é desencriptado conforme necessário, as alegações são extraídas, e a assinatura é verificada. O middleware valida então o símbolo verificando estes dados:
+No snippet anterior, o middleware JwtBearer, como o OpenID Connect middleware em aplicações `TokenValidationParameters`web, valida o token com base no valor de . O símbolo é desencriptado conforme necessário, as alegações são extraídas, e a assinatura é verificada. O middleware valida então o símbolo verificando estes dados:
 
 - Audiência: O símbolo é direcionado para a Web API.
 - Sub: Foi emitido para uma aplicação que é permitida a chamada a API web.

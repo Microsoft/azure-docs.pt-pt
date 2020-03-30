@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502362"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migração para O Sincronizado de Ficheiros Azure
 
@@ -23,7 +23,7 @@ A série StorSimple 1200 chegará ao fim [da vida](https://support.microsoft.com
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft .com para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie AzureFilesMigration@microsoft um e-mail .com para um plano de migração personalizado, bem como assistência durante a migração.
 
 O Azure File Sync é um serviço na nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -35,7 +35,7 @@ Este artigo centra-se nos passos da migração. Se antes de migrar, gostaria de 
 * [Sincronização de ficheiros Azure - visão geral](https://aka.ms/AFS "Descrição geral")
 * [Sincronização de Ficheiros Azure - guia de implementação](storage-sync-files-deployment-guide.md)
 
-## <a name="migration-goals"></a>Objetivos da migração
+## <a name="migration-goals"></a>Objetivos de migração
 
 O objetivo é garantir a integridade dos dados de produção, bem como garantir a disponibilidade. Este último requer manter o tempo de paragem ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
@@ -113,11 +113,43 @@ Execute a primeira cópia local para a sua pasta de alvo do Windows Server:
 O seguinte comando RoboCopy recordará ficheiros do seu armazenamento StorSimple Azure para o seu StorSimple local e, em seguida, transferi-los para a pasta-alvo do Servidor do Windows. O Windows Server irá sincronizá-lo com as partilhas de ficheiros Azure. À medida que o volume do Windows Server local fica cheio, o tiering em nuvem irá entrar e os ficheiros de nível que já sincronizaram com sucesso. O tiering em nuvem gerará espaço suficiente para continuar a cópia do aparelho virtual StorSimple. O tiering de nuvem verifica uma vez por hora para ver o que se sincronizou e libertar espaço em disco para alcançar o espaço livre de 99% de volume.
 
 ```console
-Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Antecedentes:
 
+:::row:::
+   :::column span="1":::
+      /MT
+   :::column-end:::
+   :::column span="1":::
+      Permite que o RoboCopy execute várias linhas. O padrão é 8, o máximo é 128.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /UNILOG:<file name>
+   :::column-end:::
+   :::column span="1":::
+      Estado de saídas para log file como UNICODE (substitui o registo existente).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /TEE
+   :::column-end:::
+   :::column span="1":::
+      Saídas para a janela da consola. Utilizado em conjunto com a saída para um ficheiro de registo.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Executa o RoboCopy no mesmo modo que uma aplicação de reserva usaria. Permite ao RoboCopy mover ficheiros que o utilizador atual não tem permissões.
+   :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="1":::
       /MIR
@@ -182,7 +214,7 @@ Pode tentar executar algumas destas cópias em paralelo. Recomendamos o processa
 
 A política de espaço livre de volume de volume de nível de nuvem atua a um nível de volume com pontos finais de servidor potencialmente múltiplos sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num mesmo ponto final do servidor, o sync continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre no disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja apenas ter o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 O problema mais provável é que o comando RoboCopy falha com *"Volume cheio"* no lado do Servidor do Windows. Se for esse o caso, então a sua velocidade de descarregamento é provavelmente melhor do que a sua velocidade de carregamento. O tiering em nuvem atua uma vez por hora para evacuar o conteúdo do disco local do Windows Server, que tem sincronizado.
 

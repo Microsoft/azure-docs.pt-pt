@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 237846ec3adda208126aeb22e7900cbf5118ee95
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598668"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529112"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros Azure premium
 As ações de ficheiros premium são oferecidas em meios de armazenamento de discos de estado sólido (SSD) e são úteis para cargas de trabalho intensivas em IO, incluindo bases de dados de hospedagem e computação de alto desempenho (HPC). As ações de ficheiropremium são hospedadas numa conta de armazenamento de finalidade especial, chamada conta FileStorage. As ações de ficheiros premium são projetadas para aplicações de alto desempenho e escala empresarial, proporcionando latência consistente baixa, iOPS elevados e altas ações de rendimento.
@@ -27,7 +27,7 @@ Para aceder aos recursos do Azure, incluindo ações de ficheiros Premium Azure,
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento de ficheiros
 
@@ -47,7 +47,7 @@ Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
 1. Para **performance** selecione **Premium**.
 1. Selecione **o tipo de conta** e escolha **fileStorage**.
-1. Deixar a **replicação** definida ao seu valor padrão de **armazenamento redundante localmente (LRS)** .
+1. Deixar a **replicação** definida ao seu valor padrão de **armazenamento redundante localmente (LRS)**.
 
     ![Como criar uma conta de armazenamento para uma parte de ficheiro premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
@@ -83,7 +83,7 @@ Em seguida, atualize o seu módulo PowerShell, inscreva-se na sua subscrição A
 
 Para interagir com uma partilha de ficheiropremium a partir da PowerShell, terá de instalar uma versão 1.4.0 do módulo Az.Storage, ou o mais recente módulo dez.Storage.
 
-Comece por abrir uma sessão do PowerShell com permissões elevadas.
+Comece por abrir uma sessão powerShell com permissões elevadas.
 
 Instale o módulo Az.Storage:
 
@@ -93,13 +93,13 @@ Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Inscreva-se na sua Subscrição Azure
 
-Utilize o comando `Connect-AzAccount` e siga as instruções no ecrã para autenticar.
+Utilize `Connect-AzAccount` o comando e siga as instruções no ecrã para autenticar.
 
 ```powershell
 Connect-AzAccount
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com a PowerShell, utilize o comando [New-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 
@@ -146,11 +146,11 @@ Para iniciar a Casca de Nuvem Azure, inscreva-se no [portal Azure.](https://port
 
 Se pretender iniciar sessão na sua instalação local do CLI, certifique-se primeiro de que tem a versão mais recente e, em seguida, execute o comando de login:
 
-```cli
+```azurecli
 az login
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group).
 
@@ -177,7 +177,7 @@ az storage account create `
 
 As chaves da conta de armazenamento controlam o acesso aos recursos numa conta de armazenamento, neste artigo, usamos a chave para criar uma partilha de ficheiropremium. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys):
 
-```azurecli-interactive 
+```azurecli-interactive
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \

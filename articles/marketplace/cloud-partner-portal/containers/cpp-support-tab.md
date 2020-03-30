@@ -1,49 +1,48 @@
 ---
-title: Configurações de suporte para uma imagem de contêineres do Azure | Azure Marketplace
-description: Defina as configurações de suporte para um contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Configurações de suporte para uma imagem de contentores Azure [ Mercado Azure
+description: Configure as definições de suporte para um recipiente Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279968"
 ---
-# <a name="container-support-tab"></a>Guia suporte do contêiner
+# <a name="container-support-tab"></a>Separador de suporte para contentores
 
-Use a guia **suporte** da nova página de **oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **contato de engenharia**, **suporte ao cliente**e **URLs de suporte**. Um asterisco (*) acrescentado ao nome do campo indica que ele é necessário.
+Utilize o separador **suporte** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contacto de Engenharia,** **Apoio ao Cliente**e **Urls**de Apoio . Um asterisco (*) anexado ao nome de campo indica que é necessário.
 
 
 ## <a name="support-form-fields"></a>Campos de formulário de suporte
 
-Forneça as informações necessárias para os campos contato de engenharia e atendimento ao cliente.
+Forneça as informações necessárias para os campos de Contacto de Engenharia e Apoio ao Cliente.
 
 
-### <a name="engineering-contact"></a>Contato de engenharia
+### <a name="engineering-contact"></a>Contacto de Engenharia
 
-O contato de engenharia é o contato técnico entre sua organização e a Microsoft. Os campos obrigatórios são indicted por um asterisco (*).
+O contacto engenharia é o contacto técnico entre a sua organização e a Microsoft. Os campos necessários são indiciados por um asterisco (*).
 
-- **Nome\*** -nome da pessoa ou grupo que serve como suporte técnico/de engenharia.
-- **Email\*** -endereço de email deste contato técnico.
-- **Telefone\*** -número de telefone para suporte técnico.
+- **Nome\* ** - Nome da pessoa ou grupo que serve de suporte técnico/engenharia.
+- **Email\* ** - Endereço de e-mail deste contacto técnico.
+- **Telefone\* ** - Número de telefone para suporte técnico.
 
 
-### <a name="customer-support"></a>Suporte ao Cliente
+### <a name="customer-support"></a>Apoio ao Cliente
 
-O contato do atendimento ao cliente recebe tíquetes de suporte abertos por clientes no Azure.  Os campos obrigatórios são indicted por um asterisco (*).
+O contacto de Apoio ao Cliente recebe bilhetes de apoio abertos pelos clientes do Azure.  Os campos necessários são indiciados por um asterisco (*).
 
-- **Nome\*** -nome da pessoa ou grupo que serve como atendimento ao cliente.
-- **Email\*** -endereço de email deste contato de suporte.
-- **Telefone\*** -número de telefone para atendimento ao cliente.
+- **Nome\* ** - Nome da pessoa ou grupo que serve de apoio ao cliente.
+- **Email\* ** - Endereço de e-mail deste contacto de suporte.
+- **Telefone\* ** - Número de telefone para apoio ao cliente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de concluir o fornecimento de informações de suporte, você estará pronto para [publicar sua oferta](./cpp-publish-offer.md). 
+Depois de terminar de fornecer informações de suporte, está pronto para publicar a [sua oferta.](./cpp-publish-offer.md) 
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261401"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Copiar guia de desempenho e escalabilidade da atividade
@@ -27,7 +27,7 @@ ms.locfileid: "79261401"
 
 Quer pretenda realizar uma migração de dados em larga escala do data lake ou do armazém de dados da empresa (EDW) para o Azure, ou se pretende ingerir dados em escala de diferentes fontes para OT para análise de big data, é fundamental alcançar o melhor desempenho e escalabilidade.  A Azure Data Factory fornece um mecanismo performativo, resiliente e rentável para ingerir dados em escala, tornando-o um ótimo ajuste para engenheiros de dados que procuram construir oleodutos de ingestão de dados altamente performantes e escaláveis.
 
-Depois de ler este artigo, será capaz de responder às seguintes perguntas:
+Depois de ler este artigo, poderá responder às seguintes perguntas:
 
 - Que nível de desempenho e escalabilidade posso conseguir usando a atividade de cópia ADF para cenários de migração de dados e ingestão de dados?
 
@@ -49,7 +49,7 @@ A ADF oferece uma arquitetura sem servidores que permite o paralelismo a diferen
 | **100 GB**                  | 4,6 horas    | 2,3 horas   | 0,5 horas   | 0,2 horas  | 0,05 horas | 0,02 horas | 0,0 horas   |
 | **1 TB**                    | 46,6 horas   | 23,3 horas  | 4,7 horas   | 2,3 horas  | 0,5 horas  | 0,2 horas  | 0,05 horas  |
 | **10 TB**                   | 19,4 dias  | 9,7 dias  | 1,9 dias  | 0,9 dias | 0,2 dias | 0,1 dias | 0,02 dias |
-| **100 TB**                  | 194.2 dias | 97,1 dias | 19,4 dias | 9,7 dias | 1,9 dias | 1 dia    | 0,2 dias  |
+| **100 TB**                  | 194.2 dias | 97,1 dias | 19,4 dias | 9,7 dias | 1,9 dias | 1 dia    | 0,2 dias  |
 | **1 PB**                    | 64,7 mo    | 32,4 mo   | 6,5 mo    | 3.2 mo   | 0,6 mo   | 0,3 mo   | 0,06 mo   |
 | **10 PB**                   | 647.3 mo   | 323.6 mo  | 64,7 mo   | 31.6 mo  | 6,5 mo   | 3.2 mo   | 0,6 mo    |
 
@@ -61,7 +61,7 @@ A cópia ADF é escalável a diferentes níveis:
 - Uma única atividade de cópia pode tirar partido dos recursos de computação escaláveis: ao utilizar o Tempo de Execução de Integração Azure, pode especificar [até 256 DIUs](#data-integration-units) para cada atividade de cópia de forma sem servidores; ao utilizar o tempo de funcionamento de integração auto-hospedado, pode aumentar manualmente a máquina ou escalar para várias máquinas[(até 4 nós](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), e uma única atividade de cópia irá dividir o seu ficheiro definido em todos os nós.
 - Uma única atividade de cópia lê e escreve para a loja de dados usando múltiplos fios [em paralelo](#parallel-copy).
 
-## <a name="performance-tuning-steps"></a>Etapas de ajuste de desempenho
+## <a name="performance-tuning-steps"></a>Passos de afinação de desempenho
 
 Tome estes passos para afinar o desempenho do seu serviço Azure Data Factory com a atividade de cópia.
 
@@ -111,15 +111,15 @@ Para hospedar uma carga de trabalho simultânea ou para obter um desempenho mais
 
 Pode definir cópiaparalela para indicar o paralelismo que pretende que a atividade da cópia utilize. Pode pensar nesta propriedade como o número máximo de fios dentro da atividade de cópia que lê a partir da sua fonte ou escrever para as suas lojas de dados de pia em paralelo. [Saiba mais](copy-activity-performance-features.md#parallel-copy).
 
-### <a name="staged-copy"></a>Cópia faseada
+### <a name="staged-copy"></a>Cópia encenada
 
-Quando copia dados de um arquivo de dados de origem para um arquivo de dados de sink, pode optar por utilizar o armazenamento de BLOBs como um armazenamento de teste provisório. [Saiba mais](copy-activity-performance-features.md#staged-copy).
+Quando copia dados de uma loja de dados de origem para uma loja de dados de sumidouro, pode optar por utilizar o armazenamento Blob como uma loja de encenação provisória. [Saiba mais](copy-activity-performance-features.md#staged-copy).
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade de cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade da cópia de resolução de problemas](copy-activity-performance-troubleshooting.md)
 - [Copiar funcionalidades de otimização de desempenho de atividade](copy-activity-performance-features.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para o Azure](data-migration-guidance-overview.md)
-- [Migrar dados da Amazon S3 para o Armazenamento Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrar dados do Amazon S3 para o Armazenamento do Azure](data-migration-guidance-s3-azure-storage.md)

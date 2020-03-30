@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de rede da SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+title: Arquitetura de rede da SAP HANA em Azure (Grandes Instâncias) [ Microsoft Docs
 description: Arquitetura de rede de como implantar SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca05603ebf06906349a7f94443eafb773a0764f9
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79138999"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502410"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede SAP HANA (Grandes Instâncias)
 
@@ -170,7 +170,7 @@ Nas regiões azure onde o Global Reach é oferecido, pode solicitar a funcionali
 > Em caso de utilização do Global Reach para permitir o acesso direto entre as suas unidades HANA Large Instance e os seus ativos no local, os dados da rede e o fluxo de controlo não são encaminhados através de **redes virtuais Azure,** mas diretamente entre os routers de intercâmbio empresarial da Microsoft. Como resultado, quaisquer regras NSG ou ASG, ou qualquer tipo de firewall, NVA ou procuração que implementou numa rede virtual Azure, não estão a ser tocadas. **Se utilizar o ExpressRoute Global Reach para permitir o acesso direto a partir do local para HANA Grandes unidades de unidades de instância restrições e permissões para aceder a unidades de grandes instâncias HANA precisam de ser definidas em firewalls do lado no local** 
 
 ##### <a name="connecting-hana-large-instances-in-different-azure-regions"></a>Ligando as grandes instâncias hana em diferentes regiões de Azure
-Da mesma forma, como expressRoute Global Reach pode ser usado para ligar no local a unidades HANA Large Instance, pode ser usado para ligar inquilinos de reboque HANA Large Instance que são implantados para você em duas regiões diferentes. O isolamento são os circuitos ExpressRoute que os seus inquilinos hana large instance estão usando para ligar a Azure em ambas as regiões. Não existem taxas adicionais para ligar dois inquilinos hana de grande instância que são implantados em duas regiões diferentes. 
+Da mesma forma, como o ExpressRoute Global Reach pode ser usado para ligar no local às unidades HANA Large Instance, pode ser usado para ligar dois inquilinos hana de grande instância que são implantados para você em duas regiões diferentes. O isolamento são os circuitos ExpressRoute que os seus inquilinos hana large instance estão usando para ligar a Azure em ambas as regiões. Não existem taxas adicionais para ligar dois inquilinos hana de grande instância que são implantados em duas regiões diferentes. 
 
 > [!IMPORTANT]  
 > O fluxo de dados e o fluxo de controlo do tráfego de rede entre os diferentes inquilinos de instância HANA Grande não serão encaminhados através de redes azure. Como resultado, não pode utilizar a funcionalidade Azure ou nVAs para impor restrições de comunicação entre os seus dois inquilinos HANA Large Instances. 
@@ -199,5 +199,5 @@ O número mostra como as diferentes redes virtuais em ambas as regiões estão l
 > [!IMPORTANT] 
 > Se utilizou vários circuitos ExpressRoute, as predespesas do AS Path e as definições de BGP de preferência local devem ser utilizadas para garantir o encaminhamento adequado do tráfego.
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte a arquitetura de [armazenamento SAP HANA (Grandes Instâncias)](hana-storage-architecture.md)
