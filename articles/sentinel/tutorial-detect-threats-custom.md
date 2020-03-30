@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585112"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: Criar regras analíticas personalizadas para detetar ameaças suspeitas
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode criar regras personalizadas que possam procurar critérios específicos em todo o seu ambiente e gerar incidentes quando os critérios são combinados para que possa investigá-los. Este tutorial ajuda-o a criar regras personalizadas para detetar ameaças com o Azure Sentinel.
+Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode criar regras personalizadas que possam procurar critérios específicos em todo o seu ambiente e gerar incidentes quando os critérios são combinados para que possa investigá-los. Este tutorial ajuda-o a criar regras personalizadas para detetar ameaças com o Azure Sentinel.
 
 Este tutorial ajuda-o a detetar ameaças com o Azure Sentinel.
 > [!div class="checklist"]
@@ -59,7 +59,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a procurar os 
      \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
       > [!NOTE]
-      > O comprimento da consulta deve ser entre 1 e 10.000 caracteres e não pode conter "pesquisa \*" ou "união \*".
+      > O comprimento da consulta deve ser entre 1 e 10.000 caracteres e não pode conter "pesquisa" \*ou "união". \*
 
     1. Utilize a secção de **entidades do Mapa** para ligar parâmetros dos resultados da sua consulta a entidades reconhecidas pelo Azure Sentinel. Estas entidades formam a base para uma análise mais aprofundada, incluindo o agrupamento de alertas em incidentes no separador **de definições de Incidentes.**
     1. Na secção de agendamento de **consultas,** defina os seguintes parâmetros:

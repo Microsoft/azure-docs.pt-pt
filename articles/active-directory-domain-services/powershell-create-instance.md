@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
 ms.openlocfilehash: ee85002aea962dfa675ac6c09a6bfbaeba8e9e79
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613230"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar serviços de domínio de diretório ativo Azure usando powerShell
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Com o grupo de *administradores aAD DC* criado, adicione um utilizador ao grupo utilizando o Cmdlet [Add-AzureADGroupMember.][Add-AzureADGroupMember] Primeiro obtém o ID de objeto de grupo *aAD DC* administradores utilizando o cmdlet [Get-AzureADGroup,][Get-AzureADGroup] em seguida, o ID de objeto do utilizador desejado utilizando o cmdlet [Get-AzureADUser.][Get-AzureADUser]
 
-No exemplo seguinte, o id do objeto do utilizador para a conta com uma UPN de `admin@aaddscontoso.onmicrosoft.com`. Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo de *Administradores aAD DC:*
+No exemplo seguinte, o id do objeto do `admin@aaddscontoso.onmicrosoft.com`utilizador para a conta com uma UPN de . Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo de *Administradores aAD DC:*
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -160,7 +160,7 @@ Quando o portal Azure mostrar que o domínio gerido pela AD DS azure terminou o 
 
 ## <a name="complete-powershell-script"></a>Script Completo PowerShell
 
-O seguinte roteiro completo da PowerShell combina todas as tarefas mostradas neste artigo. Copie o script e guarde-o para um ficheiro com uma extensão `.ps1`. Execute o script numa consola local powerShell ou na [Azure Cloud Shell][cloud-shell].
+O seguinte roteiro completo da PowerShell combina todas as tarefas mostradas neste artigo. Copie o script e guarde-o para um ficheiro com uma `.ps1` extensão. Execute o script numa consola local powerShell ou na [Azure Cloud Shell][cloud-shell].
 
 > [!NOTE]
 > Para permitir o Azure AD DS, você deve ser um administrador global para o inquilino da AD Azure. Você também precisa de pelo menos privilégios *Contributivos* na subscrição Azure.

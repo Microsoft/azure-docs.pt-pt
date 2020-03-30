@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 6d43b82ecd13ac5e082d270ee44ce61fef763d2c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588319"
 ---
 # <a name="connect-your-domain-name-server"></a>Conecte o seu servidor de nome de domínio
 
 > [!IMPORTANT]
 > O conector de dados DNS em Azure Sentinel encontra-se atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Pode ligar qualquer servidor de nome de domínio (DNS) que esteja a funcionar no Windows ao Azure Sentinel. Isto é feito instalando um agente na máquina DNS. Utilizando registos DNS, pode obter informações relacionadas com segurança, desempenho e operações sobre a infraestrutura DNS da sua organização, recolhendo, analisando e correlacionados registos analíticos e de auditoria e outros dados relacionados dos servidores DNS.
 
@@ -39,18 +39,18 @@ Quando ativa a ligação de registo DNS, pode:
 
 ## <a name="connected-sources"></a>Origens ligadas
 
-A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
+A tabela seguinte descreve as fontes conectadas que são suportadas por esta solução:
 
 | **Origem ligada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
-| [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
-| [Grupo de gestão de gestão de gestão de gestão de operações do Centro de Sistema](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta do agente do Gestor de Operações ao Monitor Azure. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
-| [Conta de armazenamento do Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
+| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações dNS de agentes do Windows. |
+| [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações dNS de agentes diretos do Linux. |
+| [Grupo de gestão do System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações do DNS de agentes de um grupo de gestão de Gestão de Operações conectados. Não é necessária uma ligação direta do agente do Gestor de Operações ao Monitor Azure. Os dados são encaminhados do grupo de gestão para o espaço de trabalho log Analytics. |
+| [Conta de armazenamento azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento azure não é usado pela solução. |
 
-### <a name="data-collection-details"></a>Detalhes de recolha de dados
+### <a name="data-collection-details"></a>Detalhes da recolha de dados
 
-A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos servidores DNS onde está instalado um agente de Log Analytics. Dados relacionados com o inventário, como o número de servidores DNS, zonas e registos de recursos, são recolhidos ao executar os cmdlets do PowerShell de DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados com o evento são recolhidos em quase tempo real a partir dos [registos analíticos e de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos por registos e diagnósticos dNS melhorados no Windows Server 2012 R2.
+A solução recolhe o inventário DNS e os dados relacionados com o evento DNS dos servidores DNS onde um agente Log Analytics está instalado. Os dados relacionados com o inventário, como o número de servidores, zonas e registos de recursos dNS, são recolhidos executando os cmdlets DNS PowerShell. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados com o evento são recolhidos em quase tempo real a partir dos [registos analíticos e de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos por registos e diagnósticos dNS melhorados no Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Ligue o seu aparelho DNS
@@ -64,7 +64,7 @@ A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos
 
 2. Se a sua máquina DNS não for um VM Azure:
     1. Clique **em instalar o agente em máquinas não-Azure**.
-    1. Na janela **do agente Direct,** selecione o **agente Descarregamento do Windows (64 bits)** ou **o agente Dowindows (32 bits)** .
+    1. Na janela **do agente Direct,** selecione o **agente Descarregamento do Windows (64 bits)** ou **o agente Dowindows (32 bits)**.
     1. Instale o agente na sua máquina DNS. Copie o **ID workspace,** **a chave primária**e a tecla **secundária** e utilize-os quando solicitado durante a instalação.
 
 3. Para utilizar o esquema relevante no Log Analytics para os registos DNS, procure **dnsEvents**.

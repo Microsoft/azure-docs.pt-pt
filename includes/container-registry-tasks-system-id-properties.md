@@ -9,13 +9,13 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112296"
 ---
-Na saída de comando, a secção `identity` mostra uma identidade de tipo `SystemAssigned` é definida na tarefa. O `principalId` é a identificação principal da identidade de tarefa:
+Na saída de `identity` comando, a secção `SystemAssigned` mostra que uma identidade de tipo é definida na tarefa. O `principalId` principal ID da identidade de tarefa:
 
 ```console
 [...]

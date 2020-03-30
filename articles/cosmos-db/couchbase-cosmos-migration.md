@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77210947"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar da CouchBase para a Azure Cosmos DB SQL API
@@ -105,7 +105,7 @@ A Azure Cosmos DB tem seguindo os SDKs para apoiar diferentes estruturas java:
 
 As seguintes secções descrevem quando usar cada um destes SDKs. Considere um exemplo onde temos três tipos de cargas de trabalho:
 
-## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Base de sofá como repositório de documentos e consultas personalizadas baseadas em dados de mola
+## <a name="couchbase-as-document-repository--spring-data-based-custom-queries"></a>Base de sofá como repositório de documentos & consultas personalizadas baseadas em dados de mola
 
 Se a carga de trabalho que está a migrar for baseada no SDK baseado em Botas de primavera, então pode utilizar os seguintes passos:
 
@@ -161,7 +161,7 @@ Seguem-se os códigos de snippets para operações crud:
 
 ### <a name="insert-and-update-operations"></a>Insira e atualize as operações
 
-Onde *_repo* é objeto de repositório e *doc* é objeto da classe POJO. Pode utilizar `.save` para inserir ou sersert (se o documento tiver sido encontrado com id especificado). O seguinte código de corte mostra como inserir ou atualizar um objeto doc:
+Onde *_repo* é objeto de repositório e *doc* é objeto da classe POJO. Pode utilizar `.save` para inserir ou sermantes (se o documento tiver sido encontrado com identificação especificada). O seguinte código de corte mostra como inserir ou atualizar um objeto doc:
 
 ```_repo.save(doc);```
 
@@ -173,20 +173,20 @@ Considere o seguinte código snippet, onde o objeto do doc terá identificação
 
 ### <a name="read-operation"></a>Ler Operação
 
-Pode ler o documento com ou sem especificar a chave de partição. Se não especificar a chave de partição, então é tratada como uma consulta de partição cruzada. Considere as seguintes amostras de código, a primeira executará o funcionamento utilizando o id e o campo chave da partição. O segundo exemplo utiliza um campo regular e sem especificar o campo-chave da divisória.
+Pode ler o documento com ou sem especificar a chave de partição. Se não especificar a chave de partição, então é tratada como uma consulta de partição cruzada. Considere as seguintes amostras de código, a primeira executará o funcionamento utilizando o id e o campo chave da partição. O segundo exemplo utiliza um campo regular & sem especificar o campo chave da divisória.
 
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
 É isso, agora podes usar a tua aplicação com o Azure Cosmos DB. A amostra completa de código para o exemplo descrito neste doc está disponível no [repo CouchbaseToCosmosDB-SpringCosmos GitHubs.](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos)
 
-## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase como um repositório de documentos e usando consultas N1QL
+## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Couchbase como um repositório de documentos & usando consultas N1QL
 
 Consultas N1QL é a maneira de definir consultas na Base de Sofá.
 
 |Consulta N1QL | Consulta Azure CosmosDB|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`.id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE where `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " e país = 'Índia' e ANY m in Visas SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India' and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
 Pode notar as seguintes alterações nas suas consultas N1QL:
 
@@ -211,7 +211,7 @@ Utilize o SDK Async Java com os seguintes passos:
    </dependency>
    ```
 
-1. Crie um objeto de ligação para o Azure Cosmos DB utilizando o método `ConnectionBuilder`, como mostra o seguinte exemplo. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
+1. Crie um objeto de ligação para `ConnectionBuilder` o Azure Cosmos DB utilizando o método como mostrado no exemplo seguinte. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -310,7 +310,7 @@ Este é um tipo simples de carga de trabalho em que você pode realizar procuras
 
 1. Considere ter "/ID" como chave principal, o que fará com que possa realizar a operação de procuração diretamente na partição específica. Crie uma coleção e especifique "/ID" como chave de partição.
 
-1. Desligue completamente o índice. Como vai executar operações de procuração, não faz sentido carregar as despesas de indexação. Para desligar a indexação, assine no portal Azure, goto Azure Cosmos DB Account. Abra o **Data Explorer,** selecione a sua **Base de Dados** e o **Recipiente**. Abra o separador **Escala e Definições** e selecione a **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
+1. Desligue completamente o índice. Como vai executar operações de procuração, não faz sentido carregar as despesas de indexação. Para desligar a indexação, assine no portal Azure, goto Azure Cosmos DB Account. Abra o **Data Explorer,** selecione a sua **Base de Dados** e o **Recipiente**. Abra o separador **Definições de escala &** e selecione a **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
     
    ```json
    {
@@ -356,7 +356,7 @@ Este é um tipo simples de carga de trabalho em que você pode realizar procuras
    }
    ```
 
-1. Utilize o seguinte fragmento de código para criar o objeto de ligação. Objeto de ligação (a ser colocado em @Bean ou torná-lo estático):
+1. Utilize o seguinte fragmento de código para criar o objeto de ligação. Objeto de ligação @Bean (a ser colocado ou estática):
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();

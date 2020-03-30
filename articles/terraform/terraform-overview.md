@@ -4,10 +4,10 @@ description: Introdução à utilização da Terraform para versão e implantaç
 ms.topic: overview
 ms.date: 10/26/2019
 ms.openlocfilehash: 05b92fdf8c0a0f84d2f29b4aa7479850b2721441
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77472167"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure

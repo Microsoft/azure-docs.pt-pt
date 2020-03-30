@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
 ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603992"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigar Incidentes e Alertas no Centro de Segurança Azure (Aposentado)
@@ -115,6 +115,6 @@ A partir daqui, pode explorar as entidades que estiveram envolvidas neste incide
 ## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu a utilizar a funcionalidade Investigação do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
-* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
-* [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
+* [Gestão e resposta a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)de segurança no Centro de Segurança Azure. Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
+* [Monitorização da saúde de segurança no Centro de Segurança Azure.](security-center-monitoring.md) Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
+* [Compreender alertas de segurança no Centro de Segurança Azure.](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) Saiba mais sobre os diferentes tipos de alertas de segurança.

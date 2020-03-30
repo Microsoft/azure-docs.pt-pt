@@ -8,13 +8,13 @@ ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77462467"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API da Azure Cosmos DB para MongoDB (versão 3.6): funcionalidades suportadas e sintaxe
+# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e funcionalidades suportadas
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API da Azure Cosmos DB para mongoDB utilizando qualquer um dos [condutores](https://docs.mongodb.org/ecosystem/drivers)de clientes MongoDB de código aberto. A API da Azure Cosmos DB para a MongoDB permite a utilização de condutores de clientes existentes, aderindo ao [protocolo de arame](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)MongoDB.
 
@@ -22,7 +22,7 @@ Ao utilizar a API do Azure Cosmos DB para mongoDB, pode usufruir dos benefícios
 
 ## <a name="protocol-support"></a>Suporte protocole
 
-A API do Azure Cosmos DB para MongoDB é compatível com a versão **3.6** do servidor MongoDB por padrão para novas contas. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. Qualquer controlador do cliente que compreenda estes protocolos deverá conseguir ligar à API do Azure Cosmos DB para MongoDB. Note que ao utilizar a API do Azure Cosmos DB para contas MongoDB, a versão 3.6 das contas tem o ponto final no formato `*.mongo.cosmos.azure.com` enquanto a versão 3.2 das contas tem o ponto final no formato `*.documents.azure.com`.
+A API do Azure Cosmos DB para MongoDB é compatível com a versão **3.6** do servidor MongoDB por padrão para novas contas. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. Qualquer controlador do cliente que compreenda estes protocolos deverá conseguir ligar à API do Azure Cosmos DB para MongoDB. Note que ao utilizar a API do Azure Cosmos DB para contas MongoDB, a versão `*.mongo.cosmos.azure.com` 3.6 das contas tem o ponto final `*.documents.azure.com`no formato, enquanto a versão 3.2 das contas tem o ponto final no formato .
 
 ## <a name="query-language-support"></a>Apoio à linguagem de consulta
 
@@ -97,13 +97,13 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 |dbStats     |   Sim      |
 |explicar     | Não        |
 |explicar: execuçãoStats     |     Não    |
-|características     |    Não     |
+|funcionalidades     |    Não     |
 |hostInfo     |   Não      |
 |listDatabases       |   Sim      |
 |listComandos     |  Não       |
 |perfilador     |  Não       |
-|serverStatus     |  Não       |
-|Início     |    Não     |
+|servidorStatus     |  Não       |
+|superior     |    Não     |
 |whatsmyuri     |   Sim      |
 
 <a name="aggregation-pipeline"/>
@@ -330,14 +330,14 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 
 |Comando  |Suportado |
 |---------|---------|
-|Valor de duplo |Sim    |
+|Double |Sim    |
 |Cadeia |Sim    |
-|Object |Sim    |
+|Objeto |Sim    |
 |Matriz  |Sim    |
-|Binary Data    |Sim|   
-|Objectide   |Sim    |
+|Dados Binários    |Sim|   
+|ObjectId   |Sim    |
 |Booleano    |Sim    |
-|Data   |Sim    |
+|Date   |Sim    |
 |Null   |Sim    |
 |32 bits Inteiro (int)   |Sim    |
 |Carimbo de data/hora  |Sim    |
@@ -348,7 +348,7 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 |Expressão Regular |Sim|
 |Javascript |Sim|
 |JavaScript (com âmbito)|   Sim |
-|Não definido  |Sim    |
+|Indefinido  |Sim    |
 
 ## <a name="indexes-and-index-properties"></a>Índices e propriedades indexadas
 
@@ -372,7 +372,7 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 |Exclusivo |Sim|
 |Parcial|   Não|
 |Caso Insensível   |Não|
-|Dispersos |Não |
+|Disperso |Não |
 |Segundo plano|    Sim |
 
 ## <a name="operators"></a>Operadores
@@ -406,7 +406,7 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 
 Nas consultas $regex, expressões ancoradas à esquerda permitem a pesquisa de índices. No entanto, utilizar o modificador "i" (não sensível a maiúsculas e minúsculas) e o modificador "m" (multinha) faz a análise de coleção em todas as expressões.
 
-Quando for necessário incluir "$" ou "|", é melhor criar duas (ou mais) consultas de regex. Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, tem de ser modificada da seguinte forma:
+Quando for necessário incluir "$" ou "|", é melhor criar duas (ou mais) consultas de regex. Por exemplo, dada a ```find({x:{$regex: /^abc$/})```seguinte consulta original: , tem de ser modificada da seguinte forma:
 
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 
@@ -538,7 +538,7 @@ $polygon |  Sim |
 
 ## <a name="sort-operations"></a>Ordenar operações
 
-Ao utilizar a operação `findOneAndUpdate`, são apoiadas operações de triagem num único campo, mas as operações de triagem em vários campos não são suportadas.
+Ao utilizar `findOneAndUpdate` a operação, as operações de triagem num único campo são suportadas, mas as operações de classificação em vários campos não são suportadas.
 
 ## <a name="unique-indexes"></a>Índices exclusivos
 

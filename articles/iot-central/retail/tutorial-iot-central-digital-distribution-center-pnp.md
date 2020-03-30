@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025491"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
@@ -22,7 +22,7 @@ Este tutorial mostra-lhe como começar implantando um modelo de aplicação do c
 
 Neste tutorial, aprende-se a, 
 * Criar aplicação de centro de distribuição digital 
-* andar através da aplicação 
+* Caminhe pela aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Não são necessários pré-requisitos específicos para implementar esta aplicação
@@ -49,7 +49,7 @@ Pode criar aplicação usando os seguintes passos
     > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![informação de faturação de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Informação de faturação de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Caminhe pelo painel de aplicações 
 
@@ -58,7 +58,7 @@ Depois de implementar com sucesso o modelo de aplicação, o seu dashboard padr�
 Neste painel, verá um portal e uma câmara a funcionar como um dispositivo IoT. Gateway está fornecendo telemetria sobre pacotes como válido, inválido, não identificado e tamanho, juntamente com propriedades gémeas de dispositivo associados. Todos os comandos a jusante são executados em dispositivos IoT, como uma câmara. Este painel de instrumentos é pré-configurado para mostrar a atividade de operações do dispositivo do centro de distribuição crítica.
 
 O dashboard é logicamente organizado para mostrar as capacidades de gestão do dispositivo de gestão do dispositivo Azure IoT e IoT.  
-   * Pode executar tarefas de comando e controlo de gateway
+   * Pode executar tarefas de comando de porta & controlo
    * Gerencie todas as câmaras que fazem parte da solução. 
 
 > [!div class="mx-imgBorder"]
@@ -99,7 +99,7 @@ Selecione o separador de regras para ver duas regras diferentes que existem nest
 > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Tarefas
-Selecione o separador de empregos para ver cinco empregos diferentes que existem como parte deste modelo de aplicação: Pode aproveitar a funcionalidade de empregos para realizar operações a nível de solução. Aqui os trabalhos do centro de distribuição digital estão a usar os comandos do dispositivo e a capacidade de gémeos para executar tarefas como, tais como,
+Selecione o separador de empregos para ver cinco empregos diferentes que existem como parte deste modelo de aplicação: Pode aproveitar a funcionalidade de empregos para realizar operações a nível de solução. Aqui os trabalhos do centro de distribuição digital estão a usar os comandos do dispositivo & capacidade gémea para executar tarefas como,
    * calibrando a câmara antes de começar a deteção do pacote 
    * atualizando periodicamente firmware de câmara
    * modificando o intervalo de telemetria para gerir o upload de dados
@@ -108,7 +108,7 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando **as definições** de > Aplicação **da Administração** e clique em **Eliminar**.
+Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando**as definições** de Aplicação de **Administração** > e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
 > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-cleanup.png)

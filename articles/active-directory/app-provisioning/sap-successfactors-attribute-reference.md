@@ -1,5 +1,5 @@
 ---
-title: SAP SuccessFactors Atribuição Referência  Microsoft Docs
+title: SAP SuccessFactors Atribuição Referência [ Microsoft Docs
 description: Saiba quais os atributos de SuccessFactors suportados por fornecimento sonante SuccessFactors-HR
 services: active-directory
 author: cmmdesai
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522361"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributos de sucesso sAP
@@ -35,10 +35,10 @@ A tabela abaixo capta a lista de atributos SuccessFactors suportados pelas segui
 | 2  | PerPerson                              | personId                     | Leitura           |
 | 3  | PerPerson                              | perPersonUuid                | Leitura           |
 | 4  | PerPersonal                            | displayName                  | Leitura           |
-| 5  | PerPersonal                            | firstName                    | Leitura           |
+| 5  | PerPersonal                            | nomePróprio                    | Leitura           |
 | 6  | PerPersonal                            | género                       | Leitura           |
-| 7  | PerPersonal                            | lastName                     | Leitura           |
-| 8  | PerPersonal                            | middleName                   | Leitura           |
+| 7  | PerPersonal                            | apelido                     | Leitura           |
+| 8  | PerPersonal                            | nome do meio                   | Leitura           |
 | 9  | PerPersonal                            | nome preferido                | Leitura           |
 | 10 | Utilizador                                   | endereçoLine1                 | Leitura           |
 | 11 | Utilizador                                   | addressLine2                 | Leitura           |
@@ -70,11 +70,11 @@ A tabela abaixo capta a lista de atributos SuccessFactors suportados pelas segui
 | 37 | Utilizador                                   | o nome de utilizador                     | Leitura           |
 | 38 | Utilizador                                   | zipCode                      | Leitura           |
 | 39 | PerPhone                               | áreaCódigo                     | Leitura           |
-| 40 | PerPhone                               | countryCode                  | Leitura           |
+| 40 | PerPhone                               | paísCódigo                  | Leitura           |
 | 41 | PerPhone                               | extensão                    | Leitura           |
-| 42 | PerPhone                               | phoneNumber                  | Leitura           |
+| 42 | PerPhone                               | telefoneNúmero                  | Leitura           |
 | 43 | PerPhone                               | telefoneTipo                    | Leitura           |
-| 44 | PerEmail                               | emailAddress                 | Ler, Escrever    |
+| 44 | PerEmail                               | e-mailAddress                 | Ler, Escrever    |
 | 45 | PerEmail                               | e-mailType                    | Leitura           |
 | 46 | EmpEmployment                          | firstDateWorked              | Leitura           |
 | 47 | EmpEmployment                          | últimoDataTrabalhado               | Leitura           |
@@ -82,31 +82,31 @@ A tabela abaixo capta a lista de atributos SuccessFactors suportados pelas segui
 | 49 | EmpEmployment                          | éContingentWorker           | Leitura           |
 | 50 | EmpJob                                 | countryOfCompany             | Leitura           |
 | 51 | EmpJob                                 | emplStatus                   | Leitura           |
-| 52 | EmpJob                                 | data de fim                      | Leitura           |
+| 52 | EmpJob                                 | endDate                      | Leitura           |
 | 53 | EmpJob                                 | inícioData                    | Leitura           |
-| 54 | EmpJob                                 | jobTitle                     | Leitura           |
-| 55 | EmpJob                                 | Posição                     | Leitura           |
+| 54 | EmpJob                                 | empregoTítulo                     | Leitura           |
+| 55 | EmpJob                                 | position                     | Leitura           |
 | 65 | EmpJob                                 | customString13               | Leitura           |
 | 56 | EmpJob                                 | managerId                    | Leitura           |
 | 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Leitura           |
 | 58 | EmpJob\.BusinessUnit                   | businessUnitId               | Leitura           |
-| 59 | Empresa de\.EmpJob                        | Empresa                      | Leitura           |
-| 60 | Empresa de\.EmpJob                        | companyId                    | Leitura           |
-| 61 | Empresa de\.EmpJob\.CountryOfRegistration | doisCharCountryCode           | Leitura           |
+| 59 | Empresa EmpJob\.                        | empresa                      | Leitura           |
+| 60 | Empresa EmpJob\.                        | empresaId                    | Leitura           |
+| 61 | EmpJob\.Company\.CountryOfRegistration | doisCharCountryCode           | Leitura           |
 | 62 | EmpJob\.CostCenter                     | costCenter                   | Leitura           |
 | 63 | EmpJob\.CostCenter                     | costCenterId                 | Leitura           |
 | 64 | EmpJob\.CostCenter                     | costCenterDescription        | Leitura           |
-| 65 | Departamento de\.emPJob                     | Departamento                   | Leitura           |
-| 66 | Departamento de\.emPJob                     | departamentoId                 | Leitura           |
-| 67 | Divisão de\.EmpJob                       | divisão                     | Leitura           |
-| 68 | Divisão de\.EmpJob                       | divisãoId                   | Leitura           |
+| 65 | Departamento de\.EmpJob                     | departamento                   | Leitura           |
+| 66 | Departamento de\.EmpJob                     | departmentId                 | Leitura           |
+| 67 | Divisão EmpJob\.                       | divisão                     | Leitura           |
+| 68 | Divisão EmpJob\.                       | divisãoId                   | Leitura           |
 | 69 | EmpJob\.JobCode                        | empregoCódigo                      | Leitura           |
 | 70 | EmpJob\.JobCode                        | jobCodeId                    | Leitura           |
-| 71 | Localização\.EmpJob                       | Nome de localização                 | Leitura           |
-| 72 | Localização\.EmpJob                       | officeLocationAddress        | Leitura           |
-| 73 | Localização\.EmpJob                       | officeLocationCity           | Leitura           |
-| 74 | Localização\.EmpJob                       | officeLocationCustomString4  | Leitura           |
-| 75 | Localização\.EmpJob                       | officeLocationZipCode        | Leitura           |
+| 71 | Localização EmpJob\.                       | Nome de localização                 | Leitura           |
+| 72 | Localização EmpJob\.                       | officeLocationAddress        | Leitura           |
+| 73 | Localização EmpJob\.                       | officeLocationCity           | Leitura           |
+| 74 | Localização EmpJob\.                       | officeLocationCustomString4  | Leitura           |
+| 75 | Localização EmpJob\.                       | officeLocationZipCode        | Leitura           |
 | 76 | EmpJob\.PayGrade                       | payGrade                     | Leitura           |
 | 77 | EmpEmploymentTermination               | activoEmpregosCount       | Leitura           |
 | 78 | EmpEmploymentTermination               | data de rescisão mais recente        | Leitura           |
@@ -118,24 +118,24 @@ A tabela abaixo fornece o mapeamento padrão de atributos entre os atributos Suc
 
 | \# | Entidade SuccessFactors                  | Atributo saque de SuccessFactors | Mapeamento de atributo ad/azure predefinido   | Observação de processamento                                                                            |
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
-| 1  | PerPerson                              | personIdExternal         | employeeId                              | Usado como atributo correspondente                                                                   |
-| 2  | PerPerson                              | perPersonUuid            | \[não mapeado \- usado como âncora de origem\] | Durante a sincronização inicial, o Serviço de Provisionamento liga a pessoaUuid ao objectuide existente.  |
+| 1  | PerPerson                              | personIdExternal         | funcionárioId                              | Usado como atributo correspondente                                                                   |
+| 2  | PerPerson                              | perPersonUuid            | \[Não mapeado \- usado como âncora de origem\] | Durante a sincronização inicial, o Serviço de Provisionamento liga a pessoaUuid ao objectuide existente..  |
 | 3  | PerPersonal                            | displayName              | displayName                             | ND                                                                                           |
-| 4  | PerPersonal                            | firstName                | givenName                               | ND                                                                                           |
-| 5  | PerPersonal                            | lastName                 | sn                                      | ND                                                                                           |
+| 4  | PerPersonal                            | nomePróprio                | nomeDado                               | ND                                                                                           |
+| 5  | PerPersonal                            | apelido                 | sn                                      | ND                                                                                           |
 | 6  | Utilizador                                   | endereçoLine1             | streetAddress                           | ND                                                                                           |
 | 7  | Utilizador                                   | city                     | l                                       | ND                                                                                           |
-| 8  | Utilizador                                   | país                  | Co                                      | ND                                                                                           |
-| 9  | Utilizador                                   | state                    | St                                      | ND                                                                                           |
-| 10 | Utilizador                                   | o nome de utilizador                 | samAccountName                          | ND                                                                                           |
-| 11 | Utilizador                                   | zipCode                  | postalCode                              | ND                                                                                           |
-| 12 | PerEmail                               | emailAddress             | mail                                    | ND                                                                                           |
-| 13 | EmpJob                                 | jobTitle                 | Título                                   | ND                                                                                           |
-| 14 | EmpJob                                 | managerId                | Manager                                 | ND                                                                                           |
-| 15 | Empresa de\.EmpJob\.CountryOfRegistration | doisCharCountryCode       | c                                       | ND                                                                                           |
-| 16 | Departamento de\.emPJob                     | Departamento               | Departamento                              | ND                                                                                           |
-| 17 | Divisão de\.EmpJob                       | divisão                 | Empresa                                 | ND                                                                                           |
-| 18 | Localização\.EmpJob                       | officeLocationAddress    | streetAddress                           | ND                                                                                           |
-| 19 | Localização\.EmpJob                       | officeLocationZipCode    | postalCode                              | ND                                                                                           |
-| 20 | EmpEmploymentTermination               | activoEmpregosCount   | accountEnabled                          | se activoEmpregosCount=0, desative a conta\.                                           |
+| 8  | Utilizador                                   | país                  | co                                      | ND                                                                                           |
+| 9  | Utilizador                                   | state                    | SC                                      | ND                                                                                           |
+| 10 | Utilizador                                   | o nome de utilizador                 | NomeContaSam                          | ND                                                                                           |
+| 11 | Utilizador                                   | zipCode                  | Código postal                              | ND                                                                                           |
+| 12 | PerEmail                               | e-mailAddress             | correio                                    | ND                                                                                           |
+| 13 | EmpJob                                 | empregoTítulo                 | título                                   | ND                                                                                           |
+| 14 | EmpJob                                 | managerId                | gestor                                 | ND                                                                                           |
+| 15 | EmpJob\.Company\.CountryOfRegistration | doisCharCountryCode       | c                                       | ND                                                                                           |
+| 16 | Departamento de\.EmpJob                     | departamento               | departamento                              | ND                                                                                           |
+| 17 | Divisão EmpJob\.                       | divisão                 | empresa                                 | ND                                                                                           |
+| 18 | Localização EmpJob\.                       | officeLocationAddress    | streetAddress                           | ND                                                                                           |
+| 19 | Localização EmpJob\.                       | officeLocationZipCode    | Código postal                              | ND                                                                                           |
+| 20 | EmpEmploymentTermination               | activoEmpregosCount   | contaEnabled                          | se activoEmpregosCount=0, desative a conta\.                                           |
 

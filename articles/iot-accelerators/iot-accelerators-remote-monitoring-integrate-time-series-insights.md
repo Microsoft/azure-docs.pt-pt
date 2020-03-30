@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564649"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
@@ -49,9 +49,9 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Em seguida, implemente os Time Series Insights como um recurso adicional na sua solução de Monitorização Remota e conecte-o ao hub IoT.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Criar um recurso** > Internet das Coisas > Insights **da** Série **de Tempo**.
+1. Selecione **Criar um recurso** > **Internet of Things** > **Time Series Insights**.
 
     ![Insights da série new time](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -88,16 +88,16 @@ Crie uma nova fonte de evento para se conectar ao seu hub IoT. Certifique-se de 
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome da fonte do evento | A imagem seguinte utiliza o nome **contosorm-iot-hub**. Use o seu próprio nome único quando completar este passo. |
-    | Origem | **Hub IoT** |
+    | Nome da origem de evento | A imagem seguinte utiliza o nome **contosorm-iot-hub**. Use o seu próprio nome único quando completar este passo. |
+    | Origem | **IoT Hub** |
     | Opção de Importar | **Use o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub de iot | **Contosorma57a6.** Utilize o nome do seu hub IoT a partir da sua solução de Monitorização Remota. |
-    | Nome da política do hub de iot | **iothubowner** Certifique-se de que a política utilizada é uma política do proprietário. |
+    | Nome do hub IoT | **Contosorma57a6.** Utilize o nome do seu hub IoT a partir da sua solução de Monitorização Remota. |
+    | Nome da política do hub IoT | **iothubowner** Certifique-se de que a política utilizada é uma política do proprietário. |
     | Chave política do hub de iot | Este campo é povoado automaticamente. |
-    | Grupo de consumidores de hub iot | **timeseriesinsights** |
-    | Formato de serialização de eventos | **JSON**     | 
-    | Nome da propriedade Timestamp | Deixar em branco |
+    | Grupo de consumidores do hut IoT | **timeseriesinsights** |
+    | Formato de serialização de eventos | **Rio JSON**     | 
+    | Nome da propriedade Carimbo de data/hora | Deixar em branco |
 
     ![Criar fonte de evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -205,7 +205,7 @@ Para completar a integração time series Insights, terá de configurar o ambien
 
 ### <a name="basic-deployments"></a>Implementações básicas
 
-Configure o ambiente de implantação `basic` para os microserviços atualizados.
+Configure o `basic` ambiente de implantação dos microserviços atualizados.
 
 1. No portal Azure, clique no separador **Azure Ative Diretório** no painel à esquerda.
 
@@ -213,15 +213,15 @@ Configure o ambiente de implantação `basic` para os microserviços atualizados
 
 1. Procure e clique na sua aplicação **ContosoRM.**
 
-1. Navegue para **Definições** > **Teclas** e, em seguida, crie uma nova chave para a sua aplicação. Certifique-se de copiar o Valor Chave para um local seguro.
+1. Navegue para **Definições** > **De Teclas** e, em seguida, crie uma nova chave para a sua aplicação. Certifique-se de copiar o Valor Chave para um local seguro.
 
 1. Puxe o [mais recente ficheiro yaml de composição](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do GitHub repo usando a última etiqueta. 
 
 1. SSH no VM seguindo os passos delineados sobre [como criar e utilizar teclas SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
-1. Uma vez ligados, escreva `cd /app`.
+1. Uma vez `cd /app`ligado, escreva .
 
-1. Adicione as seguintes variáveis ambientais a cada microserviço no ficheiro de laml compor do estivador e o roteiro `env-setup` no VM:
+1. Adicione as seguintes variáveis ambientais a cada microserviço no `env-setup` ficheiro de composição do estivador yaml e o script no VM:
 
     ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
@@ -233,18 +233,18 @@ Configure o ambiente de implantação `basic` para os microserviços atualizados
 
 1. Navegue para o serviço de **telemetria** e edite também o ficheiro de composição do estivador adicionando as mesmas variáveis ambientais acima.
 
-1. Navegue para o serviço de gerente da **ASA** e edite o ficheiro de composição do estivador adicionando `PCS_TELEMETRY_STORAGE_TYPE`.
+1. Navegue para o **serviço de gerente da ASA** e edite o ficheiro de composição do estivador adicionando `PCS_TELEMETRY_STORAGE_TYPE`.
 
-1. Reinicie os recipientes de estiva utilizando `sudo ./start.sh` do VM.
+1. Reiniciar os recipientes `sudo ./start.sh` de estivador utilizados a partir do VM.
 
 > [!NOTE]
 > A configuração acima das variáveis ambientais é válida para versões de Monitorização Remota antes de 1.0.2
 
 ### <a name="standard-deployments"></a>Implementações padrão
 
-Configure o ambiente de implantação `standard` para os micro serviços atualizados acima
+Configure o `standard` ambiente de implantação dos micro serviços atualizados acima
 
-1. Na linha de comando, corra `kubectl proxy`. Para mais informações, consulte [o acesso à API kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. Na linha de `kubectl proxy`comando, corra. Para mais informações, consulte [o acesso à API kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
 
 1. Abra a consola de gestão Kubernetes.
 

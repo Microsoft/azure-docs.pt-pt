@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500606"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre vpn ponto-a-local
 
 Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligação segura à sua rede virtual a partir de um computador cliente individual. É estabelecida uma ligação P2S ao iniciá-la a partir do computador cliente. Esta solução é útil para as pessoas que trabalham à distância que queiram ligar às VNets do Azure a partir de uma localização remota, como, por exemplo, a partir de casa ou de uma conferência. Uma VPN P2S também é uma solução útil para utilizar em vez de uma VPN S2S, quando são poucos os clientes que precisam de ligar a uma VNet. Este artigo aplica-se ao modelo de implementação clássica e do Resource Manager.
 
-## <a name="protocol"></a>Que protocolo usa o P2S?
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Que protocolo usa o P2S?
 
 A VPN ponto-a-local pode utilizar um dos seguintes protocolos:
 
@@ -33,7 +33,7 @@ A VPN ponto-a-local pode utilizar um dos seguintes protocolos:
 >IKEv2 e OpenVPN para P2S estão disponíveis apenas para o modelo de implementação do Gestor de Recursos. Não estão disponíveis para o modelo de implantação clássico.
 >
 
-## <a name="authentication"></a>Como são autenticados os clientes VPN P2S?
+## <a name="how-are-p2s-vpn-clients-authenticated"></a><a name="authentication"></a>Como são autenticados os clientes VPN P2S?
 
 Antes de o Azure aceitar uma ligação P2S VPN, o utilizador tem de ser autenticado primeiro. Existem dois mecanismos que o Azure oferece para autenticar um utilizador de ligação.
 
@@ -51,7 +51,7 @@ Com a autenticação autóctone Azure AD, pode aproveitar o acesso condicional d
 
 A um nível elevado, é necessário realizar os seguintes passos para configurar a autenticação da AD Azure:
 
-1. [Configure um inquilino da AD Azure](openvpn-azure-ad-tenant.md)
+1. [Configurar um inquilino do Azure AD](openvpn-azure-ad-tenant.md)
 
 2. [Ativar a autenticação da AD Azure na porta de entrada](openvpn-azure-ad-tenant.md#enable-authentication)
 
@@ -87,7 +87,7 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Qual gateway SKUs suporta P2S VPN?
+## <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>Qual gateway SKUs suporta P2S VPN?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -97,7 +97,7 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 >A SKU Básica não suporta a autenticação IKEv2 ou RADIUS.
 >
 
-## <a name="IKE/IPsec policies"></a>Que políticas IKE/IPsec estão configuradas em gateways VPN para P2S?
+## <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>Que políticas IKE/IPsec estão configuradas em gateways VPN para P2S?
 
 
 **IKEv2**
@@ -138,7 +138,7 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-## <a name="TLS policies"></a>Que políticas de TLS estão configuradas em gateways VPN para P2S?
+## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Que políticas de TLS estão configuradas em gateways VPN para P2S?
 **TLS**
 
 |**Políticas** |
@@ -156,7 +156,7 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-## <a name="configure"></a>Como configurar uma ligação P2S?
+## <a name="how-do-i-configure-a-p2s-connection"></a><a name="configure"></a>Como configurar uma ligação P2S?
 
 Uma configuração P2S requer alguns passos específicos. Os seguintes artigos contêm os passos para acompanhá-lo através da configuração P2S, e links para configurar os dispositivos de cliente VPN:
 
@@ -164,21 +164,21 @@ Uma configuração P2S requer alguns passos específicos. Os seguintes artigos c
 
 * [Configurar uma ligação P2S - autenticação de certificado nativo Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
+* [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>Para remover a configuração de uma ligação P2S
 
 Para passos, consulte as [FAQ,](#removeconfig)abaixo.
  
-## <a name="faqcert"></a>FAQ para autenticação de certificado nativo Azure
+## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>FAQ para autenticação de certificado nativo Azure
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>FAQ para autenticação RADIUS
+## <a name="faq-for-radius-authentication"></a><a name="faqradius"></a>FAQ para autenticação RADIUS
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Configurar uma ligação P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

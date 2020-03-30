@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f468cb294d79c44f92ef95437c0d88639a78b9a1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619482"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FaQ openshift do chapéu vermelho azure
@@ -27,7 +27,7 @@ Não. Mas pode ligar um cluster Azure Red Hat OpenShift a um VNET existente atra
 
 ## <a name="what-cluster-operations-are-available"></a>Que operações de cluster estão disponíveis?
 
-Só se pode escalar para cima ou para baixo o número de nós de computação. Não são permitidas outras modificações ao recurso `Microsoft.ContainerService/openShiftManagedClusters` após a criação. O número máximo de nós de cálculo é limitado a 20.
+Só se pode escalar para cima ou para baixo o número de nós de computação. Não são permitidas outras `Microsoft.ContainerService/openShiftManagedClusters` modificações ao recurso após a criação. O número máximo de nós de cálculo é limitado a 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Que tamanhos de máquina virtual posso usar?
 
@@ -47,11 +47,11 @@ Não, não no momento atual.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registo do Docker está disponível externamente para que eu possa usar ferramentas como o Jenkins?
 
-O registo do Docker está disponível a partir de `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` No entanto, não é fornecida uma forte garantia de durabilidade de armazenamento. Também pode utilizar o Registo de [Contentores Azure](https://azure.microsoft.com/services/container-registry/).
+O registo do Docker `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` está disponível a partir do ntanto, uma forte garantia de durabilidade de armazenamento não é fornecida. Também pode utilizar o Registo de [Contentores Azure](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>A rede de espaço com nomes cruzados é suportada?
 
-Os administradores de projetos individuais e clientes podem personalizar a rede de espaço cross-name (incluindo negá-lo) numa base de projeto utilizando objetos `NetworkPolicy`.
+Os administradores de projetos individuais e clientes podem personalizar a rede de espaço `NetworkPolicy` cross-name (incluindo negá-lo) por projeto utilizando objetos.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>Um administrador pode gerir utilizadores e quotas?
 
@@ -85,15 +85,15 @@ Não. Todos os recursos, incluindo o mestre do cluster, são executados na subsc
 
 Sim. Pode utilizar o OSBA com o Azure Red Hat OpenShift. Consulte o Open Service Broker para obter mais informações sobre o [Azure.](https://github.com/Azure/open-service-broker-azure#openshift-project-template)
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou a tentar entrar numa rede virtual numa subscrição diferente, mas a ter `Failed to get vnet CIDR` erro.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou a tentar entrar numa rede virtual numa `Failed to get vnet CIDR` subscrição diferente, mas a cometer erros.
 
-Na subscrição que tem a rede virtual, certifique-se de registar `Microsoft.ContainerService` fornecedor com `az provider register -n Microsoft.ContainerService --wait` 
+Na subscrição que tem a rede `Microsoft.ContainerService` virtual, certifique-se de registar o fornecedor com`az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>O que é o processo de manutenção do Azure Red Hat OpenShift (ARO) ?
 
 Existem três tipos de manutenção para ARO: upgrades, cópia de segurança e restauro de dados de etcd, e manutenção iniciada pelo fornecedor de nuvem.
 
-+ As atualizações incluem atualizações de software e CVEs. A reparação do CVE ocorre no arranque, executando `yum update` e prevê uma mitigação imediata.  Paralelamente, será criada uma nova construção de imagem para futuras criações de cluster.
++ As atualizações incluem atualizações de software e CVEs. A reparação do CVE `yum update` ocorre no arranque, executando e prevê mitigação imediata.  Paralelamente, será criada uma nova construção de imagem para futuras criações de cluster.
 
 + A cópia de segurança e gestão de dados de etcd é um processo automatizado que pode exigir tempo de inatividade de cluster dependendo da ação. Se a base de dados etcd estiver a ser restaurada a partir de uma cópia de segurança, haverá tempo de inatividade. Recuamos etc e retemos as últimas 6 horas de reforços.
 
@@ -131,7 +131,7 @@ Syslog, docker logs, diário e dmesg são manuseados pelo serviço gerido e não
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Como pode um cliente ter acesso a métricas como CPU/memória ao nível do nó para tomar medidas à escala, problemas de depuração, etc. Não consigo correr `kubectl top` num aglomerado de ARO.
 
-Os clientes podem aceder às métricas CPU/Memória ao nível do nó utilizando o comando `oc adm top nodes` ou `kubectl top nodes` com a função de clusterde clientes-administração.  Os clientes também podem aceder às métricas CPU/Memória de `pods` com o comando `oc adm top pods` ou `kubectl top pods`
+Os clientes podem aceder às métricas CPU/Memória ao `oc adm top nodes` `kubectl top nodes` nível do nó utilizando o comando ou com a função de clusterde cliente-administração.  Os clientes também podem aceder às `pods` métricas `oc adm top pods` CPU/Memória com o comando ou`kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do programador de cápsulas padrão para ARO?
 
@@ -155,7 +155,7 @@ Deve ser utilizado um cuidado quando se utilizam etiquetas específicas:
 
 - Se o cliente tiver um pedido de etiquetas específicas ou uma estratégia de implementação, isso poderia ser realizado, mas exigiria esforços de engenharia e não é apoiado hoje.
 
-## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Qual é o número máximo de cápsulas num aglomerado ARO?  Qual é o número máximo de cápsulas por nó em ARO?
+## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Qual é o número máximo de cápsulas num aglomerado ARO?Qual é o número máximo de cápsulas por nó em ARO?
 
  O Azure Red Hat OpenShift 3.11 tem um limite de 50 cápsulas por nó, com aro com um limite de nó [de 20 computas,](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available)de modo que reduz o número máximo de cápsulas suportadas num cluster ARO a 50*20 = 1000.
 
@@ -197,7 +197,7 @@ Estão disponíveis duas aulas de armazenamento para selecionar entre: Azure Dis
 
 Ver Qual é o processo de [atualização geral?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
 
-## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Que balancedor de carga Azure é usado pela ARO?  É Standard ou Básico e é configurável?
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Que balancedor de carga Azure é usado pela ARO?É Standard ou Básico e é configurável?
 
 Aro usa O Equilíbrio de Carga Standard Azure, e não é configurável.
 

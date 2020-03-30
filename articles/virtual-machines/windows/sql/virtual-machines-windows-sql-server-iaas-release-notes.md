@@ -13,10 +13,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
 ms.openlocfilehash: 27682863a96e2f190a0dafe6e4d783029e987453
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201650"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações na documentação para O Servidor SQL em Máquinas Virtuais Azure
@@ -81,4 +81,4 @@ O Azure permite-lhe implementar uma máquina virtual (VM) com uma imagem do SQL 
 * [Visão geral do Servidor SQL em um VM Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Provision uma máquina virtual SQL Server Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Documentação do SQL Server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Servidor SQL na documentação linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

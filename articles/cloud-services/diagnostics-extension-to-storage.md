@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472677"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure
@@ -37,7 +37,7 @@ Dependendo do tipo de dados de diagnóstico que está a ser recolhido, o Azure D
 | IIS 7.0 troncos |Blobs |
 | Registos da infraestrutura do Diagnóstico do Azure |Tabela |
 | Registos de rastreio supérão de pedido falhado |Blobs |
-| Registos de Eventos do Windows |Tabela |
+| Registos do Evento Windows |Tabela |
 | Contadores de desempenho |Tabela |
 | Informações de falha de sistema |Blobs |
 | Registos de erros personalizados |Blobs |

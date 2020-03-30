@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração de Diretórios Ativos Azure com a Amazon Web Services (AWS) para ligar várias contas ) Microsoft Docs'
+title: 'Tutorial: Integração de Diretórios Ativos Azure com a Amazon Web Services (AWS) para ligar várias contas [) Microsoft Docs'
 description: Saiba como configurar um único sign-on entre a AD Azure e várias contas da Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77367993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração de Diretórios Ativos Azure com várias contas da Amazon Web Services (AWS)
@@ -31,7 +31,7 @@ Integrar os Serviços Web da Amazon (AWS) com a Azure AD proporciona-lhe os segu
 
 - Você pode controlar em Azure AD que tem acesso a Amazon Web Services (AWS).
 - Pode permitir que os seus utilizadores se inscrevam automaticamente nos Serviços Web da Amazon (AWS) (Single Sign-On) com as suas contas Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+- Você pode gerir suas contas em um local central - o portal Azure.
 
 Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, veja o que é o acesso à aplicação e o único registo com o [Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -58,7 +58,7 @@ Para configurar a integração da AD Azure com a Amazon Web Services (AWS), prec
 * Subscrição de assinatura única da Amazon Web Services (AWS)
 
 > [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
+> Para testar os passos neste tutorial, não recomendamos a utilização de um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -79,17 +79,17 @@ Para configurar a integração da Amazon Web Services (AWS) em Azure AD, você p
 
 1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
 2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Amazon Web Services (AWS)** , selecione **Amazon Web Services (AWS)** do painel de resultados e, em seguida, clique em adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, digite **Amazon Web Services (AWS)**, selecione **Amazon Web Services (AWS)** do painel de resultados e, em seguida, clique em adicionar o botão **Adicionar** a aplicação.
 
      ![Amazon Web Services (AWS) na lista de resultados](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Para configurar a integração da Amazon Web Services (AWS) em Azure AD, você p
 
     ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
 Nesta secção, configura e testa o único sign-on do Azure AD com a Amazon Web Services (AWS) com base num utilizador de teste chamado "Britta Simon".
 
@@ -111,7 +111,7 @@ Para configurar e testar o único sign-on da Azure AD com a Amazon Web Services 
 2. **[Configure os Serviços Web da Amazon (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - para configurar as definições de início de sessão individuais no lado da aplicação.
 3. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
 Nesta secção, permite o acesso único do Azure AD no portal Azure e configura um único sinal na aplicação Amazon Web Services (AWS).
 
@@ -119,7 +119,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **da Amazon Web Services (AWS),** selecione Single **sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
 2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
@@ -133,7 +133,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
     ![image](common/preintegrated.png)
 
-5. A aplicação Amazon Web Services (AWS) espera as afirmações da SAML num formato específico. Configure as seguintes reclamações para esta aplicação. Pode gerir os valores destes atributos a partir da secção **Deatributos e Reclamações** do Utilizador na página de integração de aplicações. Na configuração do Open Sign-On com a página **SAML,** clique no botão **Editar** para abrir o diálogo **de Atributos e Reclamações** do Utilizador.
+5. A aplicação Amazon Web Services (AWS) espera as afirmações da SAML num formato específico. Configure as seguintes reclamações para esta aplicação. Pode gerir os valores destes atributos a partir da secção **Atributos do Utilizador & Reclamações** na página de integração de aplicações. Na configuração do 'Iniciar' com a página **SAML,** clique no botão **Editar** para abrir **os atributos do utilizador & diálogo de reclamações.**
 
     ![image](common/edit-attribute.png)
 
@@ -141,8 +141,8 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
     | Nome  | Atributo fonte  | Espaço de nomes |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Nome rolesession | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Função            | user.atribuídos |  https://aws.amazon.com/SAML/Attributes |
     | Duração das sessões             | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  https://aws.amazon.com/SAML/Attributes |
 
     a. Clique **Em adicionar nova alegação** para abrir o diálogo de reclamações do utilizador **Gerir.**
@@ -165,7 +165,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
 7. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar os **Metadados da Federação XML** e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
 ### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configure Serviços Web da Amazon (AWS) Single Sign-On
 
@@ -265,7 +265,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se estiver a usar vários diretórios, então pode usar o padrão seguinte, que tem o seu domínio primário `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a usar vários diretórios, então pode usar o seguinte padrão, que tem o seu domínio primário nele`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo explorador de gráficos](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
@@ -349,7 +349,7 @@ Nesta secção, permite o acesso único do Azure AD no portal Azure e configura 
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Ao clicar no azulejo Amazon Web Services (AWS) no Painel de Acesso, deverá obter a página de aplicação da Amazon Web Services (AWS) com opção de selecionar a função.
 

@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 57776073ef7e2760b308df22280faf1d65b8d104
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458856"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Ativar sincronização offline para a sua aplicação móvel Xamarin.Forms
@@ -24,9 +24,9 @@ Este tutorial baseia-se na solução Xamarin.Forms quickstart para Aplicações 
 Para saber mais sobre a funcionalidade de sincronização offline, consulte o tópico [Offline Data Sync em Aplicações Móveis Azure][2].
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Ativar a funcionalidade de sincronização offline na solução quickstart
-O código de sincronização offline está C# incluído no projeto utilizando diretivas de pré-processador. Quando o\_OFFLINE SYNC\_símbolo **ENABLED,** estes caminhos de código estão incluídos na construção. Para aplicações Windows, também deve instalar a plataforma SQLite.
+O código de sincronização offline está incluído no projeto utilizando diretivas de pré-processador C#. Quando o símbolo **OFFLINE\_SYNC\_ENABLED** é definido, estes caminhos de código estão incluídos na construção. Para aplicações Windows, também deve instalar a plataforma SQLite.
 
-1. No Visual Studio, clique à direita na solução > **Gereos pacotes NuGet para Solução...** e, em seguida, procure e instale o pacote **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet para todos os projetos da solução.
+1. No Estúdio Visual, clique na solução > **Gerir pacotes NuGet para solução...** e depois procure e instale o pacote **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet para todos os projetos da solução.
 2. No Solution Explorer, abra o ficheiro TodoItemManager.cs do projeto com **a Portable** no nome, que é o projeto da Biblioteca de Classes Portáteis, e depois descodere a seguinte diretiva de pré-processador:
 
         #define OFFLINE_SYNC_ENABLED
@@ -37,12 +37,12 @@ O código de sincronização offline está C# incluído no projeto utilizando di
    * **Plataforma Universal Windows** Instale [a SQLite para o Universal Windows Universal][5].
 
      Embora o quickstart não contenha um projeto Universal Windows, a plataforma Universal Windows é suportada com Formulários Xamarin.
-4. (Opcional) Em cada projeto de aplicação do Windows, clique sà em cima da direita **Referências** > **Adicionar Referência...** , expandir a pasta **Windows** > **Extensões**.
+4. (Opcional) Em cada projeto de aplicação do Windows, **referências** > de clique direito**Adicionar Referência...**, expandir a pasta **do Windows** > **Extensões**.
     Ative o **SQLite** adequado para Windows SDK juntamente com o Tempo de **Execução Visual C++ 2013 para Windows** SDK.
     Os nomes SQLite SDK variam ligeiramente com cada plataforma do Windows.
 
 ## <a name="review-the-client-sync-code"></a>Reveja o código de sincronização do cliente
-Eis uma breve visão geral do que já está incluído no código tutorial no seio das diretivas `#if OFFLINE_SYNC_ENABLED`. A funcionalidade de sincronização offline está no ficheiro TodoItemManager.cs projeto no projeto Da Biblioteca de Classes Portáteis. Para uma visão geral conceptual da funcionalidade, consulte [offline Data Sync em Aplicações Móveis Azure][2].
+Eis uma breve visão geral do que já está `#if OFFLINE_SYNC_ENABLED` incluído no código tutorial no interior das diretivas. A funcionalidade de sincronização offline está no ficheiro TodoItemManager.cs projeto no projeto Da Biblioteca de Classes Portáteis. Para uma visão geral conceptual da funcionalidade, consulte [offline Data Sync em Aplicações Móveis Azure][2].
 
 * Antes de serem realizadas quaisquer operações de mesa, a loja local deve ser inicializada. A base de dados da loja local é inicializada no construtor classe **TodoItemManager** utilizando o seguinte código:
 
@@ -118,7 +118,7 @@ Com a sincronização offline agora ativada, execute a aplicação do cliente pe
 ## <a name="update-the-sync-behavior-of-the-client-app"></a>Atualizar o comportamento sincronizado da aplicação do cliente
 Nesta secção, modifique o projeto do cliente para simular um cenário offline utilizando um URL de aplicação inválido para o seu backend. Em alternativa, pode desligar as ligações de rede movendo o seu dispositivo para "Modo Avião".  Quando adiciona ou altera itens de dados, estas alterações são realizadas na loja local, mas não sincronizadas com a loja de dados backend até que a ligação seja restabelecida.
 
-1. No Solution Explorer, abra o ficheiro Constants.cs do projeto do projeto **portátil** e altere o valor do `ApplicationURL` para apontar para um URL inválido:
+1. No Solution Explorer, abra o ficheiro Constants.cs do projeto `ApplicationURL` do projeto **portátil** e altere o valor de apontar para um URL inválido:
 
         public static string ApplicationURL = @"https://your-service.azurewebsites.net/";
 2. Abra o ficheiro TodoItemManager.cs do projeto **portátil** e, em seguida, adicione uma **captura** para a classe base **Exception** à **tentativa... bloco de captura** em **SyncAsync**. Este bloco de **captura** escreve a mensagem de exceção para a consola, da seguinte forma:
@@ -136,14 +136,14 @@ Nesta secção, modifique o projeto do cliente para simular um cenário offline 
 ## <a name="update-the-client-app-to-reconnect-your-mobile-backend"></a>Atualize a app do cliente para reconectar o seu backend móvel
 Nesta secção, volte a ligar a app ao backend móvel, que simula o regresso da aplicação a um estado online. Quando executa o gesto de atualização, os dados são sincronizados com o seu backend móvel.
 
-1. Reabra Constants.cs. Corrija a `applicationURL` para apontar para o URL correto.
+1. Reabra Constants.cs. Corrija `applicationURL` o ponto de vista para o URL correto.
 2. Reconstruir e executar a aplicação de clientes. A aplicação tenta sincronizar com o backend da aplicação móvel após o lançamento. Verifique se não há exceções na consola de depuração.
 3. (Opcional) Ver os dados atualizados utilizando o SQL Server Object Explorer ou uma ferramenta REST como O Violinista ou [o Carteiro][6]. Note que os dados foram sincronizados entre a base de dados de backend e a loja local.
 
     Note que os dados foram sincronizados entre a base de dados e a loja local e contém os itens que adicionou enquanto a sua aplicação foi desligada.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
-* [Sincronização de Dados Offline em Aplicações Móveis do Azure][2]
+* [Sincronização de Dados Offline nas Aplicações Móveis do Azure][2]
 * [Aplicativos móveis Azure .NET SDK HOWTO][8]
 
 <!-- URLs. -->

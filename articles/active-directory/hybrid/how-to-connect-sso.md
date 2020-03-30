@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77483759"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Seamless Single Sign-On
@@ -43,7 +43,7 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 - *Experiência de utilizador excecional*
   - Os utilizadores são automaticamente assinados tanto no local como nas aplicações baseadas na nuvem.
   - Os utilizadores não têm de introduzir repetidamente as suas palavras-passe.
-- *Fácil de implementar e administrar*
+- *Fácil de implementar & administrar*
   - Não são necessários componentes adicionais no local para que isto funcione.
   - Funciona com qualquer método de autenticação em nuvem - [Sincronização de Hash password](how-to-connect-password-hash-synchronization.md) ou [autenticação pass-through](how-to-connect-pta.md).
   - Pode ser lançado para alguns ou todos os seus utilizadores usando a Política de Grupo.
@@ -51,10 +51,10 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 
 ## <a name="feature-highlights"></a>Destaques de recurso
 
-- O nome de utilizador de entrada de entrada pode ser o nome de utilizador padrão no local (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (`Alternate ID`). Ambos os casos funcionam porque o SSO sem emenda utiliza a `securityIdentifier` reivindicação no bilhete Kerberos para procurar o objeto de utilizador correspondente em Azure AD.
+- O nome de utilizador de entrada de entrada pode`userPrincipalName`ser o nome de utilizador padrão no`Alternate ID`local ( ) ou outro atributo configurado no Azure AD Connect (). Ambos os casos funcionam porque `securityIdentifier` o Seamless SSO utiliza a reclamação no bilhete Kerberos para procurar o objeto de utilizador correspondente em Azure AD.
 - SSO sem emenda é uma característica oportunista. Se falhar por qualquer motivo, a experiência de entrada no utilizador remonta ao seu comportamento regular - ou seja, o utilizador precisa de introduzir a sua palavra-passe na página de entrada.
-- Se uma aplicação (por exemplo, `https://myapps.microsoft.com/contoso.com`) reencaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando o seu inquilino, ou `login_hint` parâmetro - identificando o utilizador, no seu pedido de entrada em Anúncios Azure, os utilizadores são automaticamente inscritos sem que eles entrem no nome de utilizador ou palavras-passe.
-- Os utilizadores também obtêm uma experiência de inscrição silenciosa se uma aplicação (por exemplo, `https://contoso.sharepoint.com`) enviar pedidos de inscrição para os pontos finais da Azure AD criados como inquilinos - isto é, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` - em vez do ponto final comum da Azure AD - isto é, `https://login.microsoftonline.com/common/<...>`.
+- Se uma aplicação `https://myapps.microsoft.com/contoso.com`(por exemplo, ) reencaminha um `domain_hint` parâmetro (OpenID Connect) ou `whr` `login_hint` (SAML) - identificando o seu inquilino, ou parâmetro - identificando o utilizador, no seu pedido de entrada de anúncios da AD Azure, os utilizadores são automaticamente inscritos sem que eles entrem nos nomes de utilizador ou palavras-passe.
+- Os utilizadores também obtêm uma experiência de inscrição `https://contoso.sharepoint.com`silenciosa se uma aplicação (por exemplo, ) enviar pedidos de inscrição `https://login.microsoftonline.com/<tenant_ID>/<..>` para os pontos finais da Azure `https://login.microsoftonline.com/common/<...>`AD criados como inquilinos - isto é, `https://login.microsoftonline.com/contoso.com/<..>` ou - em vez do ponto final comum da Azure AD - isto é, .
 - A assinatura é apoiada. Isto permite que os utilizadores escolham outra conta Azure AD para iniciar sessão, em vez de serem automaticamente assinados na utilização de SSO SSO sem emenda automaticamente.
 - Os clientes do Office 365 Win32 (Outlook, Word, Excel, entre outros) com versões 16.0.8730.xxxx e acima são suportados utilizando um fluxo não interativo. Para o OneDrive, terá de ativar a [função de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de inscrição silenciosa.
 - Pode ser ativado via Azure AD Connect.
@@ -63,24 +63,24 @@ O SSO sem emenda pode ser combinado com a Sincronização de [Hash password](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim,\*|Sim|Sim|Sim\*\* \*|N/A
-|Windows 8.1|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
-|Windows 8|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
-|Windows 7|Sim,\*|N/A|Sim|Sim\*\* \*|N/A
-|Windows Server 2012 R2 ou superior|Sim\*\*|N/A|Sim|Sim\*\* \*|N/A
-|Mac OS X|N/A|N/A|Sim\*\* \*|Sim\*\* \*|Sim\*\* \*
+|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
+|Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows Server 2012 R2 ou superior|Sim, é o que\*\*|N/D|Sim|Sim\*\*\*|N/D
+|Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
-\*requer versões do Internet Explorer 10 ou superior
+\*Requer versões do Internet Explorer 10 ou superior
 
-\*\*requer versões do Internet Explorer 10 ou superior. Desativar o modo protegido melhorado
+\*\*Requer versões do Internet Explorer 10 ou superiores. Desativar o modo protegido melhorado
 
-\*\*\*requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../devices/concept-azure-ad-join.md) para a melhor experiência de inscrição individual com o Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Prepare-se e execute Azure AD Seamless SSO.
 - Plano de [**Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.

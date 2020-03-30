@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472456"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso dos Serviços Cognitivos a um skillset em Pesquisa Cognitiva Azure 
@@ -37,7 +37,7 @@ A Pesquisa Cognitiva Azure tem uma dependência de Serviços Cognitivos, incluin
 
 ## <a name="same-region-requirement"></a>Requisitoda na mesma região
 
-Exigimos que existam serviços de pesquisa cognitiva azure e serviços cognitivos azure dentro da mesma região. Caso contrário, receberá esta mensagem no momento da execução: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Exigimos que existam serviços de pesquisa cognitiva azure e serviços cognitivos azure dentro da mesma região. Caso contrário, receberá esta mensagem no momento da execução:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Não há como mover um serviço através das regiões. Se tiver este erro, deve criar um novo recurso dos Serviços Cognitivos na mesma região que a Pesquisa Cognitiva Azure.
 
@@ -54,9 +54,9 @@ Os recursos gratuitos (enriquecimentos limitados) são limitados a 20 documentos
 
    ![Abra o assistente de dados da Importação](media/search-get-started-portal/import-data-cmd.png "Abra o assistente de dados da Importação")
 
-1. Escolha uma fonte de dados e continue a adicionar enriquecimento de **IA (Opcional)** . Para uma passagem passo a passo deste assistente, consulte [Criar um índice no portal Azure](search-get-started-portal.md).
+1. Escolha uma fonte de dados e continue a adicionar enriquecimento de **IA (Opcional)**. Para uma passagem passo a passo deste assistente, consulte [Criar um índice no portal Azure](search-get-started-portal.md).
 
-1. Expandir **anexar serviços cognitivos** e, em seguida, selecionar **Free (enriquecimentos limitados)** :
+1. Expandir **anexar serviços cognitivos** e, em seguida, selecionar **Free (enriquecimentos limitados)**:
 
    ![Secção de Serviços Cognitivos anexados expandidos](./media/cognitive-search-attach-cognitive-services/attach1.png "Secção de Serviços Cognitivos anexados expandidos")
 
@@ -68,11 +68,11 @@ Para cargas de trabalho que criam mais de 20 enriquecimentos por dia, certifique
 
 Só é cobrado por habilidades que chamam de APIs dos Serviços Cognitivos. Não é cobrado por [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), ou habilidades como fusão de [texto,](cognitive-search-skill-textmerger.md) [splitter de texto](cognitive-search-skill-textsplit.md)e [shaper](cognitive-search-skill-shaper.md), que não são baseados em API.
 
-1. Abra o assistente de dados da Importação, escolha uma fonte de dados e continue a adicionar enriquecimento de **IA (Opcional)** .
+1. Abra o assistente de dados da Importação, escolha uma fonte de dados e continue a adicionar enriquecimento de **IA (Opcional)**.
 
 1. Expandir **anexar serviços cognitivos** e, em seguida, selecionar **Criar um novo recurso de Serviços Cognitivos**. Abre-se um novo separador para que possa criar o recurso:
 
-   ![Criar um recurso de Serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um recurso dos Serviços Cognitivos")
+   ![Criar um recurso dos Serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um recurso dos Serviços Cognitivos")
 
 1. Na lista **de Localização,** selecione a região onde está localizado o seu serviço de Pesquisa Cognitiva Azure. Certifique-se de utilizar esta região por razões de desempenho. A utilização desta região também anula as tarifas de largura de banda de saída em todas as regiões.
 
@@ -108,9 +108,9 @@ Se tiver uma habilidade existente, pode anexá-la a um novo ou diferente recurso
 
 ## <a name="attach-cognitive-services-programmatically"></a>Anexar serviços cognitivos programáticamente
 
-Quando estiver a definir a habilidade programáticamente, adicione uma secção `cognitiveServices` à habilidade. Nessa secção, inclua a chave do recurso dos Serviços Cognitivos que pretende associar com o skillset. Lembre-se que o recurso deve estar na mesma região que o seu recurso Azure Cognitive Search. Inclua também `@odata.type`, e coloque-o para `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+Quando estiver a definir a habilidade programáticamente, adicione uma `cognitiveServices` secção à habilidade. Nessa secção, inclua a chave do recurso dos Serviços Cognitivos que pretende associar com o skillset. Lembre-se que o recurso deve estar na mesma região que o seu recurso Azure Cognitive Search. Inclua `@odata.type`também, e `#Microsoft.Azure.Search.CognitiveServicesByKey`coloque-o para .
 
-O exemplo que se segue mostra este padrão. Note a secção `cognitiveServices` no final da definição.
+O exemplo que se segue mostra este padrão. Repare `cognitiveServices` na secção no final da definição.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -150,10 +150,10 @@ Content-Type: application/json
 
 Para estimar os custos associados à indexação da pesquisa cognitiva, comece com uma ideia de como é um documento médio para que possa executar alguns números. Por exemplo, pode aproximar-se:
 
-+ 1\.000 PDFs.
++ 1.000 PDFs.
 + Seis páginas cada.
 + Uma imagem por página (6.000 imagens).
-+ 3\.000 caracteres por página.
++ 3.000 caracteres por página.
 
 Assuma um pipeline que consiste em quebra de documentos de cada PDF, extração de imagem e texto, reconhecimento ótico de caracteres (OCR) de imagens e reconhecimento de entidades das organizações.
 

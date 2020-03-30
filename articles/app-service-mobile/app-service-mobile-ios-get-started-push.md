@@ -7,10 +7,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: ad58ee158a2e1842c1b41db281bdd9f04b9b2ca4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461509"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Adicione notificações push à sua aplicação iOS
@@ -19,17 +19,17 @@ ms.locfileid: "77461509"
 
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, adiciona notificações push ao projeto [iOS quickstart] para que seja enviada uma notificação push para o dispositivo sempre que um registo é inserido.
+Neste tutorial, adiciona notificações push ao projeto [quickstart do iOS] para que seja enviada uma notificação push para o dispositivo sempre que um registo é inserido.
 
 Se não utilizar o projeto de servidor quickstart descarregado, necessitará do pacote de extensão de notificação push. Para mais informações, consulte [Trabalhar com o servidor de backend .NET SDK para o guia de aplicações móveis Azure.](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 O [simulador iOS não suporta notificações push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo físico iOS e uma subscrição do [Programa de Desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
-## <a name="configure-hub"></a>Configure Centro de Notificação
+## <a name="configure-notification-hub"></a><a name="configure-hub"></a>Configure Centro de Notificação
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Registe a aplicação para notificações push
+## <a name="register-app-for-push-notifications"></a><a id="register"></a>Registe a aplicação para notificações push
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
@@ -37,19 +37,19 @@ O [simulador iOS não suporta notificações push](https://developer.apple.com/l
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a id="update-server"></a>Atualizar backend para enviar notificações push
+## <a name="update-backend-to-send-push-notifications"></a><a id="update-server"></a>Atualizar backend para enviar notificações push
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Adicione notificações push à app
+## <a name="add-push-notifications-to-app"></a><a id="add-push"></a>Adicione notificações push à app
 
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Notificações push de teste
+## <a name="test-push-notifications"></a><a id="test"></a>Notificações push de teste
 
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-## <a id="more"></a>Mais
+## <a name="more"></a><a id="more"></a>Mais
 
 * Os modelos dão-lhe flexibilidade para enviar empurrões de plataformas cruzadas e empurrões localizados. [Como utilizar a Biblioteca cliente iOS para aplicações móveis Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra-lhe como registar modelos.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588659"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ligue o Sentinela Azure ao AWS CloudTrail
@@ -39,7 +39,7 @@ Deve ter permissão para escrever no espaço de trabalho do Azure Sentinel.
 
 1. Siga as instruções sob **configuração** utilizando os seguintes passos.
  
-1.  Na sua consola Amazon Web Services, sob **Segurança, Identidade e Conformidade,** selecione **IAM**.
+1.  Na sua consola Amazon Web Services, sob **segurança, identidade & conformidade,** selecione **IAM**.
 
     ![AWS1](./media/connect-aws/aws-1.png)
 

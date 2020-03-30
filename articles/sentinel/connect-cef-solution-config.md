@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bdb76954b1db8135d8a36d6658bb7fff274ac126
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588455"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSO 2: Configure a sua solução de segurança para enviar mensagens CEF
@@ -29,15 +29,15 @@ Neste passo, realizará as alterações de configuração necessárias na sua pr
 
 Se a sua solução de segurança já tiver um conector existente, utilize as instruções específicas do conector da seguinte forma:
 
-- [Ponto de verificação](connect-checkpoint.md)
-- [Rio Cisco](connect-cisco.md)
-- [ExtraHop Reveal (x)](connect-extrahop.md)
+- [Check Point](connect-checkpoint.md)
+- [Cisco](connect-cisco.md)
+- [ExtraHop Reveal(x)](connect-extrahop.md)
 - [F5](connect-f5.md)  
 - [Fortinet](connect-fortinet.md)
-- [Uma salvaguarda de identidade](connect-one-identity.md)
-- [Redes Palo Alto](connect-paloalto.md)
-- [Tendência Micro Segurança Profunda](connect-trend-micro.md)
-- [Rio Zscaler](connect-zscaler.md)   
+- [One Identity Safeguard](connect-one-identity.md)
+- [Palo Alto Networks](connect-paloalto.md)
+- [Trend Micro Deep Security](connect-trend-micro.md)
+- [Zscaler](connect-zscaler.md)   
 
 ## <a name="configure-any-other-solution"></a>Configure qualquer outra solução
 Se não existir um conector para a sua solução de segurança específica, utilize as seguintes instruções genéricas para encaminhar os registos para o agente CEF.
@@ -52,7 +52,7 @@ Se não existir um conector para a sua solução de segurança específica, util
    > Esta solução suporta syslog RFC 3164 ou RFC 5424.
 
 
-1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos CEF, procure .
 
 1. Continuar a PASSO 3: [validar a conectividade.](connect-cef-verify.md)
 

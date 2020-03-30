@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
 ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77472422"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Quickstart: Criar uma habilidade cognitiva de pesquisa cognitiva Azure no portal Azure
@@ -21,7 +21,7 @@ Um skillset é uma funcionalidade de IA que extrai informações e estrutura de 
 
 Neste arranque rápido, irá combinar serviços e dados na nuvem Azure para criar o skillset. Uma vez que tudo esteja no lugar, você executará o assistente de **dados de importação** no portal para juntar tudo. O resultado final é um índice pesquisável povoado com dados criados pelo processamento de IA que pode consultar no portal ( Explorador de[Pesquisa).](search-explorer.md)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-services-and-load-data"></a>Criar serviços e dados de carga
 
@@ -87,7 +87,7 @@ Um índice contém o seu conteúdo pesquisável e o assistente de **dados da Imp
 
 Para este início rápido, o assistente é muito útil, pois define predefinições razoáveis:  
 
-+ Os campos predefinidos baseiam-se em propriedades para bolhas existentes mais novos campos para conter a saída de enriquecimento (por exemplo, `people`, `organizations`, `locations`). Os tipos de dados são inferidos a partir de metadados e por amostragem de dados.
++ Os campos predefinidos baseiam-se em propriedades para bolhas existentes `people` `organizations`mais `locations`novos campos para conter a saída de enriquecimento (por exemplo, , , ). Os tipos de dados são inferidos a partir de metadados e por amostragem de dados.
 
 + A chave *de* documento predefinida é metadata_storage_path (selecionada porque o campo contém valores únicos).
 
@@ -95,11 +95,11 @@ Para este início rápido, o assistente é muito útil, pois define predefiniç�
 
   ![Campos de índice](media/cognitive-search-quickstart-blob/index-fields.png)
 
-Note o strikethrough e o ponto de interrogação no atributo **recuperável** pelo campo `content`. Para documentos de blob pesados de texto, o campo `content` contém a maior parte do ficheiro, potencialmente em milhares de linhas. Um campo como este é inflexível nos resultados da pesquisa e você deve excluí-lo para esta demonstração. 
+Repare no strikethrough e no ponto de `content` interrogação no atributo **recuperável** pelo campo. Para documentos de blob `content` pesados de texto, o campo contém a maior parte do ficheiro, potencialmente em milhares de linhas. Um campo como este é inflexível nos resultados da pesquisa e você deve excluí-lo para esta demonstração. 
 
-No entanto, se precisar de passar o conteúdo do ficheiro para o código do cliente, certifique-se de que **o Recuperável** permanece selecionado. Caso contrário, considere limpar este atributo em `content` se os elementos extraídos (tais como `people`, `organizations`, `locations`, e assim por diante) forem suficientes.
+No entanto, se precisar de passar o conteúdo do ficheiro para o código do cliente, certifique-se de que **o Recuperável** permanece selecionado. Caso contrário, considere limpar `content` este atributo se os `people`elementos `locations`extraídos (tais como, por exemplo, `organizations`e assim por diante) forem suficientes.
 
-Marcar um campo como **Recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Pode controlar com precisão a composição dos resultados da pesquisa utilizando o parâmetro de consulta **$select** para especificar quais os campos a incluir. Para campos pesados de texto como `content`, o parâmetro **$select** é a sua solução para fornecer resultados de pesquisa manejáveis aos utilizadores humanos da sua aplicação, garantindo ao mesmo tempo que o código do cliente tem acesso a todas as informações de que necessita através do atributo **Recuperável.**
+Marcar um campo como **Recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Pode controlar com precisão a composição dos resultados da pesquisa utilizando o parâmetro de consulta **$select** para especificar quais os campos a incluir. Para campos pesados `content`de texto como , o **parâmetro $select** é a sua solução para fornecer resultados de pesquisa controláveis aos utilizadores humanos da sua aplicação, garantindo ao mesmo tempo que o código do cliente tem acesso a toda a informação de que necessita através do atributo **Recuperável.**
   
 Continue para a página seguinte.
 
@@ -135,15 +135,15 @@ Os detalhes aparecem quando clica numa linha de estado específica. Este aviso d
 
 Depois de criado um índice, pode executar consultas para devolver resultados. No portal, utilize o **explorador de pesquisa** para esta tarefa. 
 
-1. Na página do dashboard do serviço de procura, clique em **Explorador de procura** na barra de comandos.
+1. Na página do painel de instrumentos do serviço de pesquisa, clique em **Pesquisar explorador** na barra de comando.
 
 1. Selecione **Alterar Índice**, na parte superior, para selecionar o índice que criou.
 
-1. Introduza uma cadeia de pesquisa para consultar o índice, como `search=Microsoft&$select=people,organizations,locations,imageTags`.
+1. Introduza uma cadeia de pesquisa para `search=Microsoft&$select=people,organizations,locations,imageTags`consultar o índice, como .
 
 Os resultados são devolvidos como JSON, que pode ser verboso e difícil de ler, especialmente em grandes documentos originários de bolhas Azure. Algumas dicas para pesquisar nesta ferramenta incluem as seguintes técnicas:
 
-+ Apêndice `$select` especificar quais os campos a incluir nos resultados. 
++ Anexar `$select` para especificar quais os campos a incluir nos resultados. 
 + Utilize CTRL-F para pesquisar dentro do JSON propriedades ou termos específicos.
 
 As cordas de consulta são sensíveis aos casos, por isso, se receber uma mensagem de "campo desconhecido", verifique **Fields** ou **Index Definition (JSON)** para verificar o nome e o caso. 
@@ -164,7 +164,7 @@ Finalmente, aprendeu que pode verificar o conteúdo consultando o índice. No fi
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 

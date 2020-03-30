@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 4788aa50074016a34d906353f5b37dbba85ef104
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458771"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicione a autenticação à sua aplicação Xamarin Forms
@@ -27,7 +27,7 @@ Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registe a sua aplicação para autenticação e configure serviços de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
 A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
@@ -51,10 +51,10 @@ Para autenticar com um projeto Xamarin Forms, defina uma interface **IAuthentica
 
 Implemente a interface **IAuthenticate** para cada plataforma suportada pela sua aplicação.
 
-1. No Estúdio Visual ou no Estúdio Xamarin, abra App.cs do projeto com **Portátil** no nome, que é projeto da Biblioteca de Classe Portátil, em seguida, adicione a seguinte declaração `using`:
+1. No Estúdio Visual ou no Estúdio Xamarin, abre App.cs do projeto com **a Portable** `using` no nome, que é o projeto da Biblioteca de Classe Portátil, e depois adicione a seguinte declaração:
 
         using System.Threading.Tasks;
-2. Em App.cs, adicione a seguinte definição de interface `IAuthenticate` imediatamente antes da definição de classe `App`.
+2. Em App.cs, adicione `IAuthenticate` a seguinte definição de interface imediatamente antes da definição de `App` classe.
 
         public interface IAuthenticate
         {
@@ -74,7 +74,7 @@ Implemente a interface **IAuthenticate** para cada plataforma suportada pela sua
             Clicked="loginButton_Clicked"/>
 
     Este botão aciona a autenticação gerida pelo servidor com o backend da sua aplicação móvel.
-5. Abra TodoList.xaml.cs do projeto da Biblioteca de Classes Portáteis e, em seguida, adicione o seguinte campo à classe `TodoList`:
+5. Abra TodoList.xaml.cs do projeto da Biblioteca de Classes `TodoList` Portáteis e, em seguida, adicione o seguinte campo à classe:
 
         // Track whether the user has authenticated.
         bool authenticated = false;
@@ -115,7 +115,7 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
 
 1. No Estúdio Visual ou no Estúdio Xamarin, clique no projeto **dróide** e, em seguida, **set como StartUp Project**.
 2. Pressione f5 para iniciar o projeto no debugger, em seguida, verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da app. O código 401 é produzido porque o acesso no backend é restrito apenas aos utilizadores autorizados.
-3. Abra MainActivity.cs no projeto Android e adicione as seguintes declarações `using`:
+3. Abra MainActivity.cs no projeto Android `using` e adicione as seguintes declarações:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
@@ -159,7 +159,7 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
 
     Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, escolha um valor diferente para [mobileServiceAuthenticationProvider][7].
 
-6. Atualize o ficheiro **AndroidManifest.xml** adicionando o seguinte XML dentro do elemento `<application>`:
+6. Atualize o ficheiro **AndroidManifest.xml** adicionando `<application>` o seguinte XML dentro do elemento:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
@@ -171,8 +171,8 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
       </intent-filter>
     </activity>
     ```
-    Substitua `{url_scheme_of_your_app}` pelo seu esquema de URL.
-7. Adicione o seguinte código ao método **OnCreate** da classe **MainActivity** antes da chamada para `LoadApplication()`:
+    Substitua-o `{url_scheme_of_your_app}` pelo seu esquema de URL.
+7. Adicione o seguinte código ao método **OnCreate** da classe `LoadApplication()` **MainActivity** antes da chamada para:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
@@ -182,7 +182,7 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-**A aplicação despenhou-se com `Java.Lang.NoSuchMethodError: No static method startActivity`**
+**A aplicação bateu com`Java.Lang.NoSuchMethodError: No static method startActivity`**
 
 Em alguns casos, os conflitos nos pacotes de suporte apresentados como apenas um aviso no estúdio Visual, mas a aplicação falha com esta exceção no tempo de execução. Neste caso, tem de se certificar de que todos os pacotes de suporte referenciados no seu projeto têm a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
 
@@ -191,7 +191,7 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
 
 1. No Estúdio Visual ou no Estúdio Xamarin, clique no projeto do **iOS** e, em seguida, **set como StartUp Project**.
 2. Pressione f5 para iniciar o projeto no debugger, em seguida, verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da app. A resposta 401 é produzida porque o acesso no backend é restrito apenas aos utilizadores autorizados.
-3. Abrir AppDelegate.cs no projeto iOS e adicionar as seguintes declarações `using`:
+3. Abrir AppDelegate.cs no projeto iOS `using` e adicionar as seguintes declarações:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
@@ -244,7 +244,7 @@ Esta secção mostra como implementar a interface **IAuthenticate** no projeto d
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
    
-7. Adicione a seguinte linha de código ao método **De lançamento acabado** antes da chamada para `LoadApplication()`:
+7. Adicione a seguinte linha de código ao método `LoadApplication()`De lançamento **acabado** antes da chamada para:
 
         App.Init(this);
 
@@ -259,14 +259,14 @@ Esta secção mostra como implementar a interface **IAuthenticate** nos projetos
 
 1. No Estúdio Visual, clique no projeto **UWP** e, em seguida, **set as StartUp Project**.
 2. Pressione f5 para iniciar o projeto no debugger, em seguida, verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da app. A resposta 401 acontece porque o acesso no backend é restrito apenas aos utilizadores autorizados.
-3. Abra MainPage.xaml.cs para o projeto da aplicação Windows e adicione as seguintes declarações `using`:
+3. Abra MainPage.xaml.cs para o projeto de `using` aplicação Windows e adicione as seguintes declarações:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
         using Windows.UI.Popups;
         using <your_Portable_Class_Library_namespace>;
 
-    Substitua `<your_Portable_Class_Library_namespace>` com o espaço de nome para a sua biblioteca de classe portátil.
+    Substitua-o `<your_Portable_Class_Library_namespace>` pelo espaço de nome para a sua biblioteca de classe portátil.
 4. Atualize a classe **MainPage** para implementar a interface **IAuthenticate,** da seguinte forma:
 
         public sealed partial class MainPage : IAuthenticate
@@ -308,12 +308,12 @@ Esta secção mostra como implementar a interface **IAuthenticate** nos projetos
 
     Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, escolha um valor diferente para [mobileServiceAuthenticationProvider][7].
 
-1. Adicione a seguinte linha de código no construtor para a classe **MainPage** antes da chamada para `LoadApplication()`:
+1. Adicione a seguinte linha de código no construtor para a `LoadApplication()`classe **MainPage** antes da chamada para:
 
         // Initialize the authenticator before loading the app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
 
-    Substitua `<your_Portable_Class_Library_namespace>` com o espaço de nome para a sua biblioteca de classe portátil.
+    Substitua-o `<your_Portable_Class_Library_namespace>` pelo espaço de nome para a sua biblioteca de classe portátil.
 
 3. Se estiver a utilizar **o UWP,** adicione o seguinte método **OnActivated** sobreposição à classe **App:**
 

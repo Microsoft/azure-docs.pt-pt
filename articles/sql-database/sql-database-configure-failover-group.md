@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
 ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461816"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
@@ -362,7 +362,7 @@ Crie o portal de rede virtual primária utilizando o portal Azure.
 
    ![Adicionar porta de entrada para instância gerida primária](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. Assim que o gateway da sub-rede for criado, selecione **Criar um recurso** a partir do painel de navegação esquerdo e, em seguida, digite `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de gateway da **rede Virtual** publicado pela **Microsoft**. 
+1. Assim que o gateway da sub-rede for criado, selecione **Criar um recurso** a partir do painel de navegação esquerdo e, em seguida, digitar `Virtual network gateway` na caixa de pesquisa. Selecione o recurso de gateway da **rede Virtual** publicado pela **Microsoft**. 
 
    ![Criar um novo portal de rede virtual](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
@@ -372,12 +372,12 @@ Crie o portal de rede virtual primária utilizando o portal Azure.
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Subscrição** |  A subscrição onde é a sua principal instância gerida. |
+    | **Assinatura** |  A subscrição onde é a sua principal instância gerida. |
     | **Nome** | O nome para o seu portal de rede virtual. | 
     | **Região** | A região onde o seu caso secundário gerido é. |
-    | **Tipo gateway** | Selecione **VPN**. |
+    | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo VPN** | Selecione **baseado em rota** |
-    | **SKU**| Deixe o padrão de `VpnGw1`. |
+    | **SKU**| Deixe o `VpnGw1`padrão de . |
     | **Localização**| O local onde está a sua instância secundária gerida e a rede virtual secundária.   |
     | **Rede virtual**| Selecione a rede virtual para a sua instância secundária gerida. |
     | **Endereço IP público**| Selecione **Criar novo**. |
@@ -433,16 +433,16 @@ Repita os passos na secção anterior para criar a sub-rede virtual e a porta de
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Subscrição** |  A subscrição onde é a sua instância secundária gerida. |
-   | **Nome** | O nome para o seu portal de rede virtual, como `secondary-mi-gateway`. | 
+   | **Assinatura** |  A subscrição onde é a sua instância secundária gerida. |
+   | **Nome** | O nome para o seu `secondary-mi-gateway`portal de rede virtual, como . | 
    | **Região** | A região onde o seu caso secundário gerido é. |
-   | **Tipo gateway** | Selecione **VPN**. |
+   | **Tipo de gateway** | Selecione **VPN**. |
    | **Tipo VPN** | Selecione **baseado em rota** |
-   | **SKU**| Deixe o padrão de `VpnGw1`. |
+   | **SKU**| Deixe o `VpnGw1`padrão de . |
    | **Localização**| O local onde está a sua instância secundária gerida e a rede virtual secundária.   |
-   | **Rede virtual**| Selecione a rede virtual que foi criada na secção 2, como `vnet-sql-mi-secondary`. |
+   | **Rede virtual**| Selecione a rede virtual que foi `vnet-sql-mi-secondary`criada na secção 2, como . |
    | **Endereço IP público**| Selecione **Criar novo**. |
-   | **Nome do endereço IP público**| Introduza um nome para o seu endereço IP, como `secondary-gateway-IP`. |
+   | **Nome do endereço IP público**| Introduza um nome para o `secondary-gateway-IP`seu endereço IP, como . |
    | &nbsp; | &nbsp; |
 
    ![Definições secundárias de gateway](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
@@ -495,16 +495,16 @@ Crie ligações entre os dois portais utilizando o portal Azure.
 1. Digite `connection` na caixa de pesquisa e, em seguida, prima introduza para pesquisar, o que o leva ao recurso **Connection,** publicado pela Microsoft.
 1. Selecione **Criar** para criar a sua ligação. 
 1. No separador Basics, selecione os **seguintes valores** e, em seguida, selecione **OK**. 
-    1. Selecione `VNet-to-VNet` para o **tipo de ligação**. 
+    1. Selecione `VNet-to-VNet` para o **tipo de Ligação**. 
     1. Selecione a subscrição na lista pendente. 
     1. Selecione o grupo de recursos para a sua instância gerida na queda. 
     1. Selecione a localização da sua instância gerida principal a partir do drop-down 
 1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK**:
-    1. Escolha o portal principal de rede para o primeiro portal de **rede virtual**, como `Primary-Gateway`.  
-    1. Escolha o gateway de rede secundário para o segundo portal de **rede virtual**, como `Secondary-Gateway`. 
+    1. Escolha o portal principal de rede para o `Primary-Gateway`primeiro portal de **rede virtual,** como .  
+    1. Escolha o gateway de rede secundário para o `Secondary-Gateway`segundo portal de **rede virtual,** como . 
     1. Selecione a caixa de verificação ao lado de **Estabelecer conectividade bidirecional**. 
     1. Ou deixe o nome de ligação primária padrão, ou mude o nome para um valor à sua escolha. 
-    1. Forneça uma **chave partilhada (PSK)** para a ligação, como `mi1m2psk`. 
+    1. Forneça uma **chave partilhada (PSK)** para `mi1m2psk`a ligação, tais como . 
 
    ![Criar ligação gateway](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
@@ -648,20 +648,20 @@ Teste falha do seu grupo de failover usando PowerShell.
 
 Assim que o grupo failover estiver configurado, atualize a cadeia de ligação para a sua aplicação para o ponto final do ouvinte. Isto manterá a sua aplicação ligada ao ouvinte do grupo failover, em vez da base de dados primária, piscina elástica ou instância gerida. Desta forma, não é necessário atualizar manualmente a cadeia de ligação sempre que a sua entidade de base de dados Azure SQL falha, e o tráfego é encaminhado para qualquer entidade que esteja atualmente primária. 
 
-O ponto final do ouvinte é na forma de `fog-name.database.windows.net`, e é visível no portal Azure, ao visualizar o grupo failover:
+O ponto final do ouvinte `fog-name.database.windows.net`é na forma de , e é visível no portal Azure, ao visualizar o grupo failover:
 
 ![Cadeia de ligação de grupo failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
 ## <a name="remarks"></a>Observações
 
-- A remoção de um grupo de failover para uma única base de dados ou agrupara-se não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma única base de dados ou agrupar uma base de dados a um grupo de failover depois de ter sido removida. Não fazer nenhuma das coisas pode resultar num erro semelhante ao `The operation cannot be performed due to multiple errors` ao tentar adicionar a base de dados ao grupo failover. 
+- A remoção de um grupo de failover para uma única base de dados ou agrupara-se não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma única base de dados ou agrupar uma base de dados a um grupo de failover depois de ter sido removida. Não fazer nenhuma das coisas pode `The operation cannot be performed due to multiple errors` resultar num erro semelhante ao da tentativa de adicionar a base de dados ao grupo failover. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para etapas detalhadas que configuram um grupo de failover, consulte os seguintes tutoriais:
 - [Adicione uma única base de dados a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)
-- [Adicione uma piscina elástica a um grupo de failover](sql-database-elastic-pool-failover-group-tutorial.md)
+- [Adicionar um conjunto elástico a um grupo de ativação pós-falha](sql-database-elastic-pool-failover-group-tutorial.md)
 - [Adicione instâncias geridas a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md)
  
 Para uma visão geral das opções de alta disponibilidade da Base de Dados Azure SQL, consulte grupos [de geo-replicação](sql-database-active-geo-replication.md) e [falha automática](sql-database-auto-failover-group.md). 

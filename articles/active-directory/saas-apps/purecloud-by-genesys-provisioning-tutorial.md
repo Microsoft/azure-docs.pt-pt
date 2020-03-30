@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure PureCloud by Genesys para o fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure PureCloud by Genesys para o fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para PureCloud por Genesys.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77370678"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configure PureCloud by Genesys para o fornecimento automático de utilizadores
@@ -90,7 +90,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Sob a secção **de Credenciais de Administrador,** insera o seu PureCloud por Genesys API URL e Oauth Token nos campos **de URL** do Inquilino e **Token Secreto,** respectivamente. O URL DaPi será estruturado como `{{API Url}}/api/v2/scim/v2`, utilizando o URL API para a sua região PureCloud do [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao PureCloud por Genesys. Se a ligação falhar, certifique-se de que a sua conta PureCloud by Genesys tem permissões de Administrador e tente novamente.
+5. Sob a secção **de Credenciais de Administrador,** insera o seu PureCloud por Genesys API URL e Oauth Token nos campos **de URL** do Inquilino e **Token Secreto,** respectivamente. O URL DaPi será estruturado como, `{{API Url}}/api/v2/scim/v2`utilizando o URL API para a sua região PureCloud do [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao PureCloud por Genesys. Se a ligação falhar, certifique-se de que a sua conta PureCloud by Genesys tem permissões de Administrador e tente novamente.
 
     ![provisionamento](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
@@ -109,10 +109,10 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
      |userName|Cadeia|
      |ativo|Booleano|
      |displayName|Cadeia|
-     |. Value de e-mails [tipo eq "trabalho"]|Cadeia|
-     |Título|Cadeia|
-     |. Value de phoneNumbers [tipo eq "móvel"]|Cadeia|
-     |. Value de phoneNumbers [tipo eq "trabalho"]|Cadeia|
+     |e-mails[tipo eq "work"].valor|Cadeia|
+     |título|Cadeia|
+     |telefoneNumbers[tipo eq "mobile"].valor|Cadeia|
+     |telefoneNumbers[tipo eq "trabalho"].valor|Cadeia|
      |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
      |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|Referência|
 
@@ -123,7 +123,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
       |Atributo|Tipo|
       |---|---|
       |displayName|Cadeia|
-      |externalId|Cadeia|
+      |id externo|Cadeia|
       |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

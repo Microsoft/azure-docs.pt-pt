@@ -1,5 +1,5 @@
 ---
-title: Criar um hub de eventos com a CLI do Azure - Event Hubs do Azure | Documentos da Microsoft
+title: Criar um hub de eventos utilizando o Azure CLI - Azure Event Hubs [ Hubs de Eventos Azure] Microsoft Docs
 description: Este início rápido descreve como criar um hub de eventos com a CLI do Azure e, em seguida, enviar e receber eventos com Java.
 services: event-hubs
 author: spelluru
@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162638"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: Criar um hub de eventos com a CLI do Azure
@@ -46,7 +46,7 @@ Defina o contexto da subscrição atual. Substitua `MyAzureSub` pelo nome da sub
 az account set --subscription MyAzureSub
 ``` 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os recursos são implementados e geridos num grupo de recursos. Execute o seguinte comando para criar um grupo de recursos:
 
 ```azurecli-interactive
@@ -78,11 +78,11 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
-- [python](get-started-python-send-v2.md)
+- [Pitão](get-started-python-send-v2.md)
 - [JavaScript](get-started-java-send-v2.md)
-- [Go](event-hubs-go-get-started-send.md)
+- [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
-- [Tempestade Apache (receber apenas)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)
 
 [crie uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619632"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -32,7 +32,7 @@ Geralmente, as cópias de segurança completas ocorrem semanalmente, as cópias 
 A Base de Dados Azure para PostgreSQL proporciona a flexibilidade para escolher entre armazenamento de backup redundante localmente redundante ou geo-redundante nos níveis geral de propósito e memória otimizados. Quando as cópias de segurança são armazenadas num armazenamento de backup geo-redundante, não são apenas armazenadas na região em que o seu servidor está hospedado, como também são replicadas para um centro de [dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível Básico apenas oferece armazenamento de reserva redundante localmente.
 
 > [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
+> Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é aprovisionado, não pode alterar a opção de redundância de armazenamento de reserva.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de reserva
 

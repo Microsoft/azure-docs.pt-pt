@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598107"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão Service Fabric que funciona no seu cluster 
@@ -26,7 +26,7 @@ Só pode atualizar o seu cluster para a nova versão se estiver a utilizar uma c
 Dois fluxos de trabalho distintos podem atualizar o seu cluster para a versão mais recente ou uma versão de Service Fabric suportada. Um fluxo de trabalho é para clusters que têm conectividade para descarregar a versão mais recente automaticamente. O outro fluxo de trabalho é para clusters que não têm conectividade para descarregar a mais recente versão service Fabric.
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>Ativar a tualização automática da versão Service Fabric do seu cluster
-Para configurar o seu cluster para descarregar atualizações do Service Fabric quando a Microsoft lançar uma nova versão, detetete te `fabricClusterAutoupgradeEnabled` configuração do cluster para *verdadeira*. Para selecionar manualmente uma versão suportada do Tecido de Serviço que deseja que o seu cluster esteja ligado, ajuste a configuração do cluster `fabricClusterAutoupgradeEnabled` para *falsa*.
+Para configurar o seu cluster para descarregar atualizações do Service `fabricClusterAutoupgradeEnabled` Fabric quando a Microsoft lançar uma nova versão, detetete a configuração do cluster como *verdadeira*. Para selecionar manualmente uma versão suportada do Tecido de Serviço `fabricClusterAutoupgradeEnabled` que deseja que o seu cluster esteja ligado, ajuste a configuração do cluster para *falsa*.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Upgrade clusters que têm conectividade para descarregar o mais recente código e configuração
 Utilize estes passos para atualizar o seu cluster para uma versão suportada se os seus nós de cluster tiverem conectividade de internet para o [Microsoft Download Center](https://download.microsoft.com).

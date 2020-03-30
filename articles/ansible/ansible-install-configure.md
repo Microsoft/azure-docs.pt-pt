@@ -9,10 +9,10 @@ manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
 ms.openlocfilehash: 44007000475793005560914fd816cd0c16927f9a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77202411"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Quickstart: Instale Ansible em máquinas virtuais Linux em Azure
@@ -113,7 +113,7 @@ Se estiver a usar a Ansible Tower ou o Jenkins, declare os principais valores de
 Configure as credenciais Ansible utilizando uma das seguintes técnicas:
 
 - [Criar um ficheiro de credenciais do Ansible](#file-credentials)
-- [Utilizar variáveis de ambiente do Ansible](#env-credentials)
+- [Use variáveis ambientais ansíveis](#env-credentials)
 
 ### <a name="span-idfile-credentials-create-ansible-credentials-file"></a><span id="file-credentials"/>Criar um ficheiro de credenciais do Ansible
 
@@ -121,7 +121,7 @@ Nesta secção, você cria um arquivo de credenciais locais para fornecer creden
 
 Para obter mais informações sobre a definição de credenciais Ansible, consulte [Fornecer credenciais aos Módulos Azure](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
 
-1. Para um ambiente de desenvolvimento, crie um ficheiro chamado `credentials` na máquina virtual hospedeira:
+1. Para um ambiente de desenvolvimento, crie um ficheiro nomeado `credentials` na máquina virtual anfitrião:
 
     ```bash
     mkdir ~/.azure

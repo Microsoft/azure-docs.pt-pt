@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 02/10/2020
 ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77154897"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Puxe imagens de um registo de contentores Azure para um cluster Kubernetes
@@ -20,7 +20,7 @@ Você pode usar um registo de contentores Azure como fonte de imagens de content
 > [!TIP]
 > Se estiver a utilizar o [Serviço Azure Kubernetes](../aks/intro-kubernetes.md)gerido, também pode [integrar o seu cluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) com um registo de contentores Azure alvo para puxões de imagem. 
 
-Este artigo assume que já criou um registo privado de contentores Azure. Também precisa de ter um cluster Kubernetes a funcionar e acessível através da ferramenta de linha de comando `kubectl`.
+Este artigo assume que já criou um registo privado de contentores Azure. Também precisa de ter um cluster Kubernetes `kubectl` a funcionar e acessível através da ferramenta de linha de comando.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -36,7 +36,7 @@ Este comando devolve uma nova senha válida para o seu diretor de serviço.
 
 Kubernetes usa um *segredo de imagem* para armazenar informações necessárias para autenticar o seu registo. Para criar o segredo de retirada para um registo de contentores Azure, fornece o ID principal do serviço, a palavra-passe e o URL do registo. 
 
-Crie um segredo de imagem com o seguinte comando `kubectl`:
+Crie um segredo de `kubectl` imagem com o seguinte comando:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
@@ -45,7 +45,7 @@ kubectl create secret docker-registry <secret-name> \
   --docker-username=<service-principal-ID> \
   --docker-password=<service-principal-password>
 ```
-Quando:
+em que:
 
 | Valor | Descrição |
 | :--- | :--- |
@@ -57,7 +57,7 @@ Quando:
 
 ## <a name="use-the-image-pull-secret"></a>Use a imagem puxar segredo
 
-Uma vez criada a imagem, pode usá-la para criar cápsulas e implementações kubernetes. Forneça o nome do segredo sob `imagePullSecrets` no ficheiro de implantação. Por exemplo:
+Uma vez criada a imagem, pode usá-la para criar cápsulas e implementações kubernetes. Forneça o nome do `imagePullSecrets` segredo no ficheiro de implantação. Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-No exemplo anterior, `your-awesome-app:v1` é o nome da imagem a retirar do registo de contentores Azure, e `acr-secret` é o nome do segredo de puxar que criou para aceder ao registo. Quando implanta a cápsula, os Kubernetes retiram automaticamente a imagem do seu registo, caso ainda não esteja presente no cluster.
+No exemplo anterior, `your-awesome-app:v1` é o nome da imagem a retirar do `acr-secret` registo de contentores Azure, e é o nome do segredo de puxar que criou para aceder ao registo. Quando implanta a cápsula, os Kubernetes retiram automaticamente a imagem do seu registo, caso ainda não esteja presente no cluster.
 
 
 ## <a name="next-steps"></a>Passos seguintes

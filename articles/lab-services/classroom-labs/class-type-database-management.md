@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
 ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469923"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Criar um laboratório para ensinar gestão de bases de dados para bases de dados relacionais
@@ -28,7 +28,7 @@ Neste artigo, vamos mostrar como configurar um modelo de máquina virtual num la
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório.](tutorial-setup-lab-account.md)  Também pode usar uma conta de laboratório existente.
+Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório.](tutorial-setup-lab-account.md)  Também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Configurações da conta de laboratório
 
@@ -59,7 +59,7 @@ Vamos cobrir uma possível estimativa de custos para esta classe.  Usaremos uma 
 
 Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 
-25 estudantes \* (20 horas programadas + 10 horas de quota) \* 0,42 USD por hora = 315,00 USD
+25 \* alunos (20 horas programadas \* + 10 horas de quota) 0,42 USD por hora = 315,00 USD
 
 Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 
@@ -67,7 +67,7 @@ Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório
 
 Este artigo acompanhou-o através dos passos necessários para criar um laboratório para conceitos básicos de gestão de bases de dados usando tanto o MySQL como o SQL Server. Pode utilizar uma configuração semelhante para outras bases de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns à criação de qualquer laboratório.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: cac63aee5f9ebf3859b138e6444e40b1e2dd30f7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588098"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Ligue o seu aparelho ICDx Symantec 
@@ -42,7 +42,7 @@ O ICDx symantec pode integrar e exportar registos diretamente para o Azure Senti
 4. Em **Forwarders**, ao lado do Microsoft Azure Sentinel (Log Analytics), clique em **Adicionar**. 
 4. Na janela **Microsoft Azure Sentinel (Log Analytics),** clique no **Show Advanced**. 
 5. No topo da janela expandida para microsoft Azure Sentinel (Log Analytics), faça o seguinte:
-    -   **Nome**: Digite um nome para o avançado que não tenha mais de 30 caracteres. Escolha um nome único e significativo. Este nome aparece na lista de avançados no ecrã de **Configuração** e nos dashboards no ecrã **do Dashboard.** Por exemplo: Microsoft Azure Log Analytics East. Este campo é necessário.
+    -   **Nome**: Digite um nome para o avançado que não tenha mais de 30 caracteres. Escolha um nome único e significativo. Este nome aparece na lista de avançados no ecrã de **Configuração** e nos dashboards no ecrã **do Dashboard.** Por exemplo: Microsoft Azure Log Analytics East. Este campo é obrigatório.
     -   **Descrição**: Digite uma descrição para o reencaminhador. Esta descrição também aparece na lista de avançados no ecrã de **Configuração.** Inclua detalhes como o tipo de evento que está a ser encaminhado e o grupo que precisa de inspecionar os dados.
     -   **Tipo de arranque**: Selecione o método de arranque para a configuração do avançado. As suas opções são manuais e automáticas.<br>O padrão é Automático. 
 6. Em **Eventos,** faça o seguinte: 
@@ -57,12 +57,12 @@ O ICDx symantec pode integrar e exportar registos diretamente para o Azure Senti
         - Também pode clicar em "Guardar Consultas" para aplicar uma consulta guardada.
     - **Atributos Incluídos**: Digite a lista de atributos delimitados da vírlém a incluir nos dados reencaminhados. Os atributos incluídos têm precedência sobre atributos excluídos.
     - **Atributos excluídos**: Digite a lista de atributos delimitados da vírlém para excluir dos dados reencaminhados.
-    - **Tamanho do lote**: Selecione o número de eventos a enviar por lote. Suas opções são 10, 50, 100, 500 e 1000.<br>O padrão é 100. 
+    - **Tamanho do lote**: Selecione o número de eventos a enviar por lote. Suas opções são 10, 50, 100, 500 e 1000.<br>A predefinição é 100. 
     - **Limite de tarifa**: Selecione a taxa a que os eventos são reencaminhados, expressacomo eventos por segundo. As suas opções são Ilimitadas, 500, 1000, 5000, 10000. <br> O padrão é 5000. 
 7. No âmbito do **Destino Azure,** faça o seguinte: 
-    - **ID do espaço de trabalho**: Colar o ID workspace a partir de baixo. Este campo é necessário.
-    - **Chave primária**: Colar a chave primária a partir de baixo. Este campo é necessário.
-    - **Nome**de registo personalizado : Digite o nome de registo personalizado no portal Microsoft Azure Log Analytics espaço de trabalho para o qual vai reencaminhar eventos. O padrão é SymantecICDx. Este campo é necessário.
+    - **ID do espaço de trabalho**: Colar o ID workspace a partir de baixo. Este campo é obrigatório.
+    - **Chave primária**: Colar a chave primária a partir de baixo. Este campo é obrigatório.
+    - **Nome**de registo personalizado : Digite o nome de registo personalizado no portal Microsoft Azure Log Analytics espaço de trabalho para o qual vai reencaminhar eventos. O padrão é SymantecICDx. Este campo é obrigatório.
 8. Clique em *Guardar* para terminar a configuração do avançado. 
 9. Para iniciar o avançado, em **Opções,** clique **em Mais** e **depois Começar**.
 10. Para utilizar o esquema relevante no Log Analytics para os eventos icdx symantec, procure **SymantecICDx_CL**.

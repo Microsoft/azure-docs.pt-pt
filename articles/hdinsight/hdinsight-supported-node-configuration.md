@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484791"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quais são as configurações padrão e recomendadas para o Azure HDInsight?
@@ -51,7 +51,7 @@ Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Todas as regiões apoiadas, exceto Brasil sul e Japão oeste
 
 > [!Note]
-> Para obter o identificador SKU para uso em powershell e outros scripts, adicione `Standard_` ao início de todas as VM SKUs nas tabelas abaixo. Por exemplo, `D12_v2` tornar-se-ia `Standard_D12_v2`.
+> Para obter o identificador SKU para uso em `Standard_` powershell e outros scripts, adicione ao início de todas as VM SKUs nas tabelas abaixo. Por exemplo, `D12_v2` `Standard_D12_v2`tornar-se-ia.
 
 | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Servidor ML | Kafka |
 |---|---|---|---|---|---|---|---|
@@ -64,7 +64,7 @@ Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os 
 | Serviços ML: tamanho VM padrão |  |  |  |  |  | D4_v2 |  |
 | Serviços ML: tamanho mínimo recomendado vM |  |  |  |  |  | D4_v2 |  |
 
-\* = Tamanhos VM para clusters do Pacote de Segurança Empresarial spark (ESP)
+\*= Tamanhos VM para clusters do Pacote de Segurança Empresarial spark (ESP)
 
 ### <a name="brazil-south-and-japan-west-only"></a>Brasil sul e Japão apenas a oeste
 
@@ -84,6 +84,6 @@ Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os 
 > - O trabalhador é conhecido como *Supervisor* do tipo aglomerado de tempestades.
 > - O trabalhador é conhecido como *Região* para o tipo de cluster HBase.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quais são os componentes e versões Apache Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md)

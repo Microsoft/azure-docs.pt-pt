@@ -1,5 +1,5 @@
 ---
-title: Modelo de operações da SAP HANA on Azure (Grandes Instâncias)  Microsoft Docs
+title: Modelo de operações da SAP HANA on Azure (Grandes Instâncias) [ Microsoft Docs
 description: Modelo de operações da SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e147e4a5f104ca4cd1a10a776c907e3f9f1d6128
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616979"
 ---
 # <a name="operations-model-and-responsibilities"></a>Modelo e responsabilidades de operações
@@ -67,5 +67,5 @@ A infraestrutura subjacente da HANA Large Instance fornece funcionalidade para c
 
 Consulte o [SLA para SAP HANA em Azure (Grandes Instâncias)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [a arquitetura SAP HANA (Grandes Instâncias) em Azure](hana-architecture.md)

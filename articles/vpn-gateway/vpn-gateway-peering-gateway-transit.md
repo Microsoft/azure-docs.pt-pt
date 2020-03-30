@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161890"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
@@ -48,7 +48,7 @@ Consulte os seguintes documentos para obter instruções:
 2. [Criar peering de rede virtual com o mesmo modelo de implementação](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [Criar peering de rede virtual com diferentes modelos de implementação](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a><a name="permissions"></a>Permissões
 
 As contas que utiliza para criar um peering de rede virtual têm de ter as funções ou permissões necessárias. No exemplo abaixo, se estava a realizar o peering de duas redes virtuais com o nome Hub-RM e Spoke-Classic, a conta tem de ter as seguintes funções ou permissões para cada rede virtual:
     

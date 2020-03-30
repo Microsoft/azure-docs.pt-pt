@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616897"
 ---
 # <a name="sizing"></a>Dimensionamento
@@ -32,7 +32,7 @@ Dimensionar para HANA Large Instance não é diferente do tamanho para HANA em g
 
 Para implementações de campo verde, o SAP Quick Sizer está disponível para calcular os requisitos de memória da implementação do software SAP em cima da HANA.
 
-Requisitos de memória para HANA aumentam à medida que aumenta o volume de dados. Esteja atento ao seu consumo de memória atual para ajudá-lo a prever o que vai ser no futuro. Com base nos requisitos de memória, pode então mapear a sua procura numa das SKUs de Grande Instância HANA.
+Os requisitos de memória para HANA aumentam à medida que o volume de dados aumenta. Esteja atento ao seu consumo de memória atual para ajudá-lo a prever o que vai ser no futuro. Com base nos requisitos de memória, pode então mapear a sua procura numa das SKUs de Grande Instância HANA.
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [os requisitos de embarque](hana-onboarding-requirements.md)

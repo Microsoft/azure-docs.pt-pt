@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de administrador da AD Azure com a Microsoft Graph API  Microsoft Docs
+title: Atribuir funções de administrador da AD Azure com a Microsoft Graph API [ Microsoft Docs
 description: Atribuir e remover funções de administrador da AD Azure com Gráfico API no Diretório Ativo Azure
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559152"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administração personalizada utilizando o Microsoft Graph API no Diretório Ativo Azure 

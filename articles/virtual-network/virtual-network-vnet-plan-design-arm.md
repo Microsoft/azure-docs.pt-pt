@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190470"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
@@ -50,7 +50,7 @@ Pode criar várias redes virtuais por subscrição e por região. Pode criar vá
 Uma rede virtual é uma parte virtual e isolada da rede pública Azure. Cada rede virtual é dedicada à sua subscrição. Coisas a considerar ao decidir se criamos uma rede virtual, ou várias redes virtuais numa subscrição:
 
 - Existem requisitos de segurança organizacional para isolar o tráfego em redes virtuais separadas? Pode optar por ligar redes virtuais ou não. Se ligar redes virtuais, pode implementar um aparelho virtual de rede, como uma firewall, para controlar o fluxo de tráfego entre as redes virtuais. Para mais informações, consulte [segurança](#security) e [conectividade.](#connectivity)
-- Existem requisitos organizacionais para isolar redes virtuais em assinaturas ou [regiões separadas?](#regions) [](#subscriptions)
+- Existem requisitos organizacionais para isolar redes virtuais em assinaturas ou [regiões separadas?](#regions) [subscriptions](#subscriptions)
 - Uma [interface de rede](virtual-network-network-interface.md) permite que um VM comunique com outros recursos. Cada interface de rede tem um ou mais endereços IP privados atribuídos a ela. Quantas interfaces de rede e [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) precisa numa rede virtual? Existem [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para o número de interfaces de rede e endereços IP privados que você pode ter dentro de uma rede virtual.
 - Deseja ligar a rede virtual a outra rede virtual ou rede no local? Pode optar por ligar algumas redes virtuais a redes entre si ou no local, mas não a outras. Para mais informações, consulte [a conectividade.](#connectivity) Cada rede virtual que se conecta a outra rede virtual, ou rede no local, deve ter um espaço de endereço único. Cada rede virtual tem uma ou mais gamas de endereços públicos ou privados atribuídas ao seu espaço de endereços. Uma gama de endereços é especificada no formato de encaminhamento de domínio de internet sem classe (CIDR), como 10.0.0.0.0/16. Saiba mais sobre [as gamas](manage-virtual-network.md#add-or-remove-an-address-range) de endereços para redes virtuais.
 - Tem algum requisito de administração organizacional para recursos em diferentes redes virtuais? Em caso afirmativo, poderá separar os recursos em redes virtuais separadas para simplificar a atribuição de [permissões](#permissions) a indivíduos da sua organização ou atribuir diferentes políticas a diferentes redes virtuais.

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 1308f4ba3335f2fd2633f6e39a679cd6477a4b5c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77445022"
 ---
 # <a name="azure-firewall-manager-preview-policy-overview"></a>Visão geral da política de pré-visualização do Gestor de Firewall Azure
@@ -55,7 +55,7 @@ O Azure Firewall apoia as regras e políticas tradicionais. O quadro seguinte co
 |Suporte de firewall múltiplo     |Firewall Policy é um recurso separado que pode ser usado através de firewalls|Regras de exportação e importação manualmente, ou utilizando soluções de gestão de terceiros |
 |Preços     |Faturado com base na associação de firewall. Ver [Preços](#pricing).|Gratuito|
 |Mecanismos de implantação apoiados     |Portal, REST API, modelos, Azure PowerShell e CLI|Portal, REST API, modelos, PowerShell e CLI. |
-|Estado da Versão     |Pré-visualização pública|Disponibilidade Geral|
+|Estado de lançamento     |Pré-visualização pública|Disponibilidade Geral|
 
 ## <a name="pricing"></a>Preços
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ce7f3eafa57cbd993be98f4a2da3d89cb312f9b7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190683"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Controlos de segurança para base de dados Azure SQL
@@ -32,7 +32,7 @@ A Base de Dados SQL inclui uma [única base de dados](sql-database-single-index.
 | Isolamento da rede e suporte à firewall| Sim | Firewall tanto ao nível da base de dados como ao nível do servidor. O isolamento da rede é apenas para [casos geridos.](sql-database-managed-instance.md) |
 | Apoio de túnel forçado| Sim | [Caso gerido](sql-database-managed-instance.md) através de uma VPN [ExpressRoute.](../expressroute/index.yml) |
 
-## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -68,7 +68,7 @@ A Base de Dados SQL inclui uma [única base de dados](sql-database-single-index.
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Prevenção: avaliação da vulnerabilidade | Sim | Consulte o serviço de Avaliação de [VulnerabilidadeS SQL ajuda-o a identificar vulnerabilidades na base de dados](sql-vulnerability-assessment.md). |
-| Prevenção: descoberta e classificação de dados  | Sim | Consulte [a Base de Dados Azure SQL e a SQL Data Warehouse descoberta e classificação](sql-database-data-discovery-and-classification.md)de dados . |
+| Prevenção: descoberta e classificação de dados  | Sim | Consulte a Base de [Dados Azure SQL e a Descoberta de dados do Armazém de Dados SQL & classificação](sql-database-data-discovery-and-classification.md). |
 | Deteção: deteção de ameaças | Sim | Consulte A Proteção avançada de Ameaças para a Base de [Dados Azure SQL](sql-database-threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Passos seguintes

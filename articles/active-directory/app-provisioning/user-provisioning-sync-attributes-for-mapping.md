@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 09d1efaf54bee65bd3274987e68e643f887baade
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522276"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizar um atributo do seu Diretório Ativo no local para a AD Azure para o fornecimento a uma aplicação
@@ -50,7 +50,7 @@ Se os dados necessários para o fornecimento estiverem no Diretório Ativo, mas 
 
 5. Termine o assistente Azure AD Connect e deixe funcionar um ciclo de sincronização completo. Quando o ciclo está concluído, o esquema é estendido e os novos valores são sincronizados entre o seu AD no local e o Azure AD.
  
-6. No portal Azure, enquanto está [a editar mapeamentos de atributos](customize-application-attributes.md)de utilizador, a lista de **atributos Source** irá agora conter o atributo adicionado no formato `<attributename> (extension_<appID>_<attributename>)`. Selecione o atributo e mapeie-o para a aplicação-alvo para o fornecimento.
+6. No portal Azure, enquanto está [a editar mapeamentos de atributos](customize-application-attributes.md)de utilizador, a `<attributename> (extension_<appID>_<attributename>)`lista de **atributos Source** irá agora conter o atributo adicionado no formato . Selecione o atributo e mapeie-o para a aplicação-alvo para o fornecimento.
 
    ![Página de seleção de extensões de direção de diretório de hiperdireção do diretório ativo azure](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 

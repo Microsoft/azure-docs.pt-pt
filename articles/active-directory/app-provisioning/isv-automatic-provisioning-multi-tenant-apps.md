@@ -16,10 +16,10 @@ ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
 ms.openlocfilehash: 93e1d879f69a95fe7472ce530e0e9f38f3480f39
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522398"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino
@@ -52,7 +52,7 @@ As aplicações que exigem que um registo de utilizador esteja presente na aplic
 
 * Reduzir os custos de hospedagem e manutenção de soluções de provisionamento personalizadas.
 
-## <a name="choose-a-provisioning-method"></a>Selecione um método de aprovisionamento
+## <a name="choose-a-provisioning-method"></a>Escolher um método de aprovisionamento
 
 A Azure AD fornece vários caminhos de integração para permitir o fornecimento automático de utilizadores para a sua aplicação.
 
@@ -76,8 +76,8 @@ Para ajudar a determinar que opção de integração usar para a sua aplicação
 | Contas de hóspedes de suporte (B2B)| √| √| √ |
 | Apoiar contas não empresariais (B2C)| X| √| √ |
 
-<sup>*</sup> – A configuração Azure AD Connect é necessária para sincronizar os utilizadores de AD para Azure AD.  
-<sup>+</sup >– A utilização do SCIM para o provisionamento não o impede de integrar a sua aplicação com o MIcrosoft Graph para outros fins.
+<sup>*</sup>– A configuração Azure AD Connect é necessária para sincronizar os utilizadores de AD para Azure AD.  
+<sup>+</sup >– A utilização do SCIM para o fornecimento não o impede de integrar a sua aplicação com o MIcrosoft Graph para outros fins.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Serviço de Provisionamento De AD Azure (SCIM)
 

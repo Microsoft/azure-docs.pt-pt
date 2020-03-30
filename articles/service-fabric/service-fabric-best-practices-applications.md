@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
 ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586092"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>As melhores práticas de design de aplicações da Azure Service Fabric
@@ -57,9 +57,9 @@ Poupe custos e melhore a disponibilidade:
 
 ## <a name="how-to-work-with-reliable-services"></a>Como trabalhar com Serviços Fiáveis
 Serviço Fabric Reliable Services permite-lhe facilmente criar serviços apátridas e apátridas. Para mais informações, consulte a [introdução de Serviços Fiáveis.](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)
-- Honre sempre o símbolo de [cancelamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) no método `RunAsync()` para serviços apátridas e apátridas e o método `ChangeRole()` para serviços estatais. Se não o fizer, o Serviço Fabric não sabe se o seu serviço pode ser fechado. Por exemplo, se não honrar o símbolo de cancelamento, podem ocorrer tempos de atualização de aplicações muito mais longos.
+- Honre sempre o símbolo `RunAsync()` de [cancelamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) no método dos `ChangeRole()` serviços apátridas e apátridas e o método para serviços estatais. Se não o fizer, o Serviço Fabric não sabe se o seu serviço pode ser fechado. Por exemplo, se não honrar o símbolo de cancelamento, podem ocorrer tempos de atualização de aplicações muito mais longos.
 -   Ouvintes de comunicação abertos e [próximos](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) em tempo oportuno, e honrem os símbolos de cancelamento.
--   Nunca misture código de sincronização com código assync. Por exemplo, não use `.GetAwaiter().GetResult()` nas suas chamadas de asincronização. Use assinásdurante *todo o caminho* através da pilha de chamadas.
+-   Nunca misture código de sincronização com código assync. Por exemplo, não `.GetAwaiter().GetResult()` use nas suas chamadas de asincronização. Use assinásdurante *todo o caminho* através da pilha de chamadas.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Como trabalhar com atores fiáveis
 Service Fabric Reliable Actors permite-lhe criar facilmente atores virtuais e imponentes. Para mais informações, consulte a [introdução aos Atores Fiáveis.](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction)
@@ -70,14 +70,14 @@ Service Fabric Reliable Actors permite-lhe criar facilmente atores virtuais e im
 - Devido à sua [conmoeda baseada na viragem,](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)os atores são melhor usados como objetos independentes. Não crie gráficos de chamadas de métodos sincronizados e sincronizados (cada uma das quais provavelmente torna-se uma chamada de rede separada) ou crie pedidos de ator circular. Estes afetarão significativamente o desempenho e a escala.
 - Não misture código de sincronização com código assiníncrono. Utilize assinás de forma consistente para evitar problemas de desempenho.
 - Não faças chamadas de longa data em atores. Chamadas de longa duração bloquearão outras chamadas para o mesmo ator, devido à conmoeda baseada na viragem.
-- Se está a comunicar com outros serviços usando o [Service Fabric remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e está a criar um `ServiceProxyFactory`, crie a fábrica ao nível [do serviço de ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *não* ao nível do ator.
+- Se está a comunicar com outros serviços usando o Service `ServiceProxyFactory`Fabric [remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e está a criar um , crie a fábrica ao nível do serviço de [ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *não* ao nível do ator.
 
 
 ## <a name="application-diagnostics"></a>Diagnósticos de aplicações
 Seja minuciosa sobre a adição de registo de [aplicações](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) em chamadas de serviço. Vai ajudá-lo a diagnosticar cenários em que os serviços se ligam uns aos outros. Por exemplo, quando a Chamada B chama C, a chamada pode falhar em qualquer lugar. Se não tiver registo sinuoso suficiente, falhas são difíceis de diagnosticar. Se os serviços estiverem a registar demasiado por causa dos volumes de chamadas, certifique-se de que regista, pelo menos, erros e avisos.
 
 ## <a name="iot-and-messaging-applications"></a>IoT e aplicações de mensagens
-Quando estiver a ler mensagens do [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou [do Azure Event Hubs,](https://docs.microsoft.com/azure/event-hubs/)utilize o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integra-se com Serviços Fiáveis de Tecido de Serviço para manter o estado de leitura das divisórias do centro de eventos e empurra novas mensagens para os seus serviços através do método `IEventProcessor::ProcessEventsAsync()`.
+Quando estiver a ler mensagens do [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou [do Azure Event Hubs,](https://docs.microsoft.com/azure/event-hubs/)utilize o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integra-se com Serviços Fiáveis de Tecido de Serviço para manter o estado de `IEventProcessor::ProcessEventsAsync()` leitura das divisórias do centro de eventos e empurra novas mensagens para os seus serviços através do método.
 
 
 ## <a name="design-guidance-on-azure"></a>Orientação de design em Azure

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 863d9ecedf095e0ab284a0d7fd86363b69ae5658
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562416"
 ---
 # <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Troubleshoot: Falha na criação de cluster do Azure Data Explorer

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460728"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o armazenamento da tabela Azure utilizando a Azure Data Factory
@@ -33,7 +33,7 @@ Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Az
 Este conector de armazenamento de mesa Azure é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
 Pode copiar dados de qualquer loja de dados de origem suportada para armazenamento de tabela. Também pode copiar dados do armazenamento da Tabela para qualquer loja de dados de sumidouro suportado. Para obter uma lista de lojas de dados que sejam suportadas como fontes ou afunda-se pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -45,17 +45,17 @@ Especificamente, este conector Azure Table suporta a cópia de dados utilizando 
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas ao armazenamento de tabelas.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 ### <a name="use-an-account-key"></a>Use uma chave de conta
 
-Pode criar um serviço ligado ao Armazenamento Azure utilizando a chave da conta. Fornece à fábrica de dados acesso global ao Armazenamento. São suportadas as seguintes propriedades.
+Pode criar um serviço ligado ao Armazenamento Azure utilizando a chave da conta. Fornece à fábrica de dados acesso global ao Armazenamento. As seguintes propriedades são suportadas.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo deve ser definida para **AzureTableStorage**. |Sim |
-| connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. <br/>Também pode colocar a chave de conta no Cofre de Chaves Azure e retirar a configuração `accountKey` da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. |Sim |
-| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| conexãoString | Especifique as informações necessárias para ligar ao Armazenamento para a propriedade de conexãoString. <br/>Também pode colocar a chave de conta `accountKey` no Cofre de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. |Sim |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 >[!NOTE]
 >Se estava a utilizar o serviço ligado ao tipo "AzureStorage", ainda é suportado como está, enquanto é sugerido que utilize este novo tipo de serviço ligado ao "AzureTableStorage" a avançar.
@@ -108,13 +108,13 @@ Pode criar um serviço ligado ao Armazenamento Azure utilizando a chave da conta
 
 Também pode criar um serviço ligado ao Armazenamento utilizando uma assinatura de acesso partilhado. Fornece à fábrica de dados um acesso restrito/limitado ao tempo a todos/recursos específicos no armazenamento.
 
-Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode usá-lo para conceder permissões limitadas a objetos na sua conta de armazenamento por um tempo determinado e com um conjunto de permissões especificado. Não tem de partilhar as chaves de acesso da conta. A assinatura de acesso partilhado é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso partilhado, o cliente precisa apenas passar a assinatura de acesso partilhado para o método ou construtor apropriado. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: Compreenda o modelo de assinatura](../storage/common/storage-dotnet-shared-access-signature-part-1.md)de acesso partilhado .
+Uma assinatura de acesso partilhado proporciona acesso delegado aos recursos na sua conta de armazenamento. Pode usá-lo para conceder permissões limitadas a objetos na sua conta de armazenamento por um tempo determinado e com um conjunto de permissões especificado. Não tens de partilhar as chaves de acesso à conta. A assinatura de acesso partilhado é um URI que engloba nos seus parâmetros de consulta toda a informação necessária para o acesso autenticado a um recurso de armazenamento. Para aceder aos recursos de armazenamento com a assinatura de acesso partilhado, o cliente apenas precisa passar a assinatura de acesso partilhado ao construtor ou método apropriado. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: Compreenda o modelo de assinatura](../storage/common/storage-dotnet-shared-access-signature-part-1.md)de acesso partilhado .
 
 > [!NOTE]
 > Data Factory agora suporta tanto **assinaturas** de acesso partilhado de serviço como **assinaturas de acesso partilhado**de conta. Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
-> Para gerar uma assinatura de acesso partilhado do serviço para a sua conta de armazenamento, pode executar os seguintes comandos do PowerShell. Substitua os marcadores de posição e conceder a permissão necessária.
+> Para gerar uma assinatura de acesso partilhado de serviço para a sua conta de armazenamento, pode executar os seguintes comandos PowerShell. Substitua os espaços reservados e conceda a permissão necessária.
 > `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
@@ -124,7 +124,7 @@ Para utilizar a autenticação de assinatura de acesso partilhado, são suportad
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo deve ser definida para **AzureTableStorage**. |Sim |
 | sasUri | Especifique a SAS URI da assinatura de acesso partilhado URI à mesa. <br/>Marque este campo como um SecureString para o armazenar de forma segura na Data Factory. Também pode colocar token SAS no Cofre de Chaves Azure para alavancar a rotação automática e remover a porção simbólica. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
-| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode usar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Integração Auto-Hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 >[!NOTE]
 >Se estava a utilizar o serviço ligado ao tipo "AzureStorage", ainda é suportado como está, enquanto é sugerido que utilize este novo tipo de serviço ligado ao "AzureTableStorage" a avançar.
@@ -179,17 +179,17 @@ Para utilizar a autenticação de assinatura de acesso partilhado, são suportad
 }
 ```
 
-Quando cria um URI de assinatura de acesso partilhado, considere os seguintes pontos:
+Quando criar uma assinatura de acesso partilhado URI, considere os seguintes pontos:
 
-- Definir permissões de leitura/escrita adequadas em objetos com base em como o serviço ligado (leitura, escrita, de leitura/escrita) é utilizado na sua fábrica de dados.
-- Definir o **tempo de validade** adequadamente. Certifique-se de que o acesso a objetos de armazenamento não expira com o período ativo do pipeline.
+- Detete permissões de leitura/escrita adequadas em objetos com base na forma como o serviço ligado (ler, escrever, ler/escrever) é utilizado na sua fábrica de dados.
+- Definir o **tempo de validade** adequadamente. Certifique-se de que o acesso aos objetos de armazenamento não expira dentro do período ativo do gasoduto.
 - O URI deve ser criado ao nível da mesa certa com base na necessidade.
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados da Tabela Azure.
 
-Para copiar dados de e para a Tabela Azure, detete a propriedade tipo do conjunto de dados para **AzureTable**. São suportadas as seguintes propriedades.
+Para copiar dados de e para a Tabela Azure, detete a propriedade tipo do conjunto de dados para **AzureTable**. As seguintes propriedades são suportadas.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -216,7 +216,7 @@ Para copiar dados de e para a Tabela Azure, detete a propriedade tipo do conjunt
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Esquema pelo Data Factory
+### <a name="schema-by-data-factory"></a>Schema by Data Factory
 
 Para lojas de dados sem esquemas, como a Tabela Azure, a Data Factory infere o esquema de uma das seguintes formas:
 
@@ -265,10 +265,10 @@ Para copiar dados para a Tabela Azure, delineie o tipo de pia na atividade de c�
 | tipo | A propriedade tipo do sumidouro da atividade de cópia deve ser definida para **AzureTableSink**. |Sim |
 | azureTableDefaultPartitionKeyValue |O valor da chave da divisória padrão que pode ser usado pela pia. |Não |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como teclas de partição. Se não especificado, "AzureTableDefaultPartitionKeyValue" é usado como chave de partição. |Não |
-| azureTableRowKeyName |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Não |
+| nome chave azureTableRow |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Não |
 | azureTableInsertType |O modo de inserir dados na Tabela Azure. Esta propriedade controla se as linhas existentes na tabela de saída com divisória seletiva e chaves de linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Os valores permitidos são **fundidos** (predefinidos) e **substituem**. <br/><br> Esta definição aplica-se ao nível da linha e não ao nível da tabela. Nenhuma das opções elimina linhas na tabela de saída que não existam na entrada. Para saber como funcionam as definições de fusão e substituição, consulte [Inserir ou fundir entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e inserir ou substituir [entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Não |
-| writeBatchSize |Insere os dados na Tabela Azure quando escreveBatchSize ou escreveBatchTimeout é atingido.<br/>Os valores permitidos são inteiros (número de linhas). |Não (o padrão é de 10.000) |
-| writeBatchTimeout |Insere os dados na Tabela Azure quando escreveBatchSize ou escreveBatchTimeout é atingido.<br/>Os valores permitidos são tempo sem mais tempo. Um exemplo é "00:20:00" (20 minutos). |Não (padrão é de 90 segundos, tempo de paragem padrão do cliente de armazenamento) |
+| escreverBatchSize |Insere os dados na Tabela Azure quando escreveBatchSize ou escreveBatchTimeout é atingido.<br/>Os valores permitidos são inteiros (número de linhas). |Não (o padrão é de 10.000) |
+| escreverBatchTimeout |Insere os dados na Tabela Azure quando escreveBatchSize ou escreveBatchTimeout é atingido.<br/>Os valores permitidos são tempo sem mais tempo. Um exemplo é "00:20:00" (20 minutos). |Não (padrão é de 90 segundos, tempo de paragem padrão do cliente de armazenamento) |
 
 **Exemplo:**
 
@@ -331,13 +331,13 @@ Quando copia dados de e para a Tabela Azure, os seguintes mapeamentos são utili
 
 Quando move dados de e para a Tabela Azure, os [seguintes mapeamentos definidos pela Tabela Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) são utilizados dos tipos OData de Tabela Azure para o tipo .NET e vice-versa.
 
-| Tipo de dados da tabela azure | Tipo de dados intermediárias de fábrica de dados | Detalhes |
+| Tipo de dados da tabela azure | Data Factory tipo de dados provisórios | Detalhes |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Uma série de bytes até 64 KB. |
 | Edm.Boolean |bool |Um valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits expresso como Tempo Universal Coordenado (UTC). A gama datetime suportada começa à meia-noite, 1 de janeiro de 1601 d.A. (C.E.), UTC. A gama termina em 31 de dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
-| Edm.Guid |Guid |Um identificador globalmente único de 128 bits. |
+| Edm.Guid |GUID |Um identificador globalmente único de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
 | Edm.String |Cadeia |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |

@@ -13,10 +13,10 @@ ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522437"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie aplicação de RH em nuvem para fornecimento de utilizadores de Diretório Ativo Azure
@@ -130,7 +130,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Inclua um representante da organização de RH que pode fornecer inputs sobre os processos de negócio st. existentes e identidade do trabalhador mais requisitos de processamento de dados de trabalho.
 
-### <a name="plan-communications"></a>Plan communications
+### <a name="plan-communications"></a>Planear as comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se proativamente com os seus utilizadores sobre quando e como a sua experiência irá mudar. Deixe-os saber como obter apoio se tiverem problemas.
 
@@ -171,22 +171,22 @@ A topologia de implementação do agente de fornecimento Azure AD Connect depend
 
 Com base na sua decisão, escolha um dos cenários de implementação:
 
-- Inquilino de aplicativo único em nuvem HR -> alvo de domínios infantis single ou multiple Ative Directory em uma floresta de confiança
-- Inquilino de aplicativo de h h em nuvem única -> alvo de vários domínios infantis em uma floresta de diretório ativo disjoint
+- Único inquilino de aplicativo de nuvem de nuvem -> alvo de domínios infantis single ou multiple Ative Directory em uma floresta de confiança
+- Único inquilino de aplicativo de nuvem de nuvem -> alvo múltiplos domínios de crianças em uma floresta de diretório ativo desarticulado
 
-### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Inquilino de aplicativo único em nuvem HR -> alvo de domínios infantis single ou multiple Ative Directory em uma floresta de confiança
+### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Único inquilino de aplicativo de nuvem de nuvem -> alvo de domínios infantis single ou multiple Ative Directory em uma floresta de confiança
 
 Recomendamos a seguinte configuração de produção:
 
 |Requisito|Recomendação|
 |:-|:-|
 |Número de agentes de provisionamento Azure AD Connect para implantar|Dois (para alta disponibilidade e falha)
-|Número de aplicações de conector de provisionamento para configurar|uma aplicação por domínio infantil|
+|Número de aplicações de conector de provisionamento para configurar|Uma aplicação por domínio infantil|
 |Anfitrião do servidor para o agente de provisionamento Azure AD Connect|Windows 2012 R2+ com linha de visão para controladores de domínio ative diretório geolocalizados</br>Pode coexistir com o serviço Azure AD Connect|
 
 ![Fluxo para agentes no local](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
-### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Inquilino de aplicativo de h h em nuvem única -> alvo de vários domínios infantis em uma floresta de diretório ativo disjoint
+### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Único inquilino de aplicativo de nuvem de nuvem -> alvo múltiplos domínios de crianças em uma floresta de diretório ativo desarticulado
 
 Este cenário envolve o fornecimento de utilizadores da aplicação de RH em nuvem para domínios em florestas de Diretório Ativo desarticuladas.
 
@@ -195,7 +195,7 @@ Recomendamos a seguinte configuração de produção:
 |Requisito|Recomendação|
 |:-|:-|
 |Número de agentes de provisionamento Azure AD Connect para implantar no local|Duas por floresta de diretório ativo desarticulada|
-|Número de aplicações de conector de provisionamento para configurar|uma aplicação por domínio infantil|
+|Número de aplicações de conector de provisionamento para configurar|Uma aplicação por domínio infantil|
 |Anfitrião do servidor para o agente de provisionamento Azure AD Connect|Windows 2012 R2+ com linha de visão para controladores de domínio ative diretório geolocalizados</br>Pode coexistir com o serviço Azure AD Connect|
 
 ![Único inquilino de aplicativo de nuvem de nuvem disjoint Ative Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
@@ -350,7 +350,7 @@ Utilize os resultados anteriores para determinar como transitar a sua implementa
 > [!TIP]
 > Utilize técnicas como a redução de dados e a limpeza de dados quando atualizar o ambiente de teste com dados de produção para remover ou mascarar dados pessoais sensíveis para cumprir as normas de privacidade e segurança. 
 
-### <a name="plan-security"></a>Planear a segurança
+### <a name="plan-security"></a>Segurança do plano
 
 É comum que uma revisão de segurança seja necessária como parte da implementação de um novo serviço. Se for necessária uma revisão de segurança ou não tiver sido realizada, consulte os muitos [documentos brancos](https://www.microsoft.com/download/details.aspx?id=36391) da AD Azure que fornecem uma visão geral da identidade como um serviço.
 

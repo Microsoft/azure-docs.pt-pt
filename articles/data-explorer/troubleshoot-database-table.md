@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562399"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Resolução de problemas: Falha na criação ou exclusão de uma base de dados ou de uma tabela no Azure Data Explorer
@@ -60,4 +60,4 @@ Para mais informações sobre permissões, consulte [Gerir permissões de bases 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Verifique a saúde do cluster](check-cluster-health.md)
+[Verificar estado de funcionamento do cluster](check-cluster-health.md)
