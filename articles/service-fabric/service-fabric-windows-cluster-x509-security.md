@@ -1,24 +1,24 @@
 ---
-title: Proteger um cluster no Windows usando certificados
-description: Proteger a comunicação em um cluster do Azure Service Fabric autônomo ou local, bem como entre clientes e o cluster.
+title: Proteja um cluster no Windows usando certificados
+description: Comunicação segura dentro de um cluster de tecido de serviço Azure ou no local, bem como entre clientes e o cluster.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613929"
 ---
-# <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autônomo no Windows usando certificados X. 509
-Este artigo descreve como proteger a comunicação entre os vários nós do seu cluster do Windows autônomo. Ele também descreve como autenticar clientes que se conectam a esse cluster usando certificados X. 509. A autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança do certificado deve ser habilitada no cluster quando o cluster é criado.  
+# <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteja um cluster autónomo no Windows utilizando certificados X.509
+Este artigo descreve como garantir a comunicação entre os vários nós do seu cluster Windows autónomo. Também descreve como autenticar clientes que se ligam a este cluster utilizando certificados X.509. A autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e às aplicações implementadas e executar tarefas de gestão. A segurança do certificado deve ser ativada no cluster quando o cluster for criado.  
 
-Para obter mais informações sobre segurança de cluster, como segurança de nó para nó, segurança de cliente para nó e controle de acesso baseado em função, consulte [cenários de segurança de cluster](service-fabric-cluster-security.md).
+Para obter mais informações sobre a segurança do cluster, tais como segurança nó-a-nó, segurança cliente-a-nó e controlo de acesso baseado em papéis, consulte [cenários](service-fabric-cluster-security.md)de segurança do Cluster .
 
-## <a name="which-certificates-do-you-need"></a>De quais certificados você precisa?
-Para começar, [Baixe o pacote Service Fabric para Windows Server](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) para um dos nós no cluster. No pacote baixado, você encontra um arquivo ClusterConfig. X509. Multimachine. JSON. Abra o arquivo e examine a seção de segurança na seção Propriedades:
+## <a name="which-certificates-do-you-need"></a>Que certificados precisa?
+Para começar, [descarregue o pacote Service Fabric para Windows Server](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) para um dos nós do seu cluster. No pacote descarregado, encontra um ficheiro ClusterConfig.X509.MultiMachine.json. Abra o ficheiro e reveja a secção de segurança sob a secção de propriedades:
 
 ```JSON
 "security": {
@@ -106,31 +106,31 @@ Para começar, [Baixe o pacote Service Fabric para Windows Server](service-fabri
 },
 ```
 
-Esta seção descreve os certificados de que você precisa para proteger seu cluster autônomo do Windows. Se você especificar um certificado de cluster, defina o valor de ClusterCredentialType como _X509_. Se você especificar um certificado de servidor para conexões externas, defina o ServerCredentialType como _X509_. Embora não seja obrigatório, recomendamos que você tenha esses dois certificados para um cluster adequadamente protegido. Se você definir esses valores como *X509*, também deverá especificar os certificados correspondentes ou Service Fabric gera uma exceção. Em alguns cenários, talvez você queira especificar apenas _ClientCertificateThumbprints_ ou _ReverseProxyCertificate_. Nesses cenários, você não precisa definir _ClusterCredentialType_ ou _ServerCredentialType_ como _X509_.
+Esta secção descreve os certificados que necessita para proteger o seu cluster Windows autónomo. Se especificar um certificado de cluster, dejuste o valor do ClusterCredentialType para _X509_. Se especificar um certificado de servidor para ligações externas, detete o ServerCredentialType para _X509_. Embora não seja obrigatório, recomendamos que tenha ambos os certificados para um cluster devidamente seguro. Se definir estes valores para *X509,* também deve especificar os certificados correspondentes ou o Tecido de Serviço abre uma exceção. Em alguns cenários, é possível especificar apenas as _impressões de Polegares do ClienteCertificateou_ o _ReverseProxyCertificate_. Nesses cenários, não é necessário definir _clusterCredentialType_ ou _ServerCredentialType_ para _X509_.
 
 
 > [!NOTE]
-> Uma [impressão digital](https://en.wikipedia.org/wiki/Public_key_fingerprint) é a identidade primária de um certificado. Para descobrir a impressão digital dos certificados que você cria, consulte [recuperar uma impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+> Uma [impressão digital](https://en.wikipedia.org/wiki/Public_key_fingerprint) é a identidade primária de um certificado. Para descobrir a impressão digital dos certificados que cria, consulte [Recuperar uma impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 > 
 > 
 
-A tabela a seguir lista os certificados necessários na configuração do cluster:
+A tabela que se segue lista os certificados de que necessita na configuração do seu cluster:
 
-| **Configuração de CertificateInformation** | **Descrição** |
+| **Definição de Informação de Certificados** | **Descrição** |
 | --- | --- |
-| ClusterCertificate |Recomendado para um ambiente de teste. Esse certificado é necessário para proteger a comunicação entre os nós em um cluster. Você pode usar dois certificados diferentes, um primário e um secundário, para atualização. Defina a impressão digital do certificado primário na seção impressão digital e a do secundário nas variáveis ThumbprintSecondary. |
-| ClusterCertificateCommonNames |Recomendado para um ambiente de produção. Esse certificado é necessário para proteger a comunicação entre os nós em um cluster. Você pode usar um ou dois nomes comuns de certificado de cluster. O CertificateIssuerThumbprint corresponde à impressão digital do emissor deste certificado. Se mais de um certificado com o mesmo nome comum for usado, você poderá especificar várias impressões digitais do emissor.|
-| ClusterCertificateIssuerStores |Recomendado para um ambiente de produção. Esse certificado corresponde ao emissor do certificado do cluster. Você pode fornecer o nome comum do emissor e o nome do repositório correspondente nesta seção em vez de especificar a impressão digital do emissor em ClusterCertificateCommonNames.  Isso facilita a substituição de certificados de emissor de cluster. Vários emissores poderão ser especificados se mais de um certificado de cluster for usado. Uma lista de permissões vazia IssuerCommonName todos os certificados nos repositórios correspondentes especificados em X509StoreNames.|
-| ServerCertificate |Recomendado para um ambiente de teste. Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. Para sua conveniência, você pode optar por usar o mesmo certificado para ClusterCertificate e ServerCertificate. Você pode usar dois certificados de servidor diferentes, um primário e um secundário, para atualização. Defina a impressão digital do certificado primário na seção impressão digital e a do secundário nas variáveis ThumbprintSecondary. |
-| ServerCertificateCommonNames |Recomendado para um ambiente de produção. Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. O CertificateIssuerThumbprint corresponde à impressão digital do emissor deste certificado. Se mais de um certificado com o mesmo nome comum for usado, você poderá especificar várias impressões digitais do emissor. Para sua conveniência, você pode optar por usar o mesmo certificado para ClusterCertificateCommonNames e ServerCertificateCommonNames. Você pode usar um ou dois nomes comuns de certificado de servidor. |
-| ServerCertificateIssuerStores |Recomendado para um ambiente de produção. Esse certificado corresponde ao emissor do certificado do servidor. Você pode fornecer o nome comum do emissor e o nome do repositório correspondente nesta seção em vez de especificar a impressão digital do emissor em ServerCertificateCommonNames.  Isso facilita a substituição dos certificados do emissor do servidor. Vários emissores poderão ser especificados se mais de um certificado de servidor for usado. Uma lista de permissões vazia IssuerCommonName todos os certificados nos repositórios correspondentes especificados em X509StoreNames.|
-| ClientCertificateThumbprints |Instale esse conjunto de certificados nos clientes autenticados. Você pode ter vários certificados de cliente diferentes instalados nos computadores que você deseja permitir acesso ao cluster. Defina a impressão digital de cada certificado na variável CertificateThumbprint. Se você definir ISAdmin como *true*, o cliente com esse certificado instalado poderá realizar atividades de gerenciamento do administrador no cluster. Se ISAdmin for *false*, o cliente com esse certificado poderá executar as ações permitidas somente para direitos de acesso do usuário, normalmente somente leitura. Para obter mais informações sobre funções, consulte [RBAC (controle de acesso baseado em função)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
-| ClientCertificateCommonNames |Defina o nome comum do primeiro certificado de cliente para o CertificateCommonName. O CertificateIssuerThumbprint é a impressão digital para o emissor deste certificado. Para saber mais sobre nomes comuns e o emissor, confira [trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). |
-| ClientCertificateIssuerStores |Recomendado para um ambiente de produção. Esse certificado corresponde ao emissor do certificado do cliente (funções de administrador e não administrador). Você pode fornecer o nome comum do emissor e o nome do repositório correspondente nesta seção em vez de especificar a impressão digital do emissor em ClientCertificateCommonNames.  Isso facilita a substituição de certificados do emissor do cliente. Vários emissores poderão ser especificados se mais de um certificado de cliente for usado. Uma lista de permissões vazia IssuerCommonName todos os certificados nos repositórios correspondentes especificados em X509StoreNames.|
-| ReverseProxyCertificate |Recomendado para um ambiente de teste. Esse certificado opcional pode ser especificado se você quiser proteger seu [proxy reverso](service-fabric-reverseproxy.md). Verifique se reverseProxyEndpointPort está definido em nodeTypes se você usar esse certificado. |
-| ReverseProxyCertificateCommonNames |Recomendado para um ambiente de produção. Esse certificado opcional pode ser especificado se você quiser proteger seu [proxy reverso](service-fabric-reverseproxy.md). Verifique se reverseProxyEndpointPort está definido em nodeTypes se você usar esse certificado. |
+| Certificado de Cluster |Recomendado para um ambiente de teste. Este certificado é necessário para assegurar a comunicação entre os nós de um cluster. Pode usar dois certificados diferentes, um primário e um secundário, para upgrade. Detete a impressão digital do certificado primário na secção Thumbprint e a do secundário nas variáveis ThumbprintSecondary. |
+| Nomes Comuns clusterCertificate |Recomendado para um ambiente de produção. Este certificado é necessário para assegurar a comunicação entre os nós de um cluster. Pode usar um ou dois nomes comuns de certificado de cluster. A impressão de Impressão Digital do Certificado Emite corresponde à impressão digital do emitente deste certificado. Se for utilizado mais de um certificado com o mesmo nome comum, pode especificar várias impressões digitais emitentes.|
+| ClusterCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emitente do certificado de cluster. Pode fornecer o nome comum do emitente e o nome correspondente da loja nesta secção, em vez de especificar a impressão digital do emitente em ClusterCertificateCommonNames.  Isto facilita a reversão dos certificados de emitentes de cluster. Vários emitentes podem ser especificados se for utilizado mais de um certificado de cluster. Um Emitente comum nome emcausa vazio lista todos os certificados nas lojas correspondentes especificados em X509StoreNames.|
+| Certificado de servidor |Recomendado para um ambiente de teste. Este certificado é apresentado ao cliente quando tenta ligar-se a este cluster. Por conveniência, pode optar por utilizar o mesmo certificado para ClusterCertificate e ServerCertificate. Pode utilizar dois certificados de servidor diferentes, um primário e um secundário, para upgrade. Detete a impressão digital do certificado primário na secção Thumbprint e a do secundário nas variáveis ThumbprintSecondary. |
+| Nomes comuns de certificados de servidor |Recomendado para um ambiente de produção. Este certificado é apresentado ao cliente quando tenta ligar-se a este cluster. A impressão de Impressão Digital do Certificado Emite corresponde à impressão digital do emitente deste certificado. Se for utilizado mais de um certificado com o mesmo nome comum, pode especificar várias impressões digitais emitentes. Por conveniência, pode optar por utilizar o mesmo certificado para ClusterCertificateCommonNames e ServerCertificateCommonNames. Pode utilizar um ou dois nomes comuns de um ou dois certificados de servidor. |
+| ServerCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emitente do certificado do servidor. Pode fornecer o nome comum do emitente e o nome correspondente da loja nesta secção, em vez de especificar a impressão digital do emitente em ServerCertificateCommonNames.  Isto facilita a reversão dos certificados de emitentes de servidores. Vários emitentes podem ser especificados se for utilizado mais de um certificado de servidor. Um Emitente comum nome emcausa vazio lista todos os certificados nas lojas correspondentes especificados em X509StoreNames.|
+| Impressões de Polegarde ClienteCertificate |Instale este conjunto de certificados nos clientes autenticados. Pode ter vários certificados de cliente diferentes instalados nas máquinas que pretende permitir o acesso ao cluster. Detete a impressão digital de cada certificado na variável CertificateThumbprint. Se definir a IsAdmin *como verdadeira,* o cliente com este certificado instalado no mesmo pode fazer atividades de gestão de administrador no cluster. Se a IsAdmin for *falsa,* o cliente com este certificado pode executar as ações apenas permitidas para direitos de acesso ao utilizador, tipicamente apenas para leitura. Para obter mais informações sobre as funções, consulte [O Controlo de Acesso baseado em Funções (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
+| Nomes Comuns de Certificados de Cliente |Detete o nome comum do primeiro certificado de cliente para o CertificateCommonName. O CertificateIssuerThumbprint é a impressão digital para o emitente deste certificado. Para saber mais sobre nomes comuns e o emitente, consulte [Trabalhar com certificados.](https://msdn.microsoft.com/library/ms731899.aspx) |
+| ClientCertificateIssuerStores |Recomendado para um ambiente de produção. Este certificado corresponde ao emitente do certificado de cliente (tanto as funções de administrador como de administrador). Pode fornecer o nome comum do emitente e o nome correspondente da loja nesta secção, em vez de especificar a impressão digital do emitente em Nomes Comuns do Cliente.  Isto facilita a reversão dos certificados de emitentes de clientes. Vários emitentes podem ser especificados se for utilizado mais de um certificado de cliente. Um Emitente comum nome emcausa vazio lista todos os certificados nas lojas correspondentes especificados em X509StoreNames.|
+| Certificado de Procuração Inversa |Recomendado para um ambiente de teste. Este certificado opcional pode ser especificado se pretender assegurar o seu [proxy inverso](service-fabric-reverseproxy.md). Certifique-se de que o ProxyEndpointPort invertido está definido em nósTypes se utilizar este certificado. |
+| Nomes Comuns de Certificados De Procuração Invertido |Recomendado para um ambiente de produção. Este certificado opcional pode ser especificado se pretender assegurar o seu [proxy inverso](service-fabric-reverseproxy.md). Certifique-se de que o ProxyEndpointPort invertido está definido em nósTypes se utilizar este certificado. |
 
-Aqui está um exemplo de configuração de cluster em que os certificados de cluster, servidor e cliente foram fornecidos. Para certificados cluster/servidor/reverseProxy, a impressão digital e o nome comum não podem ser configurados juntos para o mesmo tipo de certificado.
+Aqui está uma configuração de cluster de exemplo onde foram fornecidos os certificados de cluster, servidor e cliente. Para os certificados de cluster/servidor/inversão proxy, a impressão digital e o nome comum não podem ser configurados em conjunto para o mesmo tipo de certificado.
 
  ```JSON
  {
@@ -241,58 +241,58 @@ Aqui está um exemplo de configuração de cluster em que os certificados de clu
 }
  ```
 
-## <a name="certificate-rollover"></a>Substituição de certificado
-Quando você usa um nome comum de certificado em vez de uma impressão digital, a substituição de certificado não requer uma atualização de configuração de cluster. Para atualizações de impressão digital do emissor, verifique se a nova lista de impressão digital está interseccionada com a lista antiga. Primeiro, você precisa fazer uma atualização de configuração com as novas impressões digitais do emissor e, em seguida, instalar os novos certificados (certificado do cluster/servidor e certificados do emissor) no repositório. Mantenha o antigo certificado do emissor no repositório de certificados por pelo menos duas horas depois de instalar o novo certificado do emissor.
-Se você estiver usando repositórios do emissor, nenhuma atualização de configuração precisará ser executada para substituição do certificado do emissor. Instale o novo certificado do emissor com uma última data de expiração no repositório de certificados correspondente e remova o antigo certificado do emissor após algumas horas.
+## <a name="certificate-rollover"></a>Capotamento de certificado
+Quando utiliza um nome comum de certificado em vez de uma impressão digital, o capotamento do certificado não requer uma atualização de configuração do cluster. Para atualizações de impressão digital emitentes, certifique-se de que a nova lista de impressões digitais se cruza com a lista antiga. Primeiro tem de fazer uma atualização de config com as novas impressões digitais do emitente e, em seguida, instalar os novos certificados (certificado de cluster/servidor e certificados de emitente) na loja. Guarde o antigo certificado de emitente na loja de certificados durante pelo menos duas horas após a instalação do novo certificado de emitente.
+Se estiver a utilizar lojas emitentes, então não é necessário realizar nenhuma atualização de config para a capotação do certificado emitente. Instale o novo certificado de emitente com uma última data de validade no armazém de certificados correspondente e retire o antigo certificado de emitente após algumas horas.
 
-## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados X. 509
-Para proteger a comunicação no cluster, primeiro você precisa obter certificados X. 509 para seus nós de cluster. Além disso, para limitar a conexão a esse cluster a computadores/usuários autorizados, você precisa obter e instalar certificados para os computadores cliente.
+## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados X.509
+Para garantir a comunicação dentro do cluster, primeiro é necessário obter certificados X.509 para os seus nós de cluster. Além disso, para limitar a ligação a este cluster a máquinas/utilizadores autorizados, é necessário obter e instalar certificados para as máquinas clientes.
 
-Para clusters que estão executando cargas de trabalho de produção, use um certificado X. 509 assinado por [AC (autoridade](https://en.wikipedia.org/wiki/Certificate_authority)de certificação) para proteger o cluster. Para obter mais informações sobre como obter esses certificados, consulte [como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx).
+Para os clusters que estão a executar cargas de trabalho de produção, utilize um certificado x.509 assinado pela autoridade de [certificados](https://en.wikipedia.org/wiki/Certificate_authority)para assegurar o cluster. Para obter mais informações sobre como obter estes certificados, consulte [Como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx).
 
-Para clusters que você usa para fins de teste, você pode optar por usar um certificado autoassinado.
+Para os clusters que utiliza para fins de teste, pode optar por utilizar um certificado auto-assinado.
 
-## <a name="optional-create-a-self-signed-certificate"></a>Opcional: criar um certificado autoassinado
-Uma maneira de criar um certificado autoassinado que pode ser protegido corretamente é usar o script script certsetup. ps1 na pasta Service Fabric SDK no diretório C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edite esse arquivo para alterar o nome padrão do certificado. (Procure o valor CN = ServiceFabricDevClusterCert.) Execute este script como `.\CertSetup.ps1 -Install`.
+## <a name="optional-create-a-self-signed-certificate"></a>Opcional: Criar um certificado auto-assinado
+Uma forma de criar um certificado auto-assinado que pode ser protegido corretamente é usar o script CertSetup.ps1 na pasta SDK de tecido de serviço no diretório C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Editar este ficheiro para alterar o nome predefinido do certificado. (Procure o valor CN=ServiceFabricDevClusterCert.) Execute este `.\CertSetup.ps1 -Install`guião como.
 
-Agora, exporte o certificado para um arquivo. pfx com uma senha protegida. Primeiro, obtenha a impressão digital do certificado. 
-1. No menu **Iniciar** , execute **gerenciar certificados de computador**. 
+Agora exporte o certificado para um ficheiro .pfx com uma senha protegida. Primeiro, pegue a impressão digital do certificado. 
+1. A partir do menu **Iniciar,** executar **Gerir certificados de computador**. 
 
-2. Vá para a pasta **local/pessoal** e localize o certificado que você criou. 
+2. Vá à pasta Pessoal do **Computador Local** e encontre o certificado que criou. 
 
-3. Clique duas vezes no certificado para abri-lo, selecione a guia **detalhes** e role para baixo até o campo **impressão digital** . 
+3. Clique duas vezes no certificado para o abrir, selecione o separador **Details** e desloque-se até ao campo **de impressão digital.** 
 
-4. Remova os espaços e copie o valor da impressão digital para o comando do PowerShell a seguir. 
+4. Retire os espaços e copie o valor da impressão digital no seguinte comando PowerShell. 
 
-5. Altere o valor de `String` para uma senha segura adequada para protegê-lo e execute o seguinte no PowerShell:
+5. Mude `String` o valor para uma senha segura adequada para protegê-lo e executar o seguinte na PowerShell:
 
    ```powershell   
    $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
    Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
    ```
 
-6. Para ver os detalhes de um certificado instalado no computador, execute o seguinte comando do PowerShell:
+6. Para ver os detalhes de um certificado instalado na máquina, execute o seguinte comando PowerShell:
 
    ```powershell
    $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
    Write-Host $cert.ToString($true)
    ```
 
-Como alternativa, se você tiver uma assinatura do Azure, siga as etapas em [criar um Service Fabric cluster usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Em alternativa, se tiver uma subscrição Azure, siga os passos no Create a Service Fabric cluster utilizando o Gestor de [Recursos Azure](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Instalar os certificados
-Depois de ter certificados, você pode instalá-los nos nós do cluster. Seus nós precisam ter o Windows PowerShell 3. x mais recente instalado neles. Repita essas etapas em cada nó para certificados de cluster e de servidor e quaisquer certificados secundários.
+Depois de ter certificados, pode instalá-los nos nós do cluster. Os seus nós precisam de ter os mais recentes Windows PowerShell 3.x instalados nos mesmos. Repita estes passos em cada nó para certificados de cluster e servidor e quaisquer certificados secundários.
 
-1. Copie o arquivo. pfx ou os arquivos para o nó.
+1. Copie o ficheiro ou ficheiros .pfx para o nó.
 
-2. Abra uma janela do PowerShell como administrador e insira os comandos a seguir. Substitua *$PSWD* pela senha que você usou para criar esse certificado. Substitua *$PfxFilePath* pelo caminho completo do. pfx copiado para este nó.
+2. Abra uma janela PowerShell como administrador e introduza os seguintes comandos. Substitua *$pswd* com a palavra-passe que usou para criar este certificado. Substitua *$PfxFilePath* pelo percurso completo do .pfx copiado para este nó.
    
     ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Agora, defina o controle de acesso nesse certificado para que o processo de Service Fabric, que é executado na conta de serviço de rede, possa usá-lo executando o script a seguir. Forneça a impressão digital do certificado e do **serviço de rede** para a conta de serviço. Você pode verificar se as ACLs no certificado estão corretas abrindo o certificado em **iniciar** > **gerenciar certificados de computador** e examinando **todas as tarefas** > **gerenciar chaves privadas**.
+3. Agora, detete te o controlo de acesso deste certificado para que o processo de Tecido de Serviço, que funciona sob a conta do Serviço de Rede, possa usá-lo executando o seguinte script. Forneça a impressão digital do certificado e do **SERVIÇO DE REDE** para a conta de serviço. Pode verificar se os ACLs do certificado estão corretos abrindo o certificado em **Certificados**de > **computador** Start Manage e olhando para **todas as tarefas** > gerir**chaves privadas**.
    
     ```powershell
     param
@@ -329,33 +329,33 @@ Depois de ter certificados, você pode instalá-los nos nós do cluster. Seus n�
     # Observe the access rights currently assigned to this certificate
     get-acl $keyFullPath| fl
     ```
-4. Repita as etapas anteriores para cada certificado de servidor. Você também pode usar estas etapas para instalar os certificados de cliente nos computadores que você deseja permitir acesso ao cluster.
+4. Repita os passos anteriores para cada certificado de servidor. Também pode utilizar estes passos para instalar os certificados de cliente nas máquinas que pretende permitir o acesso ao cluster.
 
 ## <a name="create-the-secure-cluster"></a>Criar o cluster seguro
-Depois de configurar a seção de segurança do arquivo ClusterConfig. X509. Multimachine. JSON, você pode prosseguir para a seção [criar o cluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) para configurar os nós e criar o cluster autônomo. Lembre-se de usar o arquivo ClusterConfig. X509. Multimachine. JSON enquanto cria o cluster. Por exemplo, o comando pode ser semelhante ao seguinte:
+Depois de configurar a secção de segurança do ficheiro ClusterConfig.X509.MultiMachine.json, pode proceder à secção [Criar a secção](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) de cluster para configurar os nós e criar o cluster autónomo. Lembre-se de utilizar o ficheiro ClusterConfig.X509.MultiMachine.json enquanto cria o cluster. Por exemplo, o seu comando pode parecer o seguinte:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Depois que o cluster autônomo do Windows seguro for executado com êxito e tiver configurado os clientes autenticados para se conectarem a ele, siga as etapas na seção [conectar-se a um cluster usando o PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para se conectar a ele. Por exemplo:
+Depois de ter o cluster de Windows autónomo seguro a funcionar com sucesso e ter configurado os clientes autenticados para se ligarem ao mesmo, siga os passos na secção Connect a um cluster que utilize o [PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para se ligar ao mesmo. Por exemplo:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Em seguida, você pode executar outros comandos do PowerShell para trabalhar com esse cluster. Por exemplo, você pode executar [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar uma lista de nós neste cluster seguro.
+Em seguida, pode executar outros comandos PowerShell para trabalhar com este cluster. Por exemplo, pode executar [O Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar uma lista de nós neste cluster seguro.
 
 
-Para remover o cluster, conecte-se ao nó no cluster em que você baixou o pacote de Service Fabric, abra uma linha de comando e vá para a pasta do pacote. Execute o seguinte comando:
+Para remover o cluster, ligue-se ao nó do cluster onde descarregou o pacote Service Fabric, abra uma linha de comando e vá para a pasta do pacote. Agora executa o seguinte comando:
 
 ```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 > [!NOTE]
-> A configuração de certificado incorreta pode impedir que o cluster seja lançado durante a implantação. Para diagnosticar problemas de segurança automaticamente, consulte os logs de **aplicativos e serviços** do Visualizador de Eventos Group > **Microsoft-Service Fabric**.
+> A configuração incorreta do certificado pode impedir que o cluster apareça durante a implantação. Para auto-diagnosticar problemas de segurança, procure no grupo Evento **Aplicações e Serviços Logs** > **Microsoft-Service Fabric**.
 > 
 > 
 

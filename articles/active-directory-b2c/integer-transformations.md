@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187683"
 ---
 # <a name="integer-claims-transformations"></a>Integer reclama transformações
@@ -24,16 +24,16 @@ ms.locfileid: "78187683"
 
 Este artigo fornece exemplos para a utilização do inteiro alega transformações do quadro de experiência de identidade em Azure Ative Directory B2C (Azure AD B2C). Para mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
+## <a name="convertnumbertostringclaim"></a>Convertenumbertostringclaim
 
 Converte um tipo de dados longo num tipo de dados de cadeia.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | longa | O ClaimType para converter numa corda. |
-| OutputClaim | outputClaim | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim | longo | O ClaimType para converter numa corda. |
+| Pedido de saída | saídaReclamada | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
-Neste exemplo, a `numericUserId` reivindicação com um tipo de valor de longo prazo é convertida numa reivindicação `UserId` com um tipo de cadeia de valor.
+Neste exemplo, `numericUserId` a reclamação com um tipo `UserId` de valor de longo prazo é convertida para uma reclamação com um tipo de cadeia de valor.
 
 ```XML
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
@@ -51,5 +51,5 @@ Neste exemplo, a `numericUserId` reivindicação com um tipo de valor de longo p
 - Créditos de entrada:
     - **inputClaim:** 12334 (longo)
 - Alegações de saída:
-    - **saídaReivindicação:** "12334" (cadeia)
+    - **saídaReivindicação:**"12334" (cadeia)
 

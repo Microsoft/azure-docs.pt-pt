@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187411"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir políticas personalizadas Azure AD B2C com a Azure PowerShell
@@ -37,7 +37,7 @@ A Azure PowerShell fornece vários cmdlets para a gestão de políticas personal
 
 Para trabalhar com políticas personalizadas no seu inquilino Azure AD B2C, primeiro precisa de ligar a sua sessão PowerShell ao inquilino utilizando o comando [Connect-AzureAD.][Connect-AzureAD]
 
-Execute o seguinte comando, substituindo `{b2c-tenant-name}` pelo nome do seu inquilino Azure AD B2C. Inscreva-se numa conta que tenha o papel de Administrador de [Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
+Execute o seguinte comando, substituindo `{b2c-tenant-name}` o nome do seu inquilino Azure AD B2C. Inscreva-se numa conta que tenha o papel de Administrador de [Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -112,7 +112,7 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-Para editar o conteúdo da política localmente, deite a saída de comando para um ficheiro com o argumento `-OutputFilePath` e abra o ficheiro no seu editor favorito.
+Para editar o conteúdo da política localmente, `-OutputFilePath` deite a saída de comando para um ficheiro com o argumento e abra o ficheiro no seu editor favorito.
 
 Exemplo de envio de comando para um ficheiro:
 
@@ -125,7 +125,7 @@ Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RP
 
 Depois de editar um ficheiro de política que criou ou descarregou, pode publicar a política atualizada para o Azure AD B2C utilizando o comando [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
 
-Se emitir o comando `Set-AzureADMSTrustFrameworkPolicy` com a identificação de uma política que já existe no seu inquilino Azure AD B2C, o conteúdo dessa política está sobreescrito.
+Se emitir `Set-AzureADMSTrustFrameworkPolicy` o comando com a identificação de uma apólice que já existe no seu inquilino Azure AD B2C, o conteúdo dessa política está sobreescrito.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]

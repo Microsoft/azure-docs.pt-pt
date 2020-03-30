@@ -8,14 +8,14 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302683"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
- Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isso também é chamado o arco de tangente.  
+ Devolve o ângulo, em radianos, cuja tangente é a expressão numérica especificada. Isto também é chamado de arquitangente.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ ATAN(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve o `ATAN` do valor especificado.  
+  O exemplo seguinte `ATAN` devolve o valor especificado.  
   
 ```sql
 SELECT ATAN(-45.01) AS atan  

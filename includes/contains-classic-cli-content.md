@@ -8,13 +8,13 @@ ms.date: 06/05/2019
 ms.topic: include
 ms.custom: include file
 ms.openlocfilehash: b833ae69c0edf3e85bebbb5b78ea514a0c81e5c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66814712"
 ---
 > [!IMPORTANT]
 > Este artigo contém conteúdo que requer a CLI clássica do Azure. Esta é uma versão mais antiga da CLI do Azure que deve ser utilizada apenas com o modelo de implementação clássica do Azure.
 >
-> Para instalar a CLI clássica, veja [instalar o Azure CLI clássica](/cli/azure/install-classic-cli) e para instalar a CLI do Azure atual para implementações do Azure Resource Manager, consulte [instalar a CLI do Azure](/cli/azure/install-azure-cli).
+> Para instalar o CLI clássico, consulte [Instalar o CLI clássico do Azure](/cli/azure/install-classic-cli) e instalar o atual AZURI CLI para implementações do Gestor de Recursos Azure, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).

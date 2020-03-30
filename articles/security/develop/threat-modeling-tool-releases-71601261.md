@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
 ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269780"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão de atualização da Threat Modeling Tool 7.1.60126.1 - 29/01/2019
@@ -32,7 +32,7 @@ A versão 7.1.60126.1 da Microsoft Threat Modeling Tool foi lançada a 29 de jan
 
 Com base no feedback do cliente, foi adicionada uma opção à ferramenta para ativar ou desativar a validação do modelo. Anteriormente, se o seu modelo usasse um único fluxo de dados unidirecional entre dois objetos, pode ter recebido uma mensagem de erro no quadro de Mensagens afirmando: O Nome dos Objetos requer pelo menos um 'Qualquer'. A validação do modelo incapacitante impedirá que estes avisos apareçam na vista.
 
-A opção de alternar a validação do modelo dentro e fora pode ser encontrada no menu File&>Settings->Options. O valor predefinido para esta definição é desativado.
+A opção de alternar a validação do modelo dentro e fora pode ser encontrada no menu Definições >->Definições de Ficheiros. O valor predefinido para esta definição é desativado.
 
 ![Opção de Validação de Modelos](./media/threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
 
@@ -55,7 +55,7 @@ Os utilizadores de sistemas Windows 10 que não consigam instalar .NET 4.7.1 ou 
 
 #### <a name="workaround"></a>Solução
 
-Os utilizadores do Windows 10 Enterprise LTSB (versão 1507) que instalaram a mais recente atualização podem reverter para a versão anterior da Ferramenta de Modelação de Ameaças através do diálogo desinstalado em Apps & Features.
+Os utilizadores do Windows 10 Enterprise LTSB (versão 1507) que instalaram a mais recente atualização podem reverter para a versão anterior da Ferramenta de Modelação de Ameaças através do diálogo desinstalado em Apps & Funcionalidades.
 
 ## <a name="documentation-and-feedback"></a>Documentação e feedback
 

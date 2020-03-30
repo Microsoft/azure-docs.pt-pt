@@ -1,7 +1,7 @@
 ---
-title: Escalabilidade e metas de desempenho para contas de armazenamento Standard
+title: Metas de escalabilidade e desempenho para contas de armazenamento padrão
 titleSuffix: Azure Storage
-description: Saiba mais sobre escalabilidade e metas de desempenho para contas de armazenamento Standard.
+description: Conheça a escalabilidade e os alvos de desempenho para contas de armazenamento padrão.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,21 +10,21 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 817e11fdf70c8043d2eb860fe15cc0a7907c6656
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750641"
 ---
-# <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Escalabilidade e metas de desempenho para contas de armazenamento Standard
+# <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Metas de escalabilidade e desempenho para contas de armazenamento padrão
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-standard-storage-accounts"></a>Dimensionar destinos para contas de armazenamento Standard
+## <a name="scale-targets-for-standard-storage-accounts"></a>Metas de escala para contas de armazenamento padrão
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Metas de escalabilidade para o provedor de recursos de armazenamento do Azure](../common/scalability-targets-resource-provider.md)
-- [Cotas e limites de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Metas de escalabilidade para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md)
+- [Limites e quotas de subscrição do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189791"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de transformação de sinistros numa política personalizada do Diretório Ativo Azure B2C
@@ -26,7 +26,7 @@ Um perfil técnico de transformação de sinistros permite-lhe chamar transforma
 
 ## <a name="protocol"></a>Protocolo
 
-O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipulador esprotocolo utilizado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O **atributo** nome do elemento **protocolo** `Proprietary`tem de ser definido para . O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`manipulador esprotocolo utilizado pelo Azure AD B2C: .
 
 O exemplo seguinte mostra um perfil técnico de transformação de sinistros:
 
@@ -50,7 +50,7 @@ O elemento **OutputClaims** é obrigatório. Deve fornecer pelo menos uma reclam
 
 ## <a name="output-claims-transformations"></a>Transformações de sinistros de produção
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar reclamações ou gerar novos. O perfil técnico seguinte chama a **remoção DeFormaçãoIdByIdentityProvider** alega a transformação. Esta transformação de sinistros remove uma identificação social da coleção de **AlternativasSegurançaIds**. As alegações de saída deste perfil técnico são **identidadeProvider2**, que está definida para `facebook.com`, e **AlternativaSecurityIds**, que contém a lista de identidades sociais associadas a este utilizador após a remoção facebook.com identidade.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar reclamações ou gerar novos. O perfil técnico seguinte chama a **remoção DeFormaçãoIdByIdentityProvider** alega a transformação. Esta transformação de sinistros remove uma identificação social da coleção de **AlternativasSegurançaIds**. As alegações de saída deste perfil técnico são `facebook.com` **identidadeProvider2**, que está definida para , e **AlternativaSecurityIds**- que contém a lista de identidades sociais associadas a este utilizador após a remoção facebook.com identidade.
 
 ```XML
 <ClaimsTransformations>
@@ -104,7 +104,7 @@ O perfil técnico de transformação de sinistros permite-lhe executar uma trans
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
+| Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: ou `false`  (padrão). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
 ## <a name="use-a-validation-technical-profile"></a>Utilize um perfil técnico de validação
 

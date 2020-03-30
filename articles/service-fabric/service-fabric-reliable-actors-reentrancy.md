@@ -1,24 +1,24 @@
 ---
-title: Reentrância no Azure Service Fabric atores
-description: Introdução à reentrância para Service Fabric Reliable Actors, uma maneira de evitar logicamente o bloqueio com base no contexto de chamada.
+title: Reentrancy em atores de tecido de serviço Azure
+description: Introdução à reentração para atores fiáveis de tecido de serviço, uma forma logicamente de evitar o bloqueio com base no contexto de chamada.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645536"
 ---
-# <a name="reliable-actors-reentrancy"></a>Reentrada Reliable Actors
-O tempo de execução de Reliable Actors, por padrão, permite a reentrância baseada em contexto de chamada lógica. Isso permite que os atores sejam reentrante se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o ator A envia uma mensagem para o ator B, que envia uma mensagem para o ator C. Como parte do processamento de mensagens, se o ator C chamar o ator A, a mensagem será reentrante e, portanto, será permitida. Qualquer outra mensagem que faça parte de um contexto de chamada diferente será bloqueada no ator A até que o processamento seja concluído.
+# <a name="reliable-actors-reentrancy"></a>Reentração de Atores Fiáveis
+O tempo de execução dos Atores Fiáveis, por defeito, permite a reentrabilidade lógica baseada no contexto. Isto permite que os atores sejam reinscritos se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o Ator A envia uma mensagem ao ator B, que envia uma mensagem ao Ator C. Como parte do processamento de mensagens, se o ator C chamar o Ator A, a mensagem é recandidatada, por isso será permitida. Quaisquer outras mensagens que façam parte de um contexto de chamada diferente serão bloqueadas no Ator A até que termine o processamento.
 
-Há duas opções disponíveis para a reentrância do ator definida no `ActorReentrancyMode` enum:
+Existem duas opções disponíveis para a `ActorReentrancyMode` reentrabilidade do ator definida no enum:
 
-* `LogicalCallContext` (comportamento padrão)
-* `Disallowed`-desabilita a reentrância
+* `LogicalCallContext`(comportamento predefinido)
+* `Disallowed`- desativa a reentrabilidade
 
 ```csharp
 public enum ActorReentrancyMode
@@ -34,9 +34,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-A reentrância pode ser configurada nas configurações de um `ActorService`durante o registro. A configuração se aplica a todas as instâncias de ator criadas no serviço de ator.
+A reentrabilidade pode ser `ActorService`configurada nas definições de uma definição durante o registo. A configuração aplica-se a todas as instâncias de ator criadas no serviço de ator.
 
-O exemplo a seguir mostra um serviço de ator que define o modo de reentrância como `ActorReentrancyMode.Disallowed`. Nesse caso, se um ator enviar uma mensagem reentrante para outro ator, uma exceção do tipo `FabricException` será lançada.
+O exemplo seguinte mostra um serviço de ator `ActorReentrancyMode.Disallowed`que define o modo de reentrabilidade para . Neste caso, se um ator enviar uma mensagem de reentrada para outro ator, uma exceção do tipo `FabricException` será lançada.
 
 ```csharp
 static class Program
@@ -102,4 +102,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a reentrância na documentação de [referência da API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Saiba mais sobre a reentrabilidade na documentação de referência da [API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)

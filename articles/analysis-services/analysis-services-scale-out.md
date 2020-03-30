@@ -8,10 +8,10 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247999"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
@@ -44,9 +44,9 @@ Ao realizar uma operação de escala subsequente, por exemplo, aumentando o núm
 
 * A sincronização é permitida mesmo quando não há réplicas na piscina de consulta. Se estiver a escalonar de zero a uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização primeiro sem réplicas no pool de consulta e, em seguida, scale-out. Sincronizar antes de esescalar evita a hidratação redundante das réplicas recém-adicionadas.
 
-* Ao eliminar uma base de dados de modelos do servidor primário, não é automaticamente eliminado das réplicas no pool de consulta. Deve executar uma operação de sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell que remove o ficheiro/s para essa base de dados do local de armazenamento de blob partilhado da réplica e, em seguida, elimina a base de dados do modelo nas réplicas do pool de consulta. Para determinar se existe uma base de dados de modelos em réplicas no pool de consultas, mas não no servidor principal, certifique-se de que o servidor de processamento Separado da definição **de piscina** de consulta é para **Sim**. Em seguida, utilize sSMS para se ligar ao servidor primário utilizando o `:rw` qualificação para ver se a base de dados existe. Em seguida, ligue-se a réplicas no pool de consulta, conectando-se sem o `:rw` qualificação para ver se a mesma base de dados também existe. Se a base de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
+* Ao eliminar uma base de dados de modelos do servidor primário, não é automaticamente eliminado das réplicas no pool de consulta. Deve executar uma operação de sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell que remove o ficheiro/s para essa base de dados do local de armazenamento de blob partilhado da réplica e, em seguida, elimina a base de dados do modelo nas réplicas do pool de consulta. Para determinar se existe uma base de dados de modelos em réplicas no pool de consultas, mas não no servidor principal, certifique-se de que o servidor de processamento Separado da definição **de piscina** de consulta é para **Sim**. Em seguida, utilize sSMS para se `:rw` ligar ao servidor primário utilizando o qualificador para ver se a base de dados existe. Em seguida, ligue-se a réplicas no `:rw` pool de consulta, conectando-se sem o qualificador para ver se a mesma base de dados também existe. Se a base de dados existir em réplicas no pool de consultas, mas não no servidor primário, execute uma operação de sincronização.   
 
-* Ao renomear uma base de dados no servidor primário, há um passo adicional necessário para garantir que a base de dados está devidamente sincronizada com quaisquer réplicas. Depois de renomear, execute uma sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o parâmetro `-Database` com o nome de base de dados antigo. Esta sincronização remove a base de dados e os ficheiros com o nome antigo de quaisquer réplicas. Em seguida, execute outra sincronização especificando o parâmetro `-Database` com o novo nome da base de dados. A segunda sincronização copia a base de dados recém-nomeada para o segundo conjunto de ficheiros e hidrata quaisquer réplicas. Estas sincronizações não podem ser realizadas utilizando o comando do modelo Synchronize no portal.
+* Ao renomear uma base de dados no servidor primário, há um passo adicional necessário para garantir que a base de dados está devidamente sincronizada com quaisquer réplicas. Depois de renomear, execute uma sincronização utilizando o comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando o `-Database` parâmetro com o nome de base de dados antigo. Esta sincronização remove a base de dados e os ficheiros com o nome antigo de quaisquer réplicas. Em seguida, execute outra sincronização especificando o `-Database` parâmetro com o novo nome da base de dados. A segunda sincronização copia a base de dados recém-nomeada para o segundo conjunto de ficheiros e hidrata quaisquer réplicas. Estas sincronizações não podem ser realizadas utilizando o comando do modelo Synchronize no portal.
 
 ### <a name="synchronization-mode"></a>Modo de sincronização
 
@@ -61,7 +61,7 @@ Por padrão, as réplicas de consulta são rehidratadas na totalidade, não incr
 
 Utilize SSMS para definir ReplicaSyncMode em propriedades avançadas. Os valores possíveis são: 
 
-- `1` (predefinido): Reidratação completa da base de dados de réplicas por fases (incremental). 
+- `1`(predefinido): Reidratação total da base de dados de réplicas em fases (incremental). 
 - `2`: Sincronização otimizada em paralelo. 
 
 ![Definição RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
@@ -98,7 +98,7 @@ Utilize registos de monitores Azure para diagnósticos mais detalhados dos recur
 
 1. No portal, clique em **Scale-out**. Utilize o slider para selecionar o número de servidores de réplicas de consulta. O número de réplicas que escolher é para além do servidor existente.  
 
-2. Em **Separar o servidor de processamento do pool de consulta,** selecione sim para excluir o seu servidor de processamento de servidores de consulta. As [ligações](#connections) do cliente utilizando a cadeia de ligação padrão (sem `:rw`) são redirecionadas para réplicas na piscina de consulta. 
+2. Em **Separar o servidor de processamento do pool de consulta,** selecione sim para excluir o seu servidor de processamento de servidores de consulta. As [ligações](#connections) do cliente utilizando `:rw`a cadeia de ligação padrão (sem) são redirecionadas para réplicas na piscina de consulta. 
 
    ![Deslizador scale-out](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -112,7 +112,7 @@ As operações de sincronização devem ser efetuadas manualmente ou utilizando 
 
 ### <a name="in-azure-portal"></a>No portal Azure
 
-Em **Visão Geral** > modelo > Modelo **Sincronizado.**
+Em **visão geral** > modelo > modelo **Synchronize**.
 
 ![Deslizador scale-out](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
@@ -150,9 +150,9 @@ Antes de utilizar o PowerShell, [instale ou atualize o mais recente módulo Powe
 
 Para executar sincronização, utilize [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Para definir o número de réplicas de consulta, utilize [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro opcional `-ReadonlyReplicaCount`.
+Para definir o número de réplicas de consulta, utilize [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro opcional. `-ReadonlyReplicaCount`
 
-Para separar o servidor de processamento do pool de consultas, utilize o [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro de `-DefaultConnectionMode` opcional para utilizar `Readonly`.
+Para separar o servidor de processamento do pool de consultas, utilize o [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o parâmetro opcional `-DefaultConnectionMode` a utilizar. `Readonly`
 
 Para saber mais, consulte Utilizar um diretor de [serviço com o módulo Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -162,7 +162,7 @@ Na página de visão geral do seu servidor, existem dois nomes de servidores. Se
 
 Para ligações de clientes de utilizador final como Power BI Desktop, Excel e aplicações personalizadas, use **o nome server**. 
 
-Para SSMS, Visual Studio e cordas de ligação em PowerShell, aplicações Azure Function e AMO, use o nome do **servidor Management**. O nome do servidor de gestão inclui uma qualificação especial `:rw` (read-write). Todas as operações de processamento ocorrem no servidor de gestão (primário).
+Para SSMS, Visual Studio e cordas de ligação em PowerShell, aplicações Azure Function e AMO, use o nome do **servidor Management**. O nome do servidor `:rw` de gestão inclui uma qualificação especial (read-write). Todas as operações de processamento ocorrem no servidor de gestão (primário).
 
 ![Nomes do servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 
@@ -172,13 +172,13 @@ Pode alterar o nível de preços num servidor com várias réplicas. O mesmo ní
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-**Emissão:** Os utilizadores obtêm erro **Não podem encontrar o '\<Nome do servidor&gt'; no modo de ligação 'ReadOnly'.**
+**Emissão:** Os utilizadores obtêm erro **Não podem encontrar o nome do servidor '\<Nome do servidor>' no modo de ligação 'ReadOnly'.**
 
-**Solução:** Ao selecionar o servidor de **processamento Separe o servidor de processamento da** opção de consulta de piscina, as ligações do cliente utilizando a cadeia de ligação padrão (sem `:rw`) são redirecionadas para a consulta de réplicas do pool. Se as réplicas na piscina de consulta ainda não estiverem online porque a sincronização ainda não foi concluída, as ligações redirecionadas do cliente podem falhar. Para evitar ligações falhadas, deve haver pelo menos dois servidores na piscina de consulta ao realizar uma sincronização. Cada servidor é sincronizado individualmente enquanto outros permanecem on-line. Se optar por não ter o servidor de processamento no pool de consulta durante o processamento, pode optar por removê-lo da piscina para processamento e, em seguida, adicioná-lo de volta à piscina após o processamento estar completo, mas antes da sincronização. Utilize as métricas de Memória e QPU para monitorizar o estado de sincronização.
+**Solução:** Ao selecionar o **servidor de processamento Separe o servidor de processamento da** opção de consulta de piscina, as ligações do cliente utilizando a cadeia de ligação padrão (sem) `:rw`são redirecionadas para a consulta de réplicas do pool. Se as réplicas na piscina de consulta ainda não estiverem online porque a sincronização ainda não foi concluída, as ligações redirecionadas do cliente podem falhar. Para evitar ligações falhadas, deve haver pelo menos dois servidores na piscina de consulta ao realizar uma sincronização. Cada servidor é sincronizado individualmente enquanto outros permanecem on-line. Se optar por não ter o servidor de processamento no pool de consulta durante o processamento, pode optar por removê-lo da piscina para processamento e, em seguida, adicioná-lo de volta à piscina após o processamento estar completo, mas antes da sincronização. Utilize as métricas de Memória e QPU para monitorizar o estado de sincronização.
 
 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-[Monitorizar as métricas](analysis-services-monitor.md) do servidor   
+[Monitorizar as métricas do servidor](analysis-services-monitor.md)   
 [Gerir serviços de análise azure](analysis-services-manage.md) 

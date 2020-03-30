@@ -1,5 +1,5 @@
 ---
-title: Começar com a AD Azure reportando API  Microsoft Docs
+title: Começar com a AD Azure reportando API [ Microsoft Docs
 description: Como começar com o Diretório Ativo Azure reportando API
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399319"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
@@ -47,7 +47,7 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 ## <a name="api-endpoints"></a>Pontos Finais da API 
 
-O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/beta/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/beta/auditLogs/signIns`. Para mais informações, consulte a referência da [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) de auditoria e a [referência de api.](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn)
+O ponto final da Microsoft Graph `https://graph.microsoft.com/beta/auditLogs/directoryAudits` API para registos de auditoria é `https://graph.microsoft.com/beta/auditLogs/signIns`e o ponto final da Microsoft Graph API para iniciar sessão é . Para mais informações, consulte a referência da [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) de auditoria e a [referência de api.](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn)
 
 Além disso, pode utilizar a API de deteção de risco de [Proteção de Identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a deteções de segurança usando o Microsoft Graph. Para mais informações, consulte [Start start with Azure Ative Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
   
@@ -68,7 +68,7 @@ Para obter instruções detalhadas, consulte Obtenha dados utilizando a APi de [
 ## <a name="next-steps"></a>Passos seguintes
 
  * [Pré-requisitos para aceder à API reportando](howto-configure-prerequisites-for-reporting-api.md) 
- * [Obtenha dados utilizando a AD Reporting API azure com certificados](tutorial-access-api-with-certificates.md)
+ * [Utilizar a API de Relatórios do Azure AD com certificados para obter dados](tutorial-access-api-with-certificates.md)
  * [Erros de resolução de problemas na AD Azure reportam API](troubleshoot-graph-api.md)
 
 

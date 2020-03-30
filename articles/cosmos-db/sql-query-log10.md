@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6f47200f6978d91f46c010640bb9c2bb26e9b7d5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302496"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
- Devolve o logaritmo base 10 da expressão especificada numérico.  
+ Devolve a base-10 logarithm da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,11 +34,11 @@ LOG10 (<numeric_expr>)
   
 ## <a name="remarks"></a>Observações
   
-  As funções LOG10 e POWER inversamente estão relacionadas entre si. Por exemplo, 10 ^ LOG10(n) = n.  
+  As funções LOG10 e POWER estão inversamente relacionadas entre si. Por exemplo, 10 ^ LOG10(n) = n.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte declara uma variável e devolve o valor de LOG10 da variável especificada (100).  
+  O exemplo seguinte declara uma variável e devolve o valor LOG10 da variável especificada (100).  
   
 ```sql
 SELECT LOG10(100) AS log10 

@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186782"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection reclama transformações
@@ -28,11 +28,11 @@ Este artigo fornece exemplos para a utilização da recolha de cordas alega tran
 
 Adiciona uma reivindicação de cordas a uma nova reivindicação de valores únicos.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | item | string | O ClaimType a adicionar à reivindicação de saída. |
-| inputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
-| OutputClaim | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado na alegação de entrada. |
+| Pedido de crédito | item | string | O ClaimType a adicionar à reivindicação de saída. |
+| Pedido de crédito | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
+| Pedido de saída | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado na alegação de entrada. |
 
 Use esta transformação de reclamações para adicionar uma corda a uma nova ou existente stringCollection. É comumente usado num perfil técnico **AAD-UserWriteUsingAlternativeSecurityId.** Antes de ser criada uma nova conta social, a **CreateOtherMailsFromEmail** afirma que a transformação de reclamações lê o ClaimType e adiciona o valor ao **outro MailS** ClaimType.
 
@@ -53,22 +53,22 @@ A seguinte transformação de sinistros adiciona o **email** ClaimType a **outro
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **:** ["someone@outlook.com"]
-  - **item**: "admin@contoso.com"
+  - **coleção**:someone@outlook.com[" "]
+  - **item**:admin@contoso.com"
 - Alegações de saída:
-  - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
+  - **coleção**:someone@outlook.com["admin@contoso.com", "]
 
-## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
+## <a name="addparametertostringcollection"></a>Coleção de cadeias addparametertostring
 
 Adiciona um parâmetro de corda a uma nova reivindicação de stringCollection de valores únicos.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
+| Pedido de crédito | coleção | stringCollection | [Opcional] Se especificado, a transformação de sinistros copia os itens desta coleção e adiciona o item ao fim da reclamação de recolha de saída. |
 | EntradaParametro | item | string | O valor a ser acrescentado à reivindicação de saída. |
-| OutputClaim | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado no parâmetro de entrada. |
+| Pedido de saída | coleção | stringCollection | O ClaimType que é produzido após esta transformação de sinistros foi invocado, com o valor especificado no parâmetro de entrada. |
 
-Utilize esta transformação de sinistros para adicionar um valor de cadeia a uma nova ou existente stringCollection. O exemplo seguinte adiciona um endereço de e-mail constante (admin@contoso.com) à reivindicação de **outros Mails.**
+Utilize esta transformação de sinistros para adicionar um valor de cadeia a uma nova ou existente stringCollection. O exemplo seguinte adiciona umadmin@contoso.comendereço de e-mail constante () à reivindicação de **outros Mails.**
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -87,20 +87,20 @@ Utilize esta transformação de sinistros para adicionar um valor de cadeia a um
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **:** ["someone@outlook.com"]
+  - **coleção**:someone@outlook.com[" "]
 - Parâmetros de entrada
-  - **item**: "admin@contoso.com"
+  - **item**:admin@contoso.com"
 - Alegações de saída:
-  - **coleção**: ["someone@outlook.com", "admin@contoso.com"]
+  - **coleção**:someone@outlook.com["admin@contoso.com", "]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
 Obtém o primeiro item da coleção de cordas fornecida.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | coleção | stringCollection | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter o item. |
-| OutputClaim | extractedItem | string | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. O primeiro item da coleção. |
+| Pedido de crédito | coleção | stringCollection | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter o item. |
+| Pedido de saída | extraídoItem | string | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. O primeiro item da coleção. |
 
 O exemplo seguinte lê os **outros Mails** reclamare devolver o primeiro item na reclamação de **e-mail.**
 
@@ -118,23 +118,23 @@ O exemplo seguinte lê os **outros Mails** reclamare devolver o primeiro item na
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **coleção**: ["someone@outlook.com", "someone@contoso.com"]
+  - **coleção**:someone@outlook.com["someone@contoso.com", "]
 - Alegações de saída:
-  - **item extraído**: "someone@outlook.com"
+  - **extraídoItem**:someone@outlook.com"
 
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContém
 
 Verifica se um tipo de reclamação stringCollection contém um elemento
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | stringCollection | O tipo de reclamação que deve ser revistado. |
+| Pedido de crédito | inputClaim | stringCollection | O tipo de reclamação que deve ser revistado. |
 |EntradaParametro|item|string|O valor para procurar.|
-|EntradaParametro|ignoreCase|string|Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas.|
-| OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. Um indicador booleano se a coleção contiver tal corda |
+|EntradaParametro|ignorarCaso|string|Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas.|
+| Pedido de saída | saídaReclamada | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. Um indicador booleano se a coleção contiver tal corda |
 
-Na sequência do exemplo, verifica se o tipo de reclamação `roles` stringCollection contém o valor da **administração**.
+Após verificação do `roles` exemplo se o tipo de reclamação stringCollection contém o valor da **administração**.
 
 ```XML
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">

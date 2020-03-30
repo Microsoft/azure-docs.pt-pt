@@ -1,5 +1,5 @@
 ---
-title: Atualização assíncrona para os modelos azure analysis services  Microsoft Docs
+title: Atualização assíncrona para os modelos azure analysis services [ Microsoft Docs
 description: Descreve como usar os Serviços de Análise Azure REST API para codificar a atualização assíncrona dos dados do modelo.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273725"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
@@ -22,7 +22,7 @@ As operações de atualização de dados podem demorar algum tempo dependendo de
 
 A API REST para serviços de análise azure permite que as operações de atualização de dados sejam realizadas de forma assíncrona. Ao utilizar a API REST, não são necessárias ligações http de aplicações de clientes a longo prazo. Existem também outras funcionalidades incorporadas para a fiabilidade, tais como retrys automáticos e compromissos em lotes.
 
-## <a name="base-url"></a>Base URL
+## <a name="base-url"></a>URL Base
 
 O URL base segue este formato:
 
@@ -30,7 +30,7 @@ O URL base segue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considere um modelo chamado AdventureWorks num servidor chamado `myserver`, localizado na região oeste dos EUA Azure. O nome do servidor é:
+Por exemplo, considere um modelo chamado `myserver`AdventureWorks num servidor chamado , localizado na região west us azure. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -61,7 +61,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Todas as chamadas devem ser autenticadas com um token de Diretório Ativo Azure (OAuth 2) válido no cabeçalho da Autorização e devem satisfazer os seguintes requisitos:
 
 - O símbolo deve ser um símbolo do utilizador ou um diretor de serviço de aplicação.
-- O símbolo deve ter o público correto definido para `https://*.asazure.windows.net`.
+- O símbolo deve ter o `https://*.asazure.windows.net`público correto definido para .
 - O utilizador ou aplicação deve ter permissões suficientes no servidor ou modelo para efelo a chamada solicitada. O nível de permissão é determinado por funções dentro do modelo ou pelo grupo de administração no servidor.
 
     > [!IMPORTANT]
@@ -99,11 +99,11 @@ Não são necessários parâmetros de especificação. O predefinido é aplicado
 
 | Nome             | Tipo  | Descrição  |Predefinição  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | O tipo de processamento a realizar. Os tipos estão alinhados com os tipos de comando de [atualização](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: completos, clarosValores, calcular, dadosApenas, automáticos e desfragmentados. Adicionar tipo não é suportado.      |   Automático      |
+| `Type`           | Enum  | O tipo de processamento a realizar. Os tipos estão alinhados com os tipos de comando de [atualização](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: completos, clarosValores, calcular, dadosApenas, automáticos e desfragmentados. Adicionar tipo não é suportado.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão cometidos em lotes ou apenas quando estiverem completos. Os modos incluem: padrão, transacional, parcialmenteBatch.  |  transacional       |
-| `MaxParallelism` | Int   | Este valor determina o número máximo de fios para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no comando da [Sequência](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) TMSL ou usando outros métodos.       | 10        |
-| `RetryCount`     | Int   | Indica o número de vezes que a operação voltará a tentar antes de falhar.      |     0    |
-| `Objects`        | Array | Uma série de objetos a serem processados. Cada objeto inclui: "mesa" ao processar toda a tabela ou "mesa" e "partição" ao processar uma partição. Se não forem especificados objetos, todo o modelo é refrescado. |   Processar todo o modelo      |
+| `MaxParallelism` | int   | Este valor determina o número máximo de fios para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no comando da [Sequência](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) TMSL ou usando outros métodos.       | 10        |
+| `RetryCount`     | int   | Indica o número de vezes que a operação voltará a tentar antes de falhar.      |     0    |
+| `Objects`        | Matriz | Uma série de objetos a serem processados. Cada objeto inclui: "mesa" ao processar toda a tabela ou "mesa" e "partição" ao processar uma partição. Se não forem especificados objetos, todo o modelo é refrescado. |   Processar todo o modelo      |
 
 CommitMode é igual a batch parcial. É usado quando se faz uma carga inicial de grandes conjuntos de dados que podem levar horas. Se a operação de atualização falhar depois de cometer com sucesso um ou mais lotes, os lotes bem sucedidos permanecerão comprometidos (não voltará a rolar com sucesso em lotes comprometidos).
 
@@ -123,7 +123,7 @@ CommitMode é igual a batch parcial. É usado quando se faz uma carga inicial de
 
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Para verificar o estado de uma operação de atualização, utilize o verbo GET no ID de atualização. Aqui está um exemplo do corpo de resposta. Se a operação estiver em curso, `inProgress` é devolvido em estado de situação.
+Para verificar o estado de uma operação de atualização, utilize o verbo GET no ID de atualização. Aqui está um exemplo do corpo de resposta. Se a operação estiver `inProgress` em curso, será devolvido em estado de situação.
 
 ```
 {
@@ -194,7 +194,7 @@ Para verificar o estado de uma operação de sincronização, utilize o verbo GE
 }
 ```
 
-Valores para `syncstate`:
+Valores `syncstate`para:
 
 - 0: Replicação. Os ficheiros da base de dados estão a ser replicados para uma pasta-alvo.
 - 1: Reidratação. A base de dados está a ser rehidratada em exemplos de servidores apenas de leitura.
@@ -204,7 +204,7 @@ Valores para `syncstate`:
 
 ## <a name="code-sample"></a>Exemplo de código
 
-Aqui está C# uma amostra de código para começar, [RestApiSample no GitHub.](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample)
+Aqui está uma amostra de código C# para começar, [RestApiSample no GitHub](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
 
 ### <a name="to-use-the-code-sample"></a>Para utilizar a amostra de código
 
@@ -213,18 +213,18 @@ Aqui está C# uma amostra de código para começar, [RestApiSample no GitHub.](h
 
 A amostra de código utiliza a autenticação [do principal de serviço.](#service-principal)
 
-### <a name="service-principal"></a>Diretor de serviço
+### <a name="service-principal"></a>Service principal (Principal de serviço)
 
 Consulte o [diretor de serviço Create - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md) e Adicione um principal de serviço ao papel de administrador do [servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um diretor de serviço e atribuir as permissões necessárias no Azure AS. Depois de concluído os passos, complete os seguintes passos adicionais:
 
 1.  Na amostra de código, encontre a autoridade de **cordas = ... ,** substitua o **comum** pela identificação do inquilino da sua organização.
-2.  Comentário/não comentário para que a classe ClientCredential seja usada para instantaneamente o objeto de cred. Certifique-se de que o \<App ID> e \<App Key> os valores são acedidos de forma segura ou utilizam a autenticação baseada em certificados para os principais de serviço.
+2.  Comentário/não comentário para que a classe ClientCredential seja usada para instantaneamente o objeto de cred. Certifique-se de que os \<valores> e \<> chave da aplicação da App Key são acedidos de forma segura ou utilizam a autenticação baseada em certificados para os diretores de serviço.
 3.  Execute o exemplo.
 
 
 ## <a name="see-also"></a>Consulte também
 
-[Exemplos](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[Amostras](analysis-services-samples.md)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

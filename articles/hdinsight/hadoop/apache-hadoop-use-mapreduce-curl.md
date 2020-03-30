@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302717"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar mapeia Empregos com Apache Hadoop no HDInsight usando REST
@@ -26,7 +26,7 @@ Aprenda a usar a Apache Hive WebHCat REST API para executar mapReduce jobs em um
 
 * Um aglomerado Apache Hadoop no HDInsight. Consulte os [clusters De Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Ou:
+Faça o seguinte:
   * Windows PowerShell ou,
   * [Caracol](https://curl.haxx.se/) com [jq](https://stedolan.github.io/jq/)
 
@@ -37,7 +37,7 @@ Ou:
 >
 > A API REST é protegida utilizando a [autenticação de acesso básico.](https://en.wikipedia.org/wiki/Basic_access_authentication) Deve sempre fazer pedidos utilizando https para garantir que as suas credenciais são enviadas de forma segura para o servidor.
 
-### <a name="curl"></a>Caracol
+### <a name="curl"></a>Curl
 
 1. Para facilitar a utilização, desloque as variáveis abaixo. Este exemplo baseia-se num ambiente Windows, revisto conforme necessário para o seu ambiente.
 
@@ -57,7 +57,7 @@ Ou:
    * **-u**: Indica o nome do utilizador e a palavra-passe utilizada para autenticar o pedido
    * **-G**: Indica que esta operação é um pedido get
 
-   O início do URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, é o mesmo para todos os pedidos.
+   O início do `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`URI, é o mesmo para todos os pedidos.
 
     Recebe uma resposta semelhante à seguinte JSON:
 
@@ -77,7 +77,7 @@ Ou:
 
     O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce de uma classe num ficheiro de frascos. Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-d**: `-G` não é utilizado, pelo que o pedido não se aplica ao método POST. `-d` especifica os valores de dados que são enviados com o pedido.
+   * **-d** `-G` : não é utilizado, pelo que o pedido não se aplica ao método POST. `-d`especifica os valores de dados enviados com o pedido.
      * **user.name**: O utilizador que está a comandar o comando
      * **jar**: A localização do arquivo do frasco que contém classe a ser ranuosa
      * **classe**: A classe que contém a lógica MapReduce
@@ -87,7 +87,7 @@ Ou:
 
        job_1415651640909_0026
 
-1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua o valor por `JOBID` pelo valor **real** devolvido na etapa anterior. Reveja a localização do **JQ** conforme necessário.
+1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua o `JOBID` valor pelo valor **real** devolvido no passo anterior. Reveja a localização do **JQ** conforme necessário.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -98,7 +98,7 @@ Ou:
 
 ### <a name="powershell"></a>PowerShell
 
-1. Para facilitar a utilização, desloque as variáveis abaixo. Substitua `CLUSTERNAME` pelo seu nome real de cluster. Execute o comando e introduza a senha de login do cluster quando solicitado.
+1. Para facilitar a utilização, desloque as variáveis abaixo. Substitua-o `CLUSTERNAME` pelo seu nome real de cluster. Execute o comando e introduza a senha de login do cluster quando solicitado.
 
     ```powershell
     $clusterName="CLUSTERNAME"
@@ -167,9 +167,9 @@ Ou:
 
 ### <a name="both-methods"></a>Ambos os métodos
 
-1. Se o trabalho estiver concluído, o Estado devolvido é `SUCCEEDED`.
+1. Se o trabalho estiver completo, `SUCCEEDED`o Estado devolvido é.
 
-1. Quando o estado do trabalho tiver mudado para `SUCCEEDED`, pode recuperar os resultados do trabalho a partir do armazenamento da Blob Azure. O parâmetro `statusdir` que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a localização é `/example/curl`. Este endereço armazena a saída do trabalho nos clusters de armazenamento padrão em `/example/curl`.
+1. Quando o estado do trabalho `SUCCEEDED`tiver mudado para, pode recuperar os resultados do trabalho a partir do armazenamento da Blob Azure. O `statusdir` parâmetro que é passado com a consulta contém a localização do ficheiro de saída. Neste exemplo, a `/example/curl`localização é . Este endereço armazena a saída do trabalho `/example/curl`nos clusters de armazenamento padrão em .
 
 Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI para trabalhar com o armazenamento Azure Blob, consulte [Quickstart: Create, download e list blobs com Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 

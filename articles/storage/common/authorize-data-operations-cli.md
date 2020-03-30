@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78207696"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar acesso a dados de blob ou fila com o Azure CLI
@@ -26,15 +26,15 @@ O Azure Storage fornece extensões para o Azure CLI que lhe permitem especificar
 
 ## <a name="specify-how-data-operations-are-authorized"></a>Especificar como as operações de dados são autorizadas
 
-Os comandos Azure CLI para leitura e escrita de blob e dados de fila incluem o parâmetro opcional `--auth-mode`. Especifique este parâmetro para indicar como uma operação de dados deve ser autorizada:
+Os comandos Azure CLI para leitura e escrita `--auth-mode` de blob e dados de fila incluem o parâmetro opcional. Especifique este parâmetro para indicar como uma operação de dados deve ser autorizada:
 
-- Defina o parâmetro `--auth-mode` para `login` para iniciar sessão utilizando um diretor de segurança azure AD (recomendado).
-- Defina o parâmetro `--auth-mode` para o legado `key` valor para tentar recuperar a chave de acesso à conta a utilizar para autorização. Se omitir o parâmetro `--auth-mode`, então o AZURE CLI também tenta recuperar a chave de acesso.
+- Defina `--auth-mode` o `login` parâmetro para iniciar sessão utilizando um diretor de segurança Azure AD (recomendado).
+- Defina `--auth-mode` o parâmetro `key` para o valor legado para tentar recuperar a chave de acesso à conta a utilizar para autorização. Se omitir `--auth-mode` o parâmetro, o AZURE CLI também tenta recuperar a chave de acesso.
 
-Para utilizar o parâmetro `--auth-mode`, certifique-se de que instalou a versão Azure CLI 2.0.46 ou posterior. Faça `az --version` para verificar a sua versão instalada.
+Para utilizar `--auth-mode` o parâmetro, certifique-se de que instalou a versão Azure CLI 2.0.46 ou posterior. Corra `az --version` para verificar a sua versão instalada.
 
 > [!IMPORTANT]
-> Se omitir o parâmetro `--auth-mode` ou o definir para `key`, então o Azure CLI tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável **ambiente AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Definir variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
+> Se omitir `--auth-mode` o parâmetro ou `key`o definir, então o Azure CLI tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável **ambiente AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Definir variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
 >
 > Se não fornecer a chave de acesso, o Azure CLI tenta chamar o fornecedor de recursos de armazenamento Azure para recuperá-la para cada operação. A realização de muitas operações de dados que exijam uma chamada para o fornecedor de recursos pode resultar em estrangulamento. Para obter mais informações sobre os limites do fornecedor de recursos, consulte os objetivos de [escalabilidade e desempenho para o fornecedor](scalability-targets-resource-provider.md)de recursos de armazenamento azure .
 
@@ -59,7 +59,7 @@ O exemplo que se segue mostra como criar um recipiente a partir do Azure CLI uti
     > [!IMPORTANT]
     > As atribuições de funções RBAC podem demorar alguns minutos a propagar-se.
 
-1. Ligue para o recipiente de [armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando com o `--auth-mode` parâmetro definido para `login` para criar o recipiente usando as suas credenciais AD Azure. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
+1. Ligue para o recipiente de `--auth-mode` [armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando com o parâmetro definido para `login` criar o recipiente usando as suas credenciais AD Azure. Lembre-se de substituir os valores do espaço reservado em suportes angulares por valores próprios:
 
     ```azurecli
     az storage container create \
@@ -72,7 +72,7 @@ O exemplo que se segue mostra como criar um recipiente a partir do Azure CLI uti
 
 Se possuir a chave da conta, pode ligar para qualquer operação de dados do Armazenamento Azure. Em geral, a utilização da chave da conta é menos segura. Se a chave da conta estiver comprometida, todos os dados da sua conta podem estar comprometidos.
 
-O exemplo que se segue mostra como criar um recipiente utilizando a chave de acesso à conta. Especifique a chave da conta e forneça ao parâmetro `--auth-mode` o valor `key`:
+O exemplo que se segue mostra como criar um recipiente utilizando a chave de acesso à conta. Especifique a chave `--auth-mode` da conta `key` e forneça o parâmetro com o valor:
 
 ```azurecli
 az storage container create \
@@ -103,7 +103,7 @@ Pode especificar parâmetros de autorização em variáveis ambientais para evit
 |    AZURE_STORAGE_KEY                  |    A chave da conta de armazenamento. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    Uma cadeia de ligação que inclui a chave da conta de armazenamento ou um token SAS. Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    Um símbolo de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendado) ou `key`. Se especificar `login`, o Azure CLI utiliza as suas credenciais Azure AD para autorizar a operação de dados. Se especificar o modo `key` legado, o Azure CLI tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
+|    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores `login` permitidos `key`são (recomendados) ou . Se especificar, `login`o Azure CLI utiliza as suas credenciais De AD Azure para autorizar a operação de dados. Se especificar o `key` modo legado, o Azure CLI tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Compreenda os gémeos do módulo Azure IoT Hub  Microsoft Docs
+title: Compreenda os gémeos do módulo Azure IoT Hub [ Microsoft Docs
 description: Guia de desenvolvedores - use gémeos módulos para sincronizar dados de estado e configuração entre o IoT Hub e os seus dispositivos
 author: chrissie926
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: menchi
 ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303601"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub
@@ -33,7 +33,7 @@ Consulte [a orientação de comunicação Dispositivo-nuvem](iot-hub-devguide-d2
 
 Consulte [a orientação de comunicação Cloud-to-device](iot-hub-devguide-c2d-guidance.md) para obter orientações sobre a utilização de propriedades desejadas, métodos diretos ou mensagens cloud-to-device.
 
-## <a name="module-twins"></a>Duplos de módulo
+## <a name="module-twins"></a>Gémeos módulo
 
 Os gémeos módulos armazenam informações relacionadas com módulos que:
 
@@ -102,18 +102,18 @@ O exemplo seguinte mostra um documento JSON twin módulo:
 }
 ```
 
-No objeto raiz encontram-se as propriedades de identidade do módulo e objetos de contentores para `tags` e propriedades `reported` e `desired`. O recipiente `properties` contém alguns elementos apenas de leitura (`$metadata`, `$etag`e `$version`) descritos nos [metadados duplos do Módulo](iot-hub-devguide-module-twins.md#module-twin-metadata) e nas secções [de conmoeda otimista.](iot-hub-devguide-device-twins.md#optimistic-concurrency)
+No objeto raiz encontram-se as propriedades `tags` de `reported` identidade `desired` do módulo, e objetos de contentores para e ambas e propriedades. O `properties` recipiente contém alguns elementos apenas de leitura (`$metadata`, `$etag` `$version`e ) descritos no Módulo de [metadados duplos](iot-hub-devguide-module-twins.md#module-twin-metadata) e secções de [conmoeda otimista.](iot-hub-devguide-device-twins.md#optimistic-concurrency)
 
 ### <a name="reported-property-example"></a>Exemplo de propriedade reportada
 
-No exemplo anterior, o módulo twin contém uma propriedade `batteryLevel` que é reportada pela aplicação do módulo. Esta propriedade permite consultar e operar em módulos com base no último nível de bateria reportado. Outros exemplos incluem as capacidades do módulo de relatório de aplicativos do módulo de módulo ou opções de conectividade.
+No exemplo anterior, o módulo `batteryLevel` twin contém uma propriedade que é reportada pela aplicação do módulo. Esta propriedade permite consultar e operar em módulos com base no último nível de bateria reportado. Outros exemplos incluem as capacidades do módulo de relatório de aplicativos do módulo de módulo ou opções de conectividade.
 
 > [!NOTE]
 > As propriedades reportadas simplificam cenários onde a solução final está interessada no último valor conhecido de um imóvel. Utilize [mensagens dispositivo-cloud](iot-hub-devguide-messages-d2c.md) se a extremidade traseira da solução precisar de processar a telemetria do módulo sob a forma de sequências de eventos timestamped, como séries de tempo.
 
 ### <a name="desired-property-example"></a>Exemplo de propriedade desejada
 
-No exemplo anterior, as propriedades dedesejadas e reportadas pelo módulo `telemetryConfig` são utilizadas pela solução traseira e pela aplicação do módulo para sincronizar a configuração da telemetria para este módulo. Por exemplo:
+No exemplo anterior, `telemetryConfig` as propriedades desejadas e reportadas pelo módulo são utilizadas pela solução traseira e pela aplicação do módulo para sincronizar a configuração da telemetria para este módulo. Por exemplo:
 
 1. A extremidade traseira da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades pretendido:
 
@@ -128,7 +128,7 @@ No exemplo anterior, as propriedades dedesejadas e reportadas pelo módulo `tele
     ...
     ```
 
-2. A aplicação do módulo é notificada da alteração imediatamente se estiver ligada ou na primeira religação. A aplicação do módulo reporta então a configuração atualizada (ou uma condição de erro utilizando a propriedade `status`). Aqui está a parte das propriedades reportadas:
+2. A aplicação do módulo é notificada da alteração imediatamente se estiver ligada ou na primeira religação. A aplicação do módulo reporta então `status` a configuração atualizada (ou uma condição de erro utilizando a propriedade). Aqui está a parte das propriedades reportadas:
 
     ```json
     "reported": {
@@ -152,7 +152,7 @@ A extremidade traseira da solução funciona no módulo twin utilizando as segui
 
 * **Recuperar o módulo twin por ID**. Esta operação devolve o documento twin do módulo, incluindo etiquetas e propriedades desistema desejadas e reportadas.
 
-* **Atualizar parcialmente o módulo twin**. Esta operação permite que a solução volte a atualizar parcialmente as etiquetas ou propriedades desejadas num módulo twin. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas para `null` são removidas. O exemplo seguinte cria um novo imóvel desejado com valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` com `"otherNewValue"`, e remove `otherOldProperty`. Não são feitas outras alterações às propriedades ou etiquetas existentes:
+* **Atualizar parcialmente o módulo twin**. Esta operação permite que a solução volte a atualizar parcialmente as etiquetas ou propriedades desejadas num módulo twin. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades `null` definidas para serem removidas. O exemplo seguinte cria um novo `{"newProperty": "newValue"}`imóvel desejado com valor, `"otherNewValue"`substitui o `otherOldProperty`valor existente de `existingProperty` , e remove . Não são feitas outras alterações às propriedades ou etiquetas existentes:
 
     ```json
     {
@@ -168,9 +168,9 @@ A extremidade traseira da solução funciona no módulo twin utilizando as segui
     }
     ```
 
-* **Substitua as propriedades desejadas**. Esta operação permite que a solução volte a substituir completamente todas as propriedades existentes e substituir um novo documento JSON para `properties/desired`.
+* **Substitua as propriedades desejadas**. Esta operação permite que a solução volte a substituir completamente todas as propriedades `properties/desired`existentes e substituir um novo documento JSON por .
 
-* **Substitua as etiquetas**. Esta operação permite que a solução volte a substituir todas as etiquetas existentes e substituir um novo documento JSON para `tags`.
+* **Substitua as etiquetas**. Esta operação permite que a solução volte a substituir todas as etiquetas `tags`existentes e substituir um novo documento JSON por .
 
 * **Receba notificações duplas**. Esta operação permite que a solução de volta seja notificada quando o gémeo é modificado. Para tal, a sua solução IoT precisa de criar uma rota e de definir a Fonte de Dados igual a *twinChangeEvents*. Por padrão, não são enviadas notificações gémeas, ou seja, não existem tais rotas antes. Se a taxa de alteração for demasiado elevada, ou por outras razões, como falhas internas, o IoT Hub poderá enviar apenas uma notificação que contenha todas as alterações. Portanto, se a sua aplicação necessitar de auditoria e registo fiável de todos os estados intermédios, deve utilizar mensagens dispositivo-cloud. A mensagem de notificação gémea inclui propriedades e corpo.
 
@@ -179,17 +179,17 @@ A extremidade traseira da solução funciona no módulo twin utilizando as segui
     | Nome | Valor |
     | --- | --- |
     $content | application/json |
-    $iothub-enqueuedtime |  Hora da notificação ser enviada |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
+    $iothub enqueuedtime |  Hora da notificação ser enviada |
+    $iothub-fonte de mensagem | twinChangeEvents |
+    $content-codificação | utf-8 |
     deviceId | ID do dispositivo |
-    moduleId | ID do módulo |
+    móduloId | ID do módulo |
     hubName | Nome do Hub IoT |
-    operationTimestamp | Carimbo de tempo [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) de operação |
-    iothub-message-schema | twinChangeNotification |
+    operaçãoTimestamp | Carimbo de tempo [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) de operação |
+    iothub-mensagem-schema | twinChangeNotification |
     opType | "substituir Twin" ou "updateTwin" |
 
-    As propriedades do sistema de mensagens são pré-fixadas com o símbolo `$`.
+    As propriedades do sistema `$` de mensagens são pré-fixadas com o símbolo.
 
   - Corpo
         
@@ -236,7 +236,7 @@ Os [SDKs do dispositivo Azure IoT](iot-hub-devguide-sdks.md) facilitam a utiliza
 
 Tags, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* **Teclas**: Todas as teclas em objetos JSON são sensíveis a 64 bytes UTF-8 bytes UniCODE. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1) e `.`, SP e `$`.
+* **Teclas**: Todas as teclas em objetos JSON são sensíveis a 64 bytes UTF-8 bytes UniCODE. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1), e `.`, SP, e `$`.
 
 * **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booleano, número, corda, objeto. Não são permitidas matrizes.
 
@@ -268,7 +268,7 @@ Tags, propriedades desejadas e propriedades reportadas são objetos JSON com as 
 
 ## <a name="module-twin-size"></a>Módulo tamanho gémeo
 
-O IoT Hub impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB cada um no valor de `properties/desired` e `properties/reported`. Estes totais são exclusivos de elementos de leitura como `$etag`, `$version`e `$metadata/$lastUpdated`.
+O IoT Hub impõe um limite de `tags`tamanho de 8 KB no valor de `properties/desired` `properties/reported`, e um limite de tamanho de 32 KB cada um no valor de e . Estes totais são exclusivos de elementos `$version`só `$metadata/$lastUpdated`de leitura como `$etag`, e .
 
 O tamanho gémeo é calculado da seguinte forma:
 
@@ -286,7 +286,7 @@ O IoT Hub rejeita com um erro todas as operações que aumentariam a dimensão d
 
 ## <a name="module-twin-metadata"></a>Módulo de metadados gémeos
 
-O IoT Hub mantém o carimbo de tempo da última atualização para cada objeto JSON em propriedades desejadas e reportadas pelo módulo Twin. Os carimbos temporais estão em UTC e codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+O IoT Hub mantém o carimbo de tempo da última atualização para cada objeto JSON em propriedades desejadas e reportadas pelo módulo Twin. Os carimbos temporais estão em UTC e codificados no formato `YYYY-MM-DDTHH:MM:SS.mmmZ` [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) .
 Por exemplo:
 
 ```json
@@ -341,7 +341,7 @@ Esta informação é mantida em todos os níveis (e não apenas nas folhas da es
 Tags, desejados e propriedades relatadas todos suportam conmoeda otimista.
 As etiquetas têm um ETag, de acordo com [o RFC7232,](https://tools.ietf.org/html/rfc7232)que representa a representação json da etiqueta. Pode utilizar ETags em operações de atualização condicional a partir da extremidade traseira da solução para garantir a consistência.
 
-As propriedades desimediadas e reportadas do módulo não têm ETags, mas têm um valor `$version` que é garantido ser incremental. Da mesma forma que um ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, uma aplicação de módulos para uma propriedade reportada ou a solução traseira para uma propriedade desejada.
+As propriedades desimediadas e reportadas não `$version` têm ETags, mas têm um valor que é garantido ser incremental. Da mesma forma que um ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, uma aplicação de módulos para uma propriedade reportada ou a solução traseira para uma propriedade desejada.
 
 As versões também são úteis quando um agente de observação (como a aplicação de módulos que observa as propriedades desejadas) deve conciliar as raças entre o resultado de uma operação de recuperação e uma notificação de atualização. O fluxo de [reconexão](iot-hub-devguide-device-twins.md#device-reconnection-flow) do dispositivo de secção fornece mais informações. 
 

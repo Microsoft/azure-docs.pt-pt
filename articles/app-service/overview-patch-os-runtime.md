@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273627"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>SO e patching de tempo de execução no Serviço de Aplicações Azure
@@ -55,7 +55,7 @@ As atualizações de patch para .NET, PHP, Java SDK ou tomcat/Jetty são aplicad
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e menores
 
-Quando uma nova versão principal ou menor é adicionada, é instalada lado a lado com as versões existentes. Pode atualizar manualmente a sua aplicação para a nova versão. Se configurar a versão tempo de execução num ficheiro de configuração (como `web.config` e `package.json`), precisa de atualizar com o mesmo método. Se usou uma definição do Serviço de Aplicações para configurar a sua versão de tempo de execução, pode trocá-la no [portal Azure](https://portal.azure.com) ou executando um comando [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) na [Cloud Shell,](../cloud-shell/overview.md)como mostram os seguintes exemplos:
+Quando uma nova versão principal ou menor é adicionada, é instalada lado a lado com as versões existentes. Pode atualizar manualmente a sua aplicação para a nova versão. Se configurar a versão tempo de execução `web.config` `package.json`num ficheiro de configuração (por exemplo e), precisa de atualizar com o mesmo método. Se usou uma definição do Serviço de Aplicações para configurar a sua versão de tempo de execução, pode trocá-la no [portal Azure](https://portal.azure.com) ou executando um comando [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) na [Cloud Shell,](../cloud-shell/overview.md)como mostram os seguintes exemplos:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -78,15 +78,15 @@ A tabela que se segue mostra como é que as versões do Windows e do tempo de ex
 | Informações | Onde encontrá-lo | 
 |-|-|
 | Versão do Windows | Ver `https://<appname>.scm.azurewebsites.net/Env.cshtml` (de acordo com informações do Sistema) |
-| versão .NET | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
-| versão .NET Core | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `dotnet --version` |
-| Versão PHP | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `php --version` |
+| versão .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, executar o seguinte comando no pedido de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| versão .NET Core | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, executar o seguinte comando no pedido de comando: <br> `dotnet --version` |
+| Versão PHP | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, executar o seguinte comando no pedido de comando: <br> `php --version` |
 | Versão Padrão Node.js | Na [Cloud Shell,](../cloud-shell/overview.md)executar o seguinte comando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Versão de Python | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `python --version` |  
-| Versão do Java | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `java -version` |  
+| Versão de Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, executar o seguinte comando no pedido de comando: <br> `python --version` |  
+| Versão Java | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, executar o seguinte comando no pedido de comando: <br> `java -version` |  
 
 > [!NOTE]  
-> O acesso à localização do registo `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, onde as informações sobre [os patches "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenadas, é bloqueada.
+> O acesso à `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`localização do registo, onde as informações sobre [os patches "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenados, é bloqueado.
 >
 >
 

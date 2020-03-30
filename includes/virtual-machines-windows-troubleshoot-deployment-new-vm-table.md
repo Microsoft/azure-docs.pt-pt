@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 14abae6f6f72d724fffb1ccaa12f56fb6976f7a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184259"
 ---
-A tabela seguinte lista o carregamento de possíveis e combinações de captura de Windows generalizadas (gen.) e especializadas (spec.) Imagens do sistema operacional. As combinações que irão processar sem erros são indicadas por um Y, e aqueles que irá gerar erros são indicados por um N. As causas e soluções para os diferentes erros que ocorrem são fornecidas abaixo da tabela.
+A tabela seguinte lista as possíveis combinações de upload e captura de imagens de Sistemas operativos (gen.) e especializadas (spec.) OS. As combinações que processam sem erros são indicadas por um Y, e as que vão lançar erros são indicadas por um N. As causas e resoluções para os diferentes erros que irá encontrar são dadas abaixo da tabela.
 
-| SO | Carregue de especificações. | Carregar fins. | Captura de especificação. | Capture fins. |
+| SO | Faça upload de especificações. | Faça upload gen. | Captar especificações. | Capture gen. |
 | --- | --- | --- | --- | --- |
-| Geração do Windows. |N<sup>1</sup> |S |N<sup>3</sup> |S |
-| Especificação do Windows. |S |N<sup>2</sup> |S |N<sup>4</sup> |
+| Windows gen. |N<sup>1</sup> |S |N<sup>3</sup> |S |
+| Especificação das janelas. |S |N<sup>2</sup> |S |N<sup>4</sup> |
 

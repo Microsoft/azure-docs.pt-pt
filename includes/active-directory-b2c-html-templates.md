@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189034"
 ---
 ## <a name="sample-templates"></a>Modelos de exemplo
-Você pode encontrar modelos de exemplo para personalização da interface do usuário aqui:
+Você pode encontrar modelos de amostra para personalização de UI aqui:
 
 ```bash
 git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
@@ -25,9 +25,9 @@ Este projeto contém os seguintes modelos:
 
 Para utilizar a amostra:
 
-1. Clone o repositório em seu computador local. Escolha uma pasta de modelo `/ocean_blue` ou `/slate_gray`.
-1. Faça upload de todos os ficheiros sob a pasta do modelo e da pasta `/assets`, para o armazenamento Blob, conforme descrito nas secções anteriores.
-1. Em seguida, abra cada ficheiro `\*.html` na raiz de `/ocean_blue` ou `/slate_gray`, substitua todas as instâncias de URLs relativos pelos URLs dos ficheiros css, imagens e tipos de letra que tenha carregado no passo 2. Por exemplo:
+1. Clone o repo na sua máquina local. Escolha uma `/ocean_blue` pasta `/slate_gray`de modelo ou .
+1. Faça upload de todos os `/assets` ficheiros sob a pasta do modelo e da pasta, para o armazenamento blob, conforme descrito nas secções anteriores.
+1. Em seguida, `\*.html` abra cada ficheiro `/ocean_blue` `/slate_gray`na raiz de qualquer um ou , substitua todas as instâncias de URLs relativos pelos URLs dos ficheiros css, imagens e tipos de letra que carregou no passo 2. Por exemplo:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -36,6 +36,6 @@ Para utilizar a amostra:
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
-1. Guarde os ficheiros `\*.html` e carregue-os para o armazenamento blob.
+1. Guarde `\*.html` os ficheiros e carregue-os para o armazenamento blob.
 1. Agora modifique a política, apontando para o seu ficheiro HTML, como mencionado anteriormente.
-1. Se vir fontes, imagens ou CSS em falta, verifique as suas referências na política de extensões e nos ficheiros \*.html.
+1. Se vir fontes, imagens ou CSS em falta, verifique as \*suas referências na política de extensões e nos ficheiros .html.

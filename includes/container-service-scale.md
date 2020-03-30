@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66814923"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 Depois de [implementar um cluster do Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md), poderá ter de alterar o número de nós de agente. Por exemplo, poderá precisar de mais agentes, de modo a poder executar mais aplicações de contentores ou instâncias. 
 
-Pode alterar o número de nós de agentes num cluster DC/OS, Docker Swarm ou Kubernetes com o portal do Azure ou a CLI do Azure. 
+Pode alterar o número de nós de agente num cluster DC/OS, Docker Swarm ou Kubernetes utilizando o portal Azure ou o Azure CLI. 
 
 ## <a name="scale-with-the-azure-portal"></a>Dimensionar com o portal do Azure
 
@@ -27,9 +27,9 @@ Pode alterar o número de nós de agentes num cluster DC/OS, Docker Swarm ou Kub
 
 4. Para guardar a configuração, clique em **Guardar**.
 
-## <a name="scale-with-the-azure-cli"></a>Dimensionamento com a CLI do Azure
+## <a name="scale-with-the-azure-cli"></a>Escala com o Azure CLI
 
-[Instalar a CLI do Azure](/cli/azure/install-azure-cli) e inicie sessão na conta do Azure com `az login`.
+[Instale o Azure CLI](/cli/azure/install-azure-cli) e inscreva-se numa conta Azure com `az login`.
 
 ### <a name="see-the-current-agent-count"></a>Ver a contagem de nós atuais
 Para ver o número de agentes atualmente no cluster, execute o comando `az acs show`. É apresentada configuração do cluster. Por exemplo, o comando seguinte mostra a configuração do serviço de contentores com o nome `containerservice-myACSName` no grupo de recursos `myResourceGroup`:
@@ -49,7 +49,7 @@ Por exemplo, para alterar o número de agentes no cluster anterior para dez, esc
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-A CLI do Azure devolve uma cadeia de caracteres do JSON que representa a nova configuração do serviço de contentor, incluindo a contagem de agentes nova.
+O Azure CLI devolve uma corda JSON que representa a nova configuração do serviço de contentores, incluindo a nova contagem de agentes.
 
 Para obter mais opções de comandos, execute `az acs scale --help`.
 
@@ -64,7 +64,7 @@ Para obter mais opções de comandos, execute `az acs scale --help`.
 * Consoante o orchestrator que implementar no seu cluster, pode dimensionar separadamente o número de instâncias de um contentor em execução no cluster. Por exemplo, num cluster do DC/OS, utilize a [IU do Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) para alterar o número de instâncias de uma aplicação de contentores.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Ver [mais exemplos](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) da utilização de comandos da CLI do Azure com o Azure Container Service.
+## <a name="next-steps"></a>Passos seguintes
+* Veja [mais exemplos](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) de utilização de comandos Azure CLI com serviço de contentores Azure.
 * Saiba mais sobre os [conjuntos de agentes do DC/SO](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) no Azure Container Service.
 

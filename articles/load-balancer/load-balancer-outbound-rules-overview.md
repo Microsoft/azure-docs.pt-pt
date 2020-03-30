@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304196"
 ---
-# <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
+# <a name="load-balancer-outbound-rules"></a>Regras de saída do Balancer de Carga
 
-O Balanceador de carga do Azure fornece a conectividade de saída da rede virtual, além de entrada.  As regras de saída tornam simples configurar a tradução de endereços de rede de saída do [Standard Load Balancer.](load-balancer-standard-overview.md)  Tem controle completo declarativo sobre conectividade de saída para dimensionar e ajustar esta capacidade às suas necessidades específicas.
+O Azure Load Balancer fornece conectividade de saída a partir de uma rede virtual para além da entrada.  As regras de saída tornam simples configurar a tradução de endereços de rede de saída do [Standard Load Balancer.](load-balancer-standard-overview.md)  Você tem controlo declarativo total sobre a conectividade de saída para escalar e afinar esta capacidade às suas necessidades específicas.
 
-![Regras de saída do Balanceador de carga](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+![Regras de saída do Balancer de Carga](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
-Com as regras de saída, pode usar o Balanceador de carga: 
-- Defina NAT de saída do zero.
-- Dimensionar e otimizar o comportamento de NAT de saída existentes. 
+Com regras de saída, pode utilizar o Balancer de Carga para: 
+- definir nat de saída do zero.
+- escala e afinar o comportamento do NAT de saída existente. 
 
-Regras de saída permitem controlar:
-- quais as máquinas virtuais devem ser convertidas para que endereços IP públicos. 
+As regras de saída permitem-lhe controlar:
+- que máquinas virtuais devem ser traduzidas para os endereços IP públicos. 
 - como devem ser [atribuídas portas SNAT de saída.](load-balancer-outbound-connections.md#snat)
-- os protocolos para fornecer a tradução de saída para.
+- quais os protocolos para fornecer tradução de saída.
 - que duração a utilizar para o tempo limite de ligação de saída (4-120 minutos).
 - se enviar um Reset TCP no tempo de paragem inativo
 
@@ -40,13 +40,13 @@ As regras de saída expandem o [cenário 2](load-balancer-outbound-connections.m
 
 ## <a name="outbound-rule"></a>Regra de saída
 
-Como todas as regras de Balanceador de carga, regras de saída, siga a sintaxe familiar do mesmo como balanceamento de carga e regras NAT de entrada:
+Como todas as regras do Load Balancer, as regras de saída seguem a mesma sintaxe familiar que o equilíbrio de carga e as regras nat de entrada:
 
-**parâmetros frontend** +  + **piscina de backend**
+**piscina de** + **parâmetros** + frontend**backend**
 
 Uma regra de saída configura o NAT de saída para _todas as máquinas virtuais identificadas pela piscina de backend_ a traduzir para a _extremidade frontal_.  E _os parâmetros_ fornecem um controlo adicional de grãos finos sobre o algoritmo NAT de saída.
 
-Versão "2018-07-01" de API permite uma definição de regra de saída estruturada da seguinte forma:
+A versão API "2018-07-01" permite uma definição de regra de saída estruturada da seguinte forma:
 
 ```json
       "outboundRules": [
@@ -62,70 +62,70 @@ Versão "2018-07-01" de API permite uma definição de regra de saída estrutura
 ```
 
 >[!NOTE]
->A configuração de NAT de saída eficaz é uma composição de todas as regras de saída e regras de balanceamento de carga. Regras de saída são incrementais para regras de balanceamento de carga. Reveja a desativação do [NAT de saída para uma regra](#disablesnat) de equilíbrio de carga para gerir a tradução efetiva de nat de saída quando várias regras se aplicam a um VM. Deve [desativar o SNAT de saída](#disablesnat) ao definir uma regra de saída que utilize o mesmo endereço IP público como regra de equilíbrio de carga.
+>A configuração eficaz do NAT de saída é um composto de todas as regras de saída e regras de equilíbrio de carga. As regras de saída são incrementais para carregar regras de equilíbrio. Reveja a desativação do [NAT de saída para uma regra](#disablesnat) de equilíbrio de carga para gerir a tradução efetiva de nat de saída quando várias regras se aplicam a um VM. Deve [desativar o SNAT de saída](#disablesnat) ao definir uma regra de saída que utilize o mesmo endereço IP público como regra de equilíbrio de carga.
 
-### <a name="scale"></a>Dimensionar nat de saída com vários endereços IP
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Dimensionar nat de saída com vários endereços IP
 
-Enquanto uma regra de saída pode ser utilizada com apenas um único endereço IP público, regras de saída aliviar a carga de configuração de dimensionamento de NAT de saída. Você pode usar vários endereços IP para planear cenários de grande escala e você pode usar regras de saída para mitigar padrões propensos à [exaustão sNAT.](load-balancer-outbound-connections.md#snatexhaust)  
+Embora uma regra de saída possa ser usada com apenas um único endereço IP público, as regras de saída facilitam o fardo de configuração para escalar o NAT de saída. Você pode usar vários endereços IP para planear cenários de grande escala e você pode usar regras de saída para mitigar padrões propensos à [exaustão sNAT.](load-balancer-outbound-connections.md#snatexhaust)  
 
-Cada endereço IP adicional fornecido por uma extremidade frontal fornece 64.000 portas efémeras para o Balancer de Carga para usar como portas SNAT. Enquanto o balanceamento de carga ou regras NAT de entrada tem um front-end único, a regra de saída se expande a noção de front-end e permite que vários front-ends por regra.  Com vários front-ends por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público e cenários de grandes dimensões podem ser suportados.
+Cada endereço IP adicional fornecido por uma extremidade frontal fornece 64.000 portas efémeras para o Balancer de Carga para usar como portas SNAT. Embora as regras de equilíbrio de carga ou de entrada na NAT tenham uma única extremidade frontal, a regra de saída expande a noção frontend e permite múltiplas extremidades dianteiras por regra.  Com vários frontendas por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público, e grandes cenários podem ser suportados.
 
-Além disso, pode utilizar um [prefixo IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  Utilizar um IP público de prefixo fornece para dimensionamento mais fácil e simplificada de criar uma lista de fluxos provenientes da implementação do Azure. Pode configurar uma configuração de IP de front-end dentro de um prefixo de endereço IP público de referenciar diretamente o recurso de Balanceador de carga.  Isso permite que o Balanceador de carga um controlo exclusivo sobre o prefixo do IP público e a regra de saída irá utilizar automaticamente a todos os endereços IP públicos contidos o prefixo do IP público para ligações de saída.  Cada um dos endereços IP dentro do intervalo do prefixo IP público fornece 64.000 portas efémeras por endereço IP para o Balancer de Carga para utilizar como portas SNAT.   
+Além disso, pode utilizar um [prefixo IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  A utilização de prefixo ip público proporciona uma escala mais fácil e simplificada lista de fluxos brancos originários da sua implantação Azure. Pode configurar uma configuração IP frontal dentro do recurso Balancer de carga para fazer referência a um prefixo de endereço IP público diretamente.  Isto permite o controlo exclusivo do Balancer sobre o prefixo IP público e a regra de saída utilizará automaticamente todos os endereços IP públicos contidos no prefixo IP público para ligações de saída.  Cada um dos endereços IP dentro do intervalo do prefixo IP público fornece 64.000 portas efémeras por endereço IP para o Balancer de Carga para utilizar como portas SNAT.   
 
-Não pode ter individuais recursos de endereço IP público criados a partir do prefixo do IP público ao utilizar esta opção, como a regra de saída tem de ter controlo total sobre o prefixo do IP público.  Se precisar de mais controle refinado, pode criar o recurso de endereço IP público individual a partir de prefixo IP público e atribuir vários endereços IP públicos individualmente para o front-end de uma regra de saída.
+Não é possível criar recursos de endereçoIP públicos individuais a partir do prefixo IP público ao utilizar esta opção, uma vez que a regra de saída deve ter controlo total do prefixo IP público.  Se necessitar de um controlo mais fino, pode criar um recurso de endereço IP público individual a partir do prefixo IP público e atribuir vários endereços IP públicos individualmente à extremidade frontal de uma regra de saída.
 
-### <a name="snatports"></a>Atribuição de porta SNAT de sintonização
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a>Atribuição de porta SNAT de sintonização
 
 Pode utilizar regras de saída para afinar a atribuição automática da [porta SNAT com base no tamanho](load-balancer-outbound-connections.md#preallocatedports) da piscina de backend e atribuir mais ou menos do que a atribuição automática de portas SNAT fornece.
 
-Utilize o parâmetro seguinte para alocar SNAT 10.000 portas por VM (configuração de IP de NIC).
+Utilize o seguinte parâmetro para alocar 10.000 portas SNAT por VM (configuração NIC IP).
  
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de todas as extremidades dianteiras de uma regra de saída contribui com até 64.000 portas efémeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em uma piscina de backend partilharia um único endereço IP público, a configuração é rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
+Cada endereço IP público de todas as extremidades dianteiras de uma regra de saída contribui com até 64.000 portas efémeras para utilização como portas SNAT.  Balancer load alocado portas SNAT em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar mais portas SNAT do que disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em uma piscina de backend partilharia um único endereço IP público, a configuração é rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Pode adicionar mais endereços IP públicos à extremidade frontal da regra de saída para permitir o cenário.
 
 Pode voltar à atribuição automática da [porta SNAT com base no tamanho da piscina de backend,](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. Nesse caso, os primeiros 50 casos de VM terão 1024 portas, 51-100 vM casos terão 512 e assim por diante de acordo com a tabela.
 
-### <a name="idletimeout"></a>Controlar o tempo de paragem do fluxo de saída
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a>Controlar o tempo de paragem do fluxo de saída
 
-Regras de saída fornecem um parâmetro de configuração para controlar o tempo de limite de inatividade de fluxo de saída e fazer sua correspondência com as necessidades da sua aplicação.  Padrão de limites de ociosidade de saída a 4 minutos.  O parâmetro aceita um valor de 4 a 120 para especificar o número de minutos para o tempo inativo para fluxos que correspondam a esta regra em particular.
+As regras de saída fornecem um parâmetro de configuração para controlar o tempo de paragem do fluxo de saída e compará-lo às necessidades da sua aplicação.  Os intervalos de saída não param em 4 minutos.  O parâmetro aceita um valor de 4 a 120 para especificar o número de minutos para o tempo inativo para fluxos que correspondam a esta regra em particular.
 
-Utilize o parâmetro seguinte para definir o tempo de limite de inatividade saído para 1 hora:
+Utilize o seguinte parâmetro para definir o tempo de saída para 1 hora:
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a><a name="tcpreset"></a> Ativar o Reset TCP no tempo de tempo inativo
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Ativar o Reset TCP no tempo de tempo inativo
 
-O comportamento padrão do Balanceador de carga é descartar o fluxo de forma silenciosa quando for atingido o tempo de limite de inatividade saído.  Com o parâmetro enableTCPReset, pode ativar um comportamento mais previsível em termos de aplicação e controlar se pretende enviar bidirecional (TCP RST) de reposição de TCP no tempo limite de tempo limite de inatividade saída. 
+O comportamento padrão do Balancer de Carga é baixar o fluxo silenciosamente quando o tempo de saída for atingido.  Com o parâmetro enableTCPReset, pode ativar um comportamento de aplicação e controlo mais previsíveis se enviar o Reset TCP (TCP RST) bidirecional no momento fora do tempo de saída. 
 
-Utilize o parâmetro seguinte para ativar a reposição de TCP de mensagens em fila numa regra de saída:
+Utilize o seguinte parâmetro para ativar o Reset tCP numa regra de saída:
 
            "enableTcpReset": true
 
 Reparação do [TCP no tempo inativo](https://aka.ms/lbtcpreset) para obter detalhes, incluindo a disponibilidade da região.
 
-### <a name="proto"></a>Apoiar tanto os protocolos de transporte tCP como uDP com uma regra única
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a>Apoiar tanto os protocolos de transporte tCP como uDP com uma regra única
 
-Provavelmente desejará usar "All" para o protocolo de transporte da regra de saída, mas também pode aplicar a regra de saída para um protocolo de transporte específico também se for necessário para fazer isso.
+É provável que queira utilizar "All" para o protocolo de transporte da regra de saída, mas também pode aplicar a regra de saída a um protocolo de transporte específico, se houver necessidade de o fazer.
 
-Utilize o parâmetro seguinte para definir o protocolo como TCP e UDP:
+Utilize o seguinte parâmetro para definir o protocolo à TCP e uDP:
 
           "protocol": "All"
 
-### <a name="disablesnat"></a>Desativar o NAT de saída para uma regra de equilíbrio de carga
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a>Desativar o NAT de saída para uma regra de equilíbrio de carga
 
-Conforme indicado anteriormente, as regras de balanceamento de carga fornecem uma programação automática de NAT de saída. No entanto, alguns cenários beneficiam ou tem de desativar a programação automática de NAT de saída por regra para permitem controlar ou refinar o comportamento de balanceamento de carga.  Regras de saída com cenários em que é importante parar a programação de NAT de saída automática.
+Como referido anteriormente, as regras de equilíbrio de carga fornecem uma programação automática de NAT de saída. No entanto, alguns cenários beneficiam ou exigem que desative a programação automática do NAT de saída pela regra de equilíbrio de carga supor que você controle ou refine o comportamento.  As regras de saída têm cenários em que é importante parar a programação automática de nat de saída.
 
 Pode utilizar este parâmetro de duas formas:
-- Supressão opcional de utilizar o endereço IP de entrada para NAT de saída.  Regras de saída são incrementais para regras de balanceamento de carga e com este conjunto de parâmetros, a regra de saída está no controle.
+- Supressão opcional da utilização do endereço IP de entrada para o NAT de saída.  As regras de saída são incrementais para carregar regras de equilíbrio e com este parâmetro definido, a regra de saída está no controlo.
   
-- Otimize os parâmetros NAT de saída de um endereço IP utilizado para entrada e saída em simultâneo.  A programação de NAT de saída automática tem de ser desativada para permitir que uma regra de saída assumir o controlo.  Por exemplo, para alterar a alocação de porta SNAT de um endereço também utilizado para entrada, este parâmetro tem de ser definido como true.  Se tentar utilizar uma regra de saída para redefinir os parâmetros de um endereço IP também utilizado para entrada e não tem lançado a programação de NAT de saída da regra de balanceamento de carga, a operação para configurar uma regra de saída irá falhar.
+- Sintonize simultaneamente os parâmetros NAT de saída de um endereço IP utilizado para a entrada e saída.  A programação automática de saída do NAT deve ser desativada para permitir que uma regra de saída assuma o controlo.  Por exemplo, para alterar a atribuição da porta SNAT de um endereço também utilizado para a entrada, este parâmetro deve ser definido como verdadeiro.  Se tentar utilizar uma regra de saída para redefinir os parâmetros de um endereço IP também utilizado sacar e não ter libertado a programação nat de saída da regra de equilíbrio de carga, a operação para configurar uma regra de saída falhará.
 
 >[!IMPORTANT]
-> A sua máquina virtual não terá conectividade de saída se definir este parâmetro verdadeiro e não tiver uma regra de saída (ou [cenário ip público de nível de instância](load-balancer-outbound-connections.md#ilpip) para definir a conectividade de saída.  Algumas operações de VM ou de seu aplicativo podem depender de ter conectividade de saída disponível. Certifique-se de que compreende as dependências do seu cenário e tenha considerado o impacto de efetuar esta alteração.
+> A sua máquina virtual não terá conectividade de saída se definir este parâmetro verdadeiro e não tiver uma regra de saída (ou [cenário ip público de nível de instância](load-balancer-outbound-connections.md#ilpip) para definir a conectividade de saída.  Algumas operações do seu VM ou da sua aplicação podem depender de ter conectividade de saída disponível. Certifique-se de compreender as dependências do seu cenário e ter considerado o impacto de fazer esta mudança.
 
-Pode desativar o SNAT de saída a regra com este parâmetro de configuração de balanceamento de carga:
+Pode desativar o SNAT de saída na regra de equilíbrio de carga com este parâmetro de configuração:
 
 ```json
       "loadBalancingRules": [
@@ -137,75 +137,75 @@ Pode desativar o SNAT de saída a regra com este parâmetro de configuração de
 
 O parâmetro dedesactivadorOutboundSNAT predefinido para falso, o que significa que a regra de equilíbrio de carga **fornece** NAT de saída automática como uma imagem espelhada da configuração da regra de equilíbrio de carga.  
 
-Se definir disableOutboundSnat como true na regra de balanceamento de carga, a regra de balanceamento de carga libera o controle da programação de NAT de saída outra forma automática.  SNAT de saída como resultado a regra de balanceamento de carga está desativada.
+Se definir desactivadorOutboundSnat para verdadeiro na regra de equilíbrio de carga, a regra de equilíbrio de carga liberta o controlo da programação NAT de saída automática de outra forma automática.  O SNAT de saída como resultado da regra de equilíbrio da carga é desativado.
 
-### <a name="reuse-existing-or-define-new-backend-pools"></a>Reutilizar existente ou definir novos conjuntos de back-end
+### <a name="reuse-existing-or-define-new-backend-pools"></a>Reutilizar as piscinas existentes ou definir novas piscinas de backend
 
-Regras de saída não introduz um novo conceito para definir o grupo de VMs para o qual a regra deve ser aplicada.  Em vez disso, eles reutilizar o conceito de um conjunto de back-end, que também é usado para regras de balanceamento de carga. Pode usar isso para simplificar a configuração reutilizar uma definição de conjunto de back-end existente ou criando um especificamente para uma regra de saída.
+As regras de saída não introduzem um novo conceito de definição do grupo de VMs a que a regra deve ser aplicada.  Em vez disso, reutilizam o conceito de piscina de backend, que também é usada para regras de equilíbrio de carga. Pode usá-lo para simplificar a configuração, reutilizando uma definição de piscina de backend existente ou criando uma especificamente para uma regra de saída.
 
 ## <a name="scenarios"></a>Cenários
 
-### <a name="groom"></a>Ligações de saída do noivo a um conjunto específico de endereços IP públicos
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a>Ligações de saída do noivo a um conjunto específico de endereços IP públicos
 
-Pode utilizar uma regra de saída para o tratamento de ligações de saída para aparecer se originar de um conjunto específico de endereços IP públicos para facilitar cenários de listas de permissões.  Este endereço IP público de origem pode ser igual ao utilizado por uma regra de balanceamento de carga ou endereços de um conjunto diferente de IP público que utilizada por uma regra de balanceamento de carga.  
+Você pode usar uma regra de saída para preparar ligações de saída para parecer originar de um conjunto específico de endereços IP públicos para facilitar cenários de listagem de branco.  Este endereço IP público de origem pode ser o mesmo usado por uma regra de equilíbrio de carga ou um conjunto diferente de endereços IP públicos do que usado por uma regra de equilíbrio de carga.  
 
 1. Criar [prefixo ip público](https://aka.ms/lbpublicipprefix) (ou endereços IP públicos a partir de prefixo IP público)
 2. Criar um Balanceador de Carga Standard público
-3. Criar a referenciar o público de front-ends prefixo IP (ou endereços IP públicos) que pretende utilizar
-4. Reutilizar um conjunto de back-end ou criar um conjunto de back-end e coloque as VMs num conjunto de back-end de Balanceador de carga público
-5. Configurar uma regra de saída no balanceador de carga público programar NAT de saída para estas VMs com o front-ends
+3. Crie frontends referentes ao prefixo IP público (ou endereços IP públicos) que deseja utilizar
+4. Reutilizar uma piscina de backend ou criar uma piscina de backend e colocar os VMs em uma piscina de backend do equilíbrio de carga pública
+5. Configure uma regra de saída no equilíbrio de carga público para programar NAT de saída para estes VMs usando as extremidades dianteiras
    
 Se não desejar que a regra de equilíbrio da carga seja utilizada para a saída, tem de [desativar o SNAT](#disablesnat) de saída na regra de equilíbrio de carga.
 
-### <a name="modifysnat"></a>Modificar a atribuição da porta SNAT
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a>Modificar a atribuição da porta SNAT
 
 Pode utilizar regras de saída para afinar a atribuição automática da [porta SNAT com base no tamanho da piscina de backend](load-balancer-outbound-connections.md#preallocatedports).
 
-Por exemplo, se tiver duas máquinas virtuais a partilha de um único endereço IP público para o NAT de saída, pode querer aumentar o número de portas SNAT alocados das portas predefinidas 1024, se estiver tendo o esgotamento de SNAT. Cada endereço IP público pode contribuir com até 64.000 portas efémeras.  Se configurar uma regra de saída com um único endereço IP público frontend, você pode distribuir um total de 64.000 portas SNAT para VMs na piscina de backend.  Para dois VMs, um máximo de 32.000 portas SNAT pode ser alocado com uma regra de saída (2x 32.000 = 64.000).
+Por exemplo, se tiver duas máquinas virtuais que partilham um único endereço IP público para o NAT de saída, poderá desejar aumentar o número de portas SNAT atribuídas a partir das 1024 portas padrão se estiver a sentir exaustão sNAT. Cada endereço IP público pode contribuir com até 64.000 portas efémeras.  Se configurar uma regra de saída com um único endereço IP público frontend, você pode distribuir um total de 64.000 portas SNAT para VMs na piscina de backend.  Para dois VMs, um máximo de 32.000 portas SNAT pode ser alocado com uma regra de saída (2x 32.000 = 64.000).
 
 Reveja as [ligações de saída](load-balancer-outbound-connections.md) e os detalhes sobre a forma como as portas [SNAT](load-balancer-outbound-connections.md#snat) são atribuídas e utilizadas.
 
-### <a name="outboundonly"></a>Ativar apenas a saída
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a>Ativar apenas a saída
 
-Pode utilizar um balanceador de carga Standard público para fornecer NAT de saída para um grupo de VMs. Neste cenário, pode utilizar uma regra de saída por si só, sem a necessidade de quaisquer regras adicionais.
+Você pode usar um Balancer de Carga Padrão público para fornecer NAT de saída para um grupo de VMs. Neste cenário, pode utilizar uma regra de saída por si só, sem a necessidade de quaisquer regras adicionais.
 
-#### <a name="outbound-nat-for-vms-only-no-inbound"></a>NAT de saída para VMs apenas (não entrada)
+#### <a name="outbound-nat-for-vms-only-no-inbound"></a>NAT de saída apenas para VMs (sem entrada)
 
-Definir um balanceador de carga Standard público, coloque as VMs em conjunto de back-end e configurar uma regra de saída para NAT de saída do programa e tratar as ligações de saída se originar de um endereço IP público específico. Também pode utilizar um prefixo IP público simplificar a criar uma lista a origem de ligações de saída.
+Defina um Balancer de Carga Padrão público, coloque os VMs na piscina de backend e configure uma regra de saída para programar nat de saída e preparar as ligações de saída para originar de um endereço IP público específico. Também pode utilizar um prefixo IP público para simplificar a listagem de branco da fonte de ligações de saída.
 
-1. Crie um balanceador de carga Standard público.
-2. Criar um conjunto de back-end e coloque as VMs num conjunto de back-end de Balanceador de carga público.
-3. Configure uma regra de saída no balanceador de carga público programar NAT de saída para estas VMs.
+1. Crie um Equilibrador de Carga Padrão público.
+2. Crie uma piscina de backend e coloque os VMs numa piscina de backend do equilibrador de carga pública.
+3. Configure uma regra de saída no equilíbrio de carga público para programar NAT de saída para estes VMs.
 
-#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de saída para cenários de Balanceador de carga internos
+#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de saída para cenários internos de equilíbrio de carga padrão
 
-Ao usar um Standard Balanceador de carga interno, NAT de saída não está disponível até que a conectividade de saída foi declarada explicitamente. Pode definir a conectividade de saída utilizando uma regra de saída para criar a conectividade de saída para VMs por trás de um balanceador de carga interno padrão com estes passos:
+Ao utilizar um balancedor de carga padrão interno, o NAT de saída não está disponível até que a conectividade de saída tenha sido explicitamente declarada. Pode definir a conectividade de saída utilizando uma regra de saída para criar conectividade de saída para VMs por trás de um Balancer de Carga Padrão interno com estes passos:
 
-1. Crie um balanceador de carga Standard público.
-2. Criar um conjunto de back-end e coloque as VMs num conjunto de back-end de Balanceador de carga público, além do Balanceador de carga interno.
-3. Configure uma regra de saída no balanceador de carga público programar NAT de saída para estas VMs.
+1. Crie um Equilibrador de Carga Padrão público.
+2. Crie uma piscina de backend e coloque os VMs numa piscina de backend do balancer de carga pública, além do Balancer de Carga interna.
+3. Configure uma regra de saída no equilíbrio de carga público para programar NAT de saída para estes VMs.
 
-#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Ativar protocolos TCP e UDP para NAT de saída com um balanceador de carga Standard público
+#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Permitir tanto os protocolos TCP & UDP para o NAT de saída com um equilibrista de carga padrão público
 
-- Ao usar um Standard Balanceador de carga público, a programação de NAT de saída automática, fornecida corresponde o protocolo de transporte de regra de balanceamento de carga.  
+- Ao utilizar um balancedor de carga padrão público, a programação automática de saída na NAT fornecida corresponde ao protocolo de transporte da regra de equilíbrio de carga.  
 
-   1. Desative o SNAT de saída a regra de balanceamento de carga.
-   2. Configure uma regra de saída no mesmo Balanceador de carga.
-   3. Reutilize o conjunto de back-end já utilizado por suas VMs.
-   4. Especificar "protocolo": "Tudo" como parte da regra de saída.
+   1. Desative a saída sNAT na regra de equilíbrio de carga.
+   2. Configure uma regra de saída no mesmo Balancer de Carga.
+   3. Reutilize a piscina de backend já utilizada pelos seus VMs.
+   4. Especifique "protocolo": "Todos" como parte da regra de saída.
 
-- Quando são utilizadas apenas regras NAT de entrada, é fornecido sem NAT de saída.
+- Quando apenas são utilizadas as regras de entrada na NAT, não é fornecido nenhum NAT de saída.
 
-   1. Colocar VMs num conjunto de back-end.
-   2. Defina uma ou mais configurações de IP de front-end com o endereço de IP público (s) ou o prefixo do IP público.
-   3. Configure uma regra de saída no mesmo Balanceador de carga.
-   4. Especificar "protocolo": "Tudo" como parte da regra de saída
+   1. Coloque vMs em uma piscina de backend.
+   2. Defina uma ou mais configurações IP frontend com endereçoip público ou prefixo IP público.
+   3. Configure uma regra de saída no mesmo Balancer de Carga.
+   4. Especificar "protocolo": "Todos" como parte da regra de saída
 
 ## <a name="limitations"></a>Limitações
 
 - O número máximo de portas efémeras utilizáveis por endereço IP frontal é de 64.000.
 - O intervalo do tempo de saída configurável é de 4 a 120 minutos (240 a 7200 segundos).
-- Balanceador de carga não suporta o ICMP para NAT de saída.
+- O Balancer de Carga não suporta o ICMP para o NAT de saída.
 - As regras de saída só podem ser aplicadas à configuração primária de IP de um NIC.  Vários NICs são suportados.
 
 ## <a name="next-steps"></a>Passos seguintes

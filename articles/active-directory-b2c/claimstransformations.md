@@ -1,5 +1,5 @@
 ---
-title: ClaimsTransformations - Azure Ative Directory B2C  Microsoft Docs
+title: ClaimsTransformations - Azure Ative Directory B2C [ Microsoft Docs
 description: Definição do elemento Detransformação de Reclamações no Quadro de Experiência de Identidade Schema do Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189741"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -71,16 +71,16 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| inputClaim | 1:n | Um tipo de reclamação de entrada esperado. |
+| Pedido de crédito | 1:n | Um tipo de reclamação de entrada esperado. |
 
-#### <a name="inputclaim"></a>inputClaim
+#### <a name="inputclaim"></a>Pedido de crédito
 
 O elemento **InputClaim** contém os seguintes atributos:
 
 | Atributo |Necessário | Descrição |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Sim | Uma referência a um ClaimType já definido na secção ClaimsSchema na política. |
-| TransformationClaimType |Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| Tipo de reclamação de transformação |Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
 
 ### <a name="inputparameters"></a>Parâmetros de entrada
 
@@ -95,7 +95,7 @@ O elemento **InputParameters** contém o seguinte elemento:
 | Atributo | Necessário |Descrição |
 | --------- | ----------- |----------- |
 | Id | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de sinistros. Cada método de transformação de reivindicações tem os seus próprios valores. Consulte a tabela de transformação de reclamações para obter uma lista completa dos valores disponíveis. |
-| Tipo de dados | Sim | O tipo de dados do parâmetro, tais como String, Boolean, Int ou DateTime de acordo com a enumeração dataType no esquema de política personalizada XML. Este tipo é utilizado para executar operações aritméticas corretamente. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| DataType | Sim | O tipo de dados do parâmetro, tais como String, Boolean, Int ou DateTime de acordo com a enumeração dataType no esquema de política personalizada XML. Este tipo é utilizado para executar operações aritméticas corretamente. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
 | Valor | Sim | Um valor que é passado verbatim para a transformação. Alguns dos valores são arbitrários, alguns deles selecionam do método de transformação de sinistros. |
 
 ### <a name="outputclaims"></a>OutputClaims
@@ -104,16 +104,16 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| OutputClaim | 0:n | Um tipo de reivindicação de saída esperado. |
+| Pedido de saída | 0:n | Um tipo de reivindicação de saída esperado. |
 
-#### <a name="outputclaim"></a>OutputClaim
+#### <a name="outputclaim"></a>Pedido de saída
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo |Necessário | Descrição |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sim | Uma referência a um ClaimType já definido na secção ClaimsSchema na política.
-| TransformationClaimType | Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
+| Tipo de reclamação de transformação | Sim | Um identificador para referenciar um tipo de pedido de transformação. Cada reivindicação transformação tem os seus próprios valores. Consulte a referência de transformação de [sinistros](#claims-transformations-reference) para uma lista completa dos valores disponíveis. |
 
 Se a reclamação de entrada e a alegação de saída forem do mesmo tipo (corda, ou boolean), pode utilizar a mesma alegação de entrada que a alegação de saída. Neste caso, a transformação de sinistros altera a reclamação de entrada com o valor de saída.
 
@@ -162,9 +162,9 @@ Para exemplo sondar as transformações de sinistros, consulte as seguintes pág
 - [Boolean](boolean-transformations.md)
 - [Data](date-transformations.md)
 - [Inteiro](integer-transformations.md)
-- [JSON](json-transformations.md)
-- [Geral](general-transformations.md)
+- [Rio JSON](json-transformations.md)
+- [General](general-transformations.md)
 - [Conta social](social-transformations.md)
-- [Corda](string-transformations.md)
+- [String](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)
 

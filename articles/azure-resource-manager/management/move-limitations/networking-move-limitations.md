@@ -1,35 +1,35 @@
 ---
-title: Mover os recursos de rede do Azure para a nova assinatura ou grupo de recursos
-description: Use Azure Resource Manager para mover redes virtuais e outros recursos de rede para um novo grupo de recursos ou assinatura.
+title: Mover os recursos da Rede Azure para um novo grupo de subscrição ou recursos
+description: Utilize o Gestor de Recursos Azure para mover redes virtuais e outros recursos de networking para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485237"
 ---
-# <a name="move-guidance-for-networking-resources"></a>Mover diretrizes para recursos de rede
+# <a name="move-guidance-for-networking-resources"></a>Mover orientação para recursos de networking
 
-Este artigo descreve como mover redes virtuais e outros recursos de rede para cenários específicos.
+Este artigo descreve como mover redes virtuais e outros recursos de networking para cenários específicos.
 
 ## <a name="dependent-resources"></a>Recursos dependentes
 
-Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
+Ao mover uma rede virtual, também deve mover os seus recursos dependentes. Para os Gateways VPN, deve mover endereços IP, gateways de rede virtual e todos os recursos de ligação associados. Os gateways da rede local podem estar num grupo de recursos diferente.
 
-Para mover uma máquina virtual com uma placa de interface de rede para uma nova assinatura, você deve mover todos os recursos dependentes. Mova a rede virtual para a placa de interface de rede, todas as outras placas de interface de rede para a rede virtual e os gateways de VPN.
+Para mover uma máquina virtual com um cartão de interface de rede para uma nova subscrição, você deve mover todos os recursos dependentes. Mova a rede virtual para o cartão de interface de rede, todos os outros cartões de interface de rede para a rede virtual e os gateways VPN.
 
-Para obter mais informações, consulte [cenário para mover entre assinaturas](../move-resource-group-and-subscription.md#scenario-for-move-across-subscriptions).
+Para mais informações, consulte Cenário para se deslocar através de [subscrições](../move-resource-group-and-subscription.md#scenario-for-move-across-subscriptions).
 
-## <a name="peered-virtual-network"></a>Rede virtual emparelhada
+## <a name="peered-virtual-network"></a>Rede virtual peered
 
-Para mover uma rede virtual em modo de peering, tem primeiro de desativar o peering de rede virtual. Uma vez desativada, pode mover a rede virtual. Após a mudança, reativar o peering de rede virtual.
+Para mover uma rede virtual esparsa, tem primeiro de desativar o olhar de rede virtual. Uma vez desativado, pode mover a rede virtual. Após a mudança, reabilite o olhar virtual da rede.
 
-## <a name="subnet-links"></a>Links de sub-rede
+## <a name="subnet-links"></a>Ligações de sub-rede
 
-Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém uma sub-rede com ligações de navegação de recursos. Por exemplo, se uma Cache do Azure para o recurso de Redis é implementada numa sub-rede, o que a sub-rede tem uma ligação de navegação de recursos.
+Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contiver uma subrede com links de navegação de recursos. Por exemplo, se um recurso Azure Cache for implantado numa subrede, essa sub-rede tem uma ligação de navegação de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../move-resource-group-and-subscription.md).
+Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).

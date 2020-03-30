@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184946"
 ---
 1. Abra o projeto no Android Studio.
 
-2. Na **Explorador de projeto** no Android Studio, abra o `ToDoActivity.java` de ficheiros e adicione as seguintes declarações de importação:
+2. No **Project Explorer** no Android `ToDoActivity.java` Studio, abra o ficheiro e adicione as seguintes declarações de importação:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -27,7 +27,7 @@ ms.locfileid: "67184946"
     import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
     ```
 
-3. Adicione o seguinte método para o **ToDoActivity** classe:
+3. Adicione o seguinte método à classe **ToDoActivity:**
 
     ```java
     // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -59,12 +59,12 @@ ms.locfileid: "67184946"
     }
     ```
 
-    Este código cria um método para manipular o processo de autenticação do Google. Uma caixa de diálogo apresenta o ID do usuário autenticado. Só pode continuar numa autenticação com êxito.
+    Este código cria um método para lidar com o processo de autenticação da Google. Um diálogo exibe a identificação do utilizador autenticado. Só pode proceder a uma autenticação bem sucedida.
 
     > [!NOTE]
-    > Se estiver a utilizar um fornecedor de identidade que não seja o Google, altere o valor transmitido para o **início de sessão** método para um dos seguintes valores: _MicrosoftAccount_, _Facebook_, _Twitter_, ou _windowsazureactivedirectory_.
+    > Se estiver a utilizar um fornecedor de identidade que não o Google, altere o valor passado para o método de **login** para um dos seguintes valores: _MicrosoftAccount,_ _Facebook,_ _Twitter_ou _windowsazureactivedirectory_.
 
-4. Na **onCreate** método, adicione a seguinte linha de código após o código que instancia o `MobileServiceClient` objeto.
+4. No método **onCreate,** adicione a seguinte linha de código `MobileServiceClient` após o código que instantaneamente o objeto.
 
     ```java
     authenticate();
@@ -72,7 +72,7 @@ ms.locfileid: "67184946"
 
     Esta chamada inicia o processo de autenticação.
 
-5. Mover o código restante após `authenticate();` no **onCreate** método para um novo **createTable** método:
+5. Mova o código `authenticate();` restante depois no método **onCreate** para um novo método **createTable:**
 
     ```java
     private void createTable() {
@@ -92,7 +92,7 @@ ms.locfileid: "67184946"
     }
     ```
 
-6. Para garantir que o redirecionamento funciona conforme esperado, adicione o seguinte fragmento de `RedirectUrlActivity` para `AndroidManifest.xml`:
+6. Para garantir que a reorientação funcione como `RedirectUrlActivity` `AndroidManifest.xml`esperado, adicione o seguinte corte de :
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -106,7 +106,7 @@ ms.locfileid: "67184946"
     </activity>
     ```
 
-7. Adicione `redirectUriScheme` para `build.gradle` da sua aplicação Android.
+7. Adicione `redirectUriScheme` `build.gradle` à sua aplicação Android.
 
     ```gradle
     android {
@@ -123,7 +123,7 @@ ms.locfileid: "67184946"
     }
     ```
 
-8. Adicione `com.android.support:customtabs:23.0.1` às dependências em seu `build.gradle`:
+8. Adicione `com.android.support:customtabs:23.0.1` às dependências `build.gradle`do seu:
 
     ```gradle
     dependencies {
@@ -132,9 +132,9 @@ ms.locfileid: "67184946"
     }
     ```
 
-9. Do **execute** menu, clique em **executar aplicação** para iniciar a aplicação e inicie sessão com o fornecedor de identidade escolhido.
+9. A partir do menu **Executar,** clique na **aplicação Run** para iniciar a aplicação e iniciar o comia com o seu fornecedor de identidade escolhido.
 
 > [!WARNING]
-> O esquema de URL mencionado diferencia maiúsculas de minúsculas. Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` utilizar as maiúsculas.
+> O sistema de URL mencionado é sensível a casos. Certifique-se de `{url_scheme_of_you_app}` que todas as ocorrências de utilização são iguais.
 
-Quando tiver entrado com êxito, a aplicação deve ser executado sem erros e deve ser capaz de consultar o serviço de back-end e fazer atualizações aos dados.
+Quando estiver inscrito com sucesso, a aplicação deve ser executada sem erros, e deverá ser capaz de consultar o serviço back-end e fazer atualizações para os dados.

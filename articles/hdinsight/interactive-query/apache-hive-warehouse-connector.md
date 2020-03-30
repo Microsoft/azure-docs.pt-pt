@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252412"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integre a Apache Spark e a Apache Hive com o Conector de Armazém da Colmeia
@@ -46,7 +46,7 @@ Siga estes passos para configurar o Conector de Armazém hive entre um cluster d
 
 ### <a name="modify-hosts-file"></a>Modificar ficheiro de anfitriões
 
-Copie as informações do nó do ficheiro `/etc/hosts` no headnode0 do seu cluster Deconsulta Interativo e concatena a informação para o ficheiro `/etc/hosts` no headnode0 do seu cluster Spark. Este passo permitirá ao seu cluster Spark resolver endereços IP dos nós no cluster De consulta interativa. Consulte o conteúdo do ficheiro atualizado com `cat /etc/hosts`. A saída final deve parecer algo parecido com o que é mostrado na imagem abaixo.
+Copie as informações `/etc/hosts` do nó do ficheiro no headnode0 do seu cluster `/etc/hosts` Deconsulta Interativa e concatena a informação para o ficheiro no headnode0 do seu cluster Spark. Este passo permitirá ao seu cluster Spark resolver endereços IP dos nós no cluster De consulta interativa. Ver o conteúdo do `cat /etc/hosts`ficheiro atualizado com . A saída final deve parecer algo parecido com o que é mostrado na imagem abaixo.
 
 ![arquivo de conector de armazém de colmeia](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -54,21 +54,21 @@ Copie as informações do nó do ficheiro `/etc/hosts` no headnode0 do seu clust
 
 #### <a name="from-your-interactive-query-cluster"></a>Do seu cluster de consulta interativa
 
-1. Navegue para a página apache Ambari Hive do cluster usando `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` onde `LLAPCLUSTERNAME` é o nome do seu cluster de consulta interativa.
+1. Navegue para a página apache Ambari `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` `LLAPCLUSTERNAME` Hive do cluster usando onde está o nome do seu cluster de consulta interativa.
 
-1. Navegue para **Advanced** > **General** > **hive.metastore.uris** e note o valor. O valor pode ser semelhante a: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Navegue para **Advanced** > **General** > **hive.metastore.uris** e note o valor. O valor pode ser `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`semelhante a: .
 
-1. Navegue para advanced > **Local avançado** **de colmeias** > **hive.zookeeper.quorum** e note o valor. O valor pode ser semelhante a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Navegue para **o local** > avançado de**Advanced hive-site** > **colmeia.zookeeper.quorum** e note o valor. O valor pode ser `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`semelhante a: .
 
 #### <a name="from-your-apache-spark-cluster"></a>Do seu aglomerado de Faíscas Apache
 
-1. Navegue para a página da Colmeia Apache Ambari do cluster usando `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` onde `SPARKCLUSTERNAME` é o nome do seu cluster Apache Spark.
+1. Navegue para a página da Colmeia Apache `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` `SPARKCLUSTERNAME` Ambari do cluster usando onde está o nome do seu cluster Apache Spark.
 
-1. Navegue para **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** e note o valor. O valor pode ser semelhante a: `@llap0`.
+1. Navegue para **advanced Advanced** > **hive-interactive-site** > **hive.llap.daemon.service.hosts** e note o valor. O valor pode ser `@llap0`semelhante a: .
 
 ### <a name="configure-spark-cluster-settings"></a>Configurar as definições do cluster de faíscas
 
-A partir da sua Web UI Spark Ambari, navegue até **Spark2** > **CONFIGS** > **padrãos personalizados de spark2**.
+A partir da sua Web UI Spark Ambari, navegue até **Spark2** > **CONFIGS** > **Custom spark2-defaults**.
 
 ![Configuração Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
@@ -77,10 +77,10 @@ Selecione **Adicionar Propriedade...** conforme necessário para adicionar/atual
 | Chave | Valor |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|O valor que obteve anteriormente da **hive.llap.daemon.service.hosts**.|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Configurado para a cadeia de ligação JDBC, que se conecta ao Hiveserver2 no cluster De consulta interativa. SUBSTITUa `LLAPCLUSTERNAME` com o nome do seu cluster De consulta interativa. Substitua `PWD` com a senha real.|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Definir para um diretório de encenação compatível com HDFS adequado. Se tiver dois clusters diferentes, o diretório de encenação deve ser uma pasta no diretório de encenação da conta de armazenamento do cluster LLAP para que o HiveServer2 tenha acesso ao mesmo.  Substitua `STORAGE_ACCOUNT_NAME` com o nome da conta de armazenamento utilizada pelo cluster e `STORAGE_CONTAINER_NAME` pelo nome do recipiente de armazenamento.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Configurado para a cadeia de ligação JDBC, que se conecta ao Hiveserver2 no cluster De consulta interativa. SUBSTITUA `LLAPCLUSTERNAME` com o nome do seu cluster De consulta interativa. Substitua-a `PWD` com a senha real.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Definir para um diretório de encenação compatível com HDFS adequado. Se tiver dois clusters diferentes, o diretório de encenação deve ser uma pasta no diretório de encenação da conta de armazenamento do cluster LLAP para que o HiveServer2 tenha acesso ao mesmo.  Substitua-a `STORAGE_ACCOUNT_NAME` com o nome da conta `STORAGE_CONTAINER_NAME` de armazenamento utilizada pelo cluster e com o nome do recipiente de armazenamento.|
 |`spark.datasource.hive.warehouse.metastoreUri`|O valor que obteve anteriormente da **hive.metastore.uris**.|
-|`spark.security.credentials.hiveserver2.enabled`|`false` para o modo de implantação do cliente YARN.|
+|`spark.security.credentials.hiveserver2.enabled`|`false`para o modo de implantação do cliente YARN.|
 |`spark.hadoop.hive.zookeeper.quorum`|O valor que obteve anteriormente da **hive.zookeeper.quorum**.|
 
 Guarde as alterações e reinicie os componentes conforme necessário.
@@ -111,7 +111,7 @@ Para iniciar uma sessão de spark-shell, faça os seguintes passos:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Verá uma mensagem de boas-vindas e um `scala>` pronta onde pode entrar comandos.
+    Verá uma mensagem de `scala>` boas-vindas e uma solicitação onde poderá entrar nos comandos.
 
 1. Depois de iniciar a casca de faísca, uma instância de Conector de Armazém hive pode ser iniciada usando os seguintes comandos:
 
@@ -157,13 +157,13 @@ Os resultados da consulta são Spark DataFrames, que podem ser usados com biblio
 
 A Faísca não apoia a escrita nas mesas acid geridas da Hive. Usando o HWC, no entanto, pode escrever qualquer DataFrame para uma tabela Hive. Pode ver esta funcionalidade a trabalhar no seguinte exemplo:
 
-1. Crie uma tabela chamada `sampletable_colorado` e especifique as suas colunas utilizando o seguinte comando:
+1. Crie uma `sampletable_colorado` tabela chamada e especifique as suas colunas utilizando o seguinte comando:
 
     ```scala
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. Filtre a tabela `hivesampletable` onde a coluna `state` é igual a `Colorado`. Esta consulta da tabela Hive é devolvida como um Spark DataFrame. Em seguida, o DataFrame é guardado na tabela Da Colmeia `sampletable_colorado` utilizando a função `write`.
+1. Filtrar `hivesampletable` a tabela `state` onde `Colorado`a coluna é igual . Esta consulta da tabela Hive é devolvida como um Spark DataFrame. Em seguida, o DataFrame é `sampletable_colorado` guardado `write` na tabela Hive utilizando a função.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
@@ -193,7 +193,7 @@ Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ing
 
 1. Gere dados para o fluxo Spark que criou, fazendo os seguintes passos:
     1. Abra uma segunda sessão de SSH no mesmo cluster Spark.
-    1. No pedido de comando, escreva `nc -lk 9999`. Este comando utiliza o utilitário netcat para enviar dados da linha de comando para a porta especificada.
+    1. No pedido de `nc -lk 9999`comando, escreva . Este comando utiliza o utilitário netcat para enviar dados da linha de comando para a porta especificada.
 
 1. Volte à primeira sessão de SSH e crie uma nova tabela Hive para segurar os dados de streaming. Na casca de faísca, insira o seguinte comando:
 
@@ -208,7 +208,7 @@ Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ing
     ```
 
     >[!Important]
-    > As opções `metastoreUri` e `database` devem ser definidas manualmente devido a um problema conhecido em Apache Spark. Para mais informações sobre este assunto, consulte [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
+    > As `metastoreUri` `database` opções e opções devem ser definidas manualmente devido a um problema conhecido em Apache Spark. Para mais informações sobre este assunto, consulte [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
 1. Volte à segunda sessão de SSH e introduza os seguintes valores:
 
@@ -224,11 +224,11 @@ Siga os passos abaixo para criar um exemplo de Conector de Armazém hive que ing
     hive.table("stream_table").show()
     ```
 
-Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` para sair da casca de faísca na primeira sessão de SSH.
+Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` para sair de uma casca de faísca na primeira sessão sHH.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Obtenção de dados sobre clusters Spark ESP
 
-1. Criar uma tabela `demo` com alguns dados da amostra, inserindo os seguintes comandos:
+1. Crie `demo` uma tabela com alguns dados da amostra, inserindo os seguintes comandos:
 
     ```scala
     create table demo (name string);
@@ -237,7 +237,7 @@ Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` pa
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. Veja o conteúdo da tabela com o seguinte comando. Antes de aplicar a apólice, a tabela `demo` mostra a coluna completa.
+1. Veja o conteúdo da tabela com o seguinte comando. Antes de aplicar a `demo` apólice, a tabela mostra a coluna completa.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -246,15 +246,15 @@ Utilize **ctrl + C** para parar o netcat na segunda sessão SSH. Utilize `:q` pa
     ![mesa de demonstração antes de aplicar política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. Aplique uma política de máscarade coluna que apenas mostre os últimos quatro caracteres da coluna.  
-    1. Vá ao Ranger Admin UI em `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
+    1. Vá ao Ranger Admin `https://CLUSTERNAME.azurehdinsight.net/ranger/`UI em .
     1. Clique no serviço hive para o seu cluster sob **a Colmeia**.
-        ](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png), gestor de serviços de guarda-florestal ![
+        ![gestor de serviço ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Clique no **separador Mascarar** e, em seguida, **adicione nova política**
 
         ![hive armazém cone cector ranger lista política política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
     a. Forneça um nome de política desejado. Selecione base de dados: **Predefinido**, Tabela de Colmeias: **demo,** Coluna hive: **nome**, Utilizador: **rsadmin2**, Tipos de acesso: **selecione**- e **máscara parcial: mostrar o último 4** do menu Select **Masking Option.** Clique em **Adicionar**.
-                ![criar](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png) políticas
+                ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Veja o conteúdo da mesa novamente. Depois de aplicar a política dos rangers, só podemos ver os últimos quatro caracteres da coluna.
 
     ![mesa de demonstração após aplicar política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

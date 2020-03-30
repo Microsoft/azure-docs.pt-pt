@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184062"
 ---
-## <a name="deployment-customization"></a>Personalização da implementação
+## <a name="deployment-customization"></a>Personalização de implementação
 
-O processo de implantação parte do princípio de que o ficheiro. zip que enviar contém uma aplicação de prontos para executar. Por predefinição, são executadas sem personalizações. Para ativar os mesmos processos de compilação que obtém com a integração contínua, adicione o seguinte para as definições da aplicação:
+O processo de implementação pressupõe que o ficheiro .zip que empurra contém uma aplicação pronta a ser executada. Por padrão, não são executadas personalizações. Para permitir os mesmos processos de construção que obtém com integração contínua, adicione o seguinte às definições da sua aplicação:
 
     SCM_DO_BUILD_DURING_DEPLOYMENT=true 
 
-Quando usa a implementação de push. zip, esta definição é **false** por predefinição. A predefinição é **true** para implementações de integração contínua. Quando definido como **true**, as definições relacionadas com a implementação são utilizadas durante a implementação. Pode configurar estas definições, como definições da aplicação ou num ficheiro de configuração. Deployment que está localizado na raiz do seu ficheiro. zip. Para obter mais informações, consulte [repositório e definições relacionadas com a implementação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings) na referência de implementação.
+Quando utilizar a implementação do impulso .zip, esta definição é **falsa** por defeito. O padrão é **verdadeiro** para implementações contínuas de integração. Quando **definido como verdadeiro,** as definições relacionadas com a implementação são utilizadas durante a implementação. Pode configurar estas definições quer como definições de aplicação quer num ficheiro de configuração de .implementação que esteja localizado na raiz do seu ficheiro .zip. Para mais informações, consulte [as definições de Repositório e de implantação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings) na referência de implantação.

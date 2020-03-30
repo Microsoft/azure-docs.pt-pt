@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302122"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
- Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo.  
+ Devolve um valor numérico, arredondado ao valor inteiro mais próximo.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -45,7 +45,7 @@ ROUND(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte arredonda os números positivos e negativos a seguir para o número inteiro mais próximo.  
+  O exemplo seguinte completa os seguintes números positivos e negativos ao inteiro mais próximo.  
   
 ```sql
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  

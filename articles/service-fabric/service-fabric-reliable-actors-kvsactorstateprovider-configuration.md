@@ -1,69 +1,69 @@
 ---
-title: Alterar configurações de KVSActorStateProvider
-description: Saiba mais sobre como configurar atores Service Fabric com estado do Azure do tipo KVSActorStateProvider.
+title: Alterar as definições do KVSActorStateProvider
+description: Saiba configurar atores de serviço azure fabric de tipo KVSActorStateProvider.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609779"
 ---
-# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
-Você pode modificar a configuração padrão de KVSActorStateProvider alterando o arquivo Settings. XML que é gerado na raiz do pacote de Microsoft Visual Studio na pasta de configuração do ator especificado.
+# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurar atores fiáveis --KVSActorStateProvider
+Pode modificar a configuração padrão do KVSActorStateProvider alterando o ficheiro definições.xml geradona na raiz do pacote do Microsoft Visual Studio sob a pasta Config para o ator especificado.
 
-O tempo de execução do Azure Service Fabric procura nomes de seção predefinidos no arquivo Settings. xml e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
+O tempo de execução do Tecido de Serviço Azure procura nomes de secção predefinidos no ficheiro definições.xml e consome os valores de configuração enquanto cria os componentes de tempo de execução subjacentes.
 
 > [!NOTE]
-> **Não** exclua nem modifique os nomes de seção das configurações a seguir no arquivo Settings. XML que é gerado na solução do Visual Studio.
+> Não **not** elimine ou modifique os nomes da secção das seguintes configurações no ficheiro definições.xml que é gerado na solução Estúdio Visual.
 > 
 > 
 
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
-As configurações de segurança do replicador são usadas para proteger o canal de comunicação usado durante a replicação. Isso significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que se tornam altamente disponíveis também sejam seguros.
-Por padrão, uma seção de configuração de segurança vazia impede a segurança da replicação.
+As configurações de segurança do replicador são usadas para fixar o canal de comunicação que é utilizado durante a replicação. Isto significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que são altamente disponibilizados também são seguros.
+Por predefinição, uma secção de configuração de segurança vazia impede a segurança da replicação.
 
 > [!IMPORTANT]
-> Em nós do Linux, os certificados devem ser formatados por PEM. Para saber mais sobre como localizar e configurar certificados para o Linux, consulte [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
+> Nos nós linux, os certificados devem ser formatados em PEM. Para saber mais sobre a localização e configuração de certificados para o Linux, consulte [os certificados de Configuração no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Nome da seção
-&lt;ActorName&gt;ServiceReplicatorSecurityConfig
+### <a name="section-name"></a>Nome da secção
+&lt;Serviço&gt;de Nome actorReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuração do replicador
-As configurações do replicador configuram o replicador que é responsável por tornar o estado do provedor de estado do ator altamente confiável.
-A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
+As configurações do replicador configuram o replicador que é responsável por tornar o Estado fornecedor de ator altamente fiável.
+A configuração predefinida é gerada pelo modelo do Estúdio Visual e deve ser suficiente. Esta secção fala sobre configurações adicionais que estão disponíveis para afinar o replicador.
 
-### <a name="section-name"></a>Nome da seção
+### <a name="section-name"></a>Nome da secção
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta uma confirmação para a primária. Quaisquer outras confirmações a serem enviadas para operações processadas nesse intervalo são enviadas como uma resposta. |
-| ReplicatorEndpoint |N/A |Nenhum padrão--parâmetro obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Isso deve fazer referência a um ponto de extremidade de recurso TCP no manifesto do serviço. Consulte [recursos de manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir recursos de ponto de extremidade no manifesto do serviço. |
-| RetryInterval |Segundos |5 |Período após o qual o replicador retransmite uma mensagem se não receber uma confirmação para uma operação. |
-| MaxReplicationMessageSize |Bytes |50 MB |Tamanho máximo dos dados de replicação que podem ser transmitidos em uma única mensagem. |
-| MaxPrimaryReplicationQueueSize |Número de operações |1024 |Número máximo de operações na fila primária. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
-| MaxSecondaryReplicationQueueSize |Número de operações |2048 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
+| Intervalo de Reconhecimento de Lote |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta um reconhecimento para as primárias. Quaisquer outros agradecimentos a serem enviados para operações processadas dentro deste intervalo são enviados como uma resposta. |
+| Ponto de fim de réplica |N/D |Sem parâmetro sem necessidade de incumprimento |Endereço IP e porta que o replicador primário/secundário utilizará para comunicar com outros replicadores no conjunto de réplicas. Isto deve referir um ponto final de recurso TCP no manifesto de serviço. Consulte os [recursos manifestos do Serviço](service-fabric-service-manifest-resources.md) para ler mais sobre a definição de recursos de ponto final no manifesto de serviço. |
+| Intervalo de retry |Segundos |5 |Período de tempo após o qual o replicador retransmite uma mensagem se não receber um reconhecimento para uma operação. |
+| Tamanho do Mensagem de Replicação Max |Bytes |50 MB |Tamanho máximo dos dados de replicação que podem ser transmitidos numa única mensagem. |
+| MaxPrimaryReplicationTionQueueSize |Número de operações |1024 |Número máximo de operações na fila principal. Uma operação é libertada depois que o replicador primário recebe um reconhecimento de todos os replicadores secundários. Este valor deve ser superior a 64 e uma potência de 2. |
+| MaxSecondreplicationTionQueueSize |Número de operações |2048 |Número máximo de operações na fila secundária. Uma operação é libertada depois de tornar o seu estado altamente disponível através da persistência. Este valor deve ser superior a 64 e uma potência de 2. |
 
-## <a name="store-configuration"></a>Configuração do repositório
-As configurações de armazenamento são usadas para configurar o repositório local que é usado para persistir o estado que está sendo replicado.
-A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o armazenamento local.
+## <a name="store-configuration"></a>Configuração da loja
+As configurações da loja são usadas para configurar a loja local que é usada para persistir o estado que está a ser replicado.
+A configuração predefinida é gerada pelo modelo do Estúdio Visual e deve ser suficiente. Esta secção fala sobre configurações adicionais que estão disponíveis para afinar a loja local.
 
-### <a name="section-name"></a>Nome da seção
-&lt;ActorName&gt;ServiceLocalStoreConfig
+### <a name="section-name"></a>Nome da secção
+&lt;Serviço&gt;de Nome actorLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o intervalo máximo de envio em lote para confirmações de repositório local durável. |
-| MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão no banco de dados de repositório local. Ele determina o número máximo de transações pendentes. |
+| MaxAsyncCommitDelayInMillisegundos |Milissegundos |200 |Define o intervalo máximo de lote para os compromissos de loja local durável. |
+| Páginas MaxVer |Número de páginas |16384 |O número máximo de páginas de versões na base de dados da loja local. Determina o número máximo de transações pendentes. |
 
-## <a name="sample-configuration-file"></a>Arquivo de configuração de exemplo
+## <a name="sample-configuration-file"></a>Ficheiro de configuração de exemplo
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -86,6 +86,6 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 </Settings>
 ```
 ## <a name="remarks"></a>Observações
-O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor de ' 0 ' resulta na menor latência possível, no custo da taxa de transferência (já que mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações).
-Quanto maior o valor de BatchAcknowledgementInterval, maior será a taxa de transferência de replicação geral, com o custo de maior latência de operação. Isso se traduz diretamente na latência de confirmações de transação.
+O parâmetro BatchRecognisementInterval controla a latência da replicação. Um valor de '0' resulta na latência mais baixa possível, à custa da entrada (uma vez que mais mensagens de reconhecimento devem ser enviadas e processadas, cada uma contendo menos reconhecimentos).
+Quanto maior for o valor para o BatchRecognisementInterval, maior é o rendimento global da replicação, à custa de uma maior latência de operação. Isto traduz-se diretamente na latência das transações.
 

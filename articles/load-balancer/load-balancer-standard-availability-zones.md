@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197152"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
 O Azure Standard Load Balancer suporta [cenários de zonas](../availability-zones/az-overview.md) de disponibilidade. Pode utilizar o Standard Load Balancer para otimizar a disponibilidade no seu cenário de ponta a ponta, alinhando recursos com zonas e distribuindo-os por zonas.  Reveja [as zonas de disponibilidade](../availability-zones/az-overview.md) para orientação sobre quais são as zonas de disponibilidade, quais as regiões que atualmente suportam zonas de disponibilidade, e outros conceitos e produtos relacionados. As zonas de disponibilidade em combinação com o Standard Load Balancer é um conjunto de funcionalidades expansivo e flexível que pode criar muitos cenários diferentes.  Reveja este documento para compreender estes [conceitos](#concepts) e [orientação](#design)de design de cenário fundamental.
 
-## <a name="concepts"></a>Conceitos de Zonas de Disponibilidade aplicados ao Balancer de Carga
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a>Conceitos de Zonas de Disponibilidade aplicados ao Balancer de Carga
 
 Um recurso load Balancer em si é regional e nunca zonal. A granularidade do que pode configurar é limitada por cada configuração de definição frontal, regra e reserva.
 No contexto das zonas de disponibilidade, o comportamento e as propriedades de uma regra do Balancer de Carga são descritos como zona-redundante ou zonal.  Zona-redundante e zonal descrevem a zonade de uma propriedade.  No contexto do Balancer load, zona-redundante significa sempre *múltiplas zonas* e zonais significa isolar o serviço para uma *única zona*.
 Tanto cenários públicos e internos de suporte de balanceadores de carga são zonas redundantes e zonais e ambos podem direcionar o tráfego através das zonas conforme necessário *(equilíbrio de carga*transversal). 
 
-### <a name="frontend"></a>Frontend
+### <a name="frontend"></a>Front-end
 
 Um frontend do Balancer de carga é uma configuração IP frontal que refere um recurso de endereço IP público ou um endereço IP privado dentro da subnet de um recurso de rede virtual.  Forma o ponto final equilibrado da carga onde o seu serviço está exposto.
 Um recurso load Balancer pode conter regras com extremidades dianteiras zonais e zona-redundante simultaneamente. Quando um recurso IP público ou um endereço IP privado foi garantido para uma zona, a zona (ou falta dela) não é mutável.  Se desejar alterar ou omitir a zonade de um ip público ou endereço IP privado frontend, você precisa recriar o IP público na zona apropriada.  As zonas de disponibilidade não alteram os constrangimentos para várias extremidades dianteiras, reveja [várias extremidades frontais para](load-balancer-multivip-overview.md) o Balancer de Carga para obter detalhes para esta capacidade.
@@ -57,7 +57,7 @@ O equilíbrio de carga transversal é a capacidade do Balancer de Carga atingir 
 
 Você precisa ter cuidado para construir o seu cenário de uma forma que expresse uma noção de zonas de disponibilidade. Por exemplo, você precisa garantir a sua implantação de máquina virtual dentro de uma única zona ou múltiplas zonas, e alinhar os recursos de frente zonal e zonal para a mesma zona.  Se cruzar zonas de disponibilidade apenas com recursos zonais, o cenário funcionará, mas poderá não ter um modo de falha claro no que diz respeito às zonas de disponibilidade. 
 
-### <a name="backend"></a>Backend
+### <a name="backend"></a>Back-end
 
 O Balancer de Carga funciona com casos de máquinas virtuais.  Estes podem ser autónomos, conjuntos de disponibilidade ou conjuntos de escala de máquina virtual.  Qualquer caso de máquina virtual numa única rede virtual pode fazer parte da piscina de backend, independentemente de ter ou não sido garantida a uma zona ou qual a zona que estava garantida.
 
@@ -77,7 +77,7 @@ As definições de sonda de saúde existentes permanecem como estão sem zonas d
 
 Ao utilizar frontendas redundantes de zona, a Load Balancer expande o seu modelo de saúde interna para sondar de forma independente a capacidade de uma máquina virtual de cada zona de disponibilidade e desligar caminhos através de zonas que podem ter falhado sem a intervenção do cliente.  Se não estiver disponível um determinado caminho desde a infraestrutura do Balancer de carga de uma zona a uma máquina virtual noutra zona, o Balancer de Carga pode detetar e evitar esta falha. Outras zonas que podem alcançar este VM podem continuar a servir o VM a partir das respetivas extremidades dianteiras.  Como resultado, é possível que durante os eventos de falha, cada zona possa ter distribuições ligeiramente diferentes de novos fluxos, protegendo ao mesmo tempo a saúde geral do seu serviço de ponta a ponta.
 
-## <a name="design"></a>Considerações de design
+## <a name="design-considerations"></a><a name="design"></a>Considerações de design
 
 O Load Balancer é propositadamente flexível no contexto das zonas de disponibilidade. Pode optar por alinhar-se em zonas ou pode optar por ser redundante por cada regra.  O aumento da disponibilidade pode chegar ao preço de uma maior complexidade e você deve projetar para disponibilidade para um desempenho ideal.  Vamos dar uma olhada em algumas considerações importantes de design.
 
@@ -87,7 +87,7 @@ O Balancer load torna simples ter um único IP como uma frente redundante. Um en
 
 A redundância da zona não implica uma trajetória de dados inacerta ou um plano de controlo;  é expressamente plano de dados. Os fluxos redundantes em zonas podem usar quaisquer zonas e os fluxos de um cliente usarão todas as zonas saudáveis de uma região. Em caso de falha de zona, os fluxos de tráfego utilizando zonas saudáveis nessa altura não são afetados.  Os fluxos de tráfego que utilizam uma zona no momento da falha da zona podem ser afetados, mas as aplicações podem recuperar. Estes fluxos podem continuar nas restantes zonas saudáveis dentro da região após retransmissão ou reestabelecimento, uma vez que Azure convergiu em torno da falha da zona.
 
-### <a name="xzonedesign"></a>Limites de zona transversal
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a>Limites de zona transversal
 
 É importante entender que sempre que um serviço de ponta a ponta cruza zonas, você partilha o destino não com uma zona, mas potencialmente várias zonas.  Como resultado, o seu serviço de ponta a ponta pode não ter ganho qualquer disponibilidade sobre implementações não zonais.
 

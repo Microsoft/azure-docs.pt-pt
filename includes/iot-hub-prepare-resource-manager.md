@@ -5,26 +5,26 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67133371"
 ---
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Preparar para autenticar pedidos do Azure Resource Manager
-Tem de autenticar todas as operações que executar nos recursos com o [do Azure Resource Manager] [ lnk-authenticate-arm] com o Azure Active Directory (AD). A maneira mais fácil de configurar esta opção é utilizar o PowerShell ou da CLI do Azure.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepare-se para autenticar pedidos do Gestor de Recursos Azure
+Deve autenticar todas as operações que realiza em recursos utilizando o Gestor de [Recursos Azure][lnk-authenticate-arm] com o Diretório Ativo Azure (AD). A forma mais fácil de configurar isto é utilizar o PowerShell ou o Azure CLI.
 
-Instalar o [cmdlets do Azure PowerShell] [ lnk-powershell-install] antes de continuar.
+Instale os [cmdlets Azure PowerShell][lnk-powershell-install] antes de continuar.
 
-Os passos seguintes mostram como configurar a autenticação de palavra-passe para uma aplicação do AD com o PowerShell. Pode executar estes comandos numa sessão do PowerShell padrão.
+Os seguintes passos mostram como configurar a autenticação de senha para uma aplicação AD utilizando powerShell. Pode executar estes comandos numa sessão padrão da PowerShell.
 
-1. Inicie sessão sua subscrição do Azure com o seguinte comando:
+1. Inscreva-se na subscrição do Azure utilizando o seguinte comando:
 
     ```powershell
     Connect-AzAccount
     ```
 
-1. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis que pode utilizar:
+1. Se tiver várias subscrições do Azure, a sessão no Azure dá-lhe acesso a todas as subscrições do Azure associadas às suas credenciais. Utilize o seguinte comando para listar as subscrições Azure disponíveis para que possa utilizar:
 
     ```powershell
     Get-AzSubscription
@@ -37,35 +37,35 @@ Os passos seguintes mostram como configurar a autenticação de palavra-passe pa
         -SubscriptionName "{your subscription name}"
     ```
 
-2. Tome nota da sua **TenantId** e **SubscriptionId**. Vai precisar deles mais tarde.
-3. Crie uma nova aplicação do Azure Active Directory com o seguinte comando, substituindo os espaços reservados:
+2. Tome nota do seu **TenantId** e **SubscriptionId**. Vai precisar deles mais tarde.
+3. Criar uma nova aplicação Azure Ative Directory utilizando o seguinte comando, substituindo os suportes de lugares:
    
-   * **{Nome a apresentar}:** um nome a apresentar para a sua aplicação, tais como **MySampleApp**
-   * **{URL da Home page}:** o URL da home page da sua aplicação, tais como **http:\//mysampleapp/doméstica**. Este URL não é necessário apontar para um aplicativo real.
-   * **{Identificador da aplicação}:** Um identificador exclusivo, como **http:\//mysampleapp**. Este URL não é necessário apontar para um aplicativo real.
-   * **{Password}:** Uma palavra-passe que utiliza para autenticar com a sua aplicação.
+   * **{Nome do ecrã}:** um nome de exibição para a sua aplicação como **MySampleApp**
+   * **{Home page URL}:** o URL da página inicial da sua aplicação como **http:\//mysampleapp/home**. Este URL não precisa de apontar para uma aplicação real.
+   * **{Identificador de aplicação}:** Um identificador único como **http:\//mysampleapp**. Este URL não precisa de apontar para uma aplicação real.
+   * **{Password}:** Uma palavra-passe que usa para autenticar com a sua aplicação.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. Anote o **ApplicationId** da aplicação que criou. Precisa deste mais tarde.
-5. Crie um novo principal de serviço com o seguinte comando, substituindo **{MyApplicationId}** com o **ApplicationId** do passo anterior:
+4. Tome nota do **Id** aplicação da aplicação que criou. Precisa disto mais tarde.
+5. Criar um novo diretor de serviço utilizando o seguinte comando, substituindo **{MyApplicationId}** pelo **ApplicationId** do passo anterior:
    
     ```powershell
     New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Configurar uma atribuição de função com o seguinte comando, substituindo **{MyApplicationId}** com o seu **ApplicationId**.
+6. Configurar uma tarefa utilizando o seguinte comando, substituindo **{MyApplicationId}** pelo seu **Id aplicação**.
    
     ```powershell
     New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-Agora concluir a criação de aplicação do Azure AD, que permite-lhe autenticar a partir da sua personalizada C# aplicação. Terá dos seguintes valores mais tarde neste tutorial:
+Já terminou de criar a aplicação Azure AD que lhe permite autenticar a partir da sua aplicação C# personalizada. Você precisa dos seguintes valores mais tarde neste tutorial:
 
 * TenantId
 * SubscriptionId
-* ApplicationId
+* ApplicationID
 * Palavra-passe
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx

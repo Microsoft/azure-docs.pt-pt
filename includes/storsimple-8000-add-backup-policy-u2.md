@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184449"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Para adicionar uma política de cópias de segurança StorSimple
@@ -23,7 +23,7 @@ ms.locfileid: "67184449"
    
    1. **Selecionar dispositivo** é preenchido automaticamente com base no dispositivo que selecionou.
    
-   2. Especifique um **Nome para a política** de cópias de segurança que contenha entre três e 150 carateres. Não pode mudar o nome depois de a política estar criada.
+   2. Especifique um **nome de política** de reserva que contenha entre 3 e 150 caracteres. Não pode mudar o nome depois de a política estar criada.
        
    3. Para atribuir volumes a esta política de cópias de segurança, selecione **Adicionar volumes** e, na lista em tabela de volumes, clique na caixa ou caixas de verificação para atribuir um ou mais volumes.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67184449"
 
        1. Em **Tipo de instantâneo**, selecione **Cloud** ou **Local**.
 
-       2. Indique a frequência das cópias de segurança (especifique um número e, em seguida, selecione **Dias** ou **Semanas** na lista pendente).
+       2. Indicar a frequência das cópias de segurança (especifique um número e, em seguida, escolha **Dias** ou **Semanas** da lista de lançamentos.
 
        3. Introduza um agendamento de retenção.
 

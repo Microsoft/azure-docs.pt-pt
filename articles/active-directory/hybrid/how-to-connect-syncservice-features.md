@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300541"
 ---
-# <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades de serviço de sincronização Azure AD Connect
+# <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
 
@@ -34,12 +34,12 @@ Este tópico explica como as seguintes funcionalidades do serviço de **sincroni
 
 Estas definições são configuradas pelo [Módulo de Diretório Ativo Azure para windows PowerShell](https://aka.ms/aadposh). Descarregue e instale-o separadamente a partir do Azure AD Connect. Os cmdlets documentados neste tema foram introduzidos no lançamento de março de [2016 (construção 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou se não produzirem o mesmo resultado, certifique-se de que executa a versão mais recente.
 
-Para ver a configuração no seu diretório Azure AD, execute `Get-MsolDirSyncFeatures`.  
-![Get-MsolDirSyncFeatures resultam](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
+Para ver a configuração no seu diretório Azure AD, corra `Get-MsolDirSyncFeatures`.  
+![Resultado get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
 Muitas destas definições só podem ser alteradas pelo Azure AD Connect.
 
-As seguintes definições podem ser configuradas por `Set-MsolDirSyncFeature`:
+As seguintes definições `Set-MsolDirSyncFeature`podem ser configuradas por:
 
 | DirSyncFeature | Comentário |
 | --- | --- |
@@ -53,16 +53,16 @@ Depois de ter ativado uma funcionalidade, não pode voltar a ser desativada.
 > 
 > 
 
-As seguintes definições são configuradas pelo Azure AD Connect e não podem ser modificadas por `Set-MsolDirSyncFeature`:
+As seguintes definições são configuradas pelo Azure `Set-MsolDirSyncFeature`AD Connect e não podem ser modificadas por:
 
 | DirSyncFeature | Comentário |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: Habilitar a reescrita do dispositivo](how-to-connect-device-writeback.md) |
+| DispositivoWriteback |[Azure AD Connect: Habilitar a reescrita do dispositivo](how-to-connect-device-writeback.md) |
 | Extensões de Diretório |[Sincronização Azure AD Connect: Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando é uma duplicação de outro objeto em vez de falhar todo o objeto durante a exportação. |
+| [DuplicadoProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando é uma duplicação de outro objeto em vez de falhar todo o objeto durante a exportação. |
 | Sincronização hash de palavra-passe |[Implementação de sincronização de hash de senha com sincronização Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticação pass-through|[Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Pré-visualização: Reprodução do grupo](how-to-connect-preview.md#group-writeback) |
+| UnificadoGroupWriteback |[Pré-visualização: Reprodução do grupo](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Não apoiado atualmente. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicar a resiliência do atributo
@@ -114,5 +114,5 @@ Depois de ativar esta funcionalidade, os valores do userPrincipalName existentes
 
 ## <a name="see-also"></a>Consulte também
 
-* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Sincronização azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrando as suas identidades no local com o Diretório Ativo Azure.](whatis-hybrid-identity.md)

@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: e020555b0c706b5577bd20ac9bd537604d43ba3f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303720"
 ---
 # <a name="length-azure-cosmos-db"></a>COMPRIMENTO (Azure Cosmos DB)
- Devolve o número de carateres da expressão de cadeia especificada.  
+ Devolve o número de caracteres da expressão de corda especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ LENGTH(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve o comprimento de uma cadeia de caracteres.  
+  O exemplo seguinte devolve o comprimento de uma corda.  
   
 ```sql
 SELECT LENGTH("abc") AS len 

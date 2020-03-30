@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295883"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 ## <a name="arguments"></a>Argumentos
   
 *arr_expr*  
-   É uma expressão matriz para concatenar aos outros valores. A função `ARRAY_CONCAT` requer pelo menos dois *argumentos arr_expr.*  
+   É uma expressão matriz para concatenar aos outros valores. A `ARRAY_CONCAT` função requer pelo menos dois *argumentos arr_expr.*  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -34,7 +34,7 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir como concatenar duas matrizes.  
+  O exemplo seguinte como concatenar duas matrizes.  
   
 ```sql
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 

@@ -1,5 +1,5 @@
 ---
-title: Faça upload de um Certificado de Gestão de Serviços Azure  Microsoft Docs
+title: Faça upload de um Certificado de Gestão de Serviços Azure [ Microsoft Docs
 description: Saiba como carregar o certificado de Gestão de Serviços para o portal Azure.
 services: cloud-services
 documentationcenter: .net
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
 ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329124"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Faça upload de um Certificado de Gestão de Serviços Azure
-Os certificados de gestão permitem-lhe autenticar com o modelo de implantação clássico fornecido pela Azure. Muitos programas e ferramentas (como o Estúdio Visual ou o Azure SDK) utilizam estes certificados para automatizar a configuração e implementação de vários serviços Azure. 
+Os certificados de gestão permitem-lhe autenticar com o modelo de implantação clássico fornecido pela Azure. Muitos programas e ferramentas (por exemplo, o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e a implementação de vários serviços do Azure. 
 
 > [!WARNING]
 > Cuidado! Este tipo de certificados permitem a qualquer pessoa que autentica com eles gerir a subscrição a que estão associados.
@@ -34,7 +34,7 @@ Também pode utilizar o [Azure Ative Directory](https://azure.microsoft.com/serv
 ## <a name="upload-a-management-certificate"></a>Faça upload de um certificado de gestão
 Uma vez criado um certificado de gestão (.cer file com apenas a chave pública) pode carregá-lo no portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado de correspondência (chave privada) pode ligar através da API de Gestão e aceder aos recursos para a subscrição associada.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure.](https://portal.azure.com)
 2. Clique em **Todos os serviços** na lista de serviços do Azure inferior e, em seguida, selecione **Subscrições** no grupo de serviço _geral._
 
     ![Menu de subscrição](./media/azure-api-management-certs/subscriptions_menu.png)

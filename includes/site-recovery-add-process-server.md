@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67183964"
 ---
 1. Inicie o UnifiedSetup.exe do Azure Site Recovery
@@ -19,7 +19,7 @@ ms.locfileid: "67183964"
 3. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do Servidor de Configuração e a frase de acesso.
 
    ![Adicionar servidor de processos 2](./media/site-recovery-add-process-server/ps-page-2.png)
-4. Em **Definições da Internet**, especifique a forma como o Fornecedor em execução no Servidor de Configuração estabelece ligação ao Azure Site Recovery através da Internet.
+4. Nas Definições da **Internet,** especifique como o Fornecedor que está a funcionar no Servidor de Configuração se conecta à Recuperação do Site Azure através da Internet.
 
    ![Adicionar servidor de processos 3](./media/site-recovery-add-process-server/ps-page-3.png)
 

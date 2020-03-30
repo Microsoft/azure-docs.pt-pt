@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251534"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos Recursos hubs do Evento
@@ -24,10 +24,10 @@ Este artigo mostra como autorizar o acesso a um centro de eventos utilizando uma
 ## <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
 Antes de poder utilizar identidades geridas para a Azure Resources para autorizar os recursos do Event Hubs a partir do seu VM, tem primeiro de ativar identidades geridas para os Recursos Azure no VM. Para aprender a ativar identidades geridas para os Recursos Azure, consulte um destes artigos:
 
-- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modelo Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes do Gestor de Recursos Azure](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD
@@ -35,7 +35,7 @@ Para autorizar um pedido ao serviço Event Hubs a partir de uma identidade gerid
 
 Para obter mais informações sobre a atribuição de funções RBAC, consulte [Authenticate com Diretório Ativo Azure para acesso aos recursos do Event Hubs.](authorize-access-azure-active-directory.md)
 
-## <a name="use-event-hubs-with-managed-identities"></a>Use Hubs de Eventos com identidades geridas
+## <a name="use-event-hubs-with-managed-identities"></a>Utilizar Hubs de Eventos com identidades geridas
 Para utilizar os Centros de Eventos com identidades geridas, é necessário atribuir à identidade o papel e o âmbito adequado. O procedimento nesta secção utiliza uma aplicação simples que funciona sob uma identidade gerida e acessa recursos do Event Hubs.
 
 Aqui estamos usando uma aplicação web de amostra alojada no [Azure App Service](https://azure.microsoft.com/services/app-service/). Para instruções passo a passo para criar uma aplicação web, consulte [Criar uma aplicação web core ASP.NET em Azure](../app-service/app-service-web-get-started-dotnet.md)

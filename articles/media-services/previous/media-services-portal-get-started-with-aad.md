@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330673"
 ---
-# <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Começar com a autenticação azure AD usando o portal Azure
+# <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD através do portal do Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Saiba como utilizar o portal Azure para aceder à autenticação azure Ative Directory (Azure AD) para aceder à API azure Media Services.
 
@@ -35,7 +35,7 @@ Saiba como utilizar o portal Azure para aceder à autenticação azure Ative Dir
 Quando utiliza a autenticação Azure AD com o Azure Media Services, tem duas opções de autenticação:
 
 - **Autenticação do principal de serviço.** Autenticar um serviço. As aplicações que usam normalmente este método de autenticação são aplicações que executam serviços de daemon, serviços de nível médio ou empregos programados: aplicações web, aplicações de função, aplicações lógicas, APIs ou um microserviço.
-- **Autenticação do utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
+- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
 
 ## <a name="access-the-media-services-api"></a>Aceder à API dos Serviços de Multimédia
 

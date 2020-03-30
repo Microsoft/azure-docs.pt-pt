@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184695"
 ---
 > [!div class="op_single_selector"]
@@ -23,59 +23,59 @@ ms.locfileid: "67184695"
 > * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-Neste tutorial, implementar um **Chiller** dispositivo que envia a seguinte telemetria para a monitorização remota [acelerador de solução](../articles/iot-accelerators/about-iot-accelerators.md):
+Neste tutorial, implementa um dispositivo **Chiller** que envia a seguinte telemetria para o acelerador de [solução](../articles/iot-accelerators/about-iot-accelerators.md)de monitorização remota:
 
 * Temperatura
 * Pressão
 * Humidade
 
-Para simplificar, o código gera valores de telemetria de exemplo para o **Chiller**. Pode alargar a amostra ao ligar sensores reais ao dispositivo e enviar telemetria real.
+Para a simplicidade, o código gera valores de telemetria de amostra para o **Chiller**. Pode estender a amostra ligando sensores reais ao seu dispositivo e enviando uma telemetria real.
 
-O dispositivo de exemplo também:
+O dispositivo de amostra também:
 
-* Envia os metadados para a solução para descrever seus recursos.
-* Responde às ações acionadas a partir da **dispositivos** página na solução.
-* Enviar responde às alterações de configuração a partir da **dispositivos** página na solução.
+* Envia metadados para a solução para descrever as suas capacidades.
+* Responde às ações desencadeadas a partir da página **dispositivos** na solução.
+* Responde às alterações de configuração enviadas da página **dispositivos** na solução.
 
-Para concluir este tutorial, precisa de uma conta ativa do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para concluir este tutorial, precisa de uma conta ativa do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de escrever qualquer código para o seu dispositivo, implementar o acelerador de soluções de monitorização remota e adicione um novo dispositivo real à solução.
+Antes de escrever qualquer código para o seu dispositivo, implante o acelerador da solução de monitorização remota e adicione um novo dispositivo real à solução.
 
-### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementar o acelerador de soluções de monitorização remota
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implante o seu acelerador de solução de monitorização remota
 
-O **Chiller** dispositivo que vai criar neste tutorial envia dados para uma instância da [monitorização remota](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) acelerador de solução. Se ainda não aprovisionou o acelerador de solução de monitorização remota na sua conta do Azure, veja [implementar o acelerador de solução de monitorização remota](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
+O dispositivo **Chiller** que cria neste tutorial envia dados para uma instância do acelerador de solução de [monitorização remota.](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) Se ainda não disponibilizou o acelerador de soluções de monitorização remota na sua conta Azure, consulte [O acelerador de soluções](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) de monitorização remota
 
-Quando concluir o processo de implantação para a solução de monitorização remota, clique em **inicie** para abrir o dashboard de solução no seu browser.
+Quando o processo de implementação da solução de Monitorização Remota terminar, clique em **Lançar** para abrir o painel de solução no seu navegador.
 
-![O dashboard da solução](media/iot-suite-selector-connecting/dashboard.png)
+![O painel de solução](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adicionar o seu dispositivo à solução de monitorização remota
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adicione o seu dispositivo à solução de monitorização remota
 
 > [!NOTE]
-> Se já tiver adicionado um dispositivo na sua solução, pode ignorar este passo. No entanto, a próxima etapa exige a cadeia de ligação do dispositivo. Pode recuperar a cadeia de ligação de um dispositivo do [portal do Azure](https://portal.azure.com) ou utilizando o [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) ferramenta CLI.
+> Se já adicionou um dispositivo na sua solução, pode saltar este passo. No entanto, o próximo passo requer a corda de ligação do dispositivo. Pode recuperar a cadeia de ligação de um dispositivo a partir do [portal Azure](https://portal.azure.com) ou utilizando a ferramenta [AZ iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI.
 
-Para um dispositivo para ligar ao solution accelerator, ele tem de se identificar no IoT Hub com credenciais válidas. Terá a oportunidade para guardar a cadeia de ligação do dispositivo que contém essas credenciais ao adicionar o dispositivo à solução. Incluir a cadeia de ligação do dispositivo na sua aplicação cliente mais tarde neste tutorial.
+Para que um dispositivo se conecte ao acelerador de soluções, deve identificar-se ao IoT Hub utilizando credenciais válidas. Tem a oportunidade de guardar a cadeia de ligação do dispositivo que contém estas credenciais quando adiciona o dispositivo à solução. Você inclui a cadeia de ligação do dispositivo na sua aplicação de cliente mais tarde neste tutorial.
 
-Para adicionar um dispositivo à sua solução de monitorização remota, execute os seguintes passos no **Device Explorer** página na solução:
+Para adicionar um dispositivo à sua solução de Monitorização Remota, complete os seguintes passos na página do Explorer do **Dispositivo** na solução:
 
-1. Escolher **+ novo dispositivo**e, em seguida, escolha **Real** como o **tipo de dispositivo**:
+1. Escolha **+ Novo dispositivo,** e depois escolha **Real** como o **tipo dispositivo:**
 
     ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. Introduza **físico chiller** como o ID de dispositivo. Escolha o **chave simétrica** e **chaves de geração automática** opções:
+1. Introduza o **refrigerador físico** como o ID do dispositivo. Escolha as opções de chaves de **chave simétrica** e **automática:**
 
-    ![Escolher opções de dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
+    ![Escolha opções de dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Escolha **Aplicar**. Em seguida, anote o **ID do dispositivo**, **chave primária**, e **chave primária de cadeia de ligação** valores:
+1. Escolha **Aplicar**. Em seguida, tome nota do ID do **dispositivo,** **chave primária,** e valores principais da cadeia de **ligação:**
 
-    ![Obter credenciais](media/iot-suite-selector-connecting/credentials.png)
+    ![Recuperar credenciais](media/iot-suite-selector-connecting/credentials.png)
 
-Acabou de adicionar um dispositivo real para o acelerador de solução de monitorização remota e observar a sua cadeia de ligação do dispositivo. Nas seções a seguir, implementa a aplicação de cliente que utiliza a cadeia de ligação do dispositivo para ligar à sua solução.
+Adicionou agora um dispositivo real ao acelerador de soluções de monitorização remota e observou a sua cadeia de ligação ao dispositivo. Nas seguintes secções, implementa a aplicação do cliente que utiliza a cadeia de ligação do dispositivo para se ligar à sua solução.
 
-A aplicação cliente implementa o incorporado **Chiller** modelo do dispositivo. Um modelo de dispositivo do acelerador de solução Especifica o seguinte sobre um dispositivo:
+A aplicação do cliente implementa o modelo de dispositivo **Chiller** incorporado. Um modelo de dispositivo acelerador de solução especifica o seguinte sobre um dispositivo:
 
-* As propriedades que o dispositivo comunica à solução. Por exemplo, um **Chiller** dispositivo comunica informações sobre o respetivo firmware e localização.
-* Os tipos de telemetria que o dispositivo envia para a solução. Por exemplo, um **Chiller** dispositivo envia a temperatura, humidade e valores de pressão.
-* Os métodos pode agendar da solução para executar no dispositivo. Por exemplo, um **Chiller** dispositivo tem de implementar **reiniciar**, **FirmwareUpdate**, **EmergencyValveRelease**, e  **IncreasePressure** métodos.
+* As propriedades que o dispositivo reporta à solução. Por exemplo, um dispositivo **Chiller** reporta informações sobre o seu firmware e localização.
+* Os tipos de telemetria que o dispositivo envia para a solução. Por exemplo, um dispositivo **Chiller** envia valores de temperatura, humidade e pressão.
+* Os métodos que pode agendar a partir da solução para executar no dispositivo. Por exemplo, um dispositivo **Chiller** deve implementar métodos **reboot**, **FirmwareUpdate,** **EmergencyValveRelease**e **IncreasePressure.**

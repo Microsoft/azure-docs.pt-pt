@@ -5,10 +5,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255840"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configure uma aplicação Linux PHP para o Serviço de Aplicações Azure
@@ -43,11 +43,11 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
 
-1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
+1. Executar script personalizado se `PRE_BUILD_SCRIPT_PATH`especificado por .
 1. Execute `php composer.phar install`.
-1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
+1. Executar script personalizado se `POST_BUILD_SCRIPT_PATH`especificado por .
 
-`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que são vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`.
+`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que são vazias por padrão. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`.
 
 O exemplo seguinte especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre como o App Service executa e constrói aplic
 
 ## <a name="customize-start-up"></a>Personalizar o arranque
 
-Por padrão, o recipiente PHP incorporado executa o servidor Apache. No arranque, corre `apache2ctl -D FOREGROUND"`. Se quiser, pode executar um comando diferente no arranque, executando o seguinte comando na [Cloud Shell:](https://shell.azure.com)
+Por padrão, o recipiente PHP incorporado executa o servidor Apache. No arranque, funciona. `apache2ctl -D FOREGROUND"` Se quiser, pode executar um comando diferente no arranque, executando o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -70,7 +70,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir as definições](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de aplicações fora do seu código de aplicações. Em seguida, pode acessá-los usando o padrão [getenv()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para aceder a uma definição de aplicação chamada `DB_HOST`, utilize o seguinte código:
+No Serviço de Aplicações, pode [definir as definições](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de aplicações fora do seu código de aplicações. Em seguida, pode acessá-los usando o padrão [getenv()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para aceder `DB_HOST`a uma definição de aplicação chamada , use o seguinte código:
 
 ```php
 getenv("DB_HOST")
@@ -78,7 +78,7 @@ getenv("DB_HOST")
 
 ## <a name="change-site-root"></a>Alterar a raiz do site
 
-O quadro web da sua escolha pode usar um subdiretório como raiz do site. Por exemplo, [Laravel,](https://laravel.com/)usa o subdiretório `public/` como raiz do site.
+O quadro web da sua escolha pode usar um subdiretório como raiz do site. Por exemplo, [Laravel,](https://laravel.com/)usa o `public/` subdiretório como raiz do site.
 
 A imagem php padrão para App Service utiliza Apache, e não permite personalizar a raiz do site para a sua aplicação. Para contornar esta limitação, adicione um ficheiro *.htaccess* à sua raiz de repositório com o seguinte conteúdo:
 
@@ -94,7 +94,7 @@ Se preferir não utilizar a reescrita *.htaccess*, pode implementar a aplicaçã
 
 ## <a name="detect-https-session"></a>Detetar sessão HTTPS
 
-No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
+No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se `X-Forwarded-Proto` os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho.
 
 ```php
 if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
@@ -102,7 +102,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 }
 ```
 
-Os quadros web populares permitem-lhe aceder à informação `X-Forwarded-*` no padrão padrão de aplicações. No [CodeIgniter,](https://codeigniter.com/)o [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) verifica o valor da `X_FORWARDED_PROTO` por defeito.
+Os quadros web populares permitem-lhe aceder à `X-Forwarded-*` informação no padrão padrão da sua aplicação. No [CodeIgniter,](https://codeigniter.com/)o [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) `X_FORWARDED_PROTO` verifica o valor por defeito.
 
 ## <a name="customize-phpini-settings"></a>Personalize as definições de php.ini
 
@@ -112,11 +112,11 @@ Se precisar de fazer alterações na sua instalação PHP, pode alterar qualquer
 > A melhor maneira de ver a versão PHP e a configuração *php.ini* atual é ligar para [phpinfo()](https://php.net/manual/function.phpinfo.php) na sua aplicação.
 >
 
-### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas não PHP_INI_SYSTEM
+### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas não PHP_INI_SYSTEM
 
 Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (ver [diretivas php.ini),](https://www.php.net/manual/ini.list.php)adicione um ficheiro *.htaccess* ao diretório raiz da sua app.
 
-No ficheiro *.htaccess,* adicione as diretivas utilizando a sintaxe `php_value <directive-name> <value>`. Por exemplo:
+No ficheiro *.htaccess,* adicione as `php_value <directive-name> <value>` diretivas utilizando a sintaxe. Por exemplo:
 
 ```
 php_value upload_max_filesize 1000M
@@ -132,21 +132,21 @@ Recoloque a sua aplicação com as alterações e reinicie-a. Se o implementar c
 
 Como alternativa à utilização de *.htaccess,* pode utilizar [ini_set()](https://www.php.net/manual/function.ini-set.php) na sua aplicação para personalizar estas diretivas não PHP_INI_SYSTEM.
 
-### <a name="customize-php_ini_system-directives"></a>Personalizar diretivas PHP_INI_SYSTEM
+### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Personalizar diretivas PHP_INI_SYSTEM
 
-Para personalizar PHP_INI_SYSTEM diretivas (ver [diretivas php.ini),](https://www.php.net/manual/ini.list.php)não pode utilizar a abordagem *.htaccess.* O Serviço de Aplicações fornece um mecanismo separado utilizando a definição de aplicações `PHP_INI_SCAN_DIR`.
+Para personalizar PHP_INI_SYSTEM diretivas (ver [diretivas php.ini),](https://www.php.net/manual/ini.list.php)não pode utilizar a abordagem *.htaccess.* O Serviço de Aplicações `PHP_INI_SCAN_DIR` fornece um mecanismo separado utilizando a definição da aplicação.
 
-Primeiro, execute o seguinte comando na [Cloud Shell](https://shell.azure.com) para adicionar uma definição de aplicação chamada `PHP_INI_SCAN_DIR`:
+Primeiro, execute o seguinte comando na [Cloud](https://shell.azure.com) `PHP_INI_SCAN_DIR`Shell para adicionar uma definição de aplicação chamada :
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d` é o diretório padrão onde *php.ini* existe. `/home/site/ini` é o diretório personalizado no qual você adicionará um ficheiro personalizado *.ini.* Separa-se os valores com uma `:`.
+`/usr/local/etc/php/conf.d`é o diretório padrão onde *php.ini* existe. `/home/site/ini`é o diretório personalizado no qual você adicionará um ficheiro personalizado *.ini.* Separa os valores com um `:`.
 
-Navegue para a sessão Web SSH com o seu recipiente Linux (`https://<app-name>.scm.azurewebsites.net/webssh/host`).
+Navegue para a sessão Web SSH com o seu recipiente Linux ().`https://<app-name>.scm.azurewebsites.net/webssh/host`
 
-Crie um diretório em `/home/site` chamado `ini`, em seguida, crie um ficheiro *.ini* no diretório `/home/site/ini` (por exemplo, *configurações.ini)* com as diretivas que pretende personalizar. Use a mesma sintaxe que usaria num ficheiro *php.ini.* 
+Crie um `/home/site` diretório chamado `ini`, em seguida, `/home/site/ini` crie um ficheiro *.ini* no diretório (por exemplo, *configurações.ini)* com as diretivas que pretende personalizar. Use a mesma sintaxe que usaria num ficheiro *php.ini.* 
 
 > [!TIP]
 > Nos contentores Linux embutidos no App Service, *a /casa* é usada como armazenamento partilhado persistente. 
@@ -172,7 +172,7 @@ As instalações PHP incorporadas contêm as extensões mais utilizadas. Pode pe
 
 Para permitir extensões adicionais, seguindo estes passos:
 
-Adicione um diretório `bin` ao diretório raiz da sua aplicação e coloque na `.so` ficheiros de extensão (por exemplo, *mongodb.so).* Certifique-se de que as extensões são compatíveis com a versão PHP em Azure e são compatíveis com VC9 e não-thread-safe (nts).
+Adicione `bin` um diretório ao diretório raiz da `.so` sua aplicação e coloque os ficheiros de extensão na sua aplicação (por exemplo, *mongodb.so).* Certifique-se de que as extensões são compatíveis com a versão PHP em Azure e são compatíveis com VC9 e não-thread-safe (nts).
 
 Implemente as suas alterações.
 
@@ -199,10 +199,10 @@ Quando uma aplicação PHP em funcionamento se comportar de forma diferente no S
 
 - [Aceda ao fluxo de registos](#access-diagnostic-logs).
 - Teste a aplicação localmente em modo de produção. O Serviço de Aplicações executa as suas aplicações Node.js em modo de produção, pelo que tem de se certificar de que o seu projeto funciona como esperado em modo de produção local. Por exemplo:
-    - Dependendo do seu *compositor.json,* podem ser instalados diferentes pacotes para o modo de produção (`require` vs. `require-dev`).
+    - Dependendo do seu *compositor.json,* podem ser instalados`require` diferentes `require-dev`pacotes para o modo de produção (vs. ).
     - Certos quadros web podem implementar ficheiros estáticos de forma diferente no modo de produção.
     - Certos quadros web podem usar scripts de arranque personalizados quando estão em modo de produção.
-- Execute a sua aplicação no Serviço de Aplicações em modo dedepura. Por exemplo, em [Laravel,](https://meanjs.org/)pode configurar a sua aplicação para produzir mensagens de depuração em [produção, definindo a definição de aplicação `APP_DEBUG` para `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+- Execute a sua aplicação no Serviço de Aplicações em modo dedepura. Por exemplo, em [Laravel,](https://meanjs.org/)pode configurar a sua aplicação para produzir mensagens de depuração em [ `APP_DEBUG` produção, definindo a definição da aplicação para `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

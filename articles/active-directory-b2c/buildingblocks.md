@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189876"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
@@ -70,7 +70,7 @@ O elemento **BuildingBlocks** contém os seguintes elementos que devem ser espec
   - Comparar duas reclamações e devolver uma reclamação com o facto de as reclamações corresponderem, caso contrário, falsas.
   - Criando uma reivindicação de cordas a partir do parâmetro fornecido na política.
   - Criar uma cadeia aleatória usando o gerador de números aleatórios.
-  - Formando uma reclamação de acordo com a cadeia de formato fornecida. Esta transformação C# usa o método `String.Format`.
+  - Formando uma reclamação de acordo com a cadeia de formato fornecida. Esta transformação usa `String.Format` o método C#.
 
 - Validação de entrada - Este elemento permite-lhe realizar agregações booleanas semelhantes *e e* *ou*.
 

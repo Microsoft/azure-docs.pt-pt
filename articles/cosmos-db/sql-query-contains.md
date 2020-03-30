@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c0c25b63fb6a7bf42bd2ec5b9503cac2cce7583f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302598"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTÉM (Azure Cosmos DB)
- Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo.  
+ Devolve uma Boolean indicando se a primeira expressão de corda contém a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   

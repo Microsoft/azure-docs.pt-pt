@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: victorh
 ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78196729"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Azure Firewall no Balanceador de Carga Standard do Azure
@@ -28,7 +28,7 @@ Com um equilibrista de carga pública, o equilibrador de carga é implantado com
 
 ### <a name="asymmetric-routing"></a>Encaminhamento assimétrico
 
-O encaminhamento assimétrico é onde um pacote toma um caminho para o destino e toma outro caminho ao regressar à fonte. Este problema ocorre quando uma subnet tem uma rota padrão indo para o endereço IP privado da firewall e você está usando um equilibrador de carga público. Nesse caso, o tráfego do balanceador de carga de entrada é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como a firewall é imponente, deixa cair o pacote de retorno porque a firewall não está ciente de uma sessão tão estabelecida.
+O encaminhamento assimétrico é onde um pacote toma um caminho para o destino e toma outro caminho ao regressar à fonte. Este problema ocorre quando uma subnet tem uma rota padrão indo para o endereço IP privado da firewall e você está usando um equilibrador de carga público. Neste caso, o tráfego de balanceadores de carga de entrada é recebido através do seu endereço IP público, mas a rota de retorno passa pelo endereço IP privado da firewall. Como a firewall é imponente, deixa cair o pacote de retorno porque a firewall não está ciente de uma sessão tão estabelecida.
 
 ### <a name="fix-the-routing-issue"></a>Corrija a questão do encaminhamento
 
@@ -51,7 +51,7 @@ Por exemplo, as seguintes rotas são para uma firewall no endereço IP público 
 No exemplo seguinte, uma regra NAT traduz o tráfego de RDP para a firewall em 20.185.97.136 para o equilibrista de carga em 20.42.98.220:
 
 > [!div class="mx-imgBorder"]
-> ![](media/integrate-lb/nat-rule-02.png) de regras na nat
+> ![Regra na NAT](media/integrate-lb/nat-rule-02.png)
 
 ### <a name="health-probes"></a>Sondas do estado de funcionamento
 

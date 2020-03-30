@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299536"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário de uma máquina virtual Azure
@@ -26,7 +26,7 @@ Em primeiro lugar, ative uma ou todas as três soluções no seu VM:
 
 1. No [portal Azure,](https://portal.azure.com)a partir do painel à esquerda selecione **máquinas virtuais** ou procure e selecione **máquinas Virtuais** a partir da página **Inicial.**
 2. Selecione o VM para o qual pretende ativar uma solução.
-3. Na página VM, em **Operações,** selecione **Gestão de Atualização,** **Inventário**ou **Rastreio de Alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta Deautomação. Ao embarcar numa solução de um VM, é necessário ter a `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se o VM está a bordo de um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [as permissões necessárias às máquinas](automation-role-based-access-control.md#onboarding)a bordo .
+3. Na página VM, em **Operações,** selecione **Gestão de Atualização,** **Inventário**ou **Rastreio de Alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta Deautomação. Ao embarcar numa solução de um VM, precisa de ter a `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se o VM está a bordo de um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [as permissões necessárias às máquinas](automation-role-based-access-control.md#onboarding)a bordo .
 
 Para aprender a bordo várias máquinas ao mesmo tempo, consulte soluções de Gestão de Atualização de [Bordo, Deslocalização e Inventário](automation-onboard-solutions-from-automation-account.md).
 
@@ -51,7 +51,7 @@ Se o espaço de trabalho selecionado ainda não tiver as soluções de Gestão d
 
 Se o espaço de trabalho selecionado já tiver a solução, a solução não é reimplantada e a configuração de âmbito não é adicionada.
 
-Selecione as elipses **(...** ) em qualquer uma das configurações e, em seguida, **selecione Editar**. No painel de configuração de **abrangência editar,** selecione **Select Computer Groups**. O painel de Grupos de **Computadores** mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
+Selecione as elipses **(...**) em qualquer uma das configurações e, em seguida, **selecione Editar**. No painel de configuração de **abrangência editar,** selecione **Select Computer Groups**. O painel de Grupos de **Computadores** mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
 
@@ -68,7 +68,7 @@ Selecione qualquer uma das pesquisas guardadas para ver a consulta que é usada 
 
 ![Pesquisas guardadas](media/automation-onboard-solutions-from-vm/logsearch.png)
 
-## <a name="unlink-workspace"></a>Espaço de trabalho desvinculado
+## <a name="unlink-workspace"></a>Unlink workspace (Desassociar a área de trabalho)
 
 As seguintes soluções dependem de um espaço de trabalho log Analytics:
 
@@ -111,7 +111,7 @@ Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua 
 
 Para remover um VM da Atualização:
 
-* No seu espaço de trabalho Log Analytics, retire o VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
+* No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
 * Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

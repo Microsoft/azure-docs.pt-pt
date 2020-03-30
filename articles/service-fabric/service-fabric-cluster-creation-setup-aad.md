@@ -4,10 +4,10 @@ description: Saiba como criar o Azure Ative Directory (Azure AD) para autenticar
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78193390"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Diretório Ativo Azure para autenticação do cliente
@@ -38,7 +38,7 @@ Para simplificar alguns dos passos envolvidos na configuração do Azure AD com 
 
 Usaremos os scripts para criar duas aplicações Azure AD para controlar o acesso ao cluster: uma aplicação web e uma aplicação nativa. Depois de criar aplicações para representar o seu cluster, irá criar utilizadores para as [funções suportadas pelo Service Fabric](service-fabric-cluster-security-roles.md): apenas leitura e administrador.
 
-Executar `SetupApplications.ps1`, e fornecer o ID do inquilino, nome do cluster e resposta de aplicação web URL como parâmetros.  Especifique também os nomes de utilizador e as palavras-passe para os utilizadores. Por exemplo:
+Executar, `SetupApplications.ps1`e fornecer o ID do inquilino, nome do cluster e resposta de aplicação web URL como parâmetros.  Especifique também os nomes de utilizador e as palavras-passe para os utilizadores. Por exemplo:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -47,20 +47,20 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 ```
 
 > [!NOTE]
-> Para as nuvens nacionais (por exemplo, Governo Azure, Azure China, Azure Alemanha), deve também especificar o parâmetro `-Location`.
+> Para as nuvens nacionais (por exemplo, Governo Azure, Azure `-Location` China, Azure Alemanha), deve também especificar o parâmetro.
 
-Pode encontrar o seu *TenantId* executando o comando PowerShell `Get-AzureSubscription`. A execução deste comando exibe o TenantId para cada subscrição.
+Pode encontrar o seu *TenantId* executando o comando `Get-AzureSubscription`PowerShell . A execução deste comando exibe o TenantId para cada subscrição.
 
 *ClusterName* é usado para pré-fixar as aplicações Azure AD que são criadas pelo script. Não precisa de corresponder exatamente ao nome real do cluster. Destina-se apenas a facilitar o mapa dos artefactos Azure AD para o cluster De Tecido de Serviço com o qual estão a ser utilizados.
 
 *WebApplicationReplyUrl* é o ponto final padrão que o Azure AD devolve aos seus utilizadores depois de terminar em sessão. Detete este ponto final como ponto final do Explorador de Tecidode Serviço para o seu cluster. Se estiver a criar aplicações Azure AD para representar um cluster existente, certifique-se de que este URL corresponde ao ponto final do cluster existente. Se estiver a criar aplicações para um novo cluster, planeie o ponto final que o seu cluster terá e certifique-se de não utilizar o ponto final de um cluster existente. Por defeito, o ponto final do Explorador de Tecidos de Serviço é:
 
-https://&lt;cluster_domain&gt;cluster_domain :19080/Explorer
+https://&lt;&gt;cluster_domain :19080/Explorer
 
 É solicitado que assine uma conta que tenha privilégios administrativos para o inquilino da AD Azure. Depois de iniciar sessão, o script cria as aplicações web e nativas para representar o seu cluster De Serviço Tecido. Se olhar para as candidaturas do inquilino no [portal Azure,][azure-portal]deverá ver duas novas entradas:
 
    * *ClusterName*\_Cluster
-   * *ClusterName*\_Cliente
+   * *Cliente ClusterName*\_
 
 O script imprime o JSON exigido pelo modelo de Gestor de Recursos Azure quando cria o seu cluster ativado por [AAD,](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access)por isso é uma boa ideia manter a janela PowerShell aberta.
 
@@ -72,7 +72,7 @@ O script imprime o JSON exigido pelo modelo de Gestor de Recursos Azure quando c
 },
 ```
 
-## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Ajuda de resolução de problemas na criação do Diretório Ativo Azure
+## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>A resolução de problemas ajuda a configurar o Azure Active Directory
 Configurar o Azure AD e usá-lo pode ser um desafio, por isso aqui estão algumas dicas sobre o que pode fazer para desinviar o problema.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer pede-lhe para selecionar um certificado
@@ -85,7 +85,7 @@ Depois de iniciar sessão com sucesso no Azure AD no Service Fabric Explorer, o 
 O utilizador não tem um papel na aplicação de cluster Azure AD. Assim, a autenticação Azure AD falha no cluster Service Fabric. Service Fabric Explorer volta à autenticação do certificado.
 
 #### <a name="solution"></a>Solução
-Siga as instruções para a configuração do AD Azure e atribua as funções do utilizador. Além disso, recomendamos que ligue a "atribuição do utilizador necessária para aceder à app", como `SetupApplications.ps1` faz.
+Siga as instruções para a configuração do AD Azure e atribua as funções do utilizador. Além disso, recomendamos que ligue a "atribuição `SetupApplications.ps1` do utilizador necessária para aceder à app", assim como.
 
 ### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>A ligação com a PowerShell falha com um erro: "As credenciais especificadas são inválidas"
 #### <a name="problem"></a>Problema
@@ -96,7 +96,7 @@ Esta solução é a mesma que a anterior.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer devolve uma falha ao iniciar sessão: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando tenta iniciar sessão no Azure AD no Service Fabric Explorer, a página devolve uma falha: "AADSTS50011: O endereço de resposta &lt;url&gt; não corresponde aos endereços de resposta configurados para a aplicação: &lt;orientar&gt;."
+Quando tenta iniciar sessão no Azure AD no Service Fabric Explorer, a página devolve uma falha: "AADSTS50011: O &lt;&gt;url &lt;&gt; do endereço de resposta não corresponde aos endereços de resposta configurados para a aplicação: guia ."
 
 ![Endereço de resposta SFX não corresponde][sfx-reply-address-not-match]
 
@@ -110,13 +110,13 @@ Na página de registo da aplicação Azure AD para o seu cluster, **selecione Au
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Ligar-se ao cluster utilizando a autenticação Azure AD via PowerShell dá um erro ao iniciar sessão: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando tenta ligar-se a um cluster de tecido de serviço utilizando o Azure AD via PowerShell, a página de entrada devolve uma falha: "AADSTS50011: O url de resposta especificado no pedido não corresponde aos urls de resposta configurados para a aplicação: &lt;orientado&gt;."
+Quando tenta ligar-se a um cluster de tecido de serviço utilizando o Azure AD via PowerShell, a página de entrada devolve uma falha: "AADSTS50011: O url de resposta especificado no pedido não corresponde aos urls de resposta configurados para a aplicação: &lt;guia."&gt;
 
 #### <a name="reason"></a>Razão
 À semelhança do número anterior, a PowerShell tenta autenticar contra a AD Azure, que fornece um URL de redirecionamento que não consta da lista de **URLs** de resposta à aplicação AD Azure.  
 
 #### <a name="solution"></a>Solução
-Utilize o mesmo processo que no edição anterior, mas o URL deve ser definido para `urn:ietf:wg:oauth:2.0:oob`, um redirecionamento especial para autenticação da linha de comando.
+Utilize o mesmo processo que no edição anterior, `urn:ietf:wg:oauth:2.0:oob`mas o URL deve ser definido para um redirecionamento especial para autenticação da linha de comando.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Ligue o cluster utilizando a autenticação Azure AD via PowerShell
 Para ligar o cluster De Serviço Tecido, utilize o seguinte exemplo de comando PowerShell:

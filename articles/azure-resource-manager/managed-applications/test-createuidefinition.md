@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250183"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Teste a sua interface de portal para aplicações geridas pelo Azure
@@ -20,7 +20,7 @@ Depois de [criar o ficheiro createUiDefinition.json](create-uidefinition-overvie
 
 * Um ficheiro **createUiDefinition.json.** Se não tiver este ficheiro, copie o [ficheiro da amostra.](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="use-sandbox"></a>Use caixa de areia
 

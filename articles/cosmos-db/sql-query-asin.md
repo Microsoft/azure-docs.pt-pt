@@ -8,14 +8,14 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302700"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN (Azure Cosmos DB)
- Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Isso também é chamado o arco de seno.  
+ Devolve o ângulo, em radianos, cujo seno é a expressão numérica especificada. Isto também é chamado de arcsina.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ ASIN(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve o `ASIN` de -1.  
+  O exemplo seguinte `ASIN` devolve o de -1.  
   
 ```sql
 SELECT ASIN(-1) AS asin  

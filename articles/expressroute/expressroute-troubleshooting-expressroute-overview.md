@@ -9,16 +9,16 @@ ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330962"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda-o a verificar e a resolver problemas a conectividade ExpressRoute. O ExpressRoute alarga uma rede no local para a nuvem da Microsoft sobre uma ligação privada que é comumente facilitada por um fornecedor de conectividade. A conectividade ExpressRoute envolve tradicionalmente três zonas de rede distintas, da seguinte forma:
 
--   Rede de Clientes
+-   Rede de Cliente
 -   Rede de Fornecedores
 -   Microsoft Datacenter
 
@@ -289,11 +289,11 @@ Uma amostra de saída do comando para um epeering inexistente é:
     StatusCode: 400
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações ou ajuda, veja as ligações seguintes:
+Para mais informações ou ajuda, consulte os seguintes links:
 
 - [Suporte da Microsoft][Support]
 - [Criar e modificar um circuito ExpressRoute][CreateCircuit]
-- [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering]
+- [Criar e modificar o encaminhamento de um circuito ExpressRoute][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.pngConectividade lógica da "rota expressa"

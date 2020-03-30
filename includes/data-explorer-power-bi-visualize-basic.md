@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184000"
 ---
-Agora que tem dados no Power BI Desktop, pode criar relatórios com base nesses dados. Criará um relatório simples com um gráfico de colunas que mostra recortar danos por Estado.
+Agora que tem dados no Power BI Desktop, pode criar relatórios com base nesses dados. Vai criar um relatório simples com um gráfico de colunas que mostra danos nas colheitas por estado.
 
-1. No lado esquerdo da janela principal do Power BI, selecione a vista de relatório.
+1. No lado esquerdo da janela principal do Power BI, selecione a vista do relatório.
 
     ![Vista de relatório](media/data-explorer-power-bi-visualize-basic/report-view.png)
 
@@ -25,12 +25,12 @@ Agora que tem dados no Power BI Desktop, pode criar relatórios com base nesses 
 
     ![Gráfico em branco](media/data-explorer-power-bi-visualize-basic/blank-chart.png)
 
-1. Na **campos** lista, selecione **DamageCrops** e **estado**.
+1. Na lista **FIELDS,** selecione **DamageCrops** e **State**.
 
     ![Selecionar campos](media/data-explorer-power-bi-visualize-basic/select-fields.png)
 
-    Tem agora um gráfico que mostra o dano colheitas para as primeiras 1000 linhas na tabela.
+    Agora tem um gráfico que mostra os danos nas colheitas para as 1000 melhores filas da tabela.
 
-    ![Danos de recorte por Estado](media/data-explorer-power-bi-visualize-basic/damage-column-chart.png)
+    ![Danos nas culturas por estado](media/data-explorer-power-bi-visualize-basic/damage-column-chart.png)
 
 1. Guarde o relatório.

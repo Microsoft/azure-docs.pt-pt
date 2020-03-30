@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295713"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTWITH (Azure Cosmos DB)
- Retorna um Booleano indicando se a primeira expressão de cadeia começa com a segunda.  
+ Devolve uma Boolean indicando se a primeira expressão de corda começa com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -37,7 +37,7 @@ STARTSWITH(<str_expr1>, <str_expr2>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir verifica se a cadeia de caracteres "abc" começa com "b" e "a".  
+  O exemplo seguinte verifica se a corda "abc" começa com "b" e "a".  
   
 ```sql
 SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  

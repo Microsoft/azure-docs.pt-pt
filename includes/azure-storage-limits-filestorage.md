@@ -9,18 +9,18 @@ ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d6f56f3500ab9c6b4482d2ade892dfdb46ccacb5
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67503401"
 ---
-Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **FileStorage**. Este tipo de conta foi concebido para cargas de trabalho com elevada IOPS, débito elevado com baixa latência consistente. Armazenamento de ficheiros de Premium dimensiona-se com o tamanho da partilha aprovisionado.
+Os ficheiros premium utilizam uma conta de armazenamento única chamada **FileStorage**. Este tipo de conta é projetado para cargas de trabalho com IOPS elevado, alta entrada com baixa latência consistente. Balanças de armazenamento de ficheiros premium com o tamanho das ações provisionadas.
 
 |Área  |Destino  |
 |---------|---------|
-|Max tamanho de aprovisionado     |100 TiB     |
+|Tamanho máximo provisionado     |100 Tib     |
 |Partilhas   |Ilimitado  |
-|IOPS     |100,000    |
-|Entrada|4,136 MiB/s     |
-|Saída|6,204 MiB/s |
+|IOPS     |100 000    |
+|Entrada|4.136 MiB/s     |
+|Saída|6.204 MiB/s |

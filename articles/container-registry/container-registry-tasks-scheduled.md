@@ -4,10 +4,10 @@ description: Neste tutorial, aprenda a executar uma Tarefa de Registo de Content
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402876"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um horário definido
@@ -25,14 +25,14 @@ Agendar uma tarefa é útil para cenários como o seguinte:
 * Executar uma carga de trabalho de contentores para operações de manutenção programadas. Por exemplo, executar uma aplicação contentorizada para remover imagens desnecessárias do seu registo.
 * Faça um conjunto de testes numa imagem de produção durante o dia de trabalho como parte da monitorização do seu site ao vivo.
 
-Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos deste artigo. Se quiser usá-lo localmente, a versão 2.0.68 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos deste artigo. Se quiser usá-lo localmente, a versão 2.0.68 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 
 ## <a name="about-scheduling-a-task"></a>Sobre agendar uma tarefa
 
 * **Gatilho com expressão cron** - O gatilho temporizador para uma tarefa usa uma *expressão crono.* A expressão é uma corda com cinco campos especificando o minuto, hora, dia, mês e dia da semana para desencadear a tarefa. São suportadas frequências até uma vez por minuto.
 
-  Por exemplo, a expressão `"0 12 * * Mon-Fri"` desencadeia uma tarefa ao meio-dia UTC em cada dia da semana. Veja mais tarde neste artigo [os detalhes.](#cron-expressions)
+  Por exemplo, `"0 12 * * Mon-Fri"` a expressão desencadeia uma tarefa ao meio-dia UTC em cada dia da semana. Veja mais tarde neste artigo [os detalhes.](#cron-expressions)
 * **Múltiplos gatilhos temporizadores** - A adição de vários temporizadores a uma tarefa é permitida, desde que os horários sejam diferentes.
     * Especifique múltiplos gatilhos do temporizador quando criar a tarefa, ou adicione-os mais tarde.
     * Nomeie opcionalmente os gatilhos para uma gestão mais fácil, ou as Tarefas ACR fornecerão nomes de gatilho padrão.
@@ -41,9 +41,9 @@ Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Criar uma tarefa com um gatilho temporizador
 
-Quando cria uma tarefa com a [tarefa az acr criar][az-acr-task-create] comando, pode adicionar opcionalmente um gatilho temporizador. Adicione o parâmetro `--schedule` e passe uma expressão cronpara o temporizador.
+Quando cria uma tarefa com a [tarefa az acr criar][az-acr-task-create] comando, pode adicionar opcionalmente um gatilho temporizador. Adicione `--schedule` o parâmetro e passe uma expressão cron para o temporizador.
 
-Como exemplo simples, o comando seguinte dispara a `hello-world` imagem do Docker Hub todos os dias às 21:00 UTC. A tarefa funciona sem um contexto de código fonte.
+Como um exemplo simples, o seguinte `hello-world` comando dispara a imagem do Docker Hub todos os dias às 21:00 UTC. A tarefa funciona sem um contexto de código fonte.
 
 ```azurecli
 az acr task create \
@@ -174,17 +174,17 @@ A Cr Tasks utiliza a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab)
 O fuso horário utilizado com as expressões cronéis é o Tempo Universal Coordenado (UTC). As horas estão em formato 24 horas.
 
 > [!NOTE]
-> As Tarefas ACR não suportam o campo `{second}` ou `{year}` em expressões cron. Se copiar uma expressão cronológica utilizada noutro sistema, certifique-se de que remove esses campos, se forem utilizados.
+> As Tarefas ACR `{second}` não `{year}` suportam o campo ou o campo em expressões cron. Se copiar uma expressão cronológica utilizada noutro sistema, certifique-se de que remove esses campos, se forem utilizados.
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
 |Tipo  |Exemplo  |Quando desencadeado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>`"5 * * * *"`</nobr>|a cada hora a 5 minutos depois da hora|
-|Todos os valores (`*`)|<nobr>`"* 5 * * *"`</nobr>|cada minuto da hora a partir das 5:00 UTC (60 vezes por dia)|
-|Uma gama (operador de`-`)|<nobr>`"0 1-3 * * *"`</nobr>|3 vezes por dia, às 13:00, 2:00 e 3:00 UTC|
-|Um conjunto de valores (operador`,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos depois da hora.|
-|Um valor de intervalo (operador`/`)|<nobr>`"*/10 * * * *"`</nobr>|6 vezes por hora, a 10 minutos, 20 minutos, e assim por diante, depois da hora
+|Todos os`*`valores ()|<nobr>`"* 5 * * *"`</nobr>|cada minuto da hora a partir das 5:00 UTC (60 vezes por dia)|
+|Uma gama`-` (operador)|<nobr>`"0 1-3 * * *"`</nobr>|3 vezes por dia, às 13:00, 2:00 e 3:00 UTC|
+|Um conjunto de`,` valores (operador)|<nobr>`"20,30,40 * * * *"`</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos depois da hora.|
+|Um valor`/` de intervalo (operador)|<nobr>`"*/10 * * * *"`</nobr>|6 vezes por hora, a 10 minutos, 20 minutos, e assim por diante, depois da hora
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255626"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migrar MongoDB para API da Azure Cosmos DB para MongoDB online usando DMS
@@ -26,7 +26,7 @@ Você pode usar o Serviço de Migração de Bases de Dados Azure para realizar u
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -124,7 +124,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 3. Selecione + **Novo Projeto de Migração**.
 
-4. No ecrã do **novo projeto de migração,** especifique um nome para o projeto, na caixa de texto **tipo servidor Fonte,** selecione **MongoDB,** na caixa de texto **do tipo servidor Target,** selecione **CosmosDB (MongoDB API)** e, em seguida, para **Escolher tipo de atividade,** selecione migração de **dados online [pré-visualização]** .
+4. No ecrã do **novo projeto de migração,** especifique um nome para o projeto, na caixa de texto **tipo servidor Fonte,** selecione **MongoDB,** na caixa de texto **do tipo servidor Target,** selecione **CosmosDB (MongoDB API)** e, em seguida, para **Escolher tipo de atividade,** selecione migração de **dados online [pré-visualização]**.
 
     ![Criar projeto de Serviço de Migração de Bases de Dados](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
@@ -217,7 +217,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
    A janela da atividade migratória aparece e o **Estado** da atividade é apresentado.
 
-   ![Estado de atividade](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
+   ![Estado da atividade](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

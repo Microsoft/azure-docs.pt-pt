@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186833"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Iniciar sessão utilizando uma aplicação iOS
@@ -47,7 +47,7 @@ No Azure AD B2C, cada experiência do utilizador é definida por um [fluxo de ut
 
 * Sob **atributos de inscrição,** selecione o **nome**do display do atributo .  Também pode selecionar outros atributos.
 * Em **alegações de aplicação,** selecione o nome do **display** de reclamações e o ID do objeto **do utilizador**. Também pode selecionar outras reclamações.
-* Copie o **nome** de cada fluxo de cada utilizador depois de o criar. O nome de fluxo do utilizador é pré-fixado com `b2c_1_` quando guarda o fluxo do utilizador.  Precisa do nome de fluxo do utilizador mais tarde.
+* Copie o **nome** de cada fluxo de cada utilizador depois de o criar. O nome de fluxo `b2c_1_` do utilizador está pré-fixado quando guarda o fluxo do utilizador.  Precisa do nome de fluxo do utilizador mais tarde.
 
 Depois de ter criado os fluxos de utilizador, está pronto para construir a sua aplicação.
 
@@ -66,15 +66,15 @@ Esta amostra foi criada seguindo as instruções da README pelo [projeto iOS App
 
 Pode configurar a comunicação com o Azure AD B2C especificando tanto o ponto final de autorização como os URIs finais simbólicos.  Para gerar estes URIs, precisa das seguintes informações:
 * ID do inquilino (por exemplo, contoso.onmicrosoft.com)
-* Nome de fluxo do utilizador (por exemplo, B2C\_1\_SignUpIn)
+* Nome de fluxo do utilizador\_(por exemplo, B2C 1\_SignUpIn)
 
-O ponto final simbólico URI pode ser gerado substituindo o Id\_inquilino e o Nome\_Política no seguinte URL:
+O ponto final simbólico URI pode ser gerado\_substituindo\_o ID do Arrendatário e o Nome da Apólice no seguinte URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-O ponto final de autorização URI pode ser gerado substituindo o Id\_Inquilino e o Nome\_Política no seguinte URL:
+O ponto final de autorização URI pode\_ser gerado\_substituindo o ID do Arrendatário e o Nome de Política no seguinte URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
@@ -123,7 +123,7 @@ appDelegate.currentAuthorizationFlow =
 
 Para configurar a sua aplicação para lidar com o redirecionamento para o URI com o esquema personalizado, precisa de atualizar a lista de 'Esquemas DE URL' no seu Info.pList:
 * Open Info.pList.
-* Passe por uma linha como 'Bundle OS Type Code' e clique no símbolo \+.
+* Paire sobre uma linha como 'Bundle \+ OS Type Code' e clique no símbolo.
 * Mude o nome da nova linha 'TIPOS DE URL'.
 * Clique na seta à esquerda dos 'tipos de URL' para abrir a árvore.
 * Clique na seta à esquerda do 'Item 0' para abrir a árvore.

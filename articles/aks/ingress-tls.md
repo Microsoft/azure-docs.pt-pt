@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 01/29/2020
 ms.openlocfilehash: 6f497ee3edd5ee831c091a5a50629df81673acea
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78191321"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço Azure Kubernetes (AKS)
@@ -33,19 +33,19 @@ Este artigo também assume que você tem [um domínio personalizado][custom-doma
 
 Este artigo utiliza o Helm para instalar o controlador de ingresso NGINX, o cert-manager e uma aplicação web de amostra. Certifique-se de que está a usar o último lançamento do Helm. Para obter instruções de atualização, consulte o [Helm instalar docs][helm-install]. Para obter mais informações sobre configurar e utilizar o Helm, consulte [Instalar aplicações com o Helm no Serviço Azure Kubernetes (AKS)][use-helm].
 
-Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de ingresso
 
-Para criar o controlador de entrada, utilize o comando `helm` para instalar *nginx-ingress*. Para um maior despedimento, duas réplicas dos controladores de entrada NGINX são implantadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
+Para criar o controlador `helm` de entrada, utilize o comando para instalar *nginx-ingress*. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
 
-O controlador de ingresso também precisa de ser programado num nó Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nó utilizando o parâmetro de `--set nodeSelector` para dizer ao programador kubernetes para executar o controlador de entrada NGINX num nó baseado em Linux.
+O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
 > O exemplo seguinte cria um espaço de nome Kubernetes para os recursos de ingresso *denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
 
 > [!TIP]
-> Se quiser ativar a [preservação ip][client-source-ip] de origem do cliente para pedidos de contentores no seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando de instalação helm. O IP de origem do cliente é armazenado no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de ingresso com a preservação IP de origem do cliente ativada, a passagem do SSL não funcionará.
+> Se quiser ativar a [preservação ip][client-source-ip] de origem do cliente `--set controller.service.externalTrafficPolicy=Local` para pedidos de contentores no seu cluster, adicione ao comando de instalação helm. O IP de origem do cliente é armazenado no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de ingresso com a preservação IP de origem do cliente ativada, a passagem do SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -64,7 +64,7 @@ helm install nginx stable/nginx-ingress \
 
 Durante a instalação, é criado um endereço IP público Azure para o controlador de ingresso. Este endereço IP público é estático para o tempo de vida do controlador de ingresso. Se eliminar o controlador de ingresso, a atribuição de endereçoip público perde-se. Se criar um controlador adicional de ingresso, é atribuído um novo endereço IP público. Se desejar manter a utilização do endereço IP público, pode, em vez disso, criar um controlador de [ingresso com um endereço IP público estático][aks-ingress-static-tls].
 
-Para obter o endereço IP público, use o comando `kubectl get service`. Leva alguns minutos para que o endereço IP seja atribuído ao serviço.
+Para obter o endereço IP `kubectl get service` público, use o comando. Leva alguns minutos para que o endereço IP seja atribuído ao serviço.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -108,9 +108,9 @@ az network dns record-set a add-record \
 > az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
 > ```
 
-## <a name="install-cert-manager"></a>Instalar cert-manager
+## <a name="install-cert-manager"></a>Instalar o cert-manager
 
-O controlador de entrada NGINX suporta a rescisão de TLS. Existem várias formas de recuperar e configurar certificados para HTTPS. Este artigo demonstra a [utilização do cert-manager][cert-manager], que fornece automaticamente a geração de [certificados lets encrypt][lets-encrypt] e a funcionalidade de gestão.
+O controlador de entrada do NGINX suporta a terminação de TLS. Existem várias formas de obter e configurar certificados para HTTPS. Este artigo demonstra a [utilização do cert-manager][cert-manager], que fornece automaticamente a geração de [certificados lets encrypt][lets-encrypt] e a funcionalidade de gestão.
 
 Para instalar o controlador cert-manager:
 
@@ -139,9 +139,9 @@ Para obter mais informações sobre a configuração do cert-manager, consulte o
 
 ## <a name="create-a-ca-cluster-issuer"></a>Criar um emitente de cluster CA
 
-Antes de os certificados poderem ser emitidos, o cert-manager requer um recurso [Emitente][cert-manager-issuer] ou [ClusterIssuer.][cert-manager-cluster-issuer] Estes recursos Kubernetes são idênticos na funcionalidade, no entanto `Issuer` trabalha num único espaço de nome, e `ClusterIssuer` funciona em todos os espaços de nome. Para mais informações, consulte a documentação do [emitente do gestor da CERT.][cert-manager-issuer]
+Antes de os certificados poderem ser emitidos, o cert-manager requer um recurso [Emitente][cert-manager-issuer] ou [ClusterIssuer.][cert-manager-cluster-issuer] Estes recursos Kubernetes são idênticos `Issuer` na funcionalidade, no `ClusterIssuer` entanto funciona num único espaço de nome, e funciona em todos os espaços de nome. Para mais informações, consulte a documentação do [emitente do gestor da CERT.][cert-manager-issuer]
 
-Crie um emitente de cluster, como `cluster-issuer.yaml`, utilizando o seguinte manifesto de exemplo. Atualize o endereço de e-mail com um endereço válido da sua organização:
+Criar um emitente `cluster-issuer.yaml`de cluster, como, por exemplo, usando o seguinte manifesto exemplo. Atualize o endereço de e-mail com um endereço válido da sua organização:
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -160,7 +160,7 @@ spec:
           class: nginx
 ```
 
-Para criar o emitente, use o comando `kubectl apply`.
+Para criar o emitente, use o `kubectl apply` comando.
 
 ```console
 kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
@@ -176,7 +176,7 @@ Antes de poder instalar as tabelas Helm da amostra, adicione o repositório de a
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-Crie uma aplicação de demonstração chamada *aks-helloworld* usando o gráfico de helm ofe-amostras/aks-helloworld.
+Crie uma aplicação de demonstração chamada *aks-helloworld* usando o gráfico de helm ofe-amostras/aks-helloworld. *azure-samples/aks-helloworld*
 
 ```console
 helm install aks-helloworld azure-samples/aks-helloworld --namespace ingress-basic
@@ -193,11 +193,11 @@ helm install aks-helloworld-two azure-samples/aks-helloworld \
 
 ## <a name="create-an-ingress-route"></a>Criar uma rota de ingresso
 
-Ambas as aplicações estão agora a funcionar no seu cluster Kubernetes. No entanto, estão configurados com um serviço de tipo `ClusterIP` e não são acessíveis a partir da internet. Para torná-los disponíveis publicamente, crie um recurso de entrada Kubernetes. O recurso de ingresso configura as regras que encaminham o tráfego para uma das duas aplicações.
+Ambas as aplicações estão agora a funcionar no seu cluster Kubernetes. No entanto, estão configurados `ClusterIP` com um serviço de tipo e não são acessíveis a partir da internet. Para torná-los disponíveis publicamente, crie um recurso de entrada Kubernetes. O recurso de ingresso configura as regras que encaminham o tráfego para uma das duas aplicações.
 
 No exemplo seguinte, o tráfego para o endereço *olá-ingresso mundial. MY_CUSTOM_DOMAIN* é encaminhado para o serviço *aks-helloworld.* Tráfego para o endereço *olá-world-ingress. MY_CUSTOM_DOMAIN/hello-world-two* é encaminhado para o serviço *aks-helloworld-two.* Tráfego para *hello-world-ingress. MY_CUSTOM_DOMAIN/estática* é encaminhado para o serviço chamado *aks-helloworld* para ativos estáticos.
 
-Crie um ficheiro chamado `hello-world-ingress.yaml` usando o exemplo YAML. Atualize os *anfitriões* e *o anfitrião* do nome DNS que criou num passo anterior.
+Crie um `hello-world-ingress.yaml` ficheiro nomeado usando o exemplo YAML. Atualize os *anfitriões* e *o anfitrião* do nome DNS que criou num passo anterior.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -249,7 +249,7 @@ spec:
         path: /static(/|$)(.*)
 ```
 
-Crie o recurso ingresso utilizando o comando `kubectl apply`.
+Crie o recurso `kubectl apply` de entrada utilizando o comando.
 
 ```console
 kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
@@ -259,7 +259,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Em seguida, deve ser criado um recurso de certificado. O recurso do certificado define o certificado X.509 desejado. Para mais informações, consulte [os certificados do cert-manager][cert-manager-certificates]. O cert-manager criou automaticamente um objeto de certificado para si usando ingress-shim, que é automaticamente implantado com cert-manager desde v0.2.2. Para mais informações, consulte a [documentação ingress-shim][ingress-shim].
 
-Para verificar se o certificado foi criado com sucesso, utilize o comando `kubectl get certificate --namespace ingress-basic` e verifique se o *READY* é *Verdadeiro,* que pode demorar vários minutos.
+Para verificar se o certificado foi `kubectl get certificate --namespace ingress-basic` criado com sucesso, utilize o comando e verifique se o *READY* é *True*, que pode demorar vários minutos.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -278,7 +278,7 @@ Este artigo usou o Helm para instalar os componentes de entrada, certificados e 
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminar o espaço de nome da amostra e todos os recursos
 
-Para eliminar todo o espaço de nome da amostra, utilize o comando `kubectl delete` e especifique o seu nome de espaço de nome. Todos os recursos no espaço de nome são eliminados.
+Para eliminar todo o espaço `kubectl delete` de nome da amostra, utilize o comando e especifique o nome do seu espaço de nome. Todos os recursos no espaço de nome são eliminados.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -298,7 +298,7 @@ Em alternativa, uma abordagem mais granular é eliminar os recursos individuais 
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Lista o Helm liberta com o comando `helm list`. Procure gráficos *chamados nginx-ingress* e *aks-helloworld,* como mostra a seguinte saída exemplo:
+Lista o Helm liberta `helm list` com o comando. Procure gráficos *chamados nginx-ingress* e *aks-helloworld,* como mostra a seguinte saída exemplo:
 
 ```
 $ helm list --namespace ingress-basic
@@ -310,7 +310,7 @@ cert-manager            ingress-basic   1               2020-01-15 10:23:36.5155
 nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
 ```
 
-Elimine os lançamentos com o comando `helm delete`. O exemplo seguinte elimina a implementação de ingresso NGINX, e as duas aplicações aks olá world.
+Elimine os lançamentos com o `helm delete` comando. O exemplo seguinte elimina a implementação de ingresso NGINX, e as duas aplicações aks olá world.
 
 ```
 $ helm uninstall aks-helloworld aks-helloworld-two cert-manager nginx --namespace ingress-basic
@@ -333,7 +333,7 @@ Remova a rota de ingresso que direcionou o tráfego para as aplicações da amos
 kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
 ```
 
-Finalmente, pode eliminar o espaço de nome si mesmo. Utilize o comando `kubectl delete` e especifique o seu nome de espaço de nome:
+Finalmente, pode eliminar o espaço de nome si mesmo. Utilize `kubectl delete` o comando e especifique o nome do seu espaço de nome:
 
 ```console
 kubectl delete namespace ingress-basic

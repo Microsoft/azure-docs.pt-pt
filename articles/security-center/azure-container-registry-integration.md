@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
 ms.openlocfilehash: 069ce6ca1e76a9bd954031708702c973387abbaa
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78205998"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
@@ -29,7 +29,7 @@ Sempre que uma imagem é empurrada para o seu registo, o Security Center digital
 
 Quando a varredura termina (normalmente após aproximadamente 10 minutos), os resultados estão disponíveis em recomendações do Centro de Segurança como esta:
 
-[![recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas num Registo de Contentores Azure (ACR) hospedada imagem](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas num Registo de Contentores Azure (ACR) hospedada imagem](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Benefícios da integração
 
@@ -47,6 +47,6 @@ Para saber mais sobre as funcionalidades de segurança de contentores do Securit
 
 * [Centro de Segurança Azure e segurança de contentores](container-security.md)
 
-* [Integração com o Serviço Azure Kubernetes](azure-kubernetes-service-integration.md)
+* [Integração com o Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
 * [Proteção virtual de máquinas](security-center-virtual-machine-protection.md) - Descreve as recomendações do Centro de Segurança

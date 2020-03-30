@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194462"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
@@ -29,9 +29,9 @@ ms.locfileid: "78194462"
 
 As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
-1. No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.
+1. No diagrama anterior, a sua aplicação cria um certificado que começa internamente por criar uma chave no seu cofre de chaves.
 2. Key Vault devolve à sua aplicação um Pedido de Assinatura de Certificado (CSR)
-3. A sua candidatura passa a RSE para a sua CA escolhida.
+3. A sua aplicação transmite o CSR para a AC escolhida.
 4. O seu CA escolhido responde com um Certificado X509.
 5. A sua aplicação completa a criação do novo certificado com uma fusão do Certificado X509 da sua CA.
 
@@ -41,9 +41,9 @@ As seguintes descrições correspondem aos passos com letras verdes no diagrama 
 
 As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
-1. No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.
+1. No diagrama anterior, a sua aplicação cria um certificado que começa internamente por criar uma chave no seu cofre de chaves.
 2. O Cofre chave envia um Pedido de Certificado TLS/SSL para a AC.
-3. As suas sondagens de candidatura, num processo de loop e espera, para o seu Cofre Chave para a conclusão do certificado. A criação do certificado fica completa quando a Key Vault recebe a resposta da AC com certificado x509.
+3. A sua aplicação consulta o Key Vault, num processo de ciclo e espera, para averiguar a conclusão do certificado. A criação do certificado é concluída quando o Key Vault receber a resposta da AC com o certificado x509.
 4. O CA responde ao Pedido de Certificado TLS/SSL da Key Vault com um certificado TLS/SSL X.509.
 5. A sua nova criação de certificado completa com a fusão do certificado TLS/SSL X.509 para a AC.
 
@@ -91,6 +91,6 @@ Note que quando uma encomenda é feita com o provedor emitente, pode honrar ou a
 
  Autorização: Requer os certificados/criar permissão.
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
  - [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)

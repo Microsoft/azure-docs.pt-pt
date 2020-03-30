@@ -1,6 +1,6 @@
 ---
-title: Carregar dados do Office 365 usando Azure Data Factory
-description: Usar Azure Data Factory para copiar dados do Office 365
+title: Carregue os dados do Office 365 utilizando a Fábrica de Dados Azure
+description: Utilizar a Fábrica de Dados Azure para copiar dados do Office 365
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,34 +12,34 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443913"
 ---
-# <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando Azure Data Factory
+# <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregue os dados do Office 365 utilizando a Fábrica de Dados Azure
 
-Este artigo mostra como usar o Data Factory _carregar dados do Office 365 para o armazenamento de BLOBs do Azure_. Você pode seguir etapas semelhantes para copiar dados para Azure Data Lake Gen1 ou Gen2. Consulte o [artigo conector do office 365](connector-office-365.md) sobre como copiar dados do Office 365 em geral.
+Este artigo mostra-lhe como utilizar os dados de carga da Fábrica de Dados _do Office 365 para o armazenamento de Blob Azure_. Pode seguir passos semelhantes para copiar dados para O Lago de Dados Azure Gen1 ou Gen2. Consulte o artigo do [conector do Office 365](connector-office-365.md) sobre a cópia dos dados do Office 365 em geral.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**: 
+1. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:** 
    
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. Na página **novo data Factory** , forneça valores para os campos mostrados na imagem a seguir:
+2. Na página da nova fábrica de **dados,** forneça valores para os campos que são mostrados na seguinte imagem:
       
    ![Página Nova fábrica de dados](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Nome**: Insira um nome globalmente exclusivo para sua data Factory do Azure. Se você receber o erro "o nome do data Factory *LoadFromOffice365Demo* não está disponível", insira um nome diferente para o data Factory. Por exemplo, você pode usar o nome _**Your**_ name**LoadFromOffice365Demo**. Tente criar o data factory novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Assinatura**: selecione sua assinatura do Azure na qual criar o data Factory. 
-    * **Grupo de recursos**: selecione um grupo de recursos existente na lista suspensa ou selecione a opção **criar novo** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão**: selecione **v2**.
-    * **Local**: selecione o local para o data Factory. Apenas são apresentadas as localizações suportadas na lista pendente. Os armazenamentos de dados usados pelo data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Store, armazenamento do Azure, banco de dados SQL do Azure e assim por diante.
+    * **Nome**: Introduza um nome globalmente único para a sua fábrica de dados Azure. Se receber o erro "O nome de fábrica de dados *LoadFromOffice365Demo* não está disponível", introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**de**_**loadFromOffice365Demo**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Subscrição**: Selecione a sua subscrição Azure para criar a fábrica de dados. 
+    * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
+    * **Versão**: Selecione **V2**.
+    * **Localização**: Selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. Estas lojas de dados incluem Azure Data Lake Store, Azure Storage, Azure SQL Database, e assim por diante.
 
 3. Selecione **Criar**.
-4. Após a conclusão da criação, vá para o data factory. Você verá o home page de **Data Factory** conforme mostrado na imagem a seguir:
+4. Depois de a criação estar completa, vá à sua fábrica de dados. Vê a página inicial da **Data Factory** como mostra a seguinte imagem:
    
    ![Home page da fábrica de dados](./media/load-office-365-data/data-factory-home-page.png)
 
@@ -47,105 +47,105 @@ Este artigo mostra como usar o Data Factory _carregar dados do Office 365 para o
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-1. Na página "Vamos começar", selecione **criar pipeline**.
+1. Na página "Vamos começar", selecione **o pipeline Create**.
  
     ![Criar pipeline](./media/load-office-365-data/create-pipeline-entry.png)
 
-2. Na **guia Geral** do pipeline, insira "CopyPipeline" para o **nome** do pipeline.
+2. No **separador Geral** do gasoduto, introduza "CopyPipeline" para **o nome** do gasoduto.
 
-3. Na caixa de ferramentas atividades > mover & categoria transformar > arraste e solte a **atividade de cópia** da caixa de ferramentas para a superfície do designer de pipeline. Especifique "CopyFromOffice365ToBlob" como o nome da atividade.
+3. Na caixa de ferramentas De > Mover & Transformar a categoria > arrastar e largar a **atividade Copy** da caixa de ferramentas para a superfície do designer de gasodutos. Especifique "CopyFromOffice365ToBlob" como nome de atividade.
 
 ### <a name="configure-source"></a>Configurar origem
 
-1. Vá para a **guia origem**do > de pipeline, clique em **+ novo** para criar um conjunto de um DataSet de origem. 
+1. Vá ao separador > **Fonte,** clique **+ Novo** para criar um conjunto de dados de origem. 
 
-2. Na janela novo conjunto de novos DataSet, selecione **Office 365**e, em seguida, selecione **continuar**.
+2. Na janela New Dataset, selecione **Office 365**, e, em seguida, selecione **Continuar**.
  
-3. Agora você está na guia de configuração da atividade de cópia. Clique no botão **Editar** ao lado do conjunto de dados do Office 365 para continuar a configuração do dado.
+3. Está agora no separador de configuração de atividade de cópia. Clique no botão **Editar** ao lado do conjunto de dados do Office 365 para continuar a configuração de dados.
 
-    ![Configurar o Office 365 DataSet geral](./media/load-office-365-data/transition-to-edit-dataset.png)
+    ![Config Office 365 dataset geral](./media/load-office-365-data/transition-to-edit-dataset.png)
  
-4. Você verá uma nova guia aberta para o Office 365 DataSet. Na **guia Geral** na parte inferior da janela Propriedades, digite "SourceOffice365Dataset" para nome.
+4. Vê um novo separador aberto para o Conjunto de dados do Office 365. No **separador Geral** na parte inferior da janela Propriedades, introduza "SourceOffice365Dataset" para Nome.
  
-5. Vá para a **guia conexão** da janela Propriedades. Ao lado da caixa de texto serviço vinculado, clique em **+ novo**.
+5. Vá ao **separador de ligação** da janela Propriedades. Ao lado da caixa de texto de serviço Linked, clique **+ Novo**.
 
-6. Na janela novo serviço vinculado, digite "Office365LinkedService" como nome, insira a ID da entidade de serviço e a chave da entidade de serviço, teste a conexão e selecione **criar** para implantar o serviço vinculado.
+6. Na janela new Linked Service, introduza "Office365LinkedService" como nome, introduza a chave principal de identificação do serviço e do serviço principal, depois teste a ligação e selecione **Criar** para implementar o serviço ligado.
 
-    ![Novo serviço vinculado do Office 365](./media/load-office-365-data/new-office-365-linked-service.png)
+    ![Novo Serviço 365 ligado](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. Depois de criar o serviço ligado, volta às definições do conjunto de dados. Ao lado de **tabela**, escolha a seta para baixo para expandir a lista de conjuntos de datadisponíveis do Office 365 e escolha "BasicDataSet_v0. Message_v0 "na lista suspensa:
+7. Depois de criar o serviço ligado, volta às definições do conjunto de dados. Ao lado da **Tabela,** escolha a seta para baixo para expandir a lista de conjuntos de dados disponíveis do Office 365, e escolha "BasicDataSet_v0. Message_v0" da lista de entrega:
 
-    ![Configurar a tabela de conjunto de configurações do Office 365](./media/load-office-365-data/edit-dataset.png)
+    ![Config Office 365 dataset tabela](./media/load-office-365-data/edit-dataset.png)
 
-8. Agora, volte para a **guia origem** do **pipeline** > para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) para saber como definir essas configurações.
+8. Agora volte ao **pipeline** > **Source tab** para continuar a configurar propriedades adicionais para a extração de dados do Office 365.  O alcance do utilizador e o filtro de alcance do utilizador são predicados opcionais que pode definir para restringir os dados que pretende extrair do Office 365. Consulte a secção de propriedades do conjunto de [dados office 365](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) para saber como configura estas definições.
 
-9. É necessário escolher um dos filtros de data e fornecer os valores de hora de início e hora de término.
+9. É-lhe exigido que escolha um dos filtros de data e forneça os valores de hora de início e fim.
 
-10. Clique na guia **importar esquema** para importar o esquema para o conjunto de mensagens de mensagem.
+10. Clique no separador **Import Schema** para importar o esquema para conjunto de dados de mensagem.
 
-    ![Configurar o esquema de conjunto de esquemas do Office 365](./media/load-office-365-data/edit-source-properties.png)
+    ![Config Office 365 dataset schema](./media/load-office-365-data/edit-source-properties.png)
 
 ### <a name="configure-sink"></a>Configurar sink
 
-1. Vá para a **guia coletor**de > do pipeline e selecione **+ novo** para criar um conjunto de coletas.
+1. Vá ao **separador**> Sink e selecione **+ Novo** para criar um conjunto de dados de sumidouro.
  
-2. Na janela novo conjunto de notícias, observe que somente os destinos com suporte são selecionados ao copiar do Office 365. Selecione **armazenamento de BLOBs do Azure**, selecione formato binário e, em seguida, selecione **continuar**.  Neste tutorial, você copia dados do Office 365 em um armazenamento de BLOBs do Azure.
+2. Na janela New Dataset, note que apenas os destinos suportados são selecionados ao copiar do Office 365. Selecione **Armazenamento Blob Azure,** selecione formato Binário e, em seguida, selecione **Continuar**.  Neste tutorial, você copia os dados do Office 365 num Armazém Azure Blob.
 
-3. Clique no botão **Editar** ao lado do conjunto de dados do armazenamento de BLOBs do Azure para continuar a configuração do dado.
+3. Clique no botão **Editar** ao lado do conjunto de dados de armazenamento de Blob Azure para continuar a configuração de dados.
 
-4. Na **guia Geral** do janela Propriedades, em nome, insira "OutputBlobDataset".
+4. No **separador Geral** da janela Propriedades, em Nome, introduza "OutputBlobDataset".
 
-5. Vá para a **guia conexão** da janela Propriedades. Ao lado da caixa de texto serviço vinculado, selecione **+ novo**.
+5. Vá ao **separador de ligação** da janela Propriedades. Junto à caixa de texto Serviço ligado, selecione **+ Novo**.
 
-6. Na janela novo serviço vinculado, digite "AzureStorageLinkedService" como nome, selecione "entidade de serviço" na lista suspensa de métodos de autenticação, preencha o ponto de extremidade de serviço, locatário, ID da entidade de serviço e chave da entidade de serviço e, em seguida, selecione salvar em implante o serviço vinculado.  Consulte [aqui](connector-azure-blob-storage.md#service-principal-authentication) para saber como configurar a autenticação de entidade de serviço para o armazenamento de BLOBs do Azure.
+6. Na janela new Linked Service, introduza "AzureStorageLinkedService" como nome, selecione "Service Principal" da lista de métodos de autenticação, preencha o Ponto final de serviço, Inquilino, Id principal de serviço e chave principal de serviço, em seguida, selecione Guardar para implementar o serviço ligado.  Consulte [aqui](connector-azure-blob-storage.md#service-principal-authentication) como configurar a autenticação principal do serviço para o Armazenamento De Blob Azure.
 
-    ![Novo serviço vinculado de BLOB](./media/load-office-365-data/configure-blob-linked-service.png)
+    ![Novo serviço ligado à Blob](./media/load-office-365-data/configure-blob-linked-service.png)
 
 
 ## <a name="validate-the-pipeline"></a>Validar o pipeline
 
 Para validar o pipeline, selecione **Validar** na barra de ferramentas.
 
-Você também pode ver o código JSON associado ao pipeline clicando em código no canto superior direito.
+Também pode ver o código JSON associado ao pipeline clicando no Código na parte superior direita.
 
-## <a name="publish-the-pipeline"></a>Publicar o pipeline
+## <a name="publish-the-pipeline"></a>Publicar o oleoduto
 
-Na barra de ferramentas superior, selecione **publicar tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
+Na barra de ferramentas superior, **selecione Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
 
 ![Publicar alterações](./media/load-office-365-data/publish-changes.png) 
 
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 
-Selecione **Adicionar gatilho** na barra de ferramentas e, em seguida, selecione **disparar agora**. Na página execução do pipeline, selecione **concluir**. 
+**Selecione Adicionar gatilho** na barra de ferramentas e, em seguida, selecione **'Gatilho' agora**. Na página Executar Pipeline, selecione **Concluir**. 
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 
-Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar as ligações na coluna **Ações** para ver os detalhes das atividades e para voltar a executar o pipeline.
+Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links na coluna **Ações** para visualizar detalhes de atividade e reexecutar o gasoduto.
 
 ![Monitorizar o pipeline](./media/load-office-365-data/pipeline-status.png) 
 
-Para ver as execuções de atividade associadas à execução do pipeline, selecione o link **Exibir execuções de atividade** na coluna ações. Neste exemplo, há apenas uma atividade, pelo que só vai ver uma entrada na lista. Para obter detalhes sobre a operação de cópia, selecione o link **detalhes** (ícone de óculos) na coluna ações.
+Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna Ações. Neste exemplo, há apenas uma atividade, pelo que só vai ver uma entrada na lista. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna Ações.
 
-![Monitorar atividade](./media/load-office-365-data/activity-status.png) 
+![Monitorizar a atividade](./media/load-office-365-data/activity-status.png) 
 
-Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em que conta de destino os dados estão sendo carregados e qual identidade do usuário está fazendo a solicitação de acesso a dados), você verá o status da **atividade de cópia**como **em andamento**e somente quando clicar no link "detalhes" em ações, você verá o  Um membro do grupo Aprovador de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que a extração de dados possa continuar.
+Se esta for a primeira vez que solicita dados para este contexto (uma combinação da qual a tabela de dados está a ser acedida, qual a conta de destino que está a ser carregada e em que identidade de utilizador está a fazer o pedido de acesso de dados), verá o estado da atividade da cópia como **Em Curso**, e só quando clicar no link "Detalhes" em Ações verá o estado como **RequesetingConsent**.  Um membro do grupo de aprovadores de acesso a dados precisa de aprovar o pedido na Gestão de Acesso Privilegiado antes que a extração de dados possa prosseguir.
 
-_Status como solicitando consentimento:_ detalhes de execução de atividade de
-![-solicitar consentimento](./media/load-office-365-data/activity-details-request-consent.png) 
+_Estado como consentimento solicitado:_
+![Detalhes de execução da atividade - consentimento do pedido](./media/load-office-365-data/activity-details-request-consent.png) 
 
-_Status como Extraindo dados:_
+_Estado como dados de extração:_
 
-![Detalhes da execução da atividade – extrair dados](./media/load-office-365-data/activity-details-extract-data.png) 
+![Detalhes de execução de atividade - extrair dados](./media/load-office-365-data/activity-details-extract-data.png) 
 
-Depois que o consentimento for fornecido, a extração de dados continuará e, após algum tempo, a execução do pipeline será mostrada como bem-sucedida.
+Uma vez que o consentimento seja fornecido, a extração de dados continuará e, após algum tempo, a execução do gasoduto mostrar-se-á como bem sucedida.
 
-![Pipeline de monitor-bem-sucedido](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
+![Monitor pipeline - conseguiu](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
 
-Agora, acesse o armazenamento de BLOBs do Azure de destino e verifique se os dados do Office 365 foram extraídos em formato binário.
+Agora vá ao destino Azure Blob Storage e verifique se os dados do Office 365 foram extraídos em formato Binário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para o seguinte artigo para saber mais sobre o suporte do Azure SQL Data Warehouse: 
+Avançar para o seguinte artigo para saber sobre o suporte do Armazém de Dados Azure SQL: 
 
 > [!div class="nextstepaction"]
 >[Conector do Office 365](connector-office-365.md)

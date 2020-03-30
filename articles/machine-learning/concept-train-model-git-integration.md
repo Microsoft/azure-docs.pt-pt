@@ -10,10 +10,10 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402834"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração git para Azure Machine Learning
@@ -28,7 +28,7 @@ Uma vez que o Azure Machine Learning rastreia informações de um repo local, n�
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clone Git repositórios no seu sistema de ficheiros espaço de trabalho
 O Azure Machine Learning fornece um sistema de ficheiros partilhado para todos os utilizadores no espaço de trabalho.
-Para clonar um repositório Git nesta partilha de ficheiros, recomendamos que crie um Compute Instance & abra um terminal.
+Para clonar um repositório Git nesta partilha de ficheiros, recomendamos que crie um Compute Instance & abrir um terminal.
 Uma vez aberto o terminal, você tem acesso a um cliente Git completo e pode clonar e trabalhar com git através da experiência Git CLI.
 
 Recomendamos que clone o repositório no diretório dos seus utilizadores para que outros não façam colisões diretamente no seu ramo de trabalho.
@@ -39,7 +39,7 @@ Para obter um guia sobre como utilizar o Git CLI, leia [aqui](https://guides.git
 
 ## <a name="track-code-that-comes-from-git-repositories"></a>Código de pista que vem dos repositórios de Git
 
-Quando submete uma execução de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se o comando `git` estiver disponível no seu ambiente de desenvolvimento, o processo de upload usa-o para verificar se os ficheiros são armazenados num repositório git. Em caso afirmativo, as informações do seu repositório git também são enviadas como parte do treino. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
+Quando submete uma execução de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se `git` o comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload usa-o para verificar se os ficheiros são armazenados num repositório git. Em caso afirmativo, as informações do seu repositório git também são enviadas como parte do treino. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
 
 | Propriedade | Comando Git usado para obter o valor | Descrição |
 | ----- | ----- | ----- |
@@ -53,7 +53,7 @@ Quando submete uma execução de treino a partir do Python SDK ou do Machine Lea
 
 Esta informação é enviada para executagens que usam um estimador, um pipeline de aprendizagem automática ou uma execução de script.
 
-Se os seus ficheiros de treino não estiverem localizados num repositório git sobre o seu ambiente de desenvolvimento, ou se o comando `git` não estiver disponível, então nenhuma informação relacionada com o git é rastreada.
+Se os seus ficheiros de treino não estiverem localizados num `git` repositório git sobre o seu ambiente de desenvolvimento, ou se o comando não estiver disponível, então nenhuma informação relacionada com o git é rastreada.
 
 > [!TIP]
 > Para verificar se o comando git está disponível no seu ambiente de desenvolvimento, abra uma sessão de concha, pedido de comando, PowerShell ou outra interface de linha de comando e escreva o seguinte comando:
@@ -62,7 +62,7 @@ Se os seus ficheiros de treino não estiverem localizados num repositório git s
 > git --version
 > ```
 >
-> Se instalado, e no caminho, receberá uma resposta semelhante à `git version 2.4.1`. Para obter mais informações sobre a instalação do git no seu ambiente de desenvolvimento, consulte o [site git](https://git-scm.com/).
+> Se instalado, e no caminho, receberá uma `git version 2.4.1`resposta semelhante a . Para obter mais informações sobre a instalação do git no seu ambiente de desenvolvimento, consulte o [site git](https://git-scm.com/).
 
 ## <a name="view-the-logged-information"></a>Ver a informação registada
 
@@ -73,7 +73,7 @@ A informação git é armazenada nas propriedades para um treino. Pode ver esta 
 1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho.
 1. Selecione __Experimentos__e, em seguida, selecione uma das suas experiências.
 1. Selecione uma das correções da coluna __NÚMERO DE EXECUÇÃO.__
-1. Selecione __Registos__e, em seguida, expanda os __registos__ e as entradas __em azul.__ Selecione o link que começa com __###\_azul__.
+1. Selecione __Registos__e, em seguida, expanda os __registos__ e as entradas __em azul.__ Selecione o __ ### \___ link que começa com azul .
 
     ![A entrada ###_azure no portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
@@ -98,7 +98,7 @@ As informações registadas contêm textosemelhante ao seguinte JSON:
 
 ### <a name="python-sdk"></a>SDK Python
 
-Depois de submeter um treino, um objeto [run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) é devolvido. O atributo `properties` deste objeto contém a informação de git registada. Por exemplo, o seguinte código recupera o hash de compromisso:
+Depois de submeter um treino, um objeto [run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) é devolvido. O `properties` atributo deste objeto contém a informação de git registado. Por exemplo, o seguinte código recupera o hash de compromisso:
 
 ```python
 run.properties['azureml.git.commit']
@@ -106,7 +106,7 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>CLI
 
-O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma corrida. Por exemplo, o seguinte comando devolve as propriedades para a última execução na experiência chamada `train-on-amlcompute`:
+O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma corrida. Por exemplo, o seguinte comando devolve as propriedades `train-on-amlcompute`para a última execução na experiência denominada:
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'

@@ -9,20 +9,20 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184863"
 ---
-Se o Python encontra um erro ao iniciar a sua aplicação, apenas uma página de erro simples será retornada (por exemplo "A página não pode ser apresentada porque ocorreu um erro de servidor interno.").
+Se python encontrar um erro durante o início da sua aplicação, apenas uma simples página de erro será devolvida (por exemplo, "A página não pode ser exibida porque ocorreu um erro interno do servidor.").
 
-Para capturar erros de aplicações Python:
+Para capturar erros de aplicação python:
 
-1. No portal do Azure, na sua aplicação web, selecione **definições**.
-2. Sobre o **definições** separador, selecione **as definições da aplicação**.
-3. Sob **as definições da aplicação**, introduza o seguinte par chave/valor:
-    * Chave: WSGI_LOG
-    * Valor: D:\home\site\wwwroot\logs.txt (introduzir a sua escolha de nome de ficheiro)
+1. No portal Azure, na sua aplicação web, selecione **Definições**.
+2. No separador **Definições,** selecione **definições de aplicação**.
+3. Nas definições da **App,** introduza o seguinte par chave/valor:
+    * Chave : WSGI_LOG
+    * Valor : D:\home\site\wwwroot\logs.txt (insira a sua escolha de nome de ficheiro)
 
-Deverá ver erros no ficheiro na pasta wwwroot logs.txt.
+Deverá agora ver erros no ficheiro logs.txt na pasta wwwroot.

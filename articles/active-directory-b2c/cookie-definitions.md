@@ -12,10 +12,10 @@ ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189519"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definições de cookies para Azure AD B2C
@@ -24,15 +24,15 @@ As seguintes secções fornecem informações sobre os cookies utilizados no Azu
 
 ## <a name="samesite"></a>Mesmo site
 
-O serviço Microsoft Azure AD AD B2C é compatível com configurações de navegador sameSite, incluindo suporte para `SameSite=None` com o atributo `Secure`.
+O serviço Microsoft Azure AD AD B2C é compatível `SameSite=None` com `Secure` as configurações do navegador SameSite, incluindo suporte para com o atributo.
 
 Para salvaguardar o acesso aos sites, os navegadores da Web introduzirão um novo modelo seguro por padrão que pressupõe que todos os cookies devem ser protegidos contra o acesso externo, salvo especificação em contrário. O navegador Chrome é o primeiro a implementar esta alteração, começando com o Chrome 80 em fevereiro de [2020.](https://www.chromium.org/updates/same-site) Para mais informações sobre a preparação para a mudança no Chrome, consulte [Developers: Prepare-se para novo SameSite=None; Fixe as definições](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) de cookies no Blog do Chromium.
 
-Os desenvolvedores devem usar a nova definição de cookies, `SameSite=None`, para designar cookies para acesso ao cross-site. Quando o atributo `SameSite=None` estiver presente, deve ser utilizado um atributo adicional `Secure` para que os cookies transversais só possam ser acedidos sobre ligações HTTPS. Valide e teste todas as suas aplicações, incluindo as aplicações que utilizam o Azure AD B2C.
+Os desenvolvedores devem usar `SameSite=None`a nova definição de cookies, para designar cookies para acesso cross-site. Quando `SameSite=None` o atributo estiver `Secure` presente, deve ser utilizado um atributo adicional para que os cookies transversais só possam ser acedidos sobre ligações HTTPS. Valide e teste todas as suas aplicações, incluindo as aplicações que utilizam o Azure AD B2C.
 
 Para obter mais informações, consulte:
 
-* [Lidar com as alterações de cookies do Mesmo Site no navegador Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
+* [Processar as alterações de cookies do SameSite no browser do Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
 * [Efeito nos websites dos clientes e serviços e produtos da Microsoft na versão 80 do Chrome ou posterior](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)
 
 ## <a name="cookies"></a>Cookies

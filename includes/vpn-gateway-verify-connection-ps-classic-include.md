@@ -9,20 +9,20 @@ ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184091"
 ---
-Pode verificar se a ligação teve êxito com o cmdlet 'Get-AzureVNetConnection'.
+Pode verificar se a sua ligação foi bem sucedida utilizando o cmdlet 'Get-AzureVNetConnection'.
 
-1. Utilize o seguinte exemplo de cmdlet, configurando os valores para corresponder aos seus. O nome da rede virtual tem de ser aspas se contiver espaços.
+1. Utilize o seguinte exemplo de cmdlet, configurando os valores para corresponder aos seus. O nome da rede virtual deve estar em aspas se contiver espaços.
 
    ```azurepowershell
    Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
    ```
-2. Quando o cmdlet terminar, veja os valores. No exemplo abaixo, o estado de conectividade é apresentado como "Ligado" e pode ver bytes de entrada e saída.
+2. Quando o cmdlet terminar, veja os valores. No exemplo abaixo, o Estado de Conectividade mostra como 'Conectado' e pode ver ingressos e saídas.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

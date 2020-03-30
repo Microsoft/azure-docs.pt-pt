@@ -1,17 +1,17 @@
 ---
-title: Obtenha registos e eventos de instância de contentores
+title: Obtenha registos de instância de contentores & eventos
 description: Saiba como recuperar registos e eventos de contentores em Casos de Contentores De Azure para ajudar a resolver problemas com problemas em contentores
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
 ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250003"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recupere registos e eventos de contentores em instâncias de contentores de Azure
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Obter registos de contentor e eventos no Azure Container Instances
 
 Quando tiver um recipiente de comportamento errado em Casos de Contentores Azure, comece por ver os seus troncos com troncos de [contentores az][az-container-logs]e transmita o seu erro padrão e padrão com a fixação do [recipiente Az][az-container-attach]. Também pode ver registos e eventos para casos de contentores no portal Azure, ou enviar dados de registo e evento sinuoso para grupos de contentores para [registos do Monitor Azure](container-instances-log-analytics.md).
 

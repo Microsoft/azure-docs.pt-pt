@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206984"
 ---
-# <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Perguntas frequentes sobre Apache Kafka no Azure HDInsight
+# <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Perguntas mais frequentes sobre o Apache Kafka no Azure HDInsight
 
 Este artigo aborda algumas questões comuns sobre a utilização de Apache Kafka no Azure HDInsight.
 
@@ -26,11 +26,11 @@ Encontre mais informações sobre as versões componentes suportadas oficialment
 
 Um cluster HDInsight Kafka inclui os seguintes recursos:
 
-* Nós de cabeça
+* Nódosos da cabeça
 * Nódoa zookeeper
 * Nós de corretor (trabalhador) 
 * Discos geridos azure ligados aos nódosos de corretor
-* Nós de gateway
+* Nódosos gateway
 
 Todos estes recursos são cobrados com base no nosso modelo de [preços HDInsight,](https://azure.microsoft.com/pricing/details/hdinsight/)exceto nos nós de gateway. Não é cobrado pelos nódosos de gateway.
 

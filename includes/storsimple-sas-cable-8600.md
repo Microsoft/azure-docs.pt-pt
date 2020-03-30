@@ -5,50 +5,50 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184293"
 ---
-#### <a name="to-attach-the-sas-cables"></a>Para anexar os cabos SAS
-1. Identifique a primária e as inclusões EBOD. As dois inclusões podem ser identificadas ao observar a seus respectivos planos de back. Veja a imagem seguinte para obter orientações. 
+#### <a name="to-attach-the-sas-cables"></a>Para fixar os cabos SAS
+1. Identifique os recintos primários e ebod. Os dois recintos podem ser identificados olhando para os respetivos aviões traseiros. Consulte a seguinte imagem para obter orientação. 
    
-    ![Fazer uma cópia de plano de principal e as inclusões EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Plano de volta dos recintos primários e EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
-    **Criar uma vista de principal e as inclusões EBOD**
-   
-   | Etiqueta | Descrição |
-   |:--- |:--- |
-   | 1 |Bastidor principal |
-   | 2 |Bastidor EBOD |
-2. Localize os números de série no principal e as inclusões EBOD. O número de série autocolante é afixação o back-esmarcar de cada bastidor. Os números de série tem de ser idênticos em ambas as caixas. [Contacte o Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente se os números de série não coincidem. Ver a ilustração a seguir para localizar os números de série.
-   
-    ![Vista de trás do que mostra o número de série de bastidor](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-   
-    **Localização do número de série autocolante**
+    **Vista traseira dos recintos primários e EBOD**
    
    | Etiqueta | Descrição |
    |:--- |:--- |
-   | 1 |Na sabedoria do bastidor |
-3. Utilize os cabos SAS fornecidos para ligar o bastidor EBOD ao bastidor principal da seguinte forma:
+   | 1 |Recinto primário |
+   | 2 |Recinto eBOD |
+2. Localize os números de série nos recintos primários e ebod. O autocolante do número de série é afixado no ouvido traseiro de cada recinto. Os números de série devem ser idênticos em ambos os recintos. [Contacte](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente o Microsoft Support se os números de série não corresponderem. Consulte a seguinte ilustração para localizar os números de série.
    
-   1. Identifique as quatro portas SAS no bastidor principal e a inclusão EBOD. As portas SAS estão identificadas como EBOD no bastidor principal e correspondem a uma porta na caixa EBOD, como mostra a SAS cablagem ilustração, abaixo.
-   2. Utilize os cabos SAS fornecidos para ligar a porta a porta EBOD A.
-   3. A porta EBOD no controlador 0 deve estar ligada a uma porta no controlador EBOD 0. A porta EBOD no controlador 1 deve estar ligada a uma porta no controlador EBOD 1. Ver a ilustração a seguir para obter orientações. 
+    ![Vista traseira do recinto mostrando número de série](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+   
+    **Localização do adesivo de número de série**
+   
+   | Etiqueta | Descrição |
+   |:--- |:--- |
+   | 1 |Orelha do recinto |
+3. Utilize os cabos SAS fornecidos para ligar o recinto EBOD ao recinto primário da seguinte forma:
+   
+   1. Identifique as quatro portas SAS no recinto primário e no recinto EBOD. As portas SAS são rotuladas como EBOD no recinto primário e correspondem à porta A no recinto EBOD, como mostra a ilustração de cablagem SAS, abaixo.
+   2. Utilize os cabos SAS fornecidos para ligar a porta EBOD à porta A.
+   3. A porta EBOD do controlador 0 deve ser ligada à porta A do controlador EBOD 0. A porta EBOD do controlador 1 deve ser ligada à porta A do controlador EBOD 1. Consulte a seguinte ilustração para obter orientação. 
       
-      ![SAS cablagem para o seu dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+      ![Cabo SAS para o seu dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
-      **Cablagem de SAS**
+      **Cabo SAS**
       
       | Etiqueta | Descrição |
       |:--- |:--- |
-      | A |Bastidor principal |
-      | B |Bastidor EBOD |
+      | A |Recinto primário |
+      | B |Recinto eBOD |
       | 1 |Controlador 0 |
       | 2 |Controlador 1 |
-      | 3 |Controlador 0 de EBOD |
-      | 4 |1 o controlador de EBOD |
-      | 5, 6 |Portas SAS no bastidor principal (etiquetada EBOD) |
-      | 7, 8 |Portas SAS no bastidor EBOD (A porta) |
+      | 3 |Controlador EBOD 0 |
+      | 4 |Controlador EBOD 1 |
+      | 5, 6 |Portas SAS no recinto primário (eBOD com etiqueta) |
+      | 7, 8 |Portas SAS no recinto eBOD (Porta A) |
 

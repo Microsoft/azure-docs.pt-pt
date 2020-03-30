@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: alzam
 ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402889"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino de Diretório Ativo Azure para ligações ao protocolo P2S OpenVPN
@@ -23,18 +23,18 @@ Ao ligar-se ao seu VNet, pode utilizar autenticação baseada em certificado ou 
 >
 
 
-## <a name="tenant"></a>1. Verificar inquilino da AD Azure
+## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Verificar inquilino da AD Azure
 
 Verifique se tem um inquilino da AD Azure. Se você não tem um inquilino Azure AD, você pode criar um usando os passos no [artigo criar um novo inquilino:](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 * Nome organizacional
-* Nome inicial de domínio
+* Nome de domínio inicial
 
 Exemplo:
 
    ![Novo inquilino da AD Azure](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
-## <a name="users"></a>2. Criar utilizadores de inquilinos da AD Azure
+## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Criar utilizadores de inquilinos da AD Azure
 
 O seu inquilino Azure AD precisa das seguintes contas: uma conta Global Admin e uma conta de utilizador principal. A conta de utilizador principal é utilizada como conta de incorporação principal (conta de serviço). Quando cria uma conta de utilizador de inquilinos Azure AD, ajusta a função de Diretório para o tipo de utilizador que pretende criar.
 
@@ -43,13 +43,13 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 * Admin Global
 * Utilizador
 
-## <a name="enable-authentication"></a>3. Ativar a autenticação adato da AD Azure no gateway VPN
+## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Ativar a autenticação adato da AD Azure no gateway VPN
 
 1. Localize a id do Diretório do diretório que pretende utilizar para autenticação. Está listado na secção de propriedades da página Ative Directy.
 
     ![ID do diretório](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
-2. Copie a identificação do Diretório.
+2. Copie o ID do Diretório.
 
 3. Inscreva-se no portal Azure como um utilizador que lhe é atribuído o papel de **administrador global.**
 
@@ -105,7 +105,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
     ```
 
    > [!NOTE]
-   > Certifique-se de incluir um corte de rasto no final do valor `AadIssuerUri`. Caso contrário, o comando falhará.
+   > Certifique-se de incluir um corte de `AadIssuerUri` rasto no final do valor. Caso contrário, o comando falhará.
 
 10. Crie e baixe o perfil executando os seguintes comandos. Altere os valores -ResourceGroupName e -Name para combinar com o seu próprio.
 

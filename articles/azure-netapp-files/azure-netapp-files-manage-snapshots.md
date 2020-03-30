@@ -1,5 +1,5 @@
 ---
-title: Gerir instantâneos utilizando ficheiros Azure NetApp  Microsoft Docs
+title: Gerir instantâneos utilizando ficheiros Azure NetApp [ Microsoft Docs
 description: Descreve como criar instantâneos para um volume ou restaurar de um instantâneo para um novo volume utilizando ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78267906"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos utilizando ficheiros Azure NetApp
@@ -58,7 +58,7 @@ Atualmente, você pode restaurar um instantâneo apenas para um novo volume.
         
         O nome tem de ser exclusivo dentro de um grupo de recursos. Deve ter pelo menos três caracteres de comprimento.  Pode utilizar carateres alfanuméricos.
 
-    * **    de caminho de arquivo**  
+    * **Caminho de arquivo**     
         Especifique o caminho de ficheiro que será utilizado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e aceder ao volume.   
         
         Um destino de montagem é o ponto final do endereço IP do serviço NFS. É gerado automaticamente.   
@@ -86,4 +86,4 @@ Atualmente, você pode restaurar um instantâneo apenas para um novo volume.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Compreender a hierarquia de armazenamento dos Ficheiros Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)
+[Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

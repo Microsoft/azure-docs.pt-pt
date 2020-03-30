@@ -9,13 +9,13 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184139"
 ---
-Se estiver a trabalhar com o modelo de implementação do Resource Manager, pode alterar para o novo gateway SKUs. Quando altera a partir de um SKU de gateway legados para um novo SKU, elimine o gateway VPN existente e criar um novo gateway VPN.
+Se estiver a trabalhar com o modelo de implementação do Gestor de Recursos, pode mudar para o novo gateway SKUs. Quando muda de um portal de gateway legacy SKU para um novo SKU, elimina o gateway VPN existente e cria um novo gateway VPN.
 
 Fluxo de trabalho:
 
@@ -29,7 +29,7 @@ Fluxo de trabalho:
 
 Considerações:
 
-* Para mover para os novos SKU, o gateway de VPN tem de ser no modelo de implementação do Resource Manager.
-* Se tiver um gateway de VPN clássico, deve continuar a utilizar os SKUs legados mais antigos para esse gateway, no entanto, pode redimensionar entre os SKUs legados. Não é possível alterar para os novos SKU.
-* Terá períodos de indisponibilidade da conectividade quando altera de um SKU de legado para um novo SKU.
-* Quando mudar para um novo SKU de gateway, o endereço IP público para o seu gateway VPN será alterado. Isto acontece mesmo que especifique o mesmo objeto de endereço IP público que utilizou anteriormente.
+* Para se mudar para as novas SKUs, o seu gateway VPN deve estar no modelo de implementação do Gestor de Recursos.
+* Se tiver um gateway VPN clássico, deve continuar a usar o legado antigo SKUs para esse portal, no entanto, pode redimensionar entre o legado SKUs. Não pode mudar para as novas SKUs.
+* Terá tempo de inatividade de conectividade quando mudar de um Legado SKU para um novo SKU.
+* Ao mudar para um novo gateway SKU, o endereço IP público para o seu gateway VPN mudará. Isto acontece mesmo que especifique o mesmo objeto de endereço IP público que utilizou anteriormente.

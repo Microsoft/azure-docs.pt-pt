@@ -1,6 +1,6 @@
 ---
-title: PRETERIDO Segurança de contêiner no serviço de contêiner do Azure
-description: Considerações para proteger contêineres do Docker implantados no serviço de contêiner do Azure e serviços do Azure relacionados.
+title: (DEPRECIADO) Segurança de contentores no Serviço de Contentores Azure
+description: Considerações para a segurança dos contentores Docker implantados no Serviço de Contentores Azure e serviços azure relacionados.
 author: sauryadas
 ms.service: container-service
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552394"
 ---
-# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>PRETERIDO Protegendo os contêineres do Docker no serviço de contêiner do Azure
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(DEPRECIADO) Proteger contentores Docker no Serviço de Contentores Azure
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -53,7 +53,7 @@ Quando uma aplicação é implementada em produção, é essencial definir algum
 ## <a name="host-level-container-isolation"></a>Isolamento de contentores ao nível do anfitrião
 Quando um cliente implementa aplicações de contentor em recursos do Azure, estas são implementadas ao nível da subscrição nos grupos de recursos e não são multi-inquilino. Isto significa que, se um cliente partilhar uma subscrição com outras pessoas, não podem ser criados limites entre duas implementações na mesma subscrição. Por conseguinte, a segurança ao nível do contentor. não é garantida. 
 
-Também é muito importante compreender que os contentores partilham o kernel e os recursos do anfitrião (que, no Azure Container Service, são VMs do Azure num cluster). Por este motivo, os contentores em execução em produção têm de ser executados no modo de utilizador não privilegiado. Um contentor a ser executado com privilégios de raiz pode comprometer todo o ambiente. Se tiver acesso ao nível de raiz num contentor, os hackers podem obter acesso aos privilégios de raiz completos no anfitrião. Além disso, é importante executar contentores com sistemas de ficheiros só de leitura. Isto impede que uma pessoa que tenha acesso ao contentor comprometido escreva scripts maliciosos no sistema de ficheiros e obtenha acesso a outros ficheiros. Da mesma forma, é importante limitar os recursos (por exemplo, a memória, a CPU e a largura de banda de rede) alocados a um contentor. Isso ajuda a impedir que os hackers sobrecarregando recursos e a busca de atividades ilegais, como a fraude de cartão de crédito ou a mineração de bits, que pode impedir que outros contêineres sejam executados no host ou cluster.
+Também é muito importante compreender que os contentores partilham o kernel e os recursos do anfitrião (que, no Azure Container Service, são VMs do Azure num cluster). Por este motivo, os contentores em execução em produção têm de ser executados no modo de utilizador não privilegiado. Um contentor a ser executado com privilégios de raiz pode comprometer todo o ambiente. Se tiver acesso ao nível de raiz num contentor, os hackers podem obter acesso aos privilégios de raiz completos no anfitrião. Além disso, é importante executar contentores com sistemas de ficheiros só de leitura. Isto impede que uma pessoa que tenha acesso ao contentor comprometido escreva scripts maliciosos no sistema de ficheiros e obtenha acesso a outros ficheiros. Da mesma forma, é importante limitar os recursos (por exemplo, a memória, a CPU e a largura de banda de rede) alocados a um contentor. Isto ajuda a evitar que os hackers acolham recursos e prossigam atividades ilegais, como fraude de cartões de crédito ou mineração de moedas, o que poderia impedir que outros contentores funcionassem no hospedeiro ou no cluster.
 
 ## <a name="orchestrator-considerations"></a>Considerações de orquestração
 

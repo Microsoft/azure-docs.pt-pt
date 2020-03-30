@@ -6,24 +6,24 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: bc156b8c18f46cccf6fc775b82f76383b8c43861
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66242161"
 ---
-Aqui está uma lista de contas de armazenamento suportadas e os tipos de armazenamento para o dispositivo do Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e as respetivas funcionalidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armazenamento para o dispositivo Data Box. Para obter uma lista completa de todos os tipos de contas de armazenamento e as suas capacidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Conta de armazenamento / suportado tipos de armazenamento** | **Blob de blocos** |**BLOBs de páginas*** |**Ficheiros do Azure** |**Notas**|
+| **Conta de armazenamento / Tipos de armazenamento suportados** | **Blob de blocos** |**Blob página*** |**Ficheiros Azure** |**Notas**|
 | --- | --- | -- | -- | -- |
-| Standard clássico | S | S | S |
-| Standard para fins gerais v1  | S | S | S | São suportadas frequente e esporádico.|
-| Premium para fins gerais v1  |  | S| | |
-| Para fins gerais v2 Standard  | S | S | S | São suportadas frequente e esporádico.|
-| Premium para fins gerais v2  |  |S | | |
-| Armazenamento de BLOBs Standard |S | | |São suportadas frequente e esporádico. |
+| Padrão Clássico | S | S | S |
+| Norma v1 de uso geral  | S | S | S | Tanto quentes como frescos são suportados.|
+| Prémio v1 de propósito geral  |  | S| | |
+| Norma v2 de uso geral  | S | S | S | Tanto quentes como frescos são suportados.|
+| Prémio v2 de propósito geral  |  |S | | |
+| Padrão de armazenamento blob |S | | |Tanto quentes como frescos são suportados. |
 
-\* *-Dados carregados para blobs de páginas tem de ser alinhados, como VHDs de 512 bytes.*
+\**- Os dados enviados para as bolhas de página devem ser 512 bytes alinhados, tais como VHDs.*
 
 >[!NOTE]
-> Contas de armazenamento Gen 2 do Azure Data Lake não são suportadas.
+> As contas do Azure Data Lake Storage Gen 2 não são suportadas.

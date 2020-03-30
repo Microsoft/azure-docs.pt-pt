@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
 ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78305000"
 ---
 ## <a name="configure-the-data-source"></a>Configure a fonte de dados
@@ -39,7 +39,7 @@ Pode criar o diretor de serviço no [portal Azure](#azure-portal) ou utilizar a 
 
 #### <a name="azure-cli"></a>CLI do Azure
 
-1. Crie um diretor de serviço. Estabeleça um âmbito adequado e um tipo de `reader`.
+1. Crie um diretor de serviço. Definir um âmbito adequado e `reader`um tipo de função de .
 
     ```azurecli
     az ad sp create-for-rbac --name "https://{UrlToYourDashboard}:{PortNumber}" --role "reader" \

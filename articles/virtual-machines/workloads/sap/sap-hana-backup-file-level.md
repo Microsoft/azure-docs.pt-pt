@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 93b67936166eb73db5e9a15db42c2c6135794108
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78271387"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup SAP HANA Azure no nível de ficheiro
@@ -31,11 +31,11 @@ A forma padrão de gerir a cópia de segurança/restauro ao nível do ficheiro �
 
 ![Esta figura mostra o diálogo do item do menu de reserva no Estúdio SAP HANA](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 
-Esta figura mostra o diálogo do item do menu de reserva no Estúdio SAP HANA. Ao escolher o ficheiro tipo &quot;,&quot; tem de especificar um caminho no sistema de ficheiros onde o SAP HANA escreve os ficheiros de cópia de segurança. Restaurar funciona da mesma forma.
+Esta figura mostra o diálogo do item do menu de reserva no Estúdio SAP HANA. Ao escolher &quot;o&quot; ficheiro do tipo, é preciso especificar um caminho no sistema de ficheiros onde o SAP HANA escreve os ficheiros de cópia de segurança. Restaurar funciona da mesma forma.
 
 Embora esta escolha pareça simples e direta, existem algumas considerações. Um VM Azure tem uma limitação de número de discos de dados que podem ser anexados. Pode não haver capacidade para armazenar ficheiros de backup SAP HANA nos sistemas de ficheiros do VM, dependendo do tamanho da base de dados e dos requisitos de produção de disco, o que pode envolver a desencriptação de software em vários discos de dados. Várias opções para mover estes ficheiros de backup, e gerir restrições de tamanho de ficheiro e desempenho ao manusear terabytes de dados, são fornecidas mais tarde neste artigo.
 
-Outra opção, que oferece mais liberdade em relação à capacidade total, é o armazenamento de blob Azure. Embora uma única bolha também esteja restrita a 1 TB, a capacidade total de um único recipiente de bolha é atualmente de 500 TB. Além disso, dá aos clientes a opção de selecionar o chamado &quot;armazenamento de&quot;  fresco, que tem um custo-benefício. Consulte [o armazenamento Azure Blob: hot, cool e archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal) para obter detalhes sobre o armazenamento de blob fresco.
+Outra opção, que oferece mais liberdade em relação à capacidade total, é o armazenamento de blob Azure. Embora uma única bolha também esteja restrita a 1 TB, a capacidade total de um único recipiente de bolha é atualmente de 500 TB. Além disso, dá aos clientes a &quot;opção de selecionar o chamado armazenamento de bolhas cool,&quot; que tem um custo-benefício. Consulte [o armazenamento Azure Blob: hot, cool e archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal) para obter detalhes sobre o armazenamento de blob fresco.
 
 Para obter segurança adicional, utilize uma conta de armazenamento geo-replicada para armazenar as cópias de segurança SAP HANA. Consulte o despedimento do [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para obter detalhes sobre a redundância de armazenamento e a replicação de armazenamento.
 
@@ -65,7 +65,7 @@ A repetição da mesma cópia de segurança no software RAID com a descamação 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiar ficheiros de backup SAP HANA para armazenamento de blob Azure
 Os números de desempenho, os números de duração da cópia e os números de duração da cópia mencionados podem não representar o estado mais recente da tecnologia Azure. A Microsoft está a melhorar continuamente o armazenamento do Azure para fornecer mais entrada e mais llácências mais baixas. Portanto, os números são apenas para fins de demonstração. Você precisa testar para a sua necessidade individual na região azure a sua escolha para ser capaz de julgar com método é o melhor para você.
 
-Outra opção para armazenar rapidamente ficheiros de backup SAP HANA é o armazenamento de blob Azure. Um único recipiente de bolha tem um limite de cerca de 500 TB, o suficiente para sistemas SAP HANA, utilizando M32ts, M32ls, M64ls e GS5 VM tipos de Azure, para manter cópias de segurança Suficientes SAP HANA. Os clientes têm a escolha entre &quot;&quot; quente e &quot;armazenamento de bolhas de&quot; frio (ver [armazenamento Azure Blob: hot, cool e archive access tiers).](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)
+Outra opção para armazenar rapidamente ficheiros de backup SAP HANA é o armazenamento de blob Azure. Um único recipiente de bolha tem um limite de cerca de 500 TB, o suficiente para sistemas SAP HANA, utilizando M32ts, M32ls, M64ls e GS5 VM tipos de Azure, para manter cópias de segurança Suficientes SAP HANA. Os clientes têm &quot;&quot; a &quot;&quot; escolha entre o armazenamento de bolhas quentes e frias (ver [armazenamento Azure Blob: hot, cool e archive access tiers).](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)
 
 Com a ferramenta blobxfer, é fácil copiar os ficheiros de backup SAP HANA diretamente para o armazenamento de blob Azure.
 
@@ -79,7 +79,7 @@ Não utilizando haxixe md5 no teste inicial, demorou cerca de 3000 segundos a co
 
 A consola de backup HANA Studio permite restringir o tamanho máximo de ficheiros hana. No ambiente da amostra, melhorou o desempenho ao ter vários ficheiros de backup menores, em vez de um ficheiro grande de 230 GB.
 
-A definição do limite de tamanho&#39;do ficheiro de reserva no lado HANA não melhora o tempo de backup, porque os ficheiros são escritos sequencialmente. O limite de tamanho do ficheiro foi definido para 60 GB, pelo que a cópia de segurança criou quatro grandes ficheiros de dados em vez do ficheiro único de 230 GB. A utilização de vários ficheiros de backup pode tornar-se uma necessidade para fazer backup nas bases de dados da HANA se os seus alvos de backup tiverem limitações nos tamanhos dos ficheiros dos tamanhos de blob.
+A definição do limite de tamanho do ficheiro de reserva no lado HANA não&#39;melhorar o tempo de backup, porque os ficheiros são escritos sequencialmente. O limite de tamanho do ficheiro foi definido para 60 GB, pelo que a cópia de segurança criou quatro grandes ficheiros de dados em vez do ficheiro único de 230 GB. A utilização de vários ficheiros de backup pode tornar-se uma necessidade para fazer backup nas bases de dados da HANA se os seus alvos de backup tiverem limitações nos tamanhos dos ficheiros dos tamanhos de blob.
 
 ![Para testar o paralelismo da ferramenta blobxfer, o tamanho máximo do ficheiro para cópias de segurança HANA foi então definido para 15 GB](media/sap-hana-backup-file-level/parallel-copy-multiple-backup-files.png)
 

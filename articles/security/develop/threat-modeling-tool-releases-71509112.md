@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269920"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Ferramenta de Modelação de Ameaças GA lançamento 7.1.50911.2 - 9/12/2018
@@ -39,11 +39,11 @@ As funcionalidades "Save To OneDrive", "Open From OneDrive" e "Share a Link" da 
 
 ### <a name="in-tmt-preview-the-tool-crashes-when-using-the-standard-template"></a>Na pré-visualização tMT, a ferramenta falha ao usar o modelo padrão
 
-- Quando um stencil genérico (por exemplo, "Fluxo genérico de dados") é adicionado à superfície de desenho e gera ameaças, a ferramenta pode colidir. Este problema foi corrigido.
+- Quando um stencil genérico (por exemplo, "Fluxo genérico de dados") é adicionado à superfície de desenho e gera ameaças, a ferramenta pode colidir. Esta questão foi corrigida.
 
 ### <a name="in-tmt-preview-when-i-save-a-report-or-copy-the-threats-the-risk-levels-are-incorrect"></a>Na Pré-visualização do TMT, quando guardo um relatório ou copio as ameaças, os níveis de risco estão incorretos
 
-- Se um utilizador modificar o nível de risco de ameaças específicas e, em seguida, guardar um relatório ou copiar os riscos, o nível de risco pode voltar a "Alto". Este problema foi corrigido.
+- Se um utilizador modificar o nível de risco de ameaças específicas e, em seguida, guardar um relatório ou copiar os riscos, o nível de risco pode voltar a "Alto". Esta questão foi corrigida.
 
 ## <a name="known-issues-and-faq"></a>Questões conhecidas e FAQ
 
@@ -84,7 +84,7 @@ Sim, tu podes! O [conjunto de stencil Azure está disponível no GitHub,](https:
 - Sistemas Operativos Suportados
   - Microsoft Windows 10
 - versão .NET necessária
-  - .NET 3.5.2
+  - .net 3.5.2
 - Requisitos Adicionais
   - É necessária uma ligação à Internet para receber atualizações da ferramenta, bem como modelos.
 

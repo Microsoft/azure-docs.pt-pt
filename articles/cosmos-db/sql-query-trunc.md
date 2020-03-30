@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8bad33f593bae2679c83d59ae4567dcab4a64809
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304230"
 ---
 # <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
- Devolve um valor numérico, truncado para o valor de número inteiro mais próximo.  
+ Devolve um valor numérico, truncado ao valor inteiro mais próximo.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ TRUNC(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte trunca os números positivos e negativos a seguir para o valor de número inteiro mais próximo.  
+  O exemplo seguinte trunca os seguintes números positivos e negativos para o valor inteiro mais próximo.  
   
 ```sql
 SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, TRUNC(-2.6) AS t5  

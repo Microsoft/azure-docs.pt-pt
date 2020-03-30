@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
 ms.openlocfilehash: 0a4daf61d6b791a01f5bfb18e6cfca8118b2f421
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255949"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
@@ -40,7 +40,7 @@ O primeiro passo para proteger os seus VMs é garantir que apenas os utilizadore
 **Boas práticas**: Controlar o acesso vM.   
 **Detalhe**: Utilize [as políticas do Azure](/azure/azure-policy/azure-policy-introduction) para estabelecer convenções de recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas a recursos, como [grupos de recursos.](/azure/azure-resource-manager/resource-group-overview) VMs que pertencem a um grupo de recursos herdam as suas políticas.
 
-Se a sua organização tiver muitas subscrições, poderá necessitar de uma forma de gerir de forma eficiente o acesso, as políticas e o cumprimento dessas subscrições. Os grupos de [gestão Azure](/azure/azure-resource-manager/management-groups-overview) fornecem um nível de âmbito acima das subscrições. Organiza subscrições em grupos de gestão (contentores) e aplica as suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
+Se a sua organização tiver muitas subscrições, poderá precisar de uma forma de gerir o acesso, as políticas e a conformidade dessas subscrições. Os grupos de [gestão Azure](/azure/azure-resource-manager/management-groups-overview) fornecem um nível de âmbito acima das subscrições. Organiza subscrições em grupos de gestão (contentores) e aplica as suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 
 **Boas práticas**: Reduza a variabilidade na sua configuração e implantação de VMs.   
 **Detalhe**: Utilize os modelos do Gestor de [Recursos Azure](/azure/azure-resource-manager/resource-group-authoring-templates) para fortalecer as suas escolhas de implementação e facilitar a compreensão e inventário dos VMs no seu ambiente.
@@ -67,7 +67,7 @@ Se o seu VM executa aplicações críticas que precisam de ter alta disponibilid
 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar em Azure para garantir que os recursos VM que você coloca dentro dele são isolados uns dos outros quando são implantados em um datacenter Azure. O Azure garante que os VMs que coloca num conjunto de disponibilidade seleção de vários servidores físicos, racks de cálculo, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou software Azure, apenas um subconjunto dos seus VMs é afetado, e a sua aplicação global continua disponível para os seus clientes. Os conjuntos de disponibilidade são uma capacidade essencial quando se quer construir soluções de nuvem fiáveis.
 
-## <a name="protect-against-malware"></a>Proteger contra malware
+## <a name="protect-against-malware"></a>Proteção contra software maligno
 Deve instalar proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares maliciosos. Pode instalar o [Microsoft Antimalware](antimalware.md) ou a solução de proteção de pontofinal do parceiro Microsoft ([Trend Micro,](https://help.deepsecurity.trendmicro.com/Welcome.html) [Broadcom,](https://www.broadcom.com/products) [McAfee,](https://www.mcafee.com/us/products.aspx) [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)e System [Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 O Microsoft Antimalware inclui funcionalidades como proteção em tempo real, digitalização programada, reparação de malware, atualizações de assinaturas, atualizações do motor, relatórios de amostras e recolha de eventos de exclusão. Para ambientes que estão alojados separadamente do seu ambiente de produção, você pode usar uma extensão antimalware para ajudar a proteger seus VMs e serviços na nuvem.
@@ -81,7 +81,7 @@ Pode integrar soluções de Antimalware da Microsoft e parceiros com [o Azure Se
 **Detalhe**: Gerir problemas de [proteção de pontos finais com o Centro](../../security-center/security-center-partner-integration.md) de Segurança
 
 ## <a name="manage-your-vm-updates"></a>Gerencie as atualizações vM
-Os VMs azure, como todos os VMs no local, destinam-se a ser geridos pelo utilizador. O Azure não lhes pressiona as atualizações do Windows. Tens de gerir as atualizações do VM.
+Os VMs azure, como todos os VMs no local, destinam-se a ser geridos pelo utilizador. O Azure não emite atualizações do Windows para as VMs. Tens de gerir as atualizações do VM.
 
 **Boas práticas**: Mantenha os vMs atuais.   
 **Detalhe**: Utilize a solução [de Gestão](../../automation/automation-update-management.md) de Atualizações na Automatização Azure para gerir as atualizações do sistema operativo para os computadores Windows e Linux que são implantados no Azure, em ambientes no local ou noutros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
@@ -152,10 +152,10 @@ Recomendamos que criptografe os seus discos rígidos virtuais (VHDs) para ajudar
 Seguem-se as melhores práticas para a utilização da encriptação do disco Azure:
 
 **Boas práticas**: Ativar a encriptação em VMs.   
-**Detalhe**: A encriptação do disco azure gera e escreve as chaves de encriptação do seu cofre chave. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para efeitos de autenticação, pode utilizar a autenticação baseada em segredo do cliente ou a [autenticação Azure AD baseada em certificadode cliente.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
+**Detalhe**: A encriptação do disco azure gera e escreve as chaves de encriptação do seu cofre chave. Gerir chaves de encriptação no seu cofre de chaves requer autenticação Azure AD. Crie uma aplicação Azure AD para o efeito. Para efeitos de autenticação, pode utilizar a autenticação baseada em segredo do cliente ou a [autenticação Azure AD baseada em certificadode cliente.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
 
 **Boas práticas**: Utilize uma chave de encriptação (KEK) para uma camada adicional de segurança para chaves de encriptação. Adicione um KEK ao seu cofre chave.   
-**Detalhe**: Utilize o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação no cofre da chave. Também pode importar um KEK do seu módulo de segurança de hardware no local (HSM) para gestão de chaves. Para mais informações, consulte a documentação do [Cofre chave.](../../key-vault/key-vault-hsm-protected-keys.md) Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia desta chave numa gestão chave no local, o HSM oferece proteção adicional contra a supressão acidental de chaves.
+**Detalhe**: Utilize o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação no cofre da chave. Também pode importar um KEK do seu módulo de segurança de hardware no local (HSM) para gestão de chaves. Para mais informações, consulte a documentação do [Cofre chave.](../../key-vault/key-vault-hsm-protected-keys.md) Quando uma chave de encriptação é especificada, a Encriptação do Disco Azure usa essa chave para embrulhar os segredos de encriptação antes de escrever para key vault. Manter uma cópia desta chave numa gestão chave no local, o HSM oferece proteção adicional contra a supressão acidental de chaves.
 
 **Boas práticas**: Tire uma [fotografia](../../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou cópia de segurança antes de os discos estarem encriptados. As cópias de segurança fornecem uma opção de recuperação se uma falha inesperada ocorrer durante a encriptação.   
 **Detalhe**: Os VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Depois de ser feita uma cópia de segurança, pode utilizar o cmdlet **set-AzVMDiskEncryptionExtension** para encriptar discos geridos especificando o parâmetro *-skipVmBackup.* Para obter mais informações sobre como fazer backup e restaurar VMs encriptados, consulte o artigo [Azure Backup.](../../backup/backup-azure-vms-encryption.md)
@@ -185,4 +185,4 @@ Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de s
 
 Os seguintes recursos estão disponíveis para fornecer informações mais gerais sobre segurança Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas novidades em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com

@@ -5,50 +5,50 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184455"
 ---
-### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instale as atualizações de modo de manutenção através do Windows PowerShell para StorSimple
+### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instale atualizações do modo de manutenção via Windows PowerShell para StorSimple
 
-Quando aplica as atualizações de modo de manutenção para o dispositivo StorSimple, todos os pedidos de e/s são colocadas em pausa. Serviços, tais como a memória de acesso de aleatório não volátil (NVRAM) ou o serviço de clustering são paradas. Os dois controladores de reinício quando entrem ou saia neste modo. Quando sair deste modo, todos os serviços retomam e estão em bom Estados. (Pode demorar alguns minutos.)
+Quando aplica atualizações do modo de manutenção no dispositivo StorSimple, todos os pedidos de I/O são interrompidos. Serviços como a memória de acesso aleatório não volátil (NVRAM) ou o serviço de agrupamento são interrompidos. Ambos os controladores reiniciam quando entram ou saem deste modo. Quando sai deste modo, todos os serviços retomam e são saudáveis. (Isto pode levar alguns minutos.)
 
 > [!IMPORTANT]
-> * Antes de entrar no modo de manutenção, certifique-se de que os dois controladores de dispositivo estão em bom Estados no portal do Azure. Se o controlador não está em bom estado, [contacte o suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para os passos seguintes.
-> * Quando estiver no modo de manutenção, tem primeiro de atualizar um controlador e, em seguida, o controlador de outro.
+> * Antes de entrar no modo de manutenção, verifique se ambos os controladores do dispositivo estão saudáveis no portal Azure. Se o controlador não estiver saudável, [contacte](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) o Suporte da Microsoft para os próximos passos.
+> * Quando estiver em modo de manutenção, tem de atualizar primeiro um controlador e depois o outro controlador.
 
-1. Utilize o PuTTY para ligar à consola de série. Siga as instruções detalhadas em [Utilizar o PuTTY para ligar à consola de série](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Na linha de comandos, prima **Enter**. Selecione a opção 1, **iniciar sessão com acesso total**.
+1. Utilize o PuTTY para se ligar à consola em série. Siga as instruções detalhadas em [Utilizar o PuTTY para ligar à consola de série](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Na linha de comandos, prima **Enter**. Selecione Opção 1, **Inicie sessão com acesso completo**.
 
-2. Para colocar o controlador em modo de manutenção, escreva:
+2. Para colocar o controlador no modo de manutenção, escreva:
     
     `Enter-HcsMaintenanceMode`
 
-    Ambos os controladores reiniciam em modo de manutenção.
+    Ambos os controladores reiniciam no modo de manutenção.
 
-3. Instale as atualizações de modo de manutenção. Escreva:
+3. Instale as atualizações do modo de manutenção. Escreva:
 
     `Start-HcsUpdate`
 
-    For pedida a confirmação. Depois de confirmar as atualizações, serão instaladas no controlador que está atualmente a aceder. Depois das atualizações são instaladas, reinicia o controlador.
+    Foi solicitado para confirmação. Depois de confirmar as atualizações, estas estão instaladas no controlador a que está a aceder. Após a instalação das atualizações, o controlador reinicia.
 
-4. Monitorize o estado das atualizações. À medida que o controlador atual está a ser atualizada e não é capaz de processar todos os outros comandos, inicie sessão no controlador de ponto a ponto. Escreva:
+4. Monitorize o estado das atualizações. Inscreva-se no controlador de pares, uma vez que o controlador atual está a atualizar-se e não é capaz de processar quaisquer outros comandos. Escreva:
 
     `Get-HcsUpdateStatus`
 
-    Se o `RunInProgress` é `True`, a atualização ainda está em curso. Se `RunInProgress` é `False`, ele indica que a atualização foi concluída.
+    Se `RunInProgress` `True`for, a atualização ainda está em curso. Se `RunInProgress` `False`estiver, indica que a atualização está concluída.
 
-5. Depois das atualizações de firmware do disco forem aplicadas com êxito e reiniciou o controlador atualizado, verifique se a versão de firmware do disco. No controlador de atualizados, escreva:
+5. Depois de as atualizações do firmware do disco serem aplicadas com sucesso e o controlador atualizado ter reiniciado, verifique a versão firmware do disco. No controlador atualizado, escreva:
 
     `Get-HcsFirmwareVersion`
    
-    As versões de firmware do disco esperadas são:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    As versões de firmware de disco esperadas são:`XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
-6. Sair do modo de manutenção. Escreva o seguinte comando para cada controlador de dispositivo:
+6. Saia do modo de manutenção. Digite o seguinte comando para cada controlador de dispositivo:
 
     `Exit-HcsMaintenanceMode`
 
     Os controladores reiniciam quando sair do modo de manutenção.
 
-7. Regresse ao portal do Azure. O portal não pode mostrar que instalou as atualizações de modo de manutenção durante 24 horas.
+7. Regresse ao portal do Azure. O portal pode não mostrar que instalou as atualizações do modo de manutenção durante 24 horas.

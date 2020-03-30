@@ -1,6 +1,6 @@
 ---
-title: Exceção ao executar consultas do modo de exibição de hive do Apache Ambari no Azure HDInsight
-description: Etapas de solução de problemas ao executar consultas de Apache Hive por meio da exibição de hive do Apache Ambari no Azure HDInsight.
+title: Exceção ao executar consultas da Vista da Colmeia Apache Ambari em Azure HDInsight
+description: Passos de resolução de problemas ao executar consultas apache hive através de Apache Ambari Hive View em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
 ms.openlocfilehash: 809b2e383eb57b730fd76ec2194764178aa810c0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895037"
 ---
-# <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exceção ao executar consultas do modo de exibição de hive do Apache Ambari no Azure HDInsight
+# <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exceção ao executar consultas da Vista da Colmeia Apache Ambari em Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao executar uma consulta de Apache Hive da exibição do hive do Apache Ambari, você receberá a seguinte mensagem de erro intermitentemente:
+Ao executar uma consulta apache hive da Apache Ambari Hive View, você recebe a seguinte mensagem de erro intermitentemente:
 
 ```error
 Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
@@ -31,45 +31,45 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 
 ## <a name="cause"></a>Causa
 
-Um tempo limite de gateway.
+Um intervalo de entrada.
 
-O valor de tempo limite do gateway é de 2 minutos. As consultas da exibição do hive do Ambari são enviadas para o ponto de extremidade `/hive2` por meio do gateway. Depois que a consulta for compilada e aceita com êxito, o HiveServer retornará um `queryid`. Em seguida, os clientes continuam sondando o status da consulta. Durante esse processo, se o HiveServer não retornar uma resposta HTTP em 2 minutos, o gateway HDI lançará um erro de tempo limite de gateway 502,3 para o chamador. Os erros podem acontecer quando a consulta é enviada para processamento (mais provável) e também na chamada Get status (menos provável). Os usuários podem ver qualquer um deles.
+O valor do tempo de saída do Gateway é de 2 minutos. As consultas da Ambari Hive View `/hive2` são submetidas ao ponto final através do portal. Uma vez que a consulta é compilada e `queryid`aceite com sucesso, o HiveServer devolve um . Os clientes continuam então a sondar o estado da consulta. Durante este processo, se o HiveServer não devolver uma resposta HTTP dentro de 2 minutos, o Gateway HDI lança um erro de tempo de 502.3 gateway para o chamador. Os erros podem ocorrer quando a consulta é submetida para processamento (mais provável) e também na chamada de estado de obter (menos provável). Os utilizadores podiam ver qualquer um deles.
 
-O thread do manipulador http deve ser rápido: preparar o trabalho e retornar um `queryid`. No entanto, devido a vários motivos, todos os threads de manipulador podem estar ocupados, resultando em tempos limite para novas consultas e as chamadas get status.
+O fio http handler é suposto ser rápido: `queryid`preparar o trabalho e devolver a . No entanto, devido a várias razões, todos os fios do manipulador podem estar ocupados, resultando em intervalos para novas consultas e chamadas de estado.
 
-### <a name="responsibilities-of-the-http-handler-thread"></a>Responsabilidades do thread do manipulador HTTP
+### <a name="responsibilities-of-the-http-handler-thread"></a>Responsabilidades do fio manipulador HTTP
 
-Quando o cliente envia uma consulta para HiveServer, ele faz o seguinte no thread em primeiro plano:
+Quando o cliente submete uma consulta ao HiveServer, faz o seguinte no fio de primeiro plano:
 
-* Analisar a solicitação, executar verificação semântica
-* Adquirir bloqueio
-* Pesquisa de metastore, se necessário
+* Analisar o pedido, fazer verificação semântica
+* Adquirir fechadura
+* Procura de metastore, se necessário
 * Compilar a consulta (DDL ou DML)
 * Preparar um plano de consulta
-* Executar autorização (executar todas as políticas aplicáveis do Ranger em clusters seguros)
+* Executar a autorização (Execute todas as políticas aplicáveis dos rangers em clusters seguros)
 
 ## <a name="resolution"></a>Resolução
 
 Algumas recomendações gerais para melhorar a situação:
 
-* Se estiver usando um metastore externo do hive, verifique as métricas do BD e certifique-se de que o banco de dados não esteja sobrecarregado. Considere dimensionar a camada de banco de dados do metastore.
+* Se utilizar uma metaloja externa de colmeia, verifique as métricas de DB e certifique-se de que a base de dados não está sobrecarregada. Considere escalar a camada de base de dados da metaloja.
 
-* Verifique se a OPS paralela está ativada (isso permite que os threads do manipulador HTTP sejam executados em paralelo). Para verificar o valor, inicie [o Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até **hive** > **configurações** > **avançado** > **Hive personalizado-site**. O valor de `hive.server2.parallel.ops.in.session` deve ser `true`.
+* Certifique-se de que as operações paralelas são ligadas (isto permite que os fios de manipulador http funcionam em paralelo). Para verificar o valor, lance [O Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até**hive****avançada** > da **Hive** > **Configs** > . O valor `hive.server2.parallel.ops.in.session` para `true`deve ser.
 
-* Verifique se a SKU da VM do cluster não é muito pequena para a carga. Considere a divisão do trabalho entre vários clusters. Para obter mais informações, consulte [escolher um tipo de cluster](../hdinsight-capacity-planning.md#choose-a-cluster-type).
+* Certifique-se de que o VM SKU do cluster não é muito pequeno para a carga. Considere dividir o trabalho entre vários aglomerados. Para mais informações, consulte [Escolha um tipo de cluster](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
-* Se o Ranger estiver instalado no cluster, verifique se há muitas políticas do Ranger que precisam ser avaliadas para cada consulta. Procure políticas duplicadas ou desnecessárias.
+* Se o Ranger estiver instalado no cluster, verifique se há demasiadas políticas ranger que precisam de ser avaliadas para cada consulta. Procure políticas duplicadas ou desnecessárias.
 
-* Verifique o valor do **tamanho do heap HiveServer2** de Ambari. Navegue até **Hive** > **configs** > **configurações** > **otimização**. Verifique se o valor é maior que 10 GB. Ajuste conforme necessário para otimizar o desempenho.
+* Verifique o valor do tamanho do **Monte HiveServer2** de Ambari. Navegue até à**otimização**das**definições** > da **Hive** > **Configs.** >  Certifique-se de que o valor é superior a 10 GB. Ajuste-se conforme necessário para otimizar o desempenho.
 
-* Verifique se a consulta do hive está bem ajustada. Para obter mais informações, consulte [otimizar Apache Hive consultas no Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
+* Certifique-se de que a consulta da Colmeia está bem afinada. Para mais informações, consulte [otimize consultas da Hive Apache no Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

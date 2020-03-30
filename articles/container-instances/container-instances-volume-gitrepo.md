@@ -4,10 +4,10 @@ description: Aprenda a montar um volume gitRepo para clonar um repositório Git 
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252088"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monte um volume gitRepo em instâncias de contentores azure
@@ -25,15 +25,15 @@ Quando monta um volume *gitRepo,* pode definir três propriedades para configura
 
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
-| `repository` | Sim | O URL completo, incluindo `http://` ou `https://`, do repositório Git a clonar.|
-| `directory` | Não | Diretório no qual o repositório deve ser clonado. O caminho não deve conter ou começar com "`..`".  Se especificar "`.`", o repositório é clonado no diretório do volume. Caso contrário, o repositório Git é clonado num subdiretório do nome dado dentro do volume. |
-| `revision` | Não | O compromisso da revisão a ser clonado. Se não especificado, a revisão `HEAD` é clonada. |
+| `repository` | Sim | O URL completo, incluindo `http://` ou, `https://`do repositório Git a clonar.|
+| `directory` | Não | Diretório no qual o repositório deve ser clonado. O caminho não deve conter`..`ou começar com" ".  Se especificar`.`" ", o repositório é clonado no diretório do volume. Caso contrário, o repositório Git é clonado num subdiretório do nome dado dentro do volume. |
+| `revision` | Não | O compromisso da revisão a ser clonado. Se não especificado, a `HEAD` revisão é clonada. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Volume do Monte GitRepo: Azure CLI
 
-Para montar um volume gitRepo quando implementar instâncias de contentores com o [Azure CLI,](/cli/azure)forneça os parâmetros `--gitrepo-url` e `--gitrepo-mount-path` ao [recipiente az criar][az-container-create] comando. Pode especificar opcionalmente o diretório dentro do volume para clonar em (`--gitrepo-dir`) e o hash de compromisso da revisão a clonar (`--gitrepo-revision`).
+Para montar um volume gitRepo quando colocar instâncias de contentores `--gitrepo-mount-path` com o [Azure CLI,](/cli/azure)forneça os `--gitrepo-url` e parâmetros ao recipiente [az criar][az-container-create] comando. Pode especificar opcionalmente o diretório dentro do`--gitrepo-dir`volume para clonar em ( ) e`--gitrepo-revision`o hash de compromisso da revisão a clonar ( ).
 
-Este comando de exemplo clona a aplicação da amostra [Aci-Helloworld][aci-helloworld] da Microsoft para `/mnt/aci-helloworld` na instância do contentor:
+Este comando de exemplo clona a aplicação `/mnt/aci-helloworld` da amostra [Aci-Helloworld][aci-helloworld] da Microsoft na instância do contentor:
 
 ```azurecli-interactive
 az container create \
@@ -63,7 +63,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 ## <a name="mount-gitrepo-volume-resource-manager"></a>Volume Mount gitRepo: Gestor de Recursos
 
-Para montar um volume gitRepo quando implementar instâncias de contentores com um modelo de Gestor de [Recursos Azure,](/azure/templates/microsoft.containerinstance/containergroups)primeiro povoe a matriz de `volumes` no grupo de contentores `properties` secção do modelo. Em seguida, para cada recipiente do grupo de contentores em que deseja montar o volume *gitRepo,* povoar a matriz `volumeMounts` na secção `properties` da definição do recipiente.
+Para montar um volume gitRepo quando implementar instâncias de contentores `volumes` com um modelo `properties` de Gestor de [Recursos Azure,](/azure/templates/microsoft.containerinstance/containergroups)primeiro povoe a matriz na secção do grupo de contentores do modelo. Em seguida, para cada recipiente do grupo de contentores em que deseja `volumeMounts` montar `properties` o volume *gitRepo,* povoe a matriz na secção da definição do recipiente.
 
 Por exemplo, o seguinte modelo de Gestor de Recursos cria um grupo de contentores composto por um único recipiente. O recipiente clona dois repositórios GitHub especificados pelos blocos de volume *gitRepo.* O segundo volume inclui propriedades adicionais que especificam um diretório para clonar, e o hash de compromisso de uma revisão específica ao clone.
 
@@ -83,7 +83,7 @@ Para ver um exemplo de implantação de instâncias de contentores com um modelo
 
 Para montar um volume gitRepo para um repositório git privado, especifique credenciais no URL repositório. Tipicamente, as credenciais são sob a forma de um nome de utilizador e de um token de acesso pessoal (PAT) que concede acesso acessível ao repositório.
 
-Por exemplo, o parâmetro `--gitrepo-url` Azure CLI para um repositório privado gitHub parece similar ao seguinte (quando "gituser" é o nome de utilizador GitHub, e "abcdef1234fdsa4321abcdef" é o sinal de acesso pessoal do utilizador):
+Por exemplo, o parâmetro `--gitrepo-url` Azure CLI para um repositório privado GitHub parece similar ao seguinte (quando "gituser" é o nome de utilizador GitHub, e "abcdef1234fdsa4321abcdef" é o sinal de acesso pessoal do utilizador):
 
 ```console
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300876"
 ---
-# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de encenação no Serviço de Aplicações Azure
+# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
 
 Quando implementa a sua aplicação web, aplicação web no Linux, back back back móvel ou aplicação API para [o Azure App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)pode utilizar uma ranhura de implementação separada em vez da ranhura de produção padrão quando estiver a funcionar no nível de plano **de**plano standard , **Premium**ou **Isolated** App Service. As ranhuras de implementação são aplicações ao vivo com os seus próprios nomes de anfitriões. Os elementos de conteúdo e configuração da aplicação podem ser trocados entre duas ranhuras de implementação, incluindo a ranhura de produção. 
@@ -29,7 +29,7 @@ Para escalar a sua aplicação para um nível diferente, certifique-se de que o 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Adicione uma ranhura
+## <a name="add-a-slot"></a>Adicionar um bloco
 A aplicação deve estar a funcionar no nível **Standard**, **Premium**ou **Isolado** para que possa ativar várias ranhuras de implementação.
 
 
@@ -38,9 +38,9 @@ A aplicação deve estar a funcionar no nível **Standard**, **Premium**ou **Iso
     ![Pesquisa de Serviços de Aplicações](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. No painel esquerdo, selecione ranhuras de **implantação** > **adicionar ranhura**.
+2. No painel esquerdo, selecione **ranhuras** > de implantação**Adicione ranhuras**.
    
-    ![Adicione uma nova ranhura de implementação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Adicionar um novo bloco de implementação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Se a aplicação ainda não estiver no nível **Standard**, **Premium,** ou **Isolado,** recebe uma mensagem que indica os níveis suportados para permitir a publicação encenada. Neste ponto, tem a opção de selecionar **upgrade** e ir ao separador **Escala** da sua aplicação antes de continuar.
@@ -85,7 +85,7 @@ Quando troca duas ranhuras (geralmente de uma ranhura de preparação para a ran
 
 1. Se a [troca automática](#Auto-Swap) for ativada com [aquecimento personalizado,](#Warm-up)desencadeie o início da [aplicação](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) fazendo um pedido HTTP para a raiz de aplicação ("/") em cada instância da ranhura de origem.
 
-    Se `applicationInitialization` não for especificado, desencadeie um pedido http para a raiz de aplicação da ranhura de origem em cada instância. 
+    Se `applicationInitialization` não for especificado, desencadeie um pedido HTTP para a raiz de aplicação da ranhura de origem em cada instância. 
     
     Se uma instância devolver qualquer resposta HTTP, é considerado como aquecido.
 
@@ -151,7 +151,7 @@ Para trocar com pré-visualização:
 
 2. Quando estiver pronto para iniciar a troca, selecione **Iniciar a troca**.
 
-    Quando a fase 1 terminar, é notificado na caixa de diálogo. Pré-visualizar a troca na ranhura de origem indo para `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+    Quando a fase 1 terminar, é notificado na caixa de diálogo. Pré-visualizar a troca na `https://<app_name>-<source-slot-name>.azurewebsites.net`ranhura de origem indo para . 
 
 3. Quando estiver pronto para completar o swap pendente, selecione **'Swap' completo** na **ação Swap** e selecione **'Swap Completo**' .
 
@@ -183,7 +183,7 @@ A troca de automóveis dinamiza cenários Azure DevOps onde pretende implementar
 
 Para configurar a troca automática:
 
-1. Vá à página de recursos da sua aplicação. Selecione Ranhuras de **implantação** >  *\<slot&gt de origem desejada;* configuração > **configurações** gerais > **configurações gerais**.
+1. Vá à página de recursos da sua aplicação. Selecione >  **ranhuras** > *\<de origem desejadas>*  > **configurações gerais**de **configuração**.
    
 2. Para **troca automática ativada,** selecione **On**. Em seguida, selecione a ranhura de destino desejada para a ranhura de implantação de **swap supor automaticamente**e selecione **Guardar** na barra de comando. 
    
@@ -197,7 +197,7 @@ Se tiver algum problema, consulte as trocas de [Troubleshoot.](#troubleshoot-swa
 
 ## <a name="specify-custom-warm-up"></a>Especificar aquecimento personalizado
 
-Algumas aplicações podem exigir ações de aquecimento personalizadas antes da troca. O elemento de configuração `applicationInitialization` em web.config permite especificar ações de inicialização personalizadas. A [operação de troca](#AboutConfiguration) aguarda que este aquecimento personalizado termine antes de trocar com a ranhura-alvo. Aqui está uma amostra web.config fragmento.
+Algumas aplicações podem exigir ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração em web.config permite especificar ações de inicialização personalizadas. A [operação de troca](#AboutConfiguration) aguarda que este aquecimento personalizado termine antes de trocar com a ranhura-alvo. Aqui está uma amostra web.config fragmento.
 
     <system.webServer>
         <applicationInitialization>
@@ -206,15 +206,15 @@ Algumas aplicações podem exigir ações de aquecimento personalizadas antes da
         </applicationInitialization>
     </system.webServer>
 
-Para obter mais informações sobre a personalização do elemento `applicationInitialization`, consulte as falhas mais comuns de permuta de [ranhuras de implementação e como corrigi-las](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Para obter mais informações sobre a personalização do `applicationInitialization` elemento, consulte as falhas mais comuns de troca de [ranhuras de implantação e como corrigi-las](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Também pode personalizar o comportamento de aquecimento com uma ou ambas as [seguintes definições de aplicação:](configure-common.md)
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecer o seu site. Adicione esta definição de aplicação especificando um caminho personalizado que começa com um corte como o valor. Um exemplo é `/statuscheck`. O valor predefinido é `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para o funcionamento do aquecimento. Adicione esta definição de aplicação com uma lista separada de códigos HTTP. Um exemplo é `200,202` . Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são interrompidas. Por predefinição, todos os códigos de resposta são válidos.
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para o funcionamento do aquecimento. Adicione esta definição de aplicação com uma lista separada de códigos HTTP. Um exemplo `200,202` é. Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são interrompidas. Por predefinição, todos os códigos de resposta são válidos.
 
 > [!NOTE]
-> O elemento de configuração `<applicationInitialization>` faz parte de cada start-up de cada aplicação, enquanto as duas definições de aplicativos de comportamento de aquecimento aplicam-se apenas a swaps de slot.
+> O `<applicationInitialization>` elemento de configuração faz parte de cada start-up de cada aplicação, enquanto as duas definições de aplicativos de comportamento de aquecimento aplicam-se apenas a swaps de slot.
 
 Se tiver algum problema, consulte as trocas de [Troubleshoot.](#troubleshoot-swaps)
 
@@ -224,11 +224,11 @@ Se a operação de [swap](#AboutConfiguration) demorar muito tempo a ser conclu�
 
 Na página de recursos da sua aplicação no portal, no painel esquerdo, selecione **registo de atividade**.
 
-Uma operação de troca aparece na consulta de registo como `Swap Web App Slots`. Pode expandi-lo e selecionar uma das suboperações ou erros para ver os detalhes.
+Uma operação de troca aparece na `Swap Web App Slots`consulta de registo como . Pode expandi-lo e selecionar uma das suboperações ou erros para ver os detalhes.
 
 ## <a name="route-traffic"></a>Tráfego de rota
 
-Por padrão, todos os pedidos de clientes para o URL de produção da aplicação (`http://<app_name>.azurewebsites.net`) são encaminhados para a ranhura de produção. Pode saquear uma parte do tráfego para outra ranhura. Esta funcionalidade é útil se precisar de feedback do utilizador para uma nova atualização, mas não está pronto para lançá-la para produção.
+Por padrão, todos os pedidos do cliente`http://<app_name>.azurewebsites.net`para o URL de produção da aplicação são encaminhados para a ranhura de produção. Pode saquear uma parte do tráfego para outra ranhura. Esta funcionalidade é útil se precisar de feedback do utilizador para uma nova atualização, mas não está pronto para lançá-la para produção.
 
 ### <a name="route-production-traffic-automatically"></a>Tráfego de produção de rotas automaticamente
 
@@ -242,15 +242,15 @@ Para encaminhar automaticamente o tráfego de produção:
 
 Após a definição ser guardada, a percentagem especificada de clientes é aleatoriamente encaminhada para a ranhura de não produção. 
 
-Depois de um cliente ser automaticamente encaminhado para uma vaga específica, é "fixado" para aquela ranhura para a vida daquela sessão de cliente. No navegador cliente, pode ver qual a ranhura a que a sua sessão está fixada olhando para o cookie `x-ms-routing-name` nos seus cabeçalhos HTTP. Um pedido que é encaminhado para a ranhura de "encenação" tem o cookie `x-ms-routing-name=staging`. Um pedido que é encaminhado para a ranhura de produção tem o cookie `x-ms-routing-name=self`.
+Depois de um cliente ser automaticamente encaminhado para uma vaga específica, é "fixado" para aquela ranhura para a vida daquela sessão de cliente. No navegador cliente, pode ver qual a ranhura a que `x-ms-routing-name` a sua sessão está fixada olhando para o cookie nos seus cabeçalhos HTTP. Um pedido que é encaminhado para a ranhura de `x-ms-routing-name=staging`"encenação" tem o cookie. Um pedido que é encaminhado para a ranhura `x-ms-routing-name=self`de produção tem o cookie.
 
    > [!NOTE]
-   > Junto ao portal Azure, também pode utilizar o comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) no Azure CLI para definir as percentagens de encaminhamento de ferramentas CI/CD, como oleodutos DevOps ou outros sistemas de automação.
+   > Junto ao portal Azure, também [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) pode utilizar o comando no Azure CLI para definir as percentagens de encaminhamento de ferramentas CI/CD, como os gasodutos DevOps ou outros sistemas de automação.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Tráfego de produção de rota manualmente
 
-Além do encaminhamento automático de tráfego, o Serviço de Aplicações pode encaminhar pedidos para uma ranhura específica. Isto é útil quando deseja que os seus utilizadores possam optar ou optar pela aplicação beta. Para encaminhar manualmente o tráfego de produção, utilize o parâmetro de consulta `x-ms-routing-name`.
+Além do encaminhamento automático de tráfego, o Serviço de Aplicações pode encaminhar pedidos para uma ranhura específica. Isto é útil quando deseja que os seus utilizadores possam optar ou optar pela aplicação beta. Para encaminhar manualmente o `x-ms-routing-name` tráfego de produção, utilize o parâmetro de consulta.
 
 Para que os utilizadores optem por não sair da sua aplicação beta, por exemplo, pode colocar este link na sua página web:
 
@@ -258,7 +258,7 @@ Para que os utilizadores optem por não sair da sua aplicação beta, por exempl
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-A cadeia `x-ms-routing-name=self` especifica a ranhura de produção. Depois de o navegador cliente aceder ao link, é redirecionado para a ranhura de produção. Cada pedido subsequente tem o cookie `x-ms-routing-name=self` que coloca a sessão na ranhura de produção.
+A `x-ms-routing-name=self` corda especifica a ranhura de produção. Depois de o navegador cliente aceder ao link, é redirecionado para a ranhura de produção. Cada pedido subsequente `x-ms-routing-name=self` tem o cookie que coloca a sessão na ranhura de produção.
 
 Para permitir que os utilizadores optem pela sua aplicação beta, defina o mesmo parâmetro de consulta para o nome da ranhura de não produção. Segue-se um exemplo:
 
@@ -266,13 +266,13 @@ Para permitir que os utilizadores optem pela sua aplicação beta, defina o mesm
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Por padrão, são dadas novas faixas horárias com uma regra de encaminhamento de `0%`, mostrada em cinzento. Quando define explicitamente este valor para `0%` (mostrado em texto preto), os seus utilizadores podem aceder manualmente à ranhura de preparação utilizando o parâmetro de consulta `x-ms-routing-name`. Mas não serão encaminhados automaticamente para a ranhura porque a percentagem de encaminhamento está definida para 0. Este é um cenário avançado onde pode "esconder" a sua ranhura de encenação do público, permitindo que as equipas internas testem alterações na ranhura.
+Por padrão, são dadas novas ranhuras com uma regra de encaminhamento de `0%`, mostrada em cinza. Quando define explicitamente `0%` este valor (mostrado em texto preto), os seus utilizadores `x-ms-routing-name` podem aceder manualmente à ranhura de paragem utilizando o parâmetro de consulta. Mas não serão encaminhados automaticamente para a ranhura porque a percentagem de encaminhamento está definida para 0. Este é um cenário avançado onde pode "esconder" a sua ranhura de encenação do público, permitindo que as equipas internas testem alterações na ranhura.
 
 <a name="Delete"></a>
 
 ## <a name="delete-a-slot"></a>Apagar uma ranhura
 
-Procure e selecione a sua aplicação. Selecione ranhuras de **implantação** > *ranhura\<para eliminar>*  > **visão geral**. **Selecione Excluir** na barra de comando.  
+Procure e selecione a sua aplicação. Selecione > *\<ranhuras *de **implantação**para eliminar> >  **visão geral**. **Selecione Excluir** na barra de comando.  
 
 ![Eliminar uma ranhura de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -314,7 +314,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Ranhuras de implantação de swaps
+### <a name="swap-deployment-slots"></a>Troca de blocos de implementação
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -336,11 +336,11 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 Os modelos do [Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são ficheiros JSON declarativos usados para automatizar a implementação e configuração dos recursos Azure. Para trocar slots utilizando modelos de Gestor de Recursos, irá definir duas propriedades nos recursos *Microsoft.Web/sites/slots* e *recursos microsoft.Web/sites:*
 
 - `buildVersion`: trata-se de uma propriedade de cadeia que representa a versão atual da aplicação implantada na ranhura. Por exemplo: "v1", "1.0.0.1", ou "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: esta é uma propriedade de cordas que especifica o que `buildVersion` a ranhura deve ter. Se o targetBuildVersion não for igual ao `buildVersion`atual, isto irá desencadear a operação de swap encontrando a ranhura que tem o `buildVersion`especificado .
+- `targetBuildVersion`: esta é uma propriedade `buildVersion` de cordas que especifica o que a ranhura deve ter. Se o targetBuildVersion não `buildVersion`for igual à corrente, isto irá desencadear a operação `buildVersion`de permuta encontrando a ranhura especificada .
 
 ### <a name="example-resource-manager-template"></a>Modelo de gestor de recursos de exemplo
 
-O seguinte modelo de Gestor de Recursos atualizará o `buildVersion` da ranhura de preparação e definirá o `targetBuildVersion` na ranhura de produção. Isto vai trocar as duas ranhuras. O modelo assume que já tem um webapp criado com uma ranhura chamada "staging".
+O seguinte modelo de `buildVersion` Gestor de Recursos atualizará `targetBuildVersion` a ranhura de preparação e definirá a ranhura de produção. Isto vai trocar as duas ranhuras. O modelo assume que já tem um webapp criado com uma ranhura chamada "staging".
 
 ```json
 {
@@ -384,7 +384,7 @@ O seguinte modelo de Gestor de Recursos atualizará o `buildVersion` da ranhura 
 }
 ```
 
-Este modelo de Gestor de Recursos é idempotente, o que significa que pode ser executado repetidamente e produzir o mesmo estado das ranhuras. Após a primeira execução, `targetBuildVersion` corresponderá à `buildVersion`atual, pelo que não será desencadeada uma troca.
+Este modelo de Gestor de Recursos é idempotente, o que significa que pode ser executado repetidamente e produzir o mesmo estado das ranhuras. Após a primeira `targetBuildVersion` execução, `buildVersion`corresponderá à corrente, pelo que não será desencadeada uma troca.
 
 <!-- ======== Azure CLI =========== -->
 
@@ -421,9 +421,9 @@ Aqui estão alguns erros comuns de troca:
       ...
     </conditions>
     ```
-- Algumas regras de [restrição IP](app-service-ip-restrictions.md) podem impedir que a operação de swap envie pedidos HTTP para a sua aplicação. Os intervalos de endereços IPv4 que começam com `10.` e `100.` são internos à sua implantação. Deve permitir que se conectem à sua aplicação.
+- Algumas regras de [restrição IP](app-service-ip-restrictions.md) podem impedir que a operação de swap envie pedidos HTTP para a sua aplicação. Os intervalos de endereços `10.` `100.` IPv4 que começam e são internos à sua implantação. Deve permitir que se conectem à sua aplicação.
 
-- Após trocas de slot, a aplicação pode experimentar reiniciações inesperadas. Isto porque, após uma troca, a configuração de ligação do nome de anfitrião fica dessincronizada, o que por si só não causa reinícios. No entanto, certos eventos de armazenamento subjacentes (tais como falhas no volume de armazenamento) podem detetar estas discrepâncias e forçar todos os processos dos trabalhadores a reiniciar. Para minimizar este tipo de reinícios, defina a [definição de aplicação`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todas as ranhuras*. No entanto, esta definição de aplicações *não* funciona com aplicações da Windows Communication Foundation (WCF).
+- Após trocas de slot, a aplicação pode experimentar reiniciações inesperadas. Isto porque, após uma troca, a configuração de ligação do nome de anfitrião fica dessincronizada, o que por si só não causa reinícios. No entanto, certos eventos de armazenamento subjacentes (tais como falhas no volume de armazenamento) podem detetar estas discrepâncias e forçar todos os processos dos trabalhadores a reiniciar. Para minimizar este tipo de reinícios, defina a [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` definição](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) da aplicação em *todas as ranhuras*. No entanto, esta definição de aplicações *não* funciona com aplicações da Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Passos seguintes
 [Bloquear o acesso a faixas horárias não produtivas](app-service-ip-restrictions.md)

@@ -1,5 +1,5 @@
 ---
-title: Ver relatório de auditoria para funções de recursos azure na Gestão de Identidade Privilegiada (PIM) - Azure AD  Microsoft Docs
+title: Ver relatório de auditoria para funções de recursos azure na Gestão de Identidade Privilegiada (PIM) - Azure AD [ Microsoft Docs
 description: Ver histórico de atividades e auditorias para funções de recursos Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329639"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Ver histórico de atividades e auditorias para funções de recursos Azure na Gestão de Identidade Privilegiada
@@ -86,9 +86,9 @@ A auditoria de recursos dá-lhe uma visão de toda a atividade de papel para um 
 
     [![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png "Lista de auditoria de recursos com filtros")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. Para **o tipo de auditoria,** selecione Activate **(Atribuído + Ativado)** .
+1. Para **o tipo de auditoria,** selecione Activate **(Atribuído + Ativado)**.
 
-    Lista de auditoria de [![recursos filtrada pelo tipo de auditoria Activate ![](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista de auditoria de recursos filtrada pela Activate")](media/azure-pim-resource-rbac/rbac-audit-activity.png) Lista de auditoria de recursos que é filtrada pelo tipo de auditoria Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    Lista de auditoria de [![recursos filtrada pela](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista de auditoria de recursos filtrada pela Activate")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![lista de auditoria do tipo de auditoria Activate que é filtrada pelo tipo de auditoria Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Em **Ação,** clique **(atividade)** para que um utilizador veja o detalhe de atividade desse utilizador nos recursos Do Azure.
 
@@ -116,7 +116,7 @@ A minha auditoria permite-lhe visualizar a sua atividade pessoal.
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obtenha razão, aprovador e número de bilhete para eventos de aprovação
 
 1. Inscreva-se no [portal Azure](https://aad.portal.azure.com) com permissões de funções de administrador privilegiado e abra a Azure AD.
-1. Selecione **registos de auditoria**.
+1. Selecione **Registos de auditoria**.
 1. Utilize o filtro **De serviço** para exibir apenas eventos de auditoria para o serviço de Gestão de Identidade Privilegiada. Na página de registos da **Auditoria,** pode:
 
     - Consulte a razão de um evento de auditoria na coluna **'Razão do Estado'.**

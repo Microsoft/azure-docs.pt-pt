@@ -11,10 +11,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 03/05/2020
 ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78328668"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
@@ -47,7 +47,7 @@ Assim que souber o que pretende fazer com os seus dados, tem de determinar requi
 Faça escolhas e, possivelmente, trocas para os seguintes requisitos:
 
 - Precisão
-- Tempo de treino
+- Tempo de preparação
 - Linearidade
 - Número de parâmetros
 - Número de características
@@ -66,7 +66,7 @@ Existem três formas de utilizar o módulo Modelo de Avaliação:
 
 Para obter uma lista completa de métricas e abordagens que pode utilizar para avaliar a precisão dos modelos de aprendizagem automática, consulte avaliar o [módulo Model](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
 
-## <a name="training-time"></a>Tempo de treino
+## <a name="training-time"></a>Tempo de preparação
 
 Na aprendizagem supervisionada, a formação significa usar dados históricos para construir um modelo de aprendizagem automática que minimize os erros. O número de minutos ou horas necessários para treinar um modelo varia muito entre algoritmos. O tempo de treino está muitas vezes intimamente ligado à precisão; um normalmente acompanha o outro. 
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados de referência em ambientes de C# GA usando-Azure Time Series insights | Microsoft Docs
-description: Saiba como gerenciar dados de referência para seu ambiente GA criando um aplicativo personalizado escrito em C#.
+title: Gerir dados de referência em ambientes GA usando C# - Azure Time Series Insights [ Microsoft Docs
+description: Saiba como gerir dados de referência para o seu ambiente GA criando uma aplicação personalizada escrita em C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,70 +12,70 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76962004"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gerenciar dados de referência do GA para um ambiente de Azure Time Series Insights usandoC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gerir dados de referência ga para um ambiente azure Time Series Insights usando C #
 
-Este artigo demonstra como combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory para fazer solicitações de API programática para a API de gerenciamento de dados de [referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)de GA Azure Time Series insights.
+Este artigo demonstra como combinar C#, [MSAL.NET,](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Ative Directory para fazer pedidos programáticos de API para a [API de Referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)da Série De Tempo Azure.
 
 > [!TIP]
-> Ver C# amostras de código GA em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Ver amostras de [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)código GA C# em .
 
 ## <a name="summary"></a>Resumo
 
 O código da amostra abaixo demonstra as seguintes características:
 
-* Adquirindo um token de acesso usando [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Operações sequenciais de criação, leitura, atualização e exclusão em relação à [API de gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)ga.
-* Códigos de resposta comuns, incluindo [códigos de erro comuns](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+* Adquirir um token de acesso utilizando [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Operações sequenciais CREATE, READ, UPDATE e DELETE contra a API de [Gestão](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)de Dados de Referência GA .
+* Códigos de resposta comuns, incluindo códigos de [erro comuns.](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)
     
-    A API de referência Gerenciamento de Dados processa cada item individualmente e um erro com um item não impede que os outros sejam concluídos com êxito. Por exemplo, se sua solicitação tiver 100 itens e um item tiver um erro, 99 itens serão gravados e um será rejeitado.
+    A API de Gestão de Dados de Referência processa cada item individualmente e um erro com um item não impede que os outros completem com sucesso. Por exemplo, se o seu pedido tiver 100 itens e um item tiver um erro, então 99 itens são escritos e um é rejeitado.
 
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
-Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
+Complete os seguintes passos antes de compilar e executar o código da amostra:
 
-1. [Provisione um ambiente de Azure Time Series insights GA](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-) .
+1. Fornecer um ambiente [ga azure time series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+)
 
-1. [Crie um conjunto de dados de referência](time-series-insights-add-reference-data-set.md) em seu ambiente. Use o seguinte esquema de dados de referência:
+1. [Crie um conjunto](time-series-insights-add-reference-data-set.md) de dados de referência dentro do seu ambiente. Utilize o seguinte esquema de dados de referência:
 
-   | Nome-chave | Tipo |
+   | Nome da chave | Tipo |
    | --- | --- |
    | uuid | Cadeia | 
 
-1. Configure seu ambiente de Azure Time Series Insights para Azure Active Directory conforme descrito em [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` como o **URI de redirecionamento**.
+1. Configure o seu ambiente de Insights da Série De Tempo Azure para o Diretório Ativo Azure, conforme descrito na [Autenticação e autorização.](time-series-insights-authentication-and-authorization.md) Utilizar `http://localhost:8080/` como **Redirecionamento URI**.
 
-1. Instale as dependências de projeto necessárias.
+1. Instale as dependências necessárias do projeto.
 
-1. Edite o código de exemplo abaixo substituindo cada **#PLACEHOLDER #** pelo identificador de ambiente apropriado.
+1. Editar o código da amostra abaixo substituindo cada **#PLACEHOLDER#** com o identificador de ambiente apropriado.
 
-1. Execute `dotnet run` dentro do diretório raiz do seu projeto. Quando solicitado, use seu perfil de usuário para entrar no Azure. 
+1. Corra `dotnet run` dentro do diretório raiz do seu projeto. Quando solicitado, utilize o seu perfil de utilizador para iniciar sessão no Azure. 
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 
-É recomendável que você use a versão mais recente do Visual Studio e **NetCore. app**:
+Recomenda-se que utilize a mais recente versão do Visual Studio e **da NETCore.app:**
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -versão 16.4.2 +
-* [NetCore. app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) -versão 2.2.8
+* [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
+* [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - Versão 2.2.8
 
-O código de exemplo tem duas dependências necessárias:
+O código da amostra tem duas dependências necessárias:
 
-* MSAL.NET pacote [Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) -4.7.1.
-* Pacote [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -12.0.3.
+* MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) - pacote 4.7.1.
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - pacote 12.0.3.
 
-Adicione os pacotes usando o [NuGet 2.12 +](https://www.nuget.org/):
+Adicione os pacotes utilizando [NuGet 2.12+](https://www.nuget.org/)
 
 * `dotnet add package Newtonsoft.Json --version 12.0.3`
 * `dotnet add package Microsoft.Identity.Client --version 4.7.1`
 
-Or
+Ou:
 
-1. Declarar um arquivo de `csharp-tsi-msal-ga-sample.csproj`:
+1. Declare `csharp-tsi-msal-ga-sample.csproj` um ficheiro:
 
     ```XML
     <Project Sdk="Microsoft.NET.Sdk">
@@ -94,7 +94,7 @@ Or
     ```
 1. Em seguida, execute o `dotnet restore`.
 
-## <a name="c-sample-code"></a>C#código de exemplo
+## <a name="c-sample-code"></a>Código da amostra C#
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia a documentação de referência da [API de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) do GA gerenciamento de dados.
+- Leia a documentação de referência da API de [Gestão](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) de Dados de Referência ga.

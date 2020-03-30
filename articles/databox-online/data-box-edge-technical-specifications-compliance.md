@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252038"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas azure Data Box Edge
@@ -82,18 +82,18 @@ As tabelas seguintes listam as várias especificações do recinto para dimensõ
 
 A tabela seguinte enumera as dimensões do recinto em milímetros e polegadas.
 
-|     Recinto     |     Milímetros     |     centímetros     |
+|     Recinto     |     Milímetros     |     Centímetros     |
 |-------------------|---------------------|----------------|
 |    Altura         |    44.45            |    1.75"          |
-|    Pulsação          |    434.1           |    17.09"          |
+|    Largura          |    434.1           |    17.09"          |
 |    Comprimento          |    740.4           |    29.15"          |
 
 A tabela seguinte enumera as dimensões do pacote de envio em milímetros e polegadas.
 
-|     Pacote     |     Milímetros     |     centímetros     |
+|     Pacote     |     Milímetros     |     Centímetros     |
 |-------------------|---------------------|----------------|
 |    Altura         |    311.2            |    12.25"          |
-|    Pulsação          |    642.8          |    25.31"          |
+|    Largura          |    642.8          |    25.31"          |
 |    Comprimento          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Peso do recinto
@@ -131,7 +131,7 @@ Esta secção enumera as especificações relacionadas com o ambiente do recinto
 |    Segurança e aprovações                 |    EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 EN 62311:2008                                                                                                                                                                       |
 |    EMC                                  |    FCC A, ICES-003 <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013                                                                                                                                                                                         |
 |    Energia             |    Regulamento da Comissão (UE) Nº. 617/2013                                                                                                                                                                                        |
-|    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
+|    Rio Rohs           |    EN 50581:2012                                                                                                                                                                                        |
 
 
 ### <a name="operating-temperature-de-rating-specifications"></a>Especificações de declassificação da temperatura de funcionamento

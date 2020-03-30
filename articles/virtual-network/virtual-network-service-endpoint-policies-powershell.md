@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 673431e2ddfc9a641bb1c640891daac79350cb3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78253029"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerir a exfiltração de dados para contas de Armazenamento Azure com políticas de endpoint de serviço de rede virtual usando o Azure PowerShell
@@ -39,7 +39,7 @@ Neste artigo, vai aprender a:
 * Confirme o acesso à conta de armazenamento permitida a partir da subnet.
 * Confirme que o acesso é negado à conta de armazenamento não permitida a partir da subnet.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -172,7 +172,7 @@ Depois de criada a conta de armazenamento, recupere a chave para a conta de arma
 $storageAcctKey1 = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -AccountName $storageAcctName1).Value[0]
 ```
 
-A chave é usada para criar uma partilha de ficheiros num passo posterior. Introduza `$storageAcctKey` e note o valor, pois também terá de introduzir manualmente num passo posterior quando mapear a partilha de ficheiros para uma unidade num VM.
+A chave é usada para criar uma partilha de ficheiros num passo posterior. Introduza `$storageAcctKey` e note o valor, pois também terá de o introduzir manualmente num passo posterior quando mapear a partilha de ficheiros para uma unidade num VM.
 
 Repita agora os passos acima para criar uma segunda conta de armazenamento.
 
@@ -213,7 +213,7 @@ $share2 = New-AzStorageShare my-file-share -Context $storageContext2
 
 ### <a name="deny-all-network-access-to-a-storage-accounts"></a>Negar todo o acesso da rede a contas de armazenamento
 
-Por predefinição, as contas de Armazenamento aceitam ligações de rede de clientes em qualquer rede. Para limitar o acesso a redes selecionadas, altere a ação padrão para *Negar* com [Update-AzStorageAccountNetworkRuleSetSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Uma vez negado o acesso à rede, a conta de armazenamento não é acessível a partir de nenhuma rede.
+Por predefinição, as contas de Armazenamento aceitam ligações de rede de clientes em qualquer rede. Para limitar o acesso a redes selecionadas, altere a ação padrão para *Negar* com [Update-AzStorageAccountNetworkRuleSetSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Assim que o acesso de rede for negado, a conta de armazenamento não será acessível a partir de nenhuma rede.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet `
@@ -370,7 +370,7 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name X -PSProvider FileSystem -Root "\\notallowedaccount.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-O acesso à partilha é negado e recebe um erro `New-PSDrive : Access is denied`. O acesso é negado porque a conta de armazenamento *não é permitida* não está na lista de recursos permitidos na política de ponto final do serviço. 
+O acesso à partilha é negado `New-PSDrive : Access is denied` e recebe um erro. O acesso é negado porque a conta de armazenamento *não é permitida* não está na lista de recursos permitidos na política de ponto final do serviço. 
 
 Feche a sessão de ambiente de trabalho remoto para a VM *myVmPublic*.
 

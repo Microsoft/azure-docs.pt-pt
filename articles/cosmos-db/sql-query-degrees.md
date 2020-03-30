@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299475"
 ---
 # <a name="degrees-azure-cosmos-db"></a>GRAUS (Azure Cosmos DB)
@@ -34,7 +34,7 @@ DEGREES (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve o número de graus num ângulo de radianos de PI/2.  
+  O exemplo seguinte devolve o número de graus num ângulo de radianos PI/2.  
   
 ```sql
 SELECT DEGREES(PI()/2) AS degrees  

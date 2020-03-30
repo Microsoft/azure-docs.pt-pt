@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synpase
 ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192919"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Máscara de dados dinâmicos para Base de Dados Azure SQL e Azure Synapse Analytics
@@ -44,11 +44,11 @@ A máscara de dados dinâmicos pode ser configurada pelas funções de administr
 
 | Função de mascaramento | Lógica de mascaramento |
 | --- | --- |
-| **Predefinição** |**Máscara completa de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, dataoffset, hora pequena, hora).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para xml, o documento \<mascarado/> é utilizado.<br/>• Utilize um valor vazio para tipos de dados especiais (tabela de carimbos de tempo, hierárquica, GUID, binário, imagem, tipos espaciais varbinary). |
+| **Padrão** |**Máscara completa de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, dataoffset, hora pequena, hora).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para xml, o documento \<mascarado/> é utilizado.<br/>• Utilize um valor vazio para tipos de dados especiais (tabela de carimbos de tempo, hierárquica, GUID, binário, imagem, tipos espaciais varbinary). |
 | **Cartão de crédito** |Método de **mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |Método de **mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de mascaramento é um número constante.<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) de navegação |
-| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e último caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a cadeia original for mais curta do que o prefixo e o sufixo expostos, apenas a corda de enchimento é utilizada. <br/>prefixo[enchimento]sufixo<br/><br/>![](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) de navegação |
+| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de mascaramento é um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e último caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a cadeia original for mais curta do que o prefixo e o sufixo expostos, apenas a corda de enchimento é utilizada. <br/>prefixo[enchimento]sufixo<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 

@@ -1,27 +1,27 @@
 ---
-title: Especificar variáveis de ambiente para serviços
-description: Mostra como usar variáveis de ambiente para aplicativos no Service Fabric
+title: Especificar variáveis ambientais para serviços
+description: Mostra-lhe como usar variáveis ambientais para aplicações em Tecido de Serviço
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614320"
 ---
-# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Como especificar variáveis de ambiente para serviços no Service Fabric
+# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Como especificar variáveis ambientais para serviços em Tecido de Serviço
 
-Este artigo mostra como especificar variáveis de ambiente para um serviço ou contêiner em Service Fabric.
+Este artigo mostra-lhe como especificar variáveis ambientais para um serviço ou contentor em Tecido de Serviço.
 
-## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedimento para especificar variáveis de ambiente para serviços
+## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedimento para especificar variáveis ambientais para serviços
 
-Neste exemplo, você define uma variável de ambiente para um contêiner. O artigo pressupõe que você já tem um manifesto de aplicativo e serviço.
+Neste exemplo, você estabelece uma variável ambiental para um recipiente. O artigo assume que já tem um manifesto de inscrição e serviço.
 
-1. Abra o arquivo manifest. xml.
-2. No elemento `CodePackage`, adicione um novo elemento `EnvironmentVariables` e um elemento `EnvironmentVariable` para cada variável de ambiente.
+1. Abra o ficheiro ServiceManifest.xml.
+2. No `CodePackage` elemento, adicione `EnvironmentVariables` um novo `EnvironmentVariable` elemento e um elemento para cada variável ambiental.
 
     ```xml
     <CodePackage Name="MyCode" Version="CodeVersion1">
@@ -33,9 +33,9 @@ Neste exemplo, você define uma variável de ambiente para um contêiner. O arti
     </CodePackage>
     ```
 
-   As variáveis de ambiente podem ser substituídas no manifesto do aplicativo.
+   As variáveis ambientais podem ser ultrapassadas no manifesto de aplicação.
 
-3. Para substituir as variáveis de ambiente no manifesto do aplicativo, use o elemento `EnvironmentOverrides`.
+3. Para anular as variáveis ambientais no `EnvironmentOverrides` manifesto de aplicação, utilize o elemento.
 
     ```xml
       <ServiceManifestImport>
@@ -46,9 +46,9 @@ Neste exemplo, você define uma variável de ambiente para um contêiner. O arti
       </ServiceManifestImport>
     ```
 
-## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Especificando variáveis de ambiente dinamicamente usando Docker Compose
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Especificando variáveis ambientais dinamicamente usando Docker Compose
 
-Service Fabric dá suporte à capacidade de [usar Docker Compose para implantação](service-fabric-docker-compose.md#supported-compose-directives). Os arquivos de composição podem ser variáveis de ambiente de origem do Shell. Esse comportamento pode ser usado para substituir dinamicamente os valores de ambiente desejados:
+O Tecido de Serviço suporta a capacidade de utilizar o [Docker Compose para a implantação](service-fabric-docker-compose.md#supported-compose-directives). Os ficheiros de composição podem obter variáveis ambientais a partir da concha. Este comportamento pode ser usado para substituir os valores ambientais desejados de forma dinâmica:
 
 ```yml
 environment:
@@ -56,6 +56,6 @@ environment:
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre alguns dos principais conceitos discutidos neste artigo, consulte os [artigos gerenciar aplicativos para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
+Para saber mais sobre alguns dos conceitos fundamentais que são discutidos neste artigo, consulte as [aplicações de Gestão para artigos de vários ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
 
-Para obter informações sobre outros recursos de gerenciamento de aplicativo que estão disponíveis no Visual Studio, consulte [gerenciar seus aplicativos de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Estúdio Visual, consulte [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md).

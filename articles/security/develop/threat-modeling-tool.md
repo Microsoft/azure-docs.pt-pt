@@ -1,6 +1,6 @@
 ---
-title: Visão geral de Microsoft Threat Modeling Tool-Azure
-description: Visão geral do Microsoft Threat Modeling Tool, que contém informações sobre como começar a usar a ferramenta, incluindo o processo de modelagem de ameaças.
+title: Visão geral da ferramenta de modelação de ameaças da Microsoft - Azure
+description: Visão geral da Ferramenta de Modelação de Ameaças da Microsoft, contendo informações sobre o início com a ferramenta, incluindo o processo de Modelação de Ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,51 +8,51 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
 ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548746"
 ---
-# <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
+# <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelação de ameaça da Microsoft
 
-O Threat Modeling Tool é um elemento principal da Microsoft Security Development Lifecycle (SDL). Ele permite que os arquitetos de software identifiquem e reduzam possíveis problemas de segurança no início, quando são relativamente fáceis e econômicos de resolver. Como resultado, ele reduz consideravelmente o custo total de desenvolvimento. Além disso, projetamos a ferramenta com especialistas não relacionados à segurança em mente, tornando a modelagem de ameaças mais fácil para todos os desenvolvedores, fornecendo orientação clara sobre como criar e analisar modelos de ameaças. 
+A Ferramenta de Modelação de Ameaças é um elemento central do Ciclo de Vida de Desenvolvimento de Segurança da Microsoft (SDL). Permite que os arquitetos de software identifiquem e mitiem potenciais problemas de segurança mais cedo, quando são relativamente fáceis e rentáveis para resolver. Como resultado, reduz consideravelmente o custo total do desenvolvimento. Além disso, desenhamos a ferramenta com especialistas não-de-segurança em mente, tornando a modelação de ameaças mais fácil para todos os desenvolvedores, fornecendo orientações claras sobre a criação e análise de modelos de ameaças. 
 
-A ferramenta permite que qualquer pessoa:
+A ferramenta permite a qualquer um:
 
-* Comunique-se sobre o design de segurança de seus sistemas
-* Analise esses designs para obter possíveis problemas de segurança usando uma metodologia comprovada
-* Sugerir e gerenciar mitigações de problemas de segurança
+* Comunicar sobre o design de segurança dos seus sistemas
+* Analise esses desenhos para potenciais problemas de segurança usando uma metodologia comprovada
+* Sugerir e gerir mitigações para questões de segurança
 
-Aqui estão alguns recursos de ferramentas e inovações, apenas para citar alguns:
+Aqui estão algumas capacidades de ferramentas e inovações, apenas para citar algumas:
 
-* **Automação:** Diretrizes e comentários no desenho de um modelo
-* **Stride por elemento:** Análise guiada de ameaças e mitigações
-* **Relatório:** Atividades de segurança e testes na fase de verificação
-* **Metodologia exclusiva:** Permite que os usuários visualizem e entendam melhor as ameaças
-* **Projetado para desenvolvedores e centralizado em software:** muitas abordagens são centralizadas em ativos ou invasores. Estamos centralizados no software. Nós criamos atividades com as quais todos os desenvolvedores e arquitetos de software estão familiarizados, como imagens de desenho para sua arquitetura de software
-* **Foco na análise de design:** O termo "modelagem de risco" pode se referir a um requisito ou a uma técnica de análise de design. Às vezes, ele se refere a uma mistura complexa dos dois. A abordagem do SDL da Microsoft para a modelagem de ameaças é uma técnica de análise de design focada
+* **Automação:** Orientação e feedback no desenho de um modelo
+* **PASSO por Elemento:** Análise guiada de ameaças e mitigações
+* **Reportagem:** Atividades de segurança e testes na fase de verificação
+* **Metodologia Única:** Permite aos utilizadores visualizar e compreender melhor as ameaças
+* **Projetados para Desenvolvedores e Centrados em Software:** muitas abordagens estão centradas em ativos ou atacantes. Estamos centrados no software. Construímos atividades que todos os desenvolvedores de software e arquitetos estão familiarizados com - como desenhar imagens para a sua arquitetura de software
+* **Focado na Análise de Design:** O termo "modelação de ameaças" pode referir-se a um requisito ou a uma técnica de análise de design. Às vezes, refere-se a uma mistura complexa dos dois. A abordagem SDL da Microsoft para modelar ameaças é uma técnica focada de análise de design
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A tabela a seguir contém links importantes para você começar a usar o Threat Modeling Tool:
+A tabela abaixo contém links importantes para começar com a Ferramenta de Modelação de Ameaças:
 
 | Passo  | Descrição                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Baixar o Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
-| **2** | [Leia nosso guia de introdução](threat-modeling-tool-getting-started.md)    |
-| **3** | [Familiarize-se com os recursos](threat-modeling-tool-feature-overview.md)   |
-| **4** | [Saiba mais sobre categorias de ameaças geradas](threat-modeling-tool-threats.md)   |
+| **1** | [Descarregue a ferramenta de modelação de ameaças](https://aka.ms/threatmodelingtool)                                |
+| **2** | [Leia o nosso guia de partida](threat-modeling-tool-getting-started.md)    |
+| **3** | [Conheça as características](threat-modeling-tool-feature-overview.md)   |
+| **4** | [Conheça as categorias de ameaças geradas](threat-modeling-tool-threats.md)   |
 | **5** | [Encontre mitigações para ameaças geradas](threat-modeling-tool-mitigations.md) |
 
 ## <a name="resources"></a>Recursos
 
-Aqui estão alguns artigos mais antigos que ainda são relevantes para a modelagem de ameaças hoje:
+Aqui estão alguns artigos mais antigos ainda relevantes para a modelação de ameaças hoje:
 
-* [Artigo sobre a importância da modelagem de ameaças](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
-* [Treinamento publicado por computação confiável](https://www.microsoft.com/download/details.aspx?id=16420)
+* [Artigo sobre a importância da modelação de ameaças](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
+* [Formação publicada pela Fiabilidade da Computação](https://www.microsoft.com/download/details.aspx?id=16420)
 
-Confira o que alguns especialistas Threat Modeling Tool fizeram:
+Confira o que alguns especialistas em Ferramentas de Modelação de Ameaças fizeram:
 
-* [Gerenciador de ameaças](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
-* [Blog de segurança do Simone Curzi](https://simoneonsecurity.com/)
+* [Gestor de Ameaças](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
+* [Blog de Segurança Simone Curzi](https://simoneonsecurity.com/)

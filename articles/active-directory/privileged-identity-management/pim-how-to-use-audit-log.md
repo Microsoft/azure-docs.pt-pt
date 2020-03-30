@@ -1,5 +1,5 @@
 ---
-title: Ver relatório de registo de auditoria para funções da Azure AD no Azure AD PIM  Microsoft Docs
+title: Ver relatório de registo de auditoria para funções da Azure AD no Azure AD PIM [ Microsoft Docs
 description: Saiba como ver o histórico de registos de auditoria para funções de Azure AD na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329523"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Ver histórico de auditoria para funções da Azure AD na Gestão de Identidade Privilegiada
@@ -91,7 +91,7 @@ Siga estes passos para ver o histórico de auditoria para funções de AD Azure.
     | Coluna | Descrição |
     | --- | --- |
     | Hora | Quando a ação ocorreu. |
-    | Requestor | Utilizador que solicitou a ativação ou alteração da função. Se o valor for **o Sistema Azure,** consulte o histórico de auditoria do Azure para obter mais informações. |
+    | Requerente | Utilizador que solicitou a ativação ou alteração da função. Se o valor for **o Sistema Azure,** consulte o histórico de auditoria do Azure para obter mais informações. |
     | Ação | Ações tomadas pelo solicitador. As ações podem incluir Atribuir, Não atribuir, Ativar, Desativar ou Adicionar OutsidePIM. |
     | Membro | Utilizador que esteja ativando ou atribuído a um papel. |
     | Função | Função atribuída ou ativada pelo utilizador. |
@@ -117,7 +117,7 @@ Siga estes passos para ver o histórico de auditoria para funções de AD Azure.
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obtenha razão, aprovador e número de bilhete para eventos de aprovação
 
 1. Inscreva-se no [portal Azure](https://aad.portal.azure.com) com permissões de funções de administrador privilegiado e abra a Azure AD.
-1. Selecione **registos de auditoria**.
+1. Selecione **Registos de auditoria**.
 1. Utilize o filtro **De serviço** para exibir apenas eventos de auditoria para o serviço de Gestão de Identidade Privilegiada. Na página de registos da **Auditoria,** pode:
 
     - Consulte a razão de um evento de auditoria na coluna **'Razão do Estado'.**

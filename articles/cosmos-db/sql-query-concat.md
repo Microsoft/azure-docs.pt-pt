@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302615"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
- Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
+ Devolve uma corda que é o resultado da concatenação de dois ou mais valores de cadeia.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,15 +26,15 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de corda para concatenar aos outros valores. A função `CONCAT` requer pelo menos dois argumentos *str_expr.*  
+   É uma expressão de corda para concatenar aos outros valores. A `CONCAT` função requer pelo menos dois *argumentos str_expr.*  
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve a cadeia de caracteres concatenada dos valores especificados.  
+  O exemplo seguinte devolve a cadeia concatenada dos valores especificados.  
   
 ```sql
 SELECT CONCAT("abc", "def") AS concat  

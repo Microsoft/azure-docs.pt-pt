@@ -9,21 +9,21 @@ ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184473"
 ---
-Após o lançamento os discos, voltar para o **importação/exportação** página no portal do Azure. 
+Depois de enviar os discos, volte à página **de Importação/Exportação** no portal Azure. 
 
 > [!IMPORTANT] 
-> Se o número de controlo não forem atualizado dentro de 2 semanas da tarefa de criação, a tarefa expira. 
+> Se o número de rastreio não for atualizado no prazo de 2 semanas após a criação do trabalho, o trabalho expira. 
 
-Para atualizar o número de controlo, execute os seguintes passos.
+Para atualizar o número de rastreio, execute os seguintes passos.
  
-1. Selecione e clique na tarefa.
-2. Clique em **atualizar o estado da tarefa e informações de controlo, uma vez que as unidades são entregues**. 
-3. Selecione a caixa de verificação contra **marcar como enviado**.
-4. Forneça o **operadora** e **número de controle**.
-5. Controle o progresso da tarefa no dashboard do portal. Para obter uma descrição de cada Estado de tarefa, aceda a [ver o estado da tarefa](../articles/storage/common/storage-import-export-view-drive-status.md).
+1. Selecione e clique no trabalho.
+2. Clique em Atualizar o estado do trabalho e rastrear informações assim que **as unidades forem enviadas**. 
+3. Selecione a caixa de verificação contra **o Mark como enviado**.
+4. Forneça o **número** **de Transporte** e Rastreio .
+5. Acompanhe o progresso do trabalho no portal. Para uma descrição de cada estado de trabalho, vá ver [o seu estado](../articles/storage/common/storage-import-export-view-drive-status.md)de trabalho .

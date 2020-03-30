@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255647"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
@@ -36,7 +36,7 @@ Assuma que a sua aplicação será usada de forma sucinta que não pretendia que
 
 Antes de verificar o código, procedia [a revisões](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) de códigos para aumentar a qualidade global do código e reduzir o risco de criar bugs. Pode utilizar o [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerir o processo de revisão de códigos.
 
-### <a name="perform-static-code-analysis"></a>Realizar análise de código estático
+### <a name="perform-static-code-analysis"></a>Efetuar a análise de código estático
 
 [A análise de código estático](https://www.owasp.org/index.php/Static_Code_Analysis) (também conhecida como análise de *código fonte)* é geralmente realizada como parte de uma revisão de código. A análise de código estático geralmente refere-se a ferramentas de análise de código estáticos para encontrar potenciais vulnerabilidades no código não corrente, utilizando técnicas como [a verificação de manchas](https://en.wikipedia.org/wiki/Taint_checking) e análise de fluxo de [dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
@@ -48,15 +48,15 @@ Trate todas as inputs como não fidedignas para proteger a sua aplicação das v
 
 Validar a entrada no início do fluxo de dados para garantir que apenas os dados devidamente formados entram no fluxo de trabalho. Não pretende que os dados mal formados persistam na sua base de dados ou desencadeiem uma avaria num componente a jusante.
 
-lista de bloqueios e whitelisting são duas abordagens gerais para a validação da sintaxe de entrada:
+Lista negra e whitelisting são duas abordagens gerais para a validação da sintaxe de entrada:
 
-  - A lista de bloqueios tenta verificar se uma determinada entrada de utilizador não contém conteúdo "conhecido como malicioso".
+  - A lista negra tenta verificar se uma determinada entrada de utilizador não contém conteúdo "conhecido como malicioso".
 
   - A Whitelisting tenta verificar se uma determinada entrada de utilizador corresponde a um conjunto de inputs "bem conhecidos". Whitelisting baseado em caracteres é uma forma de whitelisting onde uma aplicação verifica que a entrada do utilizador contém apenas caracteres "conhecidos bem" ou que a entrada corresponde a um formato conhecido.
     Por exemplo, isto pode envolver verificar se um nome de utilizador contém apenas caracteres alfanuméricos ou que contém exatamente dois números.
 
 Whitelisting é a abordagem preferida para construir software seguro.
-A lista de bloqueios é propensa a erros porque é impossível pensar numa lista completa de entrada potencialmente má.
+A lista negra é propensa a erros porque é impossível pensar numa lista completa de entrada potencialmente má.
 
 Faça este trabalho no servidor, não no lado do cliente (ou no servidor e no lado do cliente).
 

@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296427"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
@@ -34,7 +34,7 @@ StringToNumber(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como `StringToNumber` se comporta em diferentes tipos. 
+  O exemplo que `StringToNumber` se segue mostra como se comporta em diferentes tipos. 
 
 O Espaço Branco só é permitido antes ou depois do número.
 

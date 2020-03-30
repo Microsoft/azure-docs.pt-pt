@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de integração das soluções de gerenciamento de automação do Azure
-description: Saiba como solucionar erros de integração com as soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário
+title: Soluções de gestão da Automação Azure
+description: Saiba como resolver erros de embarque com as soluções de Gestão de Atualização, Rastreio de Alterações e Inventário
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,54 +9,54 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75889339"
 ---
-# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Solucionar erros ao realizar a integração de Gerenciamento de Atualizações, Controle de Alterações e inventário
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Erros de resolução de problemas ao embarcar na Gestão de Atualizações, Rastreio de Alterações e Inventário
 
-Você pode encontrar erros ao realizar soluções de integração como Gerenciamento de Atualizações ou Controle de Alterações e inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Pode encontrar erros ao embarcar em soluções como Gestão de Atualizações ou Rastreio de Alterações e Inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="node-rename"></a>Cenário: renomear um nó registrado requer cancelar o registro/registro novamente
+### <a name="scenario-renaming-a-registered-node-requires-unregister--register-again"></a><a name="node-rename"></a>Cenário: Renomear um nó registado requer desregistar/registar novamente
 
 #### <a name="issue"></a>Problema
 
-Um nó é registrado na automação do Azure e, em seguida, o sistema operacional ComputerName é alterado.  Os relatórios do nó continuam a aparecer com o nome original.
+Um nó está registado na Azure Automation e, em seguida, o nome do computador do sistema operativo é alterado.  Os relatórios do nó continuam a aparecer com o nome original.
 
 #### <a name="cause"></a>Causa
 
-Renomear nós registrados não atualiza o nome do nó na automação do Azure.
+Renomear os nódosos registados não atualiza o nome do nó na Automatização Azure.
 
 #### <a name="resolution"></a>Resolução
 
-Cancele o registro do nó da configuração de estado da automação do Azure e registre-o novamente.  Os relatórios publicados no serviço antes dessa hora não estarão mais disponíveis.
+Desregistre o nó da Configuração do Estado da Automação Azure e, em seguida, registe-o novamente.  Os relatórios publicados ao serviço antes desse tempo deixarão de estar disponíveis.
 
 
-### <a name="resigning-cert"></a>Cenário: não há suporte para assinar certificados novamente por meio do proxy HTTPS
+### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Cenário: Não é suportado a reassinatura de certificados através de procuração https
 
 #### <a name="issue"></a>Problema
 
-Os clientes relataram que, ao se conectar por meio de uma solução de proxy que encerra o tráfego HTTPS e, em seguida, criptografa novamente o tráfego usando um novo certificado, o serviço não permite a conexão.
+Os clientes relataram que ao ligar através de uma solução de procuração que termina o tráfego https e depois reencripta o tráfego usando um novo certificado, o serviço não permite a ligação.
 
 #### <a name="cause"></a>Causa
 
-A automação do Azure não dá suporte à assinatura de certificados usados para criptografar o tráfego.
+A Azure Automation não suporta a reassinatura de certificados utilizados para encriptar o tráfego.
 
 #### <a name="resolution"></a>Resolução
 
-Não há nenhuma solução alternativa para esse problema.
+Não há supor para esta questão.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="missing-write-permissions"></a>Cenário: a integração falha com a mensagem-a solução não pode ser habilitada
+### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Cenário: O embarque falha com a mensagem - A solução não pode ser ativada
 
 #### <a name="issue"></a>Problema
 
-Você recebe uma das seguintes mensagens ao tentar carregar uma máquina virtual em uma solução:
+Recebe uma das seguintes mensagens quando tenta embarcar numa máquina virtual para uma solução:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -68,17 +68,17 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="cause"></a>Causa
 
-Esse erro é causado por permissões incorretas ou ausentes na máquina virtual, no espaço de trabalho ou no usuário.
+Este erro é causado por permissões incorretas ou em falta na máquina virtual, no espaço de trabalho ou no utilizador.
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se você tem as permissões corretas para carregar a máquina virtual. Examine as [permissões necessárias para carregar computadores](../automation-role-based-access-control.md#onboarding) e tente carregar a solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se você tem a permissão `Microsoft.OperationalInsights/workspaces/read` para poder encontrar se a VM está integrada a um espaço de trabalho.
+Certifique-se de que tem permissões corretas para embarcar na máquina virtual. Reveja as [permissões necessárias para a bordo das máquinas](../automation-role-based-access-control.md#onboarding) e tente voltar a bordo da solução. Se receber o `The solution cannot be enabled on this VM because the permission to read the workspace is missing`erro, certifique-se de que tem a `Microsoft.OperationalInsights/workspaces/read` permissão para poder descobrir se o VM está a bordo de um espaço de trabalho.
 
-### <a name="diagnostic-logging"></a>Cenário: a integração falha com a mensagem-falha ao configurar a conta de automação para o log de diagnóstico
+### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: O embarque falha com a mensagem - Falha na configuração da Conta de Automação para o registo de diagnóstico
 
 #### <a name="issue"></a>Problema
 
-Você receberá a seguinte mensagem quando tentar carregar uma máquina virtual em uma solução:
+Recebe a seguinte mensagem quando tenta embarcar numa máquina virtual para uma solução:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -86,53 +86,53 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Esse erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para obter mais informações, consulte [monitoramento de uso e custos estimados em Azure monitor](https://aka.ms/PricingTierWarning).
+Este erro pode ser causado se o nível de preços não corresponder ao modelo de faturação da subscrição. Para mais informações, consulte a utilização do Monitor e os [custos estimados no Monitor Azure.](https://aka.ms/PricingTierWarning)
 
 #### <a name="resolution"></a>Resolução
 
-Crie seu espaço de trabalho do Log Analytics manualmente e repita o processo de integração para selecionar o espaço de trabalho criado.
+Crie manualmente o seu espaço de trabalho Log Analytics e repita o processo de embarque para selecionar o espaço de trabalho criado.
 
-### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
+### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
-Esse código de erro significa que a consulta de grupo de computadores de pesquisa salva usada para direcionar a solução não foi formatada corretamente. 
+Este código de erro significa que a consulta de grupo de pesquisa guardada utilizada para direcionar a solução não foi formatada corretamente. 
 
 #### <a name="cause"></a>Causa
 
-Você pode ter alterado a consulta ou ela pode ter sido alterada pelo sistema.
+Pode ter alterado a consulta, ou pode ter sido alterada pelo sistema.
 
 #### <a name="resolution"></a>Resolução
 
-Você pode excluir a consulta para essa solução e reintegre a solução, que recria a consulta. A consulta pode ser encontrada no seu espaço de trabalho, em **pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**e a categoria da consulta é o nome da solução associada a essa consulta. Se várias soluções estiverem habilitadas, o **MicrosoftDefaultComputerGroup** mostrará várias vezes em **pesquisas salvas**.
+Pode eliminar a consulta para esta solução e reembarcar a solução, que recria a consulta. A consulta pode ser encontrada dentro do seu espaço de trabalho, sob **pesquisas guardadas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associada a esta consulta. Se várias soluções estiverem ativadas, o **MicrosoftDefaultComputerGroup** mostra várias vezes em **Pesquisas Guardadas**.
 
-### <a name="policy-violation"></a>Cenário: PolicyViolation
+### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Cenário: Violação de políticas
 
 #### <a name="issue"></a>Problema
 
-Esse código de erro significa que a implantação falhou devido a uma violação de uma ou mais políticas.
+Este código de erro significa que a implementação falhou devido à violação de uma ou mais políticas.
 
 #### <a name="cause"></a>Causa 
 
-Uma política está em vigor que está impedindo a conclusão da operação.
+Está em vigor uma política que está a bloquear a conclusão da operação.
 
 #### <a name="resolution"></a>Resolução
 
-Para implantar a solução com êxito, você precisa considerar a alteração da política indicada. Como há muitos tipos diferentes de políticas que podem ser definidas, as alterações específicas necessárias dependem da política violada. Por exemplo, se uma política foi definida em um grupo de recursos que negou permissão para alterar o conteúdo de determinados tipos de recursos dentro desse grupo de recursos, você pode, por exemplo, fazer o seguinte:
+Para implementar com sucesso a solução, é necessário considerar alterar a política indicada. Como existem muitos tipos diferentes de políticas que podem ser definidas, as mudanças específicas necessárias dependem da política que é violada. Por exemplo, se uma política fosse definida num grupo de recursos que negasse a permissão para alterar o conteúdo de certos tipos de recursos dentro desse grupo de recursos, poderia, por exemplo, fazer qualquer um dos seguintes recursos:
 
-* Remova a política completamente.
-* Tente carregar um grupo de recursos diferente.
-* Revise a política, por exemplo:
-  * Redirecionando a política para um recurso específico (por exemplo, para uma conta de automação específica).
-  * Revisando o conjunto de recursos que a política foi configurada para negar.
+* Remova completamente a política.
+* Tente embarcar para um grupo de recursos diferente.
+* Rever a política, por exemplo:
+  * Redirecionando a política a um recurso específico (como por exemplo, a uma conta específica de Automação).
+  * Revendo o conjunto de recursos que a política foi configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione **implantações** em **configurações** para exibir a implantação com falha. Para saber mais sobre Azure Policy visite: [visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal Azure ou navegue para o grupo de recursos que contenha a sua conta de automação e selecione **Implementações** em **Definições** para visualizar a implementação falhada. Para saber mais sobre a visita da Política Azure: [Visão geral da Política azure.](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 
-### <a name="unlink"></a>Cenário: erros ao tentar desvincular um espaço de trabalho
+### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Cenário: Erros que tentam desvincular um espaço de trabalho
 
 #### <a name="issue"></a>Problema
 
-Você recebe o seguinte erro ao tentar desvincular um espaço de trabalho:
+Recebe o seguinte erro ao tentar desligar um espaço de trabalho:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -140,41 +140,41 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre quando você ainda tem soluções ativas em seu espaço de trabalho Log Analytics que dependem de sua conta de automação e Log Analytics espaço de trabalho que está sendo vinculado.
+Este erro ocorre quando ainda tem soluções ativas no seu espaço de trabalho Log Analytics que dependem da sua Conta de Automação e do espaço de trabalho do Log Analytics.
 
 ### <a name="resolution"></a>Resolução
 
-Para resolver isso, você precisará remover as seguintes soluções do seu espaço de trabalho se você as estiver usando:
+Para resolver isto, terá de remover as seguintes soluções do seu Espaço de Trabalho se estiver a utilizá-las:
 
 * Gestão de Atualizações
 * Monitorização de Alterações
 * Iniciar/Parar VMs durante horas de inatividade
 
-Depois de remover as soluções, você pode desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes dessas soluções do seu espaço de trabalho e conta de automação também.  
+Assim que remover as soluções, pode desligar o seu espaço de trabalho. É importante limpar também quaisquer artefactos existentes a partir dessas soluções do seu espaço de trabalho e Conta de Automação.  
 
 * Gestão de Atualizações
-  * Remover implantações de atualização (agendas) de sua conta de automação
+  * Remover Implementações de Atualizações (Horários) da sua Conta de Automação
 * Iniciar/Parar VMs durante horas de inatividade
-  * Remova os bloqueios nos componentes da solução em sua conta de automação em **configurações** > **bloqueios**.
-  * Para obter etapas adicionais para remover a solução Iniciar/Parar VMs fora do horário comercial consulte, [remova a solução iniciar/parar VM fora do horário comercial](../automation-solution-vm-management.md#remove-the-solution).
+  * Remova quaisquer fechaduras nos componentes da solução na sua Conta de Automação em **'Fechaduras de** **Definições** > ' .
+  * Para medidas adicionais para remover os VMs de arranque/paragem durante a solução off-hours, [remova o VM de arranque/paragem durante a solução off-hours](../automation-solution-vm-management.md#remove-the-solution).
 
-## <a name="mma-extension-failures"></a>Falhas de extensão de MMA
+## <a name="mma-extension-failures"></a><a name="mma-extension-failures"></a>Falhas na extensão do MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Ao implantar uma solução, uma variedade de recursos relacionados é implantada. Um desses recursos é a extensão de Microsoft Monitoring Agent ou o agente de Log Analytics para Linux. Essas são extensões de máquina virtual instaladas pelo agente convidado da máquina virtual que é responsável por se comunicar com o espaço de trabalho Log Analytics configurado, para a finalidade de coordenação posterior do download de binários e outros arquivos que o a solução que você está integrando depende de quando começa a execução.
-Normalmente, você primeiro se reconhece de falhas de instalação do MMA Log Analytics ou do agente para Linux de uma notificação que aparece no Hub de notificações. Clicar nessa notificação fornecerá mais informações sobre a falha específica. A navegação para o recurso de grupos de recursos e, em seguida, para o elemento implantações dentro dele também fornece detalhes sobre as falhas de implantação ocorridas.
-A instalação do agente MMA ou Log Analytics para Linux pode falhar por vários motivos, e as etapas a serem seguidas para resolver essas falhas variam, dependendo do problema. Siga as etapas de solução de problemas específicas.
+Ao implementar uma solução, são implantados vários recursos conexos. Um desses recursos é a extensão do agente de monitorização da Microsoft ou o agente Log Analytics para o Linux. Estas são extensões de máquina virtual instaladas pelo Agente Convidado da máquina virtual que é responsável pela comunicação com o espaço de trabalho configurado Log Analytics, com o propósito de posterior coordenação do download de binários e outros ficheiros que o a solução de que está a embarcar dependem assim que começar a execução.
+Normalmente, fica a tomar conhecimento do MMA ou do agente Log Analytics para falhas de instalação do Linux a partir de uma notificação que aparece no Centro de Notificações. Clicar nessa notificação dá mais informações sobre a falha específica. A navegação para o recurso dos Grupos de Recursos e, em seguida, para o elemento Deimplantação no seu interior também fornece detalhes sobre as falhas de implantação que ocorreram.
+A instalação do agente MMA ou Log Analytics para o Linux pode falhar por uma variedade de razões, e as medidas a tomar para resolver estas falhas variam, dependendo do problema. Seguir-se-ão passos específicos de resolução de problemas.
 
-A seção a seguir descreve vários problemas que você pode percorrer ao realizar a integração que causa uma falha na implantação da extensão MMA.
+A secção seguinte descreve vários problemas que pode encontrar ao embarcar que causam uma falha na implementação da extensão mma.
 
-### <a name="webclient-exception"></a>Cenário: ocorreu uma exceção durante uma solicitação WebClient
+### <a name="scenario-an-exception-occurred-during-a-webclient-request"></a><a name="webclient-exception"></a>Cenário: Ocorreu uma exceção durante um pedido do WebClient
 
-A extensão MMA na máquina virtual não pode se comunicar com recursos externos e a implantação falha.
+A extensão de MMA na máquina virtual não consegue comunicar com recursos externos e falha a implantação.
 
 #### <a name="issue"></a>Problema
 
-Veja a seguir exemplos de mensagens de erro que são retornadas:
+Seguem-se exemplos de mensagens de erro que são devolvidas:
 
 ```error
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
@@ -186,23 +186,23 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### <a name="cause"></a>Causa
 
-Algumas causas possíveis para esse erro são:
+Algumas causas potenciais para este erro são:
 
-* Há um proxy configurado na VM, que permite apenas portas específicas.
+* Há um proxy configurado no VM, que só permite portas específicas.
 
-* Uma configuração de firewall bloqueou o acesso às portas e aos endereços necessários.
+* Uma definição de firewall bloqueou o acesso às portas e endereços necessários.
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se você tem as portas e os endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte [planejando sua rede](../automation-hybrid-runbook-worker.md#network-planning).
+Certifique-se de que tem as portas e endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte o planeamento da [sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário: falha na instalação devido a problemas de um ambiente transitório
+### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Cenário: Instalação falhou devido a problemas ambientais transitórios
 
-Falha na instalação da extensão de Microsoft Monitoring Agent durante a implantação devido a outra instalação ou ação que está bloqueando a instalação
+A instalação da extensão do Agente de Monitorização da Microsoft falhou durante a implementação devido a outra instalação ou ação que bloqueou a instalação
 
 #### <a name="issue"></a>Problema
 
-Veja a seguir exemplos de mensagens de erro que podem ser retornadas:
+Seguem-se exemplos de mensagens de erro:
 
 ```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -218,22 +218,22 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### <a name="cause"></a>Causa
 
-Algumas causas possíveis para esse erro são:
+Algumas causas potenciais para este erro são:
 
 * Outra instalação está em andamento
-* O sistema é disparado para reinicialização durante a implantação do modelo
+* O sistema é acionado para reiniciar durante a implementação do modelo
 
 #### <a name="resolution"></a>Resolução
 
-Esse erro é um erro transitório por natureza. Repita a implantação para instalar a extensão.
+Este erro é um erro transitório na natureza. Tente novamente a instalação para instalar a extensão.
 
-### <a name="installation-timeout"></a>Cenário: tempo limite de instalação
+### <a name="scenario-installation-timeout"></a><a name="installation-timeout"></a>Cenário: Tempo de instalação
 
-A instalação da extensão MMA não foi concluída devido a um tempo limite.
+A instalação da extensão MMA não terminou devido a um intervalo.
 
 #### <a name="issue"></a>Problema
 
-O exemplo a seguir é de uma mensagem de erro que pode ser retornada:
+O exemplo seguinte é de uma mensagem de erro que pode ser devolvida:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -241,16 +241,16 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre porque a máquina virtual está sob uma carga pesada durante a instalação.
+Este erro ocorre porque a máquina virtual está sob uma carga pesada durante a instalação.
 
 ### <a name="resolution"></a>Resolução
 
-Tente instalar a extensão MMA quando a VM estiver sob uma carga inferior.
+Tente instalar a extensão MMA quando o VM estiver sob uma carga mais baixa.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
-* Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

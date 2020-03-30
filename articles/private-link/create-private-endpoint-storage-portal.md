@@ -1,5 +1,5 @@
 ---
-title: Ligue-se em privado a uma conta de armazenamento usando o Azure Private Endpoint
+title: Ligar de forma privada a uma conta de armazenamento com o Ponto Final Privado do Azure
 description: Aprenda a ligar-se em privado a uma conta de armazenamento em Azure usando um Ponto Final Privado.
 services: private-link
 author: malopMSFT
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252535"
 ---
-# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ligue-se em privado a uma conta de armazenamento usando o Azure Private Endpoint
+# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ligar de forma privada a uma conta de armazenamento com o Ponto Final Privado do Azure
 Azure Private Endpoint é o bloco de construção fundamental para a Private Link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), se comuniquem em privado com recursos de Private Link.
 
 Neste Quickstart, você vai aprender a criar um VM numa rede virtual Azure, uma conta de armazenamento com um Private Endpoint usando o portal Azure. Em seguida, pode aceder seguramente à conta de armazenamento a partir do VM.
@@ -37,19 +37,19 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroup |
-| **\<nome de rede virtual>** | myVirtualNetwork          |
-| **\<nome da região>**          | E.U.A. Centro-Oeste      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<sub-nome>**          | mySubnet        |
-| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroup |
+| **\<>de nome de rede virtual** | myVirtualNetwork          |
+| **\<>de nome da região**          | E.U.A. Centro-Oeste      |
+| **\<>espaço de endereçoI4**   | 10.1.0.0\16          |
+| **\<>de nome de subnet**          | mySubnet        |
+| **\<>de endereços-endereço de subnet** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **máquina virtual**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > máquina**Compute** > **Virtual**de recurso .
 
 1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -67,11 +67,11 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar palavra-passe | Reintroduza a senha. |
+    | Confirmar Palavra-passe | Reintroduza a senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
     | Portos de entrada pública | Deixe o padrão **Nenhum**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem licença do Windows? | Deixe o padrão **Nº**. |
+    | Já tem uma licença do Windows? | Deixe o padrão **Nº**. |
     |||
 
 1. Selecione **Seguinte: Discos**.
@@ -84,7 +84,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | ------- | ----- |
     | Rede virtual | Deixe o **MyVirtualNetwork**predefinido .  |
     | Espaço de endereços | Deixe o padrão **10.1.0.0/24**.|
-    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)** .|
+    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)**.|
     | IP público | Deixe o **myVm-ip padrão (novo)** |
     | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -97,7 +97,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 ## <a name="create-your-private-endpoint"></a>Crie o seu Ponto Final Privado
 Nesta secção, irá criar uma conta de armazenamento privada utilizando um Ponto Final Privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **armazenamento** > **armazenamento**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > conta de**armazenamento** > **Storage account**de recursos .
 
 1. Na **conta de armazenamento Create - Basics,** insira ou selecione esta informação:
 
@@ -110,8 +110,8 @@ Nesta secção, irá criar uma conta de armazenamento privada utilizando um Pont
     | Nome da conta de armazenamento  | Insira a minha conta de *armazenamento.* Se este nome for tomado, crie um nome único. |
     | Região | Selecione **WestCentralUS**. |
     | Desempenho| Deixe o **Padrão**padrão . |
-    | Tipo de conta | Deixe o Armazenamento predefinido **(finalidade geral v2)** . |
-    | Replicação | Selecione **armazenamento geo-redundante de acesso de leitura (RA-GRS)** . |
+    | Tipo de conta | Deixe o Armazenamento predefinido **(finalidade geral v2)**. |
+    | Replicação | Selecione **armazenamento geo-redundante de acesso de leitura (RA-GRS)**. |
     |||
   
 3. Selecione **Seguinte: Networking**.
@@ -158,7 +158,7 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -171,7 +171,7 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
 Nesta secção, irá ligar-se em privado à conta de armazenamento utilizando o Ponto Final Privado.
 
 1. No Ambiente de Trabalho Remoto do *myVM,* abra a PowerShell.
-2. Insira `nslookup mystorageaccount.blob.core.windows.net` receberá uma mensagem semelhante a esta:
+2. Insira `nslookup mystorageaccount.blob.core.windows.net` Receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -184,9 +184,9 @@ Nesta secção, irá ligar-se em privado à conta de armazenamento utilizando o 
 4. Selecione **contas de Armazenamento** com o clique certo.
 5. Selecione **Ligar a um armazenamento azul**.
 6. Selecione **Utilize uma corda de ligação**.
-7. Selecione **Seguinte**.
+7. Selecione **Next**.
 8. Introduza a cadeia de ligação colando as informações anteriormente copiadas.
-9. Selecione **Seguinte**.
+9. Selecione **Next**.
 10. Selecione **Ligar**.
 11. Navegue nos recipientes Blob a partir da minha conta de armazenamento 
 12. (Opcionalmente) Crie pastas e/ou ficheiros de upload para *a minha conta de armazenamento*. 

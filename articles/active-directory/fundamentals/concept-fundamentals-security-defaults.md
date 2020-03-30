@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78248851"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
@@ -49,7 +49,7 @@ Após a inscrição com A autenticação multi-factor, serão necessárias as se
 
 - Administrador global
 - Administrador do SharePoint
-- Administrador de intercâmbio
+- Administrador do Exchange
 - Administrador de Acesso Condicional
 - Administrador de segurança
 - Administrador de helpdesk ou administrador de palavra-passe
@@ -115,7 +115,7 @@ As falhas de segurança permitem o registo e utilização da Autenticação Mult
 | Código de verificação de aplicativo móvel ou ficha de hardware |   | X |
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
-| Palavras-passe de aplicativos |   | X** |
+| Palavras-passe da aplicação |   | X** |
 
 ** As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se ativadas pelos administradores.
 
@@ -127,18 +127,18 @@ Pode utilizar o Acesso Condicional para configurar políticas semelhantes às fa
 
 Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional para configurar políticas equivalentes:
 
-- [Exigir MFA para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Exigir MFA aos administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Autenticação do legado do bloco](../conditional-access/howto-conditional-access-policy-block-legacy.md)
-- [Exigir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
+- [Bloquear a autenticação legada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Pedir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Exigir registo De MFA Azure](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer proteção de identidade Azure AD
 
 ## <a name="enabling-security-defaults"></a>Ativar incumprimentos de segurança
 
 Para ativar os incumprimentos de segurança no seu diretório:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de segurança, administrador de Acesso Condicional ou administrador global.
-1. Navegue pelo **Diretório Ativo da Azure**  **propriedades**>.
+1. Inscreva-se no [portal](https://portal.azure.com) Azure como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelas > **Propriedades** **de Diretório Ativo Azure.**
 1. Selecione **Gerir os predefinições de segurança**.
 1. Desative as falhas de **segurança ativar** para **Sim**.
 1. Selecione **Guardar**.
@@ -151,12 +151,12 @@ As organizações que optem por implementar políticas de Acesso Condicional que
 
 Para desativar os incumprimentos de segurança no seu diretório:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de segurança, administrador de Acesso Condicional ou administrador global.
-1. Navegue pelo **Diretório Ativo da Azure**  **propriedades**>.
+1. Inscreva-se no [portal](https://portal.azure.com) Azure como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelas > **Propriedades** **de Diretório Ativo Azure.**
 1. Selecione **Gerir os predefinições de segurança**.
 1. Desative as **predefinições** de segurança Ativar para **O**.
 1. Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)
+[Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)

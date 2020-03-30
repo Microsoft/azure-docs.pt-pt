@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295849"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Faça backup de um servidor de troca para Azure com o Servidor de Backup Azure
@@ -24,7 +24,7 @@ Antes de continuar, certifique-se de que o Servidor de Backup Azure está [insta
 Para instalar o agente de proteção MABS no servidor Exchange, siga estes passos:
 
 1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte as exceções à [firewall configurar para o agente](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Instale o agente no servidor Exchange clicando em **Management > Agents > Instale** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter passos detalhados.
+2. Instale o agente no servidor Exchange clicando em **Agentes de Gestão > > Instalar** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter passos detalhados.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor De troca
 

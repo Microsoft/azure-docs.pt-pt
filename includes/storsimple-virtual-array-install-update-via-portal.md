@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 37d4c295fe8a89a8b32364f42e8fb4c5a4caf777
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184782"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar atualizações através do portal do Azure
@@ -61,6 +61,6 @@ ms.locfileid: "67184782"
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. Depois das atualizações são instaladas com êxito, verá uma mensagem com estas indicações no painel de atualizações do dispositivo. A versão de software também é alterada para **10.0.10288.0**. 
+9. Após as atualizações serem instaladas com êxito, verá uma mensagem com estas indicações no painel Atualizações do dispositivo. A versão do software também muda para **10.0.10288.0**. 
 
     ![atualizar o dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

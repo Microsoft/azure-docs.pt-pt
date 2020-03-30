@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
 ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192307"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acesso seguro ao Key Vault com o Batch
@@ -29,21 +29,21 @@ Para autenticar o Cofre chave Azure a partir de um nó de lote, você precisa:
 
 ## <a name="obtain-a-certificate"></a>Obter um certificado
 
-Se ainda não tem um certificado, a maneira mais fácil de obter um é gerar um certificado auto-assinado usando a ferramenta `makecert` linha de comando.
+Se ainda não tem um certificado, a maneira mais fácil de obter um `makecert` é gerar um certificado auto-assinado usando a ferramenta linha de comando.
 
-Normalmente, pode encontrar `makecert` neste caminho: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`. Abra um pedido de comando como administrador e navegue para `makecert` usando o seguinte exemplo.
+Você normalmente `makecert` pode encontrar `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`neste caminho: . Abra um pedido de comando `makecert` como administrador e navegue para usar o seguinte exemplo.
 
 ```console
 cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 ```
 
-Em seguida, utilize a ferramenta `makecert` para criar ficheiros de certificados auto-assinados chamados `batchcertificate.cer` e `batchcertificate.pvk`. O nome comum (CN) usado não é importante para esta aplicação, mas é útil torná-lo algo que lhe diga para que o certificado é usado.
+Em seguida, `makecert` utilize a ferramenta para `batchcertificate.cer` criar `batchcertificate.pvk`ficheiros de certificadoauto-assinados chamados e . O nome comum (CN) usado não é importante para esta aplicação, mas é útil torná-lo algo que lhe diga para que o certificado é usado.
 
 ```console
 makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
-O lote requer um ficheiro `.pfx`. Utilize a ferramenta [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) para converter os ficheiros `.cer` e `.pvk` criados por `makecert` para um único ficheiro `.pfx`.
+O lote `.pfx` requer um ficheiro. Utilize a ferramenta [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) para converter `.cer` os ficheiros e `.pvk` ficheiros criados por `makecert` um único `.pfx` ficheiro.
 
 ```console
 pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
@@ -87,13 +87,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Crie uma piscina de Lote, depois vá ao separador de certificado na piscina e atribua o certificado que criou. O certificado está agora em todos os nós do Lote.
 
-Em seguida, precisamos atribuir o certificado à conta do Lote. Atribuir o certificado à conta permite-nos atribuí-lo às piscinas e, em seguida, aos nós. A maneira mais fácil de fazer isso é ir à sua conta Batch no portal, navegar para **Certificados,** e selecionar **Adicionar**. Faça upload do ficheiro `.pfx` que geramos no [Certificado Obter um certificado](#obtain-a-certificate) e forneça a palavra-passe. Uma vez concluído, o certificado é adicionado à lista e pode verificar a impressão digital.
+Em seguida, precisamos atribuir o certificado à conta do Lote. Atribuir o certificado à conta permite-nos atribuí-lo às piscinas e, em seguida, aos nós. A maneira mais fácil de fazer isso é ir à sua conta Batch no portal, navegar para **Certificados,** e selecionar **Adicionar**. Faça `.pfx` upload do ficheiro que gerámos no [Certificado Obter um certificado](#obtain-a-certificate) e forneça a palavra-passe. Uma vez concluído, o certificado é adicionado à lista e pode verificar a impressão digital.
 
 Agora, quando você criar uma piscina de lote, você pode navegar para **Certificados** dentro da piscina e atribuir o certificado que você criou para essa piscina. Quando o fizer, certifique-se de selecionar **a LocalMachine** para a localização da loja. O certificado está carregado em todos os nós do Lote na piscina.
 
 ## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 
-Se planeia aceder ao Key Vault utilizando scripts PowerShell nos seus nós, então precisa da biblioteca Azure PowerShell instalada. Existem algumas formas de o fazer, se os seus nós tiverem o Windows Management Framework (WMF) 5 instalado, então pode utilizar o comando do módulo de instalação para o descarregar. Se estiver a usar nós que não tenham WMF 5, a forma mais fácil de instalá-lo é agregar o ficheiro `.msi` Azure PowerShell com os seus ficheiros Batch e, em seguida, ligar para o instalador como a primeira parte do seu script de arranque do Batch. Consulte este exemplo para mais detalhes:
+Se planeia aceder ao Key Vault utilizando scripts PowerShell nos seus nós, então precisa da biblioteca Azure PowerShell instalada. Existem algumas formas de o fazer, se os seus nós tiverem o Windows Management Framework (WMF) 5 instalado, então pode utilizar o comando do módulo de instalação para o descarregar. Se estiver a usar nós que não possuam WMF 5, a forma mais fácil `.msi` de instalá-lo é agregar o ficheiro Azure PowerShell com os seus ficheiros Batch e, em seguida, ligar para o instalador como a primeira parte do seu script de arranque do Batch. Consulte este exemplo para mais detalhes:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh

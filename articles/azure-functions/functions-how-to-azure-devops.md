@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255758"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando O Azure DevOps
@@ -25,7 +25,7 @@ Tem duas opções para definir o seu oleoduto:
 
 Para criar um pipeline baseado em YAML, primeiro construa a sua aplicação e, em seguida, implemente a aplicação.
 
-### <a name="build-your-app"></a>Construa a sua app
+### <a name="build-your-app"></a>Criar a sua aplicação
 
 A forma como constrói a sua aplicação em Pipelines Azure depende da linguagem de programação da sua aplicação. Cada idioma tem passos específicos de construção que criam um artefacto de implantação. Um artefacto de implantação é usado para implementar a sua aplicação de função em Azure.
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Pode utilizar uma das seguintes amostras para criar um ficheiro YAML para construir uma aplicação para uma versão específica da Python. Python é suportado apenas para aplicações de funções em linux.
 
@@ -215,7 +215,7 @@ steps:
 
 Os modelos em Azure DevOps são grupos predefinidos de tarefas que constroem ou implementam uma aplicação.
 
-### <a name="build-your-app"></a>Construa a sua app
+### <a name="build-your-app"></a>Criar a sua aplicação
 
 A forma como constrói a sua aplicação em Pipelines Azure depende da linguagem de programação da sua aplicação. Cada idioma tem passos específicos de construção que criam um artefacto de implantação. Um artefacto de implementação é usado para atualizar a sua aplicação de funções em Azure.
 
@@ -247,7 +247,7 @@ A implantação para uma ranhura de implantação não é suportada no modelo de
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Criar um oleoduto de construção utilizando o Azure CLI
 
-Para criar um oleoduto de construção em Azure, utilize o [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)`az functionapp devops-pipeline create`. O pipeline de construção é criado para construir e libertar quaisquer alterações de código que sejam feitas no seu repo. O comando gera um novo ficheiro YAML que define o oleoduto de construção e libertação e depois compromete-o com o seu repo. Os pré-requisitos para este comando dependem da localização do seu código.
+Para criar um oleoduto de construção em Azure, utilize o `az functionapp devops-pipeline create` [comando.](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create) O pipeline de construção é criado para construir e libertar quaisquer alterações de código que sejam feitas no seu repo. O comando gera um novo ficheiro YAML que define o oleoduto de construção e libertação e depois compromete-o com o seu repo. Os pré-requisitos para este comando dependem da localização do seu código.
 
 - Se o seu código estiver no GitHub:
 

@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/05/2020
 ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78395254"
 ---
-# <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
+# <a name="apply-transformation-module"></a>Aplicar módulo de transformação
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
@@ -36,9 +36,9 @@ O designer permite-lhe guardar transformações de dados como **conjuntos** de d
 
 ## <a name="how-to-use-apply-transformation"></a>Como usar a Transformação aplicar  
   
-1. Adicione o módulo **de Transformação aplicar** ao seu pipeline. Pode encontrar este módulo na secção **Model Scoring & Evaluation** da paleta de módulos. 
+1. Adicione o módulo **de Transformação aplicar** ao seu pipeline. Pode encontrar este módulo na secção de avaliação de & de **pontuação do Modelo** da paleta de módulos. 
   
-1. Encontre a transformação guardada que pretende utilizar em **Conjuntos** de Dados > **My Datasets** na paleta de módulos.
+1. Encontre a transformação guardada que pretende utilizar em **Conjuntos** > de Dados Os**meus Conjuntos** de Dados na paleta de módulos.
 
 1. Ligue a saída da transformação guardada à porta de entrada esquerda do módulo **de Transformação aplicável.**
 

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199500"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Media Services v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Media v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Descrição geral
@@ -98,17 +98,17 @@ Com a encriptação dinâmica, vai criar um elemento que contenha um conjunto de
 
 Para obter instruções sobre como codificar, veja [Encode an asset by using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) (Utilizar o Media Encoder Standard para codificar elementos).
 
-## <a id="create_contentkey"></a>Criar uma chave de conteúdo e associe-a com elemento codificado
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
 Nos Media Services, a chave de conteúdo contém a chave na qual pretende encriptar um elemento.
 
 Para obter mais informações, veja [Create a content key](media-services-dotnet-create-contentkey.md) (Criar chaves de conteúdo).
 
-## <a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
 Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. Tem de configurar a política de autorização da chave de conteúdo. O cliente (leitor) tem de satisfazer a política antes de a chave lhe ser entregue. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização, quer sejam restrições abertas ou de token.
 
 Para obter mais informações, veja [Configure a content key authorization policy](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption) (Configurar uma política de autorização de chave de conteúdo).
 
-## <a id="configure_asset_delivery_policy"></a>Configurar uma política de entrega de elementos
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurar uma política de entrega de elementos
 Configure a política de entrega para o seu elemento. Alguns dos aspetos da configuração da política de entrega de elementos incluem:
 
 * O URL de aquisição da licença da DRM.
@@ -117,7 +117,7 @@ Configure a política de entrega para o seu elemento. Alguns dos aspetos da conf
 
 Para obter mais informações, veja [Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md) (Configurar a política de entrega de elementos).
 
-## <a id="create_locator"></a>Criar um localizador de transmissão em fluxo OnDemand para obter um URL de transmissão em fluxo
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Criar um localizador de transmissão em fluxo OnDemand para obter um URL de transmissão em fluxo
 Tem de indicar aos seus utilizadores o URL de transmissão de Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
@@ -147,7 +147,7 @@ Pode utilizar o [Leitor dos Serviços de Multimédia do Azure](https://aka.ms/az
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
-1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento dos Serviços de Multimédia com .NET).
+1. Instale o seu ambiente de desenvolvimento e povoe o ficheiro app.config com informações de ligação, conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md).
 
 2. Adicione os elementos seguintes a **appSettings** definidos no ficheiro app.config:
 
@@ -620,6 +620,6 @@ namespace DynamicEncryptionWithDRM
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Utilizar a Encriptação Comum (CENC) com multi DRM e com controlo de acesso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configurar o empacotamento do Widevine com os Serviços de Multimédia)
-* [Inicie-se com o cliente Java SDK para a Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Introdução ao SDK de cliente Java para os Serviços de Multimédia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
 * Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowsAzure no [repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 

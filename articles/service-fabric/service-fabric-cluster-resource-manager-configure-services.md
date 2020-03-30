@@ -1,41 +1,41 @@
 ---
-title: Especificar configurações de métricas e posicionamento
-description: Saiba como descrever um serviço de Service Fabric especificando métricas, restrições de posicionamento e outras políticas de posicionamento.
+title: Especificar métricas e configurações de colocação
+description: Aprenda a descrever um serviço de Tecido de Serviço especificando métricas, restrições de colocação e outras políticas de colocação.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610102"
 ---
-# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Definindo as configurações do Gerenciador de recursos de cluster para serviços de Service Fabric
-O Service Fabric cluster Resource Manager permite um controle refinado sobre as regras que regem cada serviço nomeado individual. Cada serviço nomeado pode especificar regras de como deve ser alocado no cluster. Cada serviço nomeado também pode definir o conjunto de métricas que deseja relatar, incluindo a importância deles para esse serviço. A configuração de serviços divide-se em três tarefas diferentes:
+# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurar as definições do gestor de recursos de cluster para serviços de tecido de serviço
+O Gestor de Recursos de Cluster de Tecidos de Serviço permite um controlo fino sobre as regras que regem cada serviço individual. Cada serviço nomeado pode especificar regras para a forma como deve ser atribuído no cluster. Cada serviço nomeado também pode definir o conjunto de métricas que quer reportar, incluindo a importância que eles têm para esse serviço. A configuração dos serviços divide-se em três tarefas diferentes:
 
-1. Configurando restrições de posicionamento
-2. Configurando métricas
-3. Configurando políticas avançadas de posicionamento e outras regras (menos comuns)
+1. Configurar os constrangimentos de colocação
+2. Configuração de métricas
+3. Configurar políticas avançadas de colocação e outras regras (menos comuns)
 
-## <a name="placement-constraints"></a>Restrições de posicionamento
-As restrições de posicionamento são usadas para controlar em quais nós no cluster um serviço pode realmente ser executado. Normalmente, uma instância de serviço nomeada específica ou todos os serviços de um determinado tipo restrito para execução em um determinado tipo de nó. As restrições de posicionamento são extensíveis. Você pode definir qualquer conjunto de propriedades por tipo de nó e, em seguida, selecionar para elas com restrições ao criar serviços. Você também pode alterar as restrições de posicionamento de um serviço enquanto ele está em execução. Isso permite que você responda às alterações no cluster ou aos requisitos do serviço. As propriedades de um determinado nó também podem ser atualizadas dinamicamente no cluster. Mais informações sobre restrições de posicionamento e como configurá-las podem ser encontradas neste [artigo](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+## <a name="placement-constraints"></a>Restrições de colocação
+Os constrangimentos de colocação são usados para controlar quais os nós do cluster em que um serviço pode realmente funcionar. Tipicamente uma instância de serviço nomeada em particular ou todos os serviços de um dado tipo limitado a funcionar em um determinado tipo de nó. Os constrangimentos de colocação são extensíveis. Pode definir qualquer conjunto de propriedades por tipo de nó e, em seguida, selecione para eles com constrangimentos ao criar serviços. Também pode alterar as restrições de colocação de um serviço enquanto estiver em funcionamento. Isto permite-lhe responder a alterações no cluster ou aos requisitos do serviço. As propriedades de um dado nó também podem ser atualizadas dinamicamente no cluster. Mais informações sobre os constrangimentos de colocação e como configurá-los podem ser encontrados [neste artigo](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 ## <a name="metrics"></a>Métricas
-Métricas são o conjunto de recursos que um determinado serviço nomeado precisa. A configuração de métrica de um serviço inclui o quanto desse recurso cada réplica com estado ou instância sem estado desse serviço consome por padrão. As métricas também incluem um peso que indica a importância que o balanceamento dessa métrica é para esse serviço, caso as compensações sejam necessárias.
+As métricas são o conjunto de recursos que um determinado serviço nomeado precisa. A configuração métrica de um serviço inclui quanto desse recurso cada réplica apátrida ou instância apátrida desse serviço consome por padrão. As métricas também incluem um peso que indica a importância do equilíbrio dessa métrica para esse serviço, caso sejam necessárias compensações.
 
-## <a name="advanced-placement-rules"></a>Regras avançadas de posicionamento
-Há outros tipos de regras de posicionamento que são úteis em cenários menos comuns. Alguns exemplos incluem:
-- Restrições que ajudam com clusters distribuídos geograficamente
-- Determinadas arquiteturas de aplicativo
+## <a name="advanced-placement-rules"></a>Regras avançadas de colocação
+Existem outros tipos de regras de colocação que são úteis em cenários menos comuns. Alguns exemplos incluem:
+- Constrangimentos que ajudam com aglomerados geograficamente distribuídos
+- Certas arquiteturas de aplicação
 
-Outras regras de posicionamento são configuradas por meio de correlações ou políticas.
+Outras regras de colocação são configuradas através de Correlações ou Políticas.
 
 ## <a name="next-steps"></a>Passos seguintes
-- As métricas são como o Gerenciador de recursos de Cluster Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- A afinidade é um modo que você pode configurar para seus serviços. Não é comum, mas se você precisar dele, poderá aprender sobre ele [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- Há muitas regras de posicionamento diferentes que podem ser configuradas em seu serviço para lidar com cenários adicionais. Você pode descobrir sobre essas políticas de posicionamento diferentes [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- Comece desde o início e [obtenha uma introdução ao Gerenciador de recursos de Cluster Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Para saber como o Gerenciador de recursos de cluster gerencia e equilibra a carga no cluster, confira o artigo sobre [balanceamento](service-fabric-cluster-resource-manager-balancing.md) de carga
-- O Gerenciador de recursos de cluster tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre como [descrever um cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- As métricas são como o Manjedoura de Recursos de Cluster de Tecido de Serviço gere o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+- A affinity é um modo que pode configurar para os seus serviços. Não é comum, mas se precisar, pode aprender [aqui.](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- Existem muitas regras de colocação diferentes que podem ser configuradas no seu serviço para lidar com cenários adicionais. Você pode descobrir sobre essas diferentes políticas de colocação [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- Comece do início e obtenha uma introdução ao Gestor de Recursos de Cluster de [Tecidos de Serviço](service-fabric-cluster-resource-manager-introduction.md)
+- Para saber como o Cluster Resource Manager gere e equilibra a carga no cluster, confira o artigo sobre [a carga](service-fabric-cluster-resource-manager-balancing.md) de equilíbrio
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de Tecido de Serviço](service-fabric-cluster-resource-manager-cluster-description.md)

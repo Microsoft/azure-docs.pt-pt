@@ -1,5 +1,5 @@
 ---
-title: Deteção e previsão de anomalias da série temporal no Azure Data Explorer
+title: Deteção de anomalias da série temporal & previsão no Azure Data Explorer
 description: Saiba como analisar os dados da série de tempo para deteção e previsão de anomalias usando o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194162"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Deteção e previsão de anomalias no Azure Data Explorer
@@ -27,11 +27,11 @@ Leia a análise da [série Time no Azure Data Explorer](/azure/data-explorer/tim
 ## <a name="time-series-decomposition-model"></a>Modelo de decomposição da série de tempo
 
 A implementação nativa do Azure Data Explorer para a previsão da série de tempo e deteção de anomalias utiliza um modelo de decomposição bem conhecido. Este modelo é aplicado à série temporal de métricas que se espera que manifestem comportamento periódico e de tendência, tais como tráfego de serviço, batimentos cardíacos de componentes e medições periódicas ioT para prever valores métricos futuros e detetar valores anómalos. A suposição deste processo de regressão é que, para além do comportamento sazonal e de tendência anteriormente conhecido, a série de tempo é distribuída aleatoriamente. Em seguida, pode prever valores métricos futuros a partir dos componentes sazonais e de tendência, coletivamente nomeados como linha de base, e ignorar a parte residual. Também pode detetar valores anómalos com base em análises mais estranhas utilizando apenas a porção residual.
-Para criar um modelo de decomposição, utilize a função [`series_decompose()`](/azure/kusto/query/series-decomposefunction). A função `series_decompose()` leva um conjunto de séries temporais e decompõe-se automaticamente de cada série de tempo aos seus componentes sazonais, trend, residuais e de base. 
+Para criar um modelo de [`series_decompose()`](/azure/kusto/query/series-decomposefunction)decomposição, utilize a função . A `series_decompose()` função leva um conjunto de séries temporais e decompõe-se automaticamente de cada série de tempo aos seus componentes sazonais, trend, residuais e de base. 
 
 Por exemplo, pode decompor o tráfego de um serviço web interno utilizando a seguinte consulta:
 
-**\[** [**Clique para executar**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=) **\]** de consulta
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -44,21 +44,21 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, decomposition', ysplit=panels)
 ```
 
-![Decomposição da série de tempo](media/anomaly-detection/series-decompose-timechart.png)
+![Decomposição de série temporal](media/anomaly-detection/series-decompose-timechart.png)
 
 * A série de tempo original é rotulada **num** (em vermelho). 
-* O processo começa pela deteção automática da sazonalidade utilizando a função [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) e extrai o padrão **sazonal** (em roxo).
-* O padrão sazonal é subtraído da série de tempo original e uma regressão linear é executada usando a função [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) para encontrar o componente de **tendência** (em azul claro).
+* O processo começa pela deteção automática da [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) sazonalidade utilizando a função e extrai o padrão **sazonal** (em roxo).
+* O padrão sazonal é subtraído da série de tempo original e [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) uma regressão linear é executada usando a função para encontrar o componente de **tendência** (em azul claro).
 * A função subtrai a tendência e o restante é o componente **residual** (em verde).
 * Finalmente, a função adiciona os componentes sazonais e de tendência para gerar a linha de **base** (em azul).
 
 ## <a name="time-series-anomaly-detection"></a>Deteção de anomalias da série temporal
 
-A função [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) encontra pontos anómalos num conjunto de séries temporais. Esta função chama `series_decompose()` para construir o modelo de decomposição e, em seguida, executa [`series_outliers()`](/azure/kusto/query/series-outliersfunction) no componente residual. `series_outliers()` calcula as pontuações de anomalia para cada ponto do componente residual utilizando o teste de vedação de Tukey. As pontuações de anomalia acima de 1,5 ou abaixo de -1,5 indicam um ligeiro aumento ou declínio de anomalia, respectivamente. As pontuações de anomalia acima de 3.0 ou abaixo de -3.0 indicam uma anomalia forte. 
+A [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) função encontra pontos anómalos num conjunto de séries temporais. Esta função chama `series_decompose()` para construir o [`series_outliers()`](/azure/kusto/query/series-outliersfunction) modelo de decomposição e, em seguida, funciona no componente residual. `series_outliers()`calcula as pontuações de anomalia para cada ponto do componente residual utilizando o teste de vedação de Tukey. As pontuações de anomalia acima de 1,5 ou abaixo de -1,5 indicam um ligeiro aumento ou declínio de anomalia, respectivamente. As pontuações de anomalia acima de 3.0 ou abaixo de -3.0 indicam uma anomalia forte. 
 
 A seguinte consulta permite detetar anomalias no tráfego interno do serviço web:
 
-**\[** [**Clique para executar**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==) **\]** de consulta
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -79,11 +79,11 @@ demo_make_series2
 
 ## <a name="time-series-forecasting"></a>Previsão de séries temporais
 
-A função [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) prevê valores futuros de um conjunto de séries temporais. Esta função chama `series_decompose()` para construir o modelo de decomposição e, em seguida, para cada série de tempo, extrapolar o componente de base para o futuro.
+A [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) função prevê valores futuros de um conjunto de séries temporais. Esta função chama `series_decompose()` para construir o modelo de decomposição e, em seguida, para cada série de tempo, extrapolar o componente de base para o futuro.
 
 A seguinte consulta permite-lhe prever o tráfego de serviçoweb da próxima semana:
 
-**\[** [**Clique para executar**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==) **\]** de consulta
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -108,7 +108,7 @@ A sintaxe de linguagem de consulta do Azure Data Explorer permite uma única cha
 
 A seguinte consulta mostra o processamento de três séries de tempo simultaneamente:
 
-**\[** [**Clique para executar**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA) **\]** de consulta
+**\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);

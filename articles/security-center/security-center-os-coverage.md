@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
 ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208826"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
-## Máquinas /servidores virtuais<a name="vm-server"></a>
+## <a name="virtual-machines--servers"></a>Máquinas /servidores virtuais<a name="vm-server"></a>
 
 O Security Center suporta máquinas/servidores virtuais em diferentes tipos de ambientes híbridos:
 
@@ -38,22 +38,22 @@ Para um ambiente Azure ativado numa subscrição do Azure, o Azure Security Cent
 
 As seguintes secções listam os sistemas operativos do servidor suportados nos quais o Agente de Análise de [Registo,](../azure-monitor/platform/agents-overview.md#log-analytics-agent)que é utilizado pelo Azure Security Center, pode funcionar.
 
-### Sistemas operativos do servidor windows<a name="os-windows"></a>
+### <a name="windows-server-operating-systems"></a>Sistemas operativos do servidor windows<a name="os-windows"></a>
 
 |SO|Apoiado pelo Azure Security Center|Suporte para integração com o Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
 |Windows Server 2012 R2|✔|✔|
-|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008 R2|✔|✔|
 
 Para saber mais sobre as funcionalidades suportadas para os sistemas operativos Windows, listados acima, consulte [funcionalidades suportadas por máquinas virtuais /servidor](security-center-services.md#vm-server-features).
 
-### Sistemas operativos Windows<a name="os-windows (non-server)"></a>
+### <a name="windows-operating-systems"></a>Sistemas operativos Windows<a name="os-windows (non-server)"></a>
 
 O Azure Security Center integra-se com os serviços Azure para monitorizar e proteger as suas máquinas virtuais baseadas no Windows.
 
-### Sistemas operativos Linux<a name="os-linux"></a>
+### <a name="linux-operating-systems"></a>Sistemas operativos Linux<a name="os-linux"></a>
 
 64 bits
 
@@ -77,11 +77,11 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
 Para saber mais sobre as funcionalidades suportadas para os sistemas operativos Linux, listados acima, consulte [funcionalidades suportadas por máquinas virtuais /servidor](security-center-services.md#vm-server-features).
 
-### Serviços de máquinas virtuais geridos<a name="virtual-machine"></a>
+### <a name="managed-virtual-machine-services"></a>Serviços de máquinas virtuais geridos<a name="virtual-machine"></a>
 
 As máquinas virtuais também são criadas numa subscrição de clientes como parte de alguns serviços geridos pelo Azure, como o Azure Kubernetes (AKS), o Azure Databricks, entre outros. Estas máquinas virtuais também são descobertas pelo Azure Security Center, e o agente de análise de registo pode ser instalado e configurado de acordo com os [sistemas operativos Windows/Linux](#os-windows)suportados, listados acima.
 
-### Serviços cloud<a name="cloud-services"></a>
+### <a name="cloud-services"></a>Serviços cloud<a name="cloud-services"></a>
 
 As máquinas virtuais que funcionam num serviço de nuvem também são suportadas. Apenas os serviços na nuvem web e funções de trabalhador que funcionam em slots de produção são monitorizados. Para saber mais sobre os serviços na nuvem, consulte a [visão geral dos Serviços Azure Cloud.](../cloud-services/cloud-services-choose-me.md)
 

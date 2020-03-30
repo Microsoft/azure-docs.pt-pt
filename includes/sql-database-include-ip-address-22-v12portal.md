@@ -1,7 +1,7 @@
 ---
 title: Regras de firewall ao nível do servidor
 description: Regras de firewall ao nível do servidor
-keywords: ligação de SQL, cadeia de ligação
+keywords: conexão sql,cadeia de ligação
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,33 +11,33 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184338"
 ---
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Na lista à esquerda, selecione **todos os serviços**.
+2. Na lista à esquerda, selecione **Todos os serviços.**
 
-3. Desloque-se e selecione **servidores SQL**.
+3. Percorra e selecione **servidores SQL**.
 
-    ![Encontrar o seu servidor de base de dados do Azure SQL no portal do][b21-FindServerInPortal]
-5. Na caixa de texto de filtro, comece a escrever o nome do seu servidor. A linha é exibida.
+    ![Encontre o seu servidor de base de dados Azure SQL no portal][b21-FindServerInPortal]
+5. Na caixa de texto do filtro, comece a digitar o nome do seu servidor. A sua fila está exposta.
 
-6. Selecione a linha para o seu servidor. É apresentado um painel para o seu servidor.
+6. Selecione a linha para o seu servidor. É apresentada uma lâmina para o seu servidor.
 
-7. No painel do servidor, selecione **definições**.
+7. Na lâmina do servidor, selecione **Definições**.
 
 8. Selecione **Firewall**.
 
-    ![Selecione definições > Firewall][b31-SettingsFirewallNavig]
-9. Selecione **Adicionar cliente IP**. Escreva um nome para a nova regra na primeira caixa de texto.
+    ![Selecione Definições > Firewall][b31-SettingsFirewallNavig]
+9. **Selecione Adicionar cliente IP**. Digite um nome para a sua nova regra na primeira caixa de texto.
 
-10. Escreva os valores de endereço IP de baixos e elevados para o intervalo que pretende ativar.
+10. Digite os valores de endereço IP baixos e altos para a gama que pretende ativar.
 
-    * Pode ser útil ter final com o valor baixo **.0** e o alto valor terminar com **.255**.
+    * Pode ser útil ter a extremidade de baixo valor com **.0** e a extremidade de alto valor com **.255**.
 
 11. Selecione **Guardar**.
 

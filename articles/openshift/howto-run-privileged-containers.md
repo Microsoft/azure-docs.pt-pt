@@ -1,5 +1,5 @@
 ---
-title: Executar contentores privilegiados num aglomerado de OpenShift de chapéu vermelho azul  Microsoft Docs
+title: Executar contentores privilegiados num aglomerado de OpenShift de chapéu vermelho azul [ Microsoft Docs
 description: Executar contentores privilegiados para monitorizar a segurança e o cumprimento.
 author: makdaam
 ms.author: b-lejaku
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78271363"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
@@ -29,9 +29,9 @@ Os títulos da secção em passos específicos do produto abaixo referem-se dire
 A documentação da maioria dos produtos de segurança pressupõe que você tem privilégios de administração de cluster.
 Os administradores dos clientes não têm todos os privilégios no Azure Red Hat OpenShift. As permissões necessárias para modificar os recursos em todo o cluster são limitadas.
 
-Em primeiro lugar, certifique-se de que o utilizador está ligado ao cluster como administrador do cliente, executando `oc get scc`. Todos os utilizadores que são membros do grupo de administração do cliente têm permissões para visualizar os Constrangimentos de Contexto de Segurança (SCCs) no cluster.
+Em primeiro lugar, certifique-se de que o utilizador está `oc get scc`ligado ao cluster como administrador do cliente, executando . Todos os utilizadores que são membros do grupo de administração do cliente têm permissões para visualizar os Constrangimentos de Contexto de Segurança (SCCs) no cluster.
 
-Em seguida, certifique-se de que a versão binária `oc` é `3.11.154`.
+Em seguida, `oc` certifique-se `3.11.154`de que a versão binária é .
 ```
 oc version
 oc v3.11.154
@@ -74,9 +74,9 @@ Continue a seguir as instruções restantes no passo 1.  Estas instruções desc
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Passo 2: Implementar o Servidor Aqua, Base de Dados e Gateway
 Siga os passos fornecidos na documentação Aqua para a instalação do aqua-console.yaml.
 
-Modificar o `aqua-console.yaml`fornecido.  Retire os dois objetos com etiquetas, `kind: ClusterRole` e `kind: ClusterRoleBinding`.  Estes recursos não serão criados, uma vez que o administrador do cliente não tem permissão neste momento para modificar `ClusterRole` e `ClusterRoleBinding` objetos.
+Modificar o `aqua-console.yaml`. fornecido .  Retire os dois objetos `kind: ClusterRole` `kind: ClusterRoleBinding`superiores rotulados e .  Estes recursos não serão criados, uma vez que o administrador `ClusterRole` `ClusterRoleBinding` do cliente não tem permissão neste momento para modificar e objetos.
 
-A segunda modificação será a `kind: Route` parte do `aqua-console.yaml`. Substitua o seguinte yaml para o objeto `kind: Route` no ficheiro `aqua-console.yaml`.
+A segunda modificação `kind: Route` será na `aqua-console.yaml`parte do . Substitua o seguinte yaml para o `kind: Route` objeto no `aqua-console.yaml` ficheiro.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -113,7 +113,7 @@ Detete os seguintes campos ao utilizar os executores:
 
 | Campo          | Valor         |
 | -------------- | ------------- |
-| Orquestrador   | OpenShift     |
+| Orchestrator   | OpenShift     |
 | ServiçoConta | aqua-conta  |
 | Project        | aqua-segurança |
 
@@ -121,7 +121,7 @@ Detete os seguintes campos ao utilizar os executores:
 
 As instruções de base que vamos modificar podem ser encontradas na documentação de implantação da [Nuvem prisma.](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Comece por instalar a ferramenta `twistcli` conforme descrito nas secções "Instalar prisma cloud" e "Descarregue o software Prisma Cloud".
+Comece por instalar `twistcli` a ferramenta conforme descrito nas secções "Instalar prisma cloud" e "Descarregue o software Prisma Cloud".
 
 Criar um novo projeto OpenShift
 ```
@@ -135,10 +135,10 @@ Comece com a secção "Instalar consola".
 
 ### <a name="install-console"></a>Instalar consola
 
-Durante `oc create -f twistlock_console.yaml` no Passo 2, terá um Erro ao criar o espaço de nome.
-Pode ignorá-lo com segurança, o espaço de nome foi criado anteriormente com o comando `oc new-project`.
+Durante `oc create -f twistlock_console.yaml` o Passo 2, terá um Erro ao criar o espaço de nome.
+Pode ignorá-lo com segurança, o espaço de `oc new-project` nome foi criado anteriormente com o comando.
 
-Utilize `azure-disk` para o tipo de armazenamento.
+Utilização `azure-disk` para o tipo de armazenamento.
 
 ### <a name="create-an-external-route-to-console"></a>Criar uma rota externa para consola
 
@@ -169,7 +169,7 @@ em seguida, executar:
 oc create -f twistlock_route.yaml
 ```
 
-Pode obter o URL atribuído à consola Twistlock com este comando: `oc get route twistlock-console -n twistlock`
+Pode obter o URL atribuído à consola Twistlock com este comando:`oc get route twistlock-console -n twistlock`
 
 ### <a name="configure-console"></a>Configure consola
 
@@ -177,7 +177,7 @@ Siga a documentação Twistlock.
 
 ### <a name="install-defender"></a>Instalar Defender
 
-Durante `oc create -f defender.yaml` no Passo 2, terá erros ao criar o Cluster Role and Cluster Role Binding.
-Pode ignorá-las.
+Durante `oc create -f defender.yaml` o Passo 2, terá erros ao criar o Cluster Role e Cluster Role Binding.
+Pode ignorá-los.
 
 Os defensores serão implantados apenas em nódeos de computação. Não tens de os limitar com um selecionador de nó.

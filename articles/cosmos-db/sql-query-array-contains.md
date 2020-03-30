@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303482"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
-Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode verificar se há uma correspondência parcial ou completa de um objeto utilizando uma expressão booleana dentro do comando. 
+Devolve uma Boolean indicando se a matriz contém o valor especificado. Pode verificar se há uma correspondência parcial ou completa de um objeto utilizando uma expressão booleana dentro do comando. 
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -40,7 +40,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte como verificar a adesão numa matriz utilizando `ARRAY_CONTAINS`.  
+  O exemplo seguinte como verificar a `ARRAY_CONTAINS`adesão numa matriz utilizando .  
   
 ```sql
 SELECT   
@@ -54,7 +54,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
-O exemplo a seguir como verificar a existência de uma correspondência parcial de um JSON numa matriz usando ARRAY_CONTAINS.  
+O exemplo seguinte como verificar se há uma correspondência parcial de um JSON numa matriz utilizando ARRAY_CONTAINS.  
   
 ```sql
 SELECT  

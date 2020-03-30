@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184715"
 ---
-Esta secção descreve os limites para o serviço de armazenamento do Azure e as convenções de nomenclatura necessárias para ficheiros do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável para o serviço de borda de caixa de Gateway/dados de caixa de dados. Reveja os limites de armazenamento com atenção e siga as recomendações apresentadas.
+Esta secção descreve os limites para o serviço de armazenamento Azure, e as convenções de nomeação necessárias para Ficheiros Azure, blobs de blocos Azure e blobs de página Azure, conforme aplicável ao serviço Data Box Gateway/Data Box Edge. Reveja cuidadosamente os limites de armazenamento e siga todas as recomendações.
 
-Para obter as informações mais recentes sobre os limites de serviço de armazenamento do Azure e práticas recomendadas para a nomenclatura de partilhas, contentores e ficheiros de mensagens em fila, aceda a:
+Para obter as mais recentes informações sobre os limites do serviço de armazenamento Azure e as melhores práticas para nomear ações, contentores e ficheiros, vá a:
 
-- [Nomenclatura e referência para contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Nomeação e referenciação de recipientes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
 - [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Nomenclatura e referência a partilhas)
-- [Blobs de blocos e as convenções de blob de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Bloco sinuosos e convenções de página blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se existirem quaisquer ficheiros ou diretórios que excedem os limites de serviço de armazenamento do Azure ou não está em conformidade com as convenções de nomenclatura de ficheiros/BLOBs do Azure, em seguida, estes ficheiros ou diretórios não são ingeridos no armazenamento do Azure através do serviço de borda de caixa de Gateway/dados de caixa de dados.
+> Se existirem ficheiros ou diretórios que excedam os limites do serviço de armazenamento azure, ou não estejam em conformidade com as convenções de nomeação Azure Files/Blob, então estes ficheiros ou diretórios não são ingeridos no Armazenamento Azure através do serviço Data Box Gateway/Data Box Edge.

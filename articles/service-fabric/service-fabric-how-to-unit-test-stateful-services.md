@@ -1,43 +1,43 @@
 ---
-title: Desenvolver testes de unidade para serviços com estado
-description: Saiba mais sobre os testes de unidade no Azure Service Fabric para serviços com estado e considerações especiais para ter em mente durante o desenvolvimento.
+title: Desenvolver testes unitários para serviços estatais
+description: Saiba mais sobre os testes unitários em Azure Service Fabric para serviços imponentes, e considerações especiais a ter em mente durante o desenvolvimento.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639841"
 ---
-# <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
-O teste de unidade Service Fabric serviços com Estado descobre erros comuns que não seriam necessariamente detectados pelo aplicativo convencional ou pelo teste de unidade específico de domínio. Ao desenvolver testes de unidade para serviços com estado, há algumas considerações especiais que devem ser mantidas em mente.
+# <a name="create-unit-tests-for-stateful-services"></a>Criar testes unitários para Serviços Estatais
+Serviço de teste de unidade Serviço Os serviços audagantes de supõem erros comuns que não seriam necessariamente apanhados por aplicação convencional ou testes de unidade específicos de domínio. Ao desenvolver testes unitários para serviços estatais, existem algumas considerações especiais que devem ser tidas em conta.
 
-1. Cada réplica executa o código do aplicativo, mas sob contexto diferente. Se o serviço usar três réplicas, o código de serviço será executado em três nós em paralelo sob contexto/função diferente.
-2. O estado armazenado no serviço com estado deve ser consistente entre todas as réplicas. O Gerenciador de estado e as coleções confiáveis fornecerão essa consistência pronta para uso. No entanto, o estado na memória precisará ser gerenciado pelo código do aplicativo.
-3. Cada réplica alterará as funções em algum momento durante a execução no cluster. Uma réplica secundária se tornará primária, caso o nó que hospeda o primário fique indisponível ou sobrecarregado. Esse é um comportamento natural para Service Fabric, portanto, os serviços devem planejar eventualmente em execução em uma função diferente.
+1. Cada réplica executa o código de aplicação, mas em contexto diferente. Se o serviço utilizar três réplicas, o código de serviço está a executar três nós em paralelo sob diferentes contextos/funções.
+2. O Estado armazenado dentro do serviço de estado deve ser consistente entre todas as réplicas. O gerente do Estado e coleções fiáveis fornecerão esta consistência fora da caixa. No entanto, o estado de memória terá de ser gerido pelo código de aplicação.
+3. Cada réplica mudará de funções em algum momento enquanto corre no cluster. Uma réplica secundária tornar-se-á uma primária, caso o nó que acolhe a primária fique indisponível ou sobrecarregado. Este é um comportamento natural para o Tecido de Serviço, pelo que os serviços devem planear a execução eventualmente sob um papel diferente.
 
-Este artigo pressupõe que os [serviços com estado de teste de unidade no Service Fabric](service-fabric-concepts-unit-testing.md) foram lidos.
+Este artigo pressupõe que a Unidade de Testes de [Serviços De Serviço saem de serviço.](service-fabric-concepts-unit-testing.md)
 
-## <a name="the-servicefabricmocks-library"></a>A biblioteca do infabric. Mocks
-A partir da versão 3.3.0, o [infabric. Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornece uma API para simular a orquestração das réplicas e o gerenciamento de estado. Isso será usado nos exemplos.
+## <a name="the-servicefabricmocks-library"></a>A biblioteca ServiceFabric.Mocks
+A partir da versão 3.3.0, o [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornece uma API para ridicularizar tanto a orquestração das réplicas como a gestão do Estado. Isto será usado nos exemplos.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
 [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
-*O infabric. Mocks não é propriedade da Microsoft nem é mantida por ela. No entanto, essa é atualmente a biblioteca recomendada pela Microsoft para serviços com estado de teste de unidade.*
+*ServiceFabric.Mocks não é propriedade ou mantido pela Microsoft. No entanto, esta é atualmente a biblioteca recomendada pela Microsoft para testar serviços estatais de teste de unidade.*
 
-## <a name="set-up-the-mock-orchestration-and-state"></a>Configurar a orquestração e o estado de simulação
-Como parte da porção de organização de um teste, um conjunto de réplicas fictícios e um Gerenciador de estado serão criados. O conjunto de réplicas criará, então, uma instância do serviço testado para cada réplica. Ele também será responsável por executar eventos do ciclo de vida, como `OnChangeRole` e `RunAsync`. O Gerenciador de estado de simulação garantirá que todas as operações executadas em relação ao Gerenciador de estado sejam executadas e mantidas como o Gerenciador de estado real.
+## <a name="set-up-the-mock-orchestration-and-state"></a>Configurar a orquestração falsa e o estado
+Como parte da parte organizada de um teste, será criado um conjunto de réplicas falsas e gestor de estado. O conjunto de réplicas será então o dono da criação de uma instância do serviço testado para cada réplica. Será também proprietária de eventos `OnChangeRole` de `RunAsync`ciclo de vida como e . O gestor do Estado simulado assegurará que quaisquer operações realizadas contra o gerente do Estado sejam executadas e mantidas como o atual gerente do Estado.
 
-1. Crie um representante do Service Factory que criará uma instância do serviço que está sendo testado. Isso deve ser semelhante ou igual ao retorno de chamada do Service Factory normalmente encontrado em `Program.cs` para um serviço ou ator Service Fabric. Isso deve seguir a seguinte assinatura:
+1. Crie um delegado de fábrica de serviço que instantaneamente o serviço que está a ser testado. Isto deve ser semelhante ou o mesmo que `Program.cs` o callback da fábrica de serviço normalmente encontrado para um serviço de Tecido de Serviço ou ator. Isto deve seguir a seguinte assinatura:
    ```csharp
    MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
    ```
-2. Crie uma instância da classe `MockReliableStateManager`. Isso simulará todas as interações com o Gerenciador de estado.
-3. Crie uma instância do `MockStatefulServiceReplicaSet<TStatefulService>` em que `TStatefulService` é o tipo do serviço que está sendo testado. Isso exigirá o delegado criado na etapa #1 e o Gerenciador de estado instanciado em #2
-4. Adicione réplicas ao conjunto de réplicas. Especifique a função (como Primary, ActiveSecondary, IdleSecondary) e a ID da réplica
-   > Mantenha-se ligado às IDs de réplica! Eles provavelmente serão usados durante as partes Act e Assert de um teste de unidade.
+2. Criar um `MockReliableStateManager` exemplo de classe. Isto vai gozar com todas as interações com o gerente do estado.
+3. Crie uma `MockStatefulServiceReplicaSet<TStatefulService>` `TStatefulService` instância de onde está o tipo de serviço que está a ser testado. Isto exigirá que o delegado criado em passo #1 e o gerente do Estado instantaneamente em #2
+4. Adicione réplicas ao conjunto de réplicas. Especificar a função (como primário, ativo secundário, idlesecondary) e a identificação da réplica
+   > Agarra-te às réplicas! Estes provavelmente serão utilizados durante o ato e afirmam partes de um teste de unidade.
 
 ```csharp
 //service factory to instruct how to create the service instance
@@ -54,8 +54,8 @@ await replicaSet.AddReplicaAsync(ReplicaRole.ActiveSecondary, 2);
 await replicaSet.AddReplicaAsync(ReplicaRole.ActiveSecondary, 3);
 ```
 
-## <a name="execute-service-requests"></a>Executar solicitações de serviço
-As solicitações de serviço podem ser executadas em uma réplica específica usando as propriedades de conveniência e as pesquisas.
+## <a name="execute-service-requests"></a>Executar pedidos de serviço
+Os pedidos de serviço podem ser executados numa réplica específica utilizando as propriedades de conveniência e as aparências.
 ```csharp
 const string stateName = "test";
 var payload = new Payload(StatePayload);
@@ -70,8 +70,8 @@ await replicaSet[2].ServiceInstance.InsertAsync(stateName, payload);
 await replicaSet.FirstActiveSecondary.InsertAsync(stateName, payload);
 ```
 
-## <a name="execute-a-service-move"></a>Executar uma movimentação de serviço
-O conjunto de réplicas fictícios expõe vários métodos de conveniência para disparar diferentes tipos de movimentação de serviço.
+## <a name="execute-a-service-move"></a>Executar um movimento de serviço
+O conjunto de réplicas falsas expõe vários métodos de conveniência para desencadear diferentes tipos de movimentos de serviço.
 ```csharp
 //promote the first active secondary to primary
 replicaSet.PromoteNewReplicaToPrimaryAsync();
@@ -90,7 +90,7 @@ PromoteNewReplicaToPrimaryAsync(4)
 ```
 
 ## <a name="putting-it-all-together"></a>Juntar tudo
-O teste a seguir demonstra como configurar um conjunto de réplicas de três nós e verificar se os dados estão disponíveis de um secundário após uma alteração de função. Um problema típico que isso pode detectar é se os dados adicionados durante a `InsertAsync` foram salvos em algo na memória ou em uma coleção confiável sem executar `CommitAsync`. Em ambos os casos, o secundário estaria fora de sincronia com o primário. Isso levaria a respostas inconsistentes após a movimentação do serviço.
+O teste seguinte demonstra a criação de um conjunto de réplicas de três nósos e a verificação de que os dados estão disponíveis a partir de um secundário após uma mudança de função. Um problema típico que isto pode `InsertAsync` apanhar é se os dados adicionados durante `CommitAsync`foi guardado para algo na memória ou para uma recolha fiável sem correr . Em qualquer dos casos, o secundário estaria dessincronizado com as primárias. Isto levaria a respostas inconsistentes após movimentos de serviço.
 
 ```csharp
 [TestMethod]
@@ -128,4 +128,4 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como testar a [comunicação](service-fabric-testability-scenarios-service-communication.md) entre serviços e [simular falhas usando o caos controlado](service-fabric-controlled-chaos.md).
+Aprenda a testar a [comunicação serviço-a-serviço](service-fabric-testability-scenarios-service-communication.md) e [simular falhas usando o caos controlado](service-fabric-controlled-chaos.md).

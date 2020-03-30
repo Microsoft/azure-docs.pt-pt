@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252590"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Ligue-se em privado a uma conta Azure Cosmos usando o Azure Private Link
@@ -33,18 +33,18 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroup|
-| **\<nome de rede virtual>** | myVirtualNetwork         |
-| **\<nome da região>**          | E.U.A. Centro-Oeste     |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<sub-nome>**          | mySubnet        |
-| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroup|
+| **\<>de nome de rede virtual** | myVirtualNetwork         |
+| **\<>de nome da região**          | E.U.A. Centro-Oeste     |
+| **\<>espaço de endereçoI4**   | 10.1.0.0\16          |
+| **\<>de nome de subnet**          | mySubnet        |
+| **\<>de endereços-endereço de subnet** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **máquina virtual**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > máquina**Compute** > **Virtual**de recurso .
 
 1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -62,11 +62,11 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma senha à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar palavra-passe | Reintroduza a senha. |
+    | Confirmar Palavra-passe | Reintroduza a senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
     | Portos de entrada pública | Deixe o padrão **Nenhum**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem licença do Windows? | Deixe o padrão **Nº**. |
+    | Já tem uma licença do Windows? | Deixe o padrão **Nº**. |
     |||
 
 1. Selecione **Seguinte: Discos**.
@@ -79,7 +79,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | ------- | ----- |
     | Rede virtual | Deixe o **MyVirtualNetwork**predefinido .  |
     | Espaço de endereços | Deixe o padrão **10.1.0.0/24**.|
-    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)** .|
+    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)**.|
     | IP público | Deixe o **myVm-ip padrão (novo)** |
     | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -114,7 +114,7 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -126,7 +126,7 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
 
 Nesta secção, você irá ligar-se em privado à conta Azure Cosmos usando o Private Endpoint. 
 
-1. Para incluir o endereço IP e o mapeamento dNS, inscreva-se na sua máquina virtual *myVM,* abra o ficheiro `c:\Windows\System32\Drivers\etc\hosts` e inclua as informações dNS do passo anterior no seguinte formato:
+1. Para incluir o endereço IP e o mapeamento dNS, `c:\Windows\System32\Drivers\etc\hosts` inscreva-se na sua máquina virtual *myVM,* abra o ficheiro e inclua as informações dNS do passo anterior no seguinte formato:
 
    [Endereço IP Privado] [Ponto final da conta].documents.azure.com
 
@@ -147,7 +147,7 @@ Nesta secção, você irá ligar-se em privado à conta Azure Cosmos usando o Pr
 
 1. Introduza a cadeia de ligação colando as informações anteriormente copiadas.
 
-1. Selecione **Seguinte**.
+1. Selecione **Next**.
 
 1. Selecione **Ligar**.
 

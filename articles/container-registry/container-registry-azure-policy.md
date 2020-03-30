@@ -4,10 +4,10 @@ description: Atribuir políticas incorporadas na Política Azure para auditar o 
 ms.topic: article
 ms.date: 02/26/2020
 ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330741"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoria cumprimento dos registos de contentores azure utilizando a Política Azure
@@ -19,7 +19,7 @@ Este artigo introduz políticas incorporadas (pré-visualização) para o Regist
 Não há acusações por usar a Política Azure.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="built-in-policy-definitions"></a>Definições políticas incorporadas
 
@@ -48,7 +48,7 @@ Quando um recurso não é compatível, existem muitas razões possíveis. Para d
 
 1. Selecione **todos os serviços**e procure **Política.**
 1. Selecione **Compliance**.
-1. Utilize os filtros para limitar os estados de conformidade ou para procurar políticas ![conformidade política no portal](./media/container-registry-azure-policy/azure-policy-compliance.png).
+1. Utilize os filtros para limitar os ![estados de](./media/container-registry-azure-policy/azure-policy-compliance.png)conformidade ou para procurar políticas de conformidade política no portal .
 1. Selecione uma política para rever detalhes e eventos agregados de conformidade. Se desejar, selecione um registo específico para a conformidade com os recursos.
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Conformidade política no Azure CLI

@@ -1,48 +1,48 @@
 ---
-title: Modelo de aplicativo Service Fabric do Azure
-description: Como modelar e descrever aplicativos e serviços no Azure Service Fabric usando arquivos de manifesto de aplicativo e serviço.
+title: Modelo de aplicação Azure Service Fabric
+description: Como modelar e descrever aplicações e serviços no Tecido de Serviço Azure utilizando ficheiros de manifesto de aplicação e serviço.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551884"
 ---
-# <a name="model-an-application-in-service-fabric"></a>Modelar um aplicativo no Service Fabric
-Este artigo fornece uma visão geral do modelo de aplicativo Service Fabric do Azure e como definir um aplicativo e um serviço por meio de arquivos de manifesto.
+# <a name="model-an-application-in-service-fabric"></a>Modelo de uma aplicação em Tecido de Serviço
+Este artigo fornece uma visão geral do modelo de aplicação Azure Service Fabric e como definir uma aplicação e serviço através de ficheiros manifestos.
 
-## <a name="understand-the-application-model"></a>Entender o modelo de aplicativo
-Um aplicativo é uma coleção de serviços constituintes que executam uma determinada função ou funções. Um serviço executa uma função completa e autônoma e pode iniciar e executar independentemente de outros serviços.  Um serviço é composto por código, configuração e dados. Para cada serviço, o código consiste em binários executáveis, a configuração consiste em configurações de serviço que podem ser carregadas em tempo de execução, e os dados consistem em dados estáticos arbitrários a serem consumidos pelo serviço. Cada componente desse modelo de aplicativo hierárquico pode ter controle de versão e ser atualizado de forma independente.
+## <a name="understand-the-application-model"></a>Compreender o modelo de aplicação
+Uma aplicação é uma coleção de serviços constituintes que desempenham uma determinada função ou funções. Um serviço desempenha uma função completa e autónoma e pode iniciar e executar independentemente de outros serviços.  Um serviço é composto por código, configuração e dados. Para cada serviço, o código consiste nos binários executáveis, a configuração consiste em definições de serviço que podem ser carregadas no tempo de execução, e os dados consistem em dados estáticos arbitrários a serem consumidos pelo serviço. Cada componente neste modelo de aplicação hierárquica pode ser versão e atualizado de forma independente.
 
-![O modelo de aplicativo Service Fabric][appmodel-diagram]
+![O modelo de aplicação de tecido de serviço][appmodel-diagram]
 
-Um tipo de aplicativo é uma categorização de um aplicativo e consiste em um pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter definições e configurações diferentes, mas a funcionalidade básica permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço do mesmo tipo de serviço.  
+Um tipo de aplicação é uma categorização de uma aplicação e consiste num pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter configurações e configurações diferentes, mas a funcionalidade principal permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço do mesmo tipo de serviço.  
 
-As classes (ou "tipos") de aplicativos e serviços são descritas por meio de arquivos XML (manifestos de aplicativo e manifestos de serviço).  Os manifestos descrevem aplicativos e serviços e são os modelos nos quais os aplicativos podem ser instanciados do repositório de imagens do cluster.  Os manifestos são abordados em detalhes em [manifestos de aplicativo e serviço](service-fabric-application-and-service-manifests.md). A definição de esquema para o arquivo manifest. xml e ApplicationManifest. xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. O esquema XML está documentado na [documentação do esquema ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
+As classes (ou "tipos") de aplicações e serviços são descritas através de ficheiros XML (manifestos de aplicação e manifestos de serviço).  Os manifestos descrevem aplicações e serviços e são os modelos contra os quais as aplicações podem ser instantaneamente instantâneas a partir da loja de imagens do cluster.  Os manifestos são cobertos em detalhe nos manifestos de [aplicação e serviço.](service-fabric-application-and-service-manifests.md) A definição de esquema para o ficheiro ServiceManifest.xml e ApplicationManifest.xml está instalada com o SDK de Tecido de Serviço e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. O esquema XML está documentado na documentação de [esquema serviceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
-O código para instâncias de aplicativo diferentes é executado como processos separados, mesmo quando hospedado pelo mesmo nó de Service Fabric. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (por exemplo, atualizado) de forma independente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço que, por sua vez, são compostos de código, configuração e pacotes de dados. Para simplificar o diagrama, somente os pacotes de código/configuração/dados para `ServiceType4` são mostrados, embora cada tipo de serviço inclua alguns ou todos os tipos de pacote.
+O código para diferentes instâncias de aplicação é executado como processos separados mesmo quando hospedado pelo mesmo nó de Tecido de Serviço. Além disso, o ciclo de vida de cada instância de aplicação pode ser gerido (por exemplo, atualizado) de forma independente. O diagrama seguinte mostra como os tipos de aplicação são compostos por tipos de serviço, que por sua vez são compostos por códigos, configurações e pacotes de dados. Para simplificar o diagrama, apenas `ServiceType4` são apresentados os pacotes de código/config/dados, embora cada tipo de serviço inclua alguns ou todos esses tipos de pacotes.
 
-![Tipos de aplicativos Service Fabric e tipos de serviço][cluster-imagestore-apptypes]
+![Tipos de aplicações de tecido de serviço e tipos de serviço][cluster-imagestore-apptypes]
 
-Pode haver uma ou mais instâncias de um tipo de serviço ativas no cluster. Por exemplo, instâncias de serviço com estado, ou réplicas, alcançam alta confiabilidade replicando o estado entre as réplicas localizadas em nós diferentes no cluster. Basicamente, a replicação fornece redundância para que o serviço esteja disponível, mesmo se um nó em um cluster falhar. Um [serviço particionado](service-fabric-concepts-partitioning.md) divide ainda mais seu estado (e padrões de acesso a esse estado) entre os nós no cluster.
+Pode haver um ou mais casos de um tipo de serviço ativo no cluster. Por exemplo, casos de serviço sinuosos, ou réplicas, alcançam alta fiabilidade replicando o estado entre réplicas localizadas em diferentes nós do cluster. A replicação essencialmente proporciona redundância para que o serviço esteja disponível mesmo que um nó num cluster falhe. Um [serviço dividido](service-fabric-concepts-partitioning.md) divide ainda mais o seu estado (e padrões de acesso a esse estado) através de nós no cluster.
 
-O diagrama a seguir mostra a relação entre aplicativos e instâncias de serviço, partições e réplicas.
+O diagrama seguinte mostra a relação entre aplicações e instâncias de serviço, divisórias e réplicas.
 
-![Partições e réplicas em um serviço][cluster-application-instances]
+![Divisórias e réplicas dentro de um serviço][cluster-application-instances]
 
 > [!TIP]
-> Você pode exibir o layout dos aplicativos em um cluster usando a ferramenta Service Fabric Explorer disponível em http://&lt;yourclusteraddress&gt;: 19080/Explorer. Para obter mais informações, consulte [visualizando seu cluster com Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Pode visualizar o layout de aplicações num cluster utilizando&lt;a ferramenta&gt;Service Fabric Explorer disponível em http:// seu clusteraddress :19080/Explorer. Para mais informações, consulte [Visualizar o seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 > 
 > 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre a [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
-- Saiba mais sobre o [estado](service-fabric-concepts-state.md), o [particionamento](service-fabric-concepts-partitioning.md)e a [disponibilidade](service-fabric-availability-services.md)do serviço.
-- Leia sobre como os aplicativos e serviços são definidos em [manifestos de aplicativo e serviço](service-fabric-application-and-service-manifests.md).
-- Os [modelos de Hospedagem de aplicativos](service-fabric-hosting-model.md) descrevem a relação entre réplicas (ou instâncias) de um serviço implantado e um processo de host de serviço.
+- Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
+- Saiba mais sobre [estado](service-fabric-concepts-state.md)de serviço, [partição](service-fabric-concepts-partitioning.md)e [disponibilidade.](service-fabric-availability-services.md)
+- Leia sobre como as aplicações e serviços são definidos em manifestos de [aplicação e serviço.](service-fabric-application-and-service-manifests.md)
+- [Os modelos](service-fabric-hosting-model.md) de hospedagem de aplicações descrevem a relação entre réplicas (ou instâncias) de um processo de serviço implantado e de hospedagem de serviços.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188533"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione a ADFS como fornecedor de identidade SAML utilizando políticas personalizadas no Diretório Ativo Azure B2C
@@ -34,12 +34,12 @@ Este artigo mostra-lhe como ativar o início de sessão para uma conta de utiliz
 
 Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
-6. Para **opções,** escolha `Upload`.
+6. Para **Opções,** escolha. `Upload`
 7. Introduza um **nome** para a chave política. Por exemplo, `SamlCert`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Navegue e selecione o seu ficheiro .pfx com a chave privada.
 9. Clique em **Criar**.
@@ -93,9 +93,9 @@ Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemen
     </ClaimsProvider>
     ```
 
-1. Substitua `your-ADFS-domain` pelo nome do seu domínio ADFS e substitua o valor da reivindicação de saída do Fornecedor de **identidade** pelo seu DNS (valor arbitrário que indica o seu domínio).
+1. Substitua-o `your-ADFS-domain` pelo nome do seu domínio ADFS e substitua o valor da reivindicação de saída do Fornecedor de **identidade** pelo seu DNS (valor arbitrário que indica o seu domínio).
 
-1. Localize a secção `<ClaimsProviders>` e adicione o seguinte corte XML. Se a sua política já contiver o perfil técnico `SM-Saml-idp`, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
+1. Localize `<ClaimsProviders>` a secção e adicione o seguinte corte XML. Se a sua `SM-Saml-idp` política já contiver o perfil técnico, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>
@@ -132,7 +132,7 @@ Por esta altura, já configuraste a sua política para que o Azure AD B2C saiba 
 Neste momento, o fornecedor de identidade foi criado, mas não está disponível em nenhum dos ecrãs de inscrição ou inscrição. Para disponibilizá-lo, cria-se uma duplicação de uma viagem de utilizador de modelo existente e, em seguida, modificá-la de modo a que também tenha o fornecedor de identidade ADFS.
 
 1. Abra o ficheiro *TrustFrameworkBase.xml* a partir do pacote de arranque.
-2. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclua `Id="SignUpOrSignIn"`.
+2. Encontre e copie todo o conteúdo `Id="SignUpOrSignIn"`do elemento **UserJourney** que inclui .
 3. Abra as *Extensões TrustFramework.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
 4. Colhe todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
 5. Mude o nome da identificação da viagem do utilizador. Por exemplo, `SignUpSignInADFS`.
@@ -142,7 +142,7 @@ Neste momento, o fornecedor de identidade foi criado, mas não está disponível
 O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição ou de inscrição. Se adicionar um elemento **ClaimsProviderSelection** para uma conta ADFS, aparece um novo botão quando um utilizador aterra na página.
 
 1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na viagem de utilizador que criou.
-2. Ao abrigo **das seleções ClaimsProviderS,** adicione o seguinte elemento. Defino o valor do **TargetClaimsExchangeId** para um valor adequado, por exemplo, `ContosoExchange`:
+2. Ao abrigo **das seleções ClaimsProviderS,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para `ContosoExchange`um valor adequado, por exemplo:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
@@ -152,7 +152,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de 
 
 Agora que tens um botão no lugar, tens de ligá-lo a uma ação. Neste caso, a ação é que o Azure AD B2C comunique com uma conta ADFS para receber um símbolo.
 
-1. Encontre a **OrquestrationStep** que inclui `Order="2"` na viagem do utilizador.
+1. Encontre a **OrquestraçãoStep** que inclui `Order="2"` na viagem do utilizador.
 2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para o ID que utilizou para **targetClaimsExchangeId:**
 
     ```XML
@@ -186,23 +186,23 @@ Abra um navegador e navegue para o URL. Certifique-se de que escreve o URL corre
 4. Na página **Select Data Source,** selecione **dados de Importação sobre a parte que depende publicar online ou numa rede local,** forneça o seu URL de metadados Azure AD B2C e, em seguida, clique em **Next**.
 5. Na página **'Especificar Nome do ecrã',** introduza um **nome de exibição,** em **Notas,** introduza uma descrição para esta confiança de parte fiducida e, em seguida, clique em **Seguinte**.
 6. Na página **'Escolha a Política de Controlo de Acesso',** selecione uma política e, em seguida, clique **em Seguinte**.
-7. Na página **Pronto para Adicionar Confiança**, reveja as definições e, em seguida, clique em **Seguinte** para guardar as informações sobre a confiança da entidade confiadora.
+7. No **pronto para adicionar confiança** página, reveja as definições e, em seguida, clique **seguinte** para guardar a sua entidade confiadora confiar informações.
 8. Na página **'Terminar',** clique em **Fechar,** esta ação exibe automaticamente a caixa de diálogo regras de reclamação de **edição.**
 9. Selecione **Adicionar Regra**.
 10. No modelo de **regra de reclamação,** selecione **Enviar atributos LDAP como reclamações**.
-11. Forneça um nome de **regra de reclamação**. Para a **loja Attribute,** selecione **'Select Active' ' Directivo'** , adicione as seguintes reclamações e, em seguida, clique em **Terminar** e **OK**.
+11. Forneça um nome de **regra de reclamação**. Para a **loja Attribute,** selecione **'Select Active' ' Directivo'**, adicione as seguintes reclamações e, em seguida, clique em **Terminar** e **OK**.
 
     | Atributo LDAP | Tipo de reclamação de saída |
     | -------------- | ------------------- |
     | Nome-diretor do utilizador | userPrincipalName |
     | Apelido | family_name |
     | Nome dado | given_name |
-    | Endereço-de-e-mail | e-mail |
+    | Endereço de e-mail | e-mail |
     | Nome do ecrã | nome |
 
     Note que estes nomes não serão apresentados no tipo de reclamação de saída. Precisa digitá-los manualmente. (O dropdown é na verdade editável).
 
-12.  Com base no seu tipo de certificado, poderá ter de definir o algoritmo HASH. Na janela de propriedades do trust trust (B2C Demo) fiduciário, selecione o separador **Advanced** e altere o algoritmo de **hash Secure** para `SHA-256`, e clique em **Ok**.
+12.  Com base no seu tipo de certificado, poderá ter de definir o algoritmo HASH. Na janela de propriedades do trust trust (B2C Demo) fiduciário, `SHA-256`selecione o separador **Advanced** e altere o algoritmo de **hash Secure** para , e clique em **Ok**.
 13. No Gestor do Servidor, selecione **Ferramentas**, e, em seguida, selecione **ADFS Management**.
 14. Selecione a confiança da parte que criou, selecione **Atualizar a partir de Metadados da Federação,** e depois clique em **Atualizar**.
 
@@ -218,7 +218,7 @@ Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador 
 
 1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho e mude o nome. Por exemplo, mude o nome para *SignUpSignInADFS.xml*.
 2. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInADFS`.
-3. Atualizar o valor da **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_adfs`
+3. Atualizar o valor da **PublicPolicyUri** com o URI para a política. Por exemplo`http://contoso.com/B2C_1A_signup_signin_adfs`
 4. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova viagem de utilizador que criou (SignUpSignInADFS).
 5. Guarde as suas alterações, faça o upload do ficheiro e, em seguida, selecione a nova política na lista.
 6. Certifique-se de que a aplicação Azure AD B2C que criou é selecionada no campo de **aplicação Select** e, em seguida, testá-la clicando agora em **Executar**.

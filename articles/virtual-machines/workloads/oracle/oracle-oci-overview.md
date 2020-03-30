@@ -1,5 +1,5 @@
 ---
-title: Integrar o Microsoft Azure com a Oracle Cloud Infrastructure  Microsoft Docs
+title: Integrar o Microsoft Azure com a Oracle Cloud Infrastructure [ Microsoft Docs
 description: Conheça soluções que integram aplicações oracle em execução no Microsoft Azure com bases de dados em Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
 ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300558"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicação Oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure (pré-visualização)
@@ -44,7 +44,7 @@ As aplicações que pode executar numa configuração de nuvem cruzada incluem:
 * Aplicações oracle Retail
 * Gestão Financeira Oracle Hyperion
 
-O diagrama que se segue é uma visão geral de alto nível da solução conectada. Para a simplicidade, o diagrama mostra apenas um nível de aplicação e um nível de dados. Dependendo da arquitetura de aplicação, a sua solução poderia incluir camadas adicionais, como um nível web em Azure. Para obter mais informações, consulte as secções seguintes.
+O diagrama que se segue é uma visão geral de alto nível da solução conectada. Para a simplicidade, o diagrama mostra apenas um nível de aplicação e um nível de dados. Dependendo da arquitetura de aplicação, a sua solução poderia incluir camadas adicionais, como um nível web em Azure. Para mais informações, consulte as seguintes secções.
 
 ![Visão geral da solução Azure OCI](media/oracle-oci-overview/crosscloud.png)
 
@@ -52,9 +52,9 @@ O diagrama que se segue é uma visão geral de alto nível da solução conectad
 
 A conectividade transversal limita-se às seguintes regiões:
 * Azure East US (leste) & OCI Ashburn (EUA Leste)
-* Azure UK South (uksouth) & OCI London (UK Sul)
-* Azure Canada Central (canadácentral) e OCI Toronto (Canadá Sudeste)
-* Azure West Europe (Europa Ocidental) e OCI Amsterdam (Noroeste dos Países Baixos)
+* Azure UK South (uksouth) & OCI London (REINO Unido Sul)
+* Azure Canada Central (canadácentral) & OCI Toronto (Canadá Sudeste)
+* Azure West Europe (Europa Ocidental) & OCI Amsterdam (Noroeste dos Países Baixos)
 
 ## <a name="networking"></a>Redes
 

@@ -1,32 +1,32 @@
 ---
-title: Especificar o número da porta de um serviço usando parâmetros
-description: Mostra como usar parâmetros para especificar a porta para um aplicativo no Service Fabric
+title: Especificar o número da porta de um serviço utilizando parâmetros
+description: Mostra-lhe como usar parâmetros para especificar a porta para uma aplicação em Tecido de Serviço
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609864"
 ---
-# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número da porta de um serviço usando parâmetros em Service Fabric
+# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número de porta de um serviço utilizando parâmetros em Tecido de Serviço
 
-Este artigo mostra como especificar o número da porta de um serviço usando parâmetros em Service Fabric usando o Visual Studio.
+Este artigo mostra como especificar o número de porta de um serviço usando parâmetros em Tecido de Serviço utilizando o Estúdio Visual.
 
-## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedimento para especificar o número da porta de um serviço usando parâmetros
+## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedimento para especificar o número de porta de um serviço utilizando parâmetros
 
-Neste exemplo, você define o número da porta para sua API Web do asp.net Core usando um parâmetro.
+Neste exemplo, define o número de porta para o seu asp.net Web API utilizando um parâmetro.
 
-1. Abra o Visual Studio e crie um novo aplicativo Service Fabric.
-1. Escolha o modelo de ASP.NET Core sem estado.
-1. Escolha API Web.
-1. Abra o arquivo manifest. xml.
-1. Observe o nome do ponto de extremidade especificado para o serviço. A predefinição é `ServiceEndpoint`.
-1. Abra o arquivo ApplicationManifest. xml
-1. No elemento `ServiceManifestImport`, adicione um novo elemento `RessourceOverrides` com uma referência ao ponto de extremidade em seu arquivo do seu manifesto. xml.
+1. Open Visual Studio e criar uma nova aplicação Service Fabric.
+1. Escolha o modelo apátrida ASP.NET Core.
+1. Escolha a Web API.
+1. Abra o ficheiro ServiceManifest.xml.
+1. Note o nome do ponto final especificado para o seu serviço. A predefinição é `ServiceEndpoint`.
+1. Abra o ficheiro ApplicationManifest.xml
+1. No `ServiceManifestImport` elemento, adicione `RessourceOverrides` um novo elemento com uma referência ao ponto final do seu ficheiro ServiceManifest.xml.
 
     ```xml
       <ServiceManifestImport>
@@ -40,7 +40,7 @@ Neste exemplo, você define o número da porta para sua API Web do asp.net Core 
       </ServiceManifestImport>
     ```
 
-1. No elemento `Endpoint`, agora você pode substituir qualquer atributo usando um parâmetro. Neste exemplo, você especifica `Port` e o define como um nome de parâmetro usando colchetes-por exemplo, `[MyWebAPI_PortNumber]`
+1. No `Endpoint` elemento, pode agora anular qualquer atributo utilizando um parâmetro. Neste exemplo, especifice `Port` e coloque-o num nome de parâmetro utilizando suportes quadrados - por exemplo,`[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -54,7 +54,7 @@ Neste exemplo, você define o número da porta para sua API Web do asp.net Core 
       </ServiceManifestImport>
     ```
 
-1. Ainda no arquivo ApplicationManifest. xml, você especifica o parâmetro no elemento `Parameters`
+1. Ainda no ficheiro ApplicationManifest.xml, então especifica `Parameters` o parâmetro no elemento
 
     ```xml
       <Parameters>
@@ -62,7 +62,7 @@ Neste exemplo, você define o número da porta para sua API Web do asp.net Core 
       </Parameters>
     ```
 
-1. E definir um `DefaultValue`
+1. E definir um`DefaultValue`
 
     ```xml
       <Parameters>
@@ -70,8 +70,8 @@ Neste exemplo, você define o número da porta para sua API Web do asp.net Core 
       </Parameters>
     ```
 
-1. Abra a pasta Applicationparameters e o arquivo `Cloud.xml`
-1. Para especificar uma porta diferente a ser usada ao publicar em um cluster remoto, adicione o parâmetro com o número da porta a esse arquivo.
+1. Abra a pasta ApplicationParameters e o `Cloud.xml` ficheiro
+1. Para especificar uma porta diferente a utilizar ao publicar num cluster remoto, adicione o parâmetro com o número da porta a este ficheiro.
 
     ```xml
       <Parameters>
@@ -79,9 +79,9 @@ Neste exemplo, você define o número da porta para sua API Web do asp.net Core 
       </Parameters>
     ```
 
-Ao publicar seu aplicativo do Visual Studio usando o perfil de publicação Cloud. xml, o serviço é configurado para usar a porta 80. Se você implantar o aplicativo sem especificar o parâmetro MyWebAPI_PortNumber, o serviço usará a porta 8080.
+Ao publicar a sua aplicação no Visual Studio utilizando o perfil de publicação Cloud.xml, o seu serviço está configurado para utilizar a porta 80. Se implementar a aplicação sem especificar o parâmetro MyWebAPI_PortNumber, o serviço utiliza a porta 8080.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre alguns dos principais conceitos discutidos neste artigo, consulte os [artigos gerenciar aplicativos para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
+Para saber mais sobre alguns dos conceitos fundamentais que são discutidos neste artigo, consulte as [aplicações de Gestão para artigos de vários ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
 
-Para obter informações sobre outros recursos de gerenciamento de aplicativo que estão disponíveis no Visual Studio, consulte [gerenciar seus aplicativos de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Estúdio Visual, consulte [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md).

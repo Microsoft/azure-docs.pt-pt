@@ -1,5 +1,5 @@
 ---
-title: Guia azure security center for IoT para configuração com Azure Sentinel (pré-visualização) Microsoft Docs
+title: Guia azure security center for IoT para configuração com Azure Sentinel (pré-visualização)] Microsoft Docs
 description: Explica como configurar o Azure Sentinel para receber dados do seu Centro de Segurança Azure para a solução IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: 082b33332051fee9da2aebe63b0c41edb300afaf
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303550"
 ---
 > [!IMPORTANT]
 > O Centro de Segurança Azure para o conector de dados IoT em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Ligue os seus dados do Azure Security Center para IoT ao Azure Sentinel (pré-visualização) 
 
@@ -60,7 +60,7 @@ Ligue os alertas do Azure Security Center para ioT e transmita-os diretamente pa
 
 Para utilizar o esquema relevante no Log Analytics para exibir o Centro de Segurança Azure para alertas IoT:
 
-1. Abrir **registos** > **SecurityInsights** > **SecurityAlert**, ou procurar **SecurityAlert**. 
+1. Abrir **Registos** > **SecurityInsights** > **SecurityAlert,** ou procurar **SecurityAlert**. 
 2. Filtrar para ver apenas o Azure Security Center for IoT gerou alertas utilizando o filtro kql seguinte:
 
 ```kusto

@@ -9,114 +9,114 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673471"
 ---
-*Aquecer a Cache*  
-O disco com o anfitrião só de leitura de colocação em cache são capaz de lhe dar mais elevada IOPS que o limite de disco. Para obter este máximo desempenho de leitura da cache do anfitrião, primeiro deve entender o cache do disco. Isto garante que a leitura do IOs que a ferramenta de benchmark irá orientar no volume de CacheReads, na verdade, acessa o cache e não o disco diretamente. O resultado de acertos na cache em ESP adicionais da cache única ativada disco.
+*Aquecimento da Cache*  
+O disco com o recolhimento ReadOnly é capaz de dar IOPS mais elevado do que o limite do disco. Para obter este desempenho máximo de leitura a partir da cache do hospedeiro, primeiro deve aquecer a cache deste disco. Isto garante que o Read IOs que a ferramenta de benchmarking irá conduzir no volume CacheReads, realmente atinge a cache, e não o disco diretamente. Os acertos de cache resultam em IOPS adicionais a partir do disco ativado por cache única.
 
 > [!IMPORTANT]
-> Deve entender o cache antes de executar o benchmark, sempre que a VM é reiniciada.
+> Deve aquecer a cache antes de executar o benchmarking, sempre que a VM for reiniciada.
 
 ## <a name="tools"></a>Ferramentas
 
-### <a name="iometer"></a>Iometer
+### <a name="iometer"></a>Iómetro
 
-[Transferir a ferramenta de Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
+[Descarregue a ferramenta Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) no VM.
 
-#### <a name="test-file"></a>Ficheiro de teste
+#### <a name="test-file"></a>Arquivo de teste
 
-Iometer utiliza um ficheiro de teste que é armazenado no volume no qual executa o teste de benchmark. Ele unidades de leituras e escritas neste ficheiro de teste para medir o disco IOPS e débito. Iometer cria este ficheiro de teste, se não tiver fornecido um. Crie um ficheiro de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
+O Iometer usa um ficheiro de teste que é armazenado no volume em que executa o teste de benchmarking. Conduz Leituras e Escritos neste ficheiro de teste para medir o disco IOPS e O Despto. Iometer cria este ficheiro de teste se não tiver fornecido um. Crie um ficheiro de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
 
 #### <a name="access-specifications"></a>Especificações de acesso
 
-As especificações, pedir o tamanho de e/s, % de leitura/escrita, % aleatório/sequenciais são configurados utilizando o separador "Especificações de acesso" no Iometer. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Criar as especificações de acesso e "Salvar" apropriadas com nome, como – RandomWrites\_8K, RandomReads\_8 K. Selecione a especificação correspondente ao executar o cenário de teste.
+As especificações, o tamanho do pedido IO, % de leitura/escrita, % aleatório/sequencial são configurados utilizando o separador "Especificações de Acesso" no iómetro. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Crie as especificações de acesso e "Guarde"\_com um\_nome apropriado como – RandomWrites 8K, RandomReads 8K. Selecione a especificação correspondente ao executar o cenário de teste.
 
-Um exemplo de especificações de acesso para o cenário de escrever o IOPS máximo é mostrado abaixo,  
-    ![Exemplo de especificações de acesso para o máximo de IOPS de escrita](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+Um exemplo de especificações de acesso para o cenário máximo de IOPS de Escrita é mostrado abaixo,  
+    ![Exemplo de especificações de acesso para iOPS de escrita máxima](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
-#### <a name="maximum-iops-test-specifications"></a>Especificações de teste de IOPS máximo
+#### <a name="maximum-iops-test-specifications"></a>Especificações máximas de teste do IOPS
 
-Para demonstrar as IOPs máximas, utilize o tamanho mais pequeno do pedido. Utilize o tamanho do pedido de 8K e criar especificações para escritas aleatórias e leituras.
+Para demonstrar o máximo de IOPs, utilize o tamanho do pedido mais pequeno. Utilize o tamanho do pedido 8K e crie especificações para Escritas e Leituras Aleatórias.
 
-| Especificação de acesso | Tamanho do pedido | % Aleatório | % De leitura |
+| Especificação de Acesso | Tamanho do pedido | %aleatório | Ler % |
 | --- | --- | --- | --- |
-| RandomWrites\_8K |8K |100 |0 |
-| RandomReads\_8K |8K |100 |100 |
+| RandomWrites\_8K |8 K |100 |0 |
+| RandomReads\_8K |8 K |100 |100 |
 
-#### <a name="maximum-throughput-test-specifications"></a>Especificações de teste de débito máximo
+#### <a name="maximum-throughput-test-specifications"></a>Especificações máximas de ensaio de entrada
 
-Para demonstrar o débito máximo, utilize o maior tamanho do pedido. Utilize o tamanho do pedido de 64K e criar especificações para escritas aleatórias e leituras.
+Para demonstrar o máximo de entrada, utilize um maior tamanho de pedido. Utilize o tamanho do pedido de 64 K e crie especificações para Escritas e Leituras Aleatórias.
 
-| Especificação de acesso | Tamanho do pedido | % Aleatório | % De leitura |
+| Especificação de Acesso | Tamanho do pedido | %aleatório | Ler % |
 | --- | --- | --- | --- |
 | RandomWrites\_64K |64 K |100 |0 |
 | RandomReads\_64K |64 K |100 |100 |
 
-#### <a name="run-the-iometer-test"></a>Execute o teste de Iometer
+#### <a name="run-the-iometer-test"></a>Fazer o teste de iómetro
 
-Execute os passos abaixo para entender cache
+Execute os passos abaixo para aquecer cache
 
-1. Criar duas especificações de acesso com valores apresentados abaixo,
+1. Criar duas especificações de acesso com valores abaixo apresentados,
 
-   | Nome | Tamanho do pedido | % Aleatório | % De leitura |
+   | Nome | Tamanho do pedido | %aleatório | Ler % |
    | --- | --- | --- | --- |
-   | RandomWrites\_1 MB |1 MB |100 |0 |
+   | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
-1. Execute o teste de Iometer para inicializar o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Definir a duração do teste de "Tempo de execução" para 2 horas, no separador "Configuração de teste".
+1. Executar o teste de iómetro para inicializar o disco cache com os seguintes parâmetros. Utilize três fios de trabalhador para o volume de destino e uma profundidade de fila de 128. Detete a duração do teste de "Tempo de funcionamento" para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
-   | Inicialize o disco de Cache |CacheReads |RandomWrites\_1 MB |2 horas |
-1. Execute o teste de Iometer para aquecer o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Definir a duração do teste de "Tempo de execução" para 2 horas, no separador "Configuração de teste".
+   | Inicializar o Disco cache |Cachereads |RandomWrites\_1MB |2 horas |
+1. Executar o teste de iómetro para aquecer o disco cache com os seguintes parâmetros. Utilize três fios de trabalhador para o volume de destino e uma profundidade de fila de 128. Detete a duração do teste de "Tempo de funcionamento" para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
-   | Quente no disco de Cache |CacheReads |RandomReads\_1MB |2 horas |
+   | Aquecer cache disk |Cachereads |RandomReads\_1MB |2 horas |
 
-Depois do disco de cache é preparado, prossiga com os cenários de teste listados abaixo. Para executar o teste de Iometer, utilize, pelo menos, três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade de fila e selecione uma das especificações de teste guardado, conforme mostrado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e débito ao executar estes testes. Para todos os cenários, são utilizados um tamanho de e/s pequeno de 8 KB e uma profundidade de fila de alta de 128.
+Depois de aquecido o disco cache, proceda aos cenários de teste listados abaixo. Para executar o teste de iómetro, utilize pelo menos três fios de trabalhador para **cada** volume-alvo. Para cada fio de trabalho, selecione o volume de destino, delineie a profundidade da fila e selecione uma das especificações de teste guardadas, como indicado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para iOPS e Throughput ao executar estes testes. Para todos os cenários, é utilizado um pequeno tamanho iO de 8 KB e uma alta profundidade de fila de 128.
 
-| Cenário de teste | Volume de destino | Nome | Resultado |
+| Cenário de teste | Volume-alvo | Nome | Resultado |
 | --- | --- | --- | --- |
-| Um máximo de IOPS de leitura |CacheReads |RandomWrites\_8K |50,000 IOPS |
-| Um máximo de IOPS de escrita |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
-| Um máximo de IOPS combinada |CacheReads |RandomWrites\_8K |100 000 IOPS |
+| Um máximo de Ler IOPS |Cachereads |RandomWrites\_8K |50.000 IOPS |
+| Um máximo de Escrever IOPS |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
+| Um máximo de IOPS combinados |Cachereads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Um máximo de MB/seg de leitura |CacheReads |RandomWrites\_64K |524 MB/seg |
-| Um máximo de MB/s de escrita |NoCacheWrites |RandomReads\_64K |524 MB/seg |
-| Combinado MB/seg |CacheReads |RandomWrites\_64K |1000 MB/seg |
+| Um máximo de Ler MB/seg |Cachereads |RandomWrites\_64K |524 MB/seg |
+| Um máximo de Escreva MB/seg |NoCacheWrites |RandomReads\_64K |524 MB/seg |
+| MB/seg combinado |Cachereads |RandomWrites\_64K |1000 MB/seg |
 | NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
-Seguem-se capturas de ecrã do Iometer resultados do teste para cenários IOPS e débito combinados.
+Abaixo estão as imagens dos resultados dos testes de iómetro para cenários combinados de IOPS e Deputados.
 
-#### <a name="combined-reads-and-writes-maximum-iops"></a>Combinados lê e escreve o IOPS máximo
+#### <a name="combined-reads-and-writes-maximum-iops"></a>Leituras combinadas e escreve iOPS máximos
 
-![IOPS máximo combinado de leituras e gravações](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
+![Leituras combinadas e escreve IOPS máximos](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
 
-#### <a name="combined-reads-and-writes-maximum-throughput"></a>Combinados lê e escreve o débito máximo
+#### <a name="combined-reads-and-writes-maximum-throughput"></a>Leituras combinadas e escreve o máximo de entrada
 
-![Débito máximo combinado de leituras e gravações](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
+![Leituras combinadas e escreve o máximo de entrada](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
 
 ### <a name="fio"></a>FIO
 
-FIO é uma ferramenta popular para o armazenamento de benchmark em VMs do Linux. Ele tem a flexibilidade para selecionar diferentes tamanhos de e/s, seqüenciais ou leituras aleatórias e escreve. Ele gera threads de trabalho ou processos para efetuar as operações de e/s especificadas. Pode especificar o tipo de operações de e/s, que cada thread de trabalho tem de efetuar o uso de arquivos de tarefa. Criamos um ficheiro de tarefa por cenário ilustrado nos exemplos abaixo. Pode alterar as especificações nesses arquivos de tarefa para diferentes cargas de trabalho em execução no armazenamento Premium. Os exemplos, estamos a utilizar uma execução de VM de 14 de DS Standard **Ubuntu**. Use a mesma configuração descrita no início da seção Benchmarking e disponibilize a cache antes de executar os testes de benchmark.
+Fio é uma ferramenta popular para comparar o armazenamento nos VMs Linux. Tem a flexibilidade para selecionar diferentes tamanhos io, leituras sequenciais ou aleatórias e escritos. Cria fios ou processos de trabalhador para realizar as operações de I/S especificadas. Pode especificar o tipo de operações de I/S que cada fio de trabalho deve realizar utilizando ficheiros de trabalho. Criámos um ficheiro de emprego por cenário ilustrado nos exemplos abaixo. Pode alterar as especificações destes ficheiros de trabalho para comparar diferentes cargas de trabalho em execução no Armazenamento Premium. Nos exemplos, estamos a usar um VM Standard DS 14 a executar **Ubuntu**. Utilize a mesma configuração descrita no início da secção de Benchmarking e aqueça a cache antes de executar os testes de benchmarking.
 
-Antes de começar, [transferir FIO](https://github.com/axboe/fio) e instalá-lo na sua máquina virtual.
+Antes de começar, [baixe o FIO](https://github.com/axboe/fio) e instale-o na sua máquina virtual.
 
-Execute o seguinte comando para Ubuntu,
+Executar o seguinte comando para Ubuntu,
 
 ```
 apt-get install fio
 ```
 
-Utilizamos o quatro threads de trabalho para orientar operações de escrita e quatro segmentos de trabalho para que as operações de leitura nos discos. Os operadores de escrita estão a originar tráfego no volume "nocache", que tem 10 discos com cache definido como "Nenhum". Os operadores de leitura estão a originar tráfego no volume "readcache", que possui um disco com o conjunto de cache para "Só de leitura".
+Usamos quatro fios de trabalhador para conduzir as operações de escrita e quatro fios de trabalhador para conduzir As operações de leitura nos discos. Os trabalhadores da Write estão a conduzir o tráfego no volume "nocache", que tem 10 discos com cache definido para "Nenhum". Os trabalhadores do Read estão a conduzir o tráfego no volume "readcache", que tem um disco com cache definido para "ReadOnly".
 
-#### <a name="maximum-write-iops"></a>Máximo IOPS de escrita
+#### <a name="maximum-write-iops"></a>IOPS de escrita máxima
 
-Crie o ficheiro de tarefa com especificações seguintes para obter o máximo IOPS de escrita. Nomeie-o "fiowrite.ini".
+Crie o ficheiro de trabalho com as seguintes especificações para obter o máximo De Escrever IOPS. Nomeie-o "fiowrite.ini".
 
 ```ini
 [global]
@@ -140,24 +140,24 @@ rw=randwrite
 directory=/mnt/nocache
 ```
 
-Tenha em atenção as siga principais informações que estão de acordo com as diretrizes de design abordadas nas secções anteriores. Nestas especificações são essenciais para orientar o IOPS máximo,  
+Note as seguintes coisas-chave que estão em consonância com as diretrizes de design discutidas em secções anteriores. Estas especificações são essenciais para impulsionar o máximo de IOPS,  
 
-* Uma profundidade de fila de alta de 256.  
-* Um tamanho de pequeno bloco de 8 KB.  
-* Vários threads para efetuar operações de escrita aleatórias.
+* Uma alta profundidade de fila de 256.  
+* Um pequeno bloco de 8 KB.  
+* Vários fios executando escritos aleatórios.
 
-Execute o seguinte comando para iniciar o teste FIO durante 30 segundos,  
+Executar o seguinte comando para iniciar o teste FIO por 30 segundos,  
 
 ```
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-Enquanto o teste é executada, são capazes de ver o número de escrever IOPS a VM e fornecendo os discos Premium. Conforme mostrado no exemplo abaixo, a VM DS14 está a fornecer a máxima limite de IOPS de 50 000 IOPS de escrita.  
-    ![Número de escrita fornecendo discos de VM de IOPS e Premium](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+Enquanto o teste corre, você é capaz de ver o número de iOPS de escrita que os discos VM e Premium estão a entregar. Como mostra a amostra abaixo, o DS14 VM está a entregar o seu limite máximo de IOPS de 50.000 IOPS.  
+    ![Número de discos IOPS VM e Premium de escrita estão a entregar](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
-#### <a name="maximum-read-iops"></a>Máximo IOPS de leitura
+#### <a name="maximum-read-iops"></a>IOPS de leitura máxima
 
-Crie o ficheiro de tarefa com especificações seguintes para obter o máximo IOPS de leitura. Nomeie-o "fioread.ini".
+Crie o ficheiro de trabalho com as seguintes especificações para obter o máximo DeIOpS de Leitura. Nomeie-o "fioread.ini".
 
 ```ini
 [global]
@@ -181,24 +181,24 @@ rw=randread
 directory=/mnt/readcache
 ```
 
-Tenha em atenção as siga principais informações que estão de acordo com as diretrizes de design abordadas nas secções anteriores. Nestas especificações são essenciais para orientar o IOPS máximo,
+Note as seguintes coisas-chave que estão em consonância com as diretrizes de design discutidas em secções anteriores. Estas especificações são essenciais para impulsionar o máximo de IOPS,
 
-* Uma profundidade de fila de alta de 256.  
-* Um tamanho de pequeno bloco de 8 KB.  
-* Vários threads para efetuar operações de escrita aleatórias.
+* Uma alta profundidade de fila de 256.  
+* Um pequeno bloco de 8 KB.  
+* Vários fios executando escritos aleatórios.
 
-Execute o seguinte comando para iniciar o teste FIO durante 30 segundos,
+Executar o seguinte comando para iniciar o teste FIO por 30 segundos,
 
 ```
 sudo fio --runtime 30 fioread.ini
 ```
 
-Enquanto o teste é executada, são capazes de ver o número de ler IOPS a VM e fornecendo os discos Premium. Conforme mostrado no exemplo abaixo, a VM DS14 está a fornecer mais de 64.000 IOPS de leitura. Esta é uma combinação de disco e o desempenho da cache.  
+Enquanto o teste corre, você é capaz de ver o número de iOPS lidos que os discos VM e Premium estão a entregar. Como mostra a amostra abaixo, o DS14 VM está a entregar mais de 64.000 IOPS de leitura. Esta é uma combinação do disco e do desempenho da cache.  
     ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
-#### <a name="maximum-read-and-write-iops"></a>Máximo de leitura e escrita de IOPS
+#### <a name="maximum-read-and-write-iops"></a>Leitura máxima e escrita IOPS
 
-Criar o ficheiro de tarefa com o seguinte combinado de especificações para obter o máximo IOPS de escrita e leitura. Nomeie-o "fioreadwrite.ini".
+Crie o ficheiro de trabalho com as seguintes especificações para obter o máximo combinado Ler e Escrever IOPS. Nomeie-o "fioreadwrite.ini".
 
 ```ini
 [global]
@@ -239,21 +239,21 @@ directory=/mnt/nocache
 rate_iops=12500
 ```
 
-Tenha em atenção as siga principais informações que estão de acordo com as diretrizes de design abordadas nas secções anteriores. Nestas especificações são essenciais para orientar o IOPS máximo,
+Note as seguintes coisas-chave que estão em consonância com as diretrizes de design discutidas em secções anteriores. Estas especificações são essenciais para impulsionar o máximo de IOPS,
 
-* Uma profundidade de fila de alta de 128.  
-* Um tamanho de pequeno bloco de 4 KB.  
-* Leituras e escritas de vários threads que executam aleatório.
+* Uma alta profundidade de fila de 128.  
+* Um pequeno bloco de 4 KB.  
+* Vários fios executando leituras aleatórias e escritos.
 
-Execute o seguinte comando para iniciar o teste FIO durante 30 segundos,
+Executar o seguinte comando para iniciar o teste FIO por 30 segundos,
 
 ```
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-Enquanto executa o teste, pode ver o número de leitura combinado e IOPS de escrita da VM e fornecendo os discos Premium. Conforme mostrado no exemplo abaixo, a VM DS14 está a fornecer mais de 100 000 leitura combinado e IOPS de escrita. Esta é uma combinação de disco e o desempenho da cache.  
-    ![Combinado de leitura e de IOPS de escrita](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+Enquanto o teste corre, você é capaz de ver o número de combinados ler e escrever IOPS que os discos VM e Premium estão entregando. Como mostra a amostra abaixo, o DS14 VM está a entregar mais de 100.000 IOPS combinados de leitura e escrita. Esta é uma combinação do disco e do desempenho da cache.  
+    ![Leia e escreva IOPS combinado](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
-#### <a name="maximum-combined-throughput"></a>Débito máximo de combinada
+#### <a name="maximum-combined-throughput"></a>O máximo de entrada combinada
 
-Para obter o máximo combinado de leitura e escrita a taxa de transferência, utilize um tamanho de bloco maior e a profundidade de fila grandes com vários threads, execução de leituras e gravações. Pode utilizar um tamanho de bloco de 64 KB e a profundidade de fila de 128.
+Para obter o máximo combinado Ler e Escrever A Utilização, utilize um tamanho de bloco maior e uma grande profundidade de fila com vários fios que executam leituras e escritos. Pode utilizar um bloco de 64 KB e uma profundidade de fila de 128.

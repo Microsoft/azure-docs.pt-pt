@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255581"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migrar MongoDB para API da Azure Cosmos DB para MongoDB offline usando DMS
@@ -26,7 +26,7 @@ Pode utilizar o Serviço de Migração de Bases de Dados Azure para realizar uma
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -199,7 +199,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     A janela da atividade migratória aparece, e o **Estado** da atividade não é **iniciado**.
 
-    ![Estado de atividade](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
+    ![Estado da atividade](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402936"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Crie uma tabela de rota virtual wan hub para NVAs: Portal Azure
@@ -40,11 +40,11 @@ Verifique se preencheu os seguintes critérios:
 
     * Os VNets não requerem uma sub-rede de gateway.
 
-## <a name="signin"></a>1. Iniciar sessão
+## <a name="1-sign-in"></a><a name="signin"></a>1. Iniciar sessão
 
 Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
-## <a name="vwan"></a>2. Criar um WAN virtual
+## <a name="2-create-a-virtual-wan"></a><a name="vwan"></a>2. Criar um WAN virtual
 
 Crie um WAN virtual. Utilize os seguintes valores exemplo:
 
@@ -54,7 +54,7 @@ Crie um WAN virtual. Utilize os seguintes valores exemplo:
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. Criar um hub
+## <a name="3-create-a-hub"></a><a name="hub"></a>3. Criar um hub
 
 Crie o centro. Utilize os seguintes valores exemplo:
 
@@ -64,7 +64,7 @@ Crie o centro. Utilize os seguintes valores exemplo:
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. Criar e aplicar uma tabela de rota de hub
+## <a name="4-create-and-apply-a-hub-route-table"></a><a name="route"></a>4. Criar e aplicar uma tabela de rota de hub
 
 Atualize o hub com uma mesa de rota do hub. Utilize os seguintes valores exemplo:
 
@@ -73,18 +73,18 @@ Atualize o hub com uma mesa de rota do hub. Utilize os seguintes valores exemplo
 
 1. Navegue para o seu WAN virtual.
 2. Clique no centro para o qual pretende criar uma tabela de rotas.
-3. Clique no **...** , e, em seguida, clique em **Editar o centro virtual**.
+3. Clique no **...**, e, em seguida, clique em **Editar o centro virtual**.
 4. Na página do **hub virtual Editar,** desloque-se e selecione a tabela de utilização da caixa de verificação **para o encaminhamento**.
 5. No **prefixo de destino Se for** coluna, adicione os espaços de endereço. Na coluna Enviar para a próxima coluna **de lúpulo,** adicione o endereço IP privado da interface de rede DMZ NVA.
 6. Clique **em Confirmar** para atualizar o recurso do hub com as definições da tabela de rotas.
 
-## <a name="connections"></a>5. Criar as ligações VNet
+## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. Criar as ligações VNet
 
 Crie uma ligação de rede virtual de cada VNet de voz indireta (VNet1 e VNet2) ao centro. Estas ligações de rede virtuais são representadas pelas setas azuis na figura acima. Em seguida, crie uma ligação VNet do VNet NVA para o centro (seta preta na figura).
 
  Para este passo, pode utilizar os seguintes valores:
 
-| Nome de rede virtual| Nome da ligação|
+| Nome da rede virtual| Nome da ligação|
 | --- | --- |
 | VNet1 | testconnection1 |
 | VNet2 | testconnection2 |

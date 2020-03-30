@@ -9,21 +9,21 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184494"
 ---
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framework)** .
+No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Adicionar o pacote NuGet de Reencaminhamento
 
 1. Clique com o botão direito do rato no projeto recém-criado e, em seguida, selecione **Gerir Pacotes NuGet**.
 2. Selecione a opção **Incluir pré-lançamento**. 
-3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**.
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Microsoft Azure Relay**.
 4. Para a versão, selecione **2.0.0-preview1-20180523**. 
 5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 

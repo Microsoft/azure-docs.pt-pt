@@ -1,27 +1,27 @@
 ---
-title: Parametrizar arquivos de configuração no Azure Service Fabric
-description: Saiba como parametrizar arquivos de configuração no Service Fabric, uma técnica útil ao gerenciar vários ambientes.
+title: Parametrize ficheiros de config em Tecido de Serviço Azure
+description: Aprenda a parametrizar ficheiros de configuração no Tecido de Serviço, uma técnica útil na gestão de múltiplos ambientes.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644635"
 ---
-# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar arquivos de configuração no Service Fabric
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar ficheiros de configuração no Tecido de Serviço
 
-Este artigo mostra como Parametrizar um arquivo de configuração no Service Fabric.  Se você ainda não estiver familiarizado com os principais conceitos de gerenciamento de aplicativos para vários ambientes, leia [gerenciar aplicativos para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
+Este artigo mostra-lhe como parametrizar um ficheiro de configuração no Tecido de Serviço.  Se ainda não está familiarizado com os conceitos fundamentais de gestão de aplicações para vários ambientes, leia [Gerir aplicações para vários ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
 
-## <a name="procedure-for-parameterizing-configuration-files"></a>Procedimento para parametrizar arquivos de configuração
+## <a name="procedure-for-parameterizing-configuration-files"></a>Procedimento para parametrizar ficheiros de configuração
 
-Neste exemplo, você substitui um valor de configuração usando parâmetros em sua implantação de aplicativo.
+Neste exemplo, sobrepõe-se a um valor de configuração utilizando parâmetros na implementação da sua aplicação.
 
-1. Abra o arquivo *\<MyService > \PackageRoot\Config\Settings.xml* em seu projeto de serviço.
-1. Defina um nome de parâmetro de configuração e um valor, por exemplo, o tamanho do cache igual a 25, adicionando o seguinte XML:
+1. Abra o * \<ficheiro MyService>\PackageRoot\Config\Settings.xml* no seu projeto de serviço.
+1. Defina um nome e valor de parâmetro de configuração, por exemplo, o tamanho da cache igual a 25, adicionando o seguinte XML:
 
    ```xml
     <Section Name="MyConfigSection">
@@ -30,15 +30,15 @@ Neste exemplo, você substitui um valor de configuração usando parâmetros em 
    ```
 
 1. Guarde e feche o ficheiro.
-1. Abra o arquivo *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* .
-1. No arquivo ApplicationManifest. xml, declare um parâmetro e um valor padrão no elemento `Parameters`.  É recomendável que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
+1. Abra o * \<ficheiro MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml.*
+1. No ficheiro ApplicationManifest.xml, declare um parâmetro e `Parameters` valor predefinido no elemento.  Recomenda-se que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
 
    ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. Na seção `ServiceManifestImport` do arquivo ApplicationManifest. xml, adicione um `ConfigOverrides` e `ConfigOverride` elemento, referenciando o pacote de configuração, a seção e o parâmetro.
+1. Na `ServiceManifestImport` secção do ficheiro ApplicationManifest.xml, `ConfigOverrides` `ConfigOverride` adicione um elemento e um elemento, fazendo referência ao pacote de configuração, à secção e ao parâmetro.
 
    ```xml
     <ConfigOverrides>
@@ -53,9 +53,9 @@ Neste exemplo, você substitui um valor de configuração usando parâmetros em 
    ```
 
 > [!NOTE]
-> No caso em que você adiciona um ConfigOverride, Service Fabric sempre escolhe os parâmetros do aplicativo ou o valor padrão especificado no manifesto do aplicativo.
+> No caso de adicionar um ConfigOverride, o Tecido de Serviço escolhe sempre os parâmetros da aplicação ou o valor predefinido especificado no manifesto de aplicação.
 >
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter informações sobre outros recursos de gerenciamento de aplicativo que estão disponíveis no Visual Studio, consulte [gerenciar seus aplicativos de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Estúdio Visual, consulte [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md).

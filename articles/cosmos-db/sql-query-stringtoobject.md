@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296386"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -34,7 +34,7 @@ StringToObject(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como `StringToObject` se comporta em diferentes tipos. 
+  O exemplo que `StringToObject` se segue mostra como se comporta em diferentes tipos. 
   
  Seguem-se exemplos com entrada válida.
 
@@ -56,7 +56,7 @@ Aqui está o conjunto de resultados.
 ```
 
  Seguem-se exemplos com entrada inválida.
-Mesmo que sejam válidos dentro de uma consulta, não irão analisar objetos válidos. As cordas dentro da cadeia do objeto devem ser escapadas "{\\"um\\":\\"str\\"}" ou a citação circundante deve ser única '{'a': "str"}'.
+Mesmo que sejam válidos dentro de uma consulta, não irão analisar objetos válidos. As cordas dentro da cadeia do objeto\\devem\\ser\\escapadas\\"{ "a "str"} ou a citação circundante deve ser única '{'a': "str"}".
 
 As cotações únicas em torno dos nomes de propriedade não são válidas JSON.
 

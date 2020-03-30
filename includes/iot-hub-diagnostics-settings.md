@@ -9,53 +9,53 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75750704"
 ---
-### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar log com configurações de diagnóstico
+### <a name="enable-logging-with-diagnostics-settings"></a>Ativar o registo com definições de diagnóstico
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 
-2. Selecione **configurações de diagnóstico**.
+2. Selecione **definições de Diagnóstico**.
 
-3. Selecione **ativar os diagnósticos**.
+3. Selecione **Ligar os diagnósticos**.
 
    ![Ativar os diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
-4. Dê um nome às configurações de diagnóstico.
+4. Dê um nome às definições de diagnóstico.
 
-5. Escolha onde você deseja enviar os logs. Você pode selecionar qualquer combinação das três opções:
+5. Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
 
    * Arquivar numa conta de armazenamento
    * Transmitir em fluxo para um hub de eventos
    * Enviar para o Log Analytics
 
-6. Escolha quais operações você deseja monitorar e habilite os logs para essas operações. As operações nas quais as configurações de diagnóstico podem ser relatadas são:
+6. Escolha quais as operações que pretende monitorizar e ativar registos para essas operações. As operações que as definições de diagnóstico podem reportar são:
 
    * Ligações
    * Telemetria do dispositivo
-   * Mensagens da cloud para dispositivo
+   * Mensagens cloud-to-device
    * Operações de identidade do dispositivo
-   * Carrega o ficheiro
+   * Uploads de ficheiros
    * Encaminhamento de mensagens
-   * Operações de entrelaçamento da nuvem para o dispositivo
-   * Operações de entrelaçamento do dispositivo para a nuvem
-   * Operações de entrelaçamento
+   * Operações duplas cloud-to-device
+   * Operações gémeas dispositivo-nuvem
+   * Operações gémeas
    * Operações de trabalho
    * Métodos diretos  
-   * Rastreamento distribuído (visualização)
+   * Rastreio distribuído (pré-visualização)
    * Configurações
-   * Fluxos de dispositivo
+   * Fluxos de dispositivos
    * Métricas do dispositivo
 
-6. Salve as novas configurações. 
+6. Guarde as novas definições. 
 
-Se você quiser ativar as configurações de diagnóstico com o PowerShell, use o seguinte código:
+Se pretender ligar as definições de diagnóstico com o PowerShell, utilize o seguinte código:
 
 ```azurepowershell
 Connect-AzAccount
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os logs aparecem no destino de arquivamento configurado na folha **configurações de diagnóstico** . Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md).
+As novas definições têm efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado na lâmina de definições de **Diagnóstico.** Para obter mais informações sobre a configuração de diagnósticos, consulte [Recolher e consumir dados de registo dos seus recursos azure](../articles/azure-monitor/platform/platform-logs-overview.md).

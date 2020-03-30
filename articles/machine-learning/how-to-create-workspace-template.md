@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402920"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -292,7 +292,7 @@ Para mais informações, consulte [Implementar recursos a partir de modelo perso
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Este exemplo pressupõe que guardou o modelo para um ficheiro chamado `azuredeploy.json` no diretório atual:
+Este exemplo pressupõe que guardou o `azuredeploy.json` modelo para um ficheiro nomeado no diretório atual:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -305,7 +305,7 @@ Para mais informações, consulte [a implantação de recursos com modelos de Ge
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Este exemplo pressupõe que guardou o modelo para um ficheiro chamado `azuredeploy.json` no diretório atual:
+Este exemplo pressupõe que guardou o `azuredeploy.json` modelo para um ficheiro nomeado no diretório atual:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -334,13 +334,13 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
 
 * Não desloque o modelo mais de uma vez para os mesmos parâmetros. Ou eliminar os recursos existentes antes de usar o modelo para recriá-los.
 
-* Examine as políticas de acesso ao Cofre Chave e, em seguida, use estas políticas para definir a propriedade `accessPolicies` do modelo. Para visualizar as políticas de acesso, utilize o seguinte comando Azure CLI:
+* Examine as políticas de acesso ao Cofre `accessPolicies` Chave e, em seguida, use estas políticas para definir a propriedade do modelo. Para visualizar as políticas de acesso, utilize o seguinte comando Azure CLI:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para obter mais informações sobre a utilização da secção `accessPolicies` do modelo, consulte a referência do [objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para obter mais `accessPolicies` informações sobre a utilização da secção do modelo, consulte a referência do [objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Verifique se o recurso Key Vault já existe. Se o fizer, não o recrie através do modelo. Por exemplo, para utilizar o Cofre chave existente em vez de criar um novo, faça as seguintes alterações no modelo:
 
@@ -375,7 +375,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
         },
         ```
 
-    * **Retire** a linha `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` da secção `dependsOn` do espaço de trabalho. **Altere** também a entrada `keyVault` na secção `properties` do espaço de trabalho para fazer referência ao parâmetro `keyVaultId`:
+    * **Retire** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` a linha `dependsOn` da secção do espaço de trabalho. **Altere** `keyVault` também a `properties` entrada na secção do `keyVaultId` espaço de trabalho para fazer referência ao parâmetro:
 
         ```json
         {
@@ -403,7 +403,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
         }
         ```
 
-    Após estas alterações, pode especificar a identificação do recurso Key Vault existente ao executar o modelo. O modelo irá então reutilizar o Cofre chave, definindo a propriedade `keyVault` do espaço de trabalho para o seu ID.
+    Após estas alterações, pode especificar a identificação do recurso Key Vault existente ao executar o modelo. O modelo irá então reutilizar `keyVault` o Cofre chave, definindo a propriedade do espaço de trabalho para o seu ID.
 
     Para obter a identificação do Cofre chave, pode fazer referência à saída do modelo original executar ou utilizar o Azure CLI. O seguinte comando é um exemplo de utilização do CLI Azure para obter o ID de recurso key vault:
 

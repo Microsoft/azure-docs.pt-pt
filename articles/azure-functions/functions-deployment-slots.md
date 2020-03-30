@@ -1,188 +1,188 @@
 ---
-title: Azure Functions slots de implantação
-description: Aprenda a criar e usar slots de implantação com Azure Functions
+title: Ranhuras de implantação de funções azure
+description: Aprenda a criar e utilizar ranhuras de implantação com funções Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769222"
 ---
-# <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
+# <a name="azure-functions-deployment-slots"></a>Ranhuras de implantação de funções azure
 
-Azure Functions slots de implantação permitem que seu aplicativo de funções execute diferentes instâncias chamadas "Slots". Os slots são ambientes diferentes expostos por meio de um ponto de extremidade disponível publicamente. Uma instância de aplicativo sempre é mapeada para o slot de produção e você pode trocar instâncias atribuídas a um slot sob demanda. Os aplicativos de funções em execução no plano de serviço de aplicativos podem ter vários slots, enquanto no plano de consumo apenas um slot é permitido.
+As ranhuras de implementação das Funções Azure permitem que a sua aplicação de funções execute diferentes instâncias chamadas "slots". As ranhuras são diferentes ambientes expostos através de um ponto final disponível publicamente. Uma instância de aplicação está sempre mapeada para a ranhura de produção, e você pode trocar instâncias atribuídas a uma ranhura a pedido. As aplicações de função que executam o plano de Serviço de Apps podem ter várias faixas horárias, enquanto no âmbito do plano de Consumo apenas é permitida uma ranhura.
 
-O seguinte reflete como as funções são afetadas por slots de permuta:
+Os seguintes refletem a forma como as funções são afetadas pela troca de faixas horárias:
 
-- O redirecionamento de tráfego é contínuo; nenhuma solicitação foi descartada devido a uma troca.
-- Se uma função estiver em execução durante uma permuta, a execução continuará e os gatilhos subsequentes serão roteados para a instância do aplicativo trocado.
+- A reorientação do tráfego é perfeita; nenhum pedido é retirado por causa de uma troca.
+- Se uma função estiver em execução durante uma troca, a execução continua e os gatilhos subsequentes são encaminhados para a instância de aplicação trocada.
 
 > [!NOTE]
-> No momento, os slots não estão disponíveis para o plano de consumo do Linux.
+> Não estão atualmente disponíveis slots para o plano de consumo linux.
 
-## <a name="why-use-slots"></a>Por que usar Slots?
+## <a name="why-use-slots"></a>Por que usar slots?
 
-Há várias vantagens em usar slots de implantação. Os cenários a seguir descrevem usos comuns para Slots:
+Há uma série de vantagens em usar ranhuras de implantação. Os seguintes cenários descrevem utilizações comuns para slots:
 
-- **Ambientes diferentes para finalidades diferentes**: usar Slots diferentes oferece a oportunidade de diferenciar instâncias de aplicativo antes de alternar para a produção ou para um slot de preparo.
-- **Preaquecimento**: a implantação em um slot em vez de diretamente na produção permite que o aplicativo fique quente antes de entrar no ar. Além disso, o uso de Slots reduz a latência para cargas de trabalho disparadas por HTTP. As instâncias são ativadas antes da implantação, o que reduz a inicialização a frio para funções implantadas recentemente.
-- **Fallbacks fáceis**: após uma troca com produção, o slot com um aplicativo previamente preparado agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem as esperadas, você poderá reverter a troca imediatamente para obter a "última instância boa conhecida" de volta.
+- **Ambientes diferentes para diferentes fins**: A utilização de diferentes slots dá-lhe a oportunidade de diferenciar as instâncias das aplicações antes de trocar para produção ou uma ranhura de encenação.
+- **Pré-aquecimento**: A implantação para uma ranhura em vez de diretamente para a produção permite que a app aqueça antes de entrar em direto. Além disso, a utilização de faixas horárias reduz a latência para cargas de trabalho desencadeadas por HTTP. As instâncias são aquecidas antes da implantação, o que reduz o arranque a frio para funções recém-implantadas.
+- **Recuos fáceis**: Depois de uma troca com a produção, a ranhura com uma aplicação previamente encenada tem agora a app de produção anterior. Se as alterações trocadas na ranhura de produção não forem como espera, pode imediatamente inverter a troca para recuperar a sua "última boa instância conhecida".
 
-## <a name="swap-operations"></a>Operações de permuta
+## <a name="swap-operations"></a>Operações de troca
 
-Durante uma troca, um slot é considerado a origem e o outro destino. O slot de origem tem a instância do aplicativo que é aplicada ao slot de destino. As etapas a seguir garantem que o slot de destino não experimente tempo de inatividade durante uma troca:
+Durante uma troca, uma ranhura é considerada a fonte e a outra o alvo. A ranhura de origem tem a instância da aplicação que é aplicada à ranhura-alvo. Os seguintes passos garantem que a ranhura-alvo não experimenta tempo de inatividade durante uma troca:
 
-1. **Aplicar configurações:** As configurações do slot de destino são aplicadas a todas as instâncias do slot de origem. Por exemplo, as configurações de produção são aplicadas à instância de preparo. As configurações aplicadas incluem as seguintes categorias:
-    - Configurações do aplicativo e cadeias [de conexão específicas do slot](#manage-settings) (se aplicável)
-    - Configurações de [implantação contínua](../app-service/deploy-continuous-deployment.md) (se habilitada)
-    - Configurações de [autenticação do serviço de aplicativo](../app-service/overview-authentication-authorization.md) (se habilitado)
+1. **Aplicar as definições:** As definições da ranhura-alvo são aplicadas em todas as instâncias da ranhura de origem. Por exemplo, as definições de produção são aplicadas na instância de encenação. As definições aplicadas incluem as seguintes categorias:
+    - Definições de aplicativos [específicos para slot](#manage-settings) e cordas de ligação (se aplicável)
+    - Definições [de implementação contínuas](../app-service/deploy-continuous-deployment.md) (se ativadas)
+    - [Definições de autenticação do Serviço de Aplicações](../app-service/overview-authentication-authorization.md) (se ativadas)
 
-1. **Aguarde as reinicializações e a disponibilidade:** A permuta espera que cada instância no slot de origem conclua sua reinicialização e esteja disponível para solicitações. Se alguma instância não for reiniciada, a operação de permuta reverterá todas as alterações no slot de origem e interromperá a operação.
+1. **Aguarde o reinício e disponibilidade:** A permuta aguarda que cada instância na ranhura de origem complete o seu reinício e esteja disponível para pedidos. Se alguma instância não reiniciar, a operação de permuta reverte todas as alterações à ranhura de origem e para a operação.
 
-1. **Roteamento de atualização:** Se todas as instâncias no slot de origem forem ativadas com êxito, os dois slots concluirão a permuta alternando as regras de roteamento. Após essa etapa, o slot de destino (por exemplo, o slot de produção) tem o aplicativo que foi anteriormente ativado no slot de origem.
+1. **Atualização de encaminhamento:** Se todas as instâncias na ranhura de origem forem aquecidas com sucesso, as duas ranhuras completam a permuta trocando as regras de encaminhamento. Após este passo, a ranhura-alvo (por exemplo, a ranhura de produção) tem a app que já foi aquecida na ranhura de origem.
 
-1. **Repetir operação:** Agora que o slot de origem tem o aplicativo de pré-permuta anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias do slot de origem.
+1. **Operação de repetição:** Agora que a ranhura de origem tem a aplicação de pré-permuta anteriormente na ranhura-alvo, execute a mesma operação aplicando todas as definições e reiniciando as instâncias para a ranhura de origem.
 
 Tenha em consideração os seguintes pontos:
 
-- Em qualquer ponto da operação de permuta, a inicialização dos aplicativos trocados ocorre no slot de origem. O slot de destino permanece online enquanto o slot de origem está sendo preparado, se a troca é bem-sucedida ou falha.
+- Em qualquer ponto da operação de permuta, a inicialização das aplicações trocadas ocorre na ranhura de origem. A ranhura-alvo permanece on-line enquanto a ranhura de origem está a ser preparada, quer a permuta tenha sucesso ou falhe.
 
-- Para trocar um slot de preparo pelo slot de produção, verifique se o slot de produção é *sempre* o slot de destino. Dessa forma, a operação de permuta não afeta seu aplicativo de produção.
+- Para trocar uma ranhura de preparação com a ranhura de produção, certifique-se de que a ranhura de produção é *sempre* a ranhura-alvo. Desta forma, a operação de swap não afeta a sua aplicação de produção.
 
-- As configurações relacionadas a origens e associações de eventos precisam ser definidas como [configurações de slot de implantação](#manage-settings) *antes de iniciar uma troca*. Marcá-los como "adesivos" antecipadamente garante que os eventos e as saídas sejam direcionados para a instância apropriada.
+- As definições relacionadas com fontes de eventos e encadernações devem ser configuradas como definições de [ranhurade implementação](#manage-settings) *antes de iniciar uma troca*. A marcação como "pegajosa" antes do tempo garante que os eventos e saídas são direcionados para a instância adequada.
 
 ## <a name="manage-settings"></a>Gerir definições
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-### <a name="create-a-deployment-setting"></a>Criar uma configuração de implantação
+### <a name="create-a-deployment-setting"></a>Criar uma definição de implementação
 
-Você pode marcar configurações como uma configuração de implantação que o torna "adesivo". Uma configuração adesiva não alterna com a instância do aplicativo.
+Pode marcar as definições como uma definição de implementação que o torna "pegajoso". Uma definição pegajosa não se troca com a instância da aplicação.
 
-Se você criar uma configuração de implantação em um slot, certifique-se de criar a mesma configuração com um valor exclusivo em qualquer outro slot envolvido em uma troca. Dessa forma, embora o valor de uma configuração não mude, os nomes de configuração permanecem consistentes entre os slots. Essa consistência de nome garante que seu código não tente acessar uma configuração definida em um slot, mas não em outra.
+Se criar uma definição de implementação numa ranhura, certifique-se de criar a mesma definição com um valor único em qualquer outra ranhura envolvida numa troca. Desta forma, embora o valor de uma definição não mude, os nomes de definição permanecem consistentes entre as ranhuras. Esta consistência de nome garante que o seu código não tenta aceder a uma definição definida numa ranhura, mas não noutra.
 
-Use as seguintes etapas para criar uma configuração de implantação:
+Utilize os seguintes passos para criar uma definição de implantação:
 
-- Navegue até os *Slots* no aplicativo de funções
-- Clique no nome do slot
-- Em *recursos da plataforma > configurações gerais*, clique em **configuração**
-- Clique no nome da configuração que você deseja colocar com o slot atual
-- Clique na caixa de seleção **configuração do slot de implantação**
-- Clique em **OK**
-- Após a definição da folha desaparecer, clique em **salvar** para manter as alterações
+- Navegue para *Slots* na aplicação de função
+- Clique no nome da ranhura
+- Nas *funcionalidades da plataforma > Configurações Gerais,* clique na **Configuração**
+- Clique no nome de definição que pretende manter com a ranhura atual
+- Clique na caixa de verificação de definição de **ranhuras de implementação**
+- Clique **OK**
+- Uma vez que a definição da lâmina desapareça, clique **em Guardar** para manter as alterações
 
-![Configuração do slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+![Definição de ranhura de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
 
 ## <a name="deployment"></a>Implementação
 
-Os slots ficam vazios quando você cria um slot. Você pode usar qualquer uma das [tecnologias de implantação com suporte](./functions-deployment-technologies.md) para implantar seu aplicativo em um slot.
+As ranhuras estão vazias quando se cria uma ranhura. Pode utilizar qualquer uma das tecnologias de [implementação suportadas](./functions-deployment-technologies.md) para implementar a sua aplicação numa ranhura.
 
 ## <a name="scaling"></a>Dimensionamento
 
-Todos os slots são dimensionados para o mesmo número de trabalhadores que o slot de produção.
+Todas as faixas horárias são dimensionadas para o mesmo número de trabalhadores que a ranhura de produção.
 
-- Para planos de consumo, o slot é dimensionado conforme o aplicativo de funções é dimensionado.
-- Para planos do serviço de aplicativo, o aplicativo é dimensionado para um número fixo de trabalhadores. Os slots são executados no mesmo número de trabalhadores que o plano do aplicativo.
+- Para os planos de consumo, a ranhura escala à medida que a aplicação de função escala.
+- Para os planos do Serviço de Aplicações, a aplicação dimensiona para um número fixo de trabalhadores. As faixas horárias funcionam no mesmo número de trabalhadores que o plano de aplicações.
 
 ## <a name="add-a-slot"></a>Adicionar um bloco
 
-Você pode adicionar um slot por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou por meio do Portal. As etapas a seguir demonstram como criar um novo slot no Portal:
+Pode adicionar uma ranhura através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou através do portal. Os seguintes passos demonstram como criar uma nova ranhura no portal:
 
-1. Navegue até seu aplicativo de funções e clique no **sinal de adição** ao lado de *Slots*.
+1. Navegue para a sua aplicação de função e clique no **sinal de mais** ao lado de *Slots*.
 
-    ![Adicionar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+    ![Adicionar ranhura de implantação de funções Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
 
-1. Insira um nome na caixa de texto e pressione o botão **criar** .
+1. Introduza um nome na caixa de texto e prima o botão **Criar.**
 
-    ![Nome Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+    ![Slot de implantação de funções azure de nome](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
 
-## <a name="swap-slots"></a>Slots de permuta
+## <a name="swap-slots"></a>Trocar vagas
 
-Você pode trocar os slots por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou por meio do Portal. As etapas a seguir demonstram como trocar slots no Portal:
+Pode trocar slots através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou através do portal. Os seguintes passos demonstram como trocar faixas horárias no portal:
 
-1. Navegue até o aplicativo de funções
-1. Clique no nome do slot de origem que você deseja alternar
-1. Na guia *visão geral* , clique no botão **alternar** ![slot de implantação de Azure Functions de permuta](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifique os parâmetros de configuração para sua permuta e clique em **trocar** ![trocar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Navegue para a aplicação de funções
+1. Clique no nome da ranhura de origem que pretende trocar
+1. A partir do separador *'Visão Geral',* clique na ranhura de implementação do botão ![ **Swap** Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Verifique as definições de configuração para o seu swap e clique em swap de funções de **swap** ![azure](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
-A operação pode demorar um pouco enquanto a operação de permuta está em execução.
+A operação pode demorar um momento enquanto a operação de troca está a ser executada.
 
-## <a name="roll-back-a-swap"></a>Reverter uma permuta
+## <a name="roll-back-a-swap"></a>Recue uma troca
 
-Se uma troca resultar em um erro ou se você simplesmente quiser "desfazer" uma troca, poderá reverter para o estado inicial. Para retornar ao estado de pré-atualização, faça outra troca para reverter a troca.
+Se uma troca resultar num erro ou se simplesmente quiser "desfazer" uma troca, pode voltar ao estado inicial. Para voltar ao estado pré-trocado, faça outra troca para inverter a troca.
 
-## <a name="remove-a-slot"></a>Remover um slot
+## <a name="remove-a-slot"></a>Remova uma ranhura
 
-Você pode remover um slot por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou por meio do Portal. As etapas a seguir demonstram como remover um slot no Portal:
+Pode remover uma ranhura através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou através do portal. Os seguintes passos demonstram como remover uma ranhura no portal:
 
-1. Navegue até o aplicativo de funções visão geral
+1. Navegue para a visão geral da aplicação de funções
 
-1. Clique no botão **excluir**
+1. Clique no botão **Eliminar**
 
-    ![Adicionar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+    ![Adicionar ranhura de implantação de funções Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
 
-## <a name="automate-slot-management"></a>Automatizar o gerenciamento de Slots
+## <a name="automate-slot-management"></a>Gestão de slot automatizada
 
-Usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), você pode automatizar as seguintes ações para um slot:
+Utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)pode automatizar as seguintes ações para uma ranhura:
 
 - [criar](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [eliminar](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
+- [excluir](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [permuta](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [troca automática](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [troca](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Alterar plano do Serviço de Aplicações
+## <a name="change-app-service-plan"></a>Alterar plano de serviço de aplicações
 
-Com um aplicativo de funções que está sendo executado em um plano do serviço de aplicativo, você tem a opção de alterar o plano do serviço de aplicativo subjacente para um slot.
+Com uma aplicação de função que está a ser realizada ao abrigo de um plano de Serviço de Aplicações, tem a opção de alterar o plano de Serviço de Aplicações subjacente para uma ranhura.
 
 > [!NOTE]
-> Não é possível alterar o plano do serviço de aplicativo de um slot no plano de consumo.
+> Não pode alterar o plano de serviço de aplicações de uma ranhura no âmbito do plano de consumo.
 
-Use as etapas a seguir para alterar o plano do serviço de aplicativo de um slot:
+Utilize os seguintes passos para alterar o plano de serviço de aplicações de uma ranhura:
 
-1. Navegar até um slot
+1. Navegue para uma ranhura
 
-1. Em *recursos da plataforma*, clique em **todas as configurações**
+1. Nas *funcionalidades da plataforma,* clique em **todas as definições**
 
-    ![Alterar plano do serviço de aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+    ![Alterar plano de serviço de aplicativos](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
 
-1. Clique no **plano do serviço de aplicativo**
+1. Clique no plano de serviço de **aplicações**
 
-1. Selecione um novo plano do serviço de aplicativo ou crie um novo plano
+1. Selecione um novo plano de Serviço de Aplicações ou crie um novo plano
 
-1. Clique em **OK**
+1. Clique **OK**
 
-    ![Alterar plano do serviço de aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
+    ![Alterar plano de serviço de aplicativos](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
 
 ## <a name="limitations"></a>Limitações
 
-Azure Functions slots de implantação têm as seguintes limitações:
+As ranhuras de implantação das Funções Azure têm as seguintes limitações:
 
-- O número de slots disponíveis para um aplicativo depende do plano. O plano de consumo só é permitido para um slot de implantação. Slots adicionais estão disponíveis para aplicativos em execução no plano do serviço de aplicativo.
-- A troca de um slot redefine chaves para aplicativos que têm uma configuração de aplicativo `AzureWebJobsSecretStorageType` igual a `files`.
-- Os slots não estão disponíveis para o plano de consumo do Linux.
+- O número de vagas disponíveis para uma aplicação depende do plano. O plano de consumo só é permitido uma vaga de implantação. Estão disponíveis slots adicionais para aplicações que executam o plano de Serviço de Aplicações.
+- Trocar uma ranhura repõe as teclas `AzureWebJobsSecretStorageType` para apps `files`que tenham uma definição de aplicação igual a .
+- Não estão disponíveis slots para o plano de consumo linux.
 
-## <a name="support-levels"></a>Níveis de suporte
+## <a name="support-levels"></a>Níveis de apoio
 
-Há dois níveis de suporte para slots de implantação:
+Existem dois níveis de suporte para as faixas horárias de implantação:
 
-- **Disponibilidade geral (GA)** : suporte completo e aprovado para uso em produção.
-- Versão **prévia**: ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
+- **Disponibilidade geral (GA)**: Totalmente suportado e aprovado para utilização da produção.
+- **Pré-visualização**: Ainda não suportado, mas espera-se que atinja o estatuto de GA no futuro.
 
-| Sistema operacional/plano de hospedagem           | Nível de suporte     |
+| Plano de Alojamento/HOSPEDEIRO           | Nível de apoio     |
 | ------------------------- | -------------------- |
-| Consumo do Windows       | Disponibilidade geral |
+| Consumo de janelas       | Disponibilidade geral |
 | Windows Premium           | Disponibilidade geral  |
-| Windows dedicado         | Disponibilidade geral |
-| Consumo do Linux         | Não suportado          |
-| Linux Premium             | Disponibilidade geral  |
-| Linux dedicado           | Disponibilidade geral |
+| Windows Dedicado         | Disponibilidade geral |
+| Consumo de Linux         | Não suportado          |
+| Prémio Linux             | Disponibilidade geral  |
+| Linux Dedicado           | Disponibilidade geral |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tecnologias de implantação no Azure Functions](./functions-deployment-technologies.md)
+- [Tecnologias de implantação em Funções Azure](./functions-deployment-technologies.md)

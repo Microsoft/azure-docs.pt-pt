@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184719"
 ---
-1. [Ligar a interface do PowerShell](#connect-to-the-powershell-interface).
-2. Utilize o `Get-HcsApplianceInfo` para obter as informações para o seu dispositivo.
+1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
+2. Use `Get-HcsApplianceInfo` o para obter a informação para o seu dispositivo.
 
-    O exemplo seguinte mostra a utilização deste cmdlet:
+    O exemplo que se segue mostra a utilização deste cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "67184719"
     IsRegistered                  : False
     ```
 
-    Esta é uma tabela que resume algumas das informações do dispositivo importantes:
+    Aqui está uma tabela resumindo algumas das informações importantes do dispositivo:
     
     | Parâmetro                             | Descrição                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | O nome amigável do dispositivo, conforme configurado através da web local da interface do Usuário durante a implementação do dispositivo. O nome amigável do padrão é o número de série do dispositivo.  |   |
-    | serialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |   |
-    | Modelo                          | O modelo para o seu dispositivo Edge de caixa de dados ou dados de caixa de Gateway. O modelo é virtual para o Gateway de caixa de dados e físicas para o Edge de caixa de dados.                   |   |
-    | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão de software do dispositivo. Para um sistema em execução pré-visualização, a versão do software amigável seria 1902 de borda de caixa de dados. |   |
-    | HcsVersion                     | A versão de software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondentes aos dados de caixa de borda 1902 é 1.4.771.324.            |   |
-    | LocalCapacityInMb              | Capacidade total local do dispositivo em Megabits.                                                                                                        |   |
-    | IsRegistered                   | Este valor indica se o dispositivo é ativado com o serviço.                                                                                         |   |
+    | FriendlyName                   | O nome amigável do dispositivo, tal como configurado através da UI web local durante a implementação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
+    | SerialNumber                   | O número de série do dispositivo é um número único atribuído na fábrica.                                                                             |   |
+    | Modelo                          | O modelo para o seu dispositivo Data Box Edge ou Data Box Gateway. O modelo é virtual para Data Box Gateway e físico para Data Box Edge.                   |   |
+    | Versão amigável do software        | A corda amigável que corresponde à versão do software do dispositivo. Para uma pré-visualização de sistema, a versão amigável do software seria Data Box Edge 1902. |   |
+    | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão de software HCS correspondente ao Data Box Edge 1902 é de 1.4.771.324.            |   |
+    | Capacidade localInMb              | A capacidade local total do dispositivo em Megabits.                                                                                                        |   |
+    | Está Registado                   | Este valor indica se o seu dispositivo está ativado com o serviço.                                                                                         |   |
 
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184334"
 ---
 #### <a name="to-create-a-manual-backup"></a>Para criar uma cópia de segurança manual
@@ -21,7 +21,7 @@ ms.locfileid: "67184334"
 
 3. No painel **Criar cópia de segurança agora**, efetue os seguintes passos:
 
-    1. Escolha o adequado **tipo de instantâneo** na lista pendente: **Local** instantâneo ou **Cloud** instantâneo. Selecione o instantâneo local para cópias de segurança rápidas ou restauros e instantâneos de cloud para resiliência de dados.
+    1. Escolha o **Tipo de instantâneo** adequado na lista pendente: instantâneo **Local** ou da **Cloud**. Selecione o instantâneo local para cópias de segurança rápidas ou restauros e instantâneos de cloud para resiliência de dados.
 
         ![Criar uma cópia de segurança manual](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

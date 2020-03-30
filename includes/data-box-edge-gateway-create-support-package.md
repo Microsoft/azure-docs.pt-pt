@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184718"
 ---
-Se ocorrerem problemas de qualquer dispositivo, pode criar um pacote de suporte dos registos do sistema. Support da Microsoft utiliza este pacote para solucionar os problemas. Siga estes passos para criar um pacote de suporte:
+Se tiver algum problema com o dispositivo, pode criar um pacote de suporte a partir dos registos do sistema. O Microsoft Support utiliza este pacote para resolver problemas. Siga estes passos para criar um pacote de suporte:
 
-1. [Ligar a interface do PowerShell do seu dispositivo](#connect-to-the-powershell-interface).
-2. Utilize o `Get-HcsNodeSupportPackage` comando para criar um pacote de suporte. Segue-se a utilização do cmdlet:
+1. [Ligue-se à interface PowerShell do seu dispositivo](#connect-to-the-powershell-interface).
+2. Utilize `Get-HcsNodeSupportPackage` o comando para criar um pacote de suporte. O uso do cmdlet é o seguinte:
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ Se ocorrerem problemas de qualquer dispositivo, pode criar um pacote de suporte 
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    O cmdlet recolhe registos a partir do seu dispositivo e copia esses registos para uma rede especificada ou partilha local.
+    O cmdlet recolhe registos do seu dispositivo e copia esses registos para uma rede determinada ou uma parte local.
 
     Os parâmetros utilizados são os seguintes:
 
-    - `-Path` -Especifique a rede ou o caminho local para copiar o pacote de suporte para. (necessário)
-    - `-Credential` -Especifique as credenciais para aceder ao caminho protegido.
-    - `-Zip` -Especifique para gerar um ficheiro zip.
-    - `-Include` -Especifique a incluir os componentes a serem incluídos no pacote de suporte. Se não for especificado, `Default` pressupõe-se.
-    - `-IncludeArchived` -Especifique para incluir registos arquivados no pacote de suporte.
-    - `-IncludePeriodicStats` -Especifique para incluir registos stat periódicos no pacote de suporte.
+    - `-Path`- Especificar a rede ou o caminho local para copiar o pacote de suporte para. (obrigatório)
+    - `-Credential`- Especificar as credenciais para aceder ao caminho protegido.
+    - `-Zip`- Especifique para gerar um ficheiro zip.
+    - `-Include`- Especificar incluir os componentes a incluir no pacote de apoio. Se não especificado, `Default` é assumido.
+    - `-IncludeArchived`- Especificar para incluir registos arquivados no pacote de suporte.
+    - `-IncludePeriodicStats`- Especificar para incluir registos periódicos de estatísticas no pacote de suporte.
 
     

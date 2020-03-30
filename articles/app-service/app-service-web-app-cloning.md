@@ -6,42 +6,42 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18
 ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255194"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativos de aplicativo sinuoso usando powershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Com o lançamento da versão 1.1.1.0 do Microsoft Azure PowerShell, foi adicionada uma nova opção à `New-AzWebApp` que permite clonar uma aplicação app Service existente para uma aplicação recém-criada numa região diferente ou na mesma região. Esta opção permite que os clientes implementem uma série de aplicações em diferentes regiões de forma rápida e fácil.
+Com o lançamento da versão 1.1.1.0 do Microsoft Azure PowerShell, foi adicionada uma nova opção que `New-AzWebApp` permite clonar uma aplicação app Service existente para uma aplicação recém-criada numa região diferente ou na mesma região. Esta opção permite que os clientes implementem uma série de aplicações em diferentes regiões de forma rápida e fácil.
 
 A clonagem de aplicativos é suportada para planos de serviço de aplicações Standard, Premium, Premium V2 e Isolados. A nova funcionalidade utiliza as mesmas limitações que a funcionalidade de backup de serviço de aplicação, consulte [o Back up a uma aplicação no Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonagem de uma app existente
-Cenário: Uma aplicação existente na região centro-sul dos EUA, e você quer clonar os conteúdos para uma nova app na região do Centro-Norte dos EUA. Pode ser realizado utilizando a versão Do Gestor de Recursos Do PowerShell para criar uma nova app com a opção `-SourceWebApp`.
+Cenário: Uma aplicação existente na região centro-sul dos EUA, e você quer clonar os conteúdos para uma nova app na região do Centro-Norte dos EUA. Pode ser realizado utilizando a versão Do Gestor de Recursos Azure do cmdlet PowerShell para criar uma nova app com a opção. `-SourceWebApp`
 
-Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o seguinte comando PowerShell para obter as informações da aplicação de origem (neste caso nomeado `source-webapp`):
+Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o `source-webapp`seguinte comando PowerShell para obter as informações da aplicação de origem (neste caso nomeado):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Para criar um novo Plano de Serviço de Aplicações, pode usar `New-AzAppServicePlan` comando como no exemplo seguinte
+Para criar um novo Plano de `New-AzAppServicePlan` Serviço de Aplicações, pode usar o comando como no exemplo seguinte
 
 ```powershell
 New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Utilizando o comando `New-AzWebApp`, pode criar a nova app na região centro-norte dos EUA e ligá-la a um Plano de Serviço de Aplicações existente. Além disso, pode utilizar o mesmo grupo de recursos que a aplicação fonte, ou definir um novo grupo de recursos, como mostra o seguinte comando:
+Utilizando `New-AzWebApp` o comando, pode criar a nova app na região centro-norte dos EUA e ligá-la a um Plano de Serviço de Aplicações existente. Além disso, pode utilizar o mesmo grupo de recursos que a aplicação fonte, ou definir um novo grupo de recursos, como mostra o seguinte comando:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Para clonar uma aplicação existente, incluindo todas as ranhuras de implementação associadas, é necessário utilizar o parâmetro `IncludeSourceWebAppSlots`.  Note que o parâmetro `IncludeSourceWebAppSlots` só é suportado para clonar uma aplicação inteira, incluindo todas as suas ranhuras. O seguinte comando PowerShell demonstra a utilização desse parâmetro com o comando `New-AzWebApp`:
+Para clonar uma aplicação existente, incluindo todas as `IncludeSourceWebAppSlots` ranhuras de implementação associadas, é necessário utilizar o parâmetro.  Note que `IncludeSourceWebAppSlots` o parâmetro só é suportado para clonagem de uma aplicação inteira, incluindo todas as suas ranhuras. O seguinte comando PowerShell demonstra a utilização `New-AzWebApp` desse parâmetro com o comando:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -56,7 +56,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonagem de uma app existente para um ambiente de serviço de aplicações
 Cenário: Uma aplicação existente na região centro-sul dos EUA, e você quer clonar os conteúdos para uma nova app para um App Service Environment (ASE) existente.
 
-Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o seguinte comando PowerShell para obter as informações da aplicação de origem (neste caso nomeado `source-webapp`):
+Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o `source-webapp`seguinte comando PowerShell para obter as informações da aplicação de origem (neste caso nomeado):
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -68,12 +68,12 @@ Conhecendo o nome da ASE e o nome de grupo de recursos a que a ASE pertence, pod
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
-O parâmetro `Location` é necessário devido à razão do legado, mas é ignorado quando se cria a app numa ASE. 
+O `Location` parâmetro é necessário devido à razão do legado, mas é ignorado quando se cria a aplicação numa ASE. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Clonagem de uma ranhura de app existente
 Cenário: Pretende clonar uma ranhura de implementação existente de uma aplicação para uma nova app ou uma nova ranhura. A nova aplicação pode estar na mesma região que a ranhura original da aplicação ou numa região diferente.
 
-Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o seguinte comando PowerShell para obter as informações da aplicação de origem (neste caso denominada `source-appslot`) ligadas a `source-app`:
+Conhecendo o nome do grupo de recursos que contém a aplicação fonte, pode utilizar o seguinte `source-appslot`comando `source-app`PowerShell para obter as informações da aplicação de origem (neste caso nomeado ) ligadas a:
 
 ```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot

@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299453"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
- Retorna um Booleano indicando se a primeira expressão de cadeia termina com a segunda.  
+ Devolve uma Boolean indicando se a primeira expressão de corda termina com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -37,7 +37,7 @@ ENDSWITH(<str_expr1>, <str_expr2>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve "abc" termina com "b" e "bc".  
+  O exemplo seguinte devolve que o "abc" termina com "b" e "bc".  
   
 ```sql
 SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 

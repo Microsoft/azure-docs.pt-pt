@@ -1,5 +1,5 @@
 ---
-title: Crie um cluster privado com o Azure Red Hat OpenShift 3.11  Microsoft Docs
+title: Crie um cluster privado com o Azure Red Hat OpenShift 3.11 [ Microsoft Docs
 description: Crie um cluster privado com o Azure Red Hat OpenShift 3.11
 author: sakthi-vetrivel
 ms.author: suvetriv
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: aro, openshift, cluster privado, chapéu vermelho
 ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399422"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Crie um cluster privado com o Azure Red Hat OpenShift 3.11
@@ -29,7 +29,7 @@ Os clusters privados proporcionam os seguintes benefícios:
 > [!NOTE]
 > Esta funcionalidade requer a versão 2019-10-27-pré-visualização da Aro HTTP API. Ainda não é suportado no Azure CLI.
 
-Os campos do seguinte corte de configuração são novos e devem ser incluídos na configuração do seu cluster. `managementSubnetCidr` deve estar dentro da rede virtual do cluster e é utilizado pelo Azure para gerir o cluster.
+Os campos do seguinte corte de configuração são novos e devem ser incluídos na configuração do seu cluster. `managementSubnetCidr`deve estar dentro da rede virtual do cluster e é utilizado pelo Azure para gerir o cluster.
 
 ```json
 properties:
@@ -40,11 +40,11 @@ properties:
      privateApiServer: true
 ```
 
-Um cluster privado pode ser implantado usando os scripts de amostra fornecidos abaixo. Uma vez que o cluster é implantado, execute o comando `cluster get` e veja a propriedade `properties.FQDN` para determinar o endereço IP privado do servidor OpenShift API.
+Um cluster privado pode ser implantado usando os scripts de amostra fornecidos abaixo. Uma vez que o cluster `cluster get` é implantado, execute o comando e veja a `properties.FQDN` propriedade para determinar o endereço IP privado do servidor OpenShift API.
 
 A rede virtual do cluster terá sido criada com permissões para que possa modificá-la. Em seguida, pode configurar a rede de rede para aceder à rede virtual (ExpressRoute, VPN, virtual network peering) conforme necessário para as suas necessidades.
 
-Se alterar os servidores de nomes DNS na rede virtual do cluster, terá de emitir uma atualização do cluster com a `properties.RefreshCluster` imóvel definida para `true` para que os VMs possam ser reimagemdos. Esta atualização permitir-lhes-á recolher os novos servidores de nomes.
+Se alterar os servidores de nomes DNS na rede virtual do cluster, `properties.RefreshCluster` terá de `true` emitir uma atualização no cluster com a propriedade definida para que os VMs possam ser reimagemdos. Esta atualização permitir-lhes-á recolher os novos servidores de nomes.
 
 ## <a name="sample-configuration-scripts"></a>Scripts de configuração de amostras
 
@@ -55,7 +55,7 @@ Utilize os scripts de amostra nesta secção para configurar e implementar o seu
 Preencha as variáveis ambientais abaixo como usando os seus próprios valores.
 
 > [!NOTE]
-> A localização deve ser definida para `eastus2`, uma vez que esta é atualmente a única localização suportada para clusters privados.
+> A localização deve `eastus2` ser definida, uma vez que esta é atualmente a única localização suportada para clusters privados.
 
 ``` bash
 export CLUSTER_NAME=

@@ -9,15 +9,15 @@ ms.date: 11/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 9333bb36971fc28a23a443e50d191abeef05b758
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208172"
 ---
 Para visualizar e copiar as chaves de acesso à sua conta de armazenamento ou a linha de ligação do portal Azure:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue para o [portal Azure.](https://portal.azure.com)
 2. Localize a sua conta de armazenamento.
 3. Em **Definições**, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
 4. Encontre o valor da **Chave** em **key1**e clique no botão **Copiar** para copiar a chave da conta.

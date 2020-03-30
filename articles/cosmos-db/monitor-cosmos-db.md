@@ -1,5 +1,5 @@
 ---
-title: Monitorização Azure Cosmos DB  Microsoft Docs
+title: Monitorização Azure Cosmos DB [ Microsoft Docs
 description: Saiba como monitorizar o desempenho e disponibilidade do Azure Cosmos DB.
 author: bwren
 services: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: b9b66c379714c2f4fa2421876fda3bdb500ce6c1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250428"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
@@ -38,13 +38,13 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Ver métricas de nível de operação para Azure Cosmos DB
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Monitor** a partir da barra de navegação à esquerda e selecione **Métricas**.
 
    ![Painel de métricas no Monitor Azure](./media/monitor-cosmos-db/monitor-metrics-blade.png)
 
-1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária, e **o grupo de recursos**. Para o **tipo de Recurso**, selecione contas **Azure Cosmos DB,** escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
+1. Do painel de **métricas** > **Selecione um recurso** > escolha a **subscrição**necessária e **o grupo de recursos**. Para o **tipo de Recurso**, selecione contas **Azure Cosmos DB,** escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
 
    ![Escolha uma conta Cosmos DB para ver métricas](./media/monitor-cosmos-db/select-cosmosdb-account.png)
 
@@ -86,7 +86,7 @@ Pode analisar métricas para O Azure Cosmos DB com métricas de outros serviços
 - DatabaseName
 - OperaçãoTipo
 - Região
-- StatusCode
+- Código de Estado
 
 
 ## <a name="analyzing-log-data"></a>Analisar dados de registo
@@ -94,7 +94,7 @@ Os dados em Registos do Monitor Azure são armazenados em tabelas que cada tabel
 
 | Tabela | Descrição |
 |:---|:---|
-| AzureDiagnostics | Tabela comum usada por vários serviços para armazenar registos de recursos. Os registos de recursos da Azure Cosmos DB podem ser identificados com `MICROSOFT.DOCUMENTDB`.   |
+| AzureDiagnostics | Tabela comum usada por vários serviços para armazenar registos de recursos. Os registos de recursos da Azure `MICROSOFT.DOCUMENTDB`Cosmos DB podem ser identificados com .   |
 | AzureActivity    | Tabela comum que armazena todos os registos do registo de atividades. 
 
 
@@ -107,7 +107,7 @@ Aqui estão algumas consultas que você pode entrar na barra de **pesquisa de Lo
 
 Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bases de dados Azure Cosmos.
 
-* Para consultar todos os registos de diagnóstico do Azure Cosmos DB durante um período de tempo especificado:
+* Para consultar todos os registos de diagnóstico da Azure Cosmos DB por um período de tempo especificado:
 
     ```Kusto
     AzureDiagnostics 
@@ -115,7 +115,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
 
     ```
 
-* Para consultar o 10 mais recentemente registados eventos:
+* Para consultar os 10 eventos mais recentes:
 
     ```Kusto
     AzureDiagnostics 
@@ -123,7 +123,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
     | limit 10
     ```
 
-* Para consultar todas as operações, agrupadas por tipo de operação:
+* Para consulta de todas as operações, agruparadas por tipo de operação:
 
     ```Kusto
     AzureDiagnostics 
@@ -140,7 +140,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
 
     ```
 
-* Para consultar todas as atividades de utilizador, agrupadas pelo recurso:
+* Para consultar toda a atividade do utilizador, agrupado por recurso:
 
     ```Kusto
     AzureActivity 
@@ -162,7 +162,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
     | limit 100
     ```
 
-* A consulta para os quais operações mais demoram 3 milissegundos:
+* Para saber quais as operações que demoram mais de 3 milissegundos:
 
     ```Kusto
     AzureDiagnostics 
@@ -170,7 +170,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
     | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
-* Para consultar para o qual o agente está a executar as operações:
+* Para consultar qual agente está a executar as operações:
 
     ```Kusto
     AzureDiagnostics 
@@ -178,7 +178,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
     | summarize count() by OperationName, userAgent_s
     ```
 
-* Para consultar quando foram efetuadas as operações de longa execução:
+* Para consultar quando foram realizadas as operações de longo prazo:
 
     ```Kusto
     AzureDiagnostics 
@@ -196,17 +196,17 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar as suas bas
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
     ```
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorizar o Azure Cosmos DB através de programação
-As métricas ao nível de conta disponíveis no portal, como a conta a utilização e total de pedidos de armazenamento, não estão disponíveis por meio das APIs de SQL. No entanto, pode recuperar dados de utilização ao nível da coleção com as APIs de SQL. Para obter dados de nível de coleção, faça o seguinte:
+## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitor Azure Cosmos DB programática
+As métricas de nível de conta disponíveis no portal, tais como o uso do armazenamento de conta e o total de pedidos, não estão disponíveis através das APIs SQL. No entanto, pode obter dados de utilização ao nível da recolha utilizando as APIs SQL. Para recuperar os dados do nível de recolha, faça o seguinte:
 
-* Para utilizar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). As informações de quota e utilização para a coleção são devolvidas nos cabeçalhos x-ms-resource-quota e x-ms--a utilização de recursos na resposta.
+* Para utilizar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). A informação de quota e utilização da recolha é devolvida nos cabeçalhos x-ms-resource-quota e x-ms-resource-use na resposta.
 * Para utilizar o .NET SDK, utilize o método [DocumentClient.ReadDocumentCollectionAsync,](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) que devolve uma Resposta de [Recursos](https://msdn.microsoft.com/library/dn799209.aspx) que contém uma série de propriedades de utilização como **CollectionSizeUsage,** **DatabaseUsage,** **DocumentUsage,** e muito mais.
 
-Para aceder a métricas adicionais, utilize o [SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)do Monitor Azure . Definições de métricas disponíveis podem ser obtidas chamando:
+Para aceder a métricas adicionais, utilize o [SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)do Monitor Azure . As definições métricas disponíveis podem ser recuperadas através da chamada:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
 
-Consultas para obter métricas individuais, utilize o seguinte formato:
+As consultas para recuperar métricas individuais utilizam o seguinte formato:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 

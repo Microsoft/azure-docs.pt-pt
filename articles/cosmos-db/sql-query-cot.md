@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299492"
 ---
 # <a name="cot-azure-cosmos-db"></a>BERÇO (Azure Cosmos DB)
- Devolve a co-tangente trigonométricos do ângulo especificado, em radianos, a expressão numérica especificado.  
+ Devolve a cotangente trigonométrica do ângulo especificado, em radianos, na expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ COT(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte calcula o `COT` do ângulo especificado.  
+  O exemplo seguinte `COT` calcula o ângulo especificado.  
   
 ```sql
 SELECT COT(124.1332) AS cot  

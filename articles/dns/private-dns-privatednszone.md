@@ -1,6 +1,6 @@
 ---
-title: O que é uma zona privada de DNS do Azure
-description: Visão geral de uma zona DNS privada
+title: O que é uma zona privada Azure DNS
+description: Visão geral de uma zona privada de DNS
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,34 +8,34 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646800"
 ---
-# <a name="what-is-a-private-azure-dns-zone"></a>O que é uma zona DNS privada do Azure
+# <a name="what-is-a-private-azure-dns-zone"></a>O que é uma zona privada de DNS Azure
 
-O Azure DNS privado fornece um serviço DNS confiável e seguro para gerenciar e resolver nomes de domínio em uma rede virtual sem a necessidade de adicionar uma solução DNS personalizada. Usando zonas DNS privadas, você pode usar seus próprios nomes de domínio personalizados em vez dos nomes fornecidos pelo Azure disponíveis hoje. 
+O Azure Private DNS fornece um serviço DNS fiável e seguro para gerir e resolver nomes de domínio numa rede virtual sem a necessidade de adicionar uma solução DNS personalizada. Ao utilizar zonas privadas de DNS, pode utilizar os seus próprios nomes de domínio personalizados em vez dos nomes fornecidos pelo Azure hoje em dia. 
 
-Os registros contidos em uma zona DNS privada não podem ser resolvidos pela Internet. A resolução DNS em relação a uma zona DNS privada funciona apenas de redes virtuais que estão vinculadas a ela.
+Os registos contidos numa zona privada de DNS não são resolúveis da Internet. A resolução do DNS contra uma zona privada de DNS funciona apenas a partir de redes virtuais que estão ligadas a ela.
 
-Você pode vincular uma zona DNS privada a uma ou mais redes virtuais criando [links de rede virtual](./private-dns-virtual-network-links.md).
-Você também pode habilitar o recurso de [registro automático](./private-dns-autoregistration.md) para gerenciar automaticamente o ciclo de vida dos registros DNS para as máquinas virtuais implantadas em uma rede virtual.
+Pode ligar uma zona privada de DNS a uma ou mais redes virtuais através da criação de [ligações de rede virtuais.](./private-dns-virtual-network-links.md)
+Também pode ativar a função [de registo automático](./private-dns-autoregistration.md) para gerir automaticamente o ciclo de vida dos registos DNS para as máquinas virtuais implantadas numa rede virtual.
 
 ## <a name="limits"></a>Limites
 
-Para entender quantas zonas DNS privadas você pode criar em uma assinatura e quantos conjuntos de registros têm suporte em uma zona DNS privada, consulte [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Para entender quantas zonas privadas de DNS pode criar numa subscrição e quantos conjuntos de discos são suportados numa zona privada de DNS ver [limites de DNS Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restrições
 
-* Não há suporte para zonas DNS privadas únicas rotuladas. Sua zona DNS privada deve ter dois ou mais rótulos. Por exemplo, contoso.com tem dois rótulos separados por um ponto. Uma zona DNS privada pode ter um máximo de 34 rótulos.
-* Você não pode criar delegações de zona (registros NS) em uma zona DNS privada. Se você pretende usar um domínio filho, você pode criar diretamente o domínio como uma zona DNS privada e vinculá-lo à rede virtual sem configurar uma delegação de nameserver a partir da zona pai.
+* As zonas privadas de DNS com rótulo único não são suportadas. A sua zona privada de DNS deve ter duas ou mais etiquetas. Por exemplo, contoso.com tem duas etiquetas separadas por um ponto. Uma zona privada de DNS pode ter um máximo de 34 etiquetas.
+* Não se pode criar delegações de zona (registos de NS) numa zona privada de DNS. Se pretender utilizar um domínio infantil, pode criar diretamente o domínio como uma zona Privada de DNS e ligá-lo à rede virtual sem criar uma delegação de servidor de nomes a partir da zona-mãe.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como criar uma zona privada no DNS do Azure usando [Azure PowerShell](./private-dns-getstarted-powershell.md) ou [CLI do Azure](./private-dns-getstarted-cli.md).
+* Saiba como criar uma zona privada em Azure DNS utilizando [o Azure PowerShell](./private-dns-getstarted-powershell.md) ou [o Azure CLI](./private-dns-getstarted-cli.md).
 
-* Leia sobre alguns cenários comuns de [zona privada](./private-dns-scenarios.md) que podem ser percebidos com zonas privadas no DNS do Azure.
+* Leia sobre [alguns cenários de zona privada](./private-dns-scenarios.md) comum que podem ser realizados com zonas privadas em DNS Azure.
 
-* Para perguntas e respostas comuns sobre zonas privadas no DNS do Azure, incluindo um comportamento específico que você pode esperar para determinados tipos de operações, consulte [DNS privado perguntas frequentes](./dns-faq-private.md).
+* Para perguntas e respostas comuns sobre zonas privadas em DNS Azure, incluindo comportamentos específicos que pode esperar para determinados tipos de operações, consulte o [DNS faQ privado](./dns-faq-private.md).

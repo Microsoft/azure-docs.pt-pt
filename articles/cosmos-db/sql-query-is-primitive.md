@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 04c8e41f1a431b329f2093851e4430e69ab6aee3
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303788"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
- Devolve um valor Booleano indicando se o tipo da expressão especificada é um primitivo (string, booleano, numéricos ou nulo).  
+ Devolve um valor booleano indicando se o tipo da expressão especificada é primitivo (corda, booleano, numérico ou nulo).  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ IS_PRIMITIVE(<expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte verifica objetos de JSON Boolean, número, corda, nulo, objeto, matriz e tipos indefinidos utilizando a função `IS_PRIMITIVE`.  
+  O exemplo seguinte verifica objetos de JSON Boolean, número, corda, `IS_PRIMITIVE` nulo, objeto, matriz e tipos indefinidos utilizando a função.  
   
 ```sql
 SELECT   

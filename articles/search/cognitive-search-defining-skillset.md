@@ -1,7 +1,7 @@
 ---
 title: Criar um conjunto de competências
 titleSuffix: Azure Cognitive Search
-description: Defina as etapas de extração de dados, processamento de idioma natural ou análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Pesquisa Cognitiva.
+description: Defina passos de extração de dados, processamento de linguagem natural ou análise de imagem para enriquecer e extrair informações estruturadas dos seus dados para utilização na Pesquisa Cognitiva azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,50 +9,50 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754560"
 ---
-# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar uma habilidade num oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure 
 
-O enriquecimento de ia extrai e enriquece os dados para torná-los pesquisáveis no Azure Pesquisa Cognitiva. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de *qualificações* referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: criando uma habilidade personalizada em um pipeline de enriquecimento de ia](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+O enriquecimento de IA extrai e enriquece dados para torná-lo pesquisável na Pesquisa Cognitiva Azure. Chamamos de habilidades *cognitivas*de extração e enriquecimento, combinadas num conjunto de *habilidades* referenciados durante a indexação. Um skillset pode usar [habilidades incorporadas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (ver [Exemplo: Criar uma habilidade personalizada num pipeline](cognitive-search-create-custom-skill-example.md) de enriquecimento de IA para mais informações).
 
-Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é anexado a um [indexador](search-indexer-overview.md)pesquisa cognitiva do Azure. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
+Neste artigo, aprende-se a criar um pipeline de enriquecimento para as competências que pretende utilizar. Um skillset é ligado a um [indexador](search-indexer-overview.md)de pesquisa cognitiva Azure . Uma parte do design do oleoduto, abrangida por este artigo, é a construção da própria habilidade. 
 
 > [!NOTE]
-> Outra parte do design do pipeline é especificar um indexador, abordado na [próxima etapa](#next-step). Uma definição de indexador inclui uma referência para o skillset, além de mapeamentos de campo usados para conectar entradas a saídas no índice de destino.
+> Outra parte do desenho do gasoduto é especificar um indexante, coberto no [passo seguinte](#next-step). Uma definição de indexante inclui uma referência ao skillset, mais mapeamentos de campo usados para ligar entradas a saídas no índice alvo.
 
-Pontos principais a serem lembrados:
+Pontos-chave a lembrar:
 
-+ Você só pode ter um conceda por indexador.
-+ Um qualificable deve ter pelo menos uma habilidade.
-+ Você pode criar várias habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem).
++ Só se pode ter uma habilidade por indexante.
++ Uma habilidade deve ter pelo menos uma habilidade.
++ Pode criar múltiplas habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem).
 
-## <a name="begin-with-the-end-in-mind"></a>Comece com o final em mente
+## <a name="begin-with-the-end-in-mind"></a>Comece com o fim em mente
 
-Uma etapa inicial recomendada é decidir quais dados serão extraídos dos dados brutos e como você deseja usar esses dados em uma solução de pesquisa. A criação de uma ilustração de todo o pipeline de enriquecimento pode ajudá-lo a identificar as etapas necessárias.
+Um passo inicial recomendado é decidir quais os dados a extrair dos seus dados brutos e como pretende utilizar esses dados numa solução de pesquisa. Criar uma ilustração de todo o oleoduto de enriquecimento pode ajudá-lo a identificar os passos necessários.
 
-Suponha que você esteja interessado em processar um conjunto de comentários de analistas financeiros. Para cada arquivo, você deseja extrair os nomes da empresa e o inconveniente geral dos comentários. Você também pode querer escrever um aprimoramento personalizado que usa o serviço de Pesquisa de Entidade do Bing para encontrar informações adicionais sobre a empresa, como o tipo de negócios em que a empresa está envolvida. Essencialmente, você deseja extrair informações como as seguintes, indexadas para cada documento:
+Suponha que esteja interessado em processar um conjunto de comentários de analistas financeiros. Para cada ficheiro, pretende extrair nomes da empresa e o sentimento geral dos comentários. Pode também querer escrever um enriquecedor personalizado que utilize o serviço bing entity search para encontrar informações adicionais sobre a empresa, como em que tipo de negócio a empresa está envolvida. Essencialmente, pretende extrair informações como as seguintes, indexadas para cada documento:
 
-| registro-texto | das | sentimento | descrições da empresa |
+| texto de gravação | empresas | sentimento | descrições da empresa |
 |--------|-----|-----|-----|
-|amostra-registro| ["Microsoft", "LinkedIn"] | 0,99 | ["A Microsoft Corporation é uma empresa de tecnologia multinacional americana...", "o LinkedIn é uma rede social, orientada a negócios e empregos..."]
+|sample-record| ["Microsoft", "LinkedIn"] | 0.99 | ["A Microsoft Corporation é uma empresa americana de tecnologia multinacional..." "O LinkedIn é uma rede social orientada para o negócio e para o emprego..."]
 
-O diagrama a seguir ilustra um pipeline de enriquecimento hipotético:
+O diagrama que se segue ilustra um hipotético gasoduto de enriquecimento:
 
-![Um pipeline de enriquecimento hipotético](media/cognitive-search-defining-skillset/sample-skillset.png "Um pipeline de enriquecimento hipotético")
-
-
-Depois de ter uma ideia justa do que você deseja no pipeline, você pode expressar o tipo de habilidade que fornece essas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador no Azure Pesquisa Cognitiva. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+![Um hipotético oleoduto de enriquecimento](media/cognitive-search-defining-skillset/sample-skillset.png "Um hipotético oleoduto de enriquecimento")
 
 
-No diagrama, a etapa de *quebra de documento* ocorre automaticamente. Essencialmente, o Azure Pesquisa Cognitiva sabe como abrir arquivos conhecidos e cria um campo de *conteúdo* que contém o texto extraído de cada documento. As caixas brancas são aprimoramentos internos e a caixa "Pesquisa de Entidade do Bing" pontilhada representa um aprimorado personalizado que você está criando. Conforme ilustrado, o skillset contém três habilidades.
+Uma vez que tenha uma ideia justa do que quer no oleoduto, pode expressar a habilidade que fornece estes passos. Funcionalmente, a habilidade é expressa quando envia a definição do indexante para a Pesquisa Cognitiva Azure. Para saber mais sobre como carregar o seu indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-## <a name="skillset-definition-in-rest"></a>Definição de conconhecimento em REST
 
-Um conjunto de qualificações é definido como uma matriz de habilidades. Cada habilidade define a origem de suas entradas e o nome das saídas produzidas. Usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-skillset)do Configurador de habilidades, você pode definir um qualificable que corresponde ao diagrama anterior: 
+No diagrama, o passo *de rachadura* do documento acontece automaticamente. Essencialmente, a Azure Cognitive Search sabe abrir ficheiros bem conhecidos e cria um campo de *conteúdo* contendo o texto extraído de cada documento. As caixas brancas são enriquecedoras incorporadas, e a caixa pontilhada "Bing Entity Search" representa um enriquecedor personalizado que está a criar. Como ilustrado, a habilidade contém três habilidades.
+
+## <a name="skillset-definition-in-rest"></a>Definição de skillset em REST
+
+Uma habilidade é definida como uma variedade de habilidades. Cada habilidade define a fonte das suas inputs e o nome das saídas produzidas. Utilizando a [Create Skillset REST API,](https://docs.microsoft.com/rest/api/searchservice/create-skillset)pode definir um conjunto de habilidades que corresponde ao diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -126,7 +126,7 @@ Content-Type: application/json
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de competências
 
-Ao criar um qualificable, você pode fornecer uma descrição para tornar a autodocumentação do consentido. Uma descrição é opcional, mas útil para manter o controle do que o seu continha. Como o skillset é um documento JSON, que não permite comentários, você deve usar um elemento `description` para isso.
+Ao criar uma habilidade, pode fornecer uma descrição para fazer a habilidade auto-documentar. Uma descrição é opcional, mas útil para acompanhar o que um skillset faz. Como o skillset é um documento JSON, que não `description` permite comentários, deve utilizar um elemento para isso.
 
 ```json
 {
@@ -136,11 +136,11 @@ Ao criar um qualificable, você pode fornecer uma descrição para tornar a auto
 }
 ```
 
-A próxima parte do conjunto de qualificações é uma matriz de habilidades. Você pode considerar cada habilidade como um primitivo de enriquecimento. Cada habilidade executa uma tarefa pequena nesse pipeline de enriquecimento. Cada uma usa uma entrada (ou um conjunto de entradas) e retorna algumas saídas. As próximas seções concentram-se em como especificar habilidades internas e personalizadas, encadeando habilidades em referências de entrada e saída. As entradas podem vir de dados de origem ou de outra habilidade. As saídas podem ser mapeadas para um campo em um índice de pesquisa ou usadas como uma entrada para uma habilidade de downstream.
+A próxima peça na habilidade é uma variedade de habilidades. Pode pensar em cada habilidade como uma primitiva de enriquecimento. Cada habilidade executa uma pequena tarefa neste oleoduto de enriquecimento. Cada um recebe uma entrada (ou um conjunto de entradas) e devolve algumas saídas. As próximas secções focam-se em como especificar habilidades incorporadas e personalizadas, acorrentar competências através de referências de entrada e saída. As inputs podem vir de dados de origem ou de outra habilidade. As saídas podem ser mapeadas para um campo num índice de pesquisa ou usadas como uma entrada para uma habilidade a jusante.
 
-## <a name="add-built-in-skills"></a>Adicionar habilidades internas
+## <a name="add-built-in-skills"></a>Adicionar habilidades incorporadas
 
-Vamos examinar a primeira habilidade, que é a habilidade interna de reconhecimento de [entidade](cognitive-search-skill-entity-recognition.md):
+Vejamos a primeira habilidade, que é a habilidade de reconhecimento de [entidades](cognitive-search-skill-entity-recognition.md)incorporadas:
 
 ```json
     {
@@ -163,23 +163,23 @@ Vamos examinar a primeira habilidade, que é a habilidade interna de reconhecime
     }
 ```
 
-* Todas as habilidades internas têm `odata.type`, `input`e `output` Propriedades. As propriedades específicas da habilidade fornecem informações adicionais aplicáveis a essa habilidade. Para o reconhecimento de entidade, `categories` é uma entidade entre um conjunto fixo de tipos de entidade que o modelo pretreinado pode reconhecer.
+* Todas as habilidades `odata.type` `input`incorporadas `output` têm, e propriedades. Propriedades específicas de habilidades fornecem informações adicionais aplicáveis a essa habilidade. Para o `categories` reconhecimento de entidades, é uma entidade entre um conjunto fixo de tipos de entidades que o modelo pré-treinado pode reconhecer.
 
-* Cada habilidade deve ter um ```"context"```. O contexto representa o nível no qual as operações ocorrem. Na habilidade acima, o contexto é o documento inteiro, o que significa que a habilidade de reconhecimento de entidade é chamada uma vez por documento. As saídas também são produzidas nesse nível. Mais especificamente, ```"organizations"``` são geradas como um membro de ```"/document"```. Em habilidades de downstream, você pode consultar essas informações recentemente criadas como ```"/document/organizations"```.  Se o campo ```"context"``` não estiver definido explicitamente, o contexto padrão será o documento.
+* Cada habilidade deve ```"context"```ter um. O contexto representa o nível a que as operações ocorrem. Na habilidade acima, o contexto é todo o documento, o que significa que a habilidade de reconhecimento da entidade é chamada uma vez por documento. As saídas também são produzidas a este nível. Mais especificamente, ```"organizations"``` são gerados ```"/document"```como um membro de . Nas habilidades a jusante, pode ```"/document/organizations"```consultar esta informação recém-criada como .  Se ```"context"``` o campo não for explicitamente definido, o contexto predefinido é o documento.
 
-* A habilidade tem uma entrada chamada "texto", com uma entrada de origem definida como ```"/document/content"```. A habilidade (reconhecimento de entidade) opera no campo de *conteúdo* de cada documento, que é um campo padrão criado pelo indexador de blob do Azure. 
+* A habilidade tem uma entrada chamada "texto", com ```"/document/content"```uma entrada de origem definida para . A habilidade (reconhecimento de entidades) opera no campo de *conteúdo* de cada documento, que é um campo padrão criado pelo indexante de blob Azure. 
 
-* A habilidade tem uma saída chamada ```"organizations"```. As saídas existem somente durante o processamento. Para encadear essa saída à entrada de uma habilidade downstream, faça referência à saída como ```"/document/organizations"```.
+* A habilidade tem ```"organizations"```uma saída chamada . As saídas só existem durante o processamento. Para acorrentar esta saída à entrada de uma ```"/document/organizations"```habilidade a jusante, referência a saída como .
 
-* Para um documento específico, o valor de ```"/document/organizations"``` é uma matriz de organizações extraída do texto. Por exemplo:
+* Para um documento específico, ```"/document/organizations"``` o valor é um conjunto de organizações extraídas do texto. Por exemplo:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Algumas situações chamam a referência de cada elemento de uma matriz separadamente. Por exemplo, suponha que você queira passar cada elemento de ```"/document/organizations"``` separadamente para outra habilidade (como a pesquisa de entidade personalizada do Bing mais sofisticada). Você pode fazer referência a cada elemento da matriz adicionando um asterisco ao caminho: ```"/document/organizations/*"``` 
+Algumas situações exigem a referenciação de cada elemento de uma matriz separadamente. Por exemplo, suponha que ```"/document/organizations"``` você quer passar cada elemento separadamente para outra habilidade (como o enriquecedor de pesquisa personalizado da entidade Bing). Pode consultar cada elemento da matriz adicionando um asterisco ao caminho:```"/document/organizations/*"``` 
 
-A segunda habilidade para extração de sentimentos segue o mesmo padrão que o primeiro enriquecimento. Ele usa ```"/document/content"``` como entrada e retorna uma pontuação de sentimentos para cada instância de conteúdo. Como você não definiu o campo ```"context"``` explicitamente, a saída (mysentimentos) agora é um filho de ```"/document"```.
+A segunda habilidade para a extração de sentimentos segue o mesmo padrão que o primeiro enriquecedor. É ```"/document/content"``` preciso como entrada e devolve uma pontuação de sentimento para cada instância de conteúdo. Como não definiu ```"context"``` o campo explicitamente, a saída (mySentiment) é agora uma criança de ```"/document"```.
 
 ```json
     {
@@ -199,9 +199,9 @@ A segunda habilidade para extração de sentimentos segue o mesmo padrão que o 
     },
 ```
 
-## <a name="add-a-custom-skill"></a>Adicionar uma habilidade personalizada
+## <a name="add-a-custom-skill"></a>Adicione uma habilidade personalizada
 
-Lembre-se de que a estrutura da pesquisa de entidade personalizada do Bing aprimora o aprimoramento:
+Lembre-se da estrutura do enriquecedor de pesquisa personalizado da entidade Bing:
 
 ```json
     {
@@ -227,29 +227,29 @@ Lembre-se de que a estrutura da pesquisa de entidade personalizada do Bing aprim
     }
 ```
 
-Essa definição é uma [habilidade personalizada](cognitive-search-custom-skill-web-api.md) que chama uma API da Web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidade, essa habilidade chama uma API da Web para localizar a descrição dessa organização. A orquestração de quando chamar a API da Web e como fluir as informações recebidas é manipulada internamente pelo mecanismo de enriquecimento. No entanto, a inicialização necessária para chamar essa API personalizada deve ser fornecida no JSON (como URI, httpHeaders e as entradas esperadas). Para obter orientação sobre como criar uma API Web personalizada para o pipeline de enriquecimento, consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
+Esta definição é uma [habilidade personalizada](cognitive-search-custom-skill-web-api.md) que chama uma API web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidades, esta habilidade chama uma API web para encontrar a descrição dessa organização. A orquestração de quando chamar a Web API e como fluir a informação recebida é tratada internamente pelo motor de enriquecimento. No entanto, a inicialização necessária para chamar esta API personalizada deve ser fornecida no JSON (como uri, httpHeaders e as inputs esperadas). Para obter orientação na criação de uma API web personalizada para o pipeline de enriquecimento, consulte [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
-Observe que o campo "contexto" é definido como ```"/document/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/organizations"```. 
+Note que o campo "contexto" está definido ```"/document/organizations/*"``` com um asterisco, o que significa que o passo de enriquecimento é chamado para *cada* organização em ```"/document/organizations"```. 
 
-A saída, nesse caso, uma descrição da empresa, é gerada para cada organização identificada. Ao se referir à descrição em uma etapa de downstream (por exemplo, em extração de frase-chave), você usaria o caminho ```"/document/organizations/*/description"``` para fazer isso. 
+A produção, neste caso, uma descrição da empresa, é gerada para cada organização identificada. Ao referir-se à descrição num degrau a jusante (por ```"/document/organizations/*/description"``` exemplo, na extração de frases-chave), utilizaria o caminho para o fazer. 
 
 ## <a name="add-structure"></a>Adicionar estrutura
 
-O qualificable gera informações estruturadas de dados não estruturados. Considere o exemplo seguinte:
+O skillset gera informação estruturada a partir de dados não estruturados. Considere o exemplo seguinte:
 
-*"Em seu quarto trimestre, a Microsoft registrou $1100000000 em receita do LinkedIn, a empresa de rede social comprada no ano passado. A aquisição permite que a Microsoft Combine recursos do LinkedIn com seus recursos do CRM e do Office. Os acionistas estão empolgados com o progresso até agora. "*
+*"No quarto trimestre, a Microsoft registou 1,1 mil milhões de dólares em receitas do LinkedIn, a empresa de redes sociais que comprou no ano passado. A aquisição permite à Microsoft combinar capacidades do LinkedIn com as suas capacidades crm e Office. Os acionistas estão entusiasmados com o progresso até agora."*
 
-Um resultado provável seria uma estrutura gerada semelhante à ilustração a seguir:
+Um resultado provável seria uma estrutura gerada semelhante à seguinte ilustração:
 
-![Estrutura de saída de exemplo](media/cognitive-search-defining-skillset/enriched-doc.png "Estrutura de saída de exemplo")
+![Estrutura de saída da amostra](media/cognitive-search-defining-skillset/enriched-doc.png "Estrutura de saída da amostra")
 
-Até agora, essa estrutura tem sido somente interno, somente de memória e usada somente nos índices de Pesquisa Cognitiva do Azure. A adição de uma loja de conhecimento oferece uma maneira de salvar os aprimoramentos moldados para uso fora da pesquisa.
+Até agora, esta estrutura tem sido apenas interna, apenas de memória, e usada apenas em índices de Pesquisa Cognitiva Azure. A adição de uma loja de conhecimentos dá-lhe uma forma de guardar enriquecimentos em forma para uso fora da pesquisa.
 
-## <a name="add-a-knowledge-store"></a>Adicionar uma loja de conhecimento
+## <a name="add-a-knowledge-store"></a>Adicione uma loja de conhecimento
 
-O [repositório de conhecimento](knowledge-store-concept-intro.md) é um recurso de visualização do Azure pesquisa cognitiva para salvar seu documento aprimorado. Uma loja de conhecimento que você cria, apoiada por uma conta de armazenamento do Azure, é o repositório no qual seus dados aprimorados ficam. 
+[A Knowledge Store](knowledge-store-concept-intro.md) é uma funcionalidade de pré-visualização na Azure Cognitive Search para salvar o seu documento enriquecido. Uma loja de conhecimento que cria, apoiada por uma conta de armazenamento Azure, é o repositório onde os seus dados enriquecidos aterram. 
 
-Uma definição de repositório de conhecimento é adicionada a um conconhecedor. Para obter uma explicação do processo inteiro, consulte [criar uma loja de conhecimento em REST](knowledge-store-create-rest.md).
+Uma definição de loja de conhecimento é adicionada a um skillset. Para uma passagem de todo o processo, consulte Criar uma loja de [conhecimentos em REST](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {
@@ -271,10 +271,10 @@ Uma definição de repositório de conhecimento é adicionada a um conconhecedor
 }
 ```
 
-Você pode optar por salvar os documentos aprimorados como tabelas com relações hierárquicas preservadas ou como documentos JSON no armazenamento de BLOBs. A saída de qualquer uma das habilidades no conferent pode ser originada como a entrada para a projeção. Se você pretende projetar os dados em uma forma específica, a [habilidade](cognitive-search-skill-shaper.md) atualizada do modelador agora pode modelar tipos complexos para uso. 
+Pode optar por guardar os documentos enriquecidos como tabelas com relações hierárquicas preservadas ou como documentos JSON no armazenamento de blob. A saída de qualquer uma das habilidades no skillset pode ser obtida como a entrada para a projeção. Se procura projetar os dados numa forma específica, a habilidade de [shaper](cognitive-search-skill-shaper.md) atualizada pode agora modelar tipos complexos para que possa utilizar. 
 
 <a name="next-step"></a>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você está familiarizado com o pipeline de enriquecimento e habilidades, continue com [como fazer referência a anotações em um](cognitive-search-concept-annotations-syntax.md) configurador de habilidades ou [como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 
+Agora que está familiarizado com o oleoduto de enriquecimento e as habilidades, continue com [como referenciar anotações num skillset](cognitive-search-concept-annotations-syntax.md) ou [como mapear saídas para campos num índice](cognitive-search-output-field-mapping.md). 

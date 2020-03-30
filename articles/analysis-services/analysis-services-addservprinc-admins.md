@@ -1,5 +1,5 @@
 ---
-title: Adicionar serviço principal ao papel de administrador dos Serviços de Análise Azure  Microsoft Docs
+title: Adicionar serviço principal ao papel de administrador dos Serviços de Análise Azure [ Microsoft Docs
 description: Saiba como adicionar um serviço de automação principal ao papel de administração do servidor do Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298093"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
@@ -22,7 +22,7 @@ ms.locfileid: "78298093"
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de completar esta tarefa, deve ter um diretor de serviço registado no Diretório Ativo Azure.
 
-[Criar o diretor de serviço - portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar o principal de serviço - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="using-sql-server-management-studio"></a>Utilizar o SQL Server Management Studio
@@ -30,7 +30,7 @@ Antes de completar esta tarefa, deve ter um diretor de serviço registado no Dir
 Pode configurar administradores de servidores utilizando o Estúdio de Gestão de Servidores SQL (SSMS). Para completar esta tarefa, deve ter permissões de administrador de [servidor](analysis-services-server-admins.md) no servidor Azure AS. 
 
 1. No SSMS, ligue-se ao seu servidor Azure AS.
-2. Nas **propriedades do servidor** > **Security,** clique em **Adicionar**.
+2. Na > **segurança das** **propriedades do servidor,** clique em **Adicionar**.
 3. Em **Selecione um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar**.
 
     ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -39,12 +39,12 @@ Pode configurar administradores de servidores utilizando o Estúdio de Gestão d
     
     ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Utilizar um modelo do Resource Manager
+## <a name="using-a-resource-manager-template"></a>Usando um modelo de Gestor de Recursos
 
 Também pode configurar os administradores do servidor implementando o servidor de Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no Controlo de Acesso baseado em [Funções Azure (RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> O diretor de serviço deve ser adicionado utilizando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+> O diretor de serviço deve `app:{service-principal-client-id}@{azure-ad-tenant-id}`ser adicionado utilizando o formato .
 
 O seguinte modelo de Gestor de Recursos implementa um servidor de Serviços de Análise com um principal de serviço especificado adicionado à função de Administração de Serviços de Análise:
 

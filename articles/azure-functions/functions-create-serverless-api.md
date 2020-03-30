@@ -1,31 +1,31 @@
 ---
-title: Personalizar um ponto de extremidade HTTP no Azure Functions
-description: Saiba como personalizar um ponto de extremidade de gatilho HTTP no Azure Functions
+title: Personalize um ponto final http em funções azure
+description: Saiba como personalizar um ponto final do gatilho HTTP em Funções Azure
 author: mattchenderson
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769273"
 ---
-# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalize um ponto final http em funções azure
 
-Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo node. C#js, e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
+Neste artigo, você aprende como as Funções Azure permitem construir APIs altamente escaláveis. As Funções Azure vêm com uma coleção de gatilhos e encadernações HTTP incorporados, que facilitam a autoria de um ponto final em uma variedade de idiomas, incluindo Node.js, C#, e muito mais. Neste artigo, irá personalizar um gatilho HTTP para lidar com ações específicas no seu design API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-A função resultante será usada para o restante deste artigo.
+A função resultante será utilizada para o resto deste artigo.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o portal do Azure. Para tal, inicie sessão em [https://portal.azure.com](https://portal.azure.com) com a sua conta do Azure.
+Abra o portal do Azure. Para isso, inscreva-se [https://portal.azure.com](https://portal.azure.com) na sua conta Azure.
 
 ## <a name="customize-your-http-function"></a>Personalizar a sua função HTTP
 
@@ -35,7 +35,7 @@ Por predefinição, a sua função acionada por HTTP está configurada para acei
 
     ![Personalizar uma função HTTP](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Use as configurações de gatilho HTTP conforme especificado na tabela.
+1. Utilize as definições de acionador HTTP, conforme especificado na tabela.
 
     | Campo | Valor da amostra | Descrição |
     |---|---|---|
@@ -71,7 +71,7 @@ Um proxy pode apontar para qualquer recurso HTTP, como, por exemplo:
 - Contentores do docker no [Serviço de Aplicações no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualquer outra API alojada
 
-Para saber mais sobre proxies, veja [Trabalhar com Proxies de Funções do Azure].
+Para saber mais sobre proxies, veja [Trabalhar com os Proxies de Funções do Azure].
 
 ## <a name="create-your-first-proxy"></a>Criar o seu primeiro proxy
 
@@ -172,13 +172,13 @@ Em seguida, vai adicionar a API fictícia. Substitua o ficheiro proxies.json pel
 }
 ```
 
-Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, modifica a resposta predefinida dos Proxies com uma substituição de resposta. As substituições de pedido e resposta também podem ser utilizadas em conjunto com um URL de back-end. Isso é particularmente útil ao fazer o proxy para um sistema herdado, onde talvez seja necessário modificar cabeçalhos, parâmetros de consulta, etc. Para saber mais sobre substituições de solicitação e resposta, consulte [modificando solicitações e respostas em proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, modifica a resposta predefinida dos Proxies com uma substituição de resposta. As substituições de pedido e resposta também podem ser utilizadas em conjunto com um URL de back-end. Isto é particularmente útil quando se procura um sistema legado, onde você pode precisar modificar cabeçalhos, parâmetros de consulta, etc. Para saber mais sobre pedidos e sobreposições de resposta, consulte Modificação de [pedidos e respostas em Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Teste a sua API fictícia, chamando o ponto final `<YourProxyApp>.azurewebsites.net/api/users/{username}` com um browser ou com o seu cliente REST favorito. Não se esqueça de substituir _{username}_ por um valor de cadeia que represente um nome de utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu como criar e personalizar uma API no Azure Functions. Também aprendeu a reunir várias APIs, incluindo as fictícias, como uma superfície de API unificada. Pode utilizar estas técnicas para criar APIs com qualquer nível de complexidade, tudo isto enquanto as executa no modelo de computação sem servidor fornecido pelas Funções do Azure.
+Neste artigo, aprendeu a construir e personalizar uma API sobre funções azure. Também aprendeu a reunir várias APIs, incluindo as fictícias, como uma superfície de API unificada. Pode utilizar estas técnicas para criar APIs com qualquer nível de complexidade, tudo isto enquanto as executa no modelo de computação sem servidor fornecido pelas Funções do Azure.
 
 As referências seguintes podem ser úteis à medida que desenvolve ainda mais a sua API:
 

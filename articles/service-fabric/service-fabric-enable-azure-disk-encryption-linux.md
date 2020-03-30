@@ -4,10 +4,10 @@ description: Este artigo descreve como ativar a encriptação do disco para os n
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252820"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Ativar encriptação de disco para nódosos de cluster de tecido de serviço Azure em Linux 
@@ -44,7 +44,7 @@ A pré-visualização de encriptação do disco para o conjunto de escala de má
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
-**Cofre de Chaves do Azure**
+**Azure Key Vault**
 
 1. Crie um cofre chave na mesma subscrição e região que o conjunto de escala. Em seguida, selecione a política de acesso **EnabledForDiskEncryption** no cofre da chave utilizando o seu cmdlet PowerShell. Também pode definir a política utilizando o Cofre chave UI no portal Azure com o seguinte comando:
     ```powershell
@@ -58,10 +58,10 @@ A pré-visualização de encriptação do disco para o conjunto de escala de má
 | Comando | Versão |  Origem  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou mais tarde | Az.Compute |
-| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou mais tarde | Az.Compute |
+| Get-AzVmssSVMDiskEncryptionStatus   | 1.0.0 ou mais tarde | Az.Compute |
 | Disable-AzVmssDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
 | Get-AzVmssDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
-| Get-AzVmssVMDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
+| Get-AzVmssSVMDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
 | Set-AzVmssDiskEncryptionExtension   | 1.0.0 ou mais tarde | Az.Compute |
 
 

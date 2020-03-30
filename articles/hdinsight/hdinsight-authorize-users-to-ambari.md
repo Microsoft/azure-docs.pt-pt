@@ -1,6 +1,6 @@
 ---
-title: Autorizar usuários para exibições Ambari-Azure HDInsight
-description: Como gerenciar permissões de usuário e grupo Ambari para clusters HDInsight com ESP habilitado.
+title: Autorizar utilizadores de Ambari Views - Azure HDInsight
+description: Como gerir as permissões de utilizador e grupo Ambari para clusters HDInsight com ESP ativado.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435651"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar utilizadores para as Vistas do Apache Ambari
 
-Os [clusters HDInsight habilitados para Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) fornecem recursos de nível empresarial, incluindo a autenticação baseada em Azure Active Directory. Você pode [sincronizar novos usuários](hdinsight-sync-aad-users-to-cluster.md) adicionados aos grupos do Azure AD que receberam acesso ao cluster, permitindo que esses usuários específicos executem determinadas ações. O trabalho com usuários, grupos e permissões no [Apache Ambari](https://ambari.apache.org/) é compatível com clusters HDINSIGHT do ESP e clusters hdinsight padrão.
+[Os clusters HDInsight ativados do Pacote de Segurança Empresarial (ESP) fornecem](./domain-joined/hdinsight-security-overview.md) capacidades de nível empresarial, incluindo a autenticação baseada no Diretório Ativo azure. Pode [sincronizar novos utilizadores](hdinsight-sync-aad-users-to-cluster.md) adicionados aos grupos AD Azure que tiveram acesso ao cluster, permitindo que esses utilizadores específicos realizem determinadas ações. Trabalhar com utilizadores, grupos e permissões em [Apache Ambari](https://ambari.apache.org/) é suportado tanto para clusters ESP HDInsight como para clusters HDInsight padrão.
 
-Active Directory os usuários podem entrar nos nós do cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para autenticar interações de cluster com outros pontos de extremidade aprovados, como [matiz](https://gethue.com/), Ambari views, ODBC, JDBC, PowerShell e APIs REST.
+Os utilizadores de Diretório ativo podem iniciar sessão nos nós do cluster utilizando as suas credenciais de domínio. Também podem usar as suas credenciais de domínio para autenticar interações de cluster com outros pontos finais aprovados como [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell e REST APIs.
 
 > [!WARNING]  
-> Não altere a senha do Watchdog do Ambari (hdinsightwatchdog) em seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar ações de script ou executar operações de dimensionamento com o cluster.
+> Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de utilizar ações de script ou realizar operações de escala com o seu cluster.
 
-Se você ainda não tiver feito isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ESP.
+Se ainda não o fez, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para fornecer um novo cluster ESP.
 
-## <a name="access-the-ambari-management-page"></a>Acessar a página de gerenciamento do Ambari
+## <a name="access-the-ambari-management-page"></a>Aceda à página de gestão de Ambari
 
-Para acessar a **página de gerenciamento do Ambari** na [interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md), navegue até `https://CLUSTERNAME.azurehdinsight.net`. Insira o nome de usuário e a senha do administrador de cluster que você definiu ao criar o cluster. Em seguida, no painel do Ambari, selecione **gerenciar Ambari** abaixo do menu **admin** :
+Para chegar à página de gestão de **Ambari** no Apache `https://CLUSTERNAME.azurehdinsight.net` [Ambari Web UI,](hdinsight-hadoop-manage-ambari.md)navegue até . Introduza o nome de utilizador do administrador do cluster e a palavra-passe que definiu ao criar o cluster. Em seguida, a partir do painel ambari, **selecione Manage Ambari** por baixo do menu **de administração:**
 
-![Gerenciar o painel do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
+![Gestão do dashboard Apache Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## <a name="add-users"></a>Adicionar utilizadores
 
-### <a name="add-users-through-the-portal"></a>Adicionar usuários por meio do portal
+### <a name="add-users-through-the-portal"></a>Adicione utilizadores através do portal
 
-1. Na página Gerenciamento, selecione **usuários**.
+1. A partir da página de gestão, selecione **Utilizadores**.
 
-    ![Usuários da página de gerenciamento do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
+    ![Utilizadores da página de gestão Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Selecione **+ criar usuário local**.
+1. Selecione **+ Criar o Utilizador Local**.
 
-1. Forneça o **nome de usuário** e a **senha**. Selecione **salvar**.
+1. Fornecer **username** e **password**. Selecione **guardar**.
 
-### <a name="add-users-through-powershell"></a>Adicionar usuários por meio do PowerShell
+### <a name="add-users-through-powershell"></a>Adicionar utilizadores através do PowerShell
 
-Edite as variáveis abaixo, substituindo `CLUSTERNAME`, `NEWUSER`e `PASSWORD` pelos valores apropriados.
+Editar as variáveis abaixo `CLUSTERNAME` `NEWUSER`substituindo, e `PASSWORD` com os valores apropriados.
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -133,9 +133,9 @@ Invoke-WebRequest `
 Write-Output $zookeeperHosts
 ```
 
-### <a name="add-users-through-curl"></a>Adicionar usuários por meio da ondulação
+### <a name="add-users-through-curl"></a>Adicione utilizadores através do Curl
 
-Edite as variáveis abaixo, substituindo `CLUSTERNAME`, `ADMINPASSWORD`, `NEWUSER`e `USERPASSWORD` pelos valores apropriados. O script foi projetado para ser executado com o bash. Pequenas modificações seriam necessárias para um prompt de comando do Windows.
+Editar as variáveis abaixo `CLUSTERNAME` `ADMINPASSWORD`substituindo, e `NEWUSER` `USERPASSWORD` com os valores apropriados. O guião foi concebido para ser executado com uma festa. Seriam necessárias ligeiras modificações para um pedido de comando windows.
 
 ```bash
 export clusterName="CLUSTERNAME"
@@ -165,111 +165,111 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 -X GET "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER"
 ```
 
-## <a name="grant-permissions-to-apache-hive-views"></a>Conceder permissões para Apache Hive exibições
+## <a name="grant-permissions-to-apache-hive-views"></a>Conceda permissões às vistas da Colmeia Apache
 
-O Ambari vem com instâncias de exibição para [Apache Hive](https://hive.apache.org/) e [Apache tez](https://tez.apache.org/), entre outras. Para conceder acesso a uma ou mais instâncias de exibição do hive, vá para a **página de gerenciamento do Ambari**.
+Ambari vem com exemplos de vista para [Apache Hive](https://hive.apache.org/) e [Apache TEZ,](https://tez.apache.org/)entre outros. Para dar acesso a uma ou mais instâncias de visão da Colmeia, aceda à página de gestão de **Ambari.**
 
-1. Na página Gerenciamento, selecione o link **exibições** no título do menu **exibições** à esquerda.
+1. Na página de gestão, selecione o link **Views** no menu **Views** em direção à esquerda.
 
-    ![Links de exibição de exibições do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
+    ![Apache Ambari vê links](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
-2. Na página exibições, expanda a linha do **Hive** . Há uma exibição padrão do hive que é criada quando o serviço do hive é adicionado ao cluster. Você também pode criar mais instâncias de exibição do hive, conforme necessário. Selecione uma exibição do hive:
+2. Na página Views, expanda a linha **HIVE.** Há uma visão padrão da Colmeia que é criada quando o serviço hive é adicionado ao cluster. Você também pode criar mais casos de vista da Colmeia conforme necessário. Selecione uma vista para a Colmeia:
 
-    ![Exibições do HDInsight-exibição de Apache Hive](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
+    ![Vistas HDInsight - Vista Apache Hive](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
-3. Role para a parte inferior da página de exibição. Na seção *permissões* , você tem duas opções para conceder aos usuários de domínio suas permissões para a exibição:
+3. Percorra para a parte inferior da página Ver. De acordo com a secção *Permissões,* tem duas opções para conceder aos utilizadores de domínio as suas permissões à vista:
 
-**Conceder permissão a esses usuários** ![conceder permissão a esses usuários](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
+**Conceda permissão a estes utilizadores** ![Conceder permissão a estes utilizadores](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Conceda permissão a esses grupos** ![conceder permissão a esses grupos](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
+**Conceda permissão a estes grupos** ![Conceder permissão a estes grupos](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
-1. Para adicionar um usuário, selecione o botão **Adicionar usuário** .
+1. Para adicionar um utilizador, selecione o botão **Adicionar Utilizador.**
 
-   * Comece a digitar o nome de usuário e você verá uma lista suspensa de nomes definidos anteriormente.
+   * Comece a digitar o nome do utilizador e verá uma lista de nomes previamente definidos.
 
-     ![Preenchimento automático do usuário do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
+     ![Apache Ambari utilizador auto completa](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
-   * Selecione ou termine de digitar, o nome de usuário. Para adicionar esse nome de usuário como um novo usuário, selecione o botão **novo** .
+   * Selecione ou termine a dactilografia, o nome do utilizador. Para adicionar este nome de utilizador como um novo utilizador, selecione o botão **Novo.**
 
-   * Para salvar as alterações, marque a **caixa de seleção azul**.
+   * Para guardar as suas alterações, selecione a **caixa de verificação azul**.
 
-     ![Permissões de usuário de concessão do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
+     ![Apache Ambari concede permissões ao utilizador](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
-1. Para adicionar um grupo, selecione o botão **Adicionar grupo** .
+1. Para adicionar um grupo, selecione o botão **Adicionar Grupo.**
 
-   * Comece a digitar o nome do grupo. O processo de selecionar um nome de grupo existente ou adicionar um novo grupo é o mesmo para adicionar usuários.
-   * Para salvar as alterações, marque a **caixa de seleção azul**.
+   * Comece a escrever o nome do grupo. O processo de seleção de um nome de grupo existente, ou de adicionar um novo grupo, é o mesmo que para adicionar utilizadores.
+   * Para guardar as suas alterações, selecione a **caixa de verificação azul**.
 
-     ![Permissões de concessão do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
+     ![Apache Ambari concede permissões](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
-Adicionar usuários diretamente a uma exibição é útil quando você deseja atribuir permissões a um usuário para usar essa exibição, mas não deseja que eles sejam membros de um grupo que tenha permissões adicionais. Para reduzir a quantidade de sobrecarga administrativa, pode ser mais simples atribuir permissões a grupos.
+Adicionar utilizadores diretamente a uma vista é útil quando pretende atribuir permissões a um utilizador para usar essa visão, mas não quer que seja um membro de um grupo que tenha permissões adicionais. Para reduzir a quantidade de despesas administrativas, pode ser mais simples atribuir permissões a grupos.
 
-## <a name="grant-permissions-to-apache-tez-views"></a>Conceder permissões para exibições do Apache TEZ
+## <a name="grant-permissions-to-apache-tez-views"></a>Conceder permissões às vistas do Apache TEZ
 
-As instâncias de exibição do [Apache tez](https://tez.apache.org/) permitem que os usuários monitorem e depurem todos os trabalhos do tez, enviados por [Apache Hive](https://hive.apache.org/) consultas e scripts do [Apache Pig](https://pig.apache.org/) . Há uma instância de exibição de tez padrão que é criada quando o cluster é provisionado.
+As instâncias de visão [Apache TEZ](https://tez.apache.org/) permitem que os utilizadores monitorizem e depuram todos os empregos tez, apresentados por consultas [apache hive](https://hive.apache.org/) e scripts [Apache Pig.](https://pig.apache.org/) Há uma instância de visualização predefinida da Tez que é criada quando o cluster é provisionado.
 
-Para atribuir usuários e grupos a uma instância de exibição do tez, expanda a linha **tez** na página exibições, conforme descrito anteriormente.
+Para atribuir utilizadores e grupos a uma instância de visualização Tez, expanda a linha **TEZ** na página Views, como descrito anteriormente.
 
-![Exibições do HDInsight-exibição de Apache Tez](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
+![Vistas HDInsight - Vista Apache Tez](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
-Para adicionar usuários ou grupos, repita as etapas de 3-5 na seção anterior.
+Para adicionar utilizadores ou grupos, repita os passos 3 - 5 na secção anterior.
 
-## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
+## <a name="assign-users-to-roles"></a>Atribuir utilizadores a funções
 
-Há cinco funções de segurança para usuários e grupos, listadas em ordem de redução das permissões de acesso:
+Existem cinco funções de segurança para utilizadores e grupos, listadas por ordem de diminuição das permissões de acesso:
 
-* Administrador de cluster
-* Operador de cluster
+* Administrador de Cluster
+* Operador de Cluster
 * Administrador de Serviços
-* Operador de serviço
-* Usuário do cluster
+* Operador de Serviço
+* Utilizador de Cluster
 
-Para gerenciar funções, vá para a **página de gerenciamento do Ambari**e, em seguida, selecione o link **funções** no grupo de menus *clusters* à esquerda.
+Para gerir funções, vá à página de **gestão ambari**e, em seguida, selecione o link **Roles** dentro do grupo de menu *clusters* à esquerda.
 
-![Links do menu de funções do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
+![Links de menu de papéis Apache Ambari](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
-Para ver a lista de permissões dadas a cada função, clique no ponto de interrogação azul ao lado do cabeçalho da tabela **funções** na página funções.
+Para ver a lista de permissões dadas a cada função, clique no ponto de interrogação azul ao lado do cabeçalho da tabela **Roles** na página Roles.
 
-![Permissões de link do menu funções do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Permissões de link do menu funções do Apache Ambari")
+![Apache Ambari roles menu link permissions](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Apache Ambari roles menu link permissions")
 
-Nessa página, há duas exibições diferentes que você pode usar para gerenciar funções para usuários e grupos: bloquear e listar.
+Nesta página, existem duas visões diferentes que pode utilizar para gerir funções para utilizadores e grupos: Bloquear e Lista.
 
-### <a name="block-view"></a>Exibição de bloco
+### <a name="block-view"></a>Vista de bloco
 
-O modo de exibição de bloco exibe cada função em sua própria linha e fornece as opções **atribuir funções a esses usuários** e **atribuir funções a essas grupos** , conforme descrito anteriormente.
+A visão do Bloco exibe cada papel na sua própria linha, e fornece as **funções de Atribuição a estes utilizadores** e atribui **funções a estes grupos,** conforme descrito anteriormente.
 
-![Exibição de bloco de funções do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
+![Apache Ambari papéis vista de bloco](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### <a name="list-view"></a>Vista de lista
 
-A exibição de lista fornece recursos de edição rápida em duas categorias: usuários e grupos.
+A visão da Lista fornece capacidades de edição rápida em duas categorias: Utilizadores e Grupos.
 
-* A categoria usuários da exibição de lista exibe uma lista de todos os usuários, permitindo que você selecione uma função para cada usuário na lista suspensa.
+* A categoria Utilizadores da visão Lista apresenta uma lista de todos os utilizadores, permitindo-lhe selecionar uma função para cada utilizador na lista de dropdown.
 
-    ![Exibição de lista de funções do Apache Ambari-usuários](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
+    ![Visão da lista de papéis Apache Ambari - utilizadores](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* A categoria grupos da exibição de lista exibe todos os grupos e a função atribuída a cada grupo. Em nosso exemplo, a lista de grupos é sincronizada a partir dos grupos do Azure AD especificados na propriedade **Access User Group** das configurações de domínio do cluster. Consulte [criar um cluster HDInsight com ESP habilitado](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
+* A categoria grupos da lista mostra todos os grupos, e o papel atribuído a cada grupo. No nosso exemplo, a lista de grupos é sincronizada a partir dos grupos AD Azure especificados na propriedade do grupo de **utilizadores Access** das definições de Domínio do cluster. Consulte [Criar um cluster HDInsight com ESP ativado](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 
-    ![Exibição da lista de funções do Apache Ambari – grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
+    ![Apache Ambari vista lista de papéis - grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
-    Na imagem acima, o grupo "hiveusers" é atribuído à função de *usuário de cluster* . Essa é uma função somente leitura que permite que os usuários desse grupo exibam, mas não alterem as configurações de serviço e as métricas de cluster.
+    Na imagem acima, o grupo "hiveusers" é atribuído à função De Utilizador do *Cluster.* Esta é uma função apenas para leitura que permite aos utilizadores desse grupo visualizar, mas não alterar configurações de serviço e métricas de cluster.
 
-## <a name="log-in-to-ambari-as-a-view-only-user"></a>Faça logon no Ambari como um usuário somente de exibição
+## <a name="log-in-to-ambari-as-a-view-only-user"></a>Inicie sessão em Ambari como um utilizador só para visualização
 
-Atribuímos as permissões "hiveuser1" do usuário de domínio do Azure AD às exibições Hive e tez. Quando iniciamos a interface do usuário da Web do amAmbari e inserem as credenciais de domínio do usuário (nome de usuário do Azure AD no formato de email e senha), o usuário é redirecionado para a página de exibições do Ambari. A partir daqui, o usuário pode selecionar qualquer exibição acessível. O usuário não pode visitar nenhuma outra parte do site, incluindo o painel, os serviços, os hosts, os alertas ou as páginas de administrador.
+Atribuímos permissões ao nosso utilizador de domínio Azure AD "hiveuser1" para vistas para a Hive e Tez. Quando lançamos o Ambari Web UI e introduzimos as credenciais de domínio deste utilizador (nome de utilizador DaA Azure em formato de e-mail e palavra-passe), o utilizador é redirecionado para a página Ambari Views. A partir daqui, o utilizador pode selecionar qualquer vista acessível. O utilizador não pode visitar qualquer outra parte do site, incluindo o dashboard, serviços, anfitriões, alertas ou páginas de administração.
 
-![Usuário Apache Ambari somente com exibições](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
+![Utilizador Apache Ambari apenas com vistas](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
-## <a name="log-in-to-ambari-as-a-cluster-user"></a>Faça logon no Ambari como um usuário de cluster
+## <a name="log-in-to-ambari-as-a-cluster-user"></a>Inicie sessão em Ambari como utilizador de cluster
 
-Atribuímos o usuário de domínio do Azure AD "hiveuser2" à função de *usuário de cluster* . Essa função é capaz de acessar o painel e todos os itens de menu. Um usuário de cluster tem menos opções permitidas do que um administrador. Por exemplo, hiveuser2 pode exibir configurações para cada um dos serviços, mas não pode editá-los.
+Atribuímos o nosso utilizador de domínio Azure AD "hiveuser2" à função *de Utilizador* cluster. Esta função é capaz de aceder ao painel de instrumentos e a todos os itens de menu. Um utilizador de cluster tem menos opções permitidas do que um administrador. Por exemplo, o hiveuser2 pode ver configurações para cada um dos serviços, mas não pode editá-los.
 
-![Exibição do painel do Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
+![Ecrã do painel apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar políticas de Apache Hive no HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
-* [Gerenciar clusters do HDInsight do ESP](./domain-joined/apache-domain-joined-manage.md)
-* [Usar a exibição de Apache Hive com Apache Hadoop no HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-* [Sincronizar os usuários do Azure AD com o cluster](hdinsight-sync-aad-users-to-cluster.md)
-* [Gerenciar clusters HDInsight usando a API REST do Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Configure as políticas da Hive Apache no HDInsight com esp](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gerir clusters ESP HDInsight](./domain-joined/apache-domain-joined-manage.md)
+* [Use a vista da colmeia Apache com Apache Hadoop em HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [Synchronize utilizadores de AD Azure para o cluster](hdinsight-sync-aad-users-to-cluster.md)
+* [Gerir os clusters HDInsight utilizando a API De REPOUSO Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
