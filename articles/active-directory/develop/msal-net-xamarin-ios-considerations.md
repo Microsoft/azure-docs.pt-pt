@@ -15,16 +15,16 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262714"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações para a utilização do iOS Xamarin com MSAL.NET
 Quando utilizar a Microsoft Authentication Library para .NET (MSAL.NET) no Xamarin iOS, deve: 
 
-- Sobrepor e implementar a função `OpenUrl` em `AppDelegate`.
+- Sobrepor e `OpenUrl` implementar `AppDelegate`a função em .
 - Ativar grupos de porta-chaves.
 - Permitir a partilha de cache simbólica.
 - Ativar o acesso ao porta-chaves.
@@ -32,7 +32,7 @@ Quando utilizar a Microsoft Authentication Library para .NET (MSAL.NET) no Xamar
 
 ## <a name="implement-openurl"></a>Implementar OpenUrl
 
-Anular o método `OpenUrl` da classe derivada `FormsApplicationDelegate` e chamar `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Segue-se um exemplo:
+Anular o `OpenUrl` método `FormsApplicationDelegate` da classe derivada e chamar `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Segue-se um exemplo:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -50,7 +50,7 @@ Faça também as seguintes tarefas:
 
 ### <a name="enable-keychain-access"></a>Ativar o acesso ao porta-chaves
 
-Para ativar o acesso ao keychain, certifique-se de que a sua aplicação tem um grupo de acesso à porta-chaves. Pode configurar o grupo de acesso ao porta-chaves quando criar a sua aplicação utilizando a API `WithIosKeychainSecurityGroup()`.
+Para ativar o acesso ao keychain, certifique-se de que a sua aplicação tem um grupo de acesso à porta-chaves. Pode configurar o grupo de acesso ao porta-chaves quando criar a sua aplicação utilizando a `WithIosKeychainSecurityGroup()` API.
 
 Para beneficiar da cache e da inscrição única (SSO), coloque o grupo de acesso à porta-chaves com o mesmo valor em todas as suas aplicações.
 
@@ -62,7 +62,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-Também ative o acesso ao porta-chaves no ficheiro `Entitlements.plist`. Utilize o seguinte grupo de acesso ou o seu próprio grupo de acesso.
+Também ative o acesso `Entitlements.plist` do porta-chaves no ficheiro. Utilize o seguinte grupo de acesso ou o seu próprio grupo de acesso.
 
 ```xml
 <dict>
@@ -73,7 +73,7 @@ Também ative o acesso ao porta-chaves no ficheiro `Entitlements.plist`. Utilize
 </dict>
 ```
 
-Quando utiliza a `WithIosKeychainSecurityGroup()` API, a MSAL ajusta automaticamente o seu grupo de segurança ao fim do ID da *equipa* da aplicação (`AppIdentifierPrefix`). A MSAL adiciona o seu grupo de segurança porque quando constrói a sua aplicação em Xcode, fará o mesmo. É por isso que os direitos no ficheiro `Entitlements.plist` precisam incluir `$(AppIdentifierPrefix)` antes do grupo de acesso à porta-chaves.
+Quando utiliza `WithIosKeychainSecurityGroup()` a API, a MSAL ajusta automaticamente o seu grupo de`AppIdentifierPrefix`segurança ao fim do ID da *equipa* da aplicação ( ). A MSAL adiciona o seu grupo de segurança porque quando constrói a sua aplicação em Xcode, fará o mesmo. É por isso que os `Entitlements.plist` direitos `$(AppIdentifierPrefix)` no ficheiro precisam de incluir antes do grupo de acesso à porta-chaves.
 
 Para mais informações, consulte a documentação dos direitos do [iOS.](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps) 
 
@@ -83,16 +83,16 @@ A partir do MSAL 2.x, pode especificar um grupo de acesso à porta-chaves para p
 
 Ao partilhar a cache simbólica, permite um único sinal (SSO) entre todas as aplicações que utilizam o mesmo grupo de acesso à porta-chaves.
 
-Para permitir esta partilha de cache, utilize o método `WithIosKeychainSecurityGroup()` para definir o grupo de acesso à cadeia de chaves para o mesmo valor em todas as aplicações que partilham a mesma cache. O primeiro exemplo de código neste artigo mostra como usar o método.
+Para permitir esta partilha `WithIosKeychainSecurityGroup()` de cache, utilize o método para definir o grupo de acesso à cadeia de chaves para o mesmo valor em todas as aplicações que partilham a mesma cache. O primeiro exemplo de código neste artigo mostra como usar o método.
 
-No início deste artigo, descobriu que a MSAL adiciona `$(AppIdentifierPrefix)` sempre que usa a API `WithIosKeychainSecurityGroup()`. A MSAL adiciona este elemento porque o ID da equipa `AppIdentifierPrefix` garante que apenas as aplicações que são feitas pela mesma editora podem partilhar o acesso ao keychain.
+No início deste artigo, descobriu que `$(AppIdentifierPrefix)` a MSAL adiciona sempre que utiliza a `WithIosKeychainSecurityGroup()` API. A MSAL adiciona este `AppIdentifierPrefix` elemento porque o ID da equipa garante que apenas as aplicações que são feitas pela mesma editora podem partilhar o acesso ao keychain.
 
 > [!NOTE]
-> A propriedade `KeychainSecurityGroup` é depreciada.
+> A `KeychainSecurityGroup` propriedade está depreciada.
 > 
-> A partir do MSAL 2.x, os desenvolvedores foram forçados a incluir o prefixo `TeamId` quando usaram a propriedade `KeychainSecurityGroup`. Mas a partir do MSAL 2.7.x, quando se utiliza a nova propriedade `iOSKeychainSecurityGroup`, a MSAL resolve o prefixo `TeamId` durante o tempo de execução. Quando utilizar esta propriedade, não inclua o prefixo `TeamId` no valor. O prefixo não é necessário.
+> A partir do MSAL 2.x, os `TeamId` desenvolvedores foram `KeychainSecurityGroup` forçados a incluir o prefixo quando usaram a propriedade. Mas a partir do MSAL 2.7.x, `iOSKeychainSecurityGroup` quando se utiliza a `TeamId` nova propriedade, a MSAL resolve o prefixo durante o tempo de execução. Quando utilizar esta propriedade, não `TeamId` inclua o prefixo no valor. O prefixo não é necessário.
 >
-> Como a propriedade `KeychainSecurityGroup` é obsoleta, use a propriedade `iOSKeychainSecurityGroup`.
+> Como `KeychainSecurityGroup` a propriedade é obsoleta, use a `iOSKeychainSecurityGroup` propriedade.
 
 ### <a name="use-microsoft-authenticator"></a>Use o autenticador microsoft
 

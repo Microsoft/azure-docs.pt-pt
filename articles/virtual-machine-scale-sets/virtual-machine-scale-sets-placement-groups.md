@@ -8,12 +8,12 @@ ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.openlocfilehash: 618b677ee836327e8ed4ab7798ab35d92b364c98
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6a872e749bae6bd29dbf73d4946e631af1660a39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254056"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531044"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -43,18 +43,21 @@ Quando cria um conjunto de dimensionamento no portal do Azure, basta especificar
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Pode criar um grande conjunto de máquinas virtuais utilizando o [Azure CLI](https://github.com/Azure/azure-cli) _az vmss criar_ comando. Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
+Pode criar um conjunto de dimensionamento de máquina virtual de grande escala com o comando da [CLI do Azure](https://github.com/Azure/azure-cli) _az vmss create_. Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
 
-```bash
+```azurecli
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
+
 O comando _vmss create_ repõe as predefinições de certos valores de configuração, caso não os especifique. Para ver as opções disponíveis que pode ignorar, tente:
-```bash
+
+```azurecli
 az vmss create --help
 ```
 
 Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um modelo do Azure Resource Manager, certifique-se de que o modelo cria um conjunto de dimensionamento com base em Managed Disks do Azure. Pode definir a propriedade _singlePlacementGroup_ como _falsa_ na secção _de propriedades_ do recurso _Microsoft.Compute/virtualMachineScaleSets._ O fragmento JSON seguinte mostra o início de um modelo de conjunto de dimensionamento, incluindo a capacidade de 1000 VMs e a definição _"singlePlacementGroup" : falso_:
+
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -71,7 +74,8 @@ Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um 
       "mode": "Automatic"
     }
 ```
-Para obter um exemplo completo de um modelo de conjunto de dimensionamento, veja [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+
+Para um exemplo completo de um modelo [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)de conjunto de grande escala, consulte .
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Converter um conjunto de dimensionamento existente para abranger vários grupos de colocação
 Para que um conjunto de dimensionamento de máquina virtual existente seja capaz de dimensionar para mais de 100 VMs, é necessário alterar a propriedade _singlePlacementGroup_ para _falso_ no modelo do conjunto de dimensionamento. Pode testar a alteração desta propriedade com o [Explorador de Recursos do Azure](https://resources.azure.com/). Localize um conjunto de dimensionamento existente, selecione _Editar_ e altere a propriedade _singlePlacementGroup_. Se não visualizar esta propriedade, poderá estar a ver o conjunto de dimensionamento com uma versão anterior da API Microsoft.Compute.

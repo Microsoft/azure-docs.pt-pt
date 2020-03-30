@@ -1,78 +1,77 @@
 ---
-title: Criar um VHD compatível com o Azure para o Azure Marketplace
-description: Explica como criar um VHD para uma oferta de máquina virtual no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+title: Criar um VHD compatível com Azure para o Mercado Azure
+description: Explica como criar um VHD para uma oferta de máquina virtual no Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816808"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277995"
 ---
-# <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
+# <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com Azure
 
-Este artigo detalha as etapas necessárias para criar um VHD (disco rígido virtual) para uma oferta de VM (máquina virtual) no Azure Marketplace.  Ele também inclui as práticas recomendadas para vários aspectos, como usar o protocolo RDP (RDP), selecionar um tamanho para a VM, instalar as atualizações mais recentes do Windows e generalizar a imagem VHD.  As seções a seguir se concentram principalmente em VHDs baseados no Windows; para obter mais informações sobre como criar VHDs baseados em Linux, consulte [Linux em distribuições endossadas pelo Azure](../../../virtual-machines/linux/endorsed-distros.md). 
+Este artigo detalha os passos necessários para criar um disco rígido virtual (VHD) para uma oferta de máquina virtual (VM) no Mercado Azure.  Também inclui as melhores práticas para vários aspetos, tais como a utilização do Protocolo de Ambiente de Trabalho Remoto (RDP), a seleção de um tamanho para o VM, a instalação das mais recentes atualizações do Windows e a generalização da imagem VHD.  As seguintes secções focam-se principalmente em VHDs baseados em janelas; para obter mais informações sobre a criação de VHDs baseados em Linux, consulte [o Linux nas distribuições endossadas pelo Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> É altamente recomendável que você siga as diretrizes neste tópico para usar o Azure para criar uma VM que contém um sistema operacional previamente configurado e endossado.  Se isso não for compatível com sua solução, será possível criar e configurar uma VM local usando um sistema operacional aprovado.  Em seguida, você pode configurar e prepará-lo para upload, conforme descrito em [preparar um VHD do Windows ou VHDX para carregar no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Recomenda-se vivamente que siga a orientação deste tópico para utilizar o Azure para criar um VM contendo um sistema operativo pré-configurado e endossado.  Se isto não for compatível com a sua solução, então é possível criar e configurar um VM no local utilizando um sistema operativo aprovado.  Em seguida, pode configurá-lo e prepará-lo para upload conforme descrito em [Prepare um Windows VHD ou VHDX para fazer o upload para Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
-## <a name="select-an-approved-base"></a>Selecionar uma base aprovada
-O VHD do sistema operacional para sua imagem de VM deve ser baseado em uma imagem base aprovada pelo Azure que contém o Windows Server ou SQL Server.
-Para começar, crie uma VM com base em uma das imagens a seguir, localizadas na portal do Microsoft Azure:
+## <a name="select-an-approved-base"></a>Selecione uma base aprovada
+O VHD do sistema operativo para a sua imagem VM deve basear-se numa imagem de base aprovada pelo Azure que contenha o Windows Server ou o SQL Server.
+Para começar, crie um VM a partir de uma das seguintes imagens, localizada no portal Microsoft Azure:
 
--   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+-   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 -   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 
 > [!TIP]
-> Se você estiver usando o portal do Azure atual ou o PowerShell, as imagens do Windows Server publicadas em 8 de setembro de 2014 e posteriores serão aprovadas.
+> Se estiver a utilizar o portal Atual Azure ou PowerShell, as imagens do Windows Server publicadas a 8 de setembro de 2014 e posteriormente são aprovadas.
 
-Como alternativa, o Azure oferece uma variedade de distribuições do Linux aprovadas.  Para obter uma lista atual, consulte [Linux em distribuições endossadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Alternativamente, o Azure oferece uma gama de distribuições de Linux aprovadas.  Para obter uma lista atual, consulte [o Linux nas distribuições endossadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 
-## <a name="create-vm-in-the-azure-portal"></a>Criar VM no portal do Azure 
+## <a name="create-vm-in-the-azure-portal"></a>Criar VM no portal Azure 
 
-No Microsoft [portal do Azure](https://ms.portal.azure.com/), crie a imagem base usando as etapas a seguir.
+No portal Microsoft [Azure, crie](https://ms.portal.azure.com/)a imagem base utilizando os seguintes passos.
 
-1. Entre no portal com o conta Microsoft para a assinatura do Azure na qual você deseja publicar sua oferta de VM.
-2. Crie um novo grupo de recursos e forneça o **nome do grupo de recursos**, a **assinatura**e o local do **grupo de recursos**.  Para obter mais diretrizes, consulte [gerenciar grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-3. Clique em **máquinas virtuais** na barra de menus à esquerda para exibir a página de detalhes de máquinas virtuais. 
-4. Nessa nova página, clique em **+ Adicionar** para exibir a folha **computação** .  Se você não vir o tipo de VM na tela inicial, poderá pesquisar o nome da VM de base, por exemplo:
+1. Faça sessão no portal com a conta Microsoft para a subscrição do Azure que pretende publicar a sua oferta VM.
+2. Crie um novo grupo de recursos e forneça o nome do **grupo Recursos,** **Subscrição,** e localização do **grupo Derecursos.**  Para obter mais orientação, consulte [Gerir grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+3. Clique em **máquinas virtuais** na barra de menus esquerda para mostrar a página de detalhes das máquinas virtuais. 
+4. Nesta nova página, clique em **+Adicionar** para exibir a lâmina **Compute.**  Se não vir o tipo VM no ecrã inicial, pode procurar o nome do seu VM base, por exemplo:
 
-    ![Folha de computação da nova VM](./media/publishvm_014.png)
+    ![Lâmina de computação do novo VM](./media/publishvm_014.png)
 
-5. Depois de selecionar a imagem virtual apropriada, forneça os seguintes valores:
-   * Na folha **noções básicas** , insira um **nome** para a máquina virtual, entre 1-15 caracteres alfanuméricos. (Este exemplo usa `DemoVm009`.)
-   * Insira um **nome de usuário** e uma **senha**forte, que são usados para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A senha deve ter de 3 a 8-123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [requisitos de nome de usuário e senha](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-   * Selecione o grupo de recursos que você criou (aqui `DemoResourceGroup`).
-   * Selecione um **local** de datacenter do Azure (aqui `West US`).
-   * Clique em **OK** para salvar esses valores. 
+5. Depois de selecionar a imagem virtual adequada, forneça os seguintes valores:
+   * Na lâmina **Basics,** introduza um **nome** para a máquina virtual, entre 1-15 caracteres alfanuméricos. (Este exemplo `DemoVm009`usa .)
+   * Introduza um **nome de utilizador** e uma **palavra-passe**forte, que são usadas para criar uma conta local no VM.  (Aqui `adminUser` é usado.)  A palavra-passe deve ter 8-123 caracteres de comprimento e satisfazer três dos quatro seguintes requisitos de complexidade: um personagem de minúscula, um personagem de maiúscula, um número e um personagem especial. Para mais informações, consulte os requisitos de [username e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Selecione o grupo `DemoResourceGroup`Derecursos que criou (aqui).
+   * Selecione um **Local** azure datacenter (aqui `West US`).
+   * Clique **em OK** para guardar estes valores. 
 
-6. Selecione o tamanho da VM a ser implantado usando as seguintes recomendações:
-   * Se você planeja desenvolver o VHD local, o tamanho não importa. Pondere utilizar uma das VMs mais pequenas.
-   * Se tenciona desenvolver a imagem no Azure, pondere utilizar um dos tamanhos de VM recomendados para a imagem selecionada.
-   * Para obter informações sobre preços, consulte o seletor de **tipos de preço recomendado** exibido no Portal. Ele exibirá os três tamanhos recomendados fornecidos pelo Publicador. (Aqui, o Publicador é a Microsoft.)
+6. Selecione o tamanho do VM para implementar usando as seguintes recomendações:
+   * Se planeia desenvolver o VHD no local, o tamanho não importa. Considere usar um dos VMs menores.
+   * Se planeia desenvolver a imagem em Azure, considere utilizar um dos tamanhos vm recomendados para a imagem selecionada.
+   * Para obter informações sobre preços, consulte o seletor de **preços recomendado** apresentado no portal. Apresentará os três tamanhos recomendados fornecidos pela editora. (Aqui, a editora é a Microsoft.)
 
-   ![Folha de tamanho da nova VM](./media/publishvm_015.png)
+   ![Lâmina de tamanho do novo VM](./media/publishvm_015.png)
 
-7. Na folha **configurações** , defina a opção **usar disco gerenciado** como **não**.  Isso permite que você gerencie manualmente o novo VHD. (A folha **configurações** também permite que você altere outra alteração nas opções de armazenamento e rede, por exemplo, selecionando **Premium (SSD)** em **tipo de disco**.)  Clique em **OK** para continuar.
+7. Na lâmina **Definições,** desloque a opção **Use Managed Disk** para **No**.  Isto permite-lhe gerir manualmente o novo VHD. (A lâmina **Definições** também permite alterar outras alterações nas opções de armazenamento e rede, por exemplo, selecionando **Premium (SSD)** no **tipo disco**.)  Clique **em OK** para continuar.
 
-    ![Folha configurações da nova VM](./media/publishvm_016.png)
+    ![Lâmina de configurações de Novo VM](./media/publishvm_016.png)
 
 8. Clique em **Resumo** para rever as opções. Quando vir a mensagem **A validação passou**, clique em **OK**.
 
-    ![Folha de resumo da nova VM](./media/publishvm_017.png)
+    ![Lâmina sumária de Novo VM](./media/publishvm_017.png)
 
-O Azure começa o provisionamento da máquina virtual que você especificou.  Você pode acompanhar seu progresso clicando na guia **máquinas virtuais** à esquerda.  Depois de criado, o status será alterado para **em execução**.  Nesse ponto, você pode [se conectar à máquina virtual](./cpp-connect-vm.md).
+O Azure começa a fornecer a máquina virtual que especificou.  Pode acompanhar o seu progresso clicando no separador **Máquinas Virtuais** à esquerda.  Depois de criado, o estado mudará para **Running**.  Nessa altura, pode [ligar-se à máquina virtual.](./cpp-connect-vm.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você encontrou dificuldades para criar seu novo VHD baseado no Azure, consulte [problemas comuns durante a criação do VHD](./cpp-common-vhd-creation-issues.md).  Caso contrário, em seguida, você deve [se conectar às VMs](./cpp-connect-vm.md) que criou no Azure. 
+Se encontrou dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD](./cpp-common-vhd-creation-issues.md).  Caso contrário, em seguida, deve [ligar-se aos VMs](./cpp-connect-vm.md) que criou no Azure. 

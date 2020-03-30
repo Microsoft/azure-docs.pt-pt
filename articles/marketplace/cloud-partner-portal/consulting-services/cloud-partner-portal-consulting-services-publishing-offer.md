@@ -1,19 +1,18 @@
 ---
 title: Oferta de serviço de consultoria Azure e Dynamics 365 Mercado Azure
 description: Guia para definir e publicar uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.author: dsindona
+ms.openlocfilehash: 1015734ac0da6b4641c0bf32049146e3820f4616
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268304"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278540"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de serviço de consultoria Azure e Dynamics 365
 
@@ -36,9 +35,9 @@ Esta secção descreve os elementos da publicação de uma oferta de serviço de
  
     - Microsoft Azure
     - Participação do Cliente da Dinâmica 365 
-    - Dinâmica 365 Finanças e Operações 
+    - Dinâmica 365 Operações de & Financeira 
     - Dynamics 365 for Customer Insights
-    - Dinâmica 365 Business Central 
+    - Dynamics 365 Business Central 
     - Power BI 
     - Power Apps
     - Power Automate

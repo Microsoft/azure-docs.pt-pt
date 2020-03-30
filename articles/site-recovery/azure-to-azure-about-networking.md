@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283264"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking na recuperação de desastres azure VM
 
@@ -29,13 +29,13 @@ Saiba como a Recuperação do Site proporciona recuperação de desastres para [
 
 O diagrama seguinte retrata um ambiente típico de Azure, para aplicações em execução em VMs Azure:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![ambiente cliente-ambiente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Se estiver a utilizar o Azure ExpressRoute ou uma ligação VPN da sua rede no local para o Azure, o ambiente é o seguinte:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+![ambiente cliente-ambiente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalmente, as redes são protegidas usando firewalls e grupos de segurança de rede (NSGs). As firewalls utilizam a lista de permissões baseada em URL ou IP para controlar a conectividade da rede. Os NSGs fornecem regras que utilizam gamas de endereços IP para controlar a conectividade da rede.
+Normalmente, as redes são protegidas usando firewalls e grupos de segurança de rede (NSGs). As firewalls utilizam a lista branca baseada em URL ou IP para controlar a conectividade da rede. Os NSGs fornecem regras que utilizam gamas de endereços IP para controlar a conectividade da rede.
 
 >[!IMPORTANT]
 > A utilização de um proxy autenticado para controlar a conectividade da rede não é suportada pela Recuperação do Site, e a replicação não pode ser ativada.
@@ -46,7 +46,7 @@ Normalmente, as redes são protegidas usando firewalls e grupos de segurança de
 Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estes URLs de Recuperação do Site:
 
 
-**URL** | **Detalhes**  
+**URL** | **Detalhes**
 --- | ---
 *.blob.core.windows.net | Necessários para que os dados possam ser escritos na conta de armazenamento de cache na região fonte a partir do VM. Se você sabe todas as contas de armazenamento de cache para os seus VMs, você pode permitir o acesso à conta de armazenamento específica URLs (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *.blob.core.windows.net
 login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço de Recuperação do Local.
@@ -55,11 +55,11 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 *.vault.azure.net | Permite o acesso para permitir a replicação de máquinas virtuais ativadas pela ADE através do portal
 *.automation.ext.azure.com | Permite permitir a tualização automática do agente de mobilidade para um item replicado via portal
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
+## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando etiquetas de serviço
 
 Se estiver a usar um NSG para controlar a conectividade de saída, estas etiquetas de serviço precisam de ser permitidas.
 
-- Todas as gamas de endereços IP que correspondem às contas de armazenamento na região fonte
+- Para as contas de armazenamento na região fonte:
     - Crie uma regra NSG baseada em etiqueta de [armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
     - Permita que estes endereços possam ser escritos na conta de armazenamento de cache, a partir do VM.
 - Criar uma regra NSG baseada em placa de [serviço Azure Ative Diretório (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD

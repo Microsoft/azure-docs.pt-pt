@@ -1,47 +1,47 @@
 ---
-title: Proteção avançada contra ameaças-banco de dados do Azure para MariaDB
-description: A proteção avançada contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
+title: Proteção avançada de ameaças - Base de Dados Azure para MariaDB
+description: A Advanced Threat Protection deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 164457444fc097c0b1322909110f705726df1083
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772850"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532183"
 ---
-# <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Banco de dados do Azure para proteção avançada contra ameaças do MariaDB
+# <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Base de Dados Azure para Proteção Avançada de Ameaças MariaDB
 
-A proteção avançada contra ameaças para o banco de dados do Azure para MariaDB detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
+Advanced Threat Protection for Azure Database for MariaDB deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados.
 
 > [!IMPORTANT]
-> A proteção avançada contra ameaças está em visualização pública.
+> A Proteção Avançada de Ameaças está em pré-visualização pública.
 
-A proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para recursos avançados de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com). O recurso está disponível para servidores Uso Geral e com otimização de memória.
+A Advanced Threat Protection faz parte da oferta avançada de segurança de dados, que é um pacote unificado para capacidades de segurança avançadas. A Proteção Avançada de Ameaças pode ser acedida e gerida através do [portal Azure.](https://portal.azure.com) A funcionalidade está disponível para servidores otimizados para Fins Gerais e Memória.
 
 > [!NOTE]
-> O recurso proteção avançada contra ameaças **não** está disponível nas seguintes regiões do Azure governamental e do soberanas cloud: US gov Texas, US gov Arizona, US gov Iowa, US, gov virgínia, US DoD Leste, US DoD central, Alemanha Central, Norte da Alemanha, Leste da China, leste da China 2. Visite os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
+> A funcionalidade de Proteção contra Ameaças **Avançadas não** está disponível nas seguintes regiões do governo azure e das nuvens soberanas: EUA Gov Texas, US Gov Arizona, US Gov Iowa, EUA, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha Norte, China Leste, China East 2. Visite [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para a disponibilidade geral do produto.
 
 
-## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
+## <a name="what-is-advanced-threat-protection"></a>O que é Proteção avançada de ameaças?
 
-A proteção avançada contra ameaças para o banco de dados do Azure para MariaDB fornece uma nova camada de segurança, que permite que os clientes detectem e respondam a ameaças potenciais à medida que ocorrem, fornecendo alertas de segurança em atividades anormais. Os usuários recebem um alerta sobre atividades suspeitas de banco de dados e possíveis vulnerabilidades, bem como padrões de consultas e acessos de banco de dados anormais. A proteção avançada contra ameaças para o banco de dados do Azure para MariaDB integra alertas com a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/), que inclui detalhes de atividades suspeitas e recomenda ações sobre como investigar e atenuar a ameaça. A proteção avançada contra ameaças para o banco de dados do Azure para MariaDB simplifica a endereçamento de ameaças potenciais ao banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar sistemas de monitoramento de segurança avançados. 
+A Advanced Threat Protection for Azure Database for MariaDB fornece uma nova camada de segurança, que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança sobre atividades anómalas. Os utilizadores recebem um alerta sobre atividades suspeitas de bases de dados e potenciais vulnerabilidades, bem como padrões anómalos de acesso à base de dados e consultas. Advanced Threat Protection for Azure Database for MariaDB integra alertas com o [Azure Security Center](https://azure.microsoft.com/services/security-center/), que inclui detalhes de atividades suspeitas e recomenda ações sobre como investigar e mitigar a ameaça. A Advanced Threat Protection for Azure Database for MariaDB torna simples abordar potenciais ameaças à base de dados sem a necessidade de ser um perito em segurança ou gerir sistemas avançados de monitorização de segurança. 
 
-![Conceito de proteção avançada contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+![Conceito avançado de proteção contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Alertas de proteção avançada contra ameaças 
-A proteção avançada contra ameaças para o banco de dados do Azure para MariaDB detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados e pode disparar os seguintes alertas:
-- **Acesso de local incomum**: esse alerta é disparado quando há uma alteração no padrão de acesso para o banco de dados do Azure para MariaDB Server, em que alguém fez logon no banco de dados do Azure para o servidor MariaDB de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de data center incomuns do Azure**: esse alerta é disparado quando há uma alteração no padrão de acesso para o banco de dados do Azure para MariaDB Server, em que alguém fez logon no servidor de um data center do Azure incomum que foi visto nesse servidor durante o período recente. Em alguns casos, o alerta detecta uma ação legítima (seu novo aplicativo no Azure, Power BI). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso a partir de entidade de segurança desconhecida**: esse alerta é disparado quando há uma alteração no padrão de acesso para o banco de dados do Azure para MariaDB Server, em que alguém fez logon no servidor usando uma entidade de segurança incomum (banco de dados do Azure para usuário MariaDB). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+## <a name="advanced-threat-protection-alerts"></a>Alertas avançados de proteção contra ameaças 
+Advanced Threat Protection for Azure Database for MariaDB deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados e pode desencadear os seguintes alertas:
+- **Acesso**a partir de uma localização invulgar : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para servidor MariaDB, onde alguém acedeu à Base de Dados Azure para servidor MariaDB a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso a partir de um centro de dados incomum do Azure**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém acedeu ao servidor a partir de um centro de dados incomum do Azure que foi visto neste servidor durante o período recente. Em alguns casos, o alerta deteta uma ação legítima (a sua nova aplicação em Azure, Power BI). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
+- **Acesso do principal desconhecido**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para servidor MariaDB, onde alguém acedeu ao servidor usando um principal incomum (Base de Dados Azure para utilizador MariaDB). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
 - **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Força bruta banco de dados do Azure para credenciais MariaDB**: esse alerta é disparado quando há um grande número anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
+- **Brute force Azure Database para credenciais MariaDB**: Este alerta é desencadeado quando há um número anormal de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para obter mais informações sobre preços, consulte a [página de preços do banco de dados do Azure para MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Configurar o [banco de dados do Azure para proteção avançada contra ameaças do MariaDB](howto-database-threat-protection-portal.md) usando o portal do Azure  
+* Saiba mais sobre [o Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Para mais informações sobre preços, consulte a Base de [Dados Azure para a página de Preços MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) 
+* Configure [Azure Database para Proteção avançada de ameaças MariaDB](howto-database-threat-protection-portal.md) usando o portal Azure  

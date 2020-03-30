@@ -1,146 +1,145 @@
 ---
-title: Dynamics CRM | Azure Marketplace
-description: Configure o gerenciamento de leads para o Dynamics CRM.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Dinâmica CRM [ CRM ] Mercado Azure
+description: Configure a gestão de chumbo para a Dynamics CRM.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 4ccc8b85e72a4da3b0e640abcc70d24b7cdc54af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280308"
 ---
-# <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar o gerenciamento de leads para o Dynamics CRM Online
+# <a name="configure-lead-management-for-dynamics-crm-online"></a>Configure a gestão de chumbo para A Dinâmica CRM online
 
-Este artigo descreve como configurar o Dynamics CRM Online para processar leads de vendas.
+Este artigo descreve como configurar o Dynamics CRM Online para processar os leads de vendas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As seguintes permissões de usuário são necessárias para concluir as etapas neste artigo:
-- Você precisa ser um administrador em sua instância do Dynamics CRM Online para instalar uma solução.
-- Você precisa ser um administrador de locatário para criar uma nova conta de serviço para o serviço de Lead.
+As seguintes permissões de utilizador são necessárias para completar os passos deste artigo:
+- É necessário ser administrador na sua instância Dynamics CRM Online para instalar uma solução.
+- Você precisa ser um administrador inquilino para criar uma nova conta de serviço para o serviço principal.
 
 <a name="install-the-solution"></a>Instalar a solução
 --------------------
 
-1.  Baixe a [solução de gravador de Microsoft Marketplace Lead](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) e salve-a localmente.
+1.  Descarregue a [solução Microsoft Marketplace Lead Writer](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) e guarde-a localmente.
 
-2.  Abra o Dynamics CRM Online e vá para configurações.
+2.  Abra a Dinâmica CRM Online e vá a Definições.
     >[!NOTE]
-    >Se você não vir as opções na próxima captura de tela, não terá as permissões necessárias.
+    >Se não vir as opções na próxima captura do ecrã, então não tem as permissões de que precisa.
  
-       ![Exibição de configuração do Dynamics](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline1.png)
+       ![Visão de configuração de dinâmica](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline1.png)
 
-3.  Selecione **importar**e, em seguida, selecione a solução que você baixou na etapa 1.
+3.  Selecione **Import**e, em seguida, selecione a solução que descarregou no passo 1.
  
-    ![Opção de importação do Dynamics](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline2.png)
+    ![Opção de importação de dinâmicas](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline2.png)
 
-4.  Conclua a instalação da solução.
+4.  Termine de instalar a solução.
 
-## <a name="configure-user-permissions"></a>Configurar permissões de usuário
+## <a name="configure-user-permissions"></a>Configurar permissões de utilizador
 
-Para gravar clientes potenciais em sua instância do Dynamics CRM, você precisa compartilhar uma conta de serviço conosco e configurar permissões para a conta.
+Para escrever pistas na sua instância de CRM Dynamics tem de partilhar uma conta de serviço connosco e configurar permissões para a conta.
 
-Use as etapas a seguir para criar a conta de serviço e atribuir permissões. Você pode usar o **Azure Active Directory** ou o **Office 365**.
+Utilize os seguintes passos para criar a conta de serviço e atribuir permissões. Pode utilizar **o Diretório Ativo Azure** ou o **Office 365**.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Recomendamos essa opção porque você tem o benefício adicional de nunca precisar atualizar seu nome de usuário/senha para continuar a obter clientes potenciais. Para usar a opção Azure Active Directory, forneça a ID do aplicativo, a chave do aplicativo e a ID do diretório do seu aplicativo Active Directory.
+Recomendamos esta opção porque obtém o benefício adicional de nunca precisar de atualizar o seu nome de utilizador/palavra-passe para continuar a obter leads. Para utilizar a opção Diretório Ativo Azure, fornece o Id app, a chave de aplicação e o Id do diretório a partir da sua aplicação Ative Directory.
 
-Use as etapas a seguir para configurar o Azure Active Directory para o Dynamics CRM.
+Utilize os seguintes passos para configurar o Diretório Ativo Azure para o CRM Dynamics.
 
-1.  Entre no [portal do Azure](https://portal.azure.com/) e, em seguida, selecione o serviço Azure Active Directory.
+1.  Inscreva-se no [portal Azure](https://portal.azure.com/) e, em seguida, selecione o serviço de Diretório Ativo Azure.
 
-2.  Selecione **Propriedades** e copie a **ID do diretório**. Essa é a identificação de sua conta de locatário que você precisa usar na Portal do Cloud Partner.
+2.  Selecione **Propriedades** e, em seguida, copie o **Id do Diretório**. Esta é a sua identificação de conta de inquilino que precisa de ser utilizada no Portal do Parceiro cloud.
 
-    ![Obter ID do diretório](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
+    ![Obter ID do Diretório](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
-3.  Selecione **registros de aplicativo**e, em seguida, selecione **novo registro de aplicativo**.
-4.  Insira o nome do aplicativo.
-5.  Para tipo, selecione **aplicativo Web/API**.
-6.  Forneça uma URL. Esse campo não é necessário para clientes potenciais, mas é necessário para criar um aplicativo.
+3.  Selecione registos de **aplicativos**e, em seguida, selecione novo registo de **aplicação**.
+4.  Introduza o nome da aplicação.
+5.  Para Tipo, selecione **web app / API**.
+6.  Forneça uma URL. Este campo não é necessário para pistas, mas é necessário para criar uma aplicação.
 7. Selecione **Criar**.
-8.  Agora que seu aplicativo está registrado, selecione **Propriedades** e, em seguida, selecione **copiar a ID do aplicativo**. Você usará essas informações de conexão no Portal do Cloud Partner.
-9.  Em Propriedades, defina o aplicativo como multilocatário e, em seguida, selecione **salvar**.
+8.  Agora que a sua aplicação está registada, selecione **Propriedades** e, em seguida, selecione **copiar o Id da Aplicação**. Utilizará esta informação de ligação no Portal do Parceiro cloud.
+9.  Em Propriedades, detete a aplicação como Multi-arrendatária e, em seguida, selecione **Guardar**.
 
-10. Selecione **chaves** e crie uma nova chave com a duração definida para *nunca expirar*. Selecione **salvar** para criar a chave. 
-11. No menu chaves, selecione **copiar o valor da chave.** Salve uma cópia desse valor porque você precisará dele para o Portal do Cloud Partner.
+10. Selecione **Keys** e crie uma nova tecla com o conjunto duração para *nunca expirar*. Selecione **Guardar** para criar a chave. 
+11. No menu Chaves, selecione **Copiar o valor-chave.** Guarde uma cópia deste valor porque vai precisar para o Portal do Parceiro cloud.
     
-    ![Chave de obtenção de Dynamics registrada](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    ![A dinâmica obtém a chave registada](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
     
 12. Selecione **as permissões necessárias** e, em seguida, selecione **Adicionar**. 
-13. Selecione **Dynamics CRM Online** como a nova API e verifique a permissão para *acessar o CRM Online como usuários da organização*.
+13. Selecione **Dynamics CRM Online** como a nova API, e verifique a permissão para *Access CRM Online como utilizadores da organização.*
 
-14. No Dynamics CRM, vá para usuários e selecione a lista suspensa "usuários habilitados" para alternar para **os usuários do aplicativo**.
+14. No CRM da Dynamics, vá aos Utilizadores e selecione a queda de "Utilizadores Ativados" para mudar para **utilizadores de aplicações**.
     
-    ![Usuários do aplicativo](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
+    ![Utilizadores de aplicações](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. Selecione **novo** para criar um novo usuário. Selecione o menu suspenso usuário **: aplicativo** .
+15. Selecione **Novo** para criar um novo utilizador. Selecione o **UTILIZADOR: DROPDown DO UTILIZADOR DA APLICAÇÃO.**
     
-    ![Adicionar novo usuário do aplicativo](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
+    ![Adicionar novo utilizador de aplicações](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
-16. Em **novo usuário**, forneça o nome e o email que você deseja usar com essa conexão. Cole a **ID do aplicativo** para o aplicativo que você criou no portal do Azure.
+16. Em **Novo Utilizador,** forneça o nome e o e-mail que pretende utilizar com esta ligação. Colar no Id de **aplicação** para a app que criou no portal Azure.
 
-     ![Configurar novo usuário](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
+     ![Configurar novo utilizador](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
-17. Vá para "configurações de segurança" neste artigo para concluir a configuração da conexão para esse usuário.
+17. Vá a "Definições de Segurança" neste artigo para terminar de configurar a ligação para este utilizador.
 
 ### <a name="office-365"></a>Office 365
 
-Se você não quiser usar Azure Active Directory, poderá registrar um novo usuário no *centro de administração do Microsoft 365*. Você será solicitado a atualizar seu nome de usuário/senha a cada 90 dias para continuar a obter clientes potenciais.
+Se não quiser utilizar o Azure Ative Directory, pode registar um novo utilizador no centro de administração da *Microsoft 365*. Será obrigado a atualizar o seu nome de utilizador/senha a cada 90 dias para continuar a obter pistas.
 
-Use as etapas a seguir para configurar o Office 365 para Dynamics CRM.
+Utilize os seguintes passos para configurar o Office 365 para a Dynamics CRM.
 
-1. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com).
+1. Inicie sessão no [centro de administração do Microsoft 365](https://admin.microsoft.com).
 
-2. Selecione o bloco **admin** .
+2. Selecione o azulejo **do Administrador.**
 
-    ![Administrador do Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+    ![Administrador online do escritório](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
-3. Selecione **Adicionar um usuário**.
+3. Selecione **Adicionar um utilizador**.
 
     ![Adicionar um utilizador](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline4.png)
 
-4. Crie um novo usuário para o serviço de gravador de cliente potencial. Defina as seguintes configurações:
+4. Crie um novo utilizador para o serviço de escritores principais. Configure as seguintes definições:
 
-    -   Forneça uma senha e desmarque a opção "tornar este usuário alterar sua senha ao entrar pela primeira vez".
-    -   Selecione "usuário (sem acesso de administrador)" como a função para o usuário.
-    -   Selecione a licença de produto mostrada na próxima captura de tela. Você será cobrado pela licença que escolher. A solução também funcionará com a licença do Dynamics CRM Online Basic.
+    -   Forneça uma palavra-passe e desmarque a opção "Faça com que este utilizador altere a sua palavra-passe quando iniciar o seu início de sessão".
+    -   Selecione "Utilizador (sem acesso a administrador)" como função para o utilizador.
+    -   Selecione a licença do produto mostrada na captura do ecrã seguinte. Será cobrado pela licença que escolher. A solução também funcionará com a licença Base Online Dynamics CRM.
     
-    ![Configurar permissões e licença de usuário](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
+    ![Configure permissões e licenças de utilizador](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
-## <a name="security-settings"></a>Configurações de segurança
+## <a name="security-settings"></a>Definições de segurança
 
-A etapa final é habilitar o usuário que você criou para escrever os leads.
+O passo final é permitir ao Utilizador que criou escrever as pistas.
 
-1.  Entre no Dynamics CRM Online.
-2.  Em **configurações**, selecione **segurança**.
+1.  Inscreva-se na Dynamics CRM online.
+2.  Em **Definições,** selecione **Security**.
     
-    ![Configurações de segurança](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
+    ![Definições de segurança](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
-3.  Selecione o usuário que você criou em **permissões de usuário**e, em seguida, selecione **gerenciar funções de usuário**. Marque **Microsoft Marketplace gravador de cliente potencial** para atribuir a função.
+3.  Selecione o utilizador que criou nas **permissões**do Utilizador e, em seguida, selecione **Gerir as funções do utilizador**. Consulte o **Microsoft Marketplace Lead Writer** para atribuir o papel.
 
-    ![Atribuir função de usuário](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
+    ![Atribuir a função do utilizador](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
-    >Essa função é criada pela solução que você importou e tem permissões para gravar os leads e para acompanhar a versão da solução para garantir a compatibilidade.
+    >Este papel é criado pela solução que importaste e só tem permissões para escrever os leads e para rastrear a versão da solução para garantir a compatibilidade.
 
-4.  Em segurança, selecione **funções de segurança** e localize a função para Microsoft Marketplace gravador de cliente potencial.
+4.  Em Security, selecione **Security Roles** e encontre o papel para Microsoft Marketplace Lead Writer.
     
-    ![Configurar o gravador de Lead de segurança](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
+    ![Configure o escritor principal de segurança](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
-5. Selecione a guia **registros de núcleo** . Habilite criar/ler/gravar para a interface do usuário da entidade.
+5. Selecione o separador **Core Records.** Ativar Criar/Ler/Escrever para a UI da Entidade utilizadora.
 
-    ![Habilitar criação/leitura/gravação para o usuário](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline11.jpg)\
+    ![Ativar criar/ler/escrever para o utilizador](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline11.jpg)\
 
-## <a name="wrap-up"></a>Conclusão
+## <a name="wrap-up"></a>Embrulhar
 
-Conclua a configuração do Dynamics CRM para o gerenciamento de leads adicionando as informações de conta geradas ao Portal do Cloud Partner. Por exemplo:
+Termine de configurar o Dynamics CRM para gestão de chumbo adicionando a informação de conta gerada ao Portal do Parceiro cloud. Por exemplo:
 
--   **Azure Active Directory** - **ID do aplicativo** (exemplo *: 23456052-aaaa-bbbb-8662-1234Df56788f*), **ID do diretório** (exemplo: *12345678-8Af1-4Asf-1234-12234d01db47*) e **chave do aplicativo** ( exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc =* ).
--   **URL** **do - do Office 365** (exemplo: *https://contoso.crm4.dynamics.com* ), **nome de usuário** (exemplo: *contoso\@contoso.onmicrosoft.com*) e **senha** (por exemplo: *P\@ssw0rd*).
+-   **Id de aplicação** de **diretório** - ativo Azure (exemplo: *23456052-aaaa-bbbb-8662-1234df56788f),* **Id do diretório** (exemplo: *12345678-8af1-4asf-1234-12234d01db47*), e Chave de **Aplicação** (exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
+-   **Url do Office 365** - **(exemplo:** *https://contoso.crm4.dynamics.com*), **Nome do utilizador** (exemplo: *contoso\@contoso.onmicrosoft.com*) e **Palavra-passe** (exemplo: *P\@ssw0rd*).

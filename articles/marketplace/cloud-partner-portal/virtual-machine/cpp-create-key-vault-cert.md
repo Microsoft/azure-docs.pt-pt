@@ -1,29 +1,28 @@
 ---
-title: Criar um certificado de Azure Key Vault | Azure Marketplace
-description: Explica como registrar uma VM por meio de um VHD implantado pelo Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Crie um certificado de cofre de chave Azure [ Mercado Azure
+description: Explica como registar um VM de um VHD implantado em Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823116"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278080"
 ---
-# <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para Azure Key Vault
+# <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Cofre chave Azure
 
-Este artigo explica como provisionar os certificados autoassinados necessários para estabelecer uma conectividade de Gerenciamento Remoto do Windows (WinRM) com uma VM (máquina virtual) hospedada pelo Azure. Esse processo consiste em três etapas:
+Este artigo explica como fornecer os certificados auto-assinados necessários para estabelecer uma conectividade de Gestão Remota do Windows (WinRM) a uma máquina virtual hospedada no Azure (VM). Este processo consiste em três etapas:
 
 1.  Crie o certificado de segurança. 
-2.  Crie o Azure Key Vault para armazenar esse certificado. 
-3.  Armazene os certificados para esse cofre de chaves. 
+2.  Crie o Cofre chave Azure para armazenar este certificado. 
+3.  Guarde os certificados para este cofre chave. 
 
-Você pode usar um grupo de recursos novo ou existente do Azure para esse trabalho.  A abordagem anterior é usada na explicação a seguir.
+Pode utilizar um novo ou um grupo de recursos Azure existente para este trabalho.  A abordagem anterior é usada na seguinte explicação.
 
 
 
@@ -31,15 +30,15 @@ Você pode usar um grupo de recursos novo ou existente do Azure para esse trabal
 
 ## <a name="create-the-certificate"></a>Criar o certificado
 
-Edite e execute o seguinte script do Azure PowerShell para criar o arquivo de certificado (. pfx) em uma pasta local.  Você precisará substituir os valores para os seguintes parâmetros:
+Editar e executar o seguinte script Azure Powershell para criar o ficheiro de certificado (.pfx) numa pasta local.  Terá de substituir os valores pelos seguintes parâmetros:
 
-|  **Meter**        |   **Descrição**                                                               |
+|  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$certroopath` | Pasta local na qual salvar o arquivo. pfx  |
-| `$location`    | Um dos locais geográficos do Azure Standard  |
-| `$vmName`      | Nome da máquina virtual planejada do Azure   |
-| `$certname`    | Nome do certificado; deve corresponder ao nome de domínio totalmente qualificado da VM planejada  |
-| `$certpassword` | A senha para os certificados deve corresponder à senha usada para a VM planejada  |
+| `$certroopath` | Pasta local para salvar o ficheiro .pfx para  |
+| `$location`    | Uma das localizações geográficas padrão do Azure  |
+| `$vmName`      | Nome da máquina virtual Azure planeada   |
+| `$certname`    | Nome do certificado; deve corresponder ao nome de domínio totalmente qualificado do VM planeado  |
+| `$certpassword` | Palavra-passe para os certificados, deve corresponder à palavra-passe utilizada para o VM planeado  |
 |  |  |
 
 ```powershell
@@ -69,23 +68,23 @@ Edite e execute o seguinte script do Azure PowerShell para criar o arquivo de ce
 
 ```
 > [!TIP]
-> Mantenha a mesma sessão de console do PowerShell ativa durante essas etapas para que os valores dos vários parâmetros sejam retidos.
+> Mantenha a mesma sessão de consola PowerShell ativa durante estes passos para que os valores dos vários parâmetros sejam mantidos.
 
 > [!WARNING]
-> Se você salvar esse script, armazene-o somente em um local seguro, pois ele contém informações de segurança (uma senha).
+> Se guardar este script, guarde-o apenas num local seguro porque contém informações de segurança (uma palavra-passe).
 
 
-## <a name="create-the-key-vault"></a>Criar o cofre de chaves
+## <a name="create-the-key-vault"></a>Criar o cofre chave
 
-Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) para um arquivo em seu computador local. (no script de exemplo abaixo, esse recurso é `C:\certLocation\keyvault.json`.)  Edite e execute o seguinte script do Azure PowerShell para criar uma instância de Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores para os seguintes parâmetros:
+Copie o conteúdo do modelo de [implantação](./cpp-key-vault-deploy-template.md) do cofre chave para um ficheiro na sua máquina local. (no roteiro de exemplo abaixo, este recurso é `C:\certLocation\keyvault.json`.)  Editar e executar o seguinte script Azure Powershell para criar uma instância azure key vault e o grupo de recursos associados.  Terá de substituir os valores pelos seguintes parâmetros:
 
-|  **Meter**        |   **Descrição**                                                               |
+|  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$postfix`            | Cadeia de caracteres numérica arbitrária anexada aos identificadores de implantação                     |
-| `$rgName`             | Nome do grupo de recursos do Azure (RG) para criar                                        |
-|  `$location`          | Um dos locais geográficos do Azure Standard                                  |
-| `$kvTemplateJson`     | Caminho do arquivo (keyvault. JSON) que contém o modelo do Resource Manager para o cofre de chaves |
-| `$kvname`             | Nome do novo cofre de chaves                                                       |
+| `$postfix`            | Cadeia numérica arbitrária anexada a identificadores de implantação                     |
+| `$rgName`             | Nome do grupo de recursos Azure (RG) para criar                                        |
+|  `$location`          | Uma das localizações geográficas padrão do Azure                                  |
+| `$kvTemplateJson`     | Caminho do arquivo (keyvault.json) contendo modelo de Gestor de Recursos para cofre chave |
+| `$kvname`             | Nome do novo cofre-chave                                                       |
 |  |  |
 
 ```powershell
@@ -186,7 +185,7 @@ Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vaul
 
 ## <a name="store-the-certificate"></a>Armazenar o certificado
 
-Agora você pode armazenar os certificados, contidos no arquivo. pfx, no novo cofre de chaves executando o script a seguir. 
+Agora pode armazenar os certificados, contidos no ficheiro .pfx, para o novo cofre chave executando o seguinte script. 
 
 ```powershell
     #push certificate to key vault secret
@@ -215,4 +214,4 @@ Agora você pode armazenar os certificados, contidos no arquivo. pfx, no novo co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, você [implantará uma VM da imagem de VM do usuário](./cpp-deploy-vm-user-image.md).
+Em seguida, [irá implementar um VM a partir da imagem VM do seu utilizador](./cpp-deploy-vm-user-image.md).

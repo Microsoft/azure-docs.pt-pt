@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 712ec177996cd54d7bd6d184fea306009b58b083
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915491"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531027"
 ---
-# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão virtual do Agente observador de rede para Linux
+# <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual do Agente do Observador de Rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
@@ -73,9 +73,9 @@ O seguinte JSON mostra o esquema para a extensão do Agente observador da rede. 
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / exemplo |
+| Nome | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Azure.NetworkWatcher |
@@ -92,12 +92,12 @@ Pode implementar extensões Azure VM com um modelo de Gestor de Recursos Azure. 
 
 O exemplo seguinte implementa a extensão VM do Agente observador de rede para um VM existente implantado através do modelo de implementação clássico:
 
-```azurecli
+```console
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI
 
 O exemplo seguinte implementa a extensão VM do Agente observador de rede para um VM existente implantado através do Gestor de Recursos:
 
@@ -119,4 +119,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode consultar a [documentação](/azure/network-watcher/)do Observador de Rede , ou contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para obter informações sobre a utilização do Suporte Azure, consulte o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode consultar a [documentação](/azure/network-watcher/)do Observador de Rede , ou contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para obter informações sobre a utilização do Suporte Azure, consulte o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

@@ -1,5 +1,5 @@
 ---
-title: PERGUNTAS SOBRE Ficheiros Azure NetApp  Microsoft Docs
+title: PERGUNTAS SOBRE Ficheiros Azure NetApp [ Microsoft Docs
 description: Respostas frequentemente colocadas perguntas sobre ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 03/25/2020
 ms.author: b-juche
-ms.openlocfilehash: 0713f59889962960b4f3ad5eba58ddb7b32e95ff
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
-ms.translationtype: HT
+ms.openlocfilehash: 79c23c49cbf3c869b41e5a2dbfc6ec0aaa93e4ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79369748"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258180"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS FREQUENTES Sobre ficheiros Azure NetApp
 
@@ -60,7 +60,7 @@ Todos os volumes de Ficheiros Azure NetApp são encriptados utilizando a norma F
 
 A gestão chave dos Ficheiros Azure NetApp é tratada pelo serviço. Uma chave única de encriptação de dados XTS-AES-256 é gerada para cada volume. Uma hierarquia de chave de encriptação é usada para encriptar e proteger todas as teclas de volume. Estas chaves de encriptação nunca são apresentadas ou reportadas num formato não encriptado. As teclas de encriptação são eliminadas imediatamente quando um volume é eliminado.
 
-O suporte para chaves geridas pelo utilizador (Bring Your Own Keys) utilizando o Azure Dedicated HSM está disponível numa base controlada nas regiões do Leste dos EUA, US West2 e Us South Central.  O cliente pode solicitar acesso a anffeedback@microsoft.com, e como a capacidade está disponível, os pedidos serão aprovados.
+O suporte para chaves geridas pelo utilizador (Bring Your Own Keys) utilizando o Azure Dedicated HSM está disponível numa base controlada nas regiões do Leste dos EUA, US West2 e Us South Central.  Pode solicitar acesso **anffeedback@microsoft.com**a . Como a capacidade está disponível, os pedidos serão aprovados.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Posso configurar as regras de política de exportação da NFS para controlar o acesso ao alvo de montagem do serviço Azure NetApp Files?
 
@@ -103,7 +103,7 @@ Os Ficheiros Azure NetApp fornecem métricas de desempenho de volume. Também po
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Quero ter um volume montado automaticamente quando um VM Azure for iniciado ou reiniciado.  Como configurar o meu anfitrião para volumes persistentes de NFS?
 
-Para que um volume NFS monte automaticamente em VM iniciar ou reiniciar, adicione uma entrada no ficheiro `/etc/fstab` no hospedeiro. 
+Para que um volume NFS monte automaticamente em VM iniciar `/etc/fstab` ou reiniciar, adicione uma entrada no ficheiro no hospedeiro. 
 
 Consulte [o Mount ou desmonte um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) para obter mais detalhes.  
 
@@ -113,11 +113,7 @@ O tamanho do volume reportado em DF é o tamanho máximo que o volume de Ficheir
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Que versão NFS suporta o Azure NetApp Files?
 
-O Azure NetApp Files suporta nFSv3 e NFSv4.1. Pode criar um volume utilizando qualquer versão NFS. 
-
-> [!IMPORTANT] 
-> O acesso à função NFSv4.1 requer uma lista de permissões.  Para solicitar a lista geminada, submeta um pedido para <anffeedback@microsoft.com>. 
-
+O Azure NetApp Files suporta nFSv3 e NFSv4.1. Pode [criar um volume](azure-netapp-files-create-volumes.md) utilizando qualquer versão NFS. 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como posso permitir o esmagamento de raízes?
 
@@ -139,7 +135,7 @@ Uma ligação AD é configurada por conta NetApp; a ligação AD só é visível
 
 Ambos os Serviços de [Domínio do Diretório Ativo Azure (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) e os Serviços de Domínio de [Diretório Ativo (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) são apoiados. Pode utilizar controladores de domínio Ative Diretório existentes com Ficheiros Azure NetApp. Os controladores de domínio podem residir em Azure como máquinas virtuais, ou nas instalações via ExpressRoute ou S2S VPN. Os Ficheiros Azure NetApp não suportam a adesão da AD ao [Azure Ative Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) neste momento.
 
-Se estiver a utilizar ficheiros Azure NetApp com serviços de domínio de diretório ativo Azure, o percurso da unidade organizacional é `OU=AADDC Computers` quando configura o Diretório Ativo para a sua conta NetApp.
+Se estiver a utilizar ficheiros Azure NetApp com serviços de `OU=AADDC Computers` domínio de diretório ativo Azure, o percurso da unidade organizacional é quando configura o Diretório Ativo para a sua conta NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Que versões do Diretório Ativo do Windows Server são suportadas?
 
@@ -163,6 +159,26 @@ Os Ficheiros Azure NetApp fornecem métricas de utilização de piscina e volume
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Posso gerir ficheiros Azure NetApp através do Azure Storage Explorer?
 
 Não. Os Ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
+
+### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como determino se um diretório se aproxima do tamanho limite?
+
+Pode utilizar `stat` o comando de um cliente para ver se um diretório se aproxima do limite máximo de tamanho (320 MB).
+
+Para um diretório de 320 MB, o número de blocos é de 655360, sendo cada tamanho de bloco 512 bytes.  (Isto é, 320x1024x1024/512.)  
+
+Exemplos:
+
+    [makam@cycrh6rtp07 ~]$ stat bin
+    File: 'bin'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+    [makam@cycrh6rtp07 ~]$ stat tmp
+    File: 'tmp'
+    Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+    [makam@cycrh6rtp07 ~]$ stat tmp1
+    File: 'tmp1'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
 
 ## <a name="data-migration-and-protection-faqs"></a>FaQs de migração e proteção de dados
 
@@ -207,5 +223,5 @@ Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure Net
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [FaQ da rede virtual Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Como criar um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Caixa de dados Azure](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
 - [FAQs sobre desempenho sMB para Ficheiros Azure NetApp](azure-netapp-files-smb-performance.md)

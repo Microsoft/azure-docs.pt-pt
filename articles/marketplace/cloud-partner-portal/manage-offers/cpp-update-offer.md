@@ -1,130 +1,129 @@
 ---
-title: Atualizar ofertas do Marketplace | Azure Marketplace
-description: Atualizar ofertas no Azure e AppSource Marketplaces usando o Portal do Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Atualizar ofertas de marketplace [ Mercado Azure
+description: Atualizações nos Mercados Azure e AppSource utilizando o Portal do Parceiro cloud
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: b3f579dbdc943b2380c9de3dde6b2ebf4754d4d1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 101369a050770be3acd9534cef6229037fe1c366
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826718"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288517"
 ---
-# <a name="update-azure-marketplace-and-appsource-offers"></a>Atualizar ofertas do Azure Marketplace e do AppSource
+# <a name="update-azure-marketplace-and-appsource-offers"></a>Atualizar ofertas do Azure Marketplace e appSource
 
-Há vários tipos de atualizações que você pode aplicar à sua oferta depois que ela é publicada.  O [portal do Cloud Partner](https://cloudpartner.azure.com/) ajuda você a modificar corretamente os atributos de uma oferta, incluindo:
+Existem vários tipos de atualizações que pode aplicar à sua oferta depois de publicada.  O [Portal do Parceiro cloud](https://cloudpartner.azure.com/) ajuda-o a modificar adequadamente os atributos de uma oferta, incluindo:
 
--  Adicionando nova imagem da VM (máquina virtual) ou versão do pacote a uma SKU existente
--  Alterar regiões em que um SKU está disponível
--  Adicionando novas SKUs
--  Atualizando metadados do Marketplace para ofertas ou SKUs 
--  Atualizando os preços das ofertas pagas conforme o uso
+-  Adicionar nova imagem ou versão pacote de máquina virtual (VM) a um SKU existente
+-  Alterar regiões um SKU está disponível em
+-  Adicionar novas SKUs
+-  Atualizar metadados de mercado para ofertas ou SKUs 
+-  Atualizar os preços das ofertas pay-as-you-go
 
-O portal também tem recursos, como a capacidade de comparar recursos e exibir um histórico de recursos para uma oferta, que o ajudará a gerenciar alterações.  Depois de modificar uma oferta ou SKU, ela deve ser republicada antes que as alterações entrem em "Live".  Este artigo orienta você pelos diferentes aspectos da atualização da oferta do Marketplace.
+O portal também tem funcionalidades, como a capacidade de comparar funcionalidades e ver um histórico de funcionalidades para uma oferta, que o ajudam a gerir alterações.  Depois de modificar uma oferta ou SKU, deve ser republicada antes que as alterações sejam "ao vivo".  Este artigo acompanha-o através dos diferentes aspetos da atualização da sua oferta de mercado.
 
-## <a name="unpermitted-changes-to-an-offersku"></a>Alterações não permitidas em uma oferta/SKU
+## <a name="unpermitted-changes-to-an-offersku"></a>Alterações não autorizadas a uma oferta/SKU
 
-Há alguns atributos de uma oferta ou SKU que não podem ser modificados depois de publicados no Marketplace.  Os campos correspondentes são desabilitados na guia **Editor** do portal, por exemplo:  
+Existem alguns atributos de uma oferta ou SKU que não podem ser modificados uma vez que foi publicado no mercado.  Os campos correspondentes são desativados no separador **Editor** do portal, por exemplo:  
 
-- ID da oferta e ID do Publicador
-- ID DO SKU 
-- Contagem de discos de dados de SKUs existentes
-- Cobrança/alterações no modelo de licença de SKUs existentes
-- Marcas de versão, por exemplo: `1.0.1`
+- DI de oferta e ID da editora
+- SKU ID 
+- Contagem de discos de dados das SKUs existentes
+- Alterações no modelo de faturação/licença das SKUs existentes
+- Etiquetas de versão, por exemplo:`1.0.1`
 
 
 ## <a name="common-update-operations"></a>Operações comuns de atualização
 
-As seções a seguir explicam como executar algumas das operações mais atualizadas.  Essas operações não estão disponíveis para todos os tipos de oferta.  Você deve entrar no Portal do Cloud Partner para iniciar qualquer uma dessas operações.
+As seguintes secções explicam como realizar algumas das operações mais atualizadas.  Estas operações não estão disponíveis para todos os tipos de oferta.  Tem de assinar no Portal do Parceiro cloud para iniciar qualquer uma destas operações.
 
 
-### <a name="update-offer-contacts"></a>Atualizar contatos da oferta
+### <a name="update-offer-contacts"></a>Atualizar contactos de oferta
 
-Use as etapas a seguir para atualizar os contatos de suporte para sua oferta.
-1. Na página **todas as ofertas** , selecione a oferta.
-2. Selecione a guia **contatos** . atualize seus contatos.
+Utilize os seguintes passos para atualizar os contactos de suporte para a sua oferta.
+1. Na página **All Offers,** selecione a oferta.
+2. Selecione o separador **Contactos.** Atualizar os seus contactos.
 3. Selecione o botão **Guardar**.
-4. Selecione **publicar** para iniciar o processo de publicação.
+4. Selecione **Publicar** para iniciar o processo de publicação.
 
 
-### <a name="change-regions-an-offer-or-sku-is-available-in"></a>Alterar as regiões em que uma oferta ou SKU está disponível
+### <a name="change-regions-an-offer-or-sku-is-available-in"></a>Alterar regiões uma oferta ou SKU está disponível em
 
-Ao longo do tempo, talvez você queira tornar sua oferta/SKU disponível em mais regiões.
-Como alternativa, talvez você queira parar de dar suporte à oferta/SKU em uma determinada região.
-Para implementar essas alterações, siga as etapas a seguir.
+Com o tempo, poderá querer disponibilizar a sua oferta/SKU em mais regiões.
+Em alternativa, pode querer deixar de apoiar a oferta/SKU numa determinada região.
+Para implementar estas alterações, siga os seguintes passos.
 
-1. Na página **todas as ofertas** , localize a oferta que você deseja atualizar.
+1. Na página **All offers,** encontre a oferta que gostaria de atualizar.
 
 Para ofertas do Azure Marketplace:
 
-1. Selecione a guia **SKUs** .  Selecione a SKU a ser modificada.
-1. Clique no botão **selecionar países** no campo **disponibilidade de país/região** .
-1. Na caixa de diálogo disponibilidade da região, adicione ou remova as regiões desta SKU.
+1. Selecione o separador **SKUs.**  Selecione o SKU para modificar.
+1. Clique no botão **Select Countries** no campo de **disponibilidade País/Região.**
+1. Na região, adicione ou remova as regiões para este SKU.
 
-Para ofertas do AppSource:
+Para ofertas AppSource:
 
-1. Selecione a guia **detalhes da vitrine** .
-1. Ao lado do rótulo **países/regiões com suporte** , clique em **países/regiões com suporte**. 
-1. Na caixa de diálogo países/regiões com suporte, adicione ou remova as regiões desta oferta.
+1. Selecione o separador Detalhes da **Montra.**
+1. Ao lado do rótulo **países/regiões apoiados,** clique em **países/regiões apoiados.** 
+1. Nos países/regiões apoiados, adicione ou remova as regiões para esta oferta.
 
-Para ambos os Marketplaces:
+Para qualquer um dos mercados:
 
-1. Clique em **publicar** para iniciar o processo de publicação. 
+1. Clique em **Publicar** para iniciar o processo de publicação. 
 
-Se um SKU estiver sendo disponibilizado em uma nova região, você poderá especificar o preço para essa região específica por meio da funcionalidade **exportar dados de preços** . Se você estiver adicionando uma região que estava disponível anteriormente, não poderá atualizar seu preço porque as alterações de preço não são permitidas.
-
-
-### <a name="add-a-new-sku"></a>Adicionar uma nova SKU 
-
-Para disponibilizar uma nova SKU para uma oferta existente, use as seguintes etapas:
-
-1. Na página **todas as ofertas** , localize a oferta.
-3. No formulário **SKUs** , clique em **Adicionar nova SKU** e forneça uma **ID de SKU** no pop-up.
-4. Siga o restante das etapas detalhadas na [oferta publicar uma máquina virtual](../virtual-machine/cpp-publish-offer.md).
-5. Clique em **publicar** para iniciar o processo de publicação.
+Se um SKU estiver a ser disponibilizado numa nova região, tem a capacidade de especificar preços para essa região em particular através da funcionalidade de Dados de Preços de **Exportação.** Se estiver a adicionar uma região que estava anteriormente disponível, não pode atualizar os seus preços porque não são permitidas alterações de preços.
 
 
-### <a name="update-offer-marketplace-assets"></a>Atualizar ativos do Marketplace da oferta
+### <a name="add-a-new-sku"></a>Adicione um novo SKU 
 
-Você pode ter cenários em que precisa atualizar os ativos de imagem e com base em texto do Marketplace, como logotipos da empresa, descrição da oferta, etc. Use as etapas a seguir para atualizar esses ativos.
+Para disponibilizar um novo SKU para uma oferta existente, utilize os seguintes passos:
 
-1. Na página **todas as ofertas** , encontre sua oferta. 
-2. Selecione a guia **Marketplace** e siga as instruções no tópico da *guia Marketplace* da sua oferta.
-3. Clique em **publicar** para iniciar o processo de publicação.
+1. Na página **All offers,** encontre a oferta.
+3. Sob o formulário **SKUs,** clique em **Adicionar novo SKU** e fornecer um **ID SKU** no pop-up.
+4. Siga o resto dos passos detalhados em [Publicar uma oferta de máquina virtual](../virtual-machine/cpp-publish-offer.md).
+5. Clique em **Publicar** para iniciar o processo de publicação.
 
 
-### <a name="update-pricing-on-published-offers"></a>Atualizar os preços das ofertas publicadas
+### <a name="update-offer-marketplace-assets"></a>Atualizar ativos de mercado de oferta
 
-Depois que sua oferta paga conforme o uso for publicada, você não poderá aumentar o preço de uma SKU existente.  Em vez disso, crie um SKU na mesma oferta, exclua o SKU antigo e, em seguida, Republique sua oferta. Você pode diminuir o preço em ofertas publicadas anteriormente. Para diminuir o preço da oferta:
+Pode ter cenários em que precisa de atualizar os ativos de imagem e texto do mercado, tais como os logótipos da sua empresa, a descrição da oferta, etc. Utilize os seguintes passos para atualizar estes ativos.
 
-1. Selecione a SKU para a qual você deseja diminuir os preços.
-2. Você deve definir o preço inferior pelo mesmo mecanismo usado originalmente: diretamente na interface do usuário do portal ou com a planilha de importação/exportação.
+1. Na página **All offers,** encontre a sua oferta. 
+2. Selecione o separador **Marketplace** e siga as instruções no tópico do *separador Marketplace* da sua oferta.
+3. Clique em **Publicar** para iniciar o processo de publicação.
+
+
+### <a name="update-pricing-on-published-offers"></a>Atualizar preços em ofertas publicadas
+
+Uma vez publicada a sua oferta pay-as-you-go, não pode aumentar o preço de um SKU existente.  Em vez disso, crie um SKU sob a mesma oferta, elimine o antigo SKU e, em seguida, republique a sua oferta. Pode baixar o preço das ofertas anteriormente publicadas. Para diminuir o seu preço de oferta:
+
+1. Selecione o SKU para o qual pretende diminuir os preços.
+2. Deve fixar o preço mais baixo pelo mesmo mecanismo que utilizou inicialmente: quer diretamente no portal UI, quer com a folha de cálculo de importação/exportação.
 3. Clique em **Guardar**.
-4. Clique em **publicar** para iniciar o processo de publicação.
+4. Clique em **Publicar** para iniciar o processo de publicação.
 
-O preço será visível para novos clientes quando ele estiver ativo no Marketplace, e todos os novos clientes pagarão o novo preço reduzido.  Para clientes existentes, a redução de preço é refletida retroativamente no início do ciclo de cobrança durante o qual o preço diminuiu em vigor.  Se eles já foram cobrados pelo ciclo durante o qual uma redução de preço ocorreu, eles receberão um reembolso durante o próximo ciclo de cobrança para cobrir o preço reduzido.
-
-
-## <a name="compare-feature"></a>Comparar recurso
-
-Ao fazer alterações em uma oferta publicada, você pode usar o recurso *comparar* para auditar as alterações. Para utilizar esse recurso:
-
-1. Em qualquer ponto do processo de edição, você pode clicar no botão **comparar** na guia **Editor** para sua oferta.
-2. Uma janela de comparação exibe as versões lado a lado das alterações salvas nessa oferta, em comparação com a oferta do Marketplace. 
-
-![Botão comparar oferta na guia do editor](./media/offer-compare-button.png)
+O preço é visível para novos clientes uma vez que é ao vivo no mercado, e todos os novos clientes pagarão então o novo preço diminuído.  Para os clientes existentes, a diminuição dos preços reflete-se retroativamente no início do ciclo de faturação durante o qual a diminuição dos preços se tornou eficaz.  Se já foram cobrados para o ciclo durante o qual ocorreu uma diminuição dos preços, receberão um reembolso durante o seu próximo ciclo de faturação para cobrir a diminuição do preço.
 
 
-## <a name="history-of-publishing-actions"></a>Histórico de ações de publicação
+## <a name="compare-feature"></a>Comparar funcionalidade
 
-Para exibir a atividade de publicação histórica, selecione a guia **histórico** na MenuBar vertical esquerda da portal do Cloud Partner.  A página histórico fornece filtragem flexível por várias características e dá suporte à ordenação de colunas.  Cada evento de publicação é carimbo de data/hora.  Para obter mais informações, consulte a [página Histórico de auditoria](../portal-tour/cpp-history-page.md).
+Quando efaz alterações numa oferta publicada, pode utilizar a funcionalidade *Compare* para auditar as alterações. Para utilizar esta funcionalidade:
+
+1. Em qualquer ponto do processo de edição, pode clicar no botão **Compare** no separador **Editor** para a sua oferta.
+2. Uma janela de comparação exibe versões lado a lado das alterações guardadas nesta oferta em comparação com a oferta de mercado. 
+
+![Compare o botão de oferta no separador do editor](./media/offer-compare-button.png)
+
+
+## <a name="history-of-publishing-actions"></a>História das ações editoriais
+
+Para ver a atividade de publicação histórica, selecione o separador **História** na barra de menus vertical esquerda do Portal do Parceiro cloud.  A página História fornece filtragem flexível por várias características e suporta a encomenda da coluna.  Cada evento editorial tem um tema marcado.  Para mais informações, consulte a página de histórico da [Auditoria.](../portal-tour/cpp-history-page.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você também pode usar a Portal do Cloud Partner para [excluir uma SKU ou oferta publicada](./cpp-delete-offer.md).
+Também pode utilizar o Portal do Parceiro cloud para [apagar um SKU ou oferta publicado.](./cpp-delete-offer.md)

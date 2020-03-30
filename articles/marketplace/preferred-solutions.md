@@ -1,20 +1,19 @@
 ---
-title: Soluções preferenciais do Azure Marketplace e do AppSource
-description: Visão geral das soluções preferenciais no Marketplace e como elas são selecionadas
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+title: Soluções preferidas do Azure Marketplace e appSource
+description: Visão geral das soluções preferenciais dentro do Mercado e como são selecionadas
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: ellacroi
-ms.openlocfilehash: 9c481d7781ff35623655b472dbcfae6d50ada40a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 83ac4a3e69cac8a83e41ad52c9b93a1b61de7ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285083"
 ---
-# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Soluções preferenciais no Azure Marketplace e AppSource
+# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Soluções Preferenciais no Azure Marketplace e AppSource
 
-Uma solução preferida da Microsoft é um aplicativo de nuvem selecionado para sua qualidade, desempenho e capacidade de atender às necessidades do cliente em uma área vertical ou de solução do setor. Uma equipe de especialistas da Microsoft valida soluções de parceiros com competências e capacidades comprovadas específicas. Essas soluções são apresentadas em nossas vitrines no mercado de nuvem, no Azure Marketplace e no AppSource, bem como no portal do Azure. As soluções preferenciais no AppSource podem ser descobertas por verticais do setor. As soluções preferenciais no Azure Marketplace e as portal do Azure podem ser descobertas em categorias de soluções horizontais.
+Uma solução preferida da Microsoft é uma aplicação em nuvem selecionada pela sua qualidade, desempenho e capacidade de responder às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Uma equipa de especialistas da Microsoft valida soluções de parceiros com competências e capacidades comprovadas específicas. Estas soluções estão em destaque nas nossas montras de marketplace em nuvem, Azure Marketplace e AppSource, bem como no portal Azure. As soluções preferenciais no AppSource podem ser descobertas por verticais da indústria. Soluções preferenciais no Azure Marketplace e no portal Azure podem ser descobertas em categorias horizontais de soluções.

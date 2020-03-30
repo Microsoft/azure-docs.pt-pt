@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Envie eventos personalizados para web endpoint - Event Grid, portal Azure'
-description: 'Quickstart: Use Azure Event Grid e portal Azure para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são processados por um aplicativo web.'
+description: 'Quickstart: Use Azure Event Grid e portal Azure para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são tratados por uma aplicação web.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -9,14 +9,14 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9edeecdfb0c0e7ef0ef6e9d1704d81b844ac8c53
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240969"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293760"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com o portal do Azure e o Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Quickstart: Rota eventos personalizados para web endpoint com o portal Azure e Grid de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o portal do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -42,7 +42,7 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 
     ![Adicione o botão tópico da grelha de eventos](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
 4. Na página **Criar Tópico,** siga estes passos:
-    1. Forneça um **nome** único para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, criar seu próprio nome - tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-".
+    1. Forneça um **nome** único para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, crie o seu próprio nome - deve ser entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
     2. Selecione a sua **subscrição** do Azure.
     3. Selecione um grupo de recursos existente ou selecione **Criar novo,** e introduza um **nome** para o **grupo de recursos**.
     4. Selecione um **local** para o tópico da grelha de eventos.
@@ -128,7 +128,7 @@ O primeiro exemplo utiliza a CLI do Azure. Obtém o URL e a chave para o tópico
 ### <a name="azure-powershell"></a>Azure PowerShell
 O segundo exemplo utiliza o PowerShell para efetuar passos semelhantes.
 
-1. No portal Azure, selecione **Cloud Shell** (em alternativa vá para https://shell.azure.com/). Selecione **PowerShell** no canto superior esquerdo da janela Cloud Shell. Veja a imagem da janela **Cloud Shell** na secção Azure CLI.
+1. No portal Azure, selecione **Cloud** `https://shell.azure.com/`Shell (em alternativa ir a ). Selecione **PowerShell** no canto superior esquerdo da janela Cloud Shell. Veja a imagem da janela **Cloud Shell** na secção Azure CLI.
 2. Desconte as seguintes variáveis. Depois de copiar e colar cada comando, atualize o nome do **tópico** e o nome do **grupo de recursos** antes de executar o comando:
 
     ```powershell

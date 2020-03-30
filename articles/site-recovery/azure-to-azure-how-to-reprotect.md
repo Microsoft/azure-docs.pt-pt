@@ -1,5 +1,5 @@
 ---
-title: Reproteja os VMs azure para a região primária com recuperação do sítio azure  Microsoft Docs
+title: Reproteja os VMs azure para a região primária com recuperação do sítio azure [ Microsoft Docs
 description: Descreve como reproteger os VMs Azure após a falha, a região secundária para a região primária, utilizando a Recuperação do Sítio Azure.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 818c053c22cfa47cac0f4f6a19349cf239d3cdec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 73747b8331054cdc3bfa1f4073ccf2cdb62ab326
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79258125"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283247"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteger falhou sobre os VMs azure para a região primária
 
@@ -29,7 +29,7 @@ Quando [falha](site-recovery-failover.md) os VMs Azure de uma região para outra
 
 ## <a name="reprotect-a-vm"></a>Reproteger um VM
 
-1. No **Cofre** > **itens replicados,** clique à direita no VM falhado e selecione **Re-Protect**. A direção de reprotecção deve ser indicada do secundário ao primário.
+1. Em **vault** > **Replicated itens**, clique à direita no VM falhado e selecione **Re-Protect**. A direção de reprotecção deve ser indicada do secundário ao primário.
 
    ![Reproteger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -58,21 +58,21 @@ Pode personalizar as seguintes propriedades do VM alvo durante a reproteção.
 Por predefinição, ocorre o seguinte:
 
 1. É criada uma conta de armazenamento em cache na região onde o falhado sobre a VM está em funcionamento.
-1. Se a conta de armazenamento alvo (a conta de armazenamento original na região primária) não existir, uma nova é criada. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento utilizada pelo VM secundário, sufixo com `asr`.
+1. Se a conta de armazenamento alvo (a conta de armazenamento original na região primária) não existir, uma nova é criada. O nome da conta de armazenamento atribuído é o nome da conta de `asr`armazenamento utilizada pelo VM secundário, sufixo com .
 1. Se o seu VM utilizar discos geridos, os discos geridos por réplica são criados na região primária para armazenar os dados replicados a partir dos discos secundários do VM.
 1. Se o conjunto de disponibilidade de destino não existir, um novo é criado como parte do trabalho de reproteção, se necessário. Se personalizar as definições de reproteção, então o conjunto selecionado é utilizado.
 
 Quando você desencadeia um trabalho de reproteção, e o VM alvo existe, ocorre o seguinte:
 
 1. O lado alvo VM está desligado se estiver a funcionar.
-1. Se o VM estiver a utilizar discos geridos, é criada uma cópia do disco original com um sufixo `-ASRReplica`. Os discos originais são apagados. As cópias `-ASRReplica` são usadas para replicação.
+1. Se o VM estiver a utilizar discos geridos, é `-ASRReplica` criada uma cópia do disco original com um sufixo. Os discos originais são apagados. As `-ASRReplica` cópias são usadas para replicação.
 1. Se o VM estiver a utilizar discos não geridos, os discos de dados do Target VM são separados e utilizados para a replicação. É criada e anexada uma cópia do disco OS no VM. O disco osso original é separado e utilizado para a replicação.
 1. Apenas as alterações entre o disco de origem e o disco-alvo são sincronizadas. Os diferenciais são calculados comparando ambos os discos e depois transferidos. Verifique abaixo para encontrar o tempo estimado para completar a reproteção.
 1. Após a sincronização, a replicação delta começa, e um ponto de recuperação é criado de acordo com a política de replicação.
 
 Quando você desencadeia um trabalho de reproteção, e o vm alvo e os discos não existem, ocorre o seguinte:
 
-1. Se o VM estiver a utilizar discos geridos, os discos de réplica são criados com `-ASRReplica` sufixo. As cópias `-ASRReplica` são usadas para replicação.
+1. Se o VM estiver a utilizar discos geridos, os discos de réplica são criados com `-ASRReplica` sufixo. As `-ASRReplica` cópias são usadas para replicação.
 1. Se o VM estiver a utilizar discos não geridos, os discos de réplica são criados na conta de armazenamento do alvo.
 1. Todos os discos são copiados da região fracassada para a nova região-alvo.
 1. Após a sincronização, a replicação delta começa, e um ponto de recuperação é criado de acordo com a política de replicação.
@@ -89,6 +89,10 @@ As seguintes condições determinam quanto é que os dados são replicados:
 |---|---|
 |A região de origem tem 1 VM com 1 disco padrão DE TB.<br/>Apenas são utilizados dados de 127 GB e o resto do disco está vazio.<br/>O tipo de disco é padrão com 60 mib/s de entrada.<br/>Nenhuma alteração de dados após a falha.| Tempo aproximado: 45 minutos - 1,5 horas.<br/>Durante a reproteção, a Recuperação do Local preencherá a verificação de todos os dados que demorarão 127 GB/ 45 MBs, aproximadamente 45 minutos.<br/>É necessário algum tempo para a recuperação do local à escala automática, aproximadamente 20-30 minutos.<br/>Sem acusações de Egress. |
 |A região de origem tem 1 VM com 1 disco padrão DE TB.<br/>Apenas são utilizados dados de 127 GB e o resto do disco está vazio.<br/>O tipo de disco é padrão com 60 mib/s de entrada.<br/>45 GB de dados muda após a falha.| Tempo aproximado: 1 hora a 2 horas.<br/>Durante a reproteção, a Recuperação do Local preencherá a verificação de todos os dados que demorarão 127 GB/ 45 MBs, aproximadamente 45 minutos.<br/>Tempo de transferência para aplicar alterações de 45 GB que são de 45 GB/ 45 MBps, aproximadamente 17 minutos.<br/>Os encargos com a Egress seriam para alterações de dados de 45 GB, não para a verificação. |
+
+Quando o VM é reprotegido após a falha na região primária (isto é, se o VM for reprotegido da região primária para a região DR), o VM-alvo e os NIC(s) associados são eliminados.
+
+Quando o VM é reprotegido da região DR para a região primária, não eliminamos o VM primário e o NIC(s associado).
 
 ## <a name="next-steps"></a>Passos seguintes
 

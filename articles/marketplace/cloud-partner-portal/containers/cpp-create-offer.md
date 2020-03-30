@@ -1,40 +1,39 @@
 ---
-title: Criar uma oferta de contêineres do Azure | Azure Marketplace
-description: Como publicar uma nova oferta de contêiner para o Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Criar uma oferta de contentores Azure [ Mercado Azure
+description: Como publicar uma nova oferta de contentores para o Marketplace..
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: a9766f234b074fd259eeb7bcc184573e21e390a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823224"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280087"
 ---
-# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de contêiner com o Portal do Cloud Partner
+# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Crie uma nova oferta de contentores com o Portal do Parceiro cloud
 
-Este artigo descreve como criar e publicar uma entrada de oferta de contêiner para o Azure Marketplace. Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada a uma ou mais SKUs.  Uma oferta de contêiner é composta pelos seguintes agrupamentos de ativos e serviços de suporte:
+Este artigo descreve como criar e publicar uma oferta de contentores para o Mercado Azure. Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada a uma ou mais SKUs.  Uma oferta de contentores é composta pelos seguintes agrupamentos de ativos e serviços de apoio:
 
 |  **Grupo de ativos**   |  **Descrição**  |
 |  ---------------   |  ---------------  |
-|    SKUs            |  A menor unidade implantável de uma oferta. Uma única oferta (classe Product) pode ter várias SKUs associadas à oferta. Você pode usar SKUs para diferenciar entre os recursos com suporte e os modelos de cobrança. |
-|  Marketplace       | Contém ativos de marketing, gerenciamento jurídico e de Lead e especificações.  <ul><li> Os ativos de marketing incluem o nome, a descrição e os logotipos da oferta</li> <li> Os ativos legais incluem uma política de privacidade, os termos de uso e outras documentações legais</li>  <li> A política de gerenciamento de leads permite que você especifique como lidar com leads do portal do usuário final do Azure Marketplace.</li> </ul> |
-| Suporte            | Contém informações de contato e política de suporte |
+|    SKU            |  A menor unidade implantável de uma oferta. Uma única oferta (classe de produto) pode ter várias UsC associadas à oferta. Pode utilizar SKUs para diferenciar entre funcionalidades suportadas e modelos de faturação. |
+|  Marketplace       | Contém ativos e especificações de marketing, gestão legal e de chumbo.  <ul><li> Os ativos de marketing incluem nome, descrição e logotipos de oferta</li> <li> Os ativos legais incluem uma política de privacidade, termos de uso e outra documentação legal</li>  <li> A política de gestão de chumbo permite especificar como lidar com os cabos do portal de utilizador final do Mercado Azure.</li> </ul> |
+| Suporte            | Contém informações de contacto de suporte e políticas |
 
 
-## <a name="new-offer-form"></a>Formulário de nova oferta 
+## <a name="new-offer-form"></a>Formulário New Offer 
 
-Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menus à esquerda. No menu nova oferta, selecione **contêineres** para exibir o **novo** formulário de oferta e iniciar o processo de definição de ativos para uma nova oferta de contêiner.
+Inscreva-se no Portal do [Parceiro cloud](https://cloudpartner.azure.com/)e, em seguida, selecione + **Nova oferta** na barra de menu seletiva. No menu New Offer, selecione **Recipientes** para exibir o formulário **New Offer** e iniciar o processo de definição de ativos para uma nova oferta de contentores.
 
-![Selecione a opção de contêineres para a nova oferta](./media/azure-container-offer.png)
+![Selecione opção de recipientes para nova oferta](./media/azure-container-offer.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A **nova** página de oferta para o tipo de oferta de contêiner fornece um conjunto de guias e campos de formulário que você usará para criar uma nova oferta. Cada um dos artigos a seguir explica como usar a guia para definir os grupos de ativos e serviços de suporte para sua nova oferta de contêiner.
+A página **New Offer** para o tipo de oferta de contentores fornece um conjunto de separadores e campos de formulário que você vai usar para criar uma nova oferta. Cada um dos seguintes artigos explica como usar o separador para definir os grupos de ativos e serviços de apoio para a sua nova oferta de contentores.
 
 - [Separador Definições da oferta](./cpp-offer-settings-tab.md)
 - [Separador de SKUs](./cpp-skus-tab.md)

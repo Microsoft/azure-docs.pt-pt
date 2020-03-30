@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b84084dafe79a8caa9cdb70bc201f68834079845
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8cb68b1a5363889e6ea7c49cf0cdda6ed5f0e027
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294564"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -28,20 +28,20 @@ Este tópico aborda detalhes para o serviço Azure Key Vault. Para obter informa
 
  Para trabalhar com objetos no Cofre de Chaves Azure, seguem-se URLs:  
 
-- Para criar uma chave chamada TESTKEY em uma utilização do cofre chave - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Para criar uma chave chamada TESTKEY em um uso de cofre chave -`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Para importar uma chave chamada IMPORTEDKEY em um uso de cofre chave - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Para importar uma chave chamada IMPORTEDKEY em um uso de cofre chave -`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Para obter um segredo chamado MYSECRET num uso de cofre chave - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Para obter um segredo chamado MYSECRET em um uso de cofre chave -`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Para assinar uma digestão utilizando uma chave chamada TESTKEY numa utilização do cofre chave - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Para ASSINAR uma digestão utilizando uma chave chamada TESTKEY em uma utilização do cofre chave -`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  A autoridade para um pedido a um Cofre chave é sempre a seguinte, `https://{keyvault-name}.vault.azure.net/`  
+  A autoridade para um pedido a um Cofre chave é sempre a seguinte,`https://{keyvault-name}.vault.azure.net/`  
 
   As chaves são sempre armazenadas sob o caminho /chaves, os segredos são sempre armazenados sob o caminho /segredos.  
 
-## <a name="api-version"></a>Versão API  
- O Serviço de Cofre sinuoso Azure suporta a versão protocolar para proporcionar compatibilidade com clientes de nível inferior, embora nem todas as capacidades estejam disponíveis para esses clientes. Os clientes devem utilizar o parâmetro de cadeia de consulta `api-version` para especificar a versão do protocolo que suportam, uma vez que não existe predefinição.  
+## <a name="api-version"></a>Versão da API  
+ O Serviço de Cofre sinuoso Azure suporta a versão protocolar para proporcionar compatibilidade com clientes de nível inferior, embora nem todas as capacidades estejam disponíveis para esses clientes. Os clientes devem `api-version` usar o parâmetro de corda de consulta para especificar a versão do protocolo que suportam, uma vez que não existe predefinição.  
 
  As versões do protocolo Azure Key Vault seguem um esquema de numeração de data utilizando um {YYYY}. {MM}. {DD} formato.  
 
@@ -113,7 +113,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   autorização: O endereço do serviço de autorização OAuth2 que pode ser utilizado para obter um sinal de acesso para o pedido.  
 
--   recurso: O nome do recurso (https://vault.azure.net) a utilizar no pedido de autorização.  
+-   recurso: O nome do`https://vault.azure.net`recurso () a utilizar no pedido de autorização.  
 
-## <a name="see-also"></a>Veja Também  
+## <a name="see-also"></a>Veja também  
  [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
