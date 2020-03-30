@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265717"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mova dados de uma fonte de tabela Web usando a Azure Data Factory
@@ -36,7 +36,7 @@ Atualmente, a fábrica de dados suporta apenas a transferência de dados de uma 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector de tabela Web, precisa de configurar um Runtime de Integração Auto-hospedado (também conhecido como Data Management Gateway) e configurar a propriedade `gatewayName` no serviço ligado ao lavatório. Por exemplo, para copiar da tabela Web para o armazenamento do Blob Azure, configure o serviço ligado ao Armazenamento Azure como o seguinte:
+Para utilizar este conector de tabela Web, precisa de configurar um Runtime de `gatewayName` Integração Auto-hospedado (também conhecido como Data Management Gateway) e configurar a propriedade no serviço ligado ao lavatório. Por exemplo, para copiar da tabela Web para o armazenamento do Blob Azure, configure o serviço ligado ao Armazenamento Azure como o seguinte:
 
 ```json
 {
@@ -67,7 +67,7 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas de uma tabela Web:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Web.
 
 | Propriedade | Descrição | Necessário |
@@ -93,16 +93,16 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **WebTable** tem as seguintes propriedades
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo |tipo de conjunto de dados. deve ser definido para **WebTable** |Sim |
-| caminho |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. |
-| index |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) página HTML para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. |
+| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) página HTML para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 
@@ -126,7 +126,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 ```
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -163,7 +163,7 @@ A amostra que se segue mostra como copiar dados de uma tabela Web para uma bolha
 }
 ```
 
-**Serviço ligado do Armazenamento do Azure**
+**Serviço ligado do Storage do Azure**
 
 ```json
 {
@@ -288,17 +288,17 @@ Consulte as propriedades do tipo WebSource para a lista de propriedades suportad
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para From **Other Sources** e clique na **Web**.
 
     ![Menu de consulta de poder](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. Na caixa de diálogo **From Web,** introduza **URL** que utilizaria no serviço ligado JSON (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que especificaria para o conjunto de dados (por exemplo: AFI%27s_100_Years... 100_Movies), e **clique**OK .
+3. Na caixa de diálogo **From Web,** introduza **URL** que utilizaria https://en.wikipedia.org/wiki/) no serviço ligado JSON (por exemplo: juntamente com o caminho que especificaria para o conjunto de dados (por exemplo: AFI%27s_100_Years... 100_Movies), e **clique**OK .
 
     ![Do diálogo da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    URL utilizado neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    URL utilizado neste exemplo:https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Se vir a caixa de diálogo de **conteúdo web access,** selecione o **URL**certo, **a autenticação,** e clique em **Ligar**.
 
    ![Aceder à caixa de diálogo de conteúdo web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5. Clique num item de **tabela** na vista da árvore para ver o conteúdo da tabela e, em seguida, clique no botão **Editar** na parte inferior.  
 
-   ![Diálogo do navegador](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   ![caixa de diálogo Navegador](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 6. Na janela **Do Editor de Consulta,** clique no botão **Advanced Editor** na barra de ferramentas.
 
     ![Botão Editor Avançado](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266770"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows
@@ -31,19 +31,19 @@ Para se ligar a um VM do Windows a partir de um Mac, terá de instalar um client
 2. Selecione a máquina virtual na lista.
 3. No início da página da máquina virtual, selecione **Connect**.
 4. Na página **Connect to virtual machine,** selecione **RDP**, e, em seguida, selecione o **endereço IP** apropriado e o número da **porta**. Na maioria dos casos, o endereço IP padrão e a porta devem ser utilizados. Selecione **Download RDP File**. Se o VM tiver um conjunto de políticas just-in-time, primeiro precisa selecionar o botão de **acesso do Pedido** para solicitar acesso antes de poder descarregar o ficheiro RDP. Para obter mais informações sobre a política just-in-time, consulte Gerir o acesso virtual à [máquina utilizando a política de tempo justo.](../../security-center/security-center-just-in-time.md)
-5. Abra o ficheiro RDP descarregado e selecione **Connect** quando solicitado. Receberá um aviso de que o ficheiro `.rdp` é de uma editora desconhecida. Isto era esperado. Na janela **Remote Desktop Connection,** selecione **Connect** para continuar.
+5. Abra o ficheiro RDP descarregado e selecione **Connect** quando solicitado. Receberá um aviso de `.rdp` que o ficheiro é de uma editora desconhecida. Isto era esperado. Na janela **Remote Desktop Connection,** selecione **Connect** para continuar.
    
-    ![Captura de ecrã de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
+    ![Captura de ecrã de um aviso sobre um publicador desconhecido.](./media/connect-logon/rdp-warn.png)
 3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Introduza as credenciais para uma conta na máquina virtual e, em seguida, selecione **OK**.
    
      **Conta local**: Este é geralmente o nome de utilizador da conta local e a palavra-passe que especificou quando criou a máquina virtual. Neste caso, o domínio é o nome da máquina virtual e é introduzido como *nomedavm*&#92;*nomedeutilizador*.  
    
-    **Domínio unido VM**: Se o VM pertencer a um domínio, introduza o nome de utilizador no nome de*utilizador*do *formato*&#92;. A conta também tem de estar no grupo Administradores ou terem sido concedidos privilégios de acesso remoto à VM.
+    **Domínio unido VM**: Se o VM pertencer a um domínio, introduza o nome de utilizador no formato *Domínio*&#92;Nome de *utilizador*. A conta também tem de estar no grupo Administradores ou terem sido concedidos privilégios de acesso remoto à VM.
    
     **Controlador de domínio**: Se o VM for um controlador de domínio, introduza o nome de utilizador e a palavra-passe de um administrador de domínio para esse domínio.
 4. Selecione **Sim** para verificar a identidade da máquina virtual e terminar o login.
    
-   ![Captura de ecrã que mostra uma mensagem sobre a verificação da identidade da VM.](./media/connect-logon/cert-warning.png)
+   ![Captura de ecrã que mostra uma mensagem sobre a confirmação da identidade da VM.](./media/connect-logon/cert-warning.png)
 
 
    > [!TIP]
@@ -55,7 +55,7 @@ Para se ligar a um VM do Windows a partir de um Mac, terá de instalar um client
 
  
 
-Se estiver a utilizar o PowerShell e tiver instalado o módulo PowerShell Azure, também poderá ligar-se utilizando o `Get-AzRemoteDesktopFile` cmdlet, como mostrado abaixo.
+Se estiver a utilizar o PowerShell e tiver instalado o módulo `Get-AzRemoteDesktopFile` PowerShell Azure, também poderá ligar-se utilizando o cmdlet, como mostrado abaixo.
 
 Este exemplo lançará imediatamente a ligação RDP, levando-o através de indicações semelhantes às anteriores.
 

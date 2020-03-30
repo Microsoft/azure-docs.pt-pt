@@ -4,10 +4,10 @@ description: Descreve a definição de atribuição de políticas utilizada pela
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265301"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
@@ -16,7 +16,7 @@ As atribuições políticas são utilizadas pela Política Azure para definir qu
 
 Usas a JSON para criar uma missão política. A atribuição de políticas contém elementos para:
 
-- Nome a apresentar
+- nome de exibição
 - descrição
 - do IdP
 - modo de execução
@@ -49,7 +49,7 @@ Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNot
 
 Todas as amostras da Política Azure estão em amostras da [Política Azure.](../samples/index.md)
 
-## <a name="display-name-and-description"></a>Nome a apresentar e descrição
+## <a name="display-name-and-description"></a>Nome e descrição do mostrador
 
 Utiliza o **displayName** e **descrição** para identificar a atribuição de políticas e fornecer contexto para a sua utilização com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
 
@@ -69,7 +69,7 @@ Se o **modo de execução** Não for especificado numa definição de política 
 ## <a name="policy-definition-id"></a>ID de definição de política
 
 Este domínio deve ser o nome completo de uma definição de política ou de uma definição de iniciativa.
-`policyDefinitionId` é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, para usar uma [iniciativa](./definition-structure.md#initiatives) em vez disso.
+`policyDefinitionId`é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, para usar uma [iniciativa](./definition-structure.md#initiatives) em vez disso.
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -87,7 +87,7 @@ Este desenho permite reutilizar uma definição de política ou iniciativa com d
 }
 ```
 
-Neste exemplo, os parâmetros previamente definidos na definição de política são `prefix` e `suffix`. Esta atribuição de políticas específicas define `prefix` à **DeptA** e `suffix` a **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições políticas, proporcionando simultaneamente flexibilidade.
+Neste exemplo, os parâmetros previamente definidos `prefix` `suffix`na definição de política são e . Esta atribuição de `prefix` políticas específicas `suffix` define-se para **depta** e **para -LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições políticas, proporcionando simultaneamente flexibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 

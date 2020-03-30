@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245060"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Criar uma máquina virtual Windows com Networking Acelerado usando o Azure PowerShell
@@ -74,7 +74,7 @@ Após a criação da máquina virtual, pode confirmar que a Rede Acelerada está
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Instale a versão 1.0.0 ou mais tarde do [Azure PowerShell.](/powershell/azure/install-az-ps) Para encontrar a sua versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo Az a partir da [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). Numa sessão powerShell, inicie sessão numa conta Azure utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Instale a versão 1.0.0 ou mais tarde do [Azure PowerShell.](/powershell/azure/install-az-ps) Para encontrar a versão atualmente `Get-Module -ListAvailable Az`instalada, execute . Se precisar de instalar ou atualizar, instale a versão mais recente do módulo Az a partir da [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). Numa sessão powerShell, inicie sessão numa conta Azure utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *myNic*, e *myVM*.
 
@@ -165,7 +165,7 @@ $nic = New-AzNetworkInterface `
 
 ## <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 
-Detete as suas credenciais VM na variável `$cred` utilizando [get-credential:](/powershell/module/microsoft.powershell.security/get-credential)
+Detete as suas `$cred` credenciais VM na variável utilizando [get-credencial:](/powershell/module/microsoft.powershell.security/get-credential)
 
 ```powershell
 $cred = Get-Credential
@@ -212,7 +212,7 @@ New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus
 Assim que criar o VM em Azure, ligue-se ao VM e confirme que o controlador está instalado no Windows.
 
 1. A partir de um navegador de Internet, abra o [portal](https://portal.azure.com) Azure e inscreva-se na sua conta Azure.
-2. Na caixa que contém os recursos de *pesquisa* de texto no topo do portal Azure, digite *myVm*. Quando o **myVm** aparecer nos resultados da pesquisa, clique nele. Se criar é visível sob o botão **Connect,** o Azure ainda não terminou de criar o VM. Clique em **Ligar** no canto superior esquerdo da visão geral apenas depois de deixar de ver **criar** sob o botão **Ligar.**
+2. Na caixa que contém os recursos de *pesquisa* de texto no topo do portal Azure, digite *myVm*. Quando o **myVm** aparecer nos resultados da pesquisa, clique nele. Se **Creating** criar é visível sob o botão **Connect,** o Azure ainda não terminou de criar o VM. Clique em **Ligar** no canto superior esquerdo da visão geral apenas depois de deixar de ver **criar** sob o botão **Ligar.**
 3. Introduza o nome de utilizador e a palavra-passe que inseriu Criar [a máquina virtual](#create-the-virtual-machine). Se nunca esteve ligado a um VM Windows em Azure, consulte [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Clique no botão Windows Iniciar e clique no **Gestor do Dispositivo**. Expanda o nó dos adaptadores da **Rede.** Confirme que aparece o **Adaptador ethernet de Função Virtual Mellanox ConnectX-3,** como mostra a seguinte imagem:
 
@@ -227,7 +227,7 @@ Se criou um VM sem Networking Acelerado, é possível ativar esta funcionalidade
 * O VM deve ser uma imagem suportada da Galeria Azure (e versão kernel para Linux)
 * Todos os VMs num conjunto de disponibilidade ou VMSS devem ser parados/deallocalizados antes de permitir a Rede Acelerada em qualquer NIC
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>VMs e VMs individuais num conjunto de disponibilidade
+### <a name="individual-vms--vms-in-an-availability-set"></a>VMs individuais & VMs em conjunto de disponibilidade
 Primeira paragem/deslocar o VM ou, se um Conjunto de Disponibilidade, todos os VMs do conjunto:
 
 ```azurepowershell

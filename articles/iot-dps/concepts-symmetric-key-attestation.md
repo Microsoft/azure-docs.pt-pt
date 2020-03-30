@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271515"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
@@ -48,10 +48,10 @@ Aqui estão os componentes de cada símbolo:
 
 | Valor | Descrição |
 | --- | --- |
-| {signature} |Uma corda de assinatura HMAC-SHA256. Para as matrículas individuais, esta assinatura é produzida utilizando a chave simétrica (primária ou secundária) para executar o hash. Para os grupos de inscrição, uma chave derivada da chave do grupo de inscrição é usada para executar o hash. O hash é realizado numa mensagem do formulário: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave deve ser descodificada a partir do base64 antes de ser utilizada para realizar o cálculo HMAC-SHA256. Além disso, o resultado da assinatura deve ser codificado por URL. |
+| {assinatura} |Uma corda de assinatura HMAC-SHA256. Para as matrículas individuais, esta assinatura é produzida utilizando a chave simétrica (primária ou secundária) para executar o hash. Para os grupos de inscrição, uma chave derivada da chave do grupo de inscrição é usada para executar o hash. O hash é realizado numa mensagem `URL-encoded-resourceURI + "\n" + expiry`do formulário: . **Importante**: A chave deve ser descodificada a partir do base64 antes de ser utilizada para realizar o cálculo HMAC-SHA256. Além disso, o resultado da assinatura deve ser codificado por URL. |
 | {resourceURI} |URI do ponto final de registo que pode ser acedido com este símbolo, começando com o ID de âmbito para a instância do Serviço de Provisionamento de Dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
 | {expiração} |UTF8 cordas para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
-| {URL-encoded-resourceURI} |Codificação de URL em maiúscula do recurso minúsculo URI |
+| {URL-codificado-recursosURI} |Codificação de URL em maiúscula do recurso minúsculo URI |
 | {policyName} |O nome da política de acesso partilhado a que se refere este símbolo. O nome de política utilizado no fornecimento com atestado de chave simétrica é **o registo**. |
 
 Quando um dispositivo está a atestar com uma matrícula individual, o dispositivo utiliza a chave simétrica definida na entrada de matrícula individual para criar a assinatura hashed para o token SAS.
@@ -73,7 +73,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 Este exemplo exato é usado no Como fornecer dispositivos legados usando o artigo [de teclas simétricas.](how-to-legacy-device-symm-key.md)
 
-Uma vez definido um ID de registo para o dispositivo, a chave simétrica para o grupo de inscrição é usada para calcular um hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo para produzir uma chave de dispositivo derivada. O hashing do ID de registo C# pode ser realizado com o seguinte código:
+Uma vez definido um ID de registo para o dispositivo, a chave simétrica para o grupo de inscrição é usada para calcular um hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo para produzir uma chave de dispositivo derivada. O hashing do ID de registo pode ser realizado com o seguinte código C# :
 
 ```csharp
 using System; 
@@ -114,6 +114,6 @@ Se as chaves do dispositivo não forem instaladas na fábrica, deve ser utilizad
 
 Agora que tem uma compreensão da atesta da Chave Simétrica, confira os seguintes artigos para saber mais:
 
-* [Quickstart: Fornecer um dispositivo simulado com teclas simétricas](quick-create-simulated-device-symm-key.md)
+* [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * [Conheça os conceitos de fornecimento automático](./concepts-auto-provisioning.md)
 * [Começar a usar auto-provisionamento](./quick-setup-auto-provision.md) 

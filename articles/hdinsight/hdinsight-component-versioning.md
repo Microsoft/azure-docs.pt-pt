@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2321918e9eae63a71d136753657bd7259862c2d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272659"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões Apache Hadoop disponíveis com o HDInsight?
@@ -75,28 +75,28 @@ As tabelas seguintes listam as versões do HDInsight. A data de validade do apoi
 
 A tabela seguinte lista as versões do HDInsight que estão disponíveis no portal Azure, bem como outros métodos de implementação como powerShell e .NET SDK.
 
-| Versão HDInsight | VM OS | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal Azure |
+| Versão HDInsight | SO da VM | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal Azure |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Setembro de 24, 2018 | | |Sim |Sim |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | 31 de dezembro de 2020 |31 de dezembro de 2020 |Sim |Sim |
 
-O apoio spark 2.1, 2.2 e Kafka 1.0 expirará em 30 de junho de 2020.
+Spark 2.1, 2.2 & kafka 1.0 apoio expirará em 30 de junho de 2020.
 
 > [!NOTE]  
-> Depois de expirado o suporte para uma versão, pode não estar disponível através do portal Microsoft Azure. No entanto, as versões de cluster continuam disponíveis utilizando o parâmetro `Version` no comando Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) e no .NET SDK até à data de reforma da versão.
+> Depois de expirado o suporte para uma versão, pode não estar disponível através do portal Microsoft Azure. No entanto, as versões `Version` de cluster continuam disponíveis utilizando o parâmetro no comando Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) e no .NET SDK até à data de reforma da versão.
 
 ### <a name="retired-versions"></a>Versões reformadas
 
 A tabela seguinte lista as versões do HDInsight que **não** estão disponíveis no portal Azure.
 
-| Versão HDInsight | Versão HDP | VM OS | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal Azure |
+| Versão HDInsight | Versão HDP | SO da VM | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal Azure |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Sim |Não |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Sim |Não |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Sim |Não |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1 de março de 2016 |1 de abril de 2017 |Sim |Não |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de Junho de 2016 |Sim |Não |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Sim |Não |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Sim |Não |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Sim |Não |
 | HDInsight 1.6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não |Não |
@@ -116,7 +116,7 @@ Enterprise Security é um pacote opcional que pode adicionar no seu cluster HDIn
 
     - [Uma introdução à segurança apache Hadoop com clusters HDInsight unidos pelo domínio](./domain-joined/hdinsight-security-overview.md)
     - [Grupos Apache Hadoop unidos pelo domínio do Plan Azure em HDInsight](./domain-joined/apache-domain-joined-architecture.md)
-    - [Configure ambiente de caixa de areia unida para o domínio](./domain-joined/apache-domain-joined-configure.md)
+    - [Configurar o ambiente sandbox associado a um domínio](./domain-joined/apache-domain-joined-configure.md)
     - [Configure clusters HDInsight unidos pelo domínio utilizando serviços de domínio de diretório ativo Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 - Autorização de dados

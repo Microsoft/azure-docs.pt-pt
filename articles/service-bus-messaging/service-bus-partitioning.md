@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aschhab
 ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260946"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
@@ -35,11 +35,11 @@ Não há custoadicional ao enviar uma mensagem para, ou receber uma mensagem de,
 
 ## <a name="enable-partitioning"></a>Ativar a partilha
 
-Para utilizar filas e tópicos divididos com o Azure Service Bus, utilize a versão Azure SDK 2.2 ou posterior, ou especifique `api-version=2013-10` ou posteriormente nos seus pedidos http.
+Para utilizar filas e tópicos divididos com o Azure Service Bus, utilize a versão `api-version=2013-10` Azure SDK 2.2 ou posterior, ou especifique ou especificar mais tarde nos seus pedidos http.
 
 ### <a name="standard"></a>Standard
 
-No nível de mensagens Standard, pode criar filas e tópicos de ônibus de serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é de 1 GB). Com a partilha ativada, o Service Bus cria 16 cópias (16 divisórias) da entidade, cada uma do mesmo tamanho especificada. Como tal, se criar uma fila de 5 GB de tamanho, com 16 divisórias o tamanho máximo da fila torna-se (5 \* 16) = 80 GB. Pode ver o tamanho máximo da sua fila ou tópico dividido, olhando para a sua entrada no [portal Azure,][Azure portal]na lâmina **de visão geral** dessa entidade.
+No nível de mensagens Standard, pode criar filas e tópicos de ônibus de serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é de 1 GB). Com a partilha ativada, o Service Bus cria 16 cópias (16 divisórias) da entidade, cada uma do mesmo tamanho especificada. Como tal, se criar uma fila de 5 GB de tamanho, com 16 \* divisórias o tamanho máximo da fila torna-se (5 16) = 80 GB. Pode ver o tamanho máximo da sua fila ou tópico dividido, olhando para a sua entrada no [portal Azure,][Azure portal]na lâmina **de visão geral** dessa entidade.
 
 ### <a name="premium"></a>Premium
 

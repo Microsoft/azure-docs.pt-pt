@@ -1,5 +1,5 @@
 ---
-title: Sobre o Serviço de Mobilidade para recuperação de desastres de VMware VMs e servidores físicos com Recuperação do Site Azure  Microsoft Docs
+title: Sobre o Serviço de Mobilidade para recuperação de desastres de VMware VMs e servidores físicos com Recuperação do Site Azure [ Microsoft Docs
 description: Conheça o agente do Serviço de Mobilidade para recuperação de desastres de VMware VMs e servidores físicos para o Azure utilizando o serviço de recuperação do site Azure.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256838"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMware VMs e servidores físicos
@@ -68,7 +68,7 @@ Durante a instalação de impulso do agente de mobilidade, são realizados passo
 
 1. Copie o ficheiro de instalação para a máquina e execute-o.
 2. Na **opção de instalação,** selecione **Instalar o serviço de mobilidade.**
-3. Selecione a localização de instalação > **Instale**.
+3. Selecione a localização de instalação > **Instalar**.
 
     ![Página de opção de instalação do Serviço de Mobilidade](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
 
@@ -118,17 +118,17 @@ Durante a instalação de impulso do agente de mobilidade, são realizados passo
 #### <a name="installation-settings"></a>Configurações de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | Agente Unificado.exe /Função \<MS/MT> /InstalaçãoLocalização \<Instalar Localização> /Plataforma "VmWare" /Silencioso
+Utilização | Agente Unificado.exe \</Role MS/MT \<> /Instalação Localização de instalação> /Plataforma "VmWare" /Silencioso
 Registos de configuração | Em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Papel | Parâmetro de instalação obrigatório. Especifica se o serviço de Mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 /InstallLocation| Parâmetro opcional. Especifica a localização de instalação do serviço mobility (qualquer pasta).
 /Plataforma | Obrigatório. Especifica a plataforma em que o Serviço de Mobilidade está instalado. **VMware** para VMware VMs/servidores físicos; **Azure** para VMs Azure.<br/><br/> Se estiver a tratar os VMs Azure como máquinas físicas, especifique **vMware**.
-/Silêncio| Opcional. Especifica se deve executar o instalador em modo silencioso.
+/Silent| Opcional. Especifica se deve executar o instalador em modo silencioso.
 
 #### <a name="registration-settings"></a>Configurações de registo
 **Definição** | **Detalhes**
 --- | ---
-Utilização | UnifiedAgentConfigurator.exe /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
+Utilização | UnificadaAgentConfigurator.exe /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Registos de configuração do agente | Em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 /PassphraseFilePath |  Obrigatório. Localização da frase-passe. Utilize qualquer caminho de ficheiro sem e não abertos à base de dados válido ou local.
@@ -157,7 +157,7 @@ Registos de configuração do agente | Em %ProgramData%\ASRSetupLogs\ASRUnifiedA
 #### <a name="installation-settings"></a>Configurações de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | ./instalar -d \<Instalar Localização> -r \<MS/MT> -v VmWare -q
+Utilização | ./instalar -d \<Instalação \<Localização> -r MS/MT> -vMWare -q
 -r | Parâmetro de instalação obrigatório. Especifica se o serviço de Mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 -d | Parâmetro opcional. Especifica a localização do serviço de mobilidade: /usr/local/ASR.
 -v | Obrigatório. Especifica a plataforma em que o Serviço de Mobilidade está instalado. **VMware** para VMware VMs/servidores físicos; **Azure** para VMs Azure.
@@ -166,7 +166,7 @@ Utilização | ./instalar -d \<Instalar Localização> -r \<MS/MT> -v VmWare -q
 #### <a name="registration-settings"></a>Configurações de registo
 **Definição** | **Detalhes**
 --- | ---
-Utilização | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
+Utilização | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP \<> -P PassphraseFilePath>
 -i | Parâmetro obrigatório. Especifica o endereço IP do servidor de configuração. Utilize qualquer endereço IP válido.
 -P |  Obrigatório. Caminho completo do ficheiro em que a frase-passe é guardada. Utilize qualquer pasta válida.
 
@@ -181,17 +181,17 @@ Vá para %ProgramData%\ASR\home\svsystems\pushinstallsvc\repositório no servido
 
 **Arquivo de instalação** | **Sistema operativo (apenas 64 bits)**
 --- | ---
-Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
-Microsoft-ASR\_UA\*RHEL6-64\*lançamento.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> Centos 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*lançamento.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> Centos 7.*
-Microsoft-ASR\_UA\*SLES12-64\*lançamento.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3
-Microsoft-ASR\_UA\*SLES11-SP3-64\*lançamento.tar.gz| SUSE Linux Enterprise Server 11 SP3
-Microsoft-ASR\_UA\*SLES11-SP4-64\*lançamento.tar.gz| SUSE Linux Enterprise Server 11 SP4
-Microsoft-ASR\_UA\*OL6-64\*lançamento.tar.gz | Oracle Enterprise Linux 6.4, 6.5
+Microsoft-ASR\_\*UA\*Windows release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
+Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> Centos 6.*
+Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> Centos 7.*
+Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
+Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5
 Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
 Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Servidor Ubuntu Linux 16.04 LTS
-Microsoft-ASR_UA\*DEBIAN7-64\*lançamento.tar.gz | Debiano 7
-Microsoft-ASR_UA\*DEBIAN8-64\*lançamento.tar.gz | Debian 8
+Microsoft-ASR_UA\*debian7-64\*lançamento.tar.gz | Debiano 7
+Microsoft-ASR_UA\*debian8-64\*lançamento.tar.gz | Debiano 8
 
 ## <a name="next-steps"></a>Passos seguintes
 

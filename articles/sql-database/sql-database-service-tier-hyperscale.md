@@ -1,5 +1,5 @@
 ---
-title: Visão geral de hiperescala de hiperescala da base de dados Azure SQL  Microsoft Docs
+title: Visão geral de hiperescala de hiperescala da base de dados Azure SQL [ Microsoft Docs
 description: Este artigo descreve o nível de serviço de hiperescala no modelo de compra baseado em vCore na Base de Dados Azure SQL e explica como é diferente dos níveis de serviço De propósito Geral e Business Critical.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
 ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255837"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
@@ -114,7 +114,7 @@ Com a capacidade de girar rapidamente para cima/para baixo nós de cálculo adic
 
 Uma base de dados de hiperescala pode ser criada utilizando o [portal Azure,](https://portal.azure.com) [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). As bases de dados de hiperescala estão disponíveis apenas utilizando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-O seguinte comando T-SQL cria uma base de dados de hiperescala. Deve especificar tanto a edição como o objetivo de serviço no comunicado `CREATE DATABASE`. Consulte os [limites](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) de recursos para uma lista de objetivos de serviço válidos.
+O seguinte comando T-SQL cria uma base de dados de hiperescala. Deve especificar tanto a edição `CREATE DATABASE` como o objetivo de serviço no comunicado. Consulte os [limites](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) de recursos para uma lista de objetivos de serviço válidos.
 
 ```sql
 -- Create a Hyperscale Database
@@ -127,7 +127,7 @@ Isto criará uma base de dados de Hiperescala no hardware Gen5 com 4 núcleos.
 
 Pode mover as bases de dados Azure SQL existentes para Hyperscale utilizando o [portal Azure,](https://portal.azure.com) [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Neste momento, trata-se de uma migração de sentido único. Não é possível mover bases de dados da Hiperscale para outro nível de serviço, a não ser exportando e importando dados. Para provas de conceito (POCs), recomendamos fazer uma cópia das suas bases de dados de produção e migrar a cópia para Hyperscale. Migrar uma base de dados Azure SQL existente para o nível de Hiperescala é um tamanho de operação de dados.
 
-O comando T-SQL seguinte move uma base de dados para o nível de serviço de hiperescala. Deve especificar tanto a edição como o objetivo de serviço no comunicado `ALTER DATABASE`.
+O comando T-SQL seguinte move uma base de dados para o nível de serviço de hiperescala. Deve especificar tanto a edição `ALTER DATABASE` como o objetivo de serviço no comunicado.
 
 ```sql
 -- Alter a database to make it a Hyperscale Database
@@ -137,7 +137,7 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ligue-se a uma réplica em escala de leitura de uma base de dados de hiperescala
 
-Nas bases de dados de Hiperescala, o argumento `ApplicationIntent` na cadeia de ligação fornecida pelo cliente dita se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária apenas de leitura. Se o `ApplicationIntent` definido para `READONLY` e a base de dados não tiver uma réplica secundária, a ligação será encaminhada para a réplica primária e incumprimentos para `ReadWrite` comportamento.
+Nas bases de dados `ApplicationIntent` de Hiperescala, o argumento na cadeia de ligação fornecida pelo cliente dita se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária apenas de leitura. Se `ApplicationIntent` o `READONLY` conjunto e a base de dados não tiverem uma réplica secundária, a `ReadWrite` ligação será encaminhada para a réplica primária e incumprimentos para o comportamento.
 
 ```cmd
 -- Connection string with application intent
@@ -162,7 +162,7 @@ Se precisar de restaurar um Db de Hiperescala de Base de Dados Azure SQL para ou
 > [!NOTE]
 > Uma vez que a fonte e o alvo estão em regiões separadas, a base de dados não pode partilhar o armazenamento de instantâneos com a base de dados de origem como em restauros não geográficos, que completam muito rapidamente. No caso de um geo-restauro de uma base de dados de hiperescala, será uma operação de tamanho de dados, mesmo que o alvo esteja na região emparelhada do armazenamento geo-replicado.  Isto significa que fazer um geo-restauro levará tempo proporcional ao tamanho da base de dados que está a ser restaurada.  Se o objetivo estiver na região emparelhada, a cópia será significativamente mais rápida do que uma cópia transversal, mas continuará a ser uma operação de dimensão de dados.
 
-## <a name=regions></a>Regiões disponíveis
+## <a name="available-regions"></a><a name=regions></a>Regiões disponíveis
 
 O nível de hiperescala de base de dados Azure SQL está atualmente disponível nas seguintes regiões:
 
@@ -188,7 +188,7 @@ O nível de hiperescala de base de dados Azure SQL está atualmente disponível 
 - Ásia Sudeste
 - Sul do Reino Unido
 - Oeste do Reino Unido
-- Europa Ocidental
+- Europa ocidental
 - E.U.A. Oeste
 - E.U.A.Oeste 2
 

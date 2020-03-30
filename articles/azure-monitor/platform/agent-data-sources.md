@@ -1,5 +1,5 @@
 ---
-title: Configure fontes de dados de agente no Monitor Azure  Microsoft Docs
+title: Configure fontes de dados de agente no Monitor Azure [ Microsoft Docs
 description: Fontes de dados definem os dados de registo que o Azure Monitor recolhe de agentes e outras fontes ligadas.  Este artigo descreve o conceito de como o Azure Monitor utiliza fontes de dados, explica os detalhes de como configurá-los e fornece um resumo das diferentes fontes de dados disponíveis.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249103"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Monitor Azure
@@ -24,13 +24,13 @@ A tabela seguinte lista as fontes de dados do agente que estão atualmente dispo
 
 | Origem de dados | Plataforma | Agente de análise de log | Agente do Operations Manager | Storage do Azure | Gestor de Operações necessário? | Dados do agente de operações enviados através de grupo de gestão | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Registos personalizados](data-sources-custom-logs.md) | Portal do |&#8226; |  | |  |  | à chegada |
+| [Registos personalizados](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à chegada |
 | [Registos personalizados](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à chegada |
-| [Registos do IIS](data-sources-iis-logs.md) | Portal do |&#8226; |&#8226; |&#8226; |  |  |depende da definição de rollover de ficheiros de log |
-| [Contadores de desempenho](data-sources-performance-counters.md) | Portal do |&#8226; |&#8226; |  |  |  |como previsto, no mínimo 10 segundos |
+| [Registos do IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depende da definição de rollover de ficheiros de log |
+| [Contadores de desempenho](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |como previsto, no mínimo 10 segundos |
 | [Contadores de desempenho](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |como previsto, no mínimo 10 segundos |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |do armazenamento Azure: 10 minutos; do agente: à chegada |
-| [Registos do Evento Windows](data-sources-windows-events.md) |Portal do |&#8226; |&#8226; |&#8226; |  |&#8226; | à chegada |
+| [Registos do Evento Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | à chegada |
 
 
 ## <a name="configuring-data-sources"></a>Configurar fontes de dados
@@ -54,7 +54,7 @@ Se o agente não conseguir ligar-se ao Azure Monitor ou ao Diretor de Operaçõe
 ## <a name="log-records"></a>Registos de registos
 Todos os dados de registo recolhidos pelo Azure Monitor são armazenados no espaço de trabalho como registos.  Os registos recolhidos por diferentes fontes de dados terão o seu próprio conjunto de propriedades e serão identificados pela sua propriedade **Tipo.**  Consulte a documentação de cada fonte de dados e solução para obter detalhes sobre cada tipo de registo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Conheça [soluções](../insights/solutions.md) de monitorização que acrescentem funcionalidade ao Monitor Azure e também recolha dados no espaço de trabalho.
 * Saiba mais sobre consultas de [registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções de monitorização.  
 * Configure [alertas](alerts-overview.md) para notificá-lo proativamente de dados críticos recolhidos a partir de fontes de dados e soluções de monitorização.

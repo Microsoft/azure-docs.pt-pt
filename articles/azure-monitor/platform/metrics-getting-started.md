@@ -8,13 +8,13 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248778"
 ---
-# <a name="getting-started-with-azure-metrics-explorer"></a>Começar com o Azure Metrics Explorer
+# <a name="getting-started-with-azure-metrics-explorer"></a>Getting started with Azure Metrics Explorer (Introdução ao Explorador de Métricas do Azure)
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 O explorador de métricas Azure Monitor é um componente do portal Microsoft Azure que permite traçar gráficos, correlacionar visualmente tendências e investigar picos e mergulhos nos valores das métricas. Use o explorador de métricas para investigar a saúde e utilização dos seus recursos. Comece pela seguinte ordem:
@@ -70,6 +70,6 @@ Pode personalizar o estilo, o título e modificar as definições avançadas de 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre as características avançadas do Metrics Explorer](metrics-charts.md)
-* [Explorador de Métricas de resolução de problemas](metrics-troubleshoot.md)
+* [Resolução de Problemas do Explorador de Métricas](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md) (Ver uma lista de métricas disponíveis para serviços do Azure)
 * [See examples of configured charts](metric-chart-samples.md) (Ver exemplos de gráficos configurados)

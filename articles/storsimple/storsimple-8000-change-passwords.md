@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268031"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Utilize o serviço StorSimple Device Manager para alterar as suas palavras-passe StorSimple
@@ -38,7 +38,7 @@ A palavra-passe que foi definida pela primeira vez através da interface Do Wind
 
     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Na lâmina **Definições,** vá às **definições do Dispositivo > Segurança**.
+3. Na lâmina **Definições,** vá às **definições**do dispositivo > Security .
 
     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 
@@ -72,7 +72,7 @@ Pode definir ou alterar a palavra-passe para StorSimple Snapshot Manager atravé
 
      ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Na lâmina **Definições,** vá às **definições do Dispositivo > Segurança**.
+3. Na lâmina **Definições,** vá às **definições**do dispositivo > Security .
 
      ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 

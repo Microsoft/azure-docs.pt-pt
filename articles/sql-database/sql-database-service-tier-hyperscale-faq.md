@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
 ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268629"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala de base de dados Azure SQL
@@ -51,9 +51,9 @@ Os níveis de serviço baseados em vCore são diferenciados com base na disponib
 | **IOPS** | Base de dados individual | 500 IOPS por vCore com 7000 IOPS máximos | Hyperscale é uma arquitetura multi-nível com cache a vários níveis. IOPS eficaz dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximos|
 | | Instância gerida | Depende do tamanho do ficheiro | N/D | 1375 IOPS/vCore |
 |**Disponibilidade**|Todos|1 réplica, sem Leitura Scale-out, sem cache local | Múltiplas réplicas, até 4 Leitura Scale-out, cache local parcial | 3 réplicas, 1 Ler Scale-out, zona-redundante HA, armazenamento local completo |
-|**Backups**|Todos|RA-GRS, retenção de 7-35 dias (7 dias por padrão)| RA-GRS, retenção de 7 dias, recuperação constante do tempo ponto no tempo (PITR) | RA-GRS, retenção de 7-35 dias (7 dias por padrão) |
+|**Cópias de segurança**|Todos|RA-GRS, retenção de 7-35 dias (7 dias por padrão)| RA-GRS, retenção de 7 dias, recuperação constante do tempo ponto no tempo (PITR) | RA-GRS, retenção de 7-35 dias (7 dias por padrão) |
 
-\* piscinas elásticas não são suportadas no nível de serviço de hiperescala
+\*Piscinas elásticas não são suportadas no nível de serviço de hiperescala
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Quem deve usar o nível de serviço de hiperescala
 
@@ -89,7 +89,7 @@ A hiperescala proporciona uma escala rápida com base na sua procura de carga de
 
   Com a Hyperscale, você também obtém a capacidade de fornecer uma ou mais réplicas de computação adicionais que você pode usar para servir seus pedidos de leitura. Isto significa que pode usar estas réplicas de cálculo adicionais como réplicas apenas de leitura para descarregar a sua carga de trabalho de leitura a partir do cálculo primário. Além de ler apenas, estas réplicas também servem como standbys quentes em caso de uma falha das primárias.
 
-  O fornecimento de cada uma destas réplicas de cálculo adicionais pode ser feito em tempo constante e é uma operação online. Pode ligar-se a estas réplicas de cálculo adicionais apenas para leitura, definindo o argumento `ApplicationIntent` na sua cadeia de ligação a `ReadOnly`. Quaisquer ligações com a intenção de aplicação `ReadOnly` são automaticamente encaminhadas para uma das réplicas de cálculo adicionais.
+  O fornecimento de cada uma destas réplicas de cálculo adicionais pode ser feito em tempo constante e é uma operação online. Pode ligar-se a estas réplicas de cálculo `ApplicationIntent` adicionais apenas `ReadOnly`de leitura, definindo o argumento na sua corda de ligação a . Quaisquer ligações `ReadOnly` com a intenção de aplicação são automaticamente encaminhadas para uma das réplicas de cálculo adicionais apenas de leitura.
 
 ## <a name="deep-dive-questions"></a>Questões de Mergulho Profundo
 
@@ -115,7 +115,7 @@ A Hiperscale suporta todas as cargas de trabalho do SQL Server, mas está otimiz
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Como posso escolher entre o Azure SQL Data Warehouse e o Azure SQL Database Hyperscale
 
-Se está atualmente a executar consultas de análise interativa usando o SQL Server como armazém de dados, a Hyperscale é uma ótima opção porque pode alojar pequenos e médios armazéns de dados (como alguns TB até 100 TB) a um custo mais baixo, e pode migrar a sua guerra de dados do SQL Server cargas de trabalho ehouse para Hyperscale com alterações mínimas de código T-SQL.
+Se está atualmente a executar consultas de análise interativa usando o SQL Server como armazém de dados, a Hyperscale é uma ótima opção porque pode alojar pequenos e médios armazéns de dados (como alguns TB até 100 TB) a um custo mais baixo, e pode migrar os seus dados do SQL Server cargas de trabalho de armazém para Hyperscale com alterações mínimas de código T-SQL.
 
 Se estiver a fazer análises de dados em larga escala com consultas complexas e taxas de ingestão sustentadas superiores a 100 MB/s, ou a utilizar o Parallel Data Warehouse (PDW), a Teradata ou outros armazéns de dados de processamento paralelo massivamente (MPP), o SQL Data Warehouse pode ser a melhor escolha.
   
@@ -143,7 +143,7 @@ Nas bases de dados de Hiperescala, a resiliência dos dados é fornecida ao nív
 
 No entanto, se houver apenas uma réplica, pode levar algum tempo para construir a cache local na nova réplica após o fracasso. Durante a fase de reconstrução da cache, a base de dados rebusca dados diretamente dos servidores da página, resultando numa maior latência de armazenamento e desempenho de consulta degradado.
 
-Para aplicações críticas de missão que requerem alta disponibilidade com impacto mínimo de failover, você deve fornecer pelo menos 2 réplicas computacionais, incluindo a réplica do cálculo primário. Esta é a configuração padrão. Assim há uma réplica de espera quente disponível que serve como um alvo de falha.
+Para aplicações críticas de missão que requerem alta disponibilidade com impacto mínimo de failover, você deve fornecer pelo menos 2 réplicas computacionais, incluindo a réplica do cálculo primário. Esta é a configuração predefinida. Assim há uma réplica de espera quente disponível que serve como um alvo de falha.
 
 ## <a name="data-size-and-storage-questions"></a>Questões sobre tamanho e armazenamento de dados
 
@@ -155,9 +155,9 @@ Para aplicações críticas de missão que requerem alta disponibilidade com imp
 
 O registo de transações com hiperescala é praticamente infinito. Não precisa de se preocupar em ficar sem espaço de registo num sistema que tenha uma alta entrada de log. No entanto, a taxa de geração de registos pode ser acelerada para cargas de trabalho contínuas e agressivas. A taxa de produção de registo sustentado máximo é de 100 MB/s.
 
-### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Será que a minha escala de `tempdb` à medida que a minha base de dados cresce
+### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Será `tempdb` que a minha escala à medida que a minha base de dados cresce
 
-A sua base de dados `tempdb` está localizada no armazenamento local de SSD e é dimensionada proporcionalmente ao tamanho da computação que você disponibiliza. O seu `tempdb` está otimizado para proporcionar o máximo de benefícios de desempenho. `tempdb` tamanho não é configurável e é gerido para si.
+A `tempdb` sua base de dados está localizada no armazenamento local de SSD e é dimensionada proporcionalmente ao tamanho da computação que você disponibiliza. O `tempdb` seu está otimizado para proporcionar o máximo de benefícios de desempenho. `tempdb`o tamanho não é configurável e é gerido para si.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>O tamanho da minha base de dados cresce automaticamente, ou tenho de gerir o tamanho dos ficheiros de dados
 
@@ -342,9 +342,9 @@ A escala para cima ou para baixo resulta na queda das ligações existentes quan
 
 Utilizador final. Não é automático.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>O tamanho da minha base de dados `tempdb` também cresce à medida que a computação é dimensionada
+### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>O tamanho da `tempdb` minha base de dados também cresce à medida que a computação é dimensionada
 
-Sim. A base de dados `tempdb` irá aumentar automaticamente à medida que o cálculo cresce.  
+Sim. A `tempdb` base de dados aumentará automaticamente à medida que o cálculo cresce.  
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Posso fornecer múltiplas réplicas primárias de computação, como um sistema multi-master, onde várias cabeças de computação primária podem conduzir um nível mais alto de conmoeda
 
@@ -358,12 +358,12 @@ Criamos uma réplica secundária para bases de dados de hiperescala por padrão.
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Como me ligo a estas réplicas de computação secundária
 
-Pode ligar-se a estas réplicas de cálculo adicionais apenas para leitura, definindo o argumento `ApplicationIntent` na sua cadeia de ligação a `ReadOnly`. Quaisquer ligações marcadas com `ReadOnly` são automaticamente encaminhadas para uma das réplicas de cálculo adicionais.  
+Pode ligar-se a estas réplicas de cálculo `ApplicationIntent` adicionais apenas `ReadOnly`de leitura, definindo o argumento na sua corda de ligação a . Quaisquer ligações `ReadOnly` marcadas são automaticamente encaminhadas para uma das réplicas de cálculo adicionais.  
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Como posso validar se tenho conseguido ligar-me a uma réplica de computação secundária utilizando SSMS ou outras ferramentas de cliente?
 
 Pode executar a seguinte consulta T-SQL: `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
-O resultado é `READ_ONLY` se estiver ligado a uma réplica secundária apenas para leitura, e `READ_WRITE` se estiver ligado à réplica primária. Note que o contexto da base de dados deve ser definido para o nome da base de dados Hyperscale, e não para a base de dados `master`.
+O resultado `READ_ONLY` é se estiver ligado a uma réplica `READ_WRITE` secundária apenas de leitura, e se estiver ligado à réplica primária. Note que o contexto da base de dados deve ser `master` definido para o nome da base de dados Hyperscale, não para a base de dados.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-a-read-scale-out-replica"></a>Posso criar um ponto final dedicado para uma réplica de leitura scale-out
 
@@ -377,9 +377,9 @@ Não. Uma nova ligação com a intenção de leitura é redirecionada para uma r
 
 Não. A réplica de computação secundária também é usada como alvos de falha de alta disponibilidade, por isso precisam de ter a mesma configuração que a primária para fornecer desempenho esperado após a falha.
 
-### <a name="do-i-get-different-tempdb-sizing-for-my-primary-compute-and-my-additional-secondary-compute-replicas"></a>Tenho diferentes `tempdb` tamanho para a minha computação primária e as minhas réplicas adicionais de cálculo secundário
+### <a name="do-i-get-different-tempdb-sizing-for-my-primary-compute-and-my-additional-secondary-compute-replicas"></a>Tenho tamanhos `tempdb` diferentes para a minha computação primária e as minhas réplicas adicionais de cálculo secundário
 
-Não. A sua base de dados `tempdb` está configurada com base no fornecimento de tamanho de cálculo, as suas réplicas de cálculo secundário têm o mesmo tamanho que a computação primária.
+Não. A `tempdb` sua base de dados está configurada com base no fornecimento de tamanho de cálculo, as suas réplicas de cálculo secundário têm o mesmo tamanho que a computação primária.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-replicas"></a>Posso adicionar índices e pontos de vista sobre as minhas réplicas de cálculo secundário
 

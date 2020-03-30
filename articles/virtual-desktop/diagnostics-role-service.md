@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254264"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
@@ -33,7 +33,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnosticar problemas com a PowerShell
 
-O Windows Virtual Desktop Diagnostics utiliza apenas um cmdlet PowerShell, mas contém muitos parâmetros opcionais para ajudar a reduzir e isolar problemas. As seguintes secções listam as cmdlets que pode correr para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores enumerados nos escalões, como `<tenantName>`, devem ser substituídos com os valores aplicáveis à sua situação.
+O Windows Virtual Desktop Diagnostics utiliza apenas um cmdlet PowerShell, mas contém muitos parâmetros opcionais para ajudar a reduzir e isolar problemas. As seguintes secções listam as cmdlets que pode correr para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores enumerados `<tenantName>`nos parênteses, tais como, devem ser substituídos com os valores aplicáveis à sua situação.
 
 >[!IMPORTANT]
 >A função de diagnóstico destina-se a resolução de problemas de um único utilizador. Todas as consultas que utilizem o PowerShell devem incluir os parâmetros *-UserName* ou *-ActivityID.* Para monitorizar as capacidades, utilize o Log Analytics. Consulte [o Use Log Analytics para](diagnostics-log-analytics.md) obter mais informações sobre como enviar dados de diagnóstico para o seu espaço de trabalho. 
@@ -120,7 +120,7 @@ O parâmetro **-Detalhado** fornece detalhes adicionais para cada atividade de d
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
 ```
 
-## <a name="common-error-scenarios"></a>Cenários de erro comuns
+## <a name="common-error-scenarios"></a>Cenários de erros comuns
 
 Os cenários de erro são categorizados internamente para o serviço e externos ao Windows Virtual Desktop.
 
@@ -137,38 +137,38 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 |Código numérico|Código de erro|Solução sugerida|
 |---|---|---|
 |3|Acesso não autorizado|O utilizador que tentou executar o cmdlet administrativo PowerShell ou não tem permissões para o fazer ou enevoou o seu nome de utilizador.|
-|1000|TenantNotFound|O nome do inquilino que inscreveu não corresponde a nenhum inquilino existente. Reveja o nome do inquilino para os typos e tente de novo.|
-|1006|TenantCannotBeRemovedHasSessionHostPools|Não se pode excluir um inquilino desde que contenha objetos. Apague primeiro as piscinas de anfitriões da sessão e tente novamente.|
+|1000|InquilinoNão Encontrado|O nome do inquilino que inscreveu não corresponde a nenhum inquilino existente. Reveja o nome do inquilino para os typos e tente de novo.|
+|1006|TenantCanBeRemovedHasSessionHostPools|Não se pode excluir um inquilino desde que contenha objetos. Apague primeiro as piscinas de anfitriões da sessão e tente novamente.|
 |2000|HostPoolNotFound|O nome da piscina anfitriã o que inscreveu não corresponde a nenhuma piscina de anfitriões existente. Reveja o nome da piscina anfitriã para os typos e tente novamente.|
-|2005|HostPoolCannotBeRemovedHasApplicationGroups|Não é possível apagar uma piscina de hospedeiro desde que contenha objetos. Remova primeiro todos os grupos de aplicações na piscina anfitriã.|
-|2004|HostPoolCannotBeRemovedHasSessionHosts|Remova primeiro todas as sessões anfitriões antes de eliminar a piscina anfitriã da sessão.|
+|2005|HostpoolcanberemovedHasApplicationGroups|Não é possível apagar uma piscina de hospedeiro desde que contenha objetos. Remova primeiro todos os grupos de aplicações na piscina anfitriã.|
+|2004|HostpoolCanBeRemovedHassessionHosts|Remova primeiro todas as sessões anfitriões antes de eliminar a piscina anfitriã da sessão.|
 |5001|SessionHostNotFound|O anfitrião da sessão que quer saber pode estar offline. Verifique o estado da piscina anfitriã.|
-|5008|SessionHostUserSessionsExist |Deve inscrever todos os utilizadores no anfitrião da sessão antes de executar a sua atividade de gestão pretendida.|
+|5008|Sessões de anfitriõesde sessõesExistem |Deve inscrever todos os utilizadores no anfitrião da sessão antes de executar a sua atividade de gestão pretendida.|
 |6000|AppGroupNotFound|O nome do grupo de aplicações que inseriu não corresponde a nenhum grupo de aplicações existente. Reveja o nome do grupo de aplicações para os typos e tente novamente.|
 |6022|RemoteAppNotFound|O nome RemoteApp que introduziu não corresponde a nenhum RemoteApps. Reveja o nome RemoteApp para os typos e tente novamente.|
-|6010|PublishedItemsExist|O nome do recurso que está a tentar publicar é o mesmo que um recurso que já existe. Mude o nome do recurso e tente de novo.|
+|6010|PublicadoItemsExist|O nome do recurso que está a tentar publicar é o mesmo que um recurso que já existe. Mude o nome do recurso e tente de novo.|
 |7002|NameNotValidWhiteSpace|Não use espaço branco no nome.|
-|8000|InvalidAuthorizationRoleScope|O nome de papel que inscreveu não corresponde a nenhum nome de papel existente. Reveja o nome do papel para os typos e tente novamente. |
+|8000|InvalidaçãoRoleScope|O nome de papel que inscreveu não corresponde a nenhum nome de papel existente. Reveja o nome do papel para os typos e tente novamente. |
 |8001|UserNotFound |O nome de utilizador introduzido não corresponde a nenhum nome de utilizador existente. Reveja o nome para os typos e tente de novo.|
-|8005|UserNotFoundInAAD |O nome de utilizador introduzido não corresponde a nenhum nome de utilizador existente. Reveja o nome para os typos e tente de novo.|
-|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para dar consentimento ao seu inquilino.|
+|8005|usernotfoundinaad |O nome de utilizador introduzido não corresponde a nenhum nome de utilizador existente. Reveja o nome para os typos e tente de novo.|
+|8008|InquilinoConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para dar consentimento ao seu inquilino.|
 
 ### <a name="external-connection-error-codes"></a>Códigos de erro de ligação externa
 
 |Código numérico|Código de erro|Solução sugerida|
 |---|---|---|
-|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O anfitrião da sessão não está corretamente acompanhado ao Diretório Ativo.|
-|-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As ligações falharam porque o anfitrião da sessão não está disponível. Verifique a saúde do anfitrião da sessão.|
-|-2146233088|ConnectionFailedClientDisconnect|Se vir este erro com frequência, certifique-se de que o computador do utilizador está ligado à rede.|
-|-2146233088|ConnectionFailedNoHealthyRdshAvailable|A sessão a que o utilizador anfitrião tentou ligar-se não é saudável. Depura a máquina virtual.|
-|-2146233088|ConnectionFailedUserNotAuthorized|O utilizador não tem permissão para aceder à aplicação ou ambiente de trabalho publicado. O erro pode aparecer após o administrador ter removido os recursos publicados. Peça ao utilizador que refresque o feed na aplicação Remote Desktop.|
+|-2147467259|ConexãoFalhadaFalha da relação fidedigna|O anfitrião da sessão não está corretamente acompanhado ao Diretório Ativo.|
+|-2146233088|ConexãoFalhadaUserHasValidSessionButRdshIsUnhealthy|As ligações falharam porque o anfitrião da sessão não está disponível. Verifique a saúde do anfitrião da sessão.|
+|-2146233088|ConexãoFalhada Falhado ClientDisconnect|Se vir este erro com frequência, certifique-se de que o computador do utilizador está ligado à rede.|
+|-2146233088|ConexãoFailedNoHealthyRdshDisponível|A sessão a que o utilizador anfitrião tentou ligar-se não é saudável. Depura a máquina virtual.|
+|-2146233088|ConexãoFalhadaUserNotAutorizado|O utilizador não tem permissão para aceder à aplicação ou ambiente de trabalho publicado. O erro pode aparecer após o administrador ter removido os recursos publicados. Peça ao utilizador que refresque o feed na aplicação Remote Desktop.|
 |2|FileNotFound|A aplicação a que o utilizador tentou aceder está incorretamente instalada ou definida para um caminho incorreto.|
 |3|Credenciais inválidas|O nome de utilizador ou palavra-passe que o utilizador introduziu não corresponde a quaisquer nomes de utilizador ou palavras-passe existentes. Reveja as credenciais para os tipografias e tente novamente.|
-|8|ConnectionBroken|A ligação entre o Cliente e o Gateway ou o Servidor caiu. Não é necessária nenhuma ação a não ser que aconteça inesperadamente.|
-|14|UnexpectedNetworkDisconnect|A ligação à rede caiu. Peça ao utilizador para voltar a ligar-se.|
+|8|Conexão Quebrada|A ligação entre o Cliente e o Gateway ou o Servidor caiu. Não é necessária nenhuma ação a não ser que aconteça inesperadamente.|
+|14|Rede InesperadaDisconnect|A ligação à rede caiu. Peça ao utilizador para voltar a ligar-se.|
 |24|ReverseConnectFailed|A máquina virtual hospedeira não tem linha direta de visão para RD Gateway. Certifique-se de que o endereço IP gateway pode ser resolvido.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre papéis dentro do Windows Virtual Desktop, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).
 

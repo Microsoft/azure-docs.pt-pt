@@ -14,10 +14,10 @@ ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: 11b61612a261b32e2d15b5dc70005b18aa112ed4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240346"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recolher dados de um computador Windows em ambiente híbrido com o Monitor Azure
@@ -26,15 +26,15 @@ O [Azure Monitor](../overview.md) pode recolher dados diretamente dos seus compu
 
 Para compreender a configuração suportada, consulte [sistemas operativos Suportados Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)de firewall da rede .
  
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 
     ![Portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
@@ -98,7 +98,7 @@ Os seguintes passos instalam e configuram o agente para Log Analytics no Governo
 
 10. Na **página Configuração concluída com sucesso,** selecione **Terminar**.
 
-Quando a instalação e a configuração estiverem terminadas, o Agente de Monitorização da Microsoft aparece no Painel de Controlo. Pode rever a sua configuração e verificar se o agente está ligado ao espaço de trabalho do Log Analytics. Quando ligado, no separador **Azure Log Analytics,** o agente apresenta esta mensagem: **o Microsoft Monitoring Agent ligou-se com sucesso ao serviço Microsoft Log Analytics.**<br><br> ![estado de ligação MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Quando a instalação e a configuração estiverem terminadas, o Agente de Monitorização da Microsoft aparece no Painel de Controlo. Pode rever a sua configuração e verificar se o agente está ligado ao espaço de trabalho do Log Analytics. Quando ligado, no separador **Azure Log Analytics,** o agente apresenta esta mensagem: **o Microsoft Monitoring Agent ligou-se com sucesso ao serviço Microsoft Log Analytics.**<br><br> ![Estado de ligação MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 
@@ -112,7 +112,7 @@ O Azure Monitor pode recolher eventos que especifica a partir dos contadores de 
  
 3. Selecione **Dados** e, em seguida, selecione **Registos de Eventos do Windows**.  
 
-4. Adicione um registo de eventos inserindo o nome do registo. Introduza o **Sistema**e, em seguida, selecione o sinal de mais **(+** ).  
+4. Adicione um registo de eventos inserindo o nome do registo. Introduza o **Sistema**e,**+** em seguida, selecione o sinal de mais ().  
 
 5. Na tabela, selecione as severidades **de Erro** e **Aviso.**
 
@@ -134,7 +134,7 @@ Agora que permitiu a recolha de dados, vamos fazer uma simples pesquisa de regis
 
 1. No espaço de trabalho selecionado, a partir do painel da esquerda, selecione **Logs**.
 
-2. Na página de consulta de Registos, digite `Perf` no editor de consulta e selecione **Executar**.
+2. Na página de consulta de `Perf` Registos, digite no editor de consulta e selecione **Executar**.
  
     ![Pesquisa de registo de Log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
@@ -148,7 +148,7 @@ Pode remover o agente do seu computador e eliminar o espaço de trabalho do Log 
 
 Para remover o agente, complete estes passos:
 
-1. Painel de Controlo Aberto.
+1. Abra o Painel de Controlo.
 
 2. Abra **Programas e Funcionalidades**.
 

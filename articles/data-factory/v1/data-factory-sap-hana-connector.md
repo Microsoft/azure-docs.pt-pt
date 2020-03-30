@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265821"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mova dados do SAP HANA utilizando a Fábrica de Dados Azure
@@ -36,7 +36,7 @@ Este conector suporta qualquer versão da base de dados SAP HANA. Suporta copiar
 
 Para permitir a conectividade com a instância SAP HANA, instale os seguintes componentes:
 - **Gateway de Gestão de Dados**: O serviço data Factory suporta a ligação a lojas de dados no local (incluindo sAP HANA) utilizando um componente chamado Data Management Gateway. Para conhecer o Portal de Gestão de Dados e instruções passo a passo para a configuração do gateway, consulte a moving data store entre a loja de dados no local para o artigo da loja de [dados em nuvem.](data-factory-move-data-between-onprem-and-cloud.md) O gateway é necessário mesmo que o SAP HANA esteja hospedado numa máquina virtual Azure IaaS (VM). Pode instalar o portal no mesmo VM que o depósito de dados ou num VM diferente, desde que o portal possa ligar-se à base de dados.
-- **Condutor da ODBC SAP HANA** na máquina de porta de entrada. Você pode baixar o controlador SAP HANA ODBC do [SAP Software Download Center](https://support.sap.com/swdc). Procure com a palavra-chave **SAP HANA CLIENT para Windows**. 
+- **Condutor da ODBC SAP HANA** na máquina de porta de entrada. Pode transferir o controlador ODBC do SAP HANA a partir do [Centro de Transferências de Software SAP](https://support.sap.com/swdc). Procure com a palavra-chave **SAP HANA CLIENT para Windows**. 
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que transfere dados de uma loja de dados SAP HANA no local utilizando diferentes ferramentas/APIs. 
@@ -54,26 +54,26 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades jSON que são usadas para definir entidades data Factory específicas de uma loja de dados SAP HANA:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado sAP HANA.
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor em que reside a instância SAP HANA. Se o seu servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | string | Sim
+servidor | Nome do servidor em que reside a instância SAP HANA. Se o seu servidor estiver a `server:port`utilizar uma porta personalizada, especifique . | string | Sim
 authenticationType | Tipo de autenticação. | corda. "Básico" ou "Windows" | Sim 
 o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
 palavra-passe | A palavra-passe do utilizador. | string | Sim
-gatewayName | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP HANA no local. | string | Sim
-encryptedCredential | A corda credencial encriptada. | string | Não
+nome gateway | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP HANA no local. | string | Sim
+credenta encriptado | A corda credencial encriptada. | string | Não
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. Não existem propriedades específicas do tipo suportadas para o conjunto de dados SAP HANA do tipo **RelationalTable**. 
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção **typeProperties** da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -288,26 +288,26 @@ SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
 REAL | Único
-DOUBLE | Único
-DECIMAL | decimal
+DUPLO | Único
+DECIMAL | Decimal
 BOOLEAN | Byte
-RIO VARCHAR | String
-NVARCHAR | String
+RIO VARCHAR | Cadeia
+NVARCHAR | Cadeia
 CLOB | Byte[]
-ALPHANUM | String
+ALFANUM | Cadeia
 BLOB | Byte[]
 DATA | DateTime
 HORA | TimeSpan
-TIMESTAMP | DateTime
+CARIMBO TEMPORAL | DateTime
 SEGUNDO ENCONTRO | DateTime
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Existem algumas limitações conhecidas ao copiar dados do SAP HANA:
 
-- As cordas NVARCHAR são truncadas até ao comprimento máximo de 4000 caracteres Unicode
+- As cadeias NVARCHAR são truncadas para o comprimento máximo de 4000 carateres Unicode
 - SMALLDECIMAL não é suportado
 - VARBINARY não é suportado
-- As datas válidas são entre 1899/12/30 e 9999/12/31
+- As Datas Válidas estão entre 30/12/1899 e 31/12/9999
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

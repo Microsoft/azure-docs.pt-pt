@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261128"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
@@ -155,7 +155,7 @@ Pode recuperar a identidade gerida do portal Azure ou programáticamente. As seg
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar identidade gerida usando portal Azure
 
-Pode encontrar as informações de identidade geridas do portal Azure &> a sua fábrica de dados -> Propriedades.
+Pode encontrar as informações de identidade geridas do portal Azure - > a sua fábrica de dados -> Propriedades.
 
 - ID de objeto de identidade gerido
 - Inquilino de Identidade Gerido

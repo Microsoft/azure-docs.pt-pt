@@ -11,10 +11,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
 ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256097"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusos horários em Caso gerido pela base de dados Azure SQL
@@ -110,18 +110,18 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | UTC-09 | (UTC-09:00) Tempo Universal Coordenado-09 |
 | Horário padrão do Pacífico (México) | (UTC-08:00) Baja Califórnia |
 | UTC-08 | (UTC-08:00) Tempo Universal Coordenado-08 |
-| Horário padrão do Pacífico | (UTC-08:00) Tempo do Pacífico (EUA e Canadá) |
+| Horário padrão do Pacífico | (UTC-08:00) Tempo do Pacífico (EUA & Canadá) |
 | Tempo Padrão da Montanha dos EUA | (UTC-07:00) Arizona |
 | Hora padrão da montanha (México) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Hora Padrão da Montanha | (UTC-07:00) Tempo de Montanha (EUA e Canadá) |
+| Hora Padrão da Montanha | (UTC-07:00) Tempo de Montanha (EUA & Canadá) |
 | Horário padrão da América Central | (UTC-06:00) América Central |
-| Horário padrão central | (UTC-06:00) Tempo Central (EUA e Canadá) |
+| Horário padrão central | (UTC-06:00) Horário Central (EUA & Canadá) |
 | Hora Padrão da Ilha de Páscoa | (UTC-06:00) Ilha de Páscoa |
 | Horário central (México) | (UTC-06:00) Guadalajara |
 | Horário padrão central do Canadá | (UTC-06:00) Rio Saskatchewan |
 | Horário padrão da SA Pacific | (UTC-05:00) Bogotá, Lima, Quito, Rio Branco |
 | Horário padrão oriental (México) | (UTC-05:00) Chetumal |
-| Horário padrão oriental | (UTC-05:00) Tempo Oriental (EUA e Canadá) |
+| Horário padrão oriental | (UTC-05:00) Tempo Oriental (EUA & Canadá) |
 | Hora Padrão do Haiti | (UTC-05:00) Haiti |
 | Hora Padrão de Cuba | (UTC-05:00) Havana |
 | Horário padrão do leste dos EUA | (UTC-05:00) Indiana (Leste) |
@@ -146,7 +146,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Horário padrão do Atlântico Médio | (UTC-02:00) Mid-Atlantic - Velho |
 | Horário padrão dos Açores | (UTC-01:00) Açores |
 | Horário padrão de Cabo Verde | (UTC-01:00) Cabo Verde é. |
-| UTC | (UTC) Tempo Universal Coordenado |
+| UTC | (UTC) Hora Universal Coordenada |
 | Gmt Tempo Padrão | (UTC+00:00) Dublin, Edimburgo, Lisboa, Londres |
 | Hora Padrão de Greenwich | (UTC+00:00) Monróvia |
 | W. Hora Padrão da Europa | (UTC+01:00) Amesterdão, Berlim, Berna, Roma, Estocolmo, Viena |

@@ -10,10 +10,10 @@ ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246880"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca executor a granel .NET para realizar operações a granel em Azure Cosmos DB
@@ -26,9 +26,9 @@ Atualmente, a biblioteca de executora a granel é apoiada apenas pelas contas Az
 
 * Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Certifique-se de que ativa o "desenvolvimento Do Azure" durante a configuração do Estúdio Visual.
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Ou, pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto final `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
+* Você pode [Experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou, pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
 * Crie uma conta API Azure Cosmos DB SQL utilizando os passos descritos na secção de [conta de base](create-sql-api-dotnet.md#create-account) de dados do artigo .NET quickstart.
 
@@ -103,7 +103,7 @@ A aplicação "BulkImportSample" gera documentos aleatórios e importa-os a gran
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
    |enableUpsert    |   Uma bandeira para permitir operações upsert nos documentos. Se um documento com a identificação dada já existir, é atualizado. Por defeito, está definido como falso.      |
-   |disableAutomaticIdGeneration    |    Um sinalizador para desativar a geração automática do ID. Por predefinição, é definido como true.     |
+   |desativarAutomaticIdGeneration    |    Uma bandeira para desativar a geração automática de identificação. Por defeito, está definido para verdade.     |
    |maxConcurrencyPerPartitionKeyRange    | O grau máximo de conmoeda por divisória, definição para nulo fará com que a biblioteca utilize um valor padrão de 20. |
    |maxInMemorySortingBatchSize     |  O número máximo de documentos que são retirados do enumerador de documentos, que é passado para a chamada da API em cada fase. Para a fase de triagem em memória que ocorre antes da importação a granel, a fixação deste parâmetro a nula fará com que a biblioteca utilize o valor mínimo predefinido (documentos.count, 10000000).       |
    |cancelamentoToken    |    O símbolo de cancelamento para sair graciosamente da operação de importação a granel.     |
@@ -113,17 +113,17 @@ A aplicação "BulkImportSample" gera documentos aleatórios e importa-os a gran
    |**Parâmetro**  |**Descrição**  |
    |---------|---------|
    |NumberOfDocumentsImportados (longo)   |  O número total de documentos importados com êxito do total dos documentos fornecidos à chamada a granel.       |
-   |TotalRequestUnitsConsumido (duplo)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
+   |TotalRequestUnitsConsumido (duplo)   |   As unidades de pedido totais (RU) consumidas pela chamada API de importação a granel.      |
    |Total timetaken (Timespan)    |   O tempo total deato na chamada a granel da API para completar a execução.      |
-   |BadInputDocuments (Lista\<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Corrija os documentos devolvidos e volte a tentar a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |BadInputDocuments (> de objeto de lista)\<   |     A lista de documentos em mau formato que não foram importados com êxito na chamada API de importação a granel. Corrija os documentos devolvidos e volte a tentar a importação. Os documentos mal formados incluem documentos cujo valor de id não é uma cadeia (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Dados de atualização a granel na sua conta Azure Cosmos
 
-Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, irá definir o campo `Name` para um novo valor e remover o campo `Description` dos documentos existentes. Para o conjunto completo de operações de atualização suportadas, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste exemplo, irá definir `Name` o campo para um `Description` novo valor e remover o campo dos documentos existentes. Para o conjunto completo de operações de atualização suportadas, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
 1. Navegue na pasta "BulkUpdateSample" e abra o ficheiro "BulkUpdateSample.sln".  
 
-2. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, utilizará `SetUpdateOperation` para atualizar o campo de `Name` e `UnsetUpdateOperation` para remover o campo `Description` de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para conhecer os diferentes métodos fornecidos pela atualização a granel API, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, utilizará `SetUpdateOperation` para `Name` atualizar `UnsetUpdateOperation` o campo `Description` e remover o campo de todos os documentos. Também pode realizar outras operações como incrementar um campo de documentos por um valor específico, empurrar valores específicos para um campo de matriz, ou remover um valor específico de um campo de matriz. Para conhecer os diferentes métodos fornecidos pela atualização a granel API, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -161,7 +161,7 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |NumberOfDocumentsUpdated (long)    |   O número de documentos que foram atualizados com sucesso a partir do total de documentos fornecidos à chamada a granel da API.      |
+   |NumberOfDocumentsAtualizado (longo)    |   O número de documentos que foram atualizados com sucesso a partir do total de documentos fornecidos à chamada a granel da API.      |
    |TotalRequestUnitsConsumido (duplo)   |    As unidades de pedido totais (RUs) consumidas pela chamada API de atualização a granel.    |
    |Total timetaken (Timespan)   | O tempo total deatualização a granel da Chamada API para completar a execução. |
     
@@ -171,11 +171,11 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 
 * Para melhor desempenho, execute a sua aplicação a partir de uma máquina virtual Azure que esteja na mesma região que a região de escrita da sua conta Azure Cosmos.  
 
-* Recomenda-se que você instantaneamente um único objeto `BulkExecutor` para toda a aplicação dentro de uma única máquina virtual que corresponda a um recipiente Azure Cosmos específico.  
+* Recomenda-se que você instantaneamente um único `BulkExecutor` objeto para toda a aplicação dentro de uma única máquina virtual que corresponda a um recipiente Azure Cosmos específico.  
 
-* Uma vez que uma única operação a granel a execução da API consome uma grande parte do CPU e da rede IO da máquina cliente (isto acontece desogerando várias tarefas internamente). Evite desovar várias tarefas simultâneas no âmbito do seu processo de aplicação que executam chamadas API da operação a granel. Se uma única chamada a granel da API que está a funcionar numa única máquina virtual não conseguir consumir a entrada de todo o recipiente (se o seu recipiente for de entrada > 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas API de operação a granel.  
+* Uma vez que uma única operação a granel a execução da API consome uma grande parte do CPU e da rede IO da máquina cliente (isto acontece desogerando várias tarefas internamente). Evite desovar várias tarefas simultâneas no âmbito do seu processo de aplicação que executam chamadas API da operação a granel. Se uma única chamada a granel da API que está a funcionar numa única máquina virtual não conseguir consumir a entrada de todo o recipiente (se a entrada do seu contentor > 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas API de operação a granel.  
 
-* Certifique-se de que o método `InitializeAsync()` é invocado após instantaneamente um objeto BulkExecuteor para obter o mapa de partição do contentor cosmos alvo.  
+* Certifique-se de que o `InitializeAsync()` método é invocado após instantaneamente um objeto BulkExecuteor para obter o mapa de partição do contentor cosmos alvo.  
 
 * Na App.Config da sua aplicação, certifique-se de que o **gcServer** está habilitado para um melhor desempenho
   ```xml  

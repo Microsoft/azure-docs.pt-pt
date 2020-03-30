@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256942"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres em escala para VMware VMs/servidores físicos
 
-Este artigo descreve como configurar a recuperação de desastres para o Azure para grandes números (> 1000) de VMware no local ou servidores físicos no seu ambiente de produção, utilizando o serviço de Recuperação de [Sítios Azure.](site-recovery-overview.md)
+Este artigo descreve como configurar a recuperação de desastres para o Azure para grandes números (> 1000) de VMware no local ou servidores físicos no seu ambiente de produção, utilizando o serviço de recuperação de [sites Azure.](site-recovery-overview.md)
 
 
 ## <a name="define-your-bcdr-strategy"></a>Defina a sua estratégia BCDR
@@ -85,7 +85,7 @@ Queremos garantir que as quotas disponíveis na subscrição-alvo são suficient
 
 **Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
-**Verifique os núcleos** | Se os núcleos da quota disponível não forem iguais ou excederem a contagem total de alvos no momento da falha, as falhas falharão. | Para VMware VMs, verifique se tem núcleos suficientes na subscrição do alvo para atender à recomendação central do Planificador de Implementação.<br/><br/> Para servidores físicos, verifique se os núcleos Azure cumprem as suas estimativas manuais.<br/><br/> Para verificar quotas, no portal Azure > **Subscrição,** clique em **Utilização + quotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre o aumento das quotas.
+**Verifique os núcleos** | Se os núcleos da quota disponível não forem iguais ou excederem a contagem total de alvos no momento da falha, as falhas falharão. | Para VMware VMs, verifique se tem núcleos suficientes na subscrição do alvo para atender à recomendação central do Planificador de Implementação.<br/><br/> Para servidores físicos, verifique se os núcleos Azure cumprem as suas estimativas manuais.<br/><br/> Para verificar quotas, no portal Azure > **Subscrição,** clique em **Utilização + quotas.**<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre o aumento das quotas.
 **Verificar limites de falha** | O número de falhas não deve exceder os limites de falha de recuperação do site. |  Se as falhas excederem os limites, pode adicionar subscrições e falhar em várias subscrições ou aumentar a quota para uma subscrição. 
 
 
@@ -212,13 +212,13 @@ Para executar uma falha em larga escala, recomendamos o seguinte:
 1. Crie planos de recuperação para a falha na carga de trabalho.
     - Cada plano de recuperação pode desencadear falhas de até 50 máquinas.
     - [Saiba mais](recovery-plan-overview.md) sobre os planos de recuperação.
-2. Adicione scripts de rcadbook da Azure Automation aos planos de recuperação, para automatizar quaisquer tarefas manuais no Azure. As tarefas típicas incluem configurar os equilibradores de carga, atualizar dNS etc. [Saiba mais](site-recovery-runbook-automation.md)
+2. Adicione scripts de rcadbook da Azure Automation aos planos de recuperação, para automatizar quaisquer tarefas manuais no Azure. As tarefas típicas incluem configurar os equilibradores de carga, atualizar dNS etc. [Mais informações](site-recovery-runbook-automation.md)
 2. Antes de falhar, prepare as máquinas Windows para que cumpram o ambiente Azure. [Os limites](#plan-azure-subscriptions-and-quotas) de failover são mais elevados para as máquinas que cumprem. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre livros de corridas.
 4.  Desencadear a falha com o [start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet, juntamente com um plano de recuperação.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Monitorizar a recuperação do site](site-recovery-monitor-and-troubleshoot.md)
+> [Monitorizar o Site Recovery](site-recovery-monitor-and-troubleshoot.md)

@@ -5,10 +5,10 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248154"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
@@ -30,10 +30,10 @@ Pode gerir backups utilizando o painel de instrumentos e perfurando para VMs ind
 
 Para ver VMs no painel do cofre:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, **selecione Browse**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres de Serviços**de Recuperação .
 
-    ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Criar um cofre dos Serviços de Recuperação ](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. Para facilitar a utilização, clique no cofre e selecione **Pin para painel de instrumentos**.
 4. Abra o painel do cofre.
@@ -56,7 +56,7 @@ Para ver VMs no painel do cofre:
 
 Para gerir uma política de backup:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
 2. No azulejo **de backup itens,** selecione **Máquinas Virtuais Azure**.
 
     ![Abra o azulejo de backup itens](./media/backup-azure-manage-vms/contoso-vault-1606.png)
@@ -69,7 +69,7 @@ Para gerir uma política de backup:
 
    * Para mudar de política, selecione uma política diferente e, em seguida, selecione **Guardar**. A nova política é imediatamente aplicada ao cofre.
 
-     ![Escolha uma política de backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+     ![Escolher uma política de cópias de segurança](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Faça um backup a pedido
 

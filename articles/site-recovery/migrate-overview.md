@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257943"
 ---
 # <a name="about-migration"></a>Acerca da migração
@@ -30,18 +30,18 @@ Aqui está o que você pode migrar usando a Recuperação do Site:
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer com migração?
 
-Além de utilizar a Recuperação do Site para a recuperação de desastres nas instalações e vMs azure, pode utilizar o serviço de Recuperação do Site para os migrar. Qual é a diferença?
+Além de utilizar a Recuperação do Site para a recuperação de desastres nas instalações e vMs azure, pode utilizar o serviço de Recuperação do Site para os migrar. Qual a diferença?
 
 - Para a recuperação de desastres, você replica máquinas regularmente para Azure. Quando ocorre uma paragem, falha-se as máquinas do local primário para o local secundário do Azure e acede-as a partir daí. Quando o site principal estiver disponível novamente, você ressatique de Azure.
 - Para a migração, você replica máquinas no local para Azure, ou VMs Azure para uma região secundária. Depois falha-se o VM do local primário para o secundário e completa-se o processo de migração. Não há nenhuma reativação pós-falha envolvida.  
 
 
-## <a name="migration-scenarios"></a>Cenários de migração
+## <a name="migration-scenarios"></a> Cenários de migração
 
 **Cenário** | **Detalhes**
 --- | ---
 **Migrar de instalações para Azure** | Pode migrar vMs no local, VMs hiper-V e servidores físicos para o Azure. Para isso, completa-se quase os mesmos passos que faria para a recuperação total de desastres. Simplesmente não falha saquede máquinas de Azure para o local.
-**Migrar entre regiões do Azure** | Pode migrar VMs Azure de uma região de Azure para outra. Após a migração estar completa, pode configurar a recuperação de desastres para os VMs Azure agora na região secundária para onde emigrou.
+**Migrar entre as regiões de Azure** | Pode migrar VMs Azure de uma região de Azure para outra. Após a migração estar completa, pode configurar a recuperação de desastres para os VMs Azure agora na região secundária para onde emigrou.
 **Migrar o AWS para o Azure** | Pode migrar instâncias do AWS para VMs do Azure. A Recuperação do Site trata os casos de AWS como servidores físicos para efeitos de migração. 
 
 ## <a name="next-steps"></a>Passos seguintes

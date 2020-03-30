@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246165"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
@@ -49,7 +49,7 @@ O Azure Data Factory suporta as seguintes atividades de transformação, que pod
 Atividade de transformação de dados | Ambiente de computação
 ---------------------------- | -------------------
 [Fluxo de Dados](control-flow-execute-data-flow-activity.md) | Azure Databricks geridos pela Azure Data Factory
-[Função Azure](control-flow-azure-function-activity.md) | Funções do Azure
+[Função do Azure](control-flow-azure-function-activity.md) | Funções do Azure
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -60,8 +60,8 @@ Atividade de transformação de dados | Ambiente de computação
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Atividade Personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
-[Atividade de frasco de tijolos de dados](transform-data-databricks-jar.md) | Azure Databricks
-[Atividade python de databricks](transform-data-databricks-python.md) | Azure Databricks
+[Atividade Jar do Databricks](transform-data-databricks-jar.md) | Azure Databricks
+[Atividade Python do Databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Para obter mais informações, veja o artigo [Data Transformation Activities](transform-data.md) (Atividades de Transformação de Dados).
 
@@ -82,7 +82,7 @@ Atividade de controlo | Descrição
 [Atividade de Validação](control-flow-validation-activity.md) | Certifique-se de que um gasoduto só continua a ser executado se existir um conjunto de dados de referência, satisfaz um critério especificado ou se tiver atingido um prazo.
 [Atividade Aguardar](control-flow-wait-activity.md) | Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes.
 [Atividade Web](control-flow-web-activity.md) | A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
-[Atividade webhook](control-flow-webhook-activity.md) | Utilizando a atividade do webhook, ligue para um ponto final e passe um URL de callback. A execução do gasoduto aguarda que a chamada seja invocada antes de prosseguir para a próxima atividade.
+[Atividade de Webhook](control-flow-webhook-activity.md) | Utilizando a atividade do webhook, ligue para um ponto final e passe um URL de callback. A execução do gasoduto aguarda que a chamada seja invocada antes de prosseguir para a próxima atividade.
 
 ## <a name="pipeline-json"></a>JSON dos pipelines
 Eis como os pipelines são definidos no formato JSON:
@@ -105,14 +105,14 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Descrição | Tipo | Required
+Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma carta, número ou um sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
-description | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
-activities | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
-parameters | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
-concurrency | O número máximo de corridas simultâneas que o gasoduto pode ter. Por defeito, não há máximo. Se o limite de moeda for atingido, as corridas adicionais de gasoduto serão em fila até que as anteriores estejam concluídas | Número | Não 
-anotações | Uma lista de tags associadas ao oleoduto | Array | Não
+nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma carta, número\_ou um sublinhado .</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia | Sim
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
+atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Sim
+parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
+conmoeda | O número máximo de corridas simultâneas que o gasoduto pode ter. Por defeito, não há máximo. Se o limite de moeda for atingido, as corridas adicionais de gasoduto serão em fila até que as anteriores estejam concluídas | Número | Não 
+anotações | Uma lista de tags associadas ao oleoduto | Matriz | Não
 
 ## <a name="activity-json"></a>JSON da Atividade
 A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: atividades de Execução e de Controlo.
@@ -140,17 +140,17 @@ As atividades de execução incluem [atividades de movimento de dados](#data-mov
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-Etiqueta | Descrição | Required
+Etiqueta | Descrição | Necessário
 --- | ----------- | ---------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
-description | Texto que descreve para o que é utilizada a atividade | Sim
-tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções [Atividades de Movimento de Dados](#data-movement-activities), [Atividades de Transformação de Dados](#data-transformation-activities) e [Atividades de Controlo](#control-flow-activities). | Sim
+nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de\_letra, ou um sublinhado ( )</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Sim
+tipo | Tipo de atividade. Consulte as atividades de Movimento de [Dados,](#data-movement-activities) [Atividades](#data-transformation-activities)de Transformação de Dados e [Secções de Atividades](#control-flow-activities) de Controlo para diferentes tipos de atividades. | Sim
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
 política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui o comportamento de tempo limite e de repetição. Se não for especificada, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | Não
 dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | Não
 
-### <a name="activity-policy"></a>Política de atividade
+### <a name="activity-policy"></a>Política das atividades
 As políticas afetam o comportamento de runtime de uma atividade, proporcionando opções de configuração. As políticas das Atividades só estão disponíveis para as atividades de execução.
 
 ### <a name="activity-policy-json-definition"></a>Definição JSON da política de atividade
@@ -181,9 +181,9 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 }
 ```
 
-Nome JSON | Descrição | Valores Permitidos | Required
+Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
-timeout | Especifica o tempo limite para a execução da atividade. | Período de tempo | Não. O tempo limite predefinido é de 7 dias.
+tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
 retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
 retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. Padrão é de 30 segundos
 secureOutput | Quando definido como verdadeiro, o resultado da atividade é considerado seguro e não será registado na monitorização. | Booleano | Não. A predefinição é falso.
@@ -205,13 +205,13 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 }
 ```
 
-Etiqueta | Descrição | Required
+Etiqueta | Descrição | Necessário
 --- | ----------- | --------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
-description | Texto que descreve para o que é utilizada a atividade | Sim
+nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de\_letra, ou um sublinhado ( )</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-flow-activities). | Sim
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
-dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency). | Não
+dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para mais informações, consulte [a dependência da atividade.](#activity-dependency) | Não
 
 ### <a name="activity-dependency"></a>Dependência das atividades
 A Dependência das atividades define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
@@ -370,13 +370,13 @@ Os dois pipelines de exemplo anteriores só contêm uma atividade. Pode ter mais
 Pode utilizar a [dependência das atividades](#activity-dependency) para encadear duas atividades; a dependência define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
 
 ## <a name="scheduling-pipelines"></a>Agendamento de pipelines
-Os pipelines são agendados por acionadores. Existem diferentes tipos de acionadores (acionador Scheduler, que permite acionar vários pipelines de acordo com uma agenda, bem como o acionador manual, que aciona os pipelines a pedido). Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
+Os pipelines são agendados por acionadores. Existem diferentes tipos de acionadores (acionador Scheduler, que permite acionar vários pipelines de acordo com uma agenda, bem como o acionador manual, que aciona os pipelines a pedido). Para obter mais informações sobre os acionadores, veja o artigo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) (Execução e acionadores de pipelines).
 
-Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
+Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) (Execução e acionadores de pipelines).
 
 Por exemplo, digamos que tens um gatilho, "Trigger A" que quero lançar o meu oleoduto, "MyCopyPipeline". Defina o acionador, conforme mostrado no exemplo seguinte:
 
-### <a name="trigger-a-definition"></a>Definição de Trigger A
+### <a name="trigger-a-definition"></a>Definição do Acionador A
 
 ```json
 {
@@ -402,7 +402,7 @@ Por exemplo, digamos que tens um gatilho, "Trigger A" que quero lançar o meu ol
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines com atividades:
 
 - [Criar um pipeline com uma atividade de cópia](quickstart-create-data-factory-powershell.md)

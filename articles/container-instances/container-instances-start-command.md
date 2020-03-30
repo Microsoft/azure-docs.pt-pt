@@ -4,15 +4,15 @@ description: Delineie uma linha de comando para sobrepor o ponto de entrada numa
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247127"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Delineie a linha de comando numa instância de contentorpara anular o funcionamento da linha de comando padrão
 
-Quando criar uma instância de contentor, especifique opcionalmente um comando para anular as instruções de linha de comando predefinidas cozidas na imagem do recipiente. Este comportamento é semelhante ao argumento `--entrypoint` linha de comando para `docker run`.
+Quando criar uma instância de contentor, especifique opcionalmente um comando para anular as instruções de linha de comando predefinidas cozidas na imagem do recipiente. Este comportamento é `--entrypoint` semelhante ao argumento `docker run`da linha de comando para .
 
 Tal como definir [variáveis ambientais](container-instances-environment-variables.md) para instâncias de contentores, especificar uma linha de comando inicial é útil para trabalhos de lote onde você precisa preparar cada recipiente dinamicamente com configuração específica da tarefa.
 
@@ -32,7 +32,7 @@ Tal como definir [variáveis ambientais](container-instances-environment-variabl
 
 * Dependendo da configuração do recipiente, poderá ser necessário definir um caminho completo para a linha de comando executável ou argumentos.
 
-* Estabeleça uma política de [reinício](container-instances-restart-policy.md) adequada para a instância do contentor, dependendo se a linha de comando especifica uma tarefa de longo prazo ou uma tarefa de execução. Por exemplo, recomenda-se uma política de reinício de `Never` ou `OnFailure` para uma tarefa de execução. 
+* Estabeleça uma política de [reinício](container-instances-restart-policy.md) adequada para a instância do contentor, dependendo se a linha de comando especifica uma tarefa de longo prazo ou uma tarefa de execução. Por exemplo, uma `Never` política `OnFailure` de reinício ou recomenda-se para uma tarefa de execução. 
 
 * Se precisar de informações sobre o ponto de entrada predefinido numa imagem de recipiente, utilize o comando de inspeção de [imagem do estivador.](https://docs.docker.com/engine/reference/commandline/image_inspect/)
 
@@ -40,13 +40,13 @@ Tal como definir [variáveis ambientais](container-instances-environment-variabl
 
 A sintaxe da linha de comando varia consoante a API Azure ou a ferramenta utilizada para criar as instâncias. Se especificar um ambiente de concha, observe também as convenções de sintaxe de comando da concha.
 
-* [az recipiente criar][az-container-create] comando: Passe uma corda com o parâmetro `--command-line`. Exemplo: `--command-line "python myscript.py arg1 arg2"`).
+* [az recipiente criar][az-container-create] comando: Passe `--command-line` uma corda com o parâmetro. Exemplo: `--command-line "python myscript.py arg1 arg2"`).
 
-* [Grupo New-AzureRmContainer][new-azurermcontainergroup] Cmdlet Azure PowerShell: Passe uma corda com o parâmetro `-Command`. Exemplo: `-Command "echo hello"`.
+* [Grupo New-AzureRmContainer][new-azurermcontainergroup] Cmdlet Azure PowerShell: Passe `-Command` uma corda com o parâmetro. Exemplo: `-Command "echo hello"`.
 
 * Portal Azure: No **Comando sobrepor** a propriedade da configuração do contentor, forneça uma lista separada de cordas, sem citações. Exemplo: `python, myscript.py, arg1, arg2`). 
 
-* Modelo de Gestor de Recursos ou ficheiro YAML, ou um dos SDKs Azure: Especifique a propriedade da linha de comando como uma variedade de cordas. Exemplo: a matriz JSON `["python", "myscript.py", "arg1", "arg2"]` num modelo de Gestor de Recursos. 
+* Modelo de Gestor de Recursos ou ficheiro YAML, ou um dos SDKs Azure: Especifique a propriedade da linha de comando como uma variedade de cordas. Exemplo: a matriz `["python", "myscript.py", "arg1", "arg2"]` JSON num modelo de Gestor de Recursos. 
 
   Se estiver familiarizado com a sintaxe [do Dockerfile,](https://docs.docker.com/engine/reference/builder/) este formato é semelhante à forma *executiva* da instrução cmd.
 
@@ -54,8 +54,8 @@ A sintaxe da linha de comando varia consoante a API Azure ou a ferramenta utiliz
 
 |    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
-| Comando único | `--command-line "python myscript.py arg1 arg2"` | **Sobreposição de comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Múltiplos comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Sobreposição de comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Comando único | `--command-line "python myscript.py arg1 arg2"` | **Sobreposição de comando:**`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Múltiplos comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Sobreposição de comando:**`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Exemplo azure CLI
 

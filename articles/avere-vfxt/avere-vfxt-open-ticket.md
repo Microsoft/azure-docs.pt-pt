@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252561"
 ---
 # <a name="get-help-with-your-system"></a>Obtenha ajuda com o seu sistema
@@ -27,7 +27,7 @@ Se encontrar problemas durante a implementação ou utilização do Avere vFXT, 
 
 Siga estes passos para se certificar de que o seu bilhete de apoio está marcado com um recurso do seu cluster. A marcação do bilhete ajuda-nos a encaminhá-lo para o recurso de suporte correto.
 
-1. A partir de [https://portal.azure.com, ](https://portal.azure.com)selecione **Grupos de Recursos**. Navegue no grupo de recursos que contém o cluster vFXT onde ocorreu o problema, e clique numa das máquinas virtuais do cluster Avere.
+1. A [https://portal.azure.com](https://portal.azure.com)partir de , selecione **Grupos de Recursos**. Navegue no grupo de recursos que contém o cluster vFXT onde ocorreu o problema, e clique numa das máquinas virtuais do cluster Avere.
 
     ![screenshot do painel de recursos do portal Azure "visão geral" com um VM particular circulado](media/avere-vfxt-ticket-vm.png)
 
@@ -43,7 +43,7 @@ Siga estes passos para se certificar de que o seu bilhete de apoio está marcado
 
     ![screenshot de um novo ecrã de pedido de suporte no portal Azure. O separador Basics é selecionado. Os itens de ecrã incluem tipo de emissão, subscrição, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-   Clique em **Seguinte** para continuar.
+   Clique **em Seguir** para continuar.
 
 1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na sua descrição sumária. Clique no botão **Seguinte** na parte inferior se ainda precisar de criar um bilhete de apoio.
 

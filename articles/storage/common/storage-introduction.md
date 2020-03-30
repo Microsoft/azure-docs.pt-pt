@@ -9,10 +9,10 @@ ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256071"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
@@ -80,7 +80,7 @@ Para obter mais informações sobre o serviço Filas do Azure, veja [Introduçã
 
 ## <a name="table-storage"></a>Table Storage
 
-O armazenamento de Tabelas do Azure faz agora parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Descrição Geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Para além do serviço de armazenamento de Tabelas do Azure já existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que disponibiliza tabelas otimizadas para débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, veja [API de Tabelas do Azure Cosmos DB](https://aka.ms/premiumtables).
+O armazenamento de Tabelas do Azure faz agora parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Descrição Geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Para além do serviço de armazenamento de Tabelas do Azure já existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que disponibiliza tabelas otimizadas para débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, consulte a [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
 Para obter mais informações sobre o Armazenamento de tabelas, veja [Descrição geral do Armazenamento de tabelas do Azure](../tables/table-storage-overview.md).
 
@@ -104,7 +104,7 @@ Todos os pedidos ao Armazenamento Azure devem ser autorizados. O Armazenamento A
 - **Autorização da Azure AD sobre SMB para Ficheiros Azure (pré-visualização).** O Azure Files suporta a autorização baseada na identidade sobre o SMB (Bloco de Mensagens de Servidor) através dos Serviços de Domínio de Diretório Ativo Azure. As máquinas virtuais do Windows (VMs) podem aceder a partilhas de ficheiros Azure utilizando credenciais Azure AD. Para mais informações, consulte a [visão geral da autorização de Diretório Ativo Azure sobre o SMB para Ficheiros Azure (pré-visualização)](../files/storage-files-active-directory-overview.md).
 - **Autorização com Chave Partilhada.** Os serviços azure Storage Blob, Queue e Table e Azure Files apoiam a autorização com a Chave Partilhada.Um cliente que usa autorização de chave partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorização utilizando assinaturas de acesso partilhado (SAS).** Uma assinatura de acesso partilhado (SAS) é uma cadeia que contém um símbolo de segurança que pode ser anexado ao URI para um recurso de armazenamento. O símbolo de segurança engloba constrangimentos tais como permissões e o intervalo de acesso. Para mais informações, consulte a Utilização de Assinaturas de [Acesso Partilhado (SAS)](storage-sas-overview.md).
-- **Acesso anónimo a contentores e bolhas.** Um recipiente e as suas bolhas podem estar disponíveis ao público. Quando especificar que um recipiente ou bolha é público, qualquer pessoa pode lê-lo anonimamente; não é necessária autenticação. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+- **Acesso anónimo a contentores e bolhas.** Um recipiente e as suas bolhas podem estar disponíveis ao público. Quando especificar que um recipiente ou bolha é público, qualquer pessoa pode lê-lo anonimamente; não é necessária autenticação. Para mais informações, consulte [Gerir acesso anónimo a contentores e bolhas](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>Encriptação
 
@@ -138,25 +138,25 @@ Para obter informações detalhadas sobre os preços do Armazenamento do Azure, 
 
 ### <a name="azure-storage-data-api-and-library-references"></a>API de dados do Armazenamento do Azure e referências da biblioteca
 
-- [API DE DESCANSO DE Armazenamento Azure](https://docs.microsoft.com/rest/api/storageservices/)
+- [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/) (API REST do Armazenamento do Azure)
 - [Biblioteca de clientes azure storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteca de clientes Azure Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
 - [Biblioteca de clientes Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Biblioteca de clientes azure storage para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca de clientes azure storage para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca de clientes azure storage para Ruby](https://github.com/Azure/azure-storage-ruby)
-- [Biblioteca de clientes Azure Storage paraC++](https://github.com/Azure/azure-storage-cpp)
+- [Biblioteca de clientes Azure Storage para C++](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>API de gestão do Armazenamento do Azure e referências da biblioteca
 
 - [API REST do Fornecedor de Recursos de Armazenamento](https://docs.microsoft.com/rest/api/storagerp/)
-- [Biblioteca de Clientes do Fornecedor de Recursos de Armazenamento para o .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
-- [API REST da Gestão de Serviços de Armazenamento (Clássica)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [Biblioteca de Clientes do Fornecedor de Recursos do Storage para o .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [API REST da Gestão de Serviços do Storage (Clássica)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>API de movimentação do Armazenamento do Azure e referências da biblioteca
 
-- [API REST do Serviço de Importação/Exportação de Armazenamento](https://docs.microsoft.com/rest/api/storageimportexport/)
-- [Biblioteca de Clientes do Movimento de Dados de Armazenamento para o .NET](/dotnet/api/microsoft.azure.storage.datamovement)
+- [API REST do Serviço de Importação/Exportação do Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [Biblioteca de Clientes do Movimento de Dados do Storage para o .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Ferramentas e utilitários
 
@@ -164,7 +164,7 @@ Para obter informações detalhadas sobre os preços do Armazenamento do Azure, 
 - [Cmdlets da CLI do Azure para Armazenamento](https://docs.microsoft.com/cli/azure/storage)
 - [Utilitário da Linha de Comandos do AzCopy](https://aka.ms/downloadazcopy)
 - O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
-- [Ferramentas de Cliente do Armazenamento do Azure](../storage-explorers.md)
+- [Ferramentas de cliente de armazenamento azure](../storage-explorers.md)
 - [Ferramentas de Programação do Azure](https://azure.microsoft.com/tools/)
 
 ## <a name="next-steps"></a>Passos seguintes
