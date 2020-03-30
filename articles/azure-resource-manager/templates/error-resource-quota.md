@@ -4,13 +4,13 @@ description: Descreve como resolver erros de quota de recursos ao implementar re
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273790"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Resolver erros para quotas de recursos
+# <a name="resolve-errors-for-resource-quotas"></a>Resolver erros de quotas de recursos
 
 Este artigo descreve erros de quota que pode encontrar ao implementar recursos.
 
@@ -44,7 +44,7 @@ Para obter informações completas sobre quotas, consulte [os limites de subscri
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para o Azure CLI, utilize o comando `az vm list-usage` para encontrar quotas de máquinas virtuais.
+Para o Azure CLI, utilize o `az vm list-usage` comando para encontrar quotas de máquinas virtuais.
 
 ```azurecli
 az vm list-usage --location "South Central US"

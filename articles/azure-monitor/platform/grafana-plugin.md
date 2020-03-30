@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672213"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorize os seus serviços Azure em Grafana
@@ -42,7 +42,7 @@ Para configurar um servidor grafana local, [descarregue e instale grafana no seu
 
 ## <a name="sign-in-to-grafana"></a>Inscreva-se em Grafana
 
-1. Utilizando o endereço IP do seu servidor, abra a página de Login em *http://\<endereço IP\>:3000* ou o\<*DNSName>\:3000* no seu navegador. Enquanto 3000 é a porta padrão, note que pode ter selecionado uma porta diferente durante a configuração. Devia ver uma página de login para o servidor Grafana que construíu.
+1. Utilizando o endereço IP do seu servidor, abra a página de Login no *endereço IP\<\>http:// :3000* ou o * \<DNSName>\:3000* no seu navegador. Enquanto 3000 é a porta padrão, note que pode ter selecionado uma porta diferente durante a configuração. Devia ver uma página de login para o servidor Grafana que construíu.
 
     ![Tela de login grafana](./media/grafana-plugin/grafana-login-screen.png)
 
@@ -77,7 +77,7 @@ Uma vez iniciado o registo com sucesso, deve ver se o plugin de origem de dados 
 5. Se utilizar insights de aplicação, também pode incluir a sua API de Insights de Aplicação e ID de aplicação para recolher métricas baseadas em Insights de Aplicação. Para mais informações, consulte [Obter a sua chave API e ID de aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Selecione **Guardar**, e Grafana irá testar as credenciais para cada API. Devia ver uma mensagem semelhante à seguinte.  
-    fonte de dados de ![Grafana aprovou](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
+    ![Fonte de dados de Grafana aprovada](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
 
 ## <a name="build-a-grafana-dashboard"></a>Construa um dashboard grafana
 
@@ -90,13 +90,13 @@ Uma vez iniciado o registo com sucesso, deve ver se o plugin de origem de dados 
 
 4. Selecione a fonte de dados do Monitor Azure que configura.
    * Recolha de métricas do Monitor Azure - selecione **O Monitor Azure** no dropdown do serviço. Aparece uma lista de selecionadores, onde pode selecionar os recursos e a métrica para monitorizar neste gráfico. Para recolher métricas de um VM, utilize o espaço de nome **Microsoft.Compute/VirtualMachines**. Depois de selecionado seleções de VMs e métricas, pode começar a visualizar os seus dados no painel de instrumentos.
-     ![grafista grafana config para](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png) do Monitor Azure
+     ![Grafana graph config para Monitor Azure](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
    * Recolha de dados de registo do Azure Monitor - **selecione Azure Log Analytics** no dropdown do serviço. Selecione o espaço de trabalho que deseja consultar e definir o texto de consulta. Pode copiar aqui qualquer consulta de log que já tenha ou criar uma nova. À medida que escreve na sua consulta, o IntelliSense aparecerá e sugerirá opções autocompletas. Selecione o tipo de visualização, **Tabela**da **série de tempo,** e execute a consulta.
     
      > [!NOTE]
      >
      > A consulta padrão fornecida com o plugin usa duas macros: "$__timeFilter() e $__interval. 
-     > Estas macros permitem que Grafana calcule dinamicamente a faixa de tempo e o grão de tempo, quando você zoom em parte de um gráfico. Pode remover estas macros e utilizar um filtro de tempo padrão, como *timeGenerated > ago(1h),* mas isso significa que o gráfico não suportaria o zoom na função.
+     > Estas macros permitem que Grafana calcule dinamicamente a faixa de tempo e o grão de tempo, quando você zoom em parte de um gráfico. Pode remover estas macros e utilizar um filtro de tempo padrão, como o *TimeGenerated > (1h),* mas isso significa que o gráfico não suportaria o zoom na função.
     
      ![Grafana graph config para Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -132,7 +132,7 @@ Usage
 Pode configurar uma variável que listará todos os valores disponíveis da **Solução** e, em seguida, atualizar a sua consulta para usá-la.
 Para criar uma nova variável, clique no botão Definições do painel na área superior direita, selecione **Variáveis,** e depois **Nova**.
 Na página variável, defina a fonte de dados e a consulta a executar de forma a obter a lista de valores.
-![Grafana configuram](./media/grafana-plugin/grafana-configure-variable-dark.png) variável
+![Grafana configurar variável](./media/grafana-plugin/grafana-configure-variable-dark.png)
 
 Uma vez criado, ajuste a consulta para utilizar o(s) valor selecionado e os seus gráficos responderão em conformidade:
 ```

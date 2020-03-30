@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268863"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência gerida aPI para casos geridos pela Base de Dados Azure SQL
@@ -78,8 +78,8 @@ Para criar e gerir a base de dados de instâncias após a criação da Instânci
 
 | Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria uma nova base de dados De Instância Gerida. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica uma base de dados Azure SQL Managed Instance.|
+|[CRIAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria uma nova base de dados De Instância Gerida. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+| [ALTERAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica uma base de dados Azure SQL Managed Instance.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>REST API: Criar e gerir casos geridos
 

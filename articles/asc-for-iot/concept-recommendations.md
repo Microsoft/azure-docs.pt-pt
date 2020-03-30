@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303584"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
@@ -57,7 +57,7 @@ Os alertas de recomendação fornecem insights e sugestões para ações para me
 
 | Gravidade | Nome                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| High     | Credenciais de autenticação idênticas utilizadas por vários dispositivos | IoT Hub     | As credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo que se faz passar por um dispositivo legítimo. O uso de credenciais duplicados aumenta o risco de personificação do dispositivo por um ator malicioso. |
+| Alta     | Credenciais de autenticação idênticas utilizadas por vários dispositivos | IoT Hub     | As credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo que se faz passar por um dispositivo legítimo. O uso de credenciais duplicados aumenta o risco de personificação do dispositivo por um ator malicioso. |
 | Médio   | A política de filtro IP padrão deve ser negar                  | IoT Hub     | A configuração do filtro IP deve ter regras definidas para o tráfego permitido, e deve, por padrão, negar todo o tráfego por defeito.                                                                                                     |
 | Médio   | A regra do filtro IP inclui grande gama IP                   | IoT Hub     | Uma gama IP de fonte de código de filtro IP de ido é demasiado grande. Regras demasiado permissivas podem expor o seu hub ioT a atores maliciosos.                                                                                       |
 | Baixa      | Ativar registos de diagnóstico no IoT Hub                       | IoT Hub     | Ative os registos e retenha-os até um ano. A retenção de registos permite-lhe recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.                                       |

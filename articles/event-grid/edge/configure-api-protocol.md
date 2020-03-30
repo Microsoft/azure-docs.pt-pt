@@ -1,5 +1,5 @@
 ---
-title: Configure protocolos API - Azure Event Grid IoT Edge  Microsoft Docs
+title: Configure protocolos API - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Configure os protocolos DaPI expostos pela Grelha de Eventos na Borda IoT.
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841815"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configure protocolos da Grelha de Eventos API

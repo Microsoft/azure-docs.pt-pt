@@ -1,6 +1,6 @@
 ---
-title: Esquema do evento de hubs de eventos do Azure Event Grid
-description: Descreve as propriedades que são fornecidas para eventos de hubs de eventos com o Azure Event Grid
+title: Evento De Eventos Azure Grid hubs evento schema
+description: Descreve as propriedades que estão previstas para eventos de hubs de eventos com a Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,25 +8,25 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561833"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos do Azure Event Grid para os hubs de eventos
+# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de evento sintetização do evento Azure Event Grid para centros de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de hubs de eventos. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e esquemas para eventos de hubs de eventos.Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](event-schema.md).
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de eventos de Hubs de eventos](event-sources.md#event-hubs).
+Para obter uma lista de scripts e tutoriais de amostras, consulte a fonte do [evento Event Hubs.](event-sources.md#event-hubs)
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-Os Hubs de eventos emite a **Microsoft.EventHub.CaptureFileCreated** tipo de evento quando é criado um ficheiro de captura.
+Os Hubs de Eventos emitem o tipo de evento **Microsoft.EventHub.CaptureFileCreated** quando um ficheiro de captura é criado.
 
 ## <a name="example-event"></a>Evento de exemplo
 
-Este evento de exemplo mostra o esquema de um evento de hubs de eventos gerado quando a funcionalidade de captura armazena um arquivo: 
+Este evento de amostra mostra o esquema de um evento de hubs de eventos criado quando a funcionalidade de captura armazena um ficheiro: 
 
 ```json
 [
@@ -55,35 +55,35 @@ Este evento de exemplo mostra o esquema de um evento de hubs de eventos gerado q
 
 ## <a name="event-properties"></a>Propriedades do evento
 
-Um evento tem os seguintes dados de nível superior:
+Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| id | string | Identificador exclusivo para o evento. |
-| data | object | Dados de eventos do hub de eventos. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento hub. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| fileUrl | string | O caminho para o arquivo de captura. |
-| fileType | string | O tipo de ficheiro de arquivo de captura. |
-| partitionId | string | O ID de partição horizontal. |
-| sizeInBytes | inteiro | O tamanho do ficheiro. |
-| eventCount | inteiro | O número de eventos no arquivo. |
-| firstSequenceNumber | inteiro | O menor número de sequência da fila. |
-| lastSequenceNumber | inteiro | O último número de sequência da fila. |
-| firstEnqueueTime | string | Na primeira vez da fila. |
+| fileUrl | string | O caminho para o ficheiro de captura. |
+| arquivoType | string | O tipo de ficheiro do ficheiro de captura. |
+| partiçãoId | string | A identificação do caco. |
+| tamanhoInBytes | número inteiro | O tamanho do ficheiro. |
+| eventoCount | número inteiro | O número de eventos no ficheiro. |
+| primeiroSequenceNumber | número inteiro | O menor número de sequência da fila. |
+| últimoSequenceNumber | número inteiro | O último número de sequência da fila. |
+| firstEnqueueTime | string | A primeira vez da fila. |
 | lastEnqueueTime | string | A última vez da fila. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
-* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).
-* Para obter informações sobre o processamento de eventos de hubs de eventos, consulte [Stream grandes quantidades de dados para um armazém de dados](event-grid-event-hubs-integration.md).
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
+* Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de subscrição da [Rede de Eventos](subscription-creation-schema.md).
+* Para obter informações sobre o tratamento de eventos de centros de eventos, consulte [o Stream big data num armazém de dados](event-grid-event-hubs-integration.md).

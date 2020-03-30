@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265405"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de lançamento da Caixa de Dados Azure Edge/Azure Data Box Gateway
@@ -47,7 +47,7 @@ A tabela seguinte fornece um resumo de questões conhecidas para o lançamento e
 | **3.** |Copiar | A cópia de dados falha com o Error: A operação solicitada não pôde ser concluída devido a uma limitação do sistema de ficheiros.  |O Fluxo de Dados Alternativos (ADS) associado ao tamanho do ficheiro superior a 128 KB não é suportado.   |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md)da Caixa de Dados Azure .
 - [Prepare-se para implantar o Edge da Caixa](data-box-edge-deploy-prep.md)de Dados Azure .

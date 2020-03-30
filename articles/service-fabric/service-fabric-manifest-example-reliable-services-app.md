@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282357"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services
@@ -19,7 +19,7 @@ As seguintes características são mostradas:
 
 |Manifesto|Funcionalidades|
 |---|---|
-|[Manifesto da aplicação](#application-manifest)| [governação de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta de administração local](service-fabric-application-runas-security.md), aplicar uma política de incumprimento a todos os pacotes de [códigode serviço,](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages) [criar os principais utilizadores e grupos,](service-fabric-application-runas-security.md)partilhar um pacote de dados entre instâncias de serviço, [anular pontos finais](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml) de serviço| 
+|[Manifesto de aplicação](#application-manifest)| [governação de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta de administração local](service-fabric-application-runas-security.md), aplicar uma política de incumprimento a todos os pacotes de [códigode serviço,](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages) [criar os principais utilizadores e grupos,](service-fabric-application-runas-security.md)partilhar um pacote de dados entre instâncias de serviço, [anular pontos finais](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml) de serviço| 
 |Manifesto de serviço FrontEndService| [Executar um script no arranque](service-fabric-run-script-at-service-startup.md)de serviço, definir um ponto final [HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |Manifesto de serviço BackEndService| [Declare um pacote de config,](service-fabric-application-and-service-manifests.md) [declare um pacote de dados,](service-fabric-application-and-service-manifests.md) [configure um ponto final](service-fabric-service-manifest-resources.md)| 
 
@@ -299,7 +299,7 @@ O ponto final, declarado no manifesto de serviço, para anular. Para mais inform
 ### <a name="policies-element"></a>Elemento de Políticas
 Descreve as políticas (encadernação de ponto final, partilha de pacotes, execução e acesso à segurança) a aplicar no manifesto de serviço importado. Para mais informações, consulte [Elemento de Políticas](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
+### <a name="servicepackageresourcegovernancepolicy-element"></a>Elemento de política de governança de recursos de pacotede serviços
 Define a política de governação de recursos que é aplicada ao nível de todo o pacote de serviços. Para mais informações, consulte [ServicePackageResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
 ### <a name="resourcegovernancepolicy-element"></a>Elemento de Política de Governança de Recursos

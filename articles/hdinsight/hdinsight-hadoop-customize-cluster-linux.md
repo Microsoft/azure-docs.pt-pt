@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 12e6892930afe8ba9c7bad9b05fd39eeaf8835fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272503"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
@@ -24,8 +24,8 @@ As ações do script também podem ser publicadas no Azure Marketplace como uma 
 
 Para um cluster HDInsight associado ao domínio, existem duas permissões Apache Ambari que são necessárias quando você usa ações de script com o cluster:
 
-* **AMBARI. EXECUTAR\_COMANDO DE\_PERSONALIZADO**. A função de Administrador Ambari tem esta permissão por defeito.
-* **AGLOMERADO. EXECUTAR\_COMANDO DE\_PERSONALIZADO**. Tanto o Administrador de Cluster HDInsight como o Administrador Ambari têm esta permissão por defeito.
+* **AMBARI. EXECUTAR\_\_COMANDO PERSONALIZADO**. A função de Administrador Ambari tem esta permissão por defeito.
+* **AGLOMERADO. EXECUTAR\_\_COMANDO PERSONALIZADO**. Tanto o Administrador de Cluster HDInsight como o Administrador Ambari têm esta permissão por defeito.
 
 Para obter mais informações sobre o trabalho com permissões com hDInsight unida por domínios, consulte [Gerir os clusters HDInsight com](./domain-joined/apache-domain-joined-manage.md)o Pacote de Segurança Empresarial .
 
@@ -48,7 +48,7 @@ Uma ação de script é o script Bash que corre nos nós em um cluster HDInsight
 
     * Para agrupamentos regulares:
 
-      * ADLS Gen1: O diretor de serviço HDInsight usa para aceder ao Data Lake Storage deve ter lido o acesso ao script. O formato URI para scripts armazenados em Data Lake Storage Gen1 é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      * ADLS Gen1: O diretor de serviço HDInsight usa para aceder ao Data Lake Storage deve ter lido o acesso ao script. O formato URI para scripts armazenados `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`em Data Lake Storage Gen1 é .
 
       * Uma bolha numa conta de Armazenamento Azure que é a conta de armazenamento primária ou adicional para o cluster HDInsight. O HDInsight tem acesso a ambos estes tipos de contas de armazenamento durante a criação do cluster.
 
@@ -107,7 +107,7 @@ Uma falha num script executado num cluster já em execução não faz com que o 
 
 As ações dos scripts são executadas com privilégios de raiz. Certifique-se de que compreende o que um guião faz antes de o aplicar ao seu cluster.
 
-Quando aplica um guião a um cluster, o estado de cluster muda de **Execução** para **Aceito**. Em seguida, muda para a **configuração HDInsight** e, finalmente, de volta a **Running** para scripts de sucesso. O estado do guião está registado no histórico de ação do guião. Esta informação diz-lhe se o guião foi bem sucedido ou falhado. Por exemplo, o cmdlet `Get-AzHDInsightScriptActionHistory` PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
+Quando aplica um guião a um cluster, o estado de cluster muda de **Execução** para **Aceito**. Em seguida, muda para a **configuração HDInsight** e, finalmente, de volta a **Running** para scripts de sucesso. O estado do guião está registado no histórico de ação do guião. Esta informação diz-lhe se o guião foi bem sucedido ou falhado. Por exemplo, `Get-AzHDInsightScriptActionHistory` o cmdlet PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -186,7 +186,7 @@ Neste exemplo, a ação do script é adicionada utilizando o seguinte código:
 
 Obtenha mais informações sobre como implementar um modelo:
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 * [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
@@ -229,7 +229,7 @@ Esta secção explica como aplicar as ações do script a um cluster de execuç�
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
     | Nome |Especifique um nome para a ação do guião. |
     | Roteiro de bash URI |Especifique o URI do guião. |
-    | Head/Worker/ZooKeeper |Especifique os nós em que o guião é executado: **Cabeça,** **Trabalhador**ou **ZooKeeper**. |
+    | Cabeça/Trabalhador/Zookeeper |Especifique os nós em que o guião é executado: **Cabeça,** **Trabalhador**ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário pelo script. |
 
     Utilize a entrada __de ação do script Persist__ para se certificar de que o script é aplicado durante as operações de escala.
@@ -267,9 +267,9 @@ Antes de começar, certifique-se de que instala e configura o ClI Azure. Certifi
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    As funções válidas são `headnode`, `workernode`, `zookeepernode`, `edgenode`. Se o script deve ser aplicado a vários tipos de nó, separe as funções por um espaço. Por exemplo, `--roles headnode workernode`.
+    Os papéis `workernode` `zookeepernode`válidos são, `edgenode` `headnode`. . Se o script deve ser aplicado a vários tipos de nó, separe as funções por um espaço. Por exemplo, `--roles headnode workernode`.
 
-    Para persistir o guião, adicione `--persist-on-success`. Também pode persistir o guião mais tarde, utilizando `az hdinsight script-action promote`.
+    Para persistir o `--persist-on-success`guião, adicione . Também pode persistir o guião mais tarde usando `az hdinsight script-action promote`.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>Aplique uma ação de script a um cluster de execução usando a API REST
 
@@ -367,13 +367,13 @@ Você pode usar a UI web Ambari para ver informações registadas por ações de
 
 ### <a name="the-apache-ambari-web-ui"></a>A Teia Apache Ambari UI
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net`onde `CLUSTERNAME` está o nome do seu cluster.
 
 1. A partir do bar no topo da página, selecione a entrada de **operações.** Uma lista apresenta operações atuais e anteriores feitas no cluster através de Ambari.
 
     ![Barra de UI web ambari com ops selecionadas](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
-1. Encontre as entradas que **tenham executado\_customscriptaction** na coluna **Operações.** Estas entradas são criadas quando as ações do script são executadas.
+1. Encontre as entradas que **tenham executado\_a customscriptaction** na coluna **Operações.** Estas entradas são criadas quando as ações do script são executadas.
 
     ![Operações de ação do script Apache Ambari](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
@@ -383,19 +383,19 @@ Você pode usar a UI web Ambari para ver informações registadas por ações de
 
 Se a criação do cluster falhar devido a um erro de script, os registos são mantidos na conta de armazenamento do cluster.
 
-* Os registos de armazenamento estão disponíveis em `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
+* Os registos de `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`armazenamento estão disponíveis em .
 
     ![Registos de ação de script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     Sob este diretório, os troncos são organizados separadamente para **o nódeo de cabeça,** **nó de trabalhador,** e **nó de zookeeper.** Veja os exemplos seguintes:
 
-    * **Headnode**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Cabeçade:**`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nó dos trabalhadores**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nó dos trabalhadores:**`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nó do zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nó zookeeper:**`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
-* Toda **a stdout** e **stderr** do anfitrião correspondente é enviada para a conta de armazenamento. Há uma **saída:\*.txt** e **erros-\*.txt** para cada ação de guião. O ficheiro **output-*.txt** contém informações sobre o URI do script que foi executado no hospedeiro. O seguinte texto é um exemplo desta informação:
+* Toda **a stdout** e **stderr** do anfitrião correspondente é enviada para a conta de armazenamento. Há uma **saída,\*.txt** e **erros-\*.txt** para cada ação de script. O ficheiro **output-*.txt** contém informações sobre o URI do script que foi executado no hospedeiro. O seguinte texto é um exemplo desta informação:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -427,7 +427,7 @@ ImportError: cannot import name BlobService
 
 __Porque.__ Este erro ocorre se atualizar o cliente Python Azure Storage que está incluído no cluster HDInsight. A HDInsight espera o cliente do Azure Storage 0.20.0.
 
-__Resolução__. Para resolver este erro, ligue-se manualmente a cada nó de cluster utilizando `ssh`. Executar o seguinte comando para reinstalar a versão correta do cliente de armazenamento:
+__Resolução__. Para resolver este erro, ligue-se manualmente `ssh`a cada nó de cluster utilizando . Executar o seguinte comando para reinstalar a versão correta do cliente de armazenamento:
 
 ```bash
 sudo pip install azure-storage==0.20.0

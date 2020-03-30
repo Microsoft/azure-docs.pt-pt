@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472625"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar acesso à Configuração de Aplicações Azure utilizando o Diretório Ativo do Azure
@@ -18,7 +18,7 @@ A Configuração de Aplicações Azure suporta a utilização do Diretório Ativ
 
 ## <a name="overview"></a>Descrição geral
 Os pedidos feitos pelo diretor de segurança (um utilizador ou uma aplicação) para aceder a um recurso de Configuração de Aplicações devem ser autorizados.  Com a AD Azure, o acesso a um recurso é um processo em duas etapas.
-1. A identidade do diretor de segurança é autenticada e um token OAuth 2.0 é devolvido.  O nome do recurso para solicitar um símbolo é `https://login.microsoftonline.com/{tenantID}` onde `{tenantID}` corresponde ao ID de inquilino do Diretório Ativo Azure a que o diretor de serviço pertence.
+1. A identidade do diretor de segurança é autenticada e um token OAuth 2.0 é devolvido.  O nome do recurso para `https://login.microsoftonline.com/{tenantID}` `{tenantID}` solicitar um símbolo é onde corresponde ao ID de inquilino do Azure Ative Directory a que pertence o diretor de serviço.
 2. O símbolo é passado como parte de um pedido ao serviço de Configuração de Aplicações para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que um pedido de pedido contenha um sinal de acesso OAuth 2.0 no prazo de execução.  Se uma aplicação estiver a funcionar dentro de uma entidade Azure, como uma aplicação Azure Functions, uma Web App Azure ou um Azure VM, pode usar uma identidade gerida para aceder aos recursos.  Para saber autenticar pedidos feitos por uma identidade gerida para a Configuração de Aplicações Azure, consulte o acesso autenticado aos recursos de configuração de [aplicações do Azure com o Diretório Ativo Azure e identidades geridas para os Recursos Azure.](howto-integrate-azure-managed-service-identity.md)

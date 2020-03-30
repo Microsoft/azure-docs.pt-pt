@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259074"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação Azure Service Fabric utilizando o Tecido de Serviço Azure CLI (sfctl)
@@ -45,13 +45,13 @@ Para implementar uma nova aplicação, complete as seguintes tarefas:
 
 Antes de criar uma aplicação, faça o upload do pacote de aplicações para a loja de imagens Service Fabric.
 
-Por exemplo, se o seu pacote de candidatura estiver no diretório `app_package_dir`, utilize os seguintes comandos para fazer o upload do diretório:
+Por exemplo, se o `app_package_dir` seu pacote de candidatura estiver no diretório, utilize os seguintes comandos para fazer o upload do diretório:
 
 ```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
-Para grandes pacotes de aplicações, pode especificar a opção `--show-progress` para mostrar o progresso do upload.
+Para grandes pacotes de aplicações, pode especificar a opção `--show-progress` de mostrar o progresso do upload.
 
 ### <a name="provision-the-application-type"></a>Prever o tipo de candidatura
 
@@ -61,7 +61,7 @@ Quando o upload estiver concluído, forme o pedido. Para fornecer o pedido, util
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
-O valor para `application-type-build-path` é o nome do diretório onde fez o upload do seu pacote de candidaturas.
+O valor `application-type-build-path` para o nome do diretório onde fez o upload do seu pacote de candidaturas.
 
 ### <a name="delete-the-application-package"></a>Eliminar o pacote de candidaturas
 
@@ -73,7 +73,7 @@ Para eliminar o pacote de aplicação da loja de imagens, utilize o seguinte com
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path` deve ser o nome do diretório que fez quando criou a aplicação.
+`content-path`deve ser o nome do diretório que carregou quando criou a aplicação.
 
 ### <a name="create-an-application-from-an-application-type"></a>Criar uma aplicação a partir de um tipo de aplicação
 
@@ -83,9 +83,9 @@ Depois de fornecer a aplicação, utilize o seguinte comando para nomear e crie 
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name` é o nome que pretende utilizar para a instância de candidatura. Pode obter parâmetros adicionais do manifesto de candidatura previamente previsto.
+`app-name`é o nome que pretende utilizar para a instância de candidatura. Pode obter parâmetros adicionais do manifesto de candidatura previamente previsto.
 
-O nome da aplicação deve começar com o prefixo `fabric:/`.
+O nome da aplicação `fabric:/`deve começar com o prefixo .
 
 ### <a name="create-services-for-the-new-application"></a>Criar serviços para a nova aplicação
 
@@ -112,7 +112,7 @@ sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-Serviços e aplicações saudáveis têm um valor `HealthState` de `Ok`.
+Serviços e aplicações `HealthState` saudáveis têm um valor de `Ok`.
 
 ## <a name="remove-an-existing-application"></a>Remover uma aplicação existente
 
@@ -156,11 +156,11 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 
 As atualizações sobrepõem-se aos parâmetros existentes com qualquer conjunto especificado. Os parâmetros de aplicação devem ser passados como argumentos para o comando de atualização, se necessário. Os parâmetros de aplicação devem ser codificados como um objeto JSON.
 
-Para recuperar quaisquer parâmetros previamente especificados, pode utilizar o comando `sfctl application info`.
+Para recuperar quaisquer parâmetros previamente especificados, pode utilizar o `sfctl application info` comando.
 
-Quando uma atualização da aplicação está em andamento, o estado pode ser recuperado utilizando o comando `sfctl application upgrade-status`.
+Quando uma atualização da aplicação está em `sfctl application upgrade-status` andamento, o estado pode ser recuperado utilizando o comando.
 
-Finalmente, se uma atualização estiver em andamento e precisar de ser cancelada, pode utilizar o `sfctl application upgrade-rollback` para reverter a atualização.
+Finalmente, se uma atualização estiver em andamento e precisar `sfctl application upgrade-rollback` de ser cancelada, pode utilizar a atualização para reverter a atualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 

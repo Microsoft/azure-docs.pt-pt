@@ -12,23 +12,23 @@ manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269136"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança avançada de dados para base de dados Azure SQL
 
-A segurança avançada de dados é um pacote unificado para capacidades avançadas de segurança SQL. Inclui funcionalidade para descobrir e classificar dados sensíveis, superar e mitigar potenciais vulnerabilidades de bases de dados, e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
+A segurança avançada de dados é um pacote unificado para capacidades avançadas de segurança SQL. Inclui a funcionalidade para detetar e classificar dados confidenciais, analisar e mitigar potenciais vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
 
 ## <a name="overview"></a>Descrição geral
 
-A segurança avançada de dados (ADS) fornece um conjunto de capacidades avançadas de segurança SQL, incluindo a descoberta e classificação de dados, avaliação de vulnerabilidade e Proteção avançada de ameaças.
+A segurança avançada de dados (ADS) fornece um conjunto de capacidades avançadas de segurança SQL, incluindo a descoberta de dados & classificação, avaliação de vulnerabilidade e Proteção avançada de ameaças.
 
-- [A descoberta e classificação](sql-database-data-discovery-and-classification.md) de dados fornece capacidades incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
+- [A descoberta de dados & classificação](sql-database-data-discovery-and-classification.md) fornece capacidades incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular & proteger os dados sensíveis nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
 - [A avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, rastrear e ajudá-lo a remediar potenciais vulnerabilidades de base de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
-- [A Advanced Threat Protection](sql-database-threat-detection-overview.md) deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração da sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Alertas avançados de proteção contra ameaças fornecem detalhes da atividade suspeita e recomendam ações sobre como investigar e mitigar a ameaça.
+- A [Advanced Threat Protection](sql-database-threat-detection-overview.md) deteta atividades anómalas indicadoras de tentativas potencialmente perigosas e invulgares de acesso ou exploração da sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas do Advanced Threat Protection fornecem detalhes sobre a atividade suspeita e recomendam ações de investigação e mitigação da ameaça.
 
 Ative o SQL ADS uma vez para ativar todas estas funcionalidades incluídas. Com um clique, pode ativar o ADS para todas as bases de dados do seu servidor de Base de Dados SQL ou na instância gerida. Ativar ou gerir as definições de ADS requer pertencer à função de gestor de [segurança SQL,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) papel de administração de base de dados SQL ou função de administração de servidor SQL. 
 
@@ -52,13 +52,13 @@ Ative a ADS navegando para Advanced **Data Security** sob a rubrica **De Seguran
 
 ## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Comece a classificar dados, rastrear vulnerabilidades e investigar alertas de ameaças
 
-Clique no cartão **Data Discovery & Classification** para ver colunas sensíveis recomendadas para classificar e classificar os seus dados com etiquetas de sensibilidade persistentes. Clique no cartão **de Avaliação de Vulnerabilidades** para visualizar e gerir verificações e relatórios de vulnerabilidade e para acompanhar a sua estatura de segurança. Se os alertas de segurança tiverem sido recebidos, clique no cartão avançado de **proteção de ameaças** para ver detalhes dos alertas e para ver um relatório consolidado sobre todos os alertas na sua subscrição Azure através da página de alertas de segurança do Centro de Segurança Azure.
+Clique no cartão **de classificação & Descoberta de Dados** para ver colunas sensíveis recomendadas para classificar e classificar os seus dados com etiquetas de sensibilidade persistentes. Clique no cartão **de Avaliação de Vulnerabilidades** para visualizar e gerir verificações e relatórios de vulnerabilidade e para acompanhar a sua estatura de segurança. Se os alertas de segurança tiverem sido recebidos, clique no cartão avançado de **proteção de ameaças** para ver detalhes dos alertas e para ver um relatório consolidado sobre todos os alertas na sua subscrição Azure através da página de alertas de segurança do Centro de Segurança Azure.
 
 ## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Gerir as definições de ADS no seu servidor de base de dados SQL ou na instância gerida
 
 Para visualizar e gerir as definições de ADS, navegue para **Advanced Data Security** sob a rubrica De **Segurança** para o seu servidor de base de dados SQL ou instância gerida. Nesta página, pode ativar ou desativar o ADS e modificar a avaliação de vulnerabilidade e as definições avançadas de proteção contra ameaças para todo o servidor de base de dados SQL ou instância gerida.
 
-![Configurações de servidor](./media/sql-advanced-protection/server_settings.png) 
+![Definições do servidor](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gerir as definições de ADS para uma base de dados SQL
 
@@ -74,7 +74,7 @@ As definições avançadas de segurança de dados para o seu servidor de base de
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- Saiba mais sobre [a descoberta e classificação](sql-database-data-discovery-and-classification.md) de dados 
+- Saiba mais sobre [a descoberta de dados & classificação](sql-database-data-discovery-and-classification.md) 
 - Saiba mais sobre [avaliação](sql-vulnerability-assessment.md) de vulnerabilidade 
 - Saiba mais sobre [proteção avançada de ameaças](sql-database-threat-detection.md)
 - Saiba mais sobre o [centro de segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

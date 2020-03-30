@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271775"
 ---
 # <a name="generate-maps"></a>Gerar mapas
@@ -161,7 +161,7 @@ Siga estes passos.
 
 ## <a name="soil-moisture-heatmap"></a>Mapa de calor da humidade do solo
 
-A humidade do solo é a água que é mantida nos espaços entre partículas de solo. O mapa de calor da humidade do solo ajuda-o a compreender os dados de humidade do solo a qualquer profundidade, em alta resolução dentro da sua quinta. Para gerar um mapa de calor preciso e utilizável da humidade do solo, é necessária uma implantação uniforme de sensores. Todos os sensores devem ser do mesmo fornecedor. Diferentes fornecedores têm diferenças na forma como a humidade do solo é medida juntamente com as diferenças de calibração. O mapa de calor é gerado para uma profundidade particular utilizando os sensores implantados a essa profundidade.
+A humidade do solo é a água que é mantida nos espaços entre partículas de solo.O mapa de calor da humidade do solo ajuda-o a compreender os dados de humidade do solo a qualquer profundidade, em alta resolução dentro da sua quinta. Para gerar um mapa de calor preciso e utilizável da humidade do solo, é necessária uma implantação uniforme de sensores. Todos os sensores devem ser do mesmo fornecedor. Diferentes fornecedores têm diferenças na forma como a humidade do solo é medida juntamente com as diferenças de calibração. O mapa de calor é gerado para uma profundidade particular utilizando os sensores implantados a essa profundidade.
 
 ### <a name="before-you-begin"></a>Antes de começar
 

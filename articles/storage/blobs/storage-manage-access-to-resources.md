@@ -10,21 +10,21 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255486"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
 
-Pode permitir o acesso anónimo e público a um contentor e às suas bolhas no armazenamento do Azure Blob. Ao fazê-lo, pode conceder acesso apenas a leitura a estes recursos sem partilhar a chave da sua conta, e sem exigir uma assinatura de acesso partilhado (SAS).
+Pode ativar o acesso de leitura público anónimo a um contentor e aos blobs no Armazenamento de blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a estes recursos sem partilhar a sua chave de conta e sem exigir uma assinatura de acesso partilhado (SAS).
 
 O acesso à leitura pública é o melhor para cenários em que pretende que certas bolhas estejam sempre disponíveis para acesso a leitura anónima. Para um controlo mais fino, pode criar uma assinatura de acesso partilhado. As assinaturas de acesso partilhado permitem-lhe fornecer acesso restrito utilizando diferentes permissões, durante um período de tempo específico. Para obter mais informações sobre a criação de assinaturas de acesso partilhado, consulte [A utilização de assinaturas de acesso partilhado (SAS) no Armazenamento Azure](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Conceder permissões aos utilizadores anónimos a contentores e bolhas
 
-Por predefinição, um recipiente e quaisquer bolhas no seu interior só podem ser acedidos por um utilizador que tenha recebido permissões adequadas. Para conceder aos utilizadores anónimos ler o acesso a um contentor e às suas bolhas, pode definir o nível de acesso público do contentor. Quando concede acesso público a um contentor, os utilizadores anónimos podem ler bolhas dentro de um contentor acessível ao público sem autorizar o pedido.
+Por predefinição, um contentor e quaisquer blobs dentro do mesmo podem apenas ser acedidos por um utilizador ao qual foram dadas as permissões adequadas. Para conceder aos utilizadores anónimos acesso de leitura a um contentor e aos blobs, pode definir o nível de acesso público para o contentor. Quando concede acesso público a um contentor, os utilizadores anónimos podem ler os blobs dentro de um contentor publicamente acessível sem autorizar o pedido.
 
 Pode configurar um recipiente com as seguintes permissões:
 
@@ -135,8 +135,8 @@ public static void DownloadBlobAnonymously()
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autorizar o acesso ao Armazenamento Azure](../common/storage-auth.md)
 - [Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
-- [Blob Serviço REST API](/rest/api/storageservices/blob-service-rest-api)
+- [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)

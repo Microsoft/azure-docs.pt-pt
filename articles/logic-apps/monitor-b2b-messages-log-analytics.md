@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907984"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar registos do Monitor Azure e recolher dados de diagnóstico para mensagens B2B em Aplicações Lógicas Azure
@@ -44,15 +44,15 @@ Este artigo mostra como permitir o registo do Azure Monitor para a sua conta de 
 
 Antes de os registos do Azure Monitor poderem rastrear as mensagens B2B para a sua aplicação lógica, adicione a solução **Logic Apps B2B** ao seu espaço de trabalho Log Analytics.
 
-1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com)introduza `log analytics workspaces`e, em seguida, selecione espaços de **trabalho Log Analytics**.
+1. Na caixa de pesquisa do portal `log analytics workspaces` [Azure,](https://portal.azure.com)introduza, e, em seguida, selecione espaços de trabalho Log **Analytics**.
 
    ![Selecione "Log Analytics workspaces"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
 1. Em espaços de **trabalho Log Analytics,** selecione o seu espaço de trabalho.
 
-   ![Selecione seu espaço de trabalho Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
+   ![Selecione o seu espaço de trabalho Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel overview, em **Iniciar-se com log analytics** > **Configurar soluções**de monitorização , selecione **soluções de visualização**.
+1. No painel overview, em **Iniciar-se com** > soluções de monitorização de Log Analytics**Configure**, selecione **Soluções de Visualização**.
 
    ![No painel de visão geral, selecione "Ver soluções"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -60,7 +60,7 @@ Antes de os registos do Azure Monitor poderem rastrear as mensagens B2B para a s
 
    ![No painel de visão geral, adicione nova solução](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Depois do **Marketplace** abrir, na caixa de pesquisa, insira `logic apps b2b`e selecione **Logic Apps B2B**.
+1. Depois do **Marketplace** abrir, na caixa `logic apps b2b`de pesquisa, introduza, e selecione **Logic Apps B2B**.
 
    ![Do Marketplace, selecione "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
@@ -78,7 +78,7 @@ Antes de os registos do Azure Monitor poderem rastrear as mensagens B2B para a s
 
 <a name="set-up-resource-logs"></a>
 
-## <a name="set-up-azure-monitor-logs"></a>Configurar logs de Azure Monitor
+## <a name="set-up-azure-monitor-logs"></a>Configurar registos do Monitor Azure
 
 Pode ativar o registo do Monitor Azure diretamente da sua conta de integração.
 
@@ -86,7 +86,7 @@ Pode ativar o registo do Monitor Azure diretamente da sua conta de integração.
 
    ![Encontre e selecione a sua conta de integração](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. No menu da sua conta de integração, em **Monitorização,** selecione **definições**de diagnóstico . Selecione **Adicionar configuração de diagnóstico**.
+1. No menu da sua conta de integração, em **Monitorização,** selecione **definições**de diagnóstico . **Selecione Adicionar definição de diagnóstico**.
 
    ![Em "Monitorização", selecione "Definições de Diagnóstico"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
@@ -94,7 +94,7 @@ Pode ativar o registo do Monitor Azure diretamente da sua conta de integração.
 
    1. Forneça um nome para a definição.
 
-   1. Selecione **Enviar para log Analytics**.
+   1. Selecione **Enviar para Registar Análises**.
 
    1. Para **subscrição,** selecione a subscrição Azure que esteja associada ao seu espaço de trabalho Log Analytics.
 
@@ -116,7 +116,7 @@ Após a sua aplicação lógica, pode visualizar o estado e os dados sobre essas
 
 1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com) encontre e abra o seu espaço de trabalho Log Analytics.
 
-1. No menu do seu espaço de trabalho, selecione resumo do **Workspace** > **Logic Apps B2B**.
+1. No menu do seu espaço de trabalho, selecione **Workspace resumo** > **Aplicações Lógica B2B**.
 
    ![Painel de resumo do espaço de trabalho](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
@@ -189,8 +189,8 @@ Aqui estão as descrições da propriedade para cada mensagem AS2.
 | **ACK** | O estado da mensagem MDN <br>Aceite = Recebida ou enviada um MDN positivo. <br>Pendente = À espera de receber ou enviar um MDN. <br>Rejeitado = Recebido ou enviado um MDN negativo. <br>Não é necessário = MDN não está estabelecido no acordo. |
 | **Direção** | A direção da mensagem AS2 |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
-| **ID da mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagem AS2 |
-| **Carimbo de tempo** | O momento em que a ação AS2 processou a mensagem |
+| **ID da Mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagem AS2 |
+| **Carimbo de data/hora** | O momento em que a ação AS2 processou a mensagem |
 |||
 
 <!--
@@ -225,7 +225,7 @@ Aqui estão as descrições da propriedade para cada mensagem X12.
 | **Tipo Msg** | O tipo de mensagem EDI X12 |
 | **ICN** | O Número de Controlo de Intercâmbio para a mensagem X12 |
 | **TSCN** | O número de controlo de conjunto de transações para a mensagem X12 |
-| **Carimbo de tempo** | O momento em que a ação X12 processou a mensagem |
+| **Carimbo de data/hora** | O momento em que a ação X12 processou a mensagem |
 |||
 
 <!--
@@ -260,7 +260,7 @@ Aqui estão as descrições da propriedade para cada mensagem EDIFACT.
 | **Tipo Msg** | O tipo de mensagem EDIFACT |
 | **ICN** | O Número de Controlo de Intercâmbio para a mensagem EDIFACT |
 | **TSCN** | O número de controlo de conjunto de transações para a mensagem EDIFACT |
-| **Carimbo de tempo** | O momento em que a ação EDIFACT processou a mensagem |
+| **Carimbo de data/hora** | O momento em que a ação EDIFACT processou a mensagem |
 |||
 
 <!--

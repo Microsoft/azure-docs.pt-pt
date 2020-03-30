@@ -1,6 +1,6 @@
 ---
-title: Cmdlets do PowerShell do Azure AD para relatórios | Microsoft Docs
-description: Referência dos cmdlets do PowerShell do Azure AD para relatórios.
+title: Cmdlets Azure AD PowerShell para reportagem Microsoft Docs
+description: Referência dos cmdlets De PowerShell da AD Azure para reportagem.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,73 +18,73 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2192c472e00d123780ec6bc5574e7b9fe326258b
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495303"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
 > [!NOTE] 
-> Atualmente, esses cmdlets do PowerShell funcionam apenas com o módulo de [visualização do Azure ad](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Observe que o módulo de visualização não é sugerido para uso em produção. 
+> Estes cmdlets Powershell atualmente apenas funcionam com o Módulo de [Pré-visualização Azure AD.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Por favor, note que o módulo de pré-visualização não é sugerido para utilização da produção. 
 
-Para instalar a versão de visualização pública, use o seguinte. 
+Para instalar o lançamento de pré-visualização pública, utilize o seguinte. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-Para obter mais informações sobre como se conectar ao Azure AD usando o PowerShell, consulte o artigo [Azure ad PowerShell para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Para obter mais informações sobre como ligar-se ao Azure AD utilizando powershell, consulte o artigo [Azure AD Powershell para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
-Com os relatórios do Azure Active Directory (Azure AD), você pode obter detalhes sobre as atividades em todas as operações de gravação em sua direção (logs de auditoria) e dados de autenticação (logs de entrada). Embora as informações estejam disponíveis usando o MS API do Graph, agora você pode recuperar os mesmos dados usando os cmdlets do PowerShell do Azure AD para relatórios.
+Com os relatórios do Azure Ative Directory (Azure AD), pode obter detalhes sobre as atividades em torno de todas as operações de escrita na sua direção (registos de auditoria) e dados de autenticação (registos de login). Embora a informação esteja disponível utilizando a API do Gráfico MS, agora pode recuperar os mesmos dados utilizando os cmdlets De PowerShell da AD Azure para reportagem.
 
-Este artigo fornece uma visão geral dos cmdlets do PowerShell a serem usados para logs de auditoria e logs de entrada.
+Este artigo dá-lhe uma visão geral dos cmdlets PowerShell para usar para registos de auditoria e registos de login.
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-Os [logs de auditoria](concept-audit-logs.md) fornecem rastreamento por meio de logs para todas as alterações feitas por vários recursos no Azure AD. Exemplos de logs de auditoria incluem alterações feitas em qualquer recurso no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
+[Os registos](concept-audit-logs.md) de auditoria fornecem rastreabilidade através de registos para todas as alterações efetuadas por várias funcionalidades dentro do Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do Azure AD, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
 
-Você obtém acesso aos logs de auditoria usando o cmdlet ' Get-AzureADAuditDirectoryLogs.
+Tem acesso aos registos de auditoria utilizando o cmdlet 'Get-AzureADAuditDirectoryLogs.
 
 
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
-| Nome de exibição do aplicativo      | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' sincronização de nuvem do Azure AD '" |
-| Categoria                      | Get-AzureADAuditDirectoryLogs-filtro "category EQ ' Gerenciamento de aplicativos '" |
-| Data e hora da atividade            | Get-AzureADAuditDirectoryLogs-filtro "activityDateTime gt 2019-04-18" |
-| Todos os acima referidos              | Get-AzureADAuditDirectoryLogs-filtre "initiatedBy/app/displayName EQ ' Azure AD Cloud Sync ' e Category EQ ' Gerenciamento de aplicativos ' e activityDateTime gt 2019-04-18"|
+| Nome do display da aplicação      | Get-AzureADAuditDirectoryLogs -Filter "iniciadoBy/app/displayName eq 'Azure AD Cloud Sync'" |
+| Categoria                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
+| Hora da data da atividade            | Get-AzureADAuditDirectoryLogs -Filter "activityDateTime gt 2019-04-18" |
+| Todos os anteriores              | Get-AzureADAuditDirectoryLogs -Filter "iniciadoBy/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'Gestão de Aplicações' e atividadeDateTime gt 2019-04-18"|
 
 
-A imagem a seguir mostra um exemplo desse comando. 
+A imagem que se segue mostra um exemplo para este comando. 
 
-![O botão "Resumo de dados"](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![O botão "Resumo de Dados"](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
 ## <a name="sign-in-logs"></a>Registos de início de sessão
 
-Os logs de [entradas](concept-sign-ins.md) fornecem informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+Os [registos de login](concept-sign-ins.md) fornecem informações sobre a utilização de aplicações geridas e atividades de login do utilizador.
 
-Você obtém acesso aos logs de entrada usando o cmdlet ' Get-AzureADAuditSignInLogs.
+Tem acesso aos registos de entrada utilizando o cmdlet 'Get-AzureADAuditSignInLogs.
 
 
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
-| Nome de exibição do usuário             | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins '" |
-| Criar data e hora              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tudo desde 5:30 PM em 4/18) |
-| Estado                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
-| Nome de exibição do aplicativo      | Get-AzureADAuditSignInLogs-filtrar "appDisplayName EQ ' StoreFrontStudio [WSFED habilitado] '" |
-| Todos os acima referidos              | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins ' e status/errorCode ne 0 e appDisplayName EQ ' StoreFrontStudio [WSFED Enabled] '" |
+| Nome do exibição do utilizador             | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins'" |
+| Criar hora da data              | Get-AzureADAuditSignInLogs -Filter "createdDateTime gt 2019-04-18T17:30:00.0Z" (Tudo desde as 17h30 em 4/18) |
+| Estado                        | Get-AzureADAuditSignInLogs -Filter "status/errorCode eq 50105" |
+| Nome do display da aplicação      | Get-AzureADAuditSignInLogs -Filter "appDisplayName eq 'StoreFrontStudio [wsfed enabled]". |
+| Todos os anteriores              | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins' and status/errorCode ne 0 and appDisplayName eq 'StoreFrontStudio [wsfed enableed]'" |
 
 
-A imagem a seguir mostra um exemplo desse comando. 
+A imagem que se segue mostra um exemplo para este comando. 
 
-![O botão "Resumo de dados"](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![O botão "Resumo de Dados"](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral dos relatórios do Azure ad](overview-reports.md).
-- [Relatório de logs de auditoria](concept-audit-logs.md). 
-- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
+- [A AD Azure reporta uma visão geral.](overview-reports.md)
+- [Relatório de registos de auditoria](concept-audit-logs.md). 
+- [Acesso programático aos relatórios da AD Azure](concept-reporting-api.md)

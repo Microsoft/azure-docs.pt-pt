@@ -14,22 +14,22 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083980"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicações de clientes usando MSAL.NET
 Este artigo descreve a inicialização de aplicações de clientes públicos e confidenciais utilizando a Microsoft Authentication Library para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e as opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
 
-Com MSAL.NET 3.x, a forma recomendada de instantaneamente uma aplicação é utilizando os construtores de aplicações: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder`. Oferecem um mecanismo poderoso para configurar a aplicação a partir do código, ou a partir de um ficheiro de configuração, ou até misturando ambas as abordagens.
+Com MSAL.NET 3.x, a forma recomendada de instantaneamente uma `PublicClientApplicationBuilder` `ConfidentialClientApplicationBuilder`aplicação é utilizando os construtores de aplicações: e . Oferecem um mecanismo poderoso para configurar a aplicação a partir do código, ou a partir de um ficheiro de configuração, ou até misturando ambas as abordagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft.  Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
+Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft.  Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
 
 - O ID do cliente (uma corda que representa um GUID)
-- A URL do provedor de identidade (chamada de instância) e o público-alvo de entrada para seu aplicativo. Esses dois parâmetros são coletivamente conhecidos como autoridade.
+- O URL do fornecedor de identidade (nome ou a instância) e o público de inscrição para a sua aplicação. Estes dois parâmetros são coletivamente conhecidos como autoridade.
 - O ID do inquilino se estiver a escrever uma linha de aplicação de negócios exclusivamente para a sua organização (também nomeada candidatura de inquilino único).
 - O segredo da aplicação (string secreto do cliente) ou certificado (do tipo X509Certificate2) se for uma aplicação de cliente confidencial.
 - Para aplicações web, e por vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
@@ -48,7 +48,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="initializing-a-confidential-client-application-from-code"></a>Inicializar uma aplicação confidencial do cliente a partir do código
 
-Da mesma forma, o código seguinte instantaneamente uma aplicação confidencial (uma aplicação Web localizada na `https://myapp.azurewebsites.net`) que manipula tokens de utilizadores na nuvem pública do Microsoft Azure, com o seu trabalho e contas escolares, ou as suas contas pessoais da Microsoft. O pedido é identificado com o fornecedor de identidade através da partilha de um segredo de cliente:
+Da mesma forma, o código seguinte instantaneamente uma aplicação `https://myapp.azurewebsites.net`confidencial (uma aplicação Web localizada em ) manipulando fichas de utilizadores na nuvem pública do Microsoft Azure, com o seu trabalho e contas escolares, ou as suas contas pessoais da Microsoft. O pedido é identificado com o fornecedor de identidade através da partilha de um segredo de cliente:
 
 ```csharp
 string redirectUri = "https://myapp.azurewebsites.net";
@@ -79,7 +79,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="initializing-a-confidential-client-application-from-configuration-options"></a>Inicializar uma aplicação confidencial do cliente a partir de opções de configuração
 
-O mesmo tipo de padrão aplica-se a aplicações confidenciais de clientes. Também pode adicionar outros parâmetros utilizando modificadores `.WithXXX` (aqui um certificado).
+O mesmo tipo de padrão aplica-se a aplicações confidenciais de clientes. Também pode adicionar outros `.WithXXX` parâmetros utilizando modificadores (aqui um certificado).
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -90,7 +90,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## <a name="builder-modifiers"></a>Modificadores de construtores
 
-Nos fragmentos de código que utilizam construtores de aplicações, uma série de métodos `.With` podem ser aplicados como modificadores (por exemplo, `.WithCertificate` e `.WithRedirectUri`). 
+Nos fragmentos de código que utilizam `.With` construtores de aplicações, uma série `.WithCertificate` `.WithRedirectUri`de métodos pode ser aplicado como modificadores (por exemplo, e ). 
 
 ### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Modificadores comuns a aplicações públicas e confidenciais de clientes
 
@@ -98,13 +98,13 @@ Os modificadores que pode definir num cliente público ou no construtor de aplic
 
 |Modificador | Descrição|
 |--------- | --------- |
-|`.WithAuthority()` 7 substituições | Define a autoridade de incumprimento da aplicação a uma autoridade da AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
+|`.WithAuthority()`7 sobreposições | Define a autoridade de incumprimento da aplicação a uma autoridade da AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
 |`.WithAdfsAuthority(string)` | Define a autoridade por incumprimento da aplicação como uma autoridade ADFS.|
 |`.WithB2CAuthority(string)` | Define a autoridade por incumprimento da aplicação como uma autoridade Azure AD B2C.|
 |`.WithClientId(string)` | Substitui a identificação do cliente.|
 |`.WithComponent(string)` | Define o nome da biblioteca usando MSAL.NET (por razões de telemetria). |
-|`.WithDebugLoggingCallback()` | Se for chamado, a aplicação irá ligar para `Debug.Write` simplesmente permitindo depuração de vestígios. Consulte [o Registo para](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) obter mais informações.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra do nível de candidatura que serão enviados em todos os pedidos de autenticação. Isto é demasiado diúguável a cada nível do método de aquisição simbólica (com a mesma `.WithExtraQueryParameters pattern`).|
+|`.WithDebugLoggingCallback()` | Se for chamado, `Debug.Write` a aplicação irá simplesmente ligar para permitir a depuração de vestígios. Consulte [o Registo para](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) obter mais informações.|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra do nível de candidatura que serão enviados em todos os pedidos de autenticação. Isto é demasiado diúguável a cada nível do método de aquisição de fichas (com o mesmo `.WithExtraQueryParameters pattern`).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Permite cenários avançados como configurar para um proxy HTTP, ou forçar o MSAL a usar um httpClient particular (por exemplo, em ASP.NET aplicações web/APIs do Core).|
 |`.WithLogging()` | Se for chamado, o pedido chamará uma chamada com vestígios de depuração. Consulte [o Registo para](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) obter mais informações.|
 |`.WithRedirectUri(string redirectUri)` | Substitui o URI de redirecionamento padrão. No caso de aplicações de clientes públicos, isso será útil para cenários envolvendo o corretor.|

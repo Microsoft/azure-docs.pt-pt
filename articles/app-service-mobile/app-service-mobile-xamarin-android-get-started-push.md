@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 5657be0dbaeb46f8f899a9b4a2f8ba9b4fe9ebaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249311"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Adicionar notificações push à aplicação Xamarin.Android
@@ -30,11 +30,11 @@ Este tutorial requer a configuração:
 * Uma conta ativa do Google. Pode inscrever-se numa conta do Google em [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 * Componente do cliente do [Google Cloud Messaging Client](https://components.xamarin.com/view/GCMClient/).
 
-## <a name="configure-hub"></a>Configure um Centro de Notificação
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>Configure um Centro de Notificação
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Ativar mensagens cloud base de fogo
+## <a name="enable-firebase-cloud-messaging"></a><a id="register"></a>Ativar Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
@@ -42,19 +42,19 @@ Este tutorial requer a configuração:
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Atualize o projeto do servidor para enviar notificações push
+## <a name="update-the-server-project-to-send-push-notifications"></a><a id="update-server"></a>Atualize o projeto do servidor para enviar notificações push
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>Configure o projeto do cliente para notificações push
+## <a name="configure-the-client-project-for-push-notifications"></a><a id="configure-app"></a>Configure o projeto do cliente para notificações push
 
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>Adicione código de notificações push à sua aplicação
+## <a name="add-push-notifications-code-to-your-app"></a><a id="add-push"></a>Adicione código de notificações push à sua aplicação
 
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>Teste notificações push na sua aplicação
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>Teste notificações push na sua aplicação
 
 Pode testar a aplicação utilizando um dispositivo virtual no emulador. Existem passos de configuração adicionais necessários quando se executa um emulador.
 
@@ -62,7 +62,7 @@ Pode testar a aplicação utilizando um dispositivo virtual no emulador. Existem
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. Adicione uma conta google ao dispositivo Android clicando em **Apps** > **Definições** > **Adicionar conta,** em seguida, siga as indicações.
+2. Adicione uma conta Google ao dispositivo Android clicando em**Configurações** > de **Apps** > **Adicionar conta**e, em seguida, siga as indicações.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 

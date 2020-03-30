@@ -1,5 +1,5 @@
 ---
-title: Registos de recursos do Archive Azure para a conta de armazenamento  Microsoft Docs
+title: Registos de recursos do Archive Azure para a conta de armazenamento [ Microsoft Docs
 description: Saiba como arquivar os seus registos de recursos Azure para retenção a longo prazo numa conta de armazenamento.
 author: bwren
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274219"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento

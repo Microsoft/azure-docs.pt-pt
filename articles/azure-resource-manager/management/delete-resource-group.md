@@ -1,14 +1,14 @@
 ---
 title: Eliminar grupo de recursos e recursos
-description: Descreve como eliminar grupos e recursos de recursos. Descreve como o Gestor de Recursos azure ordena a eliminação de recursos quando um grupo de recursos elimina. Ele descreve os códigos de resposta e a forma como o Resource Manager processa-las para determinar se a eliminação foi concluída com êxito.
+description: Descreve como eliminar grupos e recursos de recursos. Descreve como o Gestor de Recursos azure ordena a eliminação de recursos quando um grupo de recursos elimina. Descreve os códigos de resposta e como o Gestor de Recursos os trata para determinar se a eliminação foi bem sucedida.
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274024"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos do Gestor de Recursos azure e eliminação de recursos
@@ -17,42 +17,42 @@ Este artigo mostra como eliminar grupos e recursos de recursos. Descreve como o 
 
 ## <a name="how-order-of-deletion-is-determined"></a>Como a ordem de eliminação é determinada
 
-Quando elimina um grupo de recursos, o Resource Manager determina a ordem para eliminar recursos. Ele usa o seguinte ordem:
+Ao eliminar um grupo de recursos, o Gestor de Recursos determina a ordem de eliminar recursos. Utiliza a seguinte ordem:
 
-1. Todos os recursos subordinados (aninhados) são eliminados.
+1. Todos os recursos da criança (aninhado) são eliminados.
 
-2. Recursos geridos por outros recursos são eliminados, em seguida. Um recurso pode ter o `managedBy` propriedade definida para indicar que um recurso diferente gere-o. Quando essa propriedade é definida, o recurso que gere o outro recurso é eliminado antes os outros recursos.
+2. Os recursos que gerem outros recursos são eliminados em seguida. Um recurso pode `managedBy` ter a propriedade definida para indicar que um recurso diferente gere-o. Quando esta propriedade é definida, o recurso que gere o outro recurso é eliminado antes dos outros recursos.
 
-3. Os recursos restantes são eliminados após as duas categorias anteriores.
+3. Os restantes recursos são eliminados após as duas categorias anteriores.
 
-Depois da ordem é determinada, o Resource Manager emite uma operação de eliminação para cada recurso. Ele aguarda todas as dependências concluir antes de continuar.
+Após a determinação da encomenda, o Gestor de Recursos emite uma operação DELETE para cada recurso. Espera que quaisquer dependências terminem antes de prosseguir.
 
-Para operações síncronas, são os códigos de resposta com êxito esperado:
+Para operações sincronizadas, os códigos de resposta bem sucedidos esperados são:
 
 * 200
 * 204
 * 404
 
-Para operações assíncronas, a resposta bem-sucedida esperada é 202. Gestor de recursos controla o cabeçalho de localização ou o cabeçalho de operação do azure-async para determinar o estado da operação assíncrona delete.
+Para operações assíncronas, a resposta esperada para o sucesso é 202. O Gestor de Recursos rastreia o cabeçalho de localização ou o cabeçalho de operação azure-assync para determinar o estado da operação de eliminação assíncrona.
   
 ### <a name="deletion-errors"></a>Erros de eliminação
 
-Quando uma operação de eliminação retorna um erro, o Resource Manager tentará novamente com a chamada de eliminação. As repetições ocorrem para 5xx, 429 e códigos de estado 408. Por predefinição, o período de tempo entre tentativas é de 15 minutos.
+Quando uma operação de eliminação devolve um erro, o Gestor de Recursos volta a tentar a chamada DELETE. As tentativas acontecem para os códigos de estado 5xx, 429 e 408. Por defeito, o período de tempo para a retentativa é de 15 minutos.
 
 ## <a name="after-deletion"></a>Após a eliminação
 
-Gestor de recursos emite uma chamada GET para cada recurso que ele estava a tentar eliminar. A resposta a esta chamada GET deve ser 404. Quando o Resource Manager obtém um 404, considera a eliminação para serem concluídos com êxito. Gestor de recursos remove o recurso a partir da respetiva cache.
+O Gestor de Recursos emite uma chamada GET em cada recurso que tentou apagar. Espera-se que a resposta desta chamada get seja de 404. Quando o Gestor de Recursos obtém um 404, considera que a eliminação foi concluída com sucesso. O Gestor de Recursos remove o recurso da sua cache.
 
-No entanto, se a chamada GET do recurso retorna um 200 ou 201, o Resource Manager recria o recurso.
+No entanto, se a chamada GET sobre o recurso devolver um 200 ou 201, o Gestor de Recursos recria o recurso.
 
-Se a operação de obtenção de devolver um erro, o Resource Manager repete GET para o seguinte código de erro:
+Se a operação GET devolver um erro, o Gestor de Recursos volta a tentar obter o GET para o seguinte código de erro:
 
 * Menos de 100
 * 408
 * 429
-* Superior a 500
+* Mais de 500
 
-Para outros códigos de erro, o Resource Manager não consegue a eliminação do recurso.
+Para outros códigos de erro, o Gestor de Recursos falha a eliminação do recurso.
 
 ## <a name="delete-resource-group"></a>Eliminar grupo de recursos
 
@@ -64,7 +64,7 @@ Utilize um dos seguintes métodos para eliminar o grupo de recursos.
 Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup
@@ -95,7 +95,7 @@ Remove-AzResource `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \

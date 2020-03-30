@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
 ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443465"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configurações de firewall para p Azure Lab Services
@@ -27,7 +27,7 @@ Cada laboratório usa um único endereço IP público e várias portas.  Todos o
 Os endereços IP públicos de cada laboratório estão listados na página de **Todos os laboratórios** da conta do laboratório.  Para obter instruções como encontrar a página **All labs,** veja [como gerir os laboratórios numa conta](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account)de laboratório.  
 
 > [!div class="mx-imgBorder"]
-> ![página de todos os laboratórios](../media/how-to-configure-firewall-settings/all-labs-properties.png)
+> ![Página de todos os laboratórios](../media/how-to-configure-firewall-settings/all-labs-properties.png)
 
 >[!NOTE]
 >Não verá o endereço IP público se a máquina de modelos do seu laboratório ainda não estiver publicada.

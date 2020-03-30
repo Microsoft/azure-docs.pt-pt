@@ -1,5 +1,5 @@
 ---
-title: Isolamento na Nuvem Pública Azul  Microsoft Docs
+title: Isolamento na Nuvem Pública Azul [ Microsoft Docs
 description: Saiba como o Azure proporciona isolamento contra utilizadores maliciosos e não maliciosos e oferece várias opções de isolamento a arquitetos.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280316"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública Azure
@@ -73,14 +73,14 @@ O Azure RBAC tem três funções básicas aplicáveis a todos os tipos de recurs
 
 - **O leitor** pode ver os recursos azure existentes.
 
-![Controlo de Acesso baseado em funções azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controlo de Acesso Baseado em Funções do Azure](./media/isolation-choices/azure-isolation-fig3.png)
 
-As restantes funções rBAC no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função De Colaborador da Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se liga.
+As restantes funções rBAC no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se liga.
 
 [As funções integradas rBAC](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Especifica as operações e o âmbito que cada papel incorporado concede aos utilizadores. Se procura definir os seus próprios papéis para ainda mais controlo, veja como construir [papéis personalizados no Azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Algumas outras capacidades para o Diretório Ativo Azure incluem:
-- A Azure AD permite aplicações SSO para SaaS, independentemente do local onde estejam hospedadas. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. As aplicações federadas também podem suportar o fornecimento de utilizadores e [a abóbada de senhas.](https://www.techopedia.com/definition/31415/password-vault)
+- O Azure AD permite SSO para aplicações SaaS, independentemente de onde estão alojadas. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. As aplicações federadas também podem suportar o fornecimento de utilizadores e [a abóbada de senhas.](https://www.techopedia.com/definition/31415/password-vault)
 
 - O acesso aos dados do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado através da autenticação. Cada conta de armazenamento tem uma chave primária[(chave de conta](../../storage/common/storage-create-storage-account.md)de armazenamento, ou SAK) e uma chave secreta secundária (a assinatura de acesso partilhado, ou SAS).
 
@@ -92,7 +92,7 @@ Algumas outras capacidades para o Diretório Ativo Azure incluem:
 
 - O [Azure Ative Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) oferece um serviço de gestão de identidade global altamente disponível para aplicações viradas para o consumidor que se elevou a centenas de milhões de identidades. Pode ser integrado entre plataformas móveis e Web. Os seus consumidores podem iniciar sessão em todas as suas aplicações através de experiências personalizáveis utilizando as suas contas sociais existentes ou criando credenciais.
 
-### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento dos Administradores da Microsoft e eliminação de dados
+### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento dos administradores da Microsoft & eliminação de dados
 A Microsoft toma medidas fortes para proteger os seus dados de acesso ou utilização inadequados por pessoas não autorizadas. Estes processos e controlos operacionais são apoiados pelos [Termos dos Serviços Online,](https://aka.ms/Online-Services-Terms)que oferecem compromissos contratuais que regem o acesso aos seus dados.
 
 -   Os engenheiros da Microsoft não têm acesso padrão aos seus dados na nuvem. Em vez disso, só lhes é concedido acesso, sob supervisão da gestão, quando necessário. Este acesso é cuidadosamente controlado e registado, e revogado quando já não é necessário.
@@ -106,7 +106,7 @@ Se eliminar quaisquer dados, o Microsoft Azure elimina os dados, incluindo quais
 Se uma unidade de disco utilizada para armazenamento sofrer uma falha de hardware, é [apagada ou destruída](https://microsoft.com/trustcenter/privacy/you-own-your-data) de forma segura antes de a Microsoft a devolver ao fabricante para substituição ou reparação. Os dados da unidade são substituídos para garantir que os dados não possam ser recuperados por qualquer meio.
 
 ## <a name="compute-isolation"></a>Isolamento computacional
-O Microsoft Azure fornece vários serviços de computação baseados na nuvem que incluem uma ampla seleção de instâncias e serviços computacionais que podem escalar para cima e para baixo automaticamente para atender às necessidades da sua aplicação ou empresa. Estes compute instance e serviço oferecem isolamento a vários níveis para garantir dados sem sacrificar a flexibilidade na configuração que os clientes exigem.
+O Microsoft Azure fornece vários serviços de computação baseados na nuvem que incluem uma vasta seleção de instâncias computacionais & serviços que podem escalar para cima e para baixo automaticamente para atender às necessidades da sua aplicação ou empresa. Estes compute instance e serviço oferecem isolamento a vários níveis para garantir dados sem sacrificar a flexibilidade na configuração que os clientes exigem.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Tamanhos de máquina virtual isolada
 
@@ -115,11 +115,11 @@ O Microsoft Azure fornece vários serviços de computação baseados na nuvem qu
 ### <a name="dedicated-hosts"></a>Anfitriões dedicados
 Além dos anfitriões isolados descritos na secção anterior, o Azure também oferece anfitriões dedicados. Anfitriões dedicados em Azure é um serviço que fornece servidores físicos que podem hospedar uma ou mais máquinas virtuais, e que são dedicados a uma única subscrição azure. Os anfitriões dedicados fornecem isolamento de hardware ao nível do servidor físico. Nenhum outro VMs será colocado nos seus anfitriões. Os anfitriões dedicados são implantados nos mesmos centros de dados e partilham a mesma rede e infraestruturas de armazenamento subjacentes que outros hospedeiros não isolados. Para mais informações, consulte a visão geral detalhada dos [anfitriões dedicados ao Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 
-### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento hiper-V e Root OS entre VM raiz e VMs convidados
+### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hiper-V & isolamento de raízes entre os VM raiz & VMs convidados
 A plataforma computacional da Azure baseia-se na virtualização da máquina — o que significa que todo o código do cliente executa numa máquina virtual Hyper-V. Em cada nó Azure (ou ponto final da rede), existe um Hipervisor que passa diretamente sobre o hardware e divide um nó num número variável de Máquinas Virtuais Convidadas (VMs).
 
 
-![Isolamento hiper-V e Root OS entre VM raiz e VMs convidados](./media/isolation-choices/azure-isolation-fig4.jpg)
+![Hiper-V & isolamento de raízes entre os VM raiz & VMs convidados](./media/isolation-choices/azure-isolation-fig4.jpg)
 
 
 Cada nó também tem um VM raiz especial, que executa o Os hospedeiro. Uma fronteira crítica é o isolamento da raiz VM dos VMs convidados e dos VMs convidados uns dos outros, geridos pelo hipervisor e pela raiz oss. O emparelhamento hipervisor/root OS aproveita as décadas de experiência de segurança do sistema operativo da Microsoft e a aprendizagem mais recente do Hyper-V da Microsoft, para proporcionar um forte isolamento dos VMs convidados.
@@ -128,7 +128,7 @@ A plataforma Azure utiliza um ambiente virtualizado. As instâncias de utilizado
 
 O hipervisor Azure age como um micro-kernel e passa todos os pedidos de acesso ao hardware de máquinas virtuais para o anfitrião para processamento usando uma interface de memória partilhada chamada VMBus. Isto impede os utilizadores de obterem acesso de leitura/escrita/execução não processado ao sistema e atenua o risco de partilha de recursos do sistema.
 
-### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Algoritmo avançado de colocação de VM e proteção contra ataques de canais laterais
+### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Algoritmo avançado de colocação de VM & proteção contra ataques de canais laterais
 Qualquer ataque transversal envolve dois passos: colocar um VM controlado pelo adversário no mesmo hospedeiro que um dos VMs da vítima, e, em seguida, violar o limite de isolamento para roubar informações sensíveis da vítima ou afetar o seu desempenho por ganância ou vandalismo. O Microsoft Azure fornece proteção em ambas as etapas utilizando um algoritmo avançado de colocação de VM e proteção de todos os ataques de canais laterais conhecidos, incluindo VMs vizinhos barulhentos.
 
 ### <a name="the-azure-fabric-controller"></a>O controlador de tecido azure
@@ -164,10 +164,10 @@ Há duas categorias de regras que são programadas:
 
 -   **Ficheiro de configuração de funções:** Isto define as Listas de Controlo de Acesso de Entrada (ACLs) com base no modelo de serviço do arrendatário.
 
-### <a name="vlan-isolation"></a>Isolamento de VLAN
+### <a name="vlan-isolation"></a>Isolamento VLAN
 Há três VLANs em cada cluster:
 
-![Isolamento de VLAN](./media/isolation-choices/azure-isolation-fig8.jpg)
+![Isolamento VLAN](./media/isolation-choices/azure-isolation-fig8.jpg)
 
 
 -   O VLAN principal - interliga nódosos de clientes não confiáveis
@@ -199,7 +199,7 @@ Os dados de armazenamento IP podem ser protegidos contra utilizadores não autor
 
 ### <a name="encryption"></a>Encriptação
 O Azure oferece os seguintes tipos de encriptação para proteger dados:
--   Encriptação em trânsito
+-   Encriptação de dados em circulação
 
 -   Encriptação inativa
 
@@ -321,7 +321,7 @@ A implantação do Azure tem várias camadas de isolamento de rede. O diagrama s
 
 [A Subnet](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento com a rede virtual com base na gama IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias subredes para organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar o grupo de segurança da [rede (NSGs)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede a uma instância VM com base em regras configuradas na lista de controlo de acesso (ACL) do NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre as opções de isolamento da [rede para máquinas em redes virtuais Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Isto inclui o cenário clássico de frente e back-end onde as máquinas de uma determinada rede ou subrede de back-end só podem permitir que certos clientes ou outros computadores se conectem a um determinado ponto final com base numa lista de endereços IP.
 

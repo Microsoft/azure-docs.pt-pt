@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251742"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Boas práticas para usar o Power BI para consultar e visualizar dados do Azure Data Explorer
@@ -46,14 +46,14 @@ A secção seguinte inclui dicas e truques para usar a linguagem de consulta Kus
 
 ### <a name="complex-queries-in-power-bi"></a>Consultas complexas em Power BI
 
-Consultas complexas são mais facilmente expressas em Kusto do que em Power Query. Devem ser implementados como [funções kusto](/azure/kusto/query/functions)e invocados no Power BI. Este método é necessário ao utilizar **directquery** com declarações `let` na sua consulta Kusto. Como o Power BI se junta a duas consultas, e `let` declarações não podem ser usadas com o operador `join`, podem ocorrer erros de sintaxe. Portanto, guarde cada parte da junta como uma função Kusto e permita que o Power BI junte estas duas funções.
+Consultas complexas são mais facilmente expressas em Kusto do que em Power Query. Devem ser implementados como [funções kusto](/azure/kusto/query/functions)e invocados no Power BI. Este método é necessário ao utilizar `let` **directquery** com declarações na sua consulta Kusto. Como o Power BI se `let` junta a duas consultas, `join` e as declarações não podem ser usadas com o operador, podem ocorrer erros de sintaxe. Portanto, guarde cada parte da junta como uma função Kusto e permita que o Power BI junte estas duas funções.
 
 ### <a name="how-to-simulate-a-relative-date-time-operator"></a>Como simular um operador de data-data relativa
 
-O Power BI não contém um operador *relativo* de data-data, como `ago()`.
-Para simular `ago()`, utilize uma combinação de funções `DateTime.FixedLocalNow()` e `#duration` Power BI.
+O Power BI não *relative* contém um operador `ago()`relativo de data-data, como .
+Para `ago()`simular, utilize `DateTime.FixedLocalNow()` `#duration` uma combinação de funções e Power BI.
 
-Em vez desta consulta utilizando o operador `ago()`:
+Em vez desta consulta `ago()` utilizando o operador:
 
 ```kusto
     StormEvents | where StartTime > (now()-5d)
@@ -78,9 +78,9 @@ As consultas de Kusto regressam, por defeito, até 500.000 linhas ou 64 MB, conf
 
 Estas opções emitem [declarações definidas](/azure/kusto/query/setstatement) com a sua consulta para alterar os limites de consulta padrão:
 
-  * **Limitar o número recorde** de resultados da consulta gera um `set truncationmaxrecords`
-  * Limitar o tamanho dos dados de **resultados da consulta em Bytes** gera uma `set truncationmaxsize`
-  * **Desativar a truncação do resultado** gera uma `set notruncation`
+  * **Limitar o número recorde** de resultados da consulta gera um`set truncationmaxrecords`
+  * Limitar o tamanho dos dados de **resultados da consulta em Bytes** gera um`set truncationmaxsize`
+  * **Desativar a truncação do resultado** gera um`set notruncation`
 
 ### <a name="using-query-parameters"></a>Usando parâmetros de consulta
 
@@ -90,7 +90,7 @@ Pode utilizar [parâmetros](/azure/kusto/query/queryparametersstatement) de cons
 
 Utilize um parâmetro de consulta para filtrar informações na consulta e otimizar o desempenho da consulta.
  
-Na janela **Editar Consultas,** **Home** > **Advanced Editor**
+Na janela **Editar Consultas,** **Editor Avançado** da **Casa** > 
 
 1. Encontre a seguinte secção da consulta:
 
@@ -106,7 +106,7 @@ Na janela **Editar Consultas,** **Home** > **Advanced Editor**
 
 1. Substitua a parte relevante da consulta pelo seu parâmetro. Divida a consulta em várias partes e concatená-las de volta usando uma ampersand (&), juntamente com o parâmetro.
 
-   Por exemplo, na consulta acima, vamos pegar na parte `State == 'ALABAMA'`, e dividi-la para: `State == '` e `'` e colocaremos o parâmetro `State` entre eles:
+   Por exemplo, na consulta acima, vamos `State == 'ALABAMA'` pegar na parte e `State == '` `'` dividi-la para: `State` e colocaremos o parâmetro entre eles:
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -140,7 +140,7 @@ Você pode usar um parâmetro de consulta em qualquer passo de consulta que o su
 
 O Power BI inclui um programador de atualização de dados que pode periodicamente emitir consultas contra uma fonte de dados. Este mecanismo não deve ser usado para agendar comandos de controlo para Kusto porque o Power BI assume que todas as consultas são apenas leitura.
 
-### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI só pode enviar consultas curtas (&lt;2000 caracteres) para Kusto
+### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI só pode&lt;enviar consultas curtas (2000 caracteres) para Kusto
 
 Se executar uma consulta no Power BI resultar no seguinte erro: _"DataSource.Error: Web.O conteúdo não conseguiu obter conteúdo de..."_ a consulta é provavelmente superior a 2000 caracteres. Power BI usa **PowerQuery** para consultar Kusto, emitindo um pedido HTTP GET que codifica a consulta como parte do URI sendo recuperado. Portanto, as consultas de Kusto emitidas pelo Power BI limitam-se ao comprimento máximo de um pedido URI (2000 caracteres, menos pequena compensação). Como suposições, pode definir uma [função armazenada](/azure/kusto/query/schema-entities/stored-functions) em Kusto e ter o Power BI a usar essa função na consulta.
 

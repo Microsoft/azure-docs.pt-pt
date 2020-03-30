@@ -1,5 +1,5 @@
 ---
-title: Monitorização da referência de dados  Microsoft Docs
+title: Monitorização da referência de dados [ Microsoft Docs
 titleSuffix: Azure Machine Learning
 description: Conheça os dados e recursos recolhidos para o Azure Machine Learning e disponível no Azure Monitor. O Azure Monitor recolhe e supera dados sobre o seu espaço de trabalho azure machine learning, e permite-lhe visualizar métricas, definir alertas e analisar dados registados.
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/06/2020
 ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927554"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitorização de machine learning azure
@@ -40,10 +40,10 @@ A tabela seguinte lista as propriedades dos registos de recursos azure machine l
 | ClusterName | Nome do Cluster |
 | ProvisioningState | Submissão do Estado do Trabalho |
 | ResourceGroupName | Nome do grupo de recursos |
-| JobName | Nome do Trabalho |
-| ClusterId | ID do cluster |
+| Nome de emprego | Nome do Trabalho |
+| Clusterid | ID do cluster |
 | Tipo de evento | Tipo de evento de trabalho, por exemplo, JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| Estado de Execução | Estado do trabalho (a Corrida), por exemplo, Fila, Corrida, Sucesso, Falhado |
+| ExecutionState | Estado do trabalho (a Corrida), por exemplo, Fila, Corrida, Sucesso, Falhado |
 | ErrorDetails | Detalhes do erro de trabalho |
 | CriaçãoApiVersão | Versão Api usada para criar o trabalho |
 | ClusterResourceGroupName | Nome do grupo de recursos do cluster |
@@ -63,7 +63,7 @@ A tabela seguinte lista as propriedades dos registos de recursos azure machine l
 | Categoria | Nome do evento de registo, AmlComputeClusterNodeEvent |
 | ProvisioningState | Estado de provisionamento do cluster |
 | ClusterName | Nome do aglomerado |
-| clusterType | Tipo do cluster |
+| ClusterType | Tipo do cluster |
 | Criado por | Utilizador que criou o cluster |
 | CoreCount | Conde dos núcleos no aglomerado |
 | VmSize | Tamanho Vm do cluster |
@@ -83,11 +83,11 @@ A tabela seguinte lista as propriedades dos registos de recursos azure machine l
 | TargetNodeCount | Contagem de nó do alvo do cluster enquanto escala para cima/para baixo |
 | Tipo de evento | Tipo de evento durante a criação de cluster. |
 | NodeIdleTimeSecondsBeforeScaleDown | Tempo inativo em segundos antes de o aglomerado ser reduzido |
-| PreemptedNodeCount | Contagem de nós preempted do cluster |
+| Contagem de NodeS pré-empreitada | Contagem de nós preempted do cluster |
 | IsResizeGrow | Bandeira indicando que o aglomerado está a escalonar |
 | Nome VmFamily | Nome da família VM dos nós que podem ser criados dentro do cluster |
 | Deixando o Número de Nodede | Deixando a contagem do nó do aglomerado |
-| UnusableNodeCount | Contagem inutilizável do aglomerado |
+| InutilizávelNodeCount | Contagem inutilizável do aglomerado |
 | IdleNodeCount | Contagem de nós ocioso do aglomerado |
 | RunningNodeCount | Contagem de nós de execução do cluster |
 | PrepareNodeCount | Preparando a contagem do nó do cluster |
@@ -151,7 +151,7 @@ A informação sobre quotas é apenas para a computação Azure Machine Learning
 | Núcleos pré-empreitados | Contagem | O número de núcleos pré-empreitados. |
 | Nódosos pré-empreitados | Contagem | O número de nós pré-optados. |
 | Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
-| Núcleos totais | Contagem | Os núcleos totais. |
+| Total de núcleos | Contagem | Os núcleos totais. |
 | Nósodinsos totais | Contagem | Os nódosos totais. |
 | Núcleos inutilizáveis | Contagem | O número de núcleos inutilizáveis. |
 | Nós inutilizáveis | Contagem | O número de nós inutilizáveis. |
@@ -160,11 +160,11 @@ Seguem-se dimensões que podem ser utilizadas para filtrar métricas de quota:
 
 | Dimensão | Métricas disponíveis com | Descrição |
 | ---- | ---- | ---- |
-| Nome do cluster | Todas as métricas de quota | O nome da instância computacional. |
+| Nome do Cluster | Todas as métricas de quota | O nome da instância computacional. |
 | Nome da família Vm | Percentagem de utilização de quotas | O nome da família VM usada pelo aglomerado. |
 | Prioridade Vm | Percentagem de utilização de quotas | A prioridade do VM.
 
-**Correr**
+**Executar**
 
 Informação sobre treinos.
 
@@ -192,7 +192,7 @@ Os valores válidos para a dimensão RunType são:
 | StepRun | Uma corrida para um passo de oleoduto. |
 | StepRun reutilizado | Uma corrida para um passo de oleoduto que reutiliza uma corrida anterior. |
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 - Consulte a monitorização da [Aprendizagem automática Azure](monitor-azure-machine-learning.md) para obter uma descrição da monitorização do Azure Machine Learning.
 - Consulte [a Monitorização dos recursos do Azure com o Monitor Azure](/azure/azure-monitor/insights/monitor-azure-resource) para obter mais informações sobre a monitorização dos recursos do Azure.

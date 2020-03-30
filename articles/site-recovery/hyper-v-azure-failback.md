@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281785"
 ---
-# <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma falha para Hiper-V VMs
+# <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs Hyper-V
 
 Este artigo descreve como reativar os VMs Azure que foram criados após a falha dos VMs Hiper-V de um site no local para Azure, com a Recuperação do [Site Azure.](site-recovery-overview.md)
 
@@ -36,19 +36,19 @@ Este artigo descreve como reativar os VMs Azure que foram criados após a falha 
 
 Para falhar os Hiper-V VMs em Azure para o VM original no local, executar uma falha planeada de Azure para o local no local seguinte:
 
-1. No cofre > **Itens replicados,** selecione o VM. Clique à direita no VM > **Failover Planeado**. Se estiver a falhar num plano de recuperação, selecione o nome do plano e clique em **Failover** > **Failover Planeada**.
+1. No cofre > **itens replicados,** selecione o VM. Clique à direita no VM > **Failover Planeado**. Se estiver a falhar num plano de recuperação, selecione o nome do plano e clique em **Failover** > **Planned Failover**.
 2. Em **Confirmar Falha Planeada,** escolha a origem e os locais-alvo. Reparem na direção do failover. Se a falha das primárias funcionou como esperado e todas as máquinas virtuais estão no local secundário, isto é apenas para informação.
 3. Na Sincronização de **Dados,** selecione uma opção:
-    - **Sincronizar os dados antes da falha (sincronizar apenas as alterações delta)** — Esta opção minimiza o tempo de inatividade dos VMs à medida que sincroniza sem os desligar.
+    - **Sincronizar os dados antes da falha (sincronizar apenas as alterações delta)**— Esta opção minimiza o tempo de inatividade dos VMs à medida que sincroniza sem os desligar.
         - **Fase 1**: Tira uma foto do Azure VM e copia-o para o hospedeiro Hyper-V no local. A máquina continua a funcionar em Azure.
         - **Fase 2**: Desliga o VM Azure para que não ocorram novas alterações. O conjunto final de alterações delta é transferido para o servidor no local e o VM no local está iniciado.
-    - **Sincronizar os dados apenas durante o failover (download completo)** — Esta opção é mais rápida porque presumimos que a maior parte do disco mudou e não queremos passar tempo a calcular cheques. Esta opção não realiza quaisquer cálculos de cheques.
+    - **Sincronizar os dados apenas durante o failover (download completo)**— Esta opção é mais rápida porque presumimos que a maior parte do disco mudou e não queremos passar tempo a calcular cheques. Esta opção não realiza quaisquer cálculos de cheques.
         - Faz um download do disco. 
         - Recomendamos que utilize esta opção se estiver a executar o Azure há algum tempo (um mês ou mais) ou se o VM no local for eliminado.
 
 4. Apenas para VMM, se a encriptação de dados estiver ativada para a nuvem, na **Chave de Encriptação,** selecione o certificado que foi emitido quando ativou a encriptação de dados durante a instalação do Fornecedor no servidor VMM.
 5. Iniciar a ativação pós-falha. Pode seguir o progresso da ativação pós-falha no separador **Trabalhos**.
-6. Se selecionou a opção de sincronizar os dados antes da falha, depois de a sincronização inicial de dados estar completa e estiver pronto para desligar as máquinas virtuais em Azure, clique em **Jobs** > nome de trabalho > **Complete Failover**. Isto faz o seguinte:
+6. Se tiver selecionado a opção de sincronizar os dados antes da falha, depois de a sincronização inicial de dados estar completa e estiver pronto para desligar as máquinas virtuais em Azure, clique em **Jobs** > nome de trabalho > **Complete Failover**. Isto faz o seguinte:
     - Desliga a máquina Azure.
     - Transfere as últimas alterações para o VM no local.
     - Inicia o VM no local.
@@ -64,7 +64,7 @@ Não volte a um local alternativo da seguinte forma:
 
 1. Se estiver a configurar um novo hardware, instale uma [versão suportada do Windows](hyper-v-azure-support-matrix.md#replicated-vms)e a função Hyper-V na máquina.
 2. Crie um interruptor de rede virtual com o mesmo nome que tinha no servidor original.
-3. Em **itens protegidos** > **Protection Group** > \<ProtectionGroupName> -> \<VirtualMachineName>, selecione o VM que pretende falhar e, em seguida, selecione Planned **Failover**.
+3. Em **itens protegidos** > **Protection Group** > \<ProtectionName \<> -> VirtualMachineName>, selecione o VM que pretende falhar e, em seguida, selecione **'Failover' planeado**.
 4. Em **Confirmar Failover**s planeados, eleger **create on-local virtual machine if it não exist .**
 5. No Nome do **Anfitrião,** selecione o novo servidor de anfitriões Hyper-V no qual pretende colocar o VM.
 6. Na Sincronização de **Dados,** recomendamos que selecione a opção de sincronizar os dados antes da falha. Isto minimiza o tempo de inatividade para os VMs à medida que sincroniza sem os desligar. Faz o seguinte:
@@ -72,7 +72,7 @@ Não volte a um local alternativo da seguinte forma:
     - **Fase 2**: Desliga o VM Azure para que não ocorram novas alterações. O conjunto final de alterações é transferido para o servidor no local e a máquina virtual no local é iniciada.
     
 7. Clique na marca de verificação para iniciar a falha (failback).
-8. Depois da sincronização inicial terminar e estiver pronto para encerrar o Azure VM, clique em **Jobs** > \<failover planejado job> > **Complete Failover**. Isto desliga a máquina Azure, transfere as últimas alterações para o VM no local, e inicia-a.
+8. Depois de terminar a sincronização inicial e estiver pronto para desligar o Azure VM, clique em **Jobs** > \<planejado trabalho de failover> > **Complete Failover**. Isto desliga a máquina Azure, transfere as últimas alterações para o VM no local, e inicia-a.
 9. Pode assinar no VM no local para verificar se está tudo a funcionar como esperado.
 10. Clique **em comprometer-se** para terminar a falha. A comprometa a eliminar o VM Azure e os seus discos e prepara o VM no local para ser novamente protegido.
 10. Clique em **Reverter Replicate** para começar a replicar o VM no local para Azure. Só as mudanças delta desde que o VM foi desligado em Azure serão replicadas.

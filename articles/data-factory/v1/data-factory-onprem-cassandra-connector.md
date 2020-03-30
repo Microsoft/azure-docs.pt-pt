@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281304"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mova dados de uma base de dados cassandra no local usando a Azure Data Factory
@@ -60,25 +60,25 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades jSON que são usadas para definir entidades data Factory específicas de uma loja de dados Cassandra:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado a Cassandra.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesCassandra** |Sim |
-| host |Um ou mais endereços IP ou nomes de anfitriões dos servidores Cassandra.<br/><br/>Especifique uma lista separada da vírmula de endereços IP ou nomes de anfitriões para ligar a todos os servidores simultaneamente. |Sim |
+| anfitrião |Um ou mais endereços IP ou nomes de anfitriões dos servidores Cassandra.<br/><br/>Especifique uma lista separada da vírmula de endereços IP ou nomes de anfitriões para ligar a todos os servidores simultaneamente. |Sim |
 | porta |A porta TCP que o servidor Cassandra usa para ouvir as ligações do cliente. |Não, valor predefinido: 9042 |
 | authenticationType |Básico, ou Anónimo |Sim |
 | o nome de utilizador |Especifique o nome do utilizador para a conta de utilizador. |Sim, se a autenticaçãoType estiver definida para Basic. |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador. |Sim, se a autenticaçãoType estiver definida para Basic. |
-| gatewayName |O nome da porta de entrada que é usada para ligar à base de dados de Cassandra no local. |Sim |
-| encryptedCredential |Credencial encriptado pelo portal. |Não |
+| nome gateway |O nome da porta de entrada que é usada para ligar à base de dados de Cassandra no local. |Sim |
+| credenta encriptado |Credencial encriptado pelo portal. |Não |
 
 >[!NOTE]
 >Atualmente, a ligação à Cassandra utilizando o SSL não é suportada.
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **CassandraTable** tem as seguintes propriedades
 
@@ -88,7 +88,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | tableName |Nome da mesa na base de dados de Cassandra. |Sim (Se a **consulta** para **CassandraSource** não estiver definida). |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -97,7 +97,7 @@ Quando a fonte é do tipo **CassandraSource,** as seguintes propriedades estão 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler dados. |Consulta SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique o **nome do espaço-chave.nome** da tabela para representar a tabela que pretende consultar. |Não (se o nome do quadro e o espaço-chave no conjunto de dados estiverem definidos). |
-| consistênciaN |O nível de consistência especifica quantas réplicas devem responder a um pedido de leitura antes de devolver os dados à aplicação do cliente. Cassandra verifica o número especificado de réplicas para obter dados para satisfazer o pedido de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [a configuração](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) da consistência dos dados para obter mais detalhes. |Não. O valor padrão é ONE. |
+| consistênciaN |O nível de consistência especifica quantas réplicas devem responder a um pedido de leitura antes de devolver os dados à aplicação do cliente. Cassandra verifica o número especificado de réplicas para obter dados para satisfazer o pedido de leitura. |UM, DOIS, TRÊS, QUORUM, TODOS, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [a configuração](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) da consistência dos dados para obter mais detalhes. |Não. O valor padrão é ONE. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo jSON: Copiar dados de Cassandra para Azure Blob
 Este exemplo fornece definições jSON de amostra que pode usar para criar um pipeline utilizando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Mostra como copiar dados de uma base de dados de Cassandra no local para um Armazém Azure Blob. No entanto, os dados podem ser copiados para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados utilizando a Atividade de Cópia na Fábrica de Dados Azure.
@@ -261,21 +261,21 @@ Consulte as propriedades do [tipo RelationalSource](#copy-activity-properties) p
 ### <a name="type-mapping-for-cassandra"></a>Tipo de mapeamento para Cassandra
 | Tipo Cassandra | Tipo de base .NET |
 | --- | --- |
-| ASCII |String |
+| ASCII |Cadeia |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |Booleano |
-| DECIMAL |decimal |
-| DOUBLE |Valor de duplo |
-| FLOAT |Único |
-| INET |String |
+| DECIMAL |Decimal |
+| DUPLO |Double |
+| BOIA |Único |
+| INET |Cadeia |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
-| TIMEUUID |Guid |
-| UUID |Guid |
-| RIO VARCHAR |String |
-| VARINT |decimal |
+| TEXT |Cadeia |
+| CARIMBO TEMPORAL |DateTime |
+| TIMEUUID |GUID |
+| UUID |GUID |
+| RIO VARCHAR |Cadeia |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Para tipos de recolha (mapa, conjunto, lista, etc.), consulte o Trabalho com tipos de recolha Cassandra utilizando a secção de [tabela virtual.](#work-with-collections-using-virtual-table)
@@ -333,7 +333,7 @@ As tabelas seguintes mostram as tabelas virtuais que renormalizam os dados das c
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletable_vt_stringset"></a>Table “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>Tabela "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

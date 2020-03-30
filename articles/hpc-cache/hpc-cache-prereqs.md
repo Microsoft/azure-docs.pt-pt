@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: rohogue
 ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271853"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para Cache Azure HPC
@@ -24,7 +24,7 @@ Recomenda-se uma subscrição paga.
 > [!NOTE]
 > Durante os primeiros meses do lançamento da GA, a equipa azure HPC Cache deve adicionar a sua subscrição à lista de acesso antes de poder ser usada para criar uma instância de cache. Este procedimento ajuda a garantir que cada cliente obtém uma capacidade de resposta de alta qualidade a partir dos seus caches. Preencha [este formulário](https://aka.ms/onboard-hpc-cache) para solicitar acesso.
 
-## <a name="network-infrastructure"></a>Infraestrutura da rede
+## <a name="network-infrastructure"></a>Infraestrutura de rede
 
 Devem ser criados dois pré-requisitos relacionados com a rede antes de poder utilizar o seu cache:
 
@@ -103,7 +103,7 @@ Mais informações estão incluídas na [configuração da Troubleshoot NAS e no
 
   Para verificar as definições do seu sistema de armazenamento, siga este procedimento.
 
-  * Emita um comando `rpcinfo` ao seu sistema de armazenamento para verificar as portas necessárias. O comando abaixo lista as portas e formatos os resultados relevantes numa tabela. (Utilize o endereço IP do seu sistema no lugar do *termo <storage_IP>*
+  * Emita um `rpcinfo` comando ao seu sistema de armazenamento para verificar as portas necessárias. O comando abaixo lista as portas e formatos os resultados relevantes numa tabela. (Utilize o endereço IP do seu sistema no lugar do *termo><storage_IP.)*
 
     Pode emitir este comando de qualquer cliente Linux que tenha a infraestrutura NFS instalada. Se utilizar um cliente dentro da sub-rede do cluster, também pode ajudar a verificar a conectividade entre a subnet e o sistema de armazenamento.
 
@@ -111,9 +111,9 @@ Mais informações estão incluídas na [configuração da Troubleshoot NAS e no
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  Certifique-se de que todas as portas devolvidas pela ``rpcinfo`` consulta permitem tráfego ilimitado a partir da subnet azure HPC Cache.
+  Certifique-se de que todas as ``rpcinfo`` portas devolvidas pela consulta permitem tráfego ilimitado a partir da subnet azure HPC Cache.
 
-  * Para além das portas devolvidas pelo comando `rpcinfo`, certifique-se de que estes portos comumente utilizados permitem o tráfego de entrada e saída:
+  * Para além das portas `rpcinfo` devolvidas pelo comando, certifique-se de que estas portas normalmente utilizadas permitem o tráfego de entrada e saída:
 
     | Protocolo | Porta  | Serviço  |
     |----------|-------|----------|
@@ -125,10 +125,10 @@ Mais informações estão incluídas na [configuração da Troubleshoot NAS e no
 
   * Verifique as definições de firewall para se certificar de que permitem o tráfego em todas estas portas necessárias. Certifique-se de verificar as firewalls utilizadas no Azure, bem como as firewalls no local no seu centro de dados.
 
-* **Acesso ao diretório:** Ativar o comando `showmount` no sistema de armazenamento. O Azure HPC Cache utiliza este comando para verificar se a configuração do seu alvo de armazenamento aponta para uma exportação válida, e também para garantir que vários suportes não acedem aos mesmos subdiretórios (risco de colisão de ficheiros).
+* **Acesso ao diretório:** Ativar `showmount` o comando no sistema de armazenamento. O Azure HPC Cache utiliza este comando para verificar se a configuração do seu alvo de armazenamento aponta para uma exportação válida, e também para garantir que vários suportes não acedem aos mesmos subdiretórios (risco de colisão de ficheiros).
 
   > [!NOTE]
-  > Se o seu sistema de armazenamento NFS utilizar o sistema operativo ONTAP 9.2 da NetApp, **não permita `showmount`** . [Contacte](hpc-cache-support-ticket.md) o Serviço microsoft e o Suporte para obter ajuda.
+  > Se o seu sistema de armazenamento NFS utilizar o sistema operativo ONTAP 9.2 da NetApp, **não ativa `showmount` **. [Contacte](hpc-cache-support-ticket.md) o Serviço microsoft e o Suporte para obter ajuda.
 
   Saiba mais sobre o acesso à listagem de listas de diretórios no artigo de resolução de [problemas](troubleshoot-nas.md#enable-export-listing)do alvo de armazenamento nFS .
 

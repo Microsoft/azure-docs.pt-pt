@@ -9,13 +9,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
 ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268499"
 ---
-# <a name="reacting-to-blob-storage-events"></a>Reagindo a eventos de armazenamento blob
+# <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
 Os eventos de Armazenamento Azure permitem que as aplicações reajam a eventos, como a criação e eliminação de bolhas. Fá-lo sem a necessidade de código sumo ou serviços de sondagens dispendiosos e ineficientes.
 
@@ -70,25 +70,25 @@ O tema dos eventos de armazenamento Blob utiliza o formato:
 
 Para combinar com todos os eventos para uma conta de armazenamento, pode deixar os filtros do sujeito vazios.
 
-Para combinar com os eventos de bolhas criadas num conjunto de recipientes que partilham um prefixo, utilize um filtro `subjectBeginsWith` como:
+Para combinar com os eventos de bolhas criadas num conjunto `subjectBeginsWith` de recipientes que partilham um prefixo, utilize um filtro como:
 
 ```
 /blobServices/default/containers/containerprefix
 ```
 
-Para combinar com os eventos de bolhas criadas em recipienteespecífico, utilize um filtro `subjectBeginsWith` como:
+Para combinar com os eventos de bolhas `subjectBeginsWith` criadas em recipienteespecífico, utilize um filtro como:
 
 ```
 /blobServices/default/containers/containername/
 ```
 
-Para combinar com os eventos de bolhas criadas em recipientes específicos que partilham um prefixo de nome blob, utilize um filtro `subjectBeginsWith` como:
+Para combinar com os eventos de bolhas criadas em recipientes específicos que partilham um prefixo de nome blob, utilize um `subjectBeginsWith` filtro como:
 
 ```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Para combinar com os eventos de bolhas criadas em recipientes específicos que partilham um sufixo blob, utilize um filtro `subjectEndsWith` como ".log" ou ".jpg". Para mais informações, consulte [Conceitos de Grelha](../../event-grid/concepts.md#event-subscriptions)de Eventos .
+Para combinar com os eventos de bolhas criadas em recipientes específicos que partilham um sufixo blob, utilize um `subjectEndsWith` filtro como ".log" ou ".jpg". Para mais informações, consulte [Conceitos de Grelha](../../event-grid/concepts.md#event-subscriptions)de Eventos .
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumir eventos
 
@@ -98,10 +98,10 @@ As aplicações que lidam com eventos de armazenamento blob devem seguir algumas
 > * Da mesma forma, verifique se o eventoType é um que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
 > * Como as mensagens podem chegar após algum atraso, use os campos de etag para entender se a sua informação sobre objetos ainda está atualizada. Para aprender a usar o campo de etag, consulte [Gerir a moeda no armazenamento blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * Como as mensagens podem chegar fora de ordem, use os campos de sequenciadores para entender a ordem dos eventos em qualquer objeto em particular. O campo de sequênciar é um valor de cadeia que representa a sequência lógica de eventos para qualquer nome blob em particular. Pode usar a comparação padrão de cordas para entender a sequência relativa de dois eventos com o mesmo nome blob.
-> * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca do cliente que deve usar para aceder à bolha. Os valores válidos são `BlockBlob` ou `PageBlob`. 
-> * Utilize o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para aceder à bolha.
+> * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca do cliente que deve usar para aceder à bolha. Valores válidos `PageBlob`são ou `BlockBlob` . 
+> * Utilize o campo `CloudBlockBlob` de `CloudAppendBlob` url com o e os construtores para aceder à bolha.
 > * Ignore campos que não entende. Esta prática ajudará a mantê-lo resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
-> * Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para o `CopyBlob`, `PutBlob`, `PutBlockList` ou `FlushWithClose` chamadas API REST. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas após os dados estartotalmente comprometidos com um Block Blob. Para aprender a criar um filtro, consulte [os eventos de filtragem para a Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block `CopyBlob`Blob estiver completamente comprometido, filtre o evento para as `PutBlob`chamadas , `PutBlockList` ou `FlushWithClose` REST API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas após os dados estartotalmente comprometidos com um Block Blob. Para aprender a criar um filtro, consulte [os eventos de filtragem para a Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## <a name="next-steps"></a>Passos seguintes

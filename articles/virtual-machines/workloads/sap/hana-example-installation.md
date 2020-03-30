@@ -1,5 +1,5 @@
 ---
-title: Como instalar a HANA no SAP HANA no Azure (Grandes Instâncias)  Microsoft Docs
+title: Como instalar a HANA no SAP HANA no Azure (Grandes Instâncias) [ Microsoft Docs
 description: Como instalar a HANA no SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617218"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instale HANA no SAP HANA em Azure (Grandes Instâncias)
@@ -39,7 +39,7 @@ As unidades HANA Large Instance não estão diretamente ligadas à internet. Nã
 
 You need an SAP S-user or other user, which allows you to access the SAP Marketplace.
 
-1. Inscreva-se e vá ao [SAP Service Marketplace.](https://support.sap.com/en/index.html) **Selecione descarregue software** > **instalações e atualize** > **por índice alfabético**. Em seguida, selecione **Under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalação**. Descarregue os ficheiros apresentados na seguinte imagem.
+1. Inscreva-se e vá ao [SAP Service Marketplace.](https://support.sap.com/en/index.html) **Selecione descarregue** > instalações de software**e atualize** > **por índice alfabético**. Em seguida, selecione **Under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalação**. Descarregue os ficheiros apresentados na seguinte imagem.
 
    ![Screenshot dos ficheiros para descarregar](./media/hana-installation/image16_download_hana.PNG)
 

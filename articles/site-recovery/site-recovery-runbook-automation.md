@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257488"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automatização do Azure aos planos de recuperação
@@ -43,9 +43,9 @@ Adicione uma conta De Automação Azure e livros de execução a um plano de rec
 
 Quando um guião corre, injeta um contexto de plano de recuperação no livro de execução. O contexto contém as variáveis resumidas na tabela.
 
-| **Nome variável** | **Descrição** |
+| **Nome da variável** | **Descrição** |
 | --- | --- |
-| RecoveryPlanName |Nome do plano de recuperação. Usado em ações baseadas no nome. |
+| Nome do Plano de Recuperação |Nome do plano de recuperação. Usado em ações baseadas no nome. |
 | FailoverType |Especifica se é um teste ou falha de produção. 
 | FailoverDirection | Especifica se a recuperação é para um local primário ou secundário. |
 | GroupID |Identifica o número de grupo no plano de recuperação quando o plano está em execução. |
@@ -55,7 +55,7 @@ Quando um guião corre, injeta um contexto de plano de recuperação no livro de
 | ResourceGroupName | Nome do grupo de recursos em que se encontra o VM.
 | CloudServiceName |O nome de serviço de nuvem Azure sob o qual o VM foi criado. |
 | RoleName |O nome do VM Azure. |
-| RecoveryPointId|A marca de tempo para a recuperação vm. |
+| RecoveryPointid|A marca de tempo para a recuperação vm. |
 
 O exemplo seguinte mostra uma variável de contexto:
 
@@ -117,7 +117,7 @@ O blog de Aman Sharma na [Harvesting Clouds](http://harvestingclouds.com) tem um
 
     ![Clique no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas elipses (...) ao lado do **Grupo 1: Iniciar** > **Adicionar pós ação.**
+2. Clique nas elipses (...) ao lado do **Grupo 1: Iniciar** > **adicionar a ação pós-**
 3. Na **ação Insert,** verifique se o **Script** está selecionado e especifique um nome para o script **(Hello World**).
 4. Especifique uma conta de automação e selecione um livro de execução. Para guardar o script, clique em **OK**. O guião é adicionado ao **Grupo 1: Pós-passos**.
 
@@ -251,7 +251,7 @@ Pode usar o mesmo guião para diferentes planos de recuperação. Introduza dife
 
 Para implementar scripts de amostra na sua conta Automation, clique no botão **Deploy para Azure.**
 
-[![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Desdobre para Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Este vídeo dá outro exemplo. Demonstra como recuperar uma aplicação WordPress de dois níveis ao Azure:
 
@@ -259,7 +259,7 @@ Este vídeo dá outro exemplo. Demonstra como recuperar uma aplicação WordPres
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça uma execução de [automação Azure Como conta](../automation/automation-create-runas-account.md)
 - Reveja os scripts da [amostra da Automação Azure.](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team)

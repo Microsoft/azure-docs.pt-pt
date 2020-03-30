@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282695"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
@@ -150,9 +150,9 @@ Uma área de trabalho é um recurso do Azure que funciona como um contentor para
 
 Os dados recolhidos pelo Agente de Monitorização Microsoft (em nome do Centro de Segurança do Azure) serão armazenados nas áreas de trabalho do Log Analytics existentes, associadas à sua subscrição do Azure ou a novas áreas de trabalho, tendo em consideração a Geo da VM.
 
-No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Será criado um grupo de recursos relacionados para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
+No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 
-* Área de trabalho: *DefaultWorkspace-[subscrição-ID]-[geo]*
+* Área de trabalho: *DefaultWorkspace-[subscription-ID]-[geo]*
 * Grupo de Recursos: *DefaultResourceGroup-[geo]*
 
 Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados são retidos durante 30 dias. Para as áreas de trabalho existentes, a retenção baseia-se no escalão de preço da área de trabalho. Se quiser, também pode utilizar uma área de trabalho existente.
@@ -190,7 +190,7 @@ Quando adicionar novos recursos (VMs, BDs SQL) ao seu Ambiente do Azure, o Centr
 
 ![Áreas principais](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. Para máquinas virtuais, clique em **Compute & apps,** no âmbito da secção higiene de segurança de **recursos.** Quaisquer problemas com a ativação de dados ou recomendações relacionadas aparecerão no separador **Descrição Geral** e na secção **Recomendações de Monitorização**.
+1. Para máquinas virtuais, clique em **Compute & aplicações,** no âmbito da secção higiene de segurança de **recursos.** Quaisquer problemas com a ativação de dados ou recomendações relacionadas aparecerão no separador **Descrição Geral** e na secção **Recomendações de Monitorização**.
 2. Visualize as **Recomendações** para ver que riscos de segurança foram identificados para o novo recurso, se for o caso.
 3. É muito comum que, quando novas VMs são adicionadas ao seu ambiente, apenas o sistema operativo é inicialmente instalado. O proprietário do recurso pode necessitar de algum tempo para implementar outras aplicações que serão utilizadas por estas VMs.  Idealmente, deve ter conhecimento da intenção final desta carga de trabalho. Vai ser um Servidor de Aplicações? Com base no que esta nova carga de trabalho vai ser, pode ativar a **Política de Segurança** adequada, que é o terceiro passo deste fluxo de trabalho.
 4. À medida que novos recursos são adicionados ao seu ambiente Azure, novos alertas podem aparecer no azulejo Alertas de **Segurança.** Procure novos alertas neste azulejo e siga as recomendações.
@@ -239,7 +239,7 @@ Nesta página, também pode iniciar uma [investigação](https://docs.microsoft.
 
 Assim que identificar o sistema comprometido, pode executar uma [Automatização](workflow-automation.md) de Fluxo de Trabalho que foi previamente criada. Estes são uma coleção de procedimentos que podem ser executados a partir do Centro de Segurança uma vez desencadeados por um alerta.
 
-No [How to Leverage the Azure Security Center & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que podem ajudá-lo a entender como o Security Center pode ser usado em cada uma dessas fases.
+No ["How to Leverage the Azure Security Center" & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que podem ajudá-lo a entender como o Security Center pode ser usado em cada uma dessas fases.
 
 > [!NOTE]
 > Leia [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure para obter mais informações sobre como usar as capacidades do Security Center para o ajudar durante o seu processo de Resposta a Incidentes.
@@ -251,6 +251,6 @@ Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para sab
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-* [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](faq-general.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Monitorizar soluções parceiras com](security-center-partner-solutions.md) o Azure Security Center — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
+* [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço.
+* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade do Azure.

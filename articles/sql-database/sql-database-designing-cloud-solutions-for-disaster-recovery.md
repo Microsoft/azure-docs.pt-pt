@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269071"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conceber serviços disponíveis globalmente utilizando base de dados Azure SQL
@@ -35,7 +35,7 @@ Neste cenário, as aplicações têm as seguintes características:
 * O nível web e o nível de dados devem ser coocados para reduzir a latência e os custos de tráfego
 * Fundamentalmente, o tempo de inatividade é um risco de negócio maior para estas aplicações do que a perda de dados
 
-Neste caso, a topologia de implementação de aplicações é otimizada para lidar com desastres regionais quando todos os componentes da aplicação precisam de falhar em conjunto. O diagrama abaixo mostra esta topologia. Para redundância geográfica, os recursos da aplicação são distribuídos para a região A e B. No entanto, os recursos na região B não são utilizados até que a região A falhe. Um grupo failover está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e falha. O serviço web em ambas as regiões está configurado para aceder à base de dados através do ouvinte de leitura&lt;nome de **grupo failover-name&gt;.database.windows.net** (1). O gestor de tráfego está criado para utilizar o método de [encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Neste caso, a topologia de implementação de aplicações é otimizada para lidar com desastres regionais quando todos os componentes da aplicação precisam de falhar em conjunto. O diagrama abaixo mostra esta topologia. Para redundância geográfica, os recursos da aplicação são distribuídos para a região A e B. No entanto, os recursos na região B não são utilizados até que a região A falhe. Um grupo failover está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e falha. O serviço web em ambas as regiões está configurado para aceder à base de dados através do ouvinte ** &lt;de leitura failover-group-name&gt;.database.windows.net** (1). O gestor de tráfego está criado para utilizar o método de [encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [O gestor de tráfego azure](../traffic-manager/traffic-manager-overview.md) é usado em todo este artigo apenas para fins de ilustração. Pode utilizar qualquer solução de equilíbrio de carga que suporte o método de encaminhamento prioritário.
@@ -112,7 +112,7 @@ Neste cenário, a aplicação tem as seguintes características:
 
 Para satisfazer estes requisitos é necessário garantir que o dispositivo utilizador se liga **sempre** à aplicação implementada na mesma geografia para as operações de leitura, tais como dados de navegação, análises, etc. Considerando que as operações oLTP são processadas na mesma geografia na **maior parte do tempo.** Por exemplo, durante o dia as operações oLTP são processadas na mesma geografia, mas durante as horas de folga podem ser processadas numa geografia diferente. Se a atividade do utilizador final ocorrer maioritariamente durante o horário de trabalho, pode garantir o desempenho ideal para a maioria dos utilizadores na maior parte do tempo. O diagrama que se segue mostra esta topologia.
 
-Os recursos da aplicação devem ser implantados em cada geografia onde você tem uma procura de utilização substancial. Por exemplo, se a sua aplicação for ativamente utilizada nos Estados Unidos, união europeia e Sudeste Asiático, a aplicação deve ser implementada em todas estas geografias. A base de dados primária deve ser dinamicamente alterada de uma geografia para outra no final do horário de trabalho. Este método chama-se "siga o sol". A carga de trabalho OLTP liga-se sempre à base de dados através do ouvinte de leitura&lt;nome de grupo de **falha&gt;.database.windows.net** (1). A carga de trabalho apenas para leitura liga-se à base de dados local utilizando diretamente o ponto final do servidor **&lt;o nome do servidor&gt;.database.windows.net** (2). O gestor de tráfego está configurado com o método de [encaminhamento](../traffic-manager/traffic-manager-configure-performance-routing-method.md)de desempenho . Garante que o dispositivo do utilizador final está ligado ao serviço web na região mais próxima. O gestor de tráfego deve ser criado com uma monitorização do ponto final ativada para cada ponto final do serviço web (3).
+Os recursos da aplicação devem ser implantados em cada geografia onde você tem uma procura de utilização substancial. Por exemplo, se a sua aplicação for ativamente utilizada nos Estados Unidos, união europeia e Sudeste Asiático, a aplicação deve ser implementada em todas estas geografias. A base de dados primária deve ser dinamicamente alterada de uma geografia para outra no final do horário de trabalho. Este método chama-se "siga o sol". A carga de trabalho OLTP liga-se sempre à base de dados através do nome de grupo de leitura-write ** &lt;failover-group-name&gt;.database.windows.net** (1). A carga de trabalho apenas para leitura liga-se à base de dados local utilizando diretamente o ** &lt;nome&gt;final do servidor** do servidor de bases de dados .database.windows.net (2). O gestor de tráfego está configurado com o método de [encaminhamento](../traffic-manager/traffic-manager-configure-performance-routing-method.md)de desempenho . Garante que o dispositivo do utilizador final está ligado ao serviço web na região mais próxima. O gestor de tráfego deve ser criado com uma monitorização do ponto final ativada para cada ponto final do serviço web (3).
 
 > [!NOTE]
 > A configuração do grupo failover define qual a região que é usada para a falha. Como a nova primária está numa geografia diferente, o failover resulta em latência mais longa tanto para o OLTP como para as cargas de trabalho apenas para leitura até que a região impactada volte a estar online.
@@ -154,9 +154,9 @@ A sua estratégia específica de recuperação de desastres em nuvem pode combin
 
 | Padrão | RPO | ERT |
 |:--- |:--- |:--- |
-| Implantação ativa passiva para recuperação de desastres com acesso a base de dados co-localizada |Acesso de leitura e escrita < 5 seg |Tempo de deteção de falhas + DNS TTL |
-| Implantação ativa para o equilíbrio da carga de aplicação |Acesso de leitura e escrita < 5 seg |Tempo de deteção de falhas + DNS TTL |
-| Implantação passiva ativa para a preservação de dados |Acesso apenas de leitura < 5 seg | Acesso apenas de leitura = 0 |
+| Implantação ativa passiva para recuperação de desastres com acesso a base de dados co-localizada |Acesso de leitura < 5 seg |Tempo de deteção de falhas + DNS TTL |
+| Implantação ativa para o equilíbrio da carga de aplicação |Acesso de leitura < 5 seg |Tempo de deteção de falhas + DNS TTL |
+| Implantação passiva ativa para a preservação de dados |Acesso apenas a leitura < 5 seg | Acesso apenas de leitura = 0 |
 ||Acesso de leitura-escrita = zero | Acesso de leitura-escrita = Tempo de deteção de falhas + período de carência com perda de dados |
 |||
 

@@ -9,13 +9,13 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272646"
 ---
-# <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento de capacidade para clusters HDInsight
+# <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
 Antes de implantar um cluster HDInsight, planeie a capacidade de cluster desejada, determinando o desempenho e a escala necessários. Este planeamento ajuda a otimizar tanto a usabilidade como os custos. Algumas decisões de capacidade de cluster não podem ser alteradas após a implantação. Se os parâmetros de desempenho mudarem, um cluster pode ser desmontado e recriado sem perder dados armazenados.
 
@@ -96,7 +96,7 @@ Depois de determinar o tamanho, escala e tipo de vm do seu cluster-alvo, verifiq
 
 Para verificar os seus núcleos disponíveis, faça os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Navegue para a página **de visão geral** do cluster HDInsight. 
 3. No menu esquerdo, clique nos **limites**de quota .
 
@@ -104,7 +104,7 @@ Para verificar os seus núcleos disponíveis, faça os seguintes passos:
 
 Se necessitar de solicitar um aumento de quota, faça os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **Ajuda + suporte** no lado inferior esquerdo da página.
 1. Selecione **Novo pedido de suporte**.
 1. Na página de pedido de **suporte Novo,** sob o separador **Basics,** selecione as seguintes opções:
@@ -115,9 +115,9 @@ Se necessitar de solicitar um aumento de quota, faça os seguintes passos:
 
      ![Criar um pedido de suporte para aumentar a quota central do HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Selecione **Seguinte: Soluções >>** .
+1. Selecione **Seguinte: Soluções >>**.
 1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários.
-1. Selecione **Seguinte: Rever + criar >>** .
+1. Selecione **Seguinte: Rever + criar >>**.
 1. No **separador Review + criar,** selecione **Criar**.
 
 > [!NOTE]  

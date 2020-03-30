@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261206"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Ative Directory Seamless Single Sign-On: Quick start
@@ -37,7 +37,7 @@ Certifique-se de que estão em vigor os seguintes pré-requisitos:
 
 * **Configurar o servidor Azure AD Connect**: Se utilizar a [Autenticação Pass-through](how-to-connect-pta.md) como método de entrada, não é necessária uma verificação prévia adicional. Se utilizar a sincronização de hash de [palavra-passe](how-to-connect-password-hash-synchronization.md) como método de entrada e se houver uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
    - Utiliza a versão 1.1.644.0 ou mais tarde do Azure AD Connect. 
-   - Se a sua firewall ou proxy permitir a listagem de dNS, whitelist as ligações à **\*.msappproxy.net** URLs sobre a porta 443. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente. Este pré-requisito só é aplicável quando ativa a funcionalidade. Não é necessário para os insinsos reais do utilizador.
+   - Se a sua firewall ou proxy permitir a listagem de dNS, whitelist as ligações aos ** \*.msappproxy.net** URLs sobre a porta 443. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente. Este pré-requisito só é aplicável quando ativa a funcionalidade. Não é necessário para os insinsos reais do utilizador.
 
     >[!NOTE]
     >As versões Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização de hash password. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
@@ -93,10 +93,10 @@ Siga estas instruções para verificar se ativou corretamente o SSO sem emenda:
 ![Portal Azure: Painel azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO SSO sem emenda cria uma conta de computador chamada `AZUREADSSOACC` no seu Diretório Ativo (AD) no local em cada floresta ad. A conta informática `AZUREADSSOACC` precisa de ser fortemente protegida por razões de segurança. Apenas os Administradores de Domínio devem ser capazes de gerir a conta do computador. Certifique-se de que a delegação kerberos na conta informática está desativada e que nenhuma outra conta no Diretório Ativo tem permissões de delegação na conta `AZUREADSSOACC` computador. Guarde a conta do computador numa Unidade de Organização (OU) onde estejam a salvo de supressões acidentais e onde apenas os Administradores de Domínio tenham acesso.
+> O SSO SSO `AZUREADSSOACC` sem emenda cria uma conta de computador nomeada no seu Diretório Ativo (AD) no local em cada floresta ad. A `AZUREADSSOACC` conta do computador precisa de ser fortemente protegida por razões de segurança. Apenas os Administradores de Domínio devem ser capazes de gerir a conta do computador. Certifique-se de que a delegação kerberos na conta informática está desativada `AZUREADSSOACC` e que nenhuma outra conta no Diretório Ativo tem permissões de delegação na conta do computador. Guarde a conta do computador numa Unidade de Organização (OU) onde estejam a salvo de supressões acidentais e onde apenas os Administradores de Domínio tenham acesso.
 
 >[!NOTE]
-> Se estiver a utilizar arquiteturas pass-the-Hash e Credential De mitigação de roubos no seu ambiente no local, eduça as alterações adequadas para garantir que a conta de computador `AZUREADSSOACC` não acabe no recipiente de Quarentena. 
+> Se estiver a utilizar arquiteturas pass-the-Hash e Credential De mitigação de roubos `AZUREADSSOACC` no seu ambiente no local, faça alterações adequadas para garantir que a conta de computador não acabe no recipiente de Quarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Passo 3: Desenrolar a funcionalidade
 
@@ -111,11 +111,11 @@ Além disso, você precisa ativar uma definição de política de zona Intranet 
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que precisa modificar as definições da zona intranet dos utilizadores?
 
-Por padrão, o navegador calcula automaticamente a zona correta, seja na Internet ou na Intranet, a partir de um URL específico. Por exemplo, `http://contoso/` mapas para a zona intranet, enquanto `http://intranet.contoso.com/` mapas para a zona da Internet (porque o URL contém um período). Os navegadores não enviarão bilhetes Kerberos para um ponto final na nuvem, como o URL DaD Azure, a menos que adicione explicitamente o URL à zona intranet do navegador.
+Por padrão, o navegador calcula automaticamente a zona correta, seja na Internet ou na Intranet, a partir de um URL específico. Por exemplo, `http://contoso/` mapas para a zona `http://intranet.contoso.com/` intranet, enquanto mapas para a zona da Internet (porque o URL contém um período). Os navegadores não enviarão bilhetes Kerberos para um ponto final na nuvem, como o URL DaD Azure, a menos que adicione explicitamente o URL à zona intranet do navegador.
 
 Existem duas formas de modificar as definições da zona intranet dos utilizadores:
 
-| Opção | Consideração de administrador | Experiência do utilizador |
+| Opção | Consideração de administrador | Experiência de utilizador |
 | --- | --- | --- |
 | Política de grupo | Administração bloqueia edição de definições de zona intranet | Os utilizadores não podem modificar as suas próprias definições |
 | Preferência política do grupo |  Administrador permite edição em definições de zona Intranet | Os utilizadores podem modificar as suas próprias definições |
@@ -124,7 +124,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 1. Abra a ferramenta Editor de Gestão de Políticas do Grupo.
 2. Editar a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza a Política de **Domínio Predefinido**.
-3. Navegue na **política** de **configuração** do utilizador >  > **modelos administrativos** > **componentes do Windows** > Internet **Explorer** > Internet Control **Panel** > Security **Page**. Em seguida, selecione **Site para Lista**de Atribuição de Zonas .
+3. Navegue na política de **configuração** > do utilizador**Modelos** > **administrativos** > **Windows Components** > Internet**Explorer** > Internet Control**Panel** > **Security Page**. Em seguida, selecione **Site para Lista**de Atribuição de Zonas .
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Ativar a apólice e, em seguida, introduzir os seguintes valores na caixa de diálogo:
    - **Nome de valor**: O URL Da AD Azure onde os bilhetes kerberos são encaminhados.
@@ -132,7 +132,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
      O resultado é o seguinte:
 
-     Nome de valor: `https://autologon.microsoftazuread-sso.com`
+     Nome de valor:`https://autologon.microsoftazuread-sso.com`
   
      Valor (Dados): 1
 
@@ -140,11 +140,11 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
    > Se pretender proibir alguns utilizadores de utilizarem SSO Sso sem emenda (por exemplo, se estes utilizadores iniciarem sessão em quiosques partilhados), detetete os valores anteriores para **4**. Esta ação adiciona o URL Azure AD à zona restrita, e falha o SSO sem emenda a toda a hora.
    >
 
-5. Selecione **OK**e, em seguida, selecione **OK** novamente.
+5. Selecione **OK** e, em seguida, selecione **OK** novamente.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue na **configuração** do **utilizador** > Política > **Modelos Administrativos** > **componentes do Windows** > Internet **Explorer** > Internet Control **Panel** > Security **Page** > **Intranet Zone**. Em seguida, **selecione Permitir atualizações para barra de estado através do script**.
+6. Navegue na política de **configuração** > do utilizador**Modelos** > **administrativos** > **Componentes do Windows Componentes** > **internet Explorer** > Internet**Control Panel** > **Security****Zone** > . Em seguida, **selecione Permitir atualizações para barra de estado através do script**.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +156,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 1. Abra a ferramenta Editor de Gestão de Políticas do Grupo.
 2. Editar a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza a Política de **Domínio Predefinido**.
-3. Navegue nas **preferências** de **configuração** do utilizador >  > **definições do Windows** > **registo** > **novo** **item**de registo de > .
+3. Navegue nas**preferências** > de **configuração** > do utilizador O**novo** > **item**do**registo** > de**definições** > do Windows .
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso15.png)
 
@@ -175,7 +175,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas as plataformas)
 
 Mozilla Firefox não usa automaticamente a autenticação Kerberos. Cada utilizador deve adicionar manualmente o URL Azure AD às suas definições firefox utilizando os seguintes passos:
-1. Executar Firefox e insira `about:config` na barra de endereços. Rejeite qualquer notificação que veja.
+1. Executar Firefox `about:config` e entrar na barra de endereços. Rejeite qualquer notificação que veja.
 2. Procure a preferência da **rede.negotiate-auth.trusted-uris.** Esta preferência lista os sites fidedignos do Firefox para a autenticação Kerberos.
 3. Clique à direita e selecione **Modificar**.
 4. Entra `https://autologon.microsoftazuread-sso.com` no campo.
@@ -187,7 +187,7 @@ Certifique-se de que a máquina que funciona o macOS está unida à AD. As instr
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge com base no Crómio (todas as plataformas)
 
-Se tiver ultrapassado as definições da [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou da política [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de que adiciona também o URL (`https://autologon.microsoftazuread-sso.com`) do Azure AD.
+Se tiver ultrapassado as definições de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de que também lhes adiciona o URL ()`https://autologon.microsoftazuread-sso.com`do Azure AD.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baseado em Crómio (macOS e outras plataformas não Windows)
 
@@ -195,7 +195,7 @@ Para o Microsoft Edge com base no Chromium no Mac OS e noutras plataformas não 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Se tiver ultrapassado as definições de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de que adiciona também o URL da AD Azure (`https://autologon.microsoftazuread-sso.com`) a eles.
+Se tiver ultrapassado as definições de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de que adiciona também o URL ()`https://autologon.microsoftazuread-sso.com`do Azure AD.
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e outras plataformas não Windows)
 
@@ -216,11 +216,11 @@ Para testar a funcionalidade para um utilizador específico, certifique-se de qu
   - Lançou [a funcionalidade](#step-3-roll-out-the-feature) para este utilizador através da Política de Grupo.
 
 Para testar o cenário em que o utilizador introduz apenas o nome de utilizador, mas não a palavra-passe:
-   - Inscreva-se na `https://myapps.microsoft.com/` numa nova sessão de navegador privado.
+   - Inscreva-se `https://myapps.microsoft.com/` numa nova sessão de navegador privado.
 
 Para testar o cenário em que o utilizador não tenha de introduzir o nome de utilizador ou a palavra-passe, utilize um destes passos: 
-   - Inscreva-se na `https://myapps.microsoft.com/contoso.onmicrosoft.com` numa nova sessão de navegador privado. Substitua *contoso* pelo nome do seu inquilino.
-   - Inscreva-se na `https://myapps.microsoft.com/contoso.com` numa nova sessão de navegador privado. Substitua *contoso.com* por um domínio verificado (não um domínio federado) no seu inquilino.
+   - Inscreva-se `https://myapps.microsoft.com/contoso.onmicrosoft.com` numa nova sessão de navegador privado. Substitua *contoso* pelo nome do seu inquilino.
+   - Inscreva-se `https://myapps.microsoft.com/contoso.com` numa nova sessão de navegador privado. Substitua *contoso.com* por um domínio verificado (não um domínio federado) no seu inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Passo 5: Rolar sobre as teclas
 
@@ -234,7 +234,7 @@ Para obter instruções sobre como rebolar as teclas, consulte [o Azure Ative Di
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Rever as chaves de desencriptação kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função de inscrição única sem emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Single Sign-On sem emenda.

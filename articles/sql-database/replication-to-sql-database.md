@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256474"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bases de dados individuais e reunidas da SQL
@@ -39,7 +39,7 @@ No local, os editores e distribuidores do SQL Server devem utilizar (pelo menos)
 - SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) ou [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
 > [!NOTE]
-> Tentar configurar a replicação usando uma versão não suportada pode resultar num número de erro MSSQL_REPL20084 (O processo não conseguiu ligar-se ao Assinante.) e MSSQL_REPL40532 (Não pode abrir o servidor \<nome> solicitado pelo login. O login falhou.).  
+> Tentar configurar a replicação utilizando uma versão não suportada pode resultar num número de erro MSSQL_REPL20084 \<(O processo não conseguiu ligar-se ao Assinante.) e MSSQL_REPL40532 (Não pode abrir o nome do servidor> solicitado pelo login. O login falhou.).  
 
 Para utilizar todas as funcionalidades da Base de Dados Azure SQL, deve utilizar as versões mais recentes do Estúdio de Gestão de [Servidores SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e das Ferramentas de Dados do [Servidor SQL](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
@@ -109,9 +109,9 @@ As seguintes opções não são suportadas para subscrições de Base de Dados A
 Crie uma publicação e uma subscrição push. Para obter mais informações, consulte:
   
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma Subscrição Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor de base de dados Azure SQL como assinante (por exemplo **N'azuresqldbdns.database.windows.net'** ) e o nome de base de dados Azure SQL como base de dados de destino (por **exemplo, AdventureWorks**).  
+- [Crie uma Subscrição Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor de base de dados Azure SQL como assinante (por exemplo **N'azuresqldbdns.database.windows.net'**) e o nome de base de dados Azure SQL como base de dados de destino (por **exemplo, AdventureWorks**).  
 
-## <a name="see-also"></a>Consulte Também  
+## <a name="see-also"></a>Veja também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

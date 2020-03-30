@@ -1,6 +1,6 @@
 ---
-title: Gerir volumes na matriz Virtual StorSimple | Documentos da Microsoft
-description: Descreve o StorSimple Device Manager e explica como usá-lo a gerenciar volumes em sua matriz Virtual StorSimple.
+title: Gerir volumes em StorSimple Virtual Array [ StorSimple Virtual Array ] Microsoft Docs
+description: Descreve o StorSimple Device Manager e explica como usá-lo para gerir volumes no seu StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,129 +15,129 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62125802"
 ---
-# <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Serviço de utilização StorSimple Device Manager para gerir volumes na matriz Virtual StorSimple
+# <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de Dispositivos do StorSimple para gerir volumes no StorSimple Virtual Array
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir volumes em sua matriz Virtual StorSimple.
+Este tutorial explica como usar o serviço StorSimple Device Manager para criar e gerir volumes no seu StorSimple Virtual Array.
 
-O serviço StorSimple Device Manager é uma extensão no portal do Azure que lhe permite gerir a solução StorSimple a partir de uma interface web único. Além da gestão de compartilhamentos e volumes, pode utilizar o serviço StorSimple Device Manager para ver e gerir dispositivos, ver alertas e ver e gerir políticas de cópia de segurança e o catálogo de cópia de segurança.
+O serviço StorSimple Device Manager é uma extensão no portal Azure que permite gerir a sua solução StorSimple a partir de uma única interface web. Além de gerir ações e volumes, pode utilizar o serviço StorSimple Device Manager para visualizar e gerir dispositivos, visualizar alertas e visualizar e gerir políticas de backup e o catálogo de backup.
 
 ## <a name="volume-types"></a>Tipos de volume
 
-Volumes do StorSimple podem ser:
+Os volumes StorSimple podem ser:
 
-* **Afixado localmente**: Os dados nestes volumes permanecem na matriz durante todo o tempo e não transbordam para a cloud.
-* **Camadas**: Dados nestes volumes podem transbordam para a nuvem. Quando cria um volume em camadas, aproximadamente 10% do espaço é aprovisionado no escalão local e 90% do espaço é aprovisionado na cloud. Por exemplo, se tiver aprovisionado um volume de 1 TB, 100 GB seria residem no espaço de local e 900 GB seria usado na cloud quando as camadas de dados. Isso por sua vez, implica que se executar fora de todo o espaço local no dispositivo, não pode aprovisionar um volume em camadas (porque a 10% necessário no escalão local não estará disponível).
+* **Localmente fixado:** Os dados nestes volumes permanecem sempre na matriz e não derramam para a nuvem.
+* **Tiered**: Os dados nestes volumes podem derramar para a nuvem. Quando se cria um volume hierárquico, aproximadamente 10 % do espaço é aprovisionado no nível local e 90 % do espaço é aprovisionado na nuvem. Por exemplo, se for provisionado um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seriam usados na nuvem quando os níveis de dados. Isto, por sua vez, implica que, se ficar sem todo o espaço local do dispositivo, não pode fornecer um volume hierárquico (porque os 10 % exigidos no nível local não estarão disponíveis).
 
 ### <a name="provisioned-capacity"></a>Capacidade aprovisionada
-Consulte a tabela seguinte para máxima capacidade aprovisionada para cada tipo de volume.
+Consulte o quadro seguinte para obter a máxima capacidade prevista para cada tipo de volume.
 
 | **Identificador de limite**                                       | **Limite**     |
 |------------------------------------------------------------|---------------|
-| Tamanho mínimo de um volume em camadas                            | 500 GB        |
-| Tamanho máximo de um volume em camadas                            | 5 TB          |
-| Tamanho mínimo de um volume afixado localmente                    | 50 GB         |
-| Tamanho máximo de um volume afixado localmente                    | 500 GB        |
+| Tamanho mínimo de um volume hierárquico                            | 500 GB        |
+| Tamanho máximo de um volume hierárquico                            | 5 TB          |
+| Tamanho mínimo de um volume fixado localmente                    | 50 GB         |
+| Tamanho máximo de um volume fixado localmente                    | 500 GB        |
 
-## <a name="the-volumes-blade"></a>O painel de Volumes
-O **Volumes** menu no seu painel de resumo do serviço StorSimple apresenta a lista de volumes de armazenamento numa determinada matriz do StorSimple e permite-lhe geri-los.
+## <a name="the-volumes-blade"></a>A lâmina Volumes
+O menu **Volumes** da sua lâmina de resumo do serviço StorSimple apresenta a lista de volumes de armazenamento numa dada matriz StorSimple e permite-lhe geri-los.
 
-![Painel de volumes](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
+![Lâmina de volumes](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 
 Um volume consiste numa série de atributos:
 
-* **Nome do volume** – um nome descritivo, que tem de ser exclusivo e ajuda a identificar o volume.
-* **Estado** – pode estar online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm acesso ao utilizar o volume.
-* **Tipo** – indica se o volume está **em camadas** (predefinição) ou **localmente afixado**.
-* **Capacidade** – Especifica a quantidade de dados utilizados em comparação com a quantidade total de dados que podem ser armazenados pelo iniciador (servidor).
-* **Cópia de segurança** – no caso da matriz Virtual StorSimple, todos os volumes são ativados automaticamente para cópia de segurança.
-* **Anfitriões ligados** – Especifica os iniciadores (servidores) que têm permissão para aceder a este volume.
+* **Nome do Volume** – Um nome descritivo que deve ser único e ajuda a identificar o volume.
+* **Estado** – Pode estar online ou offline. Se um volume estiver offline, não é visível para iniciadores (servidores) que são autorizados a aceder à utilização do volume.
+* **Tipo** – Indica se o volume está **nivida (o** padrão) ou **fixado localmente**.
+* **Capacidade** – especifica a quantidade de dados utilizados em comparação com a quantidade total de dados que podem ser armazenados pelo iniciador (servidor).
+* **Backup** – No caso do StorSimple Virtual Array, todos os volumes estão automaticamente ativados para cópia de segurança.
+* **Anfitriões conectados** – Especifica os iniciadores (servidores) que têm acesso a este volume.
 
 ![Detalhes de volumes](./media/storsimple-virtual-array-manage-volumes/volume-details.png)
 
-Utilize as instruções neste tutorial para realizar as seguintes tarefas:
+Utilize as instruções deste tutorial para executar as seguintes tarefas:
 
-* Adicionar um volume
+* Adicione um volume
 * Modificar um volume
-* Colocar um volume offline
+* Pegue um volume offline
 * Eliminar um volume
 
-## <a name="add-a-volume"></a>Adicionar um volume
+## <a name="add-a-volume"></a>Adicione um volume
 
-1. No painel Resumo do serviço do StorSimple, clique em **+ adicionar volume** na barra de comandos. Esta ação abre o **adicionar volume** painel.
+1. A partir da lâmina de resumo do serviço StorSimple, clique **+ adicione volume** da barra de comando. Isto abre a lâmina de **volume Adicionar.**
    
     ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
-2. Na **adicionar volume** painel, faça o seguinte:
+2. Na lâmina de **volume Adicionar,** faça o seguinte:
    
-   * Na **nome do Volume** , insira um nome exclusivo para o volume. O nome tem de ser uma cadeia que contém 3 e 127 carateres.
-   * Na **tipo** lista pendente, especifique se pretende criar um **em camadas** ou **localmente afixado** volume. Para cargas de trabalho que necessitem de garantias locais, latências baixas e um desempenho mais elevado, selecione **localmente afixado volume**. Para todos os outros dados, selecione **em camadas** volume.
-   * Na **capacidade** campo, especifique o tamanho do volume. Tem de ser um volume em camadas entre 500 GB e 5 TB e um volume localmente afixado tem de estar entre 50 GB e 500 GB.
-   * * Clique em **anfitriões ligados**, selecione um registo de controlo de acesso (ACR) correspondente para o iniciador de iSCSI que pretende ligar a este volume e, em seguida, clique em **selecione**.
-3. Para adicionar um novo anfitrião ligado, clique em **adicionar novo**, introduza um nome para o anfitrião e o iSCSI nome qualificado (IQN) e clique em **Add**.
+   * No campo **de nome volume,** introduza um nome único para o seu volume. O nome deve ser uma corda que contenha 3 a 127 caracteres.
+   * Na lista de abandono do **Tipo,** especifique se criar á criação de um volume **hierárquico** ou **fixado localmente.** Para cargas de trabalho que requerem garantias locais, baixas llátências e maior desempenho, selecione **volume fixado localmente.** Para todos os outros dados, selecione volume **tiered.**
+   * No campo **capacidade,** especifique o tamanho do volume. Um volume hierárquico deve ser entre 500 GB e 5 TB e um volume fixado localmente deve ser entre 50 GB e 500 GB.
+   * * Clique em **anfitriões Conectados,** selecione um registo de controlo de acesso (ACR) correspondente ao iniciador iSCSI que pretende ligar a este volume e, em seguida, clique em **Selecionar**.
+3. Para adicionar um novo anfitrião conectado, clique **em Adicionar novo,** insira um nome para o anfitrião e o seu nome iSCSI Qualificado (IQN), e, em seguida, clique em **Adicionar**.
    
     ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
-4. Quando tiver terminado de configurar o volume, clique em **criar**. Será criado um volume com as definições especificadas e verá uma notificação sobre a criação bem-sucedida dos mesmos. Por predefinição, cópia de segurança irão estar ativada para o volume.
-5. Para confirmar que o volume foi criado com êxito, vá para o **Volumes** painel. Deverá ver o volume listado.
+4. Quando terminar de configurar o seu volume, clique em **Criar**. Será criado um volume com as definições especificadas e verá uma notificação sobre a criação bem sucedida do mesmo. Por predefinição, a cópia de segurança será ativada para o volume.
+5. Para confirmar que o volume foi criado com sucesso, vá à lâmina **Volumes.** Devia ver o volume listado.
    
-    ![Volume criar com êxito](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
+    ![Volume criar sucesso](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
 
 ## <a name="modify-a-volume"></a>Modificar um volume
 
-Modificar um volume quando precisar de alterar os anfitriões que aceder ao volume. Não não possível modificar os outros atributos de um volume quando o volume tiver sido criado.
+Modifique um volume quando precisa de alterar os anfitriões que acedem ao volume. Os outros atributos de um volume não podem ser modificados uma vez que o volume tenha sido criado.
 
 #### <a name="to-modify-a-volume"></a>Para modificar um volume
 
-1. Partir do **Volumes** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que pretende modificar.
-2. **Selecione** do volume e clique em **anfitriões ligados** para ver o anfitrião atualmente ligado e modificá-lo para um servidor diferente.
+1. A partir da definição de **Volumes** na lâmina de resumo do serviço StorSimple, selecione a matriz virtual em que reside o volume que pretende modificar.
+2. **Selecione** o volume e clique em **anfitriões conectados** para visualizar o anfitrião atualmente conectado e modifique-o para um servidor diferente.
    
-    ![Editar o volume](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
-3. Guardar as alterações ao clicar o **guardar** barra de comandos. As definições especificadas serão aplicadas e verá uma notificação.
+    ![Editar volume](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
+3. Guarde as suas alterações clicando na barra de comando **Guardar.** As definições especificadas serão aplicadas e verá uma notificação.
 
-## <a name="take-a-volume-offline"></a>Colocar um volume offline
+## <a name="take-a-volume-offline"></a>Pegue um volume offline
 
-Terá de colocar um volume offline quando estiver a planear para modificá-lo ou eliminá-lo. Quando um volume estiver offline, não está disponível para o acesso de leitura / escrita. Precisará tirar o volume offline no anfitrião, bem como no dispositivo.
+Pode ser necessário desativar um volume quando planeia modificá-lo ou eliminá-lo. Quando um volume está offline, não está disponível para acesso de leitura- escrita. Terá de desligar o volume do hospedeiro, bem como do dispositivo.
 
-#### <a name="to-take-a-volume-offline"></a>Para colocar um volume offline
+#### <a name="to-take-a-volume-offline"></a>Para tirar um volume offline
 
-1. Certifique-se de que o volume em questão não está em utilização antes de colocar offline.
-2. Coloque o volume offline no anfitrião primeiro. Isso elimina qualquer potencial risco de Corrupção de dados no volume. Para obter passos específicos, consulte as instruções para o seu sistema de operativo anfitrião.
-3. Depois do volume do anfitrião estiver offline, coloque o volume na matriz offline, efetuando os seguintes passos:
+1. Certifique-se de que o volume em questão não está a ser utilizado antes de o desligar.
+2. Desative o volume no hospedeiro primeiro. Isto elimina qualquer risco potencial de corrupção de dados no volume. Para obter passos específicos, consulte as instruções do seu sistema operativo anfitrião.
+3. Depois de o volume no hospedeiro estar offline, desembote o volume da matriz offline, executando os seguintes passos:
    
-   * Partir do **Volumes** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que pretende colocar offline.
-   * **Selecione** do volume e clique em **...**  (em alternativa com o botão direito na linha) e no menu de contexto, selecione **colocar offline**.
+   * A partir da definição de **Volumes** na lâmina de resumo do serviço StorSimple, selecione a matriz virtual em que reside o volume que pretende retirar offline.
+   * **Selecione** o volume e clique **...** (clique alternadamente à direita nesta linha) e a partir do menu de contexto, selecione **Desligar**.
      
-        ![Offline volume](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
-   * Reveja as informações a **colocar offline** painel e confirme a sua aceitação da operação. Clique em **colocar offline** para colocar o volume offline. Verá uma notificação da operação em curso.
-   * Para confirmar que o volume com êxito foi colocado offline, vá para o **Volumes** painel. Deverá ver o estado do volume como offline.
+        ![Volume offline](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
+   * Reveja as informações na lâmina **Desativada** e confirme a sua aceitação da operação. Clique **em Desligar** para desligar o volume. Verá uma notificação da operação em curso.
+   * Para confirmar que o volume foi desligado com sucesso, vá para a lâmina **Volumes.** Devia ver o estado do volume offline.
      
-       ![Confirmação de offline volume](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
+       ![Confirmação de volume offline](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
 
 ## <a name="delete-a-volume"></a>Eliminar um volume
 
 > [!IMPORTANT]
-> Pode eliminar um volume apenas se está offline.
+> Só é possível eliminar um volume se estiver offline.
 > 
 > 
 
-Conclua os passos seguintes para eliminar um volume.
+Complete os seguintes passos para eliminar um volume.
 
-#### <a name="to-delete-a-volume"></a>Para eliminar um volume
+#### <a name="to-delete-a-volume"></a>Para apagar um volume
 
-1. Partir do **Volumes** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que pretende eliminar.
-2. **Selecione** do volume e clique em **...**  (em alternativa com o botão direito na linha) e no menu de contexto, selecione **eliminar**.
+1. A partir da definição **de Volumes** na lâmina de resumo do serviço StorSimple, selecione a matriz virtual em que reside o volume que pretende eliminar.
+2. **Selecione** o volume e clique **...** (clique alternadamente à direita nesta linha) e a partir do menu de contexto, selecione **Delete**.
    
-    ![Eliminação do volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
-3. Verificar o estado do volume que pretende eliminar. Se o volume que pretende eliminar não estiver offline, colocá-lo offline em primeiro lugar, siga os passos descritos em [colocar um volume offline](#take-a-volume-offline).
-4. Quando lhe for pedida confirmação no **elimine** painel, aceite a confirmação e clique em **eliminar**. O volume agora será eliminado e o **Volumes** painel mostrará a lista atualizada de volumes dentro da matriz virtual.
+    ![Eliminar volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
+3. Verifique o estado do volume que pretende eliminar. Se o volume que pretende eliminar não estiver offline, desative-o primeiro, seguindo os passos em [Take a volume offline](#take-a-volume-offline).
+4. Quando solicitado para confirmação na lâmina **Apagar,** aceite a confirmação e clique em **Apagar**. O volume será agora eliminado e a lâmina **Volumes** mostrará a lista atualizada de volumes dentro da matriz virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [clonar um volume StorSimple](storsimple-virtual-array-clone.md).
+Aprenda a [clonar um volume StorSimple](storsimple-virtual-array-clone.md).
 

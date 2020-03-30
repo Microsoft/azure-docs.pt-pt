@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270423"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos da computação no Azure Machine Learning? 
@@ -27,7 +27,7 @@ Num modelo típico de ciclo de vida de desenvolvimento, pode:
 
 Os recursos computacionais que utiliza para os seus alvos de computação estão ligados a um espaço de [trabalho.](concept-workspace.md) Os recursos computacionais que não a máquina local são partilhados pelos utilizadores do espaço de trabalho.
 
-## <a name="train"></a>Metas de computação de formação
+## <a name="training-compute-targets"></a><a name="train"></a>Metas de computação de formação
 
 O Azure Machine Learning tem um suporte variado em diferentes recursos computacionais.  Também pode anexar o seu próprio recurso computacional, embora o suporte para vários cenários possa variar.
 
@@ -35,7 +35,7 @@ O Azure Machine Learning tem um suporte variado em diferentes recursos computaci
 
 Saiba mais sobre [a configuração e utilização de um alvo](how-to-set-up-training-targets.md)de cálculo para a formação de modelos.
 
-## <a name="deploy"></a>Metas de implantação
+## <a name="deployment-targets"></a><a name="deploy"></a>Metas de implantação
 
 Os seguintes recursos computacionais podem ser usados para hospedar a implementação do seu modelo.
 
@@ -53,7 +53,7 @@ Pode criar instâncias computacionais de Aprendizagem automática Azure (pré-vi
 | | Azure Machine Learning studio | Portal do Azure | SDK | Modelo do Resource Manager | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Instância de computação | sim | sim | sim | sim |  |
-| Cluster de cálculo | sim | sim | sim | sim | sim |
+| Cluster computacional | sim | sim | sim | sim | sim |
 
 Quando criados estes recursos computacionais são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de alvos computacionais.
 

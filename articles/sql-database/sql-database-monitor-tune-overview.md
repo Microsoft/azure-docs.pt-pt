@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 837d88665c1fdffe902c9c478e5d6dc65a2e402a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268733"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database"></a>Monitorização e afinação de desempenho na Base de Dados Azure SQL
@@ -39,7 +39,7 @@ Pode monitorizar rapidamente as seguintes métricas de recursos no portal Azure 
 - **Utilização de DTU**
 
   Verifique se uma base de dados ou um pool elástico está a atingir 100% do uso de DTU por um longo período de tempo. O uso elevado de DTU indica que a sua carga de trabalho pode necessitar de mais recursos de CPU ou IO. Também pode indicar consultas que precisam de ser otimizadas.
-- **Utilização do CPU**
+- **Utilização da CPU**
 
   Verifique se uma base de dados, um pool elástico ou um caso gerido está a atingir 100% do uso do CPU durante um longo período de tempo. A Alta CPU indica que a sua carga de trabalho pode necessitar de mais recursos de CPU ou IO. Também pode indicar consultas que precisam de ser otimizadas.
 - **Uso de IO**

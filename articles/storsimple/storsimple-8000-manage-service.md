@@ -1,5 +1,5 @@
 ---
-title: Implementar o serviço StorSimple Device Manager em Azure  Gestor de Dispositivos) em Azure  Microsoft Docs
+title: Implementar o serviço StorSimple Device Manager em Azure [ Gestor de Dispositivos) em Azure [ Microsoft Docs
 description: Explica como criar e eliminar o serviço StorSimple Device Manager no portal Azure, e descreve como gerir a chave de registo de serviço.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267784"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implemente o serviço StorSimple Device Manager para dispositivos da série StorSimple 8000
@@ -77,7 +77,7 @@ Efetue os seguintes passos para eliminar um serviço.
 
     ![Serviço de pesquisa para apagar](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Isto leva-o à lâmina de serviço StorSimple Device Manager. Clique em **Eliminar**.
+2. Isto leva-o à lâmina de serviço StorSimple Device Manager. Clique em **Apagar**.
 
     ![Eliminar o serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
@@ -103,7 +103,7 @@ Precisa regenerar uma chave de registo de serviço se for obrigado a realizar a 
 Execute os seguintes passos para regenerar uma chave de registo de serviço.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registo de serviço
-1. Na lâmina **StorSimple Device Manager,** vá à **Management &gt;** **Keys**.
+1. Na lâmina **StorSimple Device Manager,** vá para **as Teclas**de **Gestão &gt; ** .
     
     ![Painel de chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -177,19 +177,19 @@ Execute os seguintes passos para atualizar a encriptação de dados do serviço 
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Para atualizar a chave de encriptação de dados de serviço em dispositivos físicos
 1. Utilize o Windows PowerShell para o StorSimple para ligar à consola. Selecione a opção 1 para iniciar sessão com acesso total.
-2. No pedido de comando, escreva: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. No pedido de comando, escreva:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Forneça a chave de encriptação de dados de serviço que obteve no Passo 2: Utilize o [Windows PowerShell para o StorSimple para iniciar a alteração da chave](#to-initiate-the-service-data-encryption-key-change)de encriptação de dados do serviço .
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Para atualizar a chave de encriptação de dados de serviço em todos os aparelhos em nuvem 8010/8020
 1. Descarregue e configurar o script [Update-CloudApplianceServiceCryptonKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell. 
-2. Open PowerShell e no pedido de comando, escreva: `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Open PowerShell e no pedido de comando, escreva:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Este script irá garantir que a chave de encriptação de dados do serviço está definida em todos os aparelhos de nuvem 8010/8020 sob o gestor do dispositivo.
 
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Operações suportadas em dispositivos que executam versões antes do Update 5.0
 No portal Azure, apenas são suportados os dispositivos StorSimple que executam o Update 5.0 e superior. Os dispositivos que estão a executar versões mais antigas têm suporte limitado. Depois de ter migrado para o portal Azure, utilize a tabela seguinte para perceber quais as operações suportadas em dispositivos que executam versões antes do Update 5.0.
 
-| Operação                                                                                                                       | Suportadas      |
+| Operação                                                                                                                       | Suportado      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registar um dispositivo                                                                                                               | Sim            |
 | Configure as definições do dispositivo, tais como geral, rede e segurança                                                                | Sim            |
@@ -211,7 +211,7 @@ No portal Azure, apenas são suportados os dispositivos StorSimple que executam 
 | Ligar e desligar os controladores do dispositivo                                                                                              | Sim            |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o processo de [implantação StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Saiba mais sobre a gestão da sua conta de [armazenamento StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Saiba mais sobre como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964231"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Problemas de resolução de problemas em Partilha de Dados do Azure 
@@ -60,7 +60,7 @@ Se esta for a primeira vez que partilha ou recebe dados da loja de dados Azure, 
 
 A partilha baseada em SQL requer permissões adicionais. Consulte a partilha baseada em Problemas baseado em SQL para obter detalhes.
 
-## <a name="troubleshooting-sql-based-sharing"></a>Partilha baseada em Problemas baseado em SQL
+## <a name="troubleshooting-sql-based-sharing"></a>Resolução de problemas com a partilha baseada em SQL
 
 "O utilizador x não existe na base de dados SQL"
 
@@ -78,7 +78,7 @@ Se receber este erro ao mapear dataset para um alvo baseado em SQL, pode ser por
     exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
     exec sp_addrolemember db_ddladmin, "<share_acc_name>";
 ```
-Note que o *recursos <share_acc_name>* é o nome do seu recurso Data Share.      
+Note que o *<share_acc_name>* é o nome do seu recurso Data Share.      
 
 Certifique-se de que seguiu todos os pré-requisitos listados em [Partilhar os seus dados](share-your-data.md) e aceite e receba o tutorial de [dados.](subscribe-to-data-share.md)
 
@@ -89,7 +89,7 @@ Se a mensagem de erro estiver relacionada com a permissão, verifique se o servi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) . 
+Para aprender a começar a partilhar dados, continue a partilhar o seu tutorial de [dados.](share-your-data.md) 
 
 Para aprender a receber dados, continue a aceitar e receber o tutorial de [dados.](subscribe-to-data-share.md)
 

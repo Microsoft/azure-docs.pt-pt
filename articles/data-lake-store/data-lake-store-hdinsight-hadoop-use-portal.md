@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265574"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Crie clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
@@ -29,7 +29,7 @@ Aprenda a usar o portal Azure para criar um cluster HDInsight com uma conta De a
 
 Antes de começar, certifique-se de que preencheu os seguintes requisitos:
 
-* **Uma subscrição do Azure**. Vá para [obter o teste gratuito de Azure.](https://azure.microsoft.com/pricing/free-trial/)
+* **Uma subscrição Azure.** Vá para [obter o teste gratuito de Azure.](https://azure.microsoft.com/pricing/free-trial/)
 * **Uma conta Gen1 de Armazenamento de Lago**de Dados. Siga as instruções do [Get started com o Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md). Também deve criar uma pasta de raiz na conta.  Neste artigo, é utilizada uma pasta de raiz chamada __/clusters.__
 * Um diretor de serviço de **Diretório Ativo Azure.** Este guia de como orientar fornece instruções sobre como criar um diretor de serviço no Azure Ative Directory (Azure AD). No entanto, para criar um diretor de serviço, deve ser administrador da AD Azure. Se for administrador, pode ignorar este pré-requisito e continuar.
 
@@ -45,14 +45,14 @@ Nesta secção, cria-se um cluster HDInsight com contas de Data Lake Storage Gen
 
 Para criar um cluster HDInsight com uma conta Gen1 de Armazenamento de Data Lake como conta de armazenamento padrão:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Siga [os clusters Create](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o tipo de **armazenamento primário,** selecione **Azure Data Lake Storage Gen1**, e, em seguida, introduza as seguintes informações:
 
     ![Adicionar principal de serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar principal de serviço ao cluster HDInsight")
 
     * **Selecione data lake store account**: Selecione uma conta Gen1 de Armazenamento de Data Lake existente. É necessária uma conta gen1 de armazenamento de data lake existente.  Veja [Pré-requisitos](#prerequisites).
-    * **Caminho raiz**: Insira um caminho onde os ficheiros específicos do cluster devem ser armazenados. Na imagem, é __/clusters/myhdiadlcluster/__ , em que a pasta __/clusters__ deve existir, e o Portal cria pasta *myhdicluster.*  O *myhdicluster* é o nome do cluster.
+    * **Caminho raiz**: Insira um caminho onde os ficheiros específicos do cluster devem ser armazenados. Na imagem, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir, e o Portal cria pasta *myhdicluster.*  O *myhdicluster* é o nome do cluster.
     * **Acesso da Data Lake Store**: Configure o acesso entre a conta Data Lake Storage Gen1 e o cluster HDInsight. Para obter instruções, consulte O acesso do [Configure Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
     * Contas de **armazenamento adicionais:** Adicione as contas de armazenamento do Azure como contas de armazenamento adicionais para o cluster. Para adicionar contas adicionais de Data Lake Storage Gen1 é feito dando ao cluster permissões em dados em mais contas de Data Lake Storage Gen1 enquanto configura uma conta de Data Lake Storage Gen1 como o tipo de armazenamento primário. Consulte o acesso do [Configure Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
@@ -64,7 +64,7 @@ As seguintes instruções criam um cluster HDInsight com uma conta de armazename
 
 Para criar um cluster HDInsight com uma conta Gen1 de Armazenamento de Data Lake como uma conta de armazenamento adicional:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Siga [os clusters Create](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o tipo de **armazenamento primário,** selecione **Armazenamento Azure,** e introduza as seguintes informações:
 
@@ -106,7 +106,7 @@ Utilizar um serviço existente do portal Azure:
 
 1. Selecione **Access** para configurar o acesso à pasta.  Consulte [as permissões](#configure-file-permissions)de ficheiro configure .
 
-### <a name="configure-file-permissions"></a>Configurar permissões de ficheiros
+### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurar permissões de ficheiros
 
 A configuração é diferente dependendo se a conta é usada como armazenamento predefinido ou uma conta de armazenamento adicional:
 
@@ -146,7 +146,7 @@ Se estiver a utilizar o Data Lake Storage Gen1 como armazenamento adicional, dev
 
 ![Atribuir permissões principais de serviço para o cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Atribuir permissões principais de serviço para o cluster HDInsight")
 
-## <a name="verify-cluster-set-up"></a>Verificar a configuração do cluster
+## <a name="verify-cluster-setup"></a><a name="verify-cluster-set-up"></a>Verificar a configuração do cluster
 
 Depois de concluída a configuração do cluster, na lâmina do cluster, verifique os seus resultados fazendo ambos os seguintes passos:
 
@@ -174,9 +174,9 @@ Se utilizar, por exemplo, o cluster que criou com data Lake Storage Gen1 como ar
 
 Descrições:
 
-* `adl://hdiadlsg1storage.azuredatalakestore.net/` é a raiz da conta Data Lake Storage Gen1.
-* `/clusters/myhdiadlcluster` é a raiz dos dados do cluster que especificou ao criar o cluster.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` é a localização do ficheiro de amostra que usou na consulta.
+* `adl://hdiadlsg1storage.azuredatalakestore.net/`é a raiz da conta Data Lake Storage Gen1.
+* `/clusters/myhdiadlcluster`é a raiz dos dados do cluster que especificou ao criar o cluster.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`é a localização do ficheiro de amostra que usou na consulta.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-storage-gen1-account-as-additional-storage"></a>Executar uma consulta de Hive contra dados numa conta Gen1 de Armazenamento de Data Lake (como armazenamento adicional)
 

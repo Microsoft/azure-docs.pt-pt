@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253913"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Grupos de recursos exportadores que contêm extensões VM
@@ -78,7 +78,7 @@ Quando o Grupo de Recursos é exportado, é criado um único parâmetro de model
 
 Como cada configuração protegida tem um conjunto de propriedades necessárias, uma lista destas propriedades precisa de ser recolhida. Cada parâmetro da configuração de configurações protegidas pode ser encontrado no esquema do Gestor de [Recursos Azure no GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Este esquema inclui apenas os conjuntos de parâmetros para as extensões enumeradas na secção geral deste documento. 
 
-De dentro do repositório de esquemas, procure a extensão desejada, por exemplo `IaaSDiagnostics`. Uma vez localizadas as extensões `protectedSettings` objeto, tome nota de cada parâmetro. No exemplo da extensão `IaasDiagnostic`, os parâmetros necessários são `storageAccountName`, `storageAccountKey`e `storageAccountEndPoint`.
+De dentro do repositório de esquemas, procure a `IaaSDiagnostics`extensão desejada, por exemplo. Uma vez `protectedSettings` que o objeto de extensões tenha sido localizado, tome nota de cada parâmetro. No exemplo da `IaasDiagnostic` extensão, os `storageAccountName`parâmetros `storageAccountKey` `storageAccountEndPoint`requerem, e .
 
 ```json
 "protectedSettings": {
@@ -104,9 +104,9 @@ De dentro do repositório de esquemas, procure a extensão desejada, por exemplo
 
 ### <a name="step-3---re-create-the-protected-configuration"></a>Passo 3 - Recriar a configuração protegida
 
-No modelo exportado, procure `protectedSettings` e substitua o objeto de fixação protegido exportado por um novo que inclua os parâmetros de extensão necessários e um valor para cada um.
+No modelo exportado, `protectedSettings` procure e substitua o objeto de definição protegido exportado por um novo que inclua os parâmetros de extensão necessários e um valor para cada um.
 
-No exemplo da extensão `IaasDiagnostic`, a nova configuração de definição protegida seria o seguinte exemplo:
+No exemplo da `IaasDiagnostic` extensão, a nova configuração de definição protegida seria o seguinte exemplo:
 
 ```json
 "protectedSettings": {
@@ -148,9 +148,9 @@ O recurso de extensão final é semelhante ao seguinte exemplo JSON:
 }
 ```
 
-Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores de regulação protegidos, certifique-se de que utiliza o tipo de parâmetro `SecureString` para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos de Gestor de Recursos Do Azure.](../../resource-group-authoring-templates.md)
+Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores `SecureString` de regulação protegidos, certifique-se de que utiliza o tipo de parâmetro para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos de Gestor de Recursos Do Azure.](../../resource-group-authoring-templates.md)
 
-No exemplo da extensão `IaasDiagnostic`, os seguintes parâmetros seriam criados na secção de parâmetros do modelo do Gestor de Recursos.
+No exemplo da `IaasDiagnostic` extensão, os seguintes parâmetros seriam criados na secção de parâmetros do modelo de Gestor de Recursos.
 
 ```json
 "storageAccountName": {

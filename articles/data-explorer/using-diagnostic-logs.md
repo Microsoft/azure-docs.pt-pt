@@ -1,6 +1,6 @@
 ---
-title: Monitorar operações de ingestão de Data Explorer do Azure usando logs de diagnóstico
-description: Saiba como configurar os logs de diagnóstico do Azure Data Explorer para monitorar as operações de ingestão.
+title: Monitorize operações de ingestão do Explorador de Dados do Azure utilizando registos de diagnóstico
+description: Aprenda a configurar registos de diagnóstico para o Azure Data Explorer para monitorizar as operações de ingestão.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,74 +8,74 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277431"
 ---
-# <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorar operações de ingestão de Data Explorer do Azure usando logs de diagnóstico (versão prévia)
+# <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorize as operações de ingestão do Explorador de Dados do Azure utilizando registos de diagnóstico (Pré-visualização)
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em uma tabela em um banco de dado para poder executar consultas nele. [Azure monitor logs de diagnóstico](/azure/azure-monitor/platform/diagnostic-logs-overview) fornecem dados sobre a operação dos recursos do Azure. O Azure Data Explorer usa logs de diagnóstico para obter informações sobre êxitos e falhas de ingestão. Você pode exportar logs de operação para o armazenamento do Azure, Hub de eventos ou Log Analytics para monitorar o status de ingestão. Os logs do armazenamento do Azure e do hub de eventos do Azure podem ser roteados para uma tabela no cluster de Data Explorer do Azure para análise posterior.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, primeiro crie um cluster e crie uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa tabela numa base de dados para que possa fazer perguntas contra ela. Os [registos de diagnóstico](/azure/azure-monitor/platform/diagnostic-logs-overview) do Azure Monitor fornecem dados sobre o funcionamento dos recursos do Azure. O Azure Data Explorer utiliza registos de diagnóstico para insights sobre sucessos e falhas de ingestão. Pode exportar registos de operação para O Armazenamento, Hub de Eventos ou Log Analytics para monitorizar o estado de ingestão. Os registos do Azure Storage e do Azure Event Hub podem ser encaminhados para uma tabela no seu cluster Azure Data Explorer para análise mais aprofundada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
-* Crie um [cluster e um banco de dados](create-cluster-database-portal.md).
+* Se não tiver uma subscrição Azure, crie uma [conta Azure gratuita.](https://azure.microsoft.com/free/)
+* Criar um [cluster e base de dados.](create-cluster-database-portal.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurar logs de diagnóstico para um cluster de Data Explorer do Azure
+## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurar registos de diagnóstico para um cluster Azure Data Explorer
 
-Os logs de diagnóstico podem ser usados para configurar a coleção dos seguintes dados de log:
-* Operações de ingestão com êxito: esses logs têm informações sobre as operações de ingestão concluídas com êxito.
-* Operações de ingestão com falha: esses logs têm informações detalhadas sobre operações de ingestão com falha, incluindo detalhes do erro. 
+Os registos de diagnóstico podem ser utilizados para configurar a recolha dos seguintes dados de registo:
+* Operações de ingestão bem sucedidas: Estes registos têm informações sobre operações de ingestão concluídas com sucesso.
+* Operações de ingestão falhadas: Estes registos têm informações detalhadas sobre operações de ingestão falhadas, incluindo detalhes de erro. 
 
-Os dados são então arquivados em uma conta de armazenamento, transmitidos para um hub de eventos ou enviados para Log Analytics, de acordo com suas especificações.
+Os dados são então arquivados numa conta de Armazenamento, transmitidos para um Hub de Eventos, ou enviados para o Log Analytics, de acordo com as suas especificações.
 
 ### <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 
-Os registos de diagnóstico estão desativados por predefinição. Para habilitar os logs de diagnóstico, execute as seguintes etapas:
+Os registos de diagnóstico são desativados por defeito. Para ativar os registos de diagnóstico, faça os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione o recurso de cluster de data Explorer do Azure que você deseja monitorar.
-1. Sob **monitorização**, selecione **das definições de diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)selecione o recurso de cluster Azure Data Explorer que pretende monitorizar.
+1. Em **Monitorização**, selecione **Definições de diagnóstico**.
   
-    ![Adicionar logs de diagnóstico](media/using-diagnostic-logs/add-diagnostic-logs.png)
+    ![Adicione registos de diagnóstico](media/using-diagnostic-logs/add-diagnostic-logs.png)
 
-1. Selecione **Adicionar configuração de diagnóstico**.
-1. Na janela **configurações de diagnóstico** :
+1. **Selecione Adicionar definição de diagnóstico**.
+1. Na janela de **definições de Diagnóstico:**
  
-    ![Configuração de diagnósticos configurações](media/using-diagnostic-logs/configure-diagnostics-settings.png) 
+    ![Configuração de configurações de diagnóstico](media/using-diagnostic-logs/configure-diagnostics-settings.png) 
 
-    1. Selecione o **nome** para a configuração de diagnóstico.
-    1. Selecione um ou mais destinos: uma conta de armazenamento, um hub de eventos ou um Log Analytics.
-    1. Selecione os logs a serem coletados: `SucceededIngestion` ou `FailedIngestion`.
-    1. Selecione as [métricas](using-metrics.md#supported-azure-data-explorer-metrics) a serem coletadas (opcional).  
-    1. Selecione **salvar** para salvar as novas configurações e métricas dos logs de diagnóstico.
-    1. Crie uma **nova solicitação de suporte** no portal do Azure para solicitar a ativação de logs de diagnóstico.
+    1. Selecione **Nome** para a sua definição de diagnóstico.
+    1. Selecione um ou mais alvos: uma conta de Armazenamento, Hub de Eventos ou Log Analytics.
+    1. Selecione registos `SucceededIngestion` a `FailedIngestion`recolher: ou .
+    1. Selecione [métricas](using-metrics.md#supported-azure-data-explorer-metrics) a recolher (opcional).  
+    1. Selecione **Guardar** para guardar as novas definições e métricas de registos de diagnóstico.
+    1. Crie um **novo pedido** de suporte no portal Azure para solicitar a ativação de registos de diagnóstico.
 
-As novas configurações serão definidas em alguns minutos. Os logs são exibidos no destino de arquivamento configurado (conta de armazenamento, Hub de eventos ou Log Analytics). 
+Novas definições serão definidas em poucos minutos. Os registos aparecem então no alvo de arquivo configurado (conta de armazenamento, Hub de eventos ou Log Analytics). 
 
-## <a name="diagnostic-logs-schema"></a>Esquema de registos de diagnóstico
+## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 
-Todos os [logs de diagnóstico Azure monitor compartilham um esquema de nível superior comum](/azure/azure-monitor/platform/diagnostic-logs-schema). O Azure Data Explorer tem propriedades exclusivas para seus próprios eventos. Todos os logs são armazenados em um formato JSON.
+Todos os [registos de diagnóstico do Monitor Azure partilham um esquema comum de alto nível](/azure/azure-monitor/platform/diagnostic-logs-schema). O Azure Data Explorer tem propriedades únicas para os seus próprios eventos. Todos os registos são armazenados num formato JSON.
 
 ### <a name="ingestion-logs-schema"></a>Esquema de logs de ingestão
 
-As cadeias de caracteres JSON de log incluem elementos listados na tabela a seguir:
+As cordas JSON de log incluem elementos listados na tabela seguinte:
 
 |Nome               |Descrição
 |---                |---
 |hora               |Hora do relatório
-|resourceId         |ID do recurso de Azure Resource Manager
-|operationName      |Nome da operação: ' MICROSOFT. KUSTO/CLUSTERS/INGESTÃO/AÇÃO '
-|operationVersion   |Versão do esquema: ' 1,0 ' 
-|categoria           |Categoria da operação. `SucceededIngestion` ou `FailedIngestion`. As propriedades são diferentes para [operação com êxito](#successful-ingestion-operation-log) ou [falha](#failed-ingestion-operation-log).
+|resourceId         |ID de recurso do Gestor de Recursos Azure
+|operationName      |Nome da operação: 'MICROSOFT. KUSTO/CLUSTERS/INGEST/ACTION'
+|operationVersion   |Versão schema: '1.0' 
+|categoria           |Categoria da operação. `SucceededIngestion` ou `FailedIngestion`. As propriedades diferem para [o funcionamento bem sucedido](#successful-ingestion-operation-log) ou para o [funcionamento falhado](#failed-ingestion-operation-log).
 |propriedades         |Informações detalhadas da operação.
 
-#### <a name="successful-ingestion-operation-log"></a>Log de operação de ingestão com êxito
+#### <a name="successful-ingestion-operation-log"></a>Registo de operação de ingestão bem-sucedido
 
 **Exemplo:**
 
@@ -98,19 +98,19 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
     }
 }
 ```
-**Propriedades de um log de diagnóstico de operação com êxito**
+**Propriedades de um registo de diagnóstico de operação bem-sucedido**
 
 |Nome               |Descrição
 |---                |---
-|com êxito        |Tempo de conclusão de ingestão
-|operationId        |ID da operação de ingestão do Data Explorer do Azure
-|base de dados           |Nome do banco de dados de destino
-|table              |Nome da tabela de destino
-|ingestionSourceId  |ID da fonte de dados de ingestão
-|ingestionSourcePath|Caminho da fonte de dados de ingestão ou URI do blob
+|sucedeuOn        |Tempo de conclusão da ingestão
+|operationId        |Id da operação de ingestão de dados azure
+|base de dados           |Nome da base de dados alvo
+|tabela              |Nome da tabela-alvo
+|ingeçãoSourceId  |Identificação da fonte de dados de ingestão
+|ingestionSourcePath|Caminho da fonte de dados de ingestão ou blob URI
 |rootActivityId     |ID da Atividade
 
-#### <a name="failed-ingestion-operation-log"></a>Falha no log da operação de ingestão
+#### <a name="failed-ingestion-operation-log"></a>Registo de operação de ingestão falhado
 
 **Exemplo:**
 
@@ -139,25 +139,25 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 }
 ```
 
-**Propriedades de um log de diagnóstico de operação com falha**
+**Propriedades de um registo de diagnóstico de operação falhado**
 
 |Nome               |Descrição
 |---                |---
-|com falha           |Tempo de conclusão de ingestão
-|operationId        |ID da operação de ingestão do Data Explorer do Azure
-|base de dados           |Nome do banco de dados de destino
-|table              |Nome da tabela de destino
-|ingestionSourceId  |ID da fonte de dados de ingestão
-|ingestionSourcePath|Caminho da fonte de dados de ingestão ou URI do blob
+|falhadoOn           |Tempo de conclusão da ingestão
+|operationId        |Id da operação de ingestão de dados azure
+|base de dados           |Nome da base de dados alvo
+|tabela              |Nome da tabela-alvo
+|ingeçãoSourceId  |Identificação da fonte de dados de ingestão
+|ingestionSourcePath|Caminho da fonte de dados de ingestão ou blob URI
 |rootActivityId     |ID da Atividade
-|details            |Descrição detalhada da mensagem de falha e de erro
-|errorCode          |Código de erro 
-|failureStatus      |`Permanent` ou `Transient`. A repetição de uma falha transitória pode ter êxito.
-|originatesFromUpdatePolicy|True se a falha se originar de uma política de atualização
-|shouldRetry        |True se a repetição puder ser realizada
+|detalhes            |Descrição detalhada da mensagem de falha e erro
+|erroCódigo          |Código de erro 
+|falhaEstatuto      |`Permanent` ou `Transient`. A retentativa de um fracasso transitório pode ter sucesso.
+|originaisFromUpdatePolicy|É verdade que o fracasso tem origem numa política de atualização
+|deve Retry        |Verdade se a retentativa pode ter sucesso
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: ingestão e consulta de dados de monitoramento no Azure Data Explorer](ingest-data-no-code.md)
-* [Usar métricas para monitorar a integridade do cluster](using-metrics.md)
+* [Tutorial: Ingerir e consultar dados de monitorização no Azure Data Explorer](ingest-data-no-code.md)
+* [Utilizar métricas para monitorizar o estado de funcionamento do cluster](using-metrics.md)
 

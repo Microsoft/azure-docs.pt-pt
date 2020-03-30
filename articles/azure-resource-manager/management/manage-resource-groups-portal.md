@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274570"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir os grupos de recursos do Gestor de Recursos Azure utilizando o portal Azure
@@ -33,10 +33,10 @@ O grupo de recursos armazena metadados sobre os recursos. Quando especifica uma 
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **grupos de recursos**
 
-    ![Adicionar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
+    ![adicionar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
 3. Selecione **Adicionar**.
 4. Introduza os seguintes valores:
 
@@ -53,7 +53,7 @@ O grupo de recursos armazena metadados sobre os recursos. Quando especifica uma 
 
 ## <a name="list-resource-groups"></a>Lista de grupos de recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Para listar os grupos de recursos, selecione **grupos de recursos**
 
     ![navegar em grupos de recursos](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -62,7 +62,7 @@ O grupo de recursos armazena metadados sobre os recursos. Quando especifica uma 
 
 ## <a name="open-resource-groups"></a>Grupos de recursos abertos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos que pretende abrir.
 
@@ -106,7 +106,7 @@ Para obter informações sobre modelos de exportação, consulte [exportação �
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma de gerir o acesso a recursos no Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

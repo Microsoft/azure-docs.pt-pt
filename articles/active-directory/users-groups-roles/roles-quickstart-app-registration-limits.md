@@ -14,17 +14,17 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559050"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Conceder permissão para criar registos ilimitados de aplicações
 
 Neste arranque rápido, irá criar uma função personalizada com permissão para criar um número ilimitado de registos de aplicações e, em seguida, atribuir essa função a um utilizador. O utilizador designado pode então utilizar o portal Azure AD, O PowerShell Azure AD ou a Microsoft Graph API para criar registos de aplicações. Ao contrário do papel de Desenvolvedor de Aplicações incorporado, este papel personalizado confere a capacidade de criar um número ilimitado de inscrições de aplicações. O papel de Desenvolvedor de Aplicações concede a capacidade, mas o número total de objetos criados está limitado a 250 para evitar atingir a quota de objetos em [toda a direção.](directory-service-limits-restrictions.md)
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -32,7 +32,7 @@ O papel menos privilegiado necessário para criar e atribuir funções personali
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Criar uma nova função personalizada usando o portal Azure AD
 
-1. Inscreva-se no centro de [administração da AD Azure](https://aad.portal.azure.com) com administrador de funções privilegiadas ou permissões de administrador global na organização Azure AD.
+1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com administrador de funções privilegiadas ou permissões de administrador global na organização Azure AD.
 1. Selecione **Diretório Ativo Azure,** selecione **Funções e administradores,** e, em seguida, selecione **Nova função personalizada**.
 
     ![Criar ou editar funções a partir da página Funções e administradores](./media/roles-create-custom/new-custom-role.png)
@@ -49,7 +49,7 @@ O papel menos privilegiado necessário para criar e atribuir funções personali
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um utilizador que utilize o portal Azure AD
 
-1. Inscreva-se no centro de [administração da AD Azure](https://aad.portal.azure.com) com administrador privilegiado ou permissões de administrador global na sua organização Azure AD.
+1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com o administrador privilegiado ou permissões de administrador global na sua organização Azure AD.
 1. Selecione **Diretório Ativo Azure** e, em seguida, selecione **Funções e administradores**.
 1. Selecione a função criador de registo de inscrição de aplicação e **selecione Adicionar a tarefa**.
 1. Selecione o utilizador pretendido e clique **em Selecionar** para adicionar o utilizador à função.

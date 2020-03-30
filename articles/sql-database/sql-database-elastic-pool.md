@@ -12,15 +12,15 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
 ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256279"
 ---
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados Azure SQL
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os conjuntos elásticos ajudam a gerir e dimensionar múltiplas Bases de Dados SQL do Azure
 
-Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis. As bases de dados de um pool elástico estão num único servidor de base de dados Azure SQL e partilham um número definido de recursos a um preço definido. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
+Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis. As bases de dados num conjunto elástico estão num único servidor de Base de Dados SQL do Azure e partilham um número definido de recursos a um preço definido. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
 
 ## <a name="what-are-sql-elastic-pools"></a>O que são piscinas elásticas SQL
 
@@ -116,11 +116,11 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 
 1. Calcule as eDTUs ou vCores necessárias para a piscina da seguinte forma:
 
-   Para o modelo de compra baseado em DTU: MAX (<*Número total de DBs* X *média de utilização DTU por DB*>;<br>  
+   Para o modelo de compra baseado em DTU: MAX (<*Número total de DBs* X *utilização média dTU por db*>,<br>  
    <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
 
-   Para o modelo de compra baseado em vCore: MAX (<*Número total de DBs* X *utilização vCore média por DB*>;<br>  
-   <*Número de DBs* x pico simultâneo *utilização vCore por DB*)
+   Para o modelo de compra baseado em vCore: MAX (<*Número total de DBs* X *utilização vCore média por DB*>,<br>  
+   <*Número de DBs em simultâneo* Utilização *vCore de Pico*X por DB )
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, pegue o maior das estimativas do eDTU a partir do passo 1 e passo 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore do Passo 1.
@@ -131,7 +131,7 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Trabalhos elásticos e piscinas elásticas
 
-Com um conjunto, as tarefas de gestão são simplificadas através da execução de scripts em **[tarefas elásticas](elastic-jobs-overview.md)** . Uma tarefa elástica elimina a maior parte da monotonia associada a grandes números de bases de dados.
+Com um conjunto, as tarefas de gestão são simplificadas através da execução de scripts em **[tarefas elásticas](elastic-jobs-overview.md)**. Uma tarefa elástica elimina a maior parte da monotonia associada a grandes números de bases de dados.
 
 Para obter mais informações sobre outras ferramentas de base de dados para trabalhar com várias bases de dados, veja [Aumentar horizontalmente com a Base de Dados SQL do Azure](sql-database-elastic-scale-introduction.md).
 
@@ -139,13 +139,13 @@ Para obter mais informações sobre outras ferramentas de base de dados para tra
 
 As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de continuidade de negócio](sql-database-business-continuity.md) que estão disponíveis para as bases de dados individuais.
 
-- **Restauro pontual**
+- **Restauro para um ponto anterior no tempo**
 
   A restauração pontual utiliza cópias de dados automáticas para recuperar uma base de dados numa piscina até um determinado ponto no tempo. Veja [Restauro para um ponto anterior no tempo](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - **Geo-restauro**
 
-  A Geo-restore fornece a opção de recuperação por defeito quando uma base de dados não está disponível devido a um incidente na região onde a base de dados está hospedada. Veja [Restaurar uma Base de Dados SQL do Azure ou fazer a ativação pós-falha para uma secundária](sql-database-disaster-recovery.md)
+  A Geo-restore fornece a opção de recuperação por defeito quando uma base de dados não está disponível devido a um incidente na região onde a base de dados está hospedada. Ver Restaurar uma Base de [Dados SQL Azure ou falhar a um secundário](sql-database-disaster-recovery.md)
 
 - **Georreplicação ativa**
 

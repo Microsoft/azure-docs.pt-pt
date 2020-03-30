@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266536"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FaQs e questões conhecidas com identidades geridas para recursos Azure
@@ -114,7 +114,7 @@ Quando a funcionalidade de exportação de esquemas estiver disponível para as 
 
 Se mover um VM no estado de corrida, ele continua a funcionar durante a mudança. No entanto, após a mudança, se o VM for parado e reiniciado, não terá início. Esta questão acontece porque o VM não está a atualizar a referência às identidades geridas para a identidade dos recursos do Azure e continua a apontá-la no antigo grupo de recursos.
 
-**Solução** 
+**Supor** 
  
 Desencadear uma atualização sobre o VM para que possa obter valores corretos para as identidades geridas para os recursos Azure. Pode fazer uma alteração de propriedade VM para atualizar a referência às identidades geridas para a identidade dos recursos Azure. Por exemplo, pode definir um novo valor de etiqueta no VM com o seguinte comando:
 

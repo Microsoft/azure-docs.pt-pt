@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
 ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651479"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
@@ -34,7 +34,7 @@ Depois de criar uma conta de [integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-x12-agreement"></a>Criar um acordo X12
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com "Portal do Azure"). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com "Portal do Azure"). 
 
 2. A partir do menu Principal Azure, selecione **Todos os serviços.** 
    Na caixa de pesquisa, insira "integração", e, em seguida, selecione **contas integrais.**  
@@ -142,7 +142,7 @@ Selecione um esquema para cada tipo de transação (ST1) e Aplicação Sender (G
 
 | Propriedade | Descrição |
 | --- | --- |
-| Duplicado do Número de Controlo de Intercâmbio deSallow |Bloqueie trocas duplicadas. Verifica o número de controlo de permuta (ISA13) para o número de controlo de intercâmbio recebido. Se for detetada uma correspondência, o gasoduto de receção não processa o intercâmbio. Pode especificar o número de dias para a realização do cheque, dando um valor para *verificar o duplicado ISA13 todos os dias ( dias)* . |
+| Duplicado do Número de Controlo de Intercâmbio deSallow |Bloqueie trocas duplicadas. Verifica o número de controlo de permuta (ISA13) para o número de controlo de intercâmbio recebido. Se for detetada uma correspondência, o gasoduto de receção não processa o intercâmbio. Pode especificar o número de dias para a realização do cheque, dando um valor para *verificar o duplicado ISA13 todos os dias ( dias)*. |
 | Duplicados de número de controlo de grupo desabotoados |Alternações de blocos com números de controlo de grupo duplicados. |
 | Duplicados de número de controlo de conjunto de transações desadmissidos |Bloqueie trocas com números de controlo de transações duplicadas. |
 
@@ -248,7 +248,7 @@ Agora o seu acordo está pronto para lidar com mensagens de saída que estejam e
 | Número de controlo de intercâmbio (ISA13) |Necessário, introduza uma gama de valores para o número de controlo de permuta. Insira um valor numérico com um mínimo de 1 e um máximo de 999999999 |
 | Número de controlo de grupo (GS06) |Necessário, introduza uma gama de números para o número de controlo do grupo. Insira um valor numérico com um mínimo de 1 e um máximo de 999999999 |
 | Número de controlo definido de transação (ST02) |Necessário, introduza uma gama de números para o número de controlo do conjunto de transações. Insira uma gama de valores numéricos com um mínimo de 1 e um máximo de 9999999999 |
-| Prefix |Opcional, designado para o intervalo de números de controlo definidos de transação utilizados em reconhecimento. Introduza um valor numérico para os dois campos médios, e um valor alfanumérico (se desejar) para os campos de prefixo e sufixo. Os campos intermédios são necessários e contêm os valores mínimos e máximos para o número de controlo |
+| Prefixo |Opcional, designado para o intervalo de números de controlo definidos de transação utilizados em reconhecimento. Introduza um valor numérico para os dois campos médios, e um valor alfanumérico (se desejar) para os campos de prefixo e sufixo. Os campos intermédios são necessários e contêm os valores mínimos e máximos para o número de controlo |
 | Sufixo |Opcional, designado para o intervalo de números de controlo definidos de transação utilizados num reconhecimento. Introduza um valor numérico para os dois campos médios e um valor alfanumérico (se desejar) para os campos de prefixo e sufixo. Os campos intermédios são necessários e contêm os valores mínimos e máximos para o número de controlo |
 
 ### <a name="character-sets-and-separators"></a>Conjuntos de caracteres e separadores
@@ -261,7 +261,7 @@ Além do conjunto de caracteres, pode introduzir um conjunto diferente de delimi
 | --- | --- |
 | Conjunto de caracteres a ser usado |Para validar as propriedades, selecione o conjunto de caracteres X12. As opções são Básicas, Estendidas e UTF8. |
 | Esquema |Selecione um esquema da lista de lançamentos. Depois de completar cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que pretende utilizar, com base nas descrições do separador abaixo. |
-| Tipo de entrada |Selecione um tipo de entrada na lista de drop-down. |
+| Tipo de Entrada |Selecione um tipo de entrada na lista de drop-down. |
 | Separador de componentes |Para separar elementos de dados compósitos, introduza um único carácter. |
 | Separador de elementos de dados |Para separar elementos de dados simples dentro de elementos de dados compósitos, introduza um único caracteres. |
 | Personagem de substituição |Introduza um caracteres de substituição utilizado para substituir todos os caracteres separadores nos dados de carga útil ao gerar a mensagem X12 de saída. |

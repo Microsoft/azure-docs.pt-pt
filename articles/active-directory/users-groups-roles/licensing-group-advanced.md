@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266289"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir licenciamento no Diretório Ativo Azure
@@ -28,7 +28,7 @@ Utilize as seguintes informações e exemplos para obter uma compreensão mais a
 
 ## <a name="usage-location"></a>Localização de utilização
 
-Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade de **localização de utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização no Perfil **do** **Utilizador** &gt; &gt; **Definições**.
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade de **localização de utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização nas **Definições**de **Perfil** &gt; **do Utilizador** &gt; .
 
 Para a atribuição de licença de grupo, quaisquer utilizadores sem localização de utilização especificada herdam a localização do diretório. Se tiver utilizadores em vários locais, certifique-se de que reflete isso corretamente nos recursos dos seus utilizadores antes de adicionar utilizadores a grupos com licenças.
 
@@ -57,7 +57,7 @@ Os utilizadores podem precisar de uma licença, mas não de outra, ou podem prec
 
 ![Screenshot da Enterprise Mobility + Security utilizadores licenciados](./media/licensing-group-advanced/o365-e5-licensed-users.png)
 
-Para este exemplo, modifique um utilizador e detetete a sua extensãoAttribute1 no valor de `EMS;E5_baseservices;` se quiser que o utilizador tenha ambas as licenças. Pode fazer esta modificação no local. Após a alteração sincronizar com a nuvem, o utilizador é automaticamente adicionado a ambos os grupos e as licenças são atribuídas.
+Para este exemplo, modifique um utilizador e defino `EMS;E5_baseservices;` a sua extensãoAttribute1 ao valor de se pretender que o utilizador tenha ambas as licenças. Pode fazer esta modificação no local. Após a alteração sincronizar com a nuvem, o utilizador é automaticamente adicionado a ambos os grupos e as licenças são atribuídas.
 
 ![Screenshot mostrando como definir a extensão do utilizadorAttribute1](./media/licensing-group-advanced/user-set-extensionAttribute1.png)
 
@@ -110,7 +110,7 @@ Aqui está um exemplo do que este processo pode parecer:
 
 2. Recebeu uma notificação da Microsoft de que o produto E5 será estendido com um novo serviço - *Microsoft Stream*. Quando o serviço estiver disponível no seu inquilino, pode fazer o seguinte:
 
-3. Vá ao [**Azure Ative Directory > Licenses > Todos os produtos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) lâmina e selecione Office *365 Enterprise E5,* em seguida, selecione **Grupos Licenciados** para ver uma lista de todos os grupos com esse produto.
+3. Vá ao [**Diretório Ativo Azure > Licenças > Todas as**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) lâminas de produtos e selecione Office *365 Enterprise E5,* em seguida, selecione **Grupos Licenciados** para ver uma lista de todos os grupos com esse produto.
 
 4. Clique no grupo que pretende rever (neste caso, *O365 E5 - Apenas em troca).* Isto abrirá o separador **Licenças.** Clicar na licença E5 abrirá uma lâmina com todos os serviços habilitados.
    > [!NOTE]
@@ -128,9 +128,9 @@ Aqui está um exemplo do que este processo pode parecer:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Use powerShell para ver quem herdou e licenças diretas
 Pode utilizar um script PowerShell para verificar se os utilizadores têm uma licença atribuída diretamente ou herdada de um grupo.
 
-1. Execute o `connect-msolservice` cmdlet para autenticar e ligar ao seu inquilino.
+1. Execute `connect-msolservice` o cmdlet para autenticar e ligar-se ao seu inquilino.
 
-2. `Get-MsolAccountSku` podem ser usados para descobrir todas as licenças de produtos provisionadas no inquilino.
+2. `Get-MsolAccountSku`pode ser usado para descobrir todas as licenças de produto provisionadas no inquilino.
 
    ![Screenshot do Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -144,7 +144,7 @@ Pode utilizar registos de [auditoria da Azure AD](../reports-monitoring/concept-
 - que alterações de licença foram feitas a um utilizador como resultado de uma atribuição de licença de grupo.
 
 >[!NOTE]
-> Os registos de auditoria estão disponíveis na maioria das lâminas da secção de Diretório Ativo Azure do portal. Dependendo do local onde acede, os filtros podem ser pré-aplicados para mostrar apenas atividade relevante para o contexto da lâmina. Se não estiver a ver os resultados que espera, examine [as opções de filtragem](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) ou aceda aos registos de auditoria não filtrados no [**Azure Ative Directory > Activity > Registos de auditoria**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Os registos de auditoria estão disponíveis na maioria das lâminas da secção de Diretório Ativo Azure do portal. Dependendo do local onde acede, os filtros podem ser pré-aplicados para mostrar apenas atividade relevante para o contexto da lâmina. Se não estiver a ver os resultados que espera, examine [as opções de filtragem](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) ou aceda aos registos de auditoria não filtrados no âmbito do [**Diretório Ativo do Azure > Registos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)de Auditoria > Auditoria .
 
 ### <a name="find-out-who-modified-a-group-license"></a>Descubra quem modificou uma licença de grupo
 
@@ -179,7 +179,7 @@ Quando uma licença muda num grupo, a Azure AD começará a aplicar as alteraç�
    > ```
 
 3. Para ver o registo completo de como um grupo foi processado, incluindo todas as alterações do utilizador, detetete os seguintes filtros:
-   - **Iniciado por (Ator)** : "Licenciamento baseado em grupo microsoft Azure AD"
+   - **Iniciado por (Ator)**: "Licenciamento baseado em grupo microsoft Azure AD"
    - **Gama de Datas** (opcional): gama personalizada para quando souber que um grupo específico começou e terminou o processamento
 
 Esta saída da amostra mostra o início do processamento, todas as alterações resultantes do utilizador e o fim do processamento.
@@ -189,11 +189,11 @@ Esta saída da amostra mostra o início do processamento, todas as alterações 
 >[!TIP]
 > Clicar em itens relacionados com a licença de *utilizador Alterar* mostrará detalhes sobre as alterações de licença aplicadas a cada utilizador individual.
 
-## <a name="deleting-a-group-with-an-assigned-license"></a>Apagar um grupo com uma licença atribuída
+## <a name="deleting-a-group-with-an-assigned-license"></a>Eliminar um grupo com uma licença atribuída
 
 Não é possível eliminar um grupo com uma licença ativa atribuída. Um administrador poderia eliminar um grupo que não percebesse que irá fazer com que as licenças sejam removidas dos utilizadores - por isso exigimos que quaisquer licenças sejam removidas do grupo primeiro, antes de poderem ser eliminadas.
 
-Ao tentar apagar um grupo no portal Azure, pode ver uma notificação de erro como esta: ![eliminação do grupo Screenshot falhou](./media/licensing-group-advanced/groupdeletionfailed.png)
+Ao tentar apagar um grupo no portal Azure pode ver ![uma notificação de erro como esta: A eliminação do grupo Screenshot falhou](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Vá ao separador **Licenças** do grupo e veja se há licenças atribuídas. Se sim, retire as licenças e tente apagar o grupo novamente.
 
@@ -203,7 +203,7 @@ Pode ver erros semelhantes ao tentar eliminar o grupo através da PowerShell ou 
 
 Se utilizar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se com a seguinte lista de limitações e questões conhecidas.
 
-- Atualmente, o licenciamento baseado em grupos não apoia grupos que contenham outros grupos (grupos aninhados). Se aplicar uma licença a um grupo aninhado, apenas os membros utilizadores de primeiro nível do grupo têm as licenças aplicadas.
+- O licenciamento baseado em grupo não suporta, atualmente, grupos que contêm outros grupos (grupos aninhados). Se aplicar uma licença a um grupo aninhado, apenas os membros utilizadores de primeiro nível do grupo têm as licenças aplicadas.
 
 - A funcionalidade só pode ser utilizada com grupos de segurança e grupos do Office 365 que têm segurançaEnabled=TRUE.
 

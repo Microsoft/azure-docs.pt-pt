@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a preparar o seu ambiente para proteger e faz
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273413"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup Azure
@@ -77,7 +77,7 @@ Quer envie dados de backup para o Azure ou guarde-os localmente, o Azure Backup 
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
 
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre principal, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre principal, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre opções de armazenamento [georedundante](../storage/common/storage-redundancy-grs.md) e [localmente redundantes](../storage/common/storage-redundancy-lrs.md) na visão geral da replicação do [Armazenamento Azure](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -92,7 +92,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Descarregar o pacote de software
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Se já tem um cofre dos Serviços de Recuperação aberto, proceda ao passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal Azure, no menu principal, clique em **Navegar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -183,9 +183,9 @@ Uma vez concluído o processo de extração, verifique a caixa para lançar a *c
 
     Utilize os seguintes valores para a configuração ssrs:
     * Conta de Serviço: 'Use a conta incorporada' deve ser serviço de rede
-    * URL do Serviço Web: 'Diretório Virtual' deve ser ReportServer_\<SQLInstanceName>
-    * Base de Dados: DatabaseName deve ser ReportServer$\<SQLInstanceName>
-    * URL do Portal Web: 'Diretório Virtual' deve ser Reports_\<SQLInstanceName>
+    * URL do Serviço Web: 'Diretório\<Virtual' deve ser ReportServer_ SQLInstanceName>
+    * Base de Dados: Nome\<da base de dados deve ser ReportServer$ SQLInstanceName>
+    * URL do Portal Web: 'Diretório\<Virtual' deve ser Reports_ SQLInstanceName>
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração ssrs.
 
@@ -237,7 +237,7 @@ O MABS utiliza o agente de proteção de dados do System Center. [Aqui estão os
 
 As seguintes secções descrevem como atualizar os agentes de proteção para computadores clientes.
 
-1. Na consola de administrador do servidor de backup, selecione **Management** > **Agentes**.
+1. Na consola de administrador do servidor de backup, selecione**Agentes de** **Gestão** > .
 
 2. No painel de visualização, selecione os computadores clientes para os quais pretende atualizar o agente de proteção.
 
@@ -265,7 +265,7 @@ Aqui estão os passos se precisar de mover o MABS para um novo servidor, mantend
 2. Desligue o servidor de reserva original do Azure ou tire-o do fio.
 3. Redefinir a conta da máquina em diretório ativo.
 4. Instale o Server 2016 em nova máquina e nomeie-o com o mesmo nome de máquina que o servidor original de Backup Azure.
-5. Aderir ao Domínio
+5. Junte-se ao Domínio
 6. Instale o servidor de backup Azure V3 ou posteriormente (mova os discos de piscina de armazenamento MABS do servidor antigo e importe)
 7. Restaurar o DPMDB tomado no passo 1.
 8. Fixe o armazenamento do servidor de reserva original ao novo servidor.
@@ -278,22 +278,22 @@ Aqui estão os passos se precisar de mover o MABS para um novo servidor, mantend
 
     Se tiver adicionado discos novos à piscina de armazenamento DPM em vez de mover os antigos, então execute a réplica DPMSYNC -Reallocatereplica
 
-## <a name="network-connectivity"></a>Conectividade da rede
+## <a name="network-connectivity"></a>Conectividade de rede
 
-O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade com o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
+O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade ```Get-DPMCloudConnection``` com o Azure, utilize o cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
 
 Ao mesmo tempo, a subscrição do Azure tem de estar num estado saudável. Para saber o estado da sua subscrição e geri-la, inscreva-se no portal de [subscrição](https://account.windowsazure.com/Subscriptions).
 
 Assim que souber o estado da conectividade Azure e da subscrição do Azure, pode utilizar a tabela abaixo para saber o impacto na funcionalidade de backup/restauro oferecida.
 
-| Estado de Conectividade | Subscrição do Azure | De volta a Azure | Voltar ao disco | Restaurar de Azure | Restaurar a partir do disco |
+| Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restaurar de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
-| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
+| A conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| A conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| A conectividade perdida > 15 dias |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação da perda de conectividade
 
@@ -344,7 +344,7 @@ Utilize os seguintes passos para atualizar o MABS:
 
    > [!IMPORTANT]
    >
-   >  Como parte da atualização SQL 2017, reservamos as chaves de encriptação SQL e desinstalamos os serviços de reporte. Após a atualização do servidor SQL, o serviço de reporte (14.0.6827.4788) é instalado e as chaves de encriptação são restauradas.
+   >  Como parte da atualização SQL 2017, reservamos as chaves de encriptação SQL e desinstalamos os serviços de reporte. Após a atualização do servidor SQL, o serviço de reporte (14.0.6827.4788) é instalado & chaves de encriptação são restauradas.
    >
    > Ao configurar manualmente o SQL 2017, consulte a configuração SSRS com a secção *SQL 2017* sob instruções de instalação.
 

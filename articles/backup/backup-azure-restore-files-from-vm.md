@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273309"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
@@ -57,7 +57,7 @@ Para restaurar ficheiros ou pastas a partir do ponto de recuperação, vá à m�
 
     ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-8. Para as máquinas Linux, é gerado um guião python. É preciso descarregar o script e copiá-lo para o servidor Linux relevante/compatível. Poderá ter de modificar as permissões para executá-la com ```chmod +x <python file name>```. Em seguida, executar o ficheiro python com ```./<python file name>```.
+8. Para as máquinas Linux, é gerado um guião python. É preciso descarregar o script e copiá-lo para o servidor Linux relevante/compatível. Pode ter de modificar as permissões para a executar com ```chmod +x <python file name>```. Em seguida, executar ```./<python file name>```o ficheiro python com .
 
 Consulte a secção [de requisitos](#access-requirements) de Acesso para se certificar de que o script é executado com sucesso.
 
@@ -65,7 +65,7 @@ Consulte a secção [de requisitos](#access-requirements) de Acesso para se cert
 
 #### <a name="for-windows"></a>Para Windows
 
-Quando executa o executável, o sistema operativo monta os novos volumes e atribui cartas de acionamento. Pode utilizar o Windows Explorer ou o File Explorer para navegar nessas unidades. As letras de acionamento atribuídas aos volumes podem não ser as mesmas letras que a máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume da máquina virtual original for "Data Disk (E:`\`)", esse volume pode ser fixado no computador local como "Data Disk ('Qualquer letra':`\`). Navegue por todos os volumes mencionados na saída do script até encontrar os seus ficheiros ou pasta.  
+Quando executa o executável, o sistema operativo monta os novos volumes e atribui cartas de acionamento. Pode utilizar o Windows Explorer ou o File Explorer para navegar nessas unidades. As letras de acionamento atribuídas aos volumes podem não ser as mesmas letras que a máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume da máquina virtual original`\`for "Data Disk (E:)", esse volume pode ser`\`fixado no computador local como "Data Disk ('Qualquer letra': ). Navegue por todos os volumes mencionados na saída do script até encontrar os seus ficheiros ou pasta.  
 
    ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -96,7 +96,7 @@ Se o Azure VM protegido tiver volumes com uma ou ambas as seguintes característ
 
 Em vez disso, execute o script executável em qualquer outro computador com um sistema operativo compatível.
 
-### <a name="windows-storage-spaces"></a>Espaços de Armazenamento de Janelas
+### <a name="windows-storage-spaces"></a>Espaços de Armazenamento do Windows
 
 O Windows Storage Spaces é uma tecnologia Windows que permite virtualizar o armazenamento. Com espaços de armazenamento windows pode agrupar discos padrão da indústria em piscinas de armazenamento. Depois, utiliza-se o espaço disponível nessas piscinas de armazenamento para criar discos virtuais, chamados espaços de armazenamento.
 
@@ -144,7 +144,7 @@ O comando seguinte apresenta detalhes sobre todos os discos de raid:
 mdadm –detail –scan
 ```
 
- O disco RAID relevante é apresentado como `/dev/mdm/<RAID array name in the protected VM>`
+ O disco RAID relevante é apresentado como`/dev/mdm/<RAID array name in the protected VM>`
 
 Utilize o comando de montagem se o disco RAID tiver volumes físicos:
 
@@ -163,7 +163,7 @@ A tabela que se segue mostra a compatibilidade entre os sistemas operativos do s
 
 |Servidor OS | Cliente compatível OS  |
 | --------------- | ---- |
-| Windows Server de 2019    | Windows 10 |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -202,21 +202,21 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 - `download.microsoft.com`
 - URLs de Serviço de Recuperação (nome geo-nome refere-se à região onde reside o cofre de serviço de recuperação)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para geos públicos de Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para o Governo dos EUA de Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para a Alemanha Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Para geos públicos de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Para azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Para o Governo dos EUA de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(Para a Alemanha Azure)
 - Portas de saída 53 (DNS), 443,3260
 
 > [!NOTE]
 >
-> - O nome do ficheiro de script descarregado terá o **nome geo-nome** para ser preenchido no URL. Para o exame: O nome do script descarregado começa com \'Nome VM\'\_\'geonome\'_\'\'GUID , como *ContosoVM_wcus_12345678*
-> - O URL seria <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> - O nome do ficheiro de script descarregado terá o **nome geo-nome** para ser preenchido no URL. Para o exame: O nome do \'script\'\_\'descarregado\'começa\'\'com o geonome VMname _ GUID , como *ContosoVM_wcus_12345678*
+> - O URL <https://pod01-rec2.wcus.backup.windowsazure.com>seria "
 >
 
 Para o Linux, o guião requer componentes 'open-iscsi' e 'lshw' para se ligar ao ponto de recuperação. Se os componentes não existirem no computador onde o script é executado, o script pede permissão para instalar os componentes. Dê consentimento para instalar os componentes necessários.
 
-O acesso ao `download.microsoft.com` é necessário para descarregar componentes utilizados para construir um canal seguro entre a máquina onde o script é executado e os dados no ponto de recuperação.
+O acesso `download.microsoft.com` é necessário para descarregar componentes usados para construir um canal seguro entre a máquina onde o script é executado e os dados no ponto de recuperação.
 
 Pode executar o script em qualquer máquina que tenha o mesmo (ou compatível) sistema operativo que o VM de back-up. Consulte a [tabela OS compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas operativos compatíveis. Se a máquina virtual Azure protegida utilizar espaços de armazenamento windows (para VMs Windows Azure) ou LM/RAID Arrays (para VMs Linux), não pode executar o executável ou script na mesma máquina virtual. Em vez disso, execute o executável ou script em qualquer outra máquina com um sistema operativo compatível.
 
@@ -224,7 +224,7 @@ Pode executar o script em qualquer máquina que tenha o mesmo (ou compatível) s
 
 Esta secção explica como executar a recuperação de ficheiros a partir de backups de máquinas Azure Virtual com mais de 16 discos e cada tamanho do disco é superior a 32 TB.
 
-Uma vez que o processo de recuperação de ficheiros anexa todos os discos da cópia de segurança, quando são utilizados grandes discos (>16) ou discos grandes (> 32 TB cada), recomendam-se os seguintes pontos de ação:
+Uma vez que o processo de recuperação de ficheiros anexa todos os discos da cópia de segurança, quando forem utilizados grandes discos (>16) ou discos grandes (> 32 TB cada), recomendam-se os seguintes pontos de ação:
 
 - Mantenha um servidor de restauro separado (VMs Azure VM D2v3) para a recuperação do ficheiro. Só pode utilizar isso para a recuperação do ficheiro e, em seguida, desligá-lo quando não é necessário. Restaurar a máquina original não é recomendado, uma vez que terá um impacto significativo no próprio VM.
 - Em seguida, executar o script uma vez para verificar se a operação de recuperação de ficheiros é bem sucedida.
@@ -249,7 +249,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
 - Cada vez que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará muito tempo. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado descarregar um script do Portal/Powershell/CLI, esperar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do guião.
 - Após a recuperação do ficheiro, certifique-se de que volta ao portal e clique em **discos Desmontar** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a possibilidade de recuperação.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Se tiver problemas ao recuperar ficheiros das máquinas virtuais, consulte a tabela seguinte para obter informações adicionais.
 
@@ -301,7 +301,7 @@ Qualquer lista de controlo de acesso de ficheiros (ACL) presente no VM pai/backe
 
 O script dá acesso apenas a leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, assine no Portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para quaisquer problemas durante a restauração de ficheiros, consulte a secção [de resolução de problemas](#troubleshooting)
 - Saiba como [restaurar ficheiros via Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

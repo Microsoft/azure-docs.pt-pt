@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257566"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante a failover
@@ -64,7 +64,7 @@ Se ocorrer uma falha regional de origem, a Empresa A pode falhar em todos os seu
 - Dependendo dos requisitos da aplicação, as ligações entre os dois VNets (**Recovery VNet** e **Azure VNet**) na região alvo podem ser estabelecidas antes, durante (como um passo intermédio) ou após a falha.
   - A empresa pode usar planos de [recuperação](site-recovery-create-recovery-plans.md) para especificar quando serão estabelecidas as ligações.
   - Podem ligar-se entre os VNets utilizando o peering VNet ou o VPN site-to-site.
-      - O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes.
+      - O peering VNet não usa um gateway VPN e tem diferentes restrições.
       - Os [preços](https://azure.microsoft.com/pricing/details/virtual-network) de peering VNet são calculados de forma diferente do [preço](https://azure.microsoft.com/pricing/details/vpn-gateway)vNet-to-VNet VPN Gateway . Para falhas, geralmente aconselhamos a usar o mesmo método de conectividade que as redes de origem, incluindo o tipo de ligação, para minimizar incidentes imprevisíveis da rede.
 
     ![Recursos em Azure falha plena](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
@@ -90,8 +90,8 @@ Antes do fracasso, a arquitetura é a seguinte:
     - **Fonte VNet 1** tem duas subredes.
     - **Fonte VNet 2** tem duas subredes.
 - A região secundária (alvo) é o Azure Southeast Asia - Sudeste Asiático tem uma recuperação VNets (**Recovery VNet 1** e **Recovery VNet 2**) que são idênticas à Fonte **VNet 1** e Fonte **VNet 2**.
-        - **Recovery VNet 1** e Recovery **VNet 2** têm duas subredes que correspondem às subredes em Source **VNet 1** e Source **VNet 2** - Sudeste Asiático tem um VNet adicional (**Azure VNet**) com espaço de endereço 10.3.0.0/16.
-        - **Azure VNet** contém uma sub-rede **(Subnet 4**) com espaço de endereço 10.3.4.0/24.
+        - **Recuperação VNet 1** e **Recovery VNet 2** têm duas subredes que correspondem às subredes em Source **VNet 1** e Source **VNet 2** - Sudeste Asiático tem um VNet adicional (**Azure VNet**) com espaço de endereço 10.3.0.0/16.
+        - **O Azure VNet** contém uma**sub-rede (Subnet 4**) com espaço de endereço 10.3.4.0/24.
         - Os nós de réplica do Servidor SQL Always On, controlador de domínio, etc. estão localizados na **Subnet 4**.
 - Existem uma série de ligações VPN site-to-site: 
     - **Fonte VNet 1** e **Azure VNet**
@@ -161,6 +161,6 @@ A empresa B não pode falhar sobre aplicações isoladas ao nível da subnet. Is
  - Para a resiliência da aplicação, a Empresa B terá de colocar cada aplicação no seu próprio Azure VNet dedicado.
  - Com cada aplicação num VNet separado, a Empresa B pode falhar sobre aplicações isoladas e ligações de origem de rotas para a região alvo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os planos de [recuperação.](site-recovery-create-recovery-plans.md)

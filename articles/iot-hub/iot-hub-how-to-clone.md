@@ -1,6 +1,6 @@
 ---
-title: Como clonar um hub IoT do Azure
-description: Como clonar um hub IoT do Azure
+title: Como clonar um hub Azure IoT
+description: Como clonar um hub Azure IoT
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,122 +8,122 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75429156"
 ---
-# <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
+# <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub Azure IoT para outra região
 
-Este artigo explora maneiras de clonar um hub IoT e fornece algumas perguntas que você precisa responder antes de começar. Aqui estão vários motivos pelos quais você pode desejar clonar um hub IoT:
+Este artigo explora formas de clonar um Hub IoT e fornece algumas perguntas que precisa de responder antes de começar. Aqui estão várias razões para que queira clonar um hub IoT:
  
-* Você está movendo sua empresa de uma região para outra, como da Europa para América do Norte (ou vice-versa) e deseja que seus recursos e dados sejam geograficamente próximos ao seu novo local, portanto, você precisa mover o Hub.
+* Está a mover a sua empresa de uma região para outra, como da Europa para a América do Norte (ou vice-versa), e quer que os seus recursos e dados estejam geograficamente perto da sua nova localização, por isso precisa de mudar o seu hub.
 
-* Você está configurando um hub para um ambiente de desenvolvimento versus produção.
+* Está a criar um centro para um ambiente de desenvolvimento contra produção.
 
-* Você deseja fazer uma implementação personalizada da alta disponibilidade de vários hubs. Para obter mais informações, consulte a [seção como obter alta disponibilidade entre regiões do Hub IOT e recuperação de desastres](iot-hub-ha-dr.md#achieve-cross-region-ha).
+* Você quer fazer uma implementação personalizada de multi-hub alta disponibilidade. Para mais informações, consulte a [secção HA da região transversal de IoT Hub](iot-hub-ha-dr.md#achieve-cross-region-ha)de alta disponibilidade e recuperação de desastres.
 
-* Você deseja aumentar o número de [partições](iot-hub-scaling.md#partitions) configuradas para o seu hub. Isso é definido quando você cria o Hub pela primeira vez e não pode ser alterado. Você pode usar as informações neste artigo para clonar o Hub e, quando o clone for criado, aumentar o número de partições.
+* Quer aumentar o número de [divisórias](iot-hub-scaling.md#partitions) configuradas para o seu hub. Isto é definido quando crias o teu centro pela primeira vez, e não podes ser mudado. Pode utilizar a informação neste artigo para clonar o seu hub e quando o clone for criado, aumente o número de divisórias.
 
-Para clonar um Hub, você precisa de uma assinatura com acesso administrativo ao Hub original. Você pode colocar o novo hub em um novo grupo de recursos e região, na mesma assinatura que o Hub original ou até mesmo em uma nova assinatura. Você simplesmente não pode usar o mesmo nome porque o nome do hub deve ser globalmente exclusivo.
+Para clonar um hub, precisa de uma subscrição com acesso administrativo ao centro original. Você pode colocar o novo hub em um novo grupo de recursos e região, na mesma subscrição que o hub original, ou mesmo em uma nova subscrição. Não pode usar o mesmo nome porque o nome do centro tem que ser globalmente único.
 
 > [!NOTE]
-> Neste momento, não há nenhum recurso disponível para clonar um hub IoT automaticamente. É basicamente um processo manual e, portanto, é razoavelmente propenso a erros. A complexidade da clonagem de um hub é diretamente proporcional à complexidade do Hub. Por exemplo, clonar um hub IoT sem roteamento de mensagens é bem simples. Se você adicionar o roteamento de mensagens como apenas uma complexidade, a clonagem do hub se tornará pelo menos uma ordem de magnitude mais complicada. Se você também mover os recursos usados para os pontos de extremidade de roteamento, essa será outra ordem de magniture mais complicada. 
+> Neste momento, não há nenhuma funcionalidade disponível para clonagem automática de um hub IoT. É principalmente um processo manual, e assim é bastante propenso a erros. A complexidade da clonagem de um hub é diretamente proporcional à complexidade do centro. Por exemplo, clonar um hub IoT sem encaminhamento de mensagens é bastante simples. Se adicionar mossa de mensagem como apenas uma complexidade, clonagem do centro torna-se pelo menos uma ordem de magnitude mais complicada. Se também mover os recursos usados para encaminhamento de pontos finais, é outra ordem de ampliação mais complicada. 
 
-## <a name="things-to-consider"></a>Itens a serem considerados
+## <a name="things-to-consider"></a>Coisas a considerar
 
-Há várias coisas a considerar antes de clonar um hub IoT.
+Há várias coisas a considerar antes de clonar um centro de IoT.
 
-* Verifique se todos os recursos disponíveis no local original também estão disponíveis no novo local. Alguns serviços estão em versão prévia, e nem todos os recursos estão disponíveis em todos os lugares.
+* Certifique-se de que todas as funcionalidades disponíveis na localização original também estão disponíveis na nova localização. Alguns serviços estão em pré-visualização, e nem todas as funcionalidades estão disponíveis em todo o lado.
 
-* Não remova os recursos originais antes de criar e verificar a versão clonada. Depois de remover um Hub, ele não é feito para sempre, e não há como recuperá-lo para verificar as configurações ou os dados para garantir que o Hub seja replicado corretamente.
+* Não remova os recursos originais antes de criar e verificar a versão clonada. Uma vez removido um hub, desaparece para sempre, e não há como recuperá-lo para verificar as definições ou dados para se certificar de que o hub é replicado corretamente.
 
-* Muitos recursos exigem nomes globalmente exclusivos, portanto, você deve usar nomes diferentes para as versões clonadas. Você também deve usar um nome diferente para o grupo de recursos ao qual o Hub clonado pertence. 
+* Muitos recursos requerem nomes globalmente únicos, por isso deve usar nomes diferentes para as versões clonadas. Também deve usar um nome diferente para o grupo de recursos a que pertence o centro clonado. 
 
-* Os dados do Hub IoT original não são migrados. Isso inclui mensagens de telemetria, comandos da nuvem para o dispositivo (C2D) e informações relacionadas ao trabalho, como agendas e histórico. As métricas e os resultados de log também não são migrados. 
+* Os dados para o centro ioT original não são migrados. Isto inclui mensagens de telemetria, comandos cloud-to-device (C2D) e informações relacionadas com o trabalho, tais como horários e história. As métricas e os resultados da exploração madeireira também não são migrados. 
 
-* Para dados ou mensagens roteadas para o armazenamento do Azure, você pode deixar os dados na conta de armazenamento original, transferi-los para uma nova conta de armazenamento na nova região ou deixar os dados antigos em vigor e criar uma nova conta de armazenamento no novo local para os novos dados. Para obter mais informações sobre como mover dados no armazenamento de BLOBs, consulte Introdução [ao AzCopy](../storage/common/storage-use-azcopy-v10.md).
+* Para dados ou mensagens encaminhados para o Armazenamento Do Azure, pode deixar os dados na conta de armazenamento original, transferir esses dados para uma nova conta de armazenamento na nova região, ou deixar os dados antigos no local e criar uma nova conta de armazenamento no novo local para os novos dados. Para obter mais informações sobre a movimentação de dados no armazenamento blob, consulte [Iniciar-se com AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
-* Os dados para os hubs de eventos e para as filas e os tópicos do barramento de serviço não podem ser migrados. Esses são dados de ponto no tempo e não são armazenados depois que as mensagens são processadas.
+* Os dados relativos aos Centros de Eventos e aos Tópicos e Filas de Autocarros de Serviço não podem ser migrados. Estes são dados ponto-a-tempo e não são armazenados após o processamento das mensagens.
 
-* Você precisa agendar o tempo de inatividade para a migração. Clonar os dispositivos para o novo hub leva tempo. Se você estiver usando o método de importação/exportação, os testes de parâmetro de comparação revelaram que pode levar cerca de duas horas para mover 500.000 dispositivos e quatro horas para mover um milhão de dispositivos. 
+* Tens de marcar tempo de descanso para a migração. A clonagem dos dispositivos para o novo centro leva tempo. Se estiver a utilizar o método import/exportação, os testes de referência revelaram que pode demorar cerca de duas horas a mover 500.000 dispositivos e quatro horas para mover um milhão de dispositivos. 
 
-* Você pode copiar os dispositivos para o novo Hub sem desligar ou alterar os dispositivos. 
+* Pode copiar os dispositivos para o novo hub sem desligar ou alterar os dispositivos. 
 
-    * Se os dispositivos foram provisionados originalmente usando o DPS, o reprovisionamento atualiza as informações de conexão armazenadas em cada dispositivo. 
+    * Se os dispositivos foram originalmente aprovisionados utilizando DPS, reaprovisioná-los atualiza as informações de ligação armazenadas em cada dispositivo. 
     
-    * Caso contrário, você precisa usar o método de importação/exportação para mover os dispositivos e, em seguida, os dispositivos precisam ser modificados para usar o novo hub. Por exemplo, você pode configurar seu dispositivo para consumir o nome de host do Hub IoT nas propriedades desejadas. O dispositivo usará o nome de host do Hub IoT, desconectará o dispositivo do hub antigo e o reconectará ao novo.
+    * Caso contrário, tem de utilizar o método import/exportação para mover os dispositivos e, em seguida, os dispositivos têm de ser modificados para utilizar o novo hub. Por exemplo, pode configurar o seu dispositivo para consumir o nome de anfitrião ioT Hub a partir das propriedades gémeas desejadas. O dispositivo tomará o nome do ioT Hub, desligará o dispositivo do antigo hub e reconectar-se-á com o novo.
     
-* Você precisa atualizar todos os certificados que estiver usando para poder usá-los com os novos recursos. Além disso, você provavelmente tem o Hub definido em uma tabela DNS em algum lugar — será necessário atualizar essas informações de DNS.
+* Precisa atualizar quaisquer certificados que esteja a usar para que possa usá-los com os novos recursos. Além disso, provavelmente tem o hub definido numa tabela DNS em algum lugar - você precisará atualizar essa informação DNS.
 
 ## <a name="methodology"></a>Metodologia
 
-Esse é o método geral que recomendamos para mover um hub IoT de uma região para outra. Para o roteamento de mensagens, isso pressupõe que os recursos não estão sendo movidos para a nova região. Para obter mais informações, consulte a [seção sobre roteamento de mensagens](#how-to-handle-message-routing).
+Este é o método geral que recomendamos para mover um hub IoT de uma região para outra. Para o encaminhamento de mensagens, isto pressupõe que os recursos não estão a ser transferidos para a nova região. Para mais informações, consulte a [secção de Encaminhamento de Mensagens](#how-to-handle-message-routing).
 
-   1. Exporte o Hub e suas configurações para um modelo do Resource Manager. 
+   1. Exporte o hub e as suas definições para um modelo de Gestor de Recursos. 
    
-   1. Faça as alterações necessárias no modelo, como atualizar todas as ocorrências do nome e o local do Hub clonado. Para todos os recursos no modelo usado para pontos de extremidade de roteamento de mensagens, atualize a chave no modelo para esse recurso.
+   1. Faça as alterações necessárias ao modelo, tais como a atualização de todas as ocorrências do nome e a localização do centro clonado. Para quaisquer recursos no modelo utilizado para pontos finais de encaminhamento de mensagens, atualize a chave no modelo para esse recurso.
    
-   1. Importe o modelo para um novo grupo de recursos no novo local. Isso cria o clone.
+   1. Importe o modelo para um novo grupo de recursos no novo local. Isto cria o clone.
 
-   1. Depurar conforme necessário. 
+   1. Depuração, se necessário. 
    
    1. Adicione qualquer coisa que não tenha sido exportada para o modelo. 
    
-       Por exemplo, os grupos de consumidores não são exportados para o modelo. Você precisa adicionar os grupos de consumidores ao modelo manualmente ou usar o [portal do Azure](https://portal.azure.com) depois que o Hub for criado. Há um exemplo de como adicionar um grupo de consumidores a um modelo no artigo [usar um modelo de Azure Resource Manager para configurar o roteamento de mensagens do Hub IOT](tutorial-routing-config-message-routing-rm-template.md).
+       Por exemplo, os grupos de consumidores não são exportados para o modelo. Você precisa adicionar os grupos de consumidores ao modelo manualmente ou usar o [portal Azure](https://portal.azure.com) após a criação do hub. Há um exemplo de adicionar um grupo de consumidores a um modelo no artigo Use um modelo de Gestor de [Recursos Azure para configurar o encaminhamento de mensagens IoT Hub](tutorial-routing-config-message-routing-rm-template.md).
        
-   1. Copie os dispositivos do Hub original para o clone. Isso é abordado na seção [Gerenciando os dispositivos registrados para o Hub IOT](#managing-the-devices-registered-to-the-iot-hub).
+   1. Copie os dispositivos do centro original para o clone. Isto está coberto na secção [Gestão dos dispositivos registados no centro IoT](#managing-the-devices-registered-to-the-iot-hub).
 
-## <a name="how-to-handle-message-routing"></a>Como tratar o roteamento de mensagens
+## <a name="how-to-handle-message-routing"></a>Como lidar com o encaminhamento de mensagens
 
-Se o Hub usar o [Roteamento personalizado](iot-hub-devguide-messages-read-custom.md), a exportação do modelo para o Hub incluirá a configuração de roteamento, mas não inclui os próprios recursos. Você deve escolher se deseja mover os recursos de roteamento para o novo local ou deixá-los em vigor e continuar a usá-los "como estão". 
+Se o seu hub usa [encaminhamento personalizado,](iot-hub-devguide-messages-read-custom.md)exportar o modelo para o hub inclui a configuração de encaminhamento, mas não inclui os próprios recursos. Tem de escolher se transfere os recursos de encaminhamento para o novo local ou para os deixar no lugar e continuar a usá-los "como está". 
 
-Por exemplo, digamos que você tenha um Hub no oeste dos EUA que está Roteando mensagens para uma conta de armazenamento (também no oeste dos EUA) e deseja mover o Hub para o leste dos EUA. Você pode mover o Hub e fazer com que ele ainda encaminhe mensagens para a conta de armazenamento no oeste dos EUA, ou você pode mover o Hub e também mover a conta de armazenamento. Pode haver um pequeno impacto no desempenho de mensagens de roteamento para recursos de ponto de extremidade em uma região diferente.
+Por exemplo, digamos que tem um hub nos EUA Ocidentais que está a encaminhar mensagens para uma conta de armazenamento (também nos EUA Ocidentais), e quer mudar o centro para os EUA Orientais. Você pode mover o hub e tê-lo ainda encaminhando mensagens para a conta de armazenamento no Oeste dos EUA, ou você pode mover o hub e também mover a conta de armazenamento. Pode haver um pequeno desempenho atingido de mensagens de encaminhamento para recursos de ponta numa região diferente.
 
-Você pode mover um Hub que usa o roteamento de mensagens com muita facilidade se também não mover os recursos usados para os pontos de extremidade de roteamento. 
+Você pode mover um hub que usa o encaminhamento de mensagens muito facilmente se você também não mover os recursos usados para os pontos finais de encaminhamento. 
 
-Se o Hub usar o roteamento de mensagens, você terá duas opções. 
+Se o centro usa o encaminhamento de mensagens, tem duas opções. 
 
-1. Mova os recursos usados para os pontos de extremidade de roteamento para o novo local.
+1. Mova os recursos utilizados para os pontos finais de encaminhamento para o novo local.
 
-    * Você deve criar os novos recursos manualmente no [portal do Azure](https://portal.azure.com) ou por meio do uso de modelos do Resource Manager. 
+    * Você mesmo deve criar os novos recursos manualmente no [portal Azure](https://portal.azure.com) ou através da utilização de modelos de Gestor de Recursos. 
 
-    * Você deve renomear todos os recursos ao criá-los no novo local, pois eles têm nomes globalmente exclusivos. 
+    * Deve renomear todos os recursos quando os criar no novo local, uma vez que têm nomes globalmente únicos. 
      
-    * Você deve atualizar os nomes de recursos e as chaves de recurso no modelo do novo hub, antes de criar o novo hub. Os recursos devem estar presentes quando o novo hub for criado.
+    * Tem de atualizar os nomes de recursos e as teclas de recursos no modelo do novo hub, antes de criar o novo hub. Os recursos devem estar presentes quando o novo hub for criado.
 
-1. Não mova os recursos usados para os pontos de extremidade de roteamento. Use-os "no local".
+1. Não mova os recursos usados para os pontos finais de encaminhamento. Use-os "no lugar".
 
-   * Na etapa em que você edita o modelo, você precisará recuperar as chaves para cada recurso de roteamento e colocá-las no modelo antes de criar o novo hub. 
+   * No passo em que edita o modelo, terá de recuperar as chaves para cada recurso de encaminhamento e colocá-las no modelo antes de criar o novo hub. 
 
-   * O Hub ainda faz referência aos recursos de roteamento originais e roteia mensagens para eles conforme configurado.
+   * O centro ainda refere os recursos de encaminhamento originais e encaminha as mensagens para eles como configurados.
 
-   * Você terá um pequeno impacto no desempenho porque o Hub e os recursos do ponto de extremidade de roteamento não estão no mesmo local.
+   * Você terá um pequeno desempenho atingido porque o hub e os recursos de ponto final de encaminhamento não estão no mesmo local.
 
-## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Preparar para migrar o Hub para outra região
+## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Prepare-se para migrar o centro para outra região
 
-Esta seção fornece instruções específicas para migrar o Hub.
+Esta secção fornece instruções específicas para migrar o centro.
 
-### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Localize o Hub original e exporte-o para um modelo de recurso.
+### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Encontre o centro original e exporte-o para um modelo de recurso.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Assine no [portal Azure.](https://portal.azure.com) 
 
-1. Vá para **grupos de recursos** e selecione o grupo de recursos que contém o Hub que você deseja mover. Você também pode acessar **recursos** e encontrar o Hub dessa maneira. Selecione o Hub.
+1. Vá aos **Grupos de Recursos** e selecione o grupo de recursos que contém o hub que pretende mover. Também pode ir à **Resources** e encontrar o centro dessa forma. Selecione o centro.
 
-1. Selecione **Exportar modelo** na lista de propriedades e configurações para o Hub. 
+1. Selecione modelo de **exportação** a partir da lista de propriedades e configurações para o centro. 
 
-   ![Captura de tela mostrando o comando para exportar o modelo para o Hub IoT.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   ![Screenshot mostrando o comando para exportar o modelo para o IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
 
-1. Selecione **baixar** para baixar o modelo. Salve o arquivo em algum lugar em que você possa encontrá-lo novamente. 
+1. Selecione **Baixar** para descarregar o modelo. Guarde o ficheiro em algum lugar onde possa encontrá-lo de novo. 
 
-   ![Captura de tela mostrando o comando para baixar o modelo para o Hub IoT.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   ![Screenshot mostrando o comando para descarregar o modelo para o IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
 
-### <a name="view-the-template"></a>Exibir o modelo 
+### <a name="view-the-template"></a>Ver o modelo 
 
-1. Vá para a pasta de downloads (ou para qualquer pasta usada quando você exportou o modelo) e localize o arquivo zip. Abra o arquivo zip e localize o arquivo chamado `template.json`. Selecione-o e, em seguida, selecione CTRL + C para copiar o modelo. Vá para uma pasta diferente que não esteja no arquivo zip e cole o arquivo (Ctrl + V). Agora você pode editá-lo.
+1. Vá à pasta Downloads (ou a qualquer pasta que tenha usado quando exportou o modelo) e encontre o ficheiro zip. Abra o ficheiro zip e `template.json`encontre o ficheiro chamado . Selecione-o e, em seguida, selecione Ctrl+C para copiar o modelo. Vá para uma pasta diferente que não esteja no ficheiro zip e colhe o ficheiro (Ctrl+V). Agora pode editá-lo.
  
-    O exemplo a seguir é para um hub genérico sem configuração de roteamento. É um hub de camada S1 (com 1 unidade) chamado **ContosoTestHub29358** na região **westus**. Este é o modelo exportado.
+    O exemplo que se segue é para um centro genérico sem configuração de encaminhamento. É um hub de nível S1 (com 1 unidade) chamado **ContosoTestHub29358** na região **westus**. Aqui está o modelo exportado.
 
     ``` json
     {
@@ -233,11 +233,11 @@ Esta seção fornece instruções específicas para migrar o Hub.
 
 ### <a name="edit-the-template"></a>Editar o modelo 
 
-Você precisa fazer algumas alterações antes de poder usar o modelo para criar o novo hub na nova região. Use [vs Code](https://code.visualstudio.com) ou um editor de texto para editar o modelo.
+Tem de fazer algumas alterações antes de poder usar o modelo para criar o novo hub na nova região. Utilize o [Código VS](https://code.visualstudio.com) ou um editor de texto para editar o modelo.
 
-#### <a name="edit-the-hub-name-and-location"></a>Editar o nome e o local do Hub
+#### <a name="edit-the-hub-name-and-location"></a>Editar o nome e a localização do hub
 
-1. Remova a seção de parâmetros na parte superior – é muito mais simples usar apenas o nome do Hub, pois não vamos ter vários parâmetros. 
+1. Remova a secção de parâmetros na parte superior. 
 
     ``` json
         "parameters": {
@@ -248,9 +248,9 @@ Você precisa fazer algumas alterações antes de poder usar o modelo para criar
         },
     ```
 
-1. Altere o nome para usar o nome (novo) real em vez de recuperá-lo de um parâmetro (que você removeu na etapa anterior). 
+1. Mude o nome para utilizar o nome real (novo) em vez de o recuperar de um parâmetro (que removeu no passo anterior). 
 
-    Para o novo hub, use o nome do Hub original mais o *clone* da cadeia de caracteres para criar o novo nome. Comece limpando o nome e o local do Hub.
+    Para o novo hub, use o nome do hub original mais o *clone* de cordas para compor o novo nome. Comece por limpar o nome e a localização do centro.
     
     Versão antiga:
 
@@ -266,9 +266,9 @@ Você precisa fazer algumas alterações antes de poder usar o modelo para criar
     "location": "eastus",
     ```
 
-    Em seguida, você descobrirá que os valores de **path** contêm o nome do hub antigo. Altere-os para usar o novo. Esses são os valores de caminho em **eventHubEndpoints** chamados **Events** e **OperationsMonitoringEvents**.
+    Em seguida, você vai descobrir que os valores para **o caminho** contêm o nome antigo do centro. Mude-os para usar o novo. Estes são os valores de percurso em **eventoSPontos HubEndchamados** **eventos** e **Eventos de Monitorização de Operações**.
 
-    Quando terminar, a seção pontos de extremidade do hub de eventos deverá ter a seguinte aparência:
+    Quando terminar, a secção de pontos finais do seu centro de eventos deve ser assim:
 
     ``` json
     "eventHubEndpoints": {
@@ -294,13 +294,13 @@ Você precisa fazer algumas alterações antes de poder usar o modelo para criar
         }
     ```
 
-#### <a name="update-the-keys-for-the-routing-resources-that-are-not-being-moved"></a>Atualizar as chaves para os recursos de roteamento que não estão sendo movidos
+#### <a name="update-the-keys-for-the-routing-resources-that-are-not-being-moved"></a>Atualize as chaves para os recursos de encaminhamento que não estão a ser movidos
 
-Ao exportar o modelo do Resource Manager para um Hub que tem o roteamento configurado, você verá que as chaves desses recursos não são fornecidas no modelo exportado – seu posicionamento é indicado por asteriscos. Você deve preenchê-los indo até esses recursos no portal e recuperando as chaves **antes** de importar o modelo do novo hub e criar o Hub. 
+Ao exportar o modelo de Gestor de Recursos para um hub configurado, verá que as chaves desses recursos não são fornecidas no modelo exportado -- a sua colocação é denotada por asteriscos. Deve preenchê-los indo para esses recursos no portal e recuperando as chaves **antes** de importar o modelo do novo hub e criar o hub. 
 
-1. Recupere as chaves necessárias para qualquer um dos recursos de roteamento e coloque-as no modelo. Você pode recuperar as chaves do recurso no [portal do Azure](https://portal.azure.com). 
+1. Recupere as chaves necessárias para qualquer um dos recursos de encaminhamento e coloque-as no modelo. Pode recuperar a chave(s) do recurso no [portal Azure](https://portal.azure.com). 
 
-   Por exemplo, se você estiver Roteando mensagens para um contêiner de armazenamento, localize a conta de armazenamento no Portal. Na seção Configurações, selecione **chaves de acesso**e, em seguida, copie uma das chaves. Esta é a aparência da chave quando você exporta o modelo pela primeira vez:
+   Por exemplo, se estiver a encaminhar mensagens para um recipiente de armazenamento, encontre a conta de armazenamento no portal. Na secção Definições, selecione **teclas de acesso**e, em seguida, copie uma das teclas. Aqui está o que a chave parece quando você exporta o modelo pela primeira vez:
 
    ```json
    "connectionString": "DefaultEndpointsProtocol=https;
@@ -308,9 +308,9 @@ Ao exportar o modelo do Resource Manager para um Hub que tem o roteamento config
    "containerName": "fabrikamresults",
    ```
 
-1. Depois de recuperar a chave de conta da conta de armazenamento, coloque-a no modelo na cláusula `AccountKey=****` no lugar dos asteriscos. 
+1. Depois de recuperar a chave da conta para a conta `AccountKey=****` de armazenamento, coloque-a no modelo na cláusula no lugar dos asteriscos. 
 
-1. Para as filas do barramento de serviço, obtenha a chave de acesso compartilhado que corresponde ao SharedAccessKeyName. Aqui está a chave e o `SharedAccessKeyName` no JSON:
+1. Para filas de ônibus de serviço, obtenha a chave de acesso partilhada correspondente ao SharedAccessKeyName. Aqui está a `SharedAccessKeyName` chave e o em json:
 
    ```json
    "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
@@ -319,123 +319,123 @@ Ao exportar o modelo do Resource Manager para um Hub que tem o roteamento config
    EntityPath=fabrikamsbqueue1234",
    ```
 
-1. O mesmo se aplica aos tópicos do barramento de serviço e conexões do hub de eventos.
+1. O mesmo se aplica às ligações Service Bus Topics e Event Hub.
 
-#### <a name="create-the-new-routing-resources-in-the-new-location"></a>Criar os novos recursos de roteamento no novo local
+#### <a name="create-the-new-routing-resources-in-the-new-location"></a>Criar os novos recursos de encaminhamento na nova localização
 
-Esta seção se aplica somente se você estiver movendo os recursos usados pelo hub para os pontos de extremidade de roteamento.
+Esta secção só se aplica se estiver a mover os recursos utilizados pelo hub para os pontos finais de encaminhamento.
 
-Se desejar mover os recursos de roteamento, você deverá configurar manualmente os recursos no novo local. Você pode criar os recursos de roteamento usando o [portal do Azure](https://portal.azure.com)ou exportando o modelo do Resource Manager para cada um dos recursos usados pelo roteamento de mensagens, editando-os e importando-os. Depois que os recursos forem configurados, você poderá importar o modelo do Hub (que inclui a configuração de roteamento).
+Se quiser mover os recursos de encaminhamento, tem de configurar manualmente os recursos no novo local. Pode criar os recursos de encaminhamento utilizando o [portal Azure,](https://portal.azure.com)ou exportando o modelo de Gestor de Recursos para cada um dos recursos utilizados pelo encaminhamento de mensagens, editando-os e importando-os. Após a configuração dos recursos, pode importar o modelo do hub (que inclui a configuração de encaminhamento).
 
-1. Crie cada recurso usado pelo roteamento. Você pode fazer isso manualmente usando o [portal do Azure](https://portal.azure.com)ou criar os recursos usando modelos do Resource Manager. Se você quiser usar modelos, estas são as etapas a serem seguidas:
+1. Crie cada recurso utilizado pelo encaminhamento. Pode fazê-lo manualmente utilizando o [portal Azure,](https://portal.azure.com)ou criar os recursos utilizando modelos de Gestor de Recursos. Se quiser utilizar modelos, estes são os passos a seguir:
 
-    1. Para cada recurso usado pelo roteamento, exporte-o para um modelo do Resource Manager.
+    1. Para cada recurso utilizado pelo encaminhamento, exporte-o para um modelo de Gestor de Recursos.
     
-    1. Atualize o nome e o local do recurso. 
+    1. Atualize o nome e a localização do recurso. 
 
-    1. Atualize todas as referências cruzadas entre os recursos. Por exemplo, se você criar um modelo para uma nova conta de armazenamento, precisará atualizar o nome da conta de armazenamento nesse modelo e qualquer outro modelo que faça referência a ele. Na maioria dos casos, a seção de roteamento no modelo para o Hub é o único outro modelo que faz referência ao recurso. 
+    1. Atualize quaisquer referências cruzadas entre os recursos. Por exemplo, se criar um modelo para uma nova conta de armazenamento, precisa atualizar o nome da conta de armazenamento nesse modelo e qualquer outro modelo que o refira. Na maioria dos casos, a secção de encaminhamento no modelo para o hub é o único outro modelo que faz referência ao recurso. 
 
-    1. Importe cada um dos modelos, que implanta cada recurso.
+    1. Importar cada um dos modelos, que implanta cada recurso.
 
-    Depois que os recursos usados pelo roteamento estiverem configurados e em execução, você poderá continuar.
+    Uma vez que os recursos utilizados pelo encaminhamento são configurados e funcionando, você pode continuar.
 
-1. No modelo do Hub IoT, altere o nome de cada um dos recursos de roteamento para seu novo nome e atualize o local, se necessário. 
+1. No modelo para o hub IoT, altere o nome de cada um dos recursos de encaminhamento para o seu novo nome e atualize a localização se necessário. 
 
-Agora você tem um modelo que criará um novo hub que parece quase exatamente como o Hub antigo, dependendo de como você decidiu manipular o roteamento.
+Agora você tem um modelo que vai criar um novo hub que se parece quase exatamente com o antigo hub, dependendo de como você decidiu lidar com o encaminhamento.
 
-## <a name="move----create-the-new-hub-in-the-new-region-by-loading-the-template"></a>Mover--criar o novo hub na nova região carregando o modelo
+## <a name="move----create-the-new-hub-in-the-new-region-by-loading-the-template"></a>Move - criar o novo hub na nova região carregando o modelo
 
-Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteamento que serão movidos, os recursos deverão ser configurados no novo local e as referências no modelo serão atualizadas para corresponder. Se você não estiver movendo os recursos de roteamento, eles deverão estar no modelo com as chaves atualizadas.
+Crie o novo hub no novo local usando o modelo. Se tiver recursos de encaminhamento que se vão mover, os recursos devem ser criados no novo local e as referências no modelo atualizados para combinar. Se não estiver a mover os recursos de encaminhamento, devem estar no modelo com as teclas atualizadas.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Assine no [portal Azure.](https://portal.azure.com)
 
-1. Selecione **criar um recurso**. 
+1. Selecione **Criar um recurso**. 
 
-1. Na caixa de pesquisa, coloque "implantação de modelo" e selecione Enter.
+1. Na caixa de pesquisa, coloque em "implementação do modelo" e selecione Enter.
 
-1. Selecione **implantação de modelo (implantar usando modelos personalizados)** . Isso levará você para uma tela para o Implantação de modelo. Selecione **Criar**. Verá este ecrã:
+1. Selecione **a implementação do modelo (implemente utilizando modelos personalizados)**. Isto leva-o a um ecrã para a implementação do Modelo. Selecione **Criar**. Verá este ecrã:
 
-   ![Captura de tela mostrando o comando para criar seu próprio modelo](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+   ![Screenshot mostrando o comando para construir o seu próprio modelo](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
-1. Selecione **criar seu próprio modelo no editor**, o que permite que você carregue o modelo de um arquivo. 
+1. Selecione **Construir o seu próprio modelo no editor, o**que lhe permite carregar o seu modelo a partir de um ficheiro. 
 
-1. Selecione **carregar arquivo**. 
+1. Selecione **ficheiro load**. 
 
-   ![Captura de tela mostrando o comando para carregar um arquivo de modelo](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   ![Screenshot mostrando o comando para carregar um ficheiro de modelo](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
-1. Procure o novo modelo que você editou e selecione-o e, em seguida, selecione **abrir**. Ele carrega seu modelo na janela Editar. Selecione **Guardar**. 
+1. Procure o novo modelo que editou e selecione-o e, em seguida, **selecione Open**. Carrega o seu modelo na janela de edição. Selecione **Guardar**. 
 
-   ![Captura de tela mostrando o carregamento do modelo](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
+   ![Screenshot mostrando carregando o modelo](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 
 1. Preencha os campos seguintes.
 
-   **Assinatura**: selecione a assinatura a ser usada.
+   **Subscrição**: selecione a subscrição a utilizar.
 
-   **Grupo de recursos**: Crie um novo grupo de recursos em um novo local. Se você já tiver uma nova configuração, poderá selecioná-la em vez de criar uma nova.
+   **Grupo**de recursos : criar um novo grupo de recursos num novo local. Se já tiver uma nova configurada, pode selecioná-la em vez de criar uma nova.
 
-   **Local**: se você selecionou um grupo de recursos existente, ele será preenchido para que você corresponda ao local do grupo de recursos. Se você criou um novo grupo de recursos, esse será seu local.
+   **Localização**: Se selecionou um grupo de recursos existente, este é preenchido para que possa corresponder à localização do grupo de recursos. Se criou um novo grupo de recursos, esta será a sua localização.
 
-   **Eu concordo a caixa de seleção**: isso basicamente diz que você concorda em pagar pelos recursos que está criando.
+   **Concordo com a caixa**de verificação : isto basicamente diz que concorda em pagar pelos recursos que está a criar.
 
-1. Selecione o botão **comprar** .
+1. Selecione o botão **Comprar.**
 
-O Portal agora valida o modelo e implanta o Hub clonado. Se você tiver dados de configuração de roteamento, eles serão incluídos no novo hub, mas apontarão para os recursos no local anterior.
+O portal agora valida o seu modelo e implanta o seu hub clonado. Se tiver dados de configuração de encaminhamento, será incluído no novo hub, mas irá apontar para os recursos na localização anterior.
 
-## <a name="managing-the-devices-registered-to-the-iot-hub"></a>Gerenciando os dispositivos registrados para o Hub IoT
+## <a name="managing-the-devices-registered-to-the-iot-hub"></a>Gestão dos dispositivos registados no centro ioT
 
-Agora que seu clone está em execução, você precisa copiar todos os dispositivos do Hub original para o clone. 
+Agora que tem o seu clone a funcionar, tem de copiar todos os dispositivos do centro original para o clone. 
 
-Há várias maneiras de fazer isso. Você usou originalmente o [DPS (serviço de provisionamento de dispositivos)](/azure/iot-dps/about-iot-dps)para provisionar os dispositivos ou não fez isso. Se você fez isso, isso não é difícil. Se você não fez isso, isso pode ser muito complicado. 
+Há várias maneiras de conseguir isto. Ou usou originalmente o Serviço de Provisionamento de [Dispositivos (DPS)](/azure/iot-dps/about-iot-dps)para fornecer os dispositivos, ou não o fez. Se o fez, isto não é difícil. Se não o fez, isto pode ser muito complicado. 
 
-Se você não usou o DPS para provisionar seus dispositivos, poderá ignorar a próxima seção e começar a [usar a importação/exportação para mover os dispositivos para o novo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
+Se não usou dPS para fornecer os seus dispositivos, pode saltar a secção seguinte e começar por [Utilizar a Importação/Exportação para mover os dispositivos para o novo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 
-## <a name="using-dps-to-re-provision-the-devices-in-the-new-hub"></a>Usando o DPS para reprovisionar os dispositivos no novo hub
+## <a name="using-dps-to-re-provision-the-devices-in-the-new-hub"></a>Utilização de DPS para reabastecer os dispositivos no novo hub
 
-Para usar o DPS para mover os dispositivos para o novo local, consulte [como reprovisionar dispositivos](../iot-dps/how-to-reprovision.md). Quando tiver terminado, você poderá exibir os dispositivos no [portal do Azure](https://portal.azure.com) e verificar se eles estão no novo local.
+Para utilizar o DPS para mover os dispositivos para o novo local, consulte [como reabastecer os dispositivos](../iot-dps/how-to-reprovision.md). Quando terminar, pode ver os dispositivos no [portal Azure](https://portal.azure.com) e verificar se estão no novo local.
 
-Vá para o novo hub usando o [portal do Azure](https://portal.azure.com). Selecione o Hub e, em seguida, selecione **dispositivos IOT**. Você verá os dispositivos que foram reprovisionados para o Hub clonado. Você também pode exibir as propriedades do Hub clonado. 
+Vá ao novo hub usando o [portal Azure.](https://portal.azure.com) Selecione o seu hub e, em seguida, selecione **Dispositivos IoT**. Vês os dispositivos que foram reprovisionados para o centro clonado. Também pode ver as propriedades do centro clonado. 
 
-Se você implementou o roteamento, teste e certifique-se de que suas mensagens são roteadas para os recursos corretamente.
+Se implementou o encaminhamento, teste e certifique-se de que as suas mensagens são encaminhadas para os recursos corretamente.
 
-### <a name="committing-the-changes-after-using-dps"></a>Confirmando as alterações depois de usar o DPS
+### <a name="committing-the-changes-after-using-dps"></a>Comprometer as alterações após a utilização de DPS
 
-Essa alteração foi confirmada pelo serviço DPS.
+Esta mudança foi cometida pelo serviço DPS.
 
-### <a name="rolling-back-the-changes-after-using-dps"></a>Reverter as alterações depois de usar o DPS. 
+### <a name="rolling-back-the-changes-after-using-dps"></a>Reverter as alterações após a utilização do DPS. 
 
-Se você quiser reverter as alterações, provisione novamente os dispositivos do novo hub para o antigo.
+Se quiser reverter as alterações, reforte os dispositivos do novo hub para o antigo.
 
-Agora você terminou de migrar seu hub e seus dispositivos. Você pode ignorar a [limpeza](#clean-up).
+Já acabou de migrar o seu hub e os seus dispositivos. Pode saltar para [a Limpeza.](#clean-up)
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Usando importação-exportação para mover os dispositivos para o novo hub
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Utilização da Importação-Exportação para mover os dispositivos para o novo hub
 
-O aplicativo se destina ao .NET Core, para que você possa executá-lo no Windows ou no Linux. Você pode baixar o exemplo, recuperar suas cadeias de conexão, definir os sinalizadores para os quais você deseja executar e executá-lo. Você pode fazer isso sem nunca abrir o código.
+A aplicação tem como alvo .NET Core, para que possa executá-la no Windows ou no Linux. Você pode baixar a amostra, recuperar as cordas de ligação, definir as bandeiras para que pedaços você quer executar, e executá-lo. Podes fazer isto sem nunca abrir estoque.
 
-### <a name="downloading-the-sample"></a>Baixando o exemplo
+### <a name="downloading-the-sample"></a>Descarregar a amostra
 
-1. Use os exemplos C# de IOT desta página: [exemplos de IOT do C#Azure para ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Baixe o arquivo zip e descompacte-o no computador. 
+1. Utilize as amostras IoT C# desta página: [Amostras Azure IoT para C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Faça o download do ficheiro zip e desaperte-o no seu computador. 
 
-1. O código pertinente está em./iot-hub/Samples/service/ImportExportDevicesSample. Você não precisa exibir ou editar o código para executar o aplicativo.
+1. O código pertinente está em ./iot-hub/Samples/service/ImportExportDevicesSample. Não precisa de ver ou editar o código para executar a aplicação.
 
-1. Para executar o aplicativo, especifique três cadeias de conexão e cinco opções. Você passa esses dados como argumentos de linha de comando ou usa variáveis de ambiente ou usa uma combinação dos dois. Vamos passar as opções no como argumentos de linha de comando e as cadeias de conexão como variáveis de ambiente. 
+1. Para executar a aplicação, especifique três cordas de ligação e cinco opções. Passa estes dados como argumentos de linha de comando ou utiliza variáveis ambientais, ou utiliza uma combinação dos dois. Vamos passar as opções como argumentos de linha de comando, e as cordas de ligação como variáveis ambientais. 
 
-   O motivo para isso é porque as cadeias de conexão são longas e destinadas, o que é improvável de ser alterado, mas talvez você queira alterar as opções e executar o aplicativo mais de uma vez. Para alterar o valor de uma variável de ambiente, você precisa fechar a janela de comando e o Visual Studio ou VS Code, o que estiver usando. 
+   A razão para isso é porque as cordas de ligação são longas e desajeitadas, e pouco prováveis de mudar, mas você pode querer mudar as opções e executar a aplicação mais de uma vez. Para alterar o valor de uma variável ambiental, tem de fechar a janela de comando e o Visual Studio ou o Código VS, seja qual for o uso. 
 
 ### <a name="options"></a>Opções
 
-Aqui estão as cinco opções que você especifica ao executar o aplicativo. Vamos colocá-los na linha de comando em um minuto.
+Aqui estão as cinco opções que especifica quando executa a aplicação. Vamos colocar isto na linha de comando num minuto.
 
-*   **Devices** (argumento 1) – Defina como true se você quiser adicionar dispositivos virtuais que são gerados para você. Eles são adicionados ao Hub de origem. Além disso, defina **numToAdd** (argumento 2) para especificar quantos dispositivos você deseja adicionar. O número máximo de dispositivos que você pode registrar em um hub é 1 milhão. A finalidade dessa opção é para teste – você pode gerar um número específico de dispositivos e, em seguida, copiá-los para outro hub.
+*   **adicionarDispositivos** (argumento 1) -- detete isto como verdadeiro se quiser adicionar dispositivos virtuais que são gerados para si. Estes são adicionados ao centro de origem. Além disso, detete **o numToAdd** (argumento 2) para especificar quantos dispositivos pretende adicionar. O número máximo de dispositivos que pode registar num hub é de um milhão. O objetivo desta opção é testar.
 
-*   **copyDevices** (argumento 3)--Defina como true para copiar os dispositivos de um hub para outro. 
+*   **copiarDispositivos** (argumento 3) -- detetete isto como verdadeiro para copiar os dispositivos de um hub para outro. 
 
-*   **deleteSourceDevices** (argumento 4)--Defina como true para excluir todos os dispositivos registrados no Hub de origem. Recomendamos aguardar até que você tenha certeza de que todos os dispositivos foram transferidos antes de executar isso. Depois de excluir os dispositivos, você não pode obtê-los de volta.
+*   **eliminarSourceDevices** (argumento 4) -- detete te de forma verdadeira para eliminar todos os dispositivos registados no centro de origem. Recomendamos que esteja certo de que todos os dispositivos foram transferidos antes de executar isto. Uma vez apagado os dispositivos, não pode recuperá-los.
 
-*   **deleteDestDevices** (argumento 5)--Defina como true para excluir todos os dispositivos registrados para o Hub de destino (o clone). Talvez você queira fazer isso se quiser copiar os dispositivos mais de uma vez. 
+*   **eliminarDestDevices** (argumento 5) -- detetete te de forma verdadeira para eliminar todos os dispositivos registados no centro de destino (o clone). Talvez queira fazer isto se quiser copiar os dispositivos mais de uma vez. 
 
-O comando básico será a *execução de dotnet* – isso diz ao .net para criar o arquivo csproj local e, em seguida, executá-lo. Você adiciona seus argumentos de linha de comando ao final antes de executá-lo. 
+O comando básico será *executado dotnet* - isto diz .NET para construir o arquivo csproj local e, em seguida, executá-lo. Adicione os seus argumentos de linha de comando até ao fim antes de o executar. 
 
-A linha de comando será semelhante a estes exemplos:
+A sua linha de comando será parecida com estes exemplos:
 
 ``` console 
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -449,15 +449,15 @@ A linha de comando será semelhante a estes exemplos:
     dotnet run false 0 true false false 
 ```
 
-### <a name="using-environment-variables-for-the-connection-strings"></a>Usando variáveis de ambiente para as cadeias de conexão
+### <a name="using-environment-variables-for-the-connection-strings"></a>Utilização de variáveis ambientais para as cordas de ligação
 
-1. Para executar o exemplo, você precisa das cadeias de conexão para os hubs IoT antigos e novos e para uma conta de armazenamento que pode ser usada para arquivos de trabalho temporários. Armazenaremos os valores para eles em variáveis de ambiente.
+1. Para executar a amostra, precisa das cordas de ligação aos antigos e novos centros IoT, e a uma conta de armazenamento que pode usar para ficheiros de trabalho temporários. Armazenaremos os valores para estes em variáveis ambientais.
 
-1. Para obter os valores da cadeia de conexão, entre no [portal do Azure](https://portal.azure.com). 
+1. Para obter os valores de cadeia de ligação, inscreva-se no [portal Azure](https://portal.azure.com). 
 
-1. Coloque as cadeias de conexão em algum lugar em que você possa recuperá-las, como o bloco de notas. Se você copiar o seguinte, poderá colar as cadeias de conexão diretamente onde elas vão. Não adicione espaços em volta do sinal de igual ou altere o nome da variável. Além disso, você não precisa de aspas duplas em volta das cadeias de conexão. Se você colocar aspas em volta da cadeia de conexão da conta de armazenamento, ela não funcionará.
+1. Coloque as cordas de ligação em algum lugar onde possa recuperá-las, como o NotePad. Se copiar o seguinte, pode colar as cordas de ligação diretamente para onde vão. Não adicione espaços em torno do sinal igual, ou altera o nome variável. Além disso, não precisa de citações duplas em torno das cordas de ligação. Se colocar cotações em torno da cadeia de ligação da conta de armazenamento, não funcionará.
 
-   Para o Windows, é assim que você define as variáveis de ambiente:
+   Para windows, é assim que se define as variáveis ambientais:
 
    ``` console  
    SET IOTHUB_CONN_STRING=<put connection string to original IoT Hub here>
@@ -465,7 +465,7 @@ A linha de comando será semelhante a estes exemplos:
    SET STORAGE_ACCT_CONN_STRING=<put connection string to the storage account here>
    ```
  
-   Para o Linux, é assim que você define as variáveis de ambiente:
+   Para o Linux, é assim que se define as variáveis ambientais:
 
    ``` console  
    export IOTHUB_CONN_STRING="<put connection string to original IoT Hub here>"
@@ -473,30 +473,30 @@ A linha de comando será semelhante a estes exemplos:
    export STORAGE_ACCT_CONN_STRING="<put connection string to the storage account here>"
    ```
 
-1. Para as cadeias de conexão do Hub IoT, vá para cada Hub no Portal. Você pode pesquisar em **recursos** para o Hub. Se você souber o grupo de recursos, poderá ir para **grupos de recursos**, selecionar o grupo de recursos e, em seguida, selecionar o Hub na lista de ativos desse grupo de recursos. 
+1. Para as cordas de ligação do hub IoT, vá a cada centro no portal. Pode procurar em **Recursos** para o centro. Se conhece o Grupo de Recursos, pode ir a **grupos de Recursos,** selecionar o seu grupo de recursos e, em seguida, selecionar o hub a partir da lista de ativos desse grupo de recursos. 
 
-1. Selecione **políticas de acesso compartilhado** nas configurações do Hub e, em seguida, selecione **iothubowner** e copie uma das cadeias de conexão. Faça o mesmo para o Hub de destino. Adicione-os aos comandos SET apropriados.
+1. Selecione as políticas de **acesso partilhada** saem das Definições para o hub e, em seguida, selecione **iothubowner** e copie uma das cordas de ligação. Faça o mesmo para o centro de destino. Adicione-os aos comandos SET apropriados.
 
-1. Para a cadeia de conexão da conta de armazenamento, localize a conta de armazenamento em **recursos** ou em seu **grupo de recursos** e abra-a. 
+1. Para a cadeia de ligação à conta de armazenamento, encontre a conta de armazenamento em **Recursos** ou sob o seu **grupo de Recursos** e abra-a. 
    
-1. Na seção Configurações, selecione **chaves de acesso** e copie uma das cadeias de conexão. Coloque a cadeia de conexão em seu arquivo de texto para o comando SET apropriado. 
+1. Na secção Definições, selecione **teclas de acesso** e copie uma das cordas de ligação. Coloque a cadeia de ligação no seu ficheiro de texto para o comando SET apropriado. 
 
-Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sabe quais são seus argumentos de linha de comando. Vamos executar o exemplo.
+Agora tem as variáveis ambientais num ficheiro com os comandos SET, e sabe quais são os seus argumentos de linha de comando. Vamos ver a amostra.
 
-### <a name="running-the-sample-application-and-using-command-line-arguments"></a>Executando o aplicativo de exemplo e usando argumentos de linha de comando
+### <a name="running-the-sample-application-and-using-command-line-arguments"></a>Executar a aplicação da amostra e usar argumentos de linha de comando
 
-1. Abra uma janela da linha de comandos. Selecione Windows e digite `command prompt` para obter a janela de prompt de comando.
+1. Abra uma janela da linha de comandos. Selecione Windows `command prompt` e escreva para obter a janela de solicitação de comando.
 
-1. Copie os comandos que definem as variáveis de ambiente, um de cada vez, e cole-os na janela de prompt de comando e selecione Enter. Quando tiver terminado, digite `SET` na janela do prompt de comando para ver suas variáveis de ambiente e seus valores. Depois de copiá-los para a janela de prompt de comando, você não precisa copiá-los novamente, a menos que abra uma nova janela de prompt de comando.
+1. Copie os comandos que configuram as variáveis ambientais, uma de cada vez, e cole-as na janela de instrução de comando e selecione Enter. Quando terminar, digite `SET` a janela de solicitação de comando para ver as variáveis ambientais e os seus valores. Depois de copiá-los para a janela de instrução, não terá que copiá-los novamente, a menos que abra uma nova janela de comando.
 
-1. Na janela do prompt de comando, altere os diretórios até que você esteja em./ImportExportDevicesSample (onde o arquivo ImportExportDevicesSample. csproj existe). Em seguida, digite o seguinte e inclua seus argumentos de linha de comando.
+1. Na janela de solicitação de comando, altere os diretórios até que esteja em ./ImportExportDevicesSample (onde existe o ficheiro ImportExportDevicesSample.csproj). Em seguida, digite o seguinte e inclua os seus argumentos de linha de comando.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    O comando dotnet cria e executa o aplicativo. Como você está passando as opções ao executar o aplicativo, você pode alterar os valores deles sempre que executar o aplicativo. Por exemplo, talvez você queira executá-lo uma vez e criar novos dispositivos, executá-lo novamente e copiar esses dispositivos para um novo hub e assim por diante. Você também pode executar todas as etapas na mesma execução, embora seja recomendável não excluir nenhum dispositivo até que você tenha certeza de que concluiu a clonagem. Aqui está um exemplo que cria 1000 dispositivos e os copia para o outro hub.
+    O comando dotnet constrói e executa a aplicação. Como está a passar as opções quando executa a aplicação, pode alterar os valores das mesmas sempre que executar a aplicação. Por exemplo, pode querer executá-lo uma vez e criar novos dispositivos, em seguida, executá-lo novamente e copiar esses dispositivos para um novo hub, e assim por diante. Também pode executar todos os passos na mesma execução, embora recomendamos que não alelete nenhum dispositivo até ter a certeza de que está acabado com a clonagem. Aqui está um exemplo que cria 1000 dispositivos e depois copia-os para o outro centro.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -508,7 +508,7 @@ Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sa
     dotnet run false 0 true false false 
     ```
 
-    Depois de verificar se os dispositivos foram copiados com êxito, você pode remover os dispositivos do hub de origem como este:
+    Depois de verificar se os dispositivos foram copiados com sucesso, pode remover os dispositivos do centro de origem como este:
 
    ``` console
    // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -516,17 +516,17 @@ Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sa
    dotnet run false 0 false true false 
    ```
 
-### <a name="running-the-sample-application-using-visual-studio"></a>Executando o aplicativo de exemplo usando o Visual Studio
+### <a name="running-the-sample-application-using-visual-studio"></a>Executar a aplicação da amostra usando o Estúdio Visual
 
-1. Se você quiser executar o aplicativo no Visual Studio, altere o diretório atual para a pasta onde o arquivo IoTHubServiceSamples. sln reside. Em seguida, execute este comando na janela de prompt de comando para abrir a solução no Visual Studio. Você deve fazer isso na mesma janela de comando em que você define as variáveis de ambiente, portanto, essas variáveis são conhecidas.
+1. Se quiser executar a aplicação no Visual Studio, altere o seu diretório atual para a pasta onde reside o ficheiro IoTHubServiceSamples.sln. Em seguida, executar este comando na janela de comando pronta para abrir a solução em Estúdio Visual. Deve fazê-lo na mesma janela de comando onde define as variáveis ambientais, para que essas variáveis sejam conhecidas.
 
    ``` console       
    IoTHubServiceSamples.sln
    ```
     
-1. Clique com o botão direito do mouse no projeto *ImportExportDevicesSample* e selecione **definir como projeto de inicialização**.    
+1. Clique à direita no projeto *ImportExportDevicesSample* e selecione **set como projeto de arranque**.    
     
-1. Defina as variáveis na parte superior de Program.cs na pasta ImportExportDevicesSample para as cinco opções.
+1. Detete as variáveis no topo da Program.cs na pasta ImportExportDevicesSample para as cinco opções.
 
    ``` csharp
    // Add randomly created devices to the source hub.
@@ -541,64 +541,64 @@ Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sa
    private static bool deleteDestDevices = false;
    ```
 
-1. Selecione F5 para executar o aplicativo. Depois de concluir a execução, você poderá exibir os resultados.
+1. Selecione F5 para executar a aplicação. Depois de terminar a corrida, pode ver os resultados.
 
 ### <a name="view-the-results"></a>Ver os resultados 
 
-Você pode exibir os dispositivos no [portal do Azure](https://portal.azure.com) e verificar se eles estão no novo local.
+Pode ver os dispositivos no [portal Azure](https://portal.azure.com) e verificar se estão no novo local.
 
-1. Vá para o novo hub usando o [portal do Azure](https://portal.azure.com). Selecione o Hub e, em seguida, selecione **dispositivos IOT**. Você vê os dispositivos que acabou de copiar do hub antigo para o Hub clonado. Você também pode exibir as propriedades do Hub clonado. 
+1. Vá ao novo hub usando o [portal Azure.](https://portal.azure.com) Selecione o seu hub e, em seguida, selecione **Dispositivos IoT**. Vês os dispositivos que acabaste de copiar do antigo centro para o centro clonado. Também pode ver as propriedades do centro clonado. 
 
-1. Verifique se há erros de importação/exportação indo para a conta de armazenamento do Azure na [portal do Azure](https://portal.azure.com) e procurando o `devicefiles` contêiner para a `ImportErrors.log`. Se esse arquivo estiver vazio (o tamanho é 0), não haverá erros. Se você tentar importar o mesmo dispositivo mais de uma vez, ele rejeitará o dispositivo na segunda vez e adicionará uma mensagem de erro ao arquivo de log.
+1. Verifique se há erros de importação/exportação indo para a conta `devicefiles` de `ImportErrors.log`armazenamento Azure no [portal Azure](https://portal.azure.com) e procurando no recipiente para o . Se este ficheiro estiver vazio (o tamanho é 0), não houve erros. Se tentar importar o mesmo dispositivo mais de uma vez, rejeita o dispositivo pela segunda vez e adiciona uma mensagem de erro ao ficheiro de registo.
 
-### <a name="committing-the-changes"></a>Confirmando as alterações 
+### <a name="committing-the-changes"></a>Comprometer as alterações 
 
-Neste ponto, você copiou o Hub para o novo local e migrou os dispositivos para o novo clone. Agora você precisa fazer alterações para que os dispositivos funcionem com o Hub clonado.
+Neste momento, copiou o seu hub para o novo local e emigrou os dispositivos para o novo clone. Agora tens de fazer alterações para que os dispositivos funcionem com o centro clonado.
 
-Para confirmar as alterações, aqui estão as etapas que você precisa executar: 
+Para comprometer as alterações, aqui estão os passos que precisa de executar: 
 
-* Atualize cada dispositivo para alterar o nome de host do Hub IoT para apontar o nome de host do Hub IoT para o novo hub. Você deve fazer isso usando o mesmo método usado ao provisionar o dispositivo pela primeira vez.
+* Atualize cada dispositivo para alterar o nome de anfitrião do IoT Hub para indicar o nome de anfitrião do IoT Hub para o novo hub. Deve fazê-lo utilizando o mesmo método utilizado quando forprovisionou o dispositivo pela primeira vez.
 
-* Altere todos os aplicativos que você tem que se referem ao Hub antigo para apontar para o novo hub.
+* Altere quaisquer aplicações que tenha que se refiram ao antigo hub para apontar para o novo hub.
 
-* Depois que você terminar, o novo Hub deverá estar em execução. O Hub antigo não deve ter nenhum dispositivo ativo e estar em um estado desconectado. 
+* Depois de terminar, o novo centro deve estar a funcionar. O antigo hub não deve ter dispositivos ativos e estar em estado dedesconectado. 
 
 ### <a name="rolling-back-the-changes"></a>Reverter as alterações
 
-Se você decidir reverter as alterações, estas são as etapas a serem executadas:
+Se decidir reverter as alterações, aqui estão os passos a executar:
 
-* Atualize cada dispositivo para alterar o nome de host do Hub IoT para apontar o nome de host do Hub IoT para o Hub antigo. Você deve fazer isso usando o mesmo método usado ao provisionar o dispositivo pela primeira vez.
+* Atualize cada dispositivo para alterar o nome de anfitrião do IoT Hub para indicar o nome de anfitrião Do Hub IoT para o antigo hub. Deve fazê-lo utilizando o mesmo método utilizado quando forprovisionou o dispositivo pela primeira vez.
 
-* Altere todos os aplicativos que você tem que se referem ao novo hub para apontar para o Hub antigo. Por exemplo, se você estiver usando a análise do Azure, talvez seja necessário reconfigurar sua [entrada de Azure Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* Altere quaisquer aplicações que tenha que se refiram ao novo hub para apontar para o antigo hub. Por exemplo, se estiver a utilizar o Azure Analytics, poderá ter de reconfigurar a sua [entrada azure Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
-* Exclua o novo hub. 
+* Apague o novo centro. 
 
-* Se você tiver recursos de roteamento, a configuração no Hub antigo ainda deve apontar para a configuração de roteamento correta e deve funcionar com esses recursos depois que o Hub for reiniciado.
+* Se tiver recursos de encaminhamento, a configuração no antigo hub deve ainda apontar para a configuração correta de encaminhamento, e deve trabalhar com esses recursos após o reinício do hub.
 
-### <a name="checking-the-results"></a>Verificando os resultados 
+### <a name="checking-the-results"></a>Verificação dos resultados 
 
-Para verificar os resultados, altere sua solução de IoT para apontar para o Hub no novo local e executá-lo. Em outras palavras, execute as mesmas ações com o novo hub que você realizou com o Hub anterior e certifique-se de que elas funcionam corretamente. 
+Para verificar os resultados, altere a sua solução IoT para apontar para o seu hub na nova localização e executá-la. Por outras palavras, execute as mesmas ações com o novo hub que realizou com o hub anterior e certifique-se de que funcionam corretamente. 
 
-Se você implementou o roteamento, teste e certifique-se de que suas mensagens são roteadas para os recursos corretamente.
+Se implementou o encaminhamento, teste e certifique-se de que as suas mensagens são encaminhadas para os recursos corretamente.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
-Não limpe até que você realmente esteja certo de que o novo Hub esteja em execução e os dispositivos estejam funcionando corretamente. Além disso, certifique-se de testar o roteamento se você estiver usando esse recurso. Quando estiver pronto, limpe os recursos antigos executando estas etapas:
+Não limpe até ter a certeza de que o novo hub está a funcionar e os dispositivos estão a funcionar corretamente. Certifique-se também de testar o encaminhamento se estiver a utilizar essa funcionalidade. Quando estiver pronto, limpe os recursos antigos executando estes passos:
 
-* Se você ainda não fez isso, exclua o Hub antigo. Isso remove todos os dispositivos ativos do Hub.
+* Se ainda não o fez, apague o velho centro. Isto remove todos os dispositivos ativos do centro.
 
-* Se você tiver recursos de roteamento movidos para o novo local, poderá excluir os recursos de roteamento antigos.
+* Se tiver recursos de encaminhamento que mudou para o novo local, pode eliminar os antigos recursos de encaminhamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você clonou um hub IoT em um novo hub em uma nova região, completo com os dispositivos. Para obter mais informações sobre como executar operações em massa em relação ao registro de identidade em um hub IoT, consulte [importar e exportar identidades de dispositivo do Hub IOT em massa](iot-hub-bulk-identity-mgmt.md).
+Clonaste um hub ioT num novo centro numa nova região, com os dispositivos. Para obter mais informações sobre a realização de operações a granel contra o registo de identidade num Hub IoT, consulte as identidades do [dispositivo IoT Hub de importação e exportação](iot-hub-bulk-identity-mgmt.md)a granel.
 
-Para obter mais informações sobre o Hub IoT e o desenvolvimento para o Hub, consulte os artigos a seguir.
+Para mais informações sobre o IoT Hub e desenvolvimento para o hub, consulte os seguintes artigos.
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
 
-* [Tutorial de roteamento do Hub IoT](tutorial-routing.md)
+* [Tutorial de encaminhamento do Hub IoT](tutorial-routing.md)
 
-* [Visão geral do gerenciamento de dispositivos do Hub IoT](iot-hub-device-management-overview.md)
+* [Visão geral da gestão do dispositivo IoT Hub](iot-hub-device-management-overview.md)
 
-* Se você quiser implantar o aplicativo de exemplo, consulte [implantação de aplicativo do .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Se pretender implementar a aplicação da amostra, consulte a implementação da [aplicação .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).

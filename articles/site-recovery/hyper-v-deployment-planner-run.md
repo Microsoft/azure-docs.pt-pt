@@ -1,6 +1,6 @@
 ---
-title: Execute o Planejador de Implantações do Hyper-V no Azure Site Recovery
-description: Este artigo descreve como executar o Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do Hyper-V para o Azure.
+title: Executar o planejador de implantação hyper-V na recuperação do site azure
+description: Este artigo descreve como executar o Planejador de Implantação de Recuperação de Sítios Azure para recuperação de desastres hyper-V para Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082612"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planejador de implantação Azure Site Recovery para recuperação de desastres do Hyper-V no Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planejador de implantação de recuperação de site Azure para recuperação de desastres hyper-V para Azure
 
-Você pode executar a ferramenta de linha de comando Site Recovery o planejador de implantação (ASRDeploymentPlanner. exe) em qualquer um destes quatro modos: 
--   Obter a lista de máquinas virtuais (VM)
+Pode executar a ferramenta de linha de comando de implementação de implementação de implementação de site (ASRDeploymentPlanner.exe) em qualquer um destes quatro modos: 
+-   Obter a lista de máquinas virtuais (VMs)
 -   [Perfil](#profile-hyper-v-vms)
 -   Gerar um relatório
 -   [Obtenção de débito](#get-throughput)
@@ -41,7 +41,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -User | O nome de utilizador para ligar ao anfitrião Hyper-V ou cluster Hyper-V. O utilizador precisa de ter acesso administrativo.|
 | -ServerListFile | O ficheiro com a lista de servidores que contém as VMs das quais criar o perfil. O caminho do ficheiro pode ser absoluto ou relativo. Este ficheiro deve conter um dos seguintes em cada linha:<ul><li>Nome de anfitrião do Hyper-V ou endereço IP</li><li>Nome de cluster do Hyper-V ou endereço IP</li></ul><br>**Exemplo:** o ficheiro ServerList.txt contém os servidores seguintes:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) A convenção de nomenclatura universal (UNC) ou o caminho do diretório local para armazenar os dados gerados durante esta operação. Se não for especificado um nome, o diretório com o nome ProfiledData no caminho atual é utilizado como diretório predefinido.|
-|-OutputFile| Adicional O arquivo com a lista de VMs buscadas dos servidores Hyper-V é salvo. Se um nome não for mencionado, os detalhes são armazenados em VMList.txt.  Utilize o ficheiro para iniciar a criação de perfis depois de remover as VMs que não precisam de ter o perfil criado.|
+|-OutputFile| (Opcional) O ficheiro com a lista de VMs recolhidos dos servidores Hyper-V é guardado. Se um nome não for mencionado, os detalhes são armazenados em VMList.txt.  Utilize o ficheiro para iniciar a criação de perfis depois de remover as VMs que não precisam de ter o perfil criado.|
 |-Password|(Opcional) A palavra-passe para ligar ao anfitrião Hyper-V. Se não o especificar como um parâmetro, ser-lhe-á solicitado quando executar o comando.|
 
 ### <a name="getvmlist-discovery"></a>Deteção de GetVMList
@@ -75,7 +75,7 @@ A ferramenta consulta o anfitrião Hyper-V uma vez a cada 15 segundos para garan
 A ferramenta processa de forma totalmente integrada a migração de VMs de um nó para outro no cluster e a migração de armazenamento dentro de um anfitrião.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Obter a lista de VMs para as quais criar perfis
-Para criar uma lista de VMs para o perfil, consulte a operação GetVMList.
+Para criar uma listas de VMs para as quais criar perfis, consulte a operação GetVMList.
 
 Quando tiver a lista das VMs para as quais criar perfis, pode executar a ferramenta no modo de criação de perfis. 
 
@@ -97,8 +97,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(Opcional) O UNC ou caminho de diretório local para armazenar os dados de criação de perfis gerados durante a criação. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 |-Password|(Opcional) A palavra-passe para ligar ao anfitrião Hyper-V. Se não o especificar como um parâmetro, ser-lhe-á solicitado quando executar o comando.|
 |-StorageAccountName|(Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
-|-StorageAccountKey|(Opcional) A chave que é utilizada para aceder à conta de armazenamento. Aceda ao portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Definições** > **Chaves de Acesso** > **Chave1** (ou a chave de acesso primária de uma conta de armazenamento clássica).|
-|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região de destino for o governo dos EUA do Azure ou o Azure China 21Vianet.|
+|-StorageAccountKey|(Opcional) A chave que é utilizada para aceder à conta de armazenamento. Vá ao portal Azure > **Armazenamento** > contas de*armazenamento nome* > de conta de armazenamento**Definições** > Chave de**acesso** > **Tecla1** (ou a chave de acesso primária para uma conta de armazenamento clássica).|
+|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a sua região alvo é o Governo azure dos EUA ou a Azure China 21Vianet.|
 
 Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de alterações mudar mensalmente, recomendamos que crie os perfis durante a semana em que constatar o volume de alterações máximo. A melhor forma consiste em criar perfis para 31 dias, de modo a obter a melhor recomendação. 
 
@@ -154,7 +154,7 @@ Se o servidor no qual a ferramenta está a ser executada for reiniciado ou falha
 
 Quando são transmitidos o nome e a chave da conta de armazenamento, a ferramenta mede o débito no último passo da criação de perfis. Se a ferramenta for fechada antes da conclusão da criação de perfis, o débito não é calculado. Para localizar o débito antes de gerar o relatório, pode executar a operação GetThroughput na consola da linha de comandos. Caso contrário, o relatório gerado não irá conter as informações de débito.
 
-Azure Site Recovery não dá suporte a VMs que têm discos iSCSI e de passagem. A ferramenta não pode detectar e criar o perfil de discos iSCSI e de passagem anexados às VMs.
+A Recuperação do Site Azure não suporta VMs que tenham iSCSI e discos de passagem. A ferramenta não consegue detetar e perfilar iSCSI e discos pass-through que estão ligados a VMs.
 
 ## <a name="generate-a-report"></a>Gerar um relatório
 A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório. Resume todas as recomendações de implementação. O nome do relatório é DeploymentPlannerReport_*identificador numérico exclusivo*.xlsm, que é colocado no diretório especificado.
@@ -255,12 +255,12 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
 * [Resumo no local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recommendations (Recomendações)](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-colocação em armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Recomendações](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [Colocação vm-armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatible VMs (VMs Compatíveis)](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs (VMs Não Compatíveis)](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Requisito de armazenamento no local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [Lotes de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Criação de batches na IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimativa de custos](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Relatório do planeador de implementação](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
@@ -281,9 +281,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|O tipo de virtualização (VMware ou Hyper-V).|
 |-Directory|(Opcional) O caminho UNC ou o caminho do diretório local onde são armazenados os dados da criação de perfis (ficheiros gerados durante a criação de perfis). Estes dados são necessários para gerar o relatório. Se não for especificado um nome, será utilizado como diretório predefinido o diretório com o nome ProfiledData no caminho atual.|
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
-| -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Definições** > **Chaves de Acesso** > **Chave1**.|
+| -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Vá ao portal Azure > **Armazenamento** > contas de*armazenamento nome* > de conta de armazenamento**Definições** > Chaves de**acesso** > **Chave1**.|
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** o ficheiro VMList.txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet.|
+|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a região de Azure alvo é o Governo Azure dos EUA ou a Azure China 21Vianet.|
 
 ### <a name="example"></a>Exemplo
 ```

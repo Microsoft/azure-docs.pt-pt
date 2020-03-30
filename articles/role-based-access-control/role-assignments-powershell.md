@@ -15,15 +15,15 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283215"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando o Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -31,12 +31,12 @@ ms.locfileid: "79283215"
 
 Para adicionar ou remover atribuições de funções, deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 - [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Obter iDs de objeto
 
-Para adicionar ou remover atribuições de funções, poderá ser necessário especificar a identificação única de um objeto. O ID tem o formato: `11111111-1111-1111-1111-111111111111`. Pode obter o ID utilizando o portal Azure ou o Azure PowerShell.
+Para adicionar ou remover atribuições de funções, poderá ser necessário especificar a identificação única de um objeto. O ID tem `11111111-1111-1111-1111-111111111111`o formato: . Pode obter o ID utilizando o portal Azure ou o Azure PowerShell.
 
 ### <a name="user"></a>Utilizador
 
@@ -65,7 +65,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 (Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de funções
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
 No RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
 
@@ -102,7 +102,7 @@ Há algumas vezes em que um nome de papel pode mudar, por exemplo:
 
 > [!IMPORTANT]
 > Uma versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Mesmo que um papel seja renomeado, o papel id não muda. Se estiver a usar scripts ou automação para criar as suas atribuições de papéis, é uma boa prática usar o ID de função único em vez do nome de papel. Portanto, se um papel for renomeado, os seus scripts são mais propensos a funcionar.
 
@@ -112,7 +112,7 @@ Para adicionar uma atribuição de funções utilizando o ID de função único 
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-O exemplo seguinte atribui o papel de [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao *alain\@example.com* utilizador no âmbito do grupo de recursos de venda de *pharma.* Para obter o ID de função único, pode utilizar [o Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções incorporadas para recursos Azure](built-in-roles.md).
+O exemplo seguinte atribui o papel de [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador example.com *alain\@* no âmbito do grupo de recursos de venda de *pharma.* Para obter o ID de função único, pode utilizar [o Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções incorporadas para recursos Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -207,27 +207,27 @@ CanDelegate        : False
 
 No RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando [a Remoção-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-O exemplo seguinte remove a atribuição da função de colaborador de *máquina virtual* do *alain\@example.com* utilizador no grupo de recursos de venda de *pharma:*
+O exemplo seguinte remove a atribuição da função de colaborador de *máquina virtual* do utilizador *example.com alain\@* no grupo de recursos de venda de *pharma:*
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
-O exemplo seguinte remove o papel de <role_name> de <object_id> num âmbito de subscrição.
+O exemplo que se segue elimina o papel de> <role_name> <object_id num âmbito de subscrição.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
-O exemplo seguinte remove o papel de <role_name> de <object_id> no âmbito do grupo de gestão.
+O exemplo que se segue retira o papel <role_name> <object_id> no âmbito do grupo de gestão.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Se receber a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções", certifique-se de que também especifica os parâmetros `-Scope` ou `-ResourceGroupName`. Para mais informações, consulte [Troubleshoot RBAC para obter recursos Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Se receber a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções", certifique-se de que também especifica os `-Scope` parâmetros ou `-ResourceGroupName` parâmetros. Para mais informações, consulte [Troubleshoot RBAC para obter recursos Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuição de papéis de lista utilizando Azure RBAC e Azure PowerShell](role-assignments-list-powershell.md)
 - [Tutorial: Conceder um acesso em grupo aos recursos Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)

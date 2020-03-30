@@ -1,6 +1,6 @@
 ---
 title: Utilize a biblioteca De Gestão de Lotes .NET para gerir os recursos da conta
-description: Crie, exclua e modifique os recursos da conta do lote do Azure com a biblioteca .NET de gerenciamento do lote.
+description: Criar, eliminar e modificar os recursos da conta do Lote Azure com a biblioteca Batch Management .NET.
 services: batch
 documentationcenter: .net
 author: LauraBrenner
@@ -16,36 +16,36 @@ ms.date: 04/24/2017
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 79916d769ad8a7228aec8db965c29506ccd78ece
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023689"
 ---
-# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do lote com a biblioteca de cliente de gerenciamento de lote para .NET
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas e quotas de Lote com a biblioteca de clientes da Batch Management para .NET
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](batch-account-create-portal.md)
+> * [Portal Azure](batch-account-create-portal.md)
 > * [Gestão de Batch .NET](batch-management-dotnet.md)
 > 
 > 
 
-Você pode reduzir a sobrecarga de manutenção em seus aplicativos do lote do Azure usando a biblioteca [.net de gerenciamento do lote][api_mgmt_net] para automatizar a criação, a exclusão, o gerenciamento de chaves e a descoberta de cotas do lote.
+Pode reduzir as despesas de manutenção nas suas aplicações do Lote Azure utilizando a biblioteca [Batch Management .NET][api_mgmt_net] para automatizar a criação de conta Batch, a eliminação, a gestão de chaves e a descoberta de quotas.
 
-* **Crie e exclua contas do lote** em qualquer região. Se, como um ISV (fornecedor independente de software), por exemplo, você fornecer um serviço para seus clientes em que cada um é atribuído a uma conta do lote separada para fins de cobrança, você pode adicionar recursos de criação e exclusão de conta ao portal do cliente.
-* **Recuperar e regenerar chaves de conta** programaticamente para qualquer uma das suas contas do lote. Isso pode ajudá-lo a cumprir as políticas de segurança que impõem a substituição periódica ou a expiração de chaves de conta. Quando você tem várias contas do lote em várias regiões do Azure, a automação desse processo de substituição aumenta a eficiência da solução.
-* **Verifique as cotas de conta** e tome as suposições de avaliação e erro para determinar quais contas do lote têm quais limites. Ao verificar as cotas de conta antes de iniciar trabalhos, criar pools ou adicionar nós de computação, você pode ajustar de forma proativa onde ou quando esses recursos de computação são criados. Você pode determinar quais contas exigem aumentos de cota antes de alocar recursos adicionais nessas contas.
-* **Combine recursos de outros serviços do Azure** para uma experiência de gerenciamento com recursos completos, usando o .net de gerenciamento do lote, [Azure Active Directory][aad_about]e o [Azure Resource Manager][resman_overview] juntos no mesmo aplicativo. Ao usar esses recursos e suas APIs, você pode fornecer uma experiência de autenticação descomplicada, a capacidade de criar e excluir grupos de recursos e os recursos descritos acima para uma solução de gerenciamento de ponta a ponta.
+* **Crie e elimine as contas do Lote** em qualquer região. Se, como fornecedor independente de software (ISV), por exemplo, prestar um serviço aos seus clientes no qual cada um é atribuído uma conta de Lote separada para efeitos de faturação, pode adicionar capacidades de criação e eliminação de contas ao seu portal de clientes.
+* **Recupere e regeneraas chaves** de conta programáticamente para qualquer uma das suas contas do Lote. Isto pode ajudá-lo a cumprir as políticas de segurança que impõem o capotamento periódico ou a caducidade das chaves da conta. Quando se tem várias contas do Lote em várias regiões do Azure, a automatização deste processo de capotamento aumenta a eficiência da sua solução.
+* **Verifique as quotas de conta** e tire o trabalho de adivinhação de tentativa e erro para determinar quais as contas do Lote que têm quais os limites. Ao verificar as quotas da sua conta antes de iniciar empregos, criar piscinas ou adicionar nós de computação, pode ajustar proativamente onde ou quando estes recursos de computação são criados. Pode determinar quais as contas que requerem aumentos de quota antes de atribuir recursos adicionais nessas contas.
+* **Combine funcionalidades de outros serviços Azure** para uma experiência de gestão completa, utilizando a Batch Management .NET, [Azure Ative Directory,][aad_about]e o Gestor de [Recursos Azure][resman_overview] juntos na mesma aplicação. Ao utilizar estas funcionalidades e as suas APIs, pode proporcionar uma experiência de autenticação sem atritos, a capacidade de criar e eliminar grupos de recursos, bem como as capacidades acima descritas para uma solução de gestão de ponta a ponta.
 
 > [!NOTE]
-> Embora este artigo se concentre no gerenciamento programático de suas contas, chaves e cotas do lote, você pode executar muitas dessas atividades usando o [portal do Azure][azure_portal]. Para obter mais informações, consulte [criar uma conta do lote do Azure usando o portal do Azure](batch-account-create-portal.md) e [cotas e limites para o serviço de lote do Azure](batch-quota-limit.md).
+> Enquanto este artigo se centra na gestão programática das suas contas, chaves e quotas do Lote, pode realizar muitas destas atividades utilizando o [portal Azure.][azure_portal] Para mais informações, consulte [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md) e [Quotas e limites para o serviço De lote Azure](batch-quota-limit.md).
 > 
 > 
 
-## <a name="create-and-delete-batch-accounts"></a>Criar e excluir contas do lote
-Como mencionado, um dos principais recursos da API de gerenciamento do lote é criar e excluir contas do lote em uma região do Azure. Para fazer isso, use [BatchManagementClient. Account. createasync][net_create] e [DeleteAsync][net_delete], ou suas contrapartes síncronas.
+## <a name="create-and-delete-batch-accounts"></a>Criar e eliminar contas do Lote
+Como mencionado, uma das principais características da API de Gestão de Lotes é criar e apagar contas de Lote numa região do Azure. Para tal, utilize [o BatchManagementClient.Account.CreateAsync][net_create] e [DeleteAsync,][net_delete]ou os seus homólogos sincronizados.
 
-O trecho de código a seguir cria uma conta, obtém a conta recém-criada do serviço de lote e, em seguida, a exclui. Neste trecho de código e os outros neste artigo, `batchManagementClient` é uma instância totalmente inicializada do [BatchManagementClient][net_mgmt_client].
+O seguinte código snippet cria uma conta, obtém a conta recém-criada a partir do serviço Batch e, em seguida, elimina-a. Neste corte e nos outros neste `batchManagementClient` artigo, é uma instância totalmente inicializada de [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -63,12 +63,12 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Os aplicativos que usam a biblioteca .NET de gerenciamento do lote e sua classe BatchManagementClient exigem acesso de **administrador de serviço** ou **coadministrador** à assinatura que possui a conta do lote a ser gerenciada. Para obter mais informações, consulte a seção Azure Active Directory e o exemplo de código [AccountManagement][acct_mgmt_sample] .
+> As aplicações que utilizam a biblioteca Batch Management .NET e a sua classe BatchManagementClient requerem acesso ao administrador de **serviço** ou **coadministrador** à subscrição que detém a conta Batch para ser gerida. Para mais informações, consulte a secção de Diretório Ativo Azure e a amostra de código [DeGestão][acct_mgmt_sample] de Contas.
 > 
 > 
 
 ## <a name="retrieve-and-regenerate-account-keys"></a>Recuperar e regenerar chaves de conta
-Obtenha chaves de conta primárias e secundárias de qualquer conta do lote em sua assinatura usando o [ListKeysAsync][net_list_keys]. Você pode regenerar essas chaves usando [RegenerateKeyAsync][net_regenerate_keys].
+Obtenha chaves de conta primária e secundária de qualquer conta de Lote dentro da sua subscrição utilizando [listKeysAsync][net_list_keys]. Pode regenerar essas teclas utilizando [reregenerarKeyAsync][net_regenerate_keys].
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -90,17 +90,17 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> Você pode criar um fluxo de trabalho de conexão simplificado para seus aplicativos de gerenciamento. Primeiro, obtenha uma chave de conta para a conta do lote que você deseja gerenciar com o [ListKeysAsync][net_list_keys]. Em seguida, use essa chave ao inicializar a classe [BatchSharedKeyCredentials][net_sharedkeycred] da biblioteca .net do lote, que é usada ao inicializar o [BatchClient][net_batch_client].
+> Pode criar um fluxo de trabalho de ligação simplificado para as suas aplicações de gestão. Em primeiro lugar, obtenha uma chave de conta para a conta Batch que deseja gerir com [listKeysAsync][net_list_keys]. Em seguida, utilize esta tecla ao inicializar a classe Batch .NET [library's BatchSharedKeyCredentials,][net_sharedkeycred] que é usada na rubrica [do BatchClient][net_batch_client].
 > 
 > 
 
-## <a name="check-azure-subscription-and-batch-account-quotas"></a>Verificar as cotas da conta do lote e da assinatura do Azure
-As assinaturas do Azure e os serviços individuais do Azure, como o lote, têm cotas padrão que limitam o número de determinadas entidades dentro delas. Para obter as cotas padrão das assinaturas do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md). Para as cotas padrão do serviço de lote, consulte [cotas e limites para o serviço de lote do Azure](batch-quota-limit.md). Usando a biblioteca .NET de gerenciamento do lote, você pode verificar essas cotas em seus aplicativos. Isso permite que você tome decisões de alocação antes de adicionar contas ou recursos de computação, como pools e nós de computação.
+## <a name="check-azure-subscription-and-batch-account-quotas"></a>Verifique as quotas de subscrição do Azure e do Lote
+As subscrições do Azure e os serviços azure individuais como o Batch têm quotas padrão que limitam o número de determinadas entidades dentro delas. Para as quotas padrão para assinaturas Azure, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md) Para as quotas padrão do serviço Batch, consulte [Quotas e limites para o serviço De lote Azure](batch-quota-limit.md). Ao utilizar a biblioteca Batch Management .NET, pode verificar estas quotas nas suas aplicações. Isto permite-lhe tomar decisões de atribuição antes de adicionar contas ou calcular recursos como piscinas e nós de computação.
 
-### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Verificar uma assinatura do Azure para cotas de conta do lote
-Antes de criar uma conta do lote em uma região, você pode verificar sua assinatura do Azure para ver se é possível adicionar uma conta nessa região.
+### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Verifique uma subscrição azure para quotas de conta lote
+Antes de criar uma conta De Lote numa região, pode verificar a sua subscrição azure para ver se é capaz de adicionar uma conta nessa região.
 
-No trecho de código abaixo, usamos primeiro [BatchManagementClient. Account. ListAsync][net_mgmt_listaccounts] para obter uma coleção de todas as contas do lote que estão dentro de uma assinatura. Depois de obtermos essa coleção, determinamos quantas contas estão na região de destino. Em seguida, usamos [BatchManagementClient. subscriptions][net_mgmt_subscriptions] para obter a cota da conta do lote e determinar quantas contas (se houver) podem ser criadas nessa região.
+No código abaixo, usamos primeiro [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] para obter uma coleção de todas as contas do Lote que estão dentro de uma subscrição. Assim que obtivemos esta coleção, determinamos quantas contas existem na região alvo. Em seguida, usamos [BatchManagementClient.Subscrições][net_mgmt_subscriptions] para obter o contingente de conta Batch e determinar quantas contas (se houver) podem ser criadas nessa região.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -124,10 +124,10 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-No trecho acima, `creds` é uma instância de [TokenCloudCredentials][azure_tokencreds]. Para ver um exemplo de criação desse objeto, consulte o exemplo de código [AccountManagement][acct_mgmt_sample] no github.
+No corte acima, `creds` é um exemplo de [TokenCloudCredentials][azure_tokencreds]. Para ver um exemplo de criação deste objeto, consulte a amostra de código [DeGestão][acct_mgmt_sample] de Contas no GitHub.
 
-### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Verificar uma conta do lote para cotas de recursos de computação
-Antes de aumentar os recursos de computação em sua solução do lote, você pode verificar se os recursos que deseja alocar não excederão as cotas da conta. No trecho de código abaixo, imprimemos as informações de cota para a conta do lote chamada `mybatchaccount`. Em seu próprio aplicativo, você pode usar essas informações para determinar se a conta pode manipular os recursos adicionais a serem criados.
+### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Verifique uma conta de Lote para quotas de recursos computacionais
+Antes de aumentar os recursos computacionais na sua solução Batch, pode verificar para garantir que os recursos que pretende alocar não excederão as quotas da conta. No código abaixo, imprimimos as informações de quota `mybatchaccount`para a conta Batch chamada . Na sua própria aplicação, poderá utilizar essas informações para determinar se a conta pode lidar com os recursos adicionais a criar.
 
 ```csharp
 // First obtain the Batch account
@@ -142,43 +142,43 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Embora haja cotas padrão para assinaturas e serviços do Azure, muitos desses limites podem ser gerados emitindo uma solicitação na [portal do Azure][azure_portal]. Por exemplo, consulte [cotas e limites para o serviço do lote do Azure](batch-quota-limit.md) para obter instruções sobre como aumentar as cotas de conta do lote.
+> Embora existam quotas padrão para subscrições e serviços Do Azure, muitos destes limites podem ser aumentados através da emissão de um pedido no [portal Azure.][azure_portal] Por exemplo, consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter instruções sobre o aumento das quotas da sua conta Batch.
 > 
 > 
 
-## <a name="use-azure-ad-with-batch-management-net"></a>Usar o Azure AD com o .NET de gerenciamento do lote
+## <a name="use-azure-ad-with-batch-management-net"></a>Utilize o Azure AD com gestão de lotes .NET
 
-A biblioteca .NET de gerenciamento do lote é um cliente do provedor de recursos do Azure e é usada junto com [Azure Resource Manager][resman_overview] para gerenciar recursos de conta programaticamente. O Azure AD é necessário para autenticar solicitações feitas por meio de qualquer cliente do provedor de recursos do Azure, incluindo a biblioteca .NET de gerenciamento do lote e por meio de [Azure Resource Manager][resman_overview]. Para obter informações sobre como usar o Azure AD com a biblioteca .NET de gerenciamento do lote, consulte [usar Azure Active Directory para autenticar soluções do lote](batch-aad-auth.md). 
+A biblioteca Batch Management .NET é um cliente fornecedor de recursos Azure, e é usada em conjunto com o [Azure Resource Manager][resman_overview] para gerir os recursos da conta programáticamente. A Azure AD é obrigada a autenticar pedidos feitos através de qualquer cliente do fornecedor de recursos Azure, incluindo a biblioteca Batch Management .NET, e através do [Azure Resource Manager.][resman_overview] Para obter informações sobre a utilização do Azure AD com a biblioteca Batch Management .NET, consulte [Use Azure Ative Directory para autenticar soluções de lote](batch-aad-auth.md). 
 
-## <a name="sample-project-on-github"></a>Projeto de exemplo no GitHub
+## <a name="sample-project-on-github"></a>Projeto de amostra no GitHub
 
-Para ver o .NET de gerenciamento do lote em ação, confira o projeto de exemplo [AccountManagement][acct_mgmt_sample] no github. O aplicativo de exemplo AccountManagement demonstra as seguintes operações:
+Para ver a Gestão de Lotes .NET em ação, consulte o projeto de amostra [de Gestão de Contas][acct_mgmt_sample] no GitHub. A aplicação da amostra De Gestão de Contas demonstra as seguintes operações:
 
-1. Adquirir um token de segurança do Azure AD usando a [Adal][aad_adal]. Se o usuário ainda não estiver conectado, ele receberá uma solicitação para suas credenciais do Azure.
-2. Com o token de segurança obtido do Azure AD, crie um [SubscriptionClient][resman_subclient] para consultar o Azure para obter uma lista de assinaturas associadas à conta. O usuário pode selecionar uma assinatura na lista se ela contiver mais de uma assinatura.
-3. Obtenha as credenciais associadas à assinatura selecionada.
-4. Crie um objeto [ResourceManagementClient][resman_client] usando as credenciais.
-5. Use um objeto [ResourceManagementClient][resman_client] para criar um grupo de recursos.
-6. Use um objeto [BatchManagementClient][net_mgmt_client] para executar várias operações de conta do lote:
-   * Crie uma conta do lote no novo grupo de recursos.
-   * Obtenha a conta recém-criada do serviço de lote.
-   * Imprima as chaves de conta para a nova conta.
+1. Adquira um símbolo de segurança da Azure AD utilizando a [ADAL][aad_adal]. Se o utilizador ainda não estiver inscrito, são solicitados para as suas credenciais Azure.
+2. Com o símbolo de segurança obtido a partir do Azure AD, crie um [SubscriptionClient][resman_subclient] para consultar o Azure para uma lista de subscrições associadas à conta. O utilizador pode selecionar uma subscrição da lista se contiver mais de uma subscrição.
+3. Obtenha credenciais associadas à subscrição selecionada.
+4. Crie um objeto [ResourceManagementClient][resman_client] utilizando as credenciais.
+5. Utilize um objeto [ResourceManagementClient][resman_client] para criar um grupo de recursos.
+6. Utilize um objeto [BatchManagementClient][net_mgmt_client] para realizar várias operações de conta batch:
+   * Crie uma conta Batch no novo grupo de recursos.
+   * Obtenha a conta recém-criada a partir do serviço Batch.
+   * Imprima as chaves da conta para a nova conta.
    * Regenerar uma nova chave primária para a conta.
-   * Imprima as informações de cota da conta.
-   * Imprima as informações de cota da assinatura.
-   * Imprimir todas as contas na assinatura.
-   * Exclua a conta recém-criada.
-7. Exclua o grupo de recursos.
+   * Imprima a informação da quota para a conta.
+   * Imprima a informação da quota para a subscrição.
+   * Imprima todas as contas dentro da subscrição.
+   * Elimine a conta recém-criada.
+7. Elimine o grupo de recursos.
 
-Antes de excluir a conta e o grupo de recursos do lote recém-criado, você pode exibi-las no [portal do Azure][azure_portal]:
+Antes de apagar a recém-criada conta batch e grupo de recursos, pode vê-los no [portal Azure:][azure_portal]
 
-Para executar o aplicativo de exemplo com êxito, primeiro você deve registrá-lo com seu locatário do Azure AD no portal do Azure e conceder permissões para a API Azure Resource Manager. Siga as etapas fornecidas em [autenticar soluções de gerenciamento do lote com Active Directory](batch-aad-auth-management.md).
+Para executar a aplicação da amostra com sucesso, você deve registrá-lo primeiro com o seu inquilino Azure AD no portal Azure e conceder permissões à API gestor de recursos Azure. Siga os passos fornecidos nas [soluções authenticate de gestão de lotes com diretório ativo](batch-aad-auth-management.md).
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é Azure Active Directory?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Ative Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação do Azure AD"
-[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrando aplicativos com o Azure Active Directory"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação para AD Azure"
+[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integração de Aplicações com Diretório Ativo Azure"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263910"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ative o acesso à chave de segurança sem palavras-passe para dispositivos Windows 10 com Diretório Ativo Azure (pré-visualização)
@@ -29,9 +29,9 @@ Este documento centra-se em permitir a autenticação baseada na chave de segura
 
 ## <a name="requirements"></a>Requisitos
 
-| Device Type | Azure AD juntou-se | AD Hybrid Azure juntou-se |
+| Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
-| [Autenticação azure multi-factor](howto-mfa-getstarted.md) | X | X |
+| [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md) | X | X |
 | [Pré-visualização combinada de registo de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
 | Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | WebAuthN requer versão 1809 do Windows 1809 ou superior | X | X |
@@ -43,7 +43,7 @@ Este documento centra-se em permitir a autenticação baseada na chave de segura
 | Pacote de provisionamento (Opcional) | X | X |
 | Política de Grupo (Opcional) |   | X |
 
-### <a name="unsupported-scenarios"></a>Cenários não apoiados
+### <a name="unsupported-scenarios"></a>Cenários não suportados
 
 Os seguintes cenários não são suportados:
 
@@ -80,8 +80,8 @@ As organizações podem optar por utilizar um ou mais dos seguintes métodos par
 
 Para permitir a utilização de chaves de segurança utilizando o Intune, complete os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue para a **microsoft Intune** > **Device > inscrição** **do Windows** > Windows Hello **for Business** > **Properties**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue para **a microsoft Intune** > **Device inscrição** > **Windows inscrição** > **Windows Hello for Business** > **Properties**.
 1. Em **definições,** coloque **as teclas de segurança para iniciar** **sessão ativada**.
 
 A configuração das chaves de segurança para iniciar sessão não depende da configuração do Windows Hello for Business.
@@ -90,8 +90,8 @@ A configuração das chaves de segurança para iniciar sessão não depende da c
 
 Para direcionar grupos específicos de dispositivos para ativar o prestador de credenciais, utilize as seguintes definições personalizadas via Intune:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue na ** > ** **configuração** do dispositivo > **microsoft** > **Criar perfil**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue para os**perfis** > de**configuração** > do **dispositivo Intune** > microsoft**Criar perfil**.
 1. Configure o novo perfil com as seguintes definições:
    - Nome: Chaves de segurança para Windows Iniciar sessão
    - Descrição: Permite que as chaves de segurança FIDO sejam utilizadas durante o Windows Sign In
@@ -116,9 +116,9 @@ Para dispositivos não geridos pela Intune, pode ser instalado um pacote de forn
 1. Deixe o *pacote de provisionamento* selecionado como o fluxo de trabalho do **projeto Selecionado** e selecione **Next**.
 1. Selecione *todas as edições do Windows* em ambientes de trabalho, Escolha quais as **definições a visualizar e configurar**e, em seguida, selecione **Next**.
 1. Selecione **Concluir**.
-1. No seu projeto recém-criado, navegue nas **definições do Runtime** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
+1. No seu projeto recém-criado, navegue para **as definições** > de Tempo de**Execução WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
 1. Desloque **o UseSecurityKeyForSignIn** para *ativado*.
-1. Selecione pacote de **prestação de** > **de exportação**
+1. Selecione**pacote de provisionamento de** **exportação** > 
 1. Deixe as predefinições na janela **'Construir'** sob **descrever o pacote**de fornecimento e, em seguida, selecione **Next**.
 1. Deixe as predefinições na janela **'Construir'** sob **os detalhes de segurança Do Select para o pacote** de fornecimento e selecione **Next**.
 1. Tome nota ou altere o caminho nas janelas **Construir** em Select onde guardar o pacote de **provisionamento** e selecione **Seguinte**.
@@ -131,12 +131,12 @@ Para dispositivos não geridos pela Intune, pode ser instalado um pacote de forn
 
 ### <a name="enable-with-group-policy"></a>Ativar com a Política de Grupo
 
-Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o início da chave de segurança FIDO. A definição pode ser encontrada em **configuração** de computador > **modelos administrativos** > **Sistema** > **Logon** > **ligar o sinal de chave de segurança:**
+Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o início da chave de segurança FIDO. A definição pode ser encontrada no âmbito do**Administrative Templates** > **logon** > **Logon** > do sistema de **configuração** > do**computador, ligue o sinal de sinal de chave de segurança:**
 
 - A definição desta política para **ativado** permite que os utilizadores assinem com chaves de segurança.
 - A definição desta política para **Desativado** ou **Não Configurado** impede os utilizadores de iniciarem sessão com chaves de segurança.
 
-Esta definição de Política de Grupo requer uma versão atualizada do modelo de política de grupo `credentialprovider.admx`. Este novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Esta definição pode ser gerida com um dispositivo que executa uma destas versões mais recentes do Windows ou centralmente seguindo a orientação no tópico de suporte, [Como criar e gerir a Loja Central para Modelos Administrativos](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)de Política de Grupo no Windows .
+Esta definição de Política de `credentialprovider.admx` Grupo requer uma versão atualizada do modelo de Política de Grupo. Este novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Esta definição pode ser gerida com um dispositivo que executa uma destas versões mais recentes do Windows ou centralmente seguindo a orientação no tópico de suporte, [Como criar e gerir a Loja Central para Modelos Administrativos](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)de Política de Grupo no Windows .
 
 ## <a name="sign-in-with-fido2-security-key"></a>Inscreva-se na chave de segurança FIDO2
 
@@ -147,7 +147,7 @@ No exemplo abaixo, um utilizador chamado Bala Sandhu já disponibilizou a sua ch
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gerir a chave de segurança biométrica, PIN ou redefinir a chave de segurança
 
 * Windows 10 versão 1903 ou superior
-   * Os utilizadores podem abrir **as Definições do Windows** no seu dispositivo > **Contas** > Chave de **Segurança**
+   * Os utilizadores podem abrir **as Definições do Windows** no seu dispositivo > Chave de**Segurança** **das** > Contas
    * Os utilizadores podem alterar o seu PIN, atualizar biometria ou redefinir a sua chave de segurança
 
 ## <a name="troubleshooting-and-feedback"></a>Resolução de problemas e feedback
@@ -160,7 +160,7 @@ Se quiser partilhar problemas de feedback ou de encontro durante a pré-visualiz
    - Subcategoria: FIDO
 1. Para capturar registos, use a opção para **recriar** o meu Problema
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Permitir o acesso aos recursos no local para dispositivos aderes à AD Azure e híbridos Azure](howto-authentication-passwordless-security-key-on-premises.md)
 
