@@ -1,125 +1,124 @@
 ---
-title: Painel de resumo para análise do Partner Center no Marketplace comercial
-description: Saiba como acessar grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace no painel de resumo no Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Painel de instrumentos sumário para análise do Partner Center no Mercado Comercial
+description: Saiba como aceder a gráficos, tendências e valores de dados agregados que resumem a atividade do mercado a partir do dashboard Sumário no Partner Center.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e20f3d156df139cfaf1935bae7fc7babd3e35fc5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3da3109bd813fc3b99a4f59e5a357fa351c75394
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480362"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281379"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Painel de resumo na análise do Marketplace comercial
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Painel de instrumentos sumário na análise do Mercado Comercial
 
-Este artigo fornece informações sobre o painel de resumo no Partner Center. Esse painel exibe grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para suas ofertas.
+Este artigo fornece informações sobre o dashboard Sumário no Partner Center. Este dashboard exibe gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para as suas ofertas.
 
-Para acessar o painel de resumo, abra o **[painel analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para aceder ao dashboard Sumário, abra o **[dashboard Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no âmbito do Mercado Comercial.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
 
 ## <a name="summary-dashboard"></a>Dashboard de resumo
 
-O painel **Resumo** apresenta uma visão geral baseada em cada tipo de oferta. Os **insights** mostram informações críticas em um relance e fornecem uma visão ampla da atividade de vendas de suas ofertas. Você pode visualizar esses relatórios usando o painel de **Resumo** . Este artigo apresenta mais detalhes sobre cada um dos seguintes elementos:
+O painel de instrumentos **sumário** apresenta uma visão geral baseada em cada tipo de oferta. **Os insights** mostram informações críticas num ápice e proporcionam uma visão ampla da atividade de vendas das suas ofertas. Pode visualizar estes relatórios utilizando o painel de instrumentos **sumário.** Este artigo entra em mais detalhes sobre cada um dos seguintes elementos:
 
 - [Intervalo de datas](#date-range)
-- [Seção de resumo](#summary-section)
+- [Secção sumária](#summary-section)
 - [Clientes por geografia](#customers-by-geography)
-- [Gráficos de tendência de crescimento](#growth-trend-charts)
-- [Placar do cliente](#customer-leaderboard)
-- [Tendência de contagem de estações](#seat-count-trend)
-- [Tendência de pedidos SaaS de avaliações gratuitas](#free-trials-saas-orders-trend)
+- [Gráficos de tendências de crescimento](#growth-trend-charts)
+- [Tabela de clientes](#customer-leaderboard)
+- [Tendência de contagem de lugares](#seat-count-trend)
+- [Testes gratuitos SaaS encomenda tendência](#free-trials-saas-orders-trend)
 
-## <a name="elements-of-the-summary-dashboard"></a>Elementos do painel de resumo
+## <a name="elements-of-the-summary-dashboard"></a>Elementos do painel de instrumentos sumário
 
-As seções a seguir descrevem como usar o painel de resumo e como ler os dados.
+As seguintes secções descrevem como utilizar o painel de instrumentos de resumo e como ler os dados.
 
 ### <a name="date-range"></a>Intervalo de datas
 
-Você pode encontrar uma seleção de intervalo de datas no canto superior direito de cada página. Personalize a saída dos gráficos de página de **Resumo** selecionando um intervalo de datas com base nos últimos 3, 6 ou 12 meses ou selecionando um intervalo de datas personalizado com uma duração máxima de 12 meses. O intervalo de datas padrão é de seis meses.
+Pode encontrar uma seleção de intervalo de data seletiva no canto superior direito de cada página. Personalize a saída dos gráficos da página **Sumária** selecionando uma gama de datas baseada nos últimos 3, 6 ou 12 meses, ou selecionando uma gama de datas personalizada com uma duração máxima de 12 meses. O intervalo de data padrão é de seis meses.
 
-![Painel de análise do Partner Center](./media/analyze-dashboard.png)
+![Painel de instrumentos de análise do Partner Center Analyze](./media/analyze-dashboard.png)
 
-### <a name="summary-section"></a>Seção de resumo
+### <a name="summary-section"></a>Secção sumária
 
-A seção Resumo exibe uma contagem de todos os pedidos criados, clientes adquiridos e uso relatados durante o intervalo de datas selecionado. O mês atual parcial será excluído da computação dessas métricas. Por exemplo: se você tiver selecionado o período de tempo 6 minutos, as horas de uso serão computadas para os seis meses anteriores ao mês atual. Se um intervalo de datas personalizado for selecionado, um valor parcial do mês atual será excluído do cálculo.
+A secção Resumo apresenta uma contagem de todas as encomendas criadas, clientes adquiridos e utilização reportada durante a gama de datas selecionadas. O mês em curso parcial será excluído da computação destas métricas. Por exemplo: Se tiver selecionado o prazo de 6M, as horas de utilização são calculadas durante os seis meses anteriores ao mês em curso. Se for selecionada uma gama de datas personalizadas, um montante parcial do mês em curso será excluído do cálculo.
 
-![Tendências de crescimento no painel de resumo](./media/summary-summary-section.png)
+![Tendências de crescimento no dashboard sumário](./media/summary-summary-section.png)
 
-#### <a name="reading-the-summary-section"></a>Lendo a seção de resumo
+#### <a name="reading-the-summary-section"></a>Ler a secção de resumo
 
-- **Orders**: contagem de todos os pedidos comprados (exclui pedidos cancelados) para ofertas que você publicou até agora.
-- **Clientes**: contagem de todos os clientes que compraram suas ofertas e têm pelo menos uma ordem não cancelada.
-- **Horas de uso normalizadas**: definidas como as horas de uso normalizadas para considerar o número de núcleos de VM ([número de núcleos de VM] x [horas de uso bruto]). As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM].
-- **Horas de uso brutos**: a quantidade de tempo que as VMs estão em execução em termos de horas. O valor percentual ao lado de **pedidos totais**, **clientes totais**, **horas de uso normalizadas**, **horas de uso bruto**, **visitas à página**e **chamadas para ações** representam a quantidade de crescimento de uso para o intervalo de datas selecionado ([uso do último mês – uso do primeiro mês])/primeiro mês de uso). Conforme descrito acima, uma quantidade parcial do mês atual será excluída dessa métrica.
-- **Tendências de crescimento**: se você passar o mouse sobre as colunas do gráfico, os gráficos de barras exibirão o valor de cada mês.
-- **Triângulo verde apontando para cima**: indica uma tendência de crescimento positivo.
-- **Triângulo vermelho apontando para baixo**: indica uma tendência de crescimento negativo relativa ao mês anterior.
+- **Encomendas**: Contagem de todas as encomendas adquiridas (exclui encomendas canceladas) para ofertas que publicou até agora.
+- **Clientes**: Contagem de todos os clientes que compraram as suas ofertas e tenham pelo menos uma encomenda não cancelada.
+- **Horários de utilização normalizados**: Definidos como as horas de utilização normalizadas para contabilizar o número de núcleos VM ([número de núcleos VM] x [horas de utilização bruta]). Os VMs designados como "SHAREDCORE" utilizam 1/6 (ou 0,1666) como multiplicador [número de núcleos VM].
+- Horas de **utilização brutas**: A quantidade de tempo que os VMs têm funcionado em termos de horas. O valor percentual próximo do total de **encomendas**, **clientes totais,** horários de **utilização normalizados,** **horas de utilização bruta,** visitas de **página,** e **chamada para ações** representam a quantidade de crescimento de utilização para a gama de datas selecionada ([utilização do mês passado – utilização do primeiro mês])/utilização do primeiro mês). Como acima descrito, uma quantidade parcial do mês em curso será excluída desta métrica.
+- **Tendências de crescimento**: Se pairar sobre as colunas do gráfico, os gráficos de barras mostram o valor para cada mês.
+- **Triângulo verde apontando para cima:** Indica uma tendência de crescimento positiva.
+- **Triângulo vermelho apontando para baixo**: Indica uma tendência de crescimento negativa em relação ao mês anterior.
 
 ### <a name="customers-by-geography"></a>Clientes por geografia
 
-Os **clientes por geography** calor exibem uma contagem de clientes em um mapa mundial.
+Os Clientes por mapa de **calor de geografia** exibem uma contagem de clientes num mapa mundial.
 
-![Clientes por geografia no painel de resumo](./media/summary-customers-by-geography.png)
+![Clientes por geografia no dashboard Sumário](./media/summary-customers-by-geography.png)
 
-- Você pode mover o mapa para exibir o local exato.
-- Você pode aplicar zoom em um local específico.
-- O calor tem uma grade suplementar para exibir os detalhes de contagem de clientes, contagem de pedidos, horas de uso normalizadas no local específico.
-- Você pode pesquisar e selecionar um país na grade para aplicar zoom ao local no mapa. Reverta para a exibição original pressionando o botão **página inicial** no mapa.
-- Um **novo** cliente comprou uma de suas ofertas pela primeira vez durante o mês dentro do intervalo de datas selecionado.
+- Pode mover o mapa para ver a localização exata.
+- Pode ampliar para um local específico.
+- O mapa térmico tem uma grelha suplementar para ver os detalhes da contagem de clientes, contagem de encomendas, horas de utilização normalizadas no local específico.
+- Pode pesquisar e selecionar um país da grelha para ampliar a localização do mapa. Volte à vista original premindo o botão **Home** no mapa.
+- Um **novo** cliente adquiriu uma das suas ofertas pela primeira vez durante o mês dentro da gama de datas selecionadas.
 
-### <a name="growth-trend-charts"></a>Gráficos de tendência de crescimento
+### <a name="growth-trend-charts"></a>Gráficos de tendências de crescimento
 
-Você pode exibir as tendências com base no crescimento de seus **pedidos adquiridos** (inclui pedidos cancelados), **clientes adquiridos** (incluindo clientes perdidos) e **uso** relatado, que são exibidos mês a mês de acordo com o intervalo de datas selecionado. Você pode analisar ainda mais essas tendências selecionando links abaixo do gráfico, que navega até as páginas respectivas informações de **pedido**, **uso**, **cliente**ou **Marketplace** .
+Pode ver tendências com base no crescimento das suas **encomendas adquiridas** (inclui encomendas canceladas), **clientes adquiridos** (inclui clientes perdidos) e **utilização** reportada, que são exibidas mês a mês de acordo com a gama de datas selecionadas. Pode ainda analisar estas tendências selecionando links abaixo do gráfico, que navegam para as **páginas**respetivas , **de utilização,** **cliente**ou **Marketplace Insights.**
 
-As visitas à página de oferta do Marketplace **e a chamada para** gráficos de tendência de ação são exibidas para o Azure Marketplace e AppSource em duas guias.
+O Marketplace oferece **visitas de página e** gráficos de tendência de ação são exibidos para o mercado Azure e AppSource em dois separadores.
 
-![Visitas a páginas e planos de tendência de ações no painel de resumo](./media/summary-page-visits-and-cta.png)
+![Visitas de página e chamada para gráficos de tendências de ações em dashboard sumário](./media/summary-page-visits-and-cta.png)
 
-O gráfico **pedidos por ofertas** organiza seus pedidos de acordo com o nome da oferta.
+A tabela **de encomendas por ofertas** organiza as suas encomendas de acordo com o nome Oferta.
 
-O gráfico de pizza **pedidos por canal de vendas** organiza seus pedidos (incluindo pedidos que os clientes cancelaram) durante o intervalo de datas selecionado, por canal de vendas. Canal de vendas é o tipo de contrato de licenciamento usado pelos clientes para comprar o Azure, que são o CSP (provedor de soluções de nuvem), Enterprise, Enterprise por revendedor, GTM e pré-pago.
+As **encomendas por** gráfico de tarte de canal de vendas organizam as suas encomendas (incluindo encomendas que os clientes cancelaram) durante a gama de datas selecionadas, por canal de vendas. O canal de vendas é o tipo de contrato de licenciamento usado pelos clientes para comprar o Azure, que são o Cloud Solution Provider (CSP), Enterprise, Enterprise através do Reseller, GTM e Pay As You Go.
 
-O **uso por ofertas** e **uso por gráficos de** pizza de canal de vendas apresenta a divisão do uso por principais ofertas e canais de vendas, respectivamente. O gráfico de pizza interno representa o uso bruto e o gráfico de pizza externo representa o uso normalizado.
+**O uso por ofertas** e utilização por gráficos de tartes de **canais** de venda apresentam a desagregação do uso por ofertas de topo e canais de vendas, respectivamente. O gráfico de tartes interior representa o uso bruto e o gráfico de tartes exteriores representa o uso normalizado.
 
-Os gráficos de pizza **pedidos por tipo de licença do Marketplace** e **uso por tipo de licença do Marketplace** exibem uma divisão de pedidos e uso por seu respectivo tipo de licença. Os tipos de licença incluem:
+As **encomendas por tipo** de licença de mercado e **utilização por** gráficos de tarte tipo licença de mercado apresentam uma repartição de encomendas e utilização pelo respetivo tipo de licença. Os tipos de licença incluem:
 
-- **Cobrado por meio do Azure**: a Microsoft cobra os clientes em seu nome quando você opta por vender sua oferta pela Microsoft com esse tipo de licença. Os tipos de pagamento incluem pré-pago por cartão de crédito ou faturamento empresarial.
-- **Traga sua própria licença**: a Microsoft não cobra os clientes pelo seu uso com esse tipo de oferta do Marketplace. Esse uso é listado como **obter agora (gratuito)** no Marketplace.
-- **Gratuito**: a Microsoft não cobra os clientes pelo seu uso com esse tipo de oferta do Marketplace. Esse uso é listado como **avaliação gratuita** no Marketplace.
-- **Microsoft as revendedores**: representa as ofertas vendidas por revendedores da Microsoft como parte do **programa CSP (provedor de soluções na nuvem)** .
+- **Faturado através do Azure**: A Microsoft fatura clientes em seu nome quando opta por vender a sua oferta através da Microsoft com este tipo de licença. Os tipos de pagamento incluem pay-as-you-go via cartão de crédito ou faturação da Empresa.
+- **Traga a sua própria licença**: A Microsoft não fatura clientes pelo seu uso com este tipo de oferta de mercado. Este uso está listado como **Get it now (Free)** in the marketplace.
+- **Grátis**: A Microsoft não fatura os clientes pelo seu uso com este tipo de oferta de mercado. Este uso está listado como **teste gratuito** no mercado.
+- **Microsoft como revendedor**: Representa ofertas vendidas pelos revendedores da Microsoft como parte do **programa Cloud Solution Provider (CSP).**
 
-### <a name="customer-leaderboard"></a>Placar do cliente
+### <a name="customer-leaderboard"></a>Tabela de clientes
 
-Os principais clientes 50 com o maior número de pedidos são exibidos em um *tabuleiro de preenchimento*, classificados por contagem de pedidos e porcentagem de pedidos mais altos.
+Os 50 principais clientes com maior número de encomendas são apresentados num quadro de *líderes,* classificados pela maior contagem de encomendas e por percentagem de encomendas.
 
-- Selecione um cliente para exibir seus detalhes de perfil, pedidos organizados por oferta ou pedidos organizados por tipo de licença do Azure e canal de preço.
-- O gráfico de rosca **ofertas por pedidos** apresenta as quatro principais ofertas (por contagem de pedidos) e as ofertas restantes agrupadas como ' Rest todos '.
-- O gráfico de rosca de **uso normalizado por oferta** apresenta as cinco principais ofertas por uso.
+- Selecione um cliente para ver os seus dados de perfil, encomendas organizadas por oferta, ou encomendas organizadas pelo tipo de licença Azure e canal de preços.
+- O gráfico **de ofertas por encomendas** apresenta as quatro melhores ofertas (por contagem de encomendas) e as restantes ofertas agruparadas como 'Rest All'.
+- O **uso normalizado por oferta** donut chart apresenta as cinco principais ofertas por uso.
 
 > [!NOTE]
-> As informações pessoais do cliente serão apresentadas somente se o cliente tiver fornecido consentimento. Você pode exibir essas informações se tiver feito logon com um nível de permissões de função de **proprietário** . Os usuários com a função **colaborador** não poderão exibir essas informações. [Saiba mais sobre as funções e permissões de usuário](./manage-account.md#define-user-roles-and-permissions).
+> As informações pessoais do cliente só serão apresentadas se o cliente tiver fornecido o consentimento. Pode ver esta informação se tiver iniciado sessão com um nível de permissões de **proprietário.** Os utilizadores com a função **De Contribuinte** não poderão visualizar esta informação. [Saiba mais sobre as funções e permissões](./manage-account.md#define-user-roles-and-permissions)do utilizador.
 
-### <a name="seat-count-trend"></a>Tendência de contagem de estações
+### <a name="seat-count-trend"></a>Tendência de contagem de assentos
 
-O gráfico **pedidos por estação/por local** apresenta a divisão de todos os pedidos comprados de acordo com o modelo de preços. O gráfico de **tendências de contagem** de estações apresenta assentos versus pedidos comprados para todas as ofertas de SaaS (software como serviço) por estação.
+As **encomendas por assento/gráfico de site** apresentam a desagregação de todas as encomendas adquiridas de acordo com o modelo de preços. O gráfico de **tendência da contagem de lugares** apresenta lugares versus encomendas adquiridas para todos os seus software por assento como um Serviço (SaaS) oferece.
 
-### <a name="free-trials-saas-orders-trend"></a>Tendência de pedidos SaaS de avaliações gratuitas
+### <a name="free-trials-saas-orders-trend"></a>Testes gratuitos SaaS encomenda tendência
 
-O gráfico de **tendência de pedidos SaaS de avaliação gratuita** apresenta a tendência de pedidos para ofertas de SaaS de avaliações gratuitas com um período de avaliação de 30 dias.
+O gráfico de tendências de **encomendas free trial SaaS** apresenta a tendência das encomendas para testes gratuitos que a SaaS oferece com um período experimental de 30 dias.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Marketplace comercial do Partner Center, consulte [análise do Marketplace comercial no Partner Center](./analytics.md).
-- Para obter informações sobre seus pedidos em um formato gráfico e baixável, consulte [painel de pedidos na análise do Marketplace comercial](./orders-dashboard.md).
-- Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [painel do cliente na análise do Marketplace comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
+- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do Mercado Comercial](./orders-dashboard.md).
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [O Dashboard de Utilização na análise do Mercado Comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do Mercado Comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e análises dashboard na análise](./ratings-reviews.md)do Mercado Comercial.
+- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.

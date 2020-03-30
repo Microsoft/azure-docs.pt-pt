@@ -1,100 +1,99 @@
 ---
-title: Atualizar uma oferta de aplicativo do Azure existente | Azure Marketplace
-description: Como atualizar uma oferta de aplicativo do Azure existente no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Atualizar uma oferta de candidatura azure existente [ Mercado Azure
+description: Como atualizar uma oferta de aplicação Azure existente no Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pabutler
-ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 152fd24fbc5d2762d381ffce2a937bc448858b0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275956"
 ---
-# <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta de aplicativo do Azure existente
+# <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta de aplicação Azure existente
 
-Há vários tipos de atualizações que você pode querer fazer em sua oferta depois que ela tiver sido publicada e estiver ativa. Qualquer alteração feita na sua nova versão da sua oferta deve ser salva e republicada para que ela reflita no Marketplace. Este artigo percorre os diferentes aspectos da atualização de sua oferta de aplicativo gerenciado no [portal do Cloud Partner](https://cloudpartner.azure.com/).
+Existem vários tipos de atualizações que você pode querer fazer à sua oferta depois de publicada e está ao vivo. Qualquer alteração que faça para a sua nova versão da sua oferta deve ser guardada e reeditada para que ela reflita no Marketplace. Este artigo atravessa os diferentes aspetos da atualização da sua oferta de aplicação gerida no Portal do [Parceiro cloud.](https://cloudpartner.azure.com/)
 
-Há várias razões pelas quais você talvez queira atualizar sua oferta, como:
+Existem várias razões pelas quais poderá querer atualizar a sua oferta, tais como:
 
-- Adicionando uma nova versão de imagem a SKUs existentes.
+- Adicionar uma nova versão de imagem às SKUs existentes.
 - Adicionando novas SKUs.
-- Atualizando os metadados do Marketplace para a oferta ou SKUs individuais.
+- Atualizar os metadados do mercado para a oferta ou SKUs individuais.
 
-Para ajudá-lo nessas modificações, o portal fornece os recursos de **comparação** e **histórico** .
+Para o ajudar nestas modificações, o portal fornece as funcionalidades **Compare** e **History.**
 
-## <a name="unpermitted-changes-to-an-azure-application-offer-or-sku"></a>Alterações não permitidas em uma oferta de aplicativo do Azure ou SKU
+## <a name="unpermitted-changes-to-an-azure-application-offer-or-sku"></a>Alterações não autorizadas a uma oferta de aplicação Azure ou SKU
 
-Há atributos de uma oferta de contêiner ou SKU que não podem ser alterados depois que a oferta está ativa no Azure Marketplace. Não é possível alterar as seguintes configurações:
+Existem atributos de uma oferta de contentores ou SKU que não podem ser alterados após a oferta estar ao vivo no Azure Marketplace. Não é possível alterar as seguintes definições:
 
-- ID da oferta e ID do editor da oferta
-- ID de SKU de SKUs existentes
-- Marcas de versão, por exemplo: `1.0.1`
-- Alterações no modelo de cobrança/licença para SKUs existentes
+- Oferta ID e Id editor da oferta
+- Identificação SKU das SKUs existentes
+- Etiquetas de versão, por exemplo:`1.0.1`
+- Alterações no modelo de faturação/licença às SKUs existentes
 
 ## <a name="common-update-operations"></a>Operações comuns de atualização
 
 As seguintes operações de atualização são comuns.
 
-### <a name="update-image-version-for-a-sku"></a>Atualizar a versão da imagem para uma SKU
+### <a name="update-image-version-for-a-sku"></a>Atualizar versão de imagem para um SKU
 
-É comum que uma imagem seja atualizada periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem que seu SKU faz referência usando as seguintes etapas:
+É comum uma imagem ser atualizada periodicamente com patches de segurança, funcionalidades adicionais, e assim por diante. Neste cenário, pretende atualizar a imagem que o seu SKU refere utilizando os seguintes passos:
 
-1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
-2. Em **todas as ofertas**, localize a oferta que você deseja atualizar.
-3. Na guia **SKUs** , selecione a SKU associada à imagem a ser atualizada.
-4. Selecione **+ nova versão da imagem** para adicionar uma nova imagem.
-5. Forneça as novas versões de imagem. A versão da imagem precisa seguir as mesmas diretrizes de marcas que as versões anteriores. As marcas de versão devem estar no formato X. Y. Z, em que X, Y e Z são inteiros. Verifique se a nova versão que você fornece é maior do que todas as versões anteriores.
-6. Selecione **publicar** para iniciar o fluxo de trabalho para publicar sua nova versão de imagem de contêiner no Azure Marketplace.
+1. Assine no Portal do [Parceiro da Nuvem.](https://cloudpartner.azure.com/)
+2. Em **todas as ofertas,** encontre a oferta que pretende atualizar.
+3. No separador **SKUs,** selecione o SKU associado à imagem para atualizar.
+4. Selecione **+ Versão nova da imagem** para adicionar uma nova imagem.
+5. Forneça as novas versões de imagem. A versão de imagem precisa de seguir as mesmas diretrizes de tags que as versões anteriores. As etiquetas de versão devem ser do formulário X.Y.Z, onde X, Y e Z são inteiros. Verifique se a nova versão que fornece é maior do que todas as versões anteriores.
+6. Selecione **Publicar** para iniciar o fluxo de trabalho para publicar a sua nova versão de imagem de contentor para o Mercado Azure.
 
-### <a name="add-a-new-sku"></a>Adicionar uma nova SKU
+### <a name="add-a-new-sku"></a>Adicione um novo SKU
 
-Use as etapas a seguir para disponibilizar uma nova SKU para sua oferta:
+Utilize os seguintes passos para disponibilizar um novo SKU para a sua oferta:
 
-1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
-2. Em **todas as ofertas**, localize a oferta que você deseja atualizar.
-3. Na guia **SKUs** , selecione **Adicionar nova SKU** e forneça uma **ID de SKU** na janela pop-up.
-4. Republique a oferta usando as etapas descritas em [publicar a oferta de aplicativo do Azure](./cpp-publish-offer.md).
-5. Selecione **publicar** para iniciar o fluxo de trabalho para publicar o novo SKU.
+1. Assine no Portal do [Parceiro da Nuvem.](https://cloudpartner.azure.com/)
+2. Em **todas as ofertas,** encontre a oferta que pretende atualizar.
+3. Sob o separador **SKUs,** selecione **Adicionar novo SKU** e fornecer um **ID SKU** na janela pop-up.
+4. Republique a oferta utilizando os passos descritos na oferta de [aplicação Publish Azure.](./cpp-publish-offer.md)
+5. Selecione **Publicar** para iniciar o fluxo de trabalho para publicar o seu novo SKU.
 
-### <a name="update-offer-marketplace-metadata"></a>Atualizar metadados do Marketplace da oferta
+### <a name="update-offer-marketplace-metadata"></a>Atualizar oferecem metadados de mercado
 
-Use as etapas a seguir para atualizar os metadados do Marketplace associados à sua oferta. (Por exemplo: nome da empresa, logotipos, etc.)
+Utilize os seguintes passos para atualizar os metadados do mercado associados à sua oferta. (Por exemplo: nome da empresa, logotipos, etc.)
 
-1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
-2. Em **todas as ofertas**, encontre a oferta que você gostaria de atualizar.
-3. Vá para a guia **Marketplace** . Use as instruções em [publicar a oferta de aplicativo do Azure](./cpp-publish-offer.md) para fazer alterações de metadados.
-4. Selecione **publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
+1. Assine no Portal do [Parceiro da Nuvem.](https://cloudpartner.azure.com/)
+2. Em **todas as ofertas,** encontre a oferta que gostaria de atualizar.
+3. Vá ao separador **Marketplace.** Utilize as instruções na oferta de [aplicação Publish Azure](./cpp-publish-offer.md) para efazer alterações de metadados.
+4. Selecione **Publicar** para iniciar o fluxo de trabalho para publicar as suas alterações.
  
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte os [Fornecedores de Soluções cloud](../../cloud-solution-providers.md) para obter mais informações sobre o marketing da sua oferta através dos canais parceiros do Microsoft CSP.
 
-## <a name="deleting-an-existing-offer"></a>Excluindo uma oferta existente
+## <a name="deleting-an-existing-offer"></a>Apagar uma oferta existente
 
-Você pode decidir remover sua oferta do Marketplace. A exclusão de uma oferta não afeta as compras atuais dessa oferta. Essas compras do cliente continuarão a funcionar como antes. No entanto, a oferta não estará disponível para novas compras após a conclusão da exclusão.
+Pode decidir retirar a sua oferta do Marketplace. A abater uma oferta não afeta as compras correntes dessa oferta. Essas compras de clientes continuarão a funcionar como antes. No entanto, a oferta não estará disponível para novas compras após a eliminação.
 
-A Extinção da Oferta é o processo de extinção do serviço e/ou contrato de licenciamento entre si e os seus clientes existentes.
-Diretrizes e políticas relacionadas à remoção e à conclusão da oferta são regidas por Microsoft Marketplace contrato de editor (consulte a seção 7) e as políticas de participação (consulte a seção 6,2).
+Oferta Rescisão é o processo de cessação do contrato de serviço e/ou licenciamento entre si e os seus clientes existentes.
+As orientações e políticas relacionadas com a remoção e rescisão da oferta são regidas pelo Microsoft Marketplace Publisher Agreement (ver Secção 7) e pelas Políticas de Participação (ver Secção 6.2).
 
-Para obter mais informações, consulte [excluir e oferta/SKU do Azure Marketplace](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete).
+Para mais informações, consulte [Delete e offer/SKU do Azure Marketplace](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete).
 
-## <a name="compare-feature"></a>Comparar recurso
+## <a name="compare-feature"></a>Comparar funcionalidade
 
-Ao fazer alterações em uma oferta publicada, você pode usar o recurso comparar para auditar as alterações feitas.
+Quando efaz alterações a uma oferta publicada, pode utilizar a funcionalidade Compare para auditar as alterações que fez.
 
-Para usar o recurso comparar:
+Para utilizar a função Compare:
 
-1. Em qualquer ponto do processo de edição, selecione comparar para sua oferta.
-2. Examine as versões lado a lado dos ativos de marketing e metadados.
+1. Em qualquer ponto do processo de edição, selecione Compare para a sua oferta.
+2. Veja as versões lado a lado de ativos de marketing e metadados.
 
-## <a name="history-of-publishing-actions"></a>Histórico de ações de publicação
+## <a name="history-of-publishing-actions"></a>História das ações editoriais
 
-Para ver a atividade de publicação histórica, selecione a guia **histórico** na barra de menus de navegação à esquerda de portal do Cloud Partner. Você pode ver as ações de carimbo de data/hora executadas durante o tempo de vida de suas ofertas do Azure Marketplace.
+Para ver a atividade de publicação histórica, selecione o separador **History** na barra de menus de navegação esquerda do Cloud Partner Portal. Pode ver as ações timestamped tomadas durante a vida das suas ofertas do Azure Marketplace.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Oferta da aplicação do Azure](./cpp-azure-app-offer.md)
+[Oferta de candidatura azure](./cpp-azure-app-offer.md)
