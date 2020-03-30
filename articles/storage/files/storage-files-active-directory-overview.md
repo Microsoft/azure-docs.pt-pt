@@ -3,15 +3,16 @@ title: Visão geral - Autorização baseada na identidade do Azure Files
 description: O Azure Files suporta a autenticação baseada na identidade através do SMB (Bloco de Mensagens de Servidor) através dos Serviços de Domínio de Diretório Ativo Azure (AD DS) e do Ative Directory. As máquinas virtuais do Windows (VMs) podem aceder a partilhas de ficheiros Azure utilizando credenciais Azure AD.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: files
+ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 737cdfaddca3a5f7532620bdafd86149e4d61f9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598821"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061062"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Visão geral do suporte de autenticação baseado na identidade do Azure Files para acesso a SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -25,7 +26,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
 -   **Autenticação Kerberos**
 
-    Kerberos é um protocolo de autenticação que é usado para verificar a identidade de um utilizador ou hospedeiro. Para mais informações sobre Kerberos, consulte a visão geral da [autenticação kerberos.](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview)
+    O Kerberos é um protocolo de autenticação utilizado para confirmar a identidade de um utilizador ou o anfitrião. Para mais informações sobre Kerberos, consulte a visão geral da [autenticação kerberos.](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview)
 
 -  **Protocolo do Bloco de Mensagens do Servidor (SMB)**
 
@@ -72,7 +73,7 @@ O quadro seguinte resume os cenários de autenticação suportados do ficheiro A
 |---------|---------|
 |O domínio Azure AD DS juntou-se às máquinas Windows para aceder a partilhas de ficheiros Azure com credenciais Azure AD sobre SMB.     |O domínio AD juntou-se às máquinas Windows pode aceder a partilhas de ficheiros Azure com credenciais AD que são sincronizadas com AD Azure sobre SMB.         |
 
-### <a name="unsupported-scenarios"></a>Cenários não apoiados
+### <a name="unsupported-scenarios"></a>Cenários não suportados
 
 - A autenticação Azure AD DS (GA) e AD (pré-visualização) não suportam a autenticação contra contas de computador. Em vez disso, pode considerar a utilização de uma conta de logon de serviço.
 - A autenticação Azure AD DS (GA) não suporta a autenticação contra dispositivos unidos em nuvem Azure AD.
@@ -98,7 +99,7 @@ Quando uma identidade associada a uma aplicação em execução de um VM tenta a
 
 ### <a name="enable-identity-based-authentication"></a>Ativar a autenticação baseada na identidade
 
-Pode ativar a autenticação baseada na identidade com o Azure AD DS (GA) ou AD (pré-visualização) para as ações de ficheiros Azure nas suas novas contas de armazenamento existentes. Apenas um serviço de domínio pode ser utilizado para autenticação de acesso de ficheiros na conta de armazenamento, o que se aplica a todas as ações de ficheiro sinuosas da conta. Orientação detalhada passo a passo na configuração do seu ficheiro de ações para autenticação com o Azure AD DS (GA) no nosso artigo [Enable Azure Ative Directory Domain Services autenticação em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) e orientação para AD (pré-visualização) no nosso outro artigo, [Enable Ative Directory autenticação sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md).
+Pode ativar a autenticação baseada na identidade com o Azure AD DS (GA) ou AD (pré-visualização) para as ações de ficheiros Azure nas suas novas contas de armazenamento existentes. Apenas um serviço de domínio pode ser utilizado para autenticação de acesso de ficheiros na conta de armazenamento, o que se aplica a todas as ações de ficheiro sinuosas da conta. Orientação detalhada passo a passo na configuração das suas ações de ficheiro para autenticação com o Azure AD DS (GA) no nosso artigo [Enable Azure Ative Directory Domain Services autenticação em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) e orientação para AD (pré-visualização) no nosso outro artigo, [Enable Ative Directory autenticação sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configure permissões de nível de partilha para Ficheiros Azure
 
@@ -117,7 +118,7 @@ Um utilizador que possua a chave da conta de armazenamento pode aceder a partilh
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Preservar o diretório e arquivar ACLs ao importar dados para ações de ficheiros Azure
 
-O Azure Files suporta a preservação de ACLs de diretório ou de ficheiro ao copiar dados para as ações de ficheiros da Azure. Pode copiar ACLs num diretório ou arquivar para ações de ficheiros Azure utilizando o Azure File Sync ou os conjuntos comuns de ferramentas de movimento de ficheiros. Por exemplo, pode utilizar [a robocopia](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) com a bandeira `/copy:s` para copiar dados, bem como ACLs para uma partilha de ficheiros Azure. Os ACLs são preservados por defeito, não é necessário permitir a autenticação baseada na identidade na sua conta de armazenamento para preservar OS ACLs.
+O Azure Files suporta a preservação de ACLs de diretório ou de ficheiro ao copiar dados para as ações de ficheiros da Azure. Pode copiar ACLs num diretório ou arquivar para ações de ficheiros Azure utilizando o Azure File Sync ou os conjuntos comuns de ferramentas de movimento de ficheiros. Por exemplo, pode utilizar a `/copy:s` [robocopia](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) com a bandeira para copiar dados, bem como ACLs para uma partilha de ficheiros Azure. Os ACLs são preservados por defeito, não é necessário permitir a autenticação baseada na identidade na sua conta de armazenamento para preservar OS ACLs.
 
 ## <a name="pricing"></a>Preços
 Não existe nenhuma taxa adicional de serviço para permitir a autenticação baseada na identidade sobre sMB na sua conta de armazenamento. Para obter mais informações sobre preços, consulte os preços dos [Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/) e as páginas de preços dos Serviços de [Domínio Azure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/) se estiver à procura de informações aAD DS.
@@ -125,7 +126,7 @@ Não existe nenhuma taxa adicional de serviço para permitir a autenticação ba
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre ficheiros Azure e autenticação baseada na identidade através de SMB, consulte estes recursos:
 
-- [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md)
 - [Ativar a autenticação dos Serviços de Domínio de Diretório Ativo azure em ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

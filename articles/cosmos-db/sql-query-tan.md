@@ -8,14 +8,14 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9d7187ba116067445e835769fc33aa70677ef80b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301986"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
- Devolve a tangente do ângulo especificado, em radianos, a expressão especificada.  
+ Devolve a tangente do ângulo especificado, em radianos, na expressão especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ TAN (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte calcula a tangente do instalador de plataforma (-) / 2.  
+  O exemplo seguinte calcula a tangente de PI()/2.  
   
 ```sql
 SELECT TAN(PI()/2) AS tan 

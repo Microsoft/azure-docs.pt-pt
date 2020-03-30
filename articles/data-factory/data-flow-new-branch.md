@@ -1,6 +1,6 @@
 ---
-title: Várias ramificações no fluxo de dados de mapeamento
-description: Replicando fluxos de dados no fluxo de dados de mapeamento com várias ramificações
+title: Múltiplos ramos no fluxo de dados de mapeamento
+description: Replicação de fluxos de dados no fluxo de dados de mapeamento com vários ramos
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/08/2020
 ms.openlocfilehash: 71fb9f1ba9952be0e6b3910dd1079aa6d3c0482d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834525"
 ---
-# <a name="creating-a-new-branch-in-mapping-data-flow"></a>Criando uma nova ramificação no fluxo de dados de mapeamento
+# <a name="creating-a-new-branch-in-mapping-data-flow"></a>Criação de um novo ramo no fluxo de dados de mapeamento
 
-Adicione uma nova ramificação para fazer vários conjuntos de operações e transformações no mesmo fluxo de dados. A adição de uma nova ramificação é útil quando você deseja usar a mesma origem para vários coletores ou para unir dados automaticamente.
+Adicione um novo ramo para fazer vários conjuntos de operações e transformações contra o mesmo fluxo de dados. Adicionar um novo ramo é útil quando se pretende utilizar a mesma fonte para vários lavatórios ou para a união de dados.
 
-Uma nova ramificação pode ser adicionada da lista de transformação semelhante a outras transformações. A **nova ramificação** só estará disponível como uma ação quando houver uma transformação existente após a transformação que você está tentando ramificar.
+Um novo ramo pode ser adicionado da lista de transformação semelhante a outras transformações. **A Nova Sucursal** só estará disponível como ação quando houver uma transformação existente após a transformação que estás a tentar ramificar.
 
-![Adicionando uma nova ramificação](media/data-flow/new-branch2.png "Adicionando uma nova ramificação")
+![Adicionar um novo ramo](media/data-flow/new-branch2.png "Adicionar um novo ramo")
 
-No exemplo abaixo, o fluxo de dados está lendo dados de viagem de táxi. A saída agregada por dia e fornecedor é necessária. Em vez de criar dois fluxos de dados separados que lêem da mesma fonte, uma nova ramificação pode ser adicionada. Dessa forma, ambas as agregações podem ser executadas como parte do mesmo fluxo de dados. 
+No exemplo abaixo, o fluxo de dados é a leitura de dados de viagem de táxi. É necessária uma saída agregada tanto pelo dia como pelo fornecedor. Em vez de criar dois fluxos de dados separados que são lidos a partir da mesma fonte, um novo ramo pode ser adicionado. Desta forma, ambas as agregações podem ser executadas como parte do mesmo fluxo de dados. 
 
-![Adicionando uma nova ramificação](media/data-flow/new-branch.png "Adicionando uma nova ramificação")
+![Adicionar um novo ramo](media/data-flow/new-branch.png "Adicionar um novo ramo")

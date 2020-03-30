@@ -1,20 +1,20 @@
 ---
-title: Solucionar problemas de desempenho de consulta-banco de dados do Azure para MySQL
-description: Saiba como usar explicar para solucionar problemas de desempenho de consulta no banco de dados do Azure para MySQL.
+title: Desempenho da consulta de resolução de problemas - Base de Dados Azure para MySQL
+description: Aprenda a usar o EXPLAIN para resolver o desempenho da consulta na Base de Dados Azure para o MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 5bfefe3215558a94396e729a318e0746a4fb3aec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067827"
 ---
-# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar explicar para criar um perfil de desempenho de consulta no banco de dados do Azure para MySQL
-A **explicação** é uma ferramenta útil para otimizar consultas. A instrução explicar pode ser usada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução de explicação.
+# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar o EXPLAIN para perfilr o desempenho da consulta na Base de Dados Azure para mySQL
+**Explicar** é uma ferramenta útil para otimizar consultas. A declaração de EXPLICAÇÃO pode ser usada para obter informações sobre como as declarações do SQL são executadas. A saída seguinte mostra um exemplo da execução de uma declaração de EXPLICA.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Como pode ser visto neste exemplo, o valor da *chave* é NULL. Essa saída significa que o MySQL não pode localizar nenhum índice otimizado para a consulta e realiza uma verificação de tabela completa. Vamos otimizar essa consulta adicionando um índice na coluna **ID** .
+Como se pode ver a partir deste exemplo, o valor da *chave* é NULO. Esta saída significa que o MySQL não encontra quaisquer índices otimizados para a consulta e realiza uma digitalização completa da tabela. Vamos otimizar esta consulta adicionando um índice na coluna **de identificação.**
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -53,10 +53,10 @@ possible_keys: id
         Extra: NULL
 ```
 
-O novo explicação mostra que o MySQL agora usa um índice para limitar o número de linhas a 1, o que, por sua vez, reduziu drasticamente o tempo de pesquisa.
+O novo EXPLAIN mostra que o MySQL usa agora um índice para limitar o número de linhas a 1, o que, por sua vez, encurtou drasticamente o tempo de pesquisa.
  
 ## <a name="covering-index"></a>Índice de cobertura
-Um índice abrangente consiste em todas as colunas de uma consulta no índice para reduzir a recuperação de valor de tabelas de dados. Aqui está uma ilustração na instrução **Group by** a seguir.
+Um índice de cobertura consiste em todas as colunas de uma consulta no índice para reduzir a recuperação de valor a partir de tabelas de dados. Aqui está uma ilustração no seguinte **comunicado do GRUPO BY.**
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,9 +75,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser visto na saída, o MySQL não usa nenhum índice porque nenhum índice adequado está disponível. Ele também mostra o *uso de temporário; Usando a classificação de arquivos*, o que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **Group by** .
+Como se pode ver pela saída, o MySQL não utiliza quaisquer índices porque não existem índices adequados. Também mostra *usar temporário; Utilizando o tipo de ficheiro*, o que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula GROUP **BY.**
  
-A criação de um índice na coluna **C2** sozinho não faz diferença e o MySQL ainda precisa criar uma tabela temporária:
+A criação de um índice só na coluna **c2** não faz diferença, e o MySQL ainda precisa de criar uma tabela temporária:
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Nesse caso, um **índice coberto** em **C1** e **C2** pode ser criado, por meio da adição do valor de **C2**"diretamente no índice para eliminar a pesquisa de dados adicional.
+Neste caso, pode ser criado um **índice coberto** tanto em **c1** como **c2,** pelo que a adição do valor de **c2**" diretamente no índice para eliminar a procura de dados adicionais.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -117,10 +117,10 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-Como mostra o explicação acima, o MySQL agora usa o índice coberto e evita a criação de uma tabela temporária. 
+Como mostra o explicato acima, o MySQL usa agora o índice coberto e evita criar uma tabela temporária. 
 
 ## <a name="combined-index"></a>Índice combinado
-Um índice combinado consiste em valores de várias colunas e pode ser considerado uma matriz de linhas que são classificadas por meio da concatenação de valores das colunas indexadas. Esse método pode ser útil em uma instrução **Group by** .
+Um índice combinado consiste em valores de várias colunas e pode ser considerado um conjunto de linhas que são ordenadas por valores concatenantes das colunas indexadas.Este método pode ser útil numa declaração do **GROUP BY.**
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-O MySQL executa uma operação de *classificação de arquivo* que é razoavelmente lenta, especialmente quando tem que classificar muitas linhas. Para otimizar essa consulta, um índice combinado pode ser criado em ambas as colunas que estão sendo classificadas.
+MySQL executa uma operação de tipo de *arquivo* que é bastante lenta, especialmente quando tem que ordenar muitas linhas. Para otimizar esta consulta, pode ser criado um índice combinado em ambas as colunas que estão a ser ordenadas.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,12 +159,12 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-A explicação agora mostra que o MySQL é capaz de usar o índice combinado para evitar classificação adicional, pois o índice já está classificado.
+O EXPLAIN mostra agora que o MySQL é capaz de usar o índice combinado para evitar a triagem adicional uma vez que o índice já está classificado.
  
 ## <a name="conclusion"></a>Conclusão
  
-O uso de EXPLICAções e tipos diferentes de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que o MySQL seria capaz de usá-lo para suas consultas. Sempre valide suas suposições usando explicar e otimizar suas consultas usando índices.
+A utilização de EXPLAIN e de diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que o MySQL possa usá-lo para as suas consultas. Valide sempre os seus pressupostos usando o EXPLAIN e otimize as suas consultas utilizando índices.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para encontrar respostas de pares para suas perguntas mais interessadas ou postar uma nova pergunta/resposta, visite o [Fórum do MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para encontrar respostas dos pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite o [fórum MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) ou [stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

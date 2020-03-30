@@ -1,5 +1,5 @@
 ---
-title: Escala automaticamente os nódosos de computação numa piscina de Lote Azure  Microsoft Docs
+title: Escala automaticamente os nódosos de computação numa piscina de Lote Azure [ Microsoft Docs
 description: Ative a escala automática numa piscina de nuvem para ajustar dinamicamente o número de nós de computação na piscina.
 services: batch
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086276"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054020"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 
@@ -48,7 +48,7 @@ Pode pensar em fórmulas de escala automática como uma "linguagem" de escala au
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-As fórmulas geralmente contêm múltiplas declarações que realizam operações sobre valores que são obtidos em declarações anteriores. Por exemplo, primeiro obtemos um valor para `variable1`, depois passamos para uma função de povoar `variable2`:
+As fórmulas geralmente contêm múltiplas declarações que realizam operações sobre valores que são obtidos em declarações anteriores. Por exemplo, primeiro obtemos um valor para, `variable1` `variable2`em seguida, passá-lo para uma função de povoar:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
@@ -61,7 +61,7 @@ O número alvo de nós pode ser maior, inferior ou o mesmo que o número atual d
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de escala automática de amostra
 
-Abaixo estão exemplos de duas fórmulas de escala automática, que podem ser ajustadas para funcionar para a maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
+Abaixo estão exemplos de duas fórmulas de escala automática, que podem ser ajustadas para funcionar para a maioria dos cenários. As `startingNumberOfVMs` variáveis `maxNumberofVMs` e, no exemplo, as fórmulas podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
 
@@ -74,7 +74,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Com esta fórmula de escala automática, a piscina é inicialmente criada com um único VM. A métrica `$PendingTasks` define o número de tarefas que estão a decorrer ou em fila. A fórmula encontra o número médio de tarefas pendentes nos últimos 180 segundos e define a variável `$TargetDedicatedNodes` em conformidade. A fórmula garante que o número-alvo de nós dedicados nunca excede 25 VMs. À medida que novas tarefas são submetidas, a piscina cresce automaticamente. À medida que as tarefas completam, os VMs tornam-se gratuitos um a um e a fórmula autoscalcificante encolhe a piscina.
+Com esta fórmula de escala automática, a piscina é inicialmente criada com um único VM. A `$PendingTasks` métrica define o número de tarefas que estão a decorrer ou em fila. A fórmula encontra o número médio de tarefas pendentes nos `$TargetDedicatedNodes` últimos 180 segundos e define a variável em conformidade. A fórmula garante que o número-alvo de nós dedicados nunca excede 25 VMs. À medida que novas tarefas são submetidas, a piscina cresce automaticamente. À medida que as tarefas completam, os VMs tornam-se gratuitos um a um e a fórmula autoscalcificante encolhe a piscina.
 
 Esta fórmula escala nós dedicados, mas pode ser modificado para aplicar à escala de nós de baixa prioridade também.
 
@@ -87,11 +87,11 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Este exemplo cria uma piscina que começa com 25 nós de baixa prioridade. Sempre que um nó de baixa prioridade é preempted, é substituído por um nó dedicado. Tal como no primeiro exemplo, a variável `maxNumberofVMs` impede que a piscina exceda 25 VMs. Este exemplo é útil para tirar partido de VMs de baixa prioridade, garantindo também que apenas um número fixo de preventivos ocorrerá durante toda a vida útil da piscina.
+Este exemplo cria uma piscina que começa com 25 nós de baixa prioridade. Sempre que um nó de baixa prioridade é preempted, é substituído por um nó dedicado. Tal como no primeiro `maxNumberofVMs` exemplo, a variável impede que a piscina exceda 25 VMs. Este exemplo é útil para tirar partido de VMs de baixa prioridade, garantindo também que apenas um número fixo de preventivos ocorrerá durante toda a vida útil da piscina.
 
 ## <a name="variables"></a>Variáveis
 
-Pode utilizar variáveis **definidas** pelo serviço e **definidas** pelo utilizador nas fórmulas de escala automática. As variáveis definidas pelo serviço são incorporadas no serviço Batch. Algumas variáveis definidas pelo serviço são de leitura-escrita, e algumas são apenas de leitura. Variáveis definidas pelo utilizador são variáveis que define. Na fórmula de exemplo mostrada na secção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. Variáveis `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo utilizador.
+Pode utilizar variáveis **definidas** pelo serviço e **definidas** pelo utilizador nas fórmulas de escala automática. As variáveis definidas pelo serviço são incorporadas no serviço Batch. Algumas variáveis definidas pelo serviço são de leitura-escrita, e algumas são apenas de leitura. Variáveis definidas pelo utilizador são variáveis que define. Na fórmula de exemplo mostrada na `$TargetDedicatedNodes` `$PendingTasks` secção anterior, e são variáveis definidas pelo serviço. Variáveis `startingNumberOfVMs` `maxNumberofVMs` e são variáveis definidas pelo utilizador.
 
 > [!NOTE]
 > As variáveis definidas pelo serviço são sempre precedidas por um sinal de dólar ($). Para variáveis definidas pelo utilizador, o sinal do dólar é opcional.
@@ -109,7 +109,7 @@ Você pode obter e definir os valores destas variáveis definidas pelo serviço 
 | $NodeDeallocationOption |A ação que ocorre quando os nódosos de computação são removidos de uma piscina. Os valores possíveis são:<ul><li>**refilar**- O valor padrão. Termina imediatamente as tarefas e coloca-as de volta na fila de trabalho para que sejam reagendadas. Esta ação garante que o número de nós alvo é alcançado o mais rapidamente possível, mas pode ser menos eficiente, uma vez que quaisquer tarefas de execução serão interrompidas e terão de ser reiniciadas, desperdiçando todo o trabalho que já tinham feito. <li>**terminar**-- Termina imediatamente as tarefas e retira-as da fila de trabalho.<li>realização de **tarefas**-- Aguarda que as tarefas em execução atualmente terminem e, em seguida, remova o nó da piscina. Utilize esta opção para evitar que as tarefas sejam interrompidas e ressonadas, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**dados retidos**-- Aguarda que todos os dados locais retidos na tarefa no nó sejam limpos antes de remover o nó da piscina.</ul> |
 
 > [!NOTE]
-> A variável `$TargetDedicatedNodes` também pode ser especificada utilizando o pseudónimo `$TargetDedicated`. Da mesma forma, a variável `$TargetLowPriorityNodes` pode ser especificada utilizando o pseudónimo `$TargetLowPriority`. Se tanto a variável totalmente nomeada como o seu pseudónimo forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
+> A `$TargetDedicatedNodes` variável também pode ser `$TargetDedicated`especificada utilizando o pseudónimo . Da mesma `$TargetLowPriorityNodes` forma, a variável pode `$TargetLowPriority`ser especificada utilizando o pseudónimo . Se tanto a variável totalmente nomeada como o seu pseudónimo forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
 >
 >
 
@@ -193,42 +193,42 @@ Estas operações são permitidas nos tipos listados na secção anterior.
 | string *operador* de cordas |<, <=, ==, >=, >, != |double |
 | carimbo de tempo *do operador* |<, <=, ==, >=, >, != |double |
 | intervalo de tempo *do operador de* intervalo de tempo |<, <=, ==, >=, >, != |double |
-| duplo *operador* duplo |&&, &#124;&#124; |double |
+| duplo *operador* duplo |&&,  &#124;&#124; |double |
 
-Ao testar um duplo com um operador ternário (`double ? statement1 : statement2`), o não zero é **verdadeiro**, e zero é **falso**.
+Ao testar um duplo com um`double ? statement1 : statement2`operador ternário ( não zero é **verdade**, e zero é **falso**.
 
 ## <a name="functions"></a>Funções
 Estas **funções** pré-definidas estão disponíveis para que possa utilizar na definição de uma fórmula de escala automática.
 
 | Função | Tipo de devolução | Descrição |
 | --- | --- | --- |
-| avg(doubleVecList) |double |Devolve o valor médio de todos os valores do doubleVecList. |
-| len(doubleVecList) |double |Devolve o comprimento do vetor que é criado a partir do doubleVecList. |
+| avg (doubleVecList) |double |Devolve o valor médio de todos os valores do doubleVecList. |
+| len (doubleVecList) |double |Devolve o comprimento do vetor que é criado a partir do doubleVecList. |
 | lg(duplo) |double |Devolve a base de registo 2 do duplo. |
-| lg(doubleVecList) |doubleVec |Devolve a base de registo em termos de componente 2 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro. Caso contrário, assume-se a versão dupla lg(double). |
+| lg (doubleVecList) |doubleVec |Devolve a base de registo em termos de componente 2 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro. Caso contrário, assume-se a versão dupla lg(double). |
 | Inn(duplo) |double |Devolve o registo natural do duplo. |
-| ln(doubleVecList) |doubleVec |Devolve o registo natural do duplo. |
+| In (doubleVecList) |doubleVec |Devolve o registo natural do duplo. |
 | log (duplo) |double |Devolve a base de registo 10 do duplo. |
-| log(doubleVecList) |doubleVec |Devolve a base de registo em termos de componentes 10 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro duplo único. Caso contrário, assume-se a versão de duplo registo (duplo). |
-| max(doubleVecList) |double |Devolve o valor máximo no doubleVecList. |
-| min(doubleVecList) |double |Devolve o valor mínimo no doubleVecList. |
-| norm(doubleVecList) |double |Devolve a norma de duas normas do vetor que é criada a partir do doubleVecList. |
+| log (doubleVecList) |doubleVec |Devolve a base de registo em termos de componentes 10 do doubleVecList. Um vec(duplo) deve ser explicitamente passado para o parâmetro duplo único. Caso contrário, assume-se a versão de duplo registo (duplo). |
+| max (doubleVecList) |double |Devolve o valor máximo no doubleVecList. |
+| min (doubleVecList) |double |Devolve o valor mínimo no doubleVecList. |
+| norma (doubleVecList) |double |Devolve a norma de duas normas do vetor que é criada a partir do doubleVecList. |
 | percentil (doubleVec v, duplo p) |double |Devolve o elemento percentil do vetor v. |
 | rand() |double |Devolve um valor aleatório entre 0,0 e 1.0. |
-| range(doubleVecList) |double |Devolve a diferença entre o min e os valores máximos no doubleVecList. |
-| std(doubleVecList) |double |Devolve o desvio padrão da amostra dos valores no doubleVecList. |
-| stop() | |Interrompe a avaliação da expressão autoscalcificante. |
-| sum(doubleVecList) |double |Devolve a soma de todos os componentes do doubleVecList. |
-| time(string dateTime="") |carimbo de data/hora |Devolve o carimbo de tempo atual se não forem passados parâmetros ou o carimbo de tempo da corda dataTime se for passado. Data suportadaOs formatos de tempo são W3C-DTF e RFC 1123. |
+| gama (doubleVecList) |double |Devolve a diferença entre o min e os valores máximos no doubleVecList. |
+| std (doubleVecList) |double |Devolve o desvio padrão da amostra dos valores no doubleVecList. |
+| parar() | |Interrompe a avaliação da expressão autoscalcificante. |
+| soma (doubleVecList) |double |Devolve a soma de todos os componentes do doubleVecList. |
+| tempo (data de cordaTime=") |carimbo de data/hora |Devolve o carimbo de tempo atual se não forem passados parâmetros ou o carimbo de tempo da corda dataTime se for passado. Data suportadaOs formatos de tempo são W3C-DTF e RFC 1123. |
 | val (doubleVec v, duplo i) |double |Devolve o valor do elemento que está no local i no vetor v, com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como argumento. A lista separada da vírposta é qualquer combinação de *duplo* e *duplo Vec*. Por exemplo:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-O valor *doubleVecList* é convertido para um *único doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` equivale a chamar `avg(1,2,3,7)`.
+O valor *doubleVecList* é convertido para um *único doubleVec* antes da avaliação. Por exemplo, `v = [1,2,3]`se, `avg(v)` então, `avg(1,2,3)`ligar é equivalente a chamar . Chamar `avg(v, 7)` é equivalente `avg(1,2,3,7)`a chamar.
 
-## <a name="getsampledata"></a>Obter dados da amostra
+## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Obter dados da amostra
 
 As fórmulas de escala automática atuam em dados métricos (amostras) fornecidos pelo serviço Batch. Uma fórmula cresce ou diminui o tamanho da piscina com base nos valores que obtém do serviço. As variáveis definidas pelo serviço que foram descritas anteriormente são objetos que fornecem vários métodos de acesso a dados que estão associados a esse objeto. Por exemplo, a seguinte expressão mostra um pedido para obter os últimos cinco minutos de utilização do CPU:
 
@@ -238,11 +238,11 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Método | Descrição |
 | --- | --- |
-| GetSample() |O método `GetSample()` devolve um vetor de amostras de dados.<br/><br/>Uma amostra vale 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a obter das amostras mais recentes que foram recolhidas.<br/><br/>`GetSample(1)` devolve a última amostra disponível. No entanto, para métricas como `$CPUPercent`, esta não deve ser utilizada porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas de sistema, pode ser muito mais antigo. É melhor, nestes casos, utilizar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um prazo para recolher dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na história do CPUPercent. No entanto, se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um prazo para a recolha de dados, com um tempo de início e um tempo de fim.<br/><br/>Como acima referido, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Considere este atraso quando utilizar o método `GetSample`. Veja `GetSamplePercent` abaixo. |
-| GetSamplePeriod() |Devolve o período de amostras colhidas num conjunto histórico de dados de amostras. |
+| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Uma amostra vale 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a obter das amostras mais recentes que foram recolhidas.<br/><br/>`GetSample(1)`devolve a última amostra disponível. Para métricas `$CPUPercent`como , no entanto, isso não deve ser usado porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas de sistema, pode ser muito mais antigo. É melhor, nestes casos, utilizar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um prazo para recolher dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na história do CPUPercent. No entanto, se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um prazo para a recolha de dados, com um tempo de início e um tempo de fim.<br/><br/>Como acima referido, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Considere este atraso quando `GetSample` usar o método. Veja `GetSamplePercent` abaixo. |
+| Período GetSample() |Devolve o período de amostras colhidas num conjunto histórico de dados de amostras. |
 | Contagem() |Devolve o número total de amostras no histórico métrico. |
-| HistoryBeginTime() |Devolve o carimbo de tempo da amostra de dados disponíveis mais antiga para a métrica. |
-| GetSamplePercent() |Devolve a percentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Uma vez que o método `GetSample` falha se a percentagem de amostras devolvidas for inferior à `samplePercent` especificada, pode utilizar o método `GetSamplePercent` para verificar primeiro. Em seguida, pode realizar uma ação alternativa se houver amostras insuficientes, sem parar a avaliação automática de escala. |
+| Hora do Início da História() |Devolve o carimbo de tempo da amostra de dados disponíveis mais antiga para a métrica. |
+| GetSamplePercent() |Devolve a percentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Uma `GetSample` vez que o método falha se a `samplePercent` percentagem de amostras devolvidas for inferior à especificada, pode utilizar o `GetSamplePercent` método para verificar primeiro. Em seguida, pode realizar uma ação alternativa se houver amostras insuficientes, sem parar a avaliação automática de escala. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Amostras, percentagem de amostras e método *GetSample()*
 O funcionamento principal de uma fórmula de escala automática é obter dados métricos de tarefas e recursos e, em seguida, ajustar o tamanho da piscina com base nesses dados. Como tal, é importante ter uma compreensão clara de como as fórmulas de escala automática interagem com os dados das métricas (amostras).
@@ -253,15 +253,15 @@ O serviço De lote retira periodicamente amostras de métricas de tarefas e recu
 
 **Percentagem de amostra**
 
-Quando `samplePercent` é passada para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _por cento_ refere-se a uma comparação entre o número total possível de amostras que são registadas pelo serviço De lote e o número de amostras disponíveis para a sua fórmula de escala automática.
+Quando `samplePercent` é passado `GetSample()` para `GetSamplePercent()` o método ou o método é chamado, _por cento_ refere-se a uma comparação entre o número total possível de amostras que são registadas pelo serviço Batch e o número de amostras disponíveis para a sua fórmula de escala automática.
 
 Vamos olhar para uma panela de 10 minutos como um exemplo. Uma vez que as amostras são registadas a cada 30 segundos num período de 10 minutos, o número total máximo de amostras que são registadas pelo Batch seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de reporte e de outras questões dentro do Azure, pode haver apenas 15 amostras disponíveis para a sua fórmula de escala automática para leitura. Assim, por exemplo, durante esse período de 10 minutos, apenas 75% do número total de amostras registadas pode estar disponível para a sua fórmula.
 
 **GetSample() e gamas de amostras**
 
-As suas fórmulas de escala automática vão crescer e encolher as suas piscinas &mdash; adicionar nódosos ou remover os nódosos. Como os nós custam dinheiro, você quer garantir que as suas fórmulas usam um método inteligente de análise que é baseado em dados suficientes. Por isso, recomendamos que utilize uma análise do tipo de tendência nas suas fórmulas. Este tipo cresce e encolhe as suas piscinas com base numa série de amostras recolhidas.
+As suas fórmulas de escala automática vão crescer &mdash; e encolher as suas piscinas adicionando nódosos ou removendo os nódosos. Como os nós custam dinheiro, você quer garantir que as suas fórmulas usam um método inteligente de análise que é baseado em dados suficientes. Por isso, recomendamos que utilize uma análise do tipo de tendência nas suas fórmulas. Este tipo cresce e encolhe as suas piscinas com base numa série de amostras recolhidas.
 
-Para tal, use `GetSample(interval look-back start, interval look-back end)` para devolver um vetor de amostras:
+Para tal, utilize `GetSample(interval look-back start, interval look-back end)` para devolver um vetor de amostras:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
@@ -273,18 +273,18 @@ Quando a linha acima é avaliada pelo Batch, devolve uma gama de amostras como u
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-Depois de recolher o vetor de amostras, pode então usar funções como `min()`, `max()`, e `avg()` obter valores significativos da gama recolhida.
+Depois de recolher o vetor de amostras, `min()`pode `max()`então usar funções como , e `avg()` obter valores significativos da gama recolhida.
 
-Para uma segurança adicional, pode forçar uma avaliação de fórmula a falhar se for inferior a uma determinada percentagem de amostra disponível durante um determinado período de tempo. Quando forçar uma avaliação de fórmula a falhar, instrui o Batch a cessar a avaliação da fórmula se a percentagem especificada de amostras não estiver disponível. Neste caso, não é feita qualquer alteração ao tamanho da piscina. Para especificar uma percentagem necessária de amostras para o sucesso da avaliação, especifique-a como o terceiro parâmetro a `GetSample()`. Aqui, é especificada uma exigência de 75% das amostras:
+Para uma segurança adicional, pode forçar uma avaliação de fórmula a falhar se for inferior a uma determinada percentagem de amostra disponível durante um determinado período de tempo. Quando forçar uma avaliação de fórmula a falhar, instrui o Batch a cessar a avaliação da fórmula se a percentagem especificada de amostras não estiver disponível. Neste caso, não é feita qualquer alteração ao tamanho da piscina. Para especificar uma percentagem necessária de amostras para o sucesso `GetSample()`da avaliação, especifique-a como o terceiro parâmetro para . Aqui, é especificada uma exigência de 75% das amostras:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Como pode haver um atraso na disponibilidade da amostra, é importante especificar sempre um intervalo de tempo com um tempo de arranque que seja mais longo do que um minuto. Demora aproximadamente um minuto para as amostras se propagarem através do sistema, para que as amostras da faixa `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` possam não estar disponíveis. Mais uma vez, pode utilizar o parâmetro percentual de `GetSample()` para forçar uma determinada exigência de percentagem de amostra.
+Como pode haver um atraso na disponibilidade da amostra, é importante especificar sempre um intervalo de tempo com um tempo de arranque que seja mais longo do que um minuto. Demora aproximadamente um minuto para as amostras se propagarem `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` através do sistema, para que as amostras na gama possam não estar disponíveis. Mais uma vez, pode utilizar `GetSample()` o parâmetro percentual de para forçar uma determinada exigência de percentagem de amostra.
 
 > [!IMPORTANT]
-> **Recomendamos vivamente** que **evite confiar *apenas* em `GetSample(1)` nas suas fórmulas**de escala automática. Isto porque `GetSample(1)` essencialmente diz ao serviço batch: "Dê-me a última amostra que tiver, não importa há quanto tempo a recuperou." Uma vez que se trata apenas de uma amostra, e pode ser uma amostra mais antiga, pode não ser representativa da imagem maior da tarefa recente ou do estado de recurso. Se utilizar `GetSample(1)`, certifique-se de que faz parte de uma declaração maior e não do único ponto de dados em que a sua fórmula depende.
+> **Recomendamos vivamente** que **evite confiar `GetSample(1)` *apenas* nas suas fórmulas**de escala automática. Isto porque `GetSample(1)` diz essencialmente ao serviço batch: "Dê-me a última amostra que tiver, não importa há quanto tempo a recuperou." Uma vez que se trata apenas de uma amostra, e pode ser uma amostra mais antiga, pode não ser representativa da imagem maior da tarefa recente ou do estado de recurso. Se utilizar, `GetSample(1)`certifique-se de que faz parte de uma declaração maior e não o único ponto de dados em que a sua fórmula depende.
 >
 >
 
@@ -346,7 +346,7 @@ Primeiro, vamos definir os requisitos para a nossa nova fórmula de escala autom
 1. Restrinja sempre o número máximo de nós dedicados a 400.
 1. Ao reduzir o número de nós, não remova os nós que estão a executar tarefas; se necessário, aguarde até que as tarefas tenham terminado para remover os nós.
 
-Para aumentar o número de nós durante o elevado uso do CPU, defina a declaração que povoa uma variável definida pelo utilizador (`$totalDedicatedNodes`) com um valor que é de 110 por cento do número de nós dedicados, mas apenas se a média mínima de utilização do CPU durante os últimos 10 minutos for superior a 70 por cento. Caso contrário, utilize o valor para o número atual de nós dedicados.
+Para aumentar o número de nós durante o elevado uso de CPU,`$totalDedicatedNodes`defina a declaração que povoa uma variável definida pelo utilizador ( ) com um valor que é 110 por cento do número de nós dedicados, mas apenas se a média mínima de utilização de CPU durante os últimos 10 minutos for superior a 70 por cento. Caso contrário, utilize o valor para o número atual de nós dedicados.
 
 ```
 $totalDedicatedNodes =
@@ -354,7 +354,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Para *diminuir* o número de nós dedicados durante a baixa utilização do CPU, a próxima declaração na nossa fórmula define a mesma variável `$totalDedicatedNodes` para 90% do número atual de nós dedicados se o uso médio de CPU nos últimos 60 minutos fosse inferior a 20 por cento. Caso contrário, utilize o valor atual de `$totalDedicatedNodes` que povoámos na declaração acima.
+Para *diminuir* o número de nós dedicados durante a baixa utilização do `$totalDedicatedNodes` CPU, a próxima declaração na nossa fórmula define a mesma variável para 90% do número atual de nós dedicados se o uso médio de CPU nos últimos 60 minutos fosse inferior a 20 por cento. Caso contrário, utilize o `$totalDedicatedNodes` valor atual do que povoamos na declaração acima.
 
 ```
 $totalDedicatedNodes =
@@ -394,7 +394,7 @@ Para criar uma piscina com autoscalcificação ativada em .NET, siga estes passo
 1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (predefinição é de 15 minutos).
 1. Comprometa a piscina com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O seguinte código snippet cria uma piscina ativada por escala automática em .NET. A fórmula de escala automática da piscina define o número de nós dedicados a 5 às segundas-feiras, e 1 em todos os dias da semana. O intervalo de [escala automática](#automatic-scaling-interval) está definido para 30 minutos. Neste e nos C# outros cortes neste artigo, `myBatchClient` é uma instância devidamente inicializada da classe [BatchClient.][net_batchclient]
+O seguinte código snippet cria uma piscina ativada por escala automática em .NET. A fórmula de escala automática da piscina define o número de nós dedicados a 5 às segundas-feiras, e 1 em todos os dias da semana. O intervalo de [escala automática](#automatic-scaling-interval) está definido para 30 minutos. Neste e nos outros snippets C# `myBatchClient` neste artigo, é uma instância devidamente inicializada da classe [BatchClient.][net_batchclient]
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -490,7 +490,7 @@ Quando ativa a autodimensionamento numa piscina existente, tenha em mente os seg
 >
 >
 
-Este C# fragmento de código utiliza a biblioteca [Batch .NET][net_api] para permitir a autodimensionamento numa piscina existente:
+Este snippet de código C# utiliza a biblioteca [Batch .NET][net_api] para permitir a autodimensionamento numa piscina existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -505,7 +505,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ### <a name="update-an-autoscale-formula"></a>Atualizar uma fórmula de escala automática
 
-Para atualizar a fórmula numa piscina ativada por escala automática existente, ligue para a operação para permitir a autodimensionamento novamente com a nova fórmula. Por exemplo, se a autodimensionamento já estiver ativada em `myexistingpool` quando for executado o seguinte código .NET, a sua fórmula de escala automática é substituída pelo conteúdo de `myNewFormula`.
+Para atualizar a fórmula numa piscina ativada por escala automática existente, ligue para a operação para permitir a autodimensionamento novamente com a nova fórmula. Por exemplo, se a autoscalcificação já estiver ativada `myexistingpool` quando for executado o seguinte código `myNewFormula`.NET, a sua fórmula de escala automática é substituída pelo conteúdo de .
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -527,7 +527,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 Você pode avaliar uma fórmula antes de aplicá-la a uma piscina. Desta forma, pode testar a fórmula para ver como as suas declarações avaliam antes de colocar a fórmula em produção.
 
-Para avaliar uma fórmula de escala automática, primeiro deve ativar a autoscalcificação na piscina com uma fórmula válida. Para testar uma fórmula numa piscina que ainda não tenha autoscalcificação ativada, utilize a fórmula de uma linha `$TargetDedicatedNodes = 0` quando ativar automaticamente. Em seguida, use um dos seguintes para avaliar a fórmula que pretende testar:
+Para avaliar uma fórmula de escala automática, primeiro deve ativar a autoscalcificação na piscina com uma fórmula válida. Para testar uma fórmula numa piscina que ainda não tenha autoscalcificação `$TargetDedicatedNodes = 0` ativada, use a fórmula de uma linha quando ativar automaticamente. Em seguida, use um dos seguintes para avaliar a fórmula que pretende testar:
 
 * [BatchClient.PoolOperations.AssessAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
@@ -627,7 +627,7 @@ Em Batch .NET, a propriedade [CloudPool.AutoScaleRun](https://docs.microsoft.com
 
 Na Rest API, o [Obter informações sobre um](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) pedido de piscina devolve informações sobre a piscina, que inclui as mais recentes informações de execução automática de escala na propriedade [autoScaleRun.](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool)
 
-O C# seguinte código de snippet utiliza a biblioteca Batch .NET para imprimir informações sobre a última execução autoscalcificada na piscina _myPool:_
+O seguinte código C# snippet usa a biblioteca Batch .NET para imprimir informações sobre a última execução autoscalcificada na piscina _myPool:_
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -668,6 +668,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+`$curTime`pode ser ajustado para refletir o `time()` seu fuso `TimeZoneInterval_Hour` horário local adicionando ao produto e ao seu utc offset. Por exemplo, `$curTime = time() + (-6 * TimeInterval_Hour);` utilização para o Horário de verão da Montanha (MDT). Tenha em mente que a compensação teria de ser ajustada no início e no fim do horário de verão (se aplicável).
 
 ### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajustamento baseado em tarefas
 
@@ -713,7 +714,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: Definir um tamanho inicial da piscina
 
-Este exemplo C# mostra um corte de código com uma fórmula de escala automática que define o tamanho da piscina para um número especificado de nós durante um período de tempo inicial. Em seguida, ajusta o tamanho da piscina com base no número de tarefas de execução e ativas após o período de tempo inicial ter decorrido.
+Este exemplo mostra um corte de código C# com uma fórmula de escala automática que define o tamanho da piscina para um número especificado de nós durante um período de tempo inicial. Em seguida, ajusta o tamanho da piscina com base no número de tarefas de execução e ativas após o período de tempo inicial ter decorrido.
 
 A fórmula no seguinte código:
 

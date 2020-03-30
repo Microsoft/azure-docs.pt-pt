@@ -5,36 +5,36 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d16412e4e35714c840516670f520f77daed1676d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059906"
 ---
-Ao gerar um certificado de cliente, este é instalado automaticamente no computador que utilizou para gerá-lo. Se pretender instalar o certificado de cliente noutro computador cliente, terá de exportar o certificado de cliente que gerou.
+Quando gera um certificado de cliente, é automaticamente instalado no computador que usou para o gerar. Se quiser instalar o certificado de cliente noutro computador cliente, tem de exportar o certificado de cliente que gerou.
 
-1. Para exportar um certificado de cliente, abra **Gerir Certificados de Utilizador**. Os certificados de cliente que gerou são, por predefinição, localizados em 'Certificates - user\personal\certificates' atual'. O certificado de cliente que pretende exportar, clique com o botão direito **todas as tarefas**e, em seguida, clique em **exportar** para abrir o **Assistente para exportar certificados**.
+1. Para exportar um certificado de cliente, abra **Gerir Certificados de Utilizador**. Os certificados de cliente que gerou estão, por defeito, localizados em 'Certificados - Utilizador Atual\Certificados Pessoais\'. Clique no certificado de cliente que pretende exportar, clique em **todas as tarefas,** e clique em **Exportar** para abrir o Certificado **De Exportador**.
 
    ![Exportar](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
-2. No Assistente para exportar certificados, clique em **seguinte** para continuar.
+2. No Certificado De Saque De Exportação, clique em **Seguir** para continuar.
 
    ![Seguinte](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
-3. Selecione **Sim, exportar a chave privada**e, em seguida, clique em **próxima**.
+3. Selecione **Sim, exporte a chave privada**e, em seguida, clique **em Next**.
 
-   ![Exportar chave privada](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
-4. Na página **Exportar Formato de Ficheiro**, deixe as predefinições selecionadas. Certifique-se de que **Incluir todos os certificados no caminho de certificação, se possível** está selecionado. Esta definição exporta, além disso, as informações do certificado de raiz que é necessárias para a autenticação de cliente com êxito. Sem ele, a autenticação de cliente falhar porque o cliente não tem o certificado de raiz fidedigna. Clique depois em **Seguinte**.
+   ![chave privada de exportação](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
+4. Na página **Exportar Formato de Ficheiro**, deixe as predefinições selecionadas. Certifique-se de que **Incluir todos os certificados no caminho de certificação, se possível** está selecionado. Esta definição exporta adicionalmente a informação do certificado de raiz que é necessária para a autenticação bem sucedida do cliente. Sem isso, a autenticação do cliente falha porque o cliente não tem o certificado raiz de confiança. Em seguida, clique **em Next**.
 
    ![formato de ficheiro de exportação](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
-5. Na página **Segurança**, tem de proteger a chave privada. Se optar por utilizar uma palavra-passe, certifique-se de que regista ou memoriza a palavra-passe que define para este certificado. Clique depois em **Seguinte**.
+5. Na página **Segurança**, tem de proteger a chave privada. Se optar por utilizar uma palavra-passe, certifique-se de que regista ou memoriza a palavra-passe que define para este certificado. Em seguida, clique **em Next**.
 
    ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
-6. Em **Ficheiro a Exportar**, **Navegue** até à localização para a qual pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Clique depois em **Seguinte**.
+6. Em **Ficheiro a Exportar**, **Navegue** até à localização para a qual pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Em seguida, clique **em Next**.
 
-   ![ficheiro a exportar](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
+   ![arquivo para exportar](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. Clique em **Concluir** para exportar o certificado.
 
-   ![Concluir](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![concluir](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 88b61b29b1386f461620ad602a88d2d1253aa905
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f4b51641ed6bd7317060b567cf839775be426ac8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79262350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050059"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidade da Microsoft
 
@@ -35,9 +35,9 @@ As aplicações que se integram com a plataforma de identidade da Microsoft segu
 
 A plataforma de identidade da Microsoft implementa o protocolo de autorização [OAuth 2.0.](active-directory-v2-protocols.md) O OAuth 2.0 é um método através do qual uma aplicação de terceiros pode aceder a recursos hospedados na Web em nome de um utilizador. Qualquer recurso web-hostque que se integre com a plataforma de identidade da Microsoft tem um identificador de recursos, ou *ID DE aplicação URI*. Por exemplo, alguns dos recursos web da Microsoft incluem:
 
-* Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 Mail API: `https://outlook.office.com`
-* Cofre chave Azure: `https://vault.azure.net`
+* Microsoft Graph:`https://graph.microsoft.com`
+* Office 365 Mail API:`https://outlook.office.com`
+* Cofre de chaves Azure:`https://vault.azure.net`
 
 > [!NOTE]
 > Recomendamos vivamente que utilize o Microsoft Graph em vez do Office 365 Mail API, etc.
@@ -52,9 +52,9 @@ Ao definir este tipo de permissões, o recurso tem um controlo fino sobre os seu
 
 No OAuth 2.0, este tipo de permissões são *chamados de âmbitos*. Também são frequentemente *referidas como permissões.* Uma permissão está representada na plataforma de identidade da Microsoft como um valor de cadeia. Continuando com o exemplo do Microsoft Graph, o valor de cadeia para cada permissão é:
 
-* Leia o calendário de um utilizador usando `Calendars.Read`
-* Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
-* Envie correio como utilizador usando por `Mail.Send`
+* Leia o calendário de um utilizador usando`Calendars.Read`
+* Escreva para o calendário de um utilizador usando`Calendars.ReadWrite`
+* Enviar correio como utilizador usando por`Mail.Send`
 
 Uma aplicação mais frequentemente solicita estas permissões especificando os âmbitos nos pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, certas permissões de privilégio elevado só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas através do [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)do consentimento do administrador . Leia para saber mais.
 
@@ -76,34 +76,34 @@ _Permissões eficazes_ são as permissões que a sua aplicação terá ao fazer 
 
 ## <a name="openid-connect-scopes"></a>AbraID Connect scopes
 
-A implementação da plataforma de identidade Microsoft do OpenID Connect tem alguns âmbitos bem definidos que não se aplicam a um recurso específico: `openid`, `email`, `profile`e `offline_access`. Os `address` e `phone` os âmbitos OpenID Connect não são suportados.
+A implementação da plataforma de identidade Microsoft do OpenID Connect tem alguns `openid` `email`âmbitos bem definidos que não se aplicam a um recurso específico: , , `profile`e `offline_access`. Os `address` `phone` âmbitos de ligação e OpenID não são suportados.
 
 ### <a name="openid"></a>openid
 
-Se uma aplicação realizar o sessão utilizando o [OpenID Connect,](active-directory-v2-protocols.md)deve solicitar o âmbito `openid`. O âmbito `openid` mostra na página de consentimento da conta de trabalho como a permissão "Inscreva-se" e na página de consentimento pessoal da conta da Microsoft como a "Ver o seu perfil e ligar-se a apps e serviços utilizando a sua conta Microsoft". Com esta permissão, uma aplicação pode receber um identificador único para o utilizador sob a forma da reivindicação `sub`. Também dá acesso à aplicação ao ponto final do UserInfo. O âmbito `openid` pode ser utilizado na plataforma de identidade da Microsoft para adquirir tokens de ID, que podem ser usados pela aplicação para autenticação.
+Se uma aplicação eexecuta o sessão utilizando `openid` o [OpenID Connect,](active-directory-v2-protocols.md)deve solicitar o âmbito. O `openid` âmbito mostra na página de consentimento da conta de trabalho como a permissão "Iniciar sessão" e na página de consentimento pessoal da conta da Microsoft como a permissão "Ver o seu perfil e ligar-se a apps e serviços utilizando a sua conta Microsoft". Com esta permissão, uma aplicação pode receber um identificador único para o utilizador sob a forma da `sub` reclamação. Também dá acesso à aplicação ao ponto final do UserInfo. O `openid` âmbito pode ser utilizado na plataforma de identidade da Microsoft para adquirir tokens de ID, que podem ser usados pela aplicação para autenticação.
 
 ### <a name="email"></a>e-mail
 
-O âmbito `email` pode ser utilizado com o âmbito `openid` e qualquer outro. Dá à aplicação acesso ao endereço de e-mail primário do utilizador sob a forma da `email` reivindicação. A `email` reclamação só está incluída num símbolo se um endereço de e-mail estiver associado à conta de utilizador, o que nem sempre é o caso. Se utilizar o âmbito `email`, a sua aplicação deve estar preparada para lidar com um caso em que a alegação `email` não exista no token.
+O `email` âmbito pode ser `openid` utilizado com o âmbito e qualquer outro. Dá à aplicação acesso ao endereço de e-mail `email` primário do utilizador sob a forma da reclamação. A `email` reclamação só está incluída num símbolo se um endereço de e-mail estiver associado à conta de utilizador, o que nem sempre é o caso. Se utilizar `email` o âmbito, a sua aplicação deve `email` estar preparada para lidar com um caso em que a reclamação não exista no token.
 
-### <a name="profile"></a>profile
+### <a name="profile"></a>perfil
 
-O âmbito `profile` pode ser utilizado com o âmbito `openid` e qualquer outro. Dá à aplicação acesso a uma quantidade substancial de informação sobre o utilizador. A informação a que pode aceder inclui, mas não se limita a, o nome, apelido, nome de utilizador preferido e ID do objeto. Para obter uma lista completa das reclamações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [referência`id_tokens`](id-tokens.md).
+O `profile` âmbito pode ser `openid` utilizado com o âmbito e qualquer outro. Dá à aplicação acesso a uma quantidade substancial de informação sobre o utilizador. A informação a que pode aceder inclui, mas não se limita a, o nome, apelido, nome de utilizador preferido e ID do objeto. Para obter uma lista completa das reclamações de perfil disponíveis [ `id_tokens` ](id-tokens.md)no parâmetro id_tokens para um utilizador específico, consulte a referência .
 
 ### <a name="offline_access"></a>offline_access
 
-O [âmbito`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá à sua app acesso aos recursos em nome do utilizador por um período prolongado. Na página de consentimento, este âmbito aparece como a permissão "Manter o acesso aos dados a que lhe deu acesso". Quando um utilizador aprova o âmbito `offline_access`, a sua aplicação pode receber fichas de atualização do ponto final da plataforma de identidade da Microsoft. As fichas refrescantes são de longa duração. A sua aplicação pode obter novos tokens de acesso à medida que os mais velhos expiram.
+O [ `offline_access` âmbito](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá à sua app acesso aos recursos em nome do utilizador por um período prolongado. Na página de consentimento, este âmbito aparece como a permissão "Manter o acesso aos dados a que lhe deu acesso". Quando um utilizador `offline_access` aprova o âmbito, a sua aplicação pode receber fichas de atualização da plataforma de identidade da Microsoft. As fichas refrescantes são de longa duração. A sua aplicação pode obter novos tokens de acesso à medida que os mais velhos expiram.
 
 > [!NOTE]
 > Esta permissão aparece em todos os ecrãs de consentimento hoje em dia, mesmo para fluxos que não fornecem um token refrescante (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isto é para cobrir cenários em que um cliente pode começar dentro do fluxo implícito, e depois passar para o fluxo de código onde é esperado um token de atualização.
 
-Na plataforma de identidade da Microsoft (pedidos feitos para o ponto final v2.0), a sua aplicação deve solicitar explicitamente o âmbito de `offline_access`, para receber fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de [autorização OAuth 2.0,](active-directory-v2-protocols.md)receberá apenas um sinal de acesso do `/token` ponto final. O sinal de acesso é válido por um curto período de tempo. O sinal de acesso geralmente expira em uma hora. Nessa altura, a sua aplicação precisa de redirecionar o utilizador para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de app, o utilizador poderá ter de voltar a introduzir as suas credenciais ou consentir novamente com permissões. 
+Na plataforma de identidade da Microsoft (pedidos feitos para o ponto final `offline_access` v2.0), a sua aplicação deve solicitar explicitamente o âmbito, para receber fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de [autorização OAuth 2.0,](active-directory-v2-protocols.md)receberá apenas um sinal de acesso a `/token` partir do ponto final. O sinal de acesso é válido por um curto período de tempo. O sinal de acesso geralmente expira em uma hora. Nessa altura, a sua aplicação precisa de `/authorize` redirecionar o utilizador para o ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de app, o utilizador poderá ter de voltar a introduzir as suas credenciais ou consentir novamente com permissões. 
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a referência do protocolo da [plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
 ## <a name="requesting-individual-user-consent"></a>Solicitando o consentimento individual do utilizador
 
-Num pedido de autorização [OpenID Connect ou OAuth 2.0,](active-directory-v2-protocols.md) uma aplicação pode solicitar as permissões de que necessita utilizando o parâmetro de consulta `scope`. Por exemplo, quando um utilizador faz o inserido numa aplicação, a aplicação envia um pedido como o seguinte exemplo (com quebras de linha adicionadas para legibilidade):
+Num pedido de autorização [OpenID Connect ou OAuth 2.0,](active-directory-v2-protocols.md) uma aplicação pode solicitar as permissões de que necessita utilizando o parâmetro de `scope` consulta. Por exemplo, quando um utilizador faz o inserido numa aplicação, a aplicação envia um pedido como o seguinte exemplo (com quebras de linha adicionadas para legibilidade):
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -117,12 +117,12 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-O parâmetro `scope` é uma lista separada do espaço de permissões delegadas que a aplicação está a solicitar. Cada permissão é indicada através da adesão do valor de permissão ao identificador do recurso (o ID DE Aplicação URI). No exemplo do pedido, a aplicação necessita de permissão para ler o calendário do utilizador e enviar correio como utilizador.
+O `scope` parâmetro é uma lista separada do espaço de permissões delegadas que a aplicação está a solicitar. Cada permissão é indicada através da adesão do valor de permissão ao identificador do recurso (o ID DE Aplicação URI). No exemplo do pedido, a aplicação necessita de permissão para ler o calendário do utilizador e enviar correio como utilizador.
 
 Depois de o utilizador introduzir as suas credenciais, a plataforma de identidade da Microsoft verifica se há um registo correspondente do consentimento do *utilizador*. Se o utilizador não tiver consentido com nenhuma das permissões solicitadas no passado, nem um administrador consentiu nestas permissões em nome de toda a organização, o ponto final da plataforma de identidade da Microsoft pede ao utilizador que conceda as permissões solicitadas.
 
 > [!NOTE]
->Neste momento, as autorizações `offline_access` ("Manter o acesso aos dados a que lhe foi dado acesso") e `user.read` ("Inscreva-se e leia o seu perfil") as permissões são automaticamente incluídas no consentimento inicial de uma aplicação.  Estas permissões são geralmente necessárias para uma funcionalidade adequada da aplicação - `offline_access` dá à app acesso a tokens de atualização, críticos para aplicações nativas e web, enquanto `user.read` dá acesso à `sub` reivindicação, permitindo ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.  
+>Neste momento, `offline_access` as permissões ("Manter o acesso aos `user.read` dados a que lhe foi dado acesso") e ("Inscreva-se e leia o seu perfil") são automaticamente incluídas no consentimento inicial de uma aplicação.  Estas permissões são geralmente necessárias `offline_access` para uma funcionalidade adequada da aplicação - dá à `user.read` app acesso `sub` a fichas de atualização, críticas para aplicações nativas e web, ao mesmo tempo que dá acesso à reclamação, permitindo ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.  
 
 ![Screenshot de exemplo que mostra consentimento da conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -140,9 +140,9 @@ Além disso, as aplicações devem usar o ponto final do consentimento do admini
 
 Algumas permissões de privilégio saem no ecossistema da Microsoft podem ser definidas como restritas à *administração.* Exemplos deste tipo de permissões incluem o seguinte:
 
-* Leia todos os perfis completos do utilizador usando `User.Read.All`
-* Escreva dados para o diretório de uma organização usando `Directory.ReadWrite.All`
-* Leia todos os grupos no diretório de uma organização usando `Groups.Read.All`
+* Leia todos os perfis completos do utilizador usando`User.Read.All`
+* Escreva dados para o diretório de uma organização usando`Directory.ReadWrite.All`
+* Leia todos os grupos no diretório de uma organização usando`Groups.Read.All`
 
 Embora um utilizador de consumo possa conceder um acesso a este tipo de dados, os utilizadores organizacionais estão impedidos de conceder acesso ao mesmo conjunto de dados sensíveis da empresa. Se a sua aplicação solicitar o acesso a uma dessas permissões de um utilizador organizacional, o utilizador recebe uma mensagem de erro que diz não estar autorizada a consentir com as permissões da sua aplicação.
 
@@ -165,10 +165,10 @@ Para ver uma amostra de código que implemente os passos, consulte a [amostra de
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicite as permissões no portal de registo da aplicação
 
-As aplicações podem notar quais as permissões que necessitam (delegadas e de aplicação) no portal de registo da aplicação.  Isto permite a utilização do âmbito de `/.default` e a opção "Grant admin consent" do portal Azure.  Em geral, é a melhor prática garantir que as permissões definidas estáticamente para uma determinada aplicação são um superconjunto das permissões que irá solicitar dinamicamente/incrementalmente.
+As aplicações podem notar quais as permissões que necessitam (delegadas e de aplicação) no portal de registo da aplicação.  Isto permite a `/.default` utilização do âmbito e a opção "Grant admin consent" do portal Azure.  Em geral, é a melhor prática garantir que as permissões definidas estáticamente para uma determinada aplicação são um superconjunto das permissões que irá solicitar dinamicamente/incrementalmente.
 
 > [!NOTE]
->As permissões de aplicação só podem ser solicitadas através do uso de [`/.default`](#the-default-scope) - por isso, se a sua aplicação precisar de permissões de aplicação, certifique-se de que estão listadas no portal de registo da aplicação.
+>As permissões de aplicação só [`/.default`](#the-default-scope) podem ser solicitadas através do uso de - por isso, se a sua aplicação precisar de permissões de aplicação, certifique-se de que estão listadas no portal de registo da aplicação.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões estáticas solicitadas para um pedido
 
@@ -199,16 +199,16 @@ Quando estiver pronto para solicitar permissões ao administrador da sua organiz
 ```
 
 
-| Parâmetro     | Condição     | Descrição                                                                               |
+| Parâmetro        | Condição        | Descrição                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Necessário | O inquilino do diretório de quem quer pedir autorização. Pode ser fornecido em formato de nome GUIA ou amigável OU genericamente referenciado com organizações como visto no exemplo. Não utilize "comum", uma vez que as contas pessoais não podem dar consentimento à administração, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
 | `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
 | `redirect_uri` | Necessário |O URI redireciona do URI onde pretende que a resposta seja enviada para a sua aplicação manusear. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal de registo da aplicação. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. Utilize o Estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
-|`scope`        | Necessário      | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando [`/.default`) ](#the-default-scope)ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC (`openid`, `profile`, `email`). Se necessitar de permissões de pedido, deve utilizar `/.default` para solicitar a lista de permissões estáticas.  | 
+|`scope`        | Necessário        | Define o conjunto de permissões que estão a ser solicitadas pelo pedido. Isto pode ser estático (utilizando) [`/.default`](#the-default-scope)ou âmbitos dinâmicos.  Isto pode incluir os âmbitos`openid` `profile`oIDC ( , , `email`). Se necessitar de permissões `/.default` de pedido, deve utilizar para solicitar a lista de permissões estáticas.  | 
 
 
-Neste momento, a Azure AD exige que um administrador inquilino assine o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no parâmetro `scope`.  Se tiver usado um valor estático (`/.default`), funcionará como o ponto final de consentimento da administração v1.0 e solicitará o consentimento de todos os âmbitos encontrados nas permissões necessárias para a app.
+Neste momento, a Azure AD exige que um administrador inquilino assine o pedido. Pede-se ao administrador que aprove todas as `scope` permissões que solicitou no parâmetro.  Se tiver usado um`/.default`valor estático , funcionará como o ponto final de consentimento da v1.0 e solicitará o consentimento de todos os âmbitos encontrados nas permissões necessárias para a app.
 
 #### <a name="successful-response"></a>Resposta bem sucedida
 
@@ -222,7 +222,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- |
 | `tenant` | O inquilino de diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID. |
 | `state` | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
-| `admin_consent` | Será programado para `True`. |
+| `admin_consent` | Será definido `True`para . |
 
 #### <a name="error-response"></a>Resposta de erro
 
@@ -264,36 +264,36 @@ Para obter mais informações sobre o protocolo OAuth 2.0 e como obter fichas de
 
 ## <a name="the-default-scope"></a>O âmbito /.padrão
 
-Pode utilizar o âmbito `/.default` para ajudar a migrar as suas aplicações do ponto final v1.0 para o ponto final da plataforma de identidade da Microsoft. Esta é uma mira incorporada para cada aplicação que se refere à lista estática de permissões configuradas no registo de candidatura. Um valor `scope` de `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os pontos finais v1.0 `resource=https://graph.microsoft.com` - nomeadamente, solicita um símbolo com os âmbitos no Microsoft Graph que a aplicação registou no portal Azure.  É construído utilizando o recurso URI + `/.default` (por exemplo, se o recurso URI for `https://contosoApp.com`, então o âmbito solicitado seria `https://contosoApp.com/.default`).  Consulte a [secção de cortes](#trailing-slash-and-default) de rasto para os casos em que deve incluir um segundo corte para solicitar corretamente o símbolo.
+Pode utilizar `/.default` o âmbito para ajudar a migrar as suas aplicações do ponto final v1.0 para o ponto final da plataforma de identidade da Microsoft. Esta é uma mira incorporada para cada aplicação que se refere à lista estática de permissões configuradas no registo de candidatura. Um `scope` valor `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os `resource=https://graph.microsoft.com` pontos finais v1.0 - nomeadamente, solicita um símbolo com os âmbitos no Microsoft Graph que a aplicação registou no portal Azure.  É construído utilizando o recurso `/.default` URI + (por exemplo, `https://contosoApp.com`se o recurso URI `https://contosoApp.com/.default`for, então o âmbito solicitado seria).  Consulte a [secção de cortes](#trailing-slash-and-default) de rasto para os casos em que deve incluir um segundo corte para solicitar corretamente o símbolo.
 
 O âmbito /.padrão pode ser usado em qualquer fluxo OAuth 2.0, mas é necessário no fluxo de [credenciais](v2-oauth2-client-creds-grant-flow.md)de fluxo e de cliente em [nome](v2-oauth2-on-behalf-of-flow.md) de entrada, bem como ao utilizar o ponto final de consentimento da administração v2 para solicitar permissões de pedido.  
 
 > [!NOTE]
-> Os clientes não podem combinar o consentimento estático (`/.default`) e dinâmico num único pedido. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
+> Os clientes não podem`/.default`combinar consentimento estático e dinâmico num único pedido. Assim, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
 
 ### <a name="default-and-consent"></a>/.padrão e consentimento
 
-O âmbito `/.default` despoleta o comportamento do ponto final v1.0 para `prompt=consent` também. Solicita consentimento para todas as permissões registadas pelo pedido, independentemente do recurso. Se incluído como parte do pedido, o âmbito de `/.default` devolve um símbolo que contém os âmbitos para o recurso solicitado.
+O `/.default` âmbito despoleta o comportamento do ponto `prompt=consent` final v1.0 também. Solicita consentimento para todas as permissões registadas pelo pedido, independentemente do recurso. Se incluído como parte do `/.default` pedido, o âmbito devolve um símbolo que contém os âmbitos para o recurso solicitado.
 
 ### <a name="default-when-the-user-has-already-given-consent"></a>/.padrão quando o utilizador já deu consentimento
 
-Como `/.default` é funcionalmente idêntico ao comportamento do `resource`-centrado v1.0 endpoint, traz consigo o comportamento de consentimento do ponto final v1.0 também. Ou seja, `/.default` apenas desencadeia um pedido de consentimento se não tiver sido concedida qualquer permissão entre o cliente e o recurso pelo utilizador. Se tal consentimento existir, então será devolvido um símbolo contendo todos os âmbitos concedidos pelo utilizador para esse recurso. No entanto, se não tiver sido concedida qualquer permissão, ou se o parâmetro `prompt=consent` tiver sido fornecido, será apresentado um pedido de consentimento para todos os âmbitos registados pelo pedido do cliente.
+Como `/.default` é funcionalmente `resource`idêntico ao comportamento do ponto final do v1.0, traz consigo o comportamento de consentimento do ponto final v1.0 também. Ou seja, `/.default` apenas desencadeia um pedido de consentimento se não tiver sido concedida qualquer permissão entre o cliente e o recurso pelo utilizador. Se tal consentimento existir, então será devolvido um símbolo contendo todos os âmbitos concedidos pelo utilizador para esse recurso. No entanto, se não tiver `prompt=consent` sido concedida qualquer permissão, ou se o parâmetro tiver sido fornecido, será apresentado um pedido de consentimento para todos os âmbitos registados pelo pedido do cliente.
 
 #### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exemplo 1: O utilizador, ou administrador de inquilino, concedeu permissões
 
-Neste exemplo, o utilizador (ou administrador de inquilino) concedeu ao cliente as permissões do Microsoft Graph `mail.read` e `user.read`. Se o cliente fizer um pedido de `scope=https://graph.microsoft.com/.default`, então nenhum pedido de consentimento será mostrado independentemente do conteúdo das aplicações do cliente permissões registadas para o Microsoft Graph. Seria devolvido um símbolo contendo os âmbitos `mail.read` e `user.read`.
+Neste exemplo, o utilizador (ou administrador de inquilino) concedeu `mail.read` `user.read`ao cliente as permissões do Microsoft Graph e . Se o cliente fizer `scope=https://graph.microsoft.com/.default`um pedido de , então nenhum pedido de consentimento será mostrado independentemente do conteúdo das aplicações do cliente permissões registadas para o Microsoft Graph. Um símbolo seria devolvido contendo `mail.read` os `user.read`âmbitos e .
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exemplo 2: O utilizador não concedeu permissões entre o cliente e o recurso
 
-Neste exemplo, não existe consentimento para o utilizador entre o cliente e o Microsoft Graph. O cliente registou-se para as permissões `user.read` e `contacts.read`, bem como o âmbito do Cofre chave Azure `https://vault.azure.net/user_impersonation`. Quando o cliente solicitar um sinal para `scope=https://graph.microsoft.com/.default`, o utilizador verá um ecrã de consentimento para o `user.read`, `contacts.read`, e o Cofre chave `user_impersonation` âmbitos. O símbolo devolvido terá apenas os `user.read` e `contacts.read` âmbitos nele e só será utilizável contra o Microsoft Graph.
+Neste exemplo, não existe consentimento para o utilizador entre o cliente e o Microsoft Graph. O cliente registou-se para as `user.read` permissões e `contacts.read` `https://vault.azure.net/user_impersonation`permissões, bem como para o âmbito do Cofre chave Azure. Quando o cliente solicitar um `scope=https://graph.microsoft.com/.default`sinal para , o utilizador `user.read` `contacts.read`verá um ecrã `user_impersonation` de consentimento para os , e os âmbitos do Cofre chave. O símbolo devolvido terá `user.read` apenas os e `contacts.read` âmbitos nele e só será utilizável contra o Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: O utilizador consentiu e o cliente solicita âmbitos adicionais
 
-Neste exemplo, o utilizador já consentiu em `mail.read` para o cliente. O cliente registou-se para o âmbito `contacts.read` no seu registo. Quando o cliente fizer um pedido de um token usando `scope=https://graph.microsoft.com/.default` e solicitar consentimento através de `prompt=consent`, então o utilizador verá um ecrã de consentimento para todas (e apenas) as permissões registadas pela aplicação. `contacts.read` estará presente no ecrã de consentimento, mas `mail.read` não. O símbolo devolvido será para o Microsoft Graph e conterá `mail.read` e `contacts.read`.
+Neste exemplo, o utilizador já `mail.read` consentiu para o cliente. O cliente registou-se `contacts.read` no seu registo. Quando o cliente fizer um pedido `scope=https://graph.microsoft.com/.default` de um `prompt=consent`token usando e solicitar o consentimento através de , então o utilizador verá um ecrã de consentimento para todas (e apenas) as permissões registadas pela aplicação. `contacts.read`estará presente no ecrã de `mail.read` consentimento, mas não. O símbolo devolvido será para o `mail.read` Microsoft `contacts.read`Graph e conterá e .
 
 ### <a name="using-the-default-scope-with-the-client"></a>Utilização do âmbito /.padrão com o cliente
 
-Existe um caso especial do âmbito `/.default` em que um cliente solicita o seu próprio âmbito `/.default`. O exemplo que se segue demonstra este cenário.
+Existe um caso `/.default` especial do âmbito em `/.default` que um cliente solicita o seu próprio âmbito. O exemplo que se segue demonstra este cenário.
 
 ```
 // Line breaks are for legibility only.
@@ -306,13 +306,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Isto produz um ecrã de consentimento para todas as permissões registadas (se aplicável com base nas descrições acima referidas de consentimento e `/.default`), em seguida, devolve um id_token, em vez de um sinal de acesso.  Este comportamento existe para certos clientes legados que se deslocam da ADAL para a MSAL, e **não devem** ser utilizados por novos clientes que direcionem o ponto final da plataforma de identidade da Microsoft.  
+Isto produz um ecrã de consentimento para todas as permissões registadas `/.default`(se aplicável com base nas descrições acima referidas de consentimento e ), em seguida, devolve uma id_token, em vez de um sinal de acesso.  Este comportamento existe para certos clientes legados que se deslocam da ADAL para a MSAL, e **não devem** ser utilizados por novos clientes que direcionem o ponto final da plataforma de identidade da Microsoft.  
 
 ### <a name="trailing-slash-and-default"></a>Trailing slash e /.default
 
-Alguns uris de recursos têm um corte de rastos (`https://contoso.com/` em oposição a `https://contoso.com`), que pode causar problemas com validação simbólica.  Isto pode ocorrer principalmente quando se pede um sinal para a Azure Resource Management (`https://management.azure.com/`), que tem um corte de rasto no seu recurso URI e exige que esteja presente quando o token é solicitado.  Assim, ao solicitar um símbolo para `https://management.azure.com/` e utilizar `/.default`, deve solicitar `https://management.azure.com//.default` - note o duplo corte! 
+Alguns uris de recursos`https://contoso.com/` têm um `https://contoso.com`corte de rastos ( ao contrário ), que pode causar problemas com validação simbólica.  Isto pode ocorrer principalmente quando se pede um`https://management.azure.com/`sinal para a Azure Resource Management (), que tem um corte de rasto no seu recurso URI e exige que esteja presente quando o símbolo é solicitado.  Assim, ao solicitar um `https://management.azure.com/` símbolo `/.default`para e `https://management.azure.com//.default` utilizar , deve solicitar - note o duplo corte! 
 
-Em geral - se tiver validado que o símbolo está a ser emitido, e o símbolo está a ser rejeitado pela API que deve aceitá-lo, considere adicionar um segundo corte e tentar novamente. Isto acontece porque o servidor de login emite um símbolo com o público que combina com os URIs no parâmetro `scope` - com `/.default` removidos do final.  Se isto remover o corte de encaminhamento, o servidor de login ainda processa o pedido e valida-o contra o URI de recurso, mesmo que já não correspondam - isto não é normal e não deve ser invocado pela sua aplicação.  
+Em geral - se tiver validado que o símbolo está a ser emitido, e o símbolo está a ser rejeitado pela API que deve aceitá-lo, considere adicionar um segundo corte e tentar novamente. Isto acontece porque o servidor de login emite um `scope` símbolo com `/.default` o público que combina com os URIs no parâmetro - com removido da extremidade.  Se isto remover o corte de encaminhamento, o servidor de login ainda processa o pedido e valida-o contra o URI de recurso, mesmo que já não correspondam - isto não é normal e não deve ser invocado pela sua aplicação.  
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Permissões e consentimento de resolução de problemas
 

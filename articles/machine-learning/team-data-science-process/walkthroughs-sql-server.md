@@ -1,6 +1,6 @@
 ---
-title: Análise em SQL Server com o R, Python e T-SQL - processo de ciência de dados de equipa
-description: Exemplos que orientam o uso de R, Python e T-SQL no SQL Server fazer análises preditivas.
+title: Analytics no Servidor SQL com R, Python e T-SQL - Processo de Ciência de Dados da Equipa
+description: Exemplos que passam pelo uso R, Python e T-SQL no SQL Server para fazer análises preditivas.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,41 +12,41 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864099"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruções SQL Server a ciência de dados usando R, Python e T-SQL
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data science walkthroughs usando R, Python e T-SQL
 
-Esta instruções passo a passo usar SQL Server, SQL Server R Services e dos serviços de Python do SQL Server para fazer a Análise Preditiva. Código de R e Python é implementado em procedimentos armazenados. Eles seguem as etapas descritas no processo de ciência de dados de equipa. Para uma descrição geral do processo de ciência de dados de equipa, consulte [processo de ciência de dados](overview.md). 
+Estes walkthroughs usam SQL Server, SQL Server R Services e SQL Server Python Services para fazer análises preditivas. O código R e Python é implantado em procedimentos armazenados. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do Processo de Ciência de Dados da Equipa, consulte o [Processo de Ciência](overview.md)de Dados . 
 
-Instruções de ciência de dados adicionais que executar o processo de ciência de dados de equipa estão agrupadas pela **plataforma** que utilizam. Ver [instruções passo a passo, executar o processo de ciência de dados de equipa](walkthroughs.md) para também uma itemização destes exemplos.
-
-
-## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Prever gorjetas para táxis com consultas SQL e Python com o SQL Server 
-
-O guia de [uso SQL Server](sql-walkthrough.md) mostra como criar e implantar modelos de classificação e regressão do Machine Learning.  Os dados são um conjunto de NYC de corridas e tarifas de táxi disponível publicamente.
+Os walkthroughs adicionais de ciência de dados que executam o Processo de Ciência de Dados da Equipa são agrupados pela **plataforma** que utilizam. Consulte [walkthroughs executando o Processo](walkthroughs.md) de Ciência de Dados da Equipa para uma itemização destes exemplos.
 
 
-## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prever gorjetas para táxis com o Microsoft R com o SQL Server 
+## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Preveja dicas de táxi usando consultas Python e SQL com SQL Server 
 
-A instrução de [uso SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) mostra como criar e implantar um modelo de R para SQL Server. Passo a passo foi concebida para apresentar os programadores de R a R Services (In-Database).
-
-
-## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prever gorjetas para utilizar a R do T-SQL ou procedimentos armazenados com o SQL Server
-
-O [instruções de ciência de dados para R e o SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) fornece os programadores de SQL com experiência na criação de uma solução de análise avançada com o Transact-SQL com o SQL Server R Services para operacionalizar uma solução de R. 
+O walkthrough [use SQL Server](sql-walkthrough.md) mostra como você constrói e implementa modelos de classificação de aprendizagem automática e regressão.  Os dados são uma viagem de táxi de NYC e dataset de tarifas disponíveis publicamente.
 
 
-## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Prever gorjetas para táxis com o Python nos procedimentos armazenados do SQL Server
+## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prever dicas de táxi usando o Microsoft R com o Servidor SQL 
 
-O [Utilize T-SQL com o SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) passo a passo fornece os programadores de SQL com experiência na criação de uma solução de machine learning no SQL Server. Ele demonstra como incorporar o Python num aplicativo ao adicionar o código de Python para procedimentos armazenados.
+O walkthrough [use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) mostra como construir e implementar um modelo R para o Servidor SQL. O walkthrough foi concebido para introduzir desenvolvedores r nos Serviços R (In-Database).
+
+
+## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prever dicas de táxi usando R de T-SQL ou procedimentos armazenados com SQL Server
+
+O walkthrough da [ciência de dados para O Servidor R e SQL](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) fornece aos programadores SQL experiência na construção de uma solução de análise avançada com a Transact-SQL utilizando os Serviços R do Servidor SQL para operacionalizar uma solução R. 
+
+
+## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Preveja dicas de táxi usando Python em procedimentos armazenados sQL Server
+
+O [Passe T-SQL com sQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) proporciona aos programadores SQL experiência na construção de uma solução de machine learning no SQL Server. Demonstra como incorporar a Python numa aplicação adicionando código Python aos procedimentos armazenados.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
+Para uma discussão sobre os componentes-chave que compõem o Processo de Ciência de Dados da Equipa, consulte a visão geral do Processo de Ciência de Dados da [Equipa.](overview.md)
 
-Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipa que pode usar para estruturar os seus projetos de ciência de dados, consulte o ciclo de vida do Processo de Ciência de [Dados da Equipa.](lifecycle.md) O ciclo de vida traça os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 

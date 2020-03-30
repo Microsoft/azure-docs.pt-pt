@@ -1,19 +1,19 @@
 ---
-title: Copiar dados de e para o WASB para Azure Data Lake Storage Gen1 usando DistCp
-description: Use a ferramenta DistCp para copiar dados de e para os BLOBs do armazenamento do Azure para Azure Data Lake Storage Gen1
+title: Copiar dados de e para o WASB em Azure Data Lake Storage Gen1 utilizando distCp
+description: Utilize a ferramenta DistCp para copiar dados de e para as bolhas de armazenamento azure para o Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: 455e73ece2d46a508b3077c13c8106fe53beb4de
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638838"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Use DistCp para copiar dados entre os blobs de armazenamento do Azure e Azure Data Lake Storage Gen1
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utilize o DistCp para copiar dados entre as bolhas de armazenamento de Azure e o Azure Data Lake Storage Gen1
 
 > [!div class="op_single_selector"]
 > * [Utilizar o DistCp](data-lake-store-copy-data-wasb-distcp.md)
@@ -21,55 +21,55 @@ ms.locfileid: "75638838"
 >
 >
 
-Se você tiver um cluster HDInsight com acesso a Azure Data Lake Storage Gen1, poderá usar ferramentas de ecossistema do Hadoop como DistCp para copiar dados de e para um armazenamento de cluster HDInsight (WASB) em uma conta de Data Lake Storage Gen1. Este artigo mostra como usar a ferramenta DistCp.
+Se tiver um cluster HDInsight com acesso ao Azure Data Lake Storage Gen1, pode utilizar ferramentas do ecossistema Hadoop como o DistCp para copiar dados de e para um armazenamento de cluster HDInsight (WASB) numa conta gen1 de armazenamento de data Lake. Este artigo mostra como usar a ferramenta DistCp.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de Azure data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md).
-* **Cluster HDInsight do Azure** com acesso a uma conta de data Lake Storage Gen1. Consulte [criar um cluster HDInsight com data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar Área de Trabalho Remota para o cluster.
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta De Armazenamento de **Lago Azure Gen1.** Para obter instruções sobre como criar um, consulte Iniciar com [Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Cluster Azure HDInsight** com acesso a uma conta Gen1 de Armazenamento de Data Lake. Consulte [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
 
-## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar o DistCp de um cluster HDInsight Linux
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Utilize distCp de um cluster HDInsight Linux
 
-HDInsight An cluster é fornecido com a ferramenta DistCp, que pode ser usada para copiar dados de diferentes fontes para um cluster HDInsight. Se você tiver configurado o cluster HDInsight para usar Data Lake Storage Gen1 como armazenamento adicional, poderá usar o DistCp pronto para copiar dados de e para uma conta de Data Lake Storage Gen1. Nesta seção, veremos como usar a ferramenta DistCp.
+Um cluster HDInsight vem com a ferramenta DistCp, que pode ser usada para copiar dados de diferentes fontes para um cluster HDInsight. Se configurar o cluster HDInsight para utilizar data Lake Storage Gen1 como armazenamento adicional, pode usar o DistCp fora da caixa para copiar dados de e para uma conta data Lake Storage Gen1. Nesta secção, olhamos para a forma de utilizar a ferramenta DistCp.
 
-1. Em sua área de trabalho, use o SSH para se conectar ao cluster. Consulte [conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Execute os comandos no prompt do SSH.
+1. A partir do seu ambiente de trabalho, utilize o SSH para se ligar ao cluster. Consulte [a Ligação a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Executar os comandos a partir do ssh rápido.
 
-1. Verifique se você pode acessar os blobs de armazenamento do Azure (WASB). Execute o seguinte comando:
+1. Verifique se pode aceder às bolhas de armazenamento azure (WASB). Execute o seguinte comando:
 
    ```
    hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
    ```
 
-   A saída fornece uma lista de conteúdos no blob de armazenamento.
+   A saída fornece uma lista de conteúdos na bolha de armazenamento.
 
-1. Da mesma forma, verifique se você pode acessar a conta de Data Lake Storage Gen1 do cluster. Execute o seguinte comando:
+1. Da mesma forma, verifique se pode aceder à conta Data Lake Storage Gen1 a partir do cluster. Execute o seguinte comando:
 
    ```
    hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/
    ```
 
-    A saída fornece uma lista de arquivos e pastas na conta de Data Lake Storage Gen1.
+    A saída fornece uma lista de ficheiros e pastas na conta Data Lake Storage Gen1.
 
-1. Use DistCp para copiar dados do WASB para uma conta Data Lake Storage Gen1.
+1. Utilize o DistCp para copiar dados do WASB para uma conta Gen1 de Armazenamento de Data Lake.
 
    ```
    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder
    ```
 
-    O comando copia o conteúdo da pasta **/example/data/Gutenberg/** em WASB para **/myfolder** na conta data Lake Storage Gen1.
+    O comando copia o conteúdo da **pasta /exemplo/data/gutenberg/** em WASB para **/myfolder** na conta Data Lake Storage Gen1.
 
-1. Da mesma forma, use DistCp para copiar dados de uma conta de Data Lake Storage Gen1 para o WASB.
+1. Da mesma forma, utilize o DistCp para copiar dados de uma conta Gen1 de Armazenamento de Data Lake para WASB.
 
    ```
    hadoop distcp adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
    ```
 
-    O comando copia o conteúdo de **/MyFolder** na conta de data Lake Storage Gen1 para a pasta **/example/data/Gutenberg/** em WASB.
+    O comando copia o conteúdo de **/myfolder** na conta Data Lake Storage Gen1 para **/exemplo/data/gutenberg/** pasta em WASB.
 
-## <a name="performance-considerations-while-using-distcp"></a>Considerações de desempenho ao usar o DistCp
+## <a name="performance-considerations-while-using-distcp"></a>Considerações de desempenho ao utilizar o DistCp
 
-Como a granularidade mais baixa da ferramenta DistCp é um arquivo único, definir o número máximo de cópias simultâneas é o parâmetro mais importante para otimizá-lo em relação à Data Lake Storage Gen1. Você pode controlar o número de cópias simultâneas definindo o parâmetro número de Mapeadores (' M') ' na linha de comando. Esse parâmetro especifica o número máximo de Mapeadores que são usados para copiar dados. O valor predefinido é 20.
+Como a granularidade mais baixa da ferramenta DistCp é um único ficheiro, definir o número máximo de cópias simultâneas é o parâmetro mais importante para otimizá-lo contra data Lake Storage Gen1. Pode controlar o número de cópias simultâneas, definindo o número de parâmetros ('m') na linha de comando. Este parâmetro especifica o número máximo de mapeadores que são usados para copiar dados. O valor padrão é de 20.
 
 Exemplo:
 
@@ -77,47 +77,47 @@ Exemplo:
  hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 ```
 
-### <a name="how-to-determine-the-number-of-mappers-to-use"></a>Como determinar o número de Mapeadores a serem usados
+### <a name="how-to-determine-the-number-of-mappers-to-use"></a>Como determinar o número de mappers a utilizar
 
 Eis algumas orientações que poderá utilizar.
 
-* **Etapa 1: determinar a memória total do yarn** -a primeira etapa é determinar a memória yarn disponível para o cluster em que você executa o trabalho do DistCp. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia **configurações** para ver a memória yarn. Para obter a memória total do YARN, multiplique a memória YARN por nó pelo número de nós que você tem em seu cluster.
+* **Passo 1: Determinar** a memória total do ARN - O primeiro passo é determinar a memória YARN disponível para o cluster onde executa o trabalho distCp. Esta informação está disponível no portal Ambari associado ao cluster. Navegue para o YARN e veja o separador **Configs** para ver a memória yARN. Para obter a memória total do ARN, multiplique a memória YARN por nó com o número de nós que tem no seu cluster.
 
-* **Etapa 2: calcular o número de Mapeadores** – o valor de **m** é igual ao quociente do total de memória yarn dividido pelo tamanho do contêiner yarn. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia **configurações** . O tamanho do contêiner YARN é exibido nesta janela. A equação para chegar ao número de Mapeadores (**m**) é:
+* **Passo 2: Calcular o número de mappers** - O valor de **m** é igual ao quociente da memória total do ARN dividida pelo tamanho do recipiente YARN. A informação sobre o tamanho do contentor YARN também está disponível no portal Ambari. Navegue para o YARN e veja o separador **Configs.** O tamanho do recipiente YARN é apresentado nesta janela. A equação para chegar ao número de mappers **(m**) é:
 
    `m = (number of nodes * YARN memory for each node) / YARN container size`
 
 Exemplo:
 
-Vamos supor que você tenha quatro nós D14v2s no cluster e queira transferir 10 TB de dados de 10 pastas diferentes. Cada uma das pastas contém quantidades variadas de dados e os tamanhos de arquivo em cada pasta são diferentes.
+Vamos supor que tem quatro nós D14v2 no cluster e quer transferir 10 TB de dados de 10 pastas diferentes. Cada uma das pastas contém quantidades variadas de dados e os tamanhos dos ficheiros dentro de cada pasta são diferentes.
 
-* Memória YARN total – no portal do Ambari, você determina que a memória de YARN é de 96 GB para um nó D14. Portanto, a memória total do YARN para o cluster de quatro nós é:
+* Memória total do ARN - Do portal Ambari determina que a memória YARN é de 96 GB para um nó D14. Então, a memória total do ARN para quatro nós cluster é:
 
    `YARN memory = 4 * 96GB = 384GB`
 
-* Número de Mapeadores – no portal do Ambari, você determina que o tamanho do contêiner YARN é 3072 para um nó de cluster D14. Portanto, o número de Mapeadores é:
+* Número de mappers - Do portal Ambari determina que o tamanho do contentor YARN é 3072 para um nó de cluster D14. Então, o número de mappers é:
 
    `m = (4 nodes * 96GB) / 3072MB = 128 mappers`
 
-Se outros aplicativos estiverem usando a memória, você poderá optar por usar apenas uma parte da memória YARN do cluster para DistCp.
+Se outras aplicações estiverem a utilizar a memória, pode optar por utilizar apenas uma parte da memória YARN do seu cluster para distCp.
 
-### <a name="copying-large-datasets"></a>Copiando conjuntos de grandes volumes
+### <a name="copying-large-datasets"></a>Copiar grandes conjuntos de dados
 
-Quando o tamanho do conjunto de um para ser movido for grande (por exemplo, > 1 TB) ou se você tiver muitas pastas diferentes, considere o uso de vários trabalhos do DistCp. Provavelmente, não há nenhum lucro de desempenho, mas ele espalha os trabalhos para que, se algum trabalho falhar, você só precise reiniciar esse trabalho específico em vez de todo o trabalho.
+Quando o tamanho do conjunto de dados a mover for grande (por exemplo, > 1 TB) ou se tiver muitas pastas diferentes, considere utilizar vários trabalhos distCp. Provavelmente não há ganho de desempenho, mas espalha os empregos para que, se algum trabalho falhar, só precisa reiniciar esse trabalho específico em vez de todo o trabalho.
 
 ### <a name="limitations"></a>Limitações
 
-* O DistCp tenta criar Mapeadores que são semelhantes em tamanho para otimizar o desempenho. Aumentar o número de Mapeadores pode nem sempre aumentar o desempenho.
+* A DistCp tenta criar mappers semelhantes em tamanho para otimizar o desempenho. Aumentar o número de mappers pode nem sempre aumentar o desempenho.
 
-* DistCp é limitado a apenas um mapeador por arquivo. Portanto, você não deve ter mais Mapeadores do que os arquivos. Como DistCp pode atribuir apenas um mapeador a um arquivo, isso limita a quantidade de simultaneidade que pode ser usada para copiar arquivos grandes.
+* O DistCp está limitado a apenas um mapper por ficheiro. Portanto, não devias ter mais mappers do que ficheiros. Uma vez que o DistCp pode atribuir apenas um mapper a um ficheiro, isto limita a quantidade de moeda que pode ser usada para copiar ficheiros grandes.
 
-* Se você tiver um pequeno número de arquivos grandes, divida-os em partes de arquivo de 256 MB para fornecer uma simultaneidade mais potencial.
+* Se tiver um pequeno número de ficheiros grandes, divida-os em pedaços de ficheiro sumo de 256 MB para lhe dar mais potencial concurrency.
 
-* Se você estiver copiando de uma conta de armazenamento de BLOBs do Azure, seu trabalho de cópia poderá ser limitado no lado do armazenamento de BLOBs. Isso degrada o desempenho do seu trabalho de cópia. Para saber mais sobre os limites do armazenamento de BLOBs do Azure, confira limites de armazenamento do Azure em [assinatura do Azure e limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Se estiver a copiar de uma conta de armazenamento do Azure Blob, o seu trabalho de cópia pode ser estrangulado no lado do armazenamento blob. Isto degrada o desempenho do teu trabalho de cópia. Para saber mais sobre os limites do armazenamento do Azure Blob, consulte os limites de armazenamento do Azure nos limites de subscrição e serviço do [Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-* [Copiar dados de blobs de armazenamento do Azure para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar dados das bolhas de armazenamento do Azure para data lake storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
-* [Usar Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

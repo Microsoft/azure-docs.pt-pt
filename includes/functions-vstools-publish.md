@@ -5,45 +5,45 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/02/2018
+ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: dee7d778c4a1c1f37ddab7b9d072f83a22acbc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056669"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
-2. Na caixa de diálogo **escolher um destino de publicação** , use as opções de publicação conforme especificado na tabela abaixo da imagem: 
-
-    ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+2. Na **Escolha de um alvo de publicação,** utilize as opções de publicação especificadas no seguinte quadro: 
 
     | Opção      | Descrição                                |
     | ------------ |  -------------------------------------------------- |
-    | **Plano de consumo de Azure Functions** |   Quando você publica seu projeto em um aplicativo de funções que é executado em um [plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), você paga apenas pelas execuções do seu aplicativo de funções. Outros planos de hospedagem incorrem em custos mais altos. Para saber mais, consulte [Azure Functions escala e hospedagem](../articles/azure-functions/functions-scale.md). | 
-    | **Criar novo** | Um novo aplicativo de funções, com recursos relacionados, é criado no Azure. Quando escolhe **Selecionar Existente**, todos os ficheiros na aplicação de funções existentes no Azure são substituídos pelos ficheiros do projeto local. Utilize esta opção apenas ao voltar a publicar atualizações numa aplicação de funções existente. |
-    | **Executar do arquivo de pacote** | Seu aplicativo de funções é implantado usando a [implantação de zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [de execução do pacote](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Essa é a maneira recomendada de executar suas funções, o que resulta em um melhor desempenho. Quando não estiver usando essa opção, certifique-se de parar o projeto de aplicativo de funções de ser executado localmente antes de publicar no Azure. |
+    | **App de função Azure** | Crie uma aplicação de função num ambiente de nuvem Azure. | 
+    | **Criar novos** | Uma nova aplicação de funções, com recursos relacionados, é criada no Azure. <br/>Se escolher **O Select Existing**, todos os ficheiros da aplicação de função existente no Azure são substituídos por ficheiros do projeto local. Utilize esta opção apenas quando republicar as atualizações para uma aplicação de função existente. |
+    | **Executar a partir de arquivo de pacote** | A sua aplicação de funções é implementada utilizando [o Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) ativado. Esta implementação, que resulta num melhor desempenho, é a forma recomendada de executar as suas funções. <br/>Se não utilizar esta opção, certifique-se de impedir que o seu projeto de aplicação de funções funcione localmente antes de publicar no Azure. |
+
+    ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
 
-3. Selecione **Publicar**. Se você ainda não entrou em sua conta do Azure por meio do Visual Studio, selecione **entrar**. Você também pode criar uma conta gratuita do Azure.
+3. Selecione **Publicar**. Se ainda não se inscreveu na sua conta Azure do Visual Studio, selecione **Sign-in**. Também pode criar uma conta Azure gratuita.
 
-4. Na caixa de diálogo **Azure app serviço: criar novo** , use as configurações de **hospedagem** conforme especificado na tabela abaixo da imagem:
+4. No Serviço de **Aplicações Azure: Criar novos**, utilize os valores especificados no seguinte quadro:
+
+    | Definição      | Valor  | Descrição                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Nome** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Aceite este nome ou insira um novo nome. Os caracteres `a-z`válidos são: , `0-9`e `-`. |
+    | **Assinatura** | A sua subscrição | A subscrição do Azure que deve utilizar. Aceite esta subscrição ou selecione uma nova da lista de lançamentos. |
+    | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** | Nome do seu grupo de recursos |  O grupo de recursos para criar a sua aplicação de função. Selecione um grupo de recursos existente a partir da lista de drop-down ou escolha **new** para criar um novo grupo de recursos.|
+    | **[Plano de Hospedagem](../articles/azure-functions/functions-scale.md)** | Nome do seu plano de hospedagem | Selecione **Novo** para configurar um plano sem servidores. Certifique-se de escolher o **Consumo** em **tamanho**. Quando publica o seu projeto numa aplicação de função que funciona num plano de [consumo,](../articles/azure-functions/functions-scale.md#consumption-plan)paga apenas pelas execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados. Se executar um plano diferente do **Consumo,** deve gerir a [escala da sua aplicação de funções](../articles/azure-functions/functions-scale.md). Escolha um **Local** numa [região](https://azure.microsoft.com/regions/) próxima ou de outros serviços a que as suas funções acedam.  |
+    | **[Armazenamento Azure](../articles/storage/common/storage-account-create.md)** | Conta de armazenamento para fins gerais | Uma conta de Armazenamento Azure é exigida pelo tempo de funcionamento das funções. Selecione **Novo** para configurar uma conta de armazenamento de uso geral. Também pode escolher uma conta existente que satisfaça os requisitos da conta de [armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements)  |
 
     ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-    | Definição      | Valor sugerido  | Descrição                                |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Os carateres válidos são `a-z`, `0-9` e `-`. |
-    | **Subscrição** | Escolher a sua subscrição | A subscrição do Azure que deve utilizar. |
-    | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual a sua aplicação de funções será criada. Escolha **Novo** para criar um grupo de recursos novo.|
-    | **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** | Plano de consumo | Certifique-se de escolher o **consumo** em **tamanho** depois de selecionar **novo** para criar um plano sem servidor. Escolha também uma **Localização** numa [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. Quando executa um plano diferente de **Consumo**, deve gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |
-    | **[Armazenamento do Microsoft Azure](../articles/storage/common/storage-account-create.md)** | Conta de armazenamento de uso geral | O runtime das Funções precisa de uma conta de armazenamento do Azure. Selecione **novo** para criar uma conta de armazenamento de uso geral. Também pode utilizar uma conta existente que cumpra os [requisitos de conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+5. Selecione **Criar** para criar uma aplicação de função e os seus recursos relacionados em Azure com estas definições e implementar o código do projeto de função. 
 
-5. Selecione **criar** para criar um aplicativo de funções e recursos relacionados no Azure com essas configurações e implantar o código do projeto de função. 
-
-6. Quando a implementação estiver concluída, aponte o valor **URL do Site**, que é o endereço da sua aplicação de função no Azure.
+6. Após a implementação concluída, tome nota do valor URL do **Site,** que é o endereço da sua aplicação de funções em Azure.
 
     ![Mensagem de publicação bem-sucedida](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

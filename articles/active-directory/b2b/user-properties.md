@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050801"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -26,6 +26,9 @@ Este artigo descreve as propriedades e estados do objeto de utilizador convidado
 Dependendo das necessidades da organização convidativa, um utilizador de colaboração Azure AD B2B pode estar num dos seguintes estados de conta:
 
 - Estado 1: Alojado numa instância externa de Azure AD e representado como utilizador convidado na organização convidativa. Neste caso, o utilizador B2B assina através da utilização de uma conta Azure AD que pertence ao inquilino convidado. Se a organização parceira não utilizar o Azure AD, o utilizador convidado em Azure AD ainda é criado. Os requisitos são que eles resgatam o seu convite e a Azure AD verifica o seu endereço de e-mail. Este arranjo também é chamado de arrendamento just-in-time (JIT) ou um arrendamento "viral".
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 - Estado 2: Alojado numa conta Microsoft ou outra e representado como utilizador convidado na organização anfitriã. Neste caso, o utilizador convidado entra em si com uma conta Microsoft ou uma conta social (google.com ou similar). A identidade do utilizador convidado é criada como uma conta Microsoft no diretório da organização convidativa durante o resgate da oferta.
 
@@ -59,7 +62,7 @@ Para utilizadores convidados no Estado 2, a **Fonte** é **a Conta Microsoft.**
 Para utilizadores convidados no Estado 3 e Estado 4, a propriedade **Source** está definida para **o Diretório Ativo Azure** ou o **Diretório Ativo**do Servidor Windows , como descrito na secção seguinte.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Propriedades-chave do utilizador de colaboração Azure AD B2B
-### <a name="usertype"></a>Tipo de utilizador
+### <a name="usertype"></a>UserType
 Esta propriedade indica a relação do utilizador com o arrendamento hospedeiro. Esta propriedade pode ter dois valores:
 - Membro: Este valor indica um funcionário da organização anfitriã e um utilizador na folha de pagamentos da organização. Por exemplo, este utilizador espera ter acesso a sites apenas internos. Este utilizador não é considerado um colaborador externo.
 
@@ -101,7 +104,7 @@ Pode haver casos em que deseja dar aos seus utilizadores convidados privilégios
 ![Screenshot mostrando a opção de utilizadores externos nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Sim. Por padrão, os objetos de hóspedes não são visíveis na lista de endereços globais da sua organização, mas pode usar o Azure Ative Directory PowerShell para torná-los visíveis. Para mais detalhes, consulte **Posso tornar os objetos de hóspedes visíveis na lista de endereços globais?** [](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list) 
+Sim. Por padrão, os objetos de hóspedes não são visíveis na lista de endereços globais da sua organização, mas pode usar o Azure Ative Directory PowerShell para torná-los visíveis. Para mais detalhes, consulte **Posso tornar os objetos de hóspedes visíveis na lista de endereços globais?** [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

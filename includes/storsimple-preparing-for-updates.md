@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184452"
 ---
-## <a name="preparing-for-updates"></a>Preparar para atualizações
-Terá de efetuar os seguintes passos antes de procurar e aplicar a atualização:
+## <a name="preparing-for-updates"></a>Preparação para atualizações
+Terá de realizar os seguintes passos antes de digitalizar e aplicar a atualização:
 
-1. Tire um instantâneo de cloud dos dados do dispositivo.
-2. Certifique-se de que os IPs fixos do controlador são encaminhável e podem ligar-se à Internet. Estes IPs fixos será utilizado para as atualizações para o seu dispositivo de serviço. Isso pode ser testado, executando o cmdlet seguinte em cada controlador a partir da interface do Windows PowerShell do dispositivo:
+1. Tire uma foto em nuvem dos dados do dispositivo.
+2. Certifique-se de que os IPs fixos do controlador são repreensíveis e podem ligar-se à Internet. Estes IPs fixos serão utilizados para atender atualizações ao seu dispositivo. Pode testar isto executando o seguinte cmdlet em cada controlador a partir da interface Windows PowerShell do dispositivo:
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
-    **Saída de exemplo para Test-Connection quando os IPs fixos pode ligar à Internet**
+    **Saída de amostra para ligação de teste quando os IPs fixos podem ligar-se à Internet**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
@@ -39,5 +39,5 @@ Terá de efetuar os seguintes passos antes de procurar e aplicar a atualização
         HCSNODE0  204.79.197.200  204.79.197.200
         HCSNODE0  204.79.197.200  204.79.197.200
 
-Depois destas pré-verificações de manuais foi concluído com êxito, pode avançar para procurar e instalar as atualizações.
+Depois de ter concluído com sucesso estas pré-verificações manuais, pode proceder à verificação e instalação das atualizações.
 

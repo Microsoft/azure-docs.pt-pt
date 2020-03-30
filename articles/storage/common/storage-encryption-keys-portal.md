@@ -1,21 +1,21 @@
 ---
 title: Utilize o portal Azure para configurar chaves geridas pelo cliente
 titleSuffix: Azure Storage
-description: Saiba como usar o portal Azure para configurar chaves geridas pelo cliente com o Cofre de Chaves Azure para encriptação de Armazenamento Azure. As chaves geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
+description: Saiba como usar o portal Azure para configurar chaves geridas pelo cliente com o Cofre de Chaves Azure para encriptação de Armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/02/2020
+ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5f091341bee65d17b42e289bab1192142d095637
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: bef3b53a160f17248c1a26e97bc85a86843cb3c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136130"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061233"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Cofre chave Azure utilizando o portal Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "79136130"
 
 Este artigo mostra como configurar um Cofre chave Azure com chaves geridas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../../key-vault/quick-create-portal.md).
 
-## <a name="configure-azure-key-vault"></a>Configure Cofre de Chave Azure
+## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
 
 A utilização de chaves geridas pelo cliente com encriptação de armazenamento Azure requer que duas propriedades sejam definidas no cofre da chave, **Soft Delete** e **Não Expurgar**. Estas propriedades não são ativadas por padrão, mas podem ser ativadas usando powerShell ou Azure CLI em um cofre de chave novo ou existente.
 
@@ -39,9 +39,9 @@ Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação de Armaze
 Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
 1. Navegue até à sua conta de armazenamento.
-1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação**. Selecione a **sua própria opção-chave,** como mostra a figura seguinte.
+1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação**. Selecione a opção **Chaves Geridas** pelo Cliente, como mostra a seguinte imagem.
 
-    ![Imagem do portal mostrando opção de encriptação](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![Imagem do portal mostrando opção de encriptação](./media/storage-encryption-keys-portal/portal-configure-encryption-keys.png)
 
 ## <a name="specify-a-key"></a>Especificar uma chave
 
@@ -54,12 +54,12 @@ Para especificar uma chave como URI, siga estes passos:
 1. Para localizar a chave URI no portal Azure, navegue até ao seu cofre chave e selecione a definição de **Keys.** Selecione a tecla desejada e, em seguida, clique na tecla para visualizar as suas versões. Selecione uma versão chave para visualizar as definições para esta versão.
 1. Copie o valor do campo **chave identificador,** que fornece o URI.
 
-    ![Screenshot mostrando chave do cofre chave URI](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![Screenshot mostrando chave do cofre chave URI](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. Nas definições **de Encriptação** para a sua conta de armazenamento, escolha a **opção Enter key URI.**
 1. Colhe o URI que copiou no campo **Key URI.**
 
-   ![Screenshot mostrando como entrar na chave URI](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Screenshot mostrando como entrar na chave URI](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique a subscrição que contém o cofre da chave.
 1. Guarde as alterações.
@@ -69,10 +69,10 @@ Para especificar uma chave como URI, siga estes passos:
 Para especificar uma chave de um cofre chave, certifique-se primeiro de que tem um cofre chave que contém uma chave. Para especificar uma chave de um cofre chave, siga estes passos:
 
 1. Escolha o Select a partir da opção **Key Vault.**
-2. Selecione o cofre da chave que contém a chave que pretende utilizar.
-3. Selecione a chave do cofre da chave.
+1. Selecione o cofre da chave que contém a chave que pretende utilizar.
+1. Selecione a chave do cofre da chave.
 
-   ![Screenshot mostrando opção chave gerida pelo cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Screenshot mostrando opção chave gerida pelo cliente](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
 
 1. Guarde as alterações.
 

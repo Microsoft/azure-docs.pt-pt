@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
 ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273297"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisão de entrada num recipiente Azure Cosmos
@@ -19,7 +19,7 @@ Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico 
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
@@ -27,7 +27,7 @@ Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico 
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza um ID de recipiente (ou tabela ou gráfico).
-   * Introduza um valor-chave de partição (por exemplo, `/userid`).
+   * Introduza um valor chave `/userid`de partição (por exemplo, ).
    * Introduza uma entrada que pretende fornecer (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
@@ -37,18 +37,18 @@ Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico 
 
 Para criar um recipiente com entrada dedicada ver,
 
-* [Criar um recipiente usando o Azure CLI](manage-with-cli.md#create-a-container)
+* [Criar um contentor com a CLI do Azure](manage-with-cli.md#create-a-container)
 * [Criar um recipiente usando powershell](manage-with-powershell.md#create-container)
 
 > [!Note]
-> Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com o API DB Azure Cosmos para MongoDB, utilize `/myShardKey` para o caminho-chave da partição. Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com a Cassandra API, utilize `/myPrimaryKey` para o caminho-chave da partilha.
+> Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com o Azure `/myShardKey` Cosmos DB API para MongoDB, utilize para o caminho-chave da partição. Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos `/myPrimaryKey` configurada com API Cassandra, utilize para o caminho-chave da partilha.
 
 ## <a name="net-sdk"></a>SDK .NET
 
 > [!Note]
 > Utilize os SDKs Cosmos para API SQL para fornecer a entrada para todos os APIs DB Cosmos, exceto Cassandra API.
 
-### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
+### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
 ### <a name="net-v2-sdk"></a>.net V2 SDK
 
 ```csharp
@@ -96,7 +96,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a id="dotnet-cassandra"></a>API para Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API de Cassandra
 
 Comandos semelhantes podem ser emitidos através de qualquer controlador compatível com CQL.
 

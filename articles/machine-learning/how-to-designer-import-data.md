@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: bd1c2ca182ae8be8425246f691dca805bf38637b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064021"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importe os seus dados para o designer de machine learning Azure (pré-visualização)
 
@@ -35,16 +35,15 @@ Também pode registar a saída de qualquer módulo de design como conjunto de da
 
 1. Selecione o módulo que produz os dados que pretende registar.
 
-1. No painel de propriedades, selecione **Saídas** > **Registar conjunto**de dados .
+1. No painel de propriedades, selecione **Outputs** > **Registe o conjunto de dados**.
 
     ![Screenshot mostrando como navegar para a opção Registar Dataset](media/how-to-designer-import-data/register-dataset-designer.png)
 
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados
 
-Os seus conjuntos de dados registados podem ser encontrados na paleta de módulos, em **conjuntos** de dados > **Meus Conjuntos**de Dados . Para utilizar um conjunto de dados, arraste-o e deixe-o cair na tela do gasoduto. Em seguida, ligue a porta de saída do conjunto de dados a outros módulos da paleta.
+Os seus conjuntos de dados registados podem ser encontrados na paleta de módulos, em **conjuntode** > Dados**My Datasets**. Para utilizar um conjunto de dados, arraste-o e deixe-o cair na tela do gasoduto. Em seguida, ligue a porta de saída do conjunto de dados a outros módulos da paleta.
 
 ![Screenshot mostrando localização de conjuntos de dados guardados na paleta de designer](media/how-to-designer-import-data/use-datasets-designer.png)
-
 
 
 > [!NOTE]
@@ -56,8 +55,8 @@ Embora recomendemos que utilize conjuntos de dados para importar dados, também 
 
 Para obter informações detalhadas sobre como utilizar o módulo de dados de importação, consulte a página de [referência dos dados de importação](algorithm-module-reference/import-data.md).
 
-[!NOTE]
-> Se os dados tiver muitas colunas, poderá encontrar "Validação falhada devido à limitação do tamanho" no Módulo de Dados de Importação. Isto porque as colunas excluem o comprimento do parâmetro do módulo maxmium após a codificação. Neste caso, recomendamos que registe o conjunto de [dados em Datasets UI,](how-to-create-register-datasets.md#use-the-ui)o que pode evitar o erro.  
+> [!NOTE]
+> Se o seu conjunto de dados tiver demasiadas colunas, poderá encontrar o seguinte erro: "A validação falhou devido à limitação do tamanho". Para evitar isto, [registe o conjunto de dados na interface datasets](how-to-create-register-datasets.md#use-the-ui).
 
 ## <a name="supported-sources"></a>Fontes apoiadas
 
@@ -71,16 +70,16 @@ Para obter uma lista de fontes suportadas de datastore, consulte os dados do Acc
 O designer suporta conjuntos de dados tabular criados a partir das seguintes fontes:
  * Ficheiros delimitados
  * Ficheiros JSON
- * Ficheiros parquet
+ * Ficheiros Parquet
  * Consultas SQL
 
 ## <a name="data-types"></a>Tipos de dados
 
 O designer reconhece internamente os seguintes tipos de dados:
 
-* String
+* Cadeia
 * Número inteiro
-* decimal
+* Decimal
 * Booleano
 * Date
 
@@ -90,6 +89,6 @@ O designer usa um tipo de dados internos para passar dados entre módulos. Pode 
 
 Os módulos do designer são limitados pelo tamanho do alvo da computação. Para conjuntos de dados maiores, deve utilizar um recurso de computação azure machine learning maior. Para obter mais informações sobre o computacional Azure Machine Learning, veja [quais são os alvos da computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça o básico do designer com [tutorial: Preveja](tutorial-designer-automobile-price-train-score.md)o preço do automóvel com o designer.

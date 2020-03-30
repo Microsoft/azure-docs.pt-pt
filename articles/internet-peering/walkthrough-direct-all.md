@@ -1,7 +1,7 @@
 ---
-title: Passo a passos de emparelhamento direto
+title: Instruções de peering Direto
 titleSuffix: Azure
-description: Passo a passos de emparelhamento direto
+description: Instruções de peering Direto
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,49 +9,49 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d88fcfc4d3e073bf544f2ca0f4d01dbe305b45da
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775514"
 ---
-# <a name="direct-peering-walkthrough"></a>Passo a passos de emparelhamento direto
+# <a name="direct-peering-walkthrough"></a>Instruções de peering Direto
 
-Esta seção explica as etapas que você precisa seguir para configurar e gerenciar um emparelhamento direto.
+Esta secção explica os passos que precisa de seguir para configurar e gerir um olhar direto.
 
-## <a name="create-a-direct-peering"></a>Criar um emparelhamento direto
+## <a name="create-a-direct-peering"></a>Criar um olhar direto
 > [!div class="mx-imgBorder"]
-> ![o fluxo de trabalho de emparelhamento direto e os Estados de conexão](./media/direct-peering.png)
+> ![Estados de fluxo de trabalho e conexão de peering direto](./media/direct-peering.png)
 
-As etapas a seguir devem ser seguidas para provisionar um emparelhamento direto:
-1. Examine a [política de emparelhamento](https://peering.azurewebsites.net/peering) da Microsoft para entender os requisitos de emparelhamento direto.
-1. Siga as instruções em [criar ou modificar um emparelhamento direto](howto-direct-powershell.md) para enviar uma solicitação de emparelhamento.
-1. Depois de enviar uma solicitação de emparelhamento, a Microsoft entrará em contato com o endereço de email registrado para fornecer LOA (carta de autorização) ou para outras informações.
-1. Quando a solicitação de emparelhamento é aprovada, o estado da conexão muda para ProvisioningStarted.
-1. Você precisa:
-    1. concluir a fiação de acordo com o LOA
-    1. (opcionalmente) executar o teste de link usando 169.254.0.0/16
-    1. Configure a sessão BGP e, em seguida, notifique-nos.
-1. A Microsoft provisiona a sessão BGP com a política negar tudo e validar de ponta a ponta.
-1. Se for bem-sucedido, você receberá uma notificação informando que o estado da conexão de emparelhamento está ativo.
-1. O tráfego será permitido por meio do novo emparelhamento.
+Devem ser seguidos os seguintes passos, a fim de prever um olhar direto:
+1. Reveja a política de [peering da](https://peering.azurewebsites.net/peering) Microsoft para compreender os requisitos para o peering direto.
+1. Siga as instruções em [Criar ou modifique um olhar direto](howto-direct-powershell.md) para submeter um pedido de peering.
+1. Depois de submeter um pedido de peering, a Microsoft entrará em contacto com o seu endereço de e-mail registado para fornecer LOA (Carta de Autorização) ou para outras informações.
+1. Uma vez aprovado o pedido de peering, as alterações do Estado de ligação ao ProvisioningStarted.
+1. Precisa:
+    1. cablagem completa de acordo com a LOA
+    1. (opcionalmente) executar o teste de ligação utilizando 169.254.0.0.0/16
+    1. configurar a sessão de BGP e, em seguida, notificar-nos.
+1. A Microsoft prevê a sessão de BGP com a política DENY ALL e valida o fim a ponta.
+1. Se for bem sucedido, receberá uma notificação de que o estado de ligação de pares está Ativo.
+1. O tráfego será então permitido através do novo peering.
 
-Observe que os Estados de conexão não devem ser confundidos com os Estados de sessão [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) padrão.
+Note que os estados de ligação não devem ser confundidos com os estados padrão da sessão [de BGP.](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
 
-## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Converter um emparelhamento direto herdado para o recurso do Azure
-As etapas a seguir devem ser seguidas para converter um emparelhamento direto herdado para o recurso do Azure:
-1. Siga as instruções em [converter um emparelhamento direto herdado para o recurso do Azure](howto-legacy-direct-powershell.md)
-1. Depois de enviar a solicitação de conversão, a Microsoft examinará a solicitação e entrará em contato com você, se necessário.
-1. Depois de aprovado, você verá seu emparelhamento direto com um estado de conexão como ativo.
+## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Converter um peering Direto legado para o recurso do Azure
+Devem ser seguidos os seguintes passos para converter um legado direto para o recurso Azure:
+1. Siga as instruções em [Converter um legado de espreitar diretamente para](howto-legacy-direct-powershell.md) o recurso Azure
+1. Depois de submeter o pedido de conversão, a Microsoft irá rever o pedido e contactá-lo se necessário.
+1. Uma vez aprovado, verá o seu Direct peering com um estado de conexão como Ativo.
 
-## <a name="deprovision-direct-peering"></a>Desprovisionar emparelhamento direto
-Entre em contato com a equipe de [emparelhamento da Microsoft](mailto:peering@microsoft.com) para desprovisionar o emparelhamento direto.
+## <a name="deprovision-direct-peering"></a>Desprovisionamento Deprovisionamento Desvendação Direta
+Contacte a equipa [de peering da Microsoft](mailto:peering@microsoft.com) para desprovisionar o peering direto.
 
-Quando um emparelhamento direto for definido para desprovisionamento, você verá o estado da conexão como **PendingRemove**
+Quando um epeering direto estiver definido para a desprovisionamento, você verá o estado de ligação como **Pendente Remove**
 
 > [!NOTE]
-> Se você executar o cmdlet do PowerShell para excluir o emparelhamento direto quando ConnectionState for ProvisioningStarted ou ProvisioningCompleted, a operação falhará.
+> Se executar o cmdlet PowerShell para eliminar o peering direto quando o Estado de Ligação estiver provisioningStarted ou ProvisioningCompletea, a operação falhará.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os [pré-requisitos para configurar o emparelhamento com a Microsoft](prerequisites.md).
+* Saiba mais sobre [os pré-requisitos para configurar o peering com a Microsoft](prerequisites.md).

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059307"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec sobre ExpressRoute para Wan Virtual
 
@@ -58,7 +58,7 @@ Em ambos os exemplos, o Azure enviará o tráfego para 10.0.1.0/24 sobre a liga�
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="openvwan"></a>1. Criar um WAN virtual e um hub com gateways
+## <a name="1-create-a-virtual-wan-and-hub-with-gateways"></a><a name="openvwan"></a>1. Criar um WAN virtual e um hub com gateways
 
 Os seguintes recursos Azure e as configurações correspondentes no local devem estar em vigor antes de proceder:
 
@@ -67,7 +67,7 @@ Os seguintes recursos Azure e as configurações correspondentes no local devem 
 
 Para os passos para criar um Wan virtual Azure e um hub com uma associação ExpressRoute, consulte [Create a ExpressRoute association usando O Wan Virtual Azure](virtual-wan-expressroute-portal.md). Para os passos para criar um gateway VPN no WAN virtual, consulte [Criar uma ligação site-to-site usando O WAN Virtual Azure](virtual-wan-site-to-site-portal.md).
 
-## <a name="site"></a>2. Criar um site para a rede no local
+## <a name="2-create-a-site-for-the-on-premises-network"></a><a name="site"></a>2. Criar um site para a rede no local
 
 O recurso do site é o mesmo que os sites VPN não ExpressRoute para um WAN virtual. O endereço IP do dispositivo VPN no local pode agora ser um endereço IP privado, ou um endereço IP público na rede no local acessível através do público de acesso privado criado no passo 1.
 
@@ -95,17 +95,17 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para um WAN virt
 
    Se o BGP estiver ativado, aplicar-se-á a todas as ligações criadas para este site em Azure. Configurar o BGP num WAN virtual equivale a configurar o BGP num gateway Azure VPN. 
    
-   O seu endereço de pares BGP no local *não deve* ser o mesmo que o endereço IP da sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, *não pode* ser um APIPA (169.254). *x*. *x*) endereço. Especifique este endereço no gateway de rede local correspondente que representa a localização. Para pré-requisitos de BGP, consulte [sobre bGP com Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   O seu endereço de pares BGP no local *não deve* ser o mesmo que o endereço IP da sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, *não pode* ser um APIPA (169.254).* x*. *x*) endereço. Especifique este endereço no gateway de rede local correspondente que representa a localização. Para pré-requisitos de BGP, consulte [sobre bGP com Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Selecione **Seguinte: Rever + criar >** para verificar os valores de definição e criar o site VPN. Se selecionar **Hubs** para ligar, a ligação será estabelecida entre a rede no local e o gateway VPN do hub.
 
-## <a name="hub"></a>3. Atualize a definição de ligação VPN para utilizar a ExpressRoute
+## <a name="3-update-the-vpn-connection-setting-to-use-expressroute"></a><a name="hub"></a>3. Atualize a definição de ligação VPN para utilizar a ExpressRoute
 
 Depois de criar o site VPN e ligar-se ao centro, utilize os seguintes passos para configurar a ligação para utilizar o peering privado ExpressRoute:
 
 1. Volte para a página virtual de recursos WAN e selecione o recurso hub. Ou navegar do site vpn para o centro conectado.
-1. Em **Conectividade,** selecione **VPN (Site-a-Site)** .
-1. Selecione a elipse **(...** ) no site vpN através do ExpressRoute e selecione **a ligação VPN de Edição a este hub**.
+1. Em **Conectividade,** selecione **VPN (Site-a-Site)**.
+1. Selecione a elipse **(...**) no site vpN através do ExpressRoute e selecione **a ligação VPN de Edição a este hub**.
 1. Para **utilizar o endereço IP privado Azure,** selecione **Sim**. A definição configura o portal VPN do hub para utilizar endereços IP privados dentro da gama de endereços do hub na porta de entrada para esta ligação, em vez dos endereços IP públicos. Isto garantirá que o tráfego da rede no local atravessa os caminhos de observação privada expressRoute em vez de usar a internet pública para esta ligação VPN. A imagem seguinte mostra a definição.
 
    ![Definição para utilização de um endereço IP privado para a ligação VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
@@ -114,7 +114,7 @@ Depois de criar o site VPN e ligar-se ao centro, utilize os seguintes passos par
 
 Depois de guardar as suas alterações, o gateway VPN do hub utilizará os endereços IP privados na porta de entrada VPN para estabelecer as ligações IPsec/IKE com o dispositivo VPN no local através do ExpressRoute.
 
-## <a name="associate"></a>4. Obtenha os endereços IP privados para o gateway VPN do hub
+## <a name="4-get-the-private-ip-addresses-for-the-hub-vpn-gateway"></a><a name="associate"></a>4. Obtenha os endereços IP privados para o gateway VPN do hub
 
 Descarregue a configuração do dispositivo VPN para obter os endereços IP privados do gateway VPN do hub. Precisa destes endereços para configurar o dispositivo VPN no local.
 
@@ -140,7 +140,7 @@ O ficheiro de configuração do dispositivo contém as definições a utilizar q
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * Endereços IP do gateway VPN do centro virtual. Como cada ligação do gateway VPN é composta por dois túneis em configuração ativa ativa, você verá ambos os endereços IP listados neste ficheiro. Neste exemplo, você vê `Instance0` e `Instance1` para cada site, e são endereços IP privados em vez de endereços IP públicos.<br>Exemplo:
+    * Endereços IP do gateway VPN do centro virtual. Como cada ligação do gateway VPN é composta por dois túneis em configuração ativa ativa, você verá ambos os endereços IP listados neste ficheiro. Neste exemplo, você `Instance0` `Instance1` vê e para cada site, e eles são endereços IP privados em vez de endereços IP públicos.<br>Exemplo:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
@@ -219,24 +219,19 @@ Se precisar de instruções para configurar o dispositivo, pode utilizar as inst
 * Um novo WAN virtual pode suportar tanto o IKEv1 como o IKEv2.
 * Um WAN virtual só pode utilizar dispositivos VPN baseados na rota e instruções do dispositivo.
 
-## <a name="viewwan"></a>5. Veja o seu WAN virtual
+## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. Veja o seu WAN virtual
 
 1. Vá ao WAN virtual.
-1. Na página **overview,** cada ponto no mapa representa um hub. Pairar sobre qualquer ponto para ver o resumo de saúde do centro.
+1. Na página **overview,** cada ponto no mapa representa um hub.
 1. Na secção **Hubs e conexões,** pode ver o estado de ligação do hub, local, região e VPN. Também pode ver bytes dentro e fora.
 
-## <a name="viewhealth"></a>6. Veja a sua saúde de recursos
-
-1. Vai para o teu WAN.
-1. Na secção **SUPORTE + Resolução de Problemas,** selecione **Saúde** e veja o seu recurso.
-
-## <a name="connectmon"></a>7. Monitorizar uma ligação
+## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. Monitorizar uma ligação
 
 Criar uma ligação para monitorizar a comunicação entre uma máquina virtual Azure (VM) e um local remoto. Para obter informações sobre como configurar um monitor de ligação, veja [Monitorizar a comunicação de rede](~/articles/network-watcher/connection-monitor.md). O campo de origem é o VM IP em Azure, e o IP de destino é o site IP.
 
-## <a name="cleanup"></a>8. Limpar recursos
+## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Limpar recursos
 
-Quando já não precisa destes recursos, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém. Execute o seguinte comando PowerShell e substitua `myResourceGroup` pelo nome do seu grupo de recursos:
+Quando já não precisa destes recursos, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém. Execute o seguinte comando `myResourceGroup` PowerShell e substitua-o pelo nome do seu grupo de recursos:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

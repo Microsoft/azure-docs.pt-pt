@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 86128953130fdb34c660f6e40ec24565ff93edb4
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066881"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -28,7 +28,7 @@ Este documento detalha como utilizar a extensão do script personalizado utiliza
 > [!NOTE]  
 > Não utilize a extensão personalizada do script para executar o Update-AzVM com o mesmo VM que o seu parâmetro, uma vez que irá esperar por si próprio.  
 
-### <a name="operating-system"></a>Operating System
+### <a name="operating-system"></a>Sistema Operativo
 
 A extensão personalizada do script para windows será executada no OSs de extensão suportado por extensão, para mais informações, ver este sistema operativo suportado por [extensão Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
@@ -63,7 +63,7 @@ A configuração de extensão de script personalizado especifica coisas como a l
 
 Pode armazenar dados sensíveis numa configuração protegida, encriptada e apenas desencriptada dentro da máquina virtual. A configuração protegida é útil quando o comando de execução inclui segredos como uma palavra-passe.
 
-Estes itens devem ser tratados como dados sensíveis e especificados na configuração de definição protegida das extensões. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino.
+Estes itens devem ser tratados como dados sensíveis e especificados na configuração de definição protegida das extensões. Os dados de definição protegidos por extensão Azure VM são encriptados e apenas desencriptados na máquina virtual alvo.
 
 ```json
 {
@@ -108,19 +108,19 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 > [!NOTE]
 > Podemos usar este esquema dentro do recurso VirtualMachine ou como recurso autónomo. O nome do recurso tem de estar neste formato "virtualMachineName/extensionName", se esta extensão for utilizada como recurso autónomo no modelo ARM. 
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Compute | Cadeia de caracteres |
-| tipo | CustomScriptExtension | Cadeia de caracteres |
+| publicador | Microsoft.Compute | string |
+| tipo | Extensão personalizada do Script | string |
 | typeHandlerVersion | 1.10 | int |
-| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
-| timestamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| comandoToExecutar (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | Cadeia de caracteres |
-| armazenamentoAccountName (por exemplo) | exemplostorageacct | Cadeia de caracteres |
-| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
+| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| carimbo de tempo (por exemplo) | 123456789 | Inteiro de 32 bits |
+| comandoToExecutar (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| armazenamentoAccountName (por exemplo) | exemplostorageacct | string |
+| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQzQj8hg== | string |
 | identidade gerida (por exemplo) | { ou { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } ou { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json objeto |
 
 >[!NOTE]
@@ -128,12 +128,12 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 #### <a name="property-value-details"></a>Detalhes do valor da propriedade
 
-* `commandToExecute`: **(obrigatório,** corda) o guião do ponto de entrada a executar. Utilize este campo se o seu comando contiver segredos como palavras-passe ou se os seus ficheirosUris forem sensíveis.
+* `commandToExecute`:**(obrigatório,** corda) o guião do ponto de entrada a executar. Utilize este campo se o seu comando contiver segredos como palavras-passe ou se os seus ficheirosUris forem sensíveis.
 * `fileUris`: (opcional, string array) os URLs para ficheiros ou ficheiros a serem descarregados.
-* `timestamp` (opcional, inteiro de 32 bits) usam este campo apenas para desencadear uma reexecução do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
-* `storageAccountName`: (opcional, corda) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todos os `fileUris` devem ser URLs para Blobs Azure.
+* `timestamp`(opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma reexecução do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
+* `storageAccountName`: (opcional, corda) o nome da conta de armazenamento. Se especificar credenciais `fileUris` de armazenamento, todos devem ser URLs para Blobs Azure.
 * `storageAccountKey`: (opcional, corda) a chave de acesso da conta de armazenamento
-* `managedIdentity`: (opcional, objeto json) a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para o descarregamento de ficheiros(s)
+* `managedIdentity`: (opcional, objeto json) a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para o descarregamento de ficheiros ou ficheiros
   * `clientId`: (opcional, corda) a identificação do cliente da identidade gerida
   * `objectId`: (opcional, corda) a identificação do objeto da identidade gerida
 
@@ -187,14 +187,14 @@ Para utilizar a identidade atribuída ao utilizador no alvo VM/VMSS, configure o
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON, que é detalhado na secção anterior, pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do script personalizado durante a implementação. As seguintes amostras mostram como utilizar a extensão do Script Personalizado:
+As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. O esquema JSON, que é detalhado na secção anterior, pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do script personalizado durante a implementação. As seguintes amostras mostram como utilizar a extensão do Script Personalizado:
 
-* [Tutorial: Implementar extensões de máquinavirtual com modelos de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
+* [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Implementar aplicação de dois níveis no Windows e Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>Implementação powerShell
 
-O comando `Set-AzVMCustomScriptExtension` pode ser usado para adicionar a extensão do Script Personalizado a uma máquina virtual existente. Para mais informações, consulte [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+O `Set-AzVMCustomScriptExtension` comando pode ser utilizado para adicionar a extensão do Script Personalizado a uma máquina virtual existente. Para mais informações, consulte [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -209,7 +209,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Usando vários scripts
 
-Neste exemplo, tem três scripts que são usados para construir o seu servidor. O **comandoToExecute** chama o primeiro script, então você tem opções sobre como os outros são chamados. Por exemplo, pode ter um guião principal que controla a execução, com o manuseamento de erros, registos e gestão do Estado. Os scripts são descarregados para a máquina local para correr. Por exemplo, em `1_Add_Tools.ps1` chamaria de `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao guião e repetindo este processo para os outros scripts que define em `$settings`.
+Neste exemplo, tem três scripts que são usados para construir o seu servidor. O **comandoToExecute** chama o primeiro script, então você tem opções sobre como os outros são chamados. Por exemplo, pode ter um guião principal que controla a execução, com o manuseamento de erros, registos e gestão do Estado. Os scripts são descarregados para a máquina local para correr. Por exemplo, `1_Add_Tools.ps1` em `2_Add_Features.ps1` si, ligaria adicionando `.\2_Add_Features.ps1` ao script e repetindo este processo para os outros scripts em `$settings`que define .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -263,7 +263,7 @@ Em alternativa, pode definir a propriedade [ForceUpdateTag](/dotnet/api/microsof
 
 ### <a name="using-invoke-webrequest"></a>Utilização de Invocação-WebRequest
 
-Se estiver a utilizar o [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) no seu script, deve especificar o parâmetro `-UseBasicParsing` ou receberá o seguinte erro ao verificar o estado detalhado:
+Se estiver a utilizar o [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) no seu `-UseBasicParsing` script, deve especificar o parâmetro ou receberá o seguinte erro ao verificar o estado detalhado:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -304,9 +304,9 @@ Set-AzureVMCustomScriptExtension -VM $vm -FileUri $fileUri -Run 'Create-File.ps1
 $vm | Update-AzureVM
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, executar o seguinte comando:
 
@@ -326,17 +326,17 @@ Os ficheiros especificados são descarregados na seguinte pasta na máquina virt
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-quando `<n>` é um inteiro decimal, que pode mudar entre execuções da extensão.  O valor `1.*` corresponde ao valor real e atual `typeHandlerVersion` da extensão.  Por exemplo, o diretório real poderia ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+onde `<n>` é um inteiro decimal, que pode mudar entre execuções da extensão.  O `1.*` valor corresponde ao `typeHandlerVersion` valor real e atual da extensão.  Por exemplo, o verdadeiro `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`diretório pode ser.  
 
-Ao executar o comando `commandToExecute`, a extensão define este diretório (por exemplo, `...\Downloads\2`) como o atual diretório de trabalho. Este processo permite a utilização de caminhos relativos para localizar os ficheiros descarregados através da propriedade `fileURIs`. Veja a tabela abaixo, por exemplo.
+Ao executar `commandToExecute` o comando, a extensão define este `...\Downloads\2`diretório (por exemplo, ) como o atual diretório de trabalho. Este processo permite a utilização de caminhos relativos `fileURIs` para localizar os ficheiros descarregados através da propriedade. Veja a tabela abaixo, por exemplo.
 
-Uma vez que o caminho de descarregamento absoluto pode variar ao longo do tempo, é melhor optar por caminhos relativos de script/ficheiro na cadeia `commandToExecute`, sempre que possível. Por exemplo:
+Uma vez que o caminho de descarregamento absoluto pode variar ao longo `commandToExecute` do tempo, é melhor optar por caminhos relativos de script/ficheiro na cadeia, sempre que possível. Por exemplo:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Informações de percurso após o primeiro segmento URI é mantida para ficheiros descarregados através da lista de propriedades `fileUris`.  Como mostrado na tabela abaixo, os ficheiros descarregados são mapeados em subdiretórios de descarregamento para refletir a estrutura dos valores `fileUris`.  
+Informações de percurso após o primeiro segmento `fileUris` URI é mantida para ficheiros descarregados através da lista de propriedades.  Como mostrado na tabela abaixo, os ficheiros descarregados são mapeados `fileUris` em subdiretórios de descarregamento para refletir a estrutura dos valores.  
 
 #### <a name="examples-of-downloaded-files"></a>Exemplos de Ficheiros Descarregados
 

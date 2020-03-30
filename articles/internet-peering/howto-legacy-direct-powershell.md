@@ -1,7 +1,7 @@
 ---
-title: Converter um emparelhamento direto herdado para o recurso do Azure usando o PowerShell
+title: Converter um legado De espreitar diretamente para o recurso Azure usando powerShell
 titleSuffix: Azure
-description: Converter um emparelhamento direto herdado para o recurso do Azure usando o PowerShell
+description: Converter um legado De espreitar diretamente para o recurso Azure usando powerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775020"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Converter um emparelhamento direto herdado para o recurso do Azure usando o PowerShell
+# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Converter um legado De espreitar diretamente para o recurso Azure usando powerShell
 
-Este artigo descreve como converter um emparelhamento direto herdado existente para recursos do Azure usando cmdlets do PowerShell.
+Este artigo descreve como converter um legado existente Espreitar diretamente para o recurso Azure usando cmdlets PowerShell.
 
-Se preferir, você pode concluir este guia usando o [portal](howto-legacy-direct-portal.md).
+Se preferir, pode completar este guia utilizando o [portal](howto-legacy-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine [pré-requisitos](prerequisites.md) e [direcionamento direto de emparelhamento](walkthrough-direct-all.md) antes de começar a configuração.
+* Reveja os [pré-requisitos](prerequisites.md) e [o direct peering walkthrough](walkthrough-direct-all.md) antes de iniciar a configuração.
 
-### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Converter o emparelhamento direto herdado para o recurso do Azure
+## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Converter o legado Direto espreitando para o recurso Azure
 
-### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Inicie sessão na sua conta do Azure e selecione a sua subscrição
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Inscreva-se na sua conta Azure e selecione a sua subscrição
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Obter emparelhamento direto herdado para conversão
-Veja abaixo um exemplo para obter o emparelhamento direto herdado no local de emparelhamento de Seattle
+### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtenha o legado De espreitar diretamente para conversão
+Abaixo é um exemplo para obter o legado direct peering em Seattle peering localização
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -41,7 +41,7 @@ $legacyPeering = Get-AzLegacyPeering `
 $legacyPeering
 ```
 
-Veja abaixo um exemplo de resposta:
+Abaixo está uma resposta exemplo:
 ```powershell
 Name                       :
 Sku                        : Basic_Direct_Free
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>Converter emparelhamento direto herdado
+### <a name="convert-legacy-direct-peering"></a>Converter o legado De espreitar direto
 
 &nbsp;
 > [!IMPORTANT]
-> Observe que, ao converter o emparelhamento herdado no recurso do Azure, não há suporte para modificações. &nbsp;
+> Note que ao converter o legado a olhar para o recurso azul, as modificações não são suportadas. &nbsp;
 
-Use o comando abaixo para converter o emparelhamento direto herdado para o recurso do Azure:
+Utilize abaixo o comando para converter o legado Direct peering para o recurso Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -94,7 +94,7 @@ $legacyPeering[0] | New-AzPeering `
 
 ```
 
-Veja abaixo um exemplo de resposta:
+Abaixo está uma resposta exemplo:
 
 ```powershell
 Name                 : SeattleDirectPeering
@@ -112,14 +112,14 @@ Tags                 : {}
 ```
 
 ## <a name="additional-resources"></a>Recursos adicionais
-Para obter descrições detalhadas dos parâmetros de executar o seguinte comando:
+Pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-Para obter mais informações, visite [perguntas frequentes sobre emparelhamento da Internet](faqs.md)
+Para mais informações, visite [faQs de observação de Internet](faqs.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie ou modifique um emparelhamento direto usando o PowerShell](howto-direct-powershell.md).
+* [Crie ou modifique um peering direto utilizando powerShell](howto-direct-powershell.md).

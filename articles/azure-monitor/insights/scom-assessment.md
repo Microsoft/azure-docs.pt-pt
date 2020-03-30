@@ -1,19 +1,19 @@
 ---
-title: Otimize o ambiente do Gestor de Operações do Centro de Sistemacom a Azure Log Analytics  Microsoft Docs
+title: Avaliar o Gestor de Operações do Centro de Sistemas com o Monitor Azure
 description: Pode utilizar a solução health check do Gestor de Operações do System Center para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: c8add2acb8f263c54f6014699f792380d256d9b0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663475"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055417"
 ---
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimize o seu ambiente com a solução de Verificação de Saúde do Gestor de Operações do System Center (Pré-visualização)
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimize your environment with the System Center Operations Manager Health Check (Preview) solution (Otimizar o ambiente com a solução Verificação de Estado de Funcionamento do System Center Operations Manager [Pré-visualização])
 
 ![System Center Operations Manager Health Check símbolo](./media/scom-assessment/scom-assessment-symbol.png)
 
@@ -50,7 +50,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 1. [Definir a corrida Como conta para o Sistema Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configure a regra de verificação de saúde do gestor de operações do Centro de Sistemas
 
-## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager Health Check detalhes de recolha de dados
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Detalhes da recolha de dados da Verificação de Estado de Funcionamento do System Center Operations Manager
 
 A solução de Verificação de Saúde do Gestor de Operações do Centro de Sistema recolhe dados das seguintes fontes:
 
@@ -62,7 +62,7 @@ A solução de Verificação de Saúde do Gestor de Operações do Centro de Sis
 
 Os dados são recolhidos no servidor de gestão e encaminhados para o Log Analytics de sete em sete dias.  
 
-## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Gestor de Operações contas de log analytics
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Run As do Operations Manager para o Log Analytics
 
 O Log Analytics baseia-se em pacotes de gestão para cargas de trabalho para fornecer serviços de valor acrescentado. Cada carga de trabalho requer privilégios específicos de carga de trabalho para executar pacotes de gestão num contexto de segurança diferente, como uma conta de utilizador de domínio. Configure um Gestor de Operações Executar Como conta com credenciais privilegiadas. Para obter informações adicionais, consulte [Como criar uma conta Run As](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Gestor de Operações.
 
@@ -93,7 +93,7 @@ Agora que a conta Run As é criada, precisa de direcionar servidores de gestão 
 5. O nome do perfil deve ser: *Microsoft System Center Operations Manager Health Check Run As Profile*.
 6. Clique à direita e atualize as suas propriedades e adicione o recém-criado Run As Account que criou anteriormente.
 
-### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões granulares para a conta Run As
+### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script de SQL para conceder permissões granulares à conta Run As
 
 Execute o seguinte script SQL para conceder permissões necessárias para a conta Run As na instância do Servidor SQL utilizada pelo Gestor de Operações que acolhe a base de dados operacional, de dados e ACS.
 
@@ -143,7 +143,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ```
 
-### <a name="configure-the-health-check-rule"></a>Configure a regra do cheque de saúde
+### <a name="configure-the-health-check-rule"></a>Configurar a regra de verificação de estado de funcionamento
 
 O pacote de gestão da solução de verificação de saúde do Gestor de Operações do System Center inclui uma regra chamada *Microsoft System Center Operations Manager Run Health Check Rule*. Esta regra é responsável pela verificação da saúde. Para ativar a regra e configurar a frequência, utilize os procedimentos abaixo.
 
@@ -153,29 +153,29 @@ Por predefinição, a regra de verificação de saúde do Gestor de Operações 
 
 1. No espaço de trabalho da **autoria** da consola de operações, procure a regra microsoft System Center Operations Manager Executar regra de *verificação* de saúde no painel **de regras.**
 2. Nos resultados da pesquisa, selecione o que inclui o Tipo de *texto: Servidor de Gestão*.
-3. Clique na regra e clique em **Overrides** > **Para um objeto específico de classe: Management Server**.
+3. Clique na regra e clique em **Sobreposições** > **para um objeto específico de classe: Management Server**.
 4.  Na lista de servidores de gestão disponível, selecione o servidor de gestão onde a regra deve ser executada.  Este deve ser o mesmo servidor de gestão que configuraste anteriormente para associar a conta Run As.
-5.  Certifique-se de que altera o valor de substituição para **True** para o valor do parâmetro **habilitado.**<br><br> ![sobrepor](./media/scom-assessment/rule.png) de parâmetros
+5.  Certifique-se de que altera o valor de substituição para **True** para o valor do parâmetro **habilitado.**<br><br> ![parâmetro de sobreposição](./media/scom-assessment/rule.png)
 
     Enquanto estiver ainda nesta janela, configure a frequência de execução utilizando o procedimento seguinte.
 
-#### <a name="configure-the-run-frequency"></a>Configure a frequência de execução
+#### <a name="configure-the-run-frequency"></a>Configurar a frequência de execução
 
 A avaliação está configurada para ser executada a cada 10.080 minutos (ou sete dias) por padrão. Pode anular o valor para um valor mínimo de 1440 minutos (ou um dia). O valor representa o intervalo de tempo mínimo exigido entre as sucessivas avaliações. Para anular o intervalo, utilize os passos abaixo.
 
 1. No espaço de trabalho da **Autoria** da consola do Gestor de Operações, procure a regra do Gestor de *Operações do Microsoft System Center Executar regra* de verificação de saúde na secção **Regras.**
 2. Nos resultados da pesquisa, selecione o que inclui o Tipo de *texto: Servidor de Gestão*.
-3. Clique na regra e clique em **anular a regra** > Para todos os **objetos de classe: Servidor de Gestão**.
+3. Clique na regra e clique em **anular a regra** > **Para todos os objetos de classe: Servidor de Gestão**.
 4. Altere o valor do parâmetro **intervalo** para o valor de intervalo desejado. No exemplo abaixo, o valor é definido para 1440 minutos (um dia).<br><br> ![parâmetro de intervalo](./media/scom-assessment/interval.png)<br>  
 
     Se o valor for definido para menos de 1440 minutos, então a regra passa num intervalo de um dia. Neste exemplo, a regra ignora o valor do intervalo e corre a uma frequência de um dia.
 
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como as recomendações são prioritárias
+## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como é definida a prioridade das recomendações
 
 Todas as recomendações feitas recebem um valor de ponderação que identifica a importância relativa da recomendação. Apenas são apresentadas as 10 recomendações mais importantes.
 
-### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
+### <a name="how-weights-are-calculated"></a>Método de cálculo das ponderações
 
 As ponderações são valores agregados com base em três factores-chave:
 
@@ -185,7 +185,7 @@ As ponderações são valores agregados com base em três factores-chave:
 
 A ponderação para cada recomendação é expressa em percentagem da pontuação total disponível para cada área de foco. Por exemplo, se uma recomendação na área de foco de Disponibilidade e Continuidade de Negócios tiver uma pontuação de 5%, implementando essa recomendação aumenta a sua pontuação global de Disponibilidade e Continuidade de Negócios em 5%.
 
-### <a name="focus-areas"></a>Áreas de foco
+### <a name="focus-areas"></a>Áreas em foco
 
 **Disponibilidade e Continuidade de Negócios** - Esta área de foco mostra recomendações para disponibilidade de serviço, resiliência da sua infraestrutura e proteção empresarial.
 
@@ -195,7 +195,7 @@ A ponderação para cada recomendação é expressa em percentagem da pontuaçã
 
 **Operações e Monitorização** - Esta área de foco apresenta recomendações para ajudar a agilizar as suas operações de TI, implementar a manutenção preventiva e maximizar o desempenho.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve tentar pontuar 100% em todas as áreas de foco?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve visar uma pontuação de 100% em cada uma das áreas em foco?
 
 Não necessariamente. As recomendações baseiam-se nos conhecimentos e experiências adquiridas pelos engenheiros da Microsoft em milhares de visitas de clientes. No entanto, nenhuma infraestrutura de servidores é a mesma, e recomendações específicas podem ser mais ou menos relevantes para si. Por exemplo, algumas recomendações de segurança podem ser menos relevantes se as suas máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para serviços que fornecem recolha e reporte de dados ad hoc de baixa prioridade. As questões que são importantes para um negócio maduro podem ser menos importantes para uma start-up. Você pode querer identificar quais as áreas de foco são as suas prioridades e, em seguida, olhar para como as suas pontuações mudam ao longo do tempo.
 
@@ -208,7 +208,7 @@ Antes de poder utilizar uma solução de verificação de saúde no Log Analytic
 Consulte as avaliações de conformidade resumidas para a sua infraestrutura e, em seguida, faça recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Ver recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições do Log Analytics, selecione um espaço de trabalho e clique no item do menu resumo do **Workspace.**  
 4. Na página **'Overview',** clique no azulejo de verificação de saúde do **Gestor de Operações** do System Center.
@@ -260,7 +260,7 @@ Se tiver recomendações que deseja ignorar, pode criar um ficheiro de texto que
 
 3. Se decidir mais tarde que pretende ver recomendações ignoradas, remova quaisquer ficheiros IgnoreRecommendations.txt ou pode remover recomendações das mesmas.
 
-## <a name="system-center-operations-manager-health-check-solution-faq"></a>Sistema Center Operations Manager Health Check solution FAQ
+## <a name="system-center-operations-manager-health-check-solution-faq"></a>FAQ sobre a solução Verificação de Estado de Funcionamento do System Center Operations Manager
 
 *Adicionei a solução health check ao meu espaço de trabalho log Analytics. Mas não vejo as recomendações. Porque não?* Depois de adicionar a solução, utilize os seguintes passos, ver as recomendações no painel de instrumentos Log Analytics.  
 
@@ -280,9 +280,9 @@ Se tiver recomendações que deseja ignorar, pode criar um ficheiro de texto que
 
 *E se eu fixar o intervalo da avaliação para menos de 1440 minutos?* A avaliação é pré-configurada para ser executada a um máximo de uma vez por dia. Se ultrapassar o valor do intervalo para um valor inferior a 1440 minutos, então a avaliação utiliza 1440 minutos como valor de intervalo.
 
-*Como saber se há falhas pré-requisitos?* Se o exame de saúde decorreu e não se vê resultados, então é provável que alguns dos pré-requisitos para o cheque falharam. Pode executar consultas: `Operation Solution=SCOMAssessment` e `SCOMAssessmentRecommendation FocusArea=Prerequisites` em Pesquisa de Registo para ver os pré-requisitos falhados.
+*Como saber se há falhas pré-requisitos?* Se o exame de saúde decorreu e não se vê resultados, então é provável que alguns dos pré-requisitos para o cheque falharam. Pode executar consultas: `Operation Solution=SCOMAssessment` `SCOMAssessmentRecommendation FocusArea=Prerequisites` e em 'Pesquisa de Registo' para ver os pré-requisitos falhados.
 
-*Há uma mensagem `Failed to connect to the SQL Instance (….).` em falhas pré-requisitos. Qual é o problema?* AdvisorAssessment.exe, o processo que recolhe dados, decorre no âmbito do processo HealthService no servidor de gestão. Como parte da verificação de saúde, o processo tenta ligar-se ao Servidor SQL onde está presente a base de dados do Gestor de Operações. Este erro pode ocorrer quando as regras de firewall bloqueiam a ligação à instância do Servidor SQL.
+*Há uma `Failed to connect to the SQL Instance (….).` mensagem em falhas pré-requisitos. Qual é o problema?* AdvisorAssessment.exe, o processo que recolhe dados, decorre no âmbito do processo HealthService no servidor de gestão. Como parte da verificação de saúde, o processo tenta ligar-se ao Servidor SQL onde está presente a base de dados do Gestor de Operações. Este erro pode ocorrer quando as regras de firewall bloqueiam a ligação à instância do Servidor SQL.
 
 *Que tipo de dados são recolhidos?* Os seguintes tipos de dados são recolhidos: - Dados do WMI - Dados do Registo - Dados do EventLog - Dados do Gestor de Operações através do Windows PowerShell, SQL Queries e File Information Collector.
 

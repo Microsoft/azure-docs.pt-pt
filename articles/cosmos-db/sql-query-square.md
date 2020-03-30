@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303448"
 ---
 # <a name="square-azure-cosmos-db"></a>QUADRADO (Azure Cosmos DB)
@@ -34,7 +34,7 @@ SQUARE(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve os quadrados de números de 1 a 3.  
+  O exemplo seguinte devolve os quadrados dos números 1-3.  
   
 ```sql
 SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  

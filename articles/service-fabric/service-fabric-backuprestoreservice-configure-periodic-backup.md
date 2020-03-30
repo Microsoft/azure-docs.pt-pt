@@ -1,42 +1,42 @@
 ---
 title: Compreender a configuração da cópia de segurança periódica
-description: Use o recurso de backup e restauração periódicos do Service Fabric para habilitar o backup de dados periódicos dos dados do seu aplicativo.
+description: Utilize a função de cópia de segurança periódica do Service Fabric para permitir a cópia de segurança periódica dos dados dos seus dados de aplicação.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610153"
 ---
-# <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreendendo a configuração de backup periódico no Azure Service Fabric
+# <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreender a configuração periódica de backup no Tecido de Serviço Azure
 
-Configurar o backup periódico de seus serviços confiáveis com estado ou Reliable Actors consiste nas seguintes etapas:
+Configurar cópias de segurança periódicas dos seus serviços fiáveis ou atores fiáveis consiste nos seguintes passos:
 
-1. **Criação de políticas de backup**: nesta etapa, uma ou mais políticas de backup são criadas dependendo dos requisitos.
+1. **Criação de políticas de backup**: Neste passo, uma ou mais políticas de backup são criadas dependendo dos requisitos.
 
-2. **Habilitando o backup**: nesta etapa, você associa as políticas de backup criadas na **etapa 1** para as entidades, o _aplicativo_, o _serviço_ou uma _partição_necessária.
+2. **Habilitar o backup**: Neste passo, associa as políticas de backup criadas no **Passo 1** às entidades, _Aplicação,_ _Serviço_ou Uma _Partição._
 
 ## <a name="create-backup-policy"></a>Criar política de backup
 
 Uma política de backup consiste nas seguintes configurações:
 
-* **Restauração automática de perda de dados**: especifica se a restauração deve ser iniciada automaticamente usando o backup mais recente disponível, caso a partição apresente um evento de perda de dados.
+* **Restabelecimento automático na perda**de dados : Especifica se deve desencadear a restauração automaticamente utilizando a mais recente cópia de segurança disponível no caso de a partição experimentar um evento de perda de dados.
 
-* **Máximo de backups incrementais**: define o número máximo de backups incrementais a serem feitos entre dois backups completos. Backups incrementais máximos especificam o limite superior. Um backup completo pode ser feito antes de o número especificado de backups incrementais ser concluído em uma das seguintes condições
+* **Backups incrementais max**: Define o número máximo de backups incrementais a serem tomados entre duas cópias de segurança completas. As cópias de segurança incrementais máximas especificam o limite superior. Uma cópia de segurança completa pode ser tomada antes que o número especificado de cópias de segurança incrementais seja concluído numa das seguintes condições
 
-    1. A réplica nunca fez um backup completo, pois se tornou primária.
+    1. A réplica nunca recebeu um reforço completo desde que se tornou primária.
 
-    2. Alguns dos registros de log desde o último backup foram truncados.
+    2. Alguns dos registos desde a última cópia de segurança foram truncados.
 
-    3. A réplica ultrapassou o limite de MaxAccumulatedBackupLogSizeInMB.
+    3. A réplica passou o limite MaxAcumuladodBackupLogSizeInMB.
 
-* **Agendamento de backup**: a hora ou a frequência na qual fazer backups periódicos. É possível agendar backups para serem recorrentes no intervalo especificado ou em um horário fixo diário/semanal.
+* **Horário de reserva**: A hora ou frequência para obter cópias de segurança periódicas. Pode-se agendar backups para serem recorrentes a intervalos determinados ou a um horário fixo diariamente/semanalmente.
 
-    1. **Agendamento de backup baseado em frequência**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em intervalos fixos. O intervalo de tempo desejado entre dois backups consecutivos é definido usando o formato ISO8601. O agendamento de backup baseado em frequência dá suporte à resolução de intervalo para o minuto.
+    1. **Programa ção de backup baseada em frequências**: Este tipo de horário deve ser utilizado se a necessidade for de obter a cópia de segurança dos dados em intervalos fixos. O intervalo de tempo desejado entre duas cópias de segurança consecutivas é definido utilizando o formato ISO8601. O calendário de backup baseado em frequência suporta a resolução de intervalos ao minuto.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -44,8 +44,8 @@ Uma política de backup consiste nas seguintes configurações:
         }
         ```
 
-    2. **Agendamento de backup baseado em tempo**: esse tipo de agendamento deve ser usado se a necessidade for fazer o backup de dados em horários específicos do dia ou da semana. O tipo de frequência de agendamento pode ser diário ou semanal.
-        1. **Agendamento de backup com base em tempo _diário_** : esse tipo de agendamento deve ser usado se a ID necessária para fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _Daily_; e definir `RunTimes` para a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com o tempo será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _6:00 PM_ diariamente, ignorando a parte da data _0001-01-01_. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9:00 a.m._ e _6:00 PM_ diariamente.
+    2. **Calendário de backup baseado no tempo**: Este tipo de horário deve ser utilizado se a necessidade for de obter cópiade segurança de dados em horas específicas do dia ou da semana. O tipo de frequência de horário pode ser diário ou semanal.
+        1. ** _Horário_ de backup baseado no tempo diário**: Este tipo de horário deve ser utilizado se o id necessário para obter cópias de segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para o _Daily;_ e `RunTimes` definido para listar o tempo desejado durante o dia no formato ISO8601, a data especificada juntamente com o tempo serão ignoradas. Por exemplo, `0001-01-01T18:00:00` representa _18:00 todos_ os dias, ignorando a data _0001-01-01_. Abaixo o exemplo ilustra a configuração para desencadear a cópia de segurança diária às _9:00_ e _18:00_ todos os dias.
 
             ```json
             {
@@ -58,7 +58,7 @@ Uma política de backup consiste nas seguintes configurações:
             }
             ```
 
-        2. **Agendamento de backup com base em tempo _semanal_** : esse tipo de agendamento deve ser usado se a ID necessária para fazer o backup de dados em horários específicos do dia. Para especificar isso, defina `ScheduleFrequencyType` como _semanal_; Defina `RunDays` como lista de dias em uma semana quando o backup precisar ser disparado e definido `RunTimes` para a lista de tempo desejado durante o dia no formato ISO8601, a data especificada junto com o tempo será ignorada. Lista de dias da semana em que o backup periódico será disparado. O exemplo abaixo ilustra a configuração para disparar o backup diário às _9:00 am_ e _6:00 PM_ durante segunda-feira a sexta-feira.
+        2. ** _Horário_ de backup baseado no tempo semanal**: Este tipo de horário deve ser utilizado se o id necessário para obter cópiade segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para _Weekly;_ definido `RunDays` para lista de dias numa semana em que `RunTimes` o backup precisa ser desencadeado e definido para listar o tempo desejado durante o dia no formato ISO8601, a data especificada juntamente com o tempo serão ignoradas. Lista de dias de uma semana para ativar a cópia de segurança periódica. Abaixo o exemplo ilustra a configuração para desencadear cópias de segurança diárias às _9:00_ e _18:00_ durante de segunda a sexta-feira.
 
             ```json
             {
@@ -78,8 +78,8 @@ Uma política de backup consiste nas seguintes configurações:
             }
             ```
 
-* **Armazenamento de backup**: especifica o local para carregar os backups. O armazenamento pode ser o repositório de blob do Azure ou o compartilhamento de arquivos.
-    1. **Repositório de blob do Azure**: esse tipo de armazenamento deve ser selecionado quando a necessidade é armazenar backups gerados no Azure. Os clusters _autônomos_ e _baseados no Azure_ podem usar esse tipo de armazenamento. A descrição para esse tipo de armazenamento requer uma cadeia de conexão e o nome do contêiner em que os backups precisam ser carregados. Se o contêiner com o nome especificado não estiver disponível, ele será criado durante o carregamento de um backup.
+* **Armazenamento de cópia de segurança:** Especifica a localização para fazer o upload de cópias de segurança. O armazenamento pode ser loja de blob Azure ou partilha de ficheiros.
+    1. **Loja de blob Azure**: Este tipo de armazenamento deve ser selecionado quando a necessidade é armazenar cópias de segurança geradas em Azure. Tanto os clusters _autónomos_ como os _azure_ podem utilizar este tipo de armazenamento. A descrição deste tipo de armazenamento requer cadeia de ligação e nome do recipiente onde as cópias de segurança precisam de ser carregadas. Se o recipiente com o nome especificado não estiver disponível, então será criado durante o upload de uma cópia de segurança.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -89,8 +89,8 @@ Uma política de backup consiste nas seguintes configurações:
         }
         ```
 
-    2. **Compartilhamento de arquivos**: esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar o backup de dados no local. A descrição para esse tipo de armazenamento requer o caminho de compartilhamento de arquivos em que os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
-        1. _Autenticação integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores pertencentes ao Cluster Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado em _compartilhamento de arquivos_ .
+    2. **Partilha de ficheiros**: Este tipo de armazenamento deve ser selecionado para clusters _autónomos_ quando a necessidade é armazenar cópias de segurança de dados no local. A descrição deste tipo de armazenamento requer o caminho da partilha de ficheiros onde as cópias de segurança precisam de ser carregadas. O acesso à partilha de ficheiros pode ser configurado utilizando uma das seguintes opções
+        1. _Autenticação Integrada do Windows,_ onde o acesso à partilha de ficheiros é fornecido a todos os computadores pertencentes ao cluster Service Fabric. Neste caso, delineie os seguintes campos para configurar o armazenamento de cópia de segurança baseado em _partilha de ficheiros._
 
             ```json
             {
@@ -100,7 +100,7 @@ Uma política de backup consiste nas seguintes configurações:
             }
             ```
 
-        2. _Proteger o compartilhamento de arquivos usando o nome de usuário e a senha_, onde o acesso ao compartilhamento de arquivos é fornecido a usuários específicos. A especificação de armazenamento de compartilhamento de arquivos também fornece a capacidade de especificar o nome de usuário secundário e a senha secundária para fornecer credenciais de fallback no caso de a autenticação falhar com o nome de usuário primário e a senha primária. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado em _compartilhamento de arquivos_ .
+        2. _Proteger a partilha de ficheiros utilizando o nome do utilizador e a palavra-passe,_ onde a partilha de ficheiros é fornecida a utilizadores específicos. A especificação de armazenamento de partilha de ficheiros também fornece capacidade para especificar o nome de utilizador secundário e a palavra-passe secundária para fornecer credenciais de recuo no caso de a autenticação falhar com o nome principal do utilizador e a palavra-passe primária. Neste caso, delineie os seguintes campos para configurar o armazenamento de cópia de segurança baseado em _partilha de ficheiros._
 
             ```json
             {
@@ -115,11 +115,11 @@ Uma política de backup consiste nas seguintes configurações:
             ```
 
 > [!NOTE]
-> Verifique se a confiabilidade do armazenamento atende ou excede os requisitos de confiabilidade dos dados de backup.
+> Certifique-se de que a fiabilidade do armazenamento satisfaz ou excede os requisitos de fiabilidade dos dados de backup.
 >
 
-* **Política de retenção**: especifica a política para reter backups no armazenamento configurado. Há suporte apenas para a política de retenção básica.
-    1. **Política de retenção básica**: essa política de retenção permite garantir a utilização de armazenamento ideal removendo arquivos de backup que não são mais necessários. `RetentionDuration` pode ser especificado para definir o período de tempo para o qual os backups devem ser retidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para garantir que o número especificado de backups seja sempre mantido, independentemente do `RetentionDuration`. O exemplo abaixo ilustra a configuração para reter backups por _10_ dias e não permite que o número de backups fique abaixo de _20_.
+* **Política de Retenção**: Especifica a política de retenção de cópias de segurança no armazenamento configurado. Apenas a Política básica de retenção é apoiada.
+    1. **Política de Retenção Básica**: Esta política de retenção permite garantir uma utilização ótima do armazenamento removendo ficheiros de backup que já não são necessários. `RetentionDuration`pode ser especificado para definir o tempo de tempo para o qual as cópias de segurança são necessárias para serem retidas no armazenamento. `MinimumNumberOfBackups`é um parâmetro opcional que pode ser especificado para garantir que o número especificado de cópias de segurança são sempre retidos independentemente do `RetentionDuration`. Abaixo o exemplo ilustra a configuração para reter backups durante _10_ dias e não permite que o número de backups seja inferior a _20_.
 
         ```json
         {
@@ -129,117 +129,117 @@ Uma política de backup consiste nas seguintes configurações:
         }
         ```
 
-## <a name="enable-periodic-backup"></a>Habilitar backup periódico
-Depois de definir a política de backup para atender aos requisitos de backup de dados, a política de backup deve ser apropriadamente associada a um _aplicativo_ou _serviço_ou uma _partição_.
+## <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
+Após a definição da política de backup para satisfazer os requisitos de backup de dados, a política de backup deve ser adequadamente associada a uma _aplicação,_ ou _serviço,_ ou a uma _partilha_.
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagação hierárquica da política de backup
-No Service Fabric, a relação entre o aplicativo, o serviço e as partições é hierárquica, conforme explicado no [modelo de aplicativo](./service-fabric-application-model.md). A política de backup pode ser associada a um _aplicativo_, _serviço_ou uma _partição_ na hierarquia. A política de backup propaga hierarquicamente para o próximo nível. Supondo que haja apenas uma política de backup criada e associada a um _aplicativo_, todas as partições com estado que pertencem a todos os _serviços confiáveis com estado_ e _Reliable Actors_ do _aplicativo_ serão submetidas a backup usando a política de backup. Ou, se a política de backup estiver associada a um _serviço com estado confiável_, todas as suas partições serão submetidas a backup usando a política de backup.
+No Tecido de Serviço, a relação entre aplicação, serviço e partições é hierárquica, como explicado no [modelo de Aplicação.](./service-fabric-application-model.md) A política de backup pode ser associada quer a uma _aplicação,_ _serviço,_ quer a uma _divisão_ na hierarquia. A política de backup propaga-se hierárquicamente ao próximo nível. Assumindo que existe apenas uma política de backup criada e associada a uma _aplicação,_ todas as divisórias imponentes pertencentes a todos os _serviços de estado confiáveis_ e _atores fiáveis_ da _aplicação_ serão apoiadas usando a política de backup. Ou se a política de backup estiver associada a um serviço fiável e _audato,_ todas as suas divisórias serão apoiadas usando a política de backup.
 
-### <a name="overriding-backup-policy"></a>Substituindo política de backup
-Pode haver um cenário em que o backup de dados com o mesmo agendamento de backup é necessário para todos os serviços do aplicativo, exceto para serviços específicos em que a necessidade é fazer o backup de dados usando uma agenda de frequência mais alta ou fazer backup em uma conta de armazenamento diferente ou FileShare. Para resolver esses cenários, o serviço de restauração de backup fornece recursos para substituir a política propagada no escopo do serviço e da partição. Quando a política de backup está associada ao _serviço_ ou à _partição_, ela substitui a política de backup propagada, se houver.
+### <a name="overriding-backup-policy"></a>Política de backup primordial
+Pode haver um cenário em que a cópia de segurança de dados com o mesmo calendário de backup é necessária para todos os serviços da aplicação, exceto para serviços específicos onde a necessidade é ter backup de dados usando um horário de frequência mais elevado ou levando backup para uma conta de armazenamento diferente ou fileshare. Para abordar tais cenários, o serviço de restauro de backup fornece facilidade para anular a política propagada no âmbito de serviço e partilha. Quando a política de backup está associada ao _serviço_ ou _à partilha,_ substitui a política de backup propagada, se houver.
 
 ### <a name="example"></a>Exemplo
 
-Este exemplo usa a instalação com dois aplicativos, _MyApp_A_ e _MyApp_B_. O aplicativo _MyApp_A_ contém dois serviços confiáveis com estado, _SvcA1_ & _SvcA3_e um serviço de ator confiável, _ActorA2_. _SvcA1_ contém três partições, enquanto _ActorA2_ e _SvcA3_ contêm duas partições cada.  O aplicativo _MyApp_B_ contém três serviços confiáveis com estado, _SvcB1_, _SvcB2_e _SvcB3_. _SvcB1_ e _SvcB2_ contêm duas partições, cada uma enquanto _SvcB3_ contém três partições.
+Este exemplo utiliza a configuração com duas aplicações, _MyApp_A_ e _MyApp_B._ Aplicação _MyApp_A_ contém dois serviços de stateude fiável, & _SvcA1 SvcA3,_ e um serviço de Ator Fiável, _ActorA2_. _SvcA1_ _O SvcA1_ contém três divisórias, enquanto o _ActorA2_ e o _SvcA3_ contêm duas divisórias cada.  A _aplicação MyApp_B_ contém três serviços fiáveis e estatais, _SvcB1,_ _SvcB2_e _SvcB3_. _SvcB1_ e _SvcB2_ contêm duas divisórias cada, enquanto _o SvcB3_ contém três divisórias.
 
-Suponha que os requisitos de backup de dados dos aplicativos sejam os seguintes
+Assuma que os requisitos de backup de dados destas aplicações são os seguintes
 
 1. MyApp_A
-    1. Crie backup diário de dados para todas as partições de todos os _serviços confiáveis com estado_ e _Reliable Actors_ pertencentes ao aplicativo. Carregar dados de backup para o local _BackupStore1_.
+    1. Crie cópias de segurança diárias de dados para todas as divisórias de todos os _serviços de Stateful Confiáveis_ e _Atores Fiáveis_ pertencentes à aplicação. Faça upload dos dados de backup para localizar _BackupStore1_.
 
-    2. Um dos serviços, _SvcA3_, requer o backup de dados a cada hora.
+    2. Um dos serviços, o _SvcA3,_ requer cópia de segurança de dados a cada hora.
 
-    3. O tamanho dos dados na partição _SvcA1_P2_ é mais do que o esperado e seus dados de backup devem ser armazenados em um local de armazenamento diferente _BackupStore2_.
+    3. O tamanho dos dados na partilha _SvcA1_P2_ é mais do que o esperado e os seus dados de backup devem ser armazenados em diferentes locais de armazenamento _BackupStore2_.
 
 2. MyApp_B
-    1. Crie backup de dados todos os domingos às 8:00 para todas as partições do serviço _SvcB1_ . Carregar dados de backup para o local _BackupStore1_.
+    1. Crie cópiade segurança de dados todos os domingos às 8:00 am para todas as divisórias do serviço _SvcB1._ Faça upload dos dados de backup para localizar _BackupStore1_.
 
-    2. Crie backup de dados todos os dias às 8:00 para a partição _SvcB2_P1_. Carregar dados de backup para o local _BackupStore1_.
+    2. Crie cópia de segurança de dados todos os dias às 8:00 am para _SvcB2_P1_de partição . Faça upload dos dados de backup para localizar _BackupStore1_.
 
-Para atender a esses requisitos de backup de dados, as políticas de backup BP_1 para BP_5 são criadas e o backup é habilitado da seguinte maneira.
+Para responder a estes requisitos de backup de dados, as políticas de backup BP_1 a BP_5 são criadas e a cópia de segurança está ativada da seguinte forma.
 1. MyApp_A
-    1. Crie a política de backup, _BP_1_, com o agendamento de backup baseado em frequência, em que Frequency é definido como 24 horas. e armazenamento de backup configurado para usar o local de armazenamento _BackupStore1_. Habilite esta política para _MyApp_A_ de aplicativos usando a API de [backup de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Essa ação permite o backup de dados usando a política de backup _BP_1_ para todas as partições de _serviços confiáveis com estado_ e _Reliable Actors_ pertencentes ao _MyApp_A_de aplicativos.
+    1. Crie uma política de backup, _BP_1,_ com um calendário de backup baseado em frequência, onde a frequência é definida para 24 Hrs. e armazenamento de reserva configurado para usar a localização de armazenamento _BackupStore1_. Ative esta política de _aplicação MyApp_A_ utilizando a API de backup de [aplicação ativa.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) Esta ação permite a cópia de segurança de dados utilizando _BP_1_ de política de backup para todas as divisórias de _serviços fiáveis e_ agentes _fiáveis_ pertencentes a _aplicações MyApp_A_.
 
-    2. Crie a política de backup, _BP_2_, com o agendamento de backup baseado em frequência, em que Frequency está definida como 1 h. e armazenamento de backup configurado para usar o local de armazenamento _BackupStore1_. Habilite esta política para o serviço _SvcA3_ usando a API de [backup do serviço de habilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Esta ação substitui a política propagada _BP_1_ pela política de backup habilitada explicitamente _BP_2_ para todas as partições de serviço _SvcA3_ que levam ao backup de dados usando a política de backup _BP_2_ para essas partições.
+    2. Crie uma política de backup, _BP_2,_ com um calendário de backup baseado em frequência, onde a frequência é definida para 1 Hrs. e armazenamento de reserva configurado para usar a localização de armazenamento _BackupStore1_. Ative esta política de serviço _SvcA3_ utilizando a [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Esta ação substitui a política propagada _BP_1_ por _uma_ política de backup ativada explicitamente BP_2 para todas as divisórias de serviço _SvcA3,_ levando à cópia de segurança dos dados utilizando _BP_2_ de política de backup para estas divisórias.
 
-    3. Crie a política de backup, _BP_3_, com o agendamento de backup baseado em frequência, em que Frequency é definido como 24 horas. e armazenamento de backup configurado para usar o local de armazenamento _BackupStore2_. Habilite esta política para _SvcA1_P2_ de partição usando habilitar API de [backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Esta ação substitui a política propagada _BP_1_ pela política de backup habilitada explicitamente _BP_3_ para _SvcA1_P2_de partição.
+    3. Crie uma política de backup, _BP_3,_ com um calendário de backup baseado em frequência, onde a frequência é definida para 24 Hrs. e armazenamento de reserva configurado para usar a localização de armazenamento _BackupStore2_. Ative esta política de divisória _SvcA1_P2_ utilizando a API de backup de [partição ativa.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) Esta ação substitui a _BP_1_ da política propagada, através de uma política de backup ativada explicitamente _BP_3_ para _SvcA1_P2_de partilha .
 
 2. MyApp_B
-    1. Crie a política de backup, _BP_4_, com o agendamento de backup baseado em tempo em que o tipo de frequência de agendamento está definido como semanal, a execução de dias é definida como domingo e os tempos de execução são definidos como 8:00 am. Armazenamento de backup configurado para usar o local de armazenamento _BackupStore1_. Habilite esta política para o serviço _SvcB1_ usando a API de [backup do serviço de habilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Essa ação permite o backup de dados usando a política de backup _BP_4_ para todas as partições do serviço _SvcB1_.
+    1. Crie uma política de backup, _BP_4,_ com horário de backup baseado no tempo, onde o tipo de frequência de horário é definido para semanal, os dias de execução estão definidos para domingo, e os tempos de execução estão definidos para as 8:00 da manhã. Armazenamento de reserva configurado para usar a localização de armazenamento _BackupStore1_. Ative esta política de serviço _SvcB1_ utilizando a [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Esta ação permite a cópia de segurança de dados utilizando a política de backup _BP_4_ para todas as divisórias do serviço _SvcB1_.
 
-    2. Crie a política de backup, _BP_5_, com o agendamento de backup baseado em tempo em que o tipo de frequência de agendamento é definido como diário e tempos de execução são definidos como 8:00 am. Armazenamento de backup configurado para usar o local de armazenamento _BackupStore1_. Habilite esta política para _SvcB2_P1_ de partição usando habilitar API de [backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Essa ação permite o backup de dados usando a política de backup _BP_5_ para _SvcB2_P1_de partição.
+    2. Crie uma política de backup, _BP_5,_ com horário de backup baseado no tempo, onde o tipo de frequência de horário é definido para o dia-a-dia e os tempos de execução estão definidos para as 8:00 da manhã. Armazenamento de reserva configurado para usar a localização de armazenamento _BackupStore1_. Ative esta política de partilha _SvcB2_P1_ utilizando a API de backup de [partição Ativa.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) Esta ação permite a cópia de segurança dos dados utilizando _BP_5 de_ política de backup para _SvcB2_P1_de partilha .
 
-O diagrama a seguir ilustra as políticas de backup habilitadas explicitamente e as políticas de backup propagadas.
+O diagrama seguinte retrata políticas de backup ativadas explicitamente e políticas de backup propagadas.
 
-![Hierarquia de aplicativo Service Fabric][0]
+![Hierarquia de Aplicação de Tecido de Serviço][0]
 
-## <a name="disable-backup"></a>Desabilitar backup
-As políticas de backup podem ser desabilitadas quando não há necessidade de fazer backup de dados. A política de backup habilitada em um _aplicativo_ só pode ser desabilitada no mesmo _aplicativo_ usando a API de [backup do aplicativo de desabilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) , a política de backup habilitada em um _serviço_ pode ser desabilitada no mesmo _serviço_ usando a API de backup do [serviço de desabilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) e a política de backup habilitada em uma _partição_ pode ser desabilitada na mesma _partição_ usando desabilitar API de [backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)
+## <a name="disable-backup"></a>Desativar a cópia de segurança
+As políticas de backup podem ser desativadas quando não há necessidade de fazer backup de dados. A política de backup ativada numa _aplicação_ só pode ser desativada na mesma _aplicação_ utilizando a API de backup de [aplicação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) para deficientes, a política de backup ativada num _serviço_ pode ser desativada no mesmo _serviço_ utilizando a API de backup de serviço de desativação, e a política de backup ativada numa _divisória_ pode ser desativada na mesma _divisória_ utilizando a API de backup de [desativação.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)
 
-* A desabilitação da política de backup para um _aplicativo_ interrompe todos os backups de dados periódicos que ocorrem como resultado da propagação da política de backup para partições de serviço confiáveis ou partições de ator confiáveis.
+* Desativar a política de backup de uma _aplicação_ impede que todas as cópias de segurança periódicas de dados ocorram como resultado da propagação da política de backup a divisórias de serviço fiável ou divisórias de ator fiável.
 
-* Desabilitar a política de backup para um _serviço_ interrompe todos os backups de dados periódicos que ocorrem como resultado da propagação dessa política de backup para as partições do _serviço_.
+* A desativação da política de backup de um _serviço_ impede que todas as cópias de segurança periódicas de dados aconteçam em resultado da propagação desta política de backup às divisórias do _serviço_.
 
-* A desabilitação da política de backup para uma _partição_ interrompe todo o backup de dados periódicos ocorridos devido à política de backup na partição.
+* Desativar a política de backup para uma _partição_ impede que todas as cópias de segurança periódicas ocorram devido à política de backup na partição.
 
-* Ao desabilitar o backup de uma entidade (aplicativo/serviço/partição), `CleanBackup` pode ser definido como _true_ para excluir todos os backups no armazenamento configurado.
+* Embora desativar a cópia de segurança para `CleanBackup` uma entidade (aplicação/serviço/partição), pode ser definido como _verdadeiro_ para eliminar todas as cópias de segurança em armazenamento configurado.
     ```json
     {
         "CleanBackup": true 
     }
     ```
 
-## <a name="suspend--resume-backup"></a>Suspender & retomar backup
-Determinada situação pode exigir uma suspensão temporária de dados periódicos de backup. Nessa situação, dependendo do requisito, a API de suspensão de backup pode ser usada em um _aplicativo_, _serviço_ou _partição_. A suspensão de backup periódico é transitiva sobre a subárvore da hierarquia do aplicativo do ponto em que é aplicada. 
+## <a name="suspend--resume-backup"></a>Suspender & retomar a cópia de segurança
+Determinada situação pode exigir a suspensão temporária da cópia de segurança periódica dos dados. Nesta situação, dependendo da exigência, a API de reserva pode ser utilizada numa _Aplicação,_ _Serviço_ou _Partição._ A suspensão periódica de backup é transitiva sobre a subárvore da hierarquia da aplicação a partir do ponto em que é aplicada. 
 
-* Quando a suspensão é aplicada a um _aplicativo_ usando a API de [backup do aplicativo de suspensão](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) , todos os serviços e partições desse aplicativo são suspensos para backup periódico de dados.
+* Quando a suspensão é aplicada numa _Aplicação_ utilizando a API de backup de [aplicações suspensa,](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) todos os serviços e divisórias ao abrigo desta aplicação são suspensos para cópia de segurança periódica de dados.
 
-* Quando a suspensão é aplicada a um _serviço_ usando a API de [backup do serviço de suspensão](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) , todas as partições nesse serviço são suspensas para backup periódico de dados.
+* Quando a suspensão é aplicada num _Serviço_ utilizando a API de backup de [serviço suspensa,](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) todas as divisórias sob este serviço são suspensas para cópia de segurança periódica de dados.
 
-* Quando a suspensão é aplicada a uma _partição_ usando a API de [backup de partição de suspensão](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) , ela suspende as partições nesse serviço são suspensas para backup periódico de dados.
+* Quando a suspensão é aplicada numa _Partição_ utilizando a API de backup de [divisória](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) suspensa, então suspende as divisórias ao abrigo deste serviço são suspensas para cópia de segurança periódica de dados.
 
-Quando a necessidade de suspensão terminar, o backup de dados periódicos poderá ser restaurado usando a API de backup de retomada. O backup periódico deve ser retomado no mesmo _aplicativo_, _serviço_ou _partição_ em que foi suspenso.
+Uma vez terminada a necessidade de suspensão, a cópia de segurança periódica de dados pode ser restaurada utilizando a respetiva API de reserva de retoma. A cópia de segurança periódica deve ser retomada na mesma _aplicação,_ _serviço_ou _partição_ onde foi suspensa.
 
-* Se a suspensão tiver sido aplicada a um _aplicativo_, ela deverá ser retomada usando a API de [backup do aplicativo de retomada](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) . 
+* Se a suspensão foi aplicada numa _Aplicação,_ então deve ser retomada utilizando a API de backup de pedido de [retoma.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) 
 
-* Se a suspensão tiver sido aplicada a um _serviço_, ela deverá ser retomada usando a API de [backup do serviço de retomada](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) .
+* Se a suspensão foi aplicada num _Serviço,_ então deve ser retomada utilizando a API de backup do [serviço de retoma.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup)
 
-* Se a suspensão tiver sido aplicada a uma _partição_, ela deverá ser retomada usando a API de [backup da partição de retomada](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) .
+* Se a suspensão foi aplicada numa _Partição,_ então deve ser retomada utilizando a API de backup de cópia de [retoma.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup)
 
-### <a name="difference-between-suspend-and-disable-backups"></a>Diferença entre suspender e desabilitar backups
-Desabilitar o backup deve ser usado quando os backups não forem mais necessários para um determinado aplicativo, serviço ou partição. É possível invocar desabilitar solicitação de backup junto com o parâmetro limpar backups para ser verdadeiro, o que significa que todos os backups existentes também são excluídos. No entanto, a suspensão deve ser usada em cenários em que um deseja desativar os backups temporariamente, como quando o disco local fica cheio ou o carregamento do backup está falhando devido a um problema de rede conhecido, etc. 
+### <a name="difference-between-suspend-and-disable-backups"></a>Diferença entre suspender e desativar backups
+Deve ser utilizada cópia de segurança quando as cópias de segurança já não forem necessárias para uma determinada aplicação, serviço ou partição. Pode-se invocar o pedido de desativação, juntamente com o parâmetro de cópias de segurança limpas, o que significaria que todas as cópias de segurança existentes também são eliminadas. No entanto, a suspensão deve ser utilizada em cenários em que se queira desligar as cópias de segurança temporariamente, como quando o disco local fica cheio ou o envio de cópias de segurança está a falhar devido a um problema de rede conhecido, etc. 
 
-Embora Disable possa ser invocado apenas em um nível que anteriormente foi habilitado para backup explicitamente, no entanto, a suspensão pode ser aplicada em qualquer nível que esteja atualmente habilitado para backup diretamente ou por meio de herança/hierarquia. Por exemplo, se o backup estiver habilitado em um nível de aplicativo, só poderá invocar Disable no nível do aplicativo, mas Suspend pode ser invocado no aplicativo, em qualquer serviço ou partição sob esse aplicativo. 
+Embora o desativação só possa ser invocado a um nível que tenha sido ativado anteriormente para cópia de segurança explicitamente, no entanto a suspensão pode ser aplicada a qualquer nível que esteja atualmente habilitado para cópia de segurança direta ou através de herança/hierarquia. Por exemplo, se a cópia de segurança estiver ativada a nível de aplicação, só se pode invocar desativar apenas ao nível da aplicação, no entanto, a suspensão pode ser invocada na aplicação, qualquer serviço ou partição ao abrigo dessa aplicação. 
 
-## <a name="auto-restore-on-data-loss"></a>Restauração automática de perda de dados
-A partição de serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco de duas de três réplicas para uma partição (incluindo a réplica primária) é corrompido ou apagado.
+## <a name="auto-restore-on-data-loss"></a>Restauração automática na perda de dados
+A partição do serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco para duas das três réplicas para uma partição (incluindo a réplica primária) é corrompido ou limpo.
 
-Quando Service Fabric detecta que a partição está em perda de dados, ela invoca `OnDataLossAsync` método de interface na partição e espera que a partição execute a ação necessária para sair da perda de dados. Nessa situação, se a política de backup efetivo na partição tiver `AutoRestoreOnDataLoss` sinalizador definido como `true`, a restauração será disparada automaticamente usando o backup mais recente disponível para esta partição.
+Quando o Tecido de Serviço deteta que a `OnDataLossAsync` partição está em perda de dados, invoca o método da interface na partição e espera que a partilha tome as medidas necessárias para sair da perda de dados. Nesta situação, se a política de `AutoRestoreOnDataLoss` backup eficaz `true` na divisória tiver uma bandeira definida para então o restauro é acionado automaticamente usando o mais recente backup disponível para esta partição.
 
-## <a name="get-backup-configuration"></a>Obter configuração de backup
-APIs separadas são disponibilizadas para obter informações de configuração de backup em um _aplicativo_, _serviço_e escopo de _partição_ . [Obter](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)informações de configuração de backup do aplicativo, [obter informações de configuração de backup do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)e [obter informações de configuração de backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respectivamente. Principalmente, essas APIs retornam a política de backup aplicável, o escopo no qual a política de backup é aplicada e os detalhes de suspensão de backup. Veja a seguir uma breve descrição sobre os resultados retornados dessas APIs.
+## <a name="get-backup-configuration"></a>Obtenha configuração de backup
+As APIs separadas são disponibilizadas para obter informações de configuração de backup numa _aplicação,_ _serviço_e âmbito _de partição._ [Obtenha informações de configuração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)de backup de aplicação, [obtenha informações](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)de configuração de backup de serviço, e obtenha informações de configuração de backup de [divisórias](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são estas APIs respectivamente. Principalmente, estas APIs devolvem a política de backup aplicável, âmbito no qual a política de backup é aplicada e detalhes de suspensão de backup. Segue-se uma breve descrição sobre os resultados devolvidos destas APIs.
 
-- Informações de configuração de backup do aplicativo: fornece os detalhes da política de backup aplicada no aplicativo e todas as políticas substituída em serviços e partições que pertencem ao aplicativo. Ele também inclui as informações de suspensão para o aplicativo e serviços de ti e partições.
+- Informação de configuração de backup de aplicações: fornece os detalhes da política de backup aplicada na aplicação e todas as políticas sobre-montadas em serviços e divisórias pertencentes à aplicação. Inclui também a informação de suspensão para a aplicação e serviços de ti, e divisórias.
 
-- Informações de configuração de backup de serviço: fornece os detalhes da política de backup em vigor no serviço e o escopo no qual essa política foi aplicada e todas as políticas substituída em suas partições. Ele também inclui as informações de suspensão para o serviço e suas partições.
+- Informação de configuração de backup de serviço: fornece os detalhes de uma política de backup eficaz no serviço e o âmbito a que esta política foi aplicada e todas as políticas sobre-montadas nas suas divisórias. Inclui também as informações de suspensão para o serviço e as suas divisórias.
 
-- Informações de configuração de backup de partição: fornece os detalhes da política de backup efetivo na partição e o escopo no qual essa política foi aplicada. Ele também inclui as informações de suspensão para as partições.
+- Informações de configuração de backup de divisórias: fornece os detalhes de uma política de backup eficaz na partilha e o âmbito a que esta política foi aplicada. Também inclui as informações de suspensão para as divisórias.
 
-## <a name="list-available-backups"></a>Listar backups disponíveis
+## <a name="list-available-backups"></a>Lista de backups disponíveis
 
-Os backups disponíveis podem ser listados usando a API obter lista de backup. O resultado da chamada à API inclui itens de informações de backup relacionados a todos os backups disponíveis no armazenamento de backup, que é configurado na política de backup aplicável. Variantes diferentes dessa API são fornecidas para listar os backups disponíveis que pertencem a um aplicativo, serviço ou partição. Essas APIs dão suporte à obtenção do backup _mais recente_ disponível de todas as partições aplicáveis ou à filtragem de backups com base na _data de início_ e na _data de término_.
+As cópias de segurança disponíveis podem ser listadas através da Lista de Cópia seletiva API. O resultado da chamada da API inclui itens de informação de backup relacionados com todas as cópias de segurança disponíveis no armazenamento de backup, que está configurado na política de backup aplicável. Diferentes variantes desta API são fornecidas para listar backups disponíveis pertencentes a uma aplicação, serviço ou partição. Estas APIs suportam obter a _mais recente_ cópia de segurança disponível de todas as divisórias aplicáveis, ou filtragem de backups com base na data de _início_ e data _de fim_.
 
-Essas APIs também dão suporte à paginação dos resultados, quando o parâmetro _MaxResults_ é definido como um inteiro positivo diferente de zero, a API retorna o máximo de itens de informações de backup do _MaxResults_ . No caso, há mais itens de informações de backup disponíveis do que o valor _MaxResults_ , então um token de continuação é retornado. O parâmetro de token de continuação válido pode ser usado para obter o próximo conjunto de resultados. Quando um valor de token de continuação válido é passado para a próxima chamada da API, a API retorna o próximo conjunto de resultados. Nenhum token de continuação é incluído na resposta quando todos os resultados disponíveis são retornados.
+Estas APIs também suportam a paginação dos resultados, quando o parâmetro _MaxResults_ é definido para um número não-zero positivo, então o API devolve itens máximos de informação de backup _MaxResults._ No caso de existirem mais itens de informação de backup disponíveis do que o valor _MaxResults,_ então um token de continuação é devolvido. O parâmetro de ficha de continuação válido pode ser usado para obter o próximo conjunto de resultados. Quando o valor simbólico de continuação válido é passado para a próxima chamada da API, a API devolve o próximo conjunto de resultados. Nenhum sinal de continuação é incluído na resposta quando todos os resultados disponíveis são devolvidos.
 
-Veja a seguir as informações breves sobre as variantes com suporte.
+Segue-se a breve informação sobre variantes suportadas.
 
-- [Obter lista de backup do aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retorna uma lista de backups disponíveis para cada partição que pertence a um determinado aplicativo Service Fabric.
+- [Obter Lista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)de Backup application : Devolve uma lista de backups disponíveis para cada partição pertencente a uma determinada aplicação de Tecido de Serviço.
 
-- [Obter lista de backup de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): retorna uma lista de backups disponíveis para cada partição que pertence a determinado serviço de Service Fabric.
+- [Obtenha lista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist)de backup de serviço : Devolve uma lista de backups disponíveis para cada partição pertencente ao serviço de Tecido de Serviço.
  
-- [Obter lista de backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retorna uma lista de backups disponíveis para a partição especificada.
+- Obtenha lista de [backup de divisórias:](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)Devolve uma lista de backups disponíveis para a partição especificada.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Referência da API REST de restauração de backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Cópia de segurança restaurar referência REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

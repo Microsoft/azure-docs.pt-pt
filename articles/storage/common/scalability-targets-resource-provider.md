@@ -1,6 +1,6 @@
 ---
-title: Escalabilidade para o provedor de recursos de armazenamento do Azure
-description: Escalabilidade e metas de desempenho para operações no provedor de recursos de armazenamento do Azure. O provedor de recursos implementa Azure Resource Manager para o armazenamento do Azure.
+title: Escalabilidade para o fornecedor de recursos de armazenamento Azure
+description: Metas de escalabilidade e desempenho para operações contra o fornecedor de recursos de armazenamento Azure. O fornecedor de recursos implementa o Gestor de Recursos Azure para o Armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,21 +9,21 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: e7fb118dbc53b36e01c8188b9013a3f739bf0c59
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75747791"
 ---
-# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Escalabilidade e metas de desempenho para o provedor de recursos de armazenamento do Azure
+# <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Metas de escalabilidade e desempenho para o fornecedor de recursos de armazenamento Azure
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-the-resource-provider"></a>Dimensionar destinos para o provedor de recursos
+## <a name="scale-targets-for-the-resource-provider"></a>Metas de escala para o fornecedor de recursos
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md)
-- [Cotas e limites de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Metas de escalabilidade e desempenho para contas de armazenamento padrão](scalability-targets-standard-account.md)
+- [Limites e quotas de subscrição do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

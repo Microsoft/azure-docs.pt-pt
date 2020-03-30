@@ -1,49 +1,49 @@
 ---
-title: Configurar um certificado de criptografia em clusters do Windows
-description: Saiba como configurar um certificado de criptografia e criptografar segredos em clusters do Windows.
+title: Configurar um certificado de encriptação em clusters do Windows
+description: Saiba como configurar um certificado de encriptação e encriptar segredos em clusters do Windows.
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d9413a37be221adc375836719dc1f467a5571fa0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610187"
 ---
-# <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurar um certificado de criptografia e criptografar segredos em clusters do Windows
-Este artigo mostra como configurar um certificado de criptografia e usá-lo para criptografar segredos em clusters do Windows. Para clusters do Linux, consulte [configurar um certificado de criptografia e criptografar segredos em clusters do Linux.][secret-management-linux-specific-link]
+# <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurar um certificado de encriptação e encriptar segredos em clusters do Windows
+Este artigo mostra como configurar um certificado de encriptação e usá-lo para encriptar segredos em clusters do Windows. Para os clusters Linux, consulte Configurar um certificado de [encriptação e encriptar segredos em clusters Linux.][secret-management-linux-specific-link]
 
-[Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters Service Fabric no Azure. Se você não estiver implantando no Azure, não será necessário usar Key Vault para gerenciar segredos em aplicativos Service Fabric. No entanto, o *uso* de segredos em um aplicativo é independente da plataforma de nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar. 
+[O Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como forma de obter certificados instalados em clusters de Tecido de Serviço em Azure. Se não estiver a ser implantado no Azure, não precisa de usar o Key Vault para gerir segredos em aplicações de Tecido de Serviço. No entanto, *o uso* de segredos numa aplicação é cloud platform-agnóstico para permitir que as aplicações sejam implementadas para um cluster hospedado em qualquer lugar. 
 
-## <a name="obtain-a-data-encipherment-certificate"></a>Obter um certificado de codificação de dados
-Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de [parâmetros][parameters-link] nas configurações. xml e [variáveis de ambiente][environment-variables-link] do serviço no Service manifest. XML de um serviço. Ele não é usado para autenticação ou assinatura de texto cifrado. O certificado deve atender aos seguintes requisitos:
+## <a name="obtain-a-data-encipherment-certificate"></a>Obter um certificado de obtenção de dados
+Um certificado de codificação de dados é usado estritamente para encriptação e desencriptação de [parâmetros][parameters-link] nas Definições de um serviço.xml e [variáveis ambientais][environment-variables-link] em serviceManifest.xml de um serviço. Não é utilizado para autenticação ou assinatura de texto cifrado. O certificado deve satisfazer os seguintes requisitos:
 
 * O certificado deve conter uma chave privada.
-* O certificado deve ser criado para troca de chaves, exportável para um arquivo de troca de informações pessoais (. pfx).
-* O uso da chave do certificado deve incluir a codificação de dados (10) e não deve incluir autenticação de servidor ou autenticação de cliente. 
+* O certificado deve ser criado para troca de chaves, exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
+* A utilização da chave do certificado deve incluir o Encipherment de Dados (10), e não deve incluir a autenticação do servidor ou a autenticação do cliente. 
   
-  Por exemplo, ao criar um certificado autoassinado usando o PowerShell, o sinalizador de `KeyUsage` deve ser definido como `DataEncipherment`:
+  Por exemplo, ao criar um certificado auto-assinado utilizando o PowerShell, a `KeyUsage` bandeira deve ser fixada para: `DataEncipherment`
   
   ```powershell
   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
   ```
 
-## <a name="install-the-certificate-in-your-cluster"></a>Instalar o certificado em seu cluster
-Esse certificado deve ser instalado em cada nó no cluster. Consulte [como criar um cluster usando Azure Resource Manager][service-fabric-cluster-creation-via-arm] para obter instruções de instalação. 
+## <a name="install-the-certificate-in-your-cluster"></a>Instale o certificado no seu cluster
+Este certificado deve ser instalado em cada nó do cluster. Veja como criar um cluster utilizando o Gestor de [Recursos Azure][service-fabric-cluster-creation-via-arm] para instruções de configuração. 
 
-## <a name="encrypt-application-secrets"></a>Criptografar segredos do aplicativo
-O comando do PowerShell a seguir é usado para criptografar um segredo. Esse comando apenas criptografa o valor; Ele não **assina o** texto cifrado. Você deve usar o mesmo certificado de codificação que está instalado em seu cluster para produzir texto cifrado para valores secretos:
+## <a name="encrypt-application-secrets"></a>Criptografe segredos de aplicação
+O seguinte comando PowerShell é usado para encriptar um segredo. Este comando apenas encripta o valor; **não** assina o texto da cifra. Deve utilizar o mesmo certificado de encipherment instalado no seu cluster para produzir texto de cifra para valores secretos:
 
 ```powershell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-A cadeia de caracteres codificada de base 64 resultante contém o texto cifrado secreto, bem como informações sobre o certificado que foi usado para criptografá-lo.
+A cadeia codificada base-64 resultante contém tanto o texto cifrado secreto como informações sobre o certificado que foi usado para encriptar.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como [especificar segredos criptografados em um aplicativo.][secret-management-specify-encrypted-secrets-link]
+Saiba especificar [segredos encriptados numa aplicação.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-overview.md

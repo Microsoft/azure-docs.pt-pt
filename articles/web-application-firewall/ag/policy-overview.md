@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: d90c887c2e93b44a8dd13dab0b4f03665ea335c3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060273"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política da firewall de aplicação web azure (WAF)
 
@@ -21,7 +21,7 @@ As políticas de firewall de aplicação web contêm todas as definições e con
 > [!NOTE]
 > As políticas azure Web Application Firewall (WAF) por site e por URI estão em Pré-visualização pública.
 > 
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Não há limite para o número de políticas que se pode criar. Quando se cria uma política, deve estar associada a uma porta de entrada de aplicação para produzir efeitos. Pode ser associado a qualquer combinação de gateways de aplicação, ouvintes e regras baseadas em caminhos.
 
@@ -57,7 +57,7 @@ Neste exemplo, tem uma política global que se aplica a dois sites. Você tem um
 
 ## <a name="existing-waf-configurations"></a>Configurações WAF existentes
 
-Todas as novas definições waf da Firewall de aplicação web (regras personalizadas, configurações de conjuntos de regras geridas, exclusões, e assim por diante.) existem numa política WAF. Se tiver um WAF existente, estas definições podem ainda existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, consulte (link: Migrar WAF Config para uma Política WAF). 
+Todas as novas definições waf da Firewall de aplicação web (regras personalizadas, configurações de conjuntos de regras geridas, exclusões, e assim por diante.) existem numa política WAF. Se tiver um WAF existente, estas definições podem ainda existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, [migrar WAF Config para uma política waf](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
 
 
 ## <a name="next-steps"></a>Passos seguintes

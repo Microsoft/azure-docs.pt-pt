@@ -4,25 +4,25 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7025b896a1bd156c448ccfcd0e9001c49146be4
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79368286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047729"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
 No Serviço Azure Kubernetes (AKS), os nódosos da mesma configuração são agrupados em *piscinas*de nó . Estas piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. O número inicial de nós e o seu tamanho (SKU) é definido quando se cria um cluster AKS, que cria uma piscina de *nós padrão*. Para suportar aplicações que tenham diferentes exigências de computação ou armazenamento, pode criar piscinas adicionais de nós. Por exemplo, utilize estes conjuntos de nós adicionais para fornecer GPUs para aplicações intensivas em cálculos ou acesso a armazenamento sSD de alto desempenho.
 
 > [!NOTE]
-> Esta funcionalidade permite um maior controlo sobre como criar e gerir várias piscinas de nós. Como resultado, são necessários comandos separados para criar/atualizar/eliminar. Anteriormente, as operações de cluster através `az aks create` ou `az aks update` utilizaram a API gerida do Cluster e foram a única opção para alterar o seu plano de controlo e uma única piscina de nó. Esta função expõe um conjunto de operação separado para piscinas de agentes através da API do agente Pool e exige a utilização do conjunto de comando `az aks nodepool` para executar operações numa piscina de nó individual.
+> Esta funcionalidade permite um maior controlo sobre como criar e gerir várias piscinas de nós. Como resultado, são necessários comandos separados para criar/atualizar/eliminar. Anteriormente, as `az aks create` `az aks update` operações de cluster através ou utilizadas a API gerida do Cluster e eram a única opção para alterar o seu plano de controlo e uma única piscina de nó. Esta função expõe um conjunto de operação separado para piscinas de `az aks nodepool` agentes através da API do agente Pool e exige a utilização do conjunto de comandos para executar operações numa piscina de nó individual.
 
 Este artigo mostra-lhe como criar e gerir várias piscinas de nós num cluster AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
+Precisa da versão 2.2.0 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="limitations"></a>Limitações
 
@@ -63,7 +63,7 @@ A criação do cluster demora alguns minutos.
 > [!NOTE]
 > Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós padrão, uma vez que os serviços essenciais do sistema estão a correr através desta piscina de nós.
 
-Quando o cluster estiver pronto, utilize o comando [az aks get-credentials][az-aks-get-credentials] para obter as credenciais de cluster para uso com `kubectl`:
+Quando o cluster estiver pronto, utilize o comando [az aks get-credentials][az-aks-get-credentials] para obter as credenciais de cluster para utilização com: `kubectl`
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -126,7 +126,7 @@ A saída de exemplo seguinte mostra que a *mynodepool* foi criada com sucesso co
 > [!NOTE]
 > As operações de atualização e escala num cluster ou num conjunto de nósoloreos não podem ocorrer simultaneamente, se se tentar um erro ser devolvido. Em vez disso, cada tipo de funcionamento deve ser preenchido no recurso-alvo antes do próximo pedido sobre esse mesmo recurso. Leia mais sobre isso no nosso guia de resolução de [problemas.](https://aka.ms/aks-pending-upgrade)
 
-Quando o seu cluster AKS foi inicialmente criado no primeiro passo, foi especificado um `--kubernetes-version` de *1.15.7.* Isto definiu a versão Kubernetes tanto para o plano de controlo como para a piscina de nós padrão. Os comandos nesta secção explicam como atualizar uma única piscina de nó específica.
+Quando o seu cluster AKS foi inicialmente `--kubernetes-version` criado no primeiro passo, foi especificado um de *1.15.7.* Isto definiu a versão Kubernetes tanto para o plano de controlo como para a piscina de nós padrão. Os comandos nesta secção explicam como atualizar uma única piscina de nó específica.
 
 A relação entre a atualização da versão Kubernetes do plano de controlo e a piscina do nó é explicada na [secção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
@@ -181,7 +181,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Leva alguns minutos para atualizar os nódosos para a versão especificada.
 
-Como uma boa prática, você deve atualizar todas as piscinas de nós em um cluster AKS para a mesma versão Kubernetes. O comportamento padrão da `az aks upgrade` é atualizar todas as piscinas de nós juntamente com o plano de controlo para alcançar este alinhamento. A capacidade de atualizar piscinas individuais de nós permite-lhe realizar uma atualização rolante e agendar cápsulas entre piscinas de nós para manter o tempo de up-up da aplicação dentro dos constrangimentos acima mencionados.
+Como uma boa prática, você deve atualizar todas as piscinas de nós em um cluster AKS para a mesma versão Kubernetes. O comportamento `az aks upgrade` padrão é atualizar todas as piscinas de nós juntamente com o plano de controlo para alcançar este alinhamento. A capacidade de atualizar piscinas individuais de nós permite-lhe realizar uma atualização rolante e agendar cápsulas entre piscinas de nós para manter o tempo de up-up da aplicação dentro dos constrangimentos acima mencionados.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualize um plano de controlo de cluster com várias piscinas de nós
 
@@ -195,11 +195,11 @@ Um cluster AKS tem dois objetos de recursos de cluster com versões Kubernetes a
 
 Um plano de controlo mapeia para uma ou muitas piscinas de nó. O comportamento de uma operação de atualização depende do comando Azure CLI.
 
-A atualização de um plano de controlo AKS requer a utilização de `az aks upgrade`. Este comando atualiza a versão do plano de controlo e todas as piscinas de nós no cluster.
+A atualização de um plano `az aks upgrade`de controlo AKS requer a utilização . Este comando atualiza a versão do plano de controlo e todas as piscinas de nós no cluster.
 
-Emitir o comando `az aks upgrade` com a bandeira `--control-plane-only` atualiza apenas o plano de controlo de clusters. Nenhuma das piscinas de nós associadas no cluster é alterada.
+Emitir o `az aks upgrade` comando `--control-plane-only` com a bandeira atualiza apenas o plano de controlo de clusters. Nenhuma das piscinas de nós associadas no cluster é alterada.
 
-A atualização das piscinas individuais do nó requer a utilização de `az aks nodepool upgrade`. Este comando atualiza apenas o conjunto de nó alvo com a versão especificada de Kubernetes
+A atualização das piscinas `az aks nodepool upgrade`individuais do nó requer a utilização . Este comando atualiza apenas o conjunto de nó alvo com a versão especificada de Kubernetes
 
 ### <a name="validation-rules-for-upgrades"></a>Regras de validação para upgrades
 
@@ -208,7 +208,7 @@ As atualizações válidas da Kubernetes para um plano de controlo e piscinas de
 * Regras para versões válidas para atualizar piscinas de nó:
    * A versão do piscina do nó deve ter a mesma versão *principal* do plano de controlo.
    * A versão *menor* do nó pool deve estar dentro de duas versões *menores* da versão de plano de controlo.
-   * A versão do pool de nó não pode ser maior do que a versão `major.minor.patch` de controlo.
+   * A versão do pool de nó `major.minor.patch` não pode ser maior do que a versão de controlo.
 
 * Regras para a apresentação de uma operação de atualização:
    * Não é possível desvalorizar o plano de controlo ou uma versão kubernetes de piscina de nó.
@@ -327,7 +327,7 @@ Nos exemplos anteriores para criar uma piscina de nó, um tamanho VM padrão foi
 
 No exemplo seguinte, crie uma piscina de nó baseada em GPU que utilize o *tamanho Standard_NC6* VM. Estes VMs são alimentados pelo cartão NVIDIA Tesla K80. Para obter informações sobre os tamanhos vm disponíveis, consulte [Sizes para máquinas virtuais Linux em Azure][vm-sizes].
 
-Crie uma piscina de nó usando a piscina de [nó az aks adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool,* e utilize o parâmetro `--node-vm-size` para especificar o tamanho *Standard_NC6:*
+Crie uma piscina de nó usando a piscina de [nó az aks adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool,* e utilize o `--node-vm-size` parâmetro para especificar o tamanho *Standard_NC6:*
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -397,7 +397,7 @@ O programador Kubernetes pode usar manchas e tolerâncias para restringir o que 
 
 Para obter mais informações sobre como usar funcionalidades agendadas avançadas da Kubernetes, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][taints-tolerations]
 
-Neste exemplo, aplique uma mancha no nó baseado em GPU usando o comando --nó-manchas. Especifique o nome do seu nó baseado em GPU a partir da saída do comando `kubectl get nodes` anterior. A mancha é aplicada como uma *chave:valor* e, em seguida, uma opção de agendamento. O exemplo seguinte utiliza o par *sku=gpu* e define as cápsulas de outra forma têm a capacidade *NoSchedule:*
+Neste exemplo, aplique uma mancha no nó baseado em GPU usando o comando --nó-manchas. Especifique o nome do seu nó baseado `kubectl get nodes` em GPU a partir da saída do comando anterior. A mancha é aplicada como uma *chave:valor* e, em seguida, uma opção de agendamento. O exemplo seguinte utiliza o par *sku=gpu* e define as cápsulas de outra forma têm a capacidade *NoSchedule:*
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -405,7 +405,7 @@ az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:No
 
 O seguinte exemplo básico YAML manifesto usa uma tolerância para permitir que o programador Kubernetes execute uma cápsula NGINX no nó baseado em GPU. Para um exemplo mais adequado, mas intensivo no tempo, para executar um trabalho de Tensorflow contra o conjunto de dados MNIST, consulte [as GPUs de utilização para cargas de trabalho intensivas em matéria de cálculo no AKS][gpu-cluster].
 
-Crie um ficheiro chamado `gpu-toleration.yaml` e copie no seguinte exemplo YAML:
+Criar um `gpu-toleration.yaml` ficheiro nomeado e copiar no seguinte exemplo YAML:
 
 ```yaml
 apiVersion: v1
@@ -430,7 +430,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-Agende a cápsula utilizando o comando `kubectl apply -f gpu-toleration.yaml`:
+Agende a `kubectl apply -f gpu-toleration.yaml` cápsula utilizando o comando:
 
 ```console
 kubectl apply -f gpu-toleration.yaml
@@ -463,7 +463,7 @@ Apenas as cápsulas que tenham esta mancha aplicada podem ser programadas em nó
 
 Ao criar uma piscina de nó, você pode adicionar manchas, etiquetas ou etiquetas a essa piscina de nó. Quando adiciona uma mancha, etiqueta ou etiqueta, todos os nós dentro dessa piscina de nó também obtêm essa mancha, etiqueta ou etiqueta.
 
-Para criar uma piscina de nó com uma mancha, use [az aks nodepool adicionar][az-aks-nodepool-add]. Especifique o nome *taintnp* e utilize o parâmetro `--node-taints` para especificar *sku=gpu:NoSchedule* para a mancha.
+Para criar uma piscina de nó com uma mancha, use [az aks nodepool adicionar][az-aks-nodepool-add]. Especifique o nome `--node-taints` *taintnp* e utilize o parâmetro para especificar *sku=gpu:NoSchedule* para a mancha.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -501,20 +501,9 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 A informação sobre a mancha é visível em Kubernetes para manusear as regras de agendamento para os nódosos.
 
-> [!IMPORTANT]
-> Para utilizar etiquetas e etiquetas de piscina de nós, necessita da versão de extensão CLI de *pré-visualização* de aks 0.4.35 ou superior. Instale a extensão Azure CLI de *pré-visualização de aks* utilizando o comando de adição de [extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
-> 
-> ```azurecli-interactive
-> # Install the aks-preview extension
-> az extension add --name aks-preview
-> 
-> # Update the extension to make sure you have the latest version installed
-> az extension update --name aks-preview
-> ```
-
 Você também pode adicionar etiquetas a uma piscina de nó durante a criação de piscina de nó. As etiquetas colocadas na piscina do nó são adicionadas a cada nó na piscina do nó. Estas [etiquetas são visíveis em Kubernetes][kubernetes-labels] para manusear as regras de agendamento para os nódosos.
 
-Para criar uma piscina de nó com uma etiqueta, use [az aks nodepool add][az-aks-nodepool-add]. Especifique o *rótulo* de nome e utilize o parâmetro `--labels` para especificar *dept=IT* e *costcenter=9999* para etiquetas.
+Para criar uma piscina de nó com uma etiqueta, use [az aks nodepool add][az-aks-nodepool-add]. Especifique o *rótulo* `--labels` de nome e utilize o parâmetro para especificar *dept=IT* e *costcenter=9999* para etiquetas.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -556,7 +545,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Você pode aplicar uma etiqueta Azure em piscinas de nós no seu cluster AKS. As etiquetas aplicadas a uma piscina de nó são aplicadas a cada nó dentro da piscina do nó e são persistidas através de upgrades. As etiquetas também são aplicadas a novos nódosos adicionados a uma piscina de nó durante as operações de escala. Adicionar uma etiqueta pode ajudar com tarefas como o rastreio de políticas ou a estimativa de custos.
 
-Crie uma piscina de nó usando o [add az aks nodepool][az-aks-nodepool-add]. Especifique o nome *tagnodepool* e utilize o parâmetro `--tag` para especificar *dept=IT* e *costcenter=9999* para etiquetas.
+Crie uma piscina de nó usando o [add az aks nodepool][az-aks-nodepool-add]. Especifique o nome *tagnodepool* e utilize o `--tag` parâmetro para especificar *dept=IT* e *costcenter=9999* para etiquetas.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -569,7 +558,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Também pode utilizar o parâmetro `--tags` quando utilizar o comando de [atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o parâmetro `--tags` aplica a etiqueta à piscina de nó inicial criada com o cluster. Todos os nomes de etiquetas devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure][tag-limitation]. Atualizar um conjunto de nó com o parâmetro `--tags` atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu conjunto de nós tivesse *dept=IT* e *costcenter=9999* para tags e o atualizou com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111*, e *team=dev* para tags.
+> Também pode utilizar `--tags` o parâmetro quando utilizar o comando de [atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a etiqueta à piscina de nó inicial criada com o cluster. Todos os nomes de etiquetas devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure][tag-limitation]. Atualizar um conjunto de `--tags` nó com o parâmetro atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu conjunto de nós tivesse *dept=IT* e *costcenter=9999* para tags e o atualizou com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111*, e *team=dev* para tags.
 
 A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *tagnodepool* está *criando* nódosos com a *etiqueta*especificada:
 
@@ -602,7 +591,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Quando utiliza um modelo de Gestor de Recursos Azure para criar e gerir recursos, normalmente pode atualizar as definições do seu modelo e recolocar para atualizar o recurso. Com piscinas de nós em AKS, o perfil inicial do pool do nó não pode ser atualizado uma vez que o cluster AKS foi criado. Este comportamento significa que não pode atualizar um modelo de Gestor de Recursos existente, fazer uma alteração nas piscinas do nó e reimplantar. Em vez disso, você deve criar um modelo separado de Gestor de Recursos que atualiza apenas as piscinas de nós para um cluster AKS existente.
 
-Crie um modelo como `aks-agentpools.json` e cola o seguinte manifesto exemplo. Este modelo de exemplo configura as seguintes definições:
+Crie um `aks-agentpools.json` modelo como e cola o seguinte manifesto exemplo. Este modelo de exemplo configura as seguintes definições:
 
 * Atualiza a piscina de *nólino Linux* chamada *myagentpool* para executar três nódosos.
 * Define os nódosos na piscina do nó para executar a versão Kubernetes *1.15.7*.
@@ -717,7 +706,7 @@ Os nódosos AKS não requerem os seus próprios endereços IP públicos para com
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registo bem sucedido, implemente um modelo de Gestor de Recursos Azure seguindo as mesmas instruções [que acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade de valor booleano `enableNodePublicIP` ao agentePoolProfiles. Detete o valor para `true` como por defeito, é definido como `false` se não especificado. Este imóvel é um imóvel apenas para criar tempo e requer uma versão API mínima de 2019-06-01. Isto pode ser aplicado tanto nas piscinas de nó linux como no Windows.
+Após o registo bem sucedido, implemente um modelo de Gestor de Recursos `enableNodePublicIP` Azure seguindo as mesmas instruções que [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade de valor booleano ao agentePoolProfiles. Desdefinir `true` o valor como por `false` defeito, é definido como se não especificado. Este imóvel é um imóvel apenas para criar tempo e requer uma versão API mínima de 2019-06-01. Isto pode ser aplicado tanto nas piscinas de nó linux como no Windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

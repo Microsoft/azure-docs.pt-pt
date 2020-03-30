@@ -1,22 +1,22 @@
 ---
-title: Elemento de interface do usuário do TextBlock
-description: Descreve o elemento de interface do usuário Microsoft. Common. TextBlock para portal do Azure. Use para adicionar texto à interface.
+title: Elemento UI do TextBlock
+description: Descreve o elemento Microsoft.Common.TextBlock UI para o portal Azure. Utilize para adicionar texto à interface.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652219"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Elemento de interface do usuário Microsoft. Common. TextBlock
+# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI
 
-Um controle que pode ser usado para adicionar texto à interface do Portal.
+Um controlo que pode ser usado para adicionar texto à interface do portal.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
@@ -45,5 +45,5 @@ Um controle que pode ser usado para adicionar texto à interface do Portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

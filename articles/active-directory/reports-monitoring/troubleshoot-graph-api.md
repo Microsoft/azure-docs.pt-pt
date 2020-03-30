@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399283"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Erros de resolução de problemas no Diretório Ativo da Azure reportam API
@@ -50,5 +50,5 @@ Siga os passos nos [Pré-requisitos para aceder à API](howto-configure-prerequi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Utilize a referência da Auditoria API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-[Utilize o relatório de atividade sessão Referência API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Utilize a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
+api audita[Utilize o relatório de atividades de inatividade de acesso a referência API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

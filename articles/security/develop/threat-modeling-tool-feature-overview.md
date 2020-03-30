@@ -1,6 +1,6 @@
 ---
-title: Visão geral do recurso de Microsoft Threat Modeling Tool-Azure
-description: Saiba mais sobre todos os recursos disponíveis no Threat Modeling Tool
+title: Visão geral da ferramenta de modelação de ameaças da Microsoft - Azure
+description: Conheça todas as funcionalidades disponíveis na Ferramenta de Modelação de Ameaças
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,143 +8,143 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552122"
 ---
-# <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso de Threat Modeling Tool
+# <a name="threat-modeling-tool-feature-overview"></a>Visão geral da ferramenta de modelação de ameaças
 
-O Threat Modeling Tool pode ajudá-lo com suas necessidades de modelagem de risco. Para obter uma introdução básica à ferramenta, consulte Introdução ao [Threat Modeling Tool](threat-modeling-tool-getting-started.md).
+A Ferramenta de Modelação de Ameaças pode ajudá-lo com as suas necessidades de modelação de ameaças. Para uma introdução básica à ferramenta, consulte Começar com a Ferramenta de [Modelação de Ameaças](threat-modeling-tool-getting-started.md).
 
 > [!NOTE]
->A Threat Modeling Tool é atualizada com frequência, portanto, verifique este guia com frequência para ver nossos recursos e aprimoramentos mais recentes.
+>A Ferramenta de Modelação de Ameaças é atualizada com frequência, por isso consulte este guia muitas vezes para ver as nossas últimas funcionalidades e melhorias.
 
-Para abrir uma página em branco, selecione **criar um modelo**.
+Para abrir uma página em branco, selecione **Criar um Modelo**.
 
 ![Página em branco](./media/threat-modeling-tool-feature-overview/tmtstart.png)
 
-Para ver os recursos disponíveis atualmente na ferramenta, use o modelo de ameaça criado por nossa equipe [no exemplo de introdução.](threat-modeling-tool-getting-started.md)
+Para ver as funcionalidades atualmente disponíveis na ferramenta, utilize o modelo de ameaça criado pela nossa equipa no exemplo [get started.](threat-modeling-tool-getting-started.md)
 
-![Modelo básico de ameaças](./media/threat-modeling-tool-feature-overview/basictmt.png)
+![Modelo de ameaça básica](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navegação
 
-Antes de discutirmos os recursos internos, vamos examinar os principais componentes encontrados na ferramenta.
+Antes de discutirmos as funcionalidades incorporadas, vamos rever os componentes principais encontrados na ferramenta.
 
 ### <a name="menu-items"></a>Itens de menu
 
-A experiência é semelhante a outros produtos da Microsoft. Vamos examinar os itens de menu de nível superior.
+A experiência é semelhante a outros produtos da Microsoft. Vamos rever os itens de menu de alto nível.
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Label                               | Detalhes      |
+| Etiqueta                               | Detalhes      |
 | --------------------------------------- | ------------ |
-| **Ficheiro** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entre e saia das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplique um novo modelo a modelos existentes.</li></ul> |
-| **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
-| **Vista** | <ul><li>Alternar entre as exibições de **análise** e **design** .</li><li>Abra janelas fechadas (por exemplo, estênceis, propriedades do elemento e mensagens).</li><li>Redefina o layout para as configurações padrão.</li></ul> |
-| **Organograma** | Adicionar e excluir diagramas e percorrer guias de diagramas. |
-| **Relatórios** | Crie relatórios HTML para compartilhar com outras pessoas. |
-| **Ajuda** | Encontre guias para ajudá-lo a usar a ferramenta. |
+| **Ficheiro** | <ul><li>Abrir, guardar e fechar ficheiros</li><li>Inscreva-se e assine as contas do OneDrive.</li><li>Partilhar links (ver e editar).</li><li>Ver informações sobre ficheiros.</li><li>Aplique um novo modelo nos modelos existentes.</li></ul> |
+| **Editar** | Desfazer e refazer ações, bem como copiar, colar e apagar. |
+| **Ver** | <ul><li>Alternaentre as vistas **de Análise** e **Design.**</li><li>Abrir janelas fechadas (por exemplo, stencils, propriedades de elementos e mensagens).</li><li>Redefinir o layout para as definições predefinidas.</li></ul> |
+| **Diagrama** | Adicione e elimine os diagramas e mova-se através de separadores de diagramas. |
+| **Relatórios** | Crie relatórios HTML para partilhar com os outros. |
+| **Help** | Encontre guias para o ajudar a utilizar a ferramenta. |
 
-Os símbolos são atalhos para os menus de nível superior:
+Os símbolos são atalhos para os menus de alto nível:
 
 | Símbolo                               | Detalhes      |
 | --------------------------------------- | ------------ |
-| **Aberto** | Abre um novo arquivo. |
-| **Guardar** | Salva o arquivo atual. |
-| **Estruturar** | Abre o modo de exibição de **design** , no qual você pode criar modelos. |
-| **Analisar** | Mostra as ameaças geradas e suas propriedades. |
-| **Adicionar diagrama** | Adiciona um novo diagrama (semelhante a novas guias no Excel). |
-| **Excluir diagrama** | Exclui o diagrama atual. |
-| **Copiar/recortar/colar** | Copia, corta e cola elementos. |
-| **Desfazer/refazer** | Desfaz e reexecuta ações. |
-| **Ampliar/reduzir** | Amplia e reduz o diagrama para uma exibição melhor. |
-| **Comentários** | Abre o fórum do MSDN. |
+| **Abrir** | Abre um novo ficheiro. |
+| **Guardar** | Guarda o ficheiro atual. |
+| **Design** | Abre a vista **Design,** onde pode criar modelos. |
+| **Analisar** | Mostra ameaças geradas e suas propriedades. |
+| **Adicionar diagrama** | Adiciona um novo diagrama (semelhante a novos separadores no Excel). |
+| **Eliminar diagrama** | Elimina o diagrama atual. |
+| **Cópia/Corte/Pasta** | Cópias, cortes e elementos de colares. |
+| **Desfazer/Redo** | Desfaz e refaz ações. |
+| **Zoom dentro/Zoom para fora** | Zooms dentro e fora do diagrama para uma melhor vista. |
+| **Feedback** | Abre o Fórum MSDN. |
 
-### <a name="canvas"></a>Tela
+### <a name="canvas"></a>Telas
 
-A tela é o espaço onde você arrasta e solta elementos. Arrastar e soltar é a maneira mais rápida e eficiente de criar modelos. Você também pode clicar com o botão direito do mouse e selecionar itens no menu para adicionar versões genéricas de elementos, conforme mostrado:
+A tela é o espaço onde se arrasta mato e larga elementos. Arrastar e largar é a forma mais rápida e eficiente de construir modelos. Também pode clicar à direita e selecionar itens do menu para adicionar versões genéricas de elementos, como mostrado:
 
-#### <a name="drop-the-stencil-on-the-canvas"></a>Soltar o estêncil na tela
+#### <a name="drop-the-stencil-on-the-canvas"></a>Largue o stencil na tela
 
-![Descartar tela](./media/threat-modeling-tool-feature-overview/canvasdrop1.png)
+![Gota de lona](./media/threat-modeling-tool-feature-overview/canvasdrop1.png)
 
-#### <a name="select-the-stencil"></a>Selecionar o estêncil
+#### <a name="select-the-stencil"></a>Selecione o stencil
 
 ![Propriedades do elemento](./media/threat-modeling-tool-feature-overview/canvasdrop2.png)
 
-### <a name="stencils"></a>Estênceis
+### <a name="stencils"></a>Stencils
 
-Com base no modelo selecionado, você pode encontrar todos os estênceis disponíveis para uso. Se você não encontrar os elementos certos, use outro modelo. Ou você pode modificar um modelo para atender às suas necessidades. Em geral, você pode encontrar uma combinação de categorias como estas:
+Com base no modelo que selecionar, pode encontrar todos os stencils disponíveis para usar. Se não encontrar os elementos certos, use outro modelo. Ou pode modificar um modelo para se adaptar às suas necessidades. Geralmente, você pode encontrar uma combinação de categorias como estas:
 
-| Nome do estêncil                               | Detalhes      |
+| Nome stencil                               | Detalhes      |
 | --------------------------------------- | ------------ |
-| **Process** | Aplicativos, plug-ins de navegador, threads, máquinas virtuais |
-| **Interator externo** | Provedores de autenticação, navegadores, usuários, aplicativos Web |
-| **Armazenamento de dados** | Cache, armazenamento, arquivos de configuração, bancos de dados, registro |
-| **Fluxo de dados** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, pipe nomeado, RPC/DCOM, SMB, UDP |
-| **Limite de linha/borda de confiança** | Redes corporativas, Internet, máquina, área restrita, modo de usuário/kernel |
+| **Processo** | Aplicações, plug-ins de navegador, fios, máquinas virtuais |
+| **Interagindo externo** | Fornecedores de autenticação, navegadores, utilizadores, aplicações web |
+| **Arquivo de dados** | Cache, armazenamento, ficheiros de configuração, bases de dados, registo |
+| **Fluxo de dados** | Binário, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, tubo nomeado, RPC/DCOM, SMB, UDP |
+| **Linha de confiança/fronteira** | Redes corporativas, internet, máquina, caixa de areia, modo utilizador/kernel |
 
 ### <a name="notesmessages"></a>Notas/mensagens
 
 | Componente                               | Detalhes      |
 | --------------------------------------- | ------------ |
-| **Mensagens** | Lógica de ferramenta interna que alerta os usuários sempre que houver um erro, como nenhum fluxo de dados entre os elementos. |
-| **Notas** | As notas manuais são adicionadas ao arquivo pelas equipes de engenharia em todo o processo de design e revisão. |
+| **Mensagens** | Lógica interna da ferramenta que alerta os utilizadores sempre que há um erro, como nenhum fluxo de dados entre elementos. |
+| **Notas** | As notas manuais são adicionadas ao ficheiro por equipas de engenharia durante todo o processo de conceção e revisão. |
 
 ### <a name="element-properties"></a>Propriedades do elemento
 
-As propriedades do elemento variam de acordo com os elementos selecionados. Além dos limites de confiança, todos os outros elementos contêm três seleções gerais:
+As propriedades do elemento variam pelos elementos que seleciona. Além dos limites de confiança, todos os outros elementos contêm três seleções gerais:
 
-| Propriedade do elemento                               | Detalhes      |
+| Propriedade de elementos                               | Detalhes      |
 | --------------------------------------- | ------------ |
-| **Nome** | Útil para nomear seus processos, lojas, interadores e fluxos para que eles sejam facilmente reconhecidos. |
-| **Fora do escopo** | Se selecionado, o elemento é retirado da matriz de geração de ameaças (não recomendado). |
-| **Motivo para fora do escopo** | Campo de justificativa para permitir que os usuários saibam por que o escopo foi selecionado. |
+| **Nome** | Útil para nomear os seus processos, lojas, interactors e fluxos para que sejam facilmente reconhecidos. |
+| **Fora de âmbito** | Se selecionado, o elemento é retirado da matriz de geração de ameaças (não recomendado). |
+| **Razão para fora de âmbito** | Campo de justificação para que os utilizadores saibam por que razão foi selecionado fora do âmbito. |
 
-As propriedades são alteradas em cada categoria de elemento. Selecione cada elemento para inspecionar as opções disponíveis. Ou você pode abrir o modelo para saber mais. Vamos examinar os recursos.
+As propriedades são alteradas em cada categoria de elementos. Selecione cada elemento para inspecionar as opções disponíveis. Ou pode abrir o modelo para saber mais. Vamos rever as características.
 
-## <a name="welcome-screen"></a>Tela de boas-vindas
+## <a name="welcome-screen"></a>Ecrã de Boas-Vindas
 
-Ao abrir o aplicativo, você verá a tela de **boas-vindas** .
+Ao abrir a aplicação, vê o ecrã **Welcome.**
 
-### <a name="open-a-model"></a>Abrir um modelo
+### <a name="open-a-model"></a>Abra um modelo
 
-Passe o mouse sobre **abrir um modelo** para revelar duas opções: **abrir neste computador** e **Abrir do onedrive**. A primeira opção abre a tela **Abrir arquivo** . A segunda opção leva você pelo processo de entrada para o OneDrive. Após a autenticação bem-sucedida, você pode selecionar pastas e arquivos.
+Paire sobre **um modelo aberto** para revelar duas opções: Open From This **Computer** e Open **From OneDrive**. A primeira opção abre o ecrã Aberto do **Ficheiro.** A segunda opção leva-o através do processo de entrada para o OneDrive. Após a autenticação bem sucedida, pode selecionar pastas e ficheiros.
 
-![Abrir modelo](./media/threat-modeling-tool-feature-overview/openmodel.png)
+![Modelo aberto](./media/threat-modeling-tool-feature-overview/openmodel.png)
 
-![Abrir do computador ou do OneDrive](./media/threat-modeling-tool-feature-overview/openmodel2.png)
+![Aberto a partir de computador ou OneDrive](./media/threat-modeling-tool-feature-overview/openmodel2.png)
 
-### <a name="feedback-suggestions-and-issues"></a>Comentários, sugestões e problemas
+### <a name="feedback-suggestions-and-issues"></a>Feedback, sugestões e questões
 
-Ao selecionar **comentários, sugestões e problemas**, você vai para o fórum do MSDN para ferramentas do SDL. Você pode ler o que outras pessoas estão dizendo sobre a ferramenta, incluindo soluções alternativas e novas ideias.
+Quando selecionar **Feedback, Sugestões e Problemas,** vá ao Fórum MSDN para ferramentas SDL. Pode ler o que as outras pessoas estão a dizer sobre a ferramenta, incluindo sobras e novas ideias.
 
 ![Comentários](./media/threat-modeling-tool-feature-overview/feedback.png)
 
-## <a name="design-view"></a>modo de exibição de Design
+## <a name="design-view"></a>Vista de design
 
-Quando você abre ou cria um novo modelo, a exibição **design** é aberta.
+Quando abre ou cria um novo modelo, abre-se a vista **Design.**
 
 ### <a name="add-elements"></a>Adicionar elementos
 
-Você pode adicionar elementos na grade de duas maneiras:
+Pode adicionar elementos na grelha de duas formas:
 
-- **Arrastar e soltar**: arraste o elemento desejado para a grade. Em seguida, use as propriedades do elemento para fornecer informações adicionais.
-- **Clique com o botão direito do mouse**: clique com o botão direito do mouse em qualquer lugar na grade e selecione itens no menu suspenso. Uma representação genérica do elemento selecionado aparece na tela.
+- **Arrastar e largar**: Arraste o elemento desejado para a grelha. Em seguida, use as propriedades do elemento para fornecer informações adicionais.
+- **Clique à direita**: Clique à direita em qualquer lugar da grelha e selecione itens do menu suspenso. Uma representação genérica do elemento que selecionar aparece no ecrã.
 
-### <a name="connect-elements"></a>Conectar elementos
+### <a name="connect-elements"></a>Ligar elementos
 
-Você pode conectar elementos de duas maneiras:
+Pode ligar elementos de duas formas:
 
-- **Arrastar e soltar**: arraste o fluxo de armazenamento desejado para a grade e conecte ambas as extremidades aos elementos apropriados.
-- **Clique em + Shift**: clique no primeiro elemento (enviando dados), pressione e segure a tecla Shift e, em seguida, selecione o segundo elemento (recebendo dados). Clique com o botão direito do mouse e selecione **conectar**. Se você usar um fluxo de dados bidirecional, a ordem não será tão importante.
+- **Arrastar e largar**: Arraste o fluxo de dados desejado para a rede e ligue ambas as extremidades aos elementos apropriados.
+- **Clique + Shift**: Clique no primeiro elemento (dados de envio), prima e mantenha a tecla Shift e, em seguida, selecione o segundo elemento (dados recetores). Clique à direita e selecione **Connect**. Se utilizar um fluxo de dados bidirecionais, a ordem não é tão importante.
 
 ### <a name="properties"></a>Propriedades
 
- Para ver as propriedades que podem ser modificadas nos estênceis, selecione o estêncil e as informações são preenchidas de acordo. O exemplo a seguir mostra antes e depois que um estêncil de **banco de dados** é arrastado para o diagrama:
+ Para ver as propriedades que podem ser modificadas nos stencils, selecione o stencil e a informação povoa em conformidade. O exemplo que se segue mostra antes e depois de um stencil de base de **dados** ser arrastado para o diagrama:
 
 #### <a name="before"></a>Antes
 
@@ -156,49 +156,49 @@ Você pode conectar elementos de duas maneiras:
 
 ### <a name="messages"></a>Mensagens
 
-Se você criar um modelo de ameaça e esquecer de conectar os fluxos de dados aos elementos, receberá uma notificação. Você pode ignorar a mensagem ou pode seguir as instruções para corrigir o problema. 
+Se criar um modelo de ameaça e se esquecer de ligar fluxos de dados a elementos, recebe uma notificação. Pode ignorar a mensagem ou seguir as instruções para corrigir o problema. 
 
 ![Mensagens](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notas
 
-Para adicionar anotações ao seu diagrama, alterne da guia **mensagens** para a guia **observações** .
+Para adicionar notas ao seu diagrama, mude do separador **Mensagens** para o separador **Notas.**
 
-## <a name="analysis-view"></a>Exibição de análise
+## <a name="analysis-view"></a>Vista de análise
 
-Depois de criar seu diagrama, selecione o símbolo de **análise** (a lupa) na barra de ferramentas atalhos para alternar para a exibição de **análise** .
+Depois de construir o seu diagrama, selecione o símbolo **de análise** (a lupa) na barra de ferramentas de atalhos para mudar para a vista **Análise.**
 
-![Exibição de análise](./media/threat-modeling-tool-feature-overview/analysisview.png)
+![Vista de análise](./media/threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Seleção de ameaças gerada
 
-Ao selecionar uma ameaça, você pode usar três funções distintas:
+Quando selecionar uma ameaça, pode utilizar três funções distintas:
 
-| Funcionalidade                               | Proteção das      |
+| Funcionalidade                               | Informações      |
 | --------------------------------------- | ------------ |
-| **Indicador de leitura** | <p>A ameaça é marcada como lida, o que ajuda você a acompanhar os itens revisados.</p><p>![Indicador de leitura/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
-| **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Propriedades da ameaça** | <p>Informações adicionais sobre a ameaça aparecem na janela **Propriedades da ameaça** .</p><p>](./media/threat-modeling-tool-feature-overview/threatproperties.png) ![Propriedades de ameaças</p> |
+| **Ler indicador** | <p>A ameaça está marcada como lida, o que o ajuda a acompanhar os itens que reviu.</p><p>![Indicador de leitura/não leitura](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é destacada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Propriedades de ameaça** | <p>Informações adicionais sobre a ameaça aparecem na janela **Ameaças Propriedades.**</p><p>![Propriedades de ameaça](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
-### <a name="priority-change"></a>Alteração de prioridade
+### <a name="priority-change"></a>Mudança prioritária
 
-Você pode alterar o nível de prioridade de cada ameaça gerada. Cores diferentes facilitam a identificação de ameaças de prioridade alta, média e baixa.
+Pode alterar o nível prioritário de cada ameaça gerada. Cores diferentes facilitam a identificação de ameaças de alta, média e baixa prioridade.
 
-![Alteração de prioridade](./media/threat-modeling-tool-feature-overview/prioritychange.png)
+![Mudança prioritária](./media/threat-modeling-tool-feature-overview/prioritychange.png)
 
-### <a name="threat-properties-editable-fields"></a>Campos editáveis de propriedades de ameaça
+### <a name="threat-properties-editable-fields"></a>Propriedades de ameaça campos editáveis
 
-Como visto na imagem anterior, você pode alterar as informações geradas pela ferramenta. Você também pode adicionar informações a determinados campos, como justificativa. Esses campos são gerados pelo modelo. Se precisar de mais informações para cada ameaça, você poderá fazer modificações.
+Como se pode ver na imagem anterior, pode alterar a informação gerada pela ferramenta. Também pode adicionar informações a determinados campos, como justificação. Estes campos são gerados pelo modelo. Se precisar de mais informações para cada ameaça, pode fazer modificações.
 
-![Propriedades da ameaça](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Propriedades de ameaça](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Relatórios
 
-Depois de concluir a alteração das prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **relatório** > **criar relatório completo**. Nomeie o relatório e você verá algo semelhante à imagem a seguir:
+Depois de terminar a mudança de prioridades e atualizar o estado de cada ameaça gerada, pode guardar o ficheiro e/ou imprimir um relatório. Vá ao **relatório** > **Criar Relatório Completo**. Diga o nome do relatório e deve ver algo semelhante à seguinte imagem:
 
 ![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Envie suas perguntas, comentários e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/threatmodelingtool)** o Threat Modeling Tool para começar.
-- Para contribuir com um modelo para a Comunidade, acesse nossa página do [GitHub](https://github.com/Microsoft/threat-modeling-templates) .
+- Envie as suas perguntas, comentários tmtextsupport@microsoft.come preocupações para . **[Descarregue](https://aka.ms/threatmodelingtool)** a Ferramenta de Modelação de Ameaças para começar.
+- Para contribuir com um modelo para a comunidade, vá à nossa página [gitHub.](https://github.com/Microsoft/threat-modeling-templates)

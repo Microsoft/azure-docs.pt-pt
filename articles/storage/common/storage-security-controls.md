@@ -2,19 +2,18 @@
 title: Controlos de segurança para armazenamento azure
 description: Uma lista de controlos de segurança para avaliar o armazenamento do Azure
 services: storage
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526761"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061119"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlos de segurança para armazenamento azure
 
@@ -41,7 +40,7 @@ Este artigo documenta os controlos de segurança incorporados no Armazenamento A
 | Isolamento da rede e suporte de firewalling| Sim | |
 | Apoio de túnel forçado| N/D |  |
 
-## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|

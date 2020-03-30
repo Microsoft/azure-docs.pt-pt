@@ -12,12 +12,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c5005f6438a53215054c6152722d1449aa593b4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050486"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade microsoft
 
@@ -39,7 +39,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 |---|---|
 | ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Certifique-se de que as informações associadas à conta que usou para registar e gerir aplicações estão atualizadas. |
 
-## <a name="branding"></a>Branding
+## <a name="branding"></a>Imagem corporativa
 
 |   |   |
 |---|---|
@@ -56,7 +56,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 
 |   |   |
 |---|---|
-| ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie os seus URIs redirecionados: <ul><li>Mantenha a propriedade de todos os seus URIs redirecionados e mantenha os registos DNS para os mesmos atualizados.</li><li>Não utilize wildcards (*) nas suas URIs.</li><li>Para aplicações web, certifique-se de que todos os URIs são seguros e encriptados (por exemplo, utilizando esquemas https).</li><li>Para clientes públicos, utilize URIs redirecionados específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, utilize URIs redirecionamento com uma elevada quantidade de aleatoriedade para evitar colisões quando ligar de volta para a sua aplicação.</li><li>Se a sua aplicação estiver a ser utilizada a partir de um agente web isolado, poderá utilizar https://login.microsoftonline.com/common/oauth2/nativeclient.</li><li>Reveja e corte regularmente todas as URIs não utilizadas ou desnecessárias.</li></ul> |
+| ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie os seus URIs redirecionados: <ul><li>Mantenha a propriedade de todos os seus URIs redirecionados e mantenha os registos DNS para os mesmos atualizados.</li><li>Não utilize wildcards (*) nas suas URIs.</li><li>Para aplicações web, certifique-se de que todos os URIs são seguros e encriptados (por exemplo, utilizando esquemas https).</li><li>Para clientes públicos, utilize URIs redirecionados específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, utilize URIs redirecionamento com uma elevada quantidade de aleatoriedade para evitar colisões quando ligar de volta para a sua aplicação.</li><li>Se a sua aplicação estiver a ser utilizada `https://login.microsoftonline.com/common/oauth2/nativeclient`a partir de um agente web isolado, poderá utilizar .</li><li>Reveja e corte regularmente todas as URIs não utilizadas ou desnecessárias.</li></ul> |
 | ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se a sua aplicação estiver registada num diretório, minimize e monitorize manualmente a lista dos proprietários de registos de aplicações. |
 | ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Não permita o apoio ao [fluxo de subvenção implícito OAuth2](v2-oauth2-implicit-grant-flow.md) a menos que seja expressamente necessário. Conheça o cenário válido [aqui](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Mova-se para além do nome de utilizador/palavra-passe. Não utilize o fluxo credencial de senha do proprietário de [recursos (ROPC)](v2-oauth-ropc.md), que lida diretamente com as palavras-passe dos utilizadores. Este fluxo requer um elevado grau de confiança e exposição ao utilizador e só deve ser utilizado quando outros fluxos mais seguros não podem ser utilizados. Este fluxo ainda é necessário em alguns cenários (como devOps), mas tenha cuidado com o facto de a sua utilização impor constrangimentos à sua aplicação.  Para abordagens mais modernas, leia [fluxos de autenticação e cenários de aplicação.](authentication-flows-app-scenarios.md)|

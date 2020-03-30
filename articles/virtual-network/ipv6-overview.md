@@ -1,7 +1,7 @@
 ---
-title: Visão geral do IPv6 para a rede virtual do Azure (visualização)
+title: Visão geral do IPv6 para rede virtual Azure (Pré-visualização)
 titlesuffix: Azure Virtual Network
-description: Descrição de IPv6 de pontos de extremidade IPv6 e caminhos de dados em uma rede virtual do Azure.
+description: Descrição iPv6 de pontos finais iPv6 e caminhos de dados numa rede virtual Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,77 +13,77 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2019
 ms.author: kumud
 ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780084"
 ---
-# <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>O que é IPv6 para a rede virtual do Azure? (Pré-visualização)
+# <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>O que é iPv6 para rede virtual Azure? (Pré-visualização)
 
-O IPv6 para VNet (rede virtual) do Azure permite hospedar aplicativos no Azure com conectividade IPv6 e IPv4 tanto dentro de uma rede virtual quanto de e para a Internet. Devido ao esgotamento de endereços IPv4 públicos, as novas redes para mobilidade e Internet das Coisas (IoT) geralmente são criadas no IPv6. O ISP e as redes móveis demoradas são transformadas no IPv6. Os serviços somente IPv4 podem se encontrar em uma desvantagem real nos mercados existentes e emergentes. A conectividade de IPv4/IPv6 de pilha dupla permite que os serviços hospedados no Azure percorram essa lacuna de tecnologia com serviços disponíveis globalmente e com pilha dupla que se conectam prontamente ao IPv4 existente e a esses novos dispositivos e redes IPv6.
+O IPv6 para a Rede Virtual Azure (VNet) permite-lhe hospedar aplicações em Azure com conectividade IPv6 e IPv4, tanto dentro de uma rede virtual como de e para a Internet. Devido ao esgotamento dos endereços públicos iPv4, as novas redes de mobilidade e Internet das Coisas (IoT) são frequentemente construídas no IPv6. Mesmo as redes ISP e móveis há muito estabelecidas estão a ser transformadas em IPv6. Os serviços só iPv4 podem encontrar-se em desvantagem real tanto nos mercados existentes como nos mercados emergentes. A conectividade Dual Stack IPv4/IPv6 permite que os serviços anfitriões do Azure atravessem esta lacuna tecnológica com serviços globalmente disponíveis e empilhados de dupla pilha que se conectam facilmente com o IPv4 existente e estes novos dispositivos e redes IPv6.
 
-A conectividade IPv6 original do Azure facilita o fornecimento de conectividade de Internet de pilha dupla (IPv4/IPv6) para aplicativos hospedados no Azure. Ele permite a implantação simples de VMs com conectividade IPv6 com balanceamento de carga para conexões iniciadas de entrada e de saída. Este recurso ainda está disponível e mais informações estão disponíveis [aqui](../load-balancer/load-balancer-ipv6-overview.md).
-O IPv6 para a rede virtual do Azure é muito mais completo – permitindo que as arquiteturas completas da solução IPv6 sejam implantadas no Azure.
+A conectividade iPv6 original da Azure facilita a disponibilizo conectividade à Internet de dupla pilha (IPv4/IPv6) para aplicações hospedadas em Azure. Permite uma simples implantação de VMs com conectividade IPv6 equilibrada de carga para ligações iniciadas de entrada e saída. Esta funcionalidade ainda está disponível e mais informações estão disponíveis [aqui.](../load-balancer/load-balancer-ipv6-overview.md)
+O IPv6 para a rede virtual Azure é muito mais completo, permitindo a implantação de arquiteturas de soluções IPv6 completas em Azure.
 
 > [!Important]
-> O IPv6 para a rede virtual do Azure está atualmente em visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> O IPv6 para a Rede Virtual Azure encontra-se atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-O diagrama a seguir ilustra uma implantação simples de pilha dupla (IPv4/IPv6) no Azure:
+O diagrama seguinte retrata uma simples dupla pilha (IPv4/IPv6) implantação em Azure:
 
 ![Diagrama de implantação de rede IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
 ## <a name="benefits"></a>Vantagens
 
-Benefícios do IPv6 para VNET do Azure:
+IPv6 para benefícios Azure VNET:
 
-- Ajuda a expandir o alcance de seus aplicativos hospedados no Azure para os mercados móveis e Internet das Coisas crescentes.
-- As VMs IPv4/IPv6 com pilha dupla fornecem flexibilidade máxima de implantação de serviço. Uma única instância de serviço pode se conectar com clientes de Internet compatíveis com IPv4 e IPv6.
-- O se baseia em uma conectividade IPv6 de VM para Internet do Azure demorada e estável.
-- Seguro por padrão, uma vez que a conectividade IPv6 com a Internet só é estabelecida quando você a solicita explicitamente em sua implantação.
+- Ajuda a expandir o alcance das suas aplicações hospedadas no Azure nos mercados mobile e Internet das Coisas em crescimento.
+- Os VMs IPv4/IPv6 empilhados duplos proporcionam a máxima flexibilidade de implementação do serviço. Uma única instância de serviço pode ligar-se tanto a clientes iPv4 como iPv6 capazes de Internet.
+- Baseia-se na conectividade Azure VM-to-Internet IPv6, há muito estabelecida e estável.
+- Seguro por padrão, uma vez que a conectividade IPv6 com a Internet só é estabelecida quando a solicitar explicitamente na sua implementação.
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
-O IPv6 para VNet do Azure inclui os seguintes recursos:
+O IPv6 para O Azure VNet inclui as seguintes capacidades:
 
-- Os clientes do Azure podem definir seu próprio espaço de endereço de rede virtual IPv6 para atender às necessidades de seus aplicativos, clientes ou integrar diretamente em seu espaço IP local.
-- Redes virtuais de pilha dupla (IPv4 e IPv6) com sub-redes de pilha dupla permitem que os aplicativos se conectem aos recursos IPv4 e IPv6 em sua rede virtual ou à Internet.
+- Os clientes Azure podem definir o seu próprio espaço de endereço de rede virtual IPv6 para atender às necessidades das suas aplicações, clientes ou integrar-se perfeitamente no seu espaço IP no local.
+- As redes virtuais dual stack (IPv4 e IPv6) com subredes de stack dupla permitem que as aplicações se conectem com os recursos IPv4 e IPv6 na sua rede virtual ou - na Internet.
     > [!IMPORTANT]
-    > As sub-redes para IPv6 devem ter o tamanho de exatamente/64.  Isso garante a compatibilidade futura caso você decida habilitar o roteamento da sub-rede para uma rede local, já que alguns roteadores só podem aceitar/64 rotas IPv6.  
-- Proteja seus recursos com regras IPv6 para grupos de segurança de rede.
-    - E as proteções de DDoS (negação de serviço distribuído) da plataforma Azure são estendidas para IP público voltado para a Internet
-- Personalize o roteamento do tráfego IPv6 em sua rede virtual com rotas definidas pelo usuário, especialmente ao aproveitar as soluções de virtualização de rede para aumentar seu aplicativo.
-- Linux e Máquinas Virtuais do Windows podem usar IPv6 para VNET do Azure
-- Suporte de [Load Balancer público do IPv6 padrão](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para criar aplicativos resilientes e escalonáveis, que incluem:
-    - Investigação de integridade IPv6 opcional para determinar quais instâncias de pool de back-end são integridade e, portanto, podem receber novos fluxos.
-    - Regras de saída opcionais que fornecem total controle declarativo sobre a conectividade de saída para dimensionar e ajustar essa capacidade às suas necessidades específicas.
-    - Várias configurações opcionais de front-end que permitem que um único balanceador de carga use vários endereços IP públicos IPv6-o mesmo protocolo de front-end e porta podem ser reutilizados em endereços de front-end.
-    - Portas IPv6 opcionais podem ser reutilizadas em instâncias de back-end usando o recurso *IP flutuante* de regras de balanceamento de carga 
-- Suporte [interno de Load Balancer padrão do IPv6](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para criar aplicativos multicamadas de várias camadas no Azure VNETs.  
-- Suporte básico a Load Balancer pública IPv6 para compatibilidade com implantações herdadas
-- Os [endereços IP públicos do IPv6 reservados e os intervalos de endereços](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a lista de permissões de seus aplicativos hospedados no Azure para sua empresa e seus clientes.
-- IP Público em Nível de Instância fornece conectividade de Internet IPv6 diretamente a VMs individuais.
-- [Adicionar IPv6 a implantações somente IPv4 existentes](ipv6-add-to-existing-vnet-powershell.md)– esse recurso permite que você adicione facilmente conectividade IPv6 a implantações somente IPv4 existentes sem a necessidade de recriar implantações.  O tráfego de rede IPv4 não é afetado durante esse processo, portanto, dependendo do seu aplicativo e do sistema operacional, você poderá adicionar o IPv6 mesmo aos serviços dinâmicos.    
-- Deixe os clientes da Internet acessarem diretamente seu aplicativo de pilha dupla usando o protocolo de sua escolha com o suporte do DNS do Azure para registros IPv6 (AAAA). 
-- Crie aplicativos de pilha dupla que dimensionam automaticamente para sua carga com conjuntos de dimensionamento de máquinas virtuais com IPv6.
-- [Emparelhamento de rede virtual (VNET)](virtual-network-peering-overview.md) -ambos dentro do emparelhamento regional e global – permite que você conecte Conecte VNETs de pilha dupla-os pontos de extremidade IPv4 e IPv6 em VMs nas redes emparelhadas poderão se comunicar entre si. Você pode até mesmo emparelhar a pilha dupla com VNETs somente IPv4, pois você está fazendo a transição de suas implantações para pilha dupla. 
-- Os diagnósticos e a solução de problemas de IPv6 estão disponíveis com os recursos de métricas/alertas do balanceador de carga e do observador de rede, como a captura de pacotes, logs de fluxo NSG, solução de problemas de conexão e monitoramento de conexão.   
+    > As subredes para IPv6 devem ter exatamente /64 de tamanho.  Isto garante a compatibilidade futura caso decida permitir o encaminhamento da subliga para uma rede no local, uma vez que alguns routers só podem aceitar rotas IPv6 /64.  
+- Proteja os seus recursos com as regras iPv6 para grupos de segurança de rede.
+    - E as proteções de Negação de Serviço Distribuídas (DDoS) da plataforma Azure são estendidas às ips públicas viradas para a Internet
+- Personalize o encaminhamento do tráfego IPv6 na sua rede virtual com rotas definidas pelo utilizador, especialmente quando alavancar os Aparelhos Virtuais da Rede para aumentar a sua aplicação.
+- Máquinas virtuais linux e Windows podem usar o IPv6 para O VNET Azure
+- [Suporte de Balancer de Carga pública IPv6 padrão](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para criar aplicações resilientes e escaláveis, que incluem:
+    - Sonda de saúde IPv6 opcional para determinar quais as instâncias de piscina de backend são saúde e, assim, pode receber novos fluxos.
+    - Regras de saída opcionais que fornecem controlo declarativo completo sobre a conectividade de saída para escalar e afinar esta capacidade às suas necessidades específicas.
+    - Configurações frontais opcionais múltiplas que permitem a um único equilibrador de carga utilizar vários endereços IP públicos IPv6, o mesmo protocolo frontend e porta podem ser reutilizados em endereços frontais.
+    - As portas IPv6 opcionais podem ser reutilizadas em instâncias de backend utilizando a funcionalidade *IP flutuante* das regras de equilíbrio de carga 
+- Suporte interno de balancedor de [carga IPv6 padrão](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para criar aplicações resilientes de vários níveis dentro de VNETs Azure.  
+- Suporte básico do Equilíbrio de Carga pública IPv6 para compatibilidade com implementações legados
+- [Endereços e endereços iPv6 reservados do IPv6](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a lista geminada das suas aplicações hospedadas em azul para a sua empresa e para os seus clientes.
+- O IP público de nível de instância fornece conectividade IPv6 internet diretamente a VMs individuais.
+- [Adicione iPv6 a implementações existentes apenas iPv4](ipv6-add-to-existing-vnet-powershell.md)- esta funcionalidade permite-lhe adicionar facilmente conectividade IPv6 às implementações apenas iPv4 existentes sem a necessidade de recriar implementações.  O tráfego de rede IPv4 não é afetado durante este processo, pelo que, dependendo da sua aplicação e dos OS, poderá adicionar iPv6 até aos serviços ao vivo.    
+- Deixe os clientes da Internet acederem sem problemas à sua aplicação dual stack utilizando o seu protocolo de eleição com suporte Azure DNS para registos IPv6 (AAAA). 
+- Crie aplicações de dupla pilha que escalam automaticamente para a sua carga com conjuntos de escala de máquina virtual com IPv6.
+- [O peering da Rede Virtual (VNET)](virtual-network-peering-overview.md) - tanto dentro do nível regional como global - permite-lhe ligar sem querer vNETs de dupla pilha, tanto os pontos finais IPv4 como IPv6 em VMs nas redes peered serão capazes de comunicar entre si. Você pode até mesmo peer dual stack com VNETs só iPv4 enquanto você está em transição suas implementações para dupla pilha. 
+- IPv6 Resolução de problemas e diagnósticos estão disponíveis com métricas/alertas de balanceadores de carga e funcionalidades do Network Watcher, tais como captura de pacotes, registos de fluxo NSG, resolução de problemas de ligação e monitorização de ligação.   
 
 ## <a name="scope"></a>Âmbito
-O IPv6 para VNET do Azure é um conjunto de recursos básico que permite que os clientes hospedem aplicativos de pilha dupla (IPv4 + IPv6) no Azure.  Pretendemos adicionar suporte a IPv6 a mais recursos de rede do Azure ao longo do tempo e, eventualmente, oferecer versões de pilha dupla dos serviços de PaaS do Azure, mas enquanto isso, todos os serviços de PaaS do Azure podem ser acessados por meio dos pontos de extremidade IPv4 em máquinas virtuais de pilha dupla.   
+O IPv6 para o Azure VNET é um conjunto de funcionalidades fundamentais que permite aos clientes hospedar aplicações dual stack (IPv4+IPv6) em Azure.  Pretendemos adicionar suporte IPv6 a mais funcionalidades de networking Azure ao longo do tempo e eventualmente oferecer versões dual stack dos serviços Azure PaaS, mas entretanto todos os serviços Azure PaaS podem ser acedidos através dos pontos finais do IPv4 em máquinas virtuais de dupla pilha.   
 
 ## <a name="limitations"></a>Limitações
-A versão atual do IPv6 para a rede virtual do Azure tem as seguintes limitações:
-- O IPv6 para a rede virtual do Azure (versão prévia) está disponível em todas as regiões globais do Azure, mas somente no Azure global-ainda não está em nuvens governamentais.
-- Os gateways de ExpressRoute e VPN não podem ser usados em uma VNET com IPv6 habilitado, diretamente ou emparelhado com "UseRemoteGateway". 
-- A plataforma Azure (AKS, etc.) não oferece suporte à comunicação IPv6 para contêineres.  
+O atual IPv6 para o lançamento da rede virtual Azure tem as seguintes limitações:
+- O IPv6 para a rede virtual Azure (Preview) está disponível em todas as regiões globais do Azure, mas apenas no Global Azure, ainda não em nuvens governamentais.
+- Os gateways ExpressRoute e VPN não podem ser utilizados num VNET com iPv6 ativado, diretamente ou com "UseRemoteGateway". 
+- A plataforma Azure (AKS, etc.) não suporta a comunicação IPv6 para contentores.  
 
 ## <a name="pricing"></a>Preços
 
-Os recursos e a largura de banda do Azure IPv6 são cobrados com as mesmas tarifas que o IPv4. Não há encargos adicionais ou diferentes para o IPv6. Você pode encontrar detalhes sobre os preços de [endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses/), [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Os recursos iPv6 Azure e a largura de banda são cobrados às mesmas tarifas que o IPv4. Não existem taxas adicionais ou diferentes para o IPv6. Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/)da rede ou [Balancer de Carga](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [implantar um aplicativo de pilha dupla IPv6 usando o Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
-- Saiba como [implantar um aplicativo de pilha dupla IPv6 usando o CLI do Azure](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
-- Saiba como [implantar um aplicativo IPv6 de pilha dupla usando os modelos do Resource Manager (JSON)](ipv6-configure-standard-load-balancer-template-json.md)
+- Aprenda a [implementar uma aplicação de dupla pilha IPv6 utilizando o Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+- Aprenda a [implementar uma aplicação de dupla pilha IPv6 utilizando o Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+- Saiba como [implementar uma aplicação de dupla pilha IPv6 utilizando modelos de gestor de recursos (JSON)](ipv6-configure-standard-load-balancer-template-json.md)

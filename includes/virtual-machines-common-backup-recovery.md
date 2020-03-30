@@ -9,32 +9,32 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184253"
 ---
 ## <a name="azure-backup"></a>Azure Backup
 
-Cópias de segurança de VMs do Azure, executar cargas de trabalho de produção, utilize o Azure Backup. O Azure Backup suporta cópias de segurança consistentes com aplicações para Windows e VMs do Linux. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou apenas ficheiros específicos. 
+Para apoiar os VMs Azure que executam cargas de trabalho de produção, utilize o Azure Backup. O Azure Backup suporta cópias de segurança consistentes com aplicações tanto para VMs Windows como Linux. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou apenas ficheiros específicos. 
 
-Para uma introdução prática e simple para o Azure Backup para VMs do Azure, veja o tutorial "cópia de segurança máquinas virtuais do Azure" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+Para uma introdução simples e prática ao Azure Backup para VMs Azure, consulte o tutorial "Back up Azure virtual machines" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
-Para obter mais informações sobre como cópia de segurança do Azure funciona, consulte [planear a sua infraestrutura de cópia de segurança de VM no Azure](../articles/backup/backup-azure-vms-introduction.md)
+Para obter mais informações sobre como funciona o Azure Backup, consulte [Planaa a sua infraestrutura de backup VM em Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-O Azure Site Recovery protege as VMs de um cenário de grandes proporções, quando uma região inteira sofre uma falha devido a grandes proporções natural ou a interrupção do serviço de distribuição. Pode configurar o Azure Site Recovery para as suas VMs, para que pode recuperar a sua aplicação com um único clique em questão de minutos. Pode replicar para uma região do Azure à sua escolha, não está limitado em regiões emparelhadas. 
+A Recuperação do Sítio Azure protege os seus VMs de um grande cenário de desastre, quando toda uma região sofre uma paragem devido a grande desastre natural ou interrupção generalizada do serviço. Pode configurar a Recuperação do Site Azure para os seus VMs para que possa recuperar a sua aplicação com um único clique em questão de minutos. Pode replicar-se numa região azure à sua escolha, não se restringe a regiões emparelhadas. 
 
-Pode executar testes de recuperação após desastre com as ativações pós-falha de teste a pedido, sem afetar as suas cargas de trabalho de produção ou os replicação em curso. Crie planos de recuperação para orquestrar a ativação pós-falha e reativação pós-falha de todo o aplicativo em execução em várias VMs. O recurso do plano de recuperação está integrado com os runbooks de automatização do Azure.
+Pode executar exercícios de recuperação de desastres com falhas no teste a pedido, sem afetar as suas cargas de trabalho de produção ou a replicação em curso. Crie planos de recuperação para orquestrar a failover e o failback de toda a aplicação em execução em vários VMs. A funcionalidade do plano de recuperação está integrada com os livros de automação Azure.
 
-Pode começar a utilizar pelo [replicar as máquinas virtuais](https://aka.ms/a2a-getting-started). 
+Pode começar [replicando as suas máquinas virtuais.](https://aka.ms/a2a-getting-started) 
 
 ## <a name="managed-snapshots"></a>Instantâneos geridos 
 
-Em ambientes de desenvolvimento e teste, instantâneos fornecem uma opção de rápido e simples para criar cópias de segurança de VMs que utilizam discos geridos. Um instantâneo gerido é uma cópia completa só de leitura de um disco gerido. Instantâneos existem independentemente do disco de origem e podem ser utilizados para criar novos discos geridos para recriar uma VM. Eles são faturados com base na parte utilizada do disco. Por exemplo, se criar um instantâneo de um disco gerido com capacidade aprovisionada de 64 GB e tamanho de dados utilizados real de 10 GB, o instantâneo será faturado apenas pelo tamanho de dados utilizados de 10 GB.  
+Em ambientes de desenvolvimento e teste, os instantâneos fornecem uma opção rápida e simples para apoiar VMs que usam Discos Geridos. Um instantâneo gerido é uma cópia completa de um disco gerido. Os instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos geridos para a reconstrução de um VM. São faturados com base na parte usada do disco. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade aprovisionada de 64 GB e tamanho real de dados utilizados de 10 GB, o instantâneo será faturado apenas para o tamanho de dados utilizados de 10 GB.  
 
 Para obter mais informações sobre a criação de instantâneos, consulte:
 
@@ -43,5 +43,5 @@ Para obter mais informações sobre a criação de instantâneos, consulte:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Pode experimentar o Azure Backup ao seguir a "cópia de segurança tutorial de máquinas virtuais do Windows" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Passos seguintes
+Pode experimentar o Azure Backup seguindo o "Back up Windows virtual machines tutorial" para [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

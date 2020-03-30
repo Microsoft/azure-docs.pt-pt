@@ -12,17 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062193"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar ou atualizar funções personalizadas para os recursos Do Azure utilizando a API REST
+
+> [!IMPORTANT]
+> A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando a API REST.
 
@@ -38,9 +43,10 @@ Para listar todas as funções personalizadas num diretório, utilize as [Defini
 
 1. Substitua *{filter}* com o tipo de função.
 
-    | Filtro | Descrição |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtro com base no tipo CustomRole |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filtro com base no tipo CustomRole |
 
 ## <a name="list-custom-roles-at-a-scope"></a>Listar papéis personalizados num âmbito
 
@@ -54,17 +60,20 @@ Para listar as funções personalizadas num âmbito, utilize as [Definições](/
 
 1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as funções.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Recurso |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{filter}* com o tipo de função.
 
-    | Filtro | Descrição |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtro com base no tipo CustomRole |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filtro com base no tipo CustomRole |
 
 ## <a name="list-a-custom-role-definition-by-name"></a>Listar uma definição de papel personalizada pelo nome
 
@@ -78,17 +87,20 @@ Para obter informações sobre um papel personalizado pelo seu nome de exibiçã
 
 1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as funções.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Recurso |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{filter}* com o nome do visor para a função.
 
-    | Filtro | Descrição |
-    | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Utilize a forma codificada de URL do nome exato do ecrã da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    > [!div class="mx-tableFixed"]
+    > | Filtro | Descrição |
+    > | --- | --- |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilize a forma codificada de URL do nome exato do ecrã da função. Por exemplo,`$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>Listar uma definição de função personalizada por ID
 
@@ -104,21 +116,23 @@ Para obter informações sobre um papel personalizado pelo seu identificador ún
 
 1. Dentro do URI, substitua *{scope}* com o âmbito para o qual pretende enumerar as funções.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Recurso |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da definição de função.
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Para criar uma função personalizada, use as Definições de [Função - Criar ou Atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar a isto API, deve ser contratado com um utilizador que tenha uma função que tenha a `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
+Para criar uma função personalizada, use as Definições de [Função - Criar ou Atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar a isto API, deve ser contratado com um utilizador `Microsoft.Authorization/roleDefinitions/write` que tenha `assignableScopes`uma função que tenha a permissão em todos os . Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
 
 1. Reveja a lista de [operações](resource-provider-operations.md) do fornecedor de recursos que estão disponíveis para criar as permissões para o seu papel personalizado.
 
-1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de funções personalizadas. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
+1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de funções personalizadas. O identificador tem o formato:`00000000-0000-0000-0000-000000000000`
 
 1. Comece com o seguinte pedido e corpo:
 
@@ -144,31 +158,38 @@ Para criar uma função personalizada, use as Definições de [Função - Criar 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
     ```
 
-1. Dentro do URI, substitua *{scope}* pela primeira `assignableScopes` da função personalizada.
+1. Dentro do URI, substitua *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-1. Dentro do organismo de pedido, na propriedade `assignableScopes`, *substitua {roleDefinitionId}* pelo identificador GUID.
+1. Dentro do organismo de pedido, substitua *{roleDefinitionId}* pelo identificador GUID.
 
-1. Substitua *{subscriçãoId}* com o seu identificador de subscrição.
+1. Se `assignableScopes` for um grupo de subscrição ou de recursos, substitua as instâncias *{subscriçãoId}* ou *{resourceGroup}* com os seus identificadores.
 
-1. Na `actions` imóvel, adicione as operações que o papel permite ser realizado.
+1. Se `assignableScopes` for um grupo de gestão, substitua a instância *{groupId}* pelo seu identificador de grupo de gestão. A adição de `assignableScopes` um grupo de gestão está atualmente em pré-visualização.
 
-1. Na propriedade `notActions`, adicione as operações que estão excluídas da `actions`permitida .
+1. No `actions` imóvel, adicione as operações que a função permite ser realizadas.
 
-1. Nas propriedades `roleName` e `description`, especifique um nome de papel único e uma descrição. Para mais informações sobre as propriedades, consulte [as funções personalizadas.](custom-roles.md)
+1. No `notActions` imóvel, adicione as operações que `actions`estão excluídas do permitido .
+
+1. Nas `roleName` propriedades `description` e propriedades, especifique um nome de papel único e uma descrição. Para mais informações sobre as propriedades, consulte [as funções personalizadas.](custom-roles.md)
 
     O seguinte mostra um exemplo de um órgão de pedido:
 
@@ -197,7 +218,8 @@ Para criar uma função personalizada, use as Definições de [Função - Criar 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -205,7 +227,7 @@ Para criar uma função personalizada, use as Definições de [Função - Criar 
 
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-Para atualizar uma função personalizada, utilize as Definições de [Função - Criar ou Atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar a isto API, deve ser contratado com um utilizador que tenha uma função que tenha a `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
+Para atualizar uma função personalizada, utilize as Definições de [Função - Criar ou Atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar a isto API, deve ser contratado com um utilizador `Microsoft.Authorization/roleDefinitions/write` que tenha `assignableScopes`uma função que tenha a permissão em todos os . Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
 
 1. Utilize as [Definições](/rest/api/authorization/roledefinitions/list) de Papel - Lista ou [Definições](/rest/api/authorization/roledefinitions/get) de Papel - Obtenha a API REST para obter informações sobre o papel personalizado. Para mais informações, consulte a secção de [papéis personalizados](#list-custom-roles) da Lista Anterior.
 
@@ -215,13 +237,14 @@ Para atualizar uma função personalizada, utilize as Definições de [Função 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Dentro do URI, substitua *{scope}* pela primeira `assignableScopes` da função personalizada.
+1. Dentro do URI, substitua *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
@@ -245,7 +268,11 @@ Para atualizar uma função personalizada, utilize as Definições de [Função 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
@@ -281,7 +308,8 @@ Para atualizar uma função personalizada, utilize as Definições de [Função 
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -289,7 +317,7 @@ Para atualizar uma função personalizada, utilize as Definições de [Função 
 
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-Para eliminar uma função personalizada, utilize as Definições de [Função - Eliminar](/rest/api/authorization/roledefinitions/delete) a API REST. Para chamar a isto API, deve ser contratado com um utilizador que tenha uma função que tenha a `Microsoft.Authorization/roleDefinitions/delete` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
+Para eliminar uma função personalizada, utilize as Definições de [Função - Eliminar](/rest/api/authorization/roledefinitions/delete) a API REST. Para chamar a isto API, deve ser contratado com um utilizador `Microsoft.Authorization/roleDefinitions/delete` que tenha `assignableScopes`uma função que tenha a permissão em todos os . Das funções incorporadas, apenas o [Proprietário](built-in-roles.md#owner) e o Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) incluem esta permissão.
 
 1. Utilize as [Definições](/rest/api/authorization/roledefinitions/list) de Papel - Lista ou [Definições](/rest/api/authorization/roledefinitions/get) de Papel - Obtenha a API REST para obter o identificador GUID da função personalizada. Para mais informações, consulte a secção de [papéis personalizados](#list-custom-roles) da Lista Anterior.
 
@@ -301,11 +329,12 @@ Para eliminar uma função personalizada, utilize as Definições de [Função -
 
 1. Dentro do URI, substitua *{scope}* pelo âmbito que pretende eliminar a função personalizada.
 
-    | Âmbito | Tipo |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscrição |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    > [!div class="mx-tableFixed"]
+    > | Âmbito | Tipo |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscrição |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Grupo de recursos |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
@@ -313,4 +342,4 @@ Para eliminar uma função personalizada, utilize as Definições de [Função -
 
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Gerir o acesso aos recursos Azure utilizando o RBAC e a API REST](role-assignments-rest.md)
-- [Referência à API REST do Azure](/rest/api/azure/)
+- [Referência da API do Rest Azure](/rest/api/azure/)

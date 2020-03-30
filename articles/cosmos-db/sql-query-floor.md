@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303193"
 ---
 # <a name="floor-azure-cosmos-db"></a>PISO (Azure Cosmos DB)
- Devolve o maior número inteiro menor ou igual a expressão numérica especificada.  
+ Devolve o maior inteiro inferior ou igual à expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ FLOOR (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte mostra valores numéricos, negativos e nulos positivos com a função `FLOOR`.  
+  O exemplo seguinte mostra valores numéricos, `FLOOR` negativos e nulos positivos com a função.  
   
 ```sql
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  

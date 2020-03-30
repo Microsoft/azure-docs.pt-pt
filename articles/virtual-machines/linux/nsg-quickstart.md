@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066636"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos finais para um VM com o Azure CLI
 
@@ -29,7 +29,7 @@ Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus
 ## <a name="quickly-open-a-port-for-a-vm"></a>Abra rapidamente um porto para um VM
 Se precisar de abrir rapidamente uma porta para um VM num cenário de dev/teste, pode utilizar o comando de [porta aberta az vM.](/cli/azure/vm) Este comando cria um Grupo de Segurança de Rede, adiciona uma regra e aplica-a a um VM ou subnet. O exemplo seguinte abre a porta *80* no VM denominado *myVM* no grupo de recursos chamado *myResourceGroup*.
 
-```azure-cli
+```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
@@ -84,8 +84,8 @@ Os comandos rápidos aqui permitem-lhe levantar-se e correr com o tráfego fluin
 
 Para aplicações web altamente disponíveis, deve colocar os seus VMs atrás de um Equilíbrio de Carga Azure. O equilibrador de carga distribui tráfego para VMs, com um Grupo de Segurança de Rede que fornece filtragem de tráfego. Para mais informações, consulte Como carregar o equilíbrio das [máquinas virtuais Linux em Azure para criar uma aplicação altamente disponível.](tutorial-load-balancer.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste exemplo, criou uma regra simples para permitir o tráfego HTTP. Pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-* [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Visão geral do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md)
 * [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../../virtual-network/security-overview.md)

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: eb4fb0e08564921556c0562e9fa7d670b76e860a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184016"
 ---
-Coleção de nome-valor de propriedades personalizadas. Esta coleção é usada para estender o padrão de telemetria com as dimensões personalizadas. Os exemplos são o bloco de implementação que produziu o item de telemetria de telemetria ou propriedade específica, como o número de ordem. 
+Coleção de valor-nome de propriedades personalizadas. Esta coleção é usada para estender a telemetria padrão com as dimensões personalizadas. Exemplos são a ranhura de implantação que produziu telemetria ou telemetria-item propriedade específica como número de encomenda. 
 
-Comprimento máximo da chave: Comprimento do valor máximo de 150: 8192
+Comprimento máximo da tecla: 150 Comprimento de valor máximo: 8192

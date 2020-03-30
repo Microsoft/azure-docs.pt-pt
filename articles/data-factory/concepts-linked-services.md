@@ -1,6 +1,6 @@
 ---
-title: Serviços vinculados no Azure Data Factory
-description: Saiba mais sobre os serviços vinculados no Data Factory. Vínculos de dados de computação/armazenamento de serviços vinculados para data factory.
+title: Serviços ligados no Azure Data Factory
+description: Conheça os serviços ligados na Data Factory. Serviços ligados ligam computações/lojas de dados à fábrica de dados.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,36 +12,36 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563548"
 ---
-# <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-create-datasets.md)
 > * [Versão atual](concepts-linked-services.md)
 
-Este artigo descreve quais serviços vinculados são, como eles são definidos no formato JSON e como eles são usados em pipelines de Azure Data Factory.
+Este artigo descreve quais são os serviços ligados, como são definidos em formato JSON e como são usados em oleodutos Azure Data Factory.
 
-Se você for novo no Data Factory, consulte [introdução ao Azure data Factory](introduction.md) para obter uma visão geral.
+Se é novo na Data Factory, consulte [introdução à Azure Data Factory](introduction.md) para uma visão geral.
 
-## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntos executam uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para o armazenamento de BLOBs do Azure. Em seguida, você pode usar uma atividade do hive que executa um script do hive em um cluster do Azure HDInsight para processar dados do armazenamento de BLOBs para produzir dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, sobre quais soluções de relatório de business intelligence (BI) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades](concepts-pipelines-activities.md) em Azure data Factory.
+## <a name="overview"></a>Descrição geral
+Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que, em conjunto, desempenham uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um SQL Server no local para o armazenamento de Blob Azure. Em seguida, você pode usar uma atividade da Colmeia que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, para além dos quais são construídas soluções de reporte de inteligência empresarial (BI). Para mais informações sobre oleodutos e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) na Azure Data Factory.
 
-Agora, um **DataSet** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas.
+Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente aponta ou refere os dados que pretende utilizar nas suas **atividades** como inputs e saídas.
 
-Antes de criar um conjunto de dados, você deve criar um **serviço vinculado** para vincular seu armazenamento de data ao data Factory. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Imagine dessa forma; o DataSet representa a estrutura dos dados dentro dos armazenamentos de dados vinculados e o serviço vinculado define a conexão com a fonte de dados. Por exemplo, um serviço vinculado do armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de blob do Azure representa o contêiner de BLOB e a pasta dentro dessa conta de armazenamento do Azure que contém os blobs de entrada a serem processados.
+Antes de criar um conjunto de dados, deve criar um **serviço ligado** para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Pense desta forma; o conjunto de dados representa a estrutura dos dados dentro das lojas de dados ligadas, e o serviço ligado define a ligação à fonte de dados. Por exemplo, um serviço ligado ao Armazenamento Azure liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta dentro dessa conta de armazenamento Azure que contém as bolhas de entrada a serem processadas.
 
-Aqui está um cenário de exemplo. Para copiar dados do armazenamento de BLOBs para um banco de dado SQL, você cria dois serviços vinculados: armazenamento do Azure e banco de dados SQL do Azure. Em seguida, crie dois conjuntos de dados: conjunto de dados de BLOBs do Azure (que se refere ao serviço vinculado do armazenamento do Azure) e ao Azure SQL Table (que se refere ao serviço vinculado do Azure SQL Database). Os serviços vinculados de armazenamento do Azure e banco de dados SQL do Azure contêm cadeias de conexão que Data Factory usa em tempo de execução para se conectar ao armazenamento do Azure e ao banco de dados SQL do Azure, respectivamente O conjunto de dados de blob do Azure especifica o contêiner de BLOB e a pasta de BLOB que contém os blobs de entrada no armazenamento de BLOBs. O conjunto de dados da tabela SQL do Azure especifica a tabela SQL em seu banco de dado SQL para a qual os dados serão copiados.
+Aqui está um cenário de amostra. Para copiar dados do armazenamento Blob para uma base de dados SQL, cria dois serviços ligados: Azure Storage e Azure SQL Database. Em seguida, crie dois conjuntos de dados: conjunto de dados Azure Blob (que se refere ao serviço ligado ao Armazenamento Azure) e conjunto de dados da tabela Azure SQL (que se refere ao serviço ligado à Base de Dados Azure SQL). Os serviços ligados ao Armazenamento Azure e à Base de Dados Azure SQL contêm cordas de ligação que a Data Factory utiliza no prazo de execução para se ligarem ao seu Armazenamento Azure e à base de dados Azure SQL, respectivamente. O conjunto de dados Azure Blob especifica o recipiente blob e a pasta blob que contém as bolhas de entrada no seu armazenamento Blob. O conjunto de dados da tabela Azure SQL especifica a tabela SQL na sua base de dados SQL para a qual os dados serão copiados.
 
-O diagrama a seguir mostra as relações entre pipeline, atividade, conjunto de serviços e serviço vinculado no Data Factory:
+O diagrama seguinte mostra as relações entre o oleoduto, a atividade, o conjunto de dados e o serviço ligado na Fábrica de Dados:
 
-![Relação entre pipeline, Activity, DataSet, serviços vinculados](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+![Relação entre o gasoduto, a atividade, o conjunto de dados, os serviços ligados](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>Serviço vinculado JSON
-Um serviço vinculado no Data Factory é definido no formato JSON da seguinte maneira:
+## <a name="linked-service-json"></a>Serviço ligado JSON
+Um serviço ligado na Data Factory é definido no formato JSON da seguinte forma:
 
 ```json
 {
@@ -59,17 +59,17 @@ Um serviço vinculado no Data Factory é definido no formato JSON da seguinte ma
 }
 ```
 
-A tabela a seguir descreve as propriedades no JSON acima:
+A tabela seguinte descreve propriedades no JSON acima:
 
-Propriedade | Descrição | Obrigatório |
+Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do serviço vinculado. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
-tipo | Tipo do serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição para typeproperties. | Sim |
-typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou computação. <br/><br/> Para os tipos de armazenamento de dados com suporte e suas propriedades de tipo, consulte a tabela de [tipos de conjunto](concepts-datasets-linked-services.md#dataset-type) de dado neste artigo. Navegue até o artigo conector do repositório de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação com suporte e suas propriedades de tipo, consulte [Serviços vinculados de computação](compute-linked-services.md). | Sim |
-connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Você pode usar os Integration Runtime Azure Integration Runtime ou auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não
+nome | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
+tipo | Tipo de serviço ligado. Por exemplo: AzureStorage (data store) ou AzureBatch (computação). Consulte a descrição do typeProperties. | Sim |
+typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e suas propriedades de tipo, consulte a tabela do tipo de conjunto de [dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue para o artigo de conector da loja de dados para saber sobre propriedades do tipo específicas de uma loja de dados. <br/><br/> Para os tipos de cálculo suportados e suas propriedades de tipo, consulte [serviços ligados à Compute.](compute-linked-services.md) | Sim |
+connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não especificado, utiliza o tempo de funcionar de integração azure padrão. | Não
 
-## <a name="linked-service-example"></a>Exemplo de serviço vinculado
-O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução.
+## <a name="linked-service-example"></a>Exemplo de serviço ligado
+O seguinte serviço ligado é um serviço ligado ao Armazenamento Azure. Note que o tipo está definido para AzureStorage. As propriedades do tipo para o serviço ligado ao Armazenamento Azure incluem uma cadeia de ligação. O serviço Data Factory utiliza esta cadeia de ligação para se ligar à loja de dados em tempo de execução.
 
 ```json
 {
@@ -89,18 +89,18 @@ O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-Você pode criar serviços vinculados usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
+Pode criar serviços ligados utilizando uma destas ferramentas ou SDKs: [.NET API,](quickstart-create-data-factory-dot-net.md) [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Modelo de Gestor de Recursos Azure e portal Azure
 
-## <a name="data-store-linked-services"></a>Serviços vinculados do repositório de dados
-Você pode encontrar a lista de armazenamentos de dados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
+## <a name="data-store-linked-services"></a>Serviços ligados à loja de dados
+Pode encontrar a lista de lojas de dados suportadas pela Data Factory a partir de artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Clique numa loja de dados para saber as propriedades de ligação suportadas.
 
 ## <a name="compute-linked-services"></a>Serviços ligados de computação
-Faça referência a [ambientes de computação com suporte](compute-linked-services.md) para obter detalhes sobre diferentes ambientes de computação aos quais você pode se conectar do data Factory, bem como as diferentes configurações.
+Ambientes [computacionais de](compute-linked-services.md) referência suportados para detalhes sobre diferentes ambientes de computação a que pode ligar a partir da sua fábrica de dados, bem como as diferentes configurações.
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o tutorial a seguir para obter instruções passo a passo para criar pipelines e conjuntos de valores usando uma dessas ferramentas ou SDKs.
+Consulte o seguinte tutorial para obter instruções passo a passo para a criação de oleodutos e conjuntos de dados utilizando uma destas ferramentas ou SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Início rápido: criar uma fábrica de dados com .NET)
-- [Início rápido: criar um data factory usando o PowerShell](quickstart-create-data-factory-powershell.md)
-- [Início rápido: criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md)
-- [Início rápido: criar um data factory usando portal do Azure](quickstart-create-data-factory-portal.md)
+- [Quickstart: criar uma fábrica de dados usando o PowerShell](quickstart-create-data-factory-powershell.md)
+- [Quickstart: criar uma fábrica de dados utilizando a Rest API](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: criar uma fábrica de dados utilizando o portal Azure](quickstart-create-data-factory-portal.md)

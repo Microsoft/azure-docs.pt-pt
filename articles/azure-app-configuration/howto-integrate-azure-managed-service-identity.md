@@ -2,17 +2,17 @@
 title: Autenticar usando identidades geridas de Azure
 titleSuffix: Azure App Configuration
 description: Autenticar a Configuração de Aplicações Azure usando identidades geridas pelo Azure
-ms.service: azure-app-configuration
 author: lisaguthrie
+ms.author: lcozzens
+ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: ff69262a89d8112419ffe62cd391d003cb21adc1
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056828"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrar com identidades geridas azure
 
@@ -60,7 +60,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. No [portal Azure,](https://portal.azure.com)selecione **Todos os recursos** e selecione a loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **Controlo de acesso (IAM)** .
+1. Selecione **o controlo de acesso (IAM)**.
 
 1. No separador **'Ver acesso',** selecione **Adicionar** no 'Adicionar placa de atribuição de **funções** UI'.
 
@@ -84,7 +84,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. Encontre o ponto final da sua loja de configuração de aplicações. Este URL está listado no separador **de teclas Access** para a loja no portal Azure.
 
-1. Abra *as definições.json*e adicione o seguinte script. Substitua *\<service_endpoint>* incluindo os suportes, com o URL na sua loja de Configuração de Aplicações. 
+1. Abra *as definições.json*e adicione o seguinte script. Substitua service_endpoint * \<>*, incluindo os suportes, com o URL na sua loja de configuração de aplicações. 
 
     ```json
     "AppConfig": {
@@ -92,16 +92,16 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     }
     ```
 
-1. Abrir *Program.cs,* e adicionar uma referência aos espaços de `Azure.Identity` e `Microsoft.Azure.Services.AppAuthentication` nomes:
+1. Abra *Program.cs,* e adicione `Azure.Identity` uma `Microsoft.Azure.Services.AppAuthentication` referência aos espaços e nomes:
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. Se desejar aceder apenas a valores armazenados diretamente na Configuração de Aplicações, atualize o método `CreateWebHostBuilder` substituindo o método `config.AddAzureAppConfiguration()`.
+1. Se desejar aceder apenas a valores armazenados `CreateWebHostBuilder` diretamente na `config.AddAzureAppConfiguration()` Configuração de Aplicações, atualize o método substituindo o método.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
+    > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -133,7 +133,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     ```
     ---
 
-1. Para utilizar tanto os valores de Configuração de Aplicações como as referências do Key Vault, *atualize Program.cs* conforme mostrado abaixo. Este código cria um novo `KeyVaultClient` utilizando um `AzureServiceTokenProvider` e passa esta referência a uma chamada para o método `UseAzureKeyVault`.
+1. Para utilizar tanto os valores de Configuração de Aplicações como as referências do Key Vault, *atualize Program.cs* conforme mostrado abaixo. Este código cria `KeyVaultClient` um `AzureServiceTokenProvider` novo usando um e `UseAzureKeyVault` passa esta referência a uma chamada para o método.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -181,7 +181,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     ```
     ---
 
-    Agora pode aceder a referências do Key Vault, tal como qualquer outra tecla de configuração de aplicações. O provedor da config utilizará o `KeyVaultClient` que configurapara autenticar o Cofre chave e recuperar o valor.
+    Agora pode aceder a referências do Key Vault, tal como qualquer outra tecla de configuração de aplicações. O provedor de config usará o `KeyVaultClient` que configurado para autenticar o Cofre chave e recuperar o valor.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Para permitir a implementação local de Git para a sua aplicação com o servidor de construção Kudu, faça [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) na Cloud Shell.
+Para permitir a implementação local de Git para [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) a sua aplicação com o servidor de construção Kudu, corra em Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ Este comando dá-lhe algo semelhante à seguinte saída:
 
 ### <a name="deploy-your-project"></a>Implementar o seu projeto
 
-Na janela do _terminal local,_ adicione um telecomando Azure ao seu repositório git local. Substitua _\<url>_ com o URL do comando Git que obteve do [Enable local Git com Kudu](#enable-local-git-with-kudu).
+Na janela do _terminal local,_ adicione um telecomando Azure ao seu repositório git local. Substitua _ \<o url>_ com o URL do comando Git que obteve de Enable local [Git com Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -230,7 +230,7 @@ Envie para o remoto do Azure para implementar a sua aplicação com o comando se
 git push azure master
 ```
 
-Você pode ver automatização específica de tempo de execução na saída, como MSBuild para ASP.NET, `npm install` para Node.js e `pip install` para Python.
+Você pode ver automatização específica de tempo de execução `npm install` na saída, como MSBuild para ASP.NET, para Node.js, e `pip install` para Python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
 

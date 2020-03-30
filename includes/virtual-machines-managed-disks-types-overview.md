@@ -9,10 +9,10 @@ ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78262263"
 ---
 Os discos geridos pelo Azure oferecem atualmente quatro tipos de discos, cada tipo direcionado para cenários específicos do cliente.
@@ -21,17 +21,17 @@ Os discos geridos pelo Azure oferecem atualmente quatro tipos de discos, cada ti
 
 A tabela seguinte proporciona uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e discos rígidos padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-|   | Disco ultra   | Premium SSD   | SSD padrão   | HDD padrão   |
+|   | Disco Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)bases de dados de topo (por exemplo, SQL, Oracle) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores web, aplicações empresariais levemente utilizadas e dev/teste   |Backup, acesso não crítico e pouco frequente   |
-|Tamanho máximo do disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
-|Potência máxima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Max IOPS   |160,000    |20,000   |6,000   |2,000   |
+|Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)bases de dados de topo (por exemplo, SQL, Oracle) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
+|Tamanho máximo do disco   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Débito máximo   |2,000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|IOPS Máximo   |160 000    |20 000   |6000   |2.000   |
 
-## <a name="ultra-disk"></a>Disco ultra
+## <a name="ultra-disk"></a>Disco Ultra
 
-Os discos ultra Azure fornecem alta entrada, iOPS elevados e armazenamento consistente de disco de baixa latência para VMs Azure IaaS. Alguns benefícios adicionais dos discos ultra incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho, sem a necessidade de reiniciar as suas máquinas virtuais (VM). Os discos ultra são adequados para cargas de trabalho intensivas de dados, tais como SAP HANA, bases de dados de topo e cargas de trabalho pesadas de transações. Os discos ultra só podem ser utilizados como discos de dados. Recomendamos a utilização de SSDs premium como discos OS.
+Os discos Ultra do Azure têm um débito elevado, IOPS elevado e armazenamento no disco com latência baixa consistente para VMs IaaS do Azure. Alguns benefícios adicionais dos discos ultra incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho, sem a necessidade de reiniciar as suas máquinas virtuais (VM). Os discos Ultra são indicados para cargas de trabalho com utilização intensa de dados, como o SAP HANA, base de dados de escalão superior e cargas de trabalho com bastantes transações. Os discos Ultra só podem ser utilizados como discos de dados. Recomendamos a utilização de discos SSD premium como discos de SO.
 
 ### <a name="performance"></a>Desempenho
 
@@ -48,15 +48,15 @@ Algumas capacidades-chave dos discos ultra são:
 
 |Tamanho do disco (gib)  |Tampa iOPS  |Tampa de entrada (MBps)  |
 |---------|---------|---------|
-|4     |1,200         |300         |
+|4     |1200         |300         |
 |8     |2,400         |600         |
-|16     |4,800         |1,200         |
-|32     |9,600         |2,000         |
-|64     |19,200         |2,000         |
-|128     |38,400         |2,000         |
-|256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
-|1\.024-65.536 (tamanhos nesta gama aumentando em incrementos de 1 TiB)     |160,000         |2,000         |
+|16     |4800         |1200         |
+|32     |9600         |2.000         |
+|64     |19,200         |2.000         |
+|128     |38,400         |2.000         |
+|256     |76 800         |2.000         |
+|512     |80.000         |2.000         |
+|1.024-65.536 (tamanhos nesta gama aumentando em incrementos de 1 TiB)     |160 000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Âmbito e limitações ga
 

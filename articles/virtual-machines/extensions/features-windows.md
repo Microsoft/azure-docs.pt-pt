@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250728"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066844"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinavirtual para Windows
 
-As extensões da máquina virtual Azure (VM) são pequenas aplicações que fornecem tarefas de configuração pós-implantação e automação em VMs Azure. Por exemplo, se uma máquina virtual necessitar de instalação de software, proteção antivírus ou executar um script no seu interior, pode ser utilizada uma extensão VM. As extensões Azure VM podem ser executadas com os modelos Azure CLI, PowerShell, Azure Resource Manager e o portal Azure. As extensões podem ser agregadas com uma nova implementação vm, ou correr contra qualquer sistema existente.
+As extensões de máquina virtual (VM) do Azure são pequenas aplicações que proporcionam tarefas de automação e configuração pós-implementação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM. As extensões de VM do Azure podem ser executadas na CLI do Azure, no PowerShell, nos modelos do Azure Resource Manager e no portal do Azure. As extensões podem ser agrupadas com uma nova implementação da VM ou executadas em qualquer sistema existente.
 
 Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a utilização de extensões VM Azure e orientações sobre como detetar, gerir e remover extensões VM. Este artigo fornece informações generalizadas porque muitas extensões VM estão disponíveis, cada uma com uma configuração potencialmente única. Detalhes específicos da extensão podem ser encontrados em cada documento específico da extensão individual.
 
@@ -137,7 +137,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O comando `Set-AzVMExtension` pode ser usado para iniciar qualquer extensão VM. Para mais informações, consulte a [referência Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+O `Set-AzVMExtension` comando pode ser utilizado para iniciar qualquer extensão VM. Para mais informações, consulte a [referência Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -252,7 +252,7 @@ Mover o **comando para executar** a propriedade para a configuração **protegid
 }
 ```
 
-Num VM Azure IaaS que utiliza extensões, na consola de certificados, poderá ver certificados que tenham o **_tema Windows Azure CRP Certificate Generator_** . Num VM CLÁSSICO do RDFE, estes certificados têm o nome de nome **_Windows Azure Service Management for Extensions_** .
+Num VM Azure IaaS que utiliza extensões, na consola de certificados, poderá ver certificados que tenham o **_tema Windows Azure CRP Certificate Generator_**. Num VM CLÁSSICO do RDFE, estes certificados têm o nome de nome **_Windows Azure Service Management for Extensions_**.
 
 Estes certificados asseguram a comunicação entre o VM e o seu anfitrião durante a transferência de definições protegidas (palavra-passe, outras credenciais) utilizadas por extensões. Os certificados são construídos pelo controlador de tecido Azure e passados para o Agente VM. Se parar e iniciar o VM todos os dias, um novo certificado pode ser criado pelo controlador de tecido. O certificado está guardado na loja de certificados pessoais do computador. Estes certificados podem ser eliminados. O Agente VM recria certificados se necessário.
 
@@ -353,9 +353,9 @@ Cada extensão VM pode ter passos de resolução de problemas específicos da ex
 
 As seguintes etapas de resolução de problemas aplicam-se a todas as extensões VM.
 
-1. Para verificar o Registo do Agente Convidado do Windows, veja a atividade quando a sua extensão estava a ser aprovisionada em *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Para verificar o Registo do Agente Convidado do Windows, veja a atividade quando a sua extensão estava a ser aprovisionada em *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Verifique os registos de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Verifique os registos de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins\<extensãoName>*
 
 3. Verifique as secções específicas de resolução de problemas de documentação específica para códigos de erro, questões conhecidas, etc.
 
@@ -371,7 +371,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 ### <a name="view-extension-status"></a>Ver estado de extensão
 
-Depois de uma extensão VM ter sido executada contra um VM, utilize [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado de extensão. *Os subestatutos[0]* mostram que o fornecimento de extensão foi bem sucedido, o que significa que foi bem sucedido para o VM, mas a execução da extensão dentro do VM falhou, *subestatutos[1]* .
+Depois de uma extensão VM ter sido executada contra um VM, utilize [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado de extensão. *Os subestatutos[0]* mostram que o fornecimento de extensão foi bem sucedido, o que significa que foi bem sucedido para o VM, mas a execução da extensão dentro do VM falhou, *subestatutos[1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -423,9 +423,9 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 ## <a name="common-vm-extensions-reference"></a>Referência de extensões VM comuns
 | Nome de extensão | Descrição | Mais informações |
 | --- | --- | --- |
-| Extensão de Script Personalizado para o Windows |Executar scripts contra uma máquina virtual Azure |[Extensão personalizada do script para windows](custom-script-windows.md) |
+| Extensão de Script Personalizado para o Windows |Executar scripts contra uma máquina virtual Azure |[Extensão de Script Personalizado para o Windows](custom-script-windows.md) |
 | Extensão DSC para Windows |Extensão PowerShell DSC (Configuração de Estado Desejada) |[Extensão DSC para Windows](dsc-overview.md) |
-| Extensão do Diagnóstico do Azure |Gerir diagnósticos azure |[Extensão do Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Extensão do Diagnóstico do Azure |Gerir diagnósticos azure |[Extensão de Diagnóstico Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso Azure VM |Gerir utilizadores e credenciais |[Extensão de acesso VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passos seguintes

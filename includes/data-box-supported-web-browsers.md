@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 2b0149bd2bb46de87b4575ccb5d44836dd74bde9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66242130"
 ---
-Aqui está uma lista dos browsers suportados para a IU da web local.
+Aqui está uma lista de navegadores web suportados para a UI web local.
 
-| **Browser** | **Versões** | **Notas/requisitos adicionais** |
+| **Browser** | **Versões** | **Requisitos/notas adicionais** |
 | --- | --- | --- |
-| Google Chrome |Versão mais recente |Testado com o Chrome|
+| Google Chrome |Versão mais recente |Testado com Chrome|
 | Microsoft Edge |Versão mais recente | |
-| FireFox | Versão mais recente | Testado com o FireFox|
-| Internet Explorer |Versão mais recente |Se não pode iniciar sessão, verifique se o Javascript e cookies estão ativados. Para ativar o acesso de interface do Usuário, adicione o IP do dispositivo para **ações de privacidade** para que o dispositivo pode aceder a cookies. |
+| FireFox | Versão mais recente | Testado com FireFox|
+| Internet Explorer |Versão mais recente |Se não conseguir fazer o insessão, verifique se os cookies e o Javascript estão ativados. Para ativar o acesso à UI, adicione o IP do dispositivo às Ações de **Privacidade** para que o dispositivo possa aceder aos cookies. |

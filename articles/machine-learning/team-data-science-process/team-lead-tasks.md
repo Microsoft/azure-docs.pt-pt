@@ -1,6 +1,6 @@
 ---
-title: Tarefas para a equipe de liderar em à equipa de processo de ciência de dados de equipa
-description: Uma explicação detalhada das tarefas para um líder de equipe em uma equipe de processo de ciência de dados de equipe
+title: Tarefas para a equipa líder na equipa de processo de ciência de dados da equipa
+description: Uma passagem detalhada das tarefas para uma equipa liderada por uma equipa do Processo de Ciência de Dados
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,213 +11,213 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864286"
 ---
-# <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para o líder de equipe em uma equipe de processo de ciência de dados de equipe
+# <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para a equipa liderar uma equipa de Processo de Ciência de Dados de Equipa
 
-Este artigo descreve as tarefas que um *líder de equipe* conclui para a equipe de ciência de dados. O objetivo do líder de equipe é estabelecer um ambiente de equipe de colaboração que padronize o TDSP ( [processo de ciência de dados de equipe](overview.md) ). O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. 
+Este artigo descreve as tarefas que uma *equipa lidera* completa para a sua equipa de ciência de dados. O objetivo da equipa principal é estabelecer um ambiente de equipa colaborativo que normalize no Processo de Ciência de Dados da [Equipa](overview.md) (TDSP). O TDSP foi concebido para ajudar a melhorar a colaboração e a aprendizagem em equipa. 
 
-O TDSP é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de análise preditiva e aplicativos inteligentes com eficiência. O processo ainda difere nas práticas recomendadas e estruturas da Microsoft e do setor.  O objetivo é a implementação bem-sucedida de iniciativas de ciência de dados e a concretização completa dos benefícios de seus programas de análise. Para obter uma descrição das funções de pessoal e tarefas associadas para uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
+O TDSP é uma metodologia ágil e iterativa de ciência de dados para fornecer soluções de análise preditivae e aplicações inteligentes. O processo destila as melhores práticas e estruturas da Microsoft e da indústria.  O objetivo é a implementação bem-sucedida de iniciativas de ciência de dados e a plena concretização dos benefícios dos seus programas de análise. Para um esboço das funções de pessoal e tarefas associadas para uma equipa de ciência de dados padronizada no TDSP, consulte as [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipa .
 
-Um líder de equipe gerencia uma equipe que consiste em vários cientistas de dados na unidade de ciência de dados de uma empresa. Dependendo do tamanho e da estrutura da unidade de ciência de dados, o [gerente do grupo](group-manager-tasks.md) e o líder da equipe podem ser a mesma pessoa, ou podem delegar suas tarefas a substitutos. Mas, não altere as tasks em si. 
+Um líder de equipa gere uma equipa composta por vários cientistas de dados na unidade de ciência de dados de uma empresa. Dependendo do tamanho e estrutura da unidade de ciência de dados, o gestor do [grupo](group-manager-tasks.md) e o líder da equipa podem ser a mesma pessoa, ou podem delegar as suas tarefas em substitutos. Mas as próprias tarefas não mudam. 
 
-O diagrama a seguir mostra o fluxo de trabalho das tarefas que o líder de equipe conclui para configurar um ambiente de equipe:
+O diagrama seguinte mostra o fluxo de trabalho para as tarefas que a equipa leva completa para configurar um ambiente de equipa:
 
-![Fluxo de trabalho da tarefa líder de equipe](./media/team-lead-tasks/team-leads-1-creating-teams.png)
+![Fluxo de trabalho de tarefa de liderança da equipa](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
-1. Crie um **projeto de equipe** na organização do grupo no Azure DevOps. 
+1. Crie um projeto de **equipa** na organização do grupo em Azure DevOps. 
   
-1. Renomeie o repositório de equipe padrão como **TeamUtilities**.
+1. Mude o nome do repositório da equipa padrão para **TeamUtilities**.
   
-1. Crie um novo repositório do **teamtemplate** no projeto de equipe. 
+1. Crie um novo repositório **teamTemplate** no projeto da equipa. 
   
-1. Importe o conteúdo dos repositórios **GroupUtilities** e **GroupProjectTemplate** do grupo para os repositórios **TeamUtilities** e **teamtemplate** . 
+1. Importe os conteúdos dos repositórios **groupUtilities** e **GroupProjectTemplate** do grupo para os repositórios **TeamUtilities** e **TeamTemplate.** 
   
-1. Configure o **controle de segurança** adicionando membros da equipe e configurando suas permissões.
+1. Configure **o controlo** de segurança adicionando membros da equipa e configurando as suas permissões.
   
-1. Se necessário, crie dados da equipe e recursos de análise:
-   - Adicionar utilitários específicos da equipe ao repositório **TeamUtilities** . 
-   - Crie o **armazenamento de arquivos do Azure** para armazenar ativos de dados que podem ser úteis para toda a equipe. 
-   - Monte o armazenamento de arquivos do Azure no **máquina virtual de ciência de dados** do líder de equipe (DSVM) e adicione ativos de dados a ele.
+1. Se necessário, crie dados de equipa e recursos de análise:
+   - Adicione utilitários específicos da equipa ao repositório **TeamUtilities.** 
+   - Crie **armazenamento de ficheiros Azure** para armazenar ativos de dados que possam ser úteis para toda a equipa. 
+   - Monte o armazenamento de ficheiros Azure na **Máquina Virtual** de Ciência de Dados (DSVM) do líder da equipa e adicione-lhe ativos de dados.
 
-O tutorial a seguir percorre as etapas em detalhes.
+O seguinte tutorial percorre os degraus em detalhe.
 
 > [!NOTE] 
-> Este artigo usa o Azure DevOps e um DSVM para configurar um ambiente de equipe do TDSP, porque é como implementar o TDSP na Microsoft. Se sua equipe usa outras plataformas de Hospedagem de código ou de desenvolvimento, as tarefas do líder de equipe são as mesmas, mas a maneira de concluí-las pode ser diferente.
+> Este artigo utiliza o Azure DevOps e um DSVM para criar um ambiente de equipa TDSP, porque é assim que se implementa o TDSP na Microsoft. Se a sua equipa utilizar outras plataformas de hospedagem ou desenvolvimento de códigos, as tarefas de liderança da equipa são as mesmas, mas a forma de as completar pode ser diferente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial pressupõe que os seguintes recursos e permissões foram configurados pelo [gerente de grupo](group-manager-tasks.md):
+Este tutorial pressupõe que os seguintes recursos e permissões foram criados pelo seu gestor de [grupo:](group-manager-tasks.md)
 
-- A **organização** DevOps do Azure para sua unidade de dados
-- Repositórios **GroupProjectTemplate** e **GroupUtilities** , populados com o conteúdo dos repositórios **ProjectTemplate** e **Utilities** da equipe do Microsoft TDSP
-- Permissões em sua conta da organização para criar projetos e repositórios para sua equipe
+- A **organização** Azure DevOps para a sua unidade de dados
+- **GroupProjectTemplate** Repositórios de modelo seleto e utilitários de **grupo,** povoados com o conteúdo dos repositórios de **projetos** e repositórios de projetos da equipa da Microsoft TDSP **Utilities**
+- Permissões na sua organização explicam para que crie projetos e repositórios para a sua equipa
 
-Para poder clonar repositórios e modificar seu conteúdo em seu computador local ou DSVM, ou configurar o armazenamento de arquivos do Azure e montá-lo em seu DSVM, você precisará do seguinte:
+Para poder clonar repositórios e modificar o seu conteúdo na sua máquina local ou DSVM, ou configurar o armazenamento de ficheiros Azure e montá-lo no seu DSVM, precisa do seguinte:
 
 - Uma subscrição do Azure.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
-- Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
-- Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
-- Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as [Plataformas e ferramentas do apêndice](platforms-and-tools.md#appendix).
+- Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criaram e configuraram em Azure. Para mais informações e instruções, consulte a [Documentação](/azure/machine-learning/data-science-virtual-machine/)da Máquina Virtual da Ciência dos Dados .
+- Para um DSVM windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **Descarregamento e Instalação** e selecione o **mais recente instalador**. Descarregue o instalador *.ex e* execute-o. 
+- Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção de **chaves públicas Create SSH** nas Plataformas e no apêndice das [ferramentas](platforms-and-tools.md#appendix). 
 
-## <a name="create-a-team-project-and-repositories"></a>Criar um projeto de equipe e repositórios
+## <a name="create-a-team-project-and-repositories"></a>Criar um projeto de equipa e repositórios
 
-Nesta seção, você criará os seguintes recursos na organização de DevOps do Azure do seu grupo:
+Nesta secção, você cria os seguintes recursos na organização Azure DevOps do seu grupo:
 
-- O projeto **myTeam** no Azure DevOps
-- O repositório do **teamtemplate**
+- O projeto **MyTeam** em Azure DevOps
+- O repositório **do Modelo de Equipa**
 - O repositório **TeamUtilities**
 
-Os nomes especificados para os repositórios e diretórios neste tutorial pressupõem que você deseja estabelecer um projeto separado para sua própria equipe em sua organização de ciência de dados maior. No entanto, o grupo inteiro pode optar por trabalhar em um único projeto criado pelo gerente do grupo ou pelo administrador da organização. Em seguida, todas as equipes de ciência de dados criam repositórios nesse único projeto. Este cenário pode ser válido para:
-- Um pequeno grupo de ciência de dados que não tem várias equipes de ciência de dados. 
-- Um grupo de ciência de dados maior com várias equipes de ciência de dados que, no entanto, deseja otimizar a colaboração entre equipes com atividades como planejamento de Sprint em nível de grupo. 
+Os nomes especificados para os repositórios e diretórios deste tutorial assumem que pretende estabelecer um projeto separado para a sua própria equipa dentro da sua maior organização de ciência de dados. No entanto, todo o grupo pode optar por trabalhar no âmbito de um único projeto criado pelo gestor do grupo ou administrador da organização. Então, todas as equipas de ciência de dados criam repositórios no âmbito deste único projeto. Este cenário pode ser válido para:
+- Um pequeno grupo de ciência de dados que não tem várias equipas de ciência de dados. 
+- Um grupo maior de ciência de dados com múltiplas equipas de ciência de dados que, no entanto, quer otimizar a colaboração entre equipas com atividades como o planeamento de sprint a nível de grupo. 
 
-Se as equipes optarem por seus repositórios específicos de equipe em um único projeto de grupo, os líderes de equipe deverão criar os repositórios com nomes como *\<teamname > modelo* e os *utilitários\<teamname >* . Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
+Se as equipas optarem por ter os seus repositórios específicos da equipa no âmbito de um único projeto de grupo, os líderes da equipa devem criar os repositórios com nomes como * \<TeamName>Template* e * \<TeamName>Utilities*. Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
 
-De qualquer forma, os líderes de equipe precisam permitir que os membros da equipe saibam quais repositórios de modelos e utilitários devem ser configurados e clonados. Os leads do projeto devem seguir as [tarefas do líder do projeto para que uma equipe de ciência de dados](project-lead-tasks.md) crie repositórios de projetos, seja em projetos separados ou em um único projeto. 
+Em todo o caso, os líderes da equipa precisam de informar os seus membros da equipa sobre qual o modelo e os repositórios de serviços públicos a criar e clonar. Os líderes do projeto devem seguir as [tarefas principais](project-lead-tasks.md) do projeto para uma equipa de ciência de dados criar repositórios de projetos, seja em projetos separados ou num único projeto. 
 
-### <a name="create-the-myteam-project"></a>Criar o projeto de MyTeam
+### <a name="create-the-myteam-project"></a>Criar o projeto MyTeam
 
-Para criar um projeto separado para sua equipe:
+Para criar um projeto separado para a sua equipa:
 
-1. No navegador da Web, vá para a organização do Azure DevOps do seu grupo home page na URL *https:\//\<nome do servidor >/\<nome da organização >* e selecione **novo projeto**. 
+1. No seu navegador web, vá à página inicial da organização Azure DevOps do seu grupo no URL *\//\<https:\<nome *do servidor>/ nome de organização>, e selecione Novo **projeto**. 
    
-   ![Selecionar novo projeto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
+   ![Selecione Novo projeto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. Na caixa de diálogo **criar projeto** , insira o nome da equipe, como *myTeam*, em **nome do projeto**e selecione **avançado**. 
+1. No diálogo do **projeto Create,** introduza o nome da sua equipa, como *MyTeam,* sob **o nome do Projeto,** e, em seguida, selecione **Advanced**. 
    
-1. Em **controle de versão**, selecione **git**e, em processo de **item de trabalho**, selecione **Agile**. Em seguida, selecione **Criar**. 
+1. Sob **o controlo da versão,** selecione **Git**, e no processo de **artigo de trabalho,** selecione **Agile**. Em seguida, selecione **Criar**. 
    
    ![Criar o projeto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-A página **Resumo** do projeto de equipe é aberta, com URL de página *https:\//\<nome do servidor >/\<nome da organização >/\<nome da equipe*>.
+A página **sumária** do projeto da equipa abre, com url da página *https:\//\<nome do servidor\<>/ nome de organização>/ nome de\<equipa>*.
 
-### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Renomeie o repositório padrão myTeam para TeamUtilities
+### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Mude o nome do repositório padrão MyTeam para TeamUtilities
 
-1. Na página **Resumo** do projeto **myTeam** , sob **qual serviço você gostaria de começar?** , selecione **repositórios**. 
+1. Na **Repos**página **resumo** do projeto **MyTeam,** em que serviço gostaria de **começar?** 
    
-   ![Selecionar repositórios](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+   ![Selecione Repos](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
-1. Na página repositório **myTeam** , selecione o repositório **myTeam** na parte superior da página e, em seguida, selecione **gerenciar repositórios** na lista suspensa. 
+1. Na página de repo do **MyTeam,** selecione o repositório **MyTeam** no topo da página e, em seguida, selecione **Gerir repositórios** a partir do dropdown. 
    
-   ![Selecionar Gerenciar repositórios](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
-1. Na página **configurações do projeto** , selecione **...** ao lado do repositório **myTeam** e, em seguida, selecione **renomear repositório**. 
+   ![Selecione Gerir repositórios](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
+1. Na página Definições do **Projeto,** selecione o **...** ao lado do repositório **MyTeam** e, em seguida, selecione **Rename repositório**. 
    
-   ![Selecionar renomear repositório](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
+   ![Selecione Rename repositório](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. No pop-up **de renomear o repositório myTeam** , insira *TeamUtilities*e, em seguida, selecione **renomear**. 
+1. No **Rename the MyTeam repositório** popup, *introduza TeamUtilities*, e, em seguida, selecione **Rename**. 
 
-### <a name="create-the-teamtemplate-repository"></a>Criar o repositório do Teamtemplate
+### <a name="create-the-teamtemplate-repository"></a>Criar o repositório teamtemplate
 
-1. Na página **configurações do projeto** , selecione **novo repositório.** 
+1. Na página **Definições** do Projeto, selecione **Novo repositório.** 
    
-   ![Selecionar novo repositório](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+   ![Selecione novo repositório](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
    
-   Ou selecione **repositórios** na **barra** de navegação à esquerda da página de resumo do projeto **myTeam** , selecione um repositório na parte superior da página e, em seguida, selecione **novo repositório** na lista suspensa.
+   Ou, selecione **Repos** da navegação à esquerda da **página** resumo do projeto **MyTeam,** selecione um repositório no topo da página e, em seguida, selecione **Novo repositório** a partir do dropdown.
    
-1. Na caixa de diálogo **criar um novo repositório** , verifique se **git** está selecionado em **tipo**. Insira *teamtemplate* em **nome do repositório**e, em seguida, selecione **criar**.
+1. No Create um novo diálogo **de repositório,** certifique-se de que **git** é selecionado em **Tipo**. Introduza *o Modelo de Equipa* sob o nome **repositório**e, em seguida, selecione **Criar**.
    
    ![Criar repositório](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
-1. Confirme que você pode ver os dois repositórios **TeamUtilities** e **teamtemplate** na página de configurações do projeto. 
+1. Confirme que pode ver os dois repositórios **TeamUtilities** e **TeamTemplate** na página de definições do seu projeto. 
    
-   ![Dois repositórios da equipe](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
+   ![Dois repositórios de equipa](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 ### <a name="import-the-contents-of-the-group-common-repositories"></a>Importar o conteúdo dos repositórios comuns do grupo
 
-Para preencher seus repositórios de equipe com o conteúdo dos repositórios comuns de grupo configurados pelo gerente de Grupo:
+Para povoar os repositórios da sua equipa com o conteúdo dos repositórios comuns do grupo criados pelo seu gestor de grupo:
 
-1. Em seu home page de projeto **myTeam** , selecione **repositórios** no painel de navegação esquerdo. Se você receber uma mensagem informando que o modelo **myTeam** não foi encontrado, selecione o link em **caso contrário, navegue até o repositório do teamtemplate padrão.** 
+1. A partir da sua página inicial do projeto **MyTeam,** selecione **Repos** na navegação à esquerda. Se receber uma mensagem de que o modelo **MyTeam** não é encontrado, selecione o link em **contrário, navegue para o seu repositório padrão teamTemplate.** 
    
-   O repositório **teamtemplate** padrão é aberto. 
+   Abre-se o repositório padrão **do TeamTemplate.** 
    
-1. Na página **teamtemplate está vazia** , selecione **importar**. 
+1. No Modelo de **Equipa encontra-se a** página vazia, selecione **Import**. 
    
-   ![Selecionar importação](./media/team-lead-tasks/import-repo.png)
+   ![Selecione Importar](./media/team-lead-tasks/import-repo.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório de modelo comum de grupo em URL de **clonagem**. A URL é *https:\//nome do servidor \<>/\<nome da organização >/_git/\<nome do repositório*>. Por exemplo: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. No diálogo de **reposição De Importação de Git,** selecione **Git** como **tipo Fonte**, e introduza o URL para o seu repositório de modelo comum de modelo comum sob **o URL clone**. O URL é *\//\<https:\<nome do servidor\<>/ nome da organização>/_git/ nome de repositório>*. Por exemplo: *\/https: /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
-1. Selecione **Import** (Importar). O conteúdo do seu repositório de modelos de grupo é importado para o repositório de modelos de equipe. 
+1. Selecione **Importar**. O conteúdo do seu repositório de modelo de grupo é importado para o seu repositório de modelo de equipa. 
    
-   ![Repositório de modelo comum de importação de grupo](./media/team-lead-tasks/import-repo-2.png)
+   ![Repositório comum do modelo de importação](./media/team-lead-tasks/import-repo-2.png)
    
-1. Na parte superior da página **repositórios** do seu projeto, clique no menu suspenso e selecione o repositório **TeamUtilities** .
+1. No topo da página de **Repos** do seu projeto, desça e selecione o repositório **TeamUtilities.**
    
-1. Repita o processo de importação para importar o conteúdo do repositório de utilitários comuns do grupo, por exemplo, *GroupUtilities*, para seu repositório do **TeamUtilities** . 
+1. Repita o processo de importação para importar o conteúdo do repositório de serviços públicos comuns do seu grupo, por exemplo, *groupUtilities,* para o seu repositório **TeamUtilities.** 
    
-Cada um dos seus repositórios de duas equipes agora contém os arquivos do repositório comum de grupo correspondente. 
+Cada um dos seus dois repositórios de equipa agora contém os ficheiros do repositório comum do grupo correspondente. 
 
-### <a name="customize-the-contents-of-the-team-repositories"></a>Personalizar o conteúdo dos repositórios da equipe
+### <a name="customize-the-contents-of-the-team-repositories"></a>Personalize o conteúdo dos repositórios da equipa
 
-Se você quiser personalizar o conteúdo de seus repositórios de equipe para atender às necessidades específicas de sua equipe, você pode fazer isso agora. Você pode modificar arquivos, alterar a estrutura do diretório ou adicionar arquivos e pastas.
+Se quiser personalizar o conteúdo dos repositórios da sua equipa para atender às necessidades específicas da sua equipa, pode fazê-lo agora. Pode modificar ficheiros, alterar a estrutura do diretório ou adicionar ficheiros e pastas.
 
-Para modificar, carregar ou criar arquivos ou pastas diretamente no Azure DevOps:
+Para modificar, carregar ou criar ficheiros ou pastas diretamente no Azure DevOps:
 
-1. Na página **Resumo** do projeto **myTeam** , selecione **repositórios**. 
+1. Na página **resumo** do projeto **MyTeam,** selecione **Repos**. 
    
-1. Na parte superior da página, selecione o repositório que você deseja personalizar.
+1. No topo da página, selecione o repositório que pretende personalizar.
 
-1. Na estrutura de diretório do repositório, navegue até a pasta ou o arquivo que você deseja alterar. 
+1. Na estrutura do repo diretório, navegue para a pasta ou ficheiro que pretende alterar. 
    
-   - Para criar novas pastas ou arquivos, selecione a seta ao lado de **novo**. 
+   - Para criar novas pastas ou ficheiros, selecione a seta ao lado de **New**. 
      
-     ![Criar novo arquivo](./media/team-lead-tasks/new-file.png)
+     ![Criar novo ficheiro](./media/team-lead-tasks/new-file.png)
      
-   - Para carregar arquivos, selecione **carregar arquivo (s)** . 
+   - Para fazer upload de ficheiros, selecione **Ficheiros upload(s)**. 
      
      ![Carregar ficheiros](./media/team-lead-tasks/upload-files.png)
      
-   - Para editar os arquivos existentes, navegue até o arquivo e, em seguida, selecione **Editar**. 
+   - Para editar os ficheiros existentes, navegue para o ficheiro e, em seguida, **selecione Editar**. 
      
-     ![Editar um arquivo](./media/team-lead-tasks/edit-file.png)
+     ![Editar um ficheiro](./media/team-lead-tasks/edit-file.png)
      
-1. Depois de adicionar ou editar arquivos, selecione **confirmar**.
+1. Depois de adicionar ou editar ficheiros, selecione **'Cometer**'
    
-   ![Confirmar alterações](./media/team-lead-tasks/commit.png)
+   ![Comprometer alterações](./media/team-lead-tasks/commit.png)
 
-Para trabalhar com repositórios em seu computador local ou DSVM, primeiro copie ou *clone* os repositórios em seu computador local e, em seguida, confirme e envie por push suas alterações até os repositórios de equipe compartilhados, 
+Para trabalhar com repositórios na sua máquina local ou DSVM, primeiro copia ou *clona* os repositórios para a sua máquina local, e depois compromete e empurra as suas mudanças para os repositórios de equipa partilhadas, 
 
 Para clonar repositórios:
 
-1. Na página **Resumo** do projeto **myTeam** , selecione **repositórios**e, na parte superior da página, selecione o repositório que você deseja clonar.
+1. Na **página** resumo do projeto **MyTeam,** selecione **Repos**, e no topo da página, selecione o repositório que pretende clonar.
    
-1. Na página repositório, selecione **clonar** no canto superior direito.
+1. Na página do repo, selecione **Clone** na parte superior direita.
    
-1. Na caixa de diálogo **clonar repositório** , em **linha de comando**, selecione **https** para uma conexão http ou **SSH** para uma conexão SSH e copie a URL de clone para a área de transferência.
+1. No diálogo de **repositório Clone,** sob **a linha Command,** selecione **HTTPS** para uma ligação HTTP ou **SSH** para uma ligação SSH e copie o URL do clone para a sua área de recção.
    
-   ![Copiar URL de clone](./media/team-lead-tasks/clone.png)
+   ![Url de clone de cópia](./media/team-lead-tasks/clone.png)
    
-1. Em seu computador local, crie os seguintes diretórios:
+1. Na sua máquina local, crie os seguintes diretórios:
    
    - Para Windows: **C:\GitRepos\MyTeam**
-   - Para Linux, **$Home/gitrepos/myTeam** 
+   - Para Linux, **$home/GitRepos/MyTeam** 
    
-1. Altere para o diretório que você criou.
+1. Mude para o diretório que criou.
    
-1. No git bash, execute o comando `git clone <clone URL>`, em que \<URL de clone > é a URL que você copiou da caixa de diálogo de **clonagem** .
+1. Em Git Bash, `git clone <clone URL>`execute \<o comando , onde o URL do clone> é o URL que copiou do diálogo **Clone.**
    
-   Por exemplo, use um dos comandos a seguir para clonar o repositório **TeamUtilities** para o diretório *myTeam* em seu computador local. 
+   Por exemplo, utilize um dos seguintes comandos para clonar o repositório **TeamUtilities** para o diretório *MyTeam* na sua máquina local. 
    
-   **Conexão HTTPS:**
+   **Ligação HTTPS:**
    
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
    ```
    
-   **Conexão SSH:**
+   **Ligação SSH:**
    
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
 
-Depois de fazer quaisquer alterações desejadas no clone local do repositório, confirme e envie por push as alterações para os repositórios de equipe compartilhados. 
+Depois de fazer as alterações que quiser no clone local do seu repositório, comprometa e empurre as alterações para os repositórios da equipa partilhada. 
 
-Execute os seguintes comandos do git bash em seu diretório local **GitRepos\MyTeam\TeamTemplate** ou **GitRepos\MyTeam\TeamUtilities** .
+Execute os seguintes comandos Git Bash do seu **gitRepos\MyTeam\TeamTemplate** ou **GitRepos\MyTeam\TeamUtilities diretório.**
 
 ```bash
 git add .
@@ -226,108 +226,108 @@ git push
 ```
 
 > [!NOTE]
-> Se esta for a primeira vez que você se compromete a um repositório git, talvez seja necessário configurar os parâmetros globais *User.Name* e *User. email* antes de executar o comando `git commit`. Execute os dois comandos seguintes:
+> Se esta for a primeira vez que se compromete com um repositório Git, poderá ter `git commit` de configurar parâmetros globais *user.name* e *user.email* antes de executar o comando. Executar os seguintes dois comandos:
 > 
 > `git config --global user.name <your name>`
 > 
 > `git config --global user.email <your email address>`
 > 
-> Se você estiver confirmando vários repositórios git, use o mesmo nome e endereço de email para todos eles. Usar o mesmo nome e endereço de email é conveniente ao criar Power BI Dashboards para controlar suas atividades git em vários repositórios.
+> Se está a comprometer-se com vários repositórios git, use o mesmo nome e endereço de e-mail para todos eles. Usar o mesmo nome e endereço de e-mail é conveniente ao construir dashboards Power BI para acompanhar as suas atividades git em vários repositórios.
 
-## <a name="add-team-members-and-configure-permissions"></a>Adicionar membros da equipe e configurar permissões
+## <a name="add-team-members-and-configure-permissions"></a>Adicione membros da equipa e configure permissões
 
-Para adicionar membros à equipe:
+Para adicionar membros à equipa:
 
-1. No Azure DevOps, no projeto **myTeam** Home Page, selecione **configurações do projeto** no painel de navegação esquerdo. 
+1. Em Azure DevOps, a partir da página inicial do projeto **MyTeam,** selecione **as definições** do Projeto a partir da navegação esquerda. 
    
-1. Nas **configurações do projeto** navegação à esquerda, selecione **equipes**e, em seguida, na página **equipes** , selecione a **equipe myTeam**. 
+1. A partir das **Definições** de Projeto à esquerda, selecione **Equipas**, em seguida, na página **equipas,** selecione a **Equipa MyTeam**. 
    
-   ![Configurar equipes](./media/team-lead-tasks/teams.png)
+   ![Equipas de Configuração](./media/team-lead-tasks/teams.png)
    
-1. Na página **perfil da equipe** , selecione **Adicionar**.
+1. Na página perfil da **equipa,** selecione **Adicionar**.
    
-   ![Adicionar à equipe do myTeam](./media/team-lead-tasks/add-to-team.png)
+   ![Adicione à Equipa MyTeam](./media/team-lead-tasks/add-to-team.png)
    
-1. Na caixa de diálogo **Adicionar usuários e grupos** , procure e selecione Membros para adicionar ao grupo e, em seguida, selecione **salvar alterações**. 
+1. No diálogo **de utilizadores e grupos Adicionar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Guardar alterações**. 
    
-   ![Adicionar usuários e grupos](./media/team-lead-tasks/add-users.png)
+   ![Adicionar utilizadores e grupos](./media/team-lead-tasks/add-users.png)
    
 
-Para configurar permissões para membros da equipe:
+Para configurar permissões para membros da equipa:
 
-1. Nas **configurações do projeto** navegação à esquerda, selecione **permissões**. 
+1. A partir das **Definições** do Projeto à esquerda, selecione **Permissões**. 
    
-1. Na página **permissões** , selecione o grupo ao qual você deseja adicionar membros. 
+1. Na página **Permissões,** selecione o grupo a que pretende adicionar membros. 
    
-1. Na página desse grupo, selecione **Membros**e, em seguida, selecione **Adicionar**. 
+1. Na página desse grupo, selecione **Membros**, e, em seguida, selecione **Adicionar**. 
    
-1. No pop-up **convidar Membros** , procure e selecione Membros para adicionar ao grupo e, em seguida, selecione **salvar**. 
+1. No popup dos **membros do Convidar,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Save**. 
    
-   ![Conceder permissões a membros](./media/team-lead-tasks/grant-permissions.png)
+   ![Conceder permissões aos membros](./media/team-lead-tasks/grant-permissions.png)
 
-## <a name="create-team-data-and-analytics-resources"></a>Criar dados de equipe e recursos de análise
+## <a name="create-team-data-and-analytics-resources"></a>Criar dados de equipa e recursos de análise
 
-Essa etapa é opcional, mas o compartilhamento de dados e recursos de análise com toda a equipe tem benefícios de desempenho e custo. Os membros da equipe podem executar seus projetos nos recursos compartilhados, economizar em orçamentos e colaborar com mais eficiência. Você pode criar o armazenamento de arquivos do Azure e montá-lo em seu DSVM para compartilhar com os membros da equipe. 
+Este passo é opcional, mas a partilha de dados e recursos de análise com toda a sua equipa tem benefícios de desempenho e custos. Os membros da equipa podem executar os seus projetos sobre os recursos partilhados, economizar nos orçamentos e colaborar de forma mais eficiente. Pode criar armazenamento de ficheiros Azure e montá-lo no seu DSVM para partilhar com os membros da equipa. 
 
-Para obter informações sobre como compartilhar outros recursos com sua equipe, como Azure HDInsight Spark clusters, consulte [plataformas e ferramentas](platforms-and-tools.md). Esse tópico fornece orientação de uma perspectiva de ciência de dados sobre a seleção de recursos que são apropriados para suas necessidades e links para páginas de produtos e outros tutoriais relevantes e úteis.
+Para obter informações sobre a partilha de outros recursos com a sua equipa, como clusters Azure HDInsight Spark, consulte [Plataformas e ferramentas.](platforms-and-tools.md) Este tópico fornece orientação de uma perspetiva de ciência de dados sobre a seleção de recursos adequados às suas necessidades, e links para páginas de produtos e outros tutoriais relevantes e úteis.
 
 >[!NOTE]
-> Para evitar a transmissão de dados entre data centers, que podem ser lentos e dispendiosos, verifique se o grupo de recursos do Azure, a conta de armazenamento e o DSVM estão todos hospedados na mesma região do Azure. 
+> Para evitar a transmissão de dados através de centros de dados, que podem ser lentos e dispendiosos, certifique-se de que o seu grupo de recursos Azure, a conta de armazenamento e a DSVM estão todos alojados na mesma região do Azure. 
 
-### <a name="create-azure-file-storage"></a>Criar armazenamento de arquivos do Azure
+### <a name="create-azure-file-storage"></a>Criar armazenamento de ficheiros Azure
 
-1. Execute o script a seguir para criar o armazenamento de arquivos do Azure para ativos de dados que são úteis para toda a sua equipe. O script solicita suas informações de assinatura do Azure, portanto, prepare-se para entrar. 
+1. Execute o seguinte script para criar armazenamento de ficheiros Azure para ativos de dados que sejam úteis para toda a sua equipa. O script solicita-lhe informações sobre a subscrição do Azure, por isso tenha isso pronto para entrar. 
 
-   - Em um computador Windows, execute o script no prompt de comando do PowerShell:
+   - Numa máquina Windows, execute o script a partir do pedido de comando PowerShell:
      
      ```powershell
      wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.ps1" -outfile "CreateFileShare.ps1"
      .\CreateFileShare.ps1
      ```
      
-   - Em um computador Linux, execute o script do shell do Linux:
+   - Numa máquina Linux, executa o guião da concha linux:
      
      ```shell
      wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.sh"
      bash CreateFileShare.sh
      ```
    
-1. Faça logon na sua conta do Microsoft Azure quando solicitado e selecione a assinatura que você deseja usar.
+1. Inicie sessão na sua conta Microsoft Azure quando solicitado e selecione a subscrição que pretende utilizar.
    
-1. Selecione a conta de armazenamento a ser usada ou crie uma nova na assinatura selecionada. Você pode usar caracteres minúsculos, números e hifens para o nome do armazenamento de arquivos do Azure.
+1. Selecione a conta de armazenamento para utilizar ou crie uma nova sob a sua subscrição selecionada. Pode utilizar caracteres minúsculos, números e hífenes para o nome de armazenamento de ficheiros Azure.
    
-1. Para facilitar a montagem e o compartilhamento do armazenamento, pressione Enter ou digite *Y* para salvar as informações de armazenamento de arquivos do Azure em um arquivo de texto no diretório atual. Você pode fazer check-in desse arquivo de texto para seu repositório do **teamtemplate** , idealmente em **Docs\DataDictionaries**, para que todos os projetos em sua equipe possam acessá-lo. Você também precisa das informações do arquivo para montar o armazenamento de arquivos do Azure para seu DSVM do Azure na próxima seção. 
+1. Para facilitar a montagem e partilha do armazenamento, prima Enter ou *introduza Y* para guardar as informações de armazenamento de ficheiros Azure num ficheiro de texto no seu diretório atual. Pode consultar este ficheiro de texto no seu repositório **TeamTemplate,** idealmente em **Docs\DataDictionaries,** para que todos os projetos da sua equipa possam aceder ao mesmo. Também precisa das informações de ficheiro para montar o armazenamento de ficheiros Azure no seu DSVM Azure na secção seguinte. 
    
-### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montar o armazenamento de arquivos do Azure em seu computador local ou DSVM
+### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Armazenamento de ficheiros Mount Azure na sua máquina local ou DSVM
 
-1. Para montar o armazenamento de arquivos do Azure em seu computador local ou DSVM, use o script a seguir.
+1. Para montar o armazenamento de ficheiros Azure na sua máquina local ou DSVM, utilize o seguinte script.
    
-   - Em um computador Windows, execute o script no prompt de comando do PowerShell:
+   - Numa máquina Windows, execute o script a partir do pedido de comando PowerShell:
      
      ```powershell
      wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
      .\AttachFileShare.ps1
      ```
      
-   - Em um computador Linux, execute o script do shell do Linux:
+   - Numa máquina Linux, executa o guião da concha linux:
      
      ```shell
      wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
      bash AttachFileShare.sh
      ```
    
-1. Pressione Enter ou digite *Y* para continuar, se você salvou um arquivo de informações de armazenamento de arquivos do Azure na etapa anterior. Insira o caminho completo e o nome do arquivo que você criou. 
+1. Prima Introduza ou introduza *Y* para continuar, se guardou um ficheiro de informação de armazenamento de ficheiros Azure no passo anterior. Introduza o caminho completo e o nome do ficheiro que criou. 
    
-   Se você não tiver um arquivo de informações de armazenamento de arquivos do Azure, digite *n*e siga as instruções para inserir sua assinatura, a conta de armazenamento do Azure e as informações de armazenamento de arquivos do Azure.
+   Se não tiver um ficheiro de informação de armazenamento de ficheiros Azure, insira *n,* e siga as instruções para introduzir a sua subscrição, conta de armazenamento Azure e informações de armazenamento de ficheiros Azure.
    
-1. Insira o nome de uma unidade local ou TDSP na qual montar o compartilhamento de arquivos. A tela exibe uma lista de nomes de unidade existentes. Forneça um nome de unidade que ainda não existe.
+1. Introduza o nome de uma unidade local ou TDSP para montar a parte do ficheiro. O ecrã apresenta uma lista de nomes de unidade existentes. Forneça um nome de unidade que já não existe.
    
-1. Confirme se a nova unidade e o armazenamento foram montados com êxito em seu computador.
+1. Confirme que a nova unidade e armazenamento são montados com sucesso na sua máquina.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
+Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo Processo de Ciência de Dados da Equipa:
 
-- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
-- [Projetar tarefas de colaborador individuais para uma equipe de ciência de dados](project-ic-tasks.md)
+- [Tarefas do Gestor de Grupos para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas do Project Lead para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Tarefas do Project Individual Contributor para uma equipa de ciência de dados](project-ic-tasks.md)

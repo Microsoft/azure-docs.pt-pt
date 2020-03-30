@@ -8,15 +8,15 @@ ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 12/05/2019
-ms.author: markscu
+ms.date: 03/19/2020
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: dfd79bc9cfd8e897cdbb18127deaf8da4922ef3a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9f4b9ed9254eaf950311dd27d5716c4681707614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053917"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
@@ -24,14 +24,14 @@ O Azure Batch oferece máquinas virtuais de baixa prioridade (VMs) para reduzir 
  
 Os VMs de baixa prioridade tiram partido da capacidade excedentária em Azure. Quando especifica VMs de baixa prioridade nas suas piscinas, o Lote Azure pode utilizar este excedente, quando disponível.
  
-A desvantagem de usar VMs de baixa prioridade é que essas VMs podem não estar disponíveis para serem alocadas ou podem sofrer preempção a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade são mais adequados para certos tipos de cargas de trabalho. Utilize VMs de baixa prioridade para cargas de trabalho de processamento de lote e assíncronos onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por muitos VMs.
+A compensação pela utilização de VMs de baixa prioridade é que esses VMs podem não estar disponíveis para serem atribuídos ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade são mais adequados para certos tipos de cargas de trabalho. Utilize VMs de baixa prioridade para cargas de trabalho de processamento de lote e assíncronos onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por muitos VMs.
  
 Os VM de baixa prioridade são oferecidos a um preço significativamente reduzido em comparação com os VMs dedicados. Para obter detalhes sobre preços, consulte [o Preço do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
 > [Os VMs spot](https://azure.microsoft.com/pricing/spot/) estão agora disponíveis para conjuntos de escala de [VMs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)e VM de [uma só instância.](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) Os VMs spot são uma evolução de VMs de baixa prioridade, mas diferem na medida em que os preços podem variar e um preço máximo opcional pode ser definido ao alocar VMs spot.
 >
-> As piscinas do Lote Azure vão começar a suportar Os VMs spot no primeiro trimestre de 2020 com novas versões das [APIs e ferramentas](https://docs.microsoft.com/azure/batch/batch-apis-tools)do Lote. Os VMs de baixa prioridade continuarão a ser suportados, utilizando as atuais versões API e ferramentas, durante pelo menos 12 meses, para permitir tempo suficiente para a migração para VMs spot. 
+> As piscinas do Lote Azure começarão a suportar Os VMs spot dentro de alguns meses após a sua disponibilização geral, com novas versões das [APIs e ferramentas](https://docs.microsoft.com/azure/batch/batch-apis-tools)do Lote. Uma vez disponível o suporte spot VM, os VMs de baixa prioridade serão depreciados - continuarão a ser suportados utilizando as atuais versões APIs e ferramentas durante pelo menos 12 meses, para permitir tempo suficiente para a migração para VMs spot. 
 >
 > Os VMs spot não serão suportados para piscinas de configuração de serviço em [nuvem.](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) Para utilizar Os VMs spot, as piscinas do Cloud Service terão de ser migradas para piscinas de configuração de [máquinas virtuais.](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)
 
@@ -152,7 +152,7 @@ A fórmula de escala automática da piscina suporta VMs de baixa prioridade da s
 -   Pode obter o valor da variável definida pelo serviço **$PreemptedNodeCount**. 
     Esta variável devolve o número de nós no estado pré-optado e permite-lhe escalar para cima ou para baixo o número de nós dedicados, dependendo do número de nós pré-optados que não estão disponíveis.
 
-## <a name="jobs-and-tasks"></a>Trabalhos e tarefas
+## <a name="jobs-and-tasks"></a>Empregos e tarefas
 
 Empregos e tarefas requerem pouca configuração adicional para nós de baixa prioridade; o único suporte é o seguinte:
 
@@ -175,9 +175,9 @@ As VMs podem ocasionalmente ser preempted; quando a preempção acontece, o Batc
 
 Estão disponíveis novas métricas no [portal Azure](https://portal.azure.com) para nódeos de baixa prioridade. Estas métricas são:
 
-- Contagem de nós de baixa prioridade
+- Contagem de nódeadebaixas
 - Contagem do núcleo de baixa prioridade 
-- Contagem de nós preempção
+- Contagem de nósinos preempted
 
 Para ver as métricas no portal Azure:
 

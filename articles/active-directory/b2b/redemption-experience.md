@@ -5,24 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a71da025b8b2bb571dc9b00e23bc691ecdd44c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758292"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050840"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Redenção do convite de colaboração Azure Ative Directory B2B
 
 Este artigo descreve a forma como os utilizadores convidados podem aceder aos seus recursos e ao processo de consentimento que irão encontrar. Se enviar um e-mail de convite ao hóspede, o convite inclui um link que o hóspede pode resgatar para ter acesso à sua app ou portal. O e-mail de convite é apenas uma das formas de os hóspedes acederem aos seus recursos. Como alternativa, pode adicionar os hóspedes ao seu diretório e dar-lhes um link direto para o portal ou app que pretende partilhar. Independentemente do método que utilizam, os hóspedes são guiados através de um processo de consentimento pela primeira vez. Este processo garante que os seus hóspedes concordam com os termos de privacidade e aceitam quaisquer [termos de utilização](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) que tenha configurado.
 
 Quando adiciona um utilizador convidado ao seu diretório, a conta de utilizador convidado tem um estado de consentimento (visível no PowerShell) que é inicialmente definido para **Aceitação Pendente**. Esta definição permanece até que o hóspede aceite o seu convite e concorde com a sua política de privacidade e termos de uso. Depois disso, o estado de consentimento altera-se ao **Aceito**, e as páginas de consentimento deixaram de ser apresentadas ao hóspede.
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="redemption-through-the-invitation-email"></a>Redenção através do e-mail de convite
 
@@ -35,13 +38,13 @@ Quando adiciona um utilizador convidado ao seu diretório [utilizando o portal A
 
 ## <a name="redemption-through-a-direct-link"></a>Redenção através de uma ligação direta
 
-Como alternativa ao email de convite, você pode dar a um convidado um link direto para seu aplicativo ou Portal. Primeiro, é necessário adicionar o utilizador convidado ao seu diretório através do [portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluindo links de sessão direta. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
+Como alternativa ao e-mail de convite, pode dar a um hóspede um link direto para a sua app ou portal. Primeiro, é necessário adicionar o utilizador convidado ao seu diretório através do [portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluindo links de sessão direta. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
 
 > [!IMPORTANT]
-> O link direto deve ser específico do inquilino. Por outras palavras, deve incluir uma identificação do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde está localizada a aplicação partilhada. Um URL comum como https://myapps.microsoft.com não vai funcionar para um hóspede porque vai redirecionar para o seu inquilino para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
- > - Painel de acesso a apps: https://myapps.microsoft.com/?tenantid=&lt (&gt; de id de inquilino) 
- > - Painel de acesso de apps para um domínio verificado: https://myapps.microsoft.com/&lt ;domínio verificado&gt;
- > - Portal Azure: https://portal.azure.com/&lt (&gt; de identidade de inquilino)
+> O link direto deve ser específico do inquilino. Por outras palavras, deve incluir uma identificação do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde está localizada a aplicação partilhada. Um URL https://myapps.microsoft.com comum como não vai funcionar para um hóspede porque vai redirecionar para o seu inquilino para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
+ > - Painel de https://myapps.microsoft.com/?tenantid=&ltacesso a aplicativos: .id inquilino&gt; 
+ > - Painel de acesso a apps https://myapps.microsoft.com/&ltpara um domínio verificado: ;domínio verificado&gt;
+ > - Portal Azure: https://portal.azure.com/&lt&gt;
  > - Aplicativo individual: ver como usar um [link de acesso direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Há alguns casos em que o e-mail de convite é recomendado por um link direto. Se estes casos especiais forem importantes para a sua organização, recomendamos que convide os utilizadores usando métodos que ainda enviam o e-mail de convite:
@@ -65,7 +68,7 @@ Quando um hóspede entra para aceder a recursos numa organização parceira pela
    ![Screenshot mostrando novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
    > [!NOTE]
-   > Pode configurar [os termos de utilização](../governance/active-directory-tou.md) na **Gerir** > **relações organizacionais** > **Termos de utilização.**
+   > Pode configurar [os termos de utilização](../governance/active-directory-tou.md) em **Gerir** >  > **relações organizacionais****Termos de utilização**.
 
 3. Salvo especificação em contrário, o hóspede é redirecionado para o painel de acesso apps, que lista as aplicações a que o hóspede pode aceder.
 
@@ -76,7 +79,7 @@ No seu diretório, o Convite do Hóspede **aceitou** alterações de valor para 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](add-users-administrator.md)
+- [Adicione utilizadores de colaboração azure Ative Directory B2B no portal Azure](add-users-administrator.md)
 - [Como é que os trabalhadores da informação adicionam utilizadores de colaboração B2B ao Diretório Ativo Azure?](add-users-information-worker.md)
 - [Adicione utilizadores de colaboração de Diretório Ativo Azure B2B utilizando a PowerShell](customize-invitation-api.md#powershell)
 - [Deixe uma organização como utilizador convidado](leave-the-organization.md)

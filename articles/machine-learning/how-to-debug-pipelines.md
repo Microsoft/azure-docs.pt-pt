@@ -1,5 +1,5 @@
 ---
-title: Depuração e problemas de aprendizagem automática
+title: Depurar e resolver problemas de pipelines de machine learning
 titleSuffix: Azure Machine Learning
 description: Debug e troubleshoot machine learning pipelines no Azure Machine Learning SDK para Python. Aprenda armadilhas comuns para desenvolver oleodutos e dicas para ajudá-lo a depurar os seus scripts antes e durante a execução remota. Aprenda a usar o Visual Studio Code para desinbugicar interativamente os seus oleodutos de aprendizagem automática.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.date: 12/12/2019
-ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/18/2020
+ms.openlocfilehash: 578e935ee742ad476aeafb53670f0a92035249e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064086"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuração e problemas de aprendizagem automática
+# <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a depurar e resolver os gasodutos de [aprendizagem automática](concept-ml-pipelines.md) no [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e [azure machine learning designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Informações são fornecidas sobre como:
@@ -50,9 +50,9 @@ Uma vez que você tem uma configuração de script para executar no seu ambiente
 
 ### <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 
-Testar scripts localmente é uma ótima maneira de depurar grandes fragmentos de código e lógica complexa antes de começar a construir um oleoduto, mas em algum momento você provavelmente precisará de depurar scripts durante o pipeline real executar-se, especialmente quando diagnosticar o comportamento que ocorre durante a interação entre os passos do gasoduto. Recomendamos o uso liberal de declarações `print()` nos seus scripts de passo para que possa ver o estado do objeto e os valores esperados durante a execução remota, semelhanteà forma como iria depurar o código JavaScript.
+Testar scripts localmente é uma ótima maneira de depurar grandes fragmentos de código e lógica complexa antes de começar a construir um oleoduto, mas em algum momento você provavelmente precisará de depurar scripts durante o pipeline real executar-se, especialmente quando diagnosticar o comportamento que ocorre durante a interação entre os passos do gasoduto. Recomendamos o `print()` uso liberal de declarações nos seus scripts de passo para que possa ver o estado do objeto e valores esperados durante a execução remota, semelhante à forma como iria depurar o código JavaScript.
 
-O ficheiro de registo `70_driver_log.txt` contém: 
+O ficheiro `70_driver_log.txt` de registo contém: 
 
 * Todas as declarações impressas durante a execução do seu guião
 * O traço da pilha para o script 
@@ -76,23 +76,23 @@ Clique no módulo para obter o passo específico. Navegue para o separador **Log
 
 A tabela que se segue contém problemas comuns durante o desenvolvimento do gasoduto, com potenciais soluções.
 
-| Problema | Solução possível |
+| Problema | Possível solução |
 |--|--|
-| Incapaz de passar dados para `PipelineData` diretório | Certifique-se de que criou um diretório no script que corresponde ao local onde o seu pipeline espera os dados de saída de passos. Na maioria dos casos, um argumento de entrada definirá o diretório de saída, e depois cria-se o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de roteiro de pontuação que mostra este padrão de design. |
-| Insetos de dependência | Se desenvolveu e testou scripts localmente, mas encontra problemas de dependência ao executar uma computação remota no pipeline, certifique-se de que as dependências e versões do ambiente computacional correspondem ao seu ambiente de teste. |
+| Incapaz de passar `PipelineData` dados para o diretório | Certifique-se de que criou um diretório no script que corresponde ao local onde o seu pipeline espera os dados de saída de passos. Na maioria dos casos, um argumento de entrada definirá o diretório de saída, e depois cria-se o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de roteiro de pontuação que mostra este padrão de design. |
+| Insetos de dependência | Se desenvolveu e testou scripts localmente, mas encontra problemas de dependência ao executar uma computação remota no pipeline, certifique-se de que as dependências e versões do ambiente computacional correspondem ao seu ambiente de teste. (Ver [construção ambiental, cache e reutilização](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
 | Erros ambíguos com alvos de cálculo | Eliminar e recriar alvos de cálculo pode resolver certos problemas com alvos de cálculo. |
-| Gasoduto não reutilizar passos | A reutilização do passo está ativada por defeito, mas certifique-se de que não a desativou num passo de gasoduto. Se a reutilização for desativada, o parâmetro `allow_reuse` no degrau será definido para `False`. |
-| O gasoduto está a refazer-se desnecessariamente. | Para garantir que os passos só se regerão quando os seus dados ou scripts subjacentes mudarem, dissolquem os seus diretórios para cada passo. Se utilizar o mesmo diretório de origem para várias etapas, poderá sofrer repetições desnecessárias. Utilize o parâmetro `source_directory` num objeto de passo de gasoduto para apontar o seu diretório isolado para esse passo e certifique-se de que não está a usar o mesmo caminho `source_directory` para vários passos. |
+| Gasoduto não reutilizar passos | A reutilização do passo está ativada por defeito, mas certifique-se de que não a desativou num passo de gasoduto. Se a reutilização `allow_reuse` for desativada, o `False`parâmetro no degrau será definido para . |
+| O gasoduto está a refazer-se desnecessariamente. | Para garantir que os passos só se regerão quando os seus dados ou scripts subjacentes mudarem, dissolquem os seus diretórios para cada passo. Se utilizar o mesmo diretório de origem para várias etapas, poderá sofrer repetições desnecessárias. Utilize `source_directory` o parâmetro num objeto de passo de gasoduto para apontar o seu diretório isolado `source_directory` para esse passo e certifique-se de que não está a usar o mesmo caminho para vários passos. |
 
 ### <a name="logging-options-and-behavior"></a>Opções de exploração madeireira e comportamento
 
 A tabela abaixo fornece informações para diferentes opções de depuração para oleodutos. Não é uma lista exaustiva, pois existem outras opções além das de Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Tipo   | Exemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SDK de aprendizagem automática azure | Métrica | `run.log(name, val)`                                             | Portal de Aprendizagem automática Azure UI             | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Azure Machine Learning SDK | Métrica | `run.log(name, val)`                                             | Portal de Aprendizagem automática Azure UI             | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/exploração de python    | Registar    | `print(val)`<br>`logging.info(message)`                          | Registos de motorista, Azure Machine Learning Designer | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Exploração madeireira python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Registar    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Condutas de depuração em Insights de Aplicação](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de exploração de python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| OpenCensus Python          | Registar    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de exploração de python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de login
 
@@ -136,8 +136,8 @@ Para os oleodutos criados no designer, pode encontrar os **ficheiros** de regist
 Quando submeter uma execução de pipeline e permanecer na página de autor, pode encontrar os ficheiros de registo gerados para cada módulo.
 
 1. Selecione qualquer módulo na tela de autoria.
-1. No painel de propriedades, vá ao separador **Logs.**
-1. Selecione o ficheiro de registo `70_driver_log.txt`
+1. No painel direito do módulo, vá ao separador **Outputs+ogs.**
+1. Selecione o ficheiro de registo`70_driver_log.txt`
 
     ![Registos de módulos de página de autoria](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -146,10 +146,10 @@ Quando submeter uma execução de pipeline e permanecer na página de autor, pod
 Também pode encontrar os ficheiros de registo de execuções específicas na página de detalhes de execução do gasoduto nas secções **Pipelines** ou **Experiments.**
 
 1. Selecione uma execução de pipeline criada no designer.
-    ![Pipeline executar página](./media/how-to-debug-pipelines/pipelinerun-04.png)
+    ![Página de execução do gasoduto](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Selecione qualquer módulo no painel de pré-visualização.
-1. No painel de propriedades, vá ao separador **Logs.**
-1. Selecione o ficheiro de registo `70_driver_log.txt`
+1. No painel direito do módulo, vá ao separador **Outputs+ogs.**
+1. Selecione o ficheiro de registo`70_driver_log.txt`
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e resolução de problemas em Insights de Aplicação
 Para obter mais informações sobre a utilização da biblioteca OpenCensus Python desta forma, consulte este guia: [Debug e troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
@@ -181,7 +181,7 @@ Os seus passos de oleoduto ML executam os scripts Python. Estes scripts são mod
 
 3. Do seu ambiente de desenvolvimento, monitoriza os registos criados pelo processo de treino para encontrar o endereço IP onde o script está em execução.
 
-4. Diga ao Código VS o endereço IP para ligar o depurador utilizando um ficheiro `launch.json`.
+4. Diga ao Código VS o endereço IP para `launch.json` ligar o depurador utilizando um ficheiro.
 
 5. Liga-se o debugger e interactivomente atravessa o guião.
 
@@ -214,7 +214,7 @@ Para permitir a depuração, faça as seguintes alterações ao script(s) Python
     run = Run.get_context()
     ```
 
-1. Adicione uma declaração `if` que inicie o PTVSD e espere que um desordeiro anexe. Se nenhum desbugger se ligar antes do intervalo, o script continua normal.
+1. Adicione `if` uma declaração que inicie o PTVSD e espere que um desordeiro anexe. Se nenhum desbugger se ligar antes do intervalo, o script continua normal.
 
     ```python
     if args.remote_debug:
@@ -229,7 +229,7 @@ Para permitir a depuração, faça as seguintes alterações ao script(s) Python
         print(f'Debugger attached = {ptvsd.is_attached()}')
     ```
 
-O exemplo python seguinte mostra um ficheiro básico `train.py` que permite a depuração:
+O exemplo python seguinte `train.py` mostra um ficheiro básico que permite a depuração:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configure o gasoduto ML
 
-Para fornecer os pacotes Python necessários para iniciar o PTVSD e obter o contexto de execução, criar um ambiente e definir `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Altere a versão SDK para corresponder à que está a usar. O seguinte código de corte demonstra como criar um ambiente:
+Para fornecer os pacotes Python necessários para iniciar o PTVSD `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`e obter o contexto de execução, criar um ambiente e definir . Altere a versão SDK para corresponder à que está a usar. O seguinte código de corte demonstra como criar um ambiente:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -308,7 +308,7 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
                                                                            pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
 ```
 
-Na secção de [scripts Configure Python,](#configure-python-scripts) foram adicionados dois novos argumentos aos scripts utilizados pelos seus passos de pipeline ML. O seguinte código de corte demonstra como usar estes argumentos para permitir a depuração do componente e definir um tempo de paragem. Também demonstra como utilizar o ambiente criado anteriormente, definindo `runconfig=run_config`:
+Na secção de [scripts Configure Python,](#configure-python-scripts) foram adicionados dois novos argumentos aos scripts utilizados pelos seus passos de pipeline ML. O seguinte código de corte demonstra como usar estes argumentos para permitir a depuração do componente e definir um tempo de paragem. Também demonstra como utilizar o ambiente criado `runconfig=run_config`anteriormente através da definição:
 
 ```python
 # Use RunConfig from a pipeline step
@@ -321,14 +321,14 @@ step1 = PythonScriptStep(name="train_step",
                          allow_reuse=False)
 ```
 
-Quando o gasoduto funciona, cada passo cria uma corrida de crianças. Se a depuração estiver ativada, o script modificado regista informações semelhantes ao seguinte texto no `70_driver_log.txt` para a execução da criança:
+Quando o gasoduto funciona, cada passo cria uma corrida de crianças. Se a depuração estiver ativada, o script modificado regista `70_driver_log.txt` informações semelhantes ao seguinte texto no percurso da criança:
 
 ```text
 Timeout for debug connection: 300
 ip_address: 10.3.0.5
 ```
 
-Poupe o valor `ip_address`. É usado na secção seguinte.
+Poupe `ip_address` o valor. É usado na secção seguinte.
 
 > [!TIP]
 > Também pode encontrar o endereço IP dos registos de execução para a criança correr para este passo de gasoduto. Para obter mais informações sobre a visualização desta informação, consulte as [experiências e métricas da experiência Monitor Azure ML.](how-to-track-experiments.md)
@@ -347,7 +347,7 @@ Poupe o valor `ip_address`. É usado na secção seguinte.
 
     1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, __selecione configurações abertas__. Um ficheiro chamado __Launch.json__ abre.
 
-    1. No ficheiro __launch.json,__ encontre a linha que contém `"configurations": [`, e insira o seguinte texto depois. Altere a entrada `"host": "10.3.0.5"` do endereço IP devolvido nos seus registos da secção anterior. Altere a entrada `"localRoot": "${workspaceFolder}/code/step"` para um diretório local que contém uma cópia do guião a ser depurado:
+    1. No ficheiro __launch.json,__ encontre a `"configurations": [`linha que contém e insira o seguinte texto posteriormente. Altere `"host": "10.3.0.5"` a entrada no endereço IP devolvido nos seus registos da secção anterior. Altere `"localRoot": "${workspaceFolder}/code/step"` a entrada num diretório local que contém uma cópia do guião a ser depurado:
 
         ```json
         {
@@ -370,7 +370,7 @@ Poupe o valor `ip_address`. É usado na secção seguinte.
         > Se já houver outras entradas na secção de configurações, adicione uma vírmula (,) após o código que inseriu.
 
         > [!TIP]
-        > A melhor prática é manter os recursos para scripts em diretórios separados, razão pela qual o `localRoot` exemplo referências de valor `/code/step1`.
+        > A melhor prática é manter os recursos para scripts em `localRoot` diretórios `/code/step1`separados, razão pela qual o exemplo valoriza referências.
         >
         > Se estiver a depurar vários scripts, em diretórios diferentes, crie uma secção de configuração separada para cada script.
 
@@ -380,14 +380,14 @@ Poupe o valor `ip_address`. É usado na secção seguinte.
 
 1. Abra o Código VS e abra uma cópia local do guião.
 2. Detete pontos de rutura onde pretende que o script pare depois de ligado.
-3. Enquanto o processo da criança estiver a executar o script e o `Timeout for debug connection` for exibido nos registos, utilize a tecla F5 ou selecione __Debug__. Quando solicitado, selecione o __Azure Machine Learning Compute: configuração de depuração remota.__ Também pode selecionar o ícone de depuração da barra lateral, o __Azure Machine Learning:__ entrada remota de depuração do menu de depuração de Debug e, em seguida, usar a seta verde para prender o debugger.
+3. Enquanto o processo da criança `Timeout for debug connection` estiver a executar o script e o mostrado nos registos, utilize a tecla F5 ou selecione __Debug__. Quando solicitado, selecione o __Azure Machine Learning Compute: configuração de depuração remota.__ Também pode selecionar o ícone de depuração da barra lateral, o __Azure Machine Learning:__ entrada remota de depuração do menu de depuração de Debug e, em seguida, usar a seta verde para prender o debugger.
 
     Neste ponto, o Código VS liga-se ao PTVSD no nó computacional e para no ponto de rutura que definiu anteriormente. Agora pode passar pelo código à medida que corre, ver variáveis, etc.
 
     > [!NOTE]
-    > Se o registo apresentar uma entrada indicando `Debugger attached = False`, então o tempo de paragem expirou e o script continuou sem o desordeiro. Submeta novamente o gasoduto e ligue o descato após a mensagem `Timeout for debug connection` e antes que o prazo expire.
+    > Se o registo apresentar `Debugger attached = False`uma inscrição indicando , então o tempo de tempo expirou e o script continuou sem o desordeiro. Submeta o gasoduto novamente e `Timeout for debug connection` ligue o debugger após a mensagem, e antes que o prazo expire.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência SDK para obter ajuda com o pacote de núcleo de [gasodutos em azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote de [passos em gasodutos em azul.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
 

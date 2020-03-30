@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774539"
 ---
-Em um navegador, navegue até o [portal](https://portal.azure.com/) e entre com sua conta do Azure.
+A partir de um browser, navegue para o [portal](https://portal.azure.com/) e inscreva-se na sua conta Azure.
 
-Se você tiver várias assinaturas e precisar alternar entre assinaturas:
+Se tiver várias subscrições e precisar de mudar de subscrição:
 
-1. Clique no botão perfil e escolha **alternar diretório**.
-
-    > [!div class="mx-imgBorder"]
-    > ![selecionar o diretório de comutador](../media/choose-subscription-2.png)
-
-1. Escolha uma assinatura que você deseja usar para a configuração de emparelhamento.
+1. Clique no botão de perfil e, em seguida, escolha o **'Diretório switch'.**
 
     > [!div class="mx-imgBorder"]
-    > ![escolher assinatura](../media/choose-subscription-3.png)
+    > ![Selecione diretório de comutação](../media/choose-subscription-2.png)
+
+1. Escolha uma subscrição que deseja utilizar para espreitar configurada.
+
+    > [!div class="mx-imgBorder"]
+    > ![Escolha a subscrição](../media/choose-subscription-3.png)

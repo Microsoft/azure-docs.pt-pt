@@ -9,29 +9,29 @@ ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66814784"
 ---
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente de uma VM generalizada. Para obter mais informações, consulte [Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se a imagem gerida contém um disco de dados, o tamanho do disco de dados não pode ser mais de 1 TB.
+Para completar o exemplo neste artigo, deve ter uma imagem gerida existente de um VM generalizado. Para mais informações, consulte [Tutorial: Crie uma imagem personalizada de um VM Azure com o Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se a imagem gerida contiver um disco de dados, o tamanho do disco de dados não pode ser superior a 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/bash](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Se preferir instalar e utilizar a CLI localmente, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-Uma galeria de imagens é o recurso principal utilizado para ativar a partilha de imagens. Carateres permitidos para o nome de galeria são letras em maiúsculas ou minúsculas, dígitos, pontos e períodos. O nome de Galeria não pode conter traços.   Nomes de galeria tem de ser exclusivos na sua subscrição. 
+Uma galeria de imagens é o recurso principal usado para permitir a partilha de imagens. Os caracteres permitidos para o nome da Galeria são letras maiúsculas ou minúsculas, dígitos, pontos e períodos. O nome da galeria não pode conter traços.   Os nomes das galerias devem ser únicos dentro da sua subscrição. 
 
-Crie uma galeria de imagens com [az sig criar](/cli/azure/sig#az-sig-create). O exemplo seguinte cria uma galeria com o nome *myGallery* na *myGalleryRG*.
+Crie uma galeria de imagens usando [az sig criar.](/cli/azure/sig#az-sig-create) O exemplo seguinte cria uma galeria chamada *myGallery* na *myGalleryRG.*
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
@@ -40,9 +40,9 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem
 
-Definições de imagem, criar um agrupamento lógico das imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criados dentro dos mesmos. Nomes de definição de imagem podem ser constituídos por letras em maiúsculas ou minúsculas, dígitos, pontos, travessões e períodos. Para obter mais informações sobre os valores que pode especificar para obter uma definição de imagem, veja [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informação sobre as versões de imagem que são criadas dentro delas. Os nomes de definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)de imagem .
 
-Criar uma definição de imagem inicial na galeria utilizando [criação da definição de imagem do sig az](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Crie uma definição de imagem inicial na galeria utilizando a [criação de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -58,11 +58,11 @@ az sig image-definition create \
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem 
 
-Criar versões da imagem, conforme necessário através de [az Galeria criar-imagem-versão da imagem](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de introduzir o ID da imagem gerida a utilizar como uma linha de base para criar a versão da imagem. Pode usar [lista de imagens de az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. 
+Crie versões da imagem conforme necessário usando a [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de passar a identificação da imagem gerida para utilizar como base para criar a versão de imagem. Pode usar a [lista de imagens az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. 
 
-Carateres permitidos para a versão da imagem são números e pontos finais. Tem de ser números dentro do intervalo de um número inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Versão menor.* *Patch*.
 
-Neste exemplo, é a versão da nossa imagem *1.0.0* e, vamos criar 2 réplicas no *e.u.a. Centro-Oeste* região, 1 réplica no *Centro-Sul* região e 1 réplica no *E.U.A. Leste 2* região a utilizar o armazenamento com redundância de zona.
+Neste exemplo, a versão da nossa imagem é *de 1.0.0* e vamos criar 2 réplicas na região *centro-oeste dos EUA,* 1 réplica na região *centro-sul dos EUA* e 1 réplica na região leste dos EUA *2* utilizando armazenamento redundante.
 
 
 ```azurecli-interactive 
@@ -77,14 +77,14 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> Terá de aguardar que a versão da imagem concluir completamente a ser criada e replicadas antes de poder utilizar a mesma imagem gerida para criar outra versão da imagem.
+> É preciso esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Pode também armazenar todas as réplicas de versão de imagem na [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type standard_zrs` ao criar a versão da imagem.
+> Também pode armazenar todas as réplicas da sua `--storage-account-type standard_zrs` versão de imagem no [Armazenamento Redundante da Zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando quando cria a versão de imagem.
 >
 
-## <a name="share-the-gallery"></a>Partilhar a Galeria
+## <a name="share-the-gallery"></a>Partilhar a galeria
 
-Recomendamos que partilha com outros utilizadores ao nível da galeria. Para obter o ID de objeto da galeria, utilize [show de sig az](/cli/azure/sig#az-sig-show).
+Recomendamos que partilhe com outros utilizadores ao nível da galeria. Para obter a identificação do objeto da sua galeria, use [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -93,7 +93,7 @@ az sig show \
    --query id
 ```
 
-Utilizar o ID de objeto como um âmbito, juntamente com um endereço de e-mail e [criação da atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-create) para conceder acesso de utilizador para a Galeria de imagem partilhada.
+Utilize o ID do objeto como âmbito, juntamente com um endereço de e-mail e [uma atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) para dar a um utilizador acesso à galeria de imagens partilhadas.
 
 ```azurecli-interactive
 az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>

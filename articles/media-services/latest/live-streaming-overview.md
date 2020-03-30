@@ -1,5 +1,5 @@
 ---
-title: Visão geral do streaming ao vivo com a Azure Media Services v3  Microsoft Docs
+title: Visão geral do streaming ao vivo com a Azure Media Services v3 [ Microsoft Docs
 description: Este artigo dá uma visão geral do streaming ao vivo usando o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969003"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068023"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming ao vivo com Azure Media Services v3
 
@@ -33,7 +33,7 @@ A Azure Media Services permite-lhe entregar eventos ao vivo aos seus clientes na
 Este artigo dá uma visão geral e orientação de streaming ao vivo com os Media Services e ligações a outros artigos relevantes.
  
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://docs.microsoft.com/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 ## <a name="dynamic-packaging"></a>Embalagem Dinâmica
 
@@ -41,7 +41,7 @@ Com os Media Services, pode usufruir da [Dynamic Packaging,](dynamic-packaging-o
 
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
-A encriptação dinâmica permite-lhe encriptar de forma dinâmica os seus conteúdos ao vivo ou a pedido com a AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. Para mais informações, consulte [encriptação Dinâmica](content-protection-overview.md).
+A encriptação dinâmica permite-lhe encriptar de forma dinâmica os seus conteúdos ao vivo ou a pedido com a AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. A Media Services também fornece um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Para mais informações, consulte [encriptação Dinâmica](content-protection-overview.md).
 
 > [!NOTE]
 > A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
@@ -77,9 +77,9 @@ A transcrição ao vivo é uma funcionalidade que pode utilizar com Eventos Ao V
 
 Para compreender o fluxo de trabalho em streaming ao vivo nos Serviços de Media v3, tem de rever e compreender primeiro os seguintes conceitos: 
 
-- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
-- [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
-- [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
+- [Pontos finais de streaming](streaming-endpoint-concept.md)
+- [Eventos em Direto e Saídas em Direto](live-events-outputs-concept.md)
+- [Localizadores de Transmissão em Fluxo](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Passos gerais
 
@@ -113,11 +113,15 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 
 ## <a name="other-important-articles"></a>Outros artigos importantes
 
-- [Codificadores ao vivo recomendados](recommended-on-premises-live-encoders.md)
+- [Codificadores em direto recomendados](recommended-on-premises-live-encoders.md)
 - [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
 - [Os tipos de eventos ao vivo apresentam comparação](live-event-types-comparison.md)
 - [Estados e faturação](live-event-states-billing.md)
 - [Latência](live-event-latency.md)
+
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+Consulte o artigo de [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 

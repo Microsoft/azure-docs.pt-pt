@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79140778"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064208"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
@@ -29,7 +29,7 @@ Com R, pode executar tarefas que não são suportadas atualmente por módulos ex
 
 O designer de machine learning azure usa a distribuição CRAN (Comprehensive R Archive Network) de R. A versão atualmente utilizada é CRAN 3.5.1.
 
-## <a name="supported-r-packages"></a>Pacotes R suportados
+## <a name="supported-r-packages"></a>Supported R packages (Pacotes R suportados)
 
 O ambiente R é pré-instalado com mais de 100 embalagens. Para obter uma lista completa, consulte as [embalagens R pré-instaladas](#pre-installed-r-packages).
 
@@ -43,8 +43,8 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="installing-r-packages"></a>Instalar pacotes de R
-Para instalar pacotes R adicionais, utilize o método `install.packages()`. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **execute R Script,** e não são partilhados em outros módulos **execute R Script.**
+## <a name="installing-r-packages"></a>Instalação de pacotes R
+Para instalar pacotes R `install.packages()` adicionais, utilize o método. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **execute R Script,** e não são partilhados em outros módulos **execute R Script.**
 
 Esta amostra mostra como instalar o Zoo:
 ```R
@@ -65,7 +65,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > Verifique se a embalagem já existe antes de a instalar para evitar a instalação repetida. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` acima do código da amostra. A instalação repetida pode causar tempo de tempo de pedido de serviço web.     
+  > Verifique se a embalagem já existe antes de a instalar para evitar a instalação repetida. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` no código de amostra acima. A instalação repetida pode causar tempo de tempo de pedido de serviço web.     
 
 ## <a name="upload-files"></a>Carregar ficheiros
 O **Script Execute R** suporta o upload de ficheiros utilizando o Azure Machine Learning R SDK.
@@ -97,10 +97,10 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Depois de o gasoduto ser submetido com sucesso, pode pré-visualizar a imagem no painel direito do módulo
+Após a execução do gasoduto, pode pré-visualizar a imagem no painel direito do módulo
 
-[!div class="mx-imgBorder"]
-![](media/module/upload-image-in-r-script.png) de imagem carregada
+> [!div class="mx-imgBorder"]
+> ![Imagem carregada](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o Execute R Script
 
@@ -116,9 +116,9 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
 1. Ligue as inputs necessárias pelo script. As inputs são opcionais e podem incluir dados e código R adicional.
 
-    * **Dataset1**: Consulte a primeira entrada como `dataframe1`. O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou pode ligar um conjunto de dados de Aprendizagem automática Azure.
+    * **Dataset1**: Consulte a `dataframe1`primeira entrada como . O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou pode ligar um conjunto de dados de Aprendizagem automática Azure.
 
-    * **Conjunto de dados2**: Consulte a segunda entrada como `dataframe2`. Este conjunto de dados também deve ser formatado como um ficheiro CSV, TSV, ARFF ou como um conjunto de dados de Aprendizagem automática Azure.
+    * **Conjunto de dados2**: Consulte `dataframe2`a segunda entrada como . Este conjunto de dados também deve ser formatado como um ficheiro CSV, TSV, ARFF ou como um conjunto de dados de Aprendizagem automática Azure.
 
     * **Script Bundle**: A terceira entrada aceita ficheiros ZIP. O ficheiro com fecho pode conter vários ficheiros e vários tipos de ficheiros.
 
@@ -146,19 +146,19 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
     }
     ```
 
- * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada deste módulo.
+ * O script deve conter `azureml_main`uma função denominada , que é o ponto de entrada deste módulo.
 
- * A função do ponto de entrada pode conter até dois argumentos de entrada: `Param<dataframe1>` e `Param<dataframe2>`
+ * A função do ponto de entrada pode `Param<dataframe1>` conter até dois argumentos de entrada: e`Param<dataframe2>`
  
    > [!NOTE]
-    > Os dados transmitidos para o módulo **Execute R Script** são referenciados como `dataframe1` e `dataframe2`, que é diferente do designer de Machine Learning Azure (a referência do designer como `dataset1`, `dataset2`). Verifique se os dados de entrada estão corretamente referenciados no seu script.  
+    > Os dados transmitidos para o módulo `dataframe1` Execute `dataframe2` **R Script** são referenciados como e , `dataset1` `dataset2`o que é diferente do designer de Machine Learning Azure (a referência do designer como , ). Verifique se os dados de entrada estão corretamente referenciados no seu script.  
  
     > [!NOTE]
     >  O código R existente pode necessitar de pequenas alterações para ser executado num pipeline de design. Por exemplo, os dados de entrada que fornece no formato CSV devem ser explicitamente convertidos para um conjunto de dados antes de poder utilizá-lo no seu código. Os tipos de dados e colunas utilizados na língua R também diferem de algumas formas dos tipos de dados e colunas utilizados no designer.
 
-1.  **Semente aleatória**: Digite um valor a utilizar dentro do ambiente R como o valor de sementes aleatórias. Este parâmetro equivale a chamar `set.seed(value)` em código R.  
+1.  **Semente aleatória**: Digite um valor a utilizar dentro do ambiente R como o valor de sementes aleatórias. Este parâmetro equivale a `set.seed(value)` chamar o código R.  
 
-1. Executar o pipeline.  
+1. Submeta o oleoduto.  
 
 ## <a name="results"></a>Resultados
 
@@ -256,9 +256,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>Passar objetos R entre módulos de script Execute R
 
-Pode passar objetos R entre as instâncias do módulo **Execute R Script** utilizando o mecanismo de serialização interna. Este exemplo pressupõe que pretende mover o objeto R denominado `A` entre dois módulos **execute R Script.**
+Pode passar objetos R entre as instâncias do módulo **Execute R Script** utilizando o mecanismo de serialização interna. Este exemplo pressupõe que pretende mover `A` o objeto R nomeado entre dois módulos **execute R Script.**
 
-1. Adicione o primeiro módulo **execute R Script** ao seu pipeline e escreva o seguinte código na caixa de texto r **script** para criar um objeto serializado `A` como uma coluna na tabela de dados de saída do módulo:  
+1. Adicione o primeiro módulo **execute R Script** ao seu pipeline e escreva o seguinte código na caixa de texto r **script** para criar um objeto `A` serializado como uma coluna na tabela de dados de saída do módulo:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -272,11 +272,11 @@ Pode passar objetos R entre as instâncias do módulo **Execute R Script** utili
     }
     ```
 
-    A conversão explícita para o tipo inteiro é feita porque a função de serialização produz dados no formato R `Raw`, que não é suportado pelo designer.
+    A conversão explícita para o tipo inteiro é feita porque a `Raw` função de serialização produz dados no formato R, que não é suportado pelo designer.
 
 1. Adicione uma segunda instância do módulo **Execute R Script** e ligue-o à porta de saída do módulo anterior.
 
-1. Digite o seguinte código na caixa de texto **r script** para extrair objeto `A` da tabela de dados de entrada. 
+1. Digite o seguinte código na caixa `A` de texto r **script** para extrair objeto da tabela de dados de entrada. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -304,22 +304,22 @@ A lista atual de Pacotes R pré-instalados disponível para utilização:
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
 | niciar         | 1.3-22     | 
-| vassoura        | 0.5.2      | 
+| broom        | 0.5.2      | 
 | callr        | 3.2.0      | 
-| caret        | 6.0-84     | 
+| acento circunflexo        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
-| guarda-celcela   | 1.1.0      | 
-| Classe        | 7.3-15     | 
+| cellranger   | 1.1.0      | 
+| classe        | 7.3-15     | 
 | cli          | 1.1.0      | 
 | clipr        | 0.6.0      | 
-| aglomerado      | 2.0.7-1    | 
-| códigos    | 0.2-16     | 
-| espaço para cores   | 1.4-1      | 
-| compilador     | 3.5.1      | 
-| lápis de cor       | 1.3.4      | 
-| Caracol         | 3.3        | 
+| cluster      | 2.0.7-1    | 
+| codetools    | 0.2-16     | 
+| colorspace   | 1.4-1      | 
+| compiler     | 3.5.1      | 
+| crayon       | 1.3.4      | 
+| curl         | 3.3        | 
 | data.table   | 1.12.2     | 
-| datasets     | 3.5.1      | 
+| conjuntos de dados     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
@@ -329,113 +329,113 @@ A lista atual de Pacotes R pré-instalados disponível para utilização:
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
-| estrangeiro      | 0.8-71     | 
+| foreign      | 0.8-71     | 
 | fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
 | genéricos     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0-18     | 
-| cola         | 1.3.1      | 
+| glue         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
 | gráficos     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| grelha         | 3.5.1      | 
+| grid         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| refúgio        | 2.1.0      | 
-| mais alto        | 0.8        | 
+| haven        | 2.1.0      | 
+| highr        | 0,8        | 
 | hms          | 0.4.2      | 
-| ferramentas html    | 0.3.6      | 
+| htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0.9-9      | 
-| iteradores    | 1.0.10     | 
+| iterators    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
-| malha        | 1.23       | 
-| rotulagem     | 0.3        | 
-| rede      | 0.20-38    | 
+| knitr        | 1.23       | 
+| labeling     | 0.3        | 
+| lattice      | 0.20-38    | 
 | lava         | 1.6.5      | 
-| preguiçosa     | 0.2.2      | 
-| lubridade    | 1.7.4      | 
+| lazyeval     | 0.2.2      | 
+| lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
-| marcação     | 1          | 
-| MASSA         | 7.3-51.4   | 
+| markdown     | 1          | 
+| MASS         | 7.3-51.4   | 
 | Matriz       | 1.2-17     | 
-| métodos      | 3.5.1      | 
+| methods      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| mímica         | 0.7        | 
+| mime         | 0.7        | 
 | ModelMetrics | 1.2.2      | 
-| modelador       | 0.1.4      | 
+| modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
 | nlme         | 3.1-140    | 
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
-| Abre-nis      | 1.4        | 
+| openssl      | 1.4        | 
 | paralelo     | 3.5.1      | 
-| pilar       | 1.4.1      | 
+| pillar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
-| unidades bonitas  | 1.0.2      | 
+| prettyunits  | 1.0.2      | 
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
-| progresso     | 1.2.2      | 
+| progress     | 1.2.2      | 
 | ps           | 1.3.0      | 
 | purrr        | 0.3.2      | 
 | quadprog     | 1.5-7      | 
 | quantmod     | 0.4-15     | 
 | R6           | 2.4.0      | 
-| floresta aleatória | 4.6-14     | 
+| randomForest | 4.6-14     | 
 | RColorBrewer | 1.1-2      | 
 | Rcpp         | 1.0.1      | 
 | RcppRoll     | 0.3.0      | 
-| leitura        | 1.3.1      | 
+| readr        | 1.3.1      | 
 | readxl       | 1.3.1      | 
-| receitas      | 0.1.5      | 
-| desforra      | 1.0.1      | 
+| recipes      | 0.1.5      | 
+| rematch      | 1.0.1      | 
 | reprex       | 0.3.0      | 
-| remodelação2     | 1.4.3      | 
-| reticulado   | 1.12       | 
+| reshape2     | 1.4.3      | 
+| reticulate   | 1.12       | 
 | rlang        | 0.4.0      | 
 | rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0.1        | 
 | rvest        | 0.3.4      | 
-| escalas       | 1.0.0      | 
+| scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 
-| espacial      | 7.3-11     | 
+| spatial      | 7.3-11     | 
 | splines      | 3.5.1      | 
-| PRAÇA QUADRADOS      | 2017.10-1  | 
-| estatísticas        | 3.5.1      | 
-| estatísticas4       | 3.5.1      | 
+| SQUAREM      | 2017.10-1  | 
+| stats        | 3.5.1      | 
+| stats4       | 3.5.1      | 
 | stringi      | 1.4.3      | 
 | stringr      | 1.3.1      | 
-| sobrevivência     | 2.44-1.1   | 
+| survival     | 2.44-1.1   | 
 | sys          | 3,2        | 
 | tcltk        | 3.5.1      | 
-| tíbide       | 2.1.3      | 
-| arrumação        | 0.8.3      | 
+| tibble       | 2.1.3      | 
+| tidyr        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
-| arrumação verso    | 1.2.1      | 
+| tidyverse    | 1.2.1      | 
 | timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
 | ferramentas        | 3.5.1      | 
 | tseries      | 0.10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
-| utilitários        | 3.5.1      | 
+| utils        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| bigode      | 0.3-2      | 
-| murcho        | 2.1.2      | 
-| xfun         | 0.8        | 
+| whisker      | 0.3-2      | 
+| withr        | 2.1.2      | 
+| xfun         | 0,8        | 
 | xml2         | 1.2.0      | 
 | xts          | 0.11-2     | 
 | yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
-| zoológico          | 1.8-6      | 
+| zoo          | 1.8-6      | 
 
 ## <a name="next-steps"></a>Passos seguintes
 

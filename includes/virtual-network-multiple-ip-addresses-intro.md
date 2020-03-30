@@ -9,16 +9,16 @@ ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
 ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75646398"
 ---
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Portal Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [Azure CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
 
 Uma Máquina Virtual do Azure (VM) tem uma ou mais interfaces de rede (NIC) ligadas à mesma. Qualquer NIC pode ter um ou mais endereços IP públicos e privados estáticos ou dinâmicos atribuídos à mesma. Atribuir vários endereços IP a uma VM permite as seguintes funcionalidades:
@@ -29,4 +29,4 @@ Uma Máquina Virtual do Azure (VM) tem uma ou mais interfaces de rede (NIC) liga
 
 Cada NIC anexada a uma VM tem uma ou mais configurações de IP associadas à mesma. A cada configuração é atribuído um endereço IP privado estático ou dinâmico. Cada configuração também pode ter um recurso de endereço IP público associado a si. Um recurso de endereço IP público tem um endereço IP público dinâmico ou estático atribuído. Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP no Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
 
-Há um limite para quantos endereços IP privados podem ser atribuídos a uma NIC. Também há um limite para quantos endereços IP públicos podem ser usados em uma assinatura do Azure. Veja o artigo [Limites do Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.
+Há um limite para quantos endereços IP privados podem ser atribuídos a um NIC. Há também um limite para quantos endereços IP públicos podem ser usados numa subscrição azure. Veja o artigo [Limites do Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.

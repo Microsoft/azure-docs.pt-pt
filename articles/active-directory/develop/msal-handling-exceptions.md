@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f78c64fc0ba25dc3310b24e873dbae266ea2f281
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160849"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050328"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
 
@@ -36,9 +36,9 @@ Durante a experiência de entrada, poderá encontrar erros sobre consentimentos,
 
 Consulte a seguinte secção que corresponde ao idioma que está a utilizar para obter mais detalhes sobre o manuseamento de erros para a sua aplicação.
 
-## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
-Ao processar as exceções .NET, pode utilizar o tipo de exceção em si e o membro `ErrorCode` para distinguir entre exceções. `ErrorCode` valores são constantes do tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
+Ao processar as exceções .NET, pode utilizar `ErrorCode` o tipo de exceção em si e o membro para distinguir entre exceções. `ErrorCode`valores são constantes do tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
 Também pode ver os campos de [MsalClientException,](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet) [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)e [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
@@ -50,24 +50,24 @@ Aqui estão as exceções comuns que podem ser lançadas e algumas possíveis at
 
 | Exceção | Código de erro | Mitigação|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o nome de '{appId}' chamado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Primeiro, tem de obter o consentimento do utilizador. Se não estiver a utilizar o Núcleo .NET (que não tem UI Web), ligue (só uma vez) `AcquireTokeninteractive`. Se estiver a utilizar o núcleo .NET ou não quiser fazer um `AcquireTokenInteractive`, o utilizador pode navegar para um URL para dar o seu consentimento: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. chamar `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: O utilizador é obrigado a utilizar a autenticação multifactor (MFA).| Não há atenuação. Se o MFA estiver configurado para o seu inquilino e o Azure Ative Directory (AAD) decidir aplicá-lo, precisa de recuar para um fluxo interativo como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode`.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o nome de '{appId}' chamado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Primeiro, tem de obter o consentimento do utilizador. Se não estiver a utilizar o Núcleo .NET (que não tem UI Web), ligue (apenas uma vez) `AcquireTokeninteractive`. Se estiver a utilizar o núcleo .NET `AcquireTokenInteractive`ou não quiser fazer um, o `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`utilizador pode navegar para um URL para dar o seu consentimento: . para `AcquireTokenInteractive`chamar:`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: O utilizador é obrigado a utilizar a autenticação multifactor (MFA).| Não há atenuação. Se o MFA estiver configurado para o seu inquilino e o Azure Ative Directory (AAD) `AcquireTokenInteractive` `AcquireTokenByDeviceCode`decidir aplicá-lo, precisa de recuar para um fluxo interativo como ou .|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: O tipo de subvenção não é suportado sobre os pontos finais */comum* ou */consumidores.* Utilize o */organizaçãoou* ponto final específico do inquilino. Usou */comum.*| Como explica a mensagem da Azure AD, a autoridade precisa de ter um inquilino ou outra */organização.*|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: O organismo de pedido deve conter o seguinte parâmetro: `client_secret or client_assertion`.| Esta exceção pode ser lançada se o seu pedido não for registado como uma aplicação de cliente público em Azure AD. No portal Azure, edite o manifesto para a sua aplicação e `allowPublicClient` `true`. |
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Não consegui identificar o registo registado no utilizador| A biblioteca não foi capaz de consultar o utilizador atual do Windows sessão ou este utilizador não é AD ou AAD aderiu (os utilizadores de local de trabalho não são suportados). Mitigação 1: no UWP, verifique se a aplicação tem as seguintes capacidades: Autenticação empresarial, Redes Privadas (Cliente e Servidor), Informação sobre Conta de Utilizador. Mitigação 2: Implemente a sua própria lógica para obter o nome de utilizador (por exemplo, john@contoso.com) e utilize o formulário `AcquireTokenByIntegratedWindowsAuth` que tem o nome de utilizador.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: O organismo de pedido deve `client_secret or client_assertion`conter o seguinte parâmetro: .| Esta exceção pode ser lançada se o seu pedido não for registado como uma aplicação de cliente público em Azure AD. No portal Azure, edite o manifesto `allowPublicClient` `true`para a sua aplicação e definido para . |
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Não foi possível identificar o registo registado no utilizador| A biblioteca não foi capaz de consultar o utilizador atual do Windows sessão ou este utilizador não é AD ou AAD aderiu (os utilizadores de local de trabalho não são suportados). Mitigação 1: no UWP, verifique se a aplicação tem as seguintes capacidades: Autenticação empresarial, Redes Privadas (Cliente e Servidor), Informação sobre Conta de Utilizador. Mitigação 2: Implemente a sua própria lógica john@contoso.compara obter `AcquireTokenByIntegratedWindowsAuth` o nome de utilizador (por exemplo, ) e utilize o formulário que toma no nome de utilizador.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Este método baseia-se num protocolo exposto pelo Ative Directory (AD). Se um utilizador foi criado no Diretório Ativo Azure sem suporte a DD (utilizador "gerido"), este método falhará. Os utilizadores criados em AD e apoiados por AAD (utilizadores "federados") podem beneficiar deste método de autenticação não interativo. Mitigação: Utilize a autenticação interativa.|
 
 ### `MsalUiRequiredException`
 
-Um dos códigos de estado comuns devolvidos de MSAL.NET quando a chamada `AcquireTokenSilent()` é `MsalError.InvalidGrantError`. Este código de estado significa que a aplicação deve voltar a ligar para a biblioteca de autenticação, mas em modo interativo (AcquireTokenInteractive ou AcquireTokenByDeviceCodeFlow para aplicações de clientes públicos, e fazer um desafio nas aplicações Web). Isto porque é necessária interação adicional do utilizador antes de ser emitido token de autenticação.
+Um dos códigos de estado `AcquireTokenSilent()` comuns devolvidos de MSAL.NET quando a chamada é `MsalError.InvalidGrantError`. Este código de estado significa que a aplicação deve voltar a ligar para a biblioteca de autenticação, mas em modo interativo (AcquireTokenInteractive ou AcquireTokenByDeviceCodeFlow para aplicações de clientes públicos, e fazer um desafio nas aplicações Web). Isto porque é necessária interação adicional do utilizador antes de ser emitido token de autenticação.
 
-A maior parte do tempo em que `AcquireTokenSilent` falha, é porque a cache simbólica não tem fichas correspondentes ao seu pedido. As fichas de acesso expiram em 1 hora, e `AcquireTokenSilent` tentará obter uma nova com base num token refrescante (em termos OAuth2, este é o fluxo "Refresh Token"). Este fluxo também pode falhar por várias razões, por exemplo, se um administrador inquilino configurar políticas de login mais rigorosas. 
+A maior parte `AcquireTokenSilent` do tempo, quando falha, é porque a cache simbólica não tem fichas correspondentes ao seu pedido. As fichas de acesso expiram em 1 hora, e `AcquireTokenSilent` tentarão obter uma nova com base num token refrescante (em termos OAuth2, este é o fluxo "Refresh Token"). Este fluxo também pode falhar por várias razões, por exemplo, se um administrador inquilino configurar políticas de login mais rigorosas. 
 
 A interação visa fazer com que o utilizador faça uma ação. Algumas dessas condições são fáceis de resolver (por exemplo, aceitar Termos de Utilização com um único clique), e algumas não podem ser resolvidas com a configuração atual (por exemplo, a máquina em questão precisa de se ligar a uma rede corporativa específica). Alguns ajudam o utilizador a configurar a autenticação multifactor ou a instalar o Microsoft Authenticator no seu dispositivo.
 
-### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` enumeração de classificação
+### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException`enumeração de classificação
 
-A MSAL expõe um campo `Classification`, que pode ler para proporcionar uma melhor experiência do utilizador, por exemplo, para dizer ao utilizador que a sua palavra-passe expirou ou que terá de dar consentimento para utilizar alguns recursos. Os valores suportados fazem parte do `UiRequiredExceptionClassification` enum:
+A MSAL `Classification` expõe um campo, que pode ler para proporcionar uma melhor experiência do utilizador, por exemplo, para dizer ao utilizador que a sua palavra-passe expirou ou que terá de dar consentimento para utilizar alguns recursos. Os valores suportados `UiRequiredExceptionClassification` fazem parte do enum:
 
 | Classificação    | Significado           | Manuseamento recomendado |
 |-------------------|-------------------|----------------------|
@@ -138,7 +138,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 }
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 MSAL.js fornece objetos de erro que abstratem e classificam os diferentes tipos de erros comuns. Também fornece interface para aceder a detalhes específicos dos erros, tais como mensagens de erro para manuseá-los adequadamente.
 
@@ -157,7 +157,7 @@ export class AuthError extends Error {
 ```
 
 Ao alargar a classe de erro, tem acesso às seguintes propriedades:
-- `AuthError.message`: O mesmo que o `errorMessage`.
+- `AuthError.message`: O `errorMessage`mesmo que o .
 - `AuthError.stack`: Empilhar vestígios para erros lançados.
 
 ### <a name="error-types"></a>Tipos de erro
@@ -166,15 +166,15 @@ Estão disponíveis os seguintes tipos de erros:
 
 - `AuthError`: Classe de erro de base para a biblioteca MSAL.js, também utilizada para erros inesperados.
 
-- `ClientAuthError`: Error class, que denota um problema com a autenticação do Cliente. A maioria dos erros que vêm da biblioteca serão ClientesAuthErrors. Estes erros resultam de coisas como chamar um método de login quando o login já está em andamento, o utilizador cancela o login, e assim por diante.
+- `ClientAuthError`: Classe de erro, que denota um problema com a autenticação do Cliente. A maioria dos erros que vêm da biblioteca serão ClientesAuthErrors. Estes erros resultam de coisas como chamar um método de login quando o login já está em andamento, o utilizador cancela o login, e assim por diante.
 
-- `ClientConfigurationError`: Classe de erro, estende `ClientAuthError` atirada antes de serem feitos pedidos quando os parâmetros de config do utilizador dada estão mal formados ou em falta.
+- `ClientConfigurationError`: Classe de `ClientAuthError` erro, estende-se antes de serem feitos pedidos quando os parâmetros de config do utilizador dada estão mal formados ou em falta.
 
 - `ServerError`: Classe de erro, representa as cadeias de erro enviadas pelo servidor de autenticação. Estes podem ser erros como formatos ou parâmetros de pedido inválidos, ou quaisquer outros erros que impeçam o servidor de autenticar ou autorizar o utilizador.
 
-- `InteractionRequiredAuthError`: Classe de erro, estende `ServerError` para representar erros do servidor, que requerem uma chamada interativa. Este erro é lançado por `acquireTokenSilent` se o utilizador for obrigado a interagir com o servidor para fornecer credenciais ou consentimento para autenticação/autorização. Os códigos de erro incluem `"interaction_required"`, `"login_required"`e `"consent_required"`.
+- `InteractionRequiredAuthError`: Classe de `ServerError` erro, estende-se para representar erros do servidor, que requerem uma chamada interativa. Este erro é `acquireTokenSilent` lançado se o utilizador for obrigado a interagir com o servidor para fornecer credenciais ou consentimento para autenticação/autorização. Os códigos `"interaction_required"` `"login_required"`de `"consent_required"`erro incluem, e .
 
-Para o manuseamento de erros nos fluxos de autenticação com métodos de redirecionamento (`loginRedirect`, `acquireTokenRedirect`), terá de registar o backback, que é chamado com sucesso ou falha após o redirecionamento utilizando `handleRedirectCallback()` método da seguinte forma:
+Para o manuseamento de erros nos`loginRedirect` `acquireTokenRedirect`fluxos de autenticação com métodos de redirecionamento ( `handleRedirectCallback()` ), terá de registar o backback, que é chamado com sucesso ou falha após o redirecionamento utilizando o método seguinte:
 
 ```javascript
 function authCallback(error, response) {
@@ -188,7 +188,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-Os métodos para a experiência pop-up (`loginPopup`, `acquireTokenPopup`) prometem devolver promessas, para que possa utilizar o padrão de promessa (.então e .catch) para lidar com elas como mostrado:
+Os métodos para a`loginPopup` `acquireTokenPopup`experiência pop-up ( , ) devolver promessas, para que você possa usar o padrão de promessa (.então e .catch) para manuseá-los como mostrado:
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -201,7 +201,7 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### <a name="errors-that-require-interaction"></a>Erros que requerem interação
 
-Um erro é devolvido quando se tenta usar um método não interativo de aquisição de um símbolo como `acquireTokenSilent`, mas a MSAL não o conseguiu fazer silenciosamente.
+Um erro é devolvido quando se tenta usar um método não `acquireTokenSilent`interativo de aquisição de um símbolo como , mas a MSAL não o conseguiu fazer silenciosamente.
 
 As possíveis razões são:
 
@@ -209,7 +209,7 @@ As possíveis razões são:
 - precisa consentir
 - precisa passar por uma experiência de autenticação de vários fatores.
 
-A reparação deve chamar um método interativo, como `acquireTokenPopup` ou `acquireTokenRedirect`:
+A reparação deve chamar um `acquireTokenPopup` `acquireTokenRedirect`método interativo, como ou:
 
 ```javascript
 // Request for Access Token
@@ -231,47 +231,47 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-## <a name="pythontabpython"></a>[python](#tab/python)
+## <a name="python"></a>[Pitão](#tab/python)
 
 Na MSAL para Python, a maioria dos erros são transmitidos como um valor de retorno da chamada da API. O erro é representado como um dicionário contendo a resposta JSON da plataforma de identidade da Microsoft.
 
-* Uma resposta bem sucedida contém a chave `"access_token"`. O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.1 Resposta bem sucedida](https://tools.ietf.org/html/rfc6749#section-5.1)
-* Uma resposta de erro contém `"error"` e geralmente `"error_description"`. O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.2 Error Response](https://tools.ietf.org/html/rfc6749#section-5.2)
+* Uma resposta bem `"access_token"` sucedida contém a chave. O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.1 Resposta bem sucedida](https://tools.ietf.org/html/rfc6749#section-5.1)
+* Uma resposta `"error"` de `"error_description"`erro contém e geralmente . O formato da resposta é definido pelo protocolo OAuth2. Para mais informações, consulte [5.2 Error Response](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-Quando um erro é devolvido, a chave `"error_description"` contém uma mensagem legível pelo homem; que, por sua vez, normalmente contém um código de erro da plataforma de identidade microsoft. Para mais detalhes sobre os vários códigos de erro, consulte códigos de [erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Quando um erro é `"error_description"` devolvido, a chave contém uma mensagem legível pelo homem; que, por sua vez, normalmente contém um código de erro da plataforma de identidade microsoft. Para mais detalhes sobre os vários códigos de erro, consulte códigos de [erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
 
 No MSAL para python, as exceções são raras porque a maioria dos erros são tratados devolvendo um valor de erro. A `ValueError` exceção só é lançada quando há um problema com a forma como está a tentar utilizar a biblioteca - como quando os parâmetros api estão mal formados.
 
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
-No MSAL para Java, existem três tipos de exceções: `MsalClientException`, `MsalServiceException`e `MsalInteractionRequiredException`; tudo o que herda de `MsalException`.
+No MSAL para Java, existem três `MsalClientException` `MsalServiceException`tipos `MsalInteractionRequiredException`de exceções: , e; tudo o `MsalException`que herda de .
 
-- `MsalClientException` é lançado quando ocorre um erro que é local para a biblioteca ou dispositivo.
-- `MsalServiceException` é lançada quando o serviço de fichas seguras (STS) devolve uma resposta de erro ou ocorre outro erro de rede.
-- `MsalInteractionRequiredException` é lançado quando a interação ui é necessária para que a autenticação tenha sucesso.
+- `MsalClientException`é lançado quando ocorre um erro que é local para a biblioteca ou dispositivo.
+- `MsalServiceException`é lançado quando o serviço de fichas seguras (STS) devolve uma resposta de erro ou ocorre outro erro de rede.
+- `MsalInteractionRequiredException`é lançado quando a interação ui é necessária para que a autenticação tenha sucesso.
 
 ### <a name="msalserviceexception"></a>MsalServiceException
 
-`MsalServiceException` expõe os cabeçalhos HTTP devolvidos nos pedidos ao STS. Acede-os através `MsalServiceException.headers()`
+`MsalServiceException`expõe os cabeçalhos HTTP devolvidos nos pedidos ao STS. Acede-los via`MsalServiceException.headers()`
 
 ### <a name="msalinteractionrequiredexception"></a>MsalInteractionRequiredException
 
-Um dos códigos de estatuto comum devolvidos da MSAL para Java quando a chamada `AcquireTokenSilently()` é `InvalidGrantError`. Isto significa que é necessária uma interação adicional do utilizador antes de ser emitido um símbolo de autenticação. A sua aplicação deve voltar a ligar para a biblioteca de autenticação, mas em modo interativo, enviando `AuthorizationCodeParameters` ou `DeviceCodeParameters` para aplicações de clientes públicos.
+Um dos códigos de estado comuns devolvidos da MSAL para Java quando a chamada `AcquireTokenSilently()` é `InvalidGrantError`. Isto significa que é necessária uma interação adicional do utilizador antes de ser emitido um símbolo de autenticação. A sua aplicação deve voltar a ligar para `AuthorizationCodeParameters` `DeviceCodeParameters` a biblioteca de autenticação, mas em modo interativo, enviando ou para aplicações de clientes públicos.
 
-A maior parte do tempo, quando `AcquireTokenSilently` falha, é porque a cache simbólica não tem um símbolo que corresponda ao seu pedido. As fichas de acesso expiram dentro de uma hora, e `AcquireTokenSilently` tentarão obter uma nova com base num token refrescante. Em termos OAuth2, este é o fluxo de Token Refresh. Este fluxo também pode falhar por várias razões, como quando um administrador inquilino confunde políticas de login mais rigorosas.
+A maior parte `AcquireTokenSilently` do tempo, quando falha, é porque a cache simbólica não tem um símbolo que corresponda ao seu pedido. As fichas de acesso expiram dentro de uma hora, e `AcquireTokenSilently` tentarão obter uma nova com base num token refrescante. Em termos OAuth2, este é o fluxo de Token Refresh. Este fluxo também pode falhar por várias razões, como quando um administrador inquilino confunde políticas de login mais rigorosas.
 
 Algumas condições que resultam neste erro são fáceis de resolver pelos utilizadores. Por exemplo, podem ter de aceitar os Termos de Utilização. Ou talvez o pedido não possa ser cumprido com a configuração atual porque a máquina precisa de se ligar a uma rede corporativa específica.
 
-A MSAL expõe um campo `reason`, que pode utilizar para proporcionar uma melhor experiência ao utilizador. Por exemplo, o campo `reason` pode levá-lo a dizer ao utilizador que a sua palavra-passe expirou ou que terá de dar consentimento para utilizar alguns recursos. Os valores suportados fazem parte do `InteractionRequiredExceptionReason` enum:
+A MSAL `reason` expõe um campo, que pode utilizar para proporcionar uma melhor experiência ao utilizador. Por exemplo, `reason` o campo pode levá-lo a dizer ao utilizador que a sua palavra-passe expirou ou que terá de dar consentimento para utilizar alguns recursos. Os valores suportados `InteractionRequiredExceptionReason` fazem parte do enum:
 
 | Razão | Significado | Manuseamento Recomendado |
 |---------|-----------|-----------------------------|
-| `BasicAction` | A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa | Ligue `acquireToken` com parâmetros interativos |
+| `BasicAction` | A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa | Chamada `acquireToken` com parâmetros interativos |
 | `AdditionalAction` | A condição pode ser resolvida através de uma interação corretiva adicional com o sistema fora do fluxo de autenticação interativa. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a ação corretiva a tomar. A aplicação de chamada pode optar por ocultar fluxos que requerem ação adicional se o utilizador não conseguir completar a ação corretiva. |
-| `MessageOnly` | A condição não pode ser resolvida neste momento. Lance o fluxo de autenticação interativa para mostrar uma mensagem explicando a condição. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a condição. `acquireToken` devolverá o erro `UserCanceled` depois de o utilizador ler a mensagem e fechar a janela. A aplicação pode optar por ocultar fluxos que resultem em mensagem se o utilizador não for suscetível de beneficiar da mensagem. |
-| `ConsentRequired`| O consentimento do utilizador está em falta ou foi revogado. |Ligue `acquireToken` com parâmetros interativos para que o utilizador possa dar o seu consentimento. |
+| `MessageOnly` | A condição não pode ser resolvida neste momento. Lance o fluxo de autenticação interativa para mostrar uma mensagem explicando a condição. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a condição. `acquireToken`devolverá `UserCanceled` o erro depois de o utilizador ler a mensagem e fechar a janela. A aplicação pode optar por ocultar fluxos que resultem em mensagem se o utilizador não for suscetível de beneficiar da mensagem. |
+| `ConsentRequired`| O consentimento do utilizador está em falta ou foi revogado. |Ligue `acquireToken` com parâmetros interativos para que o utilizador possa dar consentimento. |
 | `UserPasswordExpired` | A palavra-passe do utilizador expirou. | Ligue `acquireToken` com parâmetro interativo para que o utilizador possa redefinir a sua palavra-passe |
-| `None` |  Mais detalhes são fornecidos. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Ligue `acquireToken` com parâmetros interativos |
+| `None` |  Mais detalhes são fornecidos. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Chamada `acquireToken` com parâmetros interativos |
 
 ### <a name="code-example"></a>Exemplo de Código
 
@@ -298,13 +298,13 @@ A MSAL expõe um campo `reason`, que pode utilizar para proporcionar uma melhor 
         }
 ```
 
-## <a name="iosmacostabiosmacos"></a>[iOS/macOS](#tab/iosmacos)
+## <a name="iosmacos"></a>[iOS/macOS](#tab/iosmacos)
 
 A lista completa de MSAL para erros iOS e macOS está listada no [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
-Todos os erros produzidos pela MSAL são devolvidos com domínio `MSALErrorDomain`.
+Todos os erros produzidos pela `MSALErrorDomain` MSAL são devolvidos com domínio.
 
-Para erros do sistema, a MSAL devolve o `NSError` original da API do sistema. Por exemplo, se a aquisição de fichas falhar devido à falta de conectividade da rede, a MSAL devolve um erro com o domínio `NSURLErrorDomain` e código `NSURLErrorNotConnectedToInternet`.
+Para erros do sistema, a `NSError` MSAL devolve o original do sistema API. Por exemplo, se a aquisição de fichas falhar devido à falta de `NSURLErrorDomain` conectividade `NSURLErrorNotConnectedToInternet` da rede, a MSAL devolve um erro com o domínio e o código.
 
 Recomendamos que lide pelo menos com os dois erros MSAL seguintes do lado do cliente:
 
@@ -313,7 +313,7 @@ Recomendamos que lide pelo menos com os dois erros MSAL seguintes do lado do cli
 - `MSALErrorServerDeclinedScopes`: Alguns ou todos os âmbitos foram recusados. Decida se deve continuar apenas com os âmbitos concedidos ou parar o processo de inscrição.
 
 > [!NOTE]
-> O enum `MSALInternalError` só deve ser utilizado para referência e depuração. Não tente lidar automaticamente com estes erros no tempo de funcionamento. Se a sua aplicação encontrar algum dos erros que se enquadram na `MSALInternalError`, poderá querer mostrar uma mensagem de frente para um utilizador genérico explicando o que aconteceu.
+> O `MSALInternalError` enum só deve ser utilizado para referência e depuração. Não tente lidar automaticamente com estes erros no tempo de funcionamento. Se a sua aplicação encontrar `MSALInternalError`algum dos erros que se aderem, poderá querer mostrar uma mensagem de frente para um utilizador genérico explicando o que aconteceu.
 
 Por exemplo, `MSALInternalErrorBrokerResponseNotReceived` significa que o utilizador não completou a autenticação e regressou manualmente à aplicação. Neste caso, a sua aplicação deve mostrar uma mensagem de erro genérica explicando que a autenticação não foi completada e sugerir que tentem autenticar novamente.
 
@@ -516,13 +516,13 @@ Em certos casos, ao chamar uma API que requer acesso condicional, pode receber u
 
 Ao chamar uma API que exija acesso condicional a partir de MSAL.NET, a sua aplicação terá de lidar com as exceções ao desafio de reclamação. Isto aparecerá como uma [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) onde a propriedade [Reclamações](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) não estará vazia.
 
-Para lidar com o desafio da reivindicação, terá de usar o método `.WithClaim()` da classe `PublicClientApplicationBuilder`.
+Para lidar com o desafio da reivindicação, terá de usar o `.WithClaim()` método da `PublicClientApplicationBuilder` classe.
 
 ### <a name="javascript"></a>Javascript
 
-Ao obter fichas silenciosamente (usando `acquireTokenSilent`) usando MSAL.js, a sua aplicação pode receber erros quando um desafio de [acesso condicional](../azuread-dev/conditional-access-dev-guide.md) alega, como a política de MFA, é exigido por uma API a que está a tentar aceder.
+Ao obter fichas silenciosamente `acquireTokenSilent`(utilizando ) utilizando MSAL.js, a sua aplicação pode receber erros quando um desafio de [acesso condicional](../azuread-dev/conditional-access-dev-guide.md) alega, como a política de MFA, é exigido por uma API a que está a tentar aceder.
 
-O padrão para lidar com este erro é fazer uma chamada interativa para adquirir ficha em MSAL.js, como `acquireTokenPopup` ou `acquireTokenRedirect` como no exemplo seguinte:
+O padrão para lidar com este erro é fazer uma chamada interativa para `acquireTokenPopup` `acquireTokenRedirect` adquirir ficha em MSAL.js, tais como ou como no exemplo seguinte:
 
 ```javascript
 myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
@@ -543,7 +543,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 Adquirir interativamente o token leva o utilizador e dá-lhes a oportunidade de satisfazer a política de Acesso Condicional exigida.
 
-Ao chamar uma API que requer acesso condicional, pode receber um desafio de reclamações no erro da API. Neste caso, pode passar as reclamações devolvidas no erro para o campo `claimsRequest` da classe `AuthenticationParameters.ts` para satisfazer a política adequada. 
+Ao chamar uma API que requer acesso condicional, pode receber um desafio de reclamações no erro da API. Neste caso, pode passar as reclamações devolvidas no erro para o `claimsRequest` campo da `AuthenticationParameters.ts` classe para satisfazer a política adequada. 
 
 Consulte [solicitar reclamações adicionais](active-directory-optional-claims.md) para obter mais detalhes.
 
@@ -551,7 +551,7 @@ Consulte [solicitar reclamações adicionais](active-directory-optional-claims.m
 
 A MSAL para iOS e macOS permite-lhe solicitar reclamações específicas em cenários de aquisição interativos e silenciosos.
 
-Para solicitar reclamações personalizadas, especifique `claimsRequest` em `MSALSilentTokenParameters` ou `MSALInteractiveTokenParameters`.
+Para solicitar reclamações `claimsRequest` `MSALSilentTokenParameters` personalizadas, especifique dentro ou `MSALInteractiveTokenParameters`.
 
 Consulte [pedidos de reclamações personalizadas utilizando MSAL para iOS e macOS](request-custom-claims.md) para obter mais informações.
 
@@ -563,13 +563,13 @@ Espera-se que implemente políticas de retenção quando chama mSAL. A MSAL faz 
 
 MSAL.NET implementa um simples mecanismo de retry-once para erros com códigos de erro HTTP 500-600.
 
-### <a name="http-429"></a>HTTP 429
+### <a name="http-429"></a>HTTP 429
 
-Quando o Servidor token de serviço (STS) está sobrecarregado com muitos pedidos, devolve o erro HTTP 429 com uma dica sobre quanto tempo até poder tentar novamente no campo de resposta `Retry-After`.
+Quando o Servidor token de serviço (STS) está sobrecarregado com muitos pedidos, devolve o erro HTTP 429 `Retry-After` com uma dica sobre quanto tempo até poder tentar novamente no campo de resposta.
 
 ### <a name="net"></a>.NET
 
-[MsalServiceSuperfícies `System.Net.Http.Headers.HttpResponseHeaders`](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) como uma propriedade `namedHeaders`. Pode utilizar informações adicionais a partir do código de erro para melhorar a fiabilidade das suas aplicações. No caso descrito, pode utilizar o `RetryAfterproperty` (do tipo `RetryConditionHeaderValue`) e calcular quando voltar a tentar.
+[MsalServiceSuperfície](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) superfícies `System.Net.Http.Headers.HttpResponseHeaders` como `namedHeaders`uma propriedade . Pode utilizar informações adicionais a partir do código de erro para melhorar a fiabilidade das suas aplicações. No caso descrito, pode `RetryAfterproperty` utilizar o `RetryConditionHeaderValue`(do tipo) e calcular quando voltar a tentar.
 
 Aqui está um exemplo para uma aplicação daemon usando o fluxo de credenciais do cliente. Pode adaptar isto a qualquer um dos métodos para adquirir um símbolo.
 

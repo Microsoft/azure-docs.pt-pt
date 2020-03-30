@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273726"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e utilizar cônsul no Serviço Azure Kubernetes (AKS)
@@ -20,9 +20,9 @@ ms.locfileid: "78273726"
 Este artigo mostra-lhe como instalar o Cônsul. Os componentes do Cônsul são instalados num aglomerado de Kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções referem a versão do Cônsul `1.6.0`, e utilizam pelo menos a versão Helm `2.14.2`.
+> Estas instruções referem `1.6.0`a versão do `2.14.2`Cônsul, e utilizam pelo menos a versão Helm .
 >
-> Os lançamentos do Cônsul `1.6.x` podem ser executados contra versões Kubernetes `1.13+`. Pode encontrar versões adicionais do Cônsul no [GitHub - Lançamentos do Cônsul][consul-github-releases] e informações sobre cada um dos lançamentos em [Notas de Lançamento do Cônsul][consul-release-notes].
+> Os lançamentos do Cônsul `1.6.x` podem ser `1.13+`executados contra versões Kubernetes. Pode encontrar versões adicionais do Cônsul no [GitHub - Lançamentos do Cônsul][consul-github-releases] e informações sobre cada um dos lançamentos em [Notas de Lançamento do Cônsul][consul-release-notes].
 
 Neste artigo, vai aprender a:
 
@@ -33,7 +33,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com RBAC habilitado) e estabeleceu uma ligação `kubectl` com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart] Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina do nó Linux.
+Os passos detalhados neste artigo assumem que criou um `1.13` cluster AKS (Kubernetes ou `kubectl` acima, com RBAC habilitado) e estabeleceu uma ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart] Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina do nó Linux.
 
 Vai precisar do [Helm][helm] para seguir estas instruções e instalar o Cônsul. Recomenda-se que tenha a versão mais recente estável corretamente instalada e configurada no seu cluster. Se precisar de ajuda para instalar o Helm, consulte a orientação de [instalação AKS Helm][helm-install]. Todas as cápsulas de cônsul também devem ser programadas para correr em nós linux.
 
@@ -41,7 +41,7 @@ Este artigo separa a orientação de instalação do Cônsul em vários passos d
 
 ### <a name="install-the-consul-components-on-aks"></a>Instale os componentes do Cônsul no AKS
 
-Começaremos por descarregar a versão `v0.10.0` da tabela do Cônsul Helm. Esta versão do gráfico inclui a versão cônsul `1.6.0`.
+Começaremos por descarregar a `v0.10.0` versão da tabela do Cônsul Helm. Esta versão do gráfico inclui `1.6.0`a versão do Cônsul.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,16 +61,16 @@ Começaremos por descarregar a versão `v0.10.0` da tabela do Cônsul Helm. Esta
 
 ::: zone-end
 
-Utilize o Helm e o gráfico de `consul-helm` descarregado para instalar os componentes do Cônsul no espaço de nome `consul` no seu cluster AKS. 
+Utilize o Helm `consul-helm` e o gráfico descarregado para `consul` instalar os componentes do Cônsul no espaço de nome no seu cluster AKS. 
 
 > [!NOTE]
 > **Opções de instalação**
 > 
 > Estamos a usar as seguintes opções como parte da nossa instalação:
-> - `connectInject.enabled=true` - permitir que os proxies sejam injetados em cápsulas
-> - `client.enabled=true` - permitir que os clientes do Cônsul corram em todos os nódosos
-> - `client.grpc=true` - ativar o ouvinte gRPC para ligarInject
-> - `syncCatalog.enabled=true` - serviços de Kubernetes e Cônsul sincronizados
+> - `connectInject.enabled=true`- permitir que os proxies sejam injetados em cápsulas
+> - `client.enabled=true`- permitir que os clientes do Cônsul corram em cada nó
+> - `client.grpc=true`- ativar o ouvinte gRPC para ligarInject
+> - `syncCatalog.enabled=true`- sincronizar os serviços kubernetes e cônsul
 >
 > **Selecionadores de nó**
 >
@@ -94,13 +94,13 @@ Utilize o Helm e o gráfico de `consul-helm` descarregado para instalar os compo
 
 ::: zone-end
 
-O gráfico `Consul` Helm implanta uma série de objetos. Pode ver a lista a partir da saída do seu comando `helm install` acima. A implantação dos componentes do Cônsul pode demorar cerca de 3 minutos a ser concluída, dependendo do ambiente do cluster.
+O `Consul` gráfico helm implementa uma série de objetos. Pode ver a lista a `helm install` partir da saída do seu comando acima. A implantação dos componentes do Cônsul pode demorar cerca de 3 minutos a ser concluída, dependendo do ambiente do cluster.
 
 Neste momento, destacou o Cônsul para o seu aglomerado AKS. Para garantir que temos uma implantação bem sucedida do Cônsul, vamos passar à secção seguinte para validar a instalação do Cônsul.
 
 ## <a name="validate-the-consul-installation"></a>Validar a instalação do Cônsul
 
-Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl obtenha][kubectl-get] comandos de casul para consultar o espaço de nome `consul`, onde os componentes do Cônsul foram instalados pelo comando `helm install`:
+Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl][kubectl-get] obtenha `consul` comandos de casul para consultar o `helm install` espaço de nome, onde os componentes do Cônsul foram instalados pelo comando:
 
 ```console
 kubectl get svc --namespace consul --output wide
@@ -128,7 +128,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Todas as cápsulas devem mostrar um estado de `Running`. Se as suas cápsulas não tiverem estes estatutos, aguarde um minuto ou dois até que o façam. Se alguma cápsula reportar um problema, use o comando de cápsula de [utilização kubectl][kubectl-describe] para rever a sua saída e estado.
+Todas as cápsulas devem mostrar `Running`um estado de . Se as suas cápsulas não tiverem estes estatutos, aguarde um minuto ou dois até que o façam. Se alguma cápsula reportar um problema, use o comando de cápsula de [utilização kubectl][kubectl-describe] para rever a sua saída e estado.
 
 ## <a name="accessing-the-consul-ui"></a>Acesso ao Cônsul UI
 
@@ -138,7 +138,7 @@ O Cônsul UI foi instalado na nossa configuração acima e fornece configuraçã
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
-Agora pode abrir um navegador e apontá-lo para `http://localhost:8080/ui` para abrir o Cônsul UI. Deve ver o seguinte quando abrir a UI:
+Agora pode abrir um navegador `http://localhost:8080/ui` e apontá-lo para abrir o Cônsul UI. Deve ver o seguinte quando abrir a UI:
 
 ![Cônsul UI](./media/servicemesh/consul/consul-ui.png)
 
@@ -149,7 +149,7 @@ Agora pode abrir um navegador e apontá-lo para `http://localhost:8080/ui` para 
 
 ### <a name="remove-consul-components-and-namespace"></a>Remover componentes do Cônsul e espaço de nome
 
-Para remover o Cônsul do seu cluster AKS, utilize os seguintes comandos. Os comandos `helm delete` removerão o gráfico de `consul`, e o comando `kubectl delete namespace` removerá o espaço de nome `consul`.
+Para remover o Cônsul do seu cluster AKS, utilize os seguintes comandos. Os `helm delete` comandos removerão o `consul` `kubectl delete namespace` gráfico, e `consul` o comando removerá o espaço de nome.
 
 ```console
 helm delete --purge consul

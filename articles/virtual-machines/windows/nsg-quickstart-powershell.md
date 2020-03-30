@@ -1,6 +1,6 @@
 ---
-title: Abrir portas para uma VM usando Azure PowerShell
-description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modo de implantação do Azure Resource Manager e Azure PowerShell
+title: Abrir portas para um VM usando o Azure PowerShell
+description: Saiba como abrir uma porta / criar um ponto final para o seu Windows VM utilizando o modo de implementação do gestor de recursos Azure e o Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,27 +14,27 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754165"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos finais para um VM em Azure usando powerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Para criar um grupo de segurança de rede e as regras de ACL, você precisa [da versão mais recente do Azure PowerShell instalada](/powershell/azureps-cmdlets-docs). Você também pode [executar essas etapas usando o portal do Azure](nsg-quickstart-portal.md).
+Para criar um Grupo de Segurança de Rede e regras ACL, precisa [da versão mais recente do Azure PowerShell instalada](/powershell/azureps-cmdlets-docs). Também pode [executar estes passos utilizando o portal Azure.](nsg-quickstart-portal.md)
 
-Faça logon em sua conta do Azure:
+Inicie sessão na sua conta do Azure:
 
 ```powershell
 Connect-AzAccount
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Exemplos de nomes de parâmetro incluem *MyResource*, *myNetworkSecurityGroup*e *myVnet*.
+Nos seguintes exemplos, substitua os nomes dos parâmetros pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *myNetworkSecurityGroup*, e *myVnet*.
 
-Crie uma regra com [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *tcp* na porta *80*:
+Crie uma regra com [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo seguinte cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego *de TCP* na porta *80*:
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -50,7 +50,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Em seguida, crie seu grupo de segurança de rede com [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra http que você acabou de criar da seguinte maneira. O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup*:
+Em seguida, crie o seu grupo de Segurança de Rede com [o New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra HTTP que acabou de criar da seguinte forma. O exemplo seguinte cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -60,7 +60,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-Agora, vamos atribuir seu grupo de segurança de rede a uma sub-rede. O exemplo a seguir atribui uma rede virtual existente chamada *myVnet* à variável *$vnet* com [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork):
+Agora vamos atribuir o seu Grupo de Segurança de Rede a uma sub-rede. O exemplo seguinte atribui uma rede virtual existente chamada *myVnet* à variável *$vnet* com [Get-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -68,7 +68,7 @@ $vnet = Get-AzVirtualNetwork `
     -Name "myVnet"
 ```
 
-Associe o grupo de segurança de rede à sua sub-rede com [set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig). O exemplo a seguir associa a sub-rede chamada *mysubnet* ao seu grupo de segurança de rede:
+Associe o seu Grupo de Segurança de Rede com a sua subnet com [o Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig). O exemplo seguinte associa a subnet chamada *mySubnet* ao seu Grupo de Segurança de Rede:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -80,22 +80,22 @@ Set-AzVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-Por fim, atualize sua rede virtual com [set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) para que as alterações entrem em vigor:
+Por fim, atualize a sua rede virtual com [set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) para que as suas alterações entrem em vigor:
 
 ```powershell
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 
-## <a name="more-information-on-network-security-groups"></a>Mais informações sobre grupos de segurança de rede
-Os comandos rápidos aqui permitem que você comece a executar o tráfego que flui para sua VM. Os grupos de segurança de rede fornecem muitos ótimos recursos e granularidade para controlar o acesso aos seus recursos. Você pode ler mais sobre como [criar um grupo de segurança de rede e regras de ACL aqui](tutorial-virtual-network.md#secure-network-traffic).
+## <a name="more-information-on-network-security-groups"></a>Mais informações sobre grupos de segurança da rede
+Os comandos rápidos aqui permitem-lhe levantar-se e correr com o tráfego fluindo para o seu VM. Os Grupos de Segurança da Rede fornecem muitas funcionalidades e granularidade para controlar o acesso aos seus recursos. Pode ler mais sobre [a criação](tutorial-virtual-network.md#secure-network-traffic)de um Grupo de Segurança de Rede e regras ACL aqui .
 
-Para aplicativos Web altamente disponíveis, você deve posicionar suas VMs por trás de um Azure Load Balancer. O balanceador de carga distribui o tráfego para VMs, com um grupo de segurança de rede que fornece filtragem de tráfego. Para obter mais informações, consulte [como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
+Para aplicações web altamente disponíveis, deve colocar os seus VMs atrás de um Equilíbrio de Carga Azure. O equilibrador de carga distribui tráfego para VMs, com um Grupo de Segurança de Rede que fornece filtragem de tráfego. Para mais informações, consulte Como carregar o equilíbrio das [máquinas virtuais Linux em Azure para criar uma aplicação altamente disponível.](tutorial-load-balancer.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre como criar ambientes mais detalhados nos seguintes artigos:
+Neste exemplo, criou uma regra simples para permitir o tráfego HTTP. Pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-* [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
-* [Visão geral de Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
+* [Visão geral do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md)
+* [O que é um grupo de segurança da rede?](../../virtual-network/security-overview.md)
+* [Visão geral do equilíbrio de carga azure](../../load-balancer/load-balancer-overview.md)
 
