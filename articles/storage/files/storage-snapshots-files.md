@@ -1,6 +1,6 @@
 ---
-title: Visão geral de instantâneos de compartilhamento para arquivos do Azure | Microsoft Docs
-description: Um instantâneo de compartilhamento é uma versão somente leitura de um compartilhamento de arquivos do Azure que é realizada em um ponto no tempo, como uma maneira de fazer backup do compartilhamento.
+title: Visão geral das fotos partilhadas para ficheiros Azure / Microsoft Docs
+description: Um instantâneo de partilha é uma versão apenas de uma partilha do Azure Files que é tirada num momento, como forma de apoiar a partilha.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,83 +8,83 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72333180"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para arquivos do Azure 
-Os arquivos do Azure fornecem a capacidade de fazer instantâneos de compartilhamento de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento nesse momento. Neste artigo, descrevemos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los em seu caso de uso personalizado.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de partilha de instantâneos de ficheiros do Azure 
+O Azure Files fornece a capacidade de tirar fotos de partilhas de ações de ficheiros. As imagens de partilha captam o estado de partilha nessa altura. Neste artigo, descrevemos quais as capacidades que as imagens de partilha fornecem e como pode tirar partido delas no seu caso de uso personalizado.
 
-## <a name="when-to-use-share-snapshots"></a>Quando usar instantâneos de compartilhamento
+## <a name="when-to-use-share-snapshots"></a>Quando usar instantâneos de partilha
 
-### <a name="protection-against-application-error-and-data-corruption"></a>Proteção contra erros de aplicativo e corrupção de dados
-Os aplicativos que usam compartilhamentos de arquivos executam operações como gravação, leitura, armazenamento, transmissão e processamento. Se um aplicativo estiver configurado incorretamente ou se um bug não intencional for introduzido, a substituição acidental ou o dano poderá ocorrer em alguns blocos. Para ajudar a se proteger contra esses cenários, você pode tirar um instantâneo de compartilhamento antes de implantar o novo código do aplicativo. Se um erro de bug ou aplicativo for introduzido com a nova implantação, você poderá voltar para uma versão anterior dos seus dados no compartilhamento de arquivos. 
+### <a name="protection-against-application-error-and-data-corruption"></a>Proteção contra erro de aplicação e corrupção de dados
+As aplicações que utilizam ações de ficheiros realizam operações como escrita, leitura, armazenamento, transmissão e processamento. Se uma aplicação estiver mal configurada ou for introduzida uma falha não intencional, a sobreescrita acidental ou danos podem acontecer a alguns quarteirões. Para ajudar a proteger-se contra estes cenários, pode tirar uma fotografia de partilha antes de implementar um novo código de aplicação. Se for introduzido um erro de erro de erro de erro ou de aplicação com a nova implementação, pode voltar a uma versão anterior dos seus dados nessa partilha de ficheiros. 
 
-### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Proteção contra exclusões acidentais ou alterações indesejadas
-Imagine que você esteja trabalhando em um arquivo de texto em um compartilhamento de arquivos. Depois que o arquivo de texto for fechado, você perderá a capacidade de desfazer suas alterações. Nesses casos, você precisará recuperar uma versão anterior do arquivo. Você pode usar instantâneos de compartilhamento para recuperar versões anteriores do arquivo se ele for acidentalmente renomeado ou excluído.
+### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Proteção contra supressões acidentais ou alterações não intencionais
+Imagina que estás a trabalhar num ficheiro de texto numa partilha de ficheiros. Depois de o ficheiro de texto estar fechado, perde a capacidade de desfazer as suas alterações. Nestes casos, é necessário recuperar uma versão anterior do ficheiro. Pode utilizar imagens de partilha para recuperar versões anteriores do ficheiro se for acidentalmente renomeado ou eliminado.
 
-### <a name="general-backup-purposes"></a>Fins de backup geral
-Depois de criar um compartilhamento de arquivos, você pode criar periodicamente um instantâneo de compartilhamento do compartilhamento de arquivos para usá-lo para o backup de dados. Um instantâneo de compartilhamento, quando realizado periodicamente, ajuda a manter versões anteriores de dados que podem ser usadas para futuros requisitos de auditoria ou recuperação de desastres.
+### <a name="general-backup-purposes"></a>Finalidades gerais de backup
+Depois de criar uma partilha de ficheiros, pode criar periodicamente uma imagem de partilha da partilha de ficheiros para a utilizar para cópia de segurança de dados. Um instantâneo de partilha, quando tomado periodicamente, ajuda a manter versões anteriores de dados que podem ser usados para futuros requisitos de auditoria ou recuperação de desastres.
 
-## <a name="capabilities"></a>Funções
-Um instantâneo de compartilhamento é uma cópia point-in-time e somente leitura dos seus dados. Você pode criar, excluir e gerenciar instantâneos usando a API REST. Os mesmos recursos também estão disponíveis na biblioteca do cliente, CLI do Azure e portal do Azure. 
+## <a name="capabilities"></a>Capacidades
+Uma imagem de partilha é uma cópia pontual dos seus dados. Pode criar, eliminar e gerir instantâneos utilizando a API REST. As mesmas capacidades também estão disponíveis na biblioteca de clientes, Azure CLI e portal Azure. 
 
-Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões do diretório ou arquivo, e pode montar uma versão específica diretamente como uma unidade (disponível somente no Windows-consulte [limites](#limits)). 
+Pode ver instantâneos de uma parte utilizando tanto a API REST Como a SMB. Pode recuperar a lista de versões do diretório ou ficheiro, e pode montar uma versão específica diretamente como uma unidade (apenas disponível no Windows - ver [Limites](#limits)). 
 
-Depois que um instantâneo de compartilhamento é criado, ele pode ser lido, copiado ou excluído, mas não modificado. Você não pode copiar um instantâneo de compartilhamento inteiro para outra conta de armazenamento. Você precisa fazer esse arquivo por arquivo, usando AzCopy ou outros mecanismos de cópia.
+Após a criação de um instantâneo de partilha, pode ser lido, copiado ou eliminado, mas não modificado. Não pode copiar uma foto inteira para outra conta de armazenamento. Tem de fazer esse ficheiro por ficheiro, utilizando a AzCopy ou outros mecanismos de cópia.
 
-O recurso de instantâneo de compartilhamento é fornecido no nível de compartilhamento de arquivo. A recuperação é fornecida em nível de arquivo individual, para permitir a restauração de arquivos individuais. Você pode restaurar um compartilhamento de arquivos completo usando SMB, a API REST, o portal, a biblioteca de cliente ou as ferramentas do PowerShell/CLI.
+A capacidade de partilha de instantâneos é fornecida ao nível da partilha de ficheiros. A recuperação é fornecida a nível individual de ficheiros, para permitir a restauração de ficheiros individuais. Pode restaurar uma partilha completa de ficheiros utilizando a SMB, a API REST, o portal, a biblioteca do cliente ou a ferramenta PowerShell/CLI.
 
-Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivos base. A única diferença é que um valor **DateTime** é acrescentado ao URI de compartilhamento para indicar a hora em que o instantâneo de compartilhamento foi tirado. Por exemplo, se um URI de compartilhamento de arquivos for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo de compartilhamento será semelhante a:
+Uma imagem de partilha de uma parte de ficheiro é idêntica à sua parte base de ficheiros. A única diferença é que um valor **DateTime** é anexado à ação URI para indicar o momento em que o instantâneo de partilha foi tirado. Por exemplo, se uma http://storagesample.core.file.windows.net/mysharepartilha de ficheiros URI for, o snapshot de partilha URI é semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
-Os instantâneos de compartilhamento persistem até que sejam explicitamente excluídos. Um instantâneo de compartilhamento não pode sobreviver além seu compartilhamento de arquivos base. Você pode enumerar os instantâneos associados ao compartilhamento de arquivos base para controlar seus instantâneos atuais. 
+As imagens de partilha persistem até serem explicitamente eliminadas. Um instantâneo de partilha não pode sobreviver à sua parte base de ficheiros. Pode enumerar as imagens associadas à partilha de ficheiros base para rastrear as suas imagens atuais. 
 
-Quando você cria um instantâneo de compartilhamento de um compartilhamento de arquivos, os arquivos nas propriedades do sistema do compartilhamento são copiados para o instantâneo de compartilhamento com os mesmos valores. Os arquivos base e os metadados do compartilhamento de arquivos também são copiados para o instantâneo de compartilhamento, a menos que você especifique metadados separados para o instantâneo de compartilhamento ao criá-lo.
+Quando cria uma imagem de partilha de uma partilha de ficheiros, os ficheiros nas propriedades do sistema da partilha são copiados para o instantâneo de partilha com os mesmos valores. Os ficheiros base e os metadados da partilha de ficheiros também são copiados para o instantâneo da partilha, a menos que especifique metadados separados para o instantâneo de partilha quando o criar.
 
-Você não pode excluir um compartilhamento que tem instantâneos de compartilhamento, a menos que você exclua todos os instantâneos de compartilhamento primeiro.
+Não é possível eliminar uma parte que tenha imagens partilhadas a não ser que apague primeiro todas as imagens de partilha.
 
-## <a name="space-usage"></a>Uso de espaço 
-Os instantâneos de compartilhamento são incrementais por natureza. Somente os dados que foram alterados após o instantâneo de compartilhamento mais recente são salvos. Isso minimiza o tempo necessário para criar o instantâneo de compartilhamento e economiza os custos de armazenamento. Qualquer operação de gravação no objeto ou na operação de atualização de metadados ou de propriedade é contada em relação ao "conteúdo alterado" e é armazenada no instantâneo de compartilhamento. 
+## <a name="space-usage"></a>Uso do espaço 
+Partilhar fotos são de natureza incremental. Apenas os dados que mudaram após o seu mais recente instantâneo de partilha são guardados. Isto minimiza o tempo necessário para criar o instantâneo de partilha e poupa nos custos de armazenamento. Qualquer operação de escrita para o objeto ou propriedade ou operação de atualização de metadados é contada para "conteúdo alterado" e é armazenada no instantâneo de partilha. 
 
-Para conservar o espaço, você pode excluir o instantâneo de compartilhamento para o período em que a rotatividade foi mais alta.
+Para conservar o espaço, pode eliminar o instantâneo de partilha para o período em que o churn foi mais alto.
 
-Embora os instantâneos de compartilhamento sejam salvos incrementalmente, você precisa reter apenas o instantâneo de compartilhamento mais recente para restaurar o compartilhamento. Quando você exclui um instantâneo de compartilhamento, somente os dados exclusivos desse instantâneo de compartilhamento são removidos. Os instantâneos ativos contêm todas as informações de que você precisa para procurar e restaurar seus dados (desde o momento em que o instantâneo de compartilhamento foi tirado) até o local original ou um local alternativo. Você pode restaurar no nível do item.
+Mesmo que as imagens de partilha sejam guardadas de forma incremental, você precisa reter apenas o mais recente instantâneo de partilha para restaurar a parte. Quando elimina um instantâneo de partilha, apenas os dados exclusivos desse instantâneo de partilha são removidos. Os instantâneos ativos contêm toda a informação que precisa para navegar e restaurar os seus dados (a partir do momento em que o instantâneo de partilha foi levado) para a localização original ou para um local alternativo. Pode restaurar ao nível do item.
 
-Os instantâneos não contam para o limite de compartilhamento de 5 TB. Não há nenhum limite para a quantidade de espaço que os instantâneos de compartilhamento ocupam no total. Limites de conta de armazenamento ainda se aplicam.
+As fotos não contam para o seu limite de 5 TB. Não há limite para quanto soque fotos de partilha de espaço ocupam no total. Os limites da conta de armazenamento ainda se aplicam.
 
 ## <a name="limits"></a>Limites
-O número máximo de instantâneos de compartilhamento que os arquivos do Azure permite hoje é de 200. Após 200 instantâneos de compartilhamento, você precisa excluir instantâneos de compartilhamento mais antigos para criar novos. 
+O número máximo de fotos de partilha que o Azure Files permite hoje é de 200. Depois de 200 fotos partilhadas, tem de eliminar fotografias de partilha mais antigas para criar novas. 
 
-Não há nenhum limite para as chamadas simultâneas para a criação de instantâneos de compartilhamento. Não há nenhum limite para a quantidade de espaço que os instantâneos de compartilhamento de um determinado compartilhamento de arquivos podem consumir. 
+Não há limite para os pedidos simultâneos de criação de imagens partilhadas. Não há limite para a quantidade de espaço que partilhe instantâneos de uma determinada partilha de ficheiros pode consumir. 
 
-Hoje, não é possível montar instantâneos de compartilhamento no Linux. Isso ocorre porque o cliente do Linux SMB não oferece suporte à montagem de instantâneos como o Windows.
+Hoje, não é possível montar fotos de partilha no Linux. Isto porque o cliente Linux SMB não suporta imagens de montagem como o Windows.
 
-## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiando dados de volta para um compartilhamento do instantâneo de compartilhamento
-As operações de cópia que envolvem arquivos e instantâneos de compartilhamento seguem estas regras:
+## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiar dados de volta a uma parte do share snapshot
+As operações de cópia que envolvem ficheiros e partilhem instantâneos seguem estas regras:
 
-Você pode copiar arquivos individuais em um instantâneo de compartilhamento de arquivo para seu compartilhamento base ou qualquer outro local. Você pode restaurar uma versão anterior de um arquivo ou restaurar o compartilhamento de arquivos completo copiando arquivo por arquivo do instantâneo de compartilhamento. O instantâneo de compartilhamento não é promovido para o compartilhamento base. 
+Pode copiar ficheiros individuais num instantâneo de partilha de ficheiros para a sua parte base ou qualquer outro local. Pode restaurar uma versão anterior de um ficheiro ou restaurar a parte completa do ficheiro copiando o ficheiro por ficheiro a partir do instantâneo da partilha. O instantâneo de partilha não é promovido a parte base. 
 
-O instantâneo de compartilhamento permanece intacto após a cópia, mas o compartilhamento de arquivos base é substituído por uma cópia dos dados que estavam disponíveis no instantâneo de compartilhamento. Todos os arquivos restaurados contam para "conteúdo alterado".
+O instantâneo da partilha permanece intacto após a cópia, mas a parte do ficheiro base é substituída com uma cópia dos dados disponíveis no instantâneo da partilha. Todos os ficheiros restaurados contam para "conteúdo alterado".
 
-Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável e não um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivos base permanecerá intacto.
+Pode copiar um ficheiro numa fotografia partilhada para um destino diferente com um nome diferente. O ficheiro de destino resultante é um ficheiro writável e não um instantâneo de partilha. Neste caso, a sua parte de ficheiro base permanecerá intacta.
 
-Quando um arquivo de destino é substituído por uma cópia, os instantâneos de compartilhamento associados ao arquivo de destino original permanecem intactos.
+Quando um ficheiro de destino é substituído com uma cópia, quaisquer instantâneos de partilha associados ao ficheiro de destino original permanecem intactos.
 
 ## <a name="general-best-practices"></a>Melhores práticas gerais 
-Quando você estiver executando a infraestrutura no Azure, automatize os backups para recuperação de dados sempre que possível. Ações automatizadas são mais confiáveis do que processos manuais, ajudando a melhorar a proteção e a capacidade de recuperação de dados. Você pode usar a API REST, o SDK do cliente ou o script para automação.
+Quando estiver a executar infraestruturas no Azure, mate cópias de segurança para recuperação de dados sempre que possível. As ações automatizadas são mais fiáveis do que os processos manuais, ajudando a melhorar a proteção de dados e a recuperabilidade. Pode utilizar a API REST, o Client SDK ou o scripting para automação.
 
-Antes de implantar o Agendador de instantâneos de compartilhamento, considere cuidadosamente suas configurações de frequência e retenção de instantâneo de compartilhamento para evitar incorrer em encargos desnecessários.
+Antes de implementar o programador de instantâneos de partilha, considere cuidadosamente a frequência de instantâneo e as definições de retenção para evitar incorrer em cargas desnecessárias.
 
-Os instantâneos de compartilhamento fornecem apenas proteção em nível de arquivo. Os instantâneos de compartilhamento não impedem exclusões de Fat-Finger em um compartilhamento de arquivos ou conta de armazenamento. Para ajudar a proteger uma conta de armazenamento contra exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
+As imagens de partilha fornecem apenas proteção ao nível do ficheiro. As fotos partilhadas não impedem a eliminação do dedo gordo numa conta de partilha de ficheiros ou armazenamento. Para ajudar a proteger uma conta de armazenamento de supressões acidentais, pode bloquear a conta de armazenamento ou o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Trabalhando com instantâneos de compartilhamento em:
+- Trabalhar com fotos partilhadas em:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-    - [Perguntas frequentes de compartilhamento de instantâneo](storage-files-faq.md#share-snapshots)
+    - [Partilhar faQ snapshot](storage-files-faq.md#share-snapshots)

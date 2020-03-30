@@ -1,7 +1,7 @@
 ---
-title: Exemplo de habilidade personalizada usando API de Pesquisa de Entidade do Bing
+title: Exemplo de habilidade personalizada usando API de pesquisa de entidade bing
 titleSuffix: Azure Cognitive Search
-description: Demonstra o uso do serviço Pesquisa de Entidade do Bing em uma habilidade personalizada mapeada para um pipeline de indexação aprimorado do ia no Azure Pesquisa Cognitiva.
+description: Demonstra o uso do serviço de pesquisa de entidades Bing numa habilidade personalizada mapeada para um pipeline de indexação enriquecido em IA em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,47 +9,47 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113814"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: Criar uma habilidade personalizada utilizando a API de Pesquisa de Entidades Bing
 
-Neste exemplo, saiba como criar uma habilidade personalizada da API Web. Essa habilidade aceitará locais, figuras públicas e organizações e retornará descrições para eles. O exemplo usa uma [função do Azure](https://azure.microsoft.com/services/functions/) para encapsular o [API de pesquisa de entidade do Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para que ele implemente a interface de habilidade personalizada.
+Neste exemplo, aprenda a criar uma habilidade personalizada da Web API. Esta habilidade irá aceitar locais, figuras públicas e organizações, e devolver descrições para eles. O exemplo utiliza uma [Função Azure](https://azure.microsoft.com/services/functions/) para embrulhar a API de Pesquisa de [Entidades Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para que implemente a interface de habilidadepersonalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Leia sobre o artigo sobre a [interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md) se você não estiver familiarizado com a interface de entrada/saída que deve ser implementada por uma habilidade personalizada.
++ Leia sobre o artigo de interface de [habilidadepersonalizada](cognitive-search-custom-skill-interface.md) se não estiver familiarizado com a interface de entrada/saída que uma habilidade personalizada deve implementar.
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) ou posterior, incluindo a carga de trabalho de desenvolvimento do Azure.
++ Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) ou mais tarde, incluindo a carga de trabalho de desenvolvimento do Azure.
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
-Embora este exemplo use uma função do Azure para hospedar uma API da Web, ele não é necessário.  Desde que você atenda aos [requisitos de interface de uma habilidade cognitiva](cognitive-search-custom-skill-interface.md), a abordagem que você tomar é imprima. O Azure Functions, no entanto, facilita a criação de uma habilidade personalizada.
+Embora este exemplo utilize uma Função Azure para alojar uma API web, não é necessário.  Desde que cumpra os requisitos de [interface para uma habilidade cognitiva,](cognitive-search-custom-skill-interface.md)a abordagem que toma é imaterial. As Funções Azure, no entanto, facilitam a criação de uma habilidade personalizada.
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-1. No Visual Studio, selecione **novo** **projeto** de > no menu arquivo.
+1. No Estúdio Visual, selecione **New** > **Project** a partir do menu File.
 
-1. Na caixa de diálogo novo projeto, selecione **instalado**, expanda  **C# Visual** > **nuvem**, selecione **Azure Functions**, digite um nome para o projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido C# como um namespace, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
+1. No diálogo New Project, selecione **Instalado**, expanda **Visual C#** > **Cloud,** selecione **Funções Azure,** escreva um nome para o seu projeto e selecione **OK**. O nome da aplicação de função deve ser válido como um espaço de nome C#, por isso não utilize sublinhados, hífens ou quaisquer outros caracteres não alfanuméricos.
 
-1. Selecione **Azure Functions v2 (.NET Core)** . Você também pode fazer isso com a versão 1, mas o código escrito abaixo é baseado no modelo v2.
+1. Selecione **Funções Azure v2 (.NET Core)**. Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
 
-1. Selecione o tipo a ser **gatilho http**
+1. Selecione o tipo para ser **HTTP Trigger**
 
-1. Para a conta de armazenamento, você pode selecionar **nenhum**, pois não precisará de nenhum armazenamento para essa função.
+1. Para a Conta de Armazenamento, pode selecionar **Nenhuma,** uma vez que não necessitará de qualquer armazenamento para esta função.
 
-1. Selecione **OK** para criar o projeto de função e a função disparada por http.
+1. Selecione **OK** para criar o projeto de função e função ativada HTTP.
 
-### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Modificar o código para chamar o serviço de Pesquisa de Entidade do Bing
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Modificar o código para ligar para o Serviço de Pesquisa de Entidades Bing
 
 O Visual Studio cria um projeto e neste uma classe que contém o código automático de tipo de função de escolhida. O atributo *FunctionName* nos conjuntos define o nome da função. O atributo *HttpTrigger* especifica que a função é acionada por um pedido de HTTP.
 
-Agora, substitua todo o conteúdo do arquivo *function1.cs* pelo seguinte código:
+Agora, substitua todo o conteúdo do ficheiro *Function1.cs* pelo seguinte código:
 
 ```csharp
 using System;
@@ -311,15 +311,15 @@ namespace SampleSkills
 }
 ```
 
-Certifique-se de inserir seu próprio valor de *chave* na constante de `key` com base na chave que você obteve ao se inscrever na API de pesquisa de entidade do Bing.
+Certifique-se de introduzir o `key` seu próprio *valor-chave* na constante com base na chave que obteve ao inscrever-se na API da entidade Bing.
 
-Este exemplo inclui todo o código necessário em um único arquivo para sua conveniência. Você pode encontrar uma versão um pouco mais estruturada dessa mesma habilidade no [repositório de habilidades de energia](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Esta amostra inclui todo o código necessário num único ficheiro por conveniência. Pode encontrar uma versão um pouco mais estruturada dessa mesma habilidade no [repositório de habilidades de poder.](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)
 
-É claro que você pode renomear o arquivo de `Function1.cs` para `BingEntitySearch.cs`.
+Claro, pode mudar o nome `Function1.cs` `BingEntitySearch.cs`do ficheiro de .
 
-## <a name="test-the-function-from-visual-studio"></a>Testar a função no Visual Studio
+## <a name="test-the-function-from-visual-studio"></a>Teste a função do Estúdio Visual
 
-Pressione **F5** para executar o programa e testar os comportamentos de função. Nesse caso, usaremos a função abaixo para pesquisar duas entidades. Use o postmaster ou o Fiddler para emitir uma chamada como a mostrada abaixo:
+Pressione **F5** para executar os comportamentos da função do programa e teste. Neste caso, usaremos a função abaixo para procurar duas entidades. Use o Carteiro ou o Violinista para emitir uma chamada como a que se encontra abaixo:
 
 ```http
 POST https://localhost:7071/api/EntitySearch
@@ -348,7 +348,7 @@ POST https://localhost:7071/api/EntitySearch
 ```
 
 ### <a name="response"></a>Resposta
-Você deverá ver uma resposta semelhante ao exemplo a seguir:
+Deve ver uma resposta semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -373,21 +373,21 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 ## <a name="publish-the-function-to-azure"></a>Publicar a função no Azure
 
-Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
+Quando estiver satisfeito com o comportamento da função, pode publicá-lo.
 
-1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. Escolha **criar novo** > **publicar**.
+1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. Escolha **criar nova** > **publicação.**
 
-1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta....**
+1. Se ainda não ligou o Visual Studio à sua conta Azure, selecione **Adicionar uma conta....**
 
-1. Siga as instruções no ecrã. Você será solicitado a especificar um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma conta de armazenamento, se ainda não os tiver. Quando terminar, selecione **criar**
+1. Siga as instruções no ecrã. É-lhe pedido que especifique um nome único para o seu serviço de aplicações, a subscrição do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que pretende utilizar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem, e uma conta de armazenamento se você ainda não tem estes. Quando terminar, selecione **Criar**
 
-1. Após a conclusão da implantação, observe a URL do site. É o endereço do seu aplicativo de funções no Azure. 
+1. Depois de concluída a implementação, note o URL do Site. É o endereço da sua app de funções em Azure. 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e procure a função `EntitySearch` que você publicou. Na seção **gerenciar** , você deve ver as chaves de host. Selecione o ícone de **cópia** para a chave de host *padrão* .  
+1. No [portal Azure,](https://portal.azure.com)navegue para o Grupo `EntitySearch` de Recursos e procure a Função que publicou. Na secção **Gerir,** deve ver as Teclas do Anfitrião. Selecione o ícone **Copiar** para a tecla de hospedar *predefinida.*  
 
-## <a name="test-the-function-in-azure"></a>Testar a função no Azure
+## <a name="test-the-function-in-azure"></a>Teste a função em Azure
 
-Agora que você tem a chave de host padrão, teste sua função da seguinte maneira:
+Agora que tem a chave de acolhimento padrão, teste a sua função da seguinte forma:
 
 ```http
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
@@ -415,10 +415,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-Este exemplo deve produzir o mesmo resultado que você viu anteriormente ao executar a função no ambiente local.
+Este exemplo deve produzir o mesmo resultado que viu anteriormente ao executar a função no ambiente local.
 
-## <a name="connect-to-your-pipeline"></a>Conectar-se ao seu pipeline
-Agora que você tem uma nova habilidade personalizada, você pode adicioná-la ao seu Skill. O exemplo a seguir mostra como chamar a habilidade para adicionar descrições às organizações no documento (isso pode ser estendido para também funcionar em locais e pessoas). Substitua `[your-entity-search-app-name]` pelo nome do seu aplicativo.
+## <a name="connect-to-your-pipeline"></a>Ligue-se ao seu oleoduto
+Agora que tens uma nova habilidade personalizada, podes adicioná-la à tua habilidade. O exemplo abaixo mostra como chamar a habilidade para adicionar descrições às organizações no documento (isto poderia ser estendido para também trabalhar em locais e pessoas). Substitua-o `[your-entity-search-app-name]` pelo nome da sua aplicação.
 
 ```json
 {
@@ -446,7 +446,7 @@ Agora que você tem uma nova habilidade personalizada, você pode adicioná-la a
 }
 ```
 
-Aqui, estamos contando com a habilidade de reconhecimento de [entidade](cognitive-search-skill-entity-recognition.md) interna para estar presente no Skills e aprimorar o documento com a lista de organizações. Para referência, aqui está uma configuração de habilidade de extração de entidade que seria suficiente para gerar os dados de que precisamos:
+Aqui, contamos com a habilidade de reconhecimento de [entidades](cognitive-search-skill-entity-recognition.md) incorporadas para estar presente no skillset e ter enriquecido o documento com a lista de organizações. Para referência, aqui está uma configuração de habilidade de extração de entidade que seria suficiente para gerar os dados que precisamos:
 
 ```json
 {
@@ -476,10 +476,10 @@ Aqui, estamos contando com a habilidade de reconhecimento de [entidade](cognitiv
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Parabéns! Você criou sua primeira habilidade personalizada. Agora você pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. Clique nos links a seguir para saber mais.
+Parabéns! Criaste a tua primeira habilidade personalizada. Agora pode seguir o mesmo padrão para adicionar a sua própria funcionalidade personalizada. Clique nos seguintes links para saber mais.
 
-+ [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)
++ [Power Skills: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Adicione uma habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

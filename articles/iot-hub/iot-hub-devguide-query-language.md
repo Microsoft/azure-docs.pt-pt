@@ -1,5 +1,5 @@
 ---
-title: Compreenda a linguagem de consulta do Azure IoT Hub  Microsoft Docs
+title: Compreenda a linguagem de consulta do Azure IoT Hub [ Microsoft Docs
 description: Guia de desenvolvedores - descrição da linguagem de consulta IoT Hub semelhante ao SQL usada para obter informações sobre gémeos dispositivo/módulo e trabalhos do seu hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -7,14 +7,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8b4b39e582d10c2a3b6003bfa07138f4697b71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271138"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499183"
 ---
-# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub consulta linguagem para dispositivo e módulo gémeos, empregos e encaminhamento de mensagens
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
 O IoT Hub fornece uma poderosa linguagem semelhante ao SQL para recuperar informações sobre [gémeos dispositivos,](iot-hub-devguide-device-twins.md) [gémeos módulos,](iot-hub-devguide-module-twins.md) [empregos](iot-hub-devguide-jobs.md)e [encaminhamento de mensagens.](iot-hub-devguide-messages-d2c.md) Este artigo apresenta:
 
@@ -23,7 +23,7 @@ O IoT Hub fornece uma poderosa linguagem semelhante ao SQL para recuperar inform
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-and-module-twin-queries"></a>Consultas de gémeos de dispositivo e módulo
+## <a name="device-and-module-twin-queries"></a>Consultas gémeas de dispositivo e módulo
 
 [Gémeos dispositivos](iot-hub-devguide-device-twins.md) e gémeos de [módulos](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como etiquetas e propriedades. O IoT Hub permite-lhe consultar gémeos e módulos gémeos como um único documento JSON contendo todas as informações gémeas.
 
@@ -112,7 +112,7 @@ SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-É muitas vezes necessário identificar todos os gémeos dispositivoque contêm uma propriedade específica. O IoT Hub suporta a função `is_defined()` para este fim. Por exemplo, para recuperar gémeos dispositivoque definem a `connectivity` propriedade use a seguinte consulta:
+É muitas vezes necessário identificar todos os gémeos dispositivoque contêm uma propriedade específica. O IoT Hub `is_defined()` suporta a função para este fim. Por exemplo, para recuperar gémeos dispositivo que definem a `connectivity` propriedade use a seguinte consulta:
 
 ```SQL
 SELECT * FROM devices
@@ -179,9 +179,9 @@ SELECT * FROM devices.modules
   AND deviceId IN ['device1', 'device2']
 ```
 
-### <a name="c-example"></a>C#exemplo
+### <a name="c-example"></a>C# exemplo
 
-A funcionalidade de consulta é exposta pelo [ C# serviço SDK](iot-hub-devguide-sdks.md) na classe **RegistryManager.**
+A funcionalidade de consulta é exposta pelo [serviço C# SDK](iot-hub-devguide-sdks.md) na classe **RegistryManager.**
 
 Aqui está um exemplo de uma simples consulta:
 
@@ -233,9 +233,9 @@ O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em gémeos dispositivos. Se consultar gémeos de dispositivo individual por ID, utilize o [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir a API REST diretamente ou utilizar a funcionalidade equivalente num dos [SDKs de Serviço Hub Azure IoT](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em gémeos dispositivos. Se consultar gémeos de dispositivo individual por ID, utilize o [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir a API REST diretamente ou utilizar a funcionalidade equivalente num dos [SDKs de Serviço Hub Azure IoT](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
-Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem objetos), por exemplo, `... WHERE properties.desired.config = properties.reported.config` só é suportada se essas propriedades tiverem valores primitivos.
+Atualmente, as comparações são suportadas apenas `... WHERE properties.desired.config = properties.reported.config` entre tipos primitivos (sem objetos), por exemplo, só é suportado se essas propriedades tiverem valores primitivos.
 
 ## <a name="get-started-with-jobs-queries"></a>Começar com consultas de emprego
 
@@ -273,7 +273,7 @@ Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem 
 Atualmente, esta coleção é consultada como **devices.jobs** na linguagem de consulta IoT Hub.
 
 > [!IMPORTANT]
-> Atualmente, a propriedade de empregos nunca é devolvida quando se consultam gémeos dispositivos. Ou seja, consultas que contêm "dispositivos from". A propriedade de emprego somente só pode ser acedida diretamente com consultas usando `FROM devices.jobs`.
+> Atualmente, a propriedade de empregos nunca é devolvida quando se consultam gémeos dispositivos. Ou seja, consultas que contêm "dispositivos from". A propriedade de empregos só pode ser `FROM devices.jobs`acedida diretamente com consultas usando .
 >
 >
 
@@ -309,7 +309,7 @@ SELECT * FROM devices.jobs
 
 Atualmente, as consultas sobre **devices.jobs** não suportam:
 
-* As projeções, portanto, só `SELECT *` é possível.
+* As projeções, `SELECT *` portanto, só são possíveis.
 * Condições que se referem ao dispositivo twin para além das propriedades de trabalho (ver a secção anterior).
 * Realizando agregações, tais como contagem, avg, grupo por.
 
@@ -324,13 +324,13 @@ SELECT <select_list>
   [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>Da cláusula
+## <a name="from-clause"></a>Cláusula FROM
 
-A cláusula **FROM <from_specification>** pode assumir apenas três **valores: Desde dispositivos** a gémeos de dispositivos de consulta, **dispositivos.módulos** a gémeos de módulos de consulta, ou DE **devices.jobs** a consultas de trabalho por dispositivo detalhes.
+A **cláusula de <from_specification>** pode assumir apenas três **valores: Desde dispositivos** a gémeos de dispositivos de consulta, **dispositivos.módulos** a gémeos de módulos de consulta, ou de **devices.jobs** a consultar detalhes sobre o trabalho por dispositivo.
 
-## <a name="where-clause"></a>ONDE a cláusula
+## <a name="where-clause"></a>Cláusula WHERE
 
-A cláusula **WHERE <filter_condition>** é opcional. Especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte do resultado. Qualquer documento JSON deve avaliar as condições especificadas para "verdadeiro" a incluir no resultado.
+A cláusula **de>de filter_condition DE WHERE <é** opcional. Especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte do resultado. Qualquer documento JSON deve avaliar as condições especificadas para "verdadeiro" a incluir no resultado.
 
 As condições permitidas são descritas na secção [Expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
@@ -367,7 +367,7 @@ Atualmente, as cláusulas de seleção diferentes do **SELECT*** são suportadas
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
 
-O **grupo BY <group_specification>** cláusula é um passo opcional que executa após o filtro especificado na cláusula WHERE, e antes da projeção especificada no SELECT. Agrupa documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados, conforme especificado na cláusula SELECT.
+O **grupo por <group_specification cláusula>** é um passo opcional que executa após o filtro especificado na cláusula WHERE, e antes da projeção especificada no SELECT. Agrupa documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados, conforme especificado na cláusula SELECT.
 
 Um exemplo de uma consulta usando GROUP BY é:
 
@@ -392,7 +392,7 @@ GROUP BY <group_by_element>
 Atualmente, a cláusula GROUP BY só é suportada na consulta de gémeos dispositivos.
 
 > [!IMPORTANT]
-> O termo `group` é atualmente tratado como uma palavra-chave especial em consultas. No caso de usar `group` como nome de propriedade, considere rodeá-la com parênteses duplos para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+> O `group` termo é atualmente tratado como uma palavra-chave especial em consultas. No caso de `group` usar como nome de propriedade, considere rodeá-lo com `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`parênteses duplos para evitar erros, por exemplo, .
 >
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
@@ -441,7 +441,7 @@ Para entender o que cada símbolo nas expressões sintaxe significa, consulte a 
 | function_name| Qualquer função listada na secção [Funções.](#functions) |
 | decimal_literal |Um carro alegórico expresso em notação decimal. |
 | hexadecimal_literal |Um número expresso pela corda '0x' seguido de uma série de dígitos hexadecimais. |
-| string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma seqüência de zero ou mais carateres Unicode ou seqüências de escape. Os literais de cordas são incluídos em citações únicas ou citações duplas. Fugas permitidas: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por 4 dígitos hexadecimais. |
+| string_literal |Os literais de cordas são cordas Unicode representadas por uma sequência de caracteres Zero ou mais Unicode ou sequências de fuga. Os literais de cordas são incluídos em citações únicas ou citações duplas. Fugas `\'`permitidas: `\"` `\\`, `\uXXXX` para caracteres Unicode definidos por 4 dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
 
@@ -449,8 +449,8 @@ São apoiados os seguintes operadores:
 
 | Família | Operadores |
 | --- | --- |
-| Operações aritméticas |+, -, *, /, % |
-| Lógica |E, EM ALTERNATIVA, NÃO |
+| Aritmética |+, -, *, /, % |
+| Lógico |E, OU, NÃO |
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funções
@@ -459,48 +459,48 @@ Ao consultar gémeos e empregos, a única função apoiada é:
 
 | Função | Descrição |
 | -------- | ----------- |
-| IS_DEFINED (imóvel) | Devolve uma Boolean indicando se a propriedade foi atribuída um valor (incluindo `null`). |
+| IS_DEFINED (imóvel) | Devolve uma Boolean indicando se a propriedade `null`foi atribuída um valor (incluindo). |
 
 Nas condições das rotas, são suportadas as seguintes funções matemáticas:
 
 | Função | Descrição |
 | -------- | ----------- |
-| ABS(x) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
+| ABS(x) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
 | EXP(x) | Devolve o valor exponencial da expressão numérica especificada (e^x). |
 | POWER (x,y) | Devolve o valor da expressão especificada à potência especificada (x^y).|
-| QUADRADO (x) | Devolve o quadrado do valor numérico especificado. |
-| TETO(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
-| PISO (x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| SINAL(x) | Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.|
+| QUADRADO (x)    | Devolve o quadrado do valor numérico especificado. |
+| TETO(x) | Devolve o menor valor inteiro maior ou igual à expressão numérica especificada. |
+| PISO (x) | Devolve o maior inteiro inferior ou igual à expressão numérica especificada. |
+| SINAL(x) | Devolve o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.|
 | SQRT(x) | Devolve a raiz quadrada do valor numérico especificado. |
 
 Nas condições das rotas, são suportadas as seguintes funções de verificação e fundição de tipo:
 
 | Função | Descrição |
 | -------- | ----------- |
-| AS_NUMBER | Converte a cadeia de entrada para um número. `noop` se a entrada for um número; `Undefined` se a corda não representar um número.|
-| IS_ARRAY | Devolve um valor Booleano indicando se o tipo da expressão especificada é uma matriz. |
-| IS_BOOL | Devolve um valor Booleano indicando se o tipo da expressão especificada é um booleano. |
-| IS_DEFINED | Devolve um valor booleano que indica se a propriedade foi atribuída um valor. |
-| IS_NULL | Devolve um valor Booleano indicando se o tipo da expressão especificada é nulo. |
-| IS_NUMBER | Devolve um valor Booleano indicando se o tipo da expressão especificada é um número. |
-| IS_OBJECT | Devolve um valor Booleano indicando se o tipo da expressão especificada é um objeto JSON. |
-| IS_PRIMITIVE | Devolve um valor booleano indicando se o tipo da expressão especificada é primitivo (corda, booleano, numérico ou `null`). |
-| IS_STRING | Devolve um valor Booleano indicando se o tipo da expressão especificada é uma cadeia de caracteres. |
+| AS_NUMBER | Converte a cadeia de entrada para um número. `noop`se a entrada for um número; `Undefined` se a corda não representar um número.|
+| IS_ARRAY | Devolve um valor booleano indicando se o tipo da expressão especificada é uma matriz. |
+| IS_BOOL | Devolve um valor booleano indicando se o tipo da expressão especificada é um Boolean. |
+| IS_DEFINED | Devolve uma Boolean indicando se a propriedade foi atribuída um valor. |
+| IS_NULL | Devolve um valor booleano indicando se o tipo da expressão especificada é nulo. |
+| IS_NUMBER | Devolve um valor booleano indicando se o tipo da expressão especificada é um número. |
+| IS_OBJECT | Devolve um valor booleano indicando se o tipo da expressão especificada é um objeto JSON. |
+| IS_PRIMITIVE | Devolve um valor booleano indicando se o tipo da expressão especificada é `null`primitivo (corda, booleano, numérico ou ). |
+| IS_STRING | Devolve um valor booleano indicando se o tipo da expressão especificada é uma corda. |
 
 Nas condições das rotas, são suportadas as seguintes funções de cadeia:
 
 | Função | Descrição |
 | -------- | ----------- |
-| CONCAT (x, y, ...) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
-| COMPRIMENTO (x) | Devolve o número de carateres da expressão de cadeia especificada.|
-| INFERIOR(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
-| UPPER (x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
-| SUBSTRING (corda, início [,comprimento]) | Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres. |
-| INDEX_OF (corda, fragmento) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada.|
-| STARTS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com a segunda. |
-| ENDS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com a segunda. |
-| CONTÉM(x,y) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
+| CONCAT (x, y, ...) | Devolve uma corda que é o resultado da concatenação de dois ou mais valores de cadeia. |
+| COMPRIMENTO (x) | Devolve o número de caracteres da expressão de corda especificada.|
+| INFERIOR(x) | Devolve uma expressão de cadeia após converter dados de caracteres maiúsculos em minúsculas. |
+| UPPER (x) | Devolve uma expressão de cadeia após converter dados de caracteres minúsculos em maiúsculas. |
+| SUBSTRING (corda, início [,comprimento]) | Devolve parte de uma expressão de corda a partir da posição de base zero do caracteres especificado e continua até ao comprimento especificado, ou até ao fim da corda. |
+| INDEX_OF (corda, fragmento) | Devolve a posição inicial da primeira ocorrência da segunda expressão de corda dentro da primeira expressão especificada da corda, ou -1 se a corda não for encontrada.|
+| STARTS_WITH(x, y) | Devolve uma Boolean indicando se a primeira expressão de corda começa com a segunda. |
+| ENDS_WITH(x, y) | Devolve uma Boolean indicando se a primeira expressão de corda termina com a segunda. |
+| CONTÉM(x,y) | Devolve uma Boolean indicando se a primeira expressão de corda contém a segunda. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

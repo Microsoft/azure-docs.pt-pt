@@ -1,6 +1,6 @@
 ---
-title: Visão geral da segurança do Azure Active Directory Identity Protection
-description: Saiba como a visão geral de segurança fornece informações sobre a postura de segurança de sua organização.
+title: Visão geral da segurança da proteção de identidade do diretório ativo azure
+description: Saiba como a visão geral da Segurança lhe dá uma visão da postura de segurança da sua organização.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,58 +12,58 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382186"
 ---
-# <a name="azure-active-directory-identity-protection---security-overview"></a>Visão geral de Azure Active Directory Identity Protection segurança
+# <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Ative Directory Identity Protection - Visão geral de segurança
 
-A [visão geral de segurança](https://aka.ms/IdentityProtectionRefresh) na portal do Azure fornece uma percepção da postura de segurança de sua organização. Ele ajuda a identificar possíveis ataques e a entender a eficácia de suas políticas.
+A [visão geral](https://aka.ms/IdentityProtectionRefresh) da Segurança no portal Azure dá-lhe uma visão da postura de segurança da sua organização. Ajuda a identificar potenciais ataques e a compreender a eficácia das suas políticas.
 
-A ' visão geral de segurança ' está dividida em duas seções:
+A "visão geral da segurança" é amplamente dividida em duas secções:
 
-- As tendências, à esquerda, fornecem uma linha do tempo de risco em sua organização.
-- Os blocos, à direita, destacam as principais questões em andamento na sua organização e sugerem como agir rapidamente.
+- As tendências, à esquerda, fornecem uma linha temporal de risco na sua organização.
+- Os azulejos, à direita, destacam as principais questões em curso na sua organização e sugerem como agir rapidamente.
 
 ![Descrição geral da segurança](./media/concept-identity-protection-security-overview/01.png)
   
 ## <a name="trends"></a>Tendências
 
-### <a name="new-risky-users-detected"></a>Novos usuários arriscados detectados
+### <a name="new-risky-users-detected"></a>Novos utilizadores de risco detetados
 
-Este gráfico mostra o número de novos usuários arriscados que foram detectados no período de tempo escolhido. Você pode filtrar a exibição deste gráfico por nível de risco do usuário (baixo, médio, alto). Passe o mouse sobre os incrementos de data UTC para ver o número de usuários arriscados detectados naquele dia. Um clique neste gráfico irá levá-lo para o relatório ' usuários arriscados '. Para corrigir os usuários que estão em risco, considere alterar sua senha.
+Este gráfico mostra o número de novos utilizadores de risco que foram detetados durante o período de tempo escolhido. Pode filtrar a vista deste gráfico pelo nível de risco do utilizador (baixo, médio, alto). Paire sobre os incrementos da data UTC para ver o número de utilizadores de risco detetados para esse dia. Um clique neste gráfico irá levá-lo ao relatório 'Utilizadores Arriscados'. Para remediar os utilizadores que estão em risco, considere alterar a sua palavra-passe.
 
-### <a name="new-risky-sign-ins-detected"></a>Novas entradas arriscadas detectadas
+### <a name="new-risky-sign-ins-detected"></a>Novos sign-ins de risco detetados
 
-Este gráfico mostra o número de entradas arriscadas detectadas no período de tempo escolhido. Você pode filtrar a exibição desse gráfico pelo tipo de risco de entrada (em tempo real ou agregação) e o nível de risco de entrada (baixo, médio, alto). As entradas desprotegidas são entradas de risco em tempo real com êxito que não foram desafiadas pela MFA. (Observação: as entradas que são arriscadas devido a detecções offline não podem ser protegidas em tempo real por políticas de risco de entrada). Passe o mouse sobre os incrementos de data UTC para ver o número de entradas detectadas em risco para esse dia. Um clique neste gráfico irá levá-lo para o relatório ' entradas arriscadas '.
+Este gráfico mostra o número de inscrições arriscadas detetadas durante o período de tempo escolhido. Pode filtrar a vista deste gráfico pelo tipo de risco de inscrição (em tempo real ou agregado) e pelo nível de risco de inscrição (baixo, médio, alto). Os inscrições desprotegidos são inscrições de risco em tempo real bem sucedidas que não foram desafiadas pela MFA. (Nota: Os insinsques que são arriscados devido a deteções offline não podem ser protegidos em tempo real por políticas de risco de entrada). Pairar sobre os incrementos da data UTC para ver o número de inscrições detetados em risco para esse dia. Um clique neste gráfico irá levá-lo ao relatório 'Sign-ins' de risco.
 
-## <a name="tiles"></a>Blocos
+## <a name="tiles"></a>Mosaicos
  
-### <a name="high-risk-users"></a>Usuários de alto risco
+### <a name="high-risk-users"></a>Utilizadores de alto risco
 
-O bloco ' usuários de alto risco ' mostra a contagem mais recente de usuários com alta probabilidade de comprometimento de identidade. Elas devem ser uma das principais prioridades para investigação. Um clique no bloco ' usuários de alto risco ' redirecionará para uma exibição filtrada do relatório ' usuários arriscados ', mostrando apenas os usuários com um nível de risco alto. Usando esse relatório, você pode saber mais e corrigir esses usuários com uma redefinição de senha.
+O azulejo de "utilizadores de alto risco" mostra a mais recente contagem de utilizadores com elevada probabilidade de compromisso de identidade. Estes devem ser uma prioridade para a investigação. Um clique no azulejo dos "utilizadores de alto risco" redirecionará para uma visão filtrada do relatório "Utilizadores arriscados", mostrando apenas utilizadores com um nível de risco elevado. Utilizando este relatório, pode aprender mais e remediar estes utilizadores com um reset de palavra-passe.
 
 ![Descrição geral da segurança](./media/concept-identity-protection-security-overview/02.png)
 
-### <a name="medium-risk-users"></a>Usuários de risco médio
-O bloco ' usuários de risco médio ' mostra a contagem mais recente de usuários com probabilidade média de comprometimento de identidade. Um clique no bloco "usuários de risco médio" redirecionará para uma exibição filtrada do relatório "usuários arriscados", mostrando apenas os usuários com um nível médio de risco. Usando esse relatório, você pode investigar e corrigir esses usuários.
+### <a name="medium-risk-users"></a>Utilizadores de risco médio
+O azulejo "utilizadores de risco médio" mostra a mais recente contagem de utilizadores com probabilidade média de compromisso de identidade. Um clique no azulejo "Utilizadores de risco médio" redirecionará para uma visão filtrada do relatório "Utilizadores de Risco", mostrando apenas utilizadores com um nível de risco de médio. Utilizando este relatório, pode investigar e remediar estes utilizadores.
 
-### <a name="unprotected-risky-sign-ins"></a>Entradas arriscadas desprotegidas
+### <a name="unprotected-risky-sign-ins"></a>Inscrições arriscadas desprotegidas
 
-O bloco ' entradas arriscadas não protegidas ' mostra a contagem da semana passada de entradas de risco em tempo real bem-sucedidas, que não foram bloqueadas ou que MFA desafiada por uma política de acesso condicional, uma política de risco de proteção de identidade ou uma MFA por usuário. Esses logons são potencialmente comprometidos que foram bem-sucedidos e não são desafiados pela MFA. Para proteger essas entradas no futuro, aplique uma política de risco de entrada. Um clique no bloco "entradas arriscadas desprotegidas" redirecionará para a folha configuração de política de risco de entrada, na qual você pode configurar a política de risco de entrada para exigir MFA em uma entrada com um nível de risco especificado.
+O azulejo "insins de risco desprotegido" mostra a contagem da última semana de inscrições arriscadas bem sucedidas e em tempo real que não foram bloqueadas ou mFA contestadas por uma política de acesso condicional, política de risco de proteção de identidade ou MFA por utilizador. Estes são logins potencialmente comprometidos que foram bem sucedidos e não MFA desafiados. Para proteger tais inscrições no futuro, aplique uma política de risco de inscrição. Um clique no azulejo 'Desprotegido de risco' redirecionará para a lâmina de configuração da política de risco de entrada, onde pode configurar a política de risco de entrada para exigir mFA num início de sessão com um nível de risco especificado.
 
-### <a name="legacy-authentication"></a>Autenticação herdada
+### <a name="legacy-authentication"></a>Autenticação legado
 
-O bloco ' autenticação herdada ' mostra a contagem da última semana de autenticações herdadas na sua organização. Os protocolos de autenticação herdados não dão suporte a métodos de segurança modernos, como uma MFA. Para impedir a autenticação herdada, você pode aplicar uma política de acesso condicional. Um clique no bloco "autenticação herdada" o redirecionará para a "Pontuação segura de identidade".
+O azulejo 'Legacy authentication' mostra a contagem da última semana de autenticações antigas na sua organização. Os protocolos de autenticação do legado não suportam métodos de segurança modernos, como um MFA. Para evitar a autenticação do legado, pode aplicar uma política de Acesso Condicional. Um clique no azulejo 'Legacy authentication' irá redirecioná-lo para a 'Identity Secure Score'.
 
 ### <a name="identity-secure-score"></a>Pontuação segura de identidade
 
-A pontuação de segurança de identidade mede e compara sua postura de segurança com os padrões do setor. Se você clicar no bloco ' identidade segura (visualização) ', ele será redirecionado para a folha ' identidade segura ', em que você pode aprender mais sobre como melhorar sua postura de segurança.
+O Identity Secure Score mede e compara a sua postura de segurança com os padrões da indústria. Se clicar em azulejo 'Identity Secure Score (Preview)', redirecionará para a lâmina 'Identity Secure Score' onde poderá aprender mais sobre melhorar a sua postura de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é risco](concept-identity-protection-risks.md)
+- [O que é o risco](concept-identity-protection-risks.md)
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)

@@ -1,8 +1,8 @@
 ---
-title: Passar tokens de autenticação para os serviços de mídia do Azure | Microsoft Docs
-description: Saiba como enviar tokens de autenticação do cliente para o serviço de entrega de chaves dos serviços de mídia do Azure
+title: Passe fichas de autenticação para a Azure Media Services Microsoft Docs
+description: Saiba como enviar fichas de autenticação do cliente para o serviço de entrega chave da Azure Media Services
 services: media-services
-keywords: proteção de conteúdo, DRM, autenticação de token
+keywords: proteção de conteúdos, DRM, autenticação simbólica
 documentationcenter: ''
 author: Juliako
 manager: femila
@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 15d4cbc372f5d5ec0d323170189329152ed436e3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73684935"
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam tokens para o serviço de entrega de chaves dos serviços de mídia do Azure
-Os clientes geralmente perguntam como um jogador pode passar tokens para o serviço de entrega de chaves dos serviços de mídia do Azure para verificação, para que o Player possa obter a chave. Os serviços de mídia oferecem suporte aos formatos Simple Web token (SWT) e token Web JSON (JWT). A autenticação de token é aplicada a qualquer tipo de chave, independentemente de você usar criptografia comum ou criptografia de envelope de criptografia AES (AES) no sistema.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam fichas para o serviço de entrega chave da Azure Media Services
+Os clientes perguntam frequentemente como um jogador pode passar fichas para o serviço de entrega chave Azure Media Services para verificação para que o jogador possa obter a chave. Os Media Services suportam os formatos simples de token web (SWT) e JSON Web Token (JWT). A autenticação token é aplicada a qualquer tipo de chave, independentemente de usar encriptação comum ou encriptação de envelope sinuoso (AES) no sistema.
 
- Dependendo do Player e da plataforma de destino, você pode passar o token com o Player das seguintes maneiras:
+ Dependendo do jogador e da plataforma que você visa, você pode passar o símbolo com o seu jogador das seguintes formas:
 
-- Por meio do cabeçalho de autorização HTTP.
+- Através do cabeçalho de autorização HTTP.
     > [!NOTE]
-    > O prefixo "portador" é esperado de acordo com as especificações do OAuth 2,0. Um player de exemplo com a configuração de token é hospedado na [página de demonstração](https://ampdemo.azureedge.net/)de player de mídia do Azure. Para definir a fonte de vídeo, escolha **AES (token JWT)** ou **AES (token SWT)** . O token é passado por meio do cabeçalho Authorization.
+    > O prefixo "Bearer" é esperado de acordo com as especificações OAuth 2.0. Um leitor de amostras com a configuração do token é hospedado na [página de demonstração](https://ampdemo.azureedge.net/)do Azure Media Player . Para definir a fonte de vídeo, escolha **AES (JWT Token)** ou **AES (SWT Token)**. O símbolo é passado através do cabeçalho de autorização.
 
-- Por meio da adição de um parâmetro de consulta de URL com "token = TokenValue".  
+- Através da adição de um parâmetro de consulta URL com "token=tokenvalue".  
     > [!NOTE]
-    > O prefixo "portador" não é esperado. Como o token é enviado por meio de uma URL, você precisa proteger a cadeia de caracteres do token. Aqui está um C# código de exemplo que mostra como fazer isso:
+    > O prefixo "Bearer" não é esperado. Como o símbolo é enviado através de uma URL, tens de armar a corda simbólica. Aqui está um código de amostra C# que mostra como fazê-lo:
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -41,8 +41,8 @@ Os clientes geralmente perguntam como um jogador pode passar tokens para o servi
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
     ```
 
-- Por meio do campo CustomData.
-Essa opção é usada apenas para aquisição de licença do PlayReady, por meio do campo CustomData do desafio de aquisição de licença do PlayReady. Nesse caso, o token deve estar dentro do documento XML, conforme descrito aqui:
+- Através do campo CustomData.
+Esta opção é utilizada apenas para aquisição de licença PlayReady, através do campo CustomData do PlayReady License Acquisition Challenge. Neste caso, o símbolo deve estar dentro do documento XML, tal como aqui descrito:
 
     ```xml
     <?xml version="1.0"?>
@@ -50,9 +50,9 @@ Essa opção é usada apenas para aquisição de licença do PlayReady, por meio
         <Token></Token> 
     </CustomData>
     ```
-    Coloque seu token de autenticação no elemento token.
+    Coloque o símbolo da autenticação no elemento Token.
 
-- Por meio de uma playlist alternativa de HTTP Live Streaming (HLS). Se você precisar configurar a autenticação de token para reprodução AES + HLS no iOS/Safari, não há uma maneira de enviar diretamente no token. Para obter mais informações sobre como alternar a lista de reprodução para habilitar esse cenário, consulte esta [postagem no blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Através de uma lista de reprodução alternativa http live streaming (HLS). Se precisar configurar a autenticação simbólica para reprodução AES + HLS no iOS/Safari, não existe uma forma de enviar diretamente o símbolo. Para obter mais informações sobre como alternar a lista de reprodução para permitir este cenário, consulte esta publicação de [blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

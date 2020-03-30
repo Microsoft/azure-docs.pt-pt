@@ -1,6 +1,6 @@
 ---
-title: Instalar extensão do navegador do painel de acesso do aplicativo-Azure AD
-description: Corrija os erros comuns encontrados ao instalar a extensão do navegador do painel de acesso.
+title: Instalar extensão do navegador do painel de acesso a aplicações - Azure AD
+description: Corrija erros comuns encontrados quando instala a extensão do navegador do painel de acesso.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,115 +17,115 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275862"
 ---
-# <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
+# <a name="install-the-access-panel-browser-extension"></a>Instale a extensão do navegador do painel de acesso
 
-O painel de acesso é um portal baseado na Web. Se você tiver uma conta corporativa ou de estudante no Azure Active Directory (Azure AD), poderá usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem aos quais um administrador do Azure AD concedeu acesso. 
+O painel de acesso é um portal baseado na web. Se tiver uma conta de trabalho ou escola no Azure Ative Directory (Azure AD), pode utilizar o painel de acesso para visualizar e iniciar aplicações baseadas na nuvem a que um administrador da AD Azure lhe concedeu acesso. 
 
-Se você estiver usando as edições do Azure AD, também poderá usar o grupo de autoatendimento e os recursos de gerenciamento de aplicativo por meio do painel de acesso. 
+Se estiver a usar edições AD Azure, também pode utilizar capacidades de autosserviço e gestão de aplicações através do painel de acesso. 
 
-O painel de acesso é separado da portal do Azure. Ele não exige que você tenha uma assinatura do Azure.
+O painel de acesso é separado do portal Azure. Não é necessário ter uma subscrição Azure.
 
-## <a name="web-browser-requirements"></a>Requisitos do navegador da Web
+## <a name="web-browser-requirements"></a>Requisitos de Web browsers
 
-No mínimo, o painel de acesso requer um navegador com suporte para JavaScript e com CSS habilitado. Para entrar em aplicativos por meio de SSO baseado em senha no painel de acesso, você deve ter a extensão do painel de acesso instalada no navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
+No mínimo, o painel de acesso requer um navegador que suporta o JavaScript e tem CSS ativado. Para ser inscrito nas aplicações através do SSO baseado em palavras-passe no painel de acesso, tem de ter a extensão do painel de acesso instalada no seu navegador. A extensão é descarregada automaticamente quando seleciona uma aplicação configurada para SSO baseada em palavras-passe.
 
-Para SSO baseado em senha, você pode usar qualquer um dos seguintes navegadores:
+Para o SSO baseado em palavras-passe, pode utilizar qualquer um dos seguintes navegadores:
 
-- **Microsoft Edge**: na edição de aniversário do Windows 10 ou posterior. 
-- **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
-- **Firefox 26,0 ou posterior**: no Windows XP SP2 ou posterior e no Mac os X 10,6 ou posterior.
+- **Microsoft Edge**: na Edição de Aniversário do Windows 10 ou mais tarde. 
+- **Chrome**: no Windows 7 ou posterior, e no MacOS X ou posteriormente.
+- **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior, e no Mac OS X 10.6 ou posterior.
 
-## <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
+## <a name="install-the-access-panel-browser-extension"></a>Instale a extensão do navegador do painel de acesso
 
 Para instalar a extensão do navegador do painel de acesso, faça o seguinte:
 
-1.  Em um dos navegadores com suporte, abra o [painel de acesso](https://myapps.microsoft.com)e, em seguida, entre como um usuário em sua conta do Azure AD.
+1.  Num dos navegadores suportados, abra o painel de [acesso](https://myapps.microsoft.com)e depois inscreva-se como utilizador na sua conta Azure AD.
 
-2.  Selecione um aplicativo SSO baseado em senha.
+2.  Selecione uma aplicação SSO baseada em palavra-passe.
 
-3.  Quando solicitado, selecione **instalar agora**.  
-    Você será direcionado para o link de download do navegador selecionado. 
+3.  Quando for solicitado, selecione **Instalar Agora**.  
+    Você está direcionado para o link de descarregamento para o seu navegador selecionado. 
     
 4.  Selecione **Adicionar**.
 
-5.  Se for solicitado, **habilite** ou **permita** a extensão.
+5.  Se for solicitado, **ou ativar** ou **permitir** a extensão.
 
-6.  Após a conclusão da instalação, reinicie o navegador.
+6.  Depois de concluída a instalação, reinicie o seu navegador.
 
-7.  Entre no painel de acesso e verifique se você pode iniciar seus aplicativos de SSO baseados em senha.
+7.  Inicie sessão no painel de acesso e verifique se pode iniciar as suas aplicações SSO baseadas em palavras-passe.
 
-Você também pode baixar a extensão para o Chrome e o Microsoft Edge diretamente dos seguintes sites:
+Também pode descarregar a extensão para Chrome e Microsoft Edge diretamente a partir de seguintes sites:
 
 - [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Extensão do Microsoft Edge](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
-- [Extensão do Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
+- [Extensão firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
-## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usar a extensão de entrada segura de meus aplicativos
-* Se você estiver usando uma URL de meus aplicativos que não seja `https://myapps.microsoft.com`, configure a URL padrão fazendo o seguinte:
-   1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
-   2. No menu, selecione **a URL de meus aplicativos**.
-   3. Selecione a URL padrão.
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Use a extensão de inscrição segura das minhas aplicações
+* Se estiver a utilizar um `https://myapps.microsoft.com`URL my apps diferente , configure o seu URL predefinido fazendo o seguinte:
+   1. Enquanto *não* estiver inscrito na extensão, clique no ícone de extensão.
+   2. No menu, selecione **My Apps URL**.
+   3. Selecione o URL padrão.
    4. Selecione o ícone de extensão.
-   5. Para entrar na extensão, selecione **entrar para começar**.
+   5. Para iniciar o seu início, selecione Iniciar sessão **.**
 
-* Para entrar diretamente em um aplicativo do navegador, faça o seguinte:
-   1. Depois de instalar a extensão, entre nela selecionando **entrar para**começar.
-   2. Entre no aplicativo com a URL de logon.  
-       A URL de logon geralmente é a URL do aplicativo que exibe o formulário de entrada.
-      A extensão deve alterar o estado e informar que uma senha está disponível.
-   3. Para entrar, selecione o ícone de extensão.
+* Para iniciar sessão diretamente numa aplicação do navegador, faça o seguinte:
+   1. Depois de instalar a extensão, inicie o seu insto selecionando **o Signin para começar**.
+   2. Inscreva-se na aplicação com o URL de inscrição.  
+       O URL de inscrição é geralmente o URL da aplicação que exibe o formulário de inscrição.
+      A extensão deve alterar o estado e informá-lo de que está disponível uma senha.
+   3. Para iniciar sessão, selecione o ícone de extensão.
 
-* Para iniciar um aplicativo a partir da extensão, faça o seguinte:
-   1. Depois de instalar a extensão, entre nela selecionando **entrar para**começar.
+* Para iniciar uma aplicação a partir da extensão, faça o seguinte:
+   1. Depois de instalar a extensão, inicie o seu insto selecionando **o Signin para começar**.
    2. Selecione o ícone de extensão para abrir o menu.
-   3. Procure um aplicativo que esteja disponível no portal meus aplicativos.
-   4. Na lista de resultados da pesquisa, selecione o aplicativo.  
-       Os três últimos aplicativos que você usou são exibidos na lista de atalhos **usados recentemente** .
+   3. Procure uma aplicação disponível no portal My Apps.
+   4. Na lista de resultados da pesquisa, selecione a aplicação.  
+       As três últimas aplicações que usou estão apresentadas na lista de **atalhos recentemente utilizados.**
        
-* Para usar URLs internas da empresa enquanto estiver remoto, faça o seguinte:
-    1. [Configurar o proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) em seu locatário
-    2. [Publicar o aplicativo e a](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) URL por meio do proxy de aplicativo
-    3. Instale a extensão e entre nela selecionando entrar para começar
-    4. Agora você pode navegar para a URL da empresa interna mesmo que seja remoto
+* Para utilizar URLs internos da empresa durante o controlo remoto, faça o seguinte:
+    1. [Configure procuração](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) de aplicação no seu inquilino
+    2. [Publique a aplicação](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e o URL através do Proxy de Aplicação
+    3. Instale a extensão e inscreva-se nela selecionando O Signin para começar
+    4. Agora pode navegar para o URL da empresa interna mesmo quando remoto
 
 > [!NOTE]
-> As opções anteriores estão disponíveis somente para o Microsoft Edge, o Chrome e o Firefox.
+> As opções anteriores estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
 
-## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Criar uma política de grupo para o Internet Explorer
 
-Você pode configurar uma política de grupo que permite instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos usuários.
+Pode configurar uma política de grupo que lhe permite instalar remotamente a extensão do painel de acesso para o Internet Explorer nas máquinas dos seus utilizadores.
 
-Antes de configurar uma política de grupo, verifique se:
+Antes de criar uma política de grupo, certifique-se de que:
 
--   Você configurou [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e ingressou nos computadores dos usuários em seu domínio.
+-   Criou serviços de domínio de [diretório ativo](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e juntou-se às máquinas dos seus utilizadores para o seu domínio.
 
--   Para editar o objeto de Política de Grupo (GPO), você deve ter permissões de *Editar configurações* . Por padrão, essa permissão é concedida aos membros dos seguintes grupos de segurança: administradores de domínio, administradores de empresa e proprietários criadores de diretiva de grupo.
+-   Para editar o Objeto de Política de Grupo (GPO), tem de ter permissões de *definições de Edição.* Por predefinição, esta permissão é concedida aos membros dos seguintes grupos de segurança: administradores de domínio, administradores de empresas e proprietários de políticas de grupo.
 
-Para obter instruções passo a passo sobre como configurar a diretiva de grupo e implantá-la para os usuários, consulte [implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo](deploy-access-panel-browser-extension.md).
+Para instruções passo a passo sobre configurar a política do grupo e implementá-la para os utilizadores, consulte [implementar a extensão do painel de acesso para o Internet Explorer utilizando](deploy-access-panel-browser-extension.md)a política do grupo .
 
-## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Solucionar problemas da extensão do painel de acesso no Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Resolução de problemas na extensão do painel de acesso no Internet Explorer
 
-Para obter acesso a uma ferramenta de diagnóstico e informações sobre como configurar a extensão para o Internet Explorer, consulte [solucionar problemas da extensão do painel de acesso para o Internet Explorer](manage-access-panel-browser-extension.md).
+Para acesso a uma ferramenta de diagnóstico e informações sobre a configuração da extensão para o Internet Explorer, consulte [Troubleshoot a extensão do painel](manage-access-panel-browser-extension.md)de acesso para o Internet Explorer .
 
 > [!NOTE]
-> O Internet Explorer está em suporte limitado e não recebe mais novas atualizações de software. O Microsoft Edge é o navegador recomendado.
+> O Internet Explorer está em suporte limitado e já não recebe novas atualizações de software. O Microsoft Edge é o navegador recomendado.
 
-## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se as etapas anteriores não resolverem o problema
+## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se os passos anteriores não resolverem a questão
 
-Abra um tíquete de suporte com as seguintes informações, se estiver disponível:
+Abra um bilhete de apoio com as seguintes informações, se estiver disponível:
 
--   ID do erro de correlação
--   UPN (endereço de email do usuário)
+-   Id de erro de correlação
+-   UPN (endereço de e-mail do utilizador)
 -   TenantID
--   Tipo de navegador
--   Fuso horário e hora ou período de tempo em que o erro ocorreu
--   Rastreamentos do Fiddler
+-   Tipo de browser
+-   Fuso horário e o prazo ou prazo quando ocorreu o erro
+-   Traços de violinista
 
 ## <a name="next-steps"></a>Passos seguintes
 [What is application access and single sign-on with Azure Active Directory?](what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)

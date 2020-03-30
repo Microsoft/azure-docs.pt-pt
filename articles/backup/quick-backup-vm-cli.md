@@ -1,15 +1,15 @@
 ---
-title: Início rápido-fazer backup de uma VM com CLI do Azure
-description: Neste guia de início rápido, saiba como criar um cofre dos serviços de recuperação, habilitar a proteção em uma VM e criar o ponto de recuperação inicial com o CLI do Azure.
+title: Quickstart - Back up a VM with Azure CLI
+description: Neste Quickstart, aprenda a criar um cofre de Serviços de Recuperação, ative a proteção num VM e crie o ponto de recuperação inicial com o Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74171978"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento georredundante garante que os dados das cópias de segurança são replicados numa região do Azure secundária, que está situada a centenas de quilómetros de distância da região principal. Se a configuração de redundância de armazenamento precisar ser modificada, use o cmdlet [AZ backup Vault backup-Properties Set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento georredundante garante que os dados das cópias de segurança são replicados numa região do Azure secundária, que está situada a centenas de quilómetros de distância da região principal. Se a definição de redundância de armazenamento tiver de ser modificada, utilize o conjunto de propriedades de backup do [cofre de reserva az.](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set)
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Ativar a cópia de segurança em VMs do Azure
 
-Crie uma política de proteção para definir: quando é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM. Para ativar a proteção da cópia de segurança de uma VM, utilize [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Especifique o grupo de recursos e a VM a proteger e, em seguida, a política a utilizar:
+Crie uma política de proteção para definir: quando é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM. Para ativar a proteção de reserva para um VM, utilize o [ativador de proteção de reserva az para vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Especifique o grupo de recursos e a VM a proteger e, em seguida, a política a utilizar:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Ao usar a CLI para habilitar o backup para várias VMs de uma só vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [prática](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy)recomendada. Atualmente, o cliente PS não bloqueia explicitamente se há mais de 100 VMs, mas a verificação está planejada para ser adicionada no futuro.
+> Ao utilizar o CLI para permitir a cópia de segurança de vários VMs ao mesmo tempo, certifique-se de que uma única política não tem mais de 100 VMs associados a ele. Esta é uma [melhor prática recomendada.](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy) Atualmente, o cliente do PS não bloqueia explicitamente se existem mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 

@@ -1,6 +1,6 @@
 ---
-title: Inscrição de autoatendimento para usuários verificados por email – Azure AD | Microsoft Docs
-description: Usar a inscrição de autoatendimento em um locatário do Azure Active Directory (Azure AD)
+title: Inscrição de self-service para utilizadores verificados por e-mail - Azure AD / Microsoft Docs
+description: Utilize inscrição de self-service num inquilino azure Ative Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,70 +16,70 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 953837e22cdd3ba8a54d702eac61461739db82d2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74027639"
 ---
-# <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é a inscrição de autoatendimento para o Azure Active Directory?
+# <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é a inscrição de self-service para o Azure Ative Directory?
 
-Este artigo explica como usar a inscrição de autoatendimento para preencher uma organização no Azure Active Directory (AD do Azure). Se você quiser assumir um nome de domínio de uma organização não gerenciada do Azure AD, consulte [assumir um diretório não gerenciado como administrador](domains-admin-takeover.md).
+Este artigo explica como usar a inscrição de self-service para povoar uma organização em Azure Ative Directory (Azure AD). Se quiser assumir um nome de domínio de uma organização não gerida da AD Azure, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
 
-## <a name="why-use-self-service-sign-up"></a>Por que usar a inscrição de autoatendimento?
-* Obtenha aos clientes os serviços que desejam mais rápido
-* Criar ofertas baseadas em email para um serviço
-* Crie fluxos de inscrição baseados em email que permitam que os usuários criem identidades usando seus aliases de email de trabalho fáceis de lembrar
-* Um diretório do Azure AD criado por autoatendimento pode ser transformado em um diretório gerenciado que pode ser usado para outros serviços
+## <a name="why-use-self-service-sign-up"></a>Por que usar a inscrição de self-service?
+* Levar os clientes aos serviços que querem mais rápido
+* Criar ofertas baseadas em e-mail para um serviço
+* Crie fluxos de inscrição baseados em e-mail que rapidamente permitem que os utilizadores criem identidades usando os seus pseudónimos de e-mail de trabalho de fácil recordação
+* Um diretório Azure AD auto-criado pode ser transformado num diretório gerido que pode ser usado para outros serviços
 
 ## <a name="terms-and-definitions"></a>Termos e definições
-* **Inscrição de autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para eles no Azure AD com base em seu domínio de email.
-* **Diretório do Azure ad não gerenciado**: esse é o diretório em que a identidade é criada. Um diretório não gerenciado é um diretório que não tem administrador global.
-* **Usuário verificado por email**: Este é um tipo de conta de usuário no Azure AD. Um usuário que tenha uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificado por email é um membro regular de um diretório marcado com creationmethod = verificados.
+* **Inscrição de self-service**: Este é o método pelo qual um utilizador se inscreve num serviço na nuvem e tem uma identidade criada automaticamente para eles em Azure AD com base no seu domínio de e-mail.
+* **Diretório AD Azure não gerido**: Este é o diretório onde essa identidade é criada. Um diretório não gerido é um diretório que não tem administrador global.
+* **Utilizador verificado por e-mail**: Este é um tipo de conta de utilizador em Azure AD. Um utilizador que tenha uma identidade criada automaticamente após se inscrever para uma oferta de self-service é conhecido como um utilizador verificado por e-mail. Um utilizador verificado por e-mail é um membro regular de um diretório marcado com método de criação=EmailVerified.
 
-## <a name="how-do-i-control-self-service-settings"></a>Como fazer controlar as configurações de autoatendimento?
-Os administradores têm dois controles de autoatendimento atualmente. Eles podem controlar se:
+## <a name="how-do-i-control-self-service-settings"></a>Como controlo as definições de self-service?
+Os administradores têm dois controlos de autosserviço hoje. Podem controlar se:
 
-* Os usuários podem ingressar no diretório por email
-* Os usuários podem se licenciar para aplicativos e serviços
+* Os utilizadores podem aderir ao diretório por e-mail
+* Os utilizadores podem licenciar-se para aplicações e serviços
 
-### <a name="how-can-i-control-these-capabilities"></a>Como posso controlar esses recursos?
-Um administrador pode configurar esses recursos usando os seguintes parâmetros Set-MsolCompanySettings do cmdlet do Azure AD:
+### <a name="how-can-i-control-these-capabilities"></a>Como posso controlar estas capacidades?
+Um administrador pode configurar estas capacidades utilizando os seguintes parâmetros De Set-MsolCompanySettings do Azure AD:
 
-* **AllowEmailVerifiedUsers** controla se um usuário pode criar ou ingressar em um diretório. Se você definir esse parâmetro como $false, nenhum usuário verificado por email poderá ingressar no diretório.
-* **AllowAdHocSubscriptions** controla a capacidade dos usuários de executar inscrição de autoatendimento. Se você definir esse parâmetro como $false, nenhum usuário poderá executar a inscrição de autoatendimento.
+* **AllowEmailVerifiedUsers** controla se um utilizador pode criar ou aderir a um diretório. Se definir esse parâmetro para $false, nenhum utilizador verificado por e-mail pode aderir ao diretório.
+* **As Subscrições AllowAdHoc** controlam a capacidade de os utilizadores realizarem o autosserviço. Se configurar esse parâmetro para $false, nenhum utilizador pode realizar o autosserviço.
   
-AllowEmailVerifiedUsers e AllowAdHocSubscriptions são configurações de todo o diretório que podem ser aplicadas a um diretório gerenciado ou não gerenciado. Aqui está um exemplo em que:
+AllowEmailVerifiedUsers e AllowAdHocSubscriptions são configurações de diretório que podem ser aplicadas a um diretório gerido ou não gerido. Aqui está um exemplo onde:
 
-* Você administra um diretório com um domínio verificado, como contoso.com
-* Você usa a colaboração B2B de um diretório diferente para convidar um usuário que ainda não existe (userdoesnotexist@contoso.com) no diretório inicial de contoso.com
-* O diretório base tem o AllowEmailVerifiedUsers ativado
+* Administra um diretório com um domínio verificado, como contoso.com
+* Você usa a colaboração B2B de um diretório diferenteuserdoesnotexist@contoso.compara convidar um utilizador que já não existe ( ) no diretório doméstico de contoso.com
+* O diretório inicial tem os AllowEmailVerifiedUsers ligados
 
-Se as condições anteriores forem verdadeiras, um usuário membro será criado no diretório base e um usuário convidado B2B será criado no diretório que está convidando.
+Se as condições anteriores forem verdadeiras, então um utilizador membro é criado no diretório inicial, e um utilizador convidado B2B é criado no diretório convidativo.
 
-As entradas de avaliação do Flow e do PowerApps não são controladas pela configuração **AllowAdHocSubscriptions** . Para obter mais informações, veja os artigos seguintes:
+As inscrições de teste flow e PowerApps não são controladas pela definição **de Assinaturas AllowAdHoc.** Para obter mais informações, veja os artigos seguintes:
 
-* [Como impedir que meus usuários existentes comecem a usar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Fluxo na sua organização Q & A](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Como posso impedir que os utilizadores existentes comecem a utilizar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [O Flow na sua organização - Perguntas e Respostas](https://docs.microsoft.com/flow/organization-q-and-a)
 
-### <a name="how-do-the-controls-work-together"></a>Como os controles funcionam em conjunto?
-Esses dois parâmetros podem ser usados em conjunto para definir um controle mais preciso sobre a inscrição de autoatendimento. Por exemplo, o comando a seguir permitirá que os usuários executem inscrição de autoatendimento, mas somente se esses usuários já tiverem uma conta no Azure AD (em outras palavras, os usuários que precisarem de uma conta verificada por email para serem criados primeiro não poderão executar a inscrição por autoatendimento):
+### <a name="how-do-the-controls-work-together"></a>Como funcionam os controlos em conjunto?
+Estes dois parâmetros podem ser utilizados em conjunto para definir um controlo mais preciso sobre a inscrição de autosserviço. Por exemplo, o seguinte comando permitirá que os utilizadores realizem o autosserviço de inscrição, mas apenas se esses utilizadores já tiverem uma conta em Azure AD (ou seja, os utilizadores que precisariam de uma conta verificada por e-mail para serem criadas primeiro não podem realizar o autosserviço de inscrição):
 
 ```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ```
 
-O fluxograma a seguir explica as diferentes combinações para esses parâmetros e as condições resultantes para o diretório e a inscrição de autoatendimento.
+O fluxograma seguinte explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e inscrição de self-service.
 
-![fluxograma de controles de inscrição de autoatendimento](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![flowchart de controlos de inscrição de autosserviço](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-Para obter mais informações e exemplos de como usar esses parâmetros, consulte [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Para obter mais informações e exemplos de como utilizar estes parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
+* [Adicione um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-* [Fechar sua conta corporativa ou de estudante em um diretório não gerenciado](users-close-account.md)
+* [Feche o seu trabalho ou a sua conta escolar num diretório não gerido](users-close-account.md)

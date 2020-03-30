@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: 598876e12fe04129692d0c9a842f4edb2ec00768
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086803"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
@@ -41,7 +41,7 @@ Permitir o tráfego a partir dos endereços IP listados para o tempo de execuç�
 | Canadá         | Canadá Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | China          | China Leste 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
 | Europa         | Europa do Norte        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
-| &nbsp;         | Europa Ocidental         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
+| &nbsp;         | Europa ocidental         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | França         | França Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | Índia          | Índia Central       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japão          | Leste do Japão          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |

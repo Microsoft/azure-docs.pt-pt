@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de atribuição de licença de grupo-Azure Active Directory | Microsoft Docs
-description: Como identificar e resolver problemas de atribuição de licença quando você estiver usando Azure Active Directory licenciamento baseado em grupo
+title: Resolver problemas de atribuição de licenças de grupo - Diretório Ativo Azure / Microsoft Docs
+description: Como identificar e resolver problemas de atribuição de licenças quando estiver a utilizar o licenciamento baseado em grupo azure Ative Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: ''
@@ -16,170 +16,170 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025702"
 ---
-# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licença para um grupo no Azure Active Directory
+# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Diretório Ativo do Azure
 
-O licenciamento baseado em grupo no Azure Active Directory (Azure AD) apresenta o conceito de usuários em um estado de erro de licenciamento. Neste artigo, explicamos os motivos pelos quais os usuários podem terminar nesse estado.
+O licenciamento baseado em grupo no Azure Ative Directory (Azure AD) introduz o conceito de utilizadores num estado de erro de licenciamento. Neste artigo, explicamos as razões pelas quais os utilizadores podem acabar neste estado.
 
-Quando você atribui licenças diretamente a usuários individuais, sem usar o licenciamento baseado em grupo, a operação de atribuição pode falhar. Por exemplo, quando você executa o cmdlet do PowerShell `Set-MsolUserLicense` em um sistema de usuário, o cmdlet pode falhar por vários motivos relacionados à lógica de negócios. Por exemplo, pode haver um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é imediatamente relatado de volta para você.
+Ao atribuir licenças diretamente a utilizadores individuais, sem utilizar o licenciamento baseado em grupo, a operação de atribuição poderá falhar. Por exemplo, quando executa o `Set-MsolUserLicense` cmdlet PowerShell num sistema de utilizador, o cmdlet pode falhar por muitas razões relacionadas com a lógica empresarial. Por exemplo, pode haver um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é imediatamente comunicado.
 
-Quando você estiver usando o licenciamento baseado em grupo, os mesmos erros poderão ocorrer, mas ocorrerão em segundo plano enquanto o serviço do Azure AD estiver atribuindo licenças. Por esse motivo, os erros não podem ser comunicados a você imediatamente. Em vez disso, eles são registrados no objeto de usuário e, em seguida, relatados por meio do portal administrativo. A intenção original de licenciar o usuário nunca é perdida, mas é registrada em um estado de erro para investigação e resolução futuras.
+Quando se está a utilizar o licenciamento baseado em grupo, podem ocorrer os mesmos erros, mas acontecem em segundo plano enquanto o serviço Azure AD está a atribuir licenças. Por esta razão, os erros não podem ser comunicados imediatamente. Em vez disso, são gravados no objeto do utilizador e depois reportados através do portal administrativo. A intenção original de licenciar o utilizador nunca se perde, mas está registada num estado de erro para futura investigação e resolução.
 
-## <a name="find-license-assignment-errors"></a>Localizar erros de atribuição de licença
+## <a name="find-license-assignment-errors"></a>Encontre erros de atribuição de licenças
 
-### <a name="to-find-users-in-an-error-state-in-a-group"></a>Para localizar usuários em um estado de erro em um grupo
+### <a name="to-find-users-in-an-error-state-in-a-group"></a>Para encontrar utilizadores em um estado de erro em um grupo
 
-1. Abra o grupo em sua página de visão geral e selecione **licenças**. Uma notificação será exibida se houver usuários em um estado de erro.
+1. Abra o grupo na sua página geral e selecione **Licenças**. Uma notificação aparece se houver algum utilizador em estado de erro.
 
-   ![Mensagem de notificação de erro e grupo](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Mensagem de notificações de grupo e erro](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-1. Selecione a notificação para abrir uma lista de todos os usuários afetados. Você pode selecionar cada usuário individualmente para ver mais detalhes.
+1. Selecione a notificação para abrir uma lista de todos os utilizadores afetados. Pode selecionar cada utilizador individualmente para ver mais detalhes.
 
-   ![lista de usuários no estado de erro de licenciamento de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista de utilizadores no estado de erro de licenciamento de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Para localizar todos os grupos que contêm pelo menos um erro, na folha **Azure Active Directory** , selecione **licenças**e, em seguida, selecione **visão geral**. Uma caixa de informações é exibida quando os grupos exigem sua atenção.
+1. Para encontrar todos os grupos que contenham pelo menos um erro, na lâmina de **diretório Ativo Azure** selecione **Licenças,** e, em seguida, selecione **Visão Geral**. É apresentada uma caixa de informação quando os grupos requerem a sua atenção.
 
-   ![Visão geral e informações sobre grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Visão geral e informação sobre grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-1. Marque a caixa para ver uma lista de todos os grupos com erros. Você pode selecionar cada grupo para obter mais detalhes.
+1. Selecione a caixa para ver uma lista de todos os grupos com erros. Pode selecionar cada grupo para mais detalhes.
 
    ![Visão geral e lista de grupos com erros](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
-As seções a seguir fornecem uma descrição de cada possível problema e a maneira de resolvê-lo.
+As seguintes secções dão uma descrição de cada problema potencial e a forma de o resolver.
 
-## <a name="not-enough-licenses"></a>Não há licenças suficientes
+## <a name="not-enough-licenses"></a>Não há licenças suficientes.
 
-**Problema:** Não há licenças suficientes disponíveis para um dos produtos especificados no grupo. Você precisa comprar mais licenças para o produto ou liberar licenças não utilizadas de outros usuários ou grupos.
+**Problema:** Não há licenças disponíveis suficientes para um dos produtos especificados no grupo. Precisa de adquirir mais licenças para o produto ou libertar licenças não utilizadas de outros utilizadores ou grupos.
 
-Para ver quantas licenças estão disponíveis, acesse **Azure Active Directory** **licenças** de >  > **todos os produtos**.
+Para ver quantas licenças estão disponíveis, vá a > **Licenças** > de **Diretório Ativo Azure****Todos os produtos.**
 
-Para ver quais usuários e grupos estão consumindo licenças, selecione um produto. Em **usuários licenciados**, você verá uma lista de todos os usuários que tiveram licenças atribuídas diretamente ou por meio de um ou mais grupos. Em **grupos licenciados**, você verá todos os grupos que têm os produtos atribuídos.
+Para ver quais os utilizadores e grupos que estão a consumir licenças, selecione um produto. Nos **utilizadores Licenciados,** vê-se uma lista de todos os utilizadores que tenham tido licenças atribuídas diretamente ou através de um ou mais grupos. Sob **grupos licenciados,** você vê todos os grupos que têm esses produtos atribuídos.
 
-**PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
+**PowerShell:** Os cmdlets PowerShell reportam este erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviço conflitantes
+## <a name="conflicting-service-plans"></a>Planos de serviço sinuosos
 
-**Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço que já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de forma que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
+**Problema:** Um dos produtos especificados no grupo contém um plano de serviço que entra em conflito com outro plano de serviço que já está atribuído ao utilizador através de um produto diferente. Alguns planos de serviço são configurados de uma forma que não podem ser atribuídos ao mesmo utilizador que outro plano de serviço relacionado.
 
-Considere o seguinte exemplo. Um usuário tem uma licença do Office 365 Enterprise *E1* atribuída diretamente, com todos os planos habilitados. O usuário foi adicionado a um grupo que tem o produto Office 365 Enterprise *E3* atribuído a ele. O produto E3 contém planos de serviço que não podem se sobrepor aos planos incluídos no E1, portanto, a atribuição de licença de grupo falha com o erro "planos de serviço conflitantes". Neste exemplo, os planos de serviço conflitantes são:
+Considere o seguinte exemplo. Um utilizador tem uma licença para o Office 365 Enterprise *E1* atribuído diretamente, com todos os planos ativados. O utilizador foi adicionado a um grupo que tem o produto Office 365 Enterprise *E3* atribuído ao mesmo. O produto E3 contém planos de serviço que não podem sobrepor-se aos planos incluídos na E1, pelo que a atribuição de licença de grupo falha com o erro dos "planos de serviço contraditórios". Neste exemplo, os planos de serviços contraditórios são:
 
-- O SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1).
-- O Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1).
+- O SharePoint Online (Plano 2) entra em conflito com o SharePoint Online (Plano 1).
+- Troca online (Plano 2) entra em conflito com o Exchange Online (Plano 1).
 
-Para resolver esse conflito, você precisa desabilitar dois dos planos. Você pode desabilitar a licença E1 que está diretamente atribuída ao usuário. Ou, você precisa modificar a atribuição de licença de grupo inteira e desabilitar os planos na licença E3. Como alternativa, você pode optar por remover a licença E1 do usuário se ele for redundante no contexto da licença E3.
+Para resolver este conflito, é preciso desativar dois dos planos. Pode desativar a licença E1 que é diretamente atribuída ao utilizador. Ou, você precisa modificar toda a atribuição de licença de grupo e desativar os planos na licença E3. Em alternativa, poderá decidir remover a licença E1 do utilizador se for redundante no contexto da licença E3.
 
-A decisão sobre como resolver licenças de produtos conflitantes sempre pertence ao administrador. O Azure AD não resolve automaticamente os conflitos de licença.
+A decisão sobre como resolver licenças de produtos conflituosas pertence sempre ao administrador. A AD Azure não resolve automaticamente os conflitos de licenças.
 
-**PowerShell:** Os cmdlets do PowerShell relatam esse erro como _MutuallyExclusiveViolation_.
+**PowerShell:** Os cmdlets PowerShell reportam este erro como _MutualexclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>Outros produtos dependem desta licença
 
-**Problema:** Um dos produtos especificados no grupo contém um plano de serviço que deve ser habilitado para outro plano de serviço, em outro produto, para funcionar. Esse erro ocorre quando o Azure AD tenta remover o plano de serviço subjacente. Por exemplo, isso pode acontecer quando você remove o usuário do grupo.
+**Problema:** Um dos produtos especificados no grupo contém um plano de serviço que deve ser ativado para que outro plano de serviço, noutro produto, funcione. Este erro ocorre quando a AD Azure tenta remover o plano de serviço subjacente. Por exemplo, isto pode acontecer quando se retira o utilizador do grupo.
 
-Para resolver esse problema, você precisa verificar se o plano necessário ainda está atribuído aos usuários por meio de algum outro método ou se os serviços dependentes estão desabilitados para esses usuários. Depois de fazer isso, você pode remover corretamente a licença de grupo desses usuários.
+Para resolver este problema, é necessário certificar-se de que o plano exigido ainda é atribuído aos utilizadores através de outro método ou que os serviços dependentes são desativados para esses utilizadores. Depois disso, pode remover corretamente a licença de grupo desses utilizadores.
 
-**PowerShell:** Os cmdlets do PowerShell relatam esse erro como _DependencyViolation_.
+**PowerShell:** Os cmdlets PowerShell reportam este erro como _Violação da Dependência_.
 
-## <a name="usage-location-isnt-allowed"></a>O local de uso não é permitido
+## <a name="usage-location-isnt-allowed"></a>A localização de uso não é permitida
 
-**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentos locais. Antes de atribuir uma licença a um usuário, você deve especificar a propriedade **local de uso** para o usuário. Você pode especificar o local na seção **configurações** do **usuário** > **perfil** > no portal do Azure.
+**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentos locais. Antes de poder atribuir uma licença a um utilizador, deve especificar a propriedade de **localização de utilização** para o utilizador. Pode especificar a localização na secção**Definições** de**Perfil** > do **Utilizador** > no portal Azure.
 
-Quando o Azure AD tenta atribuir uma licença de grupo a um usuário cujo local de uso não tem suporte, ele falha e registra um erro no usuário.
+Quando a Azure AD tenta atribuir uma licença de grupo a um utilizador cuja localização de utilização não é suportada, falha e regista um erro no utilizador.
 
-Para resolver esse problema, remova usuários de locais sem suporte do grupo licenciado. Como alternativa, se os valores de local de uso atual não representarem o local de usuário real, você poderá modificá-los para que as licenças sejam atribuídas corretamente na próxima vez (se houver suporte para o novo local).
+Para resolver este problema, remova os utilizadores de locais não suportados do grupo licenciado. Alternativamente, se os valores de localização de utilização atuais não representarem a localização real do utilizador, pode modificá-los de modo a que as licenças sejam corretamente atribuídas da próxima vez (se a nova localização for suportada).
 
-**PowerShell:** Os cmdlets do PowerShell relatam esse erro como _ProhibitedInUsageLocationViolation_.
+**PowerShell:** Os cmdlets PowerShell reportam este erro como _Proibição De Utilização DeUsoViolação_.
 
 > [!NOTE]
-> Quando o Azure AD atribui licenças de grupo, todos os usuários sem um local de uso especificado herdam o local do diretório. Recomendamos que os administradores definam os valores corretos de local de uso nos usuários antes de usar o licenciamento baseado em grupo para obedecer às leis e regulamentos locais.
+> Quando a Azure AD atribui licenças de grupo, quaisquer utilizadores sem uma localização de utilização especificada herdam a localização do diretório. Recomendamos que os administradores estabeleçam os valores de localização de utilização corretos nos utilizadores antes de utilizarem o licenciamento baseado em grupo para cumprir as leis e regulamentos locais.
 
-## <a name="duplicate-proxy-addresses"></a>Endereços de proxy duplicados
+## <a name="duplicate-proxy-addresses"></a>Endereços de procuração duplicados
 
-Se você usar o Exchange Online, alguns usuários em seu locatário poderão estar configurados incorretamente com o mesmo valor de endereço de proxy. Quando o licenciamento baseado em grupo tenta atribuir uma licença a tal usuário, ele falha e mostra "o endereço de proxy já está sendo usado".
+Se utilizar o Exchange Online, alguns utilizadores do seu inquilino podem estar incorretamente configurados com o mesmo valor de endereço de procuração. Quando o licenciamento baseado em grupo tenta atribuir uma licença a esse utilizador, falha e mostra que "o endereço Proxy já está a ser utilizado".
 
 > [!TIP]
-> Para ver se há um endereço de proxy duplicado, execute o seguinte cmdlet do PowerShell no Exchange Online:
+> Para ver se existe um endereço de procuração duplicado, execute o seguinte cmdlet PowerShell contra exchange Online:
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para obter mais informações sobre esse problema, consulte a [mensagem de erro "o endereço proxy já está sendo usado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como se conectar ao Exchange Online usando o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
+> Para obter mais informações sobre este problema, consulte a mensagem de [erro "Proxy address already being used" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar-se ao Exchange Online utilizando powerShell remoto.](https://technet.microsoft.com/library/jj984289.aspx)
 
-Depois de resolver qualquer problema de endereço de proxy para os usuários afetados, certifique-se de forçar o processamento de licença no grupo para certificar-se de que as licenças agora podem ser aplicadas.
+Depois de resolver quaisquer problemas de endereço de procuração para os utilizadores afetados, certifique-se de forçar o processamento da licença no grupo para se certificar de que as licenças podem agora ser aplicadas.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Alteração de atributo de ProxyAddresses e de email do Azure AD
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD Mail e ProxyAddresss atribuem mudança
 
-**Problema:** Ao atualizar a atribuição de licença em um usuário ou grupo, você pode ver que o atributo email e ProxyAddresses do Azure AD de alguns usuários são alterados.
+**Problema:** Ao atualizar a atribuição de licença sumição de um utilizador ou de um grupo, pode ver que o atributo de Correio AD Azure e ProxyAddresss de alguns utilizadores são alterados.
 
-Atualizar a atribuição de licença em um usuário faz com que o cálculo do endereço proxy seja disparado, o que pode alterar os atributos do usuário. Para entender o motivo exato da alteração e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresses é populado no Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+Atualizar a atribuição de licença num utilizador faz com que o cálculo do endereço proxy seja desencadeado, o que pode alterar os atributos do utilizador. Para compreender a razão exata da mudança e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresss é povoado em Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
-## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException em logs de auditoria
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>Atribuição de LicençaSAtribuiçãoConcurrencyExcep em registos de auditoria
 
-**Problema:** O usuário tem LicenseAssignmentAttributeConcurrencyException para a atribuição de licença nos logs de auditoria.
-Quando o licenciamento baseado em grupo tenta processar a atribuição de licença simultânea da mesma licença a um usuário, essa exceção é registrada no usuário. Isso geralmente acontece quando um usuário é membro de mais de um grupo com a mesma licença atribuída. O AZure AD tentará processar novamente a licença de usuário e resolverá o problema. Não é necessária nenhuma ação do cliente para corrigir esse problema.
+**Problema:** O utilizador tem LicençaAssignmentAttributeConcurrencyException para atribuição de licença em registos de auditoria.
+Quando o licenciamento baseado em grupo tenta processar a atribuição simultânea de licença da mesma licença a um utilizador, esta exceção é registada no utilizador. Isto geralmente acontece quando um utilizador é membro de mais de um grupo com a mesma licença atribuída. A AZure AD irá voltar a processar a licença de utilizador e resolverá o problema. Não é necessária nenhuma ação do cliente para corrigir este problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Mais de uma licença de produto atribuída a um grupo
 
-Você pode atribuir mais de uma licença de produto a um grupo. Por exemplo, você pode atribuir o Office 365 Enterprise E3 e Enterprise Mobility + Security a um grupo para habilitar facilmente todos os serviços incluídos para os usuários.
+Pode atribuir mais de uma licença de produto a um grupo. Por exemplo, pode atribuir o Office 365 Enterprise E3 e a Enterprise Mobility + Security a um grupo para permitir facilmente todos os serviços incluídos para os utilizadores.
 
-O Azure AD tenta atribuir todas as licenças especificadas no grupo para cada usuário. Se o Azure AD não puder atribuir um dos produtos devido a problemas de lógica de negócios, ele também não atribuirá as outras licenças no grupo. Um exemplo é se não houver licenças suficientes para todos ou se houver conflitos com outros serviços habilitados no usuário.
+A Azure AD tenta atribuir todas as licenças especificadas no grupo a cada utilizador. Se a Azure AD não conseguir atribuir um dos produtos devido a problemas de lógica empresarial, também não atribuirá as outras licenças do grupo. Um exemplo é se não há licenças suficientes para todos, ou se existem conflitos com outros serviços que estão ativados no utilizador.
 
-Você pode ver os usuários que não puderam ser atribuídos e verificar quais produtos são afetados por esse problema.
+Pode ver os utilizadores que não conseguiram ser atribuídos e verificar quais os produtos afetados por este problema.
 
-## <a name="when-a-licensed-group-is-deleted"></a>Quando um grupo licenciado é excluído
+## <a name="when-a-licensed-group-is-deleted"></a>Quando um grupo licenciado é eliminado
 
-Você deve remover todas as licenças atribuídas a um grupo antes de poder excluir o grupo. No entanto, a remoção de licenças de todos os usuários no grupo pode levar tempo. Ao remover as atribuições de licença de um grupo, pode haver falhas se o usuário tiver uma licença dependente atribuída ou se houver um problema de conflito de endereço de proxy que proíba a remoção da licença. Se um usuário tiver uma licença que seja dependente de uma licença que está sendo removida devido a uma exclusão de grupo, a atribuição de licença ao usuário será convertida de herdada para direta.
+Deve remover todas as licenças atribuídas a um grupo antes de poder eliminar o grupo. No entanto, a remoção das licenças de todos os utilizadores do grupo pode demorar algum tempo. Ao remover as atribuições de licença de um grupo, pode haver falhas se o utilizador tiver uma licença dependente atribuída ou se houver um problema de conflito de endereços proxy que proíbe a remoção da licença. Se um utilizador tiver uma licença dependente de uma licença que está a ser removida devido à eliminação do grupo, a atribuição de licença ao utilizador é convertida de herdada para direta.
 
-Por exemplo, considere um grupo que tenha o Office 365 E3/E5 atribuído com um plano de serviço do Skype for Business habilitado. Imagine também que alguns membros do grupo tenham licenças de conferência de áudio atribuídas diretamente. Quando o grupo for excluído, o licenciamento baseado em grupo tentará remover o Office 365 E3/E5 de todos os usuários. Como a conferência de áudio depende do Skype for Business, para todos os usuários com a conferência de áudio atribuída, o licenciamento baseado em grupo converte as licenças do Office 365 E3/E5 para direcionar a atribuição de licença.
+Por exemplo, considere um grupo que tenha o Office 365 E3/E5 atribuído com um plano de serviço Skype para negócios habilitado. Também imagine que alguns membros do grupo têm licenças de Conferência de Áudio atribuídas diretamente. Quando o grupo é eliminado, o licenciamento baseado em grupo tentará remover o Office 365 E3/E5 de todos os utilizadores. Uma vez que a Conferência de Áudio está dependente do Skype for Business, para quaisquer utilizadores com A Conferência de Áudio atribuído, o licenciamento baseado em grupo converte as licenças Do Office 365 E3/E5 para atribuição direta de licença.
 
-## <a name="manage-licenses-for-products-with-prerequisites"></a>Gerenciar licenças para produtos com pré-requisitos
+## <a name="manage-licenses-for-products-with-prerequisites"></a>Gerir licenças para produtos com pré-requisitos
 
-Alguns produtos online da Microsoft que você pode ter são *Complementos.* Os complementos exigem que um plano de serviço de pré-requisito seja habilitado para um usuário ou grupo antes que possa receber uma licença. Com o licenciamento baseado em grupo, o sistema requer que ambos os planos de serviço de pré-requisito e complemento estejam presentes no mesmo grupo. Isso é feito para garantir que todos os usuários que forem adicionados ao grupo possam receber o produto totalmente funcional. Vamos considerar o exemplo a seguir:
+Alguns produtos Microsoft Online que pode possuir são *add-ons*. Os add-ons requerem um plano de serviço pré-requisito para ser ativado para um utilizador ou um grupo antes de poderem ser atribuídos uma licença. Com o licenciamento baseado em grupo, o sistema requer que tanto os planos de serviço pré-requisito como os planos de atendimento adicionais estejam presentes no mesmo grupo. Isto é feito para garantir que todos os utilizadores adicionados ao grupo possam receber o produto totalmente em funcionamento. Considere o seguinte exemplo:
 
-O Microsoft Workplace Analytics é um produto complementar. Ele contém um único plano de serviço com o mesmo nome. Só podemos atribuir esse plano de serviço a um usuário, ou grupo, quando um dos seguintes pré-requisitos também for atribuído:
+O Microsoft Workplace Analytics é um produto adicionais. Contém um único plano de serviço com o mesmo nome. Só podemos atribuir este plano de serviço a um utilizador, ou grupo, quando um dos seguintes pré-requisitos também for atribuído:
 
-- Exchange Online (plano 1)
-- Exchange Online (plano 2)
+- Troca online (Plano 1)
+- Troca online (Plano 2)
 
-Se tentarmos atribuir este produto por conta própria a um grupo, o portal retornará uma mensagem de notificação. Se selecionarmos os detalhes do item, ele mostrará a seguinte mensagem de erro:
+Se tentarmos atribuir este produto por si só a um grupo, o portal devolve uma mensagem de notificação. Se selecionarmos os detalhes do item, mostra a seguinte mensagem de erro:
 
-  "Falha na operação de licença. Verifique se o grupo tem os serviços necessários antes de adicionar ou remover um serviço dependente. **O serviço Microsoft Workplace Analytics requer o Exchange Online (plano 2) para ser habilitado também.** "
+  "A operação de licença falhou. Certifique-se de que o grupo dispõe de serviços necessários antes de adicionar ou remover um serviço dependente. O serviço Microsoft Workplace Analytics exige que o **Exchange Online (Plano 2) também seja ativado.**
 
-Para atribuir essa licença de complemento a um grupo, devemos garantir que o grupo também contenha o plano de serviço de pré-requisito. Por exemplo, poderemos atualizar um grupo existente que já contenha o produto Office 365 E3 completo e, em seguida, adicionar o produto complementar a ele.
+Para atribuir esta licença de complemento a um grupo, temos de garantir que o grupo também contém o plano de serviço pré-requisito. Por exemplo, podemos atualizar um grupo existente que já contém o produto 365 E3 completo e, em seguida, adicionar-lhe o produto add-on.
 
-Também é possível criar um grupo autônomo que contenha apenas os produtos mínimos necessários para que o complemento funcione. Ele pode ser usado para licenciar apenas os usuários selecionados para o produto de complemento. Com base no exemplo anterior, você atribuiria os seguintes produtos ao mesmo grupo:
+Também é possível criar um grupo autónomo que contenha apenas os produtos mínimos necessários para fazer o trabalho de complemento. Pode ser usado para licenciar apenas utilizadores selecionados para o produto add-on. Com base no exemplo anterior, atribuiria os seguintes produtos ao mesmo grupo:
 
-- Office 365 Enterprise E3 com apenas o plano de serviço do Exchange Online (plano 2) habilitado
-- Microsoft Workplace Analytics
+- Office 365 Enterprise E3 com apenas o plano de serviço Exchange Online (Plano 2) habilitado
+- Análise de Área de Trabalho da Microsoft
 
-De agora em diante, todos os usuários adicionados a esse grupo consomem uma licença do produto E3 e uma licença do produto Workplace Analytics. Ao mesmo tempo, esses usuários podem ser membros de outro grupo que fornece a eles o produto E3 completo e ainda consomem apenas uma licença para esse produto.
+A partir de agora, todos os utilizadores adicionados a este grupo consomem uma licença do produto E3 e uma licença do produto Workplace Analytics. Ao mesmo tempo, estes utilizadores podem ser membros de outro grupo que lhes dá todo o produto E3, e ainda consomem apenas uma licença para esse produto.
 
 > [!TIP]
-> Você pode criar vários grupos para cada plano de serviço de pré-requisito. Por exemplo, se você usar o Office 365 Enterprise E1 e o Office 365 Enterprise E3 para seus usuários, poderá criar dois grupos para licenciar o Microsoft Workplace Analytics: um que usa o E1 como um pré-requisito e o outro que usa E3. Isso permite que você distribua o complemento para os usuários E1 e E3 sem consumir licenças adicionais.
+> Pode criar vários grupos para cada plano de serviço pré-requisito. Por exemplo, se utilizar tanto o Office 365 Enterprise E1 como o Office 365 Enterprise E3 para os seus utilizadores, pode criar dois grupos para licenciar o Microsoft Workplace Analytics: um que utiliza a E1 como pré-requisito e o outro que utiliza o E3. Isto permite-lhe distribuir o complemento aos utilizadores da E1 e E3 sem consumir licenças adicionais.
 
-## <a name="force-group-license-processing-to-resolve-errors"></a>Forçar o processamento de licença de grupo para resolver erros
+## <a name="force-group-license-processing-to-resolve-errors"></a>Processamento de licença de grupo de força para resolver erros
 
-Dependendo de quais etapas você executou para resolver os erros, pode ser necessário disparar manualmente o processamento de um grupo para atualizar o estado do usuário.
+Dependendo das medidas que tomou para resolver os erros, pode ser necessário desencadear manualmente o processamento de um grupo para atualizar o estado do utilizador.
 
-Por exemplo, se você liberar algumas licenças removendo atribuições de licenças diretas dos usuários, será necessário disparar o processamento de grupos que anteriormente falharam ao licenciar totalmente todos os membros do usuário. Para reprocessar um grupo, vá para o painel grupo, abra **licenças**e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
+Por exemplo, se libertar algumas licenças removendo as atribuições de licenças diretas dos utilizadores, precisa de desencadear o processamento de grupos que anteriormente não licenciaram totalmente todos os utilizadores. Para reprocessar um grupo, vá ao painel de grupo, abra **licenças**e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
 
-## <a name="force-user-license-processing-to-resolve-errors"></a>Forçar o processamento de licença de usuário para resolver erros
+## <a name="force-user-license-processing-to-resolve-errors"></a>Forçar o processamento de licença de utilizador para resolver erros
 
-Dependendo de quais etapas você executou para resolver os erros, pode ser necessário disparar manualmente o processamento de um usuário para atualizar o estado dos usuários.
+Dependendo das medidas que tomou para resolver os erros, pode ser necessário desencadear manualmente o processamento de um utilizador para atualizar o estado dos utilizadores.
 
-Por exemplo, depois de resolver o problema de endereço de proxy duplicado para um usuário afetado, você precisa disparar o processamento do usuário. Para reprocessar um usuário, vá para o painel usuário, abra **licenças**e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
+Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de desencadear o processamento do utilizador. Para reprocessar um utilizador, vá ao painel do utilizador, abra **licenças**e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre outros cenários de gerenciamento de licenças por meio de grupos, consulte o seguinte:
+Para saber mais sobre outros cenários para a gestão de licenças através de grupos, consulte o seguinte:
 
-* [O que é o licenciamento baseado em grupo no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [O que é o licenciamento baseado em grupo no Azure Ative Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
-* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
+* [Como migrar os utilizadores entre licenças de produtos utilizando licenciamento baseado em grupo no Diretório Ativo azure](licensing-groups-change-licenses.md)
 * [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
-* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-ps-examples.md)
+* [Exemplos da PowerShell para licenciamento baseado em grupo no Diretório Ativo Azure](licensing-ps-examples.md)

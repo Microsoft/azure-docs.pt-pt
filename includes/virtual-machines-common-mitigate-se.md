@@ -9,88 +9,88 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73935895"
 ---
-**Última atualização do documento**: 12 de novembro de 2019 10:00 am PST.
+**Última atualização**do documento : 12 de novembro de 2019 10:00 AM PST.
 
-A divulgação de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecida como ataques de canal lateral de execução especulativa resultou em perguntas de clientes que buscam mais clareza.  
+A divulgação de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecidas como ataques de canais laterais de execução especulativa resultou em perguntas de clientes que procuram mais clareza.  
 
-A Microsoft implantou mitigações em todos os nossos serviços de nuvem. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente umas das outras é protegida. Isso significa que um invasor potencial usando a mesma infraestrutura não pode atacar seu aplicativo usando essas vulnerabilidades.
+A Microsoft implementou mitigações em todos os nossos serviços na nuvem. A infraestrutura que gere o Azure e isola as cargas de trabalho dos clientes uns dos outros está protegida. Isto significa que um potencial intruso usando a mesma infraestrutura não pode atacar a sua aplicação usando estas vulnerabilidades.
 
-O Azure está usando a [manutenção de preservação de memória](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicializações. O Azure continuará utilizando esses métodos ao fazer atualizações em todo o âmbito do host e proteger nossos clientes.
+O Azure está a utilizar a manutenção de [conservação](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) da memória sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicialização. O Azure continuará a utilizar estes métodos ao fazer atualizações em todo o sistema para o anfitrião e proteger os nossos clientes.
 
-Mais informações sobre como a segurança é integrada em todos os aspectos do Azure estão disponíveis no site de [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/) . 
+Mais informações sobre como a segurança é integrada em todos os aspetos do Azure estão disponíveis no site de Documentação de [Segurança do Azure.](https://docs.microsoft.com/azure/security/) 
 
 > [!NOTE] 
-> Como este documento foi publicado pela primeira vez, várias variantes dessa classe de vulnerabilidade foram divulgadas. A Microsoft continua a ser investido intensamente na proteção de nossos clientes e no fornecimento de diretrizes. Esta página será atualizada à medida que continuarmos lançando correções adicionais. 
+> Desde que este documento foi publicado pela primeira vez, várias variantes desta classe de vulnerabilidade foram divulgadas. A Microsoft continua a investir fortemente na proteção dos nossos clientes e na prestação de orientação. Esta página será atualizada à medida que continuarmos a lançar novas correções. 
 > 
-> Em 12 de novembro de 2019, a [Intel publicou](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) um aviso técnico sobre a vulnerabilidade da Intel® extensões de sincronização transacional (Intel® TSX) Transaction assíncrona (TAA) que é atribuída [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Essa vulnerabilidade afeta os processadores Intel® Core® e os processadores Intel® Xeon®.  O Microsoft Azure lançou atualizações do sistema operacional e está implantando o novo microcódigo, pois ele é disponibilizado pela Intel, em toda a frota para proteger nossos clientes contra essas novas vulnerabilidades.   O Azure está trabalhando de forma minuciosa com a Intel para testar e validar o novo microcódigo antes do lançamento oficial na plataforma. 
+> Em 12 de novembro de 2019, a [Intel publicou](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) um consultor técnico em torno da Intel® Extensões de Sincronização Transacional (Intel® TSX) Vulnerabilidade de Transações Asincronizadas (TAA) que é atribuída [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Esta vulnerabilidade afeta processadores Intel® Core® e processadores® ® Intel Xeon.  O Microsoft Azure lançou atualizações do sistema operativo e está a implementar um novo microcódigo, uma vez que é disponibilizado pela Intel, em toda a nossa frota para proteger os nossos clientes contra estas novas vulnerabilidades.   O Azure está a trabalhar de perto com a Intel para testar e validar o novo microcódigo antes do seu lançamento oficial na plataforma. 
 >
-> **Os clientes que executam código não confiável dentro de sua VM** precisam tomar medidas para proteger contra essas vulnerabilidades lendo abaixo as orientações adicionais sobre todas as vulnerabilidades de canal lateral de execução especulativa (Microsoft Advisors avçd [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018)e [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> **Os clientes que estão** a executar código sem confiança dentro do seu VM precisam de tomar medidas para proteger contra estas vulnerabilidades, lendo abaixo para obter orientações adicionais sobre todas as vulnerabilidades especulativas de canais laterais de execução (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), e [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
-> Outros clientes devem avaliar essas vulnerabilidades de uma perspectiva de defesa profunda e considerar as implicações de segurança e desempenho de sua configuração escolhida.
+> Outros clientes devem avaliar estas vulnerabilidades a partir de uma perspetiva de Defesa em Profundidade e considerar as implicações de segurança e desempenho da sua configuração escolhida.
 > 
 
 
 
-## <a name="keeping-your-operating-systems-up-to-date"></a>Mantendo seus sistemas operacionais atualizados
+## <a name="keeping-your-operating-systems-up-to-date"></a>Manter os seus sistemas operativos atualizados
 
-Embora uma atualização do sistema operacional não seja necessária para isolar seus aplicativos em execução no Azure de outros clientes do Azure, é sempre uma prática recomendada manter seu software atualizado. Os pacotes cumulativos de segurança mais recentes para o Windows contêm mitigações para várias vulnerabilidades de canal lateral de execução especulativa. Da mesma forma, as distribuições do Linux lançaram várias atualizações para resolver essas vulnerabilidades. Aqui estão nossas ações recomendadas para atualizar seu sistema operacional:
+Embora não seja necessária uma atualização de OS para isolar as suas aplicações em funcionamento no Azure de outros clientes do Azure, é sempre uma boa prática manter o seu software atualizado. Os mais recentes Rollups de Segurança para Windows contêm atenuações para várias vulnerabilidades especulativas do canal de execução. Da mesma forma, as distribuições do Linux lançaram várias atualizações para resolver estas vulnerabilidades. Aqui estão as nossas ações recomendadas para atualizar o seu sistema operativo:
 
 | Oferta | Ação Recomendada  |
 |----------|---------------------|
-| Cloud Services do Azure  | Habilite a [atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou verifique se você está executando o SO convidado mais recente. |
-| Máquinas Virtuais do Linux do Azure | Instale atualizações do seu provedor de sistema operacional. Para obter mais informações, consulte [Linux](#linux) mais adiante neste documento. |
-| Máquinas Virtuais do Windows do Azure  | Instale o pacote cumulativo de segurança mais recente.
-| Outros serviços de PaaS do Azure | Não há nenhuma ação necessária para os clientes que usam esses serviços. O Azure mantém as versões do sistema operacional atualizadas automaticamente. |
+| Cloud Services do Azure  | Ative a [atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou certifique-se de que está a executar o mais recente Sistema operativo convidado. |
+| Máquinas virtuais Azure Linux | Instale atualizações do seu fornecedor de sistema operativo. Para mais informações, consulte [linux](#linux) mais tarde neste documento. |
+| Máquinas virtuais Do Windows Azure  | Instale o último roll-up de segurança.
+| Outros Serviços Azure PaaS | Não são necessárias medidas para os clientes que utilizam estes serviços. O Azure mantém automaticamente as versões DE SO atualizadas. |
 
-## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Diretrizes adicionais se você estiver executando código não confiável 
+## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Orientação adicional se estiver a executar código não confiável 
 
-Os clientes que permitem que usuários não confiáveis executem código arbitrário podem desejar implementar alguns recursos de segurança adicionais dentro de suas máquinas virtuais ou serviços de nuvem do Azure. Esses recursos protegem contra os vetores de divulgação dentro do processo que várias vulnerabilidades de execução especulativa descrevem.
+Os clientes que permitem que utilizadores não fidedignos executem códigoar arbitrário podem querer implementar algumas funcionalidades de segurança adicionais dentro das suas Máquinas Virtuais Azure ou Serviços Cloud. Estas características protegem contra os vetores de divulgação intra-processo que várias vulnerabilidades especulativas de execução descrevem.
 
-Cenários de exemplo em que são recomendados recursos de segurança adicionais:
+Cenários de exemplo em que são recomendadas funcionalidades de segurança adicionais:
 
-- Você permite que o código que você não confia na sua VM seja executado.  
-    - *Por exemplo, você permite que um de seus clientes carregue um script ou binário que você executa em seu aplicativo*. 
-- Você permite que os usuários que você não confiam para fazer logon na sua VM usando contas com poucos privilégios.   
-    - *Por exemplo, você permite que um usuário com poucos privilégios faça logon em uma de suas VMs usando a área de trabalho remota ou SSH*.  
-- Você permite que usuários não confiáveis acessem máquinas virtuais implementadas por meio de virtualização aninhada.  
-    - *Por exemplo, você controla o host Hyper-V, mas aloca as VMs a usuários não confiáveis*. 
+- Permite que o código em que não confia seja executado dentro do seu VM.  
+    - *Por exemplo, permite que um dos seus clientes carregue um binário ou script que executa dentro*da sua aplicação . 
+- Permite que os utilizadores em quem não confie acedam ao seu VM utilizando contas privilegiadas baixas.   
+    - *Por exemplo, permite que um utilizador de baixo privilégio entre num dos seus VMs utilizando desktop remoto ou SSH*.  
+- Permite aos utilizadores não confiáveis o acesso a máquinas virtuais implementadas através da virtualização aninhada.  
+    - *Por exemplo, controla o hospedeiro Hyper-V, mas aloque os VMs a utilizadores não confiáveis*. 
 
-Os clientes que não implementam um cenário que envolva código não confiável não precisam habilitar esses recursos de segurança adicionais. 
+Os clientes que não implementam um cenário que envolva código não confiável não precisam de ativar estas funcionalidades de segurança adicionais. 
 
-## <a name="enabling-additional-security"></a>Habilitando segurança adicional 
+## <a name="enabling-additional-security"></a>Permitindo segurança adicional 
 
-Você pode habilitar recursos de segurança adicionais dentro de sua VM ou serviço de nuvem se você estiver executando código não confiável. Em paralelo, verifique se o sistema operacional está atualizado para habilitar recursos de segurança dentro de sua VM ou serviço de nuvem
+Pode ativar funcionalidades de segurança adicionais dentro do seu VM ou Cloud Service se estiver a executar código não confiável. Paralelamente, certifique-se de que o seu sistema operativo está atualizado para ativar funcionalidades de segurança dentro do seu VM ou Cloud Service
 
 ### <a name="windows"></a>Windows 
 
-O sistema operacional de destino deve estar atualizado para habilitar esses recursos de segurança adicionais. Embora várias atenuações de canal lateral de execução especulativa estejam habilitadas por padrão, os recursos adicionais descritos aqui devem ser habilitados manualmente e podem causar um impacto no desempenho. 
+O seu sistema operativo alvo deve estar atualizado para ativar estas funcionalidades de segurança adicionais. Embora numerosas mitigações especulativas de canais laterais de execução sejam ativadas por padrão, as funcionalidades adicionais descritas aqui devem ser ativadas manualmente e podem causar um impacto no desempenho. 
 
 
-**Etapa 1: desabilitar o hyperthreading na VM** -os clientes que executam código não confiável em uma VM Hyper-threaded precisarão desabilitar o Hyper-Threading ou mover para um tamanho de VM não Hyper-thread. Referencie [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obter uma lista de tamanhos de VM Hyper-threaded (em que a taxa de vCPU para Core é 2:1). Para verificar se sua VM tem o hyperthreading habilitado, consulte o script abaixo usando a linha de comando do Windows de dentro da VM.
+**Passo 1: Desative a hiper-rosca ção no VM** - Os clientes que executam código sem confiança num VM hiper-roscado terão de desativar hiper-threading ou mover-se para um tamanho VM não hiper-roscado. [Refira-se a este doc](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para uma lista de tamanhos vm hiper-roscados (onde a relação entre vCPU e Core é de 2:1). Para verificar se o seu VM tem hiper-rosca ativado, consulte o script abaixo utilizando a linha de comando Windows a partir do VM.
 
-Digite `wmic` para entrar na interface interativa. Em seguida, digite o seguinte para exibir a quantidade de processadores físicos e lógicos na VM.
+Digite `wmic` para introduzir a interface interativa. Em seguida, digite o abaixo para ver a quantidade de processadores físicos e lógicos no VM.
 
 ```console
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Se o número de processadores lógicos for maior que processadores físicos (núcleos), o hyperthreading será habilitado.  Se você estiver executando uma VM Hyper-threaded, [entre em contato com o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyperthreading desabilitado.  Depois que o hyperthreading estiver desabilitado, **o suporte exigirá uma reinicialização completa da VM**. Consulte a [contagem de núcleos](#core-count) para entender por que sua contagem de núcleos de VM diminuiu.
+Se o número de processadores lógicos for maior do que os processadores físicos (núcleos), então o hiper-roscaestá ativado.  Se estiver a executar um VM hiper-roscado, [contacte o Suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter hiper-threading desativado.  Uma vez desativada a hiper-rosca, o suporte necessitará de **uma reinicialização vm completa**. Por favor, consulte a [contagem de Núcleo](#core-count) para entender por que a contagem de núcleos vM diminuiu.
 
 
-**Etapa 2**: em paralelo à etapa 1, siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar se as proteções estão habilitadas usando o módulo [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell.
+**Passo 2**: Paralelamente ao Passo 1, siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar se as proteções estão ativadas utilizando o módulo [PowerShell De Controlo de Especulação.](https://aka.ms/SpeculationControlPS)
 
 > [!NOTE]
-> Se você tiver baixado este módulo anteriormente, será necessário instalar a versão mais recente.
+> Se já descarregou este módulo, terá de instalar a versão mais recente.
 >
 
 
-A saída do script do PowerShell deve ter os valores abaixo para validar as proteções habilitadas contra essas vulnerabilidades:
+A saída do script PowerShell deve ter os valores abaixo para validar as proteções ativadas contra estas vulnerabilidades:
 
 ```
 Windows OS support for branch target injection mitigation is enabled: True
@@ -101,32 +101,32 @@ Windows OS support for MDS mitigation is enabled: True
 Windows OS support for TAA mitigation is enabled: True
 ```
 
-Se a saída mostrar `MDS mitigation is enabled: False`, [entre em contato com o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter as opções de mitigação disponíveis.
+Se a `MDS mitigation is enabled: False`saída aparecer, contacte o [Suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter opções de mitigação disponíveis.
 
 
 
-**Etapa 3**: para habilitar o suporte do sistema operacional de KVAS (sombra de endereço virtual) de kernel e BTI (injeção de destino de Branch), siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar as proteções usando as chaves do registro `Session Manager`. Uma reinicialização é necessária.
+**Passo 3**: Para ativar o suporte de OS de Shadowing de Endereços Virtuais kernel (KVAS) e de Injeção `Session Manager` de Alvo de Ramificação (BTI), siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para permitir proteções utilizando as teclas de registo. É necessário reiniciar.
 
 
-**Etapa 4**: para implantações que estão usando a [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (apenas D3 e E3): essas instruções se aplicam dentro da VM que você está usando como um host Hyper-V.
+**Passo 4**: Para as implementações que utilizam [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (apenas D3 e E3): Estas instruções aplicam-se dentro do VM que está a utilizar como hospedeiro Hyper-V.
 
-1.  Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar as proteções usando as chaves do registro `MinVmVersionForCpuBasedMitigations`.
-2.  Defina o tipo de Agendador do hipervisor como `Core` seguindo as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+1.  Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para `MinVmVersionForCpuBasedMitigations` permitir proteções utilizando as teclas de registo.
+2.  Delineie o tipo `Core` de programador hipervisor seguindo as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
-<a name="linux"></a>Habilitar o conjunto de recursos de segurança adicionais dentro exige que o sistema operacional de destino esteja totalmente atualizado. Algumas atenuações serão habilitadas por padrão. A seção a seguir descreve os recursos que estão desativados por padrão e/ou dependem do suporte de hardware (microcódigo). Habilitar esses recursos pode causar um impacto no desempenho. Consulte a documentação do provedor do seu sistema operacional para obter mais instruções
+<a name="linux"></a>Permitir o conjunto de funcionalidades de segurança adicionais no seu interior requer que o sistema operativo alvo esteja totalmente atualizado. Algumas mitigações serão ativadas por defeito. A secção seguinte descreve as funcionalidades que estão desligadas por defeito e/ou dependentes do suporte de hardware (microcódigo). Ativar estas funcionalidades pode causar um impacto no desempenho. Consulte a documentação do seu fornecedor de sistema operativo para mais instruções
 
 
-**Etapa 1: desabilitar o hyperthreading na VM** -os clientes que executam código não confiável em uma VM Hyper-threaded precisarão desabilitar o Hyper-Threading ou mover para uma VM não Hyper-thread.  Referencie [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obter uma lista de tamanhos de VM Hyper-threaded (em que a taxa de vCPU para Core é 2:1). Para verificar se você está executando uma VM Hyper-threaded, execute o comando `lscpu` na VM Linux. 
+**Passo 1: Desative a hiper-rosca ção no VM** - Os clientes que executam código sem confiança num VM hiper-roscado terão de desativar hiper-threading ou mover-se para um VM não-roscado.  [Refira-se a este doc](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para uma lista de tamanhos vm hiper-roscados (onde a relação entre vCPU e Core é de 2:1). Para verificar se está a executar um VM `lscpu` hiper-roscado, execute o comando no VM Linux. 
 
-Se `Thread(s) per core = 2`, o hyperthreading foi habilitado. 
+Se, `Thread(s) per core = 2`então a hiper-rosca tiver sido ativada. 
 
-Se `Thread(s) per core = 1`, o hyperthreading foi desabilitado. 
+Se, `Thread(s) per core = 1`então a hiper-rosca tiver sido desativada. 
 
  
-Exemplo de saída para uma VM com o hyperthreading habilitado: 
+Saída de amostra para um VM com hiper-rosca ativada: 
 
 ```console
 CPU Architecture:      x86_64
@@ -141,44 +141,44 @@ NUMA node(s):          1
 
 ```
 
-Se você estiver executando uma VM Hyper-threaded, [entre em contato com o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyperthreading desabilitado.  Depois que o hyperthreading estiver desabilitado, **o suporte exigirá uma reinicialização completa da VM**. Consulte a [contagem de núcleos](#core-count) para entender por que sua contagem de núcleos de VM diminuiu.
+Se estiver a executar um VM hiper-roscado, [contacte o Suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter hiper-threading desativado.  Uma vez desativada a hiper-rosca, o suporte necessitará de **uma reinicialização vm completa**. Por favor, consulte a [contagem de Núcleo](#core-count) para entender por que a contagem de núcleos vM diminuiu.
 
 
 
-**Etapa 2**: para mitigar qualquer uma das vulnerabilidades de canal lateral de execução especulativa abaixo, consulte a documentação do provedor do sistema operacional:   
+**Passo 2**: Para atenuar qualquer uma das vulnerabilidades do canal lateral de execução especulativa abaixo, consulte a documentação do seu fornecedor de sistema operativo:   
  
-- [RedHat e CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [Redhat e CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 
 ### <a name="core-count"></a>Contagem de núcleos
 
-Quando uma VM Hyper-threaded é criada, o Azure aloca 2 threads por núcleo – eles são chamados de vCPUs. Quando o hyperthreading está desabilitado, o Azure remove um thread e superfícies de núcleos de thread único (núcleos físicos). A taxa de vCPU para CPU é 2:1, assim, depois que o hyperthreading estiver desabilitado, a contagem de CPU na VM parecerá ter diminuído pela metade. Por exemplo, uma VM D8_v3 é uma VM Hyper-thread executada em 8 vCPUs (2 threads por núcleos x 4 núcleos).  Quando o hyperthreading estiver desabilitado, as CPUs serão descartadas para quatro núcleos físicos com 1 thread por núcleo. 
+Quando um VM hiper-roscado é criado, O Azure aloca 2 fios por núcleo - estes são chamados vCPUs. Quando a hiper-rosca é desativada, o Azure remove um fio e aparece em núcleos roscados únicos (núcleos físicos). O rácio de vCPU para CPU é de 2:1, por isso, uma vez que a hiper-rosca é desativada, a contagem de CPU no VM parece ter diminuído para metade. Por exemplo, um D8_v3 VM é um VM hiper-roscado em 8 vCPUs (2 fios por núcleo x 4 núcleos).  Quando a hiper-rosca é desativada, os CPUs cairão para 4 núcleos físicos com 1 fio por núcleo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo fornece orientação para os ataques de canal lateral de execução especulativo abaixo que afetam muitos processadores modernos:
+Este artigo fornece orientações para os ataques de canais laterais de execução especulativa abaixo que afetam muitos processadores modernos:
 
-[Meltdown Spectre](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
-- CVE-2017-5715 – injeção de destino de ramificação (BTI)  
-- CVE-2017-5754-isolamento de tabela de página de kernel (KPTI)
-- CVE-2018-3639 – bypass de armazenamento especulativo (KPTI) 
-- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – informações de kernel do Windows – variante da variante de Spectre 1
+[Fusão de espectro:](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002)
+- CVE-2017-5715 - Injeção de alvo de ramo (BTI)  
+- CVE-2017-5754 - Isolamento da mesa de página kernel (KPTI)
+- CVE-2018-3639 – Bypass da Loja Especulativa (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows Kernel Information – variante da Variante Spectre 1
  
-[Falha de terminal L1 (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
-- CVE-2018-3615-extensões do Intel software Guard (Intel SGX)
-- CVE-2018-3620-sistemas operacionais (SO) e modo de gerenciamento do sistema (SMM)
-- CVE-2018-3646 – afeta Virtual Machine Manager (VMM)
+[Falha terminal L1 (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Extensões de Guarda de Software Intel (Intel SGX)
+- CVE-2018-3620 - Sistemas operativos (OS) e Modo de Gestão de Sistemas (SMM)
+- CVE-2018-3646 – impacta o Gestor de Máquinas Virtuais (VMM)
 
-[Amostragem de dados de microarquitetura](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
-- CVE-2019-11091-microarquitetura dados de amostragem de memória não cache (MDSUM)
-- CVE-2018-12126-MSBDS (amostragem de dados de buffer de armazenamento de microarquitetura)
-- CVE-2018-12127-microarquitetura carregar dados de porta (MLPDS)
-- CVE-2018-12130-microarquitetura de amostragem de dados de buffer de preenchimento (MFBDS)
+[Amostragem de dados microarquitetónicos:](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013) 
+- CVE-2019-11091 - Amostragem de dados microarquitetónicos Memória Não Cachepável (MDSUM)
+- CVE-2018-12126 - Amostragem de dados tampão da loja microarquitetónica (MSBDS)
+- CVE-2018-12127 - Amostragem de dados da porta de carga microarquitetónica (MLPDS)
+- CVE-2018-12130 - Amostragem de dados do tampão de enchimento microarquitetónico (MFBDS)
 
-Anulação assíncrona da transação de extensões de sincronização transacional (Intel® TSX):  
-- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – anulação assíncrona da transação TSX (TAA)
+Extensões de sincronização transacional (Intel® TSX) Abortar assíncronos transacionais:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
 
 
 

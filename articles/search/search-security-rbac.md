@@ -1,7 +1,7 @@
 ---
-title: Definir funções RBAC para acesso administrativo do Azure
+title: Definir funções rBAC para acesso administrativo azure
 titleSuffix: Azure Cognitive Search
-description: RBAC (controle administrativo baseado em função) no portal do Azure para controlar e delegar tarefas administrativas para o gerenciamento de Pesquisa Cognitiva do Azure.
+description: Controlo administrativo baseado em funções (RBAC) no portal Azure para controlar e delegar tarefas administrativas para a gestão da Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,34 +9,34 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112553"
 ---
-# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções RBAC para acesso administrativo ao Azure Pesquisa Cognitiva
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções rBAC para acesso administrativo à Pesquisa Cognitiva Azure
 
-O Azure fornece um [modelo de autorização baseado em função global](../role-based-access-control/role-assignments-portal.md) para todos os serviços gerenciados por meio do portal ou de APIs do Resource Manager. As funções proprietário, colaborador e leitor determinam o nível de *Administração de serviço* para Active Directory usuários, grupos e entidades de segurança atribuídos a cada função. 
+O Azure fornece um [modelo global de autorização baseado em papéis](../role-based-access-control/role-assignments-portal.md) para todos os serviços geridos através do portal ou do Gestor de Recursos APIs. As funções de proprietário, colaborador e leitor determinam o nível de administração de *serviços* para utilizadores, grupos e diretores de segurança ativos atribuídos a cada função. 
 
 > [!Note]
-> Não há controles de acesso baseados em função para proteger partes de um índice ou um subconjunto de documentos. Para obter acesso baseado em identidade nos resultados da pesquisa, você pode criar filtros de segurança para cortar os resultados por identidade, removendo documentos para os quais o solicitante não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [proteger com Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Não existem controlos de acesso baseados em papéis para assegurar porções de um índice ou um subconjunto de documentos. Para acesso baseado na identidade sobre resultados de pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para mais informações, consulte [filtros](search-security-trimming-for-azure-search.md) de segurança e [Proteja-o com Diretório Ativo](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="management-tasks-by-role"></a>Tarefas de gerenciamento por função
+## <a name="management-tasks-by-role"></a>Tarefas de gestão por função
 
-Para Pesquisa Cognitiva do Azure, as funções são associadas a níveis de permissão que dão suporte às seguintes tarefas de gerenciamento:
+Para a Pesquisa Cognitiva Azure, as funções estão associadas a níveis de permissão que suportam as seguintes tarefas de gestão:
 
 | Função | Tarefa |
 | --- | --- |
-| Proprietário |Crie ou exclua o serviço ou qualquer objeto no serviço, incluindo chaves de API, índices, indexadores, fontes de dados do indexador e agendas do indexador.<p>Exibir status do serviço, incluindo contagens e tamanho do armazenamento.<p>Adicionar ou excluir Associação de função (somente um proprietário pode gerenciar a associação de função).<p>Os administradores de assinatura e os proprietários de serviço têm associação automática na função proprietários. |
-| Contribuinte |Mesmo nível de acesso como proprietário, menos gerenciamento de função RBAC. Por exemplo, um colaborador pode criar ou excluir objetos ou exibir e regenerar [chaves de API](search-security-api-keys.md), mas não pode modificar associações de função. |
-| [Função interna de colaborador Serviço de Pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente à função de colaborador. |
-| Leitor |Exiba as métricas e conceitos básicos do serviço. Os membros dessa função não podem exibir informações de índice, indexador, fonte de dados ou chave.  |
+| Proprietário |Crie ou elimine o serviço ou qualquer objeto no serviço, incluindo api-keys, índices, indexadores, fontes de dados indexantes e horários indexantes.<p>Ver estado de serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar a adesão a papéis (apenas um Proprietário pode gerir a adesão ao papel).<p>Os administradores de subscrição e os proprietários de serviços têm a desmembro automático na função Deproprietários. |
+| Contribuinte |Mesmo nível de acesso que o Proprietário, menos a gestão de funções RBAC. Por exemplo, um Colaborador pode criar ou apagar objetos, ou visualizar e regenerar [teclas api,](search-security-api-keys.md)mas não pode modificar membros de funções. |
+| [Função incorporada do Colaborador do Serviço de Pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente ao papel de Contribuinte. |
+| Leitor |Ver o essencial e as métricas do serviço. Os membros desta função não podem ver informações indexadas, indexadas, de dados ou de informação-chave.  |
 
-As funções não concedem direitos de acesso ao ponto de extremidade de serviço. As operações de serviço de pesquisa, como gerenciamento de índice, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de API, não funções. Para obter mais informações, consulte [gerenciar API-Keys](search-security-api-keys.md).
+As funções não concedem direitos de acesso ao ponto final do serviço. As operações de serviço de pesquisa, tais como gestão de índices, população indexada e consultas sobre dados de pesquisa, são controladas através de api-keys, não funções. Para mais informações, consulte [Gerir teclas api](search-security-api-keys.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
-+ [Desempenho e otimização no Azure Pesquisa Cognitiva](search-performance-optimization.md)
-+ [Introdução ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).
++ [Desempenho e otimização na Pesquisa Cognitiva Azure](search-performance-optimization.md)
++ [Inicie-se com o Controlo de Acesso baseado em Papéis no portal Azure.](../role-based-access-control/overview.md)

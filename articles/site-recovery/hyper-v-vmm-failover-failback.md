@@ -1,6 +1,6 @@
 ---
-title: Configurar failover/failback para um site secundário do Hyper-V com Azure Site Recovery
-description: Saiba como fazer failover de VMs do Hyper-V para seu site local secundário e failback para o site primário, durante a recuperação de desastre com o Azure Site Recovery.
+title: Configurar failover/failback para um site secundário de Hiper-V com recuperação do site Azure
+description: Aprenda a falhar sobre os VMs Hiper-V para o seu local secundário no local e falhe no local primário, durante a recuperação de desastres com a Recuperação do Site Azure.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,68 +9,68 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082590"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Fazer failover e failback de VMs do Hyper-V replicadas para seu site local secundário
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Fail over and fail back Hyper-V V VMs replicados para o seu site secundário no local
 
-O serviço de [Azure site Recovery](site-recovery-overview.md) gerencia e orquestra a replicação, o failover e o failback de máquinas locais e VMs (máquinas virtuais) do Azure.
+O serviço [azure de recuperação](site-recovery-overview.md) de locais gere e orquestra a replicação, a falha e o relançamento das máquinas no local, e as máquinas virtuais Azure (VMs).
 
-Este artigo descreve como fazer failover de uma VM Hyper-V gerenciada em uma nuvem System Center Virtual Machine Manager (VMM) para um site secundário do VMM. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste artigo, vai aprender a:
+Este artigo descreve como falhar sobre um VM Hiper-V gerido numa nuvem de Gestor de Máquinavirtual do System Center (VMM), para um site de VMM secundário. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Fazer failover de uma VM do Hyper-V de uma nuvem do VMM primária para uma nuvem do VMM secundária
-> * Proteger novamente do site secundário para o primário e fazer failback
-> * Opcionalmente, inicie a replicação do primário para o secundário novamente
+> * Falhar sobre um VM Hiper-V de uma nuvem vmm primária para uma nuvem de VMM secundária
+> * Reproteja do local secundário para as primárias, e falhe de volta
+> * Opcionalmente começar a replicar do primário para o secundário novamente
 
 ## <a name="failover-and-failback"></a>Ativação pós-falha e reativação pós-falha
 
-O failover e o failback têm três estágios:
+Failover e failback tem três fases:
 
-1. Failover **para o site secundário**: faz failover de computadores do site primário para o secundário.
-2. **Failback do site secundário**: replique as VMs do secundário para o primário e execute um failover planejado para realizar o failback.
-3. Após o failover planejado, opcionalmente, inicie a replicação do site primário para o secundário novamente.
+1. **Fail over to secondary site**: Fail machines over from the primary site to the secondary.
+2. **Recue do local secundário**: Replicar VMs do secundário para o primário, e executar uma falha planeada para falhar.
+3. Após a falha planeada, opcionalmente comece a replicar do local primário para o secundário novamente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de ter concluído uma [análise de recuperação de desastre](hyper-v-vmm-test-failover.md) para verificar se tudo está funcionando conforme o esperado.
-- Para concluir o failback, verifique se os servidores primários e secundários do VMM estão conectados a Site Recovery.
+- Certifique-se de ter completado um exercício de recuperação de [desastres](hyper-v-vmm-test-failover.md) para verificar se está tudo a funcionar como esperado.
+- Para completar o failback, certifique-se de que os servidores VMM primários e secundários estão ligados à Recuperação do Site.
 
 
 
-## <a name="run-a-failover-from-primary-to-secondary"></a>Executar um failover do primário para o secundário
+## <a name="run-a-failover-from-primary-to-secondary"></a>Executar uma falha do primário para o secundário
 
-Você pode executar um failover regular ou planejado para VMs do Hyper-V.
+Você pode executar uma falha regular ou planejada para VMs Hiper-V.
 
-- Use um failover regular para interrupções inesperadas. Quando você executar esse failover, Site Recovery criará uma VM no site secundário e a ligará. A perda de dados pode ocorrer dependendo dos dados pendentes que não foram sincronizados.
-- Um failover planejado pode ser usado para manutenção ou durante a interrupção esperada. Essa opção fornece nenhuma perda de dados. Quando um failover planejado é disparado, as VMs de origem são desligadas. Os dados não sincronizados são sincronizados e o failover é disparado. 
+- Use uma falha regular para interrupções inesperadas. Quando executa este failover, a Recuperação do Site cria um VM no local secundário, e alimenta-o. A perda de dados pode ocorrer dependendo de dados pendentes que não foram sincronizados.
+- Uma falha planeada pode ser usada para manutenção, ou durante a paragem esperada. Esta opção fornece zero perda de dados. Quando uma falha planeada é desencadeada, as VMs de origem são desligadas. Os dados não sincronizados são sincronizados e a falha é desencadeada. 
 - 
-  Este procedimento descreve como executar um failover regular.
+  Este procedimento descreve como executar uma falha regular.
 
 
-1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha**.
-1. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente fazer um desligamento das VMs de origem antes de disparar o failover. Site Recovery também tentará sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continua mesmo se o desligamento falhar. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
-2. Agora você deve ser capaz de ver a VM na nuvem de VMM secundária.
-3. Depois de verificar a VM, **confirme** o failover. São eliminados todos os pontos de recuperação disponíveis.
+1. Em **Definições,** > **os itens replicados** clique no VM > **Failover**.
+1. Selecione **a máquina de desligar antes** de iniciar a falha se pretender que a Recuperação do Site tente fazer uma paragem dos VMs de origem antes de acionar a falha. A Recuperação do Site também tentará sincronizar dados no local que ainda não foram enviados para o local secundário, antes de desencadear a falha. Note que a falha continua mesmo que o encerramento falhe. Pode acompanhar o progresso da falha na página **Jobs.**
+2. Agora deve poder ver o VM na nuvem secundária de VMM.
+3. Depois de verificar o VM, **cometa** a falha. São eliminados todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
 > **Não cancelar uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.  
 
 
-## <a name="reverse-replicate-and-failover"></a>Replicação reversa e failover
+## <a name="reverse-replicate-and-failover"></a>Reverter a replicação e a falha
 
-Inicie a replicação do site secundário para o primário e faça failback para o site primário. Depois que as VMs estiverem em execução no site primário novamente, você poderá replicá-las para o site secundário.  
+Comece a replicar-se do local secundário para o primário, e falhe de volta ao local primário. Depois de os VMs voltarem a funcionar no local primário, pode replicá-los para o local secundário.  
 
  
-1. Clique na VM > clique em **replicação inversa**.
-2. Quando o trabalho for concluído, clique na VM > em **failover**, verifique a direção do failover (da nuvem secundária do VMM) e selecione os locais de origem e de destino. 
+1. Clique no VM > clique em **Reverter Replicate**.
+2. Uma vez concluída a obra, clique no VM >In **Failover**, verifique a direção de falha (a partir da nuvem de VMM secundária) e selecione as localizações de origem e alvo. 
 4. Iniciar a ativação pós-falha. Pode seguir o progresso da ativação pós-falha no separador **Trabalhos**.
-5. Na nuvem primária do VMM, verifique se a VM está disponível.
-6. Se você quiser iniciar a replicação da VM primária novamente para o site secundário novamente, clique em **replicação inversa**.
+5. Na nuvem vmm primária, verifique se o VM está disponível.
+6. Se quiser voltar a replicar o VM primário para o local secundário, clique em **Reverse Replicate**.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Examine a etapa](hyper-v-vmm-disaster-recovery.md) para replicar VMs do Hyper-V para um site secundário.
+[Reveja o passo](hyper-v-vmm-disaster-recovery.md) para replicar Os VMs hiper-V para um local secundário.

@@ -1,6 +1,6 @@
 ---
-title: Dependências do serviço de acesso condicional-Azure Active Directory
-description: Saiba como as condições são usadas em Azure Active Directory acesso condicional para disparar uma política.
+title: Dependências de serviços de acesso condicional - Diretório Ativo Azure
+description: Saiba como as condições são usadas no Acesso Condicional do Diretório Ativo Azure para desencadear uma política.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,55 +12,55 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380015"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Acesso Condicional do Diretório Ativo Azure? 
 
-Com as políticas de acesso condicional, você pode especificar os requisitos de acesso para sites e serviços. Por exemplo, seus requisitos de acesso podem incluir a exigência de autenticação multifator (MFA) ou de [dispositivos gerenciados](require-managed-devices.md). 
+Com as políticas de Acesso Condicional, pode especificar os requisitos de acesso a websites e serviços. Por exemplo, os seus requisitos de acesso podem incluir a necessidade de autenticação multifactor (MFA) ou [dispositivos geridos](require-managed-devices.md). 
 
-Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada normalmente é fácil de avaliar. Por exemplo, se você tiver uma política que requer MFA para SharePoint Online configurado, a MFA será imposta para cada entrada no portal da Web do SharePoint. No entanto, nem sempre é um avanço direto para avaliar o impacto de uma política, pois há aplicativos de nuvem com dependências para outros aplicativos de nuvem. Por exemplo, o Microsoft Teams pode fornecer acesso a recursos no SharePoint Online. Portanto, ao acessar o Microsoft Teams em nosso cenário atual, você também está sujeito à política do SharePoint MFA.   
+Quando se acede diretamente a um site ou serviço, o impacto de uma política relacionada é tipicamente fácil de avaliar. Por exemplo, se tiver uma política que exija MFA para o SharePoint Online configurado, o MFA é aplicado para cada sessão no portal web SharePoint. No entanto, nem sempre é direto avaliar o impacto de uma política porque existem aplicações na nuvem com dependências de outras aplicações na nuvem. Por exemplo, as Equipas Microsoft podem fornecer acesso a recursos no SharePoint Online. Assim, ao aceder às Equipas Microsoft no nosso cenário atual, também está sujeito à política do SharePoint MFA.   
 
 ## <a name="policy-enforcement"></a>Aplicação da política 
 
-Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
+Se tiver uma dependência de serviço configurada, a apólice pode ser aplicada utilizando a aplicação precoce ou tardia. 
 
-- A **imposição de diretiva de ligação antecipada** significa que um usuário deve satisfazer a política de serviço dependente antes de acessar o aplicativo de chamada. Por exemplo, um usuário deve satisfazer a política do SharePoint antes de entrar no MS Teams. 
-- A **imposição de política de ligação tardia** ocorre depois que o usuário entra no aplicativo de chamada. A imposição é adiada ao chamar solicitações de aplicativo, um token para o serviço downstream. Exemplos incluem MS Teams acessando o Planner e o Office.com acessando o SharePoint. 
+- **Aplicação da política precoce** significa que um utilizador deve satisfazer a política de serviço dependente antes de aceder à aplicação de chamada. Por exemplo, um utilizador deve satisfazer a política do SharePoint antes de iniciar sessão nas Equipas MS. 
+- **A aplicação da política tardia** ocorre após o utilizador assinar na aplicação de chamadas. A aplicação é adiada para quando ligar para pedidos de aplicações, um símbolo para o serviço a jusante. Exemplos incluem MS Teams a aceder ao Planner e Office.com aceder ao SharePoint. 
 
-O diagrama a seguir ilustra as dependências do MS Teams Service. Setas sólidas indicam a imposição de ligação inicial a seta tracejada para o planejador indica a imposição de associação tardia. 
+O diagrama abaixo ilustra as dependências de serviço das Equipas MS. Setas sólidas indicam a aplicação precoce da seta tracejada para o Planejador indica a aplicação tardia. 
 
-![Dependências de serviço do MS Teams](./media/service-dependencies/01.png)
+![Dependências de serviço das Equipas MS](./media/service-dependencies/01.png)
 
-Como prática recomendada, você deve definir políticas comuns entre aplicativos e serviços relacionados sempre que possível. Ter uma postura de segurança consistente fornece a melhor experiência do usuário. Por exemplo, a definição de uma política comum no Exchange Online, no SharePoint Online, no Microsoft Teams e no Skype for Business reduz significativamente as solicitações inesperadas que podem surgir de políticas diferentes sendo aplicadas aos serviços downstream. 
+Como uma boa prática, deve definir políticas comuns entre aplicações e serviços relacionados sempre que possível. Ter uma postura de segurança consistente proporciona-lhe a melhor experiência do utilizador. Por exemplo, a definição de uma política comum em exchange online, SharePoint Online, Microsoft Teams e Skype para negócios reduz significativamente as indicações inesperadas que podem surgir de diferentes políticas que estão a ser aplicadas a serviços a jusante. 
 
-A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativos cliente devem satisfazer  
+A tabela abaixo lista dependências adicionais de serviço, onde as aplicações do cliente devem satisfazer  
 
-| Aplicativos cliente         | Serviço downstream                          | Ativação |
+| Aplicações do cliente         | Serviço a jusante                          | Execução |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
-| Sala de aula da Microsoft | Troca                                    | Associação antecipada |
-|                     | SharePoint                                  | Associação antecipada |
-| Microsoft Teams     | Troca                                    | Associação antecipada |
-|                     | Planejador MS                                  | Associação tardia  |
-|                     | SharePoint                                  | Associação antecipada |
-|                     | Skype para Empresas Online                   | Associação antecipada |
-| Portal do Office       | Troca                                    | Associação tardia  |
-|                     | SharePoint                                  | Associação tardia  |
-| Grupos do Outlook      | Troca                                    | Associação antecipada |
-|                     | SharePoint                                  | Associação antecipada |
-| PowerApps           | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
-|                     | Azure Active Directory do Windows              | Associação antecipada |
-| Project             | Dynamics CRM                                | Associação antecipada |
-| Skype para Empresas  | Troca                                    | Associação antecipada |
-| Visual Studio       | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
-| Microsoft Forms     | Troca                                    | Associação antecipada |
-|                     | SharePoint                                  | Associação antecipada |
-| Microsoft To-Do     | Troca                                    | Associação antecipada |
+| Azure Data Lake     | Microsoft Azure Management (portal e API) | Atado cedo |
+| Sala de Aula da Microsoft | Troca                                    | Atado cedo |
+|                     | SharePoint                                  | Atado cedo |
+| Microsoft Teams     | Troca                                    | Atado cedo |
+|                     | Sra. Planejador                                  | Atrasado  |
+|                     | SharePoint                                  | Atado cedo |
+|                     | Skype para Empresas Online                   | Atado cedo |
+| Portal do Escritório       | Troca                                    | Atrasado  |
+|                     | SharePoint                                  | Atrasado  |
+| Grupos de perspetivas      | Troca                                    | Atado cedo |
+|                     | SharePoint                                  | Atado cedo |
+| PowerApps           | Microsoft Azure Management (portal e API) | Atado cedo |
+|                     | Microsoft Azure Active Directory              | Atado cedo |
+| Project             | Dynamics CRM                                | Atado cedo |
+| Skype para Empresas  | Troca                                    | Atado cedo |
+| Visual Studio       | Microsoft Azure Management (portal e API) | Atado cedo |
+| Microsoft Forms     | Troca                                    | Atado cedo |
+|                     | SharePoint                                  | Atado cedo |
+| Microsoft To-Do     | Troca                                    | Atado cedo |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como implementar o acesso condicional em seu ambiente, consulte [planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md).
+Para aprender a implementar o Acesso Condicional no seu ambiente, consulte [Planize a sua implementação de Acesso Condicional no Diretório Ativo Azure](plan-conditional-access.md).

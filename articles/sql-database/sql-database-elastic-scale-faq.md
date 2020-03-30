@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre escala elástica
-description: Perguntas frequentes sobre a escala elástica do banco de dados SQL do Azure.
+title: FAQ de escala elástica
+description: Perguntas frequentes sobre a escala elástica azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,48 +12,48 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823644"
 ---
-# <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Perguntas frequentes sobre ferramentas de banco de dados elástico
+# <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Ferramentas de base de dados elásticas frequentemente colocadas (FAQ)
 
-## <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se eu tiver um único locatário por fragmento e nenhuma chave de fragmentação, como preencher a chave de fragmentação para as informações de esquema
+## <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se eu tenho um único inquilino por fragmento e nenhuma chave sharding, como eu povoo a chave sharding para a informação de esquemas
 
-O objeto de informações de esquema só é usado para dividir cenários de mesclagem. Se um aplicativo for inerentemente de locatário único, ele não precisará da ferramenta de mesclagem de divisão e, portanto, não há necessidade de preencher o objeto de informações de esquema.
+O objeto de informação de esquema sinuoso só é usado para dividir cenários de fusão. Se uma aplicação é inerentemente um inquilino único, então não requer a ferramenta Split Merge e, portanto, não há necessidade de povoar o objeto de informação schema.
 
-## <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Eu provisionei um banco de dados e já tenho um Gerenciador de mapa de fragmentos, como registrar esse novo banco de dados como um fragmento
+## <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Formei uma base de dados e já tenho um Shard Map Manager, como posso registar esta nova base de dados como um fragmento
 
-Consulte [adicionando um fragmento a um aplicativo usando a biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-add-a-shard.md).
+Consulte [Adicionar um fragmento a uma aplicação utilizando a biblioteca de clientes de base](sql-database-elastic-scale-add-a-shard.md)de dados elástica .
 
-## <a name="how-much-do-elastic-database-tools-cost"></a>Quanto custam as ferramentas de banco de dados elástico
+## <a name="how-much-do-elastic-database-tools-cost"></a>Quanto custam as ferramentas de base de dados elásticas
 
-Usar a biblioteca de cliente do banco de dados elástico não incorre em custos. Os custos se acumulam somente para os bancos de dados SQL do Azure que você usa para fragmentos e o Gerenciador de mapa de fragmentos, bem como as funções Web/de trabalho que você provisiona para a ferramenta de mesclagem de divisão.
+A utilização da biblioteca de clientes de base de dados elástica não incorre em quaisquer custos. Os custos acumulam-se apenas para as bases de dados Azure SQL que utiliza para fragmentos e para o Shard Map Manager, bem como para as funções web/trabalhador que você provisão para a ferramenta Split Merge.
 
-## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Por que minhas credenciais não estão funcionando quando adiciono um fragmento de um servidor diferente
+## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Porque é que as minhas credenciais não funcionam quando adiciono um fragmento de um servidor diferente?
 
-Não use credenciais na forma de "User ID =username@servername", em vez disso, basta usar "User ID = username".  Além disso, certifique-se de que o logon "username" tenha permissões no fragmento.
+Não utilize credenciais sob a formausername@servernamede "ID do utilizador= ", em vez de utilizar simplesmente "ID do utilizador = nome de utilizador".  Além disso, certifique-se de que o login "username" tem permissões no fragmento.
 
-## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Preciso criar um Gerenciador de mapa de fragmentos e preencher os fragmentos toda vez que eu iniciar meus aplicativos
+## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Preciso criar um Gestor de Mapas e preencher fragmentos cada vez que começo as minhas aplicações
 
-Não — a criação do Gerenciador de mapa de fragmentos (por exemplo, [ShardMapManagerFactory. CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) é uma operação única.  Seu aplicativo deve usar a chamada [ShardMapManagerFactory. TryGetSqlShardMapManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) na hora de início do aplicativo.  Deve haver apenas uma única chamada por domínio de aplicativo.
+Não — a criação do Shard Map Manager (por exemplo, [ShardMapManagerFactory.CreateSqlShardMapManager)](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)é uma operação única.  A sua aplicação deve utilizar a chamada [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) no momento do arranque da aplicação.  Só deve haver uma chamada por domínio de aplicação.
 
-## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho dúvidas sobre o uso de ferramentas de banco de dados elástico, como posso obtê-las respondidas
+## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho perguntas sobre usar ferramentas de base de dados elásticas, como as consigo responder
 
-Entre em contato conosco no fórum do [banco de dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Contacte-nos no [fórum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando obtenho uma conexão de banco de dados usando uma chave de fragmentação, eu ainda posso fazer consultas para outras chaves de fragmentação no mesmo fragmento.  É isso por design
+## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando tenho uma ligação de base de dados usando uma chave de sharding, ainda posso consultar dados para outras chaves no mesmo fragmento.  É isto por design
 
-As APIs de escala elástica fornecem uma conexão com o banco de dados correto para sua chave de fragmentação, mas não fornecem filtragem de chave de fragmentação.  Adicione cláusulas **Where** à sua consulta para restringir o escopo à chave de fragmentação fornecida, se necessário.
+As APIs de escala elástica proporcionam-lhe uma ligação à base de dados correta para a sua chave sharding, mas não fornece filtragem da chave de sharding.  Adicione as cláusulas **DE ONDE** à sua consulta para restringir o âmbito à chave de sharding fornecida, se necessário.
 
-## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Posso usar uma edição de banco de dados SQL diferente para cada fragmento em meu conjunto de fragmentos
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Posso usar uma edição de Base de Dados SQL diferente para cada fragmento no meu conjunto de fragmentos
 
-Sim, um fragmento é um banco de dados individual e, portanto, um fragmento pode ser uma edição Premium, enquanto outro é uma edição padrão. Além disso, a edição de um fragmento pode escalar ou reduzir verticalmente várias vezes durante o tempo de vida do fragmento.
+Sim, um fragmento é uma base de dados individual, e assim um fragmento poderia ser uma edição Premium enquanto outro seria uma edição Standard. Além disso, a edição de um fragmento pode escalar para cima ou para baixo várias vezes durante a vida do fragmento.
 
-## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>A ferramenta de mesclagem de divisão provisiona (ou exclui) um banco de dados durante uma operação de divisão ou mesclagem
+## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>A provisão da ferramenta Split Merge (ou apagar) uma base de dados durante uma operação de divisão ou fusão
 
-Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa de fragmentos.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador de mapa de fragmentos e, em seguida, excluir o banco de dados.
+Não. Para operações **divididas,** a base de dados-alvo deve existir com o esquema apropriado e ser registada no Shard Map Manager.  Para operações de **fusão,** deve eliminar o fragmento do gestor de mapas de fragmentos e, em seguida, apagar a base de dados.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

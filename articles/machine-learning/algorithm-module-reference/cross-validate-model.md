@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477651"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
@@ -58,7 +58,7 @@ A validação cruzada pode demorar muito tempo a ser executada se o seu conjunto
 
 Neste cenário, ambos treinam e testam o modelo utilizando o Cross Validate Model.
 
-1. Adicione o módulo Cross Validate Model ao seu pipeline. Pode encontrá-lo no designer de Machine Learning Azure, na categoria **Model Scoring & Evaluation.** 
+1. Adicione o módulo Cross Validate Model ao seu pipeline. Pode encontrá-lo no designer de Machine Learning Azure, na categoria **De Pontuação de & Avaliação.** 
 
 2. Ligue a saída de qualquer modelo de classificação ou regressão. 
 
@@ -72,7 +72,7 @@ Neste cenário, ambos treinam e testam o modelo utilizando o Cross Validate Mode
 
 5. Defina um valor para o parâmetro de **sementes Aleatórias** se pretender repetir os resultados da validação cruzada através de sucessivas correções nos mesmos dados.  
 
-6. Executar o pipeline.
+6. Submeta o oleoduto.
 
 7. Consulte a secção [resultados](#results) para obter uma descrição dos relatórios.
 
@@ -84,11 +84,11 @@ Depois de todas as iterações estarem completas, cross Validate Model cria pont
 
 A primeira saída do módulo fornece os dados de origem para cada linha, juntamente com alguns valores previstos e probabilidades relacionadas. 
 
-Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. **Selecione Visualizar resultados pontuados**.
+Para visualizar os resultados, no gasoduto, clique à direita no módulo Cross Validate Model. **Selecione Visualizar resultados pontuados**.
 
-| Novo nome da coluna      | Descrição                              |
+| Nome da coluna nova      | Descrição                              |
 | -------------------- | ---------------------------------------- |
-| Etiquetas pontuadas        | Esta coluna é adicionada no final do conjunto de dados. Contém o valor previsto para cada linha. |
+| Etiquetas Classificadas        | Esta coluna é adicionada no final do conjunto de dados. Contém o valor previsto para cada linha. |
 | Probabilidades pontuadas | Esta coluna é adicionada no final do conjunto de dados. Indica a probabilidade estimada do valor em **etiquetas pontuadas**. |
 | Número de dobra          | Indica o índice de base zero da dobra a que cada linha de dados foi atribuída durante a validação cruzada. |
 
@@ -98,10 +98,10 @@ O segundo relatório é agrupado por dobras. Lembre-se que durante a execução,
 
 Neste relatório, as dobras são listadas pelo valor do índice, por ordem ascendente.  Para encomendar em qualquer outra coluna, pode guardar os resultados como conjunto de dados.
 
-Para exibir os resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. **Selecione Visualizar resultados de avaliação por dobrar**.
+Para visualizar os resultados, no gasoduto, clique à direita no módulo Cross Validate Model. **Selecione Visualizar resultados de avaliação por dobrar**.
 
 
-|nome da coluna| Descrição|
+|Nome da coluna| Descrição|
 |----|----|
 |Número de dobragem| Um identificador para cada dobra. Se criasse cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
 |Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Devem ser aproximadamente iguais. |

@@ -1,6 +1,6 @@
 ---
-title: Dimensionar um aplicativo no ASE v1
-description: Dimensionando um aplicativo em um Ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
+title: Escala rema uma aplicação em ASE v1
+description: Dimensionar uma aplicação num Ambiente de Serviço de Aplicações. Este doc é fornecido apenas para clientes que usam o legado v1 ASE.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,57 +8,57 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688668"
 ---
-# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Dimensionando aplicativos em um Ambiente do Serviço de Aplicativo v1
-No Azure App serviço, normalmente há três coisas que você pode dimensionar:
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Aplicativos de escala num App Service Environment v1
+No Serviço de Aplicações Azure existem normalmente três coisas que pode escalar:
 
-* Plano de preços
+* plano de preços
 * tamanho do trabalhador 
-* número de instâncias.
+* número de casos.
 
-Em um ASE, não é necessário selecionar ou alterar o plano de preços.  Em termos de recursos, ele já está em um nível de capacidade de preço premium.  
+Numa ASE não há necessidade de selecionar ou alterar o plano de preços.  Em termos de capacidades, já está a um nível de capacidade de preços Premium.  
 
-Em relação aos tamanhos de trabalho, o administrador do ASE pode atribuir o tamanho do recurso de computação a ser usado para cada pool de trabalho.  Isso significa que você pode ter o pool de trabalho 1 com os recursos de computação P4 e o pool de trabalho 2 com recursos de computação P1, se desejado.  Eles não precisam estar em ordem de tamanho.  Para obter detalhes sobre os tamanhos e seus preços, consulte o documento aqui [Azure app preço do serviço][AppServicePricing].  Isso deixa as opções de dimensionamento para aplicativos Web e planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo ser:
+No que diz respeito ao tamanho do trabalhador, o administrador da ASE pode atribuir o tamanho do recurso computacional a utilizar para cada grupo de trabalhadores.  Isso significa que você pode ter Worker Pool 1 com recursos de computação P4 e Pool De Trabalhador 2 com recursos de computação P1, se desejar.  Não têm de estar em ordem.  Para mais detalhes sobre os tamanhos e os seus preços consulte o documento aqui O Preço do Serviço de [Aplicações Azure][AppServicePricing].  Isto deixa as opções de escala para aplicações web e planos de serviço de aplicações num ambiente de serviço de aplicações para ser:
 
-* seleção do pool de trabalho
-* número de instâncias
+* seleção de piscina de trabalhador
+* número de casos
 
-A alteração de qualquer item é feita por meio da interface do usuário apropriada mostrada para seus planos do serviço de aplicativo hospedado do ASE.  
+A alteração de qualquer um dos itens é feita através da UI apropriada mostrada para os seus Planos de Serviço de Aplicações hospedados pela ASE.  
 
 ![][1]
 
-Você não pode escalar verticalmente o ASP além do número de recursos de computação disponíveis no pool de trabalho no qual seu ASP está.  Se precisar de recursos de computação nesse pool de trabalho, você precisará obter o administrador do ASE para adicioná-los.  Para obter informações sobre como reconfigurar seu ASE, leia as informações aqui: [como configurar um ambiente do serviço de aplicativo][HowtoConfigureASE].  Talvez você também queira aproveitar os recursos de dimensionamento automático do ASE para adicionar capacidade com base na agenda ou métricas.  Para obter mais detalhes sobre a configuração de dimensionamento automático para o próprio ambiente do ASE, consulte [como configurar o dimensionamento automático para um ambiente do serviço de aplicativo][ASEAutoscale].
+Não pode aumentar o seu ASP para além do número de recursos computacionais disponíveis no conjunto de trabalhadores em que o seu ASP está.  Se precisa de recursos computacionais nesse conjunto de trabalhadores, precisa de fazer com que o seu administrador da ASE os adicione.  Para obter informações sobre a reconfiguração da sua ASE, leia as informações aqui: [Como configurar um ambiente][HowtoConfigureASE]de serviço de aplicações .  Também pode querer aproveitar as funcionalidades de escala automática DaSE para adicionar capacidade com base no horário ou nas métricas.  Para obter mais detalhes sobre a configuração da escala automática para o ambiente ASE em si, veja [como configurar a escala automática para um Ambiente][ASEAutoscale]de Serviço de Aplicações .
 
-Você pode criar vários planos do serviço de aplicativo usando recursos de computação de diferentes pools de trabalho ou pode usar o mesmo pool de trabalho.  Por exemplo, se você tiver (10) recursos de computação disponíveis no pool de trabalho 1, poderá optar por criar um plano do serviço de aplicativo usando (6) recursos de computação e um segundo plano do serviço de aplicativo que usa (4) recursos de computação.
+Você pode criar vários planos de serviço de aplicativos usando recursos computacionais de diferentes piscinas de trabalhadores, ou você pode usar o mesmo pool de trabalhadores.  Por exemplo, se tiver (10) recursos computacionais disponíveis no Pool 1 do Trabalhador, pode optar por criar um plano de serviço de aplicações utilizando (6) recursos de computação e um segundo plano de serviço de aplicações que utiliza (4) recursos de computação.
 
-### <a name="scaling-the-number-of-instances"></a>Dimensionando o número de instâncias
-Quando você cria seu aplicativo Web em um Ambiente do Serviço de Aplicativo ele começa com 1 instância.  Em seguida, você pode expandir para instâncias adicionais para fornecer recursos de computação adicionais para seu aplicativo.   
+### <a name="scaling-the-number-of-instances"></a>Escalando o número de casos
+Quando cria a sua aplicação web num App Service Environment começa com 1 instância.  Em seguida, pode dimensionar para instâncias adicionais para fornecer recursos de computação adicionais para a sua aplicação.   
 
-Se seu ASE tiver capacidade suficiente, isso é muito simples.  Você vai para o plano do serviço de aplicativo que contém os sites que você deseja escalar verticalmente e selecionar escala.  Isso abre a interface do usuário, na qual você pode definir manualmente a escala para o ASP ou configurar regras de dimensionamento automático para o ASP.  Para dimensionar manualmente seu aplicativo, basta definir ***escalar por*** para ***uma contagem de instâncias que eu inseri manualmente***.  A partir daqui, arraste o controle deslizante para a quantidade desejada ou insira-o na caixa ao lado do controle deslizante.  
+Se a sua ASE tem capacidade suficiente, então isto é muito simples.  Vá ao seu Plano de Serviço de Aplicações que detém os sites que pretende escalar e selecionar Escala.  Isto abre o UI onde pode definir manualmente a balança para o seu ASP ou configurar regras de escala automática para o seu ASP.  Para escalar manualmente a sua aplicação basta definir ***a Escala para*** uma contagem de ***casos que eu introduzo manualmente***.  A partir daqui, ou arraste o slider para a quantidade desejada ou introduza-o na caixa ao lado do slider.  
 
 ![][2] 
 
-As regras de dimensionamento automático para um ASP em um ASE funcionam da mesma forma que normalmente.  Você pode selecionar a ***porcentagem de CPU*** em ***Dimensionar por*** e criar regras de dimensionamento automático para seu ASP com base na porcentagem de CPU ou pode criar regras mais complexas usando ***regras de agendamento e desempenho***.  Para ver detalhes mais completos sobre como configurar o dimensionamento automático, use o guia [dimensionar um aplicativo no serviço Azure app][AppScale]. 
+As regras de escala automática para um ASP numa ASE funcionam da mesma forma que normalmente funcionam.  Pode selecionar ***a Percentagem*** de CPU em ***Escala*** e criar regras de escala automática para o seu ASP com base na Percentagem de CPU ou pode criar regras mais complexas utilizando regras de horário ***e desempenho***.  Para ver mais detalhes sobre a configuração da escala automática, utilize o guia aqui [Scale uma aplicação no Serviço de Aplicações Azure][AppScale]. 
 
-### <a name="worker-pool-selection"></a>Seleção do pool de trabalho
-Conforme observado anteriormente, a seleção do pool de trabalho é acessada na interface do usuário do ASP.  Abra a folha do ASP que você deseja dimensionar e selecione o pool de trabalho.  Você verá todos os pools de trabalho que você configurou em seu Ambiente do Serviço de Aplicativo.  Se você tiver apenas um pool de trabalho, verá apenas um pool listado.  Para alterar em qual pool de trabalho seu ASP está, basta selecionar o pool de trabalho ao qual você deseja que seu plano do serviço de aplicativo seja movido.  
+### <a name="worker-pool-selection"></a>Seleção de Piscina de Trabalhador
+Como notado anteriormente, a seleção de piscinas de trabalhadores é acedida a partir da ASP UI.  Abra a lâmina para o ASP que pretende escalar e selecionar a piscina de trabalhadores.  Você verá todas as piscinas de trabalhadores que você configurado no seu Ambiente de Serviço de Aplicações.  Se você tem apenas uma piscina de trabalhadores, então você só verá a piscina listada.  Para alterar o pool de trabalhadores em que o seu ASP está, basta selecionar a piscina de trabalhadores para a qual deseja que o seu Plano de Serviço de Aplicações se mude.  
 
 ![][3]
 
-Antes de mover o ASP de um pool de trabalho para outro, é importante certificar-se de que você terá capacidade adequada para o ASP.  Na lista de pools de trabalho, não apenas o nome do pool de trabalho está listado, mas você também pode ver quantos trabalhadores estão disponíveis nesse pool de trabalho.  Verifique se há instâncias suficientes disponíveis para conter o plano do serviço de aplicativo.  Se você precisar de mais recursos de computação no pool de trabalho para o qual deseja mover, obtenha o administrador do ASE para adicioná-los.  
+Antes de mover o seu ASP de uma piscina de trabalhadorpara outra, é importante certificar-se de que terá capacidade adequada para o seu ASP.  Na lista de grupos de trabalhadores, não só está listado o nome da piscina de trabalhadores, como também pode ver quantos trabalhadores estão disponíveis nessa piscina de trabalhadores.  Certifique-se de que existem instâncias suficientes disponíveis para conter o seu Plano de Serviço de Aplicações.  Se precisa de mais recursos de computação no grupo de trabalhadores para onde pretende mudar-se, então faça com que o seu administrador da ASE os adicione.  
 
 > [!NOTE]
-> Mover um ASP de um pool de trabalho causará inícios frios dos aplicativos nesse ASP.  Isso pode fazer com que as solicitações sejam executadas lentamente à medida que seu aplicativo é iniciado por frio nos novos recursos de computação.  O início frio pode ser evitado usando o [recurso de aquecimento do aplicativo][AppWarmup] no serviço Azure app.  O módulo de inicialização de aplicativo descrito no artigo também funciona para inicialização a frio porque o processo de inicialização também é invocado quando os aplicativos são iniciados por frio em novos recursos de computação. 
+> A mudança de um ASP de uma piscina de trabalhadores causará um início frio das aplicações nesse ASP.  Isto pode fazer com que os pedidos corram lentamente, uma vez que a sua aplicação está a frio iniciada nos novos recursos computacionais.  O arranque a frio pode ser evitado utilizando a capacidade de aquecimento da aplicação no Serviço de [Aplicações][AppWarmup] Azure.  O módulo de inicialização de aplicações descrito no artigo também funciona para o arranque a frio porque o processo de inicialização também é invocado quando as aplicações estão frias em novos recursos computacionais. 
 > 
 > 
 
 ## <a name="getting-started"></a>Introdução
-Para começar a usar os ambientes do serviço de aplicativo, consulte [como criar um ambiente do serviço de aplicativo][HowtoCreateASE]
+Para começar com ambientes de serviço de aplicação, veja [como criar um ambiente de serviço de aplicações][HowtoCreateASE]
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

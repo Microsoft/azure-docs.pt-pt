@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214013"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorizar o desempenho Azure SQL Database usando pontos de vista dinâmicos de gestão
@@ -90,7 +90,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>A questão da CPU ocorreu no passado
 
-Se o problema ocorreu no passado e quiser fazer análise seleções, utilize a [Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) Os utilizadores com acesso à base de dados podem utilizar o T-SQL para consultar os dados da Consulta Store. Consultas As configurações predefinidas da Loja utilizam uma granularidade de 1 hora. Utilize a seguinte consulta para olhar para a atividade para altas consultas de consumo de CPU. Esta consulta devolve as 15 consultas de consumo de CPU. Lembre-se de mudar `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Se o problema ocorreu no passado e quiser fazer análise seleções, utilize a [Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) Os utilizadores com acesso à base de dados podem utilizar o T-SQL para consultar os dados da Consulta Store. Consultas As configurações predefinidas da Loja utilizam uma granularidade de 1 hora. Utilize a seguinte consulta para olhar para a atividade para altas consultas de consumo de CPU. Esta consulta devolve as 15 consultas de consumo de CPU. Lembre-se `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`de mudar:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -119,7 +119,7 @@ Ao identificar problemas de desempenho da IO, os principais tipos de espera asso
 
 - `PAGEIOLATCH_*`
 
-  Para questões de IO de ficheiros de dados (incluindo `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se o nome do tipo de espera tem **IO** nele, aponta para uma questão de IO. Se não houver **IO** no nome de espera do trinco da página, aponta para um tipo diferente de problema (por exemplo, contenção tempdb).
+  Para questões de IO `PAGEIOLATCH_SH` `PAGEIOLATCH_EX`de `PAGEIOLATCH_UP`ficheirode dados (incluindo, .  Se o nome do tipo de espera tem **IO** nele, aponta para uma questão de IO. Se não houver **IO** no nome de espera do trinco da página, aponta para um tipo diferente de problema (por exemplo, contenção tempdb).
 
 - `WRITE_LOG`
 
@@ -127,7 +127,7 @@ Ao identificar problemas de desempenho da IO, os principais tipos de espera asso
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Se a questão da IO está a ocorrer agora
 
-Utilize as [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver a `wait_type` e `wait_time`.
+Use as [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time`.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identificar dados e registar utilização de IO
 
@@ -169,7 +169,7 @@ GO
 
 #### <a name="view-total-log-io-for-writelog-waits"></a>Ver log total IO para writelog esperas
 
-Se o tipo de espera for `WRITELOG`, utilize a seguinte consulta para visualizar o registo total IO por declaração:
+Se o tipo `WRITELOG`de espera for, utilize a seguinte consulta para visualizar o registo total IO por declaração:
 
 ```sql
 -- Top transaction log consumers
@@ -246,15 +246,15 @@ ORDER BY total_log_bytes_used DESC;
 GO
 ```
 
-## <a name="identify-tempdb-performance-issues"></a>Identificar problemas de desempenho `tempdb`
+## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho da OI, os principais tipos de espera associados a problemas de `tempdb` é `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperanem nem sempre `tempdb` discórdia.  Esta espera também pode significar que você tem a contenção da página de dados de objetos de utilizador devido a pedidos simultâneos direcionados para a mesma página de dados. Para confirmar mais `tempdb` discórdia, utilize [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor wait_resource começa com `2:x:y` onde 2 é `tempdb` é o ID da base de dados, `x` é o ID do ficheiro e `y` é o ID da página.  
+Ao identificar problemas de desempenho da IO, `tempdb` os `PAGELATCH_*` principais `PAGEIOLATCH_*`tipos de espera associados a problemas é (não). No `PAGELATCH_*` entanto, as esperas `tempdb` nem sempre significam que tenhas discórdia.  Esta espera também pode significar que você tem a contenção da página de dados de objetos de utilizador devido a pedidos simultâneos direcionados para a mesma página de dados. Para confirmar `tempdb` mais a contenção, utilize [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para `tempdb` confirmar que o `x` valor wait_resource começa `y` com `2:x:y` o local onde 2 é o ID da base de dados, é o ID do ficheiro, e é o ID da página.  
 
-Para a contenção temporária, um método comum é reduzir ou reescrever o código de aplicação que depende de `tempdb`.  As áreas comuns de utilização `tempdb` incluem:
+Para a contenção temporária, um método comum é reduzir ou `tempdb`reescrever o código de aplicação que se baseia em .  As `tempdb` áreas de utilização comuns incluem:
 
 - Mesas temporárias
 - Variáveis de tabela
-- parâmetros de tabela
+- Parâmetros avaliados por mesa
 - Utilização da loja de versão (especificamente associada a transações de longo prazo)
 - Consultas que têm planos de consulta que usam tipos, hash junta-se, e bobinas
 
@@ -343,11 +343,11 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>Identificar problemas de desempenho da concessão de memória
 
-Se o seu tipo de espera superior for `RESOURCE_SEMAHPORE` e não tiver um problema de utilização de CPU elevado, poderá ter um problema de espera de subsídio de memória.
+Se o seu `RESOURCE_SEMAHPORE` tipo de espera superior for e não tiver um problema de utilização de CPU elevado, poderá ter um problema de espera de subsídio de memória.
 
-### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Determine se uma espera de `RESOURCE_SEMAHPORE` é uma espera de topo
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Determine se `RESOURCE_SEMAHPORE` uma espera é uma espera de cima
 
-Use a seguinte consulta para determinar se uma espera de `RESOURCE_SEMAHPORE` é uma espera superior
+Use a seguinte consulta para `RESOURCE_SEMAHPORE` determinar se uma espera é uma espera superior
 
 ```sql
 SELECT wait_type,

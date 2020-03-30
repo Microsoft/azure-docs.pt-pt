@@ -1,89 +1,89 @@
 ---
-title: Backups consistentes com o aplicativo de VMs Linux
-description: Crie backups consistentes com o aplicativo de suas máquinas virtuais Linux para o Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
+title: Backups consistentes com aplicações de VMs Linux
+description: Crie cópias de segurança consistentes com aplicações das suas máquinas virtuais Linux para o Azure. Este artigo explica configurar a estrutura do script para apoiar os VMs Linux implantados pelo Azure. Este artigo também inclui informações sobre resolução de problemas.
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173010"
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com aplicações de VMs Azure Linux
 
-Ao fazer backup de instantâneos de suas VMs, a consistência do aplicativo significa que seus aplicativos são iniciados quando as VMs são inicializadas após serem restauradas. Como você pode imaginar, a consistência do aplicativo é extremamente importante. Para garantir que suas VMs do Linux sejam consistentes com o aplicativo, você pode usar a estrutura de pré e pós-script do Linux para fazer backups consistentes com o aplicativo. A estrutura de pré e pós-script oferece suporte a máquinas virtuais Linux Azure Resource Manager implantadas. Scripts para consistência de aplicativos não dão suporte a máquinas virtuais implantadas Service Manager ou máquinas virtuais do Windows.
+Ao tirar fotografias de backup dos seus VMs, a consistência da aplicação significa que as suas aplicações começam quando as VMs arrancam depois de restauradas. Como pode imaginar, a consistência da aplicação é extremamente importante. Para garantir que os seus VMs Linux são consistentes com aplicações, pode utilizar a estrutura pré-script e pós-script do Linux para obter backups consistentes com aplicações. A estrutura pré-script e pós-script suporta máquinas virtuais Linux implantadas pelo Gestor de Recursos Azure. Scripts para consistência da aplicação não suportam máquinas virtuais implementadas pelo Gestor de Serviços ou máquinas virtuais do Windows.
 
-## <a name="how-the-framework-works"></a>Como funciona a estrutura
+## <a name="how-the-framework-works"></a>Como funciona o quadro
 
-A estrutura fornece uma opção para executar pré-scripts personalizados e pós-scripts enquanto você estiver tirando instantâneos de VM. Os pré-scripts são executados logo antes de você pegar o instantâneo da VM e os pós-scripts são executados imediatamente depois que você pega o instantâneo da VM. Pré-scripts e pós-scripts fornecem a flexibilidade para controlar seu aplicativo e ambiente, enquanto você está levando instantâneos de VM.
+A estrutura fornece uma opção para executar pré-scripts e pós-scripts personalizados enquanto você está tirando fotos vM. Os pré-scripts são executados antes de tirar a foto do VM, e os pós-scripts são executados imediatamente após tirar a foto do VM. Pré-scripts e pós-scripts proporcionam a flexibilidade para controlar a sua aplicação e ambiente, enquanto você está tirando fotos vM.
 
-Pré-scripts invocam APIs de aplicativo nativo, que desativam o IOs e liberam o conteúdo na memória para o disco. Essas ações garantem que o instantâneo seja consistente com o aplicativo. Os pós-scripts usam APIs de aplicativo nativo para descongelar o IOs, o que permite que o aplicativo retome as operações normais após o instantâneo da VM.
+Os pré-scripts invocam APIs de aplicação nativa, que quiesce os IOs, e descarregam o conteúdo na memória para o disco. Estas ações garantem que o instantâneo é consistente. Os pós-scripts utilizam APIs de aplicação nativa para descongelar os IOs, que permitem que a aplicação retome as operações normais após o instantâneo vm.
 
-## <a name="steps-to-configure-pre-script-and-post-script"></a>Etapas para configurar pré e pós-script
+## <a name="steps-to-configure-pre-script-and-post-script"></a>Passos para configurar pré-script e pós-script
 
-1. Entre como o usuário raiz para a VM Linux que você deseja fazer backup.
+1. Inscreva-se como o utilizador principal do VM Linux que pretende fazer o back-up.
 
-2. No [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), baixe **VMSnapshotScriptPluginConfig. JSON** e copie-o para a pasta **/etc/Azure** para todas as VMs das quais você deseja fazer backup. Se a pasta **/etc/Azure** não existir, crie-a.
+2. A partir do [GitHub,](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)baixe **o VMSnapshotScriptPluginConfig.json** e copie-o para a pasta **/etc/azure** para todos os VMs que deseja fazer. Se a pasta **/etc/azure** não existir, crie-a.
 
-3. Copie o script e o pós-script para seu aplicativo em todas as VMs que você planeja fazer backup. Você pode copiar os scripts para qualquer local na VM. Certifique-se de atualizar o caminho completo dos arquivos de script no arquivo **VMSnapshotScriptPluginConfig. JSON** .
+3. Copie o pré-script e o pós-script para a sua aplicação em todos os VMs que planeia fazer cópias de tempo. Pode copiar os scripts para qualquer local do VM. Certifique-se de atualizar o caminho completo dos ficheiros do script no ficheiro **VMSnapshotScriptPluginConfig.json.**
 
-4. Verifique as seguintes permissões para estes arquivos:
+4. Certifique-se das seguintes permissões para estes ficheiros:
 
-   - **VMSnapshotScriptPluginConfig. JSON**: permissão "600." Por exemplo, somente o usuário "raiz" deve ter permissões de "leitura" e "gravação" para esse arquivo e nenhum usuário deve ter permissões de "execução".
+   - **VMSnapshotScriptPluginConfig.json**: Permissão "600". Por exemplo, apenas o utilizador "raiz" deve ter permissões de "ler" e "escrever" para este ficheiro, e nenhum utilizador deve ter permissões de "executar".
 
-   - **Arquivo de pré-script**: permissão "700."  Por exemplo, somente o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
+   - **Ficheiro pré-script**: Permissão "700".  Por exemplo, apenas o utilizador "raiz" deve ter permissões "ler", "escrever" e "executar" permissões a este ficheiro.
 
-   - **Pós-script** Permissão "700." Por exemplo, somente o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
+   - **Pós-script** Permissão "700". Por exemplo, apenas o utilizador "raiz" deve ter permissões "ler", "escrever" e "executar" permissões a este ficheiro.
 
    > [!IMPORTANT]
-   > A estrutura oferece aos usuários muito poder. Proteja a estrutura e certifique-se de que apenas o usuário "raiz" tenha acesso a arquivos de script e JSON críticos.
-   > Se os requisitos não forem atendidos, o script não será executado, o que resultará em uma falha do sistema de arquivos e um backup inconsistente.
+   > O quadro dá aos utilizadores muita energia. Proteja a estrutura e garanta que apenas o utilizador "raiz" tem acesso a ficheiros críticos de JSON e script.
+   > Se os requisitos não forem cumpridos, o guião não será executado, o que resulta numa falha no sistema de ficheiros e numa cópia de segurança inconsistente.
    >
 
-5. Configure **VMSnapshotScriptPluginConfig. JSON** conforme descrito aqui:
-    - **pluginname**: Deixe esse campo como está ou seus scripts podem não funcionar conforme o esperado.
+5. Configure **VMSnapshotScriptPluginConfig.json** como descrito aqui:
+    - **pluginName**: Deixe este campo como está, ou os seus scripts podem não funcionar como esperado.
 
-    - **preScriptLocation**: forneça o caminho completo do pré-script na VM que será submetida a backup.
+    - **pré-ScriptLocation**: Forneça o caminho completo do pré-script no VM que vai ser apoiado.
 
-    - **postScriptLocation**: forneça o caminho completo do post-script na VM que será submetida a backup.
+    - **postScriptLocation**: Forneça o caminho completo do post-script no VM que vai ser apoiado.
 
-    - **preScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros devem estar entre aspas. Se você usar vários parâmetros, separe os parâmetros com uma vírgula.
+    - **preScriptParams**: Forneça os parâmetros opcionais que precisam de ser passados para o pré-script. Todos os parâmetros devem estar em aspas. Se utilizar vários parâmetros, separe os parâmetros com uma vírem.
 
-    - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o post-script. Todos os parâmetros devem estar entre aspas. Se você usar vários parâmetros, separe os parâmetros com uma vírgula.
+    - **postScriptParams**: Forneça os parâmetros opcionais que precisam de ser passados para o pós-script. Todos os parâmetros devem estar em aspas. Se utilizar vários parâmetros, separe os parâmetros com uma vírem.
 
-    - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **preScriptNoOfRetries**: Desative o número de vezes que a pré-escrita deve ser novamente tentada se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma retentativa se houver uma falha.
 
-    - **postScriptNoOfRetries**: defina o número de vezes que o pós-script deve ser repetido se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **postScriptNoOfRetries**: Definir o número de vezes que o pós-script deve ser novamente experimentado se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma retentativa se houver uma falha.
 
-    - **timeoutInSeconds**: Especifique os tempos limite individuais para o pré-script e o pós-script (o valor máximo pode ser 1800).
+    - **timeoutInSeconds**: Especifique os intervalos individuais para o pré-script e o pós-script (o valor máximo pode ser de 1800).
 
-    - **continueBackupOnFailure**: defina esse valor como **true** se desejar que o backup do Azure volte a um backup consistente/com falha do sistema de arquivos se o script ou o pós-script falhar. Definir isso como **false** falha no backup em caso de falha de script (exceto quando você tem uma VM de disco único que volta para o backup consistente com falhas, independentemente dessa configuração).
+    - **continueBackupOnFailure**: Desative este valor para **o verdadeiro** caso pretenda que o Azure Backup recue para um sistema de ficheiros consistente/contraído uma cópia de segurança consistente/de supor se o pré-script ou o pós-script falhar. A definição disto como **falsa** falha a cópia de segurança em caso de falha no script (exceto quando tiver um VM de disco único que cai para trás para uma cópia de segurança consistente em queda, independentemente desta definição).
 
-    - **fsFreezeEnabled**: especifique se o Fsfreeze do Linux deve ser chamado enquanto você estiver obtendo o instantâneo da VM para garantir a consistência do sistema de arquivos. É recomendável manter essa configuração definida como **true** , a menos que seu aplicativo tenha uma dependência na desabilitação de fsfreeze.
+    - **fsFreezeEnabled**: Especifique se o linux fsfreeze deve ser chamado enquanto estiver a tirar o instantâneo vM para garantir a consistência do sistema de ficheiros. Recomendamos que esta definição seja **verdadeira,** a menos que a sua aplicação tenha uma dependência de descongelação.
 
-    - **ScriptsExecutionPollTimeSeconds**: defina a hora em que a extensão deve ser suspensa entre cada sondagem para a execução do script. Por exemplo, se o valor for 2, a extensão verificará se a execução do script anterior/posterior foi concluída a cada 2 segundos. O valor mínimo e máximo que pode levar é 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
+    - **ScriptsExecutionPollTimeSeconds**: Desdefinido o tempo que a extensão tem de dormir entre cada sondagem e a execução do script. Por exemplo, se o valor for 2, a extensão verifica se a execução pré/post script foi concluída a cada 2 segundos. O valor mínimo e máximo que pode tomar é de 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
 
-6. A estrutura de script agora está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [fazer backup de máquinas virtuais do Azure para cofres dos serviços de recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. O quadro do guião está agora configurado. Se a cópia de segurança VM já estiver configurada, a próxima cópia de segurança invoca os scripts e aciona a cópia de segurança consistente com aplicações. Se a cópia de segurança VM não estiver configurada, configure-a utilizando [máquinas virtuais Back up Azure para cofres de Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Certifique-se de adicionar o registro em log apropriado durante a gravação de seu script e pós-script e examine os logs de script para corrigir quaisquer problemas de script. Se você ainda tiver problemas ao executar scripts, consulte a tabela a seguir para obter mais informações.
+Certifique-se de que adiciona o registo adequado enquanto escreve o seu pré-script e pós-script e reveja os registos do script para corrigir quaisquer problemas de script. Se ainda tiver problemas em executar scripts, consulte a tabela seguinte para obter mais informações.
 
 | Erro | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto, o backup pode não ser consistente com o aplicativo.| Examine os logs de falha do script para corrigir o problema.|  
-|Post-ScriptExecutionFailed |O post-script retornou um erro que pode afetar o estado do aplicativo. |Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
-| Pre-ScriptNotFound |O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
-| Post-ScriptNotFound |O post-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o post-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
-| IncorrectPluginhostFile |O arquivo **Pluginhost** , que vem com a extensão VmSnapshotLinux, está corrompido, portanto, o pré e o pós-script não podem ser executados e o backup não será consistente com o aplicativo.| Desinstale a extensão **VmSnapshotLinux** e ela será reinstalada automaticamente com o próximo backup para corrigir o problema. |
-| IncorrectJSONConfigFile | O arquivo **VMSnapshotScriptPluginConfig. JSON** está incorreto, portanto, pré-script e pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Baixe a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configure-a novamente. |
-| InsufficientPermissionforPre-Script | Para executar scripts, o usuário "raiz" deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
-| InsufficientPermissionforPost-Script | Para executar scripts, o usuário raiz deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
-| Pre-ScriptTimeout | A execução do pré-script de backup consistente com o aplicativo esgotou o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
-| Post-ScriptTimeout | A execução do pós-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
+| Pré-ScriptExecutionFailed |O pré-script devolveu um erro, por isso a cópia de segurança pode não ser consistente com a aplicação.| Veja os registos de falha do seu script para corrigir o problema.|  
+|Pós-ScriptExecutionFailed |O pós-script devolveu um erro que pode ter impacto no estado da aplicação. |Veja os registos de falha do seu script para corrigir o problema e verifique o estado de aplicação. |
+| Pré-ScriptNotFound |O pré-script não foi encontrado no local especificado no ficheiro **config VMSnapshotScriptPluginConfig.json.** |Certifique-se de que o pré-script está presente no caminho especificado no ficheiro config para garantir a cópia de segurança consistente com a aplicação.|
+| Pós-ScriptNotFound |O pós-script não foi encontrado no local especificado no ficheiro **config VMSnapshotScriptPluginConfig.json.** |Certifique-se de que o pós-script está presente no caminho especificado no ficheiro config para garantir a cópia de segurança consistente com a aplicação.|
+| Ficheiro de anfitriões Plugin |O ficheiro **Pluginhost,** que vem com a extensão VmSnapshotLinux, é corrompido, por isso o pré-script e o pós-script não podem ser executados e a cópia de segurança não será consistente com aplicações.| Desinstale a extensão **VmSnapshotLinux** e será automaticamente reinstalada com a próxima cópia de segurança para corrigir o problema. |
+| Ficheiro IncorrectOJSONConfigFile | O ficheiro **VMSnapshotScriptPluginConfig.json** está incorreto, pelo que o pré-script e o pós-script não podem ser executados e a cópia de segurança não será consistente com a aplicação. | Descarregue a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configure-a novamente. |
+| InsuficientePerperperspara Pré-Script | Para executar scripts, o utilizador "raiz" deve ser o proprietário do ficheiro e o ficheiro deve ter permissões "700" (ou seja, apenas "proprietário" deve ter permissões "ler", "escrever" e "executar"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
+| InsuficientePerpersperspara Post-Script | Para executar scripts, o utilizador raiz deve ser o proprietário do ficheiro e o ficheiro deve ter permissões "700" (ou seja, apenas "proprietário" deve ter permissões "ler", "escrever" e "executar"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
+| Pré-ScriptTimeout | A execução do pré-script de reserva consistente com aplicação. | Verifique o script e aumente o tempo de tempo no ficheiro **VMSnapshotScriptPluginConfig.json** que está localizado em **/etc/azure**. |
+| Pós-ScriptTimeout | A execução do pós-script de cópia de segurança consistente com aplicação foi cronometrada. | Verifique o script e aumente o tempo de tempo no ficheiro **VMSnapshotScriptPluginConfig.json** que está localizado em **/etc/azure**. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Configurar o backup da VM para um cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configure cópia de segurança VM para um cofre de Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

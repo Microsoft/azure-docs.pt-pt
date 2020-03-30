@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ea3b273070702144d5296d07cb8712da044819a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268025"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471970"
 ---
 # <a name="boolean-claims-transformations"></a>Boolean reclama transformações
 
@@ -28,13 +28,13 @@ Este artigo fornece exemplos para a utilização das transformações booleanas 
 
 Executa uma operação de duas inputClaims booleanas e define a saídaClaim com resultado da operação.
 
-| Item  | TransformationClaimType  | Tipo de Dados  | Notas |
+| Item  | Tipo de reclamação de transformação  | Tipo de Dados  | Notas |
 |-------| ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim1 | boolean | O primeiro ClaimType a avaliar. |
-| inputClaim | inputClaim2  | boolean | O segundo ClaimType a avaliar. |
-|OutputClaim | outputClaim | boolean | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado (verdadeiro ou falso). |
+| Pedido de crédito | inputClaim1 | boolean | O primeiro ClaimType a avaliar. |
+| Pedido de crédito | inputClaim2  | boolean | O segundo ClaimType a avaliar. |
+|Pedido de saída | saídaReclamada | boolean | Os Tipos de Reclamação que serão produzidos após esta transformação de sinistros ter sido invocado (verdadeiro ou falso). |
 
-A transformação de reivindicações que se segue demonstra como e duas reivindicações booleanas: `isEmailNotExist`, e `isSocialAccount`. A `presentEmailSelfAsserted` de reivindicação de saída deverá `true` se o valor de ambos os créditos de entrada for em `true`. Num passo de orquestração, pode utilizar uma condição prévia para pré-configurar uma página autoafirmada, apenas se um e-mail de conta social estiver vazio.
+A transformação de reivindicações que se aseguir demonstra como e duas alegações booleanas: `isEmailNotExist`e `isSocialAccount`. A reclamação `presentEmailSelfAsserted` de `true` saída é definida para `true`se o valor de ambos os créditos de entrada forem . Num passo de orquestração, pode utilizar uma condição prévia para pré-configurar uma página autoafirmada, apenas se um e-mail de conta social estiver vazio.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
@@ -57,20 +57,20 @@ A transformação de reivindicações que se segue demonstra como e duas reivind
     - **saídaClaim**: falso
 
 
-## <a name="assertbooleanclaimisequaltovalue"></a>AssertBooleanClaimIsEqualToValue
+## <a name="assertbooleanclaimisequaltovalue"></a>Assertboolean ClaimIsEqualToValue
 
 Verifica que os valores booleanos de duas reivindicações são iguais, e abre uma exceção se não forem.
 
-| Item | TransformationClaimType  | Tipo de Dados  | Notas |
+| Item | Tipo de reclamação de transformação  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | O ClaimType a afirmar. |
-| EntradaParametro |valueToCompareTo | boolean | O valor a comparar (verdadeiro ou falso). |
+| EntradaParametro |valueToCompareto | boolean | O valor a comparar (verdadeiro ou falso). |
 
-A transformação de **afirmações assertBooleanClaimIsEqualToValue** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationBooleanIsNotEqual** os metadados de perfil técnico autoafirmado controlam a mensagem de erro que o perfil técnico apresenta ao utilizador.
+A transformação de **afirmações assertBooleanClaimIsEqualToValue** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationBooleanIsNotEqual** os metadados de perfil técnico autoafirmado controlam a mensagem de erro que o perfil técnico apresenta ao utilizador. As mensagens de erro podem ser [localizadas.](localization-string-ids.md#claims-transformations-error-messages)
 
 ![AssertstringClaimsAreIgual execução](./media/boolean-transformations/assert-execution.png)
 
-A transformação de reclamações seguinte demonstra como verificar o valor de um ClaimType booleano com um valor `true`. Se o valor do `accountEnabled` ClaimType for falso, é lançada uma mensagem de erro.
+A transformação de reclamações seguinte demonstra como verificar o `true` valor de um Bequetipo de Reclamação booleano com um valor. Se o valor `accountEnabled` do ClaimType for falso, é lançada uma mensagem de erro.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -84,7 +84,7 @@ A transformação de reclamações seguinte demonstra como verificar o valor de 
 ```
 
 
-O perfil técnico de validação `login-NonInteractive` chama a transformação de reivindicações `AssertAccountEnabledIsTrue`.
+O `login-NonInteractive` perfil técnico `AssertAccountEnabledIsTrue` de validação chama a transformação de sinistros.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -116,16 +116,16 @@ O perfil técnico autoafirmado chama o perfil técnico **login-nonInteractive** 
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica se o valor booleano de uma reclamação é igual a `true` ou `false`, e devolve o resultado da compressão.
+Verifica se o valor booleano `true` `false`de uma reclamação é igual ou, e devolve o resultado da compressão.
 
-| Item | TransformationClaimType  | Tipo de Dados  | Notas |
+| Item | Tipo de reclamação de transformação  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | O ClaimType a afirmar. |
-| EntradaParametro |valueToCompareTo | boolean | O valor a comparar (verdadeiro ou falso). |
-| OutputClaim | compararResultado | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim | boolean | O ClaimType a afirmar. |
+| EntradaParametro |valueToCompareto | boolean | O valor a comparar (verdadeiro ou falso). |
+| Pedido de saída | compararResultado | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 
-A transformação de reclamações seguinte demonstra como verificar o valor de um ClaimType booleano com um valor `true`. Se o valor do `IsAgeOver21Years` ClaimType for igual a `true`, a transformação de sinistros retorna `true`, caso contrário `false`.
+A transformação de reclamações seguinte demonstra como verificar o `true` valor de um Bequetipo de Reclamação booleano com um valor. Se o valor `IsAgeOver21Years` do ClaimType `true`for igual `true`a , `false`a transformação de sinistros devoluções, caso contrário.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
@@ -152,14 +152,14 @@ A transformação de reclamações seguinte demonstra como verificar o valor de 
 
 
 
-## <a name="notclaims"></a>NotClaims
+## <a name="notclaims"></a>Notalegações
 
 Executa uma operação não da inputClaim booleana e define a saídaClaim com resultado da operação.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | boolean | A pretensão de ser operada. |
-| OutputClaim | outputClaim | boolean | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado (verdadeiro ou falso). |
+| Pedido de crédito | inputClaim | boolean | A pretensão de ser operada. |
+| Pedido de saída | saídaReclamada | boolean | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado (verdadeiro ou falso). |
 
 Use esta transformação de reivindicação para realizar negação lógica numa reivindicação.
 
@@ -184,13 +184,13 @@ Use esta transformação de reivindicação para realizar negação lógica numa
 
 Computa um Ou de duas inputClaims booleanas e define a saídaClaim com resultado da operação.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | boolean | O primeiro ClaimType a avaliar. |
-| inputClaim | inputClaim2 | boolean | O segundo ClaimType a avaliar. |
-| OutputClaim | outputClaim | boolean | Os Tipos de Reclamação que serão produzidos após esta Transformação de Reclamações ter sido invocada (verdadeira ou falsa). |
+| Pedido de crédito | inputClaim1 | boolean | O primeiro ClaimType a avaliar. |
+| Pedido de crédito | inputClaim2 | boolean | O segundo ClaimType a avaliar. |
+| Pedido de saída | saídaReclamada | boolean | Os Tipos de Reclamação que serão produzidos após esta Transformação de Reclamações ter sido invocada (verdadeira ou falsa). |
 
-A transformação de sinistros seguinte demonstra como `Or` dois tipos de reclamações booleanos. No passo da orquestração, pode utilizar uma condição prévia para pré-configurar uma página autoafirmada, se o valor de uma das reclamações for `true`.
+A transformação de reclamações que se segue demonstra como a `Or` dois tipos de reclamações booleanos. No passo da orquestração, pode utilizar uma condição prévia para pré-configurar uma página `true`autoafirmada, se o valor de uma das reclamações for .
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">

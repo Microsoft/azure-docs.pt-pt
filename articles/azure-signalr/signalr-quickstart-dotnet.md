@@ -1,6 +1,6 @@
 ---
-title: Desenvolver com ASP.NET-serviço de Signaler do Azure
-description: Um guia de início rápido para usar o serviço de sinalizador do Azure para criar uma sala de chat com o ASP.NET Framework.
+title: Desenvolver com ASP.NET - Serviço De Sinalização Azure
+description: Um arranque rápido para a utilização do Serviço De Sinalização Azure para criar uma sala de chat com ASP.NET enquadramento.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
@@ -8,37 +8,37 @@ ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
 ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74158175"
 ---
-# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Início rápido: criar uma sala de chat com o ASP.NET e o serviço Signalr
+# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Quickstart: Criar uma sala de chat com serviço ASP.NET e SignalR
 
-O serviço de Signaler do Azure é baseado no [signalr para ASP.NET Core 2,0](https://docs.microsoft.com/aspnet/core/signalr/introduction), que **não** é 100% compatível com o signalr ASP.net. O serviço de sinalizador do Azure reimplementou o protocolo de dados do Signalr ASP.NET com base nas tecnologias de ASP.NET Core mais recentes. Ao usar o serviço de Signaler do Azure para o Signalr ASP.NET, não há mais suporte para alguns recursos do Signalr ASP.NET, por exemplo, o Azure Signalr não reproduz mensagens quando o cliente se reconecta. Além disso, o transporte de quadro contínuo e o JSONP não têm suporte. Algumas alterações de código e uma versão adequada das bibliotecas dependentes são necessárias para fazer com que o aplicativo Signalr ASP.NET funcione com o serviço Signalr. 
+O Serviço De Sinalização Azure baseia-se no [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), que **não** é 100% compatível com ASP.NET SignalR. O Serviço De Sinalização Azure reimplementou o protocolo de dados ASP.NET SignalR com base nas mais recentes tecnologias core ASP.NET. Ao utilizar o Serviço De Sinalização Azure para ASP.NET SignalR, algumas funcionalidades ASP.NET SignalR deixaram de ser suportadas, por exemplo, o Azure SignalR não reproduz mensagens quando o cliente se reconecta. Além disso, o transporte forever frame e jSONP não são suportados. Algumas alterações de código e versão adequada das bibliotecas dependentes são necessárias para que ASP.NET aplicação SignalR funcione com o SignalR Service. 
 
-Consulte o [documento diferenças de versão](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) para obter uma lista completa de comparação de recursos entre o signalr ASP.net e o signalr ASP.NET Core.
+Consulte as diferenças de [versão do c.](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) para obter uma lista completa de comparação de funcionalidades entre ASP.NET SignalR e ASP.NET Core SignalR.
 
-Neste guia de início rápido, você aprenderá a começar a usar o ASP.NET e o serviço de Signaler do Azure para um [aplicativo de sala de chat](./signalr-quickstart-dotnet-core.md)semelhante.
+Neste arranque rápido, você aprenderá a começar com o serviço de sinalização ASP.NET e Azure para uma [aplicação](./signalr-quickstart-dotnet-core.md)de Chat Room semelhante .
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
-* [ASP.NET Signalr 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
+* [.net 4.6.1](https://www.microsoft.com/net/download/windows)
+* [ASP.NET Sinalizador 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
+Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Não há suporte para o modo sem *servidor* para aplicativos signalr ASP.net. Sempre use o *padrão* ou o *clássico* para a instância do serviço de signaler do Azure.
+O modo *sem servidor* estoque não é suportado para aplicações ASP.NET SignalR. Utilize sempre *o Padrão* ou *o Clássico* para a instância de serviço de sinalização Azure.
 
-Você também pode criar recursos do Azure usados neste guia de início rápido com a [criação de um script de serviço signalr](scripts/signalr-cli-create-service.md).
+Também pode criar recursos Azure utilizados neste quickstart com [o script Create a SignalR Service](scripts/signalr-cli-create-service.md).
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
@@ -52,17 +52,17 @@ Enquanto o serviço está a ser implementado, vamos passar para trabalhar com c�
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-## <a name="configure-and-run-chat-room-web-app"></a>Configurar e executar o aplicativo Web sala de chat
+## <a name="configure-and-run-chat-room-web-app"></a>Configure e executar app web Chat Room
 
-1. Inicie o Visual Studio e abra a solução na pasta *ASPNET-Samples/ChatRoom/* do repositório clonado.
+1. Inicie o Estúdio Visual e abra a solução nas *amostras de aspnet/ChatRoom/pasta* do repositório clonado.
 
-1. No navegador em que o portal do Azure está aberto, localize e selecione a instância que você criou.
+1. No navegador onde o portal Azure é aberto, encontre e selecione a instância que criou.
 
 1. Selecione **Chaves** para ver as cadeias de ligação para a instância do Serviço SignalR.
 
 1. Selecione e copie a cadeia de ligação principal.
 
-1. Agora, defina a cadeia de conexão no arquivo Web. config.
+1. Agora, coloque a cadeia de ligação no ficheiro web.config.
 
     ```xml
     <configuration>
@@ -73,7 +73,7 @@ Enquanto o serviço está a ser implementado, vamos passar para trabalhar com c�
     </configuration>
     ```
 
-1. Em *Startup.cs*, em vez de chamar `MapSignalR()`, você precisa chamar `MapAzureSignalR({your_applicationName})` e passar a cadeia de conexão para fazer com que o aplicativo se conecte ao serviço, em vez de hospedar o signalr por si só. Substitua `{YourApplicationName}` pelo nome do seu aplicativo. Esse nome é um nome exclusivo para distinguir esse aplicativo de outros aplicativos. Você pode usar `this.GetType().FullName` como o valor.
+1. Na *Startup.cs*, `MapSignalR()`em vez de `MapAzureSignalR({your_applicationName})` ligar, é necessário ligar e passar em cadeia de ligação para que a aplicação se ligue ao serviço em vez de hospedar o SignalR por si só. Substitua-o `{YourApplicationName}` pelo nome da sua candidatura. Este nome é um nome único para distinguir esta aplicação das suas outras aplicações. Pode usar `this.GetType().FullName` como valor.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -83,31 +83,31 @@ Enquanto o serviço está a ser implementado, vamos passar para trabalhar com c�
     }
     ```
 
-    Você também precisa referenciar o SDK do serviço antes de usar essas APIs. Abrir as **ferramentas | Gerenciador de pacotes NuGet | Console do Gerenciador de pacotes** e comando executar:
+    Também precisa de fazer referência ao serviço SDK antes de utilizar estas APIs. Abra as **Ferramentas / NuGet Package Manager [ Gestor de Pacotes NuGet ] Consola de gestor de pacotes** e comando de execução:
 
     ```powershell
     Install-Package Microsoft.Azure.SignalR.AspNet
     ```
 
-    Além dessas alterações, tudo o mais permanece o mesmo, você ainda pode usar a interface de Hub com a qual você já está familiarizado para escrever lógica de negócios.
+    Para além destas mudanças, tudo o resto permanece o mesmo, ainda podes usar a interface do hub que já conheces para escrever lógica de negócio.
 
     > [!NOTE]
-    > Na implementação, um ponto de extremidade `/signalr/negotiate` é exposto para negociação pelo SDK do serviço de Signaler do Azure. Ele retornará uma resposta de negociação especial quando os clientes tentarem se conectar e redirecionar clientes para o ponto de extremidade de serviço definido na cadeia de conexão.
+    > Na implementação, `/signalr/negotiate` um ponto final é exposto para negociação pelo Serviço De Sinalização Azure SDK. Devolverá uma resposta de negociação especial quando os clientes tentarem ligar e redirecionar os clientes para o ponto final de serviço definido na cadeia de ligação.
 
-1. Pressione **F5** para executar o projeto no modo de depuração. Você pode ver que o aplicativo é executado localmente. Em vez de hospedar um tempo de execução de sinal próprio pelo próprio aplicativo, ele agora se conecta ao serviço de Signaler do Azure.
+1. Pressione **f5** para executar o projeto em modo dedepura. Pode ver que a aplicação é feita localmente. Em vez de hospedar um tempo de funcionamento signalR por aplicação em si, agora liga-se ao Serviço De Sinalização Azure.
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 > 
 > 
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
    
 ![Eliminar](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
@@ -116,7 +116,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um novo recurso do serviço de Signaler do Azure e o utilizou com um aplicativo Web ASP.NET. Em seguida, saiba como desenvolver aplicativos em tempo real usando o serviço de Signalr do Azure com o ASP.NET Core.
+Neste arranque rápido, criou um novo recurso do Serviço De Sinalização Azure e utilizou-o com uma aplicação web ASP.NET. Em seguida, aprenda a desenvolver aplicações em tempo real utilizando o Serviço De Sinalização Azure com ASP.NET Core.
 
 > [!div class="nextstepaction"]
-> [Serviço do Azure Signalr com ASP.NET Core](./signalr-quickstart-dotnet-core.md)
+> [Serviço de Sinalizador Azure com núcleo de ASP.NET](./signalr-quickstart-dotnet-core.md)

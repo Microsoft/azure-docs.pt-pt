@@ -1,6 +1,6 @@
 ---
 title: Como aceder a um laboratório de sala de aula no Azure Lab Services | Microsoft Docs
-description: Neste tutorial, irá aceder a máquinas virtuais num laboratório de sala de aula configurado por um professor.
+description: Neste tutorial, vai aceder a máquinas virtuais num laboratório de sala de aula configurado por um professor.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -10,102 +10,79 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585172"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501925"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
-Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/parar uma VM no laboratório e conectar-se à VM. 
+Este artigo descreve como se registar num laboratório de sala de aula, ver todos os laboratórios a que pode aceder, iniciar/parar um VM no laboratório e ligar-se ao VM. 
 
-## <a name="register-to-the-lab"></a>Registre-se no laboratório
+## <a name="register-to-the-lab"></a>Registe-se no laboratório
 
-1. Navegue para o **URL de registo** que recebeu do professor/educador. Você não precisa usar a URL de registro depois de concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o **URL de registo** que recebeu do professor/educador. Não precisa de usar o URL de registo depois de completar o registo. Em vez disso, [https://labs.azure.com](https://labs.azure.com)utilize o URL: . O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
 
     > [!NOTE]
-    > Um conta Microsoft é necessário para usar Azure Lab Services. Se você estiver tentando usar suas contas não conta Microsoft como o Yahoo ou o Google para entrar no portal, siga as instruções para criar um conta Microsoft que será vinculado ao seu não conta Microsoft. Em seguida, siga as etapas para concluir o processo de registro. 
+    > É necessária uma conta Microsoft para a utilização de Serviços De Laboratório Azure. Se estiver a tentar utilizar a sua conta não Microsoft, como contas Yahoo ou Google para iniciar sessão no portal, siga as instruções para criar uma conta Microsoft que estará ligada à sua conta não Microsoft. Em seguida, siga os passos para completar o processo de registo. 
 1. Depois de se registar, confirme se vê a máquina virtual do laboratório a que tem acesso. 
-1. Aguarde até que a máquina virtual esteja pronta. No bloco da VM, observe os seguintes campos:
-    1. Na parte superior do bloco, você verá o **nome do laboratório**.
-    1. À direita, você vê o ícone que representa o **sistema operacional (SO)** da VM. Neste exemplo, é o sistema operacional Windows. 
-    1. Você vê os ícones/botões na parte inferior do bloco para iniciar/parar a VM e conectar-se à VM. 
-    1. À direita dos botões, você vê o status da VM. Confirme que você vê que o status da VM está **parado**.
+1. Espere até a máquina virtual estar pronta. No azulejo VM, repare nos seguintes campos:
+    1. No topo do azulejo, vê-se o **nome do laboratório.**
+    1. À sua direita, vê-se o ícone que representa o **sistema operativo (OS)** do VM. Neste exemplo, é o Windows OS. 
+    1. Vê ícones/botões na parte inferior do azulejo para iniciar/parar o VM e ligar-se ao VM. 
+    1. À direita dos botões, vê-se o estado do VM. Confirme que vê o estado do VM **parado**.
 
-        ![VM no estado parado](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+        ![VM em estado de parada](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
-## <a name="start-or-stop-the-vm"></a>Iniciar ou parar a VM
-1. **Inicie** a VM selecionando o primeiro botão, conforme mostrado na imagem a seguir. Esse processo leva algum tempo.  
+## <a name="start-or-stop-the-vm"></a>Iniciar ou parar o VM
+1. **Inicie** o VM selecionando o primeiro botão como mostrado na imagem seguinte. Este processo leva algum tempo.  
 
     ![Iniciar a VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
-4. Confirme se o status da VM está definido como **em execução**. 
+4. Confirme que o estado do VM está definido para **executar**. 
 
     ![VM em estado de execução](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-    Observe que o ícone do primeiro botão foi alterado para representar uma operação de **parada** . Você pode selecionar esse botão para parar a VM. 
+    Note que o ícone do primeiro botão mudou para representar uma operação de **paragem.** Pode selecionar este botão para parar o VM. 
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-1. Selecione o segundo botão, conforme mostrado na imagem a seguir, para **se conectar** à VM do laboratório. 
+1. Selecione o segundo botão como mostrado na imagem seguinte para **ligar** ao VM do laboratório. 
 
     ![Ligar à VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Execute uma das seguintes etapas: 
-    1. Para máquinas virtuais do **Windows** , salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para se conectar à máquina virtual. Use o **nome de usuário** e a **senha** obtidos do seu professor/professor para entrar no computador. 
-    3. Para máquinas virtuais do **Linux** , você pode usar **SSH** ou **RDP** (se estiver habilitado) para se conectar a eles. Para obter mais informações, consulte [habilitar conexão de área de trabalho remota para computadores Linux](how-to-enable-remote-desktop-linux.md). 
-    1. Se você estiver usando um **Mac** para se conectar à VM do laboratório, siga as instruções na próxima seção. 
-
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Conectar-se a uma VM usando o RDP em um Mac
-Esta seção mostra como um aluno pode se conectar a uma VM de um Mac usando o RDP.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Etapa 1: instalar o Área de Trabalho Remota da Microsoft em um Mac
-1. Abra a loja de aplicativos no seu Mac e procure **área de trabalho remota da Microsoft**.
-
-    ![Área de Trabalho Remota da Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. Instale a versão mais recente do Área de Trabalho Remota da Microsoft. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Etapa 2: acessar a VM do seu Mac usando o RDP
-1. Abra o arquivo **RDP** que é baixado em seu computador com **área de trabalho remota da Microsoft** instalado. Ele deve começar a se conectar à VM. 
-
-    ![Ligar à VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Selecione **continuar** se você receber o aviso a seguir. 
-
-    ![Aviso de certificado](../media/how-to-use-classroom-lab/certificate-error.png)
-1. Você deve ver a VM. 
-
-    > [!NOTE]
-    > O exemplo a seguir é para uma VM CentOS Linux. 
-
-    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
+2. Faça um dos seguintes passos: 
+    1. Para máquinas virtuais **Windows,** guarde o ficheiro **RDP** para o disco rígido. Abra o ficheiro RDP para ligar à máquina virtual. Utilize o nome de **utilizador** e **a palavra-passe** que obtém do seu educador/professor para iniciar sessão na máquina. 
+    3. Para máquinas virtuais **Linux,** pode utilizar **SSH** ou **RDP** (se estiver ativado) para se ligar a elas. Para mais informações, consulte [Ativar a ligação remota para as máquinas Linux](how-to-enable-remote-desktop-linux.md). 
+    1. Se estiver a usar um **Mac** para ligar ao VM do laboratório, siga as instruções na secção seguinte. 
 
 ## <a name="progress-bar"></a>Barra de progresso 
-A barra de progresso no bloco mostra o número de horas usadas em relação ao número de [horas de cota](how-to-configure-student-usage.md#set-quotas-for-users) atribuídas a você. Esse tempo é o tempo adicional alocado para você, além do horário agendado para o laboratório. A cor da barra de progresso e o texto sob a barra de progresso variam de acordo com os seguintes cenários:
+A barra de progresso no azulejo mostra o número de horas utilizadas contra o número de horas de quota que lhe são [atribuídas.](how-to-configure-student-usage.md#set-quotas-for-users) Desta vez é o tempo adicional atribuído para além da hora marcada para o laboratório. A cor da barra de progresso e do texto sob a barra de progresso varia de acordo com os seguintes cenários:
 
-- Se uma classe estiver em andamento (dentro do agendamento da classe), a barra de progresso ficará esmaecida para representar as horas de cotas que não estão sendo usadas. 
+- Se uma classe está em andamento (dentro do horário da classe), a barra de progresso é cinzenta para representar o horário de quota não está sendo usado. 
 
-    ![Barra de progresso em cor cinza](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
-- Se uma cota não for atribuída (zero horas), o texto **disponível somente durante as classes** será mostrado no lugar da barra de progresso. 
+    ![Barra de progresso na cor cinzenta](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+- Se uma quota não for atribuída (horas zero), o texto **disponível nas aulas só** é mostrado no lugar da barra de progresso. 
     
-    ![Status quando nenhuma cota é definida](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
-- Se você ficou **sem cota**, a cor da barra de progresso é **vermelha**. 
+    ![Estado quando não é definida quota](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+- Se ficou **sem quota,** a cor da barra de progresso é **vermelha.** 
 
-    ![Barra de progresso em cor vermelha](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
-- A cor da barra de progresso é **azul** quando está fora do horário agendado para o laboratório e um pouco do tempo de cota foi usado. 
+    ![Barra de progresso na cor vermelha](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+- A cor da barra de progresso é **azul** quando está fora da hora programada para o laboratório e parte do tempo de quota foi usado. 
 
-    ![Barra de progresso em cor azul](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
+    ![Barra de progresso na cor azul](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
 ## <a name="view-all-the-classroom-labs"></a>Ver todos os laboratórios de sala de aula
-Depois de se registrar nos laboratórios, você pode exibir todos os laboratórios de sala de aula executando as seguintes etapas: 
+Depois de se registar nos laboratórios, pode ver todos os laboratórios da sala de aula tomando os seguintes passos: 
 
-1. Navegue até [https://labs.azure.com](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
-2. Entre no serviço usando a conta de usuário que você usou para se registrar no laboratório. 
-3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
+1. Navegar [https://labs.azure.com](https://labs.azure.com)para. O Internet Explorer 11 ainda não tem suporte. 
+2. Inscreva-se no serviço utilizando a conta de utilizador que usou para registar-se no laboratório. 
+3. Confirme que vê todos os laboratórios a que tem acesso. 
 
     ![Ver todos os laboratórios](../media/how-to-manage-classroom-labs/all-labs.png)
 
@@ -113,8 +90,8 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
-- [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
-- [Como proprietário de um laboratório, criar e gerenciar laboratórios](how-to-manage-classroom-labs.md)
-- [Como proprietário do laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
-- [Como proprietário de um laboratório, configurar e controlar o uso de um laboratório](how-to-configure-student-usage.md)
+- [Como administrador, crie e gere as contas de laboratório](how-to-manage-lab-accounts.md)
+- [Como dono de laboratório, crie e gere a gestão de laboratórios](how-to-manage-classroom-labs.md)
+- [Como proprietário de laboratório, configura risa e publica modelos](how-to-create-manage-template.md)
+- [Como dono de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
  

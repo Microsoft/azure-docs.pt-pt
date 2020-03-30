@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 9036992a354b41cd75735e5ccd895d7287a00e91
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371771"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurar um túnel de dispositivo VPN AlwaysOn
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-## <a name="configure-the-gateway"></a>Configure o portal
+## <a name="configure-the-gateway"></a>Configurar o gateway
 
 Configure o gateway VPN para utilizar o IKEv2 e a autenticação baseada em certificados utilizando o artigo de [ligação VPN Ponto-a-Local.](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Failover entre vários pontos de extremidade da CDN do Azure com o Gerenciador de tráfego
-description: Saiba mais sobre como configurar o Gerenciador de tráfego do Azure com pontos de extremidade da CDN do Azure.
+title: Failover em vários pontos finais azure CDN com Gestor de Tráfego
+description: Saiba como configurar o Gestor de Tráfego Azure com pontos finais azure CDN.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -16,87 +16,87 @@ ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083008"
 ---
-# <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade da CDN do Azure com o Gerenciador de tráfego do Azure
+# <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar falha em vários pontos finais do Azure CDN com o Gestor de Tráfego Azure
 
-Ao configurar a CDN (rede de distribuição de conteúdo) do Azure, você pode selecionar o provedor ideal e o tipo de preço para suas necessidades. Por padrão, a CDN do Azure, com sua infraestrutura distribuída globalmente, cria redundância local e geográfica e balanceamento de carga global para melhorar a disponibilidade e o desempenho do serviço. Se um local não estiver disponível para fornecer conteúdo, as solicitações serão roteadas automaticamente para outro local e o POP ideal (com base em fatores como o local da solicitação e a carga do servidor) será usado para atender a cada solicitação do cliente. 
+Quando configurar a Rede de Entrega de Conteúdos Azure (CDN), pode selecionar o fornecedor ideal e o nível de preços para as suas necessidades. A Azure CDN, com a sua infraestrutura distribuída globalmente, por padrão cria redundância local e geográfica e equilíbrio de carga global para melhorar a disponibilidade e desempenho do serviço. Se uma localização não estiver disponível para servir conteúdo, os pedidos são automaticamente encaminhados para outro local e o POP ideal (com base em fatores como a localização do pedido e a carga do servidor) é usado para atender cada pedido de cliente. 
  
-Se você tiver vários perfis CDN, poderá melhorar ainda mais a disponibilidade e o desempenho com o Gerenciador de tráfego do Azure. Você pode usar o Gerenciador de tráfego do Azure com a CDN do Azure para balancear a carga entre vários pontos de extremidade CDN para failover, balanceamento de carga geográfica e outros cenários. Em um cenário típico de failover, todas as solicitações de cliente são direcionadas primeiro para o perfil CDN primário; Se o perfil não estiver disponível, as solicitações serão passadas para o perfil da CDN secundária até que o perfil da CDN principal fique online novamente. Usando o Gerenciador de tráfego do Azure dessa forma, você garante que seu aplicativo Web esteja sempre disponível. 
+Se tiver vários perfis de CDN, poderá melhorar ainda mais a disponibilidade e o desempenho com o Gestor de Tráfego azure. Pode utilizar o Azure Traffic Manager com o Azure CDN para carregar o equilíbrio entre vários pontos finais da CDN para a falha, o equilíbrio geo-carregador e outros cenários. Num cenário típico de failover, todos os pedidos de cliente são direcionados primeiro para o perfil cdn primário; se o perfil não estiver disponível, os pedidos são então transmitidos para o perfil secundário de CDN até que o seu perfil cdn primário esteja novamente on-line. A utilização do Gestor de Tráfego Azure desta forma garante que a sua aplicação web está sempre disponível. 
 
-Este artigo fornece orientações e um exemplo de como configurar o failover com a **CDN standard do Azure da Verizon** e o **Azure CDN Standard de perfis do Akamai** .
+Este artigo fornece orientação e um exemplo de como configurar o failover com **o Azure CDN Standard da Verizon** e **Azure CDN Standard a partir de** perfis Akamai.
 
-## <a name="set-up-azure-cdn"></a>Configurar a CDN do Azure 
-Crie dois ou mais perfis de CDN do Azure e pontos de extremidade com provedores diferentes.
+## <a name="set-up-azure-cdn"></a>Configurar O CDN Azure 
+Crie dois ou mais perfis de CDN Azure e pontos finais com diferentes fornecedores.
 
-1. Crie um perfil do **Azure CDN standard do Verizon** e do **Azure CDN standard do Akamai** seguindo as etapas em [criar um novo perfil de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+1. Crie um **Padrão CDN Azure a partir de Verizon** e **Azure CDN Standard a partir do** perfil akamai seguindo os passos em Criar um novo perfil [CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
  
-   ![Vários perfis da CDN](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
+   ![Perfis múltiplos da CDN](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
 
-2. Em cada um dos novos perfis, crie pelo menos um ponto de extremidade seguindo as etapas em [criar um novo ponto de extremidade CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+2. Em cada um dos novos perfis, crie pelo menos um ponto final seguindo os passos em [Criar um novo ponto final do CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
 
-## <a name="set-up-azure-traffic-manager"></a>Configurar o Gerenciador de tráfego do Azure
-Crie um perfil do Gerenciador de tráfego do Azure e configure o balanceamento de carga em seus pontos de extremidade CDN. 
+## <a name="set-up-azure-traffic-manager"></a>Criar o Gestor de Tráfego Azure
+Crie um perfil de Gestor de Tráfego Azure e crie o equilíbrio de carga nos seus pontos finais da CDN. 
 
-1. Crie um perfil do Gerenciador de tráfego do Azure seguindo as etapas em [criar um perfil do Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
+1. Crie um perfil de Gestor de Tráfego Azure seguindo os passos no [perfil Criar um Gestor](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile)de Tráfego . 
 
-    Para o **método de roteamento**, selecione **prioridade**.
+    Para **o método de encaminhamento,** selecione **Prioridade**.
 
-2. Adicione seus pontos de extremidade CDN em seu perfil do Gerenciador de tráfego seguindo as etapas em [Adicionar pontos de extremidade do Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Adicione os seus pontos finais cdN no seu perfil de Gestor de Tráfego seguindo os passos em [Add Traffic Manager endpoints](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
-    Para **tipo**, selecione **pontos de extremidade externos**. Para **prioridade**, insira um número.
+    Para **Tipo,** selecione **pontos finais externos**. Para **Prioridade,** insira um número.
 
-    Por exemplo, crie *cdndemo101akamai.azureedge.net* com uma prioridade de *1* e *cdndemo101verizon.azureedge.net* com uma prioridade de *2*.
+    Por exemplo, criar *cdndemo101akamai.azureedge.net* com prioridade de *1* e *cdndemo101verizon.azureedge.net* com prioridade de *2*.
 
-   ![Pontos de extremidade do Gerenciador de tráfego da CDN](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
+   ![Pontos finais do gestor de tráfego da CDN](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
-## <a name="set-up-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Configurar o domínio personalizado na CDN do Azure e no Gerenciador de tráfego do Azure
-Depois de configurar seus perfis de CDN e do Gerenciador de tráfego, siga estas etapas para adicionar o mapeamento de DNS e registrar o domínio personalizado nos pontos de extremidade da CDN. Para este exemplo, o nome de domínio personalizado é *cdndemo101. dustydogpetcare. online*.
+## <a name="set-up-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Configurar domínio personalizado em Azure CDN e Azure Traffic Manager
+Depois de configurar os perfis de CDN e Traffic Manager, siga estes passos para adicionar mapeamento DNS e registar domínio personalizado nos pontos finais do CDN. Para este exemplo, o nome de domínio personalizado é *cdndemo101.dustydogpetcare.online*.
 
-1. Vá para o site do provedor de domínio do seu domínio personalizado, como GoDaddy, e crie duas entradas DNS CNAME. 
+1. Vá ao site para o fornecedor de domínio do seu domínio personalizado, como goDaddy, e crie duas entradas DNS CNAME. 
 
-    a. Para a primeira entrada CNAME, mapeie seu domínio personalizado, com o subdomínio cdnverify, para o ponto de extremidade da CDN. Essa entrada é uma etapa necessária para registrar o domínio personalizado no ponto de extremidade da CDN que você adicionou ao Gerenciador de tráfego na etapa 2.
+    a. Para a primeira entrada CNAME, mapeie o seu domínio personalizado, com o subdomínio cdncheck, para o seu ponto final cdN. Esta entrada é um passo necessário para registar o domínio personalizado no ponto final da CDN que adicionou ao Traffic Manager no passo 2.
 
       Por exemplo: 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
-    b. Para a segunda entrada CNAME, mapeie seu domínio personalizado, sem o subdomínio cdnverify, para o ponto de extremidade da CDN. Essa entrada mapeia o domínio personalizado para o Gerenciador de tráfego. 
+    b. Para a segunda entrada CNAME, mapeie o seu domínio personalizado, sem o subdomínio de cdncheck, para o seu ponto final cdN. Esta entrada mapeia o domínio personalizado para o Gestor de Tráfego. 
 
       Por exemplo: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
     > [!NOTE]
-    > Se o seu domínio estiver atualmente ativo e não puder ser interrompido, execute esta etapa por último. Verifique se os pontos de extremidade CDN e os domínios do Traffic Manager estão ativos antes de atualizar o DNS do domínio personalizado para o Gerenciador de tráfego.
+    > Se o seu domínio estiver atualmente ao vivo e não puder ser interrompido, faça este passo por último. Verifique se os pontos finais da CDN e os domínios do gestor de tráfego estão ao vivo antes de atualizar o seu dNS de domínio personalizado para o Traffic Manager.
     >
 
 
-2.  Em seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade CDN (Akamai). Selecione **Adicionar domínio personalizado** e insira *cdndemo101. dustydogpetcare. online*. Verifique se a marca de seleção para validar o domínio personalizado está verde. 
+2.  A partir do seu perfil Azure CDN, selecione o primeiro ponto final do CDN (Akamai). Selecione **Adicionar domínio personalizado** e entrada *cdndemo101.dustydogpetcare.online*. Verifique se a marca de verificação para validar o domínio personalizado é verde. 
 
-    A CDN do Azure usa o subdomínio *cdnverify* para validar o mapeamento de DNS para concluir esse processo de registro. Para obter mais informações, consulte [criar um registro DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Esta etapa permite que a CDN do Azure reconheça o domínio personalizado para que ele possa responder às suas solicitações.
+    O Azure CDN utiliza o subdomínio *cdncheck* para validar o mapeamento dNS para completar este processo de registo. Para mais informações, consulte [Criar um registo CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Este passo permite ao Azure CDN reconhecer o domínio personalizado para que possa responder aos seus pedidos.
     
     > [!NOTE]
-    > Para habilitar o SSL em um **Azure CDN do Akamai** Profiles, você deve fazer o CNAME direto do domínio personalizado para seu ponto de extremidade. Ainda não há suporte para o cdnverify para habilitar o SSL. 
+    > Para ativar o SSL num **CDN Azure a partir de** perfis Akamai, deve indicar diretamente o domínio personalizado ao seu ponto final. cdnverificar para permitir a SSL ainda não é suportado. 
     >
 
-3.  Retorne ao site do provedor de domínio do seu domínio personalizado e atualize o primeiro mapeamento DNS criado no para que o domínio personalizado seja mapeado para o segundo ponto de extremidade da CDN.
+3.  Volte ao site para o fornecedor de domínio do seu domínio personalizado e atualize o primeiro mapeamento DNS que criou para que o domínio personalizado seja mapeado para o seu segundo ponto final do CDN.
                              
     Por exemplo: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. No perfil da CDN do Azure, selecione o segundo ponto de extremidade CDN (Verizon) e repita a etapa 2. Selecione **Adicionar domínio personalizado**e insira *cdndemo101. dustydogpetcare. online*.
+4. A partir do seu perfil Azure CDN, selecione o segundo ponto final do CDN (Verizon) e repita o passo 2. Selecione **Adicionar domínio personalizado**, e entrada *cdndemo101.dustydogpetcare.online*.
  
-Depois de concluir essas etapas, o serviço de várias CDN com recursos de failover será configurado com o Gerenciador de tráfego do Azure. Você poderá acessar as URLs de teste de seu domínio personalizado. Para testar a funcionalidade, desabilite o ponto de extremidade da CDN primária e verifique se a solicitação foi movida corretamente para o ponto de extremidade da CDN secundária. 
+Depois de completar estes passos, o seu serviço multi-CDN com capacidades de failover é configurado com o Azure Traffic Manager. Poderá aceder aos URLs de teste do seu domínio personalizado. Para testar a funcionalidade, desative o ponto final do CDN primário e verifique se o pedido é corretamente transferido para o ponto final secundário do CDN. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Você também pode configurar outros métodos de roteamento, como geográfico, para balancear a carga entre diferentes pontos de extremidade da CDN. Para obter mais informações, consulte [Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Também pode configurar outros métodos de encaminhamento, como o geográfico, para equilibrar a carga entre diferentes pontos finais de CDN. Para mais informações, consulte [Configure o método de encaminhamento de tráfego geográfico utilizando o Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

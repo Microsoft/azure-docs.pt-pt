@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369782"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe nenhum suporte de Portal ou .NET SDK.
+> Esta habilidade está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . Atualmente não existe nenhum suporte de Portal ou .NET SDK.
 
 A habilidade de procura de **entidade personalizada** procura texto a partir de uma lista personalizada e definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência fuzzy que pode ser aplicado para encontrar fósforos que são semelhantes, mas não exatamente.  
 
@@ -34,13 +34,13 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros são sensíveis aos casos.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | entidadesDefinitionUri    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para corresponder. Esta definição de entidade é lida no início de uma execução de indexante; quaisquer atualizações a este ficheiro a meio da execução não serão realizadas até que as execuções subsequentes. Este config deve estar acessível em HTTPS. Consulte o formato de definição de [entidade personalizada"](#custom-entity-definition-format) abaixo para obter o esquema csv ou JSON esperado.|
 |inlineEntidadesDefinição | Definições de entidade sons a ninline JSON. Este parâmetro substitui as entidadesDefinitionUri parâmetro se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [Definição](#custom-entity-definition-format) de Entidade Personalizada abaixo para obter o esquema esperado da JSON. |
-|defaultLanguageCode |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
+|código de idioma padrão |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes `da, de, en, es, fi, fr, it, ko, pt`línguas: . O padrão é`en`inglês . Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
 
 
 ## <a name="skill-inputs"></a>Inputs de habilidade

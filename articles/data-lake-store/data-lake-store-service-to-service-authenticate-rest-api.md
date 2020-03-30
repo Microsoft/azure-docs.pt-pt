@@ -1,19 +1,19 @@
 ---
-title: Autenticação serviço a serviço-Data Lake Storage Gen1-API REST
-description: Saiba como obter a autenticação serviço a serviço com Azure Data Lake Storage Gen1 e Azure Active Directory usando a API REST.
+title: Autenticação serviço-a-serviço - Data Lake Storage Gen1 - REST API
+description: Saiba como obter a autenticação de serviço-a-serviço com o Azure Data Lake Storage Gen1 e o Azure Ative Directory utilizando a API REST.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 59d0bf20b16beda47d76e6a9940ac9fa4436da3f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904520"
 ---
-# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação serviço a serviço com Azure Data Lake Storage Gen1 usando a API REST
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação serviço-a-serviço com Azure Data Lake Storage Gen1 usando REST API
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -22,17 +22,17 @@ ms.locfileid: "73904520"
 > 
 > 
 
-Neste artigo, você aprenderá a usar a API REST para fazer a autenticação serviço a serviço com o Azure Data Lake Storage Gen1. Para autenticação do usuário final com Data Lake Storage Gen1 usando a API REST, consulte [autenticação do usuário final com data Lake Storage Gen1 usando a API REST](data-lake-store-end-user-authenticate-rest-api.md).
+Neste artigo, aprende a usar a API REST para fazer a autenticação de serviço a serviço com o Azure Data Lake Storage Gen1. Para autenticação de utilizador final com Data Lake Storage Gen1 utilizando a REST API, consulte a [autenticação do utilizador final com data Lake Storage Gen1 utilizando a REST API](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Crie um aplicativo Azure Active Directory "Web"** . Você deve ter concluído as etapas em [Autenticação serviço a serviço com data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Criar uma aplicação de Diretório Ativo Azure .** Deve ter concluído os passos de [autenticação serviço-a-serviço com data Lake Storage Gen1 utilizando o Diretório Ativo Azure](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="service-to-service-authentication"></a>Autenticação serviço a serviço
 
-Nesse cenário, o aplicativo fornece suas próprias credenciais para executar as operações. Para isso, você deve emitir uma solicitação POST como a mostrada no trecho a seguir:
+Neste cenário, a aplicação fornece as suas próprias credenciais para a realização das operações. Para isso, deve emitir um pedido de CORREIO como o mostrado no seguinte corte:
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -40,7 +40,7 @@ Nesse cenário, o aplicativo fornece suas próprias credenciais para executar as
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-A saída da solicitação inclui um token de autorização (indicado por `access-token` na saída abaixo) que você passa subsequentemente com suas chamadas à API REST. Salvar o token de autenticação em um arquivo de texto; Você precisará dela ao fazer chamadas REST para Data Lake Storage Gen1.
+A saída do pedido inclui um símbolo de `access-token` autorização (denotado na saída abaixo) que posteriormente passa com as suas chamadas REST API. Guarde o símbolo de autenticação num ficheiro de texto; você precisará dele ao fazer chamadas REST para Data Lake Storage Gen1.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
@@ -48,7 +48,7 @@ Este artigo utiliza a abordagem **não interativa**. Para obter mais informaçõ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a usar a autenticação serviço a serviço para autenticar com Data Lake Storage Gen1 usando a API REST. Agora você pode examinar os seguintes artigos que falam sobre como usar a API REST para trabalhar com Data Lake Storage Gen1.
+Neste artigo, aprendeu a usar a autenticação serviço-a-serviço para autenticar com data Lake Storage Gen1 usando a REST API. Pode agora ver os seguintes artigos que falam sobre como usar a API REST para trabalhar com data Lake Storage Gen1.
 
-* [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
-* [Operações de dados em Data Lake Storage Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md)
+* [Operações de gestão de conta em Data Lake Storage Gen1 utilizando rest API](data-lake-store-get-started-rest-api.md)
+* [Operações de dados sobre data lake storage Gen1 usando REST API](data-lake-store-data-operations-rest-api.md)

@@ -1,5 +1,5 @@
 ---
-title: Início rápido-criar uma VM Linux com Azure PowerShell
+title: Quickstart - Crie um VM Linux com A PowerShell Azure
 description: Neste início rápido, vai aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,23 +16,23 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 1e336ad05d70341365b63d806b249740113724d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74035197"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Início Rápido: criar uma máquina virtual do Linux no Azure com o PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guia de Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) do Linux no Azure. Este início rápido utiliza a imagem do marketplace de Ubuntu 16.04 LTS do Canonical. Para ver a VM em ação, irá estabelecer o SSH para a VM e instalar o servidor Web NGINX.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-ssh-key-pair"></a>Criar o par de chaves SSH
 
@@ -48,9 +48,9 @@ Para obter informações mais detalhadas sobre como criar pares de chaves SSH, i
 
 Se criar o par de chaves SSH com o Cloud Shell, este será armazenado numa imagem de contentor numa [conta de armazenamento criada automaticamente pelo Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Não elimine a conta de armazenamento ou as partilhas de ficheiros no mesmo, até ter obtido as chaves ou perderá o acesso à VM. 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
+Crie um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -118,7 +118,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Crie uma NIC (placa de interface de rede) virtual com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). A NIC virtual liga a VM a uma sub-rede, a um Grupo de Segurança de Rede e a um endereço IP público.
+Crie um cartão de interface de rede virtual (NIC) com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). A NIC virtual liga a VM a uma sub-rede, a um Grupo de Segurança de Rede e a um endereço IP público.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -167,7 +167,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Agora, combine as definições de configuração anteriores para criar com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+Agora, combine as definições de configuração anteriores para criar com [New-AzVM:](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -179,7 +179,7 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Crie uma ligação SSH com a VM com o endereço IP público. Para ver o endereço IP público da VM, use o cmdlet [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) :
+Crie uma ligação SSH com a VM com o endereço IP público. Para ver o endereço IP público do VM, utilize o cmdlet [Get-AzPublicIpAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -210,11 +210,11 @@ Quando terminar, escreva `exit` para deixar a sessão SSH.
 
 Utilize um browser à sua escolha para ver a página predefinida de boas-vindas do NGINX. Introduza o endereço IP público da VM como o endereço Web. O endereço IP público pode ser encontrado na página de descrição geral da VM ou como parte da cadeia de ligação SSH que utilizou anteriormente.
 
-![Página de boas-vindas do NGINX padrão](./media/quick-create-cli/nginix-welcome-page.png)
+![Página de boas-vindas padrão NGINX](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
+Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM, e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

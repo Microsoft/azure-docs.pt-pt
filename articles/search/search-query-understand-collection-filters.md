@@ -1,7 +1,7 @@
 ---
-title: Noções básicas sobre filtros de coleção OData
+title: Compreender filtros de recolha oData
 titleSuffix: Azure Cognitive Search
-description: Aprenda a mecânica de como os filtros de coleta do OData funcionam no Azure Pesquisa Cognitiva consultas, incluindo limitações e comportamentos exclusivos de coleções.
+description: Saiba como funcionam os filtros de recolha oData em consultas de Pesquisa Cognitiva Azure, incluindo limitações e comportamentos exclusivos das coleções.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,45 +20,45 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113066"
 ---
-# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Noções básicas sobre filtros de coleção OData no Azure Pesquisa Cognitiva
+# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Compreender filtros de recolha oData em Pesquisa Cognitiva Azure
 
-Para [Filtrar](query-odata-filter-orderby-syntax.md) os campos de coleção no Azure pesquisa cognitiva, você pode usar os [operadores`any` e `all`](search-query-odata-collection-operators.md) juntos com **expressões lambda**. As expressões lambda são expressões booleanas que se referem a uma **variável de intervalo**. Os operadores de `any` e `all` são análogos a um loop de `for` na maioria das linguagens de programação, com a variável de intervalo que assume a função da variável de loop e a expressão lambda como o corpo do loop. A variável de intervalo assume o valor "Current" da coleção durante a iteração do loop.
+Para [filtrar](query-odata-filter-orderby-syntax.md) em campos de recolha em Azure Cognitive Search, pode utilizar os [ `any` e `all` operadores](search-query-odata-collection-operators.md) juntamente com **expressões de lambda.** As expressões de Lambda são expressões booleanas que se referem a uma **variável de gama.** Os `any` `all` operadores e operadores `for` são análogos a um ciclo na maioria das linguagens de programação, com a variável gama assumindo o papel de variável loop, e a expressão lambda como o corpo do loop. A variável gama assume o valor "atual" da coleção durante a iteração do loop.
 
-Pelo menos é assim que funciona conceitualmente. Na realidade, o Azure Pesquisa Cognitiva implementa filtros de uma maneira muito diferente de como `for` loops funcionam. O ideal é que essa diferença seja invisível para você, mas em determinadas situações ela não é. O resultado final é que há regras que você precisa seguir ao escrever expressões lambda.
+Pelo menos é assim que funciona conceptualmente. Na realidade, a Azure Cognitive Search implementa filtros de uma forma muito diferente de como `for` os loops funcionam. Idealmente, esta diferença seria invisível para ti, mas em certas situações não é. O resultado final é que há regras que tem de seguir ao escrever expressões de lambda.
 
-Este artigo explica por que as regras para filtros de coleta existem explorando como o Azure Pesquisa Cognitiva executa esses filtros. Se você estiver escrevendo filtros avançados com expressões lambda complexas, poderá encontrar este artigo útil para criar sua compreensão do que é possível fazer em filtros e por quê.
+Este artigo explica porque é que as regras para filtros de recolha existem explorando como a Pesquisa Cognitiva Azure executa estes filtros. Se estiver a escrever filtros avançados com expressões complexas de lambda, poderá achar este artigo útil para construir a sua compreensão do que é possível nos filtros e porquê.
 
-Para obter informações sobre quais são as regras para filtros de coleta, incluindo exemplos, consulte [solução de problemas de filtros de coleção OData no Azure pesquisa cognitiva](search-query-troubleshoot-collection-filters.md).
+Para obter informações sobre quais são as regras para filtros de recolha, incluindo exemplos, consulte filtros de [recolha de OData de resolução de problemas em Pesquisa Cognitiva Azure](search-query-troubleshoot-collection-filters.md).
 
-## <a name="why-collection-filters-are-limited"></a>Por que os filtros de coleção são limitados
+## <a name="why-collection-filters-are-limited"></a>Por que os filtros de recolha são limitados
 
-Há três motivos subjacentes pelos quais nem todos os recursos de filtro têm suporte para todos os tipos de coleções:
+Existem três razões subjacentes para que nem todas as funcionalidades do filtro sejam suportadas para todos os tipos de coleções:
 
-1. Somente determinados operadores têm suporte para determinados tipos de dados. Por exemplo, não faz sentido comparar os valores Boolianos `true` e `false` usando `lt`, `gt`e assim por diante.
-1. O Azure Pesquisa Cognitiva não dá suporte à **pesquisa correlacionada** em campos do tipo `Collection(Edm.ComplexType)`.
-1. O Azure Pesquisa Cognitiva usa índices invertidos para executar filtros em todos os tipos de dados, incluindo coleções.
+1. Apenas certos operadores são apoiados para determinados tipos de dados. Por exemplo, não faz sentido comparar os `true` valores `lt` `gt`booleanos e `false` usar, e assim por diante.
+1. A Pesquisa Cognitiva Azure não suporta pesquisas `Collection(Edm.ComplexType)` **correlacionadas** em campos de tipo .
+1. A Azure Cognitive Search utiliza índices invertidos para executar filtros sobre todos os tipos de dados, incluindo coleções.
 
-A primeira razão é apenas uma conseqüência de como o sistema de tipos de linguagem OData e EDM é definido. Os dois últimos são explicados com mais detalhes no restante deste artigo.
+A primeira razão é apenas uma consequência de como o sistema de idioma OData e edm são definidos. Os dois últimos são explicados mais detalhadamente no resto deste artigo.
 
-## <a name="correlated-versus-uncorrelated-search"></a>Pesquisa correlacionada versus não correlacionada
+## <a name="correlated-versus-uncorrelated-search"></a>Pesquisa correlacionada versus não relacionada
 
-Ao aplicar vários critérios de filtro em uma coleção de objetos complexos, os critérios são **correlacionados** , pois se aplicam a *cada objeto na coleção*. Por exemplo, o filtro a seguir retornará hotéis que têm pelo menos uma sala de luxo com uma taxa menor que 100:
+Ao aplicar múltiplos critérios de filtro sobre uma coleção de objetos complexos, os critérios são **correlacionados** uma vez que se aplicam a *cada objeto na recolha*. Por exemplo, o filtro seguinte devolverá hotéis que tenham pelo menos um quarto de luxo com uma taxa inferior a 100:
 
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
 
-Se a filtragem não estiver *correlacionada*, o filtro acima poderá retornar Hotéis em que uma sala é Deluxe e uma sala diferente tem uma taxa base menor que 100. Isso não faria sentido, pois ambas as cláusulas da expressão lambda se aplicam à mesma variável de intervalo, ou seja `room`. É por isso que esses filtros estão correlacionados.
+Se a filtragem não foi *correlacionada,* o filtro acima pode devolver hotéis onde um quarto é de luxo e um quarto diferente tem uma taxa base inferior a 100. Isso não faria sentido, uma vez que ambas as cláusulas da expressão `room`lambda se aplicam à mesma variável de gama, nomeadamente. É por isso que estes filtros estão correlacionados.
 
-No entanto, para pesquisa de texto completo, não há como fazer referência a uma variável de intervalo específica. Se você usar a pesquisa de campo para emitir uma [consulta Lucene completa](query-lucene-syntax.md) como esta:
+No entanto, para pesquisa de texto completo, não há como se referir a uma variável de gama específica. Se usar a pesquisa no terreno para emitir uma [consulta lucene completa](query-lucene-syntax.md) como esta:
 
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 
-Você pode obter Hotéis de volta onde uma sala é Deluxe e uma sala diferente menciona "exibição de cidade" na descrição. Por exemplo, o documento abaixo com `Id` de `1` corresponderia à consulta:
+você pode obter hotéis de volta onde um quarto é de luxo, e um quarto diferente menciona "vista da cidade" na descrição. Por exemplo, o `Id` documento `1` abaixo com de corresponder à consulta:
 
 ```json
 {
@@ -80,39 +80,39 @@ Você pode obter Hotéis de volta onde uma sala é Deluxe e uma sala diferente m
 }
 ```
 
-O motivo é que `Rooms/Type` se refere a todos os termos analisados do campo `Rooms/Type` no documento inteiro e, da mesma forma, para `Rooms/Description`, conforme mostrado nas tabelas abaixo.
+A razão `Rooms/Type` é que se refere `Rooms/Type` a todos os termos analisados `Rooms/Description`do campo em todo o documento, e da mesma forma para, como mostram as tabelas abaixo.
 
-Como `Rooms/Type` é armazenado para a pesquisa de texto completo:
+Como `Rooms/Type` é armazenado para pesquisa de texto completo:
 
-| Termo em `Rooms/Type` | IDs de documento |
+| Termo em`Rooms/Type` | IDs de documento |
 | --- | --- |
-| Deluxe | 1, 2 |
-| standard | 1 |
+| deluxo | 1, 2 |
+| padrão | 1 |
 
-Como `Rooms/Description` é armazenado para a pesquisa de texto completo:
+Como `Rooms/Description` é armazenado para pesquisa de texto completo:
 
-| Termo em `Rooms/Description` | IDs de documento |
+| Termo em`Rooms/Description` | IDs de documento |
 | --- | --- |
-| courtyard | 2 |
+| pátio | 2 |
 | city | 1 |
 | jardim | 1 |
-| vários | 1 |
-| Motel | 2 |
-| espaço | 1, 2 |
-| standard | 1 |
-| aplicações | 1 |
+| grande | 1 |
+| motel | 2 |
+| sala | 1, 2 |
+| padrão | 1 |
+| suíte | 1 |
 | ver | 1 |
 
-Ao contrário do filtro acima, que basicamente diz "corresponder documentos onde um quarto tem `Type` igual a" sala de luxo "e **que o mesmo espaço** tem `BaseRate` menos de 100", a consulta de pesquisa indica "corresponder documentos onde `Rooms/Type` tem o termo" Deluxe "e `Rooms/Description` tem a frase" cidade de exibição ". Não há nenhum conceito de salas individuais cujos campos podem ser correlacionados no último caso.
+Assim, ao contrário do filtro acima, que basicamente diz "combinar documentos onde uma sala `Type` tem igual a 'Deluxe Room' e **essa mesma sala** tem `BaseRate` menos de 100", a consulta de pesquisa diz "documentos de correspondência onde `Rooms/Type` tem o termo "deluxe" e `Rooms/Description` tem a frase "vista da cidade". Não há nenhum conceito de salas individuais cujos campos podem ser correlacionados neste último caso.
 
 > [!NOTE]
-> Se você quiser ver o suporte para a pesquisa correlacionada adicionada ao Pesquisa Cognitiva do Azure, vote [neste item de voz do usuário](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
+> Se quiser ver suporte para pesquisa correlacionada adicionada à Pesquisa Cognitiva Azure, por favor vote [neste item de Voz do Utilizador](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Índices e coleções invertidos
 
-Você pode ter notado que há muito menos restrições em expressões lambda em coleções complexas do que para coleções simples, como `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`e assim por diante. Isso ocorre porque o Azure Pesquisa Cognitiva armazena coleções complexas como coleções reais de subdocumentos, enquanto as coleções simples não são armazenadas como coleções.
+Você deve ter notado que há muito menos restrições em expressões de lambda `Collection(Edm.Int32)` `Collection(Edm.GeographyPoint)`sobre coleções complexas do que para coleções simples como , e assim por diante. Isto porque a Azure Cognitive Search armazena coleções complexas como coleções reais de sub-documentos, enquanto coleções simples não são armazenadas como coleções.
 
-Por exemplo, considere um campo de coleção de cadeia de caracteres filtrável como `seasons` em um índice para um varejista online. Alguns documentos carregados nesse índice podem ter a seguinte aparência:
+Por exemplo, considere um campo `seasons` de recolha de cordas filtravel como num índice para um retalhista online. Alguns documentos enviados para este índice podem parecer assim:
 
 ```json
 {
@@ -136,18 +136,18 @@ Por exemplo, considere um campo de coleção de cadeia de caracteres filtrável 
 }
 ```
 
-Os valores do campo `seasons` são armazenados em uma estrutura chamada de **índice invertido**, que se parece com isto:
+Os valores `seasons` do campo são armazenados numa estrutura chamada **índice invertido,** que se parece com isto:
 
 | Termo | IDs de documento |
 | --- | --- |
-| surge | 1, 2 |
-| Verão | 1 |
-| encontram | 1, 2 |
-| fim | 2, 3 |
+| primavera | 1, 2 |
+| verão | 1 |
+| queda | 1, 2 |
+| inverno | 2, 3 |
 
-Essa estrutura de dados foi projetada para responder a uma pergunta com grande velocidade: em quais documentos um determinado termo aparece? Responder a essa pergunta funciona mais como uma verificação de igualdade simples do que um loop em uma coleção. Na verdade, é por isso que, para coleções de cadeias de caracteres, o Azure Pesquisa Cognitiva permite apenas `eq` como um operador de comparação dentro de uma expressão lambda para `any`.
+Esta estrutura de dados destina-se a responder a uma pergunta com grande rapidez: Em que documentos aparece um determinado termo? Responder a esta pergunta funciona mais como um simples cheque de igualdade do que um loop sobre uma coleção. Na verdade, é por isso que para coleções `eq` de cordas, a Pesquisa `any`Cognitiva Azure só permite como um operador de comparação dentro de uma expressão lambda para .
 
-Criando a partir de igualdade, veremos como é possível combinar várias verificações de igualdade na mesma variável de intervalo com `or`. Ele funciona graças a Algebra e [à propriedade distributivo de quantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Esta expressão:
+A partir da igualdade, em seguida vamos ver como é possível combinar múltiplos controlos de igualdade na mesma variável gama com `or`. Funciona graças à álgebra e [à propriedade distributiva de quantificantes.](https://en.wikipedia.org/wiki/Existential_quantification#Negation) Esta expressão:
 
     seasons/any(s: s eq 'winter' or s eq 'fall')
 
@@ -155,7 +155,7 @@ Criando a partir de igualdade, veremos como é possível combinar várias verifi
 
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
 
-e cada uma das duas subexpressãos `any` pode ser executada com eficiência usando o índice invertido. Além disso, graças à [lei de negação de quantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation), esta expressão:
+e cada uma `any` das duas subexpressões pode ser executada de forma eficiente usando o índice invertido. Além disso, graças à [lei de negação dos quantifiers,](https://en.wikipedia.org/wiki/Existential_quantification#Negation)esta expressão:
 
     seasons/all(s: s ne 'winter' and s ne 'fall')
 
@@ -163,33 +163,33 @@ e cada uma das duas subexpressãos `any` pode ser executada com eficiência usan
 
     not seasons/any(s: s eq 'winter' or s eq 'fall')
 
-é por isso que é possível usar `all` com `ne` e `and`.
+é por isso que é `all` `ne` possível usar com e `and`.
 
 > [!NOTE]
-> Embora os detalhes estejam além do escopo deste documento, esses mesmos princípios se estendem a [testes de distância e interseção para coleções de pontos geoespaciais](search-query-odata-geo-spatial-functions.md) também. É por isso que, no `any`:
+> Embora os detalhes estejam fora do âmbito deste documento, estes mesmos princípios estendem-se também a testes de [distância e intersecção para recolhas de pontos geoespaciais.](search-query-odata-geo-spatial-functions.md) É por isso `any`que, em:
 >
-> - `geo.intersects` não pode ser negado
-> - `geo.distance` deve ser comparado usando `lt` ou `le`
-> - as expressões devem ser combinadas com `or`, não `and`
+> - `geo.intersects`não pode ser negado
+> - `geo.distance`deve ser comparado `lt` usando ou`le`
+> - expressões devem ser `or`combinadas com, não`and`
 >
-> As regras de inverso se aplicam para `all`.
+> As regras de `all`invasões aplicam-se .
 
-Uma variedade maior de expressões é permitida ao filtrar em coleções de tipos de dados que dão suporte aos operadores `lt`, `gt`, `le`e `ge`, como `Collection(Edm.Int32)`, por exemplo. Especificamente, você pode usar `and`, bem como `or` no `any`, desde que as expressões de comparação subjacente sejam combinadas em **comparações de intervalo** usando `and`, que são posteriormente combinadas usando `or`. Essa estrutura de expressões booleanas é chamada de [DNF (Disjunctive Normal Form)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), também conhecido como "ORS de ands". Por outro lado, as expressões lambda para `all` para esses tipos de dados devem estar no [conjuntiva normal Form (CNF)](https://en.wikipedia.org/wiki/Conjunctive_normal_form), também conhecido como "ands do ORS". O Azure Pesquisa Cognitiva permite comparações de intervalo, pois pode executá-las usando índices invertidos com eficiência, assim como pode fazer uma pesquisa rápida de termo para cadeias de caracteres.
+Uma maior variedade de expressões é permitida ao filtrar `lt`em `gt` `le`coleções `ge` de tipos `Collection(Edm.Int32)` de dados que suportam os, e operadores, como por exemplo. Especificamente, pode `and` utilizar `or` tão `any`bem como em , desde que as expressões de comparação `or`subjacentes sejam combinadas em **comparações** de alcance utilizando `and`, que são combinadas mais a utilizar. Esta estrutura de expressões booleanas chama-se [Disjunctive Normal Form (DNF),](https://en.wikipedia.org/wiki/Disjunctive_normal_form)também conhecida como "ORs of ANDs". Inversamente, as expressões de lambda para `all` estes tipos de dados devem estar na Forma Normal [Conjuntiva (CNF),](https://en.wikipedia.org/wiki/Conjunctive_normal_form)também conhecida como "ANDs of ORs". A Pesquisa Cognitiva Azure permite tais comparações de gama porque pode executá-las usando índices invertidos de forma eficiente, assim como pode fazer pesquisa rápida de cordas.
 
-Em resumo, aqui estão as regras gerais para o que é permitido em uma expressão lambda:
+Em resumo, aqui estão as regras do polegar para o que é permitido numa expressão lambda:
 
-- Dentro de `any`, as *verificações positivas* sempre são permitidas, como igualdade, comparações de intervalo, `geo.intersects`ou `geo.distance` comparadas com `lt` ou `le` (considere a "proximidade" como igualdade quando se trata de verificar a distância).
-- Dentro de `any`, `or` sempre é permitido. Você pode usar `and` apenas para tipos de dados que podem expressar verificações de intervalo e apenas se usar o ORs de ANDs (DNF).
-- Dentro de `all`, as regras são revertidas-somente *verificações negativas* são permitidas, você pode usar `and` sempre, e você pode usar `or` somente para verificações de intervalo expressas como ands do ORS (CNF).
+- No `any`interior, são sempre *permitidos controlos positivos,* como igualdade, comparações `geo.intersects`de gama, ou `geo.distance` comparadas com `lt` ou `le` (pense em "proximidade" como sendo como a igualdade quando se trata de verificar a distância).
+- `any`Dentro, `or` é sempre permitido. Só pode `and` utilizar para tipos de dados que possam expressar verificações de alcance, e apenas se utilizar ORs de ANDs (DNF).
+- No `all`interior , as regras são invertidas -- `and` só são *permitidos controlos negativos,* pode utilizar-se sempre, e só pode utilizar `or` para verificações de alcance expressas como ANDs de ORs (CNF).
 
-Na prática, esses são os tipos de filtros que você provavelmente usará de qualquer forma. Ainda é útil entender os limites do que é possível no entanto.
+Na prática, estes são os tipos de filtros que é mais provável usar de qualquer maneira. Mas ainda é útil compreender os limites do que é possível.
 
-Para obter exemplos específicos de quais tipos de filtros são permitidos e quais não são, consulte [como escrever filtros de coleção válidos](search-query-troubleshoot-collection-filters.md#bkmk_examples).
+Para exemplos específicos dos tipos de filtros permitidos e que não são, consulte [Como escrever filtros de recolha válidos](search-query-troubleshoot-collection-filters.md#bkmk_examples).
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Solução de problemas de filtros de coleção OData no Azure Pesquisa Cognitiva](search-query-troubleshoot-collection-filters.md)
-- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtros de recolha de OData de resolução de problemas em Pesquisa Cognitiva Azure](search-query-troubleshoot-collection-filters.md)
+- [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
+- [Visão geral da linguagem de expressão OData para pesquisa cognitiva azure](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
+- [Documentos de pesquisa &#40;pesquisa cognitiva azure REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

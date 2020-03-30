@@ -1,6 +1,6 @@
 ---
-title: Usar Azure Policy para restringir a instalação da extensão de VM
-description: Use Azure Policy para restringir implantações de extensão.
+title: Utilize a Política Azure para restringir a instalação de extensão VM
+description: Utilize a Política Azure para restringir as implementações de extensões.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,33 +14,33 @@ ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073104"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs do Windows
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utilize a Política Azure para restringir a instalação de extensões em VMs do Windows
 
-Se você quiser impedir o uso ou a instalação de determinadas extensões em suas VMs do Windows, poderá criar uma política do Azure usando o PowerShell para restringir as extensões para VMs em um grupo de recursos. 
+Se pretender evitar a utilização ou instalação de determinadas extensões nos seus VMs windows, pode criar uma política Azure utilizando o PowerShell para restringir as extensões para VMs dentro de um grupo de recursos. 
 
-Este tutorial usa Azure PowerShell no Cloud Shell, que é constantemente atualizado para a versão mais recente. 
+Este tutorial utiliza o Azure PowerShell dentro da Cloud Shell, que é constantemente atualizada para a versão mais recente. 
 
  
 
-## <a name="create-a-rules-file"></a>Criar um arquivo de regras
+## <a name="create-a-rules-file"></a>Criar um ficheiro de regras
 
-Para restringir quais extensões podem ser instaladas, você precisa ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) para fornecer a lógica para identificar a extensão.
+Para restringir as extensões que podem ser instaladas, é necessário ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) que forneça a lógica para identificar a extensão.
 
-Este exemplo mostra como negar extensões publicadas por ' Microsoft. Compute ' criando um arquivo de regras no Azure Cloud Shell, mas se você estiver trabalhando localmente no PowerShell, também poderá criar um arquivo local e substituir o caminho ($home/CloudDrive) pelo caminho para o arquivo local em seu computador.
+Este exemplo mostra como negar extensões publicadas pela 'Microsoft.Compute' criando um ficheiro de regras no Azure Cloud Shell, mas se estiver a trabalhar no PowerShell localmente, também pode criar um ficheiro local e substituir o caminho ($home/clouddrive) pelo caminho para o ficheiro local na sua máquina.
 
-Em um [Cloud Shell](https://shell.azure.com/powershell), digite:
+Numa [Cloud Shell,](https://shell.azure.com/powershell)escreva:
 
 ```azurepowershell-interactive
 nano $home/clouddrive/rules.json
 ```
 
-Copie e cole o. JSON a seguir no arquivo.
+Copie e cole o seguinte .json no ficheiro.
 
 ```json
 {
@@ -66,21 +66,21 @@ Copie e cole o. JSON a seguir no arquivo.
 }
 ```
 
-Quando terminar, pressione **Ctrl + O** e, em seguida, **Enter** para salvar o arquivo. Pressione **Ctrl + X** para fechar o arquivo e sair.
+Quando terminar, acerte no **CTRL + O** e, em seguida, **introduza** para guardar o ficheiro. Acerte **ctrl + X** para fechar o ficheiro e sair.
 
-## <a name="create-a-parameters-file"></a>Criar um arquivo de parâmetros
+## <a name="create-a-parameters-file"></a>Criar um ficheiro de parâmetros
 
-Você também precisa de um arquivo de [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) que cria uma estrutura a ser usada para passar uma lista das extensões a serem bloqueadas. 
+Também precisa de um ficheiro de [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) que crie uma estrutura para que possa utilizar para passar uma lista das extensões a bloquear. 
 
-Este exemplo mostra como criar um arquivo de parâmetros para VMs no Cloud Shell, mas se você estiver trabalhando localmente no PowerShell, também poderá criar um arquivo local e substituir o caminho ($home/CloudDrive) pelo caminho para o arquivo local em seu computador.
+Este exemplo mostra-lhe como criar um ficheiro de parâmetros para VMs em Cloud Shell, mas se estiver a trabalhar no PowerShell localmente, também pode criar um ficheiro local e substituir o caminho ($home/clouddrive) pelo caminho para o ficheiro local na sua máquina.
 
-Em [Cloud Shell](https://shell.azure.com/powershell), digite:
+Em [Cloud Shell,](https://shell.azure.com/powershell)tipo:
 
 ```azurepowershell-interactive
 nano $home/clouddrive/parameters.json
 ```
 
-Copie e cole o. JSON a seguir no arquivo.
+Copie e cole o seguinte .json no ficheiro.
 
 ```json
 {
@@ -95,13 +95,13 @@ Copie e cole o. JSON a seguir no arquivo.
 }
 ```
 
-Quando terminar, pressione **Ctrl + O** e, em seguida, **Enter** para salvar o arquivo. Pressione **Ctrl + X** para fechar o arquivo e sair.
+Quando terminar, acerte no **CTRL + O** e, em seguida, **introduza** para guardar o ficheiro. Acerte **ctrl + X** para fechar o ficheiro e sair.
 
 ## <a name="create-the-policy"></a>Criar a política
 
-Uma definição de política é um objeto usado para armazenar a configuração que você deseja usar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Crie uma definição de política usando o cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) .
+Uma definição de política é um objeto usado para armazenar a configuração que gostaria de usar. A definição de política utiliza as regras e os ficheiros de parâmetros para definir a política. Crie uma definição de política utilizando o cmdlet [New-AzPolicyDefinition.](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition)
 
- As regras de política e os parâmetros são os arquivos que você criou e armazenou como arquivos. JSON em seu Cloud Shell.
+ As regras e parâmetros de política são os ficheiros que criou e guardou como ficheiros .json na sua casca de nuvem.
 
 
 ```azurepowershell-interactive
@@ -118,9 +118,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criada no grupo de recursos **MyResource** Group não será capaz de instalar o agente de acesso da VM ou as extensões de script personalizado. 
+Este exemplo atribui a política a um grupo de recursos que utiliza a [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criado no grupo de recursos **myResourceGroup** não será capaz de instalar o Agente de Acesso VM ou as extensões de Script Personalizado. 
 
-Use o [Get-AzSubscription | Cmdlet Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obter sua ID de assinatura para usar no lugar do exemplo.
+Utilize a [Subscrição Get-Az [ Formato-tabela](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet para obter o seu ID de subscrição para usar no lugar do exemplo.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Para testar a política, tente usar a extensão de acesso à VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension: o recurso ' myVMAccess ' não foi permitido pela política."
+Para testar a política, tente utilizar a extensão de Acesso VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension : Recurso 'myVMAccess' foi proibido pela política."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
@@ -151,7 +151,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-No portal, a alteração de senha deve falhar com a "falha na implantação do modelo devido a violação de política". Mensagem.
+No portal, a alteração da palavra-passe deve falhar com o "A implementação do modelo falhou devido a violação de políticas.". .
 
 ## <a name="remove-the-assignment"></a>Remover a atribuição
 

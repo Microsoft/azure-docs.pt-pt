@@ -1,5 +1,5 @@
 ---
-title: Site estático hospedado em Armazenamento Azure
+title: Alojamento de site estático no Armazenamento do Azure
 description: Hospedagem de websites estáticos do Azure Storage, fornecendo uma solução rentável e escalável para hospedar aplicações web modernas.
 author: normesta
 ms.service: storage
@@ -9,13 +9,13 @@ ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
 ms.openlocfilehash: 848fd89444281d82d6d0d1bfc4df15d499c09ee0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370496"
 ---
-# <a name="static-website-hosting-in-azure-storage"></a>Site estático hospedado em Armazenamento Azure
+# <a name="static-website-hosting-in-azure-storage"></a>Alojamento de site estático no Armazenamento do Azure
 
 Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento chamado *$web*. Hospedar o seu conteúdo no Armazenamento Azure permite-lhe utilizar arquiteturas sem servidores que incluem [funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços de serviço (PaaS).
 
@@ -41,12 +41,12 @@ Os ficheiros no contentor **$web** são sensíveis a casos, servidos através de
 Pode utilizar qualquer uma destas ferramentas para fazer o upload de conteúdo para **o** $web recipiente:
 
 > [!div class="checklist"]
-> * [CLI do Azure](storage-blob-static-website-how-to.md#cli)
-> * [Módulo Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
-> * [AZCopy](../common/storage-use-azcopy-v10.md)
+> * [Azure CLI](storage-blob-static-website-how-to.md#cli)
+> * [Módulo do Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
+> * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Oleodutos Azure](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensão do Código do Estúdio Visual](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extensão do Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualização de conteúdos
 
@@ -54,15 +54,15 @@ Os utilizadores podem ver o conteúdo do site a partir de um browser utilizando 
 
 |Ferramenta| Orientação |
 |----|----|
-|**Portal do Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
-|**CLI do Azure** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Módulo Azure PowerShell** | [Encontre o URL do site usando powerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+|**Portal Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure CLI** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Módulo do Azure PowerShell** | [Encontre o URL do site usando powerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-O URL do seu site contém um código regional. Por exemplo, o `https://contosoblobaccount.z22.web.core.windows.net/` URL contém código regional `z22`.
+O URL do seu site contém um código regional. Por exemplo, `https://contosoblobaccount.z22.web.core.windows.net/` o `z22`URL contém código regional .
 
 Embora esse código tenha de permanecer no URL, é apenas para uso interno, e não terá de usar esse código de outra forma.
 
-O documento de índice que especifica quando ativa o alojamento estático do website, aparece quando os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
+O documento de índice que especifica quando ativa o alojamento estático do website, aparece quando `https://contosoblobaccount.z22.web.core.windows.net`os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: ).  
 
 Se o servidor devolver um erro de 404 e não tiver especificado um documento de erro quando ativou o website, então uma página padrão 404 é devolvida ao utilizador.
 
@@ -79,9 +79,9 @@ A imagem que se segue mostra a definição do nível de acesso público no porta
 
 Embora o ponto final do site estático primário não seja afetado, uma alteração ao nível de acesso público afeta o ponto final do serviço de blob primário.
 
-Por exemplo, se alterar o nível de acesso público do contentor **$web** do **Private (sem acesso anónimo)** ao **Blob (acesso de leitura anónima apenas para blobs)** então o nível de acesso público ao ponto final do site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não muda.
+Por exemplo, se alterar o nível de acesso público do contentor **$web** do **Private (sem acesso anónimo)** ao **Blob (acesso de leitura anónima apenas para blobs)**, então o nível de acesso público ao ponto `https://contosoblobaccount.z22.web.core.windows.net/index.html` final do site estático primário não muda.
 
-No entanto, o acesso público ao ponto final do serviço de blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de privado para público. Agora os utilizadores podem abrir esse ficheiro utilizando qualquer um destes dois pontos finais.
+No entanto, o acesso público ao `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ponto final do serviço de blob primário muda de privado para público. Agora os utilizadores podem abrir esse ficheiro utilizando qualquer um destes dois pontos finais.
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapear um domínio personalizado para um URL do site estático
 
@@ -115,6 +115,6 @@ Para permitir métricas nas páginas do seu site estático, consulte [métricas 
 * [Hospedar um site estático no Armazenamento Azure](storage-blob-static-website-how-to.md)
 * [Mapear um domínio personalizado para um ponto final de armazenamento de Blob Azure](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [App Service do Azure](/azure/app-service/overview)
+* [Serviço de Aplicações do Azure](/azure/app-service/overview)
 * [Construa a sua primeira aplicação web sem servidores](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Acolhe o teu domínio em DNS Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutorial: Alojar o seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

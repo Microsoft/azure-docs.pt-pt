@@ -1,24 +1,24 @@
 ---
-title: Exemplo de gatilho e Associação de Azure Functions
-description: Saiba como configurar associações de função do Azure
+title: Funções Azure gatilho e exemplo de ligação
+description: Aprenda a configurar encadernações da Função Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227247"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e Associação de Azure Functions
+# <a name="azure-functions-trigger-and-binding-example"></a>Funções Azure gatilho e exemplo de ligação
 
-Este artigo demonstra como configurar um [gatilho e associações](./functions-triggers-bindings.md) em uma função do Azure.
+Este artigo demonstra como configurar um [gatilho e encadernações](./functions-triggers-bindings.md) numa Função Azure.
 
-Suponha que você deseja gravar uma nova linha no armazenamento de tabelas do Azure sempre que uma nova mensagem aparecer no armazenamento de filas do Azure. Esse cenário pode ser implementado usando um gatilho de armazenamento de filas do Azure e uma associação de saída do armazenamento de tabelas do Azure. 
+Suponha que queira escrever uma nova linha para o armazenamento da Mesa Azure sempre que uma nova mensagem aparece no armazenamento da Fila Azure. Este cenário pode ser implementado com um acionador do armazenamento de Filas do Azure e um enlace de saída do armazenamento de Tabelas do Azure. 
 
-Aqui está um arquivo *Function. JSON* para esse cenário. 
+Aqui está um ficheiro *função.json* para este cenário. 
 
 ```json
 {
@@ -41,18 +41,18 @@ Aqui está um arquivo *Function. JSON* para esse cenário.
 }
 ```
 
-O primeiro elemento na matriz de `bindings` é o gatilho de armazenamento de fila. As propriedades `type` e `direction` identificam o gatilho. A propriedade `name` identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila a ser monitorada está em `queueName`e a cadeia de conexão está na configuração do aplicativo identificada por `connection`.
+O primeiro elemento `bindings` da matriz é o gatilho de armazenamento da fila. As `type` `direction` propriedades identificam o gatilho. A `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para `queueName`monitorizar está dentro , e a `connection`cadeia de ligação está na definição da aplicação identificada por .
 
-O segundo elemento na matriz de `bindings` é a associação de saída do armazenamento de tabelas do Azure. As propriedades `type` e `direction` identificam a associação. A propriedade `name` especifica como a função fornece a nova linha da tabela, nesse caso, usando o valor de retorno da função. O nome da tabela está em `tableName`e a cadeia de conexão está na configuração do aplicativo identificada por `connection`.
+O segundo elemento `bindings` da matriz é a ligação de saída de armazenamento de mesa azure. As `type` `direction` propriedades identificam a ligação. A `name` propriedade especifica como a função fornece a nova linha de tabela, neste caso utilizando o valor de retorno da função. O nome da tabela `tableName`está em , e a cadeia `connection`de ligação está na definição da aplicação identificada por .
 
-Para exibir e editar o conteúdo de *Function. JSON* no portal do Azure, clique na opção **Editor avançado** na guia **integrar** da sua função.
+Para visualizar e editar o conteúdo do *function.json* no portal Azure, clique na opção **de editor Avançado** no separador **Integrado** da sua função.
 
 > [!NOTE]
-> O valor de `connection` é o nome de uma configuração de aplicativo que contém a cadeia de conexão, não a própria cadeia de conexão. As associações usam cadeias de conexão armazenadas nas configurações do aplicativo para impor a prática recomendada que o *Function. JSON* não contém segredos de serviço.
+> O valor `connection` é o nome de uma definição de aplicação que contém a cadeia de ligação, e não a própria cadeia de ligação. As ligações utilizam cordas de ligação armazenadas nas definições da aplicação para impor as melhores práticas que *funcionam.json* não contém segredos de serviço.
 
-## <a name="c-script-example"></a>C#exemplo de script
+## <a name="c-script-example"></a>Exemplo de roteiro C#
 
-Aqui está C# o código de script que funciona com esse gatilho e associação. Observe que o nome do parâmetro que fornece o conteúdo da mensagem da fila é `order`; Esse nome é necessário porque o valor da propriedade `name` em *Function. JSON* é `order` 
+Aqui está o código de script C# que funciona com este gatilho e encadernação. Note que o nome do parâmetro que fornece `order`o conteúdo da mensagem de fila é; este nome é necessário `name` porque o valor de propriedade em *função.json* é`order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -80,9 +80,9 @@ public class Person
 }
 ```
 
-## <a name="javascript-example"></a>Exemplo de JavaScript
+## <a name="javascript-example"></a>Exemplo javaScript
 
-O mesmo arquivo *Function. JSON* pode ser usado com uma função JavaScript:
+O mesmo *ficheiro função.json* pode ser usado com uma função JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -102,7 +102,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
-Em uma biblioteca de classes, as mesmas informações de gatilho e de associação &mdash; nomes de fila e tabela, contas de armazenamento, parâmetros de função para &mdash; de entrada e saída são fornecidas por atributos em vez de um arquivo function. JSON. Segue-se um exemplo:
+Numa biblioteca de classes, a &mdash; mesma fila de disparos e de informação vinculativa &mdash; e nomes de mesa, contas de armazenamento, parâmetros de função para entrada e saída são fornecidos por atributos em vez de um ficheiro function.json. Segue-se um exemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-Agora você tem uma função funcional que é disparada por uma fila do Azure e gera dados para o armazenamento de tabelas do Azure.
+Tem agora uma função de trabalho que é desencadeada por uma fila Azure e produz dados para armazenamento de Mesa Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Padrões de expressão de associação de Azure Functions](./functions-bindings-expressions-patterns.md)
+> [Funções Azure padrões de expressão de ligação](./functions-bindings-expressions-patterns.md)

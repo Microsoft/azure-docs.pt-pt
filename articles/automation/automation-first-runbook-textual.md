@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
 ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367266"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>O meu primeiro runbook do Fluxo de Trabalho do PowerShell
@@ -19,7 +19,7 @@ ms.locfileid: "79367266"
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [python](automation-first-runbook-textual-python2.md)
+> * [Pitão](automation-first-runbook-textual-python2.md)
 
 Este tutorial explica como criar um [Runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) na Automatização do Azure. Comece com um simples livro de corridas que testa e publique enquanto aprende a rastrear o estado do trabalho do livro de corridas. Em seguida, modifique o livro de execução para realmente gerir os recursos do Azure, ilustrado através do arranque de uma máquina virtual Azure. Por último, torne o livro de corridas mais robusto adicionando parâmetros de livro.
 
@@ -30,13 +30,13 @@ Este tutorial explica como criar um [Runbook do Fluxo de Trabalho do PowerShell]
 
 Para concluir este tutorial, precisa de:
 
-* Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automatização](automation-offering-get-started.md) para manter o runbook e autenticar-se nos recursos do Azure. Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
 * Uma máquina virtual do Azure. Já que paraste e começas esta máquina, não devia ser um VM de produção.
 
 ## <a name="step-1---create-new-runbook"></a>Passo 1 – criar um novo runbook
 
-Comece por criar um livro simples que produz o texto `Hello World`.
+Comece por criar um livro simples `Hello World`que produz o texto .
 
 1. No portal do Azure, abra a sua conta da Automatização.
 
@@ -52,7 +52,7 @@ Comece por criar um livro simples que produz o texto `Hello World`.
 
 Pode escrever código diretamente no livro de execução, ou pode selecionar cmdlets, livros de execução e ativos do controlo da Biblioteca e adicioná-los ao livro de execução com quaisquer parâmetros relacionados. Para este tutorial, digite código diretamente no livro de corridas.
 
-1. O seu livro de execução está atualmente vazio apenas com a palavra-chave `Workflow` necessária, o nome do livro de execução e os aparelhos que enquadrem todo o fluxo de trabalho.
+1. O seu livro de execução está `Workflow` atualmente vazio apenas com a palavra-chave necessária, o nome do livro de execução e os aparelhos que enquadrem todo o fluxo de trabalho.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow
@@ -79,9 +79,9 @@ Antes de publicar o livro de execução para o disponibilizar em produção, dev
 1. Clique **em Iniciar** o teste, com o teste a única opção ativada.
 1. Note que é criado um trabalho de livro de [rés](automation-runbook-execution.md) e o seu estado é apresentado no painel.
 
-   O estado de trabalho começa como `Queued`, indicando que o trabalho está à espera que um trabalhador do livro na nuvem fique disponível. O estado muda para `Starting` quando um trabalhador reclama o trabalho. Finalmente, o estado torna-se `Running` quando o livro de corridas realmente começa a funcionar.
+   O estado de `Queued`trabalho começa como , indicando que o trabalho está à espera que um trabalhador do livro na nuvem fique disponível. O estado `Starting` muda para quando um trabalhador reclama o trabalho. Finalmente, o `Running` estado torna-se quando o livro de corridas realmente começa a funcionar.
 
-1. Quando o trabalho do livro de execução estiver concluído, o painel de teste mostra a sua saída. Neste caso, vê-se `Hello World`.
+1. Quando o trabalho do livro de execução estiver concluído, o painel de teste mostra a sua saída. Neste caso, `Hello World`vê.
 
    ![Olá, Mundo](media/automation-first-runbook-textual/test-output-hello-world.png)
 
@@ -107,13 +107,13 @@ O livro de execução que criou ainda está em modo Draft. Tem de publicá-lo an
 
    ![Resumo da Tarefa](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Assim que o estado do livro de execução mostrar `Completed`, clique em **Saída**. A página Saída está aberta, onde pode ver a sua mensagem `Hello World`.
+1. Assim que o `Completed`estado do livro de execução aparecer, clique em **Saída**. A página Saída está aberta, `Hello World` onde pode ver a sua mensagem.
 
    ![Resumo da Tarefa](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. Feche a página de saída.
 
-1. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve ver `Hello World` no fluxo de saída. Note que o painel streams pode mostrar outros fluxos para um trabalho de livro de corridas, tais como fluxos de verbosa e erro, se o livro de execução lhes escrever.
+1. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve `Hello World` ver no fluxo de saída. Note que o painel streams pode mostrar outros fluxos para um trabalho de livro de corridas, tais como fluxos de verbosa e erro, se o livro de execução lhes escrever.
 
    ![Resumo da Tarefa](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
@@ -126,13 +126,13 @@ O livro de execução que criou ainda está em modo Draft. Tem de publicá-lo an
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Passo 5 – adicionar autenticação para gerir os recursos do Azure
 
-Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure. Não pode fazê-lo a menos que autentica usar as credenciais para a subscrição. A autenticação utiliza o `Connect-AzAccount` cmdlet.
+Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure. Não pode fazê-lo a menos que autentica usar as credenciais para a subscrição. A autenticação `Connect-AzAccount` utiliza o cmdlet.
 
 >[!NOTE]
->Para os livros de execução powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount`. Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+>Para os livros `Add-AzAccount` de `Add-AzureRMAccount` execução da `Connect-AzAccount`PowerShell, e são pseudónimos para . Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 1. Navegue para a página **MyFirstRunbook-Workflow** e abra o editor textual clicando em **Editar**.
-2. Apague a linha `Write-Output`.
+2. Apague `Write-Output` a linha.
 3. Posicione o cursor sobre uma linha em branco entre as chavetas.
 4. Digite ou copie e cole o seguinte código, que trata a autenticação com a sua Execução de Automação Como conta.
 
@@ -154,7 +154,7 @@ Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. D
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Passo 6 – adicionar código para iniciar uma máquina virtual
 
-Agora que o seu livro de execução está a autenticar a subscrição do Azure, pode gerir recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Pode escolher qualquer VM na sua subscrição Azure, e por enquanto está a codificar esse nome no livro de execução. Se estiver a gerir recursos em várias subscrições, precisa de utilizar o parâmetro `AzContext` com o cmdlet [Get-AzContext.](/powershell/module/az.accounts/get-azcontext)
+Agora que o seu livro de execução está a autenticar a subscrição do Azure, pode gerir recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Pode escolher qualquer VM na sua subscrição Azure, e por enquanto está a codificar esse nome no livro de execução. Se estiver a gerir recursos em várias subscrições, precisa de utilizar o `AzContext` parâmetro com o cmdlet [Get-AzContext.](/powershell/module/az.accounts/get-azcontext)
 
 1. Forneça o nome e o nome do grupo de recursos do VM para começar por introduzir uma chamada para o cmdlet [Start-AzVM,](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0
 ) como mostrado abaixo. 
@@ -181,7 +181,7 @@ Agora que o seu livro de execução está a autenticar a subscrição do Azure, 
 
 O seu livro de execução começa atualmente o VM que tem codificado no livro de execução. Será mais útil se puder especificar o VM quando o livro de execução for iniciado. Vamos adicionar parâmetros de entrada ao livro de execução para fornecer essa funcionalidade.
 
-1. Adicione variáveis para os parâmetros `VMName` e `ResourceGroupName` ao livro de execução, e use as variáveis com o `Start-AzVM` cmdlet como mostrado abaixo.
+1. Adicione variáveis `VMName` para `ResourceGroupName` os parâmetros e parâmetros ao livro `Start-AzVM` de execução, e use as variáveis com o cmdlet como mostrado abaixo.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -214,6 +214,6 @@ O seu livro de execução começa atualmente o VM que tem codificado no livro de
 
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 * Para começar com livros gráficos, veja [o meu primeiro livro de corridas gráficos.](automation-first-runbook-graphical.md)
-* Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).
+* Para começar com os livros de execução da PowerShell, veja o meu primeiro livro de [corridas PowerShell.](automation-first-runbook-textual-powershell.md)
 * Para saber mais sobre os tipos de livro de corridas e as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](automation-runbook-types.md).
 * Para obter mais informações sobre as funcionalidades de suporte ao script PowerShell, consulte o suporte do [script Native PowerShell em Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).

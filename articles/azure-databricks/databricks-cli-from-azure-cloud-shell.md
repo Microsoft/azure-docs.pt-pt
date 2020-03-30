@@ -1,6 +1,6 @@
 ---
 title: 'Utilizar a CLI do Databricks a partir do Azure Cloud Shell '
-description: Saiba como usar a CLI do databricks de Azure Cloud Shell para executar operações no Azure Databricks.
+description: Saiba como utilizar o DATABricks CLI da Azure Cloud Shell para realizar operações em Tijolos de Dados Azure.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,76 +10,76 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73605726"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Utilizar a CLI do Databricks a partir do Azure Cloud Shell
 
-Saiba como usar a CLI do databricks de Azure Cloud Shell para executar operações no databricks.
+Saiba como utilizar o DATABricks CLI da Azure Cloud Shell para realizar operações em Databricks.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Azure Databricks espaço de trabalho e cluster. Para obter instruções, consulte Introdução [ao Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
+* Um espaço de trabalho azure Databricks e cluster. Para obter instruções, consulte [Começar com os Tijolos de Dados Azure](quickstart-create-databricks-workspace-portal.md). 
 
-* Configure um token de acesso pessoal no databricks. Para obter instruções, consulte [Gerenciamento de token](/azure/databricks/dev-tools/api/latest/authentication).
+* Configurar um sinal de acesso pessoal em Databricks. Para obter instruções, consulte a [gestão token](/azure/databricks/dev-tools/api/latest/authentication).
 
-## <a name="use-the-azure-cloud-shell"></a>Usar o Azure Cloud Shell
+## <a name="use-the-azure-cloud-shell"></a>Use a casca de nuvem azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
  
-2. No canto superior direito, clique no ícone de **Cloud Shell** .
+2. Do canto superior direito, clique no ícone **Cloud Shell.**
 
-   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Iniciar o Azure Cloud Shell")
+   ![Lançar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Iniciar o Azure Cloud Shell")
 
-3. Certifique-se de selecionar **bash** para o ambiente de Cloud Shell. Você pode selecionar na opção suspensa, conforme mostrado na captura de tela a seguir.
+3. Certifique-se de selecionar **Bash** para o ambiente Cloud Shell. Pode selecionar a partir da opção drop-down, como mostra a seguinte imagem.
 
-   ![Selecionar bash para o ambiente de Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selecionar bash") 
+   ![Selecione Bash para o ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selecione Bash") 
 
-4. Crie um ambiente virtual no qual você possa instalar a CLI do databricks. No trecho de código abaixo, você cria um ambiente virtual chamado `databrickscli`.
+4. Crie um ambiente virtual no qual possa instalar o DATABricks CLI. No corte abaixo, você cria um `databrickscli`ambiente virtual chamado .
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
-5. Alterne para o ambiente virtual que você criou.
+5. Mude para o ambiente virtual que criou.
 
        source databrickscli/bin/activate
 
-6. Instale a CLI do databricks.
+6. Instale o CLI de Databricks.
 
        pip install databricks-cli
 
-7. Configure a autenticação com o databricks usando o token de acesso que você deve ter criado, listado como parte dos pré-requisitos. Utilize o seguinte comando:
+7. Instale a autenticação com databricks utilizando o sinal de acesso que deve ter criado, listado como parte dos pré-requisitos. Utilize o seguinte comando:
 
        databricks configure --token
 
-    Você receberá os seguintes prompts:
+    Receberá as seguintes instruções:
 
-    * Primeiro, você será solicitado a inserir o host do databricks. Insira o valor no formato `https://eastus2.azuredatabricks.net`. Aqui, o **leste dos EUA 2** é a região do Azure em que você criou seu espaço de trabalho Azure Databricks.
+    * Primeiro, é-lhe pedido que entre no anfitrião databricks. Introduza o valor `https://eastus2.azuredatabricks.net`no formato . Aqui, **East US 2** é a região de Azure onde criou o seu espaço de trabalho Azure Databricks.
 
-    * Em seguida, será solicitado que você insira um token. Insira o token que você criou anteriormente.
+    * Em seguida, é-lhe pedido que entre num símbolo. Insira o símbolo que criou anteriormente.
 
-Depois de concluir essas etapas, você pode começar a usar a CLI do databricks do Azure Cloud Shell.
+Assim que completar estes passos, pode começar a utilizar databricks CLI da Azure Cloud Shell.
 
-## <a name="use-databricks-cli"></a>Usar a CLI do databricks
+## <a name="use-databricks-cli"></a>Utilizar tijolos de dados CLI
 
-Agora você pode começar a usar a CLI do databricks. Por exemplo, execute o seguinte comando para listar todos os clusters do databricks que você tem em seu espaço de trabalho.
+Agora pode começar a utilizar o DATABricks CLI. Por exemplo, execute o seguinte comando para listar todos os clusters databrick que você tem no seu espaço de trabalho.
 
     databricks clusters list
 
-Você também pode usar o comando a seguir para acessar o DBFS (sistema de arquivos do databricks).
+Também pode utilizar o seguinte comando para aceder ao sistema de ficheiros Databricks (DBFS).
 
     databricks fs ls
 
 
-Para obter uma referência completa sobre comandos, consulte [CLI do databricks](/azure/databricks/dev-tools/databricks-cli).
+Para obter uma referência completa nos comandos, consulte [Databricks CLI](/azure/databricks/dev-tools/databricks-cli).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre CLI do Azure, consulte [CLI do Azure visão geral](../cloud-shell/overview.md)
-* Para ver uma lista de comandos para CLI do Azure, consulte [referência de CLI do Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Para ver uma lista de comandos para a CLI do databricks, consulte [CLI do databricks](/azure/databricks/dev-tools/databricks-cli)
+* Para saber mais sobre o Azure CLI, consulte a [visão geral do Azure CLI](../cloud-shell/overview.md)
+* Para ver uma lista de comandos para o Azure CLI, consulte a [referência do Azure CLI](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
+* Para ver uma lista de comandos para Databricks CLI, consulte [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
 
 

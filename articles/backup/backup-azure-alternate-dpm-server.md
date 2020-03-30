@@ -1,93 +1,93 @@
 ---
-title: Recuperar dados de um Servidor de Backup do Azure
-description: Recupere os dados que você protegeu para um cofre dos serviços de recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre.
+title: Recuperar dados de um Servidor de Backup Azure
+description: Recupere os dados que protegeu para um cofre dos Serviços de Recuperação de qualquer servidor de backup Azure registado naquele cofre.
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173505"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 
-Você pode usar Servidor de Backup do Azure para recuperar os dados dos quais fez backup em um cofre dos serviços de recuperação. O processo para fazer isso é integrado ao console de gerenciamento do Servidor de Backup do Azure e é semelhante ao fluxo de trabalho de recuperação para outros componentes de backup do Azure.
+Pode usar o Servidor de Backup Azure para recuperar os dados que tem apoiado num cofre dos Serviços de Recuperação. O processo para o fazer está integrado na consola de gestão do Servidor de Backup Azure, e é semelhante ao fluxo de trabalho de recuperação para outros componentes de Backup Azure.
 
 > [!NOTE]
-> Este artigo é aplicável para o [System Center Data Protection Manager 2012 R2 com UR7 ou posterior](https://support.microsoft.com/kb/3065246), combinado com o [agente de backup do Azure mais recente](https://aka.ms/azurebackup_agent).
+> Este artigo é aplicável para [System Center Data Protection Manager 2012 R2 com UR7 ou posterior,](https://support.microsoft.com/kb/3065246)combinado com o mais recente agente de backup [Azure](https://aka.ms/azurebackup_agent).
 >
 >
 
-Para recuperar dados de um Servidor de Backup do Azure:
+Para recuperar dados de um Servidor de Backup Azure:
 
-1. Na guia **recuperação** do console de gerenciamento do servidor de backup do Azure, clique em **' Adicionar DPM externo '** (na parte superior esquerda da tela).
+1. A partir do separador **Recovery** da consola de gestão do Servidor de Backup Azure, clique em **'Adicionar DPM Externo'** (na parte superior à esquerda do ecrã).
 
-    ![Adicionar DPM externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
-2. Baixe novas **credenciais do cofre** do cofre associado ao **servidor de backup do Azure** em que os dados estão sendo recuperados, escolha a servidor de backup do Azure na lista de servidores de backup do Azure registrados com o cofre dos serviços de recuperação e forneça a **senha de criptografia** associada ao servidor cujos dados estão sendo recuperados.
+    ![Adicionar DPM Externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
+2. Descarregue novas **credenciais** de cofre do cofre associado ao Servidor de **Backup Azure** onde os dados estão a ser recuperados, escolha o Servidor de Backup Azure da lista de Servidores de Backup Azure registados com o cofre dos Serviços de Recuperação, e forneça a **frase de encriptação** associada ao servidor cujos dados estão a ser recuperados.
 
     ![Credenciais externas do DPM](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
    > [!NOTE]
-   > Somente os servidores de backup do Azure associados ao mesmo cofre de registro podem recuperar os dados uns dos outros.
+   > Apenas os Servidores de Backup Azure associados ao mesmo cofre de registo podem recuperar os dados uns dos outros.
    >
    >
 
-    Depois que o Servidor de Backup do Azure externo for adicionado com êxito, você poderá procurar os dados do servidor externo e o Servidor de Backup do Azure local na guia **recuperação** .
-3. Procure a lista disponível de servidores de produção protegidos pelo Servidor de Backup do Azure externo e selecione a fonte de dados apropriada.
+    Uma vez adicionado com sucesso o Servidor de Backup Azure Externo, pode navegar nos dados do servidor externo e no servidor de backup azure local a partir do separador **Recovery.**
+3. Navegue na lista disponível de servidores de produção protegidos pelo Servidor de Backup Azure externo e selecione a fonte de dados apropriada.
 
-    ![Procurar servidor DPM externo](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
-4. Selecione **o mês e o ano** no menu suspenso **pontos de recuperação** , selecione a **data de recuperação** necessária para o momento em que o ponto de recuperação foi criado e selecione o tempo de **recuperação**.
+    ![Navegue no Servidor DPM Externo](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
+4. Selecione **o mês e o ano** a partir da descida dos pontos de **recuperação,** selecione a data de **recuperação** necessária para quando o ponto de recuperação foi criado, e selecione o tempo de **recuperação**.
 
-    Uma lista de arquivos e pastas é exibida no painel inferior, que pode ser pesquisado e recuperado em qualquer local.
+    Uma lista de ficheiros e pastas aparece no painel inferior, que pode ser navegado e recuperado em qualquer local.
 
-    ![Pontos de recuperação do servidor DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Clique com o botão direito do mouse no item apropriado e clique em **recuperar**.
+    ![Pontos externos de recuperação do servidor dpm](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
+5. Clique no item apropriado e clique em **Recuperar**.
 
     ![Recuperação externa do DPM](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Examine a **seleção recuperar**. Verifique os dados e a hora da cópia de backup que está sendo recuperada, bem como a origem da qual a cópia de backup foi criada. Se a seleção estiver incorreta, clique em **Cancelar** para navegar de volta para a guia recuperação para selecionar um ponto de recuperação apropriado. Se a seleção estiver correta, clique em **Avançar**.
+6. Reveja a **Seleção de Recuperação**. Verifique os dados e o tempo da cópia de cópia de cópia de cópia de cópia de segurança que está a ser recuperada, bem como a fonte a partir da qual a cópia de cópia de cópia de cópia foi criada. Se a seleção estiver incorreta, clique **em Cancelar** para navegar de volta para o separador de recuperação para selecionar o ponto de recuperação apropriado. Se a seleção estiver correta, clique em **Seguinte**.
 
-    ![Resumo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
-7. Selecione **recuperar em um local alternativo**. **Navegue** até o local correto para a recuperação.
+    ![Resumo externo da recuperação do DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
+7. Selecione **Recuperar para um local alternativo**. **Navegue** no local correto para a recuperação.
 
-    ![Local alternativo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. Escolha a opção relacionada para **criar copiar**, **ignorar**ou **substituir**.
+    ![Localização alternativa de recuperação externa do DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
+8. Escolha a opção relacionada com a **criação**de cópia, **skip,** ou **overwrite**.
 
-   * **Criar cópia** – cria uma cópia do arquivo se houver uma colisão de nomes.
-   * **Ignorar** – se houver uma colisão de nomes, o não recuperará o arquivo, o que deixará o arquivo original.
-   * **Substituir** – se houver uma colisão de nomes, substitui a cópia existente do arquivo.
+   * **Criar cópia** - cria uma cópia do ficheiro se houver uma colisão de nome.
+   * **Skip** - se houver uma colisão de nome, não recupere o ficheiro, o que deixa o ficheiro original.
+   * **Repor** - se houver uma colisão de nome, substitui a cópia existente do ficheiro.
 
-     Escolha a opção apropriada para **restaurar a segurança**. Você pode aplicar as configurações de segurança do computador de destino onde os dados estão sendo recuperados ou as configurações de segurança que se aplicam ao produto no momento em que o ponto de recuperação foi criado.
+     Escolha a opção adequada para restaurar a **segurança**. Pode aplicar as definições de segurança do computador de destino onde os dados estão a ser recuperados ou as definições de segurança aplicáveis ao produto no momento em que o ponto de recuperação foi criado.
 
-     Identifique se uma **notificação** é enviada, quando a recuperação for concluída com êxito.
+     Identifique se uma **Notificação** é enviada, uma vez que a recuperação esteja concluída com sucesso.
 
-     ![Notificações de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. A tela **Resumo** lista as opções escolhidas até agora. Depois de clicar em **' recuperar '** , os dados serão recuperados para o local apropriado.
+     ![Notificações externas de recuperação do DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
+9. O ecrã **resumo** lista as opções escolhidas até agora. Uma vez clicado em **'Recuperar',** os dados são recuperados para o local apropriado no local.
 
-    ![Resumo das opções de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
+    ![Resumo das opções externas de recuperação do DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
    > [!NOTE]
-   > O trabalho de recuperação pode ser monitorado na guia **monitoramento** da servidor de backup do Azure.
+   > O trabalho de recuperação pode ser monitorizado no separador **de monitorização** do Servidor de Backup Azure.
    >
    >
 
-    ![Monitorando a recuperação](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. Você pode clicar em **limpar DPM externo** na guia **recuperação** do servidor DPM para remover a exibição do servidor DPM externo.
+    ![Monitorização da Recuperação](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
+10. Pode clicar em **Clear External DPM** no separador **Recovery** do servidor DPM para remover a vista do servidor DPM externo.
 
-    ![Limpar DPM externo](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
+    ![DPM externo claro](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-## <a name="troubleshooting-error-messages"></a>Solucionando problemas de mensagens de erro
+## <a name="troubleshooting-error-messages"></a>Mensagens de erro de resolução de problemas
 
 | Não. | Mensagem de Erro | Passos de resolução de problemas |
 |:---:|:--- |:--- |
-| 1. |Este servidor não está registrado no cofre especificado pela credencial do cofre. |**Causa:** Esse erro aparece quando o arquivo de credencial do cofre selecionado não pertence ao cofre dos serviços de recuperação associado a Servidor de Backup do Azure em que a recuperação é tentada. <br> **Resolução:** Baixe o arquivo de credencial do cofre do cofre dos serviços de recuperação no qual o Servidor de Backup do Azure está registrado. |
-| 2. |Os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM. |**Causa:** Não há nenhum outro servidor de backup do Azure registrado no cofre dos serviços de recuperação ou os servidores ainda não carregaram os metadados, ou o servidor selecionado não é um Servidor de Backup do Azure (usando o Windows Server ou o Windows Client). <br> **Resolução:** Se houver outros servidores de backup do Azure registrados no cofre dos serviços de recuperação, verifique se o agente de backup do Azure mais recente está instalado. <br>Se houver outros servidores de backup do Azure registrados no cofre dos serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno carregará os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
-| 3. |Nenhum outro servidor DPM está registrado neste cofre. |**Causa:** Não há nenhum outro servidor de backup do Azure registrado no cofre do qual a recuperação está sendo tentada.<br>**Resolução:** Se houver outros servidores de backup do Azure registrados no cofre dos serviços de recuperação, verifique se o agente de backup do Azure mais recente está instalado.<br>Se houver outros servidores de backup do Azure registrados no cofre dos serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno carrega os metadados de todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
-| 4. |A senha de criptografia fornecida não corresponde à senha associada ao servidor a seguir: **\<nome do servidor >** |**Causa:** A senha de criptografia usada no processo de criptografar os dados dos dados de Servidor de Backup do Azure que estão sendo recuperados não corresponde à senha de criptografia fornecida. O agente não pode descriptografar os dados. Portanto, a recuperação falhará.<br>**Resolução:** Forneça exatamente a mesma senha de criptografia associada ao Servidor de Backup do Azure cujos dados estão sendo recuperados. |
+| 1. |Este servidor não está registado no cofre especificado pela credencial do cofre. |**Causa:** Este erro aparece quando o ficheiro credencial do cofre selecionado não pertence ao cofre dos Serviços de Recuperação associado ao Servidor de Backup Azure no qual a recuperação é tentada. <br> **Resolução:** Descarregue o ficheiro credencial do cofre do cofre dos Serviços de Recuperação para o qual o Servidor de Backup Azure está registado. |
+| 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM. |**Causa:** Não existem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, ou os servidores ainda não carregaram os metadados, ou o servidor selecionado não é um Servidor de Backup Azure (utilizando o Windows Server ou o Windows Client). <br> **Resolução:** Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, certifique-se de que o mais recente agente de backup Azure está instalado. <br>Se houver outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno irá enviar os metadados para todos os backups protegidos para a nuvem. Os dados estarão disponíveis para recuperação. |
+| 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** Não há outros Servidores de Backup Azure registados no cofre do qual a recuperação está a ser tentada.<br>**Resolução:** Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, certifique-se de que o mais recente agente de backup Azure está instalado.<br>Se houver outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno envia os metadados para todas as cópias de segurança protegidas para a nuvem. Os dados estarão disponíveis para recuperação. |
+| 4. |A frase de encriptação fornecida não corresponde à frase de passe associada ao seguinte servidor: ** \<nome do servidor>** |**Causa:** A frase-passe de encriptação utilizada no processo de encriptação dos dados do Servidor de Backup Azure que está a ser recuperado não corresponde à frase-passe de encriptação fornecida. O agente é incapaz de desencriptar os dados. Daí a recuperação falhar.<br>**Resolução:** Por favor, forneça a mesma frase de encriptação associada ao Servidor de Backup Azure cujos dados estão a ser recuperados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia as outras perguntas frequentes:
+Leia as outras FAQs:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure
-* [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente de backup do Azure
+* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM Azure
+* [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Azure Backup

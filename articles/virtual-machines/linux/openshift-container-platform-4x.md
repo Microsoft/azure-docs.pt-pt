@@ -1,6 +1,6 @@
 ---
-title: Implantar a plataforma de contêiner OpenShift 4. x no Azure
-description: Implante a plataforma de contêiner OpenShift 4. x no Azure.
+title: Implementar plataforma de contentores OpenShift 4.x em Azure
+description: Implemente a Plataforma de Contentores OpenShift 4.x em Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -15,34 +15,34 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 213c02b76f822d134729ebc4c0e6bff40f62089f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035443"
 ---
-# <a name="deploy-openshift-container-platform-4x-in-azure"></a>Implantar a plataforma de contêiner OpenShift 4. x no Azure
+# <a name="deploy-openshift-container-platform-4x-in-azure"></a>Implementar plataforma de contentores OpenShift 4.x em Azure
 
-Agora há suporte para a implantação da OpenShift (plataforma de contêiner) 4,2 no Azure por meio do modelo de IPI (infraestrutura provisionada) do instalador.  A página de aterrissagem para experimentar o OpenShift 4 é [try.openshift.com](https://try.openshift.com/). Para instalar o OCP 4,2 no Azure, visite a página do [Gerenciador de cluster do Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) .  As credenciais do Red Hat são necessárias para acessar este site.
+A implantação da Plataforma de Contentores OpenShift (OCP) 4.2 é agora suportada em Azure através do modelo de Infraestrutura (IPI) de Instalação.  A página de aterragem para experimentar o OpenShift 4 é [try.openshift.com](https://try.openshift.com/). Para instalar o OCP 4.2 em Azure, visite a página Red [Hat OpenShift Cluster Manager.](https://cloud.redhat.com/openshift/install/azure/installer-provisioned)  As credenciais do Chapéu Vermelho são necessárias para aceder a este site.
 
 
 ## <a name="notes"></a>Notas 
 
- - Um SP (entidade de serviço) Azure Active Directory (AAD) é necessário para instalar e executar o OCP 4. x no Azure
-     - O SP deve receber a permissão de API de **Application. ReadWrite. OwnedBy** para o grafo Azure Active Directory
-     - Um Administrador de Locatários do AAD deve conceder consentimento de administrador para que a permissão da API entre em vigor
-     - O SP deve receber as funções **colaborador** e **administrador de acesso do usuário** para a assinatura
- - O modelo de instalação para OCP 4. x é diferente de 3. x e não há modelos de Azure Resource Manager disponíveis para implantar o OCP 4. x no Azure
- - Se forem encontrados problemas durante o processo de instalação, entre em contato com a empresa apropriada (Microsoft ou Red Hat)
+ - Um Diretor Ativo Azure (SP) é obrigado a instalar e executar OCP 4.x em Azure
+     - O SP deve ser concedido a autorização da API de **Application.ReadWrite.OwnedBy** for Azure Ative Directory Graph
+     - Um administrador de inquilino da AAD deve conceder consentimento ao Administrador para esta permissão da API para fazer efeito
+     - O SP deve ser concedido **ao Contribuinte** e ao Administrador de Acesso **ao Utilizador** para a subscrição
+ - O modelo de instalação para OCP 4.x é diferente de 3.x e não existem modelos de Gestor de Recursos Azure disponíveis para a implementação de OCP 4.x em Azure
+ - Se forem encontrados problemas durante o processo de instalação, contacte a empresa adequada (Microsoft ou Red Hat)
 
-| Descrição do problema | Ponto de contato |
+| Descrição do Problema | Ponto de contacto |
 |-------------------|---------------|
-| Problemas específicos do Azure (AAD, SP, assinatura do Azure, etc.)                              | Microsoft |
-| Problemas específicos do OpenShift (falhas de instalação/erros, assinatura do Red Hat, etc.) |  Red Hat  |
+| Questões específicas do Azure (AAD, SP, Assinatura Azure, etc.)                              | Microsoft |
+| Questões específicas do OpenShift (Falhas de instalação/erros, subscrição do Chapéu Vermelho, etc.) |  Red Hat  |
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução à plataforma de contêiner do OpenShift](https://docs.openshift.com)
+- [Começar com plataforma de contentores OpenShift](https://docs.openshift.com)

@@ -1,6 +1,6 @@
 ---
-title: Tipos de conexão de instância gerenciada
-description: Saiba mais sobre os tipos de conexão de instância gerenciada
+title: Tipos de conexão de instância geridos
+description: Saiba mais sobre tipos de conexão de instâncias geridas
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,43 +10,43 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819464"
 ---
-# <a name="azure-sql-database-managed-instance-connection-types"></a>Tipos de conexão de instância gerenciada do banco de dados SQL do Azure
+# <a name="azure-sql-database-managed-instance-connection-types"></a>Base de dados Azure SQL gerido tipos de conexão de instância
 
-Este artigo explica como os clientes se conectam à instância gerenciada do banco de dados SQL do Azure, dependendo do tipo de conexão. Exemplos de script para alterar tipos de conexão são fornecidos abaixo, juntamente com considerações relacionadas à alteração das configurações de conectividade padrão.
+Este artigo explica como os clientes se ligam à Base de Dados Azure SQL gerida em função do tipo de ligação. As amostras de script para alterar os tipos de ligação são fornecidas abaixo, juntamente com considerações relacionadas com a alteração das definições de conectividade padrão.
 
 ## <a name="connection-types"></a>Tipos de ligação
 
-A instância gerenciada do banco de dados SQL do Azure oferece suporte aos seguintes dois tipos de conexão:
+A instância gerida pela Base de Dados Azure SQL suporta os seguintes dois tipos de ligação:
 
-- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade usando o redirecionamento, você deve abrir firewalls e grupos de segurança de rede (NSG) para permitir o acesso nas portas 1433 e 11000-11999. Os pacotes vão diretamente para o banco de dados e, portanto, há melhorias de desempenho de latência e taxa de transferência usando o redirecionamento por proxy.
-- **Proxy (padrão):** Nesse modo, todas as conexões estão usando um componente de gateway de proxy. Para habilitar a conectividade, somente a porta 1433 para redes privadas e a porta 3342 para conexão pública precisam ser abertas. Escolher esse modo pode resultar em latência mais alta e menor taxa de transferência, dependendo da natureza da carga de trabalho. É altamente recomendável a política de conexão de redirecionamento pela política de conexão de proxy para a menor latência e taxa de transferência mais alta.
+- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente ao nó que acolhe a base de dados. Para permitir a conectividade utilizando o redirecionamento, deve abrir firewalls e Grupos de Segurança de Rede (NSG) para permitir o acesso nas portas 1433 e 11000-11999. Os pacotes vão diretamente para a base de dados, pelo que existem melhorias de desempenho de latência e de desempenho de desempenho utilizando o Redirect over Proxy.
+- **Procuração (padrão):** Neste modo, todas as ligações estão a utilizar um componente proxy gateway. Para permitir a conectividade, só é necessário abrir a porta 1433 para redes privadas e porta 3342 para ligação pública. A escolha deste modo pode resultar numa maior latência e menor potência, dependendo da natureza da carga de trabalho. Recomendamos vivamente a política de ligação redirecionamento sobre a política de ligação proxy para a latência mais baixa e a maior dose de entrada.
 
-## <a name="redirect-connection-type"></a>Redirecionar tipo de conexão
+## <a name="redirect-connection-type"></a>Tipo de ligação redireccional
 
-Redirecionar o tipo de conexão significa que, depois que a sessão TCP for estabelecida com o mecanismo do SQL, a sessão do cliente obterá o IP virtual de destino do nó do cluster virtual do balanceador de carga. Os pacotes subsequentes fluem diretamente para o nó do cluster virtual, ignorando o gateway. O diagrama a seguir ilustra esse fluxo de tráfego.
+O tipo de ligação redireccional significa que, após a sessão de TCP ser estabelecida no motor SQL, a sessão de cliente obtém o IP virtual de destino do nó de cluster virtual do equilibrista de carga. Os pacotes subsequentes fluem diretamente para o nó de cluster virtual, contornando o gateway. O diagrama que se segue ilustra este fluxo de tráfego.
 
-![redirect. png](media/sql-database-managed-instance-connection-types/redirect.png)
+![redirecionamento.png](media/sql-database-managed-instance-connection-types/redirect.png)
 
 > [!IMPORTANT]
-> O tipo de conexão de redirecionamento atualmente funciona apenas para o ponto de extremidade privado. Independentemente da configuração do tipo de conexão, as conexões provenientes do ponto de extremidade público seriam por meio de um proxy.
+> O tipo de ligação de redirecionamento funciona atualmente apenas para pontos finais privados. Independentemente da definição do tipo de ligação, as ligações que venham através do ponto final do público seriam através de um proxy.
 
-## <a name="proxy-connection-type"></a>Tipo de conexão de proxy
+## <a name="proxy-connection-type"></a>Tipo de ligação proxy
 
-Tipo de conexão de proxy significa que a sessão TCP é estabelecida usando o gateway e todos os pacotes subsequentes fluem através dele. O diagrama a seguir ilustra esse fluxo de tráfego.
+O tipo de ligação proxy significa que a sessão de TCP é estabelecida utilizando o gateway e todos os pacotes subsequentes fluem através dele. O diagrama que se segue ilustra este fluxo de tráfego.
 
-![proxy. png](media/sql-database-managed-instance-connection-types/proxy.png)
+![proxy.png](media/sql-database-managed-instance-connection-types/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script para alterar as configurações de tipo de conexão usando o PowerShell
+## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script para alterar definições do tipo de ligação usando powerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-O script do PowerShell a seguir mostra como alterar o tipo de conexão de uma instância gerenciada para redirecionar.
+O seguinte script PowerShell mostra como alterar o tipo de ligação para uma instância gerida para Redirecionar.
 
 ```powershell
 Install-Module -Name Az
@@ -66,5 +66,5 @@ $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Restaurar uma base de dados numa instância gerida](sql-database-managed-instance-get-started-restore.md)
-- Saiba como [configurar um ponto de extremidade público na instância gerenciada](sql-database-managed-instance-public-endpoint-configure.md)
-- Saiba mais sobre a [arquitetura de conectividade da instância gerenciada](sql-database-managed-instance-connectivity-architecture.md)
+- Saiba como [configurar um ponto final público em caso gerido](sql-database-managed-instance-public-endpoint-configure.md)
+- Saiba mais sobre a arquitetura de [conectividade de instância gerida](sql-database-managed-instance-connectivity-architecture.md)

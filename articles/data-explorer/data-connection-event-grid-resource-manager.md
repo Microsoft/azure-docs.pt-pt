@@ -1,6 +1,6 @@
 ---
-title: Criar uma conexão de dados de grade de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager
-description: Neste artigo, você aprenderá a criar uma conexão de dados de grade de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager.
+title: Criar uma ligação de dados da Grelha de Eventos para o Explorador de Dados Azure utilizando o modelo do Gestor de Recursos Azure
+description: Neste artigo, aprende-se a criar uma ligação de dados da Rede de Eventos para o Azure Data Explorer utilizando o modelo do Gestor de Recursos do Azure.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,34 +8,34 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: a2e29b9811ab163642e7f65ded584c4889c199db
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74669262"
 ---
-# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Criar uma conexão de dados de grade de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager
+# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Criar uma ligação de dados da Grelha de Eventos para o Explorador de Dados Azure utilizando o modelo do Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-grid.md)
-> * [C#](data-connection-event-grid-csharp.md)
-> * [Python](data-connection-event-grid-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-grid-resource-manager.md)
+> * [C #](data-connection-event-grid-csharp.md)
+> * [Pitão](data-connection-event-grid-python.md)
+> * [Modelo Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB. Neste artigo, você cria uma conexão de dados de grade de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de Centros de Eventos, Hubs IoT e bolhas escritas para recipientes blob. Neste artigo, cria uma ligação de dados da Rede de Eventos para o Azure Data Explorer utilizando o modelo do Gestor de Recursos Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Criar [um cluster e um banco de dados](create-cluster-database-portal.md)
-* Criar [uma tabela e um mapeamento de coluna](ingest-data-event-grid.md#create-a-target-table-in-azure-data-explorer)
-* Criar [um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
-* Crie [uma conta de armazenamento com uma assinatura de grade de eventos](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
+* Criar [um cluster e base de dados](create-cluster-database-portal.md)
+* Criar [um mapeamento de mesa e coluna](ingest-data-event-grid.md#create-a-target-table-in-azure-data-explorer)
+* Criar [um centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Crie uma conta de armazenamento com uma subscrição da Grelha de [Eventos.](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account)
 
-## <a name="azure-resource-manager-template-for-adding-an-event-grid-data-connection"></a>Azure Resource Manager modelo para adicionar uma conexão de dados de grade de eventos
+## <a name="azure-resource-manager-template-for-adding-an-event-grid-data-connection"></a>Modelo de Gestor de Recursos Azure para adicionar uma conexão de dados da Grelha de Eventos
 
-O exemplo a seguir mostra um modelo de Azure Resource Manager para adicionar uma conexão de dados de grade de eventos.  Você pode [Editar e implantar o modelo no portal do Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
+O exemplo seguinte mostra um modelo de Gestor de Recursos Azure para adicionar uma ligação de dados da Grelha de Eventos.  Pode [editar e implantar o modelo no portal Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) utilizando o formulário.
 
 ```json
 {

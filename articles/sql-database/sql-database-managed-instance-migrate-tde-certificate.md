@@ -1,6 +1,6 @@
 ---
-title: Migrar instância gerenciada do certificado TDE
-description: Migrar certificado protegendo a chave de criptografia do banco de dados com Transparent Data Encryption para Instância Gerenciada do Banco de Dados SQL do Azure
+title: Certificado TDE migratório - instância gerida
+description: Migrar certificado que proteja a chave de encriptação da base de dados de uma base de dados com encriptação de dados transparente para a instância gerida pela base de dados Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,15 +12,15 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
 ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74555392"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado do banco de dados protegido TDE para Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado da base de dados protegida por Encriptação de Dados Transparente para a Instância Gerida da Base de Dados SQL do Azure
 
-Ao migrar um banco de dados protegido por [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para instância gerenciada do banco de dados SQL do Azure usando a opção de restauração nativa, o certificado correspondente do SQL Server local ou IaaS precisa ser migrado antes da restauração do banco de dados. Este artigo orienta-o pelo processo de migração manual do certificado para a Instância Gerida da Base de Dados SQL do Azure:
+Ao migrar uma base de dados protegida por [Encriptação transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) de dados para a Base de Dados Azure SQL Gerida por Exemplo utilizando a opção de restauro nativo, o certificado correspondente a partir do local ou IaaS SQL Server precisa de ser migrado antes da restauração da base de dados. Este artigo orienta-o pelo processo de migração manual do certificado para a Instância Gerida da Base de Dados SQL do Azure:
 
 > [!div class="checklist"]
 > * Exportar o certificado para um ficheiro Personal Information Exchange (.pfx)
@@ -30,7 +30,7 @@ Ao migrar um banco de dados protegido por [Transparent Data Encryption](https://
 Para uma opção alternativa através do serviço completamente gerido para uma migração totalmente integrada da base de dados protegida de TDE e do certificado correspondente, veja [Como migrar a base de dados no local para a Instância Gerida com o Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> O certificado migrado é utilizado apenas no restauro da base de dados protegida de TDE. Logo após a conclusão da restauração, o certificado migrado é substituído por um protetor diferente, o certificado gerenciado pelo serviço ou a chave assimétrica do cofre de chaves, dependendo do tipo da criptografia de dados transparente definida na instância.
+> O certificado migrado é utilizado apenas no restauro da base de dados protegida de TDE. Logo após a restauração ser feita, o certificado migrado é substituído por um outro protetor, quer por um certificado gerido pelo serviço, quer pela chave assimétrica do cofre chave, dependendo do tipo de encriptação de dados transparente que definiu na instância.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,26 +39,26 @@ Para executar os passos descritos neste artigo, os seguintes requisitos são nec
 - Ferramenta de linha de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) instalada no servidor no local ou noutro computador com acesso ao certificado exportado como um ficheiro. A ferramenta Pvk2Pfx faz parte do [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), um ambiente de linha de comandos autónomo.
 - Versão 5.0 ou posterior do [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) instalada.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Certifique-se de que tem o seguinte:
 
-- Azure PowerShell módulo [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [Módulo AZ. SQL](https://www.powershellgallery.com/packages/Az.Sql).
+- Módulo Azure PowerShell [instalado e atualizado.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- [Módulo Az.Sql.](https://www.powershellgallery.com/packages/Az.Sql)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
-Execute os seguintes comandos no PowerShell para instalar/atualizar o módulo:
+Executar os seguintes comandos no PowerShell para instalar/atualizar o módulo:
 
 ```azurepowershell
 Install-Module -Name Az.Sql
 Update-Module -Name Az.Sql
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -127,9 +127,9 @@ Se o certificado estiver no arquivo de certificados do computador local do SQL S
 
 4. Siga o assistente para exportar o certificado e a chave privada para o formato Personal Information Exchange
 
-## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Carregar o certificado para Instância Gerenciada do Banco de Dados SQL do Azure usando o cmdlet Azure PowerShell
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Envie certificado para Azure SQL Database Managed Instance usando o cmdlet Azure PowerShell
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Comece pelos passos de preparação no PowerShell:
 
@@ -156,9 +156,9 @@ Se o certificado estiver no arquivo de certificados do computador local do SQL S
        -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Primeiro, você precisa [configurar um Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) com o arquivo *. pfx* .
+Primeiro tens de [montar um Cofre de Chave Azure](/azure/key-vault/key-vault-manage-with-cli2) com o teu ficheiro *.pfx.*
 
 1. Comece pelos passos de preparação no PowerShell:
 
@@ -186,6 +186,6 @@ O certificado está agora disponível para a Instância Gerida especificada e a 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu como migrar o certificado que protege a chave de criptografia do banco de dados com Transparent Data Encryption, do SQL Server de IaaS ou local para Instância Gerenciada do Banco de Dados SQL do Azure.
+Neste artigo, aprendeu a migrar certificado sem chave de encriptação da base de dados com encriptação transparente de dados, desde as instalações ou iaaS SQL Server até à Base de Dados Azure SQL Managed Instance.
 
 Veja [Restaurar uma cópia de segurança da base de dados para uma Instância Gerida da Base de Dados SQL do Azure](sql-database-managed-instance-get-started-restore.md) para saber como restaurar uma cópia de segurança de base de dados para uma Instância Gerida da Base de Dados SQL do Azure.

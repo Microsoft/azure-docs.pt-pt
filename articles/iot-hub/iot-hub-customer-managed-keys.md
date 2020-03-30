@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: asrastog
 ms.openlocfilehash: 609f68c79159c4ce17468fc1df13c0c9eae7f211
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370581"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para IoT Hub

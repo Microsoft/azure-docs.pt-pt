@@ -1,61 +1,61 @@
 ---
 title: Controlos de segurança
-description: Saiba mais sobre os controles de segurança usados no serviço de backup do Azure. Esses controles ajudam o serviço a prevenir, detectar e responder a vulnerabilidades de segurança.
+description: Conheça os controlos de segurança utilizados no serviço de backup Azure. Estes controlos ajudam o serviço a prevenir, detetar e responder a vulnerabilidades de segurança.
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 0e3f5ce942ea8aef9bf5eb98883ae1e72a7ab239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172144"
 ---
-# <a name="security-controls-for-azure-backup"></a>Controles de segurança para o backup do Azure
+# <a name="security-controls-for-azure-backup"></a>Controlos de segurança para backup azure
 
-Este artigo documenta os controles de segurança incorporados ao backup do Azure.
+Este artigo documenta os controlos de segurança incorporados no Azure Backup.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas | Documentação
+| Controlo de segurança | Sim/Não | Notas | Documentação
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Não |  |  |
-| Suporte à injeção de VNet| Não |  |  |
-| Isolamento de rede e suporte de firewall| Sim | O túnel forçado tem suporte para backup de VM. O túnel forçado não tem suporte para cargas de trabalho em execução dentro de VMs. |  |
-| Suporte a túnel forçado| Não |  |  |
+| Suporte final de serviço| Não |  |  |
+| Suporte à injeção VNet| Não |  |  |
+| Isolamento da rede e suporte de firewalling| Sim | O túnel forçado é suportado para reforços VM. A escavação forçada não é suportada para cargas de trabalho dentro de VMs. |  |
+| Apoio de túnel forçado| Não |  |  |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas| | Documentação
+| Controlo de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Há suporte para Log Analytics por meio de logs de recursos. Para obter mais informações, consulte [monitorar cargas de trabalho protegidas de backup do Azure usando o log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as ações disparadas pelo cliente da portal do Azure são registradas em logs de atividades. |  |
-| Log e auditoria do plano de dados| Não | O plano de dados do backup do Azure não pode ser acessado diretamente.  |  |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | O Log Analytics é suportado através de registos de recursos. Para mais informações, consulte o [Monitor Azure Backup com cargas de trabalho protegidas utilizando o Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Registo e auditoria de planos de controlo e gestão| Sim | Todas as ações desencadeadas pelo cliente do portal Azure estão registadas em registos de atividade. |  |
+| Registo e auditoria de planos de dados| Não | O avião de dados azure Backup não pode ser contactado diretamente.  |  |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas| | Documentação
+| Controlo de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|
-| Autenticação| Sim | A autenticação é por meio de Azure Active Directory. |  |
-| Autorização| Sim | As funções RBAC criadas e internas do cliente são usadas. Para obter mais informações, consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](/azure/backup/backup-rbac-rs-vault). |  |
+| Autenticação| Sim | A autenticação é através do Diretório Ativo Azure. |  |
+| Autorização| Sim | São utilizadas funções rBAC criadas e incorporadas. Para mais informações, consulte use o [Controlo de Acesso baseado em funções para gerir os pontos](/azure/backup/backup-rbac-rs-vault)de recuperação de backup do Azure . |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas | | Documentação
+| Controlo de segurança | Sim/Não | Notas | | Documentação
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Usando a criptografia do serviço de armazenamento para contas de armazenamento. |  |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não |  |  |
-| Criptografia em nível de coluna (serviços de dados do Azure)| Não |  |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Não | Usando HTTPS. |  |
-| Chamadas de API criptografadas| Sim |  |  |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | Utilizando encriptação do serviço de armazenamento para contas de armazenamento. |  |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Não |  |  |
+| Encriptação de nível de coluna (Serviços de Dados Azure)| Não |  |  |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Não | Utilizando HTTPS. |  |
+| Chamadas api encriptadas| Sim |  |  |
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas| | Documentação
+| Controlo de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim|  |  |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim|  |  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

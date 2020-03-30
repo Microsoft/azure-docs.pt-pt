@@ -1,6 +1,6 @@
 ---
-title: Fornecer comentários de risco no Azure Active Directory Identity Protection
-description: Como e por que você deve fornecer comentários sobre as detecções de risco da proteção de identidade.
+title: Fornecer feedback de risco na Proteção de Identidade do Diretório Ativo do Azure
+description: Como e por que fornecer feedback sobre deteções de risco de proteção de identidade.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,52 +12,52 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4be8290f12d64f0c556100c63ec159bd414c6fcb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382082"
 ---
-# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Como: fornecer comentários de risco no Azure AD Identity Protection
+# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Como: Dar feedback de risco na Proteção de Identidade Azure AD
 
-Azure AD Identity Protection permite que você forneça comentários sobre sua avaliação de risco. O documento a seguir lista os cenários em que você gostaria de fornecer comentários sobre a avaliação de risco do Azure AD Identity Protection e como incorporá-lo.
+A Azure AD Identity Protection permite-lhe dar feedback sobre a sua avaliação de risco. O documento que se segue enumera os cenários em que pretende dar feedback sobre a avaliação de risco da Azure AD Identity Protection e como a incorporamos.
 
-## <a name="what-is-a-detection"></a>O que é uma detecção?
+## <a name="what-is-a-detection"></a>O que é uma deteção?
 
-Uma detecção de proteção de identidade é um indicador de atividade suspeita de uma perspectiva de risco de identidade. Essas atividades suspeitas são chamadas de detecções de risco. Essas detecções baseadas em identidade podem ser baseadas em heurística, aprendizado de máquina ou podem vir de produtos de parceiros. Essas detecções são usadas para determinar o risco de entrada e o risco do usuário,
+Uma deteção de Proteção de Identidade é um indicador de atividade suspeita do ponto de vista do risco de identidade. Estas atividades suspeitas são chamadas de deteções de risco. Estas deteções baseadas na identidade podem basear-se em heurísticas, machine learning ou podem vir de produtos parceiros. Estas deteções são utilizadas para determinar o risco de inscrição e o risco do utilizador,
 
-* Risco do usuário representa a probabilidade de que uma identidade seja comprometida.
-* O risco de entrada representa a probabilidade de que uma entrada seja comprometida (por exemplo, a entrada não é autorizada pelo proprietário da identidade).
+* O risco do utilizador representa a probabilidade de uma identidade estar comprometida.
+* O risco de entrada representa a probabilidade de um inserido estar comprometido (por exemplo, o inserição não é autorizado pelo proprietário da identidade).
 
-## <a name="why-should-i-give-risk-feedback-to-azure-ads-risk-assessments"></a>Por que devo fornecer comentários de risco às avaliações de risco do Azure AD? 
+## <a name="why-should-i-give-risk-feedback-to-azure-ads-risk-assessments"></a>Por que devo dar feedback de risco às avaliações de risco da Azure AD? 
 
-Há várias razões pelas quais você deve dar aos comentários de risco do Azure AD:
+Existem várias razões pelas quais deve dar feedback de risco da AD Azure:
 
-- **Você encontrou a avaliação de risco de entrada ou de usuário do Azure ad incorreta**. Por exemplo, uma entrada mostrada no relatório ' entradas arriscadas ' foi benigna e todas as detecções nessa entrada eram falsos positivos.
-- **Você validou que o usuário do Azure ad ou a avaliação de risco de entrada estava correta**. Por exemplo, uma entrada mostrada no relatório "entradas arriscadas" foi realmente mal-intencionada e você quer que o Azure AD saiba que todas as detecções nessa entrada eram positivas.
-- **Você corrigiu o risco nesse usuário fora do Azure ad Identity Protection** e deseja que o nível de risco do usuário seja atualizado.
+- **Encontrou o utilizador da Azure AD ou a avaliação de risco de entrada incorreta**. Por exemplo, um registo apresentado no relatório "Sign-ins de risco" era benigno e todas as deteções desse registo eram falsos positivos.
+- **Validou que o utilizador da Azure AD ou a avaliação de risco de entrada estava correta.** Por exemplo, um sessão de inscrição mostrado no relatório "Sign-ins arriscado" foi de facto malicioso e quer que a AD Azure saiba que todas as deteções nesse sign-in eram verdadeiramente positivas.
+- **Remedia o risco para esse utilizador fora da Proteção de Identidade Azure AD** e pretende que o nível de risco do utilizador seja atualizado.
 
-## <a name="how-does-azure-ad-use-my-risk-feedback"></a>Como o AD do Azure usa meus comentários de risco?
+## <a name="how-does-azure-ad-use-my-risk-feedback"></a>Como é que o Azure AD usa o meu feedback de risco?
 
-O Azure AD usa seus comentários para atualizar o risco do usuário subjacente e/ou de entrada e a precisão desses eventos. Esses comentários ajudam a proteger o usuário final. Por exemplo, depois de confirmar que uma entrada está comprometida, o Azure AD aumenta imediatamente o risco de entrada e o risco agregado do usuário (não risco em tempo real) para alta. Se esse usuário estiver incluído na sua política de risco de usuário para forçar os usuários de alto risco a redefinir suas senhas com segurança, o usuário se corrigirá automaticamente na próxima vez que entrar.
+A Azure AD utiliza o seu feedback para atualizar o risco do utilizador subjacente e/ou o início de sessão e a precisão destes eventos. Este feedback ajuda a proteger o utilizador final. Por exemplo, uma vez que confirma que um inserido está comprometido, o Azure AD aumenta imediatamente o risco do utilizador e o risco agregado de entrada (não risco em tempo real) para High. Se este utilizador estiver incluído na sua política de risco de utilizador para forçar os utilizadores de alto risco a reporem as suas palavras-passe de forma segura, o utilizador remediar-se-á automaticamente da próxima vez que iniciar sessão.
 
-## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>Como devo dar comentários sobre os riscos e o que acontece nos bastidores?
+## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>Como devo dar feedback de risco e o que acontece debaixo do capot?
 
-Aqui estão os cenários e mecanismos para fornecer comentários de risco ao Azure AD.
+Aqui estão os cenários e mecanismos para dar feedback de risco à AD Azure.
 
-| Cenário | Como fornecer comentários? | O que acontece nos bastidores? | Notas |
+| Cenário | Como dar feedback? | O que acontece debaixo do capuz? | Notas |
 | --- | --- | --- | --- |
-| **Entrada não comprometida (falso positivo)** <br> O relatório ' entradas arriscadas ' mostra uma entrada de risco (estado de risco = em risco), mas essa entrada não foi comprometida. | Selecione a entrada e clique em "confirmar segurança de entrada". | O Azure AD moverá o risco agregado da entrada para nenhum [estado de risco = confirmado seguro; Nível de risco (agregação) =-] e reverterá seu impacto no risco do usuário. | Atualmente, a opção ' confirmar segurança de entrada ' só está disponível no relatório ' entradas arriscadas '. |
-| **Entrada comprometida (verdadeiro positivo)** <br> O relatório ' entradas arriscadas ' mostra uma entrada de risco (estado de risco = em risco) com baixo risco [nível de risco (agregado) = baixo] e essa entrada foi realmente comprometida. | Selecione a entrada e clique em ' confirmar a entrada comprometida '. | O Azure AD moverá o risco agregado da entrada e o risco do usuário para alta [estado do risco = confirmado comprometido; Nível de risco = alto]. | Atualmente, a opção ' confirmar entrada comprometida ' só está disponível no relatório ' entradas arriscadas '. |
-| **Usuário comprometido (verdadeiro positivo)** <br> O relatório ' usuários arriscados ' mostra um usuário em risco [risco estado = em risco] com baixo risco [nível de risco = baixo] e esse usuário foi realmente comprometido. | Selecione o usuário e clique em ' confirmar o usuário comprometido '. | O Azure AD moverá o risco do usuário para alta [estado do risco = confirmado comprometido; Nível de risco = alto] e adicionará uma nova detecção ' o usuário confirmou ' comprometido ' do administrador. | Atualmente, a opção ' confirmar o usuário comprometido ' só está disponível no relatório ' usuários arriscados '. <br> A detecção ' o usuário confirmado do administrador comprometido ' é mostrada na guia ' detecções de risco não vinculadas a uma entrada ' no relatório ' usuários arriscados '. |
-| **Usuário corrigido fora do Azure AD Identity Protection (verdadeiro positivo + corrigido)** <br> O relatório ' usuários arriscados ' mostra um usuário de risco e, posteriormente, corrigi o usuário fora do Azure AD Identity Protection. | 1. Selecione o usuário e clique em ' confirmar o usuário comprometido '. (Esse processo confirma ao Azure AD que o usuário foi realmente comprometido.) <br> 2. Aguarde até que o ' nível de risco ' do usuário vá para alta. (Esse tempo dá ao Azure AD o tempo necessário para obter os comentários acima para o mecanismo de risco.) <br> 3. Selecione o usuário e clique em ' ignorar risco do usuário '. (Esse processo confirma ao Azure AD que o usuário não está mais comprometido.) |  O Azure AD move o risco do usuário para nenhum [estado do risco = ignorado; Nível de risco =-] e fecha o risco em todas as entradas existentes com risco ativo. | Clicar em ' ignorar risco do usuário ' fechará todo o risco do usuário e das entradas passadas. Esta ação não pode ser desfeita. |
-| **Usuário não comprometido (falso positivo)** <br> O relatório ' usuários arriscados ' mostra o usuário em risco, mas o usuário não está comprometido. | Selecione o usuário e clique em "ignorar risco do usuário". (Esse processo confirma ao Azure AD que o usuário não está comprometido.) | O Azure AD move o risco do usuário para nenhum [estado do risco = ignorado; Nível de risco =-]. | Clicar em ' ignorar risco do usuário ' fechará todo o risco do usuário e das entradas passadas. Esta ação não pode ser desfeita. |
-| Quero fechar o risco do usuário, mas não tenho certeza se o usuário está comprometido ou seguro. | Selecione o usuário e clique em "ignorar risco do usuário". (Esse processo confirma ao Azure AD que o usuário não está mais comprometido.) | O Azure AD move o risco do usuário para nenhum [estado do risco = ignorado; Nível de risco =-]. | Clicar em ' ignorar risco do usuário ' fechará todo o risco do usuário e das entradas passadas. Esta ação não pode ser desfeita. Recomendamos que você corrija o usuário clicando em ' Redefinir senha ' ou solicite que o usuário redefina/altere suas credenciais com segurança. |
+| **Inscreveu-se não comprometido (Falso positivo)** <br> O relatório "Risk sign-ins" mostra um sinal de risco [Estado de risco = em risco] mas esse inscreveu-se não foi comprometido. | Selecione o sessão e clique em 'Confirmar o cofre de sessão'. | A Azure AD irá mover o risco agregado do sign-in para nenhum [Estado de risco = Confirmado seguro; Nível de risco (Agregado) = -] e inverterá o seu impacto no risco do utilizador. | Atualmente, a opção "Confirmar o "confirmar o "cofre de inscrição" só está disponível no relatório "Sign-ins de risco". |
+| **Inado comprometido (Verdadeiro positivo)** <br> O relatório 'Risk sign-ins' mostra um sinal de risco [Estado de risco = Em risco] com baixo risco [Nível de risco (agregado) = Baixo] e que o inscreveu foi de facto comprometido. | Selecione o sessão e clique em 'Confirmar o sessão comprometido'. | A Azure AD moverá o risco agregado do sign-in e o risco do utilizador para o Alto [Estado de Risco = Confirmado comprometido; Nível de risco = Alto]. | Atualmente, a opção "Confirmar o compromisso de inscrição" só está disponível no relatório "Sign-ins de risco". |
+| **Utilizador comprometido (Verdadeiro positivo)** <br> O relatório 'Utilizadores de risco' mostra um utilizador em risco [Estado de risco = Em risco] com baixo risco [nível de risco = baixo] e esse utilizador foi de facto comprometido. | Selecione o utilizador e clique em 'Confirmar o utilizador comprometido'. | A Azure AD moverá o risco do utilizador para alto [estado de risco = Confirmado comprometido; Nível de risco = Alto] e adicionará uma nova deteção 'Admin confirmed user comprometido'. | Atualmente, a opção "Confirmar o utilizador comprometido" só está disponível no relatório "Utilizadores de Risco". <br> A deteção "Admin confirmed user comprometido" é indicada no separador "Deteções de risco não ligadas a um insessão" no relatório "Utilizadores de risco". |
+| **Utilizador remediado fora da Proteção de Identidade Azure AD (True positive + Remediado)** <br> O relatório «Utilizadores de risco» mostra um utilizador em risco e remediar o utilizador fora da Proteção de Identidade da Azure AD. | 1. Selecione o utilizador e clique em "Confirmar o utilizador comprometido". (Este processo confirma à Azure AD que o utilizador estava de facto comprometido.) <br> 2. Aguarde que o "nível de risco" do utilizador vá para o Alto. (Desta vez dá ao Azure AD o tempo necessário para levar o feedback acima para o motor de risco.) <br> 3. Selecione o utilizador e clique em "Descartar o risco do utilizador". (Este processo confirma à Azure AD que o utilizador já não está comprometido.) |  A Azure AD move o risco do utilizador para nenhum [Estado de risco = Dispensado; Nível de risco = -] e fecha o risco em todos os sign-ins existentes com risco ativo. | Clicar em "Descartar o risco do utilizador" irá fechar todos os riscos no utilizador e nos anteriores sign-ins. Esta ação não pode ser desfeita. |
+| **Utilizador não comprometido (Falso positivo)** <br> O relatório «Utilizadores de risco» mostra o utilizador em risco, mas o utilizador não está comprometido. | Selecione o utilizador e clique em "Descartar o risco do utilizador". (Este processo confirma à Azure AD que o utilizador não está comprometido.) | A Azure AD move o risco do utilizador para nenhum [Estado de risco = Dispensado; Nível de risco = -]. | Clicar em "Descartar o risco do utilizador" irá fechar todos os riscos no utilizador e nos anteriores sign-ins. Esta ação não pode ser desfeita. |
+| Quero colmatar o risco do utilizador, mas não sei se o utilizador está comprometido/seguro. | Selecione o utilizador e clique em "Descartar o risco do utilizador". (Este processo confirma à Azure AD que o utilizador já não está comprometido.) | A Azure AD move o risco do utilizador para nenhum [Estado de risco = Dispensado; Nível de risco = -]. | Clicar em "Descartar o risco do utilizador" irá fechar todos os riscos no utilizador e nos anteriores sign-ins. Esta ação não pode ser desfeita. Recomendamos que reamediar o utilizador clicando em 'Reset password' ou solicite ao utilizador que repor/alterar de forma segura as suas credenciais. |
 
-Os comentários sobre as detecções de riscos do usuário no Identity Protection são processados offline e podem levar algum tempo para serem atualizados. A coluna Estado de processamento de risco fornecerá o estado atual do processamento de comentários.
+O feedback sobre as deteções de risco do utilizador na Proteção de Identidade é processado offline e pode demorar algum tempo a ser atualizado. A coluna estatal de processamento de risco fornecerá o estado atual de processamento de feedback.
 
-![Estado de processamento de risco para relatório de usuário arriscado](./media/howto-identity-protection-risk-feedback/risky-users-provide-feedback.png)
+![Estado de processamento de risco para relatório de utilizador arriscado](./media/howto-identity-protection-risk-feedback/risky-users-provide-feedback.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Referência de detecções de Azure Active Directory Identity Protection de risco](risk-events-reference.md)
+- [Referência de deteção de risco de deteção de risco de proteção de identidade de diretório ativo Azure](risk-events-reference.md)

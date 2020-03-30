@@ -1,34 +1,34 @@
 ---
-title: Usando o valor de retorno de uma função do Azure
-description: Saiba como gerenciar valores de retorno para Azure Functions
+title: Utilização do valor de retorno de uma Função Azure
+description: Aprenda a gerir os valores de retorno para funções azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74480581"
 ---
-# <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
+# <a name="using-the-azure-function-return-value"></a>Utilização do valor de retorno da Função Azure
 
 Este artigo explica como os valores de retorno funcionam dentro de uma função.
 
-Em idiomas que têm um valor de retorno, você pode associar uma [Associação de saída](./functions-triggers-bindings.md#binding-direction) de função ao valor de retorno:
+Em idiomas que tenham um valor de retorno, pode ligar uma [função](./functions-triggers-bindings.md#binding-direction) de saída que ligue ao valor de retorno:
 
-* Em uma C# biblioteca de classes, aplique o atributo de associação de saída ao valor de retorno do método.
-* Em Java, aplique a anotação de associação de saída ao método de função.
-* Em outros idiomas, defina a propriedade `name` em *Function. JSON* como `$return`.
+* Numa biblioteca de classe C#, aplique o atributo de ligação de saída ao valor de retorno do método.
+* Em Java, aplique a anotação de ligação de saída ao método da função.
+* Em outras línguas, coloque a `name` propriedade em *função.json* para `$return`.
 
-Se houver várias associações de saída, use o valor de retorno para apenas uma delas.
+Se existirem várias encadernações de saída, utilize o valor de devolução para apenas uma delas.
 
-No C# e C# script, maneiras alternativas de enviar dados para uma associação de saída são `out` parâmetros e [objetos do coletor](functions-reference-csharp.md#writing-multiple-output-values).
+No script C# e C#, formas alternativas `out` de enviar dados para uma ligação de saída são parâmetros e [objetos de coleção](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Aqui está C# o código que usa o valor de retorno para uma associação de saída, seguido por um exemplo assíncrono:
+Aqui está o código C# que usa o valor de retorno para uma ligação de saída, seguido de um exemplo de sincronização:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -52,9 +52,9 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Aqui está a ligação de saída no ficheiro *função.json:*
 
 ```json
 {
@@ -65,7 +65,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-Este é o C# código de script, seguido por um exemplo de Async:
+Aqui está o código de script C#, seguido por um exemplo asincronizado:
 
 ```cs
 public static string Run(WorkItem input, ILogger log)
@@ -85,9 +85,9 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
+# <a name="f"></a>[F#](#tab/fsharp)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Aqui está a ligação de saída no ficheiro *função.json:*
 
 ```json
 {
@@ -98,7 +98,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-Aqui está o F# código:
+Aqui está o código F#:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -107,9 +107,9 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Aqui está a ligação de saída no ficheiro *função.json:*
 
 ```json
 {
@@ -120,7 +120,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-No JavaScript, o valor de retorno vai no segundo parâmetro para `context.done`:
+No JavaScript, o valor de devolução `context.done`vai no segundo parâmetro para:
 
 ```javascript
 module.exports = function (context, input) {
@@ -130,9 +130,9 @@ module.exports = function (context, input) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Aqui está a ligação de saída no ficheiro *função.json:*
 
 ```json
 {
@@ -142,7 +142,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
     "path": "output-container/{id}"
 }
 ```
-Este é o código Python:
+Aqui está o código Python:
 
 ```python
 def main(input: azure.functions.InputStream) -> str:
@@ -153,9 +153,9 @@ def main(input: azure.functions.InputStream) -> str:
     })
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Aqui está o código Java que usa o valor de retorno para uma associação de saída:
+Aqui está o código Java que usa o valor de devolução para uma ligação de saída:
 
 ```java
 @FunctionName("QueueTrigger")
@@ -176,4 +176,4 @@ public static String run(
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Manipular erros de associação de Azure Functions](./functions-bindings-errors.md)
+> [Manipular funções azure erros de ligação](./functions-bindings-errors.md)

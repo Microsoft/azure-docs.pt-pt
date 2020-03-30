@@ -1,7 +1,7 @@
 ---
-title: Referência do operador de comparação de OData
+title: Referência do operador de comparação OData
 titleSuffix: Azure Cognitive Search
-description: Sintaxe e documentação de referência para usar operadores de comparação OData (EQ, ne, gt, lt, GE e Le) no Azure Pesquisa Cognitiva consultas.
+description: Sintaxe e documentação de referência para a utilização de operadores de comparação OData (eq, ne, gt, lt, ge e le) em consultas de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,36 +20,36 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113219"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure Pesquisa Cognitiva-`eq`, `ne`, `gt`, `lt`, `ge`e `le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>OData comparando operadores `eq`em `ne` `gt`Pesquisa `lt` `ge`Cognitiva Azure - , , ,`le`
 
-A operação mais básica em uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis – comparação de igualdade e comparação de intervalo. Você pode usar os seguintes operadores para comparar um campo com um valor constante:
+A operação mais básica numa expressão de [filtro OData](query-odata-filter-orderby-syntax.md) em Pesquisa Cognitiva Azure é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis: comparação de igualdade e comparação de faixas. Pode utilizar os seguintes operadores para comparar um campo com um valor constante:
 
 Operadores de igualdade:
 
-- `eq`: testar se um campo é **igual a** um valor constante
-- `ne`: testar se um campo **não é igual a** um valor constante
+- `eq`: Testar se um campo é **igual a** um valor constante
+- `ne`: Testar se um campo não é **igual a** um valor constante
 
-Operadores de intervalo:
+Operadores de gama:
 
-- `gt`: testar se um campo é **maior que** um valor constante
-- `lt`: testar se um campo é **menor que** um valor constante
-- `ge`: testar se um campo é **maior ou igual a** um valor constante
-- `le`: testar se um campo é **menor ou igual a** um valor constante
+- `gt`: Testar se um campo é **maior do que** um valor constante
+- `lt`: Testar se um campo é **inferior** a um valor constante
+- `ge`: Testar se um campo é **maior ou igual a** um valor constante
+- `le`: Testar se um campo é **inferior ou igual a** um valor constante
 
-Você pode usar os operadores de intervalo em combinação com os [operadores lógicos](search-query-odata-logical-operators.md) para testar se um campo está dentro de um determinado intervalo de valores. Consulte os [exemplos](#examples) mais adiante neste artigo.
+Pode utilizar os operadores de gama em combinação com os [operadores lógicos](search-query-odata-logical-operators.md) para testar se um campo se encontra dentro de uma determinada gama de valores. Veja os [exemplos](#examples) mais tarde neste artigo.
 
 > [!NOTE]
-> Se preferir, você pode colocar o valor constante no lado esquerdo do operador e o nome do campo no lado direito. Para operadores de intervalo, o significado da comparação é invertido. Por exemplo, se o valor constante estiver à esquerda, `gt` testaria se o valor constante é maior que o campo. Você também pode usar os operadores de comparação para comparar o resultado de uma função, como `geo.distance`, com um valor. Para funções booleanas como `search.ismatch`, comparar o resultado a `true` ou `false` é opcional.
+> Se preferir, pode colocar o valor constante no lado esquerdo do operador e o nome de campo no lado direito. Para os operadores de gama, o significado da comparação é invertido. Por exemplo, se o valor constante `gt` estiver à esquerda, testaria se o valor constante é maior do que o campo. Também pode utilizar os operadores de comparação `geo.distance`para comparar o resultado de uma função, como, por exemplo, com um valor. Para funções booleanas como `search.ismatch`, `true` comparar `false` o resultado com ou é opcional.
 
 ## <a name="syntax"></a>Sintaxe
 
-O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores de comparação.
+O seguinte EBNF ([Formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que utiliza os operadores de comparação.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -66,54 +66,54 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
+> [Diagrama de sintaxe OData para pesquisa cognitiva azure](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
+> Consulte a [referência sintaxe de expressão OData para a Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-Há duas formas de expressões de comparação. A única diferença entre eles é se a constante aparece no lado esquerdo ou direito do operador. A expressão no outro lado do operador deve ser uma **variável** ou uma chamada de função. Uma variável pode ser um nome de campo ou uma variável de intervalo no caso de uma [expressão lambda](search-query-odata-collection-operators.md).
+Há duas formas de comparação. A única diferença entre eles é se a constante aparece no lado esquerdo ou direito do operador. A expressão do outro lado do operador deve ser uma **variável** ou uma chamada de função. Uma variável pode ser um nome de campo, ou uma variável de gama no caso de uma [expressão lambda](search-query-odata-collection-operators.md).
 
 ## <a name="data-types-for-comparisons"></a>Tipos de dados para comparações
 
-Os tipos de dados em ambos os lados de um operador de comparação devem ser compatíveis. Por exemplo, se o lado esquerdo é um campo do tipo `Edm.DateTimeOffset`, o lado direito deve ser uma constante de data e hora. Os tipos de dados numéricos são mais flexíveis. Você pode comparar variáveis e funções de qualquer tipo numérico com constantes de qualquer outro tipo numérico, com algumas limitações, conforme descrito na tabela a seguir.
+Os tipos de dados de ambos os lados de um operador de comparação devem ser compatíveis. Por exemplo, se o lado esquerdo `Edm.DateTimeOffset`for um campo de tipo, então o lado direito deve ser uma constante de data-hora. Os tipos de dados numéricos são mais flexíveis. Pode comparar variáveis e funções de qualquer tipo numérico com constantes de qualquer outro tipo numérico, com algumas limitações, conforme descrito na tabela seguinte.
 
-| Variável ou tipo de função | Tipo de valor constante | Limitações |
+| Tipo variável ou de função | Tipo de valor constante | Limitações |
 | --- | --- | --- |
-| `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais para `NaN`](#special-case-nan) |
-| `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double`, resultando em uma perda de precisão para valores de grande magnitude |
+| `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais para `NaN` ](#special-case-nan) |
+| `Edm.Double` | `Edm.Int64` | A constante `Edm.Double`é convertida para, resultando numa perda de precisão para valores de grande magnitude |
 | `Edm.Double` | `Edm.Int32` | n/d |
-| `Edm.Int64` | `Edm.Double` | Comparações com `NaN`, `-INF`ou `INF` não são permitidas |
+| `Edm.Int64` | `Edm.Double` | Comparações `NaN` `-INF`com, `INF` ou não são permitidas |
 | `Edm.Int64` | `Edm.Int64` | n/d |
-| `Edm.Int64` | `Edm.Int32` | A constante é convertida em `Edm.Int64` antes da comparação |
-| `Edm.Int32` | `Edm.Double` | Comparações com `NaN`, `-INF`ou `INF` não são permitidas |
+| `Edm.Int64` | `Edm.Int32` | A constante `Edm.Int64` é convertida antes da comparação |
+| `Edm.Int32` | `Edm.Double` | Comparações `NaN` `-INF`com, `INF` ou não são permitidas |
 | `Edm.Int32` | `Edm.Int64` | n/d |
 | `Edm.Int32` | `Edm.Int32` | n/d |
 
-Para comparações que não são permitidas, como comparar um campo do tipo `Edm.Int64` como `NaN`, a API REST do Azure Pesquisa Cognitiva retornará um erro "HTTP 400: solicitação inválida".
+Para comparações que não são permitidas, `Edm.Int64` como `NaN`comparar um campo de tipo com, a API de pesquisa cognitiva Azure devolverá um erro "HTTP 400: Mau Pedido".
 
 > [!IMPORTANT]
-> Embora as comparações de tipo numérico sejam flexíveis, é altamente recomendável escrever comparações em filtros para que o valor constante seja do mesmo tipo de dados que a variável ou função à qual ele está sendo comparado. Isso é especialmente importante ao misturar valores inteiros e de ponto flutuante, em que conversões implícitas que perdem precisão são possíveis.
+> Embora as comparações de tipo numérico sejam flexíveis, recomendamos vivamente comparações de escrita em filtros para que o valor constante seja do mesmo tipo de dados que a variável ou função com que está a ser comparado. Isto é especialmente importante quando se misturam valores flutuantes e inteiros, onde são possíveis conversões implícitas que perdem precisão.
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Casos especiais para `null` e `NaN`
+### <a name="special-cases-for-null-and-nan"></a>Casos `null` especiais para e`NaN`
 
-Ao usar operadores de comparação, é importante lembrar que todos os campos que não são de coleção no Azure Pesquisa Cognitiva potencialmente podem ser `null`. A tabela a seguir mostra todos os resultados possíveis para uma expressão de comparação em que um dos lados pode ser `null`:
+Ao utilizar operadores de comparação, é importante lembrar que todos os `null`campos não-coletores em Pesquisa Cognitiva Azure podem potencialmente ser . A tabela que se segue mostra todos os resultados `null`possíveis para uma expressão de comparação em que qualquer um dos lados pode ser:
 
-| Operador | Resultado quando apenas o campo ou variável é `null` | Resultado quando apenas a constante for `null` | Resultado quando o campo ou a variável e a constante são `null` |
+| Operador | Resultado quando apenas o campo ou variável é`null` | Resultado quando apenas a constante é`null` | Resultado quando tanto o campo ou variável e a constante são`null` |
 | --- | --- | --- | --- |
-| `gt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
-| `lt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
-| `ge` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
-| `le` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
+| `gt` | `false` | HTTP 400: Erro de pedido de mau pedido | HTTP 400: Erro de pedido de mau pedido |
+| `lt` | `false` | HTTP 400: Erro de pedido de mau pedido | HTTP 400: Erro de pedido de mau pedido |
+| `ge` | `false` | HTTP 400: Erro de pedido de mau pedido | HTTP 400: Erro de pedido de mau pedido |
+| `le` | `false` | HTTP 400: Erro de pedido de mau pedido | HTTP 400: Erro de pedido de mau pedido |
 | `eq` | `false` | `false` | `true` |
 | `ne` | `true` | `true` | `false` |
 
-Em resumo, `null` é igual apenas a si mesmo e não é menor ou maior que qualquer outro valor.
+Em resumo, `null` é igual apenas a si mesmo, e não é menos ou maior do que qualquer outro valor.
 
-Se o índice tiver campos do tipo `Edm.Double` e você carregar valores de `NaN` para esses campos, será necessário considerar isso ao gravar filtros. O Azure Pesquisa Cognitiva implementa o padrão IEEE 754 para lidar com valores de `NaN` e as comparações com esses valores produzem resultados não óbvios, conforme mostrado na tabela a seguir.
+Se o seu índice `Edm.Double` tiver `NaN` campos de tipo e fizer o upload de valores para esses campos, terá de ter em conta isso ao escrever filtros. A Azure Cognitive Search implementa a norma IEEE 754 para manipular `NaN` valores, e comparações com tais valores produzem resultados não óbvios, como mostra a tabela seguinte.
 
-| Operador | Resultado quando pelo menos um operando for `NaN` |
+| Operador | Resultado quando pelo menos um operand é`NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -126,37 +126,37 @@ Em resumo, `NaN` não é igual a qualquer valor, incluindo a si mesmo.
 
 ### <a name="comparing-geo-spatial-data"></a>Comparando dados geoespaciais
 
-Não é possível comparar diretamente um campo do tipo `Edm.GeographyPoint` com um valor constante, mas você pode usar a função `geo.distance`. Essa função retorna um valor do tipo `Edm.Double`, para que você possa compará-la com uma constante numérica para filtrar com base na distância das coordenadas geoespaciais constantes. Consulte os [exemplos](#examples) abaixo.
+Não se pode comparar diretamente `Edm.GeographyPoint` um campo de tipo com `geo.distance` um valor constante, mas pode utilizar a função. Esta função devolve `Edm.Double`um valor de tipo, para que possa compará-la com uma constante numérica para filtrar com base na distância de coordenadas geo-espaciais constantes. Veja os [exemplos](#examples) abaixo.
 
-### <a name="comparing-string-data"></a>Comparando dados de cadeia de caracteres
+### <a name="comparing-string-data"></a>Comparar dados de cordas
 
-As cadeias de caracteres podem ser comparadas em filtros para correspondências exatas usando os operadores `eq` e `ne`. Essas comparações diferenciam maiúsculas de minúsculas.
+As cordas podem ser comparadas em filtros para correspondências exatas utilizando os `eq` e `ne` os operadores. Estas comparações são sensíveis aos casos.
 
 ## <a name="examples"></a>Exemplos
 
-Corresponder documentos em que o campo de `Rating` está entre 3 e 5, inclusive:
+Combine documentos `Rating` onde o campo é entre 3 e 5, inclusive:
 
     Rating ge 3 and Rating le 5
 
-Corresponder documentos em que o campo de `Location` é menor que 2 quilômetros de uma determinada latitude e Longitude:
+Combine documentos `Location` onde o campo fica a menos de 2 km da latitude e longitude dada:
 
     geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
 
-Corresponder documentos em que o campo de `LastRenovationDate` é maior ou igual a 1º de janeiro de 2015, meia-noite UTC:
+Documentos de `LastRenovationDate` correspondência em que o campo é maior ou igual a 1 de janeiro de 2015, meia-noite UTC:
 
     LastRenovationDate ge 2015-01-01T00:00:00.000Z
 
-Corresponder documentos em que o campo de `Details/Sku` não é `null`:
+Documentos de `Details/Sku` correspondência `null`onde o campo não é:
 
     Details/Sku ne null
 
-Corresponder documentos para hotéis em que pelo menos uma sala tem o tipo "sala de luxo", em que a cadeia de caracteres do campo `Rooms/Type` corresponde exatamente ao filtro:
+Combine documentos para hotéis onde pelo menos um quarto tem `Rooms/Type` o tipo "Quarto Deluxe", onde a cadeia do campo corresponde exatamente ao filtro:
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
+- [Visão geral da linguagem de expressão OData para pesquisa cognitiva azure](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
+- [Documentos de pesquisa &#40;pesquisa cognitiva azure REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

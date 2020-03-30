@@ -1,6 +1,6 @@
 ---
-title: Referência do mecanismo de regras padrão para a CDN do Azure | Microsoft Docs
-description: Documentação de referência para condições de correspondência e ações no mecanismo de regras padrão para a rede de distribuição de conteúdo do Azure (CDN do Azure).
+title: Regras padrão referência do motor para Azure CDN [ Microsoft Docs
+description: Documentação de referência para condições de correspondência e ações no motor de regras Standard para a Rede de Entrega de Conteúdos Azure (Azure CDN).
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,63 +8,63 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171569"
 ---
-# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras padrão para a CDN do Azure
+# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Regras padrão referência do motor para Azure CDN
 
-No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a rede de distribuição de conteúdo do Azure (CDN do Azure), uma regra consiste em uma ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de correspondência e recursos que estão disponíveis no mecanismo de regras padrão para a CDN do Azure.
+No [motor standard regras](cdn-standard-rules-engine.md) para a Rede de Entrega de Conteúdos Azure (Azure CDN), uma regra consiste em uma ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições e características da correspondência que estão disponíveis no motor standard regras para O CDN Azure.
 
-O mecanismo de regras foi projetado para ser a autoridade final sobre como tipos específicos de solicitações são processados pela CDN do Azure padrão.
+O motor de regras foi concebido para ser a autoridade final sobre como tipos específicos de pedidos são processados pela Standard Azure CDN.
 
-**Usos comuns para as regras**:
+**Utilizações comuns para as regras:**
 
-- Substituir ou definir uma política de cache Personalizada.
-- Redirecionar solicitações.
-- Modificar cabeçalhos de solicitação e resposta HTTP.
+- Anular ou definir uma política de cache personalizada.
+- Redirecionamento de pedidos.
+- Modificar os cabeçalhos de pedido e resposta http.
 
 ## <a name="terminology"></a>Terminologia
 
-Para definir uma regra no mecanismo de regras, defina [condições de correspondência](cdn-standard-rules-engine-match-conditions.md) e [ações](cdn-standard-rules-engine-actions.md):
+Para definir uma regra no motor de regras, defina condições e [ações](cdn-standard-rules-engine-actions.md) [de correspondência:](cdn-standard-rules-engine-match-conditions.md)
 
- ![Estrutura de regras da CDN do Azure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
+ ![Estrutura de regras do CDN Azure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Cada regra pode ter até quatro condições de correspondência e três ações. Cada ponto de extremidade da CDN do Azure pode ter até cinco regras. 
+Cada regra pode ter até quatro condições de jogo e três ações. Cada ponto final do Azure CDN pode ter até cinco regras. 
 
-Incluído no limite de cinco regras atual para um ponto de extremidade da CDN do Azure é uma *regra global*padrão. A regra global não tem condições de correspondência e as ações definidas em uma regra global sempre são disparadas.
+Incluído no atual limite de cinco regras para um ponto final de CDN Azure é uma *regra global*padrão . A regra global não tem condições de correspondência, e as ações que são definidas numa regra global sempre desencadeiam.
 
 ## <a name="syntax"></a>Sintaxe
 
-A forma como os caracteres especiais são tratados em uma regra varia de acordo com a forma como as condições de correspondência e as ações diferentes manipulam valores de texto. Uma condição de correspondência ou ação pode interpretar o texto de uma das seguintes maneiras:
+A forma como os caracteres especiais são tratados numa regra varia com base na forma como diferentes condições de correspondência e ações lidam com valores de texto. Uma condição ou ação de correspondência pode interpretar texto de uma das seguintes formas:
 
 - [Valores literais](#literal-values)
-- [Valores curinga](#wildcard-values)
+- [Valores wildcard](#wildcard-values)
 
 
 ### <a name="literal-values"></a>Valores literais
 
-O texto que é interpretado como um valor literal trata todos os caracteres especiais *, exceto o símbolo%* , como parte do valor que deve ser correspondido em uma regra. Por exemplo, uma condição de correspondência literal definida como `'*'` é satisfeita somente quando o valor exato `'*'` é encontrado.
+O texto que é interpretado como um valor literal trata todos os caracteres especiais exceto *o símbolo %* como parte do valor que deve ser igualado numa regra. Por exemplo, uma condição `'*'` de correspondência literal definida `'*'` só é satisfeita quando o valor exato é encontrado.
 
-Um sinal de porcentagem é usado para indicar a codificação de URL (por exemplo, `%20`).
+Um sinal por cento é usado para `%20`indicar codificação de URL (por exemplo, ).
 
-### <a name="wildcard-values"></a>Valores curinga
+### <a name="wildcard-values"></a>Valores wildcard
 
-O texto que é interpretado como um valor de caractere curinga atribui significado adicional a caracteres especiais. A tabela a seguir descreve como os caracteres especiais específicos são interpretados no mecanismo de regras padrão:
+Texto que é interpretado como um valor wildcard atribui significado adicional a caracteres especiais. A tabela que se segue descreve como caracteres especiais específicos são interpretados no motor de regras Standard:
 
 Caráter | Descrição
 ----------|------------
-\ | Uma barra invertida é usada para escapar qualquer um dos caracteres especificados nesta tabela. Uma barra invertida deve ser especificada diretamente antes do caractere especial que deve ter escape. Por exemplo, a sintaxe a seguir escapa um asterisco: `\*`
-% | Um sinal de porcentagem é usado para indicar a codificação de URL (por exemplo, `%20`).
-\* | Um asterisco é um caractere curinga que representa um ou mais caracteres.
-disco | Um caractere de espaço indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
-aspas simples | Uma aspa simples não tem significado especial. No entanto, um conjunto de aspas simples indica que um valor deve ser tratado como um valor literal. Aspas simples podem ser usadas das seguintes maneiras:<ul><li>Para permitir que uma condição de correspondência seja satisfeita sempre que o valor especificado corresponder a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cadeias de caracteres: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Para permitir que um caractere especial seja especificado como um caractere literal. Por exemplo, você pode especificar um caractere de espaço literal ao colocar um caractere de espaço em um conjunto de aspas simples (`' '` ou `'<sample value>'`).</li><li>Para permitir que um valor em branco seja especificado. Especifique um valor em branco especificando um conjunto de aspas simples ( **' '** ).</li></ul>**Importante**:<br /><ul><li>Se o valor especificado não contiver um caractere curinga, o valor será automaticamente considerado um valor literal. Você não precisa especificar um conjunto de aspas simples para um valor literal.</li><li>Se uma barra invertida não for usada para escapar de outro caractere nesta tabela, a barra invertida será ignorada quando for especificada em um conjunto de aspas simples.</li><li>Outra maneira de especificar um caractere especial como um caractere literal é fazer o escape dele usando uma barra invertida (`\`).</li></ul>
+\ | Um backslash é usado para escapar de qualquer um dos caracteres especificados nesta tabela. Uma barra de costas deve ser especificada diretamente antes do carácter especial que deve ser escapado. Por exemplo, a seguinte sintaxe escapa a um asterisco:`\*`
+% | Um sinal por cento é usado para `%20`indicar codificação de URL (por exemplo, ).
+\* | Um asterisco é um wildcard que representa um ou mais caracteres.
+espaço | Um caracteres espaciais indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
+únicas aspas | Uma única marca de citação não tem um significado especial. No entanto, um conjunto de marcas únicas indica que um valor deve ser tratado como um valor literal. As aspas únicas podem ser utilizadas das seguintes formas:<ul><li>Para permitir que uma condição de jogo seja satisfeita sempre que o valor especificado corresponda a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cordas: <ul><li>/negócios/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/negócio/modelo. **ma**p</li></ul><li>Para permitir que um personagem especial seja especificado como um personagem literal. Por exemplo, pode especificar um personagem de espaço literal, encerrando um`' '` `'<sample value>'`personagem espacial num conjunto de únicas marcas de aspas (ou).</li><li>Para permitir especificar um valor em branco. Especifique um valor em branco especificando um conjunto de marcas únicas **(»).**</li></ul>**Importante:**<br /><ul><li>Se o valor especificado não contiver um wildcard, o valor é automaticamente considerado um valor literal. Não é necessário especificar um conjunto de aspas únicas para um valor literal.</li><li>Se um backslash não é usado para escapar a outro personagem nesta mesa, o backslash é ignorado quando é especificado num conjunto de aspas únicas.</li><li>Outra forma de especificar um personagem especial como um personagem`\`literal é escapar-lhe usando um backslash ( ).</li></ul>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Condições de correspondência no mecanismo de regras padrão](cdn-standard-rules-engine-match-conditions.md)
-- [Ações no mecanismo de regras padrão](cdn-standard-rules-engine-actions.md)
-- [Impor o HTTPS usando o mecanismo de regras padrão](cdn-standard-rules-engine.md)
-- [Visão geral da CDN do Azure](cdn-overview.md)
+- [Condições de jogo no motor de regras Standard](cdn-standard-rules-engine-match-conditions.md)
+- [Ações no motor standard regras](cdn-standard-rules-engine-actions.md)
+- [Impor HTTPS com o Motor de regras standard](cdn-standard-rules-engine.md)
+- [Visão geral do CDN azure](cdn-overview.md)

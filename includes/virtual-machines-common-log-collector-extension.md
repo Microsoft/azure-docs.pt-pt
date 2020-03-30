@@ -5,54 +5,54 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74085268"
 ---
-O diagnóstico de problemas com um serviço de nuvem Microsoft Azure requer a coleta de arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. Você pode usar a extensão AzureLogCollector sob demanda para executar uma coleção única de logs de uma ou mais VMs de serviço de nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem fazer logon remotamente em nenhum das VMs.
+Diagnosticar problemas com um serviço de nuvem Microsoft Azure requer a recolha dos ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode utilizar a extensão AzureLogCollector a pedido para efetuar uma coleção única de registos de um ou mais VMs de serviço em nuvem (tanto de funções web como de funções de trabalhador) e transferir os ficheiros recolhidos para uma conta de armazenamento Azure – tudo sem iniciar sessão remota mente em qualquer dos VMs.
 
 > [!NOTE]
-> As descrições para a maioria das informações registradas podem ser encontradas em https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> Descrições para a maioria das informações registadas podem ser encontradas emhttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
-Há dois modos de coleta dependentes dos tipos de arquivos a serem coletados.
+Existem dois modos de recolha dependentes dos tipos de ficheiros a recolher.
 
-* **Somente logs do agente convidado do Azure (GA)** . Esse modo de coleta inclui todos os logs relacionados aos agentes convidados do Azure e outros componentes do Azure.
-* **Todos os logs (completo)** . Este modo de coleta coleta todos os arquivos no modo GA mais:
+* **Registos apenas do Agente Convidado Azure (GA)**. Este modo de recolha inclui todos os registos relacionados com agentes convidados do Azure e outros componentes Azure.
+* **Todos os Registos (Completos)**. Este modo de recolha recolhe todos os ficheiros no modo GA mais:
   
-  * logs de eventos do sistema e do aplicativo
-  * Logs de erros de HTTP
+  * registos de eventos de sistema e aplicação
+  * Registos de erros HTTP
   * Registos do IIS
-  * Logs de instalação
-  * outros logs do sistema
+  * Registos de configuração
+  * outros registos do sistema
 
-Em ambos os modos de coleta, pastas de coleta de dados adicionais podem ser especificadas usando uma coleção da seguinte estrutura:
+Em ambos os modos de recolha, podem ser especificadas pastas adicionais de recolha de dados utilizando uma recolha da seguinte estrutura:
 
-* **Nome**: o nome da coleção, usado como o nome da subpasta dentro do arquivo zip com os arquivos coletados.
-* **Local**: o caminho para a pasta na máquina virtual onde os arquivos a serem coletados estão localizados.
-* **SearchPattern**: o padrão dos nomes de arquivos a serem coletados. O padrão é "\*"
-* **Recursivo**: se os arquivos a serem coletados estiverem localizados recursivamente sob o local especificado.
+* **Nome**: O nome da coleção, utilizado como nome da subpasta no interior do ficheiro zip com os ficheiros recolhidos.
+* **Localização**: O caminho para a pasta na máquina virtual onde estão localizados os ficheiros a recolher.
+* **Padrão**de pesquisa : O padrão dos nomes dos ficheiros a recolher. Padrão é\*"
+* **Recursivo:** se os ficheiros a recolher forem localizados recursivamente sob a localização especificada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-* Ter uma conta de armazenamento para a extensão para salvar os arquivos zip gerados.
-* Azure PowerShell. Consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
+* Dispor de uma conta de armazenamento para extensão para guardar ficheiros zip gerados.
+* Azure PowerShell. Consulte [a instalação do PowerShell Azure](/powershell/azure/install-az-ps)para obter instruções de instalação.
 
 ## <a name="add-the-extension"></a>Adicionar a extensão
-Você pode usar cmdlets [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [APIs REST de gerenciamento de serviço](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
+Pode utilizar cmdlets [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [ASAP DE GESTÃO](https://msdn.microsoft.com/library/ee460799.aspx) DE Serviços PARA adicionar a extensão AzureLogCollector.
 
-Para serviços de nuvem, o cmdlet do Azure PowerShell existente, **set-AzureServiceExtension**, pode ser usado para habilitar a extensão em instâncias de função de serviço de nuvem. Sempre que essa extensão é habilitada por meio desse cmdlet, a coleta de log é disparada nas instâncias de função selecionadas das funções selecionadas.
+Para os Serviços cloud, o atual cmdlet Azure Powershell, **Set-AzureServiceExtension,** pode ser utilizado para permitir a extensão em instâncias de função de Serviço cloud. Sempre que esta extensão é ativada através deste cmdlet, a recolha de registos é ativada nas instâncias de funções selecionadas.
 
-Para máquinas virtuais, o cmdlet do Azure PowerShell existente, **set-AzureVMExtension**, pode ser usado para habilitar a extensão em máquinas virtuais. Sempre que essa extensão é habilitada por meio dos cmdlets, a coleta de log é disparada em cada instância.
+Para máquinas virtuais, o cmdlet Azure Powershell existente, **Set-AzureVMExtension,** pode ser utilizado para ativar a extensão em Máquinas Virtuais. Sempre que esta extensão é ativada através dos cmdlets, a recolha de registos é ativada em cada instância.
 
-Internamente, essa extensão usa o PublicConfiguration e o PrivateConfiguration baseados em JSON. A seguir está o layout de um exemplo de JSON para configuração pública e privada.
+Internamente, esta extensão utiliza a Configuração Pública baseada em JSON e configuração privada. Segue-se a disposição de uma amostra JSON para configuração pública e privada.
 
-### <a name="publicconfiguration"></a>PublicConfiguration
+### <a name="publicconfiguration"></a>Configuração Pública
 
 ```json
 {
@@ -77,7 +77,7 @@ Internamente, essa extensão usa o PublicConfiguration e o PrivateConfiguration 
 }
 ```
 
-### <a name="privateconfiguration"></a>PrivateConfiguration
+### <a name="privateconfiguration"></a>Configuração Privada
 
 ```json
 {
@@ -86,15 +86,15 @@ Internamente, essa extensão usa o PublicConfiguration e o PrivateConfiguration 
 ```
 
 > [!NOTE]
-> Essa extensão não precisa de **privateConfiguration**. Você pode fornecer apenas uma estrutura vazia para o argumento **– PrivateConfiguration** .
+> Esta extensão não precisa de **configuração privada.** Pode apenas fornecer uma estrutura vazia para o argumento **de Configuração Privada.**
 > 
 > 
 
-Você pode seguir uma das duas etapas a seguir para adicionar o AzureLogCollector a uma ou mais instâncias de um serviço de nuvem ou máquina virtual de funções selecionadas, que dispara as coleções em cada VM para executar e enviar os arquivos coletados para a conta do Azure especificada.
+Pode seguir um dos dois passos seguintes para adicionar o AzureLogCollector a uma ou mais instâncias de um Serviço cloud ou máquina virtual de funções selecionadas, o que desencadeia as coleções em cada VM para executar e enviar os ficheiros recolhidos para a conta Azure especificada.
 
 ## <a name="adding-as-a-service-extension"></a>Adicionando como uma extensão de serviço
-1. Siga as instruções para se conectar Azure PowerShell à sua assinatura.
-2. Especifique o nome do serviço, o slot, as funções e as instâncias de função aos quais você deseja adicionar e habilitar a extensão AzureLogCollector.
+1. Siga as instruções para ligar o Azure PowerShell à sua subscrição.
+2. Especifique o nome de serviço, slot, funções e exemplos de funções a que pretende adicionar e ativar a extensão AzureLogCollector.
 
    ```powershell
    #Specify your cloud service name
@@ -113,7 +113,7 @@ Você pode seguir uma das duas etapas a seguir para adicionar o AzureLogCollecto
    $mode = "GA"
    ```
 
-3. Especifique a pasta de dados adicional para a qual os arquivos serão coletados (essa etapa é opcional).
+3. Especifique a pasta de dados adicional para a qual os ficheiros serão recolhidos (este passo é opcional).
 
    ```powershell
    #add one location
@@ -129,23 +129,23 @@ Você pode seguir uma das duas etapas a seguir para adicionar o AzureLogCollecto
    ```
 
    > [!NOTE]
-   > Você pode usar o token `%roleroot%` para especificar a unidade raiz da função, pois ela não usa uma unidade fixa.
+   > Pode usar token `%roleroot%` para especificar a unidade de raiz de função, uma vez que não utiliza uma unidade fixa.
    > 
    > 
-4. Forneça o nome da conta de armazenamento do Azure e a chave para a qual os arquivos coletados serão carregados.
+4. Forneça o nome da conta de armazenamento Azure e a chave para a qual serão enviados ficheiros recolhidos.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-5. Chame o SetAzureServiceLogCollector. ps1 (incluído no final do artigo) da seguinte maneira para habilitar a extensão AzureLogCollector para um serviço de nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Ligue para o SetAzureServiceLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão AzureLogCollector para um Serviço cloud. Uma vez concluída a execução, pode encontrar o ficheiro carregado em`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
    ```powershell
    .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
    ```
 
-A seguir está a definição dos parâmetros passados para o script. (Isso também é copiado abaixo.)
+Segue-se a definição dos parâmetros passados para o guião. (Isto também é copiado abaixo.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -177,14 +177,14 @@ param (
 )
 ```
 
-* **ServiceName: o**nome do serviço de nuvem.
-* **Roles**: uma lista de funções, como "WebRole1" ou "WorkerRole1".
-* **Instances**: uma lista de nomes de instâncias de função separadas por vírgula – use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
-* **Slot**: nome do slot. "Produção" ou "preparo".
-* **Modo**: modo de coleta. "Completo" ou "GA".
-* **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
-* **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **Nome do serviço**: O seu nome de serviço na nuvem.
+* Funções : Uma lista de **funções,** tais como "WebRole1" ou "WorkerRole1".
+* **Instâncias**: Uma lista dos nomes de exemplos separados por vírina -- use a corda wildcard ("*") para todas as instâncias de papéis.
+* **Ranhura**: Nome de ranhura. "Produção" ou "Encenação".
+* **Modo**: Modo de recolha. "Cheio" ou "GA".
+* **StorageAccountName**: Nome da conta de armazenamento Azure para armazenar dados recolhidos.
+* **StorageAccountKey:** Nome da chave da conta de armazenamento Azure.
+* Lista adicional de Localização de **Dataritas**: Uma lista da seguinte estrutura:
 
   ```powershell
   {
@@ -195,10 +195,10 @@ param (
   }
   ```
 
-## <a name="adding-as-a-vm-extension"></a>Adicionando como uma extensão de VM
-Siga as instruções para se conectar Azure PowerShell à sua assinatura.
+## <a name="adding-as-a-vm-extension"></a>Adicionando como extensão VM
+Siga as instruções para ligar o Azure PowerShell à sua subscrição.
 
-1. Especifique o nome do serviço, a VM e o modo de coleta.
+1. Especifique o nome de serviço, VM e o modo de recolha.
 
    ```powershell
    #Specify your cloud service name
@@ -224,16 +224,16 @@ Siga as instruções para se conectar Azure PowerShell à sua assinatura.
         #more locations can be added....
    ```
   
-2. Forneça o nome da conta de armazenamento do Azure e a chave para a qual os arquivos coletados serão carregados.
+2. Forneça o nome da conta de armazenamento Azure e a chave para a qual serão enviados ficheiros recolhidos.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-3. Chame o Setazureservicelogcollector. ps1 (incluído no final do artigo) da seguinte maneira para habilitar a extensão AzureLogCollector para um serviço de nuvem. Quando a execução for concluída, você poderá encontrar o arquivo carregado em `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Ligue para setAzureVMLogCollector.ps1 (incluído no final do artigo) da seguinte forma para ativar a extensão AzureLogCollector para um Serviço cloud. Uma vez concluída a execução, pode encontrar o ficheiro carregado em`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-A seguir está a definição dos parâmetros passados para o script. (Isso também é copiado abaixo.)
+Segue-se a definição dos parâmetros passados para o guião. (Isto também é copiado abaixo.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -259,12 +259,12 @@ param (
 )
 ```
 
-* **ServiceName: o**nome do serviço de nuvem.
-* **VMName**: o nome da VM.
-* **Modo**: modo de coleta. "Completo" ou "GA".
-* **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
-* **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **Nome do serviço**: O seu nome de serviço na nuvem.
+* **VMName**: O nome do VM.
+* **Modo**: Modo de recolha. "Cheio" ou "GA".
+* **StorageAccountName**: Nome da conta de armazenamento Azure para armazenar dados recolhidos.
+* **StorageAccountKey:** Nome da chave da conta de armazenamento Azure.
+* Lista adicional de Localização de **Dataritas**: Uma lista da seguinte estrutura:
 
   ```
   {
@@ -275,7 +275,7 @@ param (
   }
   ```
 
-## <a name="extention-powershell-script-files"></a>Arquivos de script do PowerShell de extensão
+## <a name="extention-powershell-script-files"></a>Ficheiros de script sinuoso powershell de extensão
 ### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
 ```powershell
@@ -527,5 +527,5 @@ else
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora você pode examinar ou copiar os logs de um local simples.
+Agora pode examinar ou copiar os seus registos de um local simples.
 

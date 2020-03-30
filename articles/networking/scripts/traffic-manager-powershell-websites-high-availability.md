@@ -1,6 +1,6 @@
 ---
-title: Rotear o tráfego para HA de aplicativos-Azure PowerShell-Gerenciador de tráfego
-description: Azure PowerShell amostra de script – rotear o tráfego para alta disponibilidade de aplicativos
+title: Tráfego de rotas para HA de aplicações - Azure PowerShell - Traffic Manager
+description: Amostra de script Azure PowerShell - Tráfego de rota para alta disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -13,15 +13,15 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74049241"
 ---
-# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Rotear o tráfego para alta disponibilidade de aplicativos-Azure PowerShell
+# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Tráfego de rota para alta disponibilidade de aplicações - Azure PowerShell
 
-Esse script cria um grupo de recursos, dois planos do serviço de aplicativo, dois aplicativos Web, um perfil do Gerenciador de tráfego e dois pontos de extremidade do Gerenciador de tráfego. O Gerenciador de tráfego direciona o tráfego para o aplicativo em uma região como a região primária e para a região secundária quando o aplicativo na região primária está indisponível. Antes de executar o script, você deve alterar os valores de myWebApp, MyWebAppL1 e MyWebAppL2 para valores exclusivos no Azure. Depois de executar o script, você pode acessar o aplicativo na região primária com a URL mywebapp.trafficmanager.net.
+Este script cria um grupo de recursos, dois planos de serviço de aplicações, duas aplicações web, um perfil de gestor de tráfego e dois pontos finais do gestor de tráfego. O Gestor de Tráfego direciona o tráfego para a aplicação numa região como a região primária, e para a região secundária quando a aplicação na região primária não está disponível. Antes de executar o script, tem de alterar os valores MyWebApp, MyWebAppL1 e MyWebAppL2 para valores únicos em todo o Azure. Depois de executar o script, pode aceder à aplicação na região primária com o URL mywebapp.trafficmanager.net.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
@@ -49,10 +49,10 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. Isso é como um farm de servidores para seu aplicativo Web do Azure. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo Web do Azure dentro do plano do serviço de aplicativo. |
-| [Set-AzResource](/powershell/module/az.resources/new-azresource) | Cria um aplicativo Web do Azure dentro do plano do serviço de aplicativo. |
-| [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Cria um perfil do Gestor de Tráfego do Azure. |
+| [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. Isto é como uma quinta de servidores para a sua aplicação web Azure. |
+| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
+| [Set-AzResource](/powershell/module/az.resources/new-azresource) | Cria uma aplicação web Azure dentro do plano de Serviço de Aplicações. |
+| [Perfil new-AzTrafficManager](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,6 +1,6 @@
 ---
-title: limpeza de trabalhos do azcopy | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando de limpeza de trabalhos do azcopy.
+title: azcopy jobs clean [ Microsoft Docs
+description: Este artigo fornece informações de referência para o comando limpo de trabalhos de azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7ae14c3606dfe6bffa8481682843f3f2e85c2131
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033728"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
-Remover todos os arquivos de log e de plano de todos os trabalhos
+Remova todos os ficheiros de registo e plano para todos os trabalhos
 
 ```
 azcopy jobs clean [flags]
@@ -26,9 +26,9 @@ azcopy jobs clean [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -38,16 +38,16 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Opções
 
-**-h,--ajuda**                Ajuda para limpar.
+**-h, --ajuda**                Ajuda para limpar.
 
-**--with-status** a cadeia de caracteres remove apenas os trabalhos com esse status, valores disponíveis: cancelado, concluído, falha, InProgress, todos (padrão "todos")
+**-com** a cadeia de estatuto apenas remova os postos de trabalho com este estatuto, valores disponíveis: Cancelado, Concluído, Falhado, InProgress, Tudo (padrão "All")
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
-**--Cap-Mbps UInt32**      Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
+**--cap-mbps uint32**      Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.
 
-**--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
+**-formato** de cadeia do tipo de saída da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto". ("texto por defeito")
 
 ## <a name="see-also"></a>Consulte também
 
-- [trabalhos do azcopy](storage-ref-azcopy-jobs.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)

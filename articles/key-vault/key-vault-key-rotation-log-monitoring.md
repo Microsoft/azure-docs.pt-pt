@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218404"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Cofre chave Azure com rotação de chaves e auditoria
@@ -115,7 +115,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-No seu código de aplicação, crie uma classe para manter o método para a autenticação do Seu Diretório Ativo Azure. Neste exemplo, essa classe chama-se **Utils**. Adicione a seguinte declaração `using`:
+No seu código de aplicação, crie uma classe para manter o método para a autenticação do Seu Diretório Ativo Azure. Neste exemplo, essa classe chama-se **Utils**. Adicione a `using` seguinte declaração:
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -140,7 +140,7 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Adicione o código necessário para ligar para o Cofre chave e recuperar o seu valor secreto. Em primeiro lugar, deve adicionar a seguinte declaração `using`:
+Adicione o código necessário para ligar para o Cofre chave e recuperar o seu valor secreto. Em primeiro lugar, `using` deve adicionar a seguinte declaração:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
@@ -159,7 +159,7 @@ Quando executar a sua aplicação, deverá agora autenticar o Diretório Ativo A
 ## <a name="key-rotation-using-azure-automation"></a>Rotação de chaves utilizando a Automação Azure
 
 > [!IMPORTANT]
-> Os livros de execução da Azure Automation ainda requerem a utilização do módulo `AzureRM`.
+> Os livros de execução da `AzureRM` Azure Automation ainda requerem a utilização do módulo.
 
 Está agora pronto para estabelecer uma estratégia de rotação para os valores que armazena como segredos do Cofre Chave. Os segredos podem ser rodados de várias formas:
 
@@ -261,14 +261,14 @@ O próximo passo é [criar uma fila azure service bus.](../service-bus-messaging
 
 1. Crie um espaço de nome de ônibus de serviço (se já tem um que deseja usar, salte para o passo 2).
 2. Navegue na instância do Ônibus de serviço no portal Azure e selecione o espaço de nome sinuoso em que pretende criar a fila.
-3. Selecione **Criar um recurso** > Enterprise **Integration** > **Service Bus,** e depois introduza os detalhes necessários.
+3. Selecione Criar um**ônibus**de serviço de**integração** > empresarial de **recursos,** > e depois introduza os detalhes necessários.
 4. Encontre as informações de ligação do Ônibus de serviço selecionando o espaço de nome e, em seguida, selecionando informações de **ligação**. Vai precisar desta informação para a próxima secção.
 
 Em seguida, [crie uma função Azure](../azure-functions/functions-create-first-azure-function.md) para sondar os registos do cofre chave dentro da conta de armazenamento e recolher novos eventos. Esta função será ativada num horário.
 
 Para criar uma aplicação de função Azure, selecione **Criar um recurso,** pesquisar no mercado para **app de função**, e, em seguida, selecione **Criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Também pode optar por hospedagem dinâmica. Para obter mais informações sobre as opções de hospedagem para funções Azure, consulte [Como escalar as Funções Azure](../azure-functions/functions-scale.md).
 
-Depois da aplicação de função Azure ser criada, vá até ela e selecione o cenário **temporizador** e **C\#** para o idioma. Em seguida, **selecione Criar esta função**.
+Depois da aplicação de função Azure ser criada, vá até ela e selecione o cenário **temporizador** e **\# C** para o idioma. Em seguida, **selecione Criar esta função**.
 
 ![Funções Azure Iniciar lâmina](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -413,9 +413,9 @@ Adicione um ficheiro chamado project.json com o seguinte conteúdo:
 
 Depois de selecionar **Save,** as Funções Azure descarregarão os binários necessários.
 
-Mude para o separador **Integração** e dê ao parâmetro temporizador um nome significativo para utilizar dentro da função. No código anterior, a função espera que o temporizador seja chamado *de myTimer*. Especifique uma [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) para o temporizador da seguinte forma: `0 * * * * *`. Esta expressão fará com que a função funcione uma vez por minuto.
+Mude para o separador **Integração** e dê ao parâmetro temporizador um nome significativo para utilizar dentro da função. No código anterior, a função espera que o temporizador seja chamado *de myTimer*. Especifique uma [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) `0 * * * * *`para o temporizador da seguinte forma: . Esta expressão fará com que a função funcione uma vez por minuto.
 
-No mesmo separador **Integração,** adicione uma entrada do tipo **de armazenamento Azure Blob**. Esta entrada irá apontar para o ficheiro sync.txt que contém o carimbo de tempo do último evento analisado pela função. Esta entrada será acedida dentro da função utilizando o nome do parâmetro. No código anterior, a entrada de armazenamento do Blob Azure espera que o nome do parâmetro seja *inputBlob*. Selecione a conta de armazenamento onde o ficheiro sync.txt será localizado (pode ser a mesma ou uma conta de armazenamento diferente). No campo de caminho, forneça o caminho para o ficheiro no formato `{container-name}/path/to/sync.txt`.
+No mesmo separador **Integração,** adicione uma entrada do tipo **de armazenamento Azure Blob**. Esta entrada irá apontar para o ficheiro sync.txt que contém o carimbo de tempo do último evento analisado pela função. Esta entrada será acedida dentro da função utilizando o nome do parâmetro. No código anterior, a entrada de armazenamento do Blob Azure espera que o nome do parâmetro seja *inputBlob*. Selecione a conta de armazenamento onde o ficheiro sync.txt será localizado (pode ser a mesma ou uma conta de armazenamento diferente). No campo de caminho, forneça o caminho `{container-name}/path/to/sync.txt`para o ficheiro no formato .
 
 Adicione uma saída do tipo **de armazenamento Azure Blob**. Esta saída irá apontar para o ficheiro sync.txt definido na entrada. Esta saída é utilizada pela função para escrever o carimbo de tempo do último evento analisado. O código anterior espera que este parâmetro seja chamado *outputBlob*.
 
@@ -425,7 +425,7 @@ A função está agora pronta. Certifique-se de voltar a mudar para o separador 
 
 Em seguida, você deve criar uma aplicação lógica Azure que capte os eventos que a função está empurrando para a fila service Bus, analisa o conteúdo, e envia um e-mail com base numa condição que está sendo correspondida.
 
-[Crie uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) selecionando **Criar um recurso** > **Integração** > **Lógica App.**
+[Crie uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) selecionando Criar uma**Aplicação Lógica**de**Integração** > de **Recursos.** > 
 
 Depois da aplicação lógica ser criada, vá até ela e **selecione Editar**. No editor de aplicações lógica, selecione **Service Bus Queue** e introduza as credenciais do Ônibus de serviço para ligá-la à fila.
 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/13/2020
 ms.author: victorh
 ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79366279"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a Pré-visualização do Gestor de Firewall do Azure?
@@ -29,7 +29,7 @@ O Firewall Manager pode fornecer gestão de segurança para dois tipos de arquit
 
    Esta é uma rede virtual azure padrão que você cria e gere. Quando as políticas de segurança são associadas a tal hub, é referida como uma *rede virtual hub*. Neste momento, apenas a Política de Firewall Azure é apoiada. Pode peer-spoke redes virtuais que contêm os seus servidores e serviços de carga de trabalho. Também pode gerir firewalls em redes virtuais autónomas que não são espreitadas por qualquer fala.
 
-Para uma comparação detalhada de *arquiteturas de rede virtual e hub seguras,* veja quais são as opções de [arquitetura Azure Firewall Manager?](vhubs-and-vnets.md)
+Para uma comparação detalhada *hub virtual network* de *arquiteturas de rede virtual e hub seguras,* veja quais são as opções de [arquitetura Azure Firewall Manager?](vhubs-and-vnets.md)
 
 ![firewall-manager](media/overview/firewallmanagerv5.png)
 
@@ -80,14 +80,14 @@ A Pré-visualização do Gestor de Firewall Azure tem os seguintes problemas con
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-|Limitações de filtragem de terceiros.|A filtragem de tráfego V2I com fornecedores de terceiros não é suportada com o Azure Firewall B2V e V2V.|Investigação|
+|Limitações de filtragem de terceiros.|A filtragem de tráfego V2I com fornecedores de terceiros não é suportada com o Azure Firewall B2V e V2V.|A investigar|
 |O trânsito não está atualmente a ser suportado.|O Office 365 e o Azure Public PaaS não são atualmente apoiados. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|Investigando o trânsito a dividir-se no centro.
 |Um centro virtual seguro por região.|Não se pode ter mais do que um centro virtual seguro por região.|Crie múltiplas WANs virtuais numa região.|
-|As políticas de base devem estar na mesma região que a política local.|Crie todas as suas políticas locais na mesma região que a política de base. Ainda se pode aplicar uma política criada numa região num centro seguro de outra região.|Investigação|
-|Comunicação inter-hub não funciona ndo com o Secured Virtual Hub|O Centro Virtual Seguro para a comunicação Secured Virtual Hub ainda não é suportado.|Investigação|
+|As políticas de base devem estar na mesma região que a política local.|Crie todas as suas políticas locais na mesma região que a política de base. Ainda se pode aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
+|Comunicação inter-hub não funciona ndo com o Secured Virtual Hub|O Centro Virtual Seguro para a comunicação Secured Virtual Hub ainda não é suportado.|A investigar|
 |Todos os Centros Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Centros Wan Virtuais hoje.|Crie vários WANs virtuais para permitir a criação de centros virtuais seguros em diferentes grupos de recursos.|
 |Os grupos IP não são apoiados na Política de Firewall.|Os grupos IP estão em pré-visualização pública e atualmente apenas suportados com as regras tradicionais de firewall.|Correção em curso.
-|As subscrições do Cloud Solution Provider (CSP) não foram suportadas.|Atualmente, as [subscrições de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) não são suportadas.|Investigação
+|As subscrições do Cloud Solution Provider (CSP) não foram suportadas.|Atualmente, as [subscrições de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) não são suportadas.|A investigar
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Suporte a WebSocket no gateway Aplicativo Azure
-description: O Gateway de Aplicação fornece suporte nativo para o WebSocket em todos os tamanhos de gateway. Não há configurações definidas pelo usuário.
+title: Suporte WebSocket no Gateway de Aplicação Azure
+description: O Gateway de Aplicação fornece suporte nativo para o WebSocket em todos os tamanhos de gateway. Não existem definições configuráveis pelo utilizador.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
@@ -8,31 +8,31 @@ services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74130341"
 ---
-# <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte ao WebSocket no gateway de aplicativo
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte webSocket no Gateway da aplicação
 
 O Gateway de Aplicação fornece suporte nativo para o WebSocket em todos os tamanhos de gateway. Não existe qualquer definição configurável pelo utilizador para ativar ou desativar seletivamente o suporte de WebSocket. 
 
-O protocolo WebSocket padronizado no [RFC6455](https://tools.ietf.org/html/rfc6455) permite uma comunicação duplex completa entre um servidor e um cliente em uma conexão TCP de longa execução. Esse recurso permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional sem a necessidade de sondagem conforme necessário em implementações baseadas em HTTP. WebSocket tem baixa sobrecarga ao contrário de HTTP e pode reutilizar a mesma conexão TCP para várias solicitações/respostas, resultando em uma utilização mais eficiente dos recursos. Os protocolos WebSocket são projetados para funcionar em portas HTTP tradicionais de 80 e 443.
+O protocolo WebSocket normalizado no [RFC6455](https://tools.ietf.org/html/rfc6455) permite uma comunicação duplex completa entre um servidor e um cliente sobre uma ligação TCP de longa duração. Esta funcionalidade permite uma comunicação mais interativa entre o servidor web e o cliente, que pode ser bidirecional sem a necessidade de sondagens, conforme exigido nas implementações baseadas em HTTP. WebSocket tem sobrecargas baixas ao contrário de HTTP e pode reutilizar a mesma ligação TCP para múltiplos pedidos/respostas, resultando numa utilização mais eficiente dos recursos. Os protocolos WebSocket são projetados para trabalhar sobre as portas tradicionais HTTP de 80 e 443.
 
-Você pode continuar usando um ouvinte HTTP padrão na porta 80 ou 443 para receber o tráfego WebSocket. O tráfego WebSocket é então direcionado para o servidor back-end habilitado para WebSocket usando o pool de back-end apropriado conforme especificado nas regras do gateway de aplicativo. O servidor back-end deve responder às investigações do gateway de aplicativo, que são descritas na seção [visão geral da investigação de integridade](application-gateway-probe-overview.md) . As investigações de integridade do gateway de aplicativo são somente HTTP/HTTPS. Cada servidor de back-end deve responder a investigações HTTP do gateway de aplicativo para rotear o tráfego do WebSocket para o servidor.
+Pode continuar a utilizar um ouvinte HTTP padrão na porta 80 ou 443 para receber o tráfego WebSocket. O tráfego webSocket é então direcionado para o servidor de backend ativado pela WebSocket utilizando o pool de backend apropriado, conforme especificado nas regras de gateway da aplicação. O servidor backend deve responder às sondas de gateway da aplicação, que são descritas na secção de visão geral da sonda de [saúde.](application-gateway-probe-overview.md) As sondas de saúde gateway de aplicação são apenas HTTP/HTTPS. Cada servidor backend deve responder às sondas HTTP para o gateway da aplicação para direcionar o tráfego WebSocket para o servidor.
 
-Ele é usado em aplicativos que se beneficiam da comunicação rápida e em tempo real, como o chat, o painel e os aplicativos de jogos.
+É usado em apps que beneficiam de comunicação rápida e em tempo real, como chat, dashboard e aplicações de jogos.
 
 ## <a name="how-does-websocket-work"></a>Como funciona o WebSocket
 
-Para estabelecer uma conexão WebSocket, um handshake baseado em HTTP específico é trocado entre o cliente e o servidor. Se for bem-sucedido, o protocolo de camada de aplicativo será "atualizado" de HTTP para WebSockets, usando a conexão TCP estabelecida anteriormente. Assim que isso ocorrer, o HTTP estará completamente fora da imagem; os dados podem ser enviados ou recebidos usando o protocolo WebSocket por ambos os pontos de extremidade, até que a conexão WebSocket seja fechada. 
+Para estabelecer uma ligação WebSocket, um aperto de mão específico baseado em HTTP é trocado entre o cliente e o servidor. Se for bem sucedido, o protocolo de camada de aplicação é "atualizado" de HTTP para WebSockets, utilizando a ligação TCP previamente estabelecida. Uma vez que isto ocorra, http está completamente fora de cena; os dados podem ser enviados ou recebidos utilizando o protocolo WebSocket por ambos os pontos finais, até que a ligação WebSocket esteja fechada. 
 
-![WebSocket](./media/application-gateway-websocket/websocket.png)
+![websocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
 
-Um ouvinte HTTP existente pode ser usado para dar suporte ao tráfego do WebSocket. Veja a seguir um trecho de um elemento httpListeners de um arquivo de modelo de exemplo. Você precisaria de ouvintes HTTP e HTTPS para dar suporte ao WebSocket e ao tráfego de WebSocket seguro. Da mesma forma, você pode usar o portal ou Azure PowerShell para criar um gateway de aplicativo com ouvintes na porta 80/443 para dar suporte ao tráfego de WebSocket.
+Um ouvinte HTTP existente pode ser usado para suportar o tráfego WebSocket. Segue-se um fragmento de um elemento httpListeners de um ficheiro de modelo de amostra. Precisaria tanto de ouvintes HTTP como HTTPS para suportar o WebSocket e garantir o tráfego WebSocket. Da mesma forma, pode utilizar o portal ou o Azure PowerShell para criar um portal de aplicação com os ouvintes na porta 80/443 para suportar o tráfego WebSocket.
 
 ```json
 "httpListeners": [
@@ -66,9 +66,9 @@ Um ouvinte HTTP existente pode ser usado para dar suporte ao tráfego do WebSock
     ],
 ```
 
-## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool, BackendHttpSetting e configuração de regra de roteamento
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool, BackendHttpSetting e configuração da regra de encaminhamento
 
-Um BackendAddressPool é usado para definir um pool de back-end com servidores habilitados para WebSocket. O backendHttpSetting é definido com uma porta de back-end 80 e 443. O valor de tempo limite da solicitação em configurações HTTP também se aplica à sessão WebSocket. Não há nenhuma alteração necessária na regra de roteamento, que é usada para vincular o ouvinte apropriado ao pool de endereços de back-end correspondente. 
+Um BackendAddressPool é usado para definir uma piscina de backend com servidores ativados pela WebSocket. O backendHttpSetting é definido com uma porta de backend 80 e 443. O valor de tempo de pedido nas definições http também se aplica à sessão WebSocket. Não é necessária qualquer alteração na regra de encaminhamento, que é utilizada para ligar o ouvinte adequado ao conjunto de endereços correspondentes. 
 
 ```json
 "requestRoutingRules": [{
@@ -104,9 +104,9 @@ Um BackendAddressPool é usado para definir um pool de back-end com servidores h
 }]
 ```
 
-## <a name="websocket-enabled-backend"></a>Back-end habilitado para WebSocket
+## <a name="websocket-enabled-backend"></a>WebSocket habilitado backend
 
-O back-end deve ter um servidor Web HTTP/HTTPS em execução na porta configurada (geralmente 80/443) para que o WebSocket funcione. Esse requisito é porque o protocolo WebSocket exige que o handshake inicial seja HTTP com a atualização para o protocolo WebSocket como um campo de cabeçalho. Veja a seguir um exemplo de um cabeçalho:
+O seu backend deve ter um servidor web HTTP/HTTPS a funcionar na porta configurada (normalmente 80/443) para que o WebSocket funcione. Este requisito é porque o protocolo WebSocket requer que o aperto de mão inicial seja HTTP com atualização para o protocolo WebSocket como um campo de cabeçalho. Segue-se um exemplo de um cabeçalho:
 
 ```
     GET /chat HTTP/1.1
@@ -119,8 +119,8 @@ O back-end deve ter um servidor Web HTTP/HTTPS em execução na porta configurad
     Sec-WebSocket-Version: 13
 ```
 
-Outro motivo para isso é que a investigação de integridade de back-end do gateway de aplicativo dá suporte apenas a protocolos HTTP e HTTPS. Se o servidor back-end não responder a investigações HTTP ou HTTPS, ele será retirado do pool de back-end.
+Outra razão para isso é que a aplicação gateway backend health probe suporta apenas protocolos HTTP e HTTPS. Se o servidor de backend não responder às sondas HTTP ou HTTPS, este é retirado da piscina de backend.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de aprender sobre o suporte ao WebSocket, vá para [criar um gateway de aplicativo](quick-create-powershell.md) para começar com um aplicativo Web habilitado para WebSocket.
+Depois de aprender sobre o suporte webSocket, vá criar [um portal de aplicação](quick-create-powershell.md) para começar com uma aplicação web ativada pela WebSocket.

@@ -1,6 +1,6 @@
 ---
-title: Proteger Azure AD Domain Services | Microsoft Docs
-description: Saiba como desabilitar codificações fracas, protocolos antigos e sincronização de hash de senha NTLM para um domínio gerenciado Azure Active Directory Domain Services.
+title: Serviços de Domínio AD Secure Azure [ Microsoft Docs
+description: Aprenda a desativar cifras fracas, protocolos antigos e sincronização de hash de senha NTLM para um domínio gerido pelo Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,41 +12,41 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 8eee516beaaf26ed25bd20f9689d26fdb1eb9b40
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74546228"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Desabilitar codificações fracas e a sincronização de hash de senha para proteger um Azure AD Domain Services domínio gerenciado
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Desative cifras fracas e sincronização de hash de senha para garantir um domínio gerido por Serviços de Domínio Azure AD
 
-Por padrão, Azure Active Directory Domain Services (Azure AD DS) permite o uso de codificações como NTLM v1 e TLS v1. Essas codificações podem ser necessárias para alguns aplicativos herdados, mas são consideradas fracas e podem ser desabilitadas se você não precisar delas. Se você tiver conectividade híbrida local usando Azure AD Connect, também poderá desabilitar a sincronização de hashes de senha NTLM.
+Por predefinição, os Serviços de Domínio ativo do Azure (Azure AD DS) permitem a utilização de cifras como ntLM v1 e TLS v1. Estas cifras podem ser necessárias para algumas aplicações antigas, mas são consideradas fracas e podem ser desativadas se não precisar delas. Se tiver conectividade híbrida no local utilizando o Azure AD Connect, também pode desativar a sincronização dos hashes de senha NTLM.
 
-Este artigo mostra como desabilitar as codificações NTLM v1 e TLS v1 e desabilitar a sincronização de hash de senha NTLM.
+Este artigo mostra-lhe como desativar as cifras ntLM v1 e TLS v1 e desativar a sincronização de hash de senha NTLM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisa dos seguintes recursos:
+Para completar este artigo, precisa dos seguintes recursos:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou com um diretório apenas na nuvem.
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
+* Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
+    * Se necessário, crie e configure uma instância de Serviços de [Domínio de Diretório Ativo Azure][create-azure-ad-ds-instance].
 * Instalar e configurar o Azure PowerShell.
-    * Se necessário, siga as instruções para [instalar o módulo Azure PowerShell e conectar-se à sua assinatura do Azure](/powershell/azure/install-az-ps).
-    * Certifique-se de entrar em sua assinatura do Azure usando o cmdlet [Connect-AzAccount][Connect-AzAccount] .
-* Instalar e configurar o PowerShell do Azure AD.
-    * Se necessário, siga as instruções para [instalar o módulo do PowerShell do Azure AD e conectar-se ao Azure ad](/powershell/azure/active-directory/install-adv2).
-    * Certifique-se de entrar no seu locatário do Azure AD usando o cmdlet [Connect-AzureAD][Connect-AzureAD] .
+    * Se necessário, siga as instruções para [instalar o módulo PowerShell Azure e ligue-se à sua subscrição Azure](/powershell/azure/install-az-ps).
+    * Certifique-se de que insere a sua subscrição Azure utilizando o cmdlet [Connect-AzAccount.][Connect-AzAccount]
+* Instale e configure o Azure AD PowerShell.
+    * Se necessário, siga as instruções para [instalar o módulo PowerShell Azure AD e ligue-se ao Azure AD](/powershell/azure/active-directory/install-adv2).
+    * Certifique-se de que inscreveu o seu inquilino Azure AD utilizando o cmdlet [Connect-AzureAD.][Connect-AzureAD]
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Desabilitar codificações fracas e sincronização de hash de senha NTLM
+## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Desativar cifras fracas e sincronização de hash de senha NTLM
 
-Para desabilitar conjuntos de criptografia de baixa segurança e sincronização de hash de credencial NTLM, entre em sua conta do Azure e obtenha o recurso de AD DS do Azure usando o cmdlet [Get-AzResource][Get-AzResource] :
+Para desativar as fracas suítes cifras e a sincronização de haxixe credencial NTLM, inscreva-se na sua conta Azure e, em seguida, obtenha o recurso Azure AD DS utilizando o cmdlet [Get-AzResource:][Get-AzResource]
 
 > [!TIP]
-> Se você receber um erro usando o comando [Get-AzResource][Get-AzResource] que o recurso *Microsoft. AAD/DomainServices* não existe, [eleve seu acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure][global-admin].
+> Se receber um erro utilizando o comando [Get-AzResource][Get-AzResource] que o recurso *Microsoft.AAD/DomainServices* não existe, [eleve o seu acesso para gerir todas as subscrições e grupos de gestão do Azure][global-admin].
 
 ```powershell
 Login-AzAccount
@@ -54,30 +54,30 @@ Login-AzAccount
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 ```
 
-Em seguida, defina *DomainSecuritySettings* para configurar as seguintes opções de segurança:
+Em seguida, defina *As Definições de Segurança do Domínio* para configurar as seguintes opções de segurança:
 
-1. Desabilite o suporte a NTLM v1.
-2. Desabilite a sincronização de hashes de senha NTLM do seu AD local.
-3. Desabilite o TLS v1.
+1. Desativar o suporte NTLM v1.
+2. Desative a sincronização das hashes de senha NTLM a partir do seu Anúncio no local.
+3. Desativar o TLS v1.
 
 > [!IMPORTANT]
-> Os usuários e as contas de serviço não poderão executar associações LDAP simples se você desabilitar a sincronização de hash de senha NTLM no domínio gerenciado AD DS do Azure. Se você precisar executar associações LDAP simples, não defina a opção de configuração de segurança *"SyncNtlmPasswords" = "Disabled";* no comando a seguir.
+> Os utilizadores e as contas de serviço não podem executar ligações simples LDAP se desativar a sincronização de hash de senha NTLM no domínio gerido pelo Azure AD DS. Se necessitar de executar ligações simples LDAP, não detete as *"SyncNtlmPasswords"="Desativado";* opção de configuração de segurança no seguinte comando.
 
 ```powershell
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Por fim, aplique as configurações de segurança definidas ao domínio gerenciado AD DS do Azure usando o cmdlet [set-AzResource][Set-AzResource] . Especifique o recurso de AD DS do Azure na primeira etapa e as configurações de segurança da etapa anterior.
+Por fim, aplique as definições de segurança definidas no domínio gerido pelo Azure AD DS utilizando o cmdlet [Set-AzResource.][Set-AzResource] Especifique o recurso Azure AD DS a partir do primeiro passo e as definições de segurança do passo anterior.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado AD DS do Azure.
+Leva alguns momentos para as definições de segurança serem aplicadas ao domínio gerido pelo Azure AD DS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o processo de sincronização, confira [como os objetos e as credenciais são sincronizados em um domínio gerenciado do Azure AD DS][synchronization].
+Para saber mais sobre o processo de sincronização, veja [como objetos e credenciais são sincronizados num domínio gerido por AD DS azure][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

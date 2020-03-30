@@ -1,5 +1,5 @@
 ---
-title: Como integrar o Windows Admin Center com o Azure Security Center  Microsoft Docs
+title: Como integrar o Windows Admin Center com o Azure Security Center [ Microsoft Docs
 description: Este artigo explica como integrar o Azure Security Center com o Windows Admin Center
 services: security-center
 author: memildin
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139628"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrar o Centro de Segurança Azure com o Windows Admin Center
@@ -41,7 +41,7 @@ Ao combinar estas duas ferramentas, o Security Center torna-se o seu único pain
     > Se o servidor já estiver a bordo do Centro de Segurança, a janela de configuração não aparecerá.
 
 1. Clique **em Iniciar sessão no Azure e configurar**.
-    ![a extensão do Centro de Administração do Windows onboarding para o Centro de Segurança Azure](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+    ![Onboarding Windows Admin Center extensão para Centro de Segurança Azure](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
 
 1. Siga as instruções para ligar o seu servidor ao Centro de Segurança. Depois de ter introduzido os detalhes necessários e confirmado, o Security Center faz as alterações de configuração necessárias para garantir que todos os seguintes são verdadeiros:
     * Um Azure Gateway está registado.
@@ -58,7 +58,7 @@ Ao combinar estas duas ferramentas, o Security Center torna-se o seu único pain
 
 Uma vez a bordo, pode ver os seus alertas e recomendações diretamente na área do Centro de Segurança Azure do Windows Admin Center. Clique numa recomendação ou num alerta para vê-las no portal Azure. Aí, você vai obter informações adicionais e aprender a remediar os problemas.
 
-[![recomendações e alertas do Centro de Segurança, como visto no Windows Admin Center](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Recomendações e alertas do Centro de Segurança como visto no Windows Admin Center](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
 ## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visualizar recomendações de segurança e alertas para o Windows Admin Center gerido servidores no Centro de Segurança
 Do Centro de Segurança Azure:

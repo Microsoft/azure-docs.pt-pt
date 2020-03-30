@@ -1,5 +1,5 @@
 ---
-title: Considerações de segurança para a Procuração de Aplicação da AD Azure  Microsoft Docs
+title: Considerações de segurança para a Procuração de Aplicação da AD Azure [ Microsoft Docs
 description: Cobre considerações de segurança para a utilização de procuração de aplicação ad-a.azure
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79366109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481233"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com procuração de aplicação ad-ad-azure
 
@@ -79,13 +79,13 @@ Não tens de te preocupar em manter e remendar servidores no local.
 
 O software não remendo ainda é responsável por um grande número de ataques. O Azure AD Application Proxy é um serviço à escala da Internet que a Microsoft detém, pelo que obtém sempre os mais recentes patches de segurança e atualizações.
 
-Para melhorar a segurança das aplicações publicadas pela Azure AD Application Proxy, bloqueamos os robôs web crawler de indexar e arquivar as suas aplicações. Cada vez que um robô web crawler tenta recuperar as definições do robô para uma aplicação publicada, application Proxy responde com um ficheiro robots.txt que inclui `User-agent: * Disallow: /`.
+Para melhorar a segurança das aplicações publicadas pela Azure AD Application Proxy, bloqueamos os robôs web crawler de indexar e arquivar as suas aplicações. Cada vez que um robô web crawler tenta recuperar as definições do robô para uma `User-agent: * Disallow: /`aplicação publicada, application Proxy responde com um ficheiro robots.txt que inclui .
 
 #### <a name="azure-ddos-protection-service"></a>Serviço de proteção Azure DDoS
 
 As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). **A proteção Azure DDoS** é um serviço oferecido com a plataforma Azure para proteger os seus recursos Azure de negação de ataques de serviço. O nível de serviço **Básico** está automaticamente ativado, proporcionando uma monitorização de tráfego sempre ativa e uma mitigação em tempo real de ataques comuns ao nível da rede. Um nível **Standard** também está disponível, oferecendo capacidades adicionais de mitigação que são sintonizadas especificamente aos recursos da Rede Virtual Azure. Para mais detalhes, consulte a [visão geral da Norma de Proteção DDoS azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
-## <a name="under-the-hood"></a>Nos bastidores
+## <a name="under-the-hood"></a>Os bastidores
 
 A Procuração de Aplicação Azure AD é constituída por duas partes:
 
@@ -99,7 +99,7 @@ A Procuração de Aplicação Azure AD é constituída por duas partes:
 * Um utilizador acede a uma aplicação publicada.
 
 >[!NOTE]
->Todas as comunicações ocorrem sobre o SSL, e elas sempre originam-se no conector do serviço Proxy de Aplicação. O serviço está apenas de saída.
+>Todas as comunicações ocorrem sobre TLS, e elas sempre originam-se no conector do serviço Proxy de Aplicação. O serviço está apenas de saída.
 
 O conector utiliza um certificado de cliente para autenticar o serviço Proxy de Aplicação para quase todas as chamadas. A única exceção a este processo é a etapa inicial de configuração, onde o certificado de cliente está estabelecido.
 
@@ -107,8 +107,8 @@ O conector utiliza um certificado de cliente para autenticar o serviço Proxy de
 
 Quando o conector é configurado pela primeira vez, os seguintes eventos de fluxo ocorrem:
 
-1. O registo do conector ao serviço ocorre como parte da instalação do conector. Os utilizadores são solicitados a introduzir as suas credenciais de administração Azure AD. O símbolo adquirido a partir desta autenticação é então apresentado ao serviço de Procuração de Aplicações AD Azure.
-2. O serviço De Procuração de Aplicações avalia o símbolo. Verifica se o utilizador é administrador da empresa no inquilino. Se o utilizador não for administrador, o processo é encerrado.
+1. O registo do conector ao serviço ocorre como parte da instalação do conector. Os utilizadores são solicitados a introduzir as suas credenciais de administração Azure AD.O símbolo adquirido a partir desta autenticação é então apresentado ao serviço de Procuração de Aplicações AD Azure.
+2. O serviço De Procuração de Aplicações avalia o símbolo. Verifica se o utilizador é administrador da empresa no inquilino.Se o utilizador não for administrador, o processo é encerrado.
 3. O conector gera um pedido de certificado de cliente e passa-o, juntamente com o símbolo, para o serviço Proxy de Aplicação. O serviço, por sua vez, verifica o símbolo e assina o pedido de certificado de cliente.
 4. O conector utiliza o certificado de cliente para futura comunicação com o serviço Proxy de Aplicação.
 5. O conector executa uma recolha inicial dos dados de configuração do sistema a partir do serviço utilizando o seu certificado de cliente, estando agora pronto a receber pedidos.

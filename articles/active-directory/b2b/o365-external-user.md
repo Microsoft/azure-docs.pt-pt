@@ -1,6 +1,6 @@
 ---
-title: Compartilhamento externo do Office 365 e colaboração B2B – Azure AD
-description: Discute o compartilhamento de recursos com parceiros externos usando o O365 e Azure Active Directory colaboração B2B.
+title: Office 365 partilha externa e colaboração B2B - Azure AD
+description: Discute a partilha de recursos com parceiros externos utilizando a colaboração O365 e Azure Ative Directory B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,41 +12,41 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272275"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory
+# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 partilha externa e colaboração Azure Ative Directory B2B
 
-O compartilhamento externo no Office 365 (OneDrive, SharePoint Online, grupos unificados etc.) e a colaboração B2B do Azure Active Directory (Azure AD) são tecnicamente a mesma coisa. Todo compartilhamento externo (exceto OneDrive/SharePoint Online), incluindo convidados em grupos do Office 365, já usa as APIs de convite de colaboração B2B do Azure AD para compartilhamento.
+A partilha externa no Office 365 (OneDrive, SharePoint Online, Grupos Unificados, etc.) e na colaboração Azure Ative Directory (Azure AD) B2B são tecnicamente a mesma coisa. Toda a partilha externa (exceto OneDrive/SharePoint Online), incluindo convidados em Grupos Office 365, já utiliza o convite de colaboração Azure AD B2B PARA partilha.
 
-## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Como o B2B do Azure AD difere do compartilhamento externo no SharePoint Online?
+## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Como é que o Azure AD B2B difere da partilha externa no SharePoint Online?
 
-O OneDrive/SharePoint Online tem um Gerenciador de convite separado. O suporte para compartilhamento externo no OneDrive/SharePoint Online foi iniciado antes do Azure AD ter desenvolvido seu suporte. Ao longo do tempo, o compartilhamento externo do OneDrive/SharePoint Online tem acumulado vários recursos e muitos milhões de usuários que usam o padrão de compartilhamento interno do produto. No entanto, há algumas diferenças sutis entre o funcionamento do compartilhamento externo do OneDrive/SharePoint Online e como funciona a colaboração B2B do Azure AD. Você pode saber mais sobre o compartilhamento externo do OneDrive/SharePoint Online na [visão geral do compartilhamento externo](https://docs.microsoft.com/sharepoint/external-sharing-overview). O processo geralmente difere do B2B do Azure AD das seguintes maneiras:
+OneDrive/SharePoint Online tem um gestor de convites separado. O suporte para partilha externa no OneDrive/SharePoint Online começou antes da Azure AD desenvolver o seu suporte. Ao longo do tempo, a partilha externa OneDrive/SharePoint Online tem acumulado várias funcionalidades e muitos milhões de utilizadores que usam o padrão de partilha incorporado do produto. No entanto, existem algumas diferenças subtis entre o funcionamento da partilha externa OneDrive/SharePoint Online e como funciona a colaboração Azure AD B2B. Pode saber mais sobre a partilha externa OneDrive/SharePoint Online na visão geral da [partilha externa](https://docs.microsoft.com/sharepoint/external-sharing-overview). O processo geralmente difere do Azure AD B2B desta forma:
 
-- O OneDrive/SharePoint Online adiciona usuários ao diretório depois que os usuários resgataram seus convites. Portanto, antes do resgate, você não vê o usuário no portal do Azure AD. Se outro site convidar um usuário enquanto isso, um novo convite será gerado. No entanto, quando você usa a colaboração B2B do Azure AD, os usuários são adicionados imediatamente no convite para que sejam exibidos em qualquer lugar.
+- O OneDrive/SharePoint Online adiciona os utilizadores ao diretório depois de os utilizadores terem resgatado os seus convites. Então, antes da redenção, não se vê o utilizador no portal Azure AD. Se outro site convidar um utilizador entretanto, é gerado um novo convite. No entanto, quando se utiliza a colaboração Azure AD B2B, os utilizadores são adicionados imediatamente a convite para que apareçam em todo o lado.
 
-- A experiência de resgate no OneDrive/SharePoint Online é diferente da experiência na colaboração B2B do Azure AD. Depois que um usuário resgata um convite, as experiências são semelhantes.
+- A experiência de resgate no OneDrive/SharePoint Online parece diferente da experiência na colaboração Azure AD B2B. Depois de um utilizador redimir um convite, as experiências são parecidas.
 
-- Os usuários convidados da colaboração B2B do Azure AD podem ser selecionados de caixas de diálogo de compartilhamento do OneDrive/SharePoint Online. Os usuários convidados do OneDrive/SharePoint Online também aparecem no Azure AD depois de resgatar seus convites.
+- Os utilizadores convidados de colaboração Azure AD B2B podem ser escolhidos a partir de caixas de diálogo de partilha OneDrive/SharePoint Online. Os utilizadores convidados do OneDrive/SharePoint Online também aparecem no Azure AD depois de resgatarem os seus convites.
 
-- Os requisitos de licenciamento são diferentes. Para cada licença paga do Azure AD, você pode permitir que até 5 usuários convidados acessem seus recursos pagos do Azure AD. Para saber mais sobre licenciamento, confira [Licenciamento B2B do Azure ad](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) e ["o que é um usuário externo?" na visão geral de compartilhamento externo do SharePoint Online](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
+- Os requisitos de licenciamento diferem. Por cada licença Azure AD paga, pode permitir que até 5 utilizadores convidados acedam às suas funcionalidades de AD Azure pagas. Para saber mais sobre o licenciamento, consulte o [licenciamento Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) e ["O que é um utilizador externo?" na visão geral da partilha externa sharePoint Online](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
-Para gerenciar o compartilhamento externo no OneDrive/SharePoint Online com a colaboração B2B do Azure AD, defina a configuração de compartilhamento externo do OneDrive/SharePoint Online para **permitir o compartilhamento somente com os usuários externos que já existem no diretório da sua organização**. Os usuários podem ir para sites compartilhados externamente e escolher colaboradores externos que o administrador adicionou. O administrador pode adicionar os colaboradores externos por meio das APIs de convite de colaboração B2B.
+Para gerir a partilha externa no OneDrive/SharePoint Online com a colaboração azure AD B2B, defina a definição de partilha externa OneDrive/SharePoint Online para **permitir a partilha apenas com os utilizadores externos que já existem no diretório da sua organização.** Os utilizadores podem ir a sites partilhados externamente e escolher entre colaboradores externos que o administrador acrescentou. O administrador pode adicionar os colaboradores externos através do convite de colaboração B2B APIs.
 
 
-![A configuração de compartilhamento externo do OneDrive/SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
+![A definição de partilha externa OneDrive/SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
 
-Depois de habilitar o compartilhamento externo, a capacidade de Pesquisar usuários convidados existentes no seletor de pessoas do SharePoint Online (SPO) está desativada por padrão para corresponder ao comportamento herdado.
+Depois de permitir a partilha externa, a capacidade de procurar utilizadores convidados existentes no picker de pessoas SharePoint Online (SPO) é OFF por padrão para corresponder ao comportamento do legado.
 
-Você pode habilitar esse recurso usando a configuração ' ShowPeoplePickerSuggestionsForGuestUsers ' no nível do locatário e do conjunto de sites. Você pode definir o recurso usando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem que os membros pesquisem todos os usuários convidados existentes no diretório. As alterações no escopo do locatário não afetam os sites SPO já provisionados.
+Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do inquilino e da recolha do site. Pode definir a funcionalidade utilizando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito dos inquilinos não afetam os sítios SPO já previstos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-* [Adicionando um usuário de colaboração B2B a uma função](add-guest-to-role.md)
-* [Delegar convites de colaboração B2B](delegate-invitations.md)
+* [Adicionar um utilizador de colaboração B2B a um papel](add-guest-to-role.md)
+* [Convites de colaboração B2B delegados](delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](use-dynamic-groups.md)
-* [Solução de problemas Azure Active Directory colaboração B2B](troubleshoot.md)
+* [Resolução de problemas Azure Ative Directory B2B colaboração](troubleshoot.md)

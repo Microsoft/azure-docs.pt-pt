@@ -1,36 +1,36 @@
 ---
-title: Versões do razão do serviço Blockchain do Azure, aplicação de patches, atualização &
-description: Visão geral das versões de razões com suporte no serviço Blockchain do Azure, incluindo políticas relacionadas à aplicação de patches de sistemas e atualizações gerenciadas pelo usuário e pelo sistema.
+title: Versões de livros de contabilidade do Serviço Blockchain Azure, patching, & upgrade
+description: Visão geral das versões de livros suportados no Serviço Blockchain Azure, incluindo políticas relativas a patching de sistemas e atualizações geridas pelo sistema e geridas pelo utilizador.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325177"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões do razão do serviço Blockchain do Azure com suporte
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões de contabilidade do Serviço Azure Blockchain suportadas
 
-O serviço Blockchain do Azure usa o razão de [Quorum](https://www.goquorum.com/developers) baseado em Ethereum projetado para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no serviço Blockchain do Azure.
+O Azure Blockchain Service utiliza o livro-razão [Quorum](https://www.goquorum.com/developers) baseado no Ethereum projetado para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no Serviço Azure Blockchain.
 
-Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) e [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
+Atualmente, o Azure Blockchain Service suporta a [versão Quorum 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) e o gestor de [transações tessera.](https://github.com/jpmorganchase/tessera)
 
-## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e upgrades
+## <a name="managing-updates-and-upgrades"></a>Gestão de atualizações e atualizações
 
-O controle de versão em quorum é feito por meio de versões principais, secundárias e de patches. Por exemplo, se a versão de quorum for 2.0.1, o tipo de versão será Categorizado da seguinte maneira:
+A versão em Quorum é feita através de um lançamento de patch maior, menor e patch. Por exemplo, se a versão Quorum for de 2.0.1, o tipo de libertação seria categorizado da seguinte forma:
 
-|Principais | Pequenas  | Distribuído  |
+|Maior | Menor  | Patch  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-O serviço Blockchain do Azure atualiza automaticamente as versões de patch do quorum para os membros em execução existentes dentro de 30 dias após serem disponibilizados do quorum.
+O Azure Blockchain Service atualiza automaticamente as versões de patch do Quorum aos membros em execução existentes no prazo de 30 dias após a disponibilização do Quorum.
 
-## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões do razão
+## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões de livros
 
-O serviço Blockchain do Azure fornece as últimas versões principais e secundárias do razão de quorum dentro de 60 dias de disponibilidade do fabricante do quorum. No máximo quatro versões secundárias são fornecidas para que consortia escolha ao provisionar um novo membro e consórcio. No momento, não há suporte para a atualização do para uma versão principal ou secundária. Por exemplo, se você estiver executando a versão 2. x, não há suporte atualmente para a atualização para a versão 3. x. Da mesma forma, se você estiver executando a versão 2,2, não há suporte para uma atualização para a versão 2,3 no momento.
+O Azure Blockchain Service fornece as mais recentes versões principais e menores do livro quorum no prazo de 60 dias após a sua disponibilização do fabricante quorum. São previstas no máximo quatro pequenas libertações para que os consórcios possam escolher quando forem provisionados um novo membro e consórcio. Atualmente, a atualização de uma libertação importante ou menor não é suportada. Por exemplo, se estiver a executar a versão 2.x, um upgrade para a versão 3.x não é atualmente suportado. Da mesma forma, se estiver a executar a versão 2.2, não é suportado atualmente um upgrade para a versão 2.3.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Limites no serviço Blockchain do Azure](limits.md)
+[Limites no Serviço Blockchain Azure](limits.md)

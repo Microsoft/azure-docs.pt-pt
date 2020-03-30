@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79199932"
 ---
 Neste passo, cria-se um servidor de base de dados Azure SQL e uma única base de dados que utiliza dados da amostra AdventureWorksLT. Pode criar a base de dados utilizando menus e ecrãs do portal Azure, ou utilizando um script Azure CLI ou PowerShell na Casca de Nuvem Azure.
@@ -75,11 +75,11 @@ Para criar um grupo de recursos, servidor SQL e única base de dados no portal A
    
 1. Depois de rever as definições, selecione **Criar**.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pode criar um grupo de recursos Azure, servidor SQL e base de dados única utilizando a interface de linha de comando Azure (Azure CLI). Se não quiser utilizar a Casca de Nuvem Azure, instale o [Azure CLI](/cli/azure/install-azure-cli) no seu computador.
 
-Para executar a seguinte amostra de código em Azure Cloud Shell, selecione **Experimente-a** na barra de título da amostra de código. Quando a Cloud Shell abrir, selecione **Copy** na barra de título da amostra de código e cole a amostra de código na janela Cloud Shell. No código, substitua `<Subscription ID>` pelo seu ID de subscrição Azure e, por `$startip` e `$endip`, substitua `0.0.0.0` pelo endereço IP público do computador que está a utilizar.
+Para executar a seguinte amostra de código em Azure Cloud Shell, selecione **Experimente-a** na barra de título da amostra de código. Quando a Cloud Shell abrir, selecione **Copy** na barra de título da amostra de código e cole a amostra de código na janela Cloud Shell. No código, `<Subscription ID>` substitua-o pelo seu `$startip` ID `$endip`de `0.0.0.0` subscrição Azure e substitua-o pelo endereço IP público do computador que está a utilizar.
 
 Siga as instruções no ecrã para iniciar sessão no Azure e executar o código. 
 
@@ -163,7 +163,7 @@ Pode criar um grupo de recursos Azure, servidor SQL e base de dados única utili
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para executar a seguinte amostra de código na Casca de Nuvem Azure, selecione **Experimente na** barra de código. Quando a Cloud Shell abrir, selecione **Copy** na barra de título da amostra de código e cole a amostra de código na janela Cloud Shell. No código, substitua `<Subscription ID>` pelo seu ID de subscrição Azure e, por `$startIp` e `$endIp`, substitua `0.0.0.0` pelo endereço IP público do computador que está a utilizar. 
+Para executar a seguinte amostra de código na Casca de Nuvem Azure, selecione **Experimente na** barra de código. Quando a Cloud Shell abrir, selecione **Copy** na barra de título da amostra de código e cole a amostra de código na janela Cloud Shell. No código, `<Subscription ID>` substitua-o pelo seu `$startIp` ID `$endIp`de `0.0.0.0` subscrição Azure e substitua-o pelo endereço IP público do computador que está a utilizar. 
 
 Siga as instruções no ecrã para iniciar sessão no Azure e executar o código. 
 

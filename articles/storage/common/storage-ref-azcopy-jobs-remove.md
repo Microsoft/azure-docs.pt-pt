@@ -1,6 +1,6 @@
 ---
-title: remover trabalhos do azcopy | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy Jobs remove.
+title: azcopy jobs remove [ Microsoft Docs
+description: Este artigo fornece informações de referência para os trabalhos de azcopy remover o comando.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,18 +9,18 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: ba403c8d823b7ead0414521ebd51dc6f6601ccd8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034165"
 ---
 # <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
-Remova todos os arquivos associados à ID de trabalho fornecida.
+Remova todos os ficheiros associados à identificação do trabalho.
 
 > [!NOTE] 
-> Você pode personalizar o local onde os arquivos de log e de plano são salvos. Consulte o comando [azcopy env](storage-ref-azcopy-env.md) para saber mais.
+> Pode personalizar a localização onde os ficheiros de registo e plano são guardados. Veja o comando da [Azcopy ENV](storage-ref-azcopy-env.md) para saber mais.
 
 ```
 azcopy jobs remove [jobID] [flags]
@@ -29,9 +29,9 @@ azcopy jobs remove [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -41,14 +41,14 @@ azcopy jobs remove [jobID] [flags]
 
 ## <a name="options"></a>Opções
 
-**-h,--ajuda**                Ajuda para remover.
+**-h, --ajuda**                Ajuda para remover.
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
-**--Cap-Mbps UInt32**      Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
+**--cap-mbps uint32**      Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.
 
-**--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
+**-formato** de cadeia do tipo de saída da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto". ("texto por defeito")
 
 ## <a name="see-also"></a>Consulte também
 
-- [trabalhos do azcopy](storage-ref-azcopy-jobs.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)

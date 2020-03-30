@@ -1,6 +1,6 @@
 ---
-title: Principais diferenças para Serviços de Machine Learning (versão prévia)
-description: Este tópico descreve as principais diferenças entre o Serviços de Machine Learning do banco de dados SQL do Azure (com R) e SQL Server Serviços de Machine Learning.
+title: Principais diferenças para serviços de aprendizagem automática (pré-visualização)
+description: Este tópico descreve diferenças-chave entre os Serviços de Machine Learning machine learning da Azure SQL (com R) e os Serviços de Machine Learning do Servidor SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,55 +13,55 @@ ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
 ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74462135"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principais diferenças entre Serviços de Machine Learning no banco de dados SQL do Azure (visualização) e SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principais diferenças entre serviços de aprendizagem automática na Base de Dados SQL Azure (pré-visualização) e SQL Server
 
-A funcionalidade do banco de dados SQL do Azure Serviços de Machine Learning (com R) no (visualização) é semelhante ao [SQL Server serviços de Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Abaixo estão algumas diferenças importantes.
+A funcionalidade dos Serviços de Machine Learning (com R) da Base de Dados Azure SQL (com R) em (pré-visualização) é semelhante aos [Serviços de Aprendizagem automática do Servidor SQL](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Abaixo estão algumas diferenças fundamentais.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-SQL Server tem suporte para R e Python por meio da [estrutura de extensibilidade](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). O banco de dados SQL não dá suporte a ambos os idiomas. As principais diferenças são:
+O SQL Server tem suporte para R e Python através da estrutura de [extensibility](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). A Base de Dados SQL não suporta ambas as línguas. As principais diferenças são:
 
-- R é o único idioma com suporte no banco de dados SQL. Ainda não há suporte para Python neste momento.
-- A versão do R é 3.4.4.
-- Não é necessário configurar `external scripts enabled` via `sp_configure`. Depois de se [inscrever](sql-database-machine-learning-services-overview.md#signup), o aprendizado de máquina está habilitado para o banco de dados SQL.
+- R é o único idioma suportado na Base de Dados SQL. Ainda não há suporte para Python neste momento.
+- A versão R é 3.4.4.
+- Não há necessidade de `external scripts enabled` `sp_configure`configurar via . Uma vez [inscrito,](sql-database-machine-learning-services-overview.md#signup)o machine learning está ativado para a sua base de dados SQL.
 
 ## <a name="package-management"></a>Gestão de pacotes
 
-O gerenciamento e a instalação de pacotes de R funcionam diferentes entre o banco de dados SQL e o SQL Server. Essas diferenças são:
+A gestão e instalação de pacotes R funcionam diferentes entre a Base de Dados SQL e o Servidor SQL. Estas diferenças são:
 
-- Os pacotes do R são instalados por meio do [sqlmlutils](https://github.com/Microsoft/sqlmlutils) ou [criam uma biblioteca externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-- Os pacotes não podem executar chamadas de rede de saída. Essa limitação é semelhante às [regras de firewall padrão para serviços de Machine Learning](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) em SQL Server, mas não pode ser alterada no banco de dados SQL.
-- Não há suporte para pacotes que dependem de tempos de execução externos (como Java) ou que precisam de acesso a APIs do sistema operacional para instalação ou uso.
+- As embalagens R são instaladas através [de sqlmlutils](https://github.com/Microsoft/sqlmlutils) ou [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+- Os pacotes não podem realizar chamadas de rede de saída. Esta limitação é semelhante às [regras de firewall padrão para serviços](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) de aprendizagem automática no Servidor SQL, mas não pode ser alterada na Base de Dados SQL.
+- Não existe suporte para pacotes que dependam de tempos de execução externos (como Java) ou que precisem de acesso às APIs dos OS para instalação ou utilização.
 
-## <a name="writing-to-a-temporary-table"></a>Gravando em uma tabela temporária
+## <a name="writing-to-a-temporary-table"></a>Escrever para uma mesa temporária
 
-Se você estiver usando o RODBC no banco de dados SQL do Azure, não poderá gravar em uma tabela temporária, seja ela criada dentro ou fora da sessão de `sp_execute_external_script`. A solução alternativa é usar [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) e [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (with overwrite = false e Append = "Rows") para gravar em uma tabela temporária global criada antes da consulta de `sp_execute_external_script`.
+Se estiver a usar o RODBC na Base de Dados Azure SQL, então não pode escrever `sp_execute_external_script` para uma mesa temporária, seja ela criada dentro ou fora da sessão. A suver é utilizar [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) e [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (com overwrite=FALSE e append="rows") `sp_execute_external_script` para escrever para uma tabela temporária global criada antes da consulta.
 
 ## <a name="resource-governance"></a>Governação de recursos
 
-Não é possível limitar os recursos de R por meio de [resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e pools de recursos externos.
+Não é possível limitar os recursos R através do Governador de [Recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e dos recursos externos.
 
-Durante a visualização pública, os recursos do R são definidos como um máximo de 20% dos recursos do banco de dados SQL e dependem da camada de serviço que você escolher. Para obter mais informações, consulte [modelos de compra do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Durante a pré-visualização pública, os recursos R são definidos para um máximo de 20% dos recursos da Base de Dados SQL, e dependem do nível de serviço que escolher. Para mais informações, consulte os modelos de compra da Base de [Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 ### <a name="insufficient-memory-error"></a>Erro de memória insuficiente
 
-Se não houver memória suficiente disponível para o R, você receberá uma mensagem de erro. As mensagens de erro comuns são:
+Se não houver memória suficiente disponível para R, receberá uma mensagem de erro. As mensagens de erro comuns são:
 
-- Não é possível se comunicar com o tempo de execução para o script ' R ' para a ID de solicitação: * * * * * * *. Verifique os requisitos do tempo de execução ' R '
-- Ocorreu um erro de script ' R ' durante a execução de ' sp_execute_external_script ' com HRESULT 0x80004004. ... ocorreu um erro de script externo: ".. Não foi possível alocar memória (0 MB) na função C ' R_AllocStringBuffer ' "
-- Ocorreu um erro de script externo: erro: não é possível alocar vetor de tamanho.
+- Incapaz de comunicar com o tempo de execução para o script 'R' para id pedido: ********* Verifique os requisitos do tempo de execução 'R'
+- Erro de script 'R' ocorreu durante a execução de 'sp_execute_external_script' com HRESULT 0x80004004. ... ocorreu um erro de script externo: ".. não podia atribuir memória (0 Mb) na função C 'R_AllocStringBuffer'"
+- Ocorreu um erro de script externo: Erro: não pode alocar vetor de tamanho.
 
-O uso de memória depende de quanto é usado em seus scripts R e o número de consultas paralelas sendo executadas. Se você receber os erros acima, poderá dimensionar seu banco de dados para uma camada de serviço superior para resolver isso.
+O uso da memória depende da quantidade utilizada nos seus scripts R e do número de consultas paralelas executadas. Se receber os erros acima, pode escalar a sua base de dados para um nível de serviço mais elevado para resolver isto.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a visão geral, [banco de dados SQL do Azure serviços de Machine Learning com R (versão prévia)](sql-database-machine-learning-services-overview.md).
-- Para saber como usar o R para consultar o Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia), consulte o [Guia de início rápido](sql-database-connect-query-r.md).
-- Para começar com alguns scripts R simples, consulte [criar e executar scripts r simples no banco de dados SQL do Azure serviços de Machine Learning (versão prévia)](sql-database-quickstart-r-create-script.md).
+- Consulte a visão geral, Serviços de Machine Learning de Base de [Dados Azure SQL com R (pré-visualização)](sql-database-machine-learning-services-overview.md).
+- Para aprender a usar R para consultar o Azure SQL Database Machine Learning Services (pré-visualização), consulte o [guia Quickstart](sql-database-connect-query-r.md).
+- Para começar com alguns scripts R simples, consulte [Create e execute scripts R simples em Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)](sql-database-quickstart-r-create-script.md).

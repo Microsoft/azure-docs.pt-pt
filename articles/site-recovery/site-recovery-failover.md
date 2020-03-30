@@ -4,12 +4,12 @@ description: Como falhar sobre VMs/servidores físicos para Azure com recuperaç
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: 514f1d6631a70301589943ddb7920ca3c9c46062
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 99a197e8f5ebac8a3b0be1b567ee41b43a2c4476
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471273"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Executar uma falha de entrada no local para Azure
 
@@ -32,7 +32,7 @@ Se quiser ligar-se aos VMs Azure utilizando RDP/SSH após a falha, há uma séri
 
 **Depois do fracasso** | **Localização** | **Ações**
 --- | --- | ---
-**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis no **Windows Firewall** > **Permitidas Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido no **Windows Firewall** -> **permitidas aplicações e funcionalidades**, para redes **De domínio e privadas.**<br/><br/> <br/><br/> Remova quaisquer rotas estáticas persistentes e procuração WinHTTP. Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
+**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis em**Aplicações permitidas**pelo **Windows Firewall** > .<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido nas**aplicações e funcionalidades permitidas**pelo **Windows Firewall,** -> para redes **De domínio e privadas.**<br/><br/> <br/><br/> Remova quaisquer rotas estáticas persistentes e procuração WinHTTP. Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
 **Azure VM executando Linux** | Máquina no local antes da falha | Certifique-se de que o serviço Secure Shell no VM está programado para começar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 
 
@@ -43,12 +43,12 @@ Este procedimento descreve como executar uma falha para um plano de [recuperaç�
 
 Executar o plano de recuperação failover da seguinte forma:
 
-1. No cofre de recuperação do local, selecione Planos de **Recuperação** > *recoveryplan_name*.
+1. No cofre de recuperação do local, selecione **Planos** > de Recuperação*recoveryplan_name*.
 2. Clique em **Failover**.
 
     ![Ativação pós-falha](./media/site-recovery-failover/Failover.png)
 
-3. Na direção **Failover** > **Failover,** deixe o padrão se estiver a replicar-se para o Azure.
+3. Na direção **Failover** > **Failover,** deixe o padrão se estiver a replicar-se em Azure.
 4. Em **Failover,** selecione um **Ponto de Recuperação** para falhar.
 
     - **Mais recente**: Use o último ponto. Isto processa todos os dados que foram enviados para o serviço de Recuperação do Site, e cria um ponto de recuperação para cada máquina. Esta opção fornece o RPO mais baixo (Objetivo do Ponto de Recuperação) porque o VM criado após a falha tem todos os dados que foram replicados para a Recuperação do Local quando a falha foi desencadeada.
@@ -111,7 +111,7 @@ Em alguns casos, a falha da VM requer um passo intermédio que normalmente demor
 Talvez queira automatizar ações durante a falha. Para isso, pode utilizar scripts ou livros de automação Azure em planos de recuperação.
 
 - [Aprenda](site-recovery-create-recovery-plans.md) sobre a criação e personalização de planos de recuperação, incluindo a adição de scripts.
-- [Aprenda](site-recovery-runbook-automation.md) a adicionar livros de execução da Azure Automation aos planos de recuperação.
+- [Saiba](site-recovery-runbook-automation.md) adicionar livros de execução da Azure Automation aos planos de recuperação.
 
 
 ## <a name="configure-settings-after-failover"></a>Configurar as definições após a falha
@@ -140,7 +140,7 @@ Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 - **Endereços IP externos:** Pode reter endereços IP públicos no failover. Os VMs Azure criados no âmbito do processo de failover devem ser atribuídos a um endereço IP público Azure disponível na região de Azure. Pode atribuir um endereço IP público manualmente ou automatizando o processo com um plano de recuperação. [Saiba mais](concepts-public-ip-address-with-site-recovery.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter falhado, precisa de se reproteger para começar a replicar os VMs Azure de volta ao local. Depois da replicação estar a funcionar, podes voltar a falhar no local quando estiveres pronto.
 
