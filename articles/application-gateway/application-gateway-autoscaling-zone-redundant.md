@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280017"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371284"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -61,7 +61,7 @@ A tabela que se segue apresenta preços de exemplo e são apenas para fins de il
 
 |              Nome SKU                             | Preço fixo ($/hr)  | Preço unitário de capacidade ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0.0080                          |
+| Standard_v2                                       |    0,20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
 Para mais informações sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). 
@@ -155,7 +155,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 | Terminação de SSL (Secure Sockets Layer)            | &#x2713; | &#x2713; |
 | Encriptação SSL de ponta a ponta                         | &#x2713; | &#x2713; |
 | Afinidade de sessão                                  | &#x2713; | &#x2713; |
-| Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
+| Páginas de erros personalizadas                                | &#x2713; | &#x2713; |
 | Suporte do WebSocket                                 | &#x2713; | &#x2713; |
 | Suporte HTTP/2                                    | &#x2713; | &#x2713; |
 | Drenagem de ligação                               | &#x2713; | &#x2713; |
@@ -169,14 +169,14 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 |--|--|
 |Certificado de autenticação|Não suportado.<br>Para mais informações, consulte [a visão geral do fim para terminar o SSL com o Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)da Aplicação .|
 |Misturade Standard_v2 e Gateway de Aplicação Padrão na mesma subnet|Não suportado|
-|Rota Definida do Utilizador (UDR) na subnet gateway da aplicação|Não suportado|
+|Rota definida pelo utilizador (UDR) na subnet de gateway de aplicação|Suportado (cenários específicos). Na pré-estreia.<br> Para obter mais informações sobre cenários suportados, consulte a visão geral da [configuração do Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)de Aplicação .|
 |NSG para gama de portas de entrada| - 65200 a 65535 para Standard_v2 SKU<br>- 65503 a 65534 para a Standard SKU.<br>Para mais informações, consulte as [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registos de desempenho em diagnósticos Azure|Não suportado.<br>As métricas azure devem ser utilizadas.|
 |Faturação|Faturação prevista para começar a 1 de julho de 2019.|
 |Modo FIPS|Estes não são atualmente apoiados.|
 |Modo iLB|Isto não é atualmente apoiado. O modo público e iLB em conjunto é apoiado.|
 |Integração netwatcher|Não suportado.|
-|Integração do Azure Security Center|Ainda não está disponível.
+|Integração do Centro de Segurança do Azure|Ainda não está disponível.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrar do v1 para v2
 
@@ -184,7 +184,7 @@ Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-l
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Tráfego web direto com Portal de Aplicação Azure - portal Azure](quick-create-portal.md)
+- [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Criar um gateway de aplicação redundante de zona autoscalcificada com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)
 - Saiba mais sobre o Gateway de [Aplicação.](overview.md)
 - Saiba mais sobre [o Azure Firewall.](../firewall/overview.md)

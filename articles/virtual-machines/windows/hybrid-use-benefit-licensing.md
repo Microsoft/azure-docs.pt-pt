@@ -1,5 +1,5 @@
 ---
-title: Benefício Híbrido Azure para servidor windows
+title: Benefício Híbrido do Azure para o Windows Server
 description: Saiba como maximizar os benefícios da Garantia de Software do Windows para levar licenças no local para o Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911797"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido Azure para servidor windows
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Garantia de Software, o Azure Hybrid Benefit para o Windows Server permite-lhe utilizar as suas licenças de Windows Server no local e executar máquinas virtuais Windows no Azure a um custo reduzido. Pode utilizar o Azure Hybrid Benefit para o Windows Server para implementar novas máquinas virtuais com o Windows OS. Este artigo vai ao longo das etapas sobre como implementar novos VMs com O Benefício Híbrido Azure para o Windows Server e como pode atualizar os VMs existentes. Para obter mais informações sobre o Benefício Híbrido Azure para licenciamento do Windows Server e poupança de custos, consulte a página de licenciamento Do Servidor [Híbrido Azure para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Cada licença de 2 processadores ou cada conjunto de licenças de 16 núcleos tem direito a duas instâncias de até 8 núcleos, ou um caso de até 16 núcleos. As licenças Azure Hybrid Benefit for Standard Edition só podem ser utilizadas uma vez no local ou no Azure. Os benefícios da Datacenter Edition permitem uma utilização simultânea tanto no local como no Azure.
@@ -72,7 +72,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Modelo
-Dentro dos seus modelos de Gestor de Recursos, deve especificar-se um parâmetro adicional `licenseType`. Você pode ler mais sobre a autoria de modelos de [Gestor de Recursos Azure](../../resource-group-authoring-templates.md)
+Dentro dos seus modelos de `licenseType` Gestor de Recursos, deve especificar-se um parâmetro adicional. Você pode ler mais sobre a autoria de modelos de [Gestor de Recursos Azure](../../resource-group-authoring-templates.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -168,7 +168,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implemente um conjunto de escala de máquina virtual com benefício híbrido azure para o servidor do Windows
-Dentro dos modelos de Gestor de Recursos da escala virtual da máquina, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Pode fazê-lo durante a criação ou atualização para a sua escala definida através do modelo ARM, PowerShell, Azure CLI ou REST.
+Dentro dos modelos de Gestor de Recursos `licenseType` da escala virtual da máquina, deve ser especificado um parâmetro adicional dentro da sua propriedade VirtualMachineProfile. Pode fazê-lo durante a criação ou atualização para a sua escala definida através do modelo ARM, PowerShell, Azure CLI ou REST.
 
 O exemplo seguinte utiliza o modelo ARM com uma imagem do Datacenter do Windows Server 2016:
 ```json

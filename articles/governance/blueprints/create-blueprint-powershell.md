@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: criar um plano gráfico com o PowerShell'
-description: Neste guia de início rápido, você usa plantas do Azure para criar, definir e implantar artefatos usando o PowerShell.
+title: 'Quickstart: Criar uma planta com powerShell'
+description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implementar artefactos utilizando a PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75436639"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: definir e atribuir um Azure Blueprint com o PowerShell
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Defina e atribua um projeto azure com PowerShell
 
 Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-Se ele ainda não estiver instalado, siga as instruções em [Adicionar o módulo AZ. Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **AZ. Blueprint** da galeria do PowerShell.
+Se ainda não estiver instalado, siga as instruções em [Adicionar o módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **Az.Blueprint** da Galeria PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -27,11 +27,11 @@ Se ele ainda não estiver instalado, siga as instruções em [Adicionar o módul
 O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
 
 > [!NOTE]
-> Ao usar o PowerShell, o objeto _Blueprint_ é criado primeiro. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
+> Ao utilizar o PowerShell, o objeto de _planta_ é criado primeiro. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
 
-1. Crie o objeto _esquema_ inicial. O parâmetro **blueprintfile** usa um arquivo JSON que inclui propriedades sobre o plano gráfico, todos os grupos de recursos a serem criados e todos os parâmetros de nível Blueprint. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
+1. Crie o objeto _esquema_ inicial. O parâmetro **BlueprintFile** leva um ficheiro JSON que inclui propriedades sobre a planta, quaisquer grupos de recursos para criar e todos os parâmetros de nível de planta. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
-   - Arquivo JSON-Blueprint. JSON
+   - Arquivo JSON - blueprint.json
 
      ```json
      {
@@ -101,14 +101,14 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      ```
 
      > [!NOTE]
-     > Use o FileName _Blueprint. JSON_ ao criar suas definições de plantas programaticamente.
-     > Esse nome de arquivo é usado ao chamar [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
+     > Utilize a planta do nome de _ficheiro.json_ ao criar as definições de plantas programáticas.
+     > Este nome de ficheiro é utilizado quando se chama [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
-     O objeto Blueprint é criado na assinatura padrão por padrão. Para especificar o grupo de gerenciamento, use o parâmetro **ManagementGroupId**. Para especificar a assinatura, use o parâmetro **SubscriptionId**.
+     O objeto de planta é criado na subscrição predefinida por padrão. Para especificar o grupo de gestão, utilize o parâmetro **ManagementGroupId**. Para especificar a subscrição, utilize o parâmetro **SubscriptionId**.
 
-1. Adicione a atribuição de função no momento da subscrição. O **artefatofile** define o _tipo_ de artefato, as propriedades se alinham ao identificador de definição de função e as identidades de entidade são passadas como uma matriz de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo usa a função interna _colaborador_ com um GUID de `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Adicione a atribuição de função no momento da subscrição. O **ArtifactFile** define o _tipo_ de artefacto, as propriedades alinham-se com o identificador de definição de papel, e as principais identidades são passadas como uma variedade de valores. No exemplo abaixo, as identidades do principal a quem foi concedida a função especificada estão configuradas para um parâmetro que é definido durante a atribuição do esquema. Este exemplo _Contributor_ utiliza o papel integrado do `b24988ac-6180-42a0-ab88-20f7382dd24c`Contribuinte com um GUID de .
 
-   - Arquivo JSON-\artifacts\roleContributor.json
+   - Arquivo JSON - \artifacts\roleContributor.json
 
      ```json
      {
@@ -127,9 +127,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleContributor' -ArtifactFile .\artifacts\roleContributor.json
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **artefatofile** define o _tipo_ de artefato, as propriedades que se alinham a uma definição de política ou iniciativa e configura a atribuição de política para usar os parâmetros de plano gráfico definidos para configurar durante a atribuição do Blueprint. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
+1. Adicione a atribuição de política no momento da subscrição. O **ArtifactFile** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou de iniciativa, e configura a atribuição de políticas para usar os parâmetros de planta definidos para configurar durante a atribuição do projeto. Este exemplo utiliza a etiqueta Apply e o seu valor padrão `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`para grupos de recursos _integrados_ na política com um GUID de .
 
-   - Arquivo JSON-\artifacts\policyTags.json
+   - Arquivo JSON - \artifacts\policyTags.json
 
      ```json
      {
@@ -157,9 +157,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyTags' -ArtifactFile .\artifacts\policyTags.json
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o seu valor padrão `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`para grupos de recursos _integrados_ na política com um GUID de .
 
-   - Arquivo JSON-\artifacts\policyStorageTags.json
+   - Arquivo JSON - \artifacts\policyStorageTags.json
 
      ```json
      {
@@ -187,9 +187,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Adicione um modelo no grupo de recursos. O **modelofile** para um modelo do Resource Manager inclui o componente JSON normal do modelo. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de Blueprint estão disponíveis para o modelo usando o parâmetro **TemplateParameterFile** e dentro do modelo JSON que o par chave-valor é usado para injetar o valor. Os nomes dos parâmetros Blueprint e Template podem ser os mesmos.
+1. Adicione um modelo no grupo de recursos. O **ModeloFile** para um modelo de Gestor de Recursos inclui o componente JSON normal do modelo. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros da planta estão disponíveis para o modelo utilizando o modelo de **parâmetroParameterFile** e dentro do modelo JSON que o par de valor-chave é usado para injetar o valor. Os nomes dos parâmetros de modelo e modelo podem ser os mesmos.
 
-   - Arquivo de modelo de Azure Resource Manager JSON – \artifacts\templateStorage.json
+   - Ficheiro de modelo do Gestor de Recursos JSON Azure - \artifacts\templateStorage.json
 
      ```json
      {
@@ -243,7 +243,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      }
      ```
 
-   - Arquivo de parâmetro de modelo JSON Azure Resource Manager-\artifacts\templateStorageParams.json
+   - Ficheiro de parâmetro de modelo jSON Azure Resource Manager - \artifacts\templateStorageParams.json
 
      ```json
      {
@@ -270,9 +270,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Type TemplateArtifact -Name 'templateStorage' -TemplateFile .\artifacts\templateStorage.json -TemplateParameterFile .\artifacts\templateStorageParams.json -ResourceGroupName storageRG
      ```
 
-1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo usa a função interna de _proprietário_ com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
+1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza o papel _do_ Proprietário `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`incorporado com um GUID de .
 
-   - Arquivo JSON-\artifacts\roleOwner.json
+   - Arquivo JSON - \artifacts\roleOwner.json
 
      ```json
      {
@@ -305,11 +305,11 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 ## <a name="assign-a-blueprint"></a>Atribuir um esquema
 
-Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuível a uma assinatura. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O parâmetro **Blueprint** especifica o plano gráfico a ser atribuído. Para fornecer parâmetros de nome, localização, identidade, bloqueio e plano gráfico, use os parâmetros correspondentes do PowerShell no cmdlet `New-AzBlueprintAssignment` ou forneça-os no arquivo JSON do parâmetro **assignmentfile** .
+Uma vez que uma planta é publicada usando powerShell, é atribuível a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se a planta for guardada para uma subscrição, só pode ser atribuída a essa subscrição. O parâmetro **Blueprint** especifica a planta para atribuir. Para fornecer os parâmetros de nome, localização, identidade, bloqueio e `New-AzBlueprintAssignment` planta, utilize os parâmetros PowerShell correspondentes no cmdlet ou forneça-os no ficheiro JSON do parâmetro **De atribuiçãoFile.**
 
-1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros de **colaboradores** e **proprietários** exigem uma matriz de ObjectIDs das entidades de segurança para receber a atribuição de função, use [Azure Active Directory API do Graph](../../active-directory/develop/active-directory-graph-api.md) para reunir as ObjectIDs para uso no **assignmentfile** para seus próprios usuários, grupos ou entidades de serviço.
+1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Dado que os parâmetros dos **contribuintes** e **proprietários** exigem que seja concedida uma série de objectids dos principais a atribuição da função, utilize a API do Gráfico [de Diretório Ativo Azure](../../active-directory/develop/active-directory-graph-api.md) para recolher os objectids para utilização no **AssignmentFile** para os seus próprios utilizadores, grupos ou diretores de serviço.
 
-   - Arquivo JSON-blueprintAssignment. JSON
+   - Arquivo JSON - blueprintAssignment.json
 
      ```json
      {
@@ -359,10 +359,10 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
      New-AzBlueprintAssignment -Blueprint $blueprint -Name 'assignMyBlueprint' -AssignmentFile .\blueprintAssignment.json
      ```
 
-   - Identidade gerenciada atribuída pelo usuário
+   - Identidade gerida atribuída ao utilizador
 
-     Uma atribuição de Blueprint também pode usar uma [identidade gerenciada atribuída pelo usuário](../../active-directory/managed-identities-azure-resources/overview.md).
-     Nesse caso, a parte de **identidade** do arquivo de atribuição JSON é alterada da seguinte maneira. Substitua `{tenantId}`, `{subscriptionId}`, `{yourRG}`e `{userIdentity}` por seu tenantid, SubscriptionId, nome do grupo de recursos e o nome da sua identidade gerenciada atribuída pelo usuário, respectivamente.
+     Uma atribuição de plantas também pode usar uma [identidade gerida atribuída pelo utilizador.](../../active-directory/managed-identities-azure-resources/overview.md)
+     Neste caso, a parte de **identidade** do ficheiro de atribuição da JSON muda da seguinte forma. `{tenantId}`Substitua, `{subscriptionId}` `{yourRG}`e `{userIdentity}` com o seu inquilinoId, subscriçãoId, nome de grupo de recursos, e o nome da sua identidade gerida atribuída ao utilizador, respectivamente.
 
      ```json
      "identity": {
@@ -374,18 +374,18 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
      },
      ```
 
-     A **identidade gerenciada atribuída pelo usuário** pode estar em qualquer assinatura e grupo de recursos ao qual o usuário que atribui o plano gráfico tenha permissões.
+     A **identidade gerida atribuída pelo utilizador** pode estar em qualquer grupo de subscrição e recursos a que o utilizador que atribui a planta tem permissões.
 
      > [!IMPORTANT]
-     > Os planos gráficos não gerenciam a identidade gerenciada atribuída pelo usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes, ou a atribuição Blueprint falhará.
+     > As plantas não gerem a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis pela atribuição de funções e permissões suficientes ou a atribuição do projeto falhará.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
-Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de plano gráfico, use o cmdlet `Remove-AzBlueprintAssignment`:
+Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição `Remove-AzBlueprintAssignment` de plantas, utilize o cmdlet:
 
-assignMyBlueprint
+atribuir MyBlueprint
 
 ```azurepowershell-interactive
 Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
@@ -393,7 +393,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou, atribuiu e removeu um plano gráfico com o PowerShell. Para saber mais sobre os planos gráficos do Azure, prossiga para o artigo ciclo de vida do Blueprint.
+Neste arranque rápido, criaste, atribuiste e removeste uma planta com a PowerShell. Para saber mais sobre as Plantas Azure, continue o artigo blueprint lifecycle.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o ciclo de vida do Blueprint](./concepts/lifecycle.md)
+> [Conheça o ciclo de vida da planta](./concepts/lifecycle.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 ms.openlocfilehash: a64163da1dee2bceb567436dc18ba0fa5274cfcb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243149"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar o cofre chave para máquinas virtuais no Gestor de Recursos Azure
@@ -56,7 +56,7 @@ Em seguida, para ativar o Cofre chave para utilização com a implementação do
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Use modelos para configurar o cofre chave
-Enquanto você usa um modelo, você precisa definir a propriedade `enabledForDeployment` para `true` para o recurso Key Vault.
+Enquanto você usa um modelo, `enabledForDeployment` você `true` precisa definir a propriedade para o recurso Key Vault.
 
     {
       "type": "Microsoft.KeyVault/vaults",

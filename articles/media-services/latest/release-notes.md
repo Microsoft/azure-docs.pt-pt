@@ -11,23 +11,23 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 49959ff12744f28e930959c43a449800c76818f5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 1db7009096635fc1279ce8a8358e0d8131209722
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969815"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372591"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no leitor de feed RSS.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no seu leitor de feed RSS.
 
-Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
+Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 
-* Versões mais recentes
+* Os últimos lançamentos
 * Problemas conhecidos
 * Correções de erros
-* Funcionalidades preteridas
+* Funcionalidade preterida
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -89,7 +89,7 @@ Suporte adicional para os seguintes codificadores de novos parceiros recomendado
 ### <a name="file-encoding-enhancements"></a>Melhorias de codificação de ficheiros
 
 - Um novo preconjunto de codificação de conteúdo consciente está agora disponível. Produz um conjunto de MP4 alinhados com gop utilizando codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada. Utiliza estes resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as definições de resolução para entrega através de streaming adaptativo. Este preset é particularmente eficaz para vídeos de baixa complexidade e complexidade média, onde os ficheiros de saída estão a taxas mais baixas, mas a uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio interleaved. Para mais informações, consulte as [especificações abertas](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)da API .
-- Melhor desempenho e multi-threading para o re-sizer em Media Encoder Standard. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias bit-rates verá os aumentos de desempenho mais elevados. 
+- Melhor desempenho e multi-threading para o re-sizer em Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias bit-rates verá os aumentos de desempenho mais elevados. 
 - A codificação padrão mantém agora uma cadência gop regular para conteúdos de taxa de fotogramas variáveis (VFR) durante a codificação do VOD ao utilizar a definição de GOP baseada no tempo.  Isto significa que o cliente que submete conteúdo misto de taxa de fotogramas que varia entre 15-30 fps, por exemplo, deve agora ver distâncias GOP regulares calculadas na saída para ficheiros MP4 de streaming de bitrate adaptativo. Isto melhorará a capacidade de alternar perfeitamente entre as faixas ao entregar o HLS ou o DASH. 
 -  Sincronização de AV melhorada para o conteúdo de origem da taxa de fotogramas variável (VFR)
 
@@ -238,31 +238,31 @@ O módulo CLI 2.0 já se encontra disponível para [o Azure Media Services v3 GA
 
 #### <a name="asset-commands"></a>Comandos de ativos
 
-- ```--storage-account``` e ```--container``` argumentos adicionados.
-- Valores predefinidos para o tempo de validade (Agora+23h) e permissões (Ler) no comando ```az ams asset get-sas-url``` adicionados.
+- ```--storage-account```e ```--container``` argumentos adicionados.
+- Valores predefinidos para o tempo de validade (Agora+23h) e permissões (Ler) no ```az ams asset get-sas-url``` comando adicionados.
 
 #### <a name="job-commands"></a>Comandos de trabalho
 
-- ```--correlation-data``` e ```--label``` argumentos adicionados
-- ```--output-asset-names``` renomeado para ```--output-assets```. Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='.
+- ```--correlation-data```e ```--label``` argumentos adicionados
+- ```--output-asset-names```renomeado ```--output-assets```para . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='.
 
 #### <a name="streaming-locator-commands"></a>Comandos localizadores de streaming
 
-- ```az ams streaming locator``` comando base substituído por ```az ams streaming-locator```.
-- ```--streaming-locator-id``` e ```--alternative-media-id support``` argumentos adicionados.
-- ```--content-keys argument``` argumento atualizado.
-- ```--content-policy-name``` renomeado para ```--content-key-policy-name```.
+- ```az ams streaming locator```comando base ```az ams streaming-locator```substituído por .
+- ```--streaming-locator-id```e ```--alternative-media-id support``` argumentos adicionados.
+- ```--content-keys argument```argumento atualizado.
+- ```--content-policy-name```renomeado ```--content-key-policy-name```para .
 
 #### <a name="streaming-policy-commands"></a>Comandos de Política de Streaming
 
-- ```az ams streaming policy``` comando base substituído por ```az ams streaming-policy```.
-- Suporte de parâmetros de encriptação em ```az ams streaming-policy create``` adicionado.
+- ```az ams streaming policy```comando base ```az ams streaming-policy```substituído por .
+- Suporte de parâmetros ```az ams streaming-policy create``` de encriptação adicionado.
 
 #### <a name="transform-commands"></a>Transformar comandos
 
-- ```--preset-names``` argumento substituído por ```--preset```. Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem que executar ```az ams transform output add```). Além disso, pode definir standardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
-- ```az ams transform output remove``` pode ser realizada passando o índice de saída para remover.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argumentos adicionados aos comandos ```az ams transform create``` e ```az ams transform output add```.
+- ```--preset-names```argumento substituído ```--preset```por . Agora só pode definir 1 saída/predefinição de cada vez ```az ams transform output add```(para adicionar mais tem que correr). Além disso, pode definir standardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
+- ```az ams transform output remove```pode ser realizado passando o índice de saída para remover.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos adicionados ```az ams transform create``` ```az ams transform output add``` e comandos.
 
 ## <a name="october-2018---ga"></a>Outubro 2018 - GA
 
@@ -325,7 +325,7 @@ CmAF e suporte de encriptação 'cbcs' para os jogadores apple HLS (iOS 11+) e M
 
 O lançamento do Video Indexer GA foi anunciado em agosto. Para novas informações sobre funcionalidades atualmente suportadas, consulte [o Que é o Indexante](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)de Vídeo . 
 
-### <a name="plans-for-changes"></a>Planos para que as alterações
+### <a name="plans-for-changes"></a>Planos para alterações
 
 #### <a name="azure-cli-20"></a>CLI 2.0 do Azure
  
@@ -360,5 +360,5 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral](media-services-overview.md)
+- [Descrição Geral](media-services-overview.md)
 - [Notas de lançamento v2 dos Media Services](../previous/media-services-release-notes.md)

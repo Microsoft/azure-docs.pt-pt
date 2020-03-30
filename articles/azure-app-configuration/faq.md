@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523497"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348794"
 ---
 # <a name="azure-app-configuration-faq"></a>FAQ de configuração de aplicativo sinuoso
 
@@ -24,8 +24,8 @@ A Configuração de Aplicações ajuda os desenvolvedores a gerir as definiçõe
 
 Suportes de configuração de aplicações:
 
-- Espaços hierárquicos
-- rotulagem
+- Espaços de nomes hierárquicos
+- Rotulagem
 - Consultas extensas
 - Recuperação de lotes
 - Operações de gestão especializadas
@@ -59,15 +59,17 @@ Há um limite de 10 KB para um único item de valor-chave.
 
 Controla quem pode aceder à Configuração de Aplicações a um nível por loja. Utilize uma loja separada para cada ambiente que exija permissões diferentes. Esta abordagem proporciona o melhor isolamento de segurança.
 
+Se não necessitar de isolamento de segurança entre ambientes, pode utilizar etiquetas para diferenciar os valores de configuração. [Utilize etiquetas para permitir configurações diferentes para diferentes ambientes,](./howto-labels-aspnet-core.md) fornece um exemplo completo.
+
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quais são as formas recomendadas de usar a Configuração de Aplicações?
 
 Ver [as melhores práticas.](./howto-best-practices.md)
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quanto custa a Configuração de Aplicações?
 
-Existem dois níveis de preços: 
+Existem dois níveis de preços:
 
-- Nível livre
+- Escalão gratuito
 - Nível padrão.
 
 Se criou uma loja antes da introdução do nível Standard, passou automaticamente para o nível Livre mediante disponibilidade geral. Pode optar por fazer upgrade para o nível Standard ou permanecer no nível Livre.
@@ -97,6 +99,25 @@ Pode atualizar do nível Free para o nível Standard a qualquer momento.
 
 Não se pode desvalorizar uma loja do nível Standard para o nível Livre. Pode criar uma nova loja no free tier e, em seguida, importar dados de [configuração para essa loja](howto-import-export-data.md).
 
+## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Existem limites para o número de pedidos feitos à Configuração de Aplicações?
+
+As lojas de configuração no nível Livre estão limitadas a 1.000 pedidos por dia. As lojas de configuração no nível Standard podem sofrer estrangulamentos temporários quando a taxa de pedido exceder 20.000 pedidos por hora.
+
+Quando uma loja atingir o seu limite, devolverá o código de estado HTTP 429 para todos os pedidos feitos até ao termo do prazo. O `retry-after-ms` cabeceamento na resposta dá um tempo de espera sugerido (em milissegundos) antes de voltar a tentar o pedido.
+
+Se a sua aplicação experimentar regularmente o código de estado HTTP 429, considere redesenhar para reduzir o número de pedidos feitos. Para mais informações, consulte [Reduzir os pedidos feitos para a Configuração de Aplicações](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
+
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>A minha aplicação recebe respostas http status code 429. Porquê?
+
+Receberá uma resposta do código de estado HTTP 429 nestas circunstâncias:
+
+* Excedendo o limite diário de pedidos de uma loja no free tier.
+* Estrangulamento temporário devido a uma elevada taxa de pedido para uma loja no nível Standard.
+* Utilização excessiva da largura de banda.
+* Tentar criar ou modificar uma chave quando a cotação de armazenamento é ultrapassada.
+
+Verifique o corpo da resposta 429 pela razão específica pela qual o pedido falhou.
+
 ## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Como posso receber anúncios sobre novos lançamentos e outras informações relacionadas com a Configuração de Aplicações?
 
 Subscreva o nosso repo de [anúncios GitHub.](https://github.com/Azure/AppConfiguration-Announcements)
@@ -107,4 +128,4 @@ Pode contactar-nos diretamente no [GitHub.](https://github.com/Azure/AppConfigur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Sobre a configuração da app Azure](./overview.md)
+* [Sobre a Configuração da Aplicação Azure](./overview.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar Apache Kafka com o Azure PowerShell-HDInsight'
+title: 'Quickstart: Create Apache Kafka com Azure PowerShell - HDInsight'
 description: Neste guia de início rápido, irá aprender a criar um cluster do Apache Kafka no Azure HDInsight com o Azure PowerShell. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,35 +9,35 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73494752"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando o PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Criar o cluster Apache Kafka no Azure HDInsight usando powerShell
 
-[Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
+[Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de código aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
-Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
+Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede. Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* O [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
+* O Módulo PowerShell [Az](https://docs.microsoft.com/powershell/azure/overview) instalado.
 
-* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Entre em sua assinatura do Azure com o cmdlet `Connect-AzAccount` e siga as instruções na tela.
+Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` cmdlet e siga as instruções no ecrã.
 
 ```azurepowershell-interactive
 # Login to your Azure subscription
@@ -53,7 +53,7 @@ if(-not($sub))
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. O seguinte exemplo pede-lhe o nome e a localização e, em seguida, cria um novo grupo de recursos:
+Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. O seguinte exemplo pede-lhe o nome e a localização e, em seguida, cria um novo grupo de recursos:
 
 ```azurepowershell-interactive
 $resourceGroup = Read-Host -Prompt "Enter the resource group name"
@@ -62,12 +62,12 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
+Enquanto o Kafka no HDInsight utiliza o Managed Disks do Azure para armazenar dados do Kafka, o cluster também utiliza o Armazenamento do Azure para armazenar informações, tais como registos. Utilize a [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) para criar uma nova conta de armazenamento.
 
 > [!IMPORTANT]  
-> O tipo de conta de armazenamento `BlobStorage` só pode ser usado como armazenamento secundário para clusters HDInsight.
+> O tipo `BlobStorage` de conta de armazenamento só pode ser usado como armazenamento secundário para clusters HDInsight.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -81,7 +81,7 @@ New-AzStorageAccount `
     -EnableHttpsTrafficOnly 1
 ```
 
-O HDInsight armazena os dados na conta de armazenamento num contentor de blob. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) para criar um novo contêiner.
+O HDInsight armazena os dados na conta de armazenamento num contentor de blob. Utilize o [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) para criar um novo recipiente.
 
 ```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
@@ -135,7 +135,7 @@ A criação do cluster do HDInsight pode demorar até 20 minutos.
 
 O parâmetro `-DisksPerWorkerNode` configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó.
 
-O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a documentação do [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) .
+O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre os parâmetros, consulte a documentação [New-AzHDInsightCluster.](/powershell/module/az.HDInsight/New-azHDInsightCluster)
 
 Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do cluster ou ao dimensionar o cluster após a criação), tem de utilizar o parâmetro `-HeadNodeSize` para especificar um tamanho de VM com pelo menos 8 núcleos e 14 GB de RAM. Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -174,11 +174,11 @@ Welcome to Kafka on HDInsight.
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ```
 
-## <a id="getkafkainfo"></a>Obter as informações do host do Apache Zookeeper e do agente
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obtenha a informação do anfitrião do Zoológico apache e corretor
 
-Ao trabalhar com o Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *do Broker* . Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
+Ao trabalhar com Kafka, deve conhecer os anfitriões do *Zoológico* Apache e do *Corretor.* Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
 
-Nesta seção, você obtém as informações do host da API REST do Apache Ambari no cluster.
+Nesta secção, obtém-se a informação do anfitrião da API do Apache Ambari REST no cluster.
 
 1. A partir da ligação SSH ao cluster, utilize o comando seguinte para instalar o utilitário `jq`. Este utilitário é utilizado para analisar documentos JSON e é útil para obter as informações do anfitrião:
    
@@ -194,7 +194,7 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
     Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
-3. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando a seguir. O comando recupera todos os hosts Zookeeper e, em seguida, retorna apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
+3. Para definir uma variável ambiental com informações do anfitrião zookeeper, use o comando abaixo. O comando recupera todos os anfitriões do Zookeeper, e depois devolve apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -212,7 +212,7 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper e do mediador, utilize o comando seguinte:
+5. Para definir uma variável de ambiente com as informações do anfitrião do mediador do Kafka, utilize o comando seguinte:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
@@ -254,7 +254,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
         O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceamento de partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
+        Para garantir uma elevada disponibilidade, utilize a ferramenta de reequilíbrio da [divisória Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar as réplicas de partições do tópico ao:
 
@@ -315,11 +315,11 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
 
 4. Utilize __Ctrl + C__ para parar o consumidor.
 
-Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, consulte o documento [Apache Kafka produtor e API do consumidor com o HDInsight](apache-kafka-producer-consumer-api.md) .
+Também podem criar programaticamente produtores e consumidores. Para um exemplo de utilização desta API, consulte o Apache Kafka Producer e a Consumer API com o documento [HDInsight.](apache-kafka-producer-consumer-api.md)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o HDInsight e todos os recursos relacionados.
+Quando já não for necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o HDInsight e todos os recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
@@ -333,4 +333,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Usar Apache Spark com Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Use Apache Spark com Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

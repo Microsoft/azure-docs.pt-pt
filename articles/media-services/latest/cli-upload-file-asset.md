@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: d0a28bafef887bf0c40aa88eba1873f82cf36fd7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346086"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383009"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemplo da CLI: Carregar um ficheiro local para um contentor 
+# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Exemplo do AZURE CLI: Faça upload de um ficheiro local para um recipiente
 
 Neste artigo, o script da CLI do Azure mostra como carregar um ficheiro local para um contentor de armazenamento.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Criar uma conta de Media Services.](create-account-cli-how-to.md)
 * Rever [os ativos de gestão.](manage-asset-concept.md)
@@ -34,7 +34,7 @@ Neste artigo, o script da CLI do Azure mostra como carregar um ficheiro local pa
 
 ## <a name="example-script"></a>Script de exemplo
 
-```Azure CLI 
+```azurecli-interactive
 #!/bin/bash
 # Update the following variables for your own settings:
 storageAccountName=build2018storage

@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298959"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336253"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo testados no local
 
@@ -39,7 +39,7 @@ Os codificadores devem suportar o TLS 1.2 quando utilizarem protocolos HTTPS ou 
 
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores ao vivo que output RTMP
 
-Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os regimes de URL suportados são `rtmp://` ou `rtmps://`.
+Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os regimes de `rtmp://` URL `rtmps://`suportados são ou .
 
 Ao transmitir em fluxo através de RTMP, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.<br/><br/>
 Ao transmitir em fluxo através de RTMPS, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 2935 e 2936 estão abertas.
@@ -67,7 +67,7 @@ Ao transmitir em fluxo através de RTMPS, verifique as definições da firewall 
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores ao vivo que produzem MP4 fragmentado
 
-A Media Services recomenda a utilização de um dos seguintes codificadores ao vivo que tenham o Streaming Liso multibitado (MP4 fragmentado) como saída. Os regimes de URL suportados são `http://` ou `https://`.
+A Media Services recomenda a utilização de um dos seguintes codificadores ao vivo que tenham o Streaming Liso multibitado (MP4 fragmentado) como saída. Os regimes de `http://` URL `https://`suportados são ou .
 
 > [!NOTE]
 > Os codificadores devem suportar o TLS 1.2 ao utilizarem protocolos HTTPS.
@@ -91,18 +91,25 @@ Para obter informações sobre quais as configurações válidas para o seu tipo
 
 Para reproduzir conteúdo, um fluxo de áudio e vídeo deve estar presente. A reprodução do fluxo só de vídeo não é suportada.
 
-### <a name="configuration-tips"></a>Dicas de configuração
+### <a name="configuration-tips"></a>Sugestões de configuração
 
-- Sempre que possível, utilize uma ligação de internet conectada.
+- Sempre que possível, utilize uma ligação à Internet por fios.
 - Quando estiver a determinar os requisitos de largura de banda, duplique os bitrates de streaming. Embora não seja obrigatória, esta regra simples ajuda a mitigar o impacto do congestionamento da rede.
-- Quando utilizar codificadores baseada em software, feche todos os programas desnecessários.
+- Ao utilizar codificadores baseados em software, encerre quaisquer programas desnecessários.
 - Alterar a configuração do codificador depois de ter começado a empurrar tem efeitos negativos no evento. As alterações de configuração podem fazer com que o evento se torne instável. 
 - Certifique-se de que dá tempo suficiente para configurar o seu evento. Para eventos de alta escala, recomendamos iniciar a configuração uma hora antes do seu evento.
+- Utilize a saída de código sonoro H.264 e AAC.
+- Certifique-se de que existe um quadro chave ou um alinhamento temporal gop através das qualidades de vídeo.
+- Certifique-se de que existe um nome de streaming único para cada qualidade de vídeo.
+- Utilize codificação cbr rigorosa recomendada para um desempenho adaptativo de bitrate adaptativo ótimo.
+
+> [!IMPORTANT]
+> Observe a condição física da máquina (CPU / Memória / etc) pois o upload de fragmentos para a nuvem envolve operações de CPU e IO. Se alterar quaisquer definições no codificador, certifique-se de que os canais /evento ao vivo para que a alteração tenha efeito.
 
 ## <a name="see-also"></a>Consulte também
 
 [Streaming em direto com Media Services v3](live-streaming-overview.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Como verificar o seu codificador](become-on-premises-encoder-partner.md)

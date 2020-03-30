@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271112"
 ---
-# <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de encaminhamento de mensagens IoT Hub
+# <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
 
 O encaminhamento de mensagens permite que os utilizadores direcionem diferentes tipos de dados, nomeadamente, mensagens de telemetria do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de dispositivo sintetizam para vários pontos finais. Também pode aplicar consultas ricas a estes dados antes de encaminhar para receber os dados que lhe interessam. Este artigo descreve a linguagem de encaminhamento de mensagens IoT Hub, e fornece alguns padrões comuns de consulta.
 
@@ -52,11 +52,11 @@ As propriedades do sistema ajudam a identificar conteúdos e fonte seleções da
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| contentType | Cadeia de caracteres | O utilizador especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, este valor deve ser definido aplicação/JSON. |
-| contentEncoding | Cadeia de caracteres | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType for definido para aplicação/JSON. |
-| iothub-connection-device-id | Cadeia de caracteres | Este valor é definido pelo IoT Hub e identifica a identificação do dispositivo. Para consultar, use `$connectionDeviceId`. |
-| iothub-enqueuedtime | Cadeia de caracteres | Este valor é definido pelo IoT Hub e representa o tempo real de enquecância da mensagem na UTC. Para consultar, use `enqueuedTime`. |
-| iothub-interface-nome | Cadeia de caracteres | Este valor é definido pelo utilizador e representa o nome da interface dupla digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug e Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| conteúdoType | string | O utilizador especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, este valor deve ser definido aplicação/JSON. |
+| contentEncoding | string | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType for definido para aplicação/JSON. |
+| iothub-ligação-dispositivo-id | string | Este valor é definido pelo IoT Hub e identifica a identificação do dispositivo. Para consultar, `$connectionDeviceId`use. |
+| iothub-enqueuedtime | string | Este valor é definido pelo IoT Hub e representa o tempo real de enquecância da mensagem na UTC. Para consultar, `enqueuedTime`use. |
+| iothub-interface-nome | string | Este valor é definido pelo utilizador e representa o nome da interface dupla digital que implementa a mensagem de telemetria. Para consultar, `$interfaceName`use. Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug e Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além do **conteúdoType**, **contentEncoding,** e **enqueuedTime,** a **ligaçãoDeviceId** e **ligaçãoModuleId** também podem ser consultadas.
 
@@ -66,7 +66,7 @@ As propriedades da aplicação são cordas definidas pelo utilizador que podem s
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta sobre as propriedades do sistema de mensagens tem de ser pré-fixada com o símbolo `$`. As consultas nas propriedades da aplicação são acedidas com o seu nome e não devem ser pré-fixadas com o símbolo `$`. Se um nome de propriedade de aplicação começar com `$`, então o IoT Hub irá procurá-lo nas propriedades do sistema, e não for encontrado, então irá olhar para as propriedades da aplicação. Por exemplo: 
+Uma consulta sobre as propriedades do sistema `$` de mensagens precisa de ser pré-fixada com o símbolo. As consultas nas propriedades da aplicação são acedidas `$`com o seu nome e não devem ser pré-fixadas com o símbolo. Se um nome de `$`propriedade de aplicação começar com , então o IoT Hub irá procurá-lo nas propriedades do sistema, e não for encontrado, então ele irá olhar nas propriedades da aplicação. Por exemplo: 
 
 Para consultar o conteúdo da propriedade do sistemaEncoding 
 
@@ -90,7 +90,7 @@ Uma lista completa de operadores e funções suportadas é mostrada em [Express�
 
 ## <a name="message-routing-query-based-on-message-body"></a>Consulta de encaminhamento de mensagens baseada no corpo da mensagem
 
-Para permitir a consulta no corpo da mensagem, a mensagem deve estar num JSON codificado em UTF-8, UTF-16 ou UTF-32. A `contentType` deve ser definida para `application/JSON` e `contentEncoding` a uma das codificações utf suportadas na propriedade do sistema. Se estas propriedades não forem especificadas, o IoT Hub não avaliará a expressão de consulta no corpo da mensagem. 
+Para permitir a consulta no corpo da mensagem, a mensagem deve estar num JSON codificado em UTF-8, UTF-16 ou UTF-32. O `contentType` deve ser `application/JSON` `contentEncoding` definido para e para uma das codificações uTF suportadas na propriedade do sistema. Se estas propriedades não forem especificadas, o IoT Hub não avaliará a expressão de consulta no corpo da mensagem. 
 
 O exemplo que se segue mostra como criar uma mensagem com um corpo JSON devidamente formado e codificado: 
 
@@ -142,12 +142,12 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma C#amostra, descarregue as [amostras Azure C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. A solução Visual Studio *Simulado Program.cs*ficheiro do Estúdio mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento da mensagem, como explicado no tutorial de [Encaminhamento de Mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo novamente como ASCII para que possa lê-lo. 
+> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma amostra em C#, descarregue as [amostras Azure IoT C# .](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. A solução Visual Studio *Simulado Program.cs*ficheiro do Estúdio mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento da mensagem, como explicado no tutorial de [Encaminhamento de Mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo novamente como ASCII para que possa lê-lo. 
 
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no corpo da mensagem tem de ser pré-fixada com o `$body`. Pode utilizar uma referência corporal, referência de matriz corporal ou múltiplas referências corporais na expressão de consulta. A sua expressão de consulta também pode combinar uma referência corporal com propriedades do sistema de mensagens, e referência de propriedades de aplicação de mensagens. Por exemplo, todos os seguintes são expressões de consulta válidas: 
+Uma consulta no corpo da mensagem precisa `$body`de ser pré-fixada com o . Pode utilizar uma referência corporal, referência de matriz corporal ou múltiplas referências corporais na expressão de consulta. A sua expressão de consulta também pode combinar uma referência corporal com propriedades do sistema de mensagens, e referência de propriedades de aplicação de mensagens. Por exemplo, todos os seguintes são expressões de consulta válidas: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -200,7 +200,7 @@ O encaminhamento de mensagens permite-lhe consultar as etiquetas e propriedades 
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no gémeo da mensagem tem de ser pré-fixada com o `$twin`. A sua expressão de consulta também pode combinar uma etiqueta dupla ou referência de propriedade com uma referência corporal, propriedades do sistema de mensagens e referência de propriedades de aplicação de mensagens. Recomendamos a utilização de nomes únicos em etiquetas e propriedades, uma vez que a consulta não é sensível a casos. Isto aplica-se tanto aos gémeos dispositivos como aos gémeos módulos. Abstenha-se também de utilizar `twin`, `$twin`, `body`ou `$body`, como nomes de propriedade. Por exemplo, todos os seguintes são expressões de consulta válidas: 
+Uma consulta no gémeo da mensagem precisa `$twin`de ser pré-fixada com o . A sua expressão de consulta também pode combinar uma etiqueta dupla ou referência de propriedade com uma referência corporal, propriedades do sistema de mensagens e referência de propriedades de aplicação de mensagens. Recomendamos a utilização de nomes únicos em etiquetas e propriedades, uma vez que a consulta não é sensível a casos. Isto aplica-se tanto aos gémeos dispositivos como aos gémeos módulos. Também se `twin`abstenha de usar, `$twin` `body`ou `$body`, como nomes de propriedade. Por exemplo, todos os seguintes são expressões de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -216,7 +216,7 @@ $twin.tags.deploymentLocation.floor = 1
 
 Não é suportada a consulta de encaminhamento no corpo ou no dispositivo twin com um período de carga útil ou nome de propriedade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o encaminhamento de mensagens.](iot-hub-devguide-messages-d2c.md)
 * Experimente o tutorial de [encaminhamento de mensagens.](tutorial-routing.md)

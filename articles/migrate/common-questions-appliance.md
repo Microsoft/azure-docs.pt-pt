@@ -3,12 +3,12 @@ title: FaQ do aparelho migratório Azure
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 2ef7de3b31cb11a71ec9379232fc5ff1022cf666
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336977"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho migratório Azure: Questões comuns
 
@@ -55,8 +55,8 @@ Consulte os seguintes artigos para obter informações sobre os requisitos de co
 
 Consulte os seguintes artigos para obter informações sobre os dados que o aparelho Azure Migrate recolhe em VMs:
 
-- **VMware VM**: [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware) e [metadados](migrate-appliance.md#collected-metadata-vmware)
-- **Hyper-V VM**: [dados de desempenho](migrate-appliance.md#collected-performance-data-hyper-v) e [metadados](migrate-appliance.md#collected-metadata-hyper-v)
+- **VMware VM**: [Reveja](migrate-appliance.md#collected-data---vmware) os dados recolhidos. [
+- **Hyper-V VM**: [Reveja](migrate-appliance.md#collected-data---hyper-v) os dados recolhidos.
 
 ## <a name="how-is-data-stored"></a>Como são armazenados os dados?
 
@@ -130,6 +130,6 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 Sim. No portal, vá a página de **saúde** do Agente para o Azure Migrate: Server Assessment ou Azure Migrate: Server Migration tool. Aí, pode verificar o estado de ligação entre o Azure e os agentes de descoberta e avaliação do aparelho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

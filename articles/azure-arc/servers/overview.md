@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualizações, rastreio de alterações, inventário, livros de execução, pitão, gráfico, híbrido
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 85a6f8dcb9f551d81a607adc9ae482f4025d804f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241375"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366349"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é O Arco Azure para servidores (pré-visualização)
 
@@ -74,10 +74,10 @@ Antes de configurar as suas máquinas com o Azure Arc para servidores (pré-visu
 
 Para garantir a segurança dos dados em trânsito para o Azure, encorajamo-lo vivamente a configurar a máquina para utilizar a Transport Layer Security (TLS) 1.2. As versões mais antigas da Camada de Tomadas TLS/Secure (SSL) revelaram-se vulneráveis e, embora ainda trabalhem para permitir a retrocompatibilidade, não são **recomendadas**. 
 
-|Plataforma/linguagem | Suporte | Mais Informações |
+|Plataforma/Idioma | Suporte | Mais Informações |
 | --- | --- | --- |
 |Linux | As distribuições linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte TLS 1.2. | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows Server 2012 R2 e superior | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
+| Windows Server 2012 R2 e superior | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Configuração de rede
 
@@ -143,13 +143,13 @@ Pode descarregar o pacote de agente Azure Connected Machine para Windows e Linux
 >[!NOTE]
 >Durante esta pré-visualização, apenas foi lançado um pacote, que é adequado para Ubuntu 16.04 ou 18.04.
 
-O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a mais recente versão manual ou automaticamente, dependendo dos seus requisitos. Para o Windows, a atualização do agente pode ser realizada automaticamente utilizando o Windows Update e para o Ubuntu, utilizando a ferramenta de linha de comando [apta.](https://help.ubuntu.com/lts/serverguide/apt.html)
+O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a mais recente versão manual ou automaticamente, dependendo dos seus requisitos. Para mais informações, consulte [aqui](manage-agent.md)
 
 ### <a name="agent-status"></a>Estado do agente
 
 O agente Máquina Conectada envia uma mensagem regular de batimentocardíaco ao serviço a cada 5 minutos. Se não for recebido durante 15 minutos, a máquina é considerada offline e o estado será automaticamente alterado para **Desligado** no portal. Ao receber uma mensagem de batimento cardíaco subsequente do agente Máquina Conectada, o seu estado será automaticamente alterado para **Connected**.
 
-## <a name="install-and-configure-agent"></a>Instalar e configurar o agente
+## <a name="install-and-configure-agent"></a>Instalar e configurar agente
 
 As máquinas de ligação no seu ambiente híbrido diretamente com o Azure podem ser realizadas utilizando diferentes métodos dependendo dos seus requisitos. A tabela seguinte destaca cada método para determinar qual o melhor funciona para a sua organização.
 
@@ -157,6 +157,7 @@ As máquinas de ligação no seu ambiente híbrido diretamente com o Azure podem
 |--------|-------------|
 | Interativamente | Instale manualmente o agente num único ou pequeno número de máquinas seguindo os passos em [Connect machines a partir do portal Azure](onboard-portal.md).<br> A partir do portal Azure, pode gerar um script e executá-lo na máquina para automatizar os passos de instalação e configuração do agente.|
 | À escala | Instale e configure o agente para várias máquinas que seguem as [máquinas Connect utilizando um diretor de serviço](onboard-service-principal.md).<br> Este método cria um diretor de serviço para ligar as máquinas de forma não interativa.|
+| À escala | Instale e configure o agente para várias máquinas seguindo o método Utilizando o [DSC](onboard-dsc.md)do Windows PowerShell .<br> Este método utiliza um diretor de serviço para ligar as máquinas não interactivamente ao PowerShell DSC. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Rede adaptável endurecendo no Centro de Segurança Azure  Microsoft Docs
+title: Rede adaptável endurecendo no Centro de Segurança Azure [ Microsoft Docs
 description: Aprenda a usar padrões de tráfego reais para endurecer as regras dos seus grupos de segurança de rede (NSG) e melhorar ainda mais a sua postura de segurança.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: bc610fa1d7a5fa1a10db3298164404b92d5d9f85
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79139594"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385083"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Rede adaptável endurecendo no Centro de Segurança Azure
 Saiba como configurar o endurecimento da rede adaptável no Centro de Segurança Azure.
@@ -31,7 +31,7 @@ O Endurecimento da Rede Adaptável fornece recomendações para endurecer ainda 
 Por exemplo, digamos que a regra nsg existente é permitir o tráfego a partir de 140.20.30.10/24 na porta 22. A recomendação da Rede Adaptativa de Endurecimento, com base na análise, seria reduzir o intervalo e permitir o tráfego a partir de 140.23.30.10/29 – que é uma gama IP mais estreita, e negar todo o tráfego para aquele porto.
 
 >[!TIP]
-> Recomendações de endurecimento da rede adapttiva só são suportadas em portas específicas. Para a lista completa, veja [quais portas são suportadas abaixo.](#which-ports-are-supported) 
+> Recomendações de endurecimento da rede adapttiva só são suportadas nas seguintes portas específicas (tanto para a UDP como para a TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 203, 203 , 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
 ![Visão de endurecimento da rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
@@ -39,7 +39,7 @@ Por exemplo, digamos que a regra nsg existente é permitir o tráfego a partir d
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Ver alertas e regras de endurecimento da rede adapttiva
 
-1. No Centro de Segurança, selecione **Networking** -> **Adaptive Network Hardening**. Os VMs da rede estão listados em três separadores separados:
+1. No Centro de Segurança, selecione O**endurecimento**adaptativo da rede de rede em **rede** -> . Os VMs da rede estão listados em três separadores separados:
    * **Recursos pouco saudáveis**: VMs que atualmente têm recomendações e alertas que foram desencadeados pela execução do algoritmo adaptativo de endurecimento da rede. 
    * **Recursos saudáveis**: VMs sem alertas e recomendações.
    * **Recursos não digitalizados**: VMs que o algoritmo adaptativo de endurecimento da rede não pode ser executado por uma das seguintes razões:
@@ -75,7 +75,7 @@ Por exemplo, digamos que a regra nsg existente é permitir o tráfego a partir d
     ![impor regras](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Modificar uma <a name ="modify-rule"> </a> regra
+### <a name="modify-a-rule"></a>Modificar uma <a name ="modify-rule"> </a> regra
 
 Pode querer modificar os parâmetros de uma regra recomendada. Por exemplo, pode querer alterar as gamas ip recomendadas.
 
@@ -108,7 +108,7 @@ Algumas orientações importantes para modificar uma regra de endurecimento da r
 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Adicione uma <a name ="add-rule"> </a> nova regra
+### <a name="add-a-new-rule"></a>Adicione uma <a name ="add-rule"> </a> nova regra
 
 Pode adicionar uma regra de "permitir" que não foi recomendada pelo Centro de Segurança.
 
@@ -131,7 +131,7 @@ Pode adicionar uma regra de "permitir" que não foi recomendada pelo Centro de S
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Apagar uma <a name ="delete-rule"> </a> regra
+### <a name="delete-a-rule"></a>Apagar uma <a name ="delete-rule"> </a> regra
 
 Quando necessário, pode eliminar uma regra recomendada para a sessão atual. Por exemplo, pode determinar que aplicar uma regra sugerida pode bloquear o tráfego legítimo.
 
@@ -140,73 +140,3 @@ Quando necessário, pode eliminar uma regra recomendada para a sessão atual. Po
 1. No separador **Regras,** clique nos três pontos (...) no final da linha da regra e clique em **Eliminar**.  
 
     ![endurecimento das regras](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
-
- 
-
-## <a name="which-ports-are-supported"></a>Que portos são apoiados?
-
-Recomendações de endurecimento da rede adapttiva só são suportadas em portas específicas. Esta tabela dá-lhe a lista completa:
-
-|Porta|Protocolo|Serviço Associado|
-|:---:|:----:|:----|
-|13|UDP|Serviço diurno|
-|17|UDP|Protocolo QOTD|
-|19|UDP|Protocolo CHARGEN|
-|22|TCP|SSH|
-|23|TCP|Telnet|
-|53|UDP|DNS|
-|69|UDP|TFTP|
-|81|TCP|Potencialmente malicioso (nó de saída tor)|
-|111|TCP/UDP|RPC|
-|119|TCP|NNTP|
-|123|UDP|NTP|
-|135|TCP/UDP|Mapper de ponto final; RPC; DCE|
-|137|TCP/UDP|Serviço de Nome NetBIOS|
-|138|TCP/UDP|Serviço de Datagram NetBIOS|
-|139|TCP|Serviço de Sessão NetBIOS|
-|161|TCP/UDP|SNMP|
-|162|TCP/UDP|SNMP|
-|389|TCP|LDAP|
-|445|TCP|SMB|
-|512|TCP|Rio Rexec|
-|514|TCP|Concha remota|
-|593|TCP/UDP|HTTP RPC|
-|636|TCP|LDAP|
-|873|TCP|Rsync|
-|1433|TCP|Sra. Sql|
-|1434|UDP|Sra. Sql|
-|1900|UDP|SSDP|
-|1900|UDP|SSDP|
-|2049|TCP/UDP|NFS|
-|2301|TCP|Serviço de gestão compaq|
-|2323|TCP|3d-nfsd|
-|2381|TCP|Serviço de gestão compaq|
-|3268|TCP|LDAP|
-|3306|TCP|MySQL|
-|3389|TCP|RDP|
-|4333|TCP|mSQL|
-|5353|UDP|mDNS|
-|5432|TCP|PostgreSQL|
-|5555|TCP|Agente Pessoal; HP OmniBack|
-|5800|TCP|VNC|
-|5900|TCP|Tampão de quadro remoto; VNC|
-|5900|TCP|VNC|
-|5985|TCP|Windows PowerShell|
-|5986|TCP|Windows PowerShell|
-|6379|TCP|Redis|
-|6379|TCP|Redis|
-|7000|TCP|Cassandra|
-|7001|TCP|Cassandra|
-|7199|TCP|Cassandra|
-|8081|TCP|CosmosDB; Administrador de Procuração solar|
-|8089|TCP|Splunk|
-|8545|TCP|Potencialmente malicioso (Cryptominer)|
-|9042|TCP|Cassandra|
-|9160|TCP|Cassandra|
-|9300|TCP|Elasticsearch|
-|11211|UDP|Memcached|
-|16379|TCP|Redis|
-|26379|TCP|Redis|
-|27017|TCP|MongoDB|
-|37215|TCP|Potencialmente malicioso|
-||||

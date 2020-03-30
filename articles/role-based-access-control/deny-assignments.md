@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137379"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372476"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Entenda negar atribuições para recursos Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve como as missões de negação são definidas.
 
 ## <a name="how-deny-assignments-are-created"></a>Como é que as missões de negação são criadas
 
-As missões de negação são criadas e geridas pela Azure para proteger recursos. As aplicações geridas pelo Azure Blueprints e azure utilizam missões de negação para proteger recursos geridos pelo sistema. As aplicações geridas pelo Azure Blueprints e Azure são a única forma de negar atribuições. Não podes criar diretamente as tuas próprias missões de negação.  Para mais informações, consulte Proteja novos recursos com fechaduras de [recursos da Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+As missões de negação são criadas e geridas pela Azure para proteger recursos. As aplicações geridas pelo Azure Blueprints e azure utilizam missões de negação para proteger recursos geridos pelo sistema. As aplicações geridas pelo Azure Blueprints e Azure são a única forma de negar atribuições. Não podes criar diretamente as tuas próprias missões de negação. Para obter mais informações sobre como as plantas usam as missões de negação para bloquear recursos, consulte compreender o bloqueio de [recursos em Plantas Azure](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
 > Não podes criar diretamente as tuas próprias missões de negação.
@@ -64,15 +64,15 @@ As atribuições de negação seguem um padrão semelhante ao de atribuições d
 > | `Permissions.NotDataActions` | Não | Corda[] | Um conjunto de cordas que especificam as operações de dados para excluir da atribuição de negação. |
 > | `Scope` | Não | Cadeia | Uma cadeia que especifica o âmbito a que a atribuição de negação se aplica. |
 > | `DoNotApplyToChildScopes` | Não | Booleano | Especifica se a atribuição de negação se aplica aos âmbitos infantis. O valor predefinido é falso. |
-> | `Principals[i].Id` | Sim | Corda[] | Uma série de IDs principais de objetos Azure AD (utilizador, grupo, diretor de serviço ou identidade gerida) a que se aplica a atribuição de negação. Definir para um `00000000-0000-0000-0000-000000000000` GUIA vazio para representar todos os principais. |
-> | `Principals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados pelos Diretores[i].Id. set para `SystemDefined` para representar todos os principais. |
+> | `Principals[i].Id` | Sim | Corda[] | Uma série de IDs principais de objetos Azure AD (utilizador, grupo, diretor de serviço ou identidade gerida) a que se aplica a atribuição de negação. Coloque-o num `00000000-0000-0000-0000-000000000000` GUID vazio para representar todos os principais. |
+> | `Principals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados pelos `SystemDefined` Diretores[i].Id. Definido para representar todos os principais. |
 > | `ExcludePrincipals[i].Id` | Não | Corda[] | Uma série de IDs principais de objetos Azure AD (utilizador, grupo, diretor de serviço ou identidade gerida) às quais a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não | Corda[] | Uma série de tipos de objetos representados por ExcluiPrincipais[i].Id. |
 > | `IsSystemProtected` | Não | Booleano | Especifica se esta atribuição de negação foi criada pela Azure e não pode ser editada ou eliminada. Atualmente, todas as missões de negação estão protegidas pelo sistema. |
 
 ## <a name="the-all-principals-principal"></a>O diretor de Todos os Principais
 
-Para apoiar a negação de atribuições, foi introduzido um diretor definido pelo sistema chamado *All Principais.* Este principal representa todos os utilizadores, grupos, diretores de serviços e identidades geridas num diretório Azure AD. Se o ID principal for um `00000000-0000-0000-0000-000000000000` GUIA zero e o tipo principal for `SystemDefined`, o principal representa todos os principais. Na saída Azure PowerShell, todos os principais parecem ser os seguintes:
+Para apoiar a negação de atribuições, foi introduzido um diretor definido pelo sistema chamado *All Principais.* Este principal representa todos os utilizadores, grupos, diretores de serviços e identidades geridas num diretório Azure AD. Se o ID principal `00000000-0000-0000-0000-000000000000` for um GUIA `SystemDefined`zero e o tipo principal for, o principal representa todos os principais. Na saída Azure PowerShell, todos os principais parecem ser os seguintes:
 
 ```azurepowershell
 Principals              : {
@@ -82,12 +82,12 @@ Principals              : {
                           }
 ```
 
-Todos os Principais podem ser combinados com `ExcludePrincipals` negar todos os principais, exceto alguns utilizadores. Todos os Principais têm os seguintes constrangimentos:
+Todos os principais `ExcludePrincipals` podem ser combinados para negar todos os principais, exceto alguns utilizadores. Todos os Principais têm os seguintes constrangimentos:
 
-- Só pode ser utilizado em `Principals` e não pode ser utilizado em `ExcludePrincipals`.
-- `Principals[i].Type` deve ser definido para `SystemDefined`.
+- Só pode ser `Principals` utilizado e `ExcludePrincipals`não pode ser utilizado em .
+- `Principals[i].Type`deve ser `SystemDefined`definido para .
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Tutorial: Proteja novos recursos com fechaduras de recursos da Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
 * [Lista nega atribuições para recursos Azure utilizando o portal Azure](deny-assignments-portal.md)
-* [Compreender definições de papéis para os recursos do Azure](role-definitions.md)

@@ -1,47 +1,47 @@
 ---
-title: Definir chaves exclusivas para um contêiner Cosmos do Azure
-description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
+title: Defina chaves únicas para um recipiente Azure Cosmos
+description: Aprenda a definir chaves únicas para um recipiente Azure Cosmos usando o portal Azure, PowerShell, .Net, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872116"
 ---
-# <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner Cosmos do Azure
+# <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
 
-Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) ao criar um contêiner Cosmos do Azure. No momento, é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
+Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-keys.md) na criação de um recipiente Azure Cosmos. Atualmente é possível realizar esta operação usando o portal Azure ou através de um dos SDKs.
 
-## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
+1. [Crie uma nova conta Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o painel de **Data Explorer** e selecione o contêiner no qual você deseja trabalhar.
+1. Abra o painel **do Data Explorer** e selecione o recipiente em que pretende trabalhar.
 
-1. Clique em **novo contêiner**.
+1. Clique em **Novo Recipiente**.
 
-1. Na caixa de diálogo **Adicionar contêiner** , clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
+1. No diálogo **'Adicionar Recipiente',** clique em **+ Adicione uma chave única** para adicionar uma entrada única na chave.
 
-1. Insira os caminhos da restrição de chave exclusiva
+1. Insira o caminho(s) da restrição chave única
 
-1. Se necessário, adicione mais entradas de chave exclusivas clicando em **+ Adicionar chave exclusiva**
+1. Se necessário, adicione entradas de chave mais únicas clicando em **+ Adicione a chave única**
 
-    ![Captura de tela de entrada de restrição de chave exclusiva em portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Screenshot de entrada única de restrição chave no portal Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
-## <a name="use-powershell"></a>Utilizar o PowerShell
+## <a name="use-powershell"></a>Use Powershell
 
-Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Cosmos do Azure com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
+Para criar um recipiente com chaves únicas veja, [Crie um recipiente Azure Cosmos com chave única e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET v2
+## <a name="use-the-net-sdk-v2"></a>Utilize o .NET SDK V2
 
-Ao criar um novo contêiner usando o [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo recipiente utilizando o [.NET SDK v2,](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)um `UniqueKeyPolicy` objeto pode ser utilizado para definir constrangimentos de chave únicos.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -59,9 +59,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Usar o SDK do .NET v3
+## <a name="use-the-net-sdk-v3"></a>Utilize o .NET SDK V3
 
-Ao criar um novo contêiner usando o [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use a API Fluent do SDK para declarar chaves exclusivas de maneira concisa e legível.
+Ao criar um novo recipiente utilizando o [.NET SDK v3,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)utilize a Fluente API do SDK para declarar chaves únicas de forma concisa e legível.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -76,9 +76,9 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .CreateIfNotExistsAsync();
 ```
 
-## <a name="use-the-java-sdk"></a>Usar o SDK do Java
+## <a name="use-the-java-sdk"></a>Use o Java SDK
 
-Ao criar um novo contêiner usando o [SDK do Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo recipiente utilizando o `UniqueKeyPolicy` [Java SDK,](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)um objeto pode ser usado para definir constrangimentos de chave únicos.
 
 ```java
 // create a new DocumentCollection object
@@ -113,9 +113,9 @@ container.setUniqueKeyPolicy(uniqueKeyPolicy);
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Usar o SDK do node. js
+## <a name="use-the-nodejs-sdk"></a>Use o Nó.js SDK
 
-Ao criar um novo contêiner usando o [SDK do node. js](https://www.npmjs.com/package/@azure/cosmos), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo recipiente utilizando o [Node.js SDK,](https://www.npmjs.com/package/@azure/cosmos)um `UniqueKeyPolicy` objeto pode ser usado para definir constrangimentos de chave únicos.
 
 ```javascript
 client.database('database').containers.create({
@@ -129,9 +129,9 @@ client.database('database').containers.create({
 });
 ```
 
-## <a name="use-the-python-sdk"></a>Usar o SDK do Python
+## <a name="use-the-python-sdk"></a>Use o Python SDK
 
-Ao criar um novo contêiner usando o [SDK do Python](https://pypi.org/project/azure-cosmos/), as restrições de chave exclusivas podem ser especificadas como parte do dicionário passado como parâmetro.
+Ao criar um novo recipiente utilizando o [Python SDK,](https://pypi.org/project/azure-cosmos/)podem ser especificados constrangimentos fundamentais únicos como parte do dicionário passado como parâmetro.
 
 ```python
 client.CreateContainer('dbs/' + config['DATABASE'], {
@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [particionamento](partition-data.md)
+- Saiba mais sobre [a partilha](partition-data.md)
 - Explore [como funciona a indexação](index-overview.md)

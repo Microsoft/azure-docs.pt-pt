@@ -1,28 +1,28 @@
 ---
-title: Criar Azure Functions de aplicativo em tempo real & serviço de Signaler do Azure
-description: Saiba como desenvolver um aplicativo Web sem servidor em tempo real com o serviço de Signaler do Azure, seguindo o exemplo.
+title: Construir aplicativo em tempo real - Funções Azure & Serviço de Sinalização Azure
+description: Aprenda a desenvolver uma aplicação web sem servidor em tempo real com o Serviço De Sinalização Azure seguindo o exemplo.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157618"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crie aplicativos em tempo real com o Azure Functions e o serviço de Signaler do Azure
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Construa aplicativos em tempo real com funções Azure e serviço de sinalização Azure
 
 Dado que o Serviço Azure SignalR e as Funções do Azure são serviços totalmente geridos e altamente dimensionáveis que lhe permitem concentrar-se na criação de aplicações em vez de ter de se dedicar à gestão da infraestrutura, é comum serem ambos utilizados em conjunto para concederem comunicações em tempo real num ambiente [sem servidores](https://azure.microsoft.com/solutions/serverless/).
 
 > [!NOTE]
-> Aprenda a usar o Signalr e o Azure Functions juntos no tutorial interativo [habilitar atualizações automáticas em um aplicativo Web usando Azure Functions e o serviço signalr](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Aprenda a utilizar funções SignalR e Azure em conjunto no tutorial interativo [Enable atualizações automáticas numa aplicação web utilizando funções Azure e Serviço de Sinalizador](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrar comunicações em tempo real com serviços do Azure
 
-Azure Functions permitem que você escreva código em [várias linguagens](../azure-functions/supported-languages.md), incluindo JavaScript, Python C#, e Java, que dispara sempre que os eventos ocorrem na nuvem. Exemplos destes eventos incluem:
+As Funções Azure permitem-lhe escrever código em [vários idiomas](../azure-functions/supported-languages.md), incluindo JavaScript, Python, C#, e Java, que desencadeia sempre que os eventos ocorrem na nuvem. Exemplos destes eventos incluem:
 
 * Pedidos de HTTP e webhook
 * Temporizadores periódicos
@@ -66,10 +66,10 @@ O Serviço SignalR permite-lhe difundir mensagens para todos os clientes ou apen
 
 Neste artigo, obteve uma descrição geral de como pode utilizar as Funções do Azure com o Serviço SignalR para ativar uma grande diversidade de cenários de mensagens em tempo real sem servidor.
 
-Para obter detalhes completos sobre como usar o Azure Functions e o serviço Signalr juntos, visite os seguintes recursos:
+Para mais detalhes sobre como utilizar as Funções Azure e o Serviço SignalR em conjunto, visite os seguintes recursos:
 
-* [Desenvolvimento e configuração de Azure Functions com o serviço Signalr](signalr-concept-serverless-development-config.md)
-* [Habilitar atualizações automáticas em um aplicativo Web usando o Azure Functions e o serviço Signalr](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Desenvolvimento e configuração de funções Azure com serviço SignalR](signalr-concept-serverless-development-config.md)
+* [Ativar as atualizações automáticas numa aplicação Web com as Funções do Azure e o SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Siga um destes inícios rápidos para saber mais.
 

@@ -1,16 +1,16 @@
 ---
-title: Visão geral dos aplicativos gerenciados
-description: Descreve os conceitos dos aplicativos gerenciados do Azure, que fornecem soluções de nuvem que são fáceis de implantar e operar pelos consumidores.
+title: Visão geral das aplicações geridas
+description: Descreve os conceitos para aplicações geridas pelo Azure, que fornece soluções em nuvem que são fáceis de implantar e operar pelos consumidores.
 author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4508b69261cd7b1fb5e400eaf7ffaae67d5cb476
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650360"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473035"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -19,7 +19,7 @@ As aplicações geridas do Azure permitem-lhe oferecer soluções na cloud que o
 As aplicações geridas são semelhantes aos modelos de soluções no Marketplace, com uma diferença essencial. Numa aplicação gerida, os recursos são implementados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução.
 
 > [!NOTE]
-> Anteriormente, a documentação dos provedores de clientes do Azure foi incluída na documentação dos aplicativos gerenciados. Essa documentação foi movida. Agora, consulte [provedores personalizados do Azure](../custom-providers/overview.md).
+> Anteriormente, a documentação para fornecedores personalizados Azure foi incluída com a documentação para Aplicações Geridas. A documentação foi movida. Agora, consulte [os Fornecedores Personalizados Azure.](../custom-providers/overview.md)
 
 ## <a name="advantages-of-managed-applications"></a>Vantagens das aplicações geridas
 
@@ -31,7 +31,7 @@ Embora os clientes implementem essas aplicações geridas nas respetivas subscri
 
 Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Sabe que essas soluções estão em conformidade com os padrões da organização.
 
-Os aplicativos gerenciados dão suporte [a identidades gerenciadas para recursos do Azure](./publish-managed-identity.md).
+As Aplicações Geridas suportam [identidades geridas para os recursos do Azure.](./publish-managed-identity.md)
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicações geridas
 
@@ -45,7 +45,7 @@ O catálogo de serviços é um catálogo interno de soluções aprovadas para os
 
 Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
-### <a name="marketplace"></a>Mercado
+### <a name="marketplace"></a>Marketplace
 
 Os fornecedores que pretendam faturar os serviços que oferecem podem disponibilizar uma aplicação gerida através do Azure Marketplace. Depois de o fornecedor publicar uma aplicação, a mesma fica disponível para os utilizadores externos à organização. Com esta abordagem, os fornecedores de serviços geridos (MSP), os fornecedores de software independentes (ISVs) e os integradores de sistemas (SIs) podem oferecer as respetivas soluções a todos os clientes do Azure.
 
@@ -53,7 +53,7 @@ Para obter informações sobre a publicação de aplicações geridas no Marketp
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicações geridas
 
-Normalmente, os recursos de um aplicativo gerenciado estão em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. O Publicador pode solicitar uma atribuição de função permanente ou um [acesso just-in-time](request-just-in-time-access.md) para uma atribuição restrita a um período de tempo.
+Tipicamente, os recursos para uma aplicação gerida estão em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. A editora pode solicitar uma atribuição de funções permanente, ou [acesso just-in-time](request-just-in-time-access.md) para uma atribuição que esteja limitada a um período de tempo.
 
 A restrição do acesso das [operações de dados](../../role-based-access-control/role-definitions.md) não é atualmente suportada para todos os fornecedores de dados no Azure.
 
@@ -69,9 +69,9 @@ O consumidor tem acesso total ao grupo de recursos e utiliza-o para gerir o cicl
 
 ### <a name="managed-resource-group"></a>Grupo de recursos gerido
 
-Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos. O acesso é permanente ou limitado a uma hora específica.
+Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos. O acesso é permanente ou limitado a um tempo específico.
 
-Ao publicar o [aplicativo gerenciado no Marketplace](publish-marketplace-app.md), o Publicador pode conceder aos consumidores a capacidade de executar ações específicas em recursos no grupo de recursos gerenciado. Por exemplo, o Publicador pode especificar que os consumidores possam reiniciar as máquinas virtuais. Todas as outras ações além das ações de leitura ainda são negadas.
+Ao publicar a [aplicação gerida no mercado,](publish-marketplace-app.md)a editora pode conceder aos consumidores a capacidade de realizarem ações específicas sobre recursos no grupo de recursos geridos. Por exemplo, a editora pode especificar que os consumidores podem reiniciar máquinas virtuais. Todas as outras ações para além da leitura ainda são negadas.
 
 Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido também é eliminado.
 

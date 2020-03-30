@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79201030"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança da base de dados Azure
@@ -49,11 +49,11 @@ Recomendamos que leia o artigo de Boas Práticas de Segurança da Base de [Dados
 |**Proteger dados**||
 | <br> Encriptação em Movimento/Trânsito| <ul><li>[Transporte Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para encriptação de dados quando os dados estão a mover-se para as redes.</li><li>A base de dados requer uma comunicação segura dos clientes com base no protocolo [TDS (Fluxo de Dados Tabular)](https://msdn.microsoft.com/library/dd357628.aspx) sobre tLS (Segurança da Camada de Transporte).</li></ul> |
 |<br>Encriptação inativa| <ul><li>[Encriptação transparente de dados,](https://go.microsoft.com/fwlink/?LinkId=526242)quando os dados inativos são armazenados fisicamente em qualquer forma torto digital.</li></ul>|
-|**Acesso ao Controlo**||  
+|**Controlar Acesso**||  
 |<br> Acesso à Base de Dados | <ul><li>[Autenticação](../../sql-database/sql-database-manage-logins.md) (Autenticação ativa do Diretório Azure) Autenticação adusa utiliza identidades geridas pelo Diretório Ativo Azure.</li><li>[A autorização](../../sql-database/sql-database-manage-logins.md) concede aos utilizadores os menores privilégios necessários.</li></ul> |
-|<br>Acesso à aplicação| <ul><li>[Segurança de nível](https://msdn.microsoft.com/library/dn765131) de linha (Utilizando a Política de Segurança, ao mesmo tempo que restringe o acesso ao nível da linha com base na identidade, função ou contexto de execução de um utilizador).</li><li>[Mascaramento de dados dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Utilizando permissão e política, limita a exposição sensível de dados, mascarando-os a utilizadores não privilegiados)</li></ul>|
+|<br>Acesso à aplicação| <ul><li>[Segurança de nível](https://msdn.microsoft.com/library/dn765131) de linha (Utilizando a Política de Segurança, ao mesmo tempo que restringe o acesso ao nível da linha com base na identidade, função ou contexto de execução de um utilizador).</li><li>[Mascaramento de dados dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Utilizando a Política de & de Permissão, limita a exposição sensível de dados, mascarando-os a utilizadores não privilegiados)</li></ul>|
 |**Monitorização Proativa**||  
-| <br>Rastreio e Deteção| <ul><li>[A auditoria](../../sql-database/sql-database-auditing.md) rastreia os eventos da base de dados e escreve-os num registo de auditoria/Registo de Atividade na sua [conta de Armazenamento Azure](../../storage/common/storage-create-storage-account.md).</li><li>Rastrear a saúde da base de dados Azure utilizando registos de atividade do [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[A Deteção de Ameaças](../../sql-database/sql-database-threat-detection.md) deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados. </li></ul> |
+| <br>Rastreio & Deteção| <ul><li>[A auditoria](../../sql-database/sql-database-auditing.md) rastreia os eventos da base de dados e escreve-os num registo de auditoria/Registo de Atividade na sua [conta de Armazenamento Azure](../../storage/common/storage-create-storage-account.md).</li><li>Rastrear a saúde da base de dados Azure utilizando registos de atividade do [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[A Deteção de Ameaças](../../sql-database/sql-database-threat-detection.md) deteta atividades anómalas na base de dados que indicam potenciais ameaças à segurança na base de dados. </li></ul> |
 |<br>Centro de Segurança do Azure| <ul><li>[Monitorização de Dados](../../security-center/security-center-enable-auditing-on-sql-databases.md) Utilize o Azure Security Center como uma solução centralizada de monitorização de segurança para os serviços SQL e outros serviços Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusão

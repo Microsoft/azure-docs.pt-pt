@@ -1,103 +1,99 @@
 ---
-title: Avalie grandes números de VMs VMware para migração para o Azure com migrações para Azure | Microsoft Docs
-description: Descreve como avaliar grandes números de VMs VMware para migração para o Azure usando o serviço migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/12/2019
-ms.author: hamusa
-ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+title: Avaliar um grande número de VMware VMs para migração para Azure com Azure Migrate
+description: Descreve como avaliar um grande número de VMware VMs para migração para Azure usando o serviço Azure Migrate.e
+ms.topic: how-to
+ms.date: 03/23/2020
+ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336859"
 ---
-# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
+# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avaliar um grande número de VMware VMs para migração para Azure
 
 
-Este artigo descreve como avaliar números grandes (35000) de VMs VMware locais para migração para o Azure, usando a ferramenta de avaliação de servidor migrações para Azure.
+Este artigo descreve como avaliar grandes números (1000-35.000) de VMware no local para migração para Azure, utilizando a ferramenta de avaliação do servidor migratório Azure.
 
-As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
+[A Azure Migrate](migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar apps, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV). 
 
 Neste artigo, vai aprender a:
 > [!div class="checklist"]
-> * Planeje a avaliação em escala.
+> * Plano de avaliação à escala.
 > * Configure as permissões do Azure e prepare o VMware para avaliação.
-> * Crie um projeto de migrações para Azure e crie uma avaliação.
-> * Examine a avaliação conforme planeja a migração.
+> * Crie um projeto Azure Migrate e crie uma avaliação.
+> * Reveja a avaliação como planeia para a migração.
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar algumas VMs antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-vmware.md)
+> Se quiser experimentar uma prova de conceito para avaliar um par de VMs antes de avaliar em escala, siga a nossa [série tutorial](tutorial-prepare-vmware.md)
 
-## <a name="plan-for-assessment"></a>Planejar a avaliação
+## <a name="plan-for-assessment"></a>Plano de avaliação
 
-Ao planejar a avaliação de um grande número de VMs VMware, há algumas coisas a considerar:
+Ao planear a avaliação de um grande número de VMware VMs, há algumas coisas em que pensar:
 
-- **Planejar projetos de migrações para Azure**: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos. 
-- **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado como uma VM VMware, para descobrir continuamente as VMs. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos você precisa implantar.
-- **Planejar contas para descoberta**: o dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas.
+- **Projetos de Migração Do Plano Azure**: Descubra como implementar projetos de migração Azure. Por exemplo, se os seus centros de dados estiverem em geografias diferentes, ou precisar de armazenar metadados de descoberta, avaliação ou migração numa geografia diferente, poderá necessitar de vários projetos. 
+- **Aparelhos de plano**: O Azure Migrate utiliza um aparelho azure migrate no local, implantado como VMware VM, para descobrir continuamente VMs. O aparelho monitoriza alterações ambientais, tais como a adição de VMs, discos ou adaptadores de rede. Também envia metadados e dados de desempenho sobre eles para o Azure. Tens de descobrir quantos aparelhos precisas de usar.
+- **Conta do plano para descoberta**: O aparelho Azure Migrate usa uma conta com acesso ao VCenter Server para descobrir VMs para avaliação e migração. Se está a descobrir mais de 10.000 VMs, estabeleça várias contas.
 
 
-## <a name="planning-limits"></a>Limites de planejamento
+## <a name="planning-limits"></a>Limites de planeamento
  
-Use os limites resumidos nesta tabela para planejamento.
+Utilize os limites resumidos nesta tabela para planear.
 
 **Planeamento** | **Limites**
 --- | --- 
-**Projetos de migrações para Azure** | Avalie até 35.000 VMs em um projeto.
-**Dispositivo de migrações para Azure** | Um dispositivo pode descobrir até 10.000 VMs em um vCenter Server.<br/> Um dispositivo só pode se conectar a um único vCenter Server.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/>  Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
-**Avaliação de migrações para Azure** | Você pode avaliar até 35.000 VMs em uma única avaliação.
+**Projetos azure migrate** | Avalie até 35.000 VMs num projeto.
+**Aplicação do Azure Migrate** | Um aparelho pode descobrir até 10.000 VMs num servidor vCenter.<br/> Um aparelho só pode ligar-se a um único servidor vCenter.<br/> Um aparelho só pode ser associado a um único projeto Azure Migrate.<br/>  Qualquer número de aparelhos pode ser associado a um único projeto Azure Migrate. <br/><br/> 
+**Grupo** | Pode adicionar até 35.000 VMs num único grupo.
+**Avaliação de Migração Azure** | Você pode avaliar até 35.000 VMs numa única avaliação.
 
-Com esses limites em mente, aqui estão alguns exemplos de implantações:
+Com estes limites em mente, aqui estão alguns exemplos de implementações:
 
 
-**Servidor vCenter** | **VMs no servidor** | **Recomendação** | **Ação**
+**vCenter Server** | **VMs no servidor** | **Recomendação** | **Ação**
 ---|---|---
-Um | < 10.000 | Um projeto de migrações para Azure.<br/> Um dispositivo.<br/> Uma conta do vCenter para descoberta. | Configure o dispositivo, conecte-se a vCenter Server com uma conta.
-Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
-Vários | < 10.000 |  Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Uma conta do vCenter para descoberta. | Configurar dispositivos, conecte-se a vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
-Vários | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Se vCenter Server descoberta < VMs 10.000, configure um dispositivo para cada vCenter Server.<br/><br/> Se vCenter Server descoberta > VMs 10.000, configure um dispositivo para cada 10.000 VMs.<br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
+Um | < 10.000 | Um projeto Azure Migrate.<br/> Um aparelho.<br/> Uma conta vCenter para descoberta. | Configurar o aparelho, ligar-se ao VCenter Server com uma conta.
+Um | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Múltiplas contas vCenter. | Instale aparelho para cada 10.000 VMs.<br/><br/> Configurar contas vCenter e dividir o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos.
+Vários | < 10.000 |  Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Uma conta vCenter para descoberta. | Configurar aparelhos, ligar ao VCenter Server com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos.
+Vários | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Múltiplas contas vCenter. | Se a descoberta do VCenter Server < 10.000 VMs, instale um aparelho para cada servidor vCenter.<br/><br/> Se a descoberta do VCenter Server > 10.000 VMs, instale um aparelho para cada 10.000 VMs.<br/> Configurar contas vCenter e dividir o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos.
 
 
-## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planejar a descoberta em um ambiente multilocatário
+## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Descoberta de plano em um ambiente multi-inquilino
 
-Se você estiver planejando um ambiente multilocatário, poderá fazer o escopo da descoberta no vCenter Server.
+Se você está planejando um ambiente multi-inquilino, você pode ver a descoberta no vCenter Server.
 
-- Você pode definir o escopo de descoberta do dispositivo para um vCenter Server data centers, clusters ou pasta de clusters, hosts ou pasta de hosts ou VMs individuais.
-- Se o seu ambiente for compartilhado entre locatários e você quiser descobrir cada locatário separadamente, você poderá usar o escopo de acesso à conta do vCenter que o dispositivo usa para descoberta. 
-    - Talvez você queira fazer o escopo por pastas de VM se os locatários compartilharem hosts. As migrações para Azure não poderão descobrir VMs se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. Se você pretende fazer o escopo de sua descoberta por pastas de VM, você pode fazê-lo, garantindo que a conta do vCenter tenha acesso somente leitura atribuído em um nível de VM. Saiba mais sobre o âmbito de deteção [aqui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+- Pode definir o âmbito de descoberta do aparelho para um vCenter Server datacenters, clusters ou pasta de clusters, anfitriões ou pasta de anfitriões ou VMs individuais.
+- Se o seu ambiente for partilhado entre inquilinos e quiser descobrir cada inquilino separadamente, pode aceder à conta vCenter que o aparelho utiliza para ser descoberta. 
+    - Você pode querer ver através de pastas VM se os inquilinos partilharem anfitriões. O Azure Migrate não consegue descobrir VMs se a conta vCenter tiver acesso concedido ao nível da pasta VCenter VM. Se procura analisar a sua descoberta através de pastas VM, pode fazê-lo garantindo que a conta vCenter tem acesso apenas de leitura atribuído a um nível VM. [Saiba mais](set-discovery-scope.md).
 
 ## <a name="prepare-for-assessment"></a>Preparar para avaliação
 
-Prepare a avaliação do Azure e do VMware para o servidor. 
+Prepare azure e VMware para avaliação do servidor. 
 
-1. Verifique [os requisitos de suporte e as limitações do VMware](migrate-support-matrix-vmware.md).
-2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
-3. Prepare o VMware para avaliação.
+1. Verifique [os requisitos e limitações de suporte vMware](migrate-support-matrix-vmware.md).
+2. Estabeleça permissões para que a sua conta Azure interaja com a Azure Migrate.
+3. Prepare vMware para avaliação.
 
-Siga as instruções neste [tutorial](tutorial-prepare-vmware.md) para definir essas configurações.
+Siga as instruções [deste tutorial](tutorial-prepare-vmware.md) para configurar estas definições.
 
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-De acordo com seus requisitos de planejamento, faça o seguinte:
+De acordo com os seus requisitos de planeamento, faça o seguinte:
 
-1. Criar projetos de migrações para Azure.
-2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
+1. Criar um azure migrate projetos.
+2. Adicione a ferramenta de avaliação do servidor de migração Azure aos projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Mais informações](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
+## <a name="create-and-review-an-assessment"></a>Criar e rever uma avaliação
 
-1. Crie Avaliações para VMs VMware.
-1. Examine as avaliações em preparação para o planejamento de migração.
+1. Crie avaliações para VMware VMs.
+1. Reveja as avaliações em preparação para o planeamento migratório.
 
 
-Siga as instruções neste [tutorial](tutorial-assess-vmware.md) para definir essas configurações.
+Siga as instruções [deste tutorial](tutorial-assess-vmware.md) para configurar estas definições.
     
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -105,9 +101,9 @@ Siga as instruções neste [tutorial](tutorial-assess-vmware.md) para definir es
 Neste artigo, irá:
  
 > [!div class="checklist"] 
-> * Planejado para dimensionar as avaliações de migração do Azure para VMs VMware
-> * Azure e VMware preparados para avaliação
-> * Criou um projeto de migrações para Azure e executou avaliações
-> * Avaliações revisadas em preparação para a migração.
+> * Planejado para escalar avaliações de Migração Azure para VMware VMs
+> * Azure preparado e VMware para avaliação
+> * Criou um projeto Azure Migrate e realizou avaliações
+> * Avaliações revistas na preparação para a migração.
 
-Agora, [saiba como](concepts-assessment-calculation.md) as avaliações são calculadas e como [modificar as avaliações](how-to-modify-assessment.md).
+Agora, [saiba como](concepts-assessment-calculation.md) as avaliações são calculadas e como modificar as [avaliações.](how-to-modify-assessment.md)

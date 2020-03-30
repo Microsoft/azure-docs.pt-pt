@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244787"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
 Os pontos finais do serviço rede virtual (VNet) estendem o espaço de endereços privados da rede virtual. Os pontos finais também estendem a identidade do seu VNet aos serviços Azure através de uma ligação direta. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O tráfego da sua VNet para o serviço do Azure permanece sempre na rede backbone do Microsoft Azure.
 
-Esta funcionalidade está disponível para os seguintes serviços e regiões azure. O *recurso\*Microsoft* está em parênteses. Ative este recurso a partir do lado da subrede enquanto configura pontos finais de serviço para o seu serviço:
+Esta funcionalidade está disponível para os seguintes serviços e regiões azure. O recurso da *Microsoft\* * está em parênteses. Ative este recurso a partir do lado da subrede enquanto configura pontos finais de serviço para o seu serviço:
 
 **Disponível em Geral**
 
@@ -39,7 +39,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões azu
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
-- Serviço de **[Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : Geralmente disponível em todas as regiões do Azure onde o serviço de aplicações está disponível.
+- Serviço de **[Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: Geralmente disponível em todas as regiões do Azure onde o serviço de aplicações está disponível.
 
 **Pré-visualização pública**
 
@@ -76,7 +76,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
   Por padrão, os recursos de serviço azure garantidos a redes virtuais não são acessíveis a partir de redes no local. Se pretender permitir o tráfego a partir do local, também deve permitir endereços IP públicos (tipicamente, NAT) a partir das suas instalações ou ExpressRoute. Pode adicionar estes endereços IP através da configuração de firewall IP para recursos de serviço Azure.
 
-  ExpressRoute: Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para espreitar publicamente ou a Microsoft a espreitar das suas instalações, terá de identificar os endereços IP NAT que está a usar. Para o público, cada circuito ExpressRoute utiliza dois endereços IP NAT, por padrão, aplicados ao tráfego de serviços Azure quando o tráfego entra na espinha dorsal da rede Microsoft Azure. Para o peering da Microsoft, os endereços IP NAT são fornecidos pelo cliente ou fornecidos pelo prestador de serviços. Para permitir o acesso aos seus recursos de serviço, deve permitir estes endereços IP públicos na definição de firewall IP de recursos. Para encontrar os seus endereços IP do circuito ExpressRoute, abra um bilhete de apoio com a [ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal Azure. Para obter mais informações sobre o NAT para o público expressRoute e para o peering da Microsoft, consulte [os requisitos do ExpressRoute NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para espreitar publicamente ou a Microsoft a espreitar das suas instalações, terá de identificar os endereços IP NAT que está a usar. Para o público, cada circuito ExpressRoute utiliza dois endereços IP NAT, por padrão, aplicados ao tráfego de serviços Azure quando o tráfego entra na espinha dorsal da rede Microsoft Azure. Para o peering da Microsoft, os endereços IP NAT são fornecidos pelo cliente ou fornecidos pelo prestador de serviços.Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos.Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Para obter mais informações sobre o NAT para o público expressRoute e para o peering da Microsoft, consulte [os requisitos do ExpressRoute NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Proteger serviços do Azure para redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -137,9 +137,9 @@ Certos serviços Azure, como as Contas de Armazenamento Azure, podem impor limit
 
 ## <a name="vnet-service-endpoint-policies"></a>Políticas de ponto final do serviço VNet 
 
-As políticas de endpoint do serviço VNet permitem filtrar o tráfego de rede virtual para os serviços Azure. Este filtro permite apenas recursos de serviço específicos do Azure sobre os pontos finais do serviço. Políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para serviços do Azure. Para mais informações, consulte [as Políticas finais](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)do serviço de rede virtual.
+As políticas de endpoint do serviço VNet permitem filtrar o tráfego de rede virtual para os serviços Azure. Este filtro permite apenas recursos de serviço específicos do Azure sobre os pontos finais do serviço. As políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para os serviços Azure. Para mais informações, consulte [as Políticas finais](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)do serviço de rede virtual.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 Para perguntas frequentes, consulte [FAQs finais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)de serviço de rede virtual .
 
@@ -151,5 +151,5 @@ Para perguntas frequentes, consulte [FAQs finais](https://docs.microsoft.com/azu
 - [Proteja um Armazém de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de fim do serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

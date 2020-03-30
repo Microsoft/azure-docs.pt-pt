@@ -1,6 +1,6 @@
 ---
-title: 'Gateway de VPN: solucionar problemas de cliente VPN-autenticação do Azure AD'
-description: Solucionar problemas do gateway de VPN P2S clientes de autenticação do Azure AD
+title: 'VPN Gateway: Troubleshoot VPN cliente - Autenticação Azure AD'
+description: Clientes de autenticação aditiva VPN Gateway P2S Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74151967"
 ---
-# <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solucionar problemas de um cliente VPN de autenticação do Azure AD
+# <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Problemas de resolução de um cliente VPN de autenticação AD Azure
 
-Este artigo ajuda a solucionar problemas de um cliente VPN para se conectar a uma rede virtual usando VPN ponto a site e autenticação Azure Active Directory.
+Este artigo ajuda-o a resolver problemas com um cliente VPN para se conectar a uma rede virtual utilizando a autenticação de Diretório Sondar-a-site e Azure Ative Directory.
 
-## <a name="status"></a>Exibir log de status
+## <a name="view-status-log"></a><a name="status"></a>Ver Registo de Estado
 
-Exibir o log de status para mensagens de erro.
+Consulte o registo de estado para obter mensagens de erro.
 
 ![registos](./media/troubleshoot-ad-vpn-client/1.png)
 
-1. Clique no ícone de setas no canto inferior direito da janela do cliente para mostrar os **logs de status**.
-2. Verifique os logs em busca de erros que possam indicar o problema.
-3. As mensagens de erro são exibidas em vermelho.
+1. Clique no ícone das setas no canto inferior direito da janela do cliente para mostrar os **Registos de Estado**.
+2. Verifique se há erros que possam indicar o problema.
+3. As mensagens de erro são exibidas a vermelho.
 
-## <a name="clear"></a>Limpar informações de entrada
+## <a name="clear-sign-in-information"></a><a name="clear"></a>Informação clara de inscrição
 
-Limpe as informações de entrada.
+Limpe a informação de inscrição.
 
 ![iniciar sessão](./media/troubleshoot-ad-vpn-client/2.png)
 
-1. Selecione o... ao lado do perfil que você deseja solucionar problemas. Selecione **Configurar-> limpar conta salva**.
+1. Selecione o ... ao lado do perfil que quer resolver. **Selecione Configur -> Clear Saved Account**.
 2. Selecione **Guardar**.
 3. Tente ligar-se.
-4. Se a conexão ainda falhar, prossiga para a próxima seção.
+4. Se a ligação ainda falhar, continue para a secção seguinte.
 
-## <a name="diagnostics"></a>Executar diagnóstico
+## <a name="run-diagnostics"></a><a name="diagnostics"></a>Executar diagnósticos
 
-Execute o diagnóstico no cliente VPN.
+Execute diagnósticos no cliente VPN.
 
 ![diagnósticos](./media/troubleshoot-ad-vpn-client/3.png)
 
-1. Clique em **...** ao lado do perfil no qual você deseja executar o diagnóstico. Selecione **diagnosticar-> executar diagnóstico**.
+1. Clique no **...** ao lado do perfil em que pretende executar diagnósticos. **Selecione Diagnóstico de Diagnóstico -> Executar**.
 2. O cliente executará uma série de testes e exibirá o resultado do teste
 
-   * Acesso à Internet – verifica se o cliente tem conectividade com a Internet
-   * Credenciais do cliente – Verifique se o ponto de extremidade de autenticação do Azure Active Directory está acessível
-   * Servidor resolvível – entra em contato com o servidor DNS para resolver o endereço IP do servidor VPN configurado
-   * Servidor alcançável – verifica se o servidor VPN está respondendo ou não
-3. Se algum dos testes falhar, contate o administrador da rede para resolver o problema.
-4. A próxima seção mostra como coletar os logs, se necessário.
+   * Acesso à Internet – Verifica para ver se o cliente tem conectividade com a Internet
+   * Credenciais de cliente – Verifique se o ponto final de autenticação do Diretório Ativo Azure é acessível
+   * Resolver o servidor do servidor Servidor DNS para resolver o endereço IP do servidor VPN configurado
+   * Alcance do servidor - Verifica se o servidor VPN está a responder ou não
+3. Se algum dos testes falhar, contacte o administrador da rede para resolver o problema.
+4. A secção seguinte mostra-lhe como recolher os registos, se necessário.
 
-## <a name="logfiles"></a>Coletar arquivos de log do cliente
+## <a name="collect-client-log-files"></a><a name="logfiles"></a>Recolher ficheiros de registo de clientes
 
-Colete os arquivos de log do cliente VPN. Os arquivos de log podem ser enviados para suporte/administrador por meio de um método de sua escolha. Por exemplo, email.
+Recolha os ficheiros de registo do cliente VPN. Os ficheiros de registo podem ser enviados para suporte/administrador através de um método à sua escolha. Por exemplo, e-mail.
 
-1. Clique no botão "..." ao lado do perfil no qual você deseja executar o diagnóstico. Selecione **diagnosticar-> mostrar diretório de logs**.
+1. Clique no "..." ao lado do perfil em que pretende executar diagnósticos. **Selecione Diagnostic -> Mostrar Diretório de Registos**.
 
-   ![Mostrar logs](./media/troubleshoot-ad-vpn-client/4.png)
-2. O Windows Explorer é aberto na pasta que contém os arquivos de log.
+   ![mostrar registos](./media/troubleshoot-ad-vpn-client/4.png)
+2. O Windows Explorer abre-se para a pasta que contém os ficheiros de registo.
 
-   ![Exibir arquivo](./media/troubleshoot-ad-vpn-client/5.png)
+   ![ver arquivo](./media/troubleshoot-ad-vpn-client/5.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte [criar um locatário de Azure Active Directory para conexões VPN abertas do P2S que usam a autenticação do Azure ad](openvpn-azure-ad-tenant.md).
+Para mais informações, consulte [Criar um inquilino azure ative diretório para ligações P2S Open VPN que utilizem a autenticação Azure AD](openvpn-azure-ad-tenant.md).

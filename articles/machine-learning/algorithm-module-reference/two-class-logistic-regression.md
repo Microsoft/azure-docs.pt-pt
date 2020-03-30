@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: b1afd99a569de96e9075b4b5b6eff902abd8642e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916766"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455830"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
@@ -55,7 +55,7 @@ Por exemplo, a coluna de etiquetas pode ser [Votada] com possíveis valores de "
   
     -   Em contraste, a regularização L2 é preferível para dados que não são escassos.  
   
-     Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e <code>y = L2</code>, então <code>ax + by = c</code> define o período linear dos termos de regularização.  
+     Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e, <code>y = L2</code>em seguida, <code>ax + by = c</code> define o período linear dos termos de regularização.  
   
     > [!NOTE]
     >  Quer saber mais sobre a regularização l1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a adaptação do modelo, com amostras de código para a regressão logística e modelos de rede neural: [L1 e L2 Regularização para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
@@ -75,7 +75,7 @@ Por exemplo, a coluna de etiquetas pode ser [Votada] com possíveis valores de "
   
     -   Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](./train-model.md)  
   
-9. Executar o pipeline.  
+9. Submeta o oleoduto.  
   
 ## <a name="results"></a>Resultados
 

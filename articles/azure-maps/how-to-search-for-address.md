@@ -1,19 +1,19 @@
 ---
 title: Procure um local utilizando serviços de pesquisa do Azure Maps Microsoft Azure Maps
 description: Neste artigo, você aprenderá a procurar um local usando o Microsoft Azure Maps Search Service para geocodificação e geocodificação inversa.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209890"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335436"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Procure um local utilizando serviços de pesquisa do Azure Maps
 
@@ -39,7 +39,7 @@ Neste exemplo, estamos a usar a [API](https://docs.microsoft.com/rest/api/maps/s
 
 Se tiver um conjunto de endereços para o geocódigo, pode utilizar a API do lote de [endereços postais](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) para enviar um lote de consultas numa única chamada API.
 
-1. No Carteiro, clique em **New Request** | **GET request** e nomeá-lo Procurar **endereço**.
+1. No Carteiro, clique em **Novo Pedido** | **GET pedido** e nomeie-o Para Procurar **Endereço**.
 
 2. No separador Construtor, selecione o método **GET** HTTP, introduza o URL de pedido para o seu ponto final da API e selecione um protocolo de autorização, se houver.
 
@@ -58,7 +58,7 @@ Se tiver um conjunto de endereços para o geocódigo, pode utilizar a API do lot
 | Chave | Valor | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| chave de assinatura | \<a sua chave\> Do Mapa Azure | 
+| chave de assinatura | \<a sua chave Azure Maps\> | 
 | consulta | 400 Broad St, Seattle, WA 98109 | 
 
 4. Clique em **Enviar** e rever o corpo de resposta. 
@@ -83,7 +83,7 @@ A bandeira da **tipografia** diz à API de Pesquisa de Endereços para tratar a 
 
 O Azure Maps[ Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) é recomendado para utilizar quando não sabe quais são as suas inputs de utilizador para uma consulta de pesquisa. A API combina a pesquisa do Point of Interest (POI) e a geocodificação numa "pesquisa de linha única" canónica. Por exemplo, a API pode lidar com as inputs de qualquer endereço ou combinação de fichas POI. Também pode ser ponderado com uma posição contextual (lat./lon. par), totalmente limitado por uma coordenada e raio, ou executado de forma mais geral sem qualquer ponto de ancoragem geográfico.
 
-A maioria das consultas de pesquisa padrão para `maxFuzzyLevel=1` para obter desempenho e reduzir resultados incomuns. Este padrão pode ser ultrapassado conforme necessário por pedido, passando no parâmetro de consulta `maxFuzzyLevel=2` ou `3`.
+A maioria das `maxFuzzyLevel=1` consultas de pesquisa padrão para obter desempenho e reduzir resultados incomuns. Este padrão pode ser ultrapassado conforme necessário por pedido, `maxFuzzyLevel=2` passando no parâmetro de consulta ou `3`.
 
 ### <a name="search-for-an-address-using-fuzzy-search"></a>Procure um endereço usando a Pesquisa Fuzzy
 
@@ -99,7 +99,7 @@ A maioria das consultas de pesquisa padrão para `maxFuzzyLevel=1` para obter de
     | URL do Pedido | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Autorização | Sem Auth |
 
-    O atributo **json** no caminho do URL determina o formato de resposta. Este artigo usa o JSON para facilitar o uso e a legibilidade. Pode encontrar os formatos de resposta disponíveis na definição **Get Search Fuzzy** da [referência API funcional](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)do Maps .
+    O atributo **json** no caminho do URL determina o formato de resposta. Este artigo usa json para facilitar o uso e a legibilidade. Pode encontrar os formatos de resposta disponíveis na definição **Get Search Fuzzy** da [referência API funcional](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)do Maps .
 
 3. Clique em **Params**e introduza os seguintes pares chave / valor para usar como parâmetros de consulta ou caminho no URL de pedido:
 
@@ -108,20 +108,20 @@ A maioria das consultas de pesquisa padrão para `maxFuzzyLevel=1` para obter de
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | chave de assinatura | \<a sua chave\> Do Mapa Azure |
+    | chave de assinatura | \<a sua chave Azure Maps\> |
     | consulta | pizza |
 
 4. Clique em **Enviar** e rever o corpo de resposta.
 
-    A corda de consulta ambígua para "pizza" devolveu 10 [pontos de interesse resultado](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) nas categorias de "pizza" e "restaurante". Cada resultado retorna um endereço de rua, valores de latitude e longitude, porta de exibição e pontos de entrada para o local.
+    A corda de consulta ambígua para "pizza" devolveu 10 [pontos de interesse resultado](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) nas categorias de "pizza" e "restaurante". Cada resultado devolve um endereço de rua, valores de latitude e longitude, vista portuária e pontos de entrada para a localização.
   
-    Os resultados são variados para esta consulta, não ligados a nenhum local de referência particular. Pode utilizar o parâmetro **countrySet** para especificar apenas os países/regiões para os quais a sua aplicação necessita de cobertura. O comportamento padrão é Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários.
+    Os resultados são variados para esta consulta, não ligados a nenhum local de referência particular. Pode utilizar o parâmetro **countrySet** para especificar apenas os países/regiões para os quais a sua aplicação necessita de cobertura. O comportamento padrão é procurar em todo o mundo, potencialmente devolvendo resultados desnecessários.
 
 5. Adicione o seguinte par chave / valor à secção **Params** e clique **Enviar:**
 
     | Chave | Valor |
     |------------------|-------------------------|
-    | countrySet | EUA |
+    | paísSet | EUA |
   
     Os resultados estão agora limitados pelo código do país e a consulta devolve restaurantes de pizza nos Estados Unidos.
   
@@ -143,7 +143,7 @@ O Azure Maps [Obter Endereço de Busca Reverse API]( https://docs.microsoft.com/
 Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, pode utilizar a [API do lote](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) de pesquisa de correio para enviar um lote de consultas numa única chamada aPI.
 
 
-1. No Carteiro, clique em **New Request** | **GET request** e nomeie-o Reverter A Procura de **Endereços**.
+1. No Carteiro, clique em **Novo Pedido** | **GET pedido** e nomeie-o Reverter A Procura de **Endereços**.
 
 2. No separador Construtor, selecione o método **GET** HTTP e introduza o URL de pedido para o seu ponto final aPi.
   
@@ -162,7 +162,7 @@ Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, p
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | chave de assinatura | \<a sua chave\> Do Mapa Azure |
+    | chave de assinatura | \<a sua chave Azure Maps\> |
     | consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e rever o corpo de resposta.
@@ -181,7 +181,7 @@ Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, p
 
     | Chave | Valor |
     |-----|------------|
-    | returnSpeedLimit | true |
+    | retornoSpeedLimit | true |
   
     Quando o parâmetro de consulta [ReturnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é definido, a resposta devolve o limite de velocidade registado.
 
@@ -189,7 +189,7 @@ Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, p
 
     | Chave | Valor |
     |-----|------------|
-    | returnRoadUse | true |
+    | retornoRoadUse | true |
 
     Quando o parâmetro de consulta [ReturnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é definido, a resposta devolve a matriz de utilização da estrada para geocódigos invertidos ao nível da rua.
 
@@ -203,7 +203,7 @@ Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, p
   
 ## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Pesquisa por cross street usando Reverse Address Cross Street Search
 
-1. No Carteiro, clique em **New Request** | **GET request** e nomeie-o Reverter Address Cross **Street Search**.
+1. No Carteiro, clique em **New Request** | **GET request** e nomeie-o Reverter O Endereço Cross Street **Search**.
 
 2. No separador Construtor, selecione o método **GET** HTTP e introduza o URL de pedido para o seu ponto final aPi.
   
@@ -220,12 +220,12 @@ Se tiver um conjunto de localizações coordenadas para reverter o geocódigo, p
     | Chave | Valor |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | chave de assinatura | \<a sua chave\> Do Mapa Azure |
+    | chave de assinatura | \<a sua chave Azure Maps\> |
     | consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e rever o corpo de resposta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Explore a documentação do serviço de [pesquisa Azure Maps](https://docs.microsoft.com/rest/api/maps/search) API.
-- Saiba mais sobre [as melhores práticas.](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search)
+- Explore a documentação do Serviço de [Pesquisa do Azure Maps REST API](https://docs.microsoft.com/rest/api/maps/search).
+- Saiba mais sobre as [melhores práticas do Serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) de Pesquisa do Azure Maps e como otimizar as suas consultas.

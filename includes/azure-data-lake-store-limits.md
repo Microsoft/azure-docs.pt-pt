@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5e5ef3084fa4e13035fe562dd3c5ed2a37b76be2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334884"
 ---
-Azure Data Lake Storage Gen1 é um repositório de hiperescala em toda a empresa para Big Data cargas de trabalho analíticas. Você pode usar Data Lake Storage Gen1 para capturar dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análise operacional e exploratório. Não há limite para a quantidade de dados que você pode armazenar em uma conta de Data Lake Storage Gen1.
+Azure Data Lake Storage Gen1 é um repositório de hiperescala em toda a empresa para grandes cargas de trabalho analíticas de dados. Pode utilizar data Lake Storage Gen1 para capturar dados de qualquer tamanho, tipo e velocidade de ingestão num único local para análise operacional e exploratória. Não há limite para a quantidade de dados que pode armazenar numa conta gen1 de armazenamento de data Lake.
 
-| **Recurso** | **Limite predefinido** | **Comentários** |
+| **Recurso** | **Limite** | **Comentários** |
 | --- | --- | --- |
-| Número máximo de contas de Data Lake Storage Gen1, por assinatura, por região |10 | Para solicitar um aumento para esse limite, entre em contato com o suporte. |
-| Número máximo de ACLs de acesso, por arquivo ou pasta |32 | Esse é um limite rígido. Use grupos para gerenciar o acesso com menos entradas. |
-| Número máximo de ACLs padrão, por arquivo ou pasta |32 | Esse é um limite rígido. Use grupos para gerenciar o acesso com menos entradas. |
+| Número máximo de contas Gen1 de Armazenamento de Data Lake, por subscrição, por região |10 | Para solicitar um aumento deste limite, o suporte de contato. |
+| Número máximo de ACLs de acesso, por ficheiro ou pasta |32 | Este é um limite difícil. Utilize grupos para gerir o acesso com menos entradas. |
+| Número máximo de ACLs predefinidos, por ficheiro ou pasta |32 | Este é um limite difícil. Utilize grupos para gerir o acesso com menos entradas. |
