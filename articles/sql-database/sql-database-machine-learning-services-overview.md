@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: ca223de2bc0b26e4968d400ea418761a399dacae
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268941"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345836"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços de Machine Learning de Base de Dados Azure SQL com R (pré-visualização)
 
@@ -50,14 +50,12 @@ Além das embalagens pré-instaladas, pode [instalar pacotes adicionais.](sql-da
 
 <a name="signup"></a>
 
-## <a name="sign-up-for-the-preview"></a>Inscrever-se na pré-visualização
+## <a name="sign-up-for-the-preview-closed"></a>Inscreva-se para a pré-visualização (fechada)
 
 > [!IMPORTANT]
-> A inscrição no Azure SQL Database Machine Learning Services (pré-visualização) está encerrada.
+> A inscrição no Azure SQL Database Machine Learning Services (pré-visualização) está **encerrada.**
 
-Os Serviços de Aprendizagem automática com R não são recomendados para a carga de trabalho de produção durante a pré-visualização.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [principais diferenças dos Serviços de Aprendizagem automática do Servidor SQL](sql-database-machine-learning-services-differences.md).
 - Para aprender a usar R para consultar o Azure SQL Database Machine Learning Services (pré-visualização), consulte o [guia Quickstart](sql-database-connect-query-r.md).
