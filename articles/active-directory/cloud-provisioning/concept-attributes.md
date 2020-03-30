@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299334"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Compreenda o esquema da AD Azure
@@ -42,13 +42,13 @@ Por exemplo, um utilizador pode fazer parte de um departamento de Marketing. O s
 
 A sincronização do atributo pode ser direta, onde o valor em Azure AD está diretamente definido para o valor do atributo no local. Ou, uma expressão programática pode lidar com a sincronização. Uma expressão programática é necessária nos casos em que alguma lógica ou determinação deve ser feita para povoar o valor.
 
-Por exemplo, se tivesse o atributo do correio "john.smith@contoso.com" e precisasse de despir a parte "@contoso.com" e fluir apenas o valor "john.smith", usaria algo assim:
+Por exemplo, se tivesseo atributo do correiojohn.smith@contoso.com"@contoso.come precisasse de despir a porção " e fluir apenas o valor "john.smith", usaria algo assim:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
 **Entrada/saída da amostra:** <br>
 
-* **INPUT** (correio): "john.smith@contoso.com"
+* **INPUT** (correio):john.smith@contoso.com" "
 * **SAÍDA**: "john.smith"
 
 Para obter mais informações sobre como escrever expressões personalizadas e a sintaxe, consulte [expressões escritas para mapeamento de atributos no Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
@@ -58,25 +58,25 @@ A tabela seguinte lista atributos comuns e como são sincronizados com a AD Azur
 
 |Active Directory no local|Tipo de mapeamento|Azure AD|
 |-----|-----|-----|
-|CN|Direct|nome comum
-|countryCode|Direct|countryCode|
+|cn|Direct|nome comum
+|paísCódigo|Direct|paísCódigo|
 |displayName|Direct|displayName|
-|givenName|Expressão|givenName|
+|nomeDado|Expressão|nomeDado|
 |objectGUID|Direct|fonteAnchorBinary|  
 |userprincipalName|Direct|userPrincipalName|
 |ProxyAdress|Direct|ProxyAddress|
 
 ## <a name="view-the-schema"></a>Ver o esquema
 > [!WARNING]
-> A configuração de fornecimento de nuvem cria um diretor de serviço. O diretor de serviço é visível no portal Azure. Não deve modificar os mapeamentos de atributoutilizando a experiência principal do serviço no portal Azure.  Isto não é apoiado.
+> A configuração de fornecimento de nuvem cria um diretor de serviço. O diretor de serviço é visível no portal Azure. Não deve modificar os mapeamentos de atributoutilizando a experiência principal do serviço no portal Azure.  Esta ação não é suportada.
 
 Para ver o esquema e verificar, siga estes passos.
 
 1.  Vá ao [Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer)
 1.  Inscreva-se na sua conta de administrador global.
 1.  À esquerda, selecione **modificar permissões** e certifique-se de que **o Diretório.ReadWrite.All** is *Consented*.
-1.  Execute a consulta `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Esta consulta devolve uma lista filtrada de diretores de serviço.
-1.  Localize `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e note o valor para `"id"`.
+1.  Execute a `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`consulta. Esta consulta devolve uma lista filtrada de diretores de serviço.
+1.  Localize `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e note `"id"`o valor para .
     ```
     "value": [
             {
@@ -149,8 +149,8 @@ Para ver o esquema e verificar, siga estes passos.
                 "passwordCredentials": []
             },
     ```
-1. Substitua `{Service Principal id}` pelo seu valor e execute a consulta `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
-1. Localize `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` e note o valor para `"id"`.
+1. Substitua `{Service Principal id}` pelo seu valor e `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`execute a consulta.
+1. Localize `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` e note `"id"`o valor para .
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,11 +241,11 @@ Para ver o esquema e verificar, siga estes passos.
                 ]
             }
     ```
-1. Agora executa a consulta `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
+1. Agora executa `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`a consulta.
  
     Exemplo: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   Substitua `{Service Principal Id}` e `{AD2ADD Provisioning Id}` os seus valores.
+   `{Service Principal Id}` Substitua `{AD2ADD Provisioning Id}` e com os seus valores.
 
 1. Esta consulta devolve o esquema.
 
@@ -253,5 +253,5 @@ Para ver o esquema e verificar, siga estes passos.
  
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

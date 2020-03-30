@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78403575"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente
@@ -62,7 +62,7 @@ HDInsight apenas suporta cofre de chave Azure. Se tiver o seu próprio cofre, po
 
 ## <a name="create-key"></a>Criar chave
 
-1. A partir do seu novo cofre-chave, navegue até **Definições** > **Chaves** >  **+ Generate/Import**.
+1. A partir do seu novo cofre de chaves, navegue para **Definições** > **Teclas** > **+ Generate/Import**.
 
     ![Gerar uma nova chave no Cofre chave Azure](./media/disk-encryption/create-new-key.png "Gerar uma nova chave no Cofre chave Azure")
 
@@ -80,7 +80,7 @@ HDInsight apenas suporta cofre de chave Azure. Se tiver o seu próprio cofre, po
 
 ## <a name="create-access-policy"></a>Criar política de acesso
 
-1. A partir do seu novo cofre chave, navegue para **Definições** > Políticas de **acesso** >  **+ Adicionar Política**de Acesso .
+1. A partir do seu novo cofre de chaves, navegue para **definições** > **Políticas** > de acesso **+ Adicionar Política de Acesso**.
 
     ![Criar nova política de acesso ao Cofre chave Azure](./media/disk-encryption/key-vault-access-policy.png)
 

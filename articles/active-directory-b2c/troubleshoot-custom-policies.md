@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186370"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemática Azure AD B2C políticas personalizadas e Quadro de Experiência de Identidade
@@ -39,26 +39,26 @@ A validação do ficheiro de política XML é executada automaticamente no uploa
 
 Os erros comuns de validação incluem:
 
-> Corte de erro: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
+> Corte de erro:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
 * O valor Do ClaimType pode ser mal escrito ou não existe no esquema.
 * Os valores do ClaimType devem ser definidos em pelo menos um dos ficheiros da apólice.
     Por exemplo: `<ClaimType Id="issuerUserId">`
 * Se o ClaimType for definido no ficheiro de extensões, mas também for utilizado num valor de Perfil Técnico no ficheiro base, o upload do ficheiro base resulta num erro.
 
-> Corte de erro: `...makes a reference to a ClaimsTransformation with id...`
+> Corte de erro:`...makes a reference to a ClaimsTransformation with id...`
 
 * As causas deste erro podem ser as mesmas que para o erro do ClaimType.
 
-> Corte de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+> Corte de erro:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verifique se o valor do TenantId nos elementos `<TrustFrameworkPolicy\>` e `<BasePolicy\>` corresponde ao seu destino Azure AD AD Inquilino B2C.
+* Verifique se o valor `<TrustFrameworkPolicy\>` do `<BasePolicy\>` TenantId no e elementos corresponde ao seu alvo Azure AD AD AD B2C inquilino.
 
 ## <a name="troubleshoot-the-runtime"></a>Problemas de resolução do tempo de corrido
 
-* Use **o Run agora** e `https://jwt.ms` para testar as suas políticas independentemente da sua aplicação web ou móvel. Este site funciona como uma aplicação de partido de base. Exibe o conteúdo do token web JSON (JWT) que é gerado pela sua política Azure AD AD B2C.
+* Use o `https://jwt.ms` Run **agora** e para testar as suas políticas independentemente da sua aplicação web ou móvel. Este site funciona como uma aplicação de partido de base. Exibe o conteúdo do token web JSON (JWT) que é gerado pela sua política Azure AD AD B2C.
 
-    Para criar uma aplicação de teste que possa redirecionar para `https://jwt.ms` para inspeção simbólica:
+    Para criar uma aplicação de `https://jwt.ms` teste que possa redirecionar para a inspeção simbólica:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

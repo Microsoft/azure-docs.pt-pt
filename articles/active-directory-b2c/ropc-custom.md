@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187012"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure as credenciais de senha do proprietário de recursos fluem no Azure Ative Directory B2C usando uma política personalizada
@@ -86,7 +86,7 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
     </ClaimsTransformations>
     ```
 
-4. Localize o elemento **ClaimsProvider** que tem um Nome de **visualização** de `Local Account SignIn` e adicione o seguinte perfil técnico:
+4. Localize o elemento **ClaimsProvider** que `Local Account SignIn` tem um Nome de **Exibição** e adicione o seguinte perfil técnico:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -227,7 +227,7 @@ Em seguida, atualize o ficheiro do partido que inicia a viagem de utilizador que
 
 1. Faça uma cópia do ficheiro *SignUpOrSignin.xml* no seu diretório de trabalho e mude o nome para *ROPC_Auth.xml*.
 2. Abra o novo ficheiro e altere o valor do atributo **PolicyId** para **TrustFrameworkPolicy** para um valor único. A identificação da apólice é o nome da sua apólice. Por exemplo, **B2C_1A_ROPC_Auth.**
-3. Alterar o valor do atributo **ReferenceId** no **DefaultUserJourney** para `ResourceOwnerPasswordCredentials`.
+3. Alterar o valor do atributo **ReferenceId** `ResourceOwnerPasswordCredentials`em **DefaultUserJourney** para .
 4. Alterar o elemento **OutputClaims** para conter apenas as seguintes reclamações:
 
     ```XML
@@ -249,7 +249,7 @@ Use a sua aplicação de desenvolvimento aPi favorita para gerar uma chamada API
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C.
-- Substitua `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
+- Substitua-a `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
 
 | Chave | Valor |
 | --- | ----- |
@@ -260,8 +260,8 @@ Use a sua aplicação de desenvolvimento aPi favorita para gerar uma chamada API
 | client_id | `application-id` |
 | response_type | id_token simbólico |
 
-- Substitua `user-account` com o nome de uma conta de utilizador no seu inquilino.
-- Substitua `password1` com a palavra-passe da conta de utilizador.
+- Substitua-o `user-account` pelo nome de uma conta de utilizador no seu inquilino.
+- Substitua-a `password1` pela palavra-passe da conta de utilizador.
 - Substitua `application-id` com o ID de inscrição do *registo ROPC_Auth_app.*
 - *Offline_access* é opcional se quiser receber um token refrescante.
 
@@ -294,18 +294,18 @@ Construa uma chamada postacomo a mostrada aqui. Utilize as informações no quad
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 - Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C.
-- Substitua `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
+- Substitua-a `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
 
 | Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| resource | `application-id` |
+| recurso | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Substitua `application-id` com o ID de inscrição do *registo ROPC_Auth_app.*
-- Substitua `refresh-token` pelo **refresh_token** que foi devolvido na resposta anterior.
+- Substitua-a `refresh-token` pela **refresh_token** que foi devolvida na resposta anterior.
 
 Uma resposta bem sucedida parece o seguinte exemplo:
 

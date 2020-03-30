@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78244648"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
@@ -74,7 +74,7 @@ As resoluções e bitrates contidos na saída do codificador vivo são determina
 
 Se o feed de contribuição for de 720p ou uma resolução superior, o predefinido **Predefinido Predefinido Predefinido Default720p** codificará o feed nas seguintes 6 camadas. Na tabela abaixo, bitrate está em kbps, MaxFPS representa que a taxa de fotogramas máxima permitida (em quadros/segundo), Perfil representa o Perfil H.264 utilizado.
 
-| Velocidade de transmissão | Pulsação | Altura | MaxFPS | Perfil |
+| Bitrate | Largura | Altura | MaxFPS | Perfil |
 | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alta |
 | 2200 |960 |540 |30 |Alta |
@@ -91,10 +91,10 @@ Se o feed de contribuição for de 720p ou uma resolução superior, o predefini
 
 Se o feed de contribuição for de resolução de 1080p, o predefinido **Predefinido Default1080p** codificará o feed nas seguintes 6 camadas.
 
-| Velocidade de transmissão | Pulsação | Altura | MaxFPS | Perfil |
+| Bitrate | Largura | Altura | MaxFPS | Perfil |
 | --- | --- | --- | --- | --- |
 | 5500 |1920 |1080 |30 |Alta |
-| 3000 |1280 |720 |30 |Alta |
+| 3.000 |1280 |720 |30 |Alta |
 | 1600 |960 |540 |30 |Alta |
 | 800 |640 |360 |30 |Alta |
 | 400 |480 |270 |30 |Alta |

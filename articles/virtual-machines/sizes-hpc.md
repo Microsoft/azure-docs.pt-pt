@@ -16,13 +16,13 @@ ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
 ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78226732"
 ---
-# <a name="high-performance-compute-vm-sizes"></a>Tamanhos vM de computação de alto desempenho
+# <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VMs de computação de elevado desempenho
 
 As máquinas virtuais da série Azure H (VMs) são projetadas para oferecer desempenho de classe de liderança, escalabilidade de MPI e eficiência de custos para uma variedade de cargas de trabalho hpc do mundo real.
 
@@ -101,7 +101,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 
 - **Máquinas virtuais** - Coloque os VMs HPC capazes de RDMA no mesmo conjunto de disponibilidade (quando utilizar o modelo de implementação do Gestor de Recursos Azure). Se utilizar o modelo de implantação clássico, desloque os VMs no mesmo serviço de nuvem. 
 
-- **Conjuntos** de escala de máquina virtual - Num conjunto de escala de máquina virtual, certifique-se de que limita a implementação a um único grupo de colocação. Por exemplo, num modelo de Gestor de Recursos, defino a propriedade `singlePlacementGroup` para `true`. 
+- **Conjuntos** de escala de máquina virtual - Num conjunto de escala de máquina virtual, certifique-se de que limita a implementação a um único grupo de colocação. Por exemplo, num modelo de `singlePlacementGroup` Gestor `true`de Recursos, defino a propriedade para . 
 
 - **MPI entre máquinas virtuais** - Se for necessária uma comunicação MPI entre máquinas virtuais (VMs), certifique-se de que os VMs estão no mesmo conjunto de disponibilidade ou na mesma escala da máquina virtual.
 

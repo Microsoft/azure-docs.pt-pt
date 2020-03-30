@@ -11,10 +11,10 @@ ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78226999"
 ---
 # <a name="userjourneys"></a>UserJourneys
@@ -65,8 +65,8 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem dos passos da orquestração. |
 | `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**GetClaims** - Indica que o passo da orquestração lê as alegações de entrada.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> |
-| ContentDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo de orquestração é um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, o Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
-| CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
+| ContentDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo `ClaimsProviderSelection` `CombinedSignInAndSignUp`de orquestração é um dos seguintes: ou, O Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
+| CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo `SendClaims`de orquestração é. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
 
 
 O elemento **OrchestrationStep** pode conter os seguintes elementos:
@@ -74,7 +74,7 @@ O elemento **OrchestrationStep** pode conter os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Condições prévias | 0:n | Uma lista de condições prévias que devem ser satisfeitas para que o passo de orquestração seja executado. |
-| ClaimsProviderSelections | 0:n | Uma lista de seleções de fornecedores de sinistros para o passo da orquestração. |
+| Seleções ClaimsProviderS | 0:n | Uma lista de seleções de fornecedores de sinistros para o passo da orquestração. |
 | ReclamaçõesTroca | 0:n | Uma lista de reclamações trocam pelo passo da orquestração. |
 
 ### <a name="preconditions"></a>Condições prévias
@@ -100,7 +100,7 @@ Os elementos **de pré-condição** contêm os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Valor | 1:n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a verificar.</li></ul>|
-| Ação | 1:1 | A ação que deve ser executada se a verificação prévia dentro de um passo de orquestração for verdadeira. Se o valor da `Action` for fixado para `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deve ser executado. |
+| Ação | 1:1 | A ação que deve ser executada se a verificação prévia dentro de um passo de orquestração for verdadeira. Se o valor `Action` do `SkipThisOrchestrationStep`for definido, `OrchestrationStep` o associado não deve ser executado. |
 
 #### <a name="preconditions-examples"></a>Exemplos pré-condições
 
@@ -160,7 +160,7 @@ As condições prévias podem verificar várias condições prévias. O exemplo 
 
 ## <a name="claimsproviderselection"></a>ClaimsProviderSelection
 
-Um passo de orquestração de tipo `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` pode conter uma lista de fornecedores de sinistros com os quais um utilizador pode iniciar sessão. A ordem dos elementos no interior dos elementos `ClaimsProviderSelections` controla a ordem dos fornecedores de identidade apresentados ao utilizador.
+Um passo de `ClaimsProviderSelection` orquestração de tipo ou `CombinedSignInAndSignUp` pode conter uma lista de fornecedores de reclamações com os quais um utilizador pode iniciar sessão. A ordem dos elementos `ClaimsProviderSelections` no interior dos elementos controla a ordem dos fornecedores de identidade apresentados ao utilizador.
 
 O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
@@ -172,18 +172,18 @@ O elemento **ClaimsProviderSelections** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Opção de exibição| Não | Controla o comportamento de um caso em que está disponível uma única seleção de fornecedores de sinistros. Valores possíveis: `DoNotShowSingleProvider` (predefinido) , o utilizador é redirecionado imediatamente para o fornecedor de identidade federado. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de fornecedor de identidade única. Para utilizar este atributo, a versão de [definição](page-layout.md) de conteúdo deve ser `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e acima.|
+| Opção de exibição| Não | Controla o comportamento de um caso em que está disponível uma única seleção de fornecedores de sinistros. Valores `DoNotShowSingleProvider` possíveis: (predefinido) , o utilizador é redirecionado imediatamente para o fornecedor de identidade federado. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de fornecedor de identidade única. Para utilizar este atributo, a `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` versão de [definição](page-layout.md) de conteúdo deve ser e acima.|
 
 O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Não | O identificador da troca de sinistros, que é executada na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidaçãoClaimsExchangeId deve ser especificado, mas não ambos. |
-| ValidationClaimsExchangeId | Não | O identificador da troca de sinistros, que é executada na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
+| TargetClaimsExchangeid | Não | O identificador da troca de sinistros, que é executada na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidaçãoClaimsExchangeId deve ser especificado, mas não ambos. |
+| ValidaçõesClaimsExchangeid | Não | O identificador da troca de sinistros, que é executada na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
 
 ### <a name="claimsproviderselection-example"></a>Exemplo de Seleção ClaimsProvider
 
-No seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o utilizador selecionar um dos fornecedores de identidade social, o segundo passo de orquestração executa com a troca de reclamações selecionada especificada no atributo `TargetClaimsExchangeId`. O segundo passo de orquestração redireciona o utilizador para o fornecedor de identidade social para completar o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C permanece no mesmo passo de orquestração (a mesma página de inscrição ou página de inscrição) e salta o segundo passo de orquestração.
+No seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o utilizador selecionar um dos fornecedores de identidade social, o segundo passo de `TargetClaimsExchangeId` orquestração executa com a troca de reclamações selecionada especificada no atributo. O segundo passo de orquestração redireciona o utilizador para o fornecedor de identidade social para completar o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C permanece no mesmo passo de orquestração (a mesma página de inscrição ou página de inscrição) e salta o segundo passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -224,11 +224,11 @@ O elemento **Reclamações Exchanges** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 1:n | Dependendo do perfil técnico utilizado, ou redireciona o cliente de acordo com a Seleção Reclamada que foi selecionada, ou faz uma chamada de servidor para trocar reclamações. |
+| ReclamaçõesTroca | 1:n | Dependendo do perfil técnico utilizado, ou redireciona o cliente de acordo com a Seleção Reclamada que foi selecionada, ou faz uma chamada de servidor para trocar reclamações. |
 
 O elemento **ClaimsExchange** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Id | Sim | Um identificador da etapa de troca de reclamações. O identificador é utilizado para fazer referência à troca de sinistros a partir de um passo de seleção do fornecedor de sinistros na apólice. |
-| TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |
+| Perfil-referência técnico | Sim | O identificador do perfil técnico que deve ser executado. |

@@ -1,5 +1,5 @@
 ---
-title: Localizadores de streaming nos Serviços De Mídia Azure  Microsoft Docs
+title: Localizadores de streaming nos Serviços De Mídia Azure [ Microsoft Docs
 description: Este artigo dá uma explicação do que são os Localizadores de Streaming e como são usados pela Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302887"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
@@ -27,8 +27,8 @@ O processo de criação de um Localizador de **Streaming** chama-se publicação
 Ao criar um Localizador de **Streaming,** deve especificar um nome **de Ativo** e um nome de **Política de Streaming.** Para obter mais informações, consulte os seguintes tópicos:
 
 * [Recursos](assets-concept.md)
-* [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
+* [Políticas de Transmissão em Fluxo](streaming-policy-concept.md)
+* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 
 Também pode especificar o tempo de início e fim no seu Localizador de Streaming, que só permitirá que o seu utilizador reveja o conteúdo entre estes tempos (por exemplo, entre 5/1/2019 e 5/5/2019).  
 
@@ -101,8 +101,8 @@ Para obter localizadores de streaming com base no nome de Ativo associado, utili
 ## <a name="see-also"></a>Consulte também
 
 * [Recursos](assets-concept.md)
-* [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
+* [Políticas de Transmissão em Fluxo](streaming-policy-concept.md)
+* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 * [Tutorial: Upload, codificação e streaming de vídeos usando .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,5 +1,5 @@
 ---
-title: Guia de backup para SAP HANA em Máquinas Virtuais Azure  Microsoft Docs
+title: Guia de backup para SAP HANA em Máquinas Virtuais Azure [ Microsoft Docs
 description: Guia de backup para SAP HANA fornece duas grandes possibilidades de backup para SAP HANA em máquinas virtuais Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255242"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais Azure
@@ -41,7 +41,7 @@ Informações sobre como pode encontrar o software SAP suportado no Azure podem 
 
 ## <a name="azure-backup-service"></a>Serviço de Backup Azure
 
-O primeiro cenário mostrado é um cenário em que o Serviço de Backup Azure está a usar a interface sap HANA `backint` para realizar uma cópia de segurança de streaming com uma base de dados SAP HANA. Ou usa uma capacidade mais genérica do serviço De backup Azure para criar uma imagem de instantâneo de disco consistente e transferi-lo para o serviço de backup Azure.
+O primeiro cenário mostrado é um cenário em que o Serviço `backint` de Backup Azure está a usar a interface SAP HANA para realizar uma cópia de segurança de streaming com uma base de dados SAP HANA. Ou usa uma capacidade mais genérica do serviço De backup Azure para criar uma imagem de instantâneo de disco consistente e transferi-lo para o serviço de backup Azure.
 
 O Azure Backup integra-se e é certificado como solução de backup para o SAP HANA utilizando a interface proprietária SAP HANA chamada [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para mais detalhes sobre a solução, as suas capacidades e as regiões de Azure onde está disponível, leia o artigo [Matriz de suporte para backup das bases de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Para mais detalhes e princípios sobre o serviço de backup Azure para hana, leia o artigo Sobre a cópia de segurança da base de [dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
 
@@ -102,11 +102,11 @@ As informações sobre a verificação de consistência da tabela também podem 
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Prós e contras de backup HANA versus instantâneo de armazenamento
 
-O SAP não&#39;dá preferência a qualquer cópia de segurança HANA versus instantâneo de armazenamento. Ele lista os seus prós e contras, para que se possa determinar qual usar dependendo da situação e da tecnologia de armazenamento disponível (ver Planeamento Da Sua Estratégia de [Backup e Recuperação).](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
+O SAP não&#39;dar preferência a qualquer cópia de segurança HANA versus instantâneo de armazenamento. Ele lista os seus prós e contras, para que se possa determinar qual usar dependendo da situação e da tecnologia de armazenamento disponível (ver Planeamento Da Sua Estratégia de [Backup e Recuperação).](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
 
-No Azure, esteja ciente de que a função&#39;de instantâneo blob Azure não fornece consistência do sistema de ficheiros em vários discos (ver [Utilizar imagens blob com PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
+No Azure, esteja ciente de que a função de instantâneo blob Azure não&#39;fornecer consistência do sistema de ficheiros em vários discos (ver [Utilizar imagens blob com PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
 
-Além disso, é preciso compreender as implicações da faturação quando se trabalha frequentemente com imagens&#39;blob como descrito neste artigo: Compreender como os [Snapshots Acumulam Encargos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— não é tão óbvio como usar discos virtuais Azure.
+Além disso, é preciso compreender as implicações da faturação quando se trabalha frequentemente com imagens blob, como descrito neste artigo: [Compreender como os Snapshots Acumulam Encargos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— não é&#39;tão óbvio como usar discos virtuais Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Consistência de dados do SAP HANA ao tirar fotos de armazenamento
 
@@ -116,12 +116,12 @@ Tal como documentado anteriormente, descrever as capacidades de backup instantâ
 > Backups baseados em instantâneo sap para SAP HANA em implementações onde vários recipientes de base de dados são usados, requerem uma libertação mínima de HANA 2.0 SP04
 > 
 
-O armazenamento azure, não fornece consistência do sistema de ficheiros em vários discos ou volumes que estão ligados a um VM durante o processo de instantâneo. Isto significa que a consistência da aplicação durante o instantâneo tem de ser entregue pela aplicação, neste caso a própria SAP HANA. [O SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre cópias de segurança SAP HANA por instantâneos de armazenamento. Por exemplo, com sistemas de ficheiros XFS, é necessário executar **xfs\_congelar** antes de iniciar um instantâneo de armazenamento para fornecer consistência da aplicação (ver [xfs\_congelar(8) - Página](https://linux.die.net/man/8/xfs_freeze) do homem linux para detalhes sobre **xfs\_congelar).**
+O armazenamento azure, não fornece consistência do sistema de ficheiros em vários discos ou volumes que estão ligados a um VM durante o processo de instantâneo. Isto significa que a consistência da aplicação durante o instantâneo tem de ser entregue pela aplicação, neste caso a própria SAP HANA. [O SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre cópias de segurança SAP HANA por instantâneos de armazenamento. Por exemplo, com sistemas de ficheiros XFS, é necessário executar o congelamento de **xfs\_** antes de iniciar um instantâneo de armazenamento para fornecer consistência da aplicação (ver [xfs\_freeze(8) - Página](https://linux.die.net/man/8/xfs_freeze) do homem linux para detalhes sobre o congelamento de **xfs\_**).
 
 Assumindo que existe um sistema de ficheiros XFS que abrange quatro discos virtuais Azure, os seguintes passos fornecem uma imagem consistente que representa a área de dados hana:
 
 1. Criar a preparação de instantâneos de dados da HANA
-1. Congelar os sistemas de ficheiros de todos os discos/volumes (por exemplo, utilizar **xfs\_congelar)**
+1. Congelar os sistemas de ficheiros de todos os discos/volumes (por exemplo, utilizar **xfs\_congelando)**
 1. Crie todos os instantâneos de bolhas necessários no Azure
 1. Descongelar o sistema de ficheiros
 1. Confirme o instantâneo de dados da HANA (eliminará o instantâneo)
@@ -133,7 +133,7 @@ Mais informações sobre a criação de instantâneos de dados da HANA podem ser
 - Mais detalhes para executar passo #1 pode ser encontrado no artigo Criar um Snapshot de [Dados (SQL nativo)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 - Detalhes para confirmar/eliminar instantâneos de dados da HANA como necessidade em passo #5 podem ser encontrados no artigo Criar um Snapshot de [Dados (Native SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 
-É importante confirmar o instantâneo da HANA. Devido ao &quot;Copy-on-Write,&quot; SAP HANA pode não necessitar de espaço adicional para o disco enquanto estiver neste modo de preparação de instantâneos. Também&#39;não é possível iniciar novos backups até que o instantâneo SAP HANA seja confirmado.
+É importante confirmar o instantâneo da HANA. Devido ao &quot;Copy-on-Write,&quot; o SAP HANA pode não necessitar de espaço adicional para o disco enquanto estiver neste modo de preparação de instantâneos. Também&#39;é possível iniciar novas cópias de segurança até que o instantâneo SAP HANA seja confirmado.
 
 
 ### <a name="sap-hana-backup-scheduling-strategy"></a>Estratégia de agendamento de backup SAP HANA

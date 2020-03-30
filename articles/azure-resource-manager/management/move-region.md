@@ -1,48 +1,48 @@
 ---
-title: Mover recursos do Azure para outra região
-description: Fornece uma visão geral da movimentação de recursos do Azure entre regiões do Azure.
+title: Mover os recursos do Azure para outra região
+description: Fornece uma visão geral da movimentação de recursos Azure através das regiões de Azure.
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: raynew
 ms.openlocfilehash: 22d8bcee96b4ac52641d4f0841267195f44fe15a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485211"
 ---
-# <a name="moving-azure-resources-across-regions"></a>Movendo recursos do Azure entre regiões
+# <a name="moving-azure-resources-across-regions"></a>Recursos Azure em movimento em regiões
 
-Este artigo fornece informações sobre como mover recursos do Azure entre regiões do Azure.
+Este artigo fornece informações sobre a transferência de recursos Azure através das regiões de Azure.
 
-Geografias, regiões e Zonas de Disponibilidade do Azure formam a base da infraestrutura global do Azure. As regiões [geográficas](https://azure.microsoft.com/global-infrastructure/geographies/) do Azure normalmente contêm duas ou mais [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Uma região é uma área em uma geografia, contendo Zonas de Disponibilidade e vários data centers. 
+Geografias, regiões e Zonas de Disponibilidade azure formam a base da infraestrutura global Azure. As [geografias](https://azure.microsoft.com/global-infrastructure/geographies/) azure normalmente contêm duas ou mais [regiões azure.](https://azure.microsoft.com/global-infrastructure/regions/) Uma região é uma área dentro de uma geografia, contendo Zonas de Disponibilidade, e múltiplos centros de dados. 
 
-Depois de implantar recursos em uma região específica do Azure, há vários motivos pelos quais você pode querer mover recursos para uma região diferente.
+Depois de mobilizar recursos em região específica de Azure, existem várias razões para que queira mover recursos para outra região.
 
-- **Alinhar a uma região de lançamento**: Mova seus recursos para uma região do Azure introduzida recentemente que não estava disponível anteriormente.
-- **Alinhar para serviços/recursos**: Mova os recursos para aproveitar os serviços ou recursos que estão disponíveis em uma região específica.
-- **Responder a desenvolvimentos de negócios**: mover recursos para uma região em resposta a alterações comerciais, como fusões ou aquisições.
-- **Alinhar**-se à proximidade: Mova os recursos para uma região local para sua empresa.
-- **Atender aos requisitos de dados**: Mova os recursos para se alinhar aos requisitos de residência de dados ou às necessidades de classificação de dados. [Saiba mais](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
-- **Responder aos requisitos de implantação**: mover os recursos que foram implantados com erro ou mover-se em resposta às necessidades de capacidade. 
-- **Responder ao encerramento**: mover recursos devido ao encerramento de regiões.
+- **Alinha-te com um lançamento de região**: Move os teus recursos para uma região azure recém-introduzida que não estava disponível anteriormente.
+- **Alinhar para serviços/funcionalidades**: Mover recursos para tirar partido de serviços ou funcionalidades disponíveis numa região específica.
+- **Responder à evolução do negócio**: Transferir recursos para uma região em resposta a mudanças de negócio, tais como fusões ou aquisições.
+- **Alinhe-se para a proximidade**: Desloque recursos para uma região local para o seu negócio.
+- **Satisfazer os requisitos de dados**: Mover recursos para alinhar com os requisitos de residência de dados ou necessidades de classificação de dados. [Saiba mais](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
+- **Responder aos requisitos de implantação**: Mover recursos que foram utilizados por engano ou mover-se em resposta às necessidades de capacidade. 
+- **Responder ao desmantelamento**: Movimentar recursos devido ao desmantelamento das regiões.
 
-## <a name="move-process"></a>Mover processo
+## <a name="move-process"></a>Processo de mudança
 
-O processo de movimentação real depende dos recursos que você está movendo. No entanto, há algumas etapas principais comuns:
+O processo de mudança depende dos recursos que estáa mover. No entanto, existem alguns passos-chave comuns:
 
-- **Verificar pré-requisitos**: os pré-requisitos incluem certificar-se de que os recursos necessários estão disponíveis na região de destino, verificando se você tem cota suficiente e verificando se sua assinatura pode acessar a região de destino.
-- **Analisar dependências**: seus recursos podem ter dependências de outros recursos. Antes de mover, descubra as dependências para que os recursos movidos continuem a funcionar conforme o esperado após a movimentação.
-- **Preparar para mover**: essas são as etapas que você seguirá em sua região primária antes da movimentação. Por exemplo, talvez seja necessário exportar um modelo de Azure Resource Manager ou iniciar a replicação de recursos da origem para o destino.
-- **Mover os recursos**: como você move os recursos depende do que eles são. Talvez seja necessário implantar um modelo na região de destino ou reprovar os recursos para o destino.
-- **Descartar recursos de destino**: depois de mover os recursos, talvez você queira dar uma olhada nos recursos agora na região de destino e decidir se há algo que você não precisa.
-- **Confirme a movimentação**: depois de verificar os recursos na região de destino, alguns recursos podem exigir uma ação de confirmação final. Por exemplo, em uma região de destino que agora é a região primária, talvez seja necessário configurar a recuperação de desastres para uma nova região secundária. 
-- **Limpar a origem**: por fim, depois que tudo estiver em funcionamento na nova região, você poderá limpar e encerrar os recursos criados para a movimentação e os recursos em sua região primária.
+- **Verificar os pré-requisitos**: Os pré-requisitos incluem certificar-se de que os recursos de que necessita estão disponíveis na região alvo, verificar se tem quota suficiente e verificar se a sua subscrição pode aceder à região alvo.
+- **Analise as dependências**: Os seus recursos podem ter dependências de outros recursos. Antes de se mover, descubra as dependências para que os recursos movidos continuem a funcionar como esperado após a mudança.
+- **Prepare-se para avançar**: Estes são os passos que toma na sua região primária antes da mudança. Por exemplo, você pode precisar de exportar um modelo de Gestor de Recursos Azure, ou começar a replicar recursos de origem para alvo.
+- **Mover os recursos**: Como movimenta recursos depende do que são. Você pode precisar de implementar um modelo na região alvo, ou falhar recursos para o alvo.
+- **Descartar recursos-alvo**: Depois de movimentar recursos, é melhor dar uma olhada nos recursos agora na região alvo, e decidir se há algo que não precisa.
+- **Cometer o movimento**: Após a verificação dos recursos na região alvo, alguns recursos podem exigir uma ação final de compromisso. Por exemplo, numa região-alvo que é agora a região primária, talvez seja necessário estabelecer uma recuperação de desastres para uma nova região secundária. 
+- **Limpe a fonte**: Finalmente, depois de tudo estar a funcionar na nova região, pode limpar e desativar os recursos que criou para a mudança, e recursos na sua região primária.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista dos recursos que dão suporte à movimentação entre regiões, consulte [mover suporte de operação para recursos](region-move-support.md).
+Para obter uma lista dos recursos que suportam a deslocação através das regiões, consulte o apoio da [operação Move para os recursos.](region-move-support.md)

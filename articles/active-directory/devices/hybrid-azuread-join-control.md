@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049984"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
 
@@ -43,7 +43,7 @@ Utilize o Editor de Interfaces de Diretório Ativo (ADSI Edit) para modificar os
 1. Lance a aplicação de desktop **ADSI Edit** a partir de uma estação de trabalho administrativa ou um controlador de domínio como Administrador da Empresa.
 1. Ligue-se ao contexto de nomeação de **configuração** do seu domínio.
 1. Navegue para **CN=Configuração,DC=contoso,DC=com** > **CN=Services** > **CN=Device Registration Configuration**
-1. Clique certo no objeto de folha sob **configuração de registo CN=Dispositivo** e selecione **Propriedades**
+1. Clique à direita no objeto de folha **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** e selecione **Properties**
    1. Selecione **palavras-chave** da janela **Do Atributo Editor** e clique em **Editar**
    1. Selecione os valores de **azureADId** e **azureADName** (um de cada vez) e clique em **Remover**
 1. Edição de **ADSI**
@@ -55,25 +55,25 @@ Utilize o exemplo seguinte para criar um Objeto de Política de Grupo (GPO) para
 
 1. Abra uma consola de Gestão de Políticas de Grupo e crie um novo Objeto político de grupo no seu domínio.
    1. Forneça um nome ao seu GPO recém-criado (por exemplo, ClientSideSCP).
-1. Editar o GPO e localizar o seguinte caminho: **Configuração de computador** > **Preferências** > **Definições do Windows** > **Registo**
-1. Clique à direita no Registo e selecione **New** > **Registry Item**
+1. Editar o GPO e localizar o seguinte caminho: **Configuração** > de computador**Preferências** > Registo**de** **Definições** > do Windows
+1. Clique à direita no Registo e selecione **Novo** > **Item** de Registo
    1. No separador **Geral,** configure o seguinte
       1. Ação: **Atualização**
       1. Colmeia: **HKEY_LOCAL_MACHINE**
       1. Caminho-chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome de valor: **TenantId**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: O ID GUID ou **Diretório** da sua instância AD Azure (este valor pode ser encontrado no **portal Azure** > **Diretório Ativo azure** > **Propriedades** > Id **de Diretório)**
-   1. Clique em **OK**
-1. Clique à direita no Registo e selecione **New** > **Registry Item**
+      1. Dados de valor: O ID GUID ou **Diretório** da sua instância AD Azure (este valor pode ser encontrado no id > de**diretório**de**propriedades** > ativas do > portal **Azure****Azure)**
+   1. Clique **OK**
+1. Clique à direita no Registo e selecione **Novo** > **Item** de Registo
    1. No separador **Geral,** configure o seguinte
       1. Ação: **Atualização**
       1. Colmeia: **HKEY_LOCAL_MACHINE**
       1. Caminho-chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome de valor: **Nome do inquilino**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: O **seu nome** de domínio verificado se estiver a utilizar ambientefederado, como AD FS. O seu nome de **domínio** verificado ou o seu nome de domínio onmicrosoft.com, por exemplo, `contoso.onmicrosoft.com` se estiver a usar um ambiente gerido
-   1. Clique em **OK**
+      1. Dados de valor: O **seu nome** de domínio verificado se estiver a utilizar ambientefederado, como AD FS. O seu nome de **domínio** verificado ou `contoso.onmicrosoft.com` o seu nome de domínio onmicrosoft.com, por exemplo, se estiver a utilizar um ambiente gerido
+   1. Clique **OK**
 1. Feche o editor para o gpo recém-criado
 1. Ligue o GPO recém-criado ao om desejado contendo computadores unidos pelo domínio que pertencem à sua população de lançamento controlada
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206865"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configure o calendário de correção de OS para clusters HDInsight baseados em Linux
@@ -22,8 +22,8 @@ ms.locfileid: "78206865"
 
 O HDInsight fornece suporte para que execute tarefas comuns no seu cluster, tais como instalar patches de OS, atualizações de segurança e reinicialização de nós. Estas tarefas são realizadas usando os seguintes dois scripts que podem ser executados como ações de [script](hdinsight-hadoop-customize-cluster-linux.md), e configurados com parâmetros:
 
-- `schedule-reboots.sh` - Faça um reinício imediato ou agende um reinício dos nós do cluster.
-- `install-updates-schedule-reboots.sh` - Instale todas as atualizações, apenas atualizações de kernel + segurança, ou apenas atualizações de kernel.
+- `schedule-reboots.sh`- Faça um reinício imediato ou agende um reinício dos nós do cluster.
+- `install-updates-schedule-reboots.sh`- Instale todas as atualizações, apenas atualizações de kernel + segurança, ou apenas atualizações de kernel.
 
 > [!NOTE]  
 > As ações do Script não aplicarão automaticamente atualizações para todos os ciclos de atualização futuros. Executar os scripts sempre que novas atualizações devem ser aplicadas para instalar as atualizações e, em seguida, reiniciar o VM.
@@ -55,7 +55,7 @@ O `schedule-reboots script` aceita um parâmetro numérico:
 
 O script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) fornece opções para instalar diferentes tipos de atualizações e reiniciar o VM.
 
-O guião `install-updates-schedule-reboots` aceita dois parâmetros numéricos, conforme descrito na tabela seguinte:
+O `install-updates-schedule-reboots` guião aceita dois parâmetros numéricos, conforme descrito na tabela seguinte:
 
 | Parâmetro | Valores aceites | Definição |
 | --- | --- | --- |

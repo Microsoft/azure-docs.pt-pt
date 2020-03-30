@@ -5,10 +5,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
 ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255914"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configure um aplicativo Linux ASP.NET Core para o Azure App Service
@@ -43,12 +43,12 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
 
-1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
-1. Executar `dotnet restore` para restaurar as dependências do NuGet.
-1. Executar `dotnet publish` para construir um binário para a produção.
-1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
+1. Executar script personalizado se `PRE_BUILD_SCRIPT_PATH`especificado por .
+1. Corra `dotnet restore` para restaurar as dependências do NuGet.
+1. Corra `dotnet publish` para construir um binário para a produção.
+1. Executar script personalizado se `POST_BUILD_SCRIPT_PATH`especificado por .
 
-`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que são vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`.
+`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que são vazias por padrão. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`.
 
 O exemplo seguinte especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -94,7 +94,7 @@ Se configurar uma definição de aplicação com o mesmo nome no App Service e e
 
 ## <a name="get-detailed-exceptions-page"></a>Obtenha página de exceções detalhadas
 
-Quando a sua aplicação ASP.NET gera uma exceção no debugger do Estúdio Visual, o navegador apresenta uma página de exceção detalhada, mas no App Service essa página é substituída por um erro genérico **http 500** ou um erro ocorreu durante o **processamento do seu pedido.** Mensagem. Para exibir a página de exceção detalhada no Serviço de Aplicações, adicione a definição de aplicação `ASPNETCORE_ENVIRONMENT` à sua aplicação executando o seguinte comando na <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Quando a sua aplicação ASP.NET gera uma exceção no debugger do Estúdio Visual, o navegador apresenta uma página de exceção detalhada, mas no App Service essa página é substituída por um erro genérico **http 500** ou um erro ocorreu durante o **processamento do seu pedido.** . Para exibir a página de exceção `ASPNETCORE_ENVIRONMENT` detalhada no Serviço de Aplicações, adicione a definição da aplicação à sua aplicação executando o seguinte comando na <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -104,9 +104,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de saber se os pedidos do utilizador estão encriptados ou não, configure o Middleware De Cabeçalhos Reencaminhados em *Startup.cs:*
 
-- Configure o middleware com [ForwardheadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os cabeçalhos de `X-Forwarded-For` e `X-Forwarded-Proto` em `Startup.ConfigureServices`.
+- Configure o middleware com [ForwardheadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os `X-Forwarded-For` cabeçalhos e `X-Forwarded-Proto` os cabeçalhos em `Startup.ConfigureServices`.
 - Adicione gamas de endereços IP privados às redes conhecidas, para que o middleware possa confiar no equilibrador de carga do Serviço de Aplicações.
-- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) em `Startup.Configure` antes de chamar outros middlewares.
+- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) `Startup.Configure` antes de chamar outros middlewares.
 
 Juntando os três elementos, o seu código parece ser o seguinte exemplo:
 
@@ -154,7 +154,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Usando as definições de aplicativos
 
-No <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell,</a>adicione uma definição de aplicação à sua app Service executando o seguinte comando CLI. Substitua *\<nome de aplicativo>* \<nome *de grupo de recursos>* e *\<nome de projeto>* com os valores apropriados.
+No <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell,</a>adicione uma definição de aplicação à sua app Service executando o seguinte comando CLI. Substitua * \<o nome da aplicação>, * * \<>de nome de grupo de recursos *e * \<>de nome do projeto* com os valores apropriados.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"

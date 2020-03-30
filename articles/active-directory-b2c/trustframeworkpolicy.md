@@ -1,5 +1,5 @@
 ---
-title: TrustFrameworkPolicy - Diretório Ativo Azure B2C  Microsoft Docs
+title: TrustFrameworkPolicy - Diretório Ativo Azure B2C [ Microsoft Docs
 description: Especifique o elemento TrustFrameworkPolicy de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186391"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -40,13 +40,13 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Sim | A versão do esquema que deve ser usada para executar a política. O valor deve ser `0.3.0.0` |
-| TenantObjectId | Não | O identificador de objeto único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
+| PolicySchemaVersion | Sim | A versão do esquema que deve ser usada para executar a política. O valor deve ser`0.3.0.0` |
+| InquilinoObjectid | Não | O identificador de objeto único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador único do inquilino a que pertence esta apólice. |
 | PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado *B2C_1A_* |
-| PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e da identificação política. |
-| DeploymentMode | Não | Valores possíveis: `Production`, ou `Development`. `Production` é a predefinição. Use esta propriedade para desinbugijá-lo. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Não | O ponto final utilizado quando o **Modo de Implantação** está programado para `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
+| Política PúblicaUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e da identificação política. |
+| Modo de Implantação | Não | Valores `Production`possíveis: ou `Development`. `Production` é a predefinição. Use esta propriedade para desinbugijá-lo. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Não | O ponto final utilizado quando o `Development`Modo de **Implantação** está definido para . O valor `urn:journeyrecorder:applicationinsights`deve ser. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
 
 
 O exemplo que se segue mostra como especificar o elemento **TrustFrameworkPolicy:**
@@ -153,7 +153,7 @@ Os passos de orquestração podem chamar um [Perfil Técnico](technicalprofiles.
  O elemento **TrustFrameworkPolicy** contém os seguintes elementos:
 
 - Política de Base conforme especificado acima
-- [Blocos de Construção](buildingblocks.md)
-- [ReclamaçõesProviders](claimsproviders.md)
+- [BuildingBlocks](buildingblocks.md)
+- [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
-- [Partido De Conta](relyingparty.md)
+- [RelyingParty](relyingparty.md)

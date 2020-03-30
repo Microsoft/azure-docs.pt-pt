@@ -1,19 +1,19 @@
 ---
-title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
+title: Criar uma aplicação java de função Azure Service Fabric no Linux
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458175"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -208,18 +208,18 @@ Após a implementação da aplicação, abra um browser e navegue até [Service 
 Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implantar o aplicativo em um cluster do Linux seguro no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução de Service Fabric. Isso permite que seus serviços de Reliable Actors se comuniquem com as APIs de tempo de execução de Service Fabric subjacentes. Para saber mais, confira [configurar um aplicativo Reliable Services para ser executado em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Tecido de Serviço. Ao fazê-lo, os seus serviços De atores fiáveis comunicam com as APIs de tempo de execução do Tecido de Serviço subjacentes. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
 Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lhes envie mensagens. O modelo de ator inclui um script de teste simples, que pode utilizar para interagir com o serviço de ator.
 
 > [!Note]
-> O cliente de teste usa a classe ActorProxy para se comunicar com atores, que devem ser executados no mesmo cluster que o serviço de ator ou compartilhar o mesmo espaço de endereço IP.  Você pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  No entanto, para se comunicar com atores em um cluster remoto, você deve implantar um gateway no cluster que lide com a comunicação externa com os atores.
+> O cliente de teste usa a classe ActorProxy para comunicar com os atores, que deve funcionar dentro do mesmo cluster que o serviço do ator ou partilhar o mesmo espaço de endereço IP.  Pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  Para comunicar com os atores num aglomerado remoto, no entanto, você deve implementar uma porta de entrada no cluster que lida com a comunicação externa com os atores.
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.  O script de teste chama o método `setCountAsync()` no ator para incrementar um contador, chama o método `getCountAsync()` no ator para obter o valor do novo contador e apresenta esse valor à consola.
 
-   No caso do MAC OS X, você precisa copiar a pasta HelloWorldTestClient para algum local dentro do contêiner executando os seguintes comandos adicionais.    
+   No caso de MAC OS X, é necessário copiar a pasta HelloWorldTestClient para algum local dentro do contentor, executando os seguintes comandos adicionais.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -232,11 +232,11 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações no estado do serviço são então replicadas para as réplicas secundárias, em execução nos nós 0 e 1 na captura de tela abaixo.
+2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações no estado de serviço são então replicadas para as réplicas secundárias, correndo nos nós 0 e 1 na imagem abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 
-3. Em **Nós**, clique no nó que localizou no passo anterior e selecione **Desativar (reiniciar)** , no menu Ações. Esta ação reinicia o nó em execução na réplica do principal de serviço e força uma ativação pós-falha numa das réplicas secundárias em execução noutro nó.  Essa réplica secundária é promovida a principal, outra réplica secundária é criada num nó diferente e a réplica primária começa a executar operações de leitura/escrita. Á medida que o nó reinicia, observe a saída do cliente de teste e repare que o contador continua a aumentar, apesar da ativação pós-falha.
+3. Em **Nós**, clique no nó que localizou no passo anterior e selecione **Desativar (reiniciar)**, no menu Ações. Esta ação reinicia o nó em execução na réplica do principal de serviço e força uma ativação pós-falha numa das réplicas secundárias em execução noutro nó.  Essa réplica secundária é promovida a principal, outra réplica secundária é criada num nó diferente e a réplica primária começa a executar operações de leitura/escrita. Á medida que o nó reinicia, observe a saída do cliente de teste e repare que o contador continua a aumentar, apesar da ativação pós-falha.
 
 ## <a name="remove-the-application"></a>Remover a aplicação
 Utilize o script de desinstalação fornecido no modelo para eliminar a instância da aplicação, anular o registo do pacote de aplicação e remover o pacote de aplicação do arquivo de imagens do cluster.

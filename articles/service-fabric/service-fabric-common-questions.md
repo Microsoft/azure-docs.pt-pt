@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254891"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
@@ -64,9 +64,9 @@ Exigimos que um aglomerado de produção tenha pelo menos 5 nós devido às segu
 2. Colocamos sempre uma réplica de um serviço por nó, por isso o tamanho do cluster é o limite superior para o número de réplicas que um serviço (na verdade uma partição) pode ter.
 3. Uma vez que uma atualização do cluster vai derrubar pelo menos um nó, queremos ter um tampão de pelo menos um nó, por isso, queremos que um cluster de produção tenha pelo menos dois nós para *além* do mínimo. O mínimo é o tamanho quórum de um serviço de sistema, como explicado abaixo.  
 
-Queremos que o cluster esteja disponível face à falha simultânea de dois nós. Para que um cluster de Tecido de Serviço esteja disponível, os serviços do sistema devem estar disponíveis. Serviços de sistema sinuosos como serviço de nomeação e serviço de gestor de failover, que rastreiam os serviços que foram implantados para o cluster e onde estão atualmente hospedados, dependem de uma forte consistência. Essa forte consistência, por sua vez, depende da capacidade de adquirir um *quórum* para qualquer atualização dada ao estado desses serviços, onde um quórum representa uma maioria estrita das réplicas (N/2+1) para um determinado serviço. Assim, se queremos ser resilientes contra a perda simultânea de dois nós (assim perda simultânea de duas réplicas de um serviço de sistema), temos de ter clusterSize - QuorumSize >= 2, o que obriga o tamanho mínimo a ser cinco. Para ver isso, considere que o cluster tem nós N e há réplicas N de um serviço de sistema - um em cada nó. O tamanho do quórum para um serviço de sistema é (N/2 + 1). A desigualdade acima parece N - (N/2 + 1) >= 2. Há dois casos a considerar: quando N é par e quando N é estranho. Se N é mesmo, digamos N = 2\*m onde m >= 1, a desigualdade parece 2\*m - (2\*m/2 + 1) >= 2 ou m >= 3. O mínimo para N é 6 e que é alcançado quando m = 3. Por outro lado, se N é estranho, digamos N = 2\*m+1 onde m >= 1, a desigualdade parece 2\*m+1 - (2\*m+1)/2 + 1 ) >= 2 ou 2\*m+1 - (m+1) >= 2 ou m >2. O mínimo para N é 5 e que é alcançado quando m = 2. Portanto, entre todos os valores de N que satisfazem o ClusterSize de desigualdade - QuorumSize >= 2, o mínimo é 5.
+Queremos que o cluster esteja disponível face à falha simultânea de dois nós. Para que um cluster de Tecido de Serviço esteja disponível, os serviços do sistema devem estar disponíveis. Serviços de sistema sinuosos como serviço de nomeação e serviço de gestor de failover, que rastreiam os serviços que foram implantados para o cluster e onde estão atualmente hospedados, dependem de uma forte consistência. Essa forte consistência, por sua vez, depende da capacidade de adquirir um *quórum* para qualquer atualização dada ao estado desses serviços, onde um quórum representa uma maioria estrita das réplicas (N/2+1) para um determinado serviço. Assim, se queremos ser resilientes contra a perda simultânea de dois nós (assim perda simultânea de duas réplicas de um serviço de sistema), temos de ter clusterSize - QuorumSize >= 2, o que força o tamanho mínimo a ser cinco. Para ver isso, considere que o cluster tem nós N e há réplicas N de um serviço de sistema - um em cada nó. O tamanho do quórum para um serviço de sistema é (N/2 + 1). A desigualdade acima parece N - (N/2 + 1) >= 2. Há dois casos a considerar: quando N é par e quando N é estranho. Se N é mesmo,\*digamos N = 2 m onde m\*>=\*1, a desigualdade parece 2 m - (2 m/2 + 1) >= 2 ou m >= 3. O mínimo para N é 6 e que é alcançado quando m = 3. Por outro lado, se N é estranho, diga N =\*2 m+1 onde\*m >= 1, a desigualdade parece 2 m+1 - (2\*m+1)/2 + 1 ) >= 2 ou 2\*m+1 - (m+1) >= 2 ou m >= 2. O mínimo para N é 5 e que é alcançado quando m = 2. Portanto, entre todos os valores de N que satisfazem o ClusterSize de desigualdade - QuorumSize >= 2, o mínimo é 5.
 
-Note-se, no argumento acima assumimos que cada nó tem uma réplica de um serviço de sistema, assim o tamanho do quórum é calculado com base no número de nós no cluster. No entanto, alterando *targetReplicaSetSize* poderíamos fazer o tamanho do quórum menos do que (N/2+1) o que pode dar a impressão de que poderíamos ter um cluster menor que 5 nós e ainda ter 2 nós extra acima do tamanho do quórum. Por exemplo, num cluster de 4 nós, se definirmos o TargetReplicaSetSize para 3, o tamanho quórum baseado no TargetReplicaSetSize é (3/2 + 1) ou 2, portanto temos ClusterSize - QuorumSize = 4-2 >= 2. No entanto, não podemos garantir que o serviço de sistema estará em quórum ou acima se perdermos qualquer par de nós simultaneamente, pode ser que os dois nós que perdemos estivessem a acolher duas réplicas, por isso o serviço do sistema entrará em perda de quórum (tendo apenas uma réplica esquerda) a nd ficará indisponível.
+Note-se, no argumento acima assumimos que cada nó tem uma réplica de um serviço de sistema, assim o tamanho do quórum é calculado com base no número de nós no cluster. No entanto, alterando *targetReplicaSetSize* poderíamos fazer o tamanho do quórum menos do que (N/2+1) o que pode dar a impressão de que poderíamos ter um cluster menor que 5 nós e ainda ter 2 nós extra acima do tamanho do quórum. Por exemplo, num cluster de 4 nós, se definirmos o TargetReplicaSetSize para 3, o tamanho quórum baseado no TargetReplicaSetSize é (3/2 + 1) ou 2, portanto temos ClusterSize - QuorumSize = 4-2 >= 2. No entanto, não podemos garantir que o serviço de sistema estará em quórum ou acima se perdermos qualquer par de nós simultaneamente, pode ser que os dois nós que perdemos estivessem a acolher duas réplicas, pelo que o serviço do sistema entrará em perda de quórum (tendo apenas uma réplica restante) e ficará indisponível.
 
 Com esse pano de fundo, vamos examinar algumas possíveis configurações de cluster:
 
@@ -103,13 +103,13 @@ Não. Os VM sde baixa prioridade não são apoiados.
 
 | **Diretórios excluídos antivírus** |
 | --- |
-| Programa Files\Microsoft Service Fabric |
-| FabricDataRoot (a partir de configuração de cluster) |
-| FabricLogRoot (a partir de configuração de cluster) |
+| Ficheiros de Programa\Microsoft Service Fabric |
+| FabricDataRoot (a partir da configuração do cluster) |
+| FabricLogRoot (a partir da configuração do cluster) |
 
 | **Processos antivírus excluídos** |
 | --- |
-| Fabric.exe |
+| Tecido.exe |
 | FabricHost.exe |
 | FabricInstallerService.exe |
 | FabricSetup.exe |
@@ -125,7 +125,7 @@ Não. Os VM sde baixa prioridade não são apoiados.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como pode a minha aplicação autenticar o KeyVault para obter segredos?
 Seguem-se os meios para a sua aplicação obter credenciais para autenticação no KeyVault:
 
-A. Durante o trabalho de construção/embalagem de aplicações, pode colocar um certificado no pacote de dados da sua aplicação SF e usá-lo para autenticar o KeyVault.
+R. Durante o trabalho de construção/embalagem de aplicações, pode colocar um certificado no pacote de dados da sua aplicação SF e usá-lo para autenticar o KeyVault.
 B. Para os anfitriões ativados por msi de escala virtual, pode desenvolver um simples PowerShell SetupEntryPoint para a sua aplicação SF para obter [um sinal de acesso do ponto final do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, recuperar os seus [segredos do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design de aplicações

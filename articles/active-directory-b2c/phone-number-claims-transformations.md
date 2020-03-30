@@ -12,10 +12,10 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183941"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
@@ -28,14 +28,14 @@ Este artigo fornece referência e exemplos para a utilização do número de tel
 
 ## <a name="convertphonenumberclaimtostring"></a>Converter Número de Telefone Claimtostring
 
-Converte um tipo de dados `phoneNumber` num tipo de dados `string`.
+Converte `phoneNumber` um tipo `string` de dados num tipo de dados.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | phoneNumber | phoneNumber |  O ClaimType para converter numa corda. |
-| OutputClaim | telefoneNumberString | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
+| Pedido de crédito | telefoneNúmero | telefoneNúmero |  O ClaimType para converter numa corda. |
+| Pedido de saída | telefoneNumberString | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
-Neste exemplo, a alegação do cellNumber com um tipo de valor de `phoneNumber` é convertida para uma reivindicação de telemóvelPhone com um tipo de valor de `string`.
+Neste exemplo, a alegação do cellNumber `phoneNumber` com um tipo de valor é `string`convertida para uma reivindicação de telemóvelPhone com um tipo de valor de .
 
 ```XML
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
@@ -51,7 +51,7 @@ Neste exemplo, a alegação do cellNumber com um tipo de valor de `phoneNumber` 
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **telefoneNúmero:** +11234567890 (número de telefone)
+  - **telefoneNúmero:**+11234567890 (número de telefone)
 - Alegações de saída:
   - **telefoneNumberString**: +11234567890 (cadeia)
 
@@ -60,11 +60,11 @@ Neste exemplo, a alegação do cellNumber com um tipo de valor de `phoneNumber` 
 
 Esta transformação de reclamação valida o formato do número de telefone. Se estiver num formato válido, altere-o para um formato padrão utilizado pelo Azure AD B2C. Se o número de telefone fornecido não estiver num formato válido, uma mensagem de erro é devolvida.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | telefoneNumberString | string |  A reclamação de cordas para o número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. Se for fornecida a reclamação de entrada `country`, o número de telefone encontra-se em formato local (sem o código do país). |
-| inputClaim | país | string | [Opcional] A reclamação de cadeias para o código de país do número de telefone no formato ISO3166 (o código de dois letras ISO-3166). |
-| OutputClaim | outputClaim | phoneNumber | O resultado desta transformação de reivindicações. |
+| Pedido de crédito | telefoneNumberString | string |  A reclamação de cordas para o número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. Se for `country` fornecida a reclamação de entrada, o número de telefone encontra-se em formato local (sem o código do país). |
+| Pedido de crédito | país | string | [Opcional] A reclamação de cadeias para o código de país do número de telefone no formato ISO3166 (o código de dois letras ISO-3166). |
+| Pedido de saída | saídaReclamada | telefoneNúmero | O resultado desta transformação de reivindicações. |
 
 A transformação de reclamações **ConvertStringToPhoneNumberClaim** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou controlo de [ecrã](display-controls.md). Os metadados de perfil técnico autoafirmados do **UserMessageIfClaimsTransformationInvalidNumber** controlam a mensagem de erro que é apresentada ao utilizador.
 
@@ -101,27 +101,27 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
   - **telefoneNumberString**: 033 456-7890
   - **país**: DK
 - Alegações de saída:
-  - **saídaSReclamação:** +450334567890
+  - **saídaSReclamação:**+450334567890
 
 ### <a name="example-2"></a>Exemplo 2
 
 - Créditos de entrada:
-  - **telefoneNumberString:** +1 (123) 456-7890
+  - **telefoneNumberString:**+1 (123) 456-7890
 - Alegações de saída:
-  - **saídaSReclamação:** +11234567890
+  - **saídaSReclamação:**+11234567890
 
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberandCountryCodeFromNumberstring
 
 Isto extrai o código do país e o número nacional da alegação de entrada, e opcionalmente lança uma exceção se o número de telefone fornecido não for válido.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | phoneNumber | string | A alegação de corda do número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. |
+| Pedido de crédito | telefoneNúmero | string | A alegação de corda do número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. |
 | EntradaParametro | throwExceptionOnFailure | boolean | [Opcional] Um parâmetro que indique se é lançada uma exceção quando o número de telefone não é válido. O valor predefinido é falso. |
 | EntradaParametro | paísCodeType | string | [Opcional] Um parâmetro que indique o tipo de código do país na reivindicação de saída. Os valores disponíveis são **CallCode** (o código de chamada internacional para um país, por exemplo +1) ou **ISO3166** (o código de dois letras ISO-3166). |
-| OutputClaim | nacionalNúmero | string | A reivindicação de cordas para o número nacional do número de telefone. |
-| OutputClaim | countryCode | string | A reivindicação de cordas para o código do país do número de telefone. |
+| Pedido de saída | nacionalNúmero | string | A reivindicação de cordas para o número nacional do número de telefone. |
+| Pedido de saída | paísCódigo | string | A reivindicação de cordas para o código do país do número de telefone. |
 
 
 Se o **GetNationalNumberAndCountryCodeFromNumberString** a transformação é executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou por uma ação de controlo de [ecrã](display-controls.md#display-control-actions), então o **userMessageIfNumberParseFailure** autoafirmado metadados de perfil técnico controla a mensagem de erro que é apresentada ao utilizador.
@@ -162,7 +162,7 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 ### <a name="example-1"></a>Exemplo 1
 
 - Créditos de entrada:
-  - **telefoneNúmero:** +49 (123) 456-7890
+  - **telefoneNúmero:**+49 (123) 456-7890
 - Parâmetros de entrada:
   - **throwExceptionOnFailure**: falso
   - **paísCódigoType**: ISO3166
@@ -173,7 +173,7 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 ### <a name="example-2"></a>Exemplo 2
 
 - Créditos de entrada:
-  - **telefoneNúmero:** +49 (123) 456-7890
+  - **telefoneNúmero:**+49 (123) 456-7890
 - Parâmetros de entrada
   - **throwExceptionOnFailure**: falso
   - **paísCódigoType**: Código de chamada

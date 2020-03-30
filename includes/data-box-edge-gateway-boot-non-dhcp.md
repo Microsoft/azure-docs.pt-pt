@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184927"
 ---
-Se efetuar o arranque num ambiente de não-DHCP, siga estes passos para implementar a máquina virtual para o seu Gateway de caixa de dados.
+Se iniciar um ambiente não DHCP, siga estes passos para implementar a máquina virtual para o seu Portal da Caixa de Dados.
 
-1. [Ligar à interface do Windows PowerShell do dispositivo](#connect-to-the-powershell-interface).
-2. Utilize o `Get-HcsIpAddress` cmdlet para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
+1. [Ligue-se à interface Windows PowerShell do dispositivo](#connect-to-the-powershell-interface).
+2. Utilize `Get-HcsIpAddress` o cmdlet para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
-    O exemplo seguinte mostra a utilização deste cmdlet:
+    O exemplo que se segue mostra a utilização deste cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsIpAddress

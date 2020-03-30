@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78226893"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e colaboração Azure Ative Directory B2B
@@ -32,7 +32,7 @@ Você pode criar um grupo contendo todos os utilizadores dentro de um inquilino 
 1. Selecione **Azure Active Directory**.
 2. Under **Manage**, selecione **Grupos**, e, em seguida, selecione **Novo grupo**.
 1. Na página **do Novo Grupo,** em **tipo de grupo,** selecione **Segurança**. Insira um nome de **grupo** e **descrição** do grupo para o novo grupo. 
-2. No **tipo de Membro,** selecione **'Utilizador Dinâmico'** ' e, em seguida, selecione **Adicionar consulta dinâmica**. 
+2. No **tipo de Membro,** selecione **'Utilizador Dinâmico'**' e, em seguida, selecione **Adicionar consulta dinâmica**. 
 4. Acima da caixa de texto **sintaxe regra,** selecione **Editar**. Na página de **sintaxe** da regra Editar, digite a seguinte expressão na caixa de texto:
 
    ```

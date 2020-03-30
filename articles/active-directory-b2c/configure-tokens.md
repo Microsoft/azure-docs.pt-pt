@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189622"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configure fichas no Diretório Ativo Azure B2C
@@ -29,10 +29,10 @@ Neste artigo, aprende-se a configurar a vida e a [compatibilidade de um símbolo
 
 Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-4. Selecione **fluxos de utilizador (políticas)** .
+4. Selecione **fluxos de utilizador (políticas)**.
 5. Abra o fluxo de utilizador que criou anteriormente.
 6. Selecione **Propriedades**.
 7. Ao longo **da vida token,** ajuste as seguintes propriedades para se adaptar às necessidades da sua aplicação:
@@ -43,7 +43,7 @@ Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
 ## <a name="configure-token-compatibility"></a>Configure compatibilidade simbólica
 
-1. Selecione **fluxos de utilizador (políticas)** .
+1. Selecione **fluxos de utilizador (políticas)**.
 2. Abra o fluxo de utilizador que criou anteriormente.
 3. Selecione **Propriedades**.
 4. Sob as definições de **compatibilidade token,** ajuste as seguintes propriedades para se adaptar às necessidades da sua aplicação:

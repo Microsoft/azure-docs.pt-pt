@@ -4,10 +4,10 @@ description: Conheça os componentes da cópia de segurança offline. Incluem c�
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78196175"
 ---
 # <a name="overview-of-offline-backup"></a>Visão geral da cópia de segurança offline
@@ -71,7 +71,7 @@ A tabela seguinte compara as duas opções disponíveis para que possa fazer as 
 | Modelos de implementação de backup Azure                              | Agente MARS (pré-visualização)                                              | MARS Agent, MABS, DPM-A                                           |
 | Dados máximos de backup por servidor (MARS) ou por grupo de proteção (MABS, DPM-A) | Disco da Caixa de [Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview) - 7.2 TB <br> [Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-overview) - 80 TB       | 80 TB (até 10 discos de 8 TB cada)                          |
 | Segurança (dados, dispositivo e serviço)                           | [Dados](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) - AES 256 bits encriptados <br> [Dispositivo](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) - Caso acidentado, interface proprietária, baseada na credencial para copiar dados <br> [Serviço](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) - Protegido por funcionalidades de segurança Azure | Dados - BitLocker encriptado                                 |
-| Fornecimento temporário de localização de encenação                     | Não é necessário                                                | Mais ou igual ao tamanho estimado dos dados de backup        |
+| Fornecimento temporário de localização de encenação                     | Não é necessária                                                | Mais ou igual ao tamanho estimado dos dados de backup        |
 | Regiões suportadas                                           | [Regiões de discos azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Regiões da Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiões de serviços de importação/exportação de Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
 | Transporte marítimo de corta-mato                                     | Não suportado  <br>    Endereço de origem e centro de dados Azure deve estar no mesmo país* | Suportado                                                    |
 | Transferir logística (entrega, transporte, recolha)           | Totalmente gerido pela Microsoft                                     | Cliente gerido                                            |

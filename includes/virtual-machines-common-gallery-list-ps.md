@@ -9,38 +9,38 @@ ms.date: 11/07/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: a55653c0f23be594fe65e7a322c11edc37ee1ce6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184221"
 ---
 ## <a name="shared-image-management"></a>Gestão de imagem partilhada 
 
-Aqui estão alguns exemplos de tarefas de gestão comuns e como concluí-las com o PowerShell.
+Aqui estão alguns exemplos de tarefas comuns de gestão e como completá-las usando powerShell.
 
-Liste todas as galerias por nome.
+Listar todas as galerias pelo nome.
 
 ```azurepowershell-interactive
 $galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
 $galleries.Name
 ```
 
-Liste todas as definições de imagem por nome.
+Enumerar todas as definições de imagem pelo nome.
 
 ```azurepowershell-interactive
 $imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
 $imageDefinitions.Name
 ```
 
-Liste todas as versões de imagem por nome.
+Enumerar todas as versões de imagem pelo nome.
 
 ```azurepowershell-interactive
 $imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images/versions
 $imageVersions.Name
 ```
 
-Elimine uma versão de imagem. Este exemplo elimina a versão da imagem com o nome *1.0.0*.
+Apagar uma versão de imagem. Este exemplo elimina a versão de imagem chamada *1.0.0*.
 
 ```azurepowershell-interactive
 Remove-AzGalleryImageVersion `

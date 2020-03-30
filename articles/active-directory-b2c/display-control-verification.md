@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188788"
 ---
 # <a name="verification-display-control"></a>Controlo de visualização de verificação
@@ -40,10 +40,10 @@ O controlo do visor de verificação consiste em duas etapas (ações):
 
 O Controlo de **Verificação** deve conter os seguintes elementos:
 
-- O tipo de `DisplayControl` é `VerificationControl`.
+- O tipo `DisplayControl` do `VerificationControl`é.
 - `DisplayClaims`
   - **Enviar para** - Uma ou mais reclamações especificando para onde enviar o código de verificação. Por exemplo, *e-mail* ou *código do país* e número de *telefone*.
-  - Código de **verificação** - O código de verificação afirma que o utilizador fornece após o envio do código. Esta reclamação deve ser definida conforme necessário, e o `ControlClaimType` deve ser definido para `VerificationCode`.
+  - Código de **verificação** - O código de verificação afirma que o utilizador fornece após o envio do código. Esta reclamação deve ser definida `ControlClaimType` conforme necessário, `VerificationCode`e a definição deve ser definida para .
 - Pedido de saída (opcional) a ser devolvido à página autoafirmada após o utilizador concluir o processo de verificação. Por exemplo, *e-mail* ou *código do país* e número de *telefone*. O perfil técnico autoafirmado utiliza as alegações para persistir os dados ou borbulhar as reivindicações de saída para o próximo passo de orquestração.
 - Dois `Action`s com seguintes nomes:
   - **Enviar Código** - Envia um código ao utilizador. Esta ação geralmente contém dois perfis técnicos de validação, para gerar um código e enviá-lo.

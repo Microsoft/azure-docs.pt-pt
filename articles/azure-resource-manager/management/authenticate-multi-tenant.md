@@ -1,39 +1,39 @@
 ---
 title: Autenticar entre inquilinos
-description: Descreve como o Azure Resource Manager trata as solicitações de autenticação entre locatários.
+description: Descreve como o Gestor de Recursos Azure lida com pedidos de autenticação entre os inquilinos.
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75478828"
 ---
-# <a name="authenticate-requests-across-tenants"></a>Autenticar solicitações entre locatários
+# <a name="authenticate-requests-across-tenants"></a>Autenticar pedidos entre inquilinos
 
-Ao criar um aplicativo multilocatário, talvez seja necessário manipular solicitações de autenticação para recursos que estão em locatários diferentes. Um cenário comum é quando uma máquina virtual em um locatário deve ingressar em uma rede virtual em outro locatário. Azure Resource Manager fornece um valor de cabeçalho para armazenar tokens auxiliares para autenticar as solicitações para diferentes locatários.
+Ao criar uma aplicação multi-arrendatária, poderá ser necessário lidar com pedidos de autenticação de recursos que se encontram em diferentes inquilinos. Um cenário comum é quando uma máquina virtual de um inquilino deve se juntar a uma rede virtual em outro inquilino. O Azure Resource Manager fornece um valor de cabeçalho para armazenar fichas auxiliares para autenticar os pedidos a diferentes inquilinos.
 
-## <a name="header-values-for-authentication"></a>Valores de cabeçalho para autenticação
+## <a name="header-values-for-authentication"></a>Valores cabeçalhopara autenticação
 
-A solicitação tem os seguintes valores de cabeçalho de autenticação:
+O pedido tem os seguintes valores cabeçalhode de autenticação:
 
 | Nome do cabeçalho | Descrição | Valor de exemplo |
 | ----------- | ----------- | ------------ |
-| Autorização | Token primário | Portador &lt;token primário&gt; |
-| x-ms-authorization-auxiliary | Tokens auxiliares | Portador &lt;auxiliares-token1&gt;, EncryptedBearer &lt;Auxiliary-token2&gt;, portador &lt;auxiliar-token3&gt; |
+| Autorização | Ficha primária | Token primário do portador &lt;&gt; |
+| x-ms-autorização-auxiliar | Fichas auxiliares | Bearer &lt;auxiliar-token1&gt;, EncryptedBearer &lt;auxiliar-token2 &lt;&gt;, Bearer auxiliar-token3&gt; |
 
-O cabeçalho auxiliar pode conter até três tokens auxiliares. 
+O cabeceamento auxiliar pode conter até três fichas auxiliares. 
 
-No código do aplicativo multilocatário, obtenha o token de autenticação para outros locatários e armazene-os nos cabeçalhos auxiliares. Todos os tokens devem ser do mesmo usuário ou aplicativo. O usuário ou aplicativo deve ter sido convidado como convidado para os outros locatários.
+No código da sua aplicação multi-inquilino, obtenha o símbolo de autenticação para outros inquilinos e guarde-os nos cabeçalhos auxiliares. Todas as fichas devem ser do mesmo utilizador ou aplicação. O utilizador ou aplicação deve ter sido convidado como convidado para os outros inquilinos.
 
-## <a name="processing-the-request"></a>Processando a solicitação
+## <a name="processing-the-request"></a>Processamento do pedido
 
-Quando seu aplicativo envia uma solicitação ao Gerenciador de recursos, a solicitação é executada sob a identidade do token primário. O token primário deve ser válido e não expirado. Esse token deve ser de um locatário que possa gerenciar a assinatura.
+Quando a sua aplicação envia um pedido ao Gestor de Recursos, o pedido é executado sob a identidade do símbolo principal. O símbolo principal deve ser válido e não expirado. Este símbolo deve ser de um inquilino que possa gerir a subscrição.
 
-Quando a solicitação faz referência a um recurso de um locatário diferente, o Gerenciador de recursos verifica os tokens auxiliares para determinar se a solicitação pode ser processada. Todos os tokens auxiliares no cabeçalho devem ser válidos e não expirados. Se qualquer token tiver expirado, o Resource Manager retornará um código de resposta 401. A resposta inclui a ID do cliente e a ID do locatário do token que não é válido. Se o cabeçalho auxiliar contiver um token válido para o locatário, a solicitação de locatário cruzado será processada.
+Quando o pedido refere um recurso de diferentes inquilinos, o Gestor de Recursos verifica as fichas auxiliares para determinar se o pedido pode ser processado. Todas as fichas auxiliares do cabeçalho devem ser válidas e não expiradas. Se alguma ficha estiver expirada, o Gestor de Recursos devolve um código de resposta 401. A resposta inclui a identificação do cliente e identificação do inquilino do símbolo que não é válido. Se o cabeçalho auxiliar contiver um símbolo válido para o inquilino, o pedido de inquilino cruzado é processado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre solicitações de autenticação, consulte [fluxos de autenticação e cenários de aplicativos](../../active-directory/develop/authentication-flows-app-scenarios.md).
-* Para obter mais informações sobre tokens, consulte [Azure Active Directory tokens de acesso](../../active-directory/develop/access-tokens.md).
+* Para conhecer pedidos de autenticação, consulte [fluxos de autenticação e cenários de aplicação.](../../active-directory/develop/authentication-flows-app-scenarios.md)
+* Para obter mais informações sobre fichas, consulte os tokens de acesso ao [Diretório Ativo azure.](../../active-directory/develop/access-tokens.md)

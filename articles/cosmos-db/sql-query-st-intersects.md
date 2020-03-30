@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303142"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
- Devolve uma expressão booleana que indica se o objeto de GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intersetar-GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
+ Devolve uma expressão booleana indicando se o objeto GeoJSON (Ponto, Polígono ou LineString) especificado no primeiro argumento intersecta o GeoJSON (Ponto, Polígono ou LineString) no segundo argumento.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte mostra como localizar todas as áreas que fazem interseção com determinado polígono.  
+  O exemplo que se segue mostra como encontrar todas as áreas que se cruzam com o polígono dado.  
   
 ```sql
 SELECT a.id

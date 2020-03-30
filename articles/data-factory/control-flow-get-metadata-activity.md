@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
 ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250261"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de Metadados na Fábrica de Dados do Azure
@@ -42,30 +42,30 @@ A atividade Get Metadata toma um conjunto de dados como entrada e devolve inform
 
 **Armazenamento de ficheiros**
 
-| Conector/Metadados | itemName<br>(ficheiro/pasta) | ItemType<br>(ficheiro/pasta) | size<br>(arquivo) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |criançaItems<br>(pasta) |contentMD5<br>(arquivo) | structure<br/>(arquivo) | colunaCount<br>(arquivo) | existe<br>(ficheiro/pasta) |
+| Conector/Metadados | itemName<br>(ficheiro/pasta) | artigoType<br>(ficheiro/pasta) | size<br>(arquivo) | criado<br>(ficheiro/pasta) | últimaModificada<br>(ficheiro/pasta) |criançaItems<br>(pasta) |conteúdoMD5<br>(arquivo) | estrutura<br/>(arquivo) | colunaCount<br>(arquivo) | existe<br>(ficheiro/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazónia S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Armazenamento Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| [Sistema de Ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Sistema de ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Para o Amazon S3 e o Google Cloud Storage, `lastModified` aplica-se ao balde e à chave, mas não à pasta virtual, e `exists` aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
-- Para o armazenamento azure blob, `lastModified` aplica-se ao recipiente e à bolha, mas não à pasta virtual.
-- `lastModified` filtro aplica-se atualmente para filtrar artigos infantis, mas não a própria pasta/ficheiro especificado.
+- Para o Amazon S3 `lastModified` e o Google Cloud Storage, aplica-se ao `exists` balde e à chave, mas não à pasta virtual, e aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
+- Para o armazenamento da `lastModified` Blob Azure, aplica-se ao recipiente e à bolha, mas não à pasta virtual.
+- `lastModified`o filtro aplica-se atualmente para filtrar artigos infantis, mas não a própria pasta/ficheiro especificado.
 - O filtro Wildcard nas pastas/ficheiros não é suportado para obter a atividade de Metadados.
 
 **Base de dados relacional**
 
-| Conector/Metadados | structure | colunaCount | existe |
+| Conector/Metadados | estrutura | colunaCount | existe |
 |:--- |:--- |:--- |:--- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
-| [Instância Gerida da Base de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Caso gerido pela Base de Dados Azure SQL](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Armazém de dados Azure SQL](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Opções de metadados
@@ -75,21 +75,21 @@ Pode especificar os seguintes tipos de metadados na lista de campo de atividade 
 | Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
-| ItemType | Tipo do ficheiro ou pasta. O valor devolvido é `File` ou `Folder`. |
+| artigoType | Tipo do ficheiro ou pasta. O valor `File` `Folder`devolvido é ou . |
 | size | Tamanho do ficheiro, em bytes. Aplicável apenas aos ficheiros. |
 | criado | Criou a data do ficheiro ou pasta. |
-| lastModified | Última data modificada do ficheiro ou pasta. |
+| últimaModificada | Última data modificada do ficheiro ou pasta. |
 | criançaItems | Lista de subpastas e ficheiros na pasta dada. Aplicável apenas às pastas. O valor devolvido é uma lista do nome e do tipo de cada item infantil. |
-| contentMD5 | MD5 do ficheiro. Aplicável apenas aos ficheiros. |
-| structure | Estrutura de dados do ficheiro ou tabela de bases de dados relacional. O valor devolvido é uma lista de nomes de colunas e tipos de colunas. |
+| conteúdoMD5 | MD5 do ficheiro. Aplicável apenas aos ficheiros. |
+| estrutura | Estrutura de dados do ficheiro ou tabela de bases de dados relacional. O valor devolvido é uma lista de nomes de colunas e tipos de colunas. |
 | colunaCount | Número de colunas no ficheiro ou tabela relacional. |
-| existe| Quer exista um ficheiro, uma pasta ou uma tabela. Note que se `exists` for especificado na lista de campo Get Metadata, a atividade não falhará mesmo que o ficheiro, pasta ou tabela não existam. Em vez disso, `exists: false` é devolvido na saída. |
+| existe| Quer exista um ficheiro, uma pasta ou uma tabela. Note que `exists` se for especificado na lista de campo Get Metadata, a atividade não falhará mesmo que o ficheiro, pasta ou tabela não existam. Em `exists: false` vez disso, é devolvido na saída. |
 
 >[!TIP]
->Quando pretender validar que existe um ficheiro, pasta ou tabela, especifique `exists` na lista de campo de atividade seletiva obter metadados. Em seguida, pode verificar o resultado `exists: true/false` na saída da atividade. Se `exists` não for especificado na lista de campo, a atividade get metadata falhará se o objeto não for encontrado.
+>Quando pretender validar que existe um ficheiro, `exists` pasta ou tabela, especificar na lista de campo de atividade seletiva Obter Metadados. Em seguida, `exists: true/false` pode verificar o resultado na saída da atividade. Se `exists` não estiver especificado na lista de campo, a atividade get metadata falhará se o objeto não for encontrado.
 
 >[!NOTE]
->Quando obtém metadados de lojas de ficheiros e configura `modifiedDatetimeStart` ou `modifiedDatetimeEnd`, o `childItems` na saída incluirá apenas ficheiros no caminho dado que tenham um último tempo modificado dentro da gama especificada. Não incluirá itens em subpastas.
+>Quando obtém metadados de lojas `modifiedDatetimeStart` `modifiedDatetimeEnd`de `childItems` ficheiros e configuraou ou , a saída incluirá apenas ficheiros no caminho dado que tenham um último tempo modificado dentro da gama especificada. Não incluirá itens em subpastas.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -139,12 +139,12 @@ Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 fieldList | Os tipos de informação dos metadados necessários. Para mais informações sobre metadados suportados, consulte a secção de opções de [Metadados](#metadata-options) deste artigo. | Sim 
 conjunto de dados | O conjunto de dados de referência cujos metadados serão recuperados pela atividade get metadata. Consulte a secção [Capacidades](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim
-formatSettings | Aplicar quando utilizar o conjunto de dados do tipo formato. | Não
-storeSettings | Aplicar quando utilizar o conjunto de dados do tipo formato. | Não
+formatoDefinições | Aplicar quando utilizar o conjunto de dados do tipo formato. | Não
+lojasDefinições | Aplicar quando utilizar o conjunto de dados do tipo formato. | Não
 
 ## <a name="sample-output"></a>Resultado da amostra
 
-Os resultados get Metadata são mostrados na saída da atividade. Seguem-se duas amostras que mostram extensas opções de metadados. Para utilizar os resultados numa atividade subsequente, utilize este padrão: `@{activity('MyGetMetadataActivity').output.itemName}`.
+Os resultados get Metadata são mostrados na saída da atividade. Seguem-se duas amostras que mostram extensas opções de metadados. Para utilizar os resultados numa atividade `@{activity('MyGetMetadataActivity').output.itemName}`subsequente, utilize este padrão: .
 
 ### <a name="get-a-files-metadata"></a>Obtenha os metadados de um ficheiro
 
@@ -198,5 +198,5 @@ Conheça outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Executar atividade do pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade Web](control-flow-web-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
+- [Atividade web](control-flow-web-activity.md)

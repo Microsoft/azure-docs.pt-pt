@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197169"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
@@ -56,7 +56,7 @@ Consulte a secção [JWT Token Generation](media-services-axinom-integration.md#
 
 ### <a name="considerations"></a>Considerações
 1. Deve utilizar a semente-chave especificada a Axinom (8888000000000000000000000000000000000000000000) e o seu ID chave gerado ou selecionado para gerar a chave de conteúdo para configurar o serviço de entrega de chaves. O servidor de licença axinom emite todas as licenças que contenham chaves de conteúdo com base na mesma semente chave, que é válida tanto para testes como para produção.
-2. O URL de aquisição da licença Widevine para testes: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Tanto o HTTP como o HTTS são permitidos.
+2. O URL de aquisição da [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)licença Widevine para testes: . Tanto o HTTP como o HTTS são permitidos.
 
 ## <a name="azure-media-player-preparation"></a>Preparação de jogador estomados azure media
 AMP v1.4.0 suporta a reprodução de conteúdo AMS que é embalado dinamicamente com o PlayReady e o Widevine DRM.

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194347"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos em Pesquisa Cognitiva Azure
@@ -23,11 +23,11 @@ Na Pesquisa Cognitiva Azure, a expansão do sinónimo é feita no momento da con
 
 ## <a name="create-synonyms"></a>Criar sinónimos
 
-Não existe suporte para o portal para criar sinónimos, mas pode utilizar o REST API ou .NET SDK. Para começar com o REST, recomendamos [a utilização](search-get-started-postman.md) de Carteiro e formulação de pedidos usando este API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# os desenvolvedores, você pode começar com [Add Synonyms em Azure Cognitive Search usando C# ](search-synonyms-tutorial-sdk.md).
+Não existe suporte para o portal para criar sinónimos, mas pode utilizar o REST API ou .NET SDK. Para começar com o REST, recomendamos [a utilização](search-get-started-postman.md) de Carteiro e formulação de pedidos usando este API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para desenvolvedores C#, você pode começar com [Add Synonyms em Azure Cognitive Search usando C#](search-synonyms-tutorial-sdk.md).
 
 Opcionalmente, se estiver a usar [chaves geridas pelo cliente](search-security-manage-encryption-keys.md) para encriptação do lado do serviço em repouso, pode aplicar essa proteção ao conteúdo do seu mapa de sinónimo.
 
-## <a name="use-synonyms"></a>Utilizar sinónimos
+## <a name="use-synonyms"></a>Use sinónimos
 
 Na Pesquisa Cognitiva Azure, o suporte ao sinónimo baseia-se em mapas de sinónimo que define e envia para o seu serviço. Estes mapas constituem um recurso independente (como índices ou fontes de dados), e podem ser utilizados por qualquer campo pesquisável em qualquer índice do seu serviço de pesquisa.
 
@@ -152,7 +152,7 @@ A função sinónimo aplica-se a consultas de pesquisa e não se aplica a filtro
 
 As expansões do sinónimo não se aplicam aos termos de pesquisa wildcard; prefixo, fuzzy e termos regex não são expandidos.
 
-Se precisar de fazer uma única consulta que aplique expansão de sinónimo e pesquisas de wildcard, regex ou difusas, pode combinar as consultas usando a sintaxe DE. Por exemplo, para combinar sinónimos com wildcards para simples sintaxe de consulta, o termo seria `<query> | <query>*`.
+Se precisar de fazer uma única consulta que aplique expansão de sinónimo e pesquisas de wildcard, regex ou difusas, pode combinar as consultas usando a sintaxe DE. Por exemplo, para combinar sinónimos com wildcards para simples sintaxe `<query> | <query>*`de consulta, o termo seria .
 
 Se tiver um índice existente num ambiente de desenvolvimento (não produtivo), experimente um pequeno dicionário para ver como a adição de sinónimos muda a experiência de pesquisa, incluindo impacto na pontuação de perfis, destaque de sucesso e sugestões.
 

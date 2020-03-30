@@ -1,6 +1,6 @@
 ---
-title: Criar FQDN para uma VM do Linux no portal do Azure
-description: Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Resource Manager no portal do Azure.
+title: Crie fQDN para um VM Linux no portal Azure
+description: Aprenda a criar um Nome de Domínio Totalmente Qualificado, ou FQDN, para uma máquina virtual baseada em Recursos no portal Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,25 +16,25 @@ ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 256e1e60ec8f50df2faea64f31e88d00370b33c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458714"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Linux
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Crie um nome de domínio totalmente qualificado no portal Azure para um Linux VM
 
-Quando você cria uma VM (máquina virtual) no [portal do Azure](https://portal.azure.com), um recurso de IP público para a máquina virtual é criado automaticamente. Use esse endereço IP para acessar remotamente a VM. Embora o portal não crie um [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, você pode adicionar um depois que a VM é criada. Este artigo demonstra as etapas para criar um nome DNS ou FQDN.
+Quando se cria uma máquina virtual (VM) no [portal Azure,](https://portal.azure.com)é automaticamente criado um recurso IP público para a máquina virtual. Utiliza este endereço IP para aceder remotamente ao VM. Embora o portal não crie um nome de [domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, pode adicionar um assim que o VM for criado. Este artigo demonstra os passos para criar um nome DNS ou FQDN.
 
 ## <a name="create-a-fqdn"></a>Criar um FQDN
-Este artigo pressupõe que você já criou uma VM. Se necessário, você pode [criar uma VM no portal](quick-create-portal.md) ou [com o CLI do Azure](quick-create-cli.md). Siga estas etapas quando sua VM estiver em execução:
+Este artigo assume que já criou um VM. Se necessário, pode [criar um VM no portal](quick-create-portal.md) ou com o [Azure CLI](quick-create-cli.md). Siga estes passos assim que o vM estiver em funcionamento:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Agora você pode se conectar remotamente à VM usando esse nome DNS, como com `ssh azureuser@mydns.westus.cloudapp.azure.com`.
+Agora pode ligar-se remotamente ao VM utilizando `ssh azureuser@mydns.westus.cloudapp.azure.com`este nome DNS, como com .
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que sua VM tem um IP público e um nome DNS, você pode implantar estruturas de aplicativo ou serviços comuns, como Nginx, MongoDB, Docker, etc.
+Agora que o seu VM tem um nome público de IP e DNS, pode implementar quadros ou serviços comuns de aplicação, tais como nginx, MongoDB, Docker, etc.
 
-Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/management/overview.md) para obter dicas sobre como criar suas implantações do Azure.
+Também pode ler mais sobre [a utilização do Gestor de Recursos](../../azure-resource-manager/management/overview.md) para obter dicas sobre a construção das suas implementações Azure.
 

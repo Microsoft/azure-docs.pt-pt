@@ -1,21 +1,21 @@
 ---
-title: Sobrepor um certificado de Cluster Service Fabric do Azure
-description: Saiba como estender um certificado de Cluster Service Fabric identificado pelo nome comum do certificado.
+title: Rolar sobre um certificado de cluster Azure Service Fabric
+description: Aprenda a revestir um certificado de cluster service Fabric identificado pelo nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451967"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Reverter manualmente um Service Fabric certificado de cluster
-Quando um certificado de Cluster Service Fabric está perto de expirar, você precisa atualizar o certificado.  A substituição de certificado será simples se o cluster tiver sido [configurado para usar certificados com base no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificação com uma nova data de validade.  Os certificados autoassinados não têm suporte para clusters de Service Fabric de produção, para incluir certificados gerados durante o fluxo de trabalho de criação de cluster portal do Azure. O novo certificado deve ter o mesmo nome comum que o certificado mais antigo. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Rolar manualmente sobre um certificado de cluster de tecido de serviço
+Quando um certificado de cluster service Fabric está perto de expirar, você precisa atualizar o certificado.  A capotação do certificado é simples se o cluster foi [criado para utilizar certificados baseados no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificados com uma nova data de validade.  Os certificados auto-assinados não são suporte para clusters de tecido de serviço de produção, para incluir certificados gerados durante o fluxo de trabalho de criação do portal Azure Cluster. O novo certificado deve ter o mesmo nome comum que o certificado mais antigo. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Service Fabric cluster usará automaticamente o certificado declarado com um adicional na data de validade futura; Quando mais de um certificado de validação estiver instalado no host. Uma prática recomendada é usar um modelo do Resource Manager para provisionar recursos do Azure. Para o ambiente de não produção, o script a seguir pode ser usado para carregar um novo certificado em um cofre de chaves e, em seguida, instalar o certificado no conjunto de dimensionamento de máquinas virtuais: 
+O cluster de tecido de serviço utilizará automaticamente o certificado declarado com uma nova data de validade futura; quando for instalado mais de um certificado de validação no hospedeiro. A melhor prática é usar um modelo de Gestor de Recursos para fornecer Recursos Azure. Para o ambiente de não produção, o seguinte script pode ser usado para carregar um novo certificado para um cofre chave e, em seguida, instala o certificado no conjunto de escala de máquina virtual: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -71,9 +71,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Computa os segredos do conjunto de dimensionamento de máquinas virtuais não dão suporte à mesma ID de recurso para dois segredos separados, pois cada segredo é um recurso exclusivo com controle de versão. 
+> Computes Virtual Machine Scale set Secrets não suportam o mesmo id de recursos para dois segredos separados, uma vez que cada segredo é um recurso exclusivo versão. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
-* [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
+* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
+* [Atualizar e Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

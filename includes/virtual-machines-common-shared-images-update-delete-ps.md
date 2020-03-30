@@ -9,34 +9,34 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184222"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
 
-Existem algumas limitações sobre o que pode ser atualizado. Podem ser atualizados os seguintes itens: 
+Existem algumas limitações no que pode ser atualizado. Os seguintes itens podem ser atualizados: 
 
-Galeria de imagem partilhada:
+Galeria de imagens partilhadas:
 - Descrição
 
-definição de imagem:
-- VCPUs recomendada
+Definição de imagem:
+- VCPUs recomendado
 - Memória recomendada
 - Descrição
-- Data de vida de fim de
+- Data de fim de vida
 
-Versão da imagem:
-- Contagem de réplicas regional
-- Regiões de destino
-- Exclusão de versão mais recente
-- Data de vida de fim de
+Versão de imagem:
+- Contagem de réplicas regionais
+- Regiões-alvo
+- Exclusão dos últimos
+- Data de fim de vida
 
-Se pretender adicionar regiões de réplica, não elimine a imagem gerida de origem. A imagem gerida de origem é necessária para replicar a versão da imagem a mais regiões. 
+Se pretender adicionar réplicas de regiões, não apague a imagem gerida pela fonte. A imagem gerida pela fonte é necessária para replicar a versão de imagem para regiões adicionais. 
 
-Para atualizar a descrição de uma galeria, utilize [AzGallery atualização](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+Para atualizar a descrição de uma galeria, utilize [a Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-Este exemplo mostra como usar [AzGalleryImageDefinition atualização](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) para atualizar a data de fim de vida para nossa definição de imagem.
+Este exemplo mostra como usar [update-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) para atualizar a data de fim de vida para a nossa definição de imagem.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-Este exemplo mostra como usar [atualização AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) para impedir que esta versão da imagem a ser utilizado como o *mais recente* imagem.
+Este exemplo mostra como usar [update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) para excluir que esta versão de imagem seja usada como a *imagem mais recente.*
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -68,7 +68,7 @@ Update-AzGalleryImageVersion `
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando a eliminação de recursos, precisa para começar com o último item recursos aninhados - a versão da imagem. Depois de versões são eliminadas, pode eliminar a definição de imagem. Não é possível eliminar a Galeria até que todos os recursos abaixo dele tem sido eliminados.
+Ao apagar recursos, precisa começar com o último item nos recursos aninhados - a versão de imagem. Uma vez eliminadas as versões, pode eliminar a definição de imagem. Não pode apagar a galeria até que todos os recursos por baixo dela tenham sido apagados.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"

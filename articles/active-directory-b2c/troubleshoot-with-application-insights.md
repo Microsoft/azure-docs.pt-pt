@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186272"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Colete logs de Diretório Ativo Azure B2C com Insights de Aplicação
@@ -31,7 +31,7 @@ Os registos de atividade detalhados aqui descritos só devem ser **ativados** du
 
 Se ainda não tem um, crie uma instância de Informações de Aplicação na sua subscrição.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
 1. Selecione **Criar um recurso** no menu de navegação à esquerda.
 1. Procure e selecione **Insights de Aplicação,** em seguida, selecione **Criar**.
@@ -43,23 +43,23 @@ Se ainda não tem um, crie uma instância de Informações de Aplicação na sua
 ## <a name="configure-the-custom-policy"></a>Configure a política personalizada
 
 1. Abra o ficheiro da parte de fiação (RP), por *exemplo, SignUpOrSignin.xml*.
-1. Adicione os seguintes atributos ao elemento `<TrustFrameworkPolicy>`:
+1. Adicione os seguintes `<TrustFrameworkPolicy>` atributos ao elemento:
 
    ```XML
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Se já não existir, adicione um nó de `<UserJourneyBehaviors>` criança ao nó `<RelyingParty>`. Deve ser localizado imediatamente após `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
-1. Adicione o nó seguinte como criança do elemento `<UserJourneyBehaviors>`. Certifique-se de que substitui `{Your Application Insights Key}` com a chave de instrumentação de insights de **aplicação** que gravou anteriormente.
+1. Se já não existir, adicione `<UserJourneyBehaviors>` um nó `<RelyingParty>` infantil ao nó. Deve ser localizado imediatamente `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`após .
+1. Adicione o nó seguinte como `<UserJourneyBehaviors>` uma criança do elemento. Certifique-se `{Your Application Insights Key}` de substituir a chave de instrumentação de insights de **aplicação** que gravou anteriormente.
 
     ```XML
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` diz ao ApplicationInsights para acelerar a telemetria através do oleoduto de processamento. Bom para o desenvolvimento, mas limitado em volumes elevados.
-    * `ClientEnabled="true"` envia o script do lado do cliente ApplicationInsights para rastrear a visualização da página e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Insights da Aplicação. Ao configurar `ClientEnabled= "true"`, adiciona insights de aplicação ao script da sua página e obtém os timings das cargas da página e das chamadas DOAjax, conta, detalhes das exceções do navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional,** e está definido para `false` por padrão.
-    * `ServerEnabled="true"` envia o UserJourneyRecorder JSON existente como um evento personalizado para A aplicação insights.
+    * `DeveloperMode="true"`diz ao ApplicationInsights para acelerar a telemetria através do oleoduto de processamento. Bom para o desenvolvimento, mas limitado em volumes elevados.
+    * `ClientEnabled="true"`envia o script do lado do cliente ApplicationInsights para rastrear a visualização da página e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Insights da Aplicação. Ao `ClientEnabled= "true"`definir, adiciona insights de aplicação ao script da sua página e obtém timings de cargas de página e chamadas AJAX, conta, detalhes de exceções ao navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional,** `false` e está definido por padrão.
+    * `ServerEnabled="true"`envia o UserJourneyRecorder JSON existente como um evento personalizado para A Aplicação Insights.
 
     Por exemplo:
 

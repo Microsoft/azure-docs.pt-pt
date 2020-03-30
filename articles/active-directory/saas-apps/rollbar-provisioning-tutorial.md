@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Rollbar para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Rollbar para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Rollbar.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 27a26a0c8378f34794afd87cf11b6bb878f7b53c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78248462"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutorial: Configure rollbar para fornecimento automático de utilizadores
@@ -57,7 +57,7 @@ Antes de configurar o Rollbar para o fornecimento automático de utilizadores co
 
     ![Consola de administrador rollbar](media/rollbar-provisioning-tutorial/image00.png)
 
-2. Navegue para o seu **Nome de Inquilino Rollbar > Fornecedor de Identidade**.
+2. Navegue para o seu nome de **inquilino rollbar > Fornecedor de Identidade**.
 
     ![Fornecedor de Identidade Rollbar](media/rollbar-provisioning-tutorial/idp.png)
 
@@ -85,7 +85,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-rollbar-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para rollbar em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -117,12 +117,12 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|String|
-   |externalId|String|
+   |userName|Cadeia|
+   |id externo|Cadeia|
    |ativo|Booleano|
-   |name.familyName|String|
-   |name.givenName|String|
-   |e-mails[tipo eq "trabalho"]|String|
+   |nome.familyName|Cadeia|
+   |nome.dadoNome|Cadeia|
+   |e-mails[tipo eq "trabalho"]|Cadeia|
 
 10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Rollbar**.
 
@@ -130,8 +130,8 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|Cadeia|
+      |id externo|Cadeia|
       |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

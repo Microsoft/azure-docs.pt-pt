@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 5f75ae1104297c461584e061f5a94aecd987caad
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246791"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Crie um portal de aplicação com regras de encaminhamento baseadas em caminhos de URL utilizando o Azure CLI
@@ -27,13 +27,13 @@ Neste artigo, vai aprender a:
 
 ![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -67,7 +67,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>Criar o gateway de aplicação com o mapa de URL
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -217,7 +217,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereço do browser. Tais como, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`ou `http://40.121.222.19:8080/video/test.htm`.
+Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereço do browser. Tais `http://40.121.222.19`como, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`ou .
 
 ```azurecli-interactive
 az network public-ip show \
@@ -229,11 +229,11 @@ az network public-ip show \
 
 ![Testar o URL base no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Mude o URL para `http://<ip-address>:8080/video/test.html` até ao final do URL base e deverá ver algo como o seguinte exemplo:
+Mude o `http://<ip-address>:8080/video/test.html` URL para o final do URL base e deve ver algo como o seguinte exemplo:
 
 ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Mude o URL para `http://<ip-address>:8080/video/test.html` e deve ver algo como o seguinte exemplo.
+Mude o `http://<ip-address>:8080/video/test.html` URL para e deve ver algo como o seguinte exemplo.
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

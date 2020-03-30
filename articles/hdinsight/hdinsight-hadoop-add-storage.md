@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206712"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
@@ -52,21 +52,21 @@ Utilize a [Ação do Script](hdinsight-hadoop-customize-cluster-linux.md#script-
 |---|---|
 |Roteiro de bash URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo de nó(s)|Head|
-|Parâmetros|`ACCOUNTNAME` `ACCOUNTKEY` `-p` (opcional)|
+|Parâmetros|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opcional)|
 
-* `ACCOUNTNAME` é o nome da conta de armazenamento para adicionar ao cluster HDInsight.
-* `ACCOUNTKEY` é a chave de acesso para `ACCOUNTNAME`.
+* `ACCOUNTNAME`é o nome da conta de armazenamento para adicionar ao cluster HDInsight.
+* `ACCOUNTKEY`é a chave `ACCOUNTNAME`de acesso para .
 * `-p` é opcional. Se especificada, a chave não está encriptada e é armazenada no ficheiro core-site.xml como texto simples.
 
 ## <a name="verification"></a>Verificação
 
-Ao visualizar o cluster HDInsight no portal Azure, a seleção da entrada de Contas de __Armazenamento__ em __Propriedades__ não exibe contas de armazenamento adicionadas através desta ação de script. A Azure PowerShell e a Azure CLI também não apresentam a conta de armazenamento adicional. A informação de armazenamento não é apresentada porque o script apenas modifica a configuração `core-site.xml` para o cluster. Esta informação não é usada na recuperação da informação do cluster utilizando APIs de gestão Azure.
+Ao visualizar o cluster HDInsight no portal Azure, a seleção da entrada de Contas de __Armazenamento__ em __Propriedades__ não exibe contas de armazenamento adicionadas através desta ação de script. A Azure PowerShell e a Azure CLI também não apresentam a conta de armazenamento adicional. A informação de armazenamento não é apresentada `core-site.xml` porque o script apenas modifica a configuração para o cluster. Esta informação não é usada na recuperação da informação do cluster utilizando APIs de gestão Azure.
 
 Para verificar o armazenamento adicional utilize um dos métodos a seguir indicados:
 
 ### <a name="powershell"></a>PowerShell
 
-O script devolverá o nome ou s da Conta de Armazenamento associado ao cluster dado. Substitua `CLUSTERNAME` com o nome real do cluster e, em seguida, execute o script.
+O script devolverá o nome ou s da Conta de Armazenamento associado ao cluster dado. Substitua-o `CLUSTERNAME` pelo nome real do cluster e, em seguida, execute o script.
 
 ```powershell
 # Update values
@@ -94,19 +94,19 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net`onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **HDFS** > **Configs** > site **de núcleo personalizado** **avançado** > personalizado .
+1. Navegue para **HDFS** > **Configs** > **Avançado** > Custom**core-site**.
 
-1. Observe as teclas que começam com `fs.azure.account.key`. O nome da conta será uma parte da chave como visto nesta imagem da amostra:
+1. Observe as teclas `fs.azure.account.key`que começam com . O nome da conta será uma parte da chave como visto nesta imagem da amostra:
 
    ![verificação através de Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
 ## <a name="remove-storage-account"></a>Remover conta de armazenamento
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net`onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **HDFS** > **Configs** > site **de núcleo personalizado** **avançado** > personalizado .
+1. Navegue para **HDFS** > **Configs** > **Avançado** > Custom**core-site**.
 
 1. Retire as seguintes teclas:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`

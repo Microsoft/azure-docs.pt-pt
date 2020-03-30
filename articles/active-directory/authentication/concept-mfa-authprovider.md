@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269387"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação multifactor Azure
@@ -48,11 +48,11 @@ Se o fornecedor do MFA não estiver associado a um inquilino do Azure AD ou asso
 > [!CAUTION]
 > Não existe confirmação ao apagar um fornecedor de autenticação. Selecionar **eliminar** é um processo permanente.
 
-Os fornecedores de autenticação podem ser encontrados no **portal Azure** > **Diretório Ativo** > Segurança > **Prestadores**de ** > ** **MFA.** Clique em fornecedores listados para ver detalhes e configurações associados a esse fornecedor.
+Os fornecedores de autenticação podem ser encontrados no **portal** > **Azure Ative Directory** > **Security** > **MFA** > **Providers**. Clique em fornecedores listados para ver detalhes e configurações associados a esse fornecedor.
 
 Antes de remover um fornecedor de autenticação, tome nota de quaisquer configurações personalizadas configuradas no seu fornecedor. Decida quais as configurações que precisam de ser migradas para as definições gerais de MFA do seu fornecedor e complete a migração dessas configurações. 
 
-Os Servidores Azure MFA ligados aos fornecedores terão de ser reativados utilizando credenciais geradas no **portal Azure** > **Diretório Ativo do Diretório Ativo** do Azure >  ** > Definições** do Servidor **MFA** > . Antes de reativar, os seguintes ficheiros devem ser eliminados do diretório `\Program Files\Multi-Factor Authentication Server\Data\` em Servidores MFA Azure no seu ambiente:
+Os Servidores Azure MFA ligados aos fornecedores terão de ser reativados utilizando credenciais geradas no **portal** > **Azure Ative Directory** > **Security** > **MFA** > **Server**. Antes de reativar, os seguintes `\Program Files\Multi-Factor Authentication Server\Data\` ficheiros devem ser eliminados do diretório nos Servidores Azure MFA no seu ambiente:
 
 - caCert
 - cert
@@ -64,7 +64,7 @@ Os Servidores Azure MFA ligados aos fornecedores terão de ser reativados utiliz
 
 ![Eliminar um fornecedor de auth do portal Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Quando tiver confirmado que todas as definições foram migradas, pode navegar até ao **portal Azure** > **Diretório Ativo** de Segurança > **Fornecedores** de >  ** > ** **MFA** e selecionar as elipses... e selecionar **Apagar**.
+Quando tiver confirmado que todas as definições foram migradas, pode navegar até ao **portal** > **Azure Ative Directory** > **Security** > **MFA** > **Providers** e selecionar as elipses... e selecionar **Apagar**. **...**
 
 > [!WARNING]
 > A eliminação de um fornecedor de autenticação eliminará qualquer informação de reporte associada a esse fornecedor. Pode querer guardar relatórios de atividade antes de apagar o seu fornecedor.

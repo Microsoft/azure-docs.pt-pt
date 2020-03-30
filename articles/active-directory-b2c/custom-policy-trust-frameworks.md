@@ -1,5 +1,5 @@
 ---
-title: Referência - quadros de confiança no Diretório Ativo Azure B2C  Microsoft Docs
+title: Referência - quadros de confiança no Diretório Ativo Azure B2C [ Microsoft Docs
 description: Um tema sobre as políticas personalizadas do Azure Ative Directory B2C e o Quadro de Experiência de Identidade.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ffa25eec9c4b668f428d8e8b5a780a5fe4625a2c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188890"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir Quadros de Confiança com Quadro de Experiência de Identidade Azure AD B2C
@@ -54,7 +54,7 @@ Os TFs são os eixos do modelo de quadro de confiança da Open Identity Exchange
 - **As políticas técnicas de produção e consumo de informação sobre identidade digital, bem como a medição da LOA e da LOP. Estas políticas escritas normalmente incluem as seguintes categorias de políticas:**
     - Políticas de revisão de identidade, por exemplo: *Quão fortemente a informação de identidade de uma pessoa é examinada?*
     - Políticas de segurança, por exemplo: *Quão fortemente a integridade da informação e a confidencialidade estão protegidas?*
-    - Políticas de privacidade, por exemplo: *Que controlo tem um utilizador sobre informações pessoais identificáveis (PII)* ?
+    - Políticas de privacidade, por exemplo: *Que controlo tem um utilizador sobre informações pessoais identificáveis (PII)*?
     - Políticas de sobrevivência, por exemplo: *Se um fornecedor cessa as suas operações, como funciona a continuidade e a proteção do PII?*
 
 - **Os perfis técnicos para a produção e consumo de informação de identidade digital. Estes perfis incluem:**

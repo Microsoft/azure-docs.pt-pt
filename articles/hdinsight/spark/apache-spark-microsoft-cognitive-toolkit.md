@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206559"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizagem profunda do Microsoft Cognitive Toolkit com o cluster Azure HDInsight Spark
@@ -64,17 +64,17 @@ Para obter instruções sobre como utilizar o portal Azure para executar a açã
 |Nome| Instalar MCT|
 |Roteiro de bash URI|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |Tipo de nó):|Cabeça, Trabalhador|
-|Parâmetros|Nenhum|
+|Parâmetros|Nenhuma|
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Faça upload do caderno Jupyter para o cluster Azure HDInsight Spark
 
-Para utilizar o Kit de Ferramentas Cognitivas da Microsoft com o cluster Azure HDInsight Spark, deve carregar o caderno Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** para o cluster Azure HDInsight Spark. Este caderno está disponível no GitHub em [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Para utilizar o Kit de Ferramentas Cognitivas da Microsoft com o cluster Azure HDInsight Spark, deve carregar o caderno Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** para o cluster Azure HDInsight Spark. Este caderno está disponível [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)no GitHub em .
 
-1. Descarregue e [desfaça https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration. ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)
+1. Baixar e [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)desapertar.
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/jupyter`onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. A partir do portátil Jupyter, selecione **Upload** no canto superior direito e, em seguida, navegue para o download e selecione `CNTK_model_scoring_on_Spark_walkthrough.ipynb`de ficheiros .
+1. A partir do portátil Jupyter, selecione **Upload** no canto `CNTK_model_scoring_on_Spark_walkthrough.ipynb`superior direito e, em seguida, navegue para o download e selecione ficheiro .
 
     ![Faça upload do caderno Jupyter para o cluster De faísca SOne HDInsight](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Faça upload do caderno Jupyter para o cluster De faísca SOne HDInsight")
 

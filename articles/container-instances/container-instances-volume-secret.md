@@ -4,10 +4,10 @@ description: Saiba como montar um volume secreto para armazenar informações co
 ms.topic: article
 ms.date: 07/19/2018
 ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249939"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monte um volume secreto em instâncias de contentores azure
@@ -21,7 +21,7 @@ Todos os volumes *secretos* são apoiados por [tmpfs][tmpfs], um sistema de fich
 
 ## <a name="mount-secret-volume---azure-cli"></a>Monte volume secreto - Azure CLI
 
-Para implantar um recipiente com um ou mais segredos utilizando o CLI Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no [recipiente az criar][az-container-create] comando. Este exemplo monta um volume *secreto* composto por dois segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
+Para implantar um recipiente com um ou mais segredos `--secrets` utilizando `--secrets-mount-path` o CLI Azure, inclua os e parâmetros no [recipiente az criar][az-container-create] comando. Este exemplo monta um volume *secreto* composto por dois segredos, "mysecret1" e "mysecret2", em: `/mnt/secrets`
 
 ```azurecli-interactive
 az container create \
@@ -56,7 +56,7 @@ Também pode implantar grupos de contentores com o Azure CLI e um [modelo YAML](
 
 Quando se implanta com um modelo YAML, os valores secretos devem estar **codificados** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
 
-O seguinte modelo YAML define um grupo de contentores com um recipiente que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
+O seguinte modelo YAML define um grupo de *secret* contentores `/mnt/secrets`com um recipiente que monta um volume secreto em . O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -87,7 +87,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para implantar com o modelo YAML, guarde o YAML anterior para um ficheiro chamado `deploy-aci.yaml`, em seguida, execute o [recipiente az criar][az-container-create] comando com o parâmetro `--file`:
+Para implantar com o modelo YAML, guarde o `deploy-aci.yaml`YAML anterior para um ficheiro `--file` chamado e, em seguida, execute o [recipiente az criar][az-container-create] comando com o parâmetro:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -98,16 +98,16 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Além da implantação cli e YAML, pode implantar um grupo de contentores utilizando um modelo de Gestor de [Recursos](/azure/templates/microsoft.containerinstance/containergroups)Azure .
 
-Primeiro, povoe a matriz de `volumes` no grupo de contentores `properties` secção do modelo. Quando se implanta com um modelo de Gestor de Recursos, os valores secretos devem ser codificados pelo **Base64** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
+Primeiro, povoe a `volumes` matriz na secção do grupo `properties` de contentores do modelo. Quando se implanta com um modelo de Gestor de Recursos, os valores secretos devem ser codificados pelo **Base64** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
 
-Em seguida, para cada recipiente do grupo de contentores em que você gostaria de montar o volume *secreto,* povoar a `volumeMounts` matriz na secção `properties` da definição do recipiente.
+Em seguida, para cada recipiente do grupo de contentores em que `volumeMounts` gostaria `properties` de montar o volume *secreto,* povoe a matriz na secção da definição do recipiente.
 
-O seguinte modelo de Gestor de Recursos define um grupo de contentores com um recipiente que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
+O seguinte modelo de Gestor de Recursos define um *secret* grupo `/mnt/secrets`de contentores com um recipiente que monta um volume secreto em . O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implantar com o modelo de Gestor de Recursos, guarde o JSON anterior para um ficheiro chamado `deploy-aci.json`, em seguida, execute a implementação do [grupo Az criar][az-group-deployment-create] comando com o parâmetro `--template-file`:
+Para implantar com o modelo de Gestor de Recursos, `deploy-aci.json`guarde o JSON anterior para `--template-file` um ficheiro nomeado, em seguida, execute a implementação do [grupo Az criar][az-group-deployment-create] comando com o parâmetro:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
