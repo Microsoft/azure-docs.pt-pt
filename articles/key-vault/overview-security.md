@@ -1,5 +1,5 @@
 ---
-title: Segurança do Cofre de Chaves Azure  Microsoft Docs
+title: Segurança do Cofre de Chaves Azure [ Microsoft Docs
 description: Gerencie permissões de acesso para cofre de chaves Azure, chaves e segredos. Cobre o modelo de autenticação e autorização para o Cofre chave e como proteger o cofre da chave.
 services: key-vault
 author: msmbaldwin
@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: 3cc5cb68f430ac8e5070b9c8c4a1aa0c28639311
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270904"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do cofre de chaves Azure
@@ -46,7 +46,7 @@ O modelo de um único mecanismo de autenticação a ambos os aviões tem vários
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gerir o acesso administrativo ao Cofre Chave
 
-Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível específico de âmbito, atribuindo as funções rbac adequadas. Para conceder acesso a um utilizador para gerir cofres chave, atribui um papel `key vault Contributor` predefinido ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
+Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível específico de âmbito, atribuindo as funções rbac adequadas. Para conceder acesso a um utilizador para gerir cofres `key vault Contributor` chave, atribui uma função predefinida ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
 
 - **Subscrição**: Uma função RBAC atribuída ao nível de subscrição aplica-se a todos os grupos e recursos de recursos dentro dessa subscrição.
 - **Grupo de recursos**: Uma função RBAC atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
@@ -55,7 +55,7 @@ Quando se cria um cofre chave num grupo de recursos, gere-se o acesso utilizando
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [As funções RBAC: Incorporadas.](../role-based-access-control/built-in-roles.md)
 
 > [!IMPORTANT]
-> Se um utilizador tiver `Contributor` permissões para um avião de gestão de cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem quem tem acesso `Contributor` papel aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
+> Se um `Contributor` utilizador tiver permissões para um avião de gestão de cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem `Contributor` quem tem acesso aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
 
 <a id="data-plane-access-control"></a>
 ### <a name="controlling-access-to-key-vault-data"></a>Controlar o acesso aos dados do Cofre chave

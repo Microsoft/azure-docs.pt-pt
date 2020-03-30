@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272022"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
@@ -37,11 +37,11 @@ Quando cria um novo cluster, existem várias versões Spark para escolher. Para 
 
 Apache Spark tem três localizações de configuração do sistema:
 
-* As propriedades da faísca controlam a maioria dos parâmetros de aplicação e podem ser definidas usando um objeto `SparkConf`, ou através de propriedades do sistema Java.
-* As variáveis ambientais podem ser usadas para definir definições por máquina, como o endereço IP, através do `conf/spark-env.sh` script em cada nó.
-* O registo pode ser configurado através `log4j.properties`.
+* As propriedades da faísca controlam a maioria `SparkConf` dos parâmetros de aplicação e podem ser definidas usando um objeto, ou através das propriedades do sistema Java.
+* As variáveis ambientais podem ser usadas para definir definições `conf/spark-env.sh` por máquina, como o endereço IP, através do script em cada nó.
+* A exploração madeireira pode ser configurada através de `log4j.properties`.
 
-Quando selecionar uma versão específica do Spark, o seu cluster inclui as definições de configuração predefinidas.  Pode alterar os valores de configuração de Spark predefinidos utilizando um ficheiro de configuração de Spark personalizado.  Um exemplo é mostrado abaixo.
+Quando selecionar uma versão específica do Spark, o seu cluster inclui as definições de configuração predefinidas.  Pode alterar os valores de configuração de Spark predefinidos utilizando um ficheiro de configuração de Spark personalizado.  Apresentamos um exemplo abaixo.
 
 ```
 spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -61,7 +61,7 @@ Verifique as definições de configuração de cluster HDInsight atuais antes de
 
 O Apache Ambari Web UI aparece, com uma visão do dashboard das métricas de utilização de recursos de cluster chave.  O Painel Ambari mostra-lhe a configuração Apache Spark e outros serviços que instalou. O Dashboard inclui um separador **Config History,** onde pode ver informações de configuração para todos os serviços instalados, incluindo o Spark.
 
-Para ver os valores de configuração da Apache Spark, selecione **Config History**e, em seguida, selecione **Spark2**.  Selecione o separador **Configs** e, em seguida, selecione o link `Spark` (ou `Spark2`, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
+Para ver os valores de configuração da Apache Spark, selecione **Config History**e, em seguida, selecione **Spark2**.  Selecione o separador **Configs** e, em seguida, selecione o `Spark` link (ou `Spark2`, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
 
 ![Configurações de faíscas](./media/apache-spark-settings/spark-configurations.png)
 
@@ -86,7 +86,7 @@ O diagrama seguinte mostra os principais objetos Spark: o programa do condutor e
 
 Os trabalhos de faísca usam recursos dos trabalhadores, particularmente a memória, por isso é comum ajustar os valores de configuração da Faísca para executores de nó do trabalhador.
 
-Três parâmetros-chave que são frequentemente ajustados para afinar as configurações de Spark para melhorar os requisitos de aplicação são `spark.executor.instances`, `spark.executor.cores`e `spark.executor.memory`. Um Executor é um processo lançado para uma aplicação Spark. Um Executor corre no nó do trabalhador e é responsável pelas tarefas para a aplicação. Para cada cluster, o número padrão de executores e os tamanhos dos executores são calculados com base no número de nós dos trabalhadores e no tamanho do nó do trabalhador. Estes são armazenados em `spark-defaults.conf` nos nós da cabeça do cluster.  Pode editar estes valores num cluster de execução selecionando o link **personalizado de falha de brilho** na UI web ambari.  Depois de fazer alterações, é solicitado pela UI para **reiniciar** todos os serviços afetados.
+Três parâmetros-chave que são frequentemente ajustados para afinar `spark.executor.instances` `spark.executor.cores`as `spark.executor.memory`configurações de Spark para melhorar os requisitos de aplicação são , e . Um Executor é um processo lançado para uma aplicação Spark. Um Executor corre no nó do trabalhador e é responsável pelas tarefas para a aplicação. Para cada cluster, o número padrão de executores e os tamanhos dos executores são calculados com base no número de nós dos trabalhadores e no tamanho do nó do trabalhador. Estes estão `spark-defaults.conf` guardados nos nós da cabeça do cluster.  Pode editar estes valores num cluster de execução selecionando o link **personalizado de falha de brilho** na UI web ambari.  Depois de fazer alterações, é solicitado pela UI para **reiniciar** todos os serviços afetados.
 
 > [!NOTE]  
 > Estes três parâmetros de configuração podem ser configurados ao nível do cluster (para todas as aplicações que funcionam no cluster) e também especificados para cada aplicação individual.
@@ -99,9 +99,9 @@ Em alternativa, pode utilizar a API Ambari REST para verificar programadamente a
 
 Dependendo da carga de trabalho do Spark, pode determinar que uma configuração não padrão do Apache Spark permite execuções de tarefas do Apache Spark mais otimizadas.  Deve executar testes de referência com cargas de trabalho de exemplo para validar as configurações do cluster não padrão.  Alguns dos parâmetros comuns que pode querer ajustar:
 
-* `--num-executors` define o número de executores.
-* `--executor-cores` define o número de núcleos para cada executor. Recomendamos o uso de executores de tamanho médio, uma vez que outros processos também consomem parte da memória disponível.
-* `--executor-memory` controla o tamanho da memória (tamanho da pilha) de cada executor no [YARN Apache Hadoop,](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)e terá de deixar alguma memória para a execução.
+* `--num-executors`define o número de executores.
+* `--executor-cores`define o número de núcleos para cada executor. Recomendamos o uso de executores de tamanho médio, uma vez que outros processos também consomem parte da memória disponível.
+* `--executor-memory`controla o tamanho da memória (tamanho da pilha) de cada executor no [YARN Apache Hadoop,](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)e terá de deixar alguma memória para execução.
 
 Aqui está um exemplo de dois nós operários com diferentes valores de configuração:
 
@@ -109,10 +109,10 @@ Aqui está um exemplo de dois nós operários com diferentes valores de configur
 
 A lista que se segue mostra os parâmetros de memória do executor de faíscas.
 
-* `spark.executor.memory` define a quantidade total de memória disponível para um executor.
-* `spark.storage.memoryFraction` (padrão ~60%) define a quantidade de memória disponível para armazenar RDDs persistidos.
-* `spark.shuffle.memoryFraction` (padrão ~20%) define a quantidade de memória reservada para baralhar.
-* `spark.storage.unrollFraction` e `spark.storage.safetyFraction` (totalizando ~30% da memória total) - estes valores são usados internamente pela Spark e não devem ser alterados.
+* `spark.executor.memory`define a quantidade total de memória disponível para um executor.
+* `spark.storage.memoryFraction`(padrão ~60%) define a quantidade de memória disponível para armazenar RDDs persistidos.
+* `spark.shuffle.memoryFraction`(padrão ~20%) define a quantidade de memória reservada para baralhar.
+* `spark.storage.unrollFraction`e `spark.storage.safetyFraction` (totalizando ~30% da memória total) - estes valores são usados internamente pela Spark e não devem ser alterados.
 
 O ARN controla a soma máxima de memória utilizada pelos recipientes em cada nó de Faísca. O diagrama seguinte mostra as relações por nó entre objetos de configuração YARN e objetos de faísca.
 
@@ -128,10 +128,10 @@ Os clusters de faíscas no HDInsight incluem uma série de componentes por padr�
 * Os cadernos [Jupyter](https://jupyter.org/) e [Apache Zeppelin](https://zeppelin.apache.org/) - UI interativo baseado seleção para interagir com o seu cluster Spark.
 * Ocontrolador ODBC - conecta clusters Spark em HDInsight a ferramentas de inteligência empresarial (BI), tais como Microsoft Power BI e Tableau.
 
-Para aplicações em execução no caderno Jupyter, utilize o comando `%%configure` para efazer alterações de configuração a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Deve fazer tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada à sessão Livy quando é criada.
+Para aplicações em execução no caderno `%%configure` Jupyter, utilize o comando para efazer alterações de configuração a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Deve fazer tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada à sessão Livy quando é criada.
 
 > [!NOTE]  
-> Para alterar a configuração numa fase posterior da aplicação, utilize o parâmetro `-f` (força). No entanto, todos os progressos na aplicação serão perdidos.
+> Para alterar a configuração numa fase posterior `-f` da aplicação, utilize o parâmetro (força). No entanto, todos os progressos na aplicação serão perdidos.
 
 O código abaixo mostra como alterar a configuração de uma aplicação em execução num caderno Jupyter.
 

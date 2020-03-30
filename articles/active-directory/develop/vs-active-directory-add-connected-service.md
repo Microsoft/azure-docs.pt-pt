@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159630"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicione um Diretório Ativo Azure utilizando serviços conectados em estúdio visual
@@ -35,7 +35,7 @@ Atualmente, o serviço de ligação Ative Directory não suporta aplicações AS
 
 1. No Visual Studio, crie ou abra um projeto ASP.NET MVC, ou um projeto ASP.NET Web API. Pode utilizar os modelos MVC, Web API, Aplicação de página única, aplicação API Azure, Aplicação Móvel Azure e modelos de Serviço Móvel Azure.
 
-1. Selecione o comando **do menu Project > Add Connected Service...** ou clique duas vezes no nó de **Serviços Conectados** encontrado no âmbito do projeto no Solution Explorer.
+1. Selecione o comando de menu **> Adicionar Serviço Conectado...** ou clique duas vezes no nó de **Serviços Conectados** encontrado no âmbito do projeto no Solution Explorer.
 
 1. Na página **Serviços Conectados,** selecione **Autenticação com Diretório Ativo Azure**.
 
@@ -45,7 +45,7 @@ Atualmente, o serviço de ligação Ative Directory não suporta aplicações AS
 
     ![Página de introdução](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Na página **Single-Sign On,** selecione um domínio da lista de abandono do **domínio.** A lista contém todos os domínios acessíveis pelas contas listadas no diálogo de Definições de Conta do Estúdio Visual ( Definições de**Ficheiro > Conta...** ). Como alternativa, pode introduzir um nome de domínio se não encontrar o que procura, como `mydomain.onmicrosoft.com`. Pode escolher a opção de criar uma aplicação Azure Ative Directory ou utilizar as definições a partir de uma aplicação de Diretório Ativo Azure existente. Selecione **Seguinte** quando estiver feito.
+1. Na página **Single-Sign On,** selecione um domínio da lista de abandono do **domínio.** A lista contém todos os domínios acessíveis pelas contas listadas no diálogo de Definições de Conta do Estúdio Visual (**Definições de > conta de ficheiros...**). Como alternativa, pode introduzir um nome de domínio se não encontrar o que `mydomain.onmicrosoft.com`procura, como. Pode escolher a opção de criar uma aplicação Azure Ative Directory ou utilizar as definições a partir de uma aplicação de Diretório Ativo Azure existente. Selecione **Seguinte** quando estiver feito.
 
     ![Sinal único na página](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

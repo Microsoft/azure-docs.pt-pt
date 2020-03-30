@@ -9,21 +9,21 @@ ms.date: 09/10/2019
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: 5acb6456cc45a6b0ce9ea535c064a6544a5dcc8b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73476943"
 ---
- Os seguintes limites se aplicam ao link privado do Azure:
+ Os seguintes limites aplicam-se à ligação privada azure:
 
 |Recurso |Limite |
 |---------|---------|
-|Número de pontos de extremidade privados por rede virtual     |  1000       |
-|Número de pontos de extremidade privados por assinatura       |   64000       |
-|Número de serviço de vínculo privado por assinatura         |   800      |
-|Número de configurações de IP em um serviço de vínculo privado     |  8 (esse número é para os endereços IP de NAT usados por PLS)       |
-|Número de pontos de extremidade privados no mesmo serviço de vínculo privado   |  1000       |
+|Número de pontos finais privados por rede virtual     |  1000       |
+|Número de pontos finais privados por subscrição       |   64000       |
+|Número de serviço de ligação privada por subscrição         |   800      |
+|Número de Configurações IP num serviço de ligação privada     |  8 (Este número destina-se aos endereços IP NAT utilizados por PLS)       |
+|Número de pontos finais privados no mesmo serviço de ligação privada   |  1000       |
 
 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246906"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Trabalhar com uma conta do Azure Cosmos
@@ -31,7 +31,7 @@ Atualmente, pode criar um máximo de 100 contas Azure Cosmos sob uma subscriçã
 
 ![Hierarquia de uma conta Azure Cosmos](./media/account-overview/hierarchy.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 

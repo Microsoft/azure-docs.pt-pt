@@ -1,5 +1,5 @@
 ---
-title: Kerberos constrangido delegação para serviços de domínio azure ad  Microsoft Docs
+title: Kerberos constrangido delegação para serviços de domínio azure ad [ Microsoft Docs
 description: Saiba como permitir a delegação limitada kerberos (KCD) num domínio gerido pelo Azure Ative Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 216fdeca9893f4e290474512617f13382d22890f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614007"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configure Kerberos constrangido delegação (KCD) em Serviços de Domínio de Diretório Ativo Azure

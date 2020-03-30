@@ -1,7 +1,7 @@
 ---
-title: Aprenda a usar uma área restrita Apache Hadoop, emulador-Azure HDInsight
-description: 'Para começar a aprender a usar o ecossistema Apache Hadoop, você pode configurar uma área restrita do Hadoop em Hortonworks em uma máquina virtual do Azure. '
-keywords: emulador do Hadoop, área restrita do Hadoop
+title: Aprenda a usar uma caixa de areia Apache Hadoop, emulador - Azure HDInsight
+description: 'Para começar a aprender sobre a utilização do ecossistema Apache Hadoop, você pode configurar uma caixa de areia Hadoop a partir de Hortonworks em uma máquina virtual Azure. '
+keywords: emulador de hadoop,hadoop sandbox
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -10,73 +10,73 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73044760"
 ---
-# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começar com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual
 
-Saiba como instalar o Apache Hadoop área restrita do Hortonworks em uma máquina virtual para saber mais sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o Sistema de Arquivos Distribuído do Hadoop (HDFS) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure criando um cluster HDInsight. Para obter mais informações sobre como começar, consulte Introdução [ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Aprenda a instalar a caixa de areia Apache Hadoop da Hortonworks numa máquina virtual para aprender sobre o ecossistema Hadoop. A caixa de areia proporciona um ambiente de desenvolvimento local para aprender sobre Hadoop, Hadoop Distributed File System (HDFS) e submissão de emprego. Uma vez familiarizado com Hadoop, pode começar a usar Hadoop no Azure criando um cluster HDInsight. Para obter mais informações sobre como começar, consulte [Get started with Hadoop on HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Oracle VirtualBox](https://www.virtualbox.org/). Baixe e instale-o [aqui](https://www.virtualbox.org/wiki/Downloads).
+* [Oracle VirtualBox](https://www.virtualbox.org/). Descarregue e instale a partir [daqui](https://www.virtualbox.org/wiki/Downloads).
 
-## <a name="download-and-install-the-virtual-machine"></a>Baixar e instalar a máquina virtual
+## <a name="download-and-install-the-virtual-machine"></a>Descarregue e instale a máquina virtual
 
-1. Navegue até os [downloads do Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
+1. Navegue nos downloads da [Cloudera.](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html)
 
-1. Clique em **VIRTUALBOX** em **escolher tipo de instalação** para baixar a área restrita do Hortonworks mais recente em uma VM. Entre ou preencha o formulário de interesse do produto.
+1. Clique em **VIRTUALBOX** em **Tipo de Instalação Escolha** para descarregar a mais recente Caixa de Areia Hortonworks num VM. Inscreva-se ou preencha o formulário de interesse do produto.
 
-1. Clique no botão **HDP sandbox (mais recente)** para iniciar o download.
+1. Clique no botão **HDP SANDBOX (MAIS RECENTE)** para iniciar o download.
 
-Para obter instruções sobre como configurar a área restrita, consulte [Guia de implantação e instalação do Sandbox](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
+Para obter instruções sobre a instalação da caixa de areia, consulte a [Instalação e o Guia](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/)de Instalação da Caixa de Areia .
 
-Para baixar uma área restrita da versão mais antiga do HDP, consulte os links em **versões mais antigas**.
+Para descarregar uma caixa de areia mais antiga da versão HDP, consulte os links em **Versões Mais Antigas**.
 
-## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
+## <a name="start-the-virtual-machine"></a>Inicie a máquina virtual
 
 1. Abra o Oracle VM VirtualBox.
-1. No menu **arquivo** , clique em **importar dispositivo**e, em seguida, especifique a imagem de área restrita Hortonworks.
-1. Selecione a área restrita Hortonworks, clique em **Iniciar**e em **início normal**. Depois que a máquina virtual tiver concluído o processo de inicialização, ela exibirá as instruções de logon.
+1. No menu **'Ficheiro',** clique em **Importar Aparelho**, e depois especifique a imagem Hortonworks Sandbox.
+1. Selecione a Caixa de Areia Hortonworks, clique em **Iniciar**, e depois **Arranque Normal**. Uma vez terminada a máquina virtual, o processo de arranque, apresenta instruções de login.
 
-    ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    ![início normal do gestor virtualbox](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888`).
+1. Abra um navegador web e navegue `http://127.0.0.1:8888`para o URL apresentado (normalmente ).
 
-## <a name="set-sandbox-passwords"></a>Definir senhas de área restrita
+## <a name="set-sandbox-passwords"></a>Definir palavras-passe de Sandbox
 
-1. Na etapa de **introdução** da página área restrita do Hortonworks, selecione **Exibir opções avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
+1. A partir do passo **inicial** da página Hortonworks Sandbox, selecione **Ver Opções Avançadas**. Utilize as informações desta página para iniciar sessão na caixa de areia utilizando o SSH. Utilize o nome e a senha fornecidos.
 
    > [!NOTE]
-   > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pela máquina virtual em **http://localhost:4200/** .
+   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseado na **http://localhost:4200/** web fornecido pela máquina virtual em .
 
-    Na primeira vez que você se conectar usando o SSH, será solicitado que você altere a senha da conta raiz. Insira uma nova senha, que você usa ao fazer logon usando SSH.
+    A primeira vez que se conecta usando o SSH, é-lhe pedido que altere a palavra-passe para a conta raiz. Introduza uma nova senha, que utiliza quando inicia sessão utilizando o SSH.
 
-2. Depois de conectado, insira o seguinte comando:
+2. Uma vez iniciado o sessão, insira o seguinte comando:
 
         ambari-admin-password-reset
 
-    Quando solicitado, forneça uma senha para a conta de administrador do Ambari. Isso é usado quando você acessa a interface do usuário da Web do amAmbari.
+    Quando solicitado, forneça uma senha para a conta de administração Ambari. Isto é usado quando acede ao Ambari Web UI.
 
-## <a name="use-hive-commands"></a>Usar comandos do hive
+## <a name="use-hive-commands"></a>Use comandos da Colmeia
 
-1. Em uma conexão SSH com a área restrita, use o seguinte comando para iniciar o Shell do hive:
+1. A partir de uma ligação SSH à caixa de areia, utilize o seguinte comando para iniciar a concha da Colmeia:
 
         hive
-2. Depois que o Shell for iniciado, use o seguinte para exibir as tabelas que são fornecidas com a área restrita:
+2. Uma vez iniciada a concha, utilize o seguinte para visualizar as tabelas fornecidas com a caixa de areia:
 
         show tables;
-3. Use o seguinte para recuperar 10 linhas da tabela `sample_07`:
+3. Utilize o seguinte para recuperar 10 linhas da `sample_07` mesa:
 
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como usar o Visual Studio com a área restrita do Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Saiba como usar o Estúdio Visual com a Caixa de Areia Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
 
-* [Aprendendo a ropes da área restrita do Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Aprender as cordas da Caixa de Areia Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 
-* [Tutorial do Hadoop – introdução ao HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Tutorial de Hadoop - Começar com HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

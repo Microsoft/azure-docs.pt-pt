@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 22ff83b1ccd009624082e45073123a45006df70f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209444"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitor armazenamento OLTP em memória
@@ -36,7 +36,7 @@ As linhas variáveis de tabela e mesa, bem como os índices, contam para o taman
 Pode monitorizar o armazenamento em memória em percentagem da tampa de armazenamento para o seu tamanho de computação no [portal Azure:](https://portal.azure.com/) 
 
 1. Na lâmina base de dados, localize a caixa de utilização do Recurso e clique em Editar.
-2. Selecione o `In-Memory OLTP Storage percentage`métrico .
+2. Selecione `In-Memory OLTP Storage percentage`a métrica .
 3. Para adicionar um alerta, clique na caixa de utilização de recursos para abrir a lâmina Métrica e, em seguida, clique em Adicionar alerta.
 
 Ou utilize a seguinte consulta para mostrar a utilização do armazenamento em memória:

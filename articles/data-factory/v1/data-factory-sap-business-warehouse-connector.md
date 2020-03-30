@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281057"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mova dados do SAP Business Warehouse utilizando a Azure Data Factory
@@ -58,27 +58,27 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas de uma loja de dados SAP BW:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao SAP Business Warehouse (BW).
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 servidor | Nome do servidor em que reside a instância SAP BW. | string | Sim
-systemNumber | Número do sistema do sistema SAP BW. | Número de cimacimal de dois dígitos representado como uma corda. | Sim
+sistemaNúmero | Número do sistema do sistema SAP BW. | Número de cimacimal de dois dígitos representado como uma corda. | Sim
 clientId | Identificação do cliente do cliente no sistema SAP W. | Número de cimacimal de três dígitos representado como uma corda. | Sim
 o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
 palavra-passe | A palavra-passe do utilizador. | string | Sim
-gatewayName | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP BW no local. | string | Sim
-encryptedCredential | A corda credencial encriptada. | string | Não
+nome gateway | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP BW no local. | string | Sim
+credenta encriptado | A corda credencial encriptada. | string | Não
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. Não existem propriedades específicas do tipo suportadas para o conjunto de dados SAP BW do tipo **RelationalTable**. 
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção **typeProperties** da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -290,28 +290,28 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são utilizados de tipos De B
 
 Tipo de dados no Dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
-ACCP |  Int
-CHAR | String
-CLNT | String
-CURR | decimal
-CUKY | String
-DEC | decimal
-FLTP | Valor de duplo
+ACCP |  int
+CHAR | Cadeia
+CLNT | Cadeia
+CURR | Decimal
+CUKY | Cadeia
+DEZ | Decimal
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | Int
-RIO LANG | String
-LCHR | String
+INT4 | int
+RIO LANG | Cadeia
+LCHR | Cadeia
 LRAW | Byte[]
 PREC | Int16
-QUAN | decimal
-RAW | Byte[]
+QUAN | Decimal
+CRU | Byte[]
 CADEIA BRUTA | Byte[]
-STRING | String
-UNIT | String
-DATS | String
-NUMC | String
-TIMS | String
+CORDA | Cadeia
+UNIDADE | Cadeia
+DATS | Cadeia
+NUMC | Cadeia
+TIMS | Cadeia
 
 > [!NOTE]
 > Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

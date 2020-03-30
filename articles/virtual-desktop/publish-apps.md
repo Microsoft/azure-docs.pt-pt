@@ -9,10 +9,10 @@ ms.date: 12/03/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a697c9a62e52e82a550969e1852abd1489ed59b9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127752"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publique aplicações incorporadas no Windows Virtual Desktop
@@ -25,14 +25,14 @@ Para publicar uma aplicação incorporada:
 
 1. Ligue-se a uma das máquinas virtuais da sua piscina anfitriã.
 2. Obtenha o **Nome família** da aplicação que pretende publicar seguindo as instruções [deste artigo](/powershell/module/appx/get-appxpackage?view=win10-ps/).
-3. Por fim, execute o seguinte cmdlet com `<PackageFamilyName>` substituído pelo **PackageFamilyName** que encontrou no passo anterior:
+3. Por fim, execute o `<PackageFamilyName>` seguinte cmdlet com substituído pelo **PackageFamilyName** que encontrou no passo anterior:
    
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:appsFolder\<PackageFamilyName>!App"
    ```
 
 >[!NOTE]
-> O Windows Virtual Desktop apenas suporta a publicação de aplicações com instalações que começam com `C:\Program Files\Windows Apps`.
+> O Windows Virtual Desktop apenas suporta a publicação `C:\Program Files\Windows Apps`de aplicações com instalações de locais que começam com .
 
 ## <a name="update-app-icons"></a>Atualizar ícones de aplicativos
 

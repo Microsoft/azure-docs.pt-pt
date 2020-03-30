@@ -1,5 +1,5 @@
 ---
-title: Começar com gémeos de dispositivo Shub Azure IoT (Nó)  Microsoft Docs
+title: Começar com gémeos de dispositivo Shub Azure IoT (Nó) [ Microsoft Docs
 description: Como utilizar gémeos de dispositivo SoT Hub Azure ioT para adicionar tags e, em seguida, usar uma consulta IoT Hub. Utiliza os SDKs Azure IoT para o Node.js para implementar a aplicação simulada do dispositivo e uma aplicação de serviço que adiciona as tags e executa a consulta do IoT Hub.
 author: fsautomata
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
 ms.openlocfilehash: 55dc7f73a3e5bbff2e6e331ba0bd7d4088a86536
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110840"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Começar com gémeos dispositivo (Node.js)
@@ -47,7 +47,7 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, precisa de:
 
 Nesta secção, cria-se uma aplicação de consola Node.js que adiciona metadados de localização ao dispositivo twin associado ao **myDeviceId**. Em seguida, questiona os gémeos do dispositivo armazenados no hub IoT selecionando os dispositivos localizados nos EUA, e depois os que estão reportando uma ligação celular.
 
-1. Crie uma nova pasta vazia chamada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp,** crie um novo ficheiro package.json utilizando o seguinte comando no seu pedido de comando. O parâmetro `--yes` aceita todos os incumprimentos.
+1. Crie uma nova pasta vazia chamada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp,** crie um novo ficheiro package.json utilizando o seguinte comando no seu pedido de comando. O `--yes` parâmetro aceita todos os incumprimentos.
 
     ```cmd/sh
     npm init --yes
@@ -71,7 +71,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que adiciona metadado
 
 3. Utilizando um editor de texto, crie um novo ficheiro **AddTagsAndQuery.js** na pasta **addtagsandqueryapp.**
 
-4. Adicione o seguinte código ao ficheiro **AddTagsAndQuery.js.** Substitua `{iot hub connection string}` com a cadeia de ligação IoT Hub que copiou na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string).
+4. Adicione o seguinte código ao ficheiro **AddTagsAndQuery.js.** Substitua-a `{iot hub connection string}` com a cadeia de ligação IoT Hub que copiou na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -152,7 +152,7 @@ Na secção seguinte, cria-se uma aplicação de dispositivo que reporta as info
 
 Nesta secção, cria-se uma aplicação de consola Node.js que se conecta ao seu hub como **myDeviceId**, e depois atualiza as propriedades reportadas do seu dispositivo twin para conter a informação de que está conectado através de uma rede celular.
 
-1. Crie uma nova pasta vazia chamada **reportconectividade**. Na pasta de **conectividade reporte,** crie um novo ficheiro package.json utilizando o seguinte comando no seu pedido de comando. O parâmetro `--yes` aceita todos os incumprimentos.
+1. Crie uma nova pasta vazia chamada **reportconectividade**. Na pasta de **conectividade reporte,** crie um novo ficheiro package.json utilizando o seguinte comando no seu pedido de comando. O `--yes` parâmetro aceita todos os incumprimentos.
 
     ```cmd/sh
     npm init --yes
@@ -166,7 +166,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que se conecta ao seu
 
 3. Utilizando um editor de texto, crie um novo ficheiro **ReportConnectivity.js** na pasta de conectividade de **relatórios.**
 
-4. Adicione o seguinte código ao ficheiro **ReportConnectivity.js.** Substitua `{device connection string}` com a cadeia de ligação do dispositivo que copiou quando criou a identidade do **dispositivo myDeviceId** no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
+4. Adicione o seguinte código ao ficheiro **ReportConnectivity.js.** Substitua-a `{device connection string}` pela cadeia de ligação do dispositivo que copiou quando criou a identidade do **dispositivo myDeviceId** no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```javascript
         'use strict';
@@ -214,7 +214,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que se conecta ao seu
         node ReportConnectivity.js
     ```
 
-    Devia ver a mensagem `twin state reported`.
+    Devia ver a `twin state reported`mensagem.
 
 6. Agora que o dispositivo reportou a sua informação de conectividade, deve aparecer em ambas as consultas. Volte para a pasta **addtagsandqueryapp** e volte a executar as consultas:
 

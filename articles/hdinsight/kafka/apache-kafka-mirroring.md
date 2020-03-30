@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425889"
 ---
-# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos Apache Kafka com Kafka no HDInsight
+# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (Utilizar o MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight)
 
 Aprenda a usar o recurso de espelhamento de Apache Kafka para replicar tópicos para um cluster secundário. O espelhamento pode ser usado como um processo contínuo, ou usado intermitentemente como um método de migrar dados de um cluster para outro.
 
@@ -90,8 +90,8 @@ Esta arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 Configure a publicidade IP para permitir que um cliente se conecte usando endereços IP do corretor em vez de nomes de domínio.
 
-1. Vá ao painel de ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Selecione **Serviços** > **Kafka.** CliSelectck o separador **Configs.**
+1. Vá ao painel de ambari para `https://PRIMARYCLUSTERNAME.azurehdinsight.net`o aglomerado primário: .
+1. Selecione **Serviços** > **Kafka**. CliSelectck o separador **Configs.**
 1. Adicione as seguintes linhas de config à secção de **modelo kafka-env** inferior. Selecione **Guardar**.
 
     ```
@@ -105,13 +105,13 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 1. Introduza uma nota no ecrã **'Guardar Configuração'** e clique em **Guardar**.
 1. Se for solicitado com aviso de configuração, clique em **"Proceder de qualquer maneira".**
 1. Selecione **Ok** nas alterações de **configuração de poupança**.
-1. Selecione **Reiniciar** > **reiniciar todos os afetados** na notificação requerida de **reiniciar.** Selecione **Confirmar Reiniciar tudo**.
+1. Selecione **Reiniciar** > **todos os afetados** na notificação requerida de **reiniciar.** Selecione **Confirmar Reiniciar tudo**.
 
     ![Apache Ambari reinicia todos os afetados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure kafka para ouvir em todas as interfaces de rede.
     
-1. Fique no separador **Configs** ao abrigo dos **Serviços** > **Kafka.** Na secção **Kafka Broker** definiu a propriedade dos **ouvintes** para `PLAINTEXT://0.0.0.0:9092`.
+1. Fique no separador **Configs** ao abrigo dos **Serviços** > **Kafka.** Na secção **Kafka Broker** definir a propriedade dos **ouvintes** para `PLAINTEXT://0.0.0.0:9092`.
 1. Selecione **Guardar**.
 1. Selecione **Reiniciar**e **confirmar reiniciar tudo**.
 
@@ -136,14 +136,14 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 
     Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use o seguinte comando para criar uma variável com os anfitriões do Zookeeper Apache para o aglomerado primário. As cordas como `ZOOKEEPER_IP_ADDRESS1` devem ser substituídas por endereços IP reais registados anteriormente, tais como `10.23.0.11` e `10.23.0.7`. Se estiver a usar a resolução FQDN com um servidor DNS personalizado, siga [estes passos](apache-kafka-get-started.md#getkafkainfo) para obter nomes de corretor e zookeeper.:
+1. Use o seguinte comando para criar uma variável com os anfitriões do Zookeeper Apache para o aglomerado primário. As cordas `ZOOKEEPER_IP_ADDRESS1` como devem ser substituídas por endereços IP `10.23.0.11` `10.23.0.7`reais gravados anteriormente, tais como e . Se estiver a usar a resolução FQDN com um servidor DNS personalizado, siga [estes passos](apache-kafka-get-started.md#getkafkainfo) para obter nomes de corretor e zookeeper.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Para criar um tópico chamado `testtopic`, use o seguinte comando:
+1. Para criar um `testtopic`tópico nomeado, utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
@@ -155,7 +155,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-    A resposta contém `testtopic`.
+    A resposta `testtopic`contém .
 
 1. Utilize o seguinte para visualizar as informações do hospedeiro zookeeper para este (o **principal)** cluster:
 
@@ -181,13 +181,13 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 
     Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Um ficheiro `consumer.properties` é usado para configurar a comunicação com o cluster **primário.** Para criar o ficheiro, utilize o seguinte comando:
+1. Um `consumer.properties` ficheiro é usado para configurar a comunicação com o cluster **primário.** Para criar o ficheiro, utilize o seguinte comando:
 
     ```bash
     nano consumer.properties
     ```
 
-    Utilize o seguinte texto como conteúdo do ficheiro `consumer.properties`:
+    Utilize o seguinte texto como `consumer.properties` conteúdo do ficheiro:
 
     ```yaml
     zookeeper.connect=PRIMARY_ZKHOSTS
@@ -206,17 +206,17 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
     export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
-    O comando `echo $SECONDARY_BROKERHOSTS` deve devolver informações semelhantes ao seguinte texto:
+    O `echo $SECONDARY_BROKERHOSTS` comando deve devolver informações semelhantes ao seguinte texto:
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. Um ficheiro `producer.properties` é usado para comunicar o cluster **secundário.** Para criar o ficheiro, utilize o seguinte comando:
+1. Um `producer.properties` ficheiro é usado para comunicar o cluster **secundário.** Para criar o ficheiro, utilize o seguinte comando:
 
     ```bash
     nano producer.properties
     ```
 
-    Utilize o seguinte texto como conteúdo do ficheiro `producer.properties`:
+    Utilize o seguinte texto como `producer.properties` conteúdo do ficheiro:
 
     ```yaml
     bootstrap.servers=SECONDARY_BROKERHOSTS
@@ -244,16 +244,16 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SECONDARY_ZKHOSTS
         ```
 
-        Substitua `testtopic` com o nome do tópico para criar.
+        Substitua `testtopic` pelo nome do tópico para criar.
 
     * **Configure o cluster para a criação automática**de tópicos : Esta opção permite ao MirrorMaker criar automaticamente tópicos, no entanto pode criá-los com um número diferente de divisórias ou fator de replicação do que o tópico principal.
 
         Para configurar o cluster secundário para criar automaticamente tópicos, execute estes passos:
 
-        1. Vá ao painel ambari para o cluster secundário: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
+        1. Vá ao painel ambari para o `https://SECONDARYCLUSTERNAME.azurehdinsight.net`cluster secundário: .
         1. Clique em **Serviços** > **Kafka.** Clique no separador **Configs.**
-        1. No campo __Filtro,__ introduza um valor de `auto.create`. Isto filtra a lista de propriedades e exibe a definição `auto.create.topics.enable`.
-        1. Mude o valor da `auto.create.topics.enable` para verdade e, em seguida, selecione __Guardar__. Adicione uma nota e, em seguida, selecione __Guardar__ novamente.
+        1. No campo __Filtro,__ introduza `auto.create`um valor de . Isto filtra a lista de `auto.create.topics.enable` propriedades e exibe a definição.
+        1. Mude o `auto.create.topics.enable` valor de verdade e, em seguida, selecione __Guardar__. Adicione uma nota e, em seguida, selecione __Guardar__ novamente.
         1. Selecione o serviço __Kafka,__ selecione __Reiniciar__, e, em seguida, selecione __Reiniciar todos os afetados__. Quando solicitado, selecione __Confirmar reiniciar tudo__.
 
         ![kafka permitir auto criar tópicos](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
@@ -292,7 +292,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    A lista de tópicos inclui agora `testtopic`, que é criada quando o MirrorMaster espelha o tema do cluster primário para o secundário. As mensagens recuperadas do tópico são as mesmas que inseriu no cluster primário.
+    A lista de tópicos agora inclui `testtopic`, que é criada quando o MirrorMaster espelha o tema do cluster primário para o secundário. As mensagens recuperadas do tópico são as mesmas que inseriu no cluster primário.
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 

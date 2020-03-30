@@ -1,20 +1,20 @@
 ---
-title: ApplicationInsights.config reference - Azure  Microsoft Docs
+title: ApplicationInsights.config reference - Azure [ Microsoft Docs
 description: Ative ou desative os módulos de recolha de dados e adicione contadores de desempenho e outros parâmetros.
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276182"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O Application Insights .NET SDK consiste numa série de pacotes NuGet. O [pacote principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para o envio de telemetria para os Insights de Aplicação. [Pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem *módulos* de telemetria e *inicializadores* para rastrear automaticamente a telemetria a partir da sua aplicação e do seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
 
-O ficheiro de configuração tem o nome `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo da sua aplicação. É adicionado automaticamente ao seu projeto quando instala a [maioria das versões do SDK][start]. Por padrão, ao utilizar a experiência automatizada dos projetos de modelo do Estúdio Visual que **suportam A Dadd > Application Insights Telemettry,** o ficheiro ApplicationInsights.config é criado na pasta raiz do projeto e quando cumprido é copiado para a pasta do lixo. Também é adicionado a uma aplicação web pelo [Status Monitor num servidor IIS][redfield]. O ficheiro de configuração é ignorado se for utilizada [extensão para o website do Azure](azure-web-apps.md) ou extensão para o Conjunto de Escala de [Máquinas Azure VM.](azure-vm-vmss-apps.md)
+O ficheiro de `ApplicationInsights.config` `ApplicationInsights.xml`configuração está nomeado ou, dependendo do tipo da sua aplicação. É adicionado automaticamente ao seu projeto quando instala a [maioria das versões do SDK][start]. Por padrão, ao utilizar a experiência automatizada dos projetos de modelo do Estúdio Visual que suportam **adicionar > Application Insights Telemettry,** o ficheiro ApplicationInsights.config é criado na pasta raiz do projeto e quando cumprido é copiado para a pasta do lixo. Também é adicionado a uma aplicação web pelo [Status Monitor num servidor IIS][redfield]. O ficheiro de configuração é ignorado se for utilizada [extensão para o website do Azure](azure-web-apps.md) ou extensão para o Conjunto de Escala de [Máquinas Azure VM.](azure-vm-vmss-apps.md)
 
 Não há um ficheiro equivalente para controlar o [SDK numa página web.][client]
 
@@ -28,7 +28,7 @@ Cada Módulo de Telemetria recolhe um tipo específico de dados e utiliza a API 
 
 Há um nó no ficheiro de configuração de cada módulo. Para desativar um módulo, elimine o nó ou comente-o.
 
-### <a name="dependency-tracking"></a>Rastreio de Dependência
+### <a name="dependency-tracking"></a>Controlo de Dependências
 [O rastreio de dependência](../../azure-monitor/app/asp-net-dependencies.md) recolhe telemetria sobre chamadas que a sua aplicação faz para bases de dados e serviços externos e bases de dados. Para permitir que este módulo funcione num servidor IIS, é necessário instalar o [Status Monitor][redfield].
 
 Também pode escrever o seu próprio código de rastreio de dependência utilizando a [API TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
@@ -45,7 +45,7 @@ Recolhe contadores de desempenho do [sistema,](../../azure-monitor/app/performan
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Informações de aplicação Diagnostica Telemetria
-O `DiagnosticsTelemetryModule` relata erros no próprio código de instrumentação de Insights de Aplicação. Por exemplo, se o código não conseguir aceder aos contadores de desempenho ou se um `ITelemetryInitializer` lançar uma exceção. A telemetria de vestígios rastreada por este módulo aparece na Pesquisa de [Diagnóstico][diagnostic].
+Os `DiagnosticsTelemetryModule` relatórios falham no próprio código de instrumentação de Insights de Aplicação. Por exemplo, se o código não conseguir `ITelemetryInitializer` aceder aos contadores de desempenho ou se um for lançado uma exceção. A telemetria de vestígios rastreada por este módulo aparece na Pesquisa de [Diagnóstico][diagnostic].
 
 ```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
@@ -53,7 +53,7 @@ O `DiagnosticsTelemetryModule` relata erros no próprio código de instrumentaç
 ```
 
 ### <a name="developer-mode"></a>Modo de desenvolvimento
-`DeveloperModeWithDebuggerAttachedTelemetryModule` força os Insights de Aplicação `TelemetryChannel` enviar dados imediatamente, um item de telemetria de cada vez, quando um desbugger está ligado ao processo de aplicação. Isto reduz a quantidade de tempo entre o momento em que a sua aplicação rastreia a telemetria e quando aparece no portal Application Insights. Causa sobrecargasignificativa na CPU e na largura de banda da rede.
+`DeveloperModeWithDebuggerAttachedTelemetryModule`força os `TelemetryChannel` Insights de Aplicação a enviar dados imediatamente, um item de telemetria de cada vez, quando um desbugger está ligado ao processo de aplicação. Isto reduz a quantidade de tempo entre o momento em que a sua aplicação rastreia a telemetria e quando aparece no portal Application Insights. Causa sobrecargasignificativa na CPU e na largura de banda da rede.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
 * [Insights de aplicação Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) Pacote NuGet
@@ -64,23 +64,23 @@ Informa o tempo de resposta e o código de [resultados](../../azure-monitor/app/
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet
 
-### <a name="exception-tracking"></a>Controlo de exceções
-`ExceptionTrackingTelemetryModule` rastreia exceções não manipuladas na sua aplicação web. Ver [Falhas e exceções.][exceptions]
+### <a name="exception-tracking"></a>Rastreio de exceções
+`ExceptionTrackingTelemetryModule`rastreia exceções não manipuladas na sua aplicação web. Ver [Falhas e exceções.][exceptions]
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - rastreia exceções de [tarefas não observadas.](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)
-* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - rastreia exceções não tratadas para funções de trabalhadores, serviços windows e aplicações de consola.
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`- rastreia exceções de [tarefas não observadas.](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)
+* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule`- rastreia exceções não tratadas para funções de trabalhadores, serviços windows e aplicações de consola.
 * [Insights de aplicação Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) Pacote NuGet.
 
 ### <a name="eventsource-tracking"></a>Rastreio de Origem de Eventos
-`EventSourceTelemetryModule` permite configurar eventos do EventSource a serem enviados para Application Insights como vestígios. Para obter informações sobre o rastreio de eventos Source, consulte [A Utilização de EventosSource](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events).
+`EventSourceTelemetryModule`permite configurar eventos do EventSource a serem enviados para Application Insights como vestígios. Para obter informações sobre o rastreio de eventos Source, consulte [A Utilização de EventosSource](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>Rastreio de eventos da ETW
-`EtwCollectorTelemetryModule` permite configurar eventos de fornecedores de ETW para serem enviados para Application Insights como vestígios. Para obter informações sobre o rastreio de eventos DaTW, consulte [a utilização de eventos ETW](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
+`EtwCollectorTelemetryModule`permite configurar eventos de fornecedores de ETW para serem enviados para Application Insights como vestígios. Para obter informações sobre o rastreio de eventos DaTW, consulte [a utilização de eventos ETW](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
@@ -94,8 +94,8 @@ O pacote Microsoft.ApplicationInsights fornece o [Núcleo API](https://msdn.micr
 ## <a name="telemetry-channel"></a>Canal de Telemetria
 O canal de [telemetria](telemetry-channels.md) gere tampão e transmissão de telemetria para o serviço Application Insights.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` é o canal padrão para aplicações web. Amortece os dados na memória e emprega mecanismos de retry e armazenamento de discos locais para uma entrega de telemetria mais fiável.
-* `Microsoft.ApplicationInsights.InMemoryChannel` é um canal de telemetria leve, que é usado se nenhum outro canal estiver configurado. 
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`é o canal padrão para aplicações web. Amortece os dados na memória e emprega mecanismos de retry e armazenamento de discos locais para uma entrega de telemetria mais fiável.
+* `Microsoft.ApplicationInsights.InMemoryChannel`é um canal de telemetria leve, que é usado se nenhum outro canal estiver configurado. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Iniciais de telemetria (ASP.NET)
 Os Iniciais de Telemetria estabelecem propriedades de contexto que são enviadas juntamente com cada item de telemetria.
@@ -104,30 +104,30 @@ Pode [escrever os seus próprios iniciais](../../azure-monitor/app/api-filtering
 
 Os iniciais padrão são todos definidos pelos pacotes Web ou WindowsServer NuGet:
 
-* `AccountIdTelemetryInitializer` define a propriedade AccountId.
-* `AuthenticatedUserIdTelemetryInitializer` define a propriedade AuthenticatedUserId como definida pelo JavaScript SDK.
-* `AzureRoleEnvironmentTelemetryInitializer` atualiza as propriedades `RoleName` e `RoleInstance` do contexto `Device` para todos os itens de telemetria com informações extraídas do ambiente de funcionação do Azure.
-* `BuildInfoConfigComponentVersionTelemetryInitializer` atualiza a propriedade `Version` do contexto `Component` para todos os itens de telemetria com o valor extraído do ficheiro `BuildInfo.config` produzido pela MS Build.
-* `ClientIpHeaderTelemetryInitializer` atualiza `Ip` propriedade do contexto `Location` de todos os itens de telemetria com base no cabeçalho `X-Forwarded-For` HTTP do pedido.
-* `DeviceTelemetryInitializer` atualiza as seguintes propriedades do contexto `Device` para todos os itens de telemetria.
-  * `Type` está definido para "PC"
-  * `Id` está definido para o nome de domínio do computador onde a aplicação web está em execução.
-  * `OemName` está definido para o valor extraído do campo `Win32_ComputerSystem.Manufacturer` utilizando OWM.
-  * `Model` está definido para o valor extraído do campo `Win32_ComputerSystem.Model` utilizando OWM.
-  * `NetworkType` se destina ao valor extraído do `NetworkInterface`.
-  * `Language` está definido para o nome do `CurrentCulture`.
-* `DomainNameRoleInstanceTelemetryInitializer` atualiza a propriedade `RoleInstance` do contexto `Device` para todos os itens de telemetria com o nome de domínio do computador onde a aplicação web está em execução.
-* `OperationNameTelemetryInitializer` atualiza a propriedade `Name` do `RequestTelemetry` e a propriedade `Name` do contexto `Operation` de todos os itens de telemetria com base no método HTTP, bem como nomes de ASP.NET controlador mVC e ação invocada para processar o pedido.
-* `OperationIdTelemetryInitializer` ou `OperationCorrelationTelemetryInitializer` atualiza a propriedade de contexto `Operation.Id` de todos os itens de telemetria rastreados ao manusear um pedido com o `RequestTelemetry.Id`gerado automaticamente .
-* `SessionTelemetryInitializer` atualiza a propriedade `Id` do contexto `Session` para todos os itens de telemetria com valor extraído do cookie `ai_session` gerado pelo código de instrumentação ApplicationInsights JavaScript em execução no navegador do utilizador.
-* `SyntheticTelemetryInitializer` ou `SyntheticUserAgentTelemetryInitializer` atualiza as propriedades `User`, `Session`e `Operation` contextos de todos os itens de telemetria rastreados ao manusear um pedido de uma fonte sintética, como um teste de disponibilidade ou bot de motor de busca. Por padrão, o [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) não exibe telemetria sintética.
+* `AccountIdTelemetryInitializer`define a propriedade AccountId.
+* `AuthenticatedUserIdTelemetryInitializer`define a propriedade AuthenticatedUserId conforme definido pelo JavaScript SDK.
+* `AzureRoleEnvironmentTelemetryInitializer`atualiza as `RoleName` `RoleInstance` propriedades do `Device` contexto para todos os itens de telemetria com informações extraídas do ambiente de execução azure.
+* `BuildInfoConfigComponentVersionTelemetryInitializer`atualiza a `Version` propriedade `Component` do contexto para todos os itens de telemetria com o valor extraído do `BuildInfo.config` ficheiro produzido pela MS Build.
+* `ClientIpHeaderTelemetryInitializer`atualiza `Ip` a `Location` propriedade do contexto de todos os itens `X-Forwarded-For` de telemetria com base no cabeçalho HTTP do pedido.
+* `DeviceTelemetryInitializer`atualiza as seguintes `Device` propriedades do contexto para todos os itens de telemetria.
+  * `Type`é definido para "PC"
+  * `Id`é definido para o nome de domínio do computador onde a aplicação web está em execução.
+  * `OemName`é definido para o valor `Win32_ComputerSystem.Manufacturer` extraído do campo utilizando OWM.
+  * `Model`é definido para o valor `Win32_ComputerSystem.Model` extraído do campo utilizando OWM.
+  * `NetworkType`é definido para o valor `NetworkInterface`extraído do .
+  * `Language`está definido para o `CurrentCulture`nome do .
+* `DomainNameRoleInstanceTelemetryInitializer`atualiza a `RoleInstance` propriedade `Device` do contexto para todos os itens de telemetria com o nome de domínio do computador onde a aplicação web está em execução.
+* `OperationNameTelemetryInitializer`atualiza a `Name` propriedade `RequestTelemetry` do `Name` e da `Operation` propriedade do contexto de todos os itens de telemetria com base no método HTTP, bem como nomes de ASP.NET controlador MVC e ação invocada para processar o pedido.
+* `OperationIdTelemetryInitializer`ou `OperationCorrelationTelemetryInitializer` atualiza `Operation.Id` a propriedade de contexto de todos os itens de telemetria `RequestTelemetry.Id`rastreados ao manusear um pedido com o gerado automaticamente .
+* `SessionTelemetryInitializer`atualiza a `Id` propriedade `Session` do contexto para todos os itens de telemetria com valor extraído do `ai_session` cookie gerado pelo código de instrumentação ApplicationInsights JavaScript em execução no navegador do utilizador.
+* `SyntheticTelemetryInitializer`ou `SyntheticUserAgentTelemetryInitializer` atualiza `User`as `Session` `Operation` propriedades de todos os itens de telemetria rastreados ao manusear um pedido de uma fonte sintética, como um teste de disponibilidade ou um bot de motor de busca. Por padrão, o [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) não exibe telemetria sintética.
 
-    O `<Filters>` definir propriedades identificativas dos pedidos.
-* `UserTelemetryInitializer` atualiza as propriedades `Id` e `AcquisitionDate` do contexto `User` para todos os itens de telemetria com valores extraídos do cookie `ai_user` gerado pelo código de instrumentação Application Insights JavaScript em execução no navegador do utilizador.
-* `WebTestTelemetryInitializer` define o ID do utilizador, o ID da sessão e as propriedades de origem sintética para pedidos HTTP que provêm de testes de [disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
-  O `<Filters>` definir propriedades identificativas dos pedidos.
+    O `<Filters>` conjunto identificando propriedades dos pedidos.
+* `UserTelemetryInitializer`atualiza as `Id` `AcquisitionDate` propriedades `User` do contexto para todos os itens de telemetria com valores extraídos do `ai_user` cookie gerado pelo código de instrumentação JavaScript De Aplicação Insights JavaScript em execução no navegador do utilizador.
+* `WebTestTelemetryInitializer`define o ID do utilizador, o ID da sessão e as propriedades de origem sintética para pedidos HTTP que provêm de testes de [disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
+  O `<Filters>` conjunto identificando propriedades dos pedidos.
 
-Para aplicações .NET em execução em Tecido de Serviço, pode incluir o pacote `Microsoft.ApplicationInsights.ServiceFabric` NuGet. Este pacote inclui uma `FabricTelemetryInitializer`, que adiciona propriedades de Tecido de Serviço a artigos de telemetria. Para mais informações, consulte a [página gitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sobre as propriedades adicionadas por este pacote NuGet.
+Para aplicações .NET em execução em `Microsoft.ApplicationInsights.ServiceFabric` Tecido de Serviço, pode incluir o pacote NuGet. Este pacote `FabricTelemetryInitializer`inclui um , que adiciona propriedades de Tecido de Serviço a artigos de telemetria. Para mais informações, consulte a [página gitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sobre as propriedades adicionadas por este pacote NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Processadores de Telemetria (ASP.NET)
 Os Processadores de Telemetria podem filtrar e modificar cada item de telemetria pouco antes de ser enviado do SDK para o portal.
@@ -176,7 +176,7 @@ Estes parâmetros afetam a forma como o Java SDK deve armazenar e descarregar os
 O número de artigos de telemetria que podem ser armazenados no armazenamento na memória do SDK. Quando este número é atingido, o tampão de telemetria é lavado - isto é, os itens de telemetria são enviados para o servidor Application Insights.
 
 * Min: 1
-* Max: 1000
+* Máximo: 1000
 * Padrão: 500
 
 ```
@@ -190,11 +190,11 @@ O número de artigos de telemetria que podem ser armazenados no armazenamento na
   </ApplicationInsights>
 ```
 
-#### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
+#### <a name="flushintervalinseconds"></a>FlushIntervalinSeconds
 Determina com que frequência os dados armazenados no armazenamento em memória devem ser lavados (enviados para Informações de Aplicação).
 
 * Min: 1
-* Max: 300
+* Máximo: 300
 * Padrão: 5
 
 ```
@@ -212,7 +212,7 @@ Determina com que frequência os dados armazenados no armazenamento em memória 
 Determina o tamanho máximo em MB que é atribuído ao armazenamento persistente no disco local. Este armazenamento é utilizado para itens de telemetria persistentes que não foram transmitidos ao ponto final do Application Insights. Quando o tamanho do armazenamento tiver sido atingido, novos artigos de telemetria serão descartados.
 
 * Min: 1
-* Max: 100
+* Máximo: 100
 * Padrão: 10
 
 ```
@@ -266,7 +266,7 @@ _Disponível a partir de v2.6.0_
 
 O objetivo deste fornecedor é procurar um ID de aplicação baseado numa Chave de Instrumentação. O ID de aplicação está incluído na RequestTelemettry e DependênciaTelemetria e utilizado para determinar a Correlação no Portal.
 
-Isto está disponível definindo `TelemetryConfiguration.ApplicationIdProvider` em código ou em config.
+Isto está disponível por definição `TelemetryConfiguration.ApplicationIdProvider` em código ou em config.
 
 ### <a name="interface-iapplicationidprovider"></a>Interface: IApplicationIdProvider
 
@@ -278,7 +278,7 @@ public interface IApplicationIdProvider
 ```
 
 
-Fornecemos duas implementações no [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk: `ApplicationInsightsApplicationIdProvider` e `DictionaryApplicationIdProvider`.
+Fornecemos duas implementações no [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) `ApplicationInsightsApplicationIdProvider` sdk: e `DictionaryApplicationIdProvider`.
 
 ### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
 
@@ -286,9 +286,9 @@ Isto é um invólucro à volta da nossa API de perfil. Acelerará os pedidos e o
 
 Este fornecedor é adicionado ao seu ficheiro config quando instala o [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) ou [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 
-Esta classe tem uma propriedade opcional `ProfileQueryEndpoint`.
-Por defeito, isto está definido para `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
-Se precisar de configurar um proxy para esta configuração, recomendamos a procuração do endereço base e incluindo "/api/profiles/{0}/appId". Note que '{0}' é substituído no prazo de execução por pedido com a Chave de Instrumentação.
+Esta classe tem `ProfileQueryEndpoint`uma propriedade opcional.
+Por defeito, `https://dc.services.visualstudio.com/api/profiles/{0}/appId`isto está definido para .
+Se precisar de configurar um proxy para esta configuração, recomendamos a procuração{0}do endereço base e incluindo "/api/perfis/ /appId". Note que{0}' ' é substituído no prazo de execução por pedido com a Chave de Instrumentação.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Configuração de exemplo via ApplicationInsights.config:
 ```xml
@@ -306,13 +306,13 @@ Se precisar de configurar um proxy para esta configuração, recomendamos a proc
 TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
 ```
 
-### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+### <a name="dictionaryapplicationidprovider"></a>DicionárioApplicationIdProvider
 
 Trata-se de um fornecedor estático, que contará com os seus pares de identificação de chave de instrumentação configurado/ aplicação.
 
-Esta classe tem uma propriedade `Defined`, que é um Dicionário<string,string> de Instrumentation Key to Application ID pares.
+Esta classe tem `Defined`uma propriedade , que é um Dicionário<cordas, string> de instrumentação chave para pares de id de aplicação.
 
-Esta classe tem uma propriedade opcional `Next` que pode ser usada para configurar outro fornecedor para usar quando é solicitada uma Chave de Instrumentação que não existe na sua configuração.
+Esta classe tem `Next` uma propriedade opcional que pode ser usada para configurar outro fornecedor para usar quando é solicitada uma Chave de Instrumentação que não existe na sua configuração.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Configuração de exemplo via ApplicationInsights.config:
 ```xml
@@ -343,7 +343,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre a API.][api]
 
 <!--Link references-->

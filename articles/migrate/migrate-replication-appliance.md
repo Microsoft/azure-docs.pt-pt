@@ -4,10 +4,10 @@ description: Saiba mais sobre o aparelho de replicação Azure Migrate para migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245866"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
@@ -26,7 +26,7 @@ O aparelho de replicação é implantado quando configura a migração baseada e
 
 ## <a name="appliance-deployment"></a>Implantação de aparelhos
 
-**Usado para** | **Detalhes**
+**Utilizado para** | **Detalhes**
 --- |  ---
 Migração baseada em vmware vm | Você descarrega o modelo OVA do hub De migração Azure, e importa para vCenter Server para criar o vM do aparelho.
 Migração baseada em máquinas físicas | Se não tiver uma infraestrutura VMware, ou se não conseguir criar um VMware VMM utilizando um modelo OVA, descarregue um instalador de software a partir do hub Da Migração Azure e execute-o para configurar a máquina do aparelho.
@@ -55,7 +55,7 @@ TLS | O TLS 1.2 deve ser ativado.
 MySQL | O MySQL deve ser instalado no aparelho.<br/> O MySQL deve ser instalado. Pode instalar manualmente ou a Recuperação do Local pode instalá-la durante a implantação do aparelho.
 Outras aplicações | Não faça outras aplicações no aparelho de replicação.
 Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
-Políticas de grupo | Não permita estas políticas de grupo: <br> - Impedir o acesso ao pedido de comando. <br> - Impedir o acesso às ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Políticas de grupo | Não permita estas políticas de grupo: <br> - Impedir o acesso ao pedido de comando. <br> - Impedir o acesso às ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Mais informações](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nenhum website preexistente <br> - Nenhum site/aplicação pré-existente ouvindo na porta 443 <br>- Ativar [a autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a definição [de FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Definições de rede** |
 Tipo de endereço IP | Estático
@@ -68,7 +68,7 @@ O MySQL deve ser instalado na máquina do aparelho de replicação. Pode ser ins
 
 **Método** | **Detalhes**
 --- | ---
-Descarregue e instale manualmente | Baixe a aplicação MySQL e coloque-a na pasta C:\Temp\ASRSetup e, em seguida, instale manualmente.<br/> Quando configurar o aparelho, o MySQL mostrará como já está instalado.
+Descarregue e instale manualmente | Descarregue a aplicação MySQL & colocá-la na pasta C:\Temp\ASRSetup e, em seguida, instale manualmente.<br/> Quando configurar o aparelho, o MySQL mostrará como já está instalado.
 Sem download online | Coloque a aplicação do instalador MySQL na pasta C:\Temp\ASRSetup. Quando instalar o aparelho e clicar para descarregar e instalar o MySQL, a configuração utilizará o instalador que adicionou.
 Descarregue e instale em Azure Migrate | Quando instalar o aparelho e for solicitado para o MySQL, **selecione Descarregar e instalar**.
 

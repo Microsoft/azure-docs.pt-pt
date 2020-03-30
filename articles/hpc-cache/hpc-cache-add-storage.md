@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271892"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
@@ -70,7 +70,7 @@ Passos para adicionar as funções RBAC:
 
 1. Abra a página de controlo de **acesso (IAM)** para a conta de armazenamento. (O link na **página-alvo** de armazenamento adicionar abre automaticamente esta página para a conta selecionada.)
 
-1. Clique no **+** no topo da página e escolha Adicionar uma atribuição de **funções**.
+1. Clique **+** no topo da página e escolha Adicionar uma atribuição de **funções**.
 
 1. Selecione a função "Contribuinte de Conta de Armazenamento" da lista.
 
@@ -148,9 +148,9 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização | Modo caching | Verificação de back-end | Atraso máximo de drecção |
 | ---- | ---- | ---- | ---- |
-| Ler escritos pesados e pouco frequentes | Leitura | Nunca | Nenhum |
-| Maior de 15% escreve | Ler/escrever | Nunca | 1 hora |
-| Os clientes contornam a cache | Leitura | 30 segundos | Nenhum |
+| Ler escritos pesados e pouco frequentes | Leitura | Nunca | Nenhuma |
+| Maior de 15% escreve | Leitura/escrita | Nunca | Uma hora |
+| Os clientes contornam a cache | Leitura | 30 segundos | Nenhuma |
 
 ## <a name="next-steps"></a>Passos seguintes
 

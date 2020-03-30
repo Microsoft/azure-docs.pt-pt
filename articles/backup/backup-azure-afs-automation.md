@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer backup de Ficheiros Azure utilizando 
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273543"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Back up Ficheiros Azure com PowerShell
@@ -88,7 +88,7 @@ Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
 
 9. Na saída do comando, verifique se o **Estado de Registo** altera-se ao **Registo**. Se não o fizer, volte a executar o **cmdlet Register-AzResourceProvider.**
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 O cofre dos Serviços de Recuperação é um recurso do Gestor de Recursos, por isso deve colocá-lo dentro de um grupo de recursos. Pode utilizar um grupo de recursos existente, ou pode criar um grupo de recursos com o cmdlet **New-AzResourceGroup.** Quando criar um grupo de recursos, especifique o nome e a localização do grupo de recursos.
 
@@ -252,7 +252,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 Esta secção descreve uma alteração importante na cópia de segurança da AFS em preparação para a GA.
 
-Ao mesmo tempo que permite a cópia de segurança para AFS, o utilizador fornece o nome de partilha de ficheiros amigável para o cliente como nome da entidade e é criado um item de backup. O 'nome' do item de reserva é um identificador único criado pelo serviço Azure Backup. Normalmente, o identificador envolve o nome amigável do utilizador. Mas para lidar com o cenário importante de soft-delete, onde uma partilha de ficheiros pode ser eliminada e outra partilha de ficheiros pode ser criada com o mesmo nome, a identidade única da partilha de ficheiros Azure será agora um ID em vez de um nome amigável para o cliente. Para conhecer a identidade/nome único de cada item, basta executar o comando ```Get-AzRecoveryServicesBackupItem``` com os filtros relevantes para backupManagementType e WorkloadType para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta PS devolvido. Recomenda-se sempre a listar itens e, em seguida, recuperar o seu nome único a partir do campo 'nome' em resposta. Utilize este valor para filtrar os itens com o parâmetro 'Nome'. Caso contrário, utilize o parâmetro FriendlyName para recuperar o item com o seu nome/identificador amigo do cliente.
+Ao mesmo tempo que permite a cópia de segurança para AFS, o utilizador fornece o nome de partilha de ficheiros amigável para o cliente como nome da entidade e é criado um item de backup. O 'nome' do item de reserva é um identificador único criado pelo serviço Azure Backup. Normalmente, o identificador envolve o nome amigável do utilizador. Mas para lidar com o cenário importante de soft-delete, onde uma partilha de ficheiros pode ser eliminada e outra partilha de ficheiros pode ser criada com o mesmo nome, a identidade única da partilha de ficheiros Azure será agora um ID em vez de um nome amigável para o cliente. Para conhecer a identidade/nome único de cada item, basta executar o ```Get-AzRecoveryServicesBackupItem``` comando com os filtros relevantes para backupManagementType e WorkloadType para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta PS devolvido. Recomenda-se sempre a listar itens e, em seguida, recuperar o seu nome único a partir do campo 'nome' em resposta. Utilize este valor para filtrar os itens com o parâmetro 'Nome'. Caso contrário, utilize o parâmetro FriendlyName para recuperar o item com o seu nome/identificador amigo do cliente.
 
 > [!WARNING]
 > Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome da partilha de ficheiros Azure para o parâmetro friendlyName. Se passar o nome Da Partilha de Ficheiros Azure para o parâmetro 'Nome', esta versão lança um aviso para passar este nome amigável ao parâmetro de nome amigável. A não instalação desta versão mínima pode resultar na falha dos scripts existentes. Instale a versão mínima do PS com o seguinte comando.
@@ -291,7 +291,7 @@ As imagens de partilha de ficheiros Azure são usadas enquanto as cópias de seg
 
 Os backups a pedido podem ser usados para reter as suas fotos durante 10 anos. Os programadores podem ser usados para executar scripts PowerShell a pedido com retenção escolhida e, assim, tirar fotos em intervalos regulares todas as semanas, meses ou anos. Ao tirar fotografias regulares, consulte as [limitações das cópias de segurança](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) a pedido utilizando cópias de segurança Azure.
 
-Se estiver à procura de scripts de amostra, pode consultar o script da amostra no GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>), utilizando o livro de execução Azure Automation que lhe permite agendar backups numa base periódica e retê-los até 10 anos.
+Se estiver à procura de scripts de amostra, pode consultar<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>o script da amostra no GitHub ( ) usando o livro de execução Azure Automation que lhe permite agendar backups numa base periódica e retê-los até 10 anos.
 
 > [!WARNING]
 > Certifique-se de que a versão PS é atualizada para a versão mínima para 'Az.RecoveryServices 2.6.0' para backups AFS nos seus livros de automação. Terá de substituir o antigo módulo 'AzureRM' por módulo 'Az'. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome da partilha de ficheiros azul para o parâmetro friendlyName. Se passar o nome da partilha de ficheiros azul para o parâmetro 'Nome', esta versão lança um aviso para passar este nome amigável ao parâmetro de nome amigável.

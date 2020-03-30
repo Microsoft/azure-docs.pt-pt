@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
 ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275571"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização de rede Azure no Monitor Azure
@@ -144,8 +144,8 @@ Em qualquer uma das páginas de pesquisa de registo, pode visualizar resultados 
 
 Os seguintes registos são suportados para grupos de segurança da rede:
 
-* NetworkSecurityGroupEvent
-* NetworkSecurityGroupRuleCounter
+* Evento NetworkSecurityGroupEvent
+* Contador de regras de networksecurityGroup
 
 ### <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes instruções para instalar e configurar a solução Azure Networking Analytics:
@@ -162,7 +162,7 @@ Utilize as seguintes instruções para instalar e configurar a solução Azure N
 3. Clique *em ligar diagnósticos* para abrir a seguinte página
 
    ![imagem do recurso do Grupo de Segurança da Rede Azure](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
-4. Para ativar os diagnósticos, clique *em 'Em 'Status'.*
+4. Para ativar os diagnósticos, clique *em 'Em 'Status'.* *Status*
 5. Clique na caixa de verificação para *enviar para registar análises*
 6. Selecione um espaço de trabalho existente no Log Analytics ou crie um espaço de trabalho
 7. Clique na caixa de verificação em **Registo** para cada um dos tipos de registo para recolher
@@ -214,14 +214,14 @@ Para utilizar as soluções atualizadas:
 
      | Em vez de: | Utilização: |
      | --- | --- |
-     | Gateways de &#124; Aplicações de Rede onde operationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName=="ApplicationGatewayAccess" |
-     | Gateways de &#124; Aplicações de Rede onde operationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName=="ApplicationGatewayPerformance" |
-     | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
+     | NetworkApplicationgateways &#124; onde operationName="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; onde operationName="ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName="ApplicationGatewayPerformance" |
+     | Grupos de Segurança de Rede | AzureDiagnostics &#124; onde ResourceType="NETWORKSECURITYGROUPS" |
 
-   + Para qualquer campo que tenha um sufixo de \_s, \_d, ou \_g no nome, mude o primeiro personagem para minúscula
-   + Para qualquer campo que tenha um sufixo de \_o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados.
+   + Para qualquer campo que tenha \_um \_sufixo \_de sufixo de sufixo de s, d, ou g no nome, mude o primeiro personagem para minúscula
+   + Para qualquer campo que tenha \_um sufixo de o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados.
 4. Remova a solução *Azure Networking Analytics (Depreciada).*
-   + Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Se estiver a usar powerShell, use`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Os dados recolhidos antes da alteração não são visíveis na nova solução. Pode continuar a consultar estes dados utilizando os antigos nomes de Tipo e campo.
 

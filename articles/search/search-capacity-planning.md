@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462569"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva Azure
@@ -80,7 +80,7 @@ Um serviço Básico pode ter exatamente uma divisória e até três réplicas, p
 
 Todos os serviços de pesquisa otimizados Standard e Storage podem assumir as seguintes combinações de réplicas e divisórias, sujeitos ao limite de 36-SU. 
 
-|   | **1 partição** | **2 divisórias** | **3 divisórias** | **4 divisórias** | **6 divisórias** | **12 divisórias** |
+|   | **1 partição** | **2 partições** | **3 divisórias** | **4 divisórias** | **6 divisórias** | **12 divisórias** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **1 réplica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 réplicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |

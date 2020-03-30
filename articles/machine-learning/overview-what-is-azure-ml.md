@@ -9,10 +9,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241613"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
@@ -46,9 +46,9 @@ O Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + Scripts R ou cadernos em que utiliza o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever o seu próprio código ou utilizar os módulos R no designer.
 
-+ [Extensão do Código do Estúdio Visual](tutorial-setup-vscode-extension.md)
++ [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
-+ [ClI de aprendizagem automática](reference-azure-machine-learning-cli.md)
++ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
 
 + Quadros de código aberto como PyTorch, TensorFlow e scikit-learn e muito mais
 
@@ -78,9 +78,9 @@ Para formação e implantação sem código ou de código baixo, tente:
 
   Aprenda a criar [experiências automáticas](tutorial-first-experiment-automated-ml.md) de ML na interface fácil de usar. 
 
-  [painel de navegação do estúdio de machine learning ![Azure](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+  [![Painel de navegação do estúdio Azure Machine Learning](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
 
-## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementação e gestão de ciclos de vida
+## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementar & gestão do ciclo de vida
 Quando tiver o modelo certo, pode usá-lo facilmente num serviço web, num dispositivo IoT ou no Power BI. Para mais informações, consulte o artigo sobre [como implementar e onde.](how-to-deploy-and-where.md)
 
 Em seguida, você pode gerir os seus modelos implantados usando o [Azure Machine Learning SDK para Python,](https://aka.ms/aml-sdk) [estúdio Azure Machine Learning,](https://ml.azure.com)ou o clI de [aprendizagem automática](reference-azure-machine-learning-cli.md).
@@ -116,7 +116,7 @@ O Azure Machine Learning trabalha com outros serviços na plataforma Azure, e in
 
 A sua conta de Armazenamento Azure, alvos de cálculo e outros recursos podem ser usados de forma segura dentro de uma rede virtual para treinar modelos e realizar inferências. Para mais informações, consulte a experimentação e a [inferência seguras numa rede virtual](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Edições Básicas e Empresariais
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições Básicas & Enterprise
 
 O Azure Machine Learning oferece duas edições adaptadas às suas necessidades de aprendizagem automática:
 + Básico (geralmente disponível)
@@ -124,7 +124,7 @@ O Azure Machine Learning oferece duas edições adaptadas às suas necessidades 
 
 Estas edições determinam quais as ferramentas de machine learning disponíveis para programadores e cientistas de dados do seu espaço de trabalho.   
 
-Os espaços básicos de trabalho permitem-lhe continuar a utilizar o Azure Machine Learning e pagar apenas pelos recursos Azure consumidos durante o processo de aprendizagem automática. Os espaços de trabalho da edição empresarial serão cobrados apenas pelo seu consumo Azure enquanto a edição estiver em pré-visualização. Saiba mais sobre o que está disponível na página geral e de preços da [edição](https://azure.microsoft.com/pricing/details/machine-learning/)azure Machine Learning. 
+Os espaços básicos de trabalho permitem-lhe continuar a utilizar o Azure Machine Learning e pagar apenas pelos recursos Azure consumidos durante o processo de aprendizagem automática. Os espaços de trabalho da edição empresarial serão cobrados apenas pelo seu consumo Azure enquanto a edição estiver em pré-visualização. Saiba mais sobre o que está disponível na edição de Web Machine Learning & página de [preços.](https://azure.microsoft.com/pricing/details/machine-learning/) 
 
 Atribua a edição sempre que cria um espaço de trabalho. E, os espaços de trabalho pré-existentes foram convertidos para a edição Básica para si. A edição básica inclui todas as funcionalidades que já estavam geralmente disponíveis a partir de outubro de 2019. Quaisquer experiências nesses espaços de trabalho que foram construídos usando funcionalidades da edição da Enterprise continuarão a estar disponíveis para si apenas em leitura até que faça o upgrade para a Enterprise. Saiba como atualizar um espaço de [trabalho Básico para a edição enterprise.](how-to-manage-workspace.md#upgrade) 
 
@@ -133,10 +133,10 @@ Os clientes são responsáveis pelos custos incorridos na computação e outros 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie a sua primeira experiência com o seu método preferido:
-  + [Utilize os cadernos Python para treinar e implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown para treinar e implementar modelos ML](tutorial-1st-r-experiment.md) 
-  + [Utilize machine learning automatizado para treinar e implementar modelos ML](tutorial-first-experiment-automated-ml.md) 
-  + [Use as capacidades de arrastar e largar do designer para treinar e implementar](tutorial-designer-automobile-price-train-score.md) 
+  + [Use os cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
+  + [Use R Markdown para treinar & implementar modelos ML](tutorial-1st-r-experiment.md) 
+  + [Utilize machine learning automatizado para formar & implementar modelos ML](tutorial-first-experiment-automated-ml.md) 
+  + [Use as capacidades de queda de drag & do designer para treinar & implantação](tutorial-designer-automobile-price-train-score.md) 
   + [Use o CLI de aprendizagem automática para treinar e implementar um modelo](tutorial-train-deploy-model-cli.md)
 
 - Saiba mais sobre [pipelines de aprendizagem automática](concept-ml-pipelines.md) para criar, otimizar e gerir cenários da aprendizagem automática.
