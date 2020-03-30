@@ -1,6 +1,6 @@
 ---
-title: Arquiteturas de referência de renderização do Azure – lote do Azure
-description: Arquiteturas para usar o lote do Azure e outros serviços do Azure para estender um farm de renderização local intermitentemente para a nuvem
+title: Arquiteturas de referência de renderização azure - Lote Azure
+description: Arquiteturas para usar O Lote Azure e outros serviços Azure para estender uma fazenda no local, explodindo até a nuvem
 services: batch
 ms.service: batch
 author: davefellows
@@ -10,55 +10,55 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
 ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022958"
 ---
-# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
+# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização azure
 
-Este artigo mostra diagramas de arquitetura de alto nível para cenários para estender ou "disparo", um farm de renderização local para o Azure. Os exemplos mostram diferentes opções para serviços de computação, rede e armazenamento do Azure.
+Este artigo mostra diagramas de arquitetura de alto nível para cenários que se estendem, ou "burst", uma fazenda no local render a Azure. Os exemplos mostram diferentes opções para serviços de computação, networking e armazenamento Azure.
 
 ## <a name="hybrid-with-nfs-or-cfs"></a>Híbrido com NFS ou CFS
 
-O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços do Azure:
+O diagrama seguinte mostra um cenário híbrido que inclui os seguintes serviços Azure:
 
-* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
+* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
 
-* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
+* **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* Arquivos de entrada e saída de **armazenamento** : NFS ou CFS usando VMs do Azure, sincronizado com o armazenamento local por meio de sincronização de arquivos do Azure ou rsync. Como alternativa: avere vFXT para entrada ou saída de arquivos em dispositivos NAS locais usando NFS.
+* **Armazenamento** - Ficheiros de entrada e saída: NFS ou CFS utilizando VMs Azure, sincronizados com armazenamento no local através do Azure File Sync ou RSync. Alternativamente: Avere vFXT para inserir ou passar ficheiros a partir de dispositivos NAS no local utilizando NFS.
 
-  ![Intermitência de nuvem-híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
+  ![Cloud bursting - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido com Blobfuse
 
-O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços do Azure:
+O diagrama seguinte mostra um cenário híbrido que inclui os seguintes serviços Azure:
 
-* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
+* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
 
-* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
+* **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* Arquivos de entrada e saída de **armazenamento** : armazenamento de BLOBs, montados em recursos de computação por meio do Azure Blobfuse.
+* **Armazenamento** - Ficheiros de entrada e saída: Armazenamento blob, montado para calcular recursos através de Azure Blobfuse.
 
-  ![Intermitência de nuvem-híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
+  ![Cloud bursting - Híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
 ## <a name="hybrid-compute-and-storage"></a>Computação híbrida e armazenamento
 
-O diagrama a seguir mostra um cenário híbrido totalmente conectado para computação e armazenamento e inclui os seguintes serviços do Azure:
+O diagrama seguinte mostra um cenário híbrido totalmente conectado tanto para a computação como para o armazenamento e inclui os seguintes serviços Azure:
 
-* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
+* **Compute** - Piscina de Lote Azure ou Conjunto de Escala de Máquina virtual.
 
-* **Rede** local: Azure EXPRESSROUTE ou VPN. Azure: VNet do Azure.
+* **Rede** - No local: Azure ExpressRoute ou VPN. Azure: Azure VNet.
 
-* **Armazenamento** -entre instalações: avere vFXT. Arquivamento opcional de arquivos locais por meio de Azure Data Box para armazenamento de BLOBs ou FXT avere local para aceleração de NAS.
+* **Armazenamento** - Cross-premises: Avere vFXT. Arquivamento opcional de ficheiros no local através da Caixa de Dados Azure para o armazenamento blob, ou no local Avere FXT para aceleração nas.
 
-  ![Intermitência de nuvem-computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
+  ![Cloud bursting - Calculador híbrido e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como usar [os gerenciadores de renderização](batch-rendering-render-managers.md) com o lote do Azure.
+* Saiba mais sobre a utilização de [gestores render](batch-rendering-render-managers.md) com o Lote Azure.
 
-* Saiba mais sobre as opções de [renderização no Azure](batch-rendering-service.md).
+* Saiba mais sobre as opções para [renderização em Azure.](batch-rendering-service.md)

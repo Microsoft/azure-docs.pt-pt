@@ -1,39 +1,39 @@
 ---
-title: Criar e criptografar um conjunto de dimensionamento de máquinas virtuais com modelos de Azure Resource Manager
-description: Neste guia de início rápido, você aprende a usar os modelos de Azure Resource Manager para criar e criptografar um conjunto de dimensionamento de máquinas virtuais
+title: Crie e criptografe um conjunto de escala de máquina virtual com modelos de Gestor de Recursos Azure
+description: Neste arranque rápido, aprende-se a usar modelos do Gestor de Recursos Azure para criar e encriptar um Conjunto de Escala de Máquina virtual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.openlocfilehash: aeba9aee8dd10b1245fb0a1e1cc98a1951382c72
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72530001"
 ---
-# <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Criptografar conjuntos de dimensionamento de máquinas virtuais com Azure Resource Manager
+# <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Criptografe conjuntos de escala de máquinavirtual com Gestor de Recursos Azure
 
-Você pode criptografar ou descriptografar conjuntos de dimensionamento de máquinas virtuais do Linux usando modelos de Azure Resource Manager.
+Pode encriptar ou desencriptar conjuntos de escala de máquinas virtuais Do Linux utilizando modelos do Gestor de Recursos Azure.
 
-## <a name="deploying-templates"></a>Implantando modelos
+## <a name="deploying-templates"></a>Modelos de implantação
 
-Primeiro, selecione o modelo que se adapta ao seu cenário.
+Primeiro, selecione o modelo que se adequa ao seu cenário.
 
-- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- [Ativar a encriptação do disco num conjunto de escala de máquina virtual Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- [Ativar a encriptação do disco num conjunto de escala virtual do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Implantar um conjunto de dimensionamento de máquinas virtuais de VMs do Linux com um Jumpbox e habilita a criptografia em conjuntos de dimensionamento de máquinas virtuais do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Implemente um conjunto de vMs de escala de máquina virtual de Linux com uma caixa de salto e permite encriptação em conjuntos de escala de máquinas virtuais Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Implantar um conjunto de dimensionamento de máquinas virtuais de VMs do Windows com um Jumpbox e habilita a criptografia em conjuntos de dimensionamento de máquinas virtuais do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Implemente um conjunto de vMs de escala virtual de máquinas com uma caixa de salto e permite encriptação em conjuntos de escala de máquinas virtuais do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
-- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Desative a encriptação do disco num conjunto de escala de máquina virtual Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
-- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Desative a encriptação do disco num conjunto de escala virtual do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
-Em seguida, siga estas etapas:
+Em seguida, siga estes passos:
 
      1. Click **Deploy to Azure**.
      2. Fill in the required fields then agree to the terms and conditions.
@@ -41,8 +41,8 @@ Em seguida, siga estas etapas:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais](disk-encryption-overview.md)
-- [Criptografar conjuntos de dimensionamento de máquinas virtuais usando o CLI do Azure](disk-encryption-cli.md)
-- [Criptografar conjuntos de dimensionamento de máquinas virtuais usando o Azure PowerShell](disk-encryption-powershell.md)
-- [Criar e configurar um cofre de chaves para Azure Disk Encryption](disk-encryption-key-vault.md)
-- [Usar Azure Disk Encryption com sequenciamento de extensão do conjunto de dimensionamento de máquinas virtuais](disk-encryption-extension-sequencing.md)
+- [Encriptação de disco azure para conjuntos de escala de máquina virtual](disk-encryption-overview.md)
+- [Criptografe um conjunto de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
+- [Criptografe um conjunto de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)
+- [Crie e configure um cofre chave para encriptação de disco azure](disk-encryption-key-vault.md)
+- [Utilize encriptação de disco azure com sequência de extensão de extensão de conjunto de máquina virtual](disk-encryption-extension-sequencing.md)

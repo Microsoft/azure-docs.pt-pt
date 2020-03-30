@@ -1,5 +1,5 @@
 ---
-title: Elevar o acesso à gestão de todas as subscrições e grupos de gestão do Azure
+title: Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 description: Descreve como elevar o acesso a um Administrador Global para gerir todas as subscrições e grupos de gestão no Azure Ative Directory utilizando o portal Azure ou rest API.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137469"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso à gestão de todas as subscrições e grupos de gestão do Azure
@@ -33,7 +33,7 @@ Como Administrador Global em Azure Ative Directory (Azure AD), poderá não ter 
 Se é administrador global, pode haver alturas em que pretende fazer o seguinte:
 
 - Recuperar o acesso a um grupo de gestão ou subscrição do Azure quando um utilizador perde uinos
-- Conceda a outro utilizador ou a si mesmo acesso a um grupo de gestão ou subscrição Azure
+- Conceder a outro utilizador ou a si próprio acesso a uma subscrição ou grupo de gestão do Azure
 - Ver todas as subscrições do Azure ou grupos de gestão numa organização
 - Permitir que uma aplicação de automação (como uma aplicação de faturação ou auditoria) aceda a todas as subscrições ou grupos de gestão do Azure
 
@@ -41,7 +41,7 @@ Se é administrador global, pode haver alturas em que pretende fazer o seguinte:
 
 Os recursos da Azure AD e azure são assegurados independentemente uns dos outros. Ou seja, as atribuições de funções da Azure AD não concedem acesso aos recursos do Azure, e as atribuições de funções da Azure não concedem acesso à AD Azure. No entanto, se for administrador [global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) em Azure AD, pode atribuir-se acesso a todas as subscrições e grupos de gestão do Azure no seu diretório. Utilize esta capacidade se não tiver acesso aos recursos de subscrição do Azure, como máquinas virtuais ou contas de armazenamento, e pretende utilizar o privilégio do Administrador Global para ter acesso a esses recursos.
 
-Quando elevar o seu acesso, será-lhe atribuída a função de Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) em Azure no âmbito raiz (`/`). Isto permite-lhe visualizar todos os recursos e atribuir acesso em qualquer subscrição ou grupo de gestão no diretório. As atribuições de funções do Administrador de Acesso ao Utilizador podem ser removidas utilizando o Azure PowerShell, o Azure CLI ou a API REST.
+Quando elevar o seu acesso, será-lhe atribuída a função de`/`Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) em Azure no âmbito raiz ().Isto permite-lhe visualizar todos os recursos e atribuir acesso em qualquer subscrição ou grupo de gestão no diretório. As atribuições de funções do Administrador de Acesso ao Utilizador podem ser removidas utilizando o Azure PowerShell, o Azure CLI ou a API REST.
 
 Deve remover este acesso elevado depois de ter feito as alterações que precisa de fazer no âmbito da raiz.
 
@@ -55,7 +55,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no centro de [administração do Azure Ative Directin](https://aad.portal.azure.com) como Administrador Global.
 
-1. Procure e selecione **Azure Ative Directory**.
+1. Procure e selecione **Azure Active Directory**.
 
    ![Selecione Azure Ative Directory - screenshot](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
 
@@ -90,7 +90,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
-Para remover a atribuição da função de Administrador de Acesso ao Utilizador no âmbito raiz (`/`), siga estes passos.
+Para remover a atribuição da função`/`de Administrador de Acesso ao Utilizador no âmbito raiz (), siga estes passos.
 
 1. Inscreva-se como o mesmo utilizador que foi usado para elevar o acesso.
 
@@ -108,7 +108,7 @@ Para remover a atribuição da função de Administrador de Acesso ao Utilizador
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Atribuição de funções de lista no âmbito raiz (/)
 
-Para listar a atribuição da função de Administrador de Acesso ao Utilizador para um utilizador no âmbito raiz (`/`), utilize o comando [Get-AzRoleAssignment.](/powershell/module/az.resources/get-azroleassignment)
+Para listar a atribuição da função de`/`Administrador de Acesso ao Utilizador para um utilizador no âmbito de raiz (), utilize o comando [Get-AzRoleAssignment.](/powershell/module/az.resources/get-azroleassignment)
 
 ```azurepowershell
 Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -129,7 +129,7 @@ CanDelegate        : False
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
-Para remover a atribuição da função de Administrador de Acesso ao Utilizador para si ou para outro utilizador no âmbito raiz (`/`), siga estes passos.
+Para remover a atribuição da função de Administrador`/`de Acesso ao Utilizador para si ou para outro utilizador no âmbito da raiz (), siga estes passos.
 
 1. Inscreva-se como utilizador que pode remover o acesso elevado. Este pode ser o mesmo utilizador que foi usado para elevar o acesso ou outro Administrador Global com acesso elevado no âmbito da raiz.
 
@@ -144,7 +144,7 @@ Para remover a atribuição da função de Administrador de Acesso ao Utilizador
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Atribuição de funções de lista no âmbito raiz (/)
 
-Para listar a atribuição da função de Administrador de Acesso ao Utilizador para um utilizador no âmbito raiz (`/`), utilize o comando da [lista de tarefas az.](/cli/azure/role/assignment#az-role-assignment-list)
+Para listar a atribuição da função de`/`Administrador de Acesso ao Utilizador para um utilizador no âmbito raiz (), utilize o comando da [lista de tarefas az.](/cli/azure/role/assignment#az-role-assignment-list)
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -170,7 +170,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
-Para remover a atribuição da função de Administrador de Acesso ao Utilizador para si ou para outro utilizador no âmbito raiz (`/`), siga estes passos.
+Para remover a atribuição da função de Administrador`/`de Acesso ao Utilizador para si ou para outro utilizador no âmbito da raiz (), siga estes passos.
 
 1. Inscreva-se como utilizador que pode remover o acesso elevado. Este pode ser o mesmo utilizador que foi usado para elevar o acesso ou outro Administrador Global com acesso elevado no âmbito da raiz.
 
@@ -186,13 +186,13 @@ Para remover a atribuição da função de Administrador de Acesso ao Utilizador
 
 Utilize os seguintes passos básicos para elevar o acesso a um Administrador Global utilizando a API REST.
 
-1. Utilização do REST, ligue `elevateAccess`, que lhe concede o papel de Administrador de Acesso ao Utilizador no âmbito raiz (`/`).
+1. Utilização do `elevateAccess`REST, ligue , que lhe concede`/`o papel de Administrador de Acesso ao Utilizador no âmbito raiz ().
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Criar uma atribuição de [funções](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer âmbito. O exemplo seguinte mostra as propriedades para atribuir a função {roleDefinitionID} no âmbito raiz (`/`):
+1. Criar uma atribuição de [funções](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer âmbito. O exemplo seguinte mostra as propriedades para atribuir a função`/`{roleDefinitionID} no âmbito raiz ():
 
    ```json
    { 
@@ -207,15 +207,15 @@ Utilize os seguintes passos básicos para elevar o acesso a um Administrador Glo
    }
    ```
 
-1. Enquanto administrador de acesso ao utilizador, também pode remover as atribuições de funções no âmbito raiz (`/`).
+1. Enquanto administrador de acesso ao utilizador, também pode`/`remover as atribuições de funções no âmbito da raiz ().
 
 1. Remova os privilégios do Administrador de Acesso ao Utilizador até que sejam necessários novamente.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>Atribuição de funções de lista no âmbito raiz (/)
 
-Pode listar todas as atribuições de funções para um utilizador no âmbito raiz (`/`).
+Pode listar todas as atribuições de funções`/`para um utilizador no âmbito raiz ().
 
-- Ligue para as [tarefas](/rest/api/authorization/roleassignments/listforscope) get onde `{objectIdOfUser}` é o ID do objeto do utilizador cujas atribuições de funções pretende recuperar.
+- Ligue para as `{objectIdOfUser}` [roleAssignments](/rest/api/authorization/roleassignments/listforscope) onde está o ID do objeto do utilizador cujas atribuições de funções pretende recuperar.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
@@ -223,9 +223,9 @@ Pode listar todas as atribuições de funções para um utilizador no âmbito ra
 
 ### <a name="list-deny-assignments-at-root-scope-"></a>Lista nega atribuições no âmbito raiz (/)
 
-Pode enumerar todas as atribuições de negação para um utilizador no âmbito raiz (`/`).
+Pode enumerar todas as atribuições de negação`/`para um utilizador no âmbito raiz ().
 
-- Ligue para o GET negarAtribuis onde `{objectIdOfUser}` é o id do objeto do utilizador cujas atribuições de negação pretende recuperar.
+- Call GET denyAssignments onde `{objectIdOfUser}` está o ID do objeto do utilizador cujas atribuições de negação que pretende recuperar.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
@@ -233,9 +233,9 @@ Pode enumerar todas as atribuições de negação para um utilizador no âmbito 
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
-Quando você chama `elevateAccess`, você cria uma atribuição de funções para si mesmo, por isso, para revogar esses privilégios, você precisa remover a atribuição de função de Administrador de Acesso ao Utilizador para si mesmo no âmbito de raiz (`/`)
+Quando ligar, `elevateAccess`cria uma atribuição de funções para si mesmo, para revogar os privilégios que`/`precisa para remover a atribuição de funções de Administrador de Acesso ao Utilizador para si mesmo no âmbito de raiz ()
 
-1. Ligue para as definições de [definições](/rest/api/authorization/roledefinitions/get) get onde `roleName` igual a Administrador de Acesso ao Utilizador para determinar o nome ID da função de Administrador de Acesso ao Utilizador.
+1. Ligue para as `roleName` definições de [funções GET Onde](/rest/api/authorization/roledefinitions/get) é igual a Administrador de Acesso ao Utilizador para determinar o nome ID da função de Administrador de Acesso ao Utilizador.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
@@ -276,18 +276,18 @@ Quando você chama `elevateAccess`, você cria uma atribuição de funções par
     }
     ```
 
-    Guarde a identificação do parâmetro `name`, neste caso `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
+    Guarde a `name` identificação do parâmetro, neste caso. `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`
 
-1. Também precisa de enumerar a atribuição de funções para o administrador de diretório no âmbito do diretório. Enumerar todas as atribuições no âmbito do diretório para o `principalId` do administrador de diretório que elegou a chamada de acesso elevado. Isto listará todas as atribuições no diretório para o objectide.
+1. Também precisa de enumerar a atribuição de funções para o administrador de diretório no âmbito do diretório. Enumerar todas as atribuições `principalId` no âmbito do diretório para o administrador de diretório que elegou a chamada de acesso elevada. Isto listará todas as atribuições no diretório para o objectide.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
         
     >[!NOTE] 
-    >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior devolver muitas atribuições, também pode consultar todas as atribuições apenas ao nível do âmbito de diretório, e depois filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior devolver muitas atribuições, também pode consultar todas as atribuições apenas ao nível do âmbito de diretório, e depois filtrar os resultados:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
             
-1. As chamadas anteriores devolvem uma lista de atribuições de papéis. Encontre a atribuição de funções onde o âmbito é `"/"` e o `roleDefinitionId` termina com o nome de identificação do papel que encontrou no passo 1 e `principalId` corresponde ao objectid do administrador de diretório. 
+1. As chamadas anteriores devolvem uma lista de atribuições de papéis. Encontre a atribuição de `"/"` funções `roleDefinitionId` onde está o âmbito e termina `principalId` com o nome de identificação do papel que encontrou no passo 1 e corresponde ao objectid do administrador de diretório. 
     
     Atribuição de funções de amostra:
     
@@ -313,9 +313,9 @@ Quando você chama `elevateAccess`, você cria uma atribuição de funções par
     }
     ```
     
-    Mais uma vez, guarde o ID do parâmetro `name`, neste caso 11111111-1111-1111-1111-1111-11111111.
+    Mais uma vez, `name` guarde o ID do parâmetro, neste caso 11111111-1111-1111-1111-1111-1111111.
 
-1. Por fim, utilize o ID de atribuição de funções para remover a atribuição adicionada por `elevateAccess`:
+1. Por fim, utilize o ID de `elevateAccess`atribuição de funções para remover a atribuição adicionada por:
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01

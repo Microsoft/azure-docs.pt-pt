@@ -1,6 +1,6 @@
 ---
-title: Bem-vindo ao aplicativo wingtips
-description: Saiba mais sobre modelos de aluguel de banco de dados e sobre o exemplo de aplicativo SaaS wingtips para o banco de dados SQL do Azure no ambiente de nuvem.
+title: Bem-vindo ao app Wingtips
+description: Saiba mais sobre os modelos de arrendamento de base de dados e sobre a amostra Apptips SaaS, para Azure SQL Database no ambiente de nuvem.
 keywords: tutorial de base de dados sql
 services: sql-database
 ms.service: sql-database
@@ -13,69 +13,69 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73818320"
 ---
-# <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip tickets SaaS
+# <a name="the-wingtip-tickets-saas-application"></a>A aplicação Wingtip Tickets SaaS
 
-O mesmo aplicativo SaaS *Wingtip tickets* é implementado em cada uma das três amostras. O aplicativo é uma lista de eventos simples e o aplicativo SaaS de tíquetes direcionando pequenos locais – teatros, paus, etc. Cada local é um locatário do aplicativo e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de tíquetes, etc.  O aplicativo, junto com os scripts e tutoriais de gerenciamento, apresenta um cenário de SaaS de ponta a ponta. Isso inclui o provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
+A mesma aplicação *Wingtip Tickets* SaaS é implementada em cada uma das três amostras. A aplicação é uma simples listagem de eventos e aplicação de bilhética SaaS direcionada a pequenos espaços - teatros, clubes, etc. Cada local é um inquilino da app, e tem os seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de bilhetes, etc.  A aplicação, juntamente com os scripts de gestão e tutoriais, apresenta um cenário SaaS de ponta a ponta. Isto inclui o fornecimento de inquilinos, monitorização e gestão do desempenho, gestão de esquemas e relatórios e análises de inquilinos transversais.
 
-## <a name="three-saas-application-and-tenancy-patterns"></a>Três padrões de aplicativo e locatário de SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>Três padrões de aplicação SaaS e arrendamento
 
-Três versões do aplicativo estão disponíveis; cada uma explora um padrão de locação de banco de dados diferente no banco de dados SQL do Azure.  O primeiro usa um aplicativo autônomo por locatário com seu próprio banco de dados. O segundo usa um aplicativo multilocatário com um banco de dados por locatário. O terceiro exemplo usa um aplicativo multilocatário com bancos de dados de vários locatários fragmentados.
+Estão disponíveis três versões da aplicação; cada um explora um padrão de arrendamento de base de dados diferente na Base de Dados Azure SQL.  O primeiro utiliza uma aplicação autónoma por inquilino com a sua própria base de dados. O segundo usa uma aplicação multi-inquilino com uma base de dados por inquilino. A terceira amostra usa uma aplicação multi-inquilino com bases de dados de multi-inquilinos.
 
-![Três padrões de locação][image-three-tenancy-patterns]
+![Três padrões de arrendamento][image-three-tenancy-patterns]
 
- Cada exemplo inclui o código do aplicativo, além de scripts de gerenciamento e tutoriais que exploram uma variedade de padrões de design e de gerenciamento.  Cada exemplo é implantado em menos de cinco minutos.  Todos os três podem ser implantados lado a lado para que você possa comparar as diferenças no design e no gerenciamento.
+ Cada amostra inclui o código de aplicação, além de scripts de gestão e tutoriais que exploram uma gama de padrões de design e gestão.  Cada amostra se desdobra em menos de cinco minutos.  Todos os três podem ser implantados lado a lado para que possa comparar as diferenças de design e gestão.
 
-## <a name="standalone-application-per-tenant-pattern"></a>Aplicativo autônomo por padrão de locatário
+## <a name="standalone-application-per-tenant-pattern"></a>Aplicação autónoma por padrão de inquilino
 
-O padrão aplicativo autônomo por locatário usa um aplicativo de locatário único com um banco de dados para cada locatário. O aplicativo de cada locatário, incluindo seu banco de dados, é implantado em um grupo de recursos do Azure separado. O grupo de recursos pode ser implantado na assinatura do provedor de serviços ou na assinatura do locatário e gerenciado pelo provedor em nome do locatário. O padrão aplicativo autônomo por locatário fornece o maior isolamento de locatário, mas normalmente é o mais caro, pois não há oportunidade de compartilhar recursos entre vários locatários.  Esse padrão é adequado para aplicativos que podem ser mais complexos e que são implantados em números menores de locatários.  Com implantações autônomas, o aplicativo pode ser personalizado para cada locatário com mais facilidade do que em outros padrões.  
+A aplicação autónoma por padrão de inquilino usa uma única aplicação de inquilino com uma base de dados para cada inquilino. A aplicação de cada inquilino, incluindo a sua base de dados, é implantada num grupo de recursos Azure separado. O grupo de recursos pode ser implantado na subscrição do prestador de serviços ou na subscrição do inquilino e gerido pelo fornecedor em nome do inquilino. A aplicação autónoma por padrão de inquilino proporciona o maior isolamento de inquilinos, mas é tipicamente a mais cara, uma vez que não há oportunidade de partilhar recursos entre vários inquilinos.  Este padrão é bem adequado para aplicações que podem ser mais complexas e que são implantadas para um menor número de inquilinos.  Com implementações autónomas, a aplicação pode ser personalizada para cada inquilino mais facilmente do que em outros padrões.  
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e código no GitHub.../Microsoft/WingtipTicketsSaa-StandaloneApp . [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa]
 
-## <a name="database-per-tenant-pattern"></a>Padrão de banco de dados por locatário
+## <a name="database-per-tenant-pattern"></a>Base de dados por padrão de inquilino
 
-O padrão de banco de dados por locatário é eficaz para provedores de serviço que se preocupam com o isolamento de locatários e desejam executar um serviço centralizado que permite o uso econômico de recursos compartilhados. Um banco de dados é criado para cada local, ou locatário, e todos os bancos são gerenciados centralmente. Os bancos de dados podem ser hospedados em pools elásticos para fornecer um gerenciamento de desempenho econômico e fácil, que aproveita os padrões de carga de trabalho imprevisíveis dos locatários. Um banco de dados de catálogo contém o mapeamento entre locatários e seus bancos de dados. Esse mapeamento é gerenciado usando os recursos de gerenciamento de mapa de fragmentos da [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), que fornece gerenciamento de conexão eficiente para o aplicativo.
+A base de dados por padrão de inquilino é eficaz para os prestadores de serviços que se preocupam com o isolamento dos inquilinos e querem executar um serviço centralizado que permita uma utilização rentável dos recursos partilhados. Uma base de dados é criada para cada local, ou inquilino, e todas as bases de dados são geridas centralmente. As bases de dados podem ser alojadas em piscinas elásticas para fornecer uma gestão de desempenho rentável e fácil, o que alavanca os padrões imprevisíveis de carga de trabalho dos inquilinos. Uma base de dados de catálogo contém o mapeamento entre os inquilinos e as suas bases de dados. Este mapeamento é gerido utilizando as funcionalidades de gestão de mapas da Biblioteca de Clientes da Base de [Dados Elástica,](sql-database-elastic-database-client-library.md)que fornece uma gestão eficiente da ligação à aplicação.
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e código no GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de banco de dados multilocatário fragmentado
+## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de base de dados de multi-inquilinos escacado
 
-Bancos de dados multilocatários são eficazes para provedores de serviço que procuram custos menores por locatário e que têm um isolamento de locatário reduzido. Esse padrão permite empacotar grandes números de locatários em um banco de dados individual, aumentando o custo por locatário. A escala quase infinita é possível com a fragmentação dos locatários em vários bancos de dados. Um banco de dados de catálogo mapeia locatários para bancos de dados.  
+As bases de dados multi-inquilinos são eficazes para os prestadores de serviços que procuram um custo mais baixo por inquilino e tudo bem com o isolamento reduzido dos inquilinos. Este padrão permite embalar um grande número de inquilinos numa base de dados individual, reduzindo o custo por inquilino. Perto da escala infinita é possível sharding os inquilinos através de várias bases de dados. Uma base de dados de catálogo mapeia inquilinos para bases de dados.  
 
-Esse padrão também permite um modelo *híbrido* no qual você pode otimizar o custo com vários locatários em um banco de dados ou otimizar o isolamento com um único locatário em seu próprio banco de dados. A escolha pode ser feita de acordo com o locatário, seja quando o locatário é provisionado ou mais tarde, sem impacto no aplicativo.  Esse modelo pode ser usado com eficiência quando grupos de locatários precisam ser tratados de forma diferente. Por exemplo, os locatários de baixo custo podem ser atribuídos a bancos de dados compartilhados, enquanto os locatários Premium podem ser atribuídos a seus próprios bancos de dados. 
+Este padrão também permite um modelo *híbrido* no qual você pode otimizar para custos com vários inquilinos em uma base de dados, ou otimizar para isolamento com um único inquilino na sua própria base de dados. A escolha pode ser feita numa base de inquilino por inquilino, quer quando o inquilino é provisionado ou posteriormente, sem qualquer impacto no pedido.  Este modelo pode ser utilizado eficazmente quando grupos de inquilinos precisam de ser tratados de forma diferente. Por exemplo, os inquilinos de baixo custo podem ser atribuídos a bases de dados partilhadas, enquanto os inquilinos premium podem ser atribuídos às suas próprias bases de dados. 
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e código no GitHub [.../Microsoft/WingtipTicketsSaa-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-#### <a name="conceptual-descriptions"></a>Descrições conceituais
+#### <a name="conceptual-descriptions"></a>Descrições conceptuais
 
-- Uma explicação mais detalhada dos padrões de locação de aplicativos está disponível em [padrões de locação de banco de dados SaaS multilocatário][saas-tenancy-app-design-patterns-md]
+- Uma explicação mais detalhada dos padrões de arrendamento de aplicação está disponível nos padrões de arrendamento de [base de dados Multi-inquilinoS SaaS][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>Tutoriais e código
 
-- Aplicativo autônomo por locatário:
-    - [Tutoriais para aplicativo autônomo][docs-tutorials-for-wingtip-sa].
-    - [Código para aplicativo autônomo, no GitHub][github-code-for-wingtip-sa].
+- App autónoma por inquilino:
+    - [Tutoriais para app autónoma.][docs-tutorials-for-wingtip-sa]
+    - [Código para aplicação autónoma, no GitHub.][github-code-for-wingtip-sa]
 
-- Banco de dados por locatário:
-    - [Tutoriais do banco de dados por locatário][docs-tutorials-for-wingtip-dpt].
-    - [Código para banco de dados por locatário, no GitHub][github-code-for-wingtip-dpt].
+- Base de dados por inquilino:
+    - [Tutoriais para base de dados por inquilino.][docs-tutorials-for-wingtip-dpt]
+    - Código para base de [dados por inquilino, no GitHub.][github-code-for-wingtip-dpt]
 
-- Multilocatário fragmentado:
-    - [Tutoriais para multilocatário fragmentado][docs-tutorials-for-wingtip-mt].
-    - [Código para multilocatário fragmentado no GitHub][github-code-for-wingtip-mt].
+- Multi-inquilino sharded:
+    - [Tutoriais para multi-inquilinos.][docs-tutorials-for-wingtip-mt]
+    - [Código para multi-inquilinos, no GitHub.][github-code-for-wingtip-mt]
 
 
 
 <!-- Image references. -->
 
-[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Três padrões de locação."
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Três padrões de arrendamento."
 
 <!-- Docs.ms.com references. -->
 

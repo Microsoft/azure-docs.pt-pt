@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77194284"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>O que é o roaming de estado empresarial?
@@ -30,10 +30,10 @@ Enterprise State Roaming está disponível em várias regiões azure. Pode encon
 
 | Artigo | Descrição |
 | --- | --- |
-| [Ativar o roaming do Estado Empresarial em Diretório Ativo Azure](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponível para qualquer organização com uma subscrição premium Azure Ative Directory (Azure AD). Para obter mais informações sobre como obter uma subscrição de AD Azure, consulte a página de [produto Azure AD.](https://azure.microsoft.com/services/active-directory) |
-| [Definições e dados que roamingFA](enterprise-state-roaming-faqs.md) |Este artigo responde a algumas questões que os administradores de TI podem ter sobre configurações e sincronização de dados de aplicações. |
+| [Ativar o Roaming de Estado Empresarial no Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming está disponível para qualquer organização com uma subscrição premium Azure Ative Directory (Azure AD). Para obter mais informações sobre como obter uma subscrição de AD Azure, consulte a página de [produto Azure AD.](https://azure.microsoft.com/services/active-directory) |
+| [FAQ de definições e roaming de dados](enterprise-state-roaming-faqs.md) |Este artigo responde a algumas questões que os administradores de TI podem ter sobre configurações e sincronização de dados de aplicações. |
 | [Política de grupo e definições de MDM para sincronização de configurações](enterprise-state-roaming-group-policy-settings.md) |O Windows 10 fornece definições de política de política de grupo e de gestão de dispositivos móveis (MDM) para limitar a sincronização de configurações. |
-| [Referência de definições de roaming do Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Uma lista de definições que serão vagueadas e/ou apoiadas no Windows 10. |
+| [Referência das definições de roaming do Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Uma lista de definições que serão vagueadas e/ou apoiadas no Windows 10. |
 | [Resolução de problemas](enterprise-state-roaming-troubleshooting.md) |Este artigo passa por alguns passos básicos para resolução de problemas, e contém uma lista de questões conhecidas. |
 
 ## <a name="next-steps"></a>Passos seguintes

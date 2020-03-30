@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
 ms.openlocfilehash: e7cde3ca47afd4db072b734c797a42ecd5a053aa
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79136804"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
@@ -49,20 +49,20 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 |  |  |
 | --- | --- |
-| [**Deteção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Instale alertas automáticos que se adaptem aos padrões normais de telemetria da sua aplicação e disparem quando há algo fora do padrão habitual. Também pode [definir alertas](../../azure-monitor/app/alerts.md) em níveis específicos de métricas personalizadas ou standard. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
+| [**Deteção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Instale alertas automáticos que se adaptem aos padrões normais de telemetria da sua aplicação e disparem quando há algo fora do padrão habitual. Também pode [definir alertas](../../azure-monitor/app/alerts.md) em determinados níveis de métricas personalizadas ou padrão. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Application map**](../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)<br/>Explore os componentes da sua aplicação, com métricas e alertas fundamentais. |![Mapeamento de aplicações](./media/app-insights-overview/appmap-tn.png)  |
-| [**Gerador de perfis**](../../azure-monitor/app/profiler.md)<br/>Verifique os perfis de execução de amostras de pedidos. |![Gerador de perfis](./media/app-insights-overview/profiler.png) |
+| [**Perfil**](../../azure-monitor/app/profiler.md)<br/>Verifique os perfis de execução de amostras de pedidos. |![Gerador de perfis](./media/app-insights-overview/profiler.png) |
 | [**Análise de utilização**](../../azure-monitor/app/usage-overview.md)<br/>Analise a retenção e a segmentação do utilizador.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](../../azure-monitor/app/diagnostic-search.md) (Pesquisa de diagnósticos para dados de instâncias)<br/>Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.  |![Pesquisar telemetria](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer for aggregated data**](../../azure-monitor/app/metrics-explorer.md) (Explorador de Métricas para dados agregados)<br/>Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](../../azure-monitor/app/overview-dashboard.md)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](../../azure-monitor/app/live-stream.md) (Fluxo de Métricas em Direto)<br/>Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado. |![Exemplo de métricas em direto](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](../../azure-monitor/app/analytics.md) (Análise)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
+| [**Análise**](../../azure-monitor/app/analytics.md)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Depurador de instantâneos**](../../azure-monitor/app/snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
-| [**REST API**](https://dev.applicationinsights.io/) (API REST)<br/>Escreva código para executar consultas nas métricas e nos dados não processados.| ![API REST](./media/app-insights-overview/rest-tn.png) |
-| [**Continuous export**](../../azure-monitor/app/export-telemetry.md) (Exportação contínua)<br/>Exportação em massa de dados não processados para armazenamento, assim que são recebidos. |![Exportar](./media/app-insights-overview/export-tn.png) |
+| [**REST API**](https://dev.applicationinsights.io/)<br/>Escreva código para executar consultas nas métricas e nos dados não processados.| ![API REST](./media/app-insights-overview/rest-tn.png) |
+| [**Exportação contínua**](../../azure-monitor/app/export-telemetry.md)<br/>Exportação em massa de dados não processados para armazenamento, assim que são recebidos. |![Exportar](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Como posso utilizar o Application Insights?
 
@@ -81,7 +81,7 @@ Quando receber um alerta ou detetar um problema:
 * Examine o gerador de perfis, instantâneos, rastreios de pilha e registos de rastreio.
 
 ### <a name="build-measure-learn"></a>Compilar, Medir, Aprender
-[Meça a eficácia](../../azure-monitor/app/usage-overview.md) de cada funcionalidade nova que implementar.
+[Meça a eficácia](../../azure-monitor/app/usage-overview.md) de cada nova funcionalidade que implementa.
 
 * Planeie medir a forma como os clientes utilizam o UX ou as funcionalidades empresariais.
 * Escreva telemetria personalizada no seu código.
@@ -101,8 +101,8 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [aplicações centrais ASP.NET](../../azure-monitor/app/asp-net-core.md)
   * [.NET Aplicações de consola](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node.js](../../azure-monitor/app/nodejs.md)
-  * [python](../../azure-monitor/app/opencensus-python.md)
+  * [Nó.js](../../azure-monitor/app/nodejs.md)
+  * [Pitão](../../azure-monitor/app/opencensus-python.md)
   * [Outras plataformas](../../azure-monitor/app/platforms.md)
 * **[Instrumente as suas páginas web](../../azure-monitor/app/javascript.md)** para visualização de página, AJAX e outra telemetria do lado do cliente.
 * **[Analise a utilização da aplicação móvel](../../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
@@ -118,16 +118,16 @@ Introdução ao tempo de execução com:
 Introdução no momento de programação com:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [python](../../azure-monitor/app/opencensus-python.md)
+* [Nó.js](../../azure-monitor/app/nodejs.md)
+* [Pitão](../../azure-monitor/app/opencensus-python.md)
 
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 * Perguntas e Problemas:
   * [Resolução de problemas][qna]
-  * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * As suas sugestões:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

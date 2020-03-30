@@ -1,18 +1,18 @@
 ---
 title: Configure LVM em uma máquina virtual executando Linux
 description: Saiba como configurar lvm em Linux em Azure.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: mimckitt
+ms.author: guybo
 ms.subservice: disks
-ms.openlocfilehash: 781ff1e6bda655ebd60d86e19375dcb6da051039
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 7f560a1e6266b5f2452bf9442d2d4c983de1236e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969733"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066801"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configure LVM em um Linux VM em Azure
 Este documento irá discutir como configurar o Gestor de Volume Lógico (LVM) na sua máquina virtual Azure. O LVM pode ser utilizado no disco OS ou nos discos de dados em VMs Azure, no entanto, por padrão, a maioria das imagens em nuvem não terá LVM configurado no disco OS. Os passos abaixo concentrar-se-ão na configuração do LVM para os seus discos de dados.
@@ -33,7 +33,7 @@ Normalmente, um deles vai querer começar com dois ou mais discos de dados vazio
     sudo apt-get install lvm2
     ```
 
-* **RHEL, CentOS e Oracle Linux**
+* **RHEL, CentOS & Oracle Linux**
 
     ```bash   
     sudo yum install lvm2
@@ -51,14 +51,14 @@ Normalmente, um deles vai querer começar com dois ou mais discos de dados vazio
     sudo zypper install lvm2
     ```
 
-    No SLES11, deve também editar `/etc/sysconfig/lvm` e definir `LVM_ACTIVATED_ON_DISCOVERED` para "ativar":
+    No SLES11, deve `/etc/sysconfig/lvm` também `LVM_ACTIVATED_ON_DISCOVERED` editar e definir para "ativar":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>Configurar LVM
-Neste guia assumimos que anexou três discos de dados, a que nos referiremos como `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Estes caminhos podem não coincidir com os nomes do caminho do disco no seu VM. Pode executar '`sudo fdisk -l`' ou comando semelhante para listar os seus discos disponíveis.
+Neste guia assumimos que anexou três discos de dados, `/dev/sdc`a `/dev/sdd` `/dev/sde`que nos referiremos como , e . Estes caminhos podem não coincidir com os nomes do caminho do disco no seu VM. Pode executar`sudo fdisk -l`' ou comando semelhante para listar os seus discos disponíveis.
 
 1. Preparar os volumes físicos:
 
@@ -69,14 +69,14 @@ Neste guia assumimos que anexou três discos de dados, a que nos referiremos com
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Criar um grupo de volume. Neste exemplo, chamamos o grupo de volume `data-vg01`:
+2. Criar um grupo de volume. Neste exemplo, chamamos o `data-vg01`grupo de volume:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Criar os volumes lógicos. O comando abaixo criaremos um único volume lógico chamado `data-lv01` abranger todo o grupo de volume, mas note que também é viável criar múltiplos volumes lógicos no grupo de volume.
+3. Criar os volumes lógicos. O comando abaixo criaremos um `data-lv01` único volume lógico chamado para abranger todo o grupo de volume, mas note que também é viável criar múltiplos volumes lógicos no grupo de volume.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
@@ -90,11 +90,11 @@ Neste guia assumimos que anexou três discos de dados, a que nos referiremos com
     ```
    
    > [!NOTE]
-   > Com o SLES11 use `-t ext3` em vez de ext4. O SLES11 apenas suporta o acesso apenas a sistemas de ficheiros ext4.
+   > Com o uso `-t ext3` sles11 em vez de ext4. O SLES11 apenas suporta o acesso apenas a sistemas de ficheiros ext4.
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Adicione o novo sistema de ficheiros a /etc/fstab
 > [!IMPORTANT]
-> A edição indevida do ficheiro `/etc/fstab` pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro `/etc/fstab` antes da edição.
+> A edição imprópria do ficheiro `/etc/fstab` poderá resultar num sistema não inicializável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja `/etc/fstab` criada uma cópia de segurança do ficheiro antes da edição.
 
 1. Crie o ponto de montagem desejado para o seu novo sistema de ficheiros, por exemplo:
 
@@ -116,17 +116,17 @@ Neste guia assumimos que anexou três discos de dados, a que nos referiremos com
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Então, salve e feche `/etc/fstab`.
+    Então, poupe `/etc/fstab`e feche.
 
-4. Teste se a entrada `/etc/fstab` está correta:
+4. Teste se `/etc/fstab` a entrada está correta:
 
     ```bash    
     sudo mount -a
     ```
 
-    Se este comando resultar numa mensagem de erro, verifique a sintaxe no ficheiro `/etc/fstab`.
+    Se este comando resultar numa mensagem de erro, verifique a sintaxe no `/etc/fstab` ficheiro.
    
-    Em seguida, executar o comando `mount` para garantir que o sistema de ficheiros está montado:
+    Em seguida, executar o `mount` comando para garantir que o sistema de ficheiros está montado:
 
     ```bash    
     mount
@@ -134,9 +134,9 @@ Neste guia assumimos que anexou três discos de dados, a que nos referiremos com
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Opcional) Parâmetros de arranque de segurança em `/etc/fstab`
+5. (Opcional) Parâmetros de arranque de falha em`/etc/fstab`
    
-    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao ficheiro `/etc/fstab`. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
+    Muitas distribuições `nobootwait` incluem os parâmetros ou `nofail` `/etc/fstab` montagem que podem ser adicionados ao ficheiro. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -149,13 +149,13 @@ Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não
 
 Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-- Utilize a opção `discard` montagem em `/etc/fstab`, por exemplo:
+- Utilize `discard` a opção montagem em, `/etc/fstab`por exemplo:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
+- Em alguns `discard` casos, a opção pode ter implicações no desempenho. Em alternativa, pode `fstrim` executar o comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
 
     **Ubuntu**
 
@@ -164,7 +164,7 @@ Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume,
     # sudo fstrim /datadrive
     ```
 
-    **RHEL, CentOS e Oracle Linux**
+    **RHEL, CentOS & Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

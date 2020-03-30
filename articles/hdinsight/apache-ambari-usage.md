@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77067399"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilização de Apache Ambari em Azure HDInsight
@@ -24,7 +24,7 @@ Toda a configuração do cluster deve ser feita através do [Ambari UI,](./hdins
 
 O controlador de failover HDInsight também é responsável pela atualização do endereço IP do anfitrião do headnode, que aponta para o nó de cabeça ativo atual. Todos os agentes ambari estão configurados para reportar o seu estado e batimento cardíaco ao anfitrião do nó de cabeça. O controlador failover é um conjunto de serviços em execução em todos os nós do cluster, se não estiverem em execução, o headnode failover pode não funcionar corretamente e você vai acabar com HTTP 502 ao tentar aceder ao servidor Ambari.
 
-Para verificar qual o nódoactivo ativo, uma maneira é ssh a um dos nós do cluster, em seguida, executar `ping headnodehost` e comparar o IP com o dos dois nódosos.
+Para verificar qual o nódoactivo ativo, uma maneira é ssh a um `ping headnodehost` dos nós do cluster, em seguida, executar e comparar o IP com o dos dois nódosos.
 
 Se os serviços de controlador failover não estiverem em execução, a falha do nó de cabeça pode não acontecer corretamente, o que pode acabar por não executar o servidor Ambari. Para verificar se os serviços de controlador de failover estão em execução, execute:
 
@@ -68,13 +68,13 @@ Nunca modifique manualmente quaisquer ficheiros de configuração em qualquer n�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
+* [Gerir clusters do HDInsight através da IU da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Gerir os clusters HDInsight utilizando a API De REPOUSO Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
 * Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

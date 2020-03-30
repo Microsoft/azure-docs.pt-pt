@@ -1,6 +1,6 @@
 ---
-title: Conectando o Azure a nuvens públicas | Microsoft Docs
-description: Descrever várias maneiras de conectar o Azure a outras nuvens públicas
+title: Ligando Azure às nuvens públicas [ Microsoft Docs
+description: Descreva várias formas de ligar Azure a outras nuvens públicas
 services: expressroute
 author: osamazia
 ms.service: expressroute
@@ -8,60 +8,60 @@ ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
 ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889632"
 ---
-# <a name="connecting-azure-with-public-clouds"></a>Conectando o Azure com nuvens públicas
+# <a name="connecting-azure-with-public-clouds"></a>Conectando Azure com nuvens públicas
 
-Muitas empresas estão buscando uma estratégia de várias nuvens devido a objetivos comerciais e técnicos. Isso inclui custo, flexibilidade, disponibilidade de recursos, redundância, soberania de dados, etc. Essa estratégia ajuda a aproveitar melhor as duas nuvens. 
+Muitas empresas estão a seguir uma estratégia multi-nuvem devido a objetivos empresariais e técnicos. Estes incluem custos, flexibilidade, disponibilidade de recursos, redundância, soberania de dados, etc. Esta estratégia ajuda-os a alavancar o melhor de ambas as nuvens. 
 
-Essa abordagem também apresenta os desafios para a empresa em termos de arquitetura de rede e de aplicativos. Alguns desses desafios são latência e taxa de transferência de dados. Para resolver esses desafios, os clientes estão procurando se conectar a várias nuvens diretamente. Alguns provedores de serviços fornecem uma solução para conectar vários provedores de nuvem para os clientes. Em outros casos, o cliente pode implantar seu próprio roteador para conectar várias nuvens públicas.
+Esta abordagem também coloca desafios para a empresa em termos de arquitetura de rede e aplicação. Alguns destes desafios são a latência e a entrada de dados. Para responder a estes desafios, os clientes procuram ligar-se diretamente a várias nuvens. Alguns prestadores de serviços fornecem uma solução para ligar vários fornecedores de nuvem para os clientes. Noutros casos, o cliente pode implementar o seu próprio router para ligar várias nuvens públicas.
 ## <a name="connectivity-via-expressroute"></a>Conectividade via ExpressRoute
-O ExpressRoute permite que os clientes estendam suas redes locais para a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, os clientes podem estabelecer conexões com os serviços de nuvem da Microsoft.
+O ExpressRoute permite que os clientes alarguem as suas redes no local para a nuvem da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, os clientes podem estabelecer ligações aos serviços de cloud da Microsoft.
 
-Há três maneiras de se conectar por meio do ExpressRoute.
+Existem três formas de ligar via ExpressRoute.
 
-1. Provedor de Layer3
-2. Provedor de Layer2
+1. Fornecedor de camada3
+2. Fornecedor de camada2
 3. Ligação direta
 
-### <a name="layer3-provider"></a>Provedor de Layer3
+### <a name="layer3-provider"></a>Fornecedor de Camada3
 
-Provedores de Layer3 são comumente conhecidos como provedores IP VPN ou MPLS VPN. Os clientes aproveitam esses provedores para conectividade do MultiPoint entre seus data centers, branches e a nuvem. Os clientes se conectam ao provedor L3 via BGP ou via rota padrão estática. O provedor de serviços anuncia as rotas entre os sites do cliente, os data centers e a nuvem pública. 
+Os fornecedores de camada3 são vulgarmente conhecidos como fornecedores IP VPN ou MPLS VPN. Os clientes aproveitam estes fornecedores para uma conectividade multiponto entre os seus centros de dados, sucursais e a nuvem. Os clientes ligam-se ao fornecedor L3 via BGP ou através de uma rota estática por defeito. O prestador de serviços anuncia rotas entre os sites de clientes, datacenters e nuvem pública. 
  
-Ao conectar-se por meio do provedor Layer3, a Microsoft anunciará as rotas de VNET do cliente para o provedor de serviços por BGP. O provedor pode ter duas implementações diferentes.
+Ao ligar-se através do fornecedor Layer3, a Microsoft irá anunciar as rotas VNET do cliente para o fornecedor de serviços através do BGP. O fornecedor pode ter duas implementações diferentes.
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-O provedor poderá ser a aterrissagem de cada provedor de nuvem em um VRF separado, se o tráfego de todos os provedores de nuvem for alcançado no roteador do cliente. Se o cliente estiver executando o BGP com o provedor de serviços, essas rotas serão anunciadas novamente para outros provedores de nuvem por padrão. 
+O fornecedor pode estar a aterrar cada fornecedor de nuvem num VRF separado, se o tráfego de todos os fornecedores de nuvem chegar ao router do cliente. Se o cliente estiver a executar o BGP com o prestador de serviços, então estas rotas serão republicitadas a outros fornecedores de nuvem por padrão. 
 
-Se o provedor de serviços for aterrissar todos os provedores de nuvem no mesmo VRF, as rotas serão anunciadas para outros provedores de nuvem diretamente do provedor de serviços. Isso está assumindo uma operação BGP padrão em que as rotas eBGP são anunciadas para outros vizinhos eBGP por padrão.
+Se o prestador de serviços estiver a desembarcar todos os fornecedores de nuvem no mesmo VRF, então as rotas serão publicitadas diretamente a outros fornecedores de nuvem do prestador de serviços. Isto está assumindo a operação padrão de BGP onde as rotas do EBGP são publicitadas a outros vizinhos do EBGP por padrão.
 
-Cada nuvem pública tem um limite de prefixo diferente, assim, enquanto a distribuição do provedor de serviços de rotas deve ter cuidado ao distribuir as rotas.
+Cada nuvem pública tem um limite de prefixo diferente, pelo que, ao mesmo tempo que distribui as rotas, o prestador de serviços deve ter cuidado na distribuição das rotas.
 
-### <a name="layer2-provider-and-direct-connection"></a>Provedor Layer2 e conexão direta
+### <a name="layer2-provider-and-direct-connection"></a>Fornecedor de Camada2 e conexão direta
 
-Embora a conectividade física em ambos os modelos seja diferente, mas em Layer3 BGP é estabelecida diretamente entre MSEE e o roteador do cliente. Para o cliente do ExpressRoute Direct, conecta-se diretamente ao MSEE. No caso do Layer2, o provedor de serviços estende a VLAN do local do cliente para a nuvem. Os clientes executam o BGP no topo da rede layer2 para conectar seus DCs à nuvem.
+Embora a conectividade física em ambos os modelos seja diferente, mas em camada3 BGP é estabelecido diretamente entre o MSEE e o router do cliente. Para o ExpressRoute Direct o cliente liga-se diretamente ao MSEE. Enquanto no caso da Layer2, o prestador de serviços estende a VLAN das instalações do cliente para a nuvem. Os clientes executam o BGP em cima da rede de camada2 para ligar os seus DCs à nuvem.
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
-Em ambos os casos, o cliente terá conexões ponto a ponto para cada uma das nuvens públicas. O cliente estabelecerá uma conexão BGP separada para cada nuvem pública. As rotas recebidas por um provedor de nuvem serão anunciadas para outro provedor de nuvem por padrão. Cada provedor de nuvem tem um limite de prefixo diferente, portanto, ao anunciar as rotas, o cliente deve cuidar desses limites. O cliente pode usar os botões de BGP usuais com a Microsoft ao anunciar rotas de outras nuvens públicas.
+Em ambos os casos, o cliente terá ligações ponto-a-ponto a cada uma das nuvens públicas. O cliente estabelecerá uma ligação BGP separada a cada nuvem pública. As rotas recebidas por um fornecedor de nuvem serão publicitadas a outro fornecedor de nuvem por padrão. Cada fornecedor de nuvem tem um limite de prefixo diferente, por isso, ao publicitar as rotas, o cliente deve cuidar destes limites. O cliente pode usar os botões BGP habituais com a Microsoft enquanto publicita rotas de outras nuvens públicas.
 
-## <a name="direct-connection-with-expressroute"></a>Conexão direta com o ExpressRoute
+## <a name="direct-connection-with-expressroute"></a>Ligação direta com expressRoute
 
-Os clientes podem optar por conectar o ExpressRoute diretamente à oferta de conectividade direta do provedor de nuvem. Dois provedores de nuvem serão conectados de volta para trás e o BGP será estabelecido diretamente entre seus roteadores. Esse tipo de conexão está disponível com o Oracle hoje.
+Os clientes podem optar por ligar o ExpressRoute diretamente à oferta direta de conectividade do fornecedor de nuvem. Dois fornecedores de nuvem serão ligados de volta para trás e o BGP será estabelecido diretamente entre os seus routers. Este tipo de ligação está disponível com a Oracle hoje.
 
 ## <a name="site-to-site-vpn"></a>VPN site a site
 
-Os clientes podem aproveitar a Internet para conectar suas instâncias no Azure com outras nuvens públicas. Quase todos os provedores de nuvem oferecem recursos de VPN site a site. No entanto, pode haver incompatibilidades devido à falta de determinadas variantes. Por exemplo, alguns provedores de nuvem dão suporte apenas a IKEv1, portanto, há um ponto de extremidade de terminação de VPN necessário nessa nuvem. Para os provedores de nuvem que dão suporte a IKEv2, um túnel direto pode ser estabelecido entre gateways de VPN em ambos os provedores de nuvem.
+Os clientes podem aproveitar a Internet para ligar os seus casos em Azure a outras nuvens públicas. Quase todos os fornecedores de nuvem oferecem capacidades VPN site-to-site. No entanto, pode haver incompatibilidades por falta de certas variantes. Por exemplo, alguns fornecedores de nuvem apenas suportam o IKEv1, pelo que existe um ponto final de rescisão VPN necessário nessa nuvem. Para os fornecedores de nuvem que suportam o IKEv2, pode ser estabelecido um túnel direto entre gateways VPN em ambos os fornecedores de nuvem.
 
-A VPN site a site não é considerada uma solução de alta taxa de transferência e baixa latência. No entanto, ele pode ser usado como um backup para conectividade física.
+A VPN do site-a-site não é considerada uma solução de alta entrada e baixa latência. No entanto, pode ser usado como um backup para a conectividade física.
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte [perguntas frequentes sobre o expressroute][ER-FAQ] para obter mais perguntas sobre o expressroute e a conectividade de rede virtual.
+Consulte o [ExpressRoute FAQ][ER-FAQ] para mais questões sobre expressRoute e conectividade de rede virtual.
 
-Consulte [Configurar a conexão direta entre o Azure e o Oracle Cloud][ER-OCI] para conectividade entre o Azure e o Oracle
+Consulte [A ligação direta entre Azure e Oracle Cloud][ER-OCI] para conectividade entre Azure e Oráculo
 
 <!--Link References-->
 [ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs

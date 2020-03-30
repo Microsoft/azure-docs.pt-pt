@@ -18,17 +18,17 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085600"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas utilizando MSAL para iOS e macOS
 
 O OpenID Connect permite-lhe solicitar opcionalmente a devolução de reclamações individuais do Ponto final do UserInfo e/ou no Id Token. Um pedido de reclamações é representado como um objeto JSON que contém uma lista de reclamações solicitadas. Consulte [o OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obter mais detalhes.
 
-A Microsoft Authentication Library (MSAL) para iOS e macOS permite solicitar reclamações específicas em cenários de aquisição interativos e silenciosos. Fá-lo através do parâmetro `claimsRequest`.
+A Microsoft Authentication Library (MSAL) para iOS e macOS permite solicitar reclamações específicas em cenários de aquisição interativos e silenciosos. Fá-lo através `claimsRequest` do parâmetro.
 
 Há vários cenários em que isto é necessário. Por exemplo:
 
@@ -36,9 +36,9 @@ Há vários cenários em que isto é necessário. Por exemplo:
 - Solicitando combinações específicas das alegações padrão que não podem ser especificadas utilizando âmbitos para a sua aplicação. Por exemplo, se um token de acesso for rejeitado devido a reclamações em falta, o pedido pode solicitar as reclamações em falta usando mSAL.
 
 > [!NOTE]
-> A MSAL ignora a cache de acesso a qualquer que seja especificado um pedido de reclamações. É importante fornecer apenas `claimsRequest` parâmetro quando são necessárias reclamações adicionais (em oposição a fornecer sempre o mesmo parâmetro de `claimsRequest` em cada chamada da API MSAL).
+> A MSAL ignora a cache de acesso a qualquer que seja especificado um pedido de reclamações. É importante apenas `claimsRequest` fornecer parâmetro quando são necessárias reclamações adicionais `claimsRequest` (em oposição a fornecer sempre o mesmo parâmetro em cada chamada da API MSAL).
 
-`claimsRequest` pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
+`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e: `MSALInteractiveTokenParameters`
 
 ```objc
 /*!
@@ -54,7 +54,7 @@ Há vários cenários em que isto é necessário. Por exemplo:
 
 @end
 ```
-`MSALClaimsRequest` pode ser construída a partir de uma representação NSString do pedido de reclamações da JSON. 
+`MSALClaimsRequest`pode ser construído a partir de uma representação NSString do pedido de reclamações da JSON. 
 
 Objetivo C:
 
@@ -103,7 +103,7 @@ do {
 
 
 
-`MSALClaimsRequest` devem ser definidos nos parâmetros simbólicos e fornecidos a uma das aquisições de token sancionadas da MSAL:
+`MSALClaimsRequest`devem então ser fixados nos parâmetros simbólicos e fornecidos a uma das aquisições de token sancionadas da MSAL:
 
 Objetivo C:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
 ms.openlocfilehash: 66396de52b3709c1d9357f32a375a29a8dcdbd1d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048740"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação de coluna derivada no fluxo de dados de mapeamento
@@ -57,13 +57,13 @@ Para obter mais informações sobre o manuseamento de tipos complexos no fluxo d
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma coluna derivada chamada `CleanData` que leva um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` pelo valor do Rating como um tipo inteiro. A segunda coluna derivada é um padrão que combina com cada coluna cujo nome começa com 'filmes'. Para cada coluna compatível, cria uma coluna `movie` igual ao valor da coluna correspondida pré-fixada com 'movie_'. 
+O exemplo abaixo é uma `CleanData` coluna derivada `MoviesYear` chamada que pega num fluxo de entrada e cria duas colunas derivadas. A primeira coluna derivada `Rating` substitui a coluna pelo valor do Rating como um tipo inteiro. A segunda coluna derivada é um padrão que combina com cada coluna cujo nome começa com 'filmes'. Para cada coluna compatível, cria `movie` uma coluna igual ao valor da coluna correspondida pré-fixada com 'movie_'. 
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 
 ![Exemplo de derivar](media/data-flow/derive-script1.png "Exemplo de derivar")
 
-O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+O script de fluxo de dados para esta transformação está no corte abaixo:
 
 ```
 MoviesYear derive(

@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241697"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM para o serviço de provisionamento de dispositivos IoT Hub utilizando o Java Service SDK
@@ -29,7 +29,7 @@ Neste arranque rápido, cria programáticamente uma inscrição individual para 
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Kit](https://aka.ms/azure-jdks)de Desenvolvimento Java SE 8 . Este quickstart instala o [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) abaixo. Funciona tanto no Windows como no Linux. Este arranque rápido utiliza o Windows.
 - [Maven 3.](https://maven.apache.org/download.cgi)
-- [Git](https://git-scm.com/download/).
+- [Git.](https://git-scm.com/download/)
 
 <a id="setupdevbox"></a>
 
@@ -68,16 +68,16 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
+2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
 
    1. Adicione `[Provisioning Connection String]` para o seu serviço de aprovisionamento, a partir do portal da seguinte forma:
-       1. Navegue até ao serviço de aprovisionamento no [portal do Azure](https://portal.azure.com). 
+       1. Navegue para o seu serviço de provisionamento no [portal Azure.](https://portal.azure.com) 
        2. Abra as **Políticas de acesso partilhado** e selecione uma política que tenha a permissão *EnrollmentWrite*.
        3. Copie a **Cadeia de ligação da chave primária**. 
 
            ![Obter a cadeia de ligação de aprovisionamento a partir do portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-       4. No ficheiro de código de exemplo **_ServiceEnrollmentSample.java_** , substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
+       4. No ficheiro de código de exemplo **_ServiceEnrollmentSample.java_**, substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
     
            ```Java
            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -85,7 +85,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
    2. Adicione os detalhes do dispositivo TPM:
        1. Obtenha o *ID de Registo* e a *chave de endossamento de TPM* para uma simulação de dispositivo TPM, seguindo os passos que levam à secção [Simular dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
-       2. Utilize o **_ID de Registo_** e a **_Chave de endossamento_** da saída do passo anterior, para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no ficheiro de código de exemplo **_ServiceEnrollmentSample.java_** :
+       2. Utilize o **_ID de Registo_** e a **_Chave de endossamento_** da saída do passo anterior, para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no ficheiro de código de exemplo **_ServiceEnrollmentSample.java_**:
         
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
@@ -122,7 +122,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
 ## <a name="build-and-run-the-java-sample-code"></a>Compilar e executar o código de exemplo de Java
 
-1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** .
+1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**.
 
 2. Compile o código de exemplo, utilizando este comando:
 
@@ -130,7 +130,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
     mvn install -DskipTests
     ```
 
-   Este comando transfere o pacote Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Este pacote inclui os binários para o [Java Service SDK,](https://azure.github.io/azure-iot-sdk-java/service/)que o código de amostra precisa de ser construído. 
+   Este comando transfere o [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) pacote Maven para a sua máquina. Este pacote inclui os binários para o [Java Service SDK,](https://azure.github.io/azure-iot-sdk-java/service/)que o código de amostra precisa de ser construído. 
 
 3. Execute o exemplo, utilizando estes comandos na janela de comando:
 
@@ -141,7 +141,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
 4. Observe a janela de saída para ver se a inscrição foi executada com êxito. 
 
-5. Navegue até ao serviço de aprovisionamento no portal do Azure. Selecione **Gerir as matrículas**e selecione o separador **Individual Registration.** 
+5. Navegue até ao serviço de aprovisionamento no portal do Azure. Selecione **Gerir as matrículas**e selecione *Registration ID* o separador **Individual Registration.** 
 
     ![Verificar a inscrição do TPM com êxito no portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -150,9 +150,9 @@ Se planeia explorar a amostra de serviço java, não limpe os recursos criados n
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do simulador TPM que pode ter criado para simular o seu dispositivo TPM.
-1. Navegue para o seu serviço de provisionamento de dispositivos no portal Azure, selecione Gerir **as matrículas,** e depois selecione o separador **Individual Registration.**
+1. Navegue para o seu serviço de provisionamento de dispositivos no portal Azure, selecione Gerir *Registration ID* **as matrículas,** e depois selecione o **Delete** separador **Individual Registration.**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, inscreveu um dispositivo TPM simulado no seu serviço de fornecimento de dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]

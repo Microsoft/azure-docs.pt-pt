@@ -15,10 +15,10 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484507"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
@@ -32,7 +32,7 @@ O consentimento é o processo de um utilizador que concede autorização a uma a
 A experiência real do utilizador em conceder o consentimento diferirá consoante as políticas definidas no inquilino do utilizador, no âmbito de autoridade (ou função) do utilizador e no tipo de [permissões solicitadas](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) pela aplicação do cliente. Isto significa que os desenvolvedores de aplicações e os administradores de inquilinos têm algum controlo sobre a experiência de consentimento. Os administradores têm a flexibilidade de definir e desativar políticas num inquilino ou app para controlar a experiência de consentimento no seu inquilino. Os desenvolvedores de aplicações podem ditar que tipos de permissões estão a ser solicitadas e se quiserem orientar os utilizadores através do fluxo de consentimento do utilizador ou do fluxo de consentimento do administrador.
 
 - **O fluxo de consentimento** do utilizador é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final da autorização com a intenção de registar o consentimento apenas para o utilizador atual.
-- **O fluxo de consentimento** da Administração é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final do consentimento do administrador com a intenção de registar o consentimento para todo o inquilino. Para garantir que o fluxo de consentimento da administração funciona corretamente, os desenvolvedores de aplicações devem listar todas as permissões na propriedade `RequiredResourceAccess` no manifesto de aplicação. Para mais informações, consulte [O manifesto da Aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- **O fluxo de consentimento** da Administração é quando um desenvolvedor de aplicações direciona os utilizadores para o ponto final do consentimento do administrador com a intenção de registar o consentimento para todo o inquilino. Para garantir que o fluxo de consentimento da administração funciona `RequiredResourceAccess` corretamente, os desenvolvedores de aplicações devem listar todas as permissões na propriedade no manifesto de aplicação. Para mais informações, consulte [O manifesto da Aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Blocos de construção do pedido de consentimento
 
@@ -46,7 +46,7 @@ O diagrama e a tabela seguintes fornecem informações sobre os blocos de constr
 | ----- | ----- | ----- |
 | 1 | Identificador de utilizador | Este identificador representa o utilizador que a aplicação do cliente está a solicitar para aceder a recursos protegidos em nome de. |
 | 2 | Título | O título muda com base no facto de os utilizadores estarem a passar pelo fluxo de consentimento do utilizador ou do administrador. No fluxo de consentimento do utilizador, o título será "Permissões solicitadas" enquanto no fluxo de consentimento da administração o título terá uma linha adicional "Aceitar para a sua organização". |
-| 3 | Logotipo da aplicação | Esta imagem deve ajudar os utilizadores a ter uma pista visual sobre se esta aplicação é a app a que pretendiam aceder. Esta imagem é fornecida por desenvolvedores de aplicações e a propriedade desta imagem não é validada. |
+| 3 | Logótipo da aplicação | Esta imagem deve ajudar os utilizadores a ter uma pista visual sobre se esta aplicação é a app a que pretendiam aceder. Esta imagem é fornecida por desenvolvedores de aplicações e a propriedade desta imagem não é validada. |
 | 4 | Nome da aplicação | Este valor deve informar os utilizadores de qual aplicação está a solicitar o acesso aos seus dados. Note que este nome é fornecido pelos desenvolvedores e a propriedade deste nome da aplicação não é validada. |
 | 5 | Domínio de publicador | Este valor deve fornecer aos utilizadores um domínio que possam avaliar para fiabilidade. Este domínio é fornecido pelos desenvolvedores e a propriedade deste domínio de editor é validada. |
 | 6 | Permissões | Esta lista contém as permissões que estão a ser solicitadas pelo pedido do cliente. Os utilizadores devem sempre avaliar os tipos de permissões que estão a ser solicitadas para perceber quais os dados que a aplicação do cliente será autorizada a aceder em seu nome se aceitarem. Como desenvolvedor de aplicações, o melhor é solicitar acesso às permissões com menos privilégios. |
@@ -81,7 +81,7 @@ Aqui estão as experiências de consentimento que um utilizador pode ver nos cen
         
     1. Os utilizadores não administrativos verão o mesmo ecrã que 2.ii mostrado acima.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Obtenha uma visão geral passo a passo de como o quadro de [consentimento da AD Azure implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para obter mais profundidade, saiba [como uma aplicação multi-arrendatária pode usar o quadro de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento de "utilizador" e "administrador", suportando padrões de aplicação multi-nível mais avançados.
 - Saiba [como configurar o domínio de editor da aplicação.](howto-configure-publisher-domain.md)

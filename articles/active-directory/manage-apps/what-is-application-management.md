@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77063327"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Microsoft Azure Active Directory
@@ -43,7 +43,7 @@ Existem quatro tipos principais de aplicações que pode adicionar às suas **ap
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Gerir o risco com políticas de Acesso Condicional
 
-Acoplamento de um único sinal de Acesso [](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) (SSO) azure acessar proporciona elevados níveis de segurança para aceder a aplicações. As capacidades de segurança incluem proteção de identidade em escala em nuvem, controlo de acesso baseado em risco, autenticação de vários fatores nativos e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
+Acoplamento de um único sinal de Acesso [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) (SSO) azure acessar proporciona elevados níveis de segurança para aceder a aplicações. As capacidades de segurança incluem proteção de identidade em escala em nuvem, controlo de acesso baseado em risco, autenticação de vários fatores nativos e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Aumentar a produtividade com o início de sessão único
 
@@ -61,5 +61,5 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é procuração de aplicação?](what-is-application-proxy.md)
+- [O que é o Proxy de Aplicação?](what-is-application-proxy.md)
 - [Quickstart: Adicione uma aplicação de galeria ao seu inquilino Azure AD](add-application-portal.md)

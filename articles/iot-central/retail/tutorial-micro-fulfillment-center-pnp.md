@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 01/09/2020
 ms.openlocfilehash: 93906f582f1edc351088f8b4c453bf9ebda54f83
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77369789"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação do centro de micro-realização
@@ -53,7 +53,7 @@ Para criar uma nova aplicação do centro de micro-realização que utiliza func
 
     ![Screenshot da nova página de aplicação do Azure IoT Central](./media/tutorial-micro-fulfillment-center-app-pnp/iotc-retail-create-app-mfc.png)
 
-## <a name="walk-through-the-application"></a>andar através da aplicação 
+## <a name="walk-through-the-application"></a>Caminhe pela aplicação 
 
 Depois de implementar com sucesso o modelo de aplicação, você vê o painel de micro-realização do Centro de **Micro-Realização dos Traders de Northwind**. A Northwind Traders é um retalhista fictício que tem um centro de micro-realização a ser gerido nesta aplicação Azure IoT Central. Neste painel de instrumentos do operador, você vê informações e telemetria sobre os dispositivos neste modelo, juntamente com um conjunto de comandos, empregos e ações que você pode tomar. O painel de instrumentos é logicamente dividido em duas secções. À esquerda, pode monitorizar as condições ambientais dentro da estrutura de realização e, à direita, pode monitorizar a saúde de um transportador robótico dentro da instalação.  
 
@@ -86,7 +86,7 @@ Use a regra da amostra como inspiração para definir regras mais adequadas para
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação. Vá às **definições**de **Aplicação > administração** , e selecione **Eliminar**.
+Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação. Vá às**definições**de Aplicação **de Administração,** > e selecione **Eliminar**.
 
 ![Screenshot da página de definições de aplicações do centro de micro-realização](./media/tutorial-micro-fulfillment-center-app-pnp/delete.png)
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0b4f0a1fa4f9cce05aa544bb24e045209a6d24ef
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137463"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Quickstart: Ligue-se a uma máquina virtual usando um endereço IP privado e bastião Azure
 
 Este artigo de arranque rápido mostra-lhe como se conectar a uma máquina virtual usando um endereço IP privado. Quando se conecta através do Bastion, as suas máquinas virtuais não precisam de um endereço IP público. Os passos neste artigo ajudam-no a implantar a Bastion na sua rede virtual através da sua máquina virtual no portal. Uma vez que o serviço é prestado, a experiência RDP/SSH está disponível para todas as máquinas virtuais na mesma rede virtual.
 
-## <a name="prereq"></a>Pré-requisitos
+## <a name="prerequisites"></a><a name="prereq"></a>Pré-requisitos
 
 * Uma rede virtual Azure.
 * Uma máquina virtual Azure localizada na rede virtual com porta 3389 aberta.
@@ -35,13 +35,13 @@ Este artigo de arranque rápido mostra-lhe como se conectar a uma máquina virtu
 | Endereço IP público |  Criar novo |
 | Nome do endereço IP público | VNet1BastionPIP  |
 | Endereço IP público SKU |  Standard  |
-| atribuição  | Estático |
+| Atribuição  | Estático |
 
-## <a name="createvmset"></a>Criar um anfitrião de bastião
+## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Criar um anfitrião do Bastion
 
 Quando criar um anfitrião de bastião no portal utilizando uma máquina virtual existente, várias definições serão automaticamente definidas para corresponder à sua máquina virtual e/ou rede virtual.
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Vá à sua máquina virtual e clique em **Connect**.
+1. Abra o [portal Azure.](https://portal.azure.com) Vá à sua máquina virtual e clique em **Connect**.
 
    ![configurações de máquinavirtual](./media/quickstart-host-portal/vm-settings.png)
 1. A partir da queda, selecione **Bastion**.
@@ -66,7 +66,7 @@ Quando criar um anfitrião de bastião no portal utilizando uma máquina virtual
 
    ![criar anfitrião bastião](./media/quickstart-host-portal/bastion-settings.png)
 
-## <a name="connect"></a>Ligar
+## <a name="connect"></a><a name="connect"></a>Ligar
 
 Depois de bastion ter sido implantado na rede virtual, o ecrã muda para a página de ligação.
 

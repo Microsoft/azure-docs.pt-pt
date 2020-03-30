@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Usar identidade gerida para aceder ao Gestor de Recursos Azure - Windows - Azure AD
+title: Tutorial`:` Use identidade gerida para aceder ao Gestor de Recursos Azure - Windows - Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4431031e5e96c71c6488b57cc570271d763bb764
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240479"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Resource Manager
@@ -37,7 +37,7 @@ Este início rápido mostra como aceder à API do Azure Resource Manager atravé
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder o acesso da VM a um grupo de recursos no Resource Manager
-Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Primeiro, temos de conceder a esta identidade gerida atribuída pelo sistema da VM acesso a um recurso do Resource Manager, neste caso, ao Grupo de Recursos que contém a VM.  
+Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Primeiro, temos de conceder a esta identidade gerida atribuída pelo sistema da VM acesso a um recurso do Resource Manager, neste caso, ao Grupo de Recursos que contém a VM.  
 
 1.  Navegue até ao separador para **Grupos de Recursos**. 
 2.  Selecione o **Grupo de Recursos** específico que criou para a sua **VM do Windows**. 
@@ -55,7 +55,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
 
 1.  No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**. 
 2.  Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
-3.  Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
+3.  Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a **PowerShell** na sessão remota. 
 4.  Utilizando o cmdlet Invoke-WebRequest, faça um pedido à identidade gerida local para o ponto final dos recursos azure para obter um sinal de acesso para O Gestor de Recursos Azure.
 
     ```powershell

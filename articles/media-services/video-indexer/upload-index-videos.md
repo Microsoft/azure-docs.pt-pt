@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468767"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
@@ -40,13 +40,13 @@ O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 - O comprimento do URL de pedido é limitado a 6144 caracteres onde o comprimento url de corda de consulta é limitado a 4096 caracteres .
 - O tamanho do upload com a opção byte array é limitado a 2GB.
 - A opção byte array vezes fora após 30 min.
-- O URL fornecido no `videoURL` param precisa de ser codificado.
+- O URL fornecido `videoURL` no param precisa de ser codificado.
 - Indexar os ativos dos Media Services tem a mesma limitação que a indexação a partir de URL.
 - O Indexer de vídeo tem um limite máximo de duração de 4 horas para um único ficheiro.
 - O URL tem de ser acessível (por exemplo, um URL público). 
 
     Se for um URL privado, o sinal de acesso deve ser fornecido no pedido.
-- O URL tem de apontar para um ficheiro de suporte válido e não para uma página web, como um link para a página `www.youtube.com`.
+- O URL tem de apontar para um ficheiro de suporte válido e `www.youtube.com` não para uma página web, como um link para a página.
 - Numa conta paga pode fazer upload até 50 filmes por minuto, e numa conta experimental até 5 filmes por minuto.
 
 > [!Tip]
@@ -58,7 +58,7 @@ O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 
 Consulte o artigo de [formatos de recipiente/ficheiro](../latest/media-encoder-standard-formats.md#input-containerfile-formats) de entrada para obter uma lista de formatos de ficheiros que pode utilizar com o Indexer de Vídeo.
 
-## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Carregar e indexar um vídeo usando o site do Indexer de Vídeo
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Upload e indexar um vídeo usando o site do Indexer de Vídeo
 
 > [!NOTE]
 > Um nome do vídeo não deve ter mais de 80 caracteres.
@@ -74,7 +74,7 @@ Consulte o artigo de [formatos de recipiente/ficheiro](../latest/media-encoder-s
 
     Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
-## <a name="a-idapisupload-and-index-with-api"></a><a id="apis"/>Upload e índice com API
+## <a name="upload-and-index-with-api"></a><a id="apis"/>Upload e índice com API
 
 Utilize a API de [vídeo upload](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e indexe os seus vídeos com base num URL. A amostra de código que se segue inclui o código comentado que mostra como carregar a matriz byte. 
 
@@ -97,7 +97,7 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
         |---|---|
         |ID|O ID de vídeo|
         |state|O estado de vídeo|  
-    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&estado=Processado
 - Pessoa identificada em vídeo:
   - Propriedades
     
@@ -105,10 +105,10 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
       |---|---|
       |ID| O ID de vídeo|
       |faceId|O ID facial que aparece no índice de vídeo|
-      |knownPersonId|O ID da pessoa que é único dentro de um modelo facial|
-      |personName|O nome da pessoa|
+      |conhecidoPersonId|O ID da pessoa que é único dentro de um modelo facial|
+      |nome da pessoa|O nome da pessoa|
         
-    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&conhecidoPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&pessoaName=Inigo_Montoya 
 
 ##### <a name="notes"></a>Notas
 
@@ -120,13 +120,13 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
 Utilize este parâmetro se as gravações não processadas ou externas contiverem ruído de fundo. Este parâmetro é utilizado para configurar o processo de indexação. Pode especificar os seguintes valores:
 
 - `AudioOnly` – indexe e extraia informações apenas com áudio (ignorar vídeo)
-- `VideoOnly` - Indexe e extrai insights usando apenas vídeo (ignorando áudio)
+- `VideoOnly`- Indexar e extrair insights usando apenas vídeo (ignorando áudio)
 - `Default` – indexe e extraia informações com áudio e vídeo
 - `DefaultWithNoiseReduction` – indexe e extraia informações de áudio e vídeo, enquanto aplica algoritmos de redução de ruído na transmissão de áudio
 
 > [!NOTE]
 > O Indexer de vídeo cobre até duas faixas de áudio. Se houver mais faixas áudio no ficheiro, serão tratadas como uma faixa.<br/>
-Se quiser indexar as faixas separadamente, terá de extrair o ficheiro áudio relevante e indexá-lo como `AudioOnly`.
+Se quiser indexar as faixas separadamente, terá de extrair o `AudioOnly`ficheiro áudio relevante e indexá-lo como .
 
 O preço varia consoante a opção de indexação selecionada.  
 
@@ -164,9 +164,9 @@ Depois de copiar este código para a sua plataforma de desenvolvimento, terá de
 
     Para obter a sua chave API, passe por este fluxo:
 
-    * Navegue para https://api-portal.videoindexer.ai/
+    * Navegar parahttps://api-portal.videoindexer.ai/
     * Iniciar sessão
-    * Ir à **assinatura** de **Autorização** de Autorização de -> de **Produtos** -> 
+    * Ir à**assinatura de Autorização** de**Autorização** -> de **Produtos** -> 
     * Copiar a **chave primária**
 * URL de vídeo – Um URL do ficheiro vídeo/áudio a ser indexado. O URL tem de apontar para um ficheiro de multimédia (não são suportadas páginas HTML). O ficheiro pode ser protegido por um token de acesso fornecido como parte do URI e o ponto final que entrega o ficheiro tem de estar protegido pelo TLS 1.2 ou superior. O URL tem de ser codificado.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250884"
 ---
 # <a name="azure-classic-cli-commands"></a>Comandos CLI clássicos de Azure 
@@ -27,9 +27,9 @@ Para começar, [instale primeiro o CLI clássico do Azure](../cli-install-nodejs
 
 Para a sintaxe de comando atual e opções na linha de comando no modo Gestor de Recursos, escreva `azure help` ou, para mostrar ajuda para um comando específico, `azure help [command]`. Encontre também exemplos cli na documentação para a criação e gestão de serviços específicos do Azure.
 
-Os parâmetros opcionais são mostrados em parênteses quadrados (por exemplo, `[parameter]`). Todos os outros parâmetros são necessários.
+Os parâmetros opcionais são mostrados `[parameter]`em parênteses quadrados (por exemplo, ). Todos os outros parâmetros são necessários.
 
-Além dos parâmetros opcionais específicos do comando aqui documentados, existem três parâmetros opcionais que podem ser usados para exibir saída detalhada, tais como opções de pedido e códigos de estado. O parâmetro `-v` proporciona uma saída verbosa, e o parâmetro de `-vv` proporciona uma saída verbosa ainda mais detalhada. A opção `--json` produz o resultado em formato json cru.
+Além dos parâmetros opcionais específicos do comando aqui documentados, existem três parâmetros opcionais que podem ser usados para exibir saída detalhada, tais como opções de pedido e códigos de estado. O `-v` parâmetro proporciona uma saída verbosa e o `-vv` parâmetro proporciona uma saída verbosa ainda mais detalhada. A `--json` opção produz o resultado em formato json cru.
 
 ## <a name="setting-the-resource-manager-mode"></a>Definição do modo Gestor de Recursos
 Utilize o seguinte comando para ativar os comandos do modo Gestor de Recursos Azure CLI.
@@ -68,7 +68,7 @@ As informações de subscrição do Azure são utilizadas pela ferramenta para s
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="active-directory-objects"></a>Objetos do Active Directory
+## <a name="active-directory-objects"></a>Objetos de Diretório Ativo
 **Comandos para exibir aplicações de diretório ativa**
 
     ad app create [options]
@@ -125,7 +125,7 @@ As informações de subscrição do Azure são utilizadas pela ferramenta para s
 
     config set <name> <value>
 
-**Define o modo de funcionamento Azure CLI para `arm` ou `asm`**
+**Define o modo de funcionamento `arm` Azure CLI para ambos ou`asm`**
 
     config mode [options] <modename>
 
@@ -1680,7 +1680,7 @@ Opções de parâmetros:
     storage table policy delete [options] [table] [name]
 
 ## <a name="tags"></a>Etiquetas
-**Adicione uma etiqueta**
+**Adicionar uma etiqueta**
 
     tag create [options] <name> <value>
 
@@ -1696,7 +1696,7 @@ Opções de parâmetros:
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas Virtuais
 **Criar um VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1706,7 +1706,7 @@ Opções de parâmetros:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> A partir da versão CLI 0.10, pode fornecer um pseudónimo curto como "UbuntuLTS" ou "Win2012R2Datacenter" como o `image-urn` para algumas imagens populares do Marketplace. Executa `azure help vm quick-create` opções. Além disso, a partir da versão 0.10, `azure vm quick-create` utiliza armazenamento premium por padrão se estiver disponível na região selecionada.
+> Começando com a versão CLI 0.10, pode fornecer um pseudónimo curto como "UbuntuLTS" ou "Win2012R2Datacenter" como o `image-urn` para algumas imagens populares do Marketplace. Corra `azure help vm quick-create` para opções. Além disso, a partir da `azure vm quick-create` versão 0.10, utiliza o armazenamento premium por padrão se estiver disponível na região selecionada.
 > 
 > 
 

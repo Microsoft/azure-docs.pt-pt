@@ -1,5 +1,5 @@
 ---
-title: Configuração de armazenamento para VMs do Servidor SQL  Microsoft Docs
+title: Configuração de armazenamento para VMs do Servidor SQL [ Microsoft Docs
 description: Este tópico descreve como o Azure configura o armazenamento para VMs do Servidor SQL durante o provisionamento (modelo de implementação do Gestor de Recursos). Também explica como pode configurar o armazenamento para os vMs do Servidor SQL existentes.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243201"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do Servidor SQL
+# <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 
 Quando configura uma imagem virtual do SQL Server em Azure, o Portal ajuda a automatizar a sua configuração de armazenamento. Isto inclui a fixação do armazenamento ao VM, tornando esse armazenamento acessível ao SQL Server, e configurando-o para otimizar para os seus requisitos de desempenho específicos.
 
@@ -62,7 +62,7 @@ O caching de disco para SSD Premium pode ser *ReadOnly*, *ReadWrite* ou *None*.
 
 
    > [!TIP]
-   > Certifique-se de que a sua configuração de armazenamento corresponde às limitações impostas pelo tamanho vm selecionado. A escolha de parâmetros de armazenamento que excedam a tampa de desempenho do tamanho vM resultará em erro: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Ou diminua os IOPs alterando o tipo de disco ou aumente a limitação da tampa de desempenho aumentando o tamanho do VM. 
+   > Certifique-se de que a sua configuração de armazenamento corresponde às limitações impostas pelo tamanho vm selecionado. A escolha de parâmetros de armazenamento que excedam a `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`tampa de desempenho do tamanho vM resultará em erro: . Ou diminua os IOPs alterando o tipo de disco ou aumente a limitação da tampa de desempenho aumentando o tamanho do VM. 
 
 
 Com base nas suas escolhas, o Azure executa as seguintes tarefas de configuração de armazenamento após a criação do VM:
@@ -142,9 +142,9 @@ O quadro seguinte descreve as três opções do tipo de carga de trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
-| **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
+| **General** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhuma |
 | **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho tradicionais oLTP |Trace Flag 1117<br/>Trace Flag 1118 |
-| **Armazenagem de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e de reporte |Trace Flag 610<br/>Trace Flag 1117 |
+| **Armazenamento de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e de reporte |Trace Flag 610<br/>Trace Flag 1117 |
 
 > [!NOTE]
 > Só pode especificar o tipo de carga de trabalho quando fornecer uma máquina virtual SQL selecionando-a no passo de configuração de armazenamento.

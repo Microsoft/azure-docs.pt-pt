@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138948"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
@@ -53,7 +53,7 @@ Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou esco
 
 Num dispositivo Android:
 
-- **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se vir este ![ícone de ícone](media/user-help-auth-app-sign-in/icon.png)mostrando que está configurado .** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
 - **Se já estiver a usar a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
 - **Se não encontrar o seu trabalho ou a conta escolar.** Se não encontrar o seu trabalho ou conta escolar no **ecrã** contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o [seu trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
 
@@ -61,7 +61,7 @@ Num dispositivo iOS:
 
 - **Quando toca no azulejo da conta,** a conta abre-se para uma visão completa do ecrã da conta. Se vir o **registo do telefone ativado,** isso significa que está totalmente configurado para iniciar sessão sem a sua palavra-passe. Se vir o sinal de entrada do **telefone,** toque-o para ligar o sinal de telefone.
 - **Se já tem usado a app para verificação de dois fatores,** pode tocar no azulejo da conta, que depois se expande para uma visão completa do ecrã da conta. Em seguida, toque em **ativar** o sinal de telefone para ligar o sinal de telefone.
-- **Se não encontrar o seu trabalho ou conta escolar** no ecrã contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o seu trabalho ou conta escolar.
+- **Se não encontrar o seu trabalho ou conta escolar** no ecrã contas da app, significa que ainda não a adicionou à app. **Accounts** Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o seu trabalho ou conta escolar.
 
 Depois de ligar o registo do telefone, pode iniciar sessão utilizando apenas a aplicação Microsoft Authenticator.
 
@@ -92,7 +92,7 @@ Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou esco
 
 Num dispositivo Android:
 
-- **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do nome pessoal da sua conta Microsoft, significa que já configura o registo do telefone para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se vir este ![ícone de ícone](media/user-help-auth-app-sign-in/icon.png)mostrando que está configurado .** Se este ícone aparecer ao lado do nome pessoal da sua conta Microsoft, significa que já configura o registo do telefone para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
 - **Se tem usado a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
 - **Se não encontrar o seu trabalho ou a conta escolar.** Se não conseguir encontrar **a** sua conta no ecrã contas da app, significa que ainda não a adicionou à app. Adicione a sua conta seguindo os passos do artigo contas pessoais da [Microsoft.](user-help-auth-app-add-personal-ms-account.md)
 
@@ -127,13 +127,13 @@ Para as etapas necessárias para iniciar sessão no seu trabalho ou na sua escol
 | O sinal de telefone substitui a verificação em duas etapas? Devo desligá-lo? | O registo telefónico é um tipo de verificação de dois passos onde ambos os passos acontecem no dispositivo móvel. Deve manter a verificação de dois passos ligada para ajudar a fornecer segurança adicional para a sua conta. |
 | Se mantiver a verificação em duas etapas ligada à minha conta, tenho de aprovar duas notificações? | Não. Iniciar sessão na sua conta da Microsoft utilizando o seu telemóvel também conta como verificação em duas etapas, pelo que não é necessária uma segunda aprovação. |
 | E se eu perder o meu telemóvel ou não o tiver comigo? Como acedo à minha conta? | Pode sempre selecionar a palavra-passe Utilize uma palavra-passe em vez de ligar na página de entrada para voltar a utilizar a sua palavra-passe. No entanto, se utilizar a verificação em duas etapas, ainda terá de usar um segundo método para verificar a sua identidade.<br><br>**Importante**<br>Encorajamo-lo vivamente a certificar-se de que tem mais do que um método de verificação atualizado associado à sua conta.<br><br>Pode gerir os seus métodos de verificação para contas pessoais a partir da página de definições de [Segurança.](https://account.live.com/proofs/manage) Para contas de trabalho ou escola, pode ir à página adicional de [verificação](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) de segurança da sua organização ou à página segura da **sua conta** se o seu administrador tiver religado as informações de segurança. Para mais informações sobre informações de segurança, consulte a visão geral da informação de [segurança (pré-visualização).](user-help-security-info-overview.md)<br><br>Se não conseguir gerir os seus métodos de verificação, deve contactar o seu administrador. |
-| Como paro de usar esta funcionalidade e volto a usar a minha palavra-passe? | Para contas pessoais, selecione a **palavra-passe Utilize uma palavra-passe durante** o iniciar o 'iniciar sessão'. A sua escolha mais recente é lembrada e oferecida por defeito da próxima vez que iniciar a sua inscrição. Se quiser voltar a utilizar o registo do telefone, selecione a **aplicação Use uma aplicação em vez disso,** ligue durante o iniciar o sessão.<br><br>Para contas de trabalho ou de escola, deve desregistar o dispositivo a partir da página **Definições** da aplicação Autenticador da Microsoft ou desativar o dispositivo a partir da área de **Dispositivos e atividades** do seu perfil. Para obter mais informações sobre a desativação do seu dispositivo a partir do seu perfil, consulte [Atualizar o seu perfil e informações de conta a partir do portal My Apps](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
+| Como paro de usar esta funcionalidade e volto a usar a minha palavra-passe? | Para contas pessoais, selecione a **palavra-passe Utilize uma palavra-passe durante** o iniciar o 'iniciar sessão'. A sua escolha mais recente é lembrada e oferecida por defeito da próxima vez que iniciar a sua inscrição. Se quiser voltar a utilizar o registo do telefone, selecione a **aplicação Use uma aplicação em vez disso,** ligue durante o iniciar o sessão.<br><br>Para contas de trabalho ou de escola, deve desregistar o dispositivo a partir da página **Definições** da aplicação Autenticador da Microsoft ou desativar o dispositivo a partir da área de **atividade & Dispositivos** do seu perfil. Para obter mais informações sobre a desativação do seu dispositivo a partir do seu perfil, consulte [Atualizar o seu perfil e informações de conta a partir do portal My Apps](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
 | Por que não posso usar mais do que uma conta de trabalho ou escola para o registo telefónico? | Um telefone deve ser registado numa única conta de trabalho ou escola. Se pretender ativar o registo telefónico para um trabalho ou conta escolar diferente, deverá desmarcar a sua conta deste dispositivo através da página **Definições.** |
 | Posso entrar no meu computador usando o meu telefone? | Para o seu computador, recomendamos que se inscreva no Windows Hello no Windows 10. O Windows Hello permite-lhe usar o seu rosto, impressão digital ou PIN para iniciar sessão. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de **problemas** de código de verificação de resolução de problemas do artigo de [informações e códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) da conta da Microsoft.
+- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de códigos de [verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
 - Se tiver dúvidas mais gerais sobre a aplicação, consulte as [FAQs](user-help-auth-app-faq.md) do Autenticador da Microsoft
 

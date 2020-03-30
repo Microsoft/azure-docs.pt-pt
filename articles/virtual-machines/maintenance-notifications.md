@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115694"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Manuseamento de notificações de manutenção planeadas
@@ -80,7 +80,7 @@ Para mais informações sobre a elevada disponibilidade, consulte [Disponibilida
 
 **P: Como posso ser notificado sobre a manutenção planeada?**
 
-**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões azure. Logo após, uma notificação por email é enviada para os administradores de assinatura (um email por assinatura). Canais e destinatários adicionais para esta notificação poderiam ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já está programada, não receberá a notificação, mas terá de verificar o estado de manutenção do VM.
+**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões azure. Pouco tempo depois, uma notificação por e-mail é enviada para os Administradores de subscrição (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação poderiam ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já está programada, não receberá a notificação, mas terá de verificar o estado de manutenção do VM.
 
 **P: Não vejo qualquer indicação de manutenção planeada no portal, Powershell ou CLI. O que se passa?**
 

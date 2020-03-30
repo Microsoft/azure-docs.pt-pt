@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: enviar eventos de armazenamento de BLOBs para o ponto de extremidade da Web-Portal'
-description: 'Início rápido: Use a grade de eventos do Azure e portal do Azure para criar a conta de armazenamento de BLOBs e assinar seus eventos. Envie eventos para um Webhook.'
+title: 'Quickstart: Envie eventos de armazenamento blob para web endpoint - portal'
+description: 'Quickstart: Use Azure Event Grid e portal Azure para criar conta de armazenamento Blob e subscrever os seus eventos. Envie os eventos para um Webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844786"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Eventos de armazenamento de BLOBs de rota ponto final da web com o portal do Azure
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, irá utilizar o portal do Azure para criar uma conta de armazenamento de Blobs, subscrever eventos nesse armazenamento de blobs e acionar um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -105,7 +105,7 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
 1. Navegue para o ficheiro de teste e carregue-o.
 
-1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo a seguir, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
+1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo seguinte, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
 
    ```json
    [{

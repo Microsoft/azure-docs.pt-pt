@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: e7283f5e28edc6f7beaad3a2743aa155f6ea6e14
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198654"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminar um portal de rede virtual utilizando o PowerShell (clássico)
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Gestor de Recursos - Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Clássico - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 
 Este artigo ajuda-o a eliminar um gateway VPN no modelo de implementação clássico utilizando o PowerShell. Depois de o portal de rede virtual ter sido eliminado, modifique o ficheiro de configuração da rede para remover elementos que já não está a utilizar.
 
-## <a name="connect"></a>Passo 1: Ligar a Azure
+## <a name="step-1-connect-to-azure"></a><a name="connect"></a>Passo 1: Ligar a Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os mais recentes cmdlets PowerShell.
 
@@ -46,7 +46,7 @@ Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Util
    Add-AzureAccount
    ```
 
-## <a name="export"></a>Passo 2: Exportar e ver o ficheiro de configuração da rede
+## <a name="step-2-export-and-view-the-network-configuration-file"></a><a name="export"></a>Passo 2: Exportar e ver o ficheiro de configuração da rede
 
 Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Utiliza este ficheiro para visualizar as informações de configuração atuais e também para modificar a configuração da rede.
 
@@ -56,9 +56,9 @@ Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNe
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Abra o ficheiro com um editor de texto e veja o nome para o seu VNet clássico. Quando se cria um VNet no portal Azure, o nome completo que o Azure utiliza não é visível no portal. Por exemplo, um VNet que parece ser chamado de 'ClassicVNet1' no portal Azure, pode ter um nome muito mais longo no ficheiro de configuração da rede. O nome pode parecer algo como: 'Grupo ClassicRG1 ClassicVNet1'. Os nomes de rede virtuais são listados como **'VirtualNetworkSite name ='** . Utilize os nomes no ficheiro de configuração da rede ao executar os seus cmdlets PowerShell.
+Abra o ficheiro com um editor de texto e veja o nome para o seu VNet clássico. Quando se cria um VNet no portal Azure, o nome completo que o Azure utiliza não é visível no portal. Por exemplo, um VNet que parece ser chamado de 'ClassicVNet1' no portal Azure, pode ter um nome muito mais longo no ficheiro de configuração da rede. O nome pode parecer algo como: 'Grupo ClassicRG1 ClassicVNet1'. Os nomes de rede virtuais são listados como **'VirtualNetworkSite name ='**. Utilize os nomes no ficheiro de configuração da rede ao executar os seus cmdlets PowerShell.
 
-## <a name="delete"></a>Passo 3: Eliminar o gateway da rede virtual
+## <a name="step-3-delete-the-virtual-network-gateway"></a><a name="delete"></a>Passo 3: Eliminar o gateway da rede virtual
 
 Ao eliminar um portal de rede virtual, todas as ligações ao VNet através do portal estão desligadas. Se tiver clientes P2S ligados ao VNet, serão desligados sem aviso prévio.
 
@@ -74,11 +74,11 @@ Se for bem sucedido, o retorno mostra:
 Status : Successful
 ```
 
-## <a name="modify"></a>Passo 4: Modificar o ficheiro de configuração da rede
+## <a name="step-4-modify-the-network-configuration-file"></a><a name="modify"></a>Passo 4: Modificar o ficheiro de configuração da rede
 
 Ao eliminar um portal de rede virtual, o cmdlet não modifica o ficheiro de configuração da rede. É necessário modificar o ficheiro para remover os elementos que já não estão a ser utilizados. As seguintes secções ajudam-no a modificar o ficheiro de configuração da rede que descarregou.
 
-### <a name="lnsref"></a>Referências do site da rede local
+### <a name="local-network-site-references"></a><a name="lnsref"></a>Referências do site da rede local
 
 Para remover as informações de referência do site, faça alterações de configuração em **ConexõesToLocalNetwork/LocalNetworkSiteRef**. Remover uma referência local aciona o Azure para apagar um túnel. Dependendo da configuração que criou, pode não ter uma lista **localNetworkSiteRef.**
 
@@ -101,7 +101,7 @@ Exemplo:
  </Gateway>
 ```
 
-### <a name="lns"></a>Sites de rede locais
+### <a name="local-network-sites"></a><a name="lns"></a>Sites de rede locais
 
 Remova quaisquer sites locais que já não esteja a utilizar. Dependendo da configuração que criou, é possível que não tenha um **Site local** listado.
 
@@ -135,7 +135,7 @@ Neste exemplo, removemos apenas o Site3.
  </LocalNetworkSites>
 ```
 
-### <a name="clientaddresss"></a>AddressPool do cliente
+### <a name="client-addresspool"></a><a name="clientaddresss"></a>AddressPool do cliente
 
 Se tiver uma ligação P2S ao seu VNet, terá um **VPNClientAddressPool**. Remova as piscinas de endereços do cliente que correspondem ao portal de rede virtual que apagou.
 
@@ -156,7 +156,7 @@ Exemplo:
  </Gateway>
 ```
 
-### <a name="gwsub"></a>GatewaySubnet
+### <a name="gatewaysubnet"></a><a name="gwsub"></a>GatewaySubnet
 
 Elimine a **GatewaySubnet** que corresponde à VNet.
 
@@ -181,7 +181,7 @@ Exemplo:
  </Subnets>
 ```
 
-## <a name="upload"></a>Passo 5: Carregar o ficheiro de configuração da rede
+## <a name="step-5-upload-the-network-configuration-file"></a><a name="upload"></a>Passo 5: Carregar o ficheiro de configuração da rede
 
 Guarde as suas alterações e carregue o ficheiro de configuração da rede para o Azure. Certifique-se de que altera o caminho dos ficheiros conforme necessário para o seu ambiente.
 

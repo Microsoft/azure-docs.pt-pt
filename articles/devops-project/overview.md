@@ -1,6 +1,6 @@
 ---
-title: Visão geral de Azure DevOps Projects | Microsoft Docs
-description: Entender o valor de Azure DevOps Projects
+title: Visão geral dos projetos Azure DevOps [ Microsoft Docs
+description: Compreender o valor dos projetos Azure DevOps
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -15,67 +15,67 @@ ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
 ms.openlocfilehash: d39702f8e30046dd3cf634fc67ed7095471cd629
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71971481"
 ---
-# <a name="overview-of-azure-devops-projects"></a>Visão geral do Azure DevOps Projects
+# <a name="overview-of-azure-devops-projects"></a>Visão geral dos projetos Azure DevOps
 
- Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Ele ajuda a iniciar seu aplicativo favorito no serviço do Azure de sua escolha em apenas algumas etapas rápidas do portal do Azure. 
+ A Azure DevOps Projects facilita o início do Azure. Ajuda-o a lançar a sua aplicação preferida no serviço Azure à sua escolha em poucos passos rápidos do portal Azure. 
 
- DevOps Projects configura tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. Você pode usar o painel de DevOps Projects para monitorar confirmações, compilações e implantações de código, tudo a partir de uma única exibição no portal do Azure.
+ A DevOps Projects configura tudo o que precisa para desenvolver, implementar e monitorizar a sua aplicação. Você pode usar o dashboard DevOps Projects para monitorizar compromissos de código, construções e implementações, tudo de uma única vista no portal Azure.
 
-## <a name="why-should-i-use-devops-projects"></a>Por que devo usar DevOps Projects?
+## <a name="why-should-i-use-devops-projects"></a>Por que devo usar projetos DevOps?
 
-  O projeto DevOps automatiza a configuração de um pipeline de integração contínua (CI) e entrega contínua (CD) para o Azure.  Você pode começar com o código existente ou usar um dos aplicativos de exemplo fornecidos. Em seguida, você pode implantar rapidamente esse aplicativo em vários serviços do Azure, como máquinas virtuais, serviço de aplicativo, AKS (serviços de kubernetes do Azure), banco de dados SQL do Azure e Service Fabric do Azure.  
+  O Projeto DevOps automatiza a configuração de todo um oleoduto de integração contínua (CI) e entrega contínua (CD) ao Azure.  Pode começar com o código existente ou utilizar uma das aplicações de amostra fornecidas. Em seguida, você pode rapidamente implementar essa aplicação para vários serviços Azure, tais como Máquinas Virtuais, Serviço de Aplicações, Serviços Azure Kubernetes (AKS), Base de Dados Azure SQL e Tecido de Serviço Azure.  
 
-  DevOps Projects faz todo o trabalho para a configuração inicial de um pipeline DevOps, incluindo tudo, desde a configuração do repositório git inicial, a configuração do pipeline de CI/CD, a criação de um recurso de Application Insights para monitoramento e o fornecimento de um único exibição de toda a solução com a criação de um painel de DevOps Projects no portal do Azure.
+  A DevOps Projects faz todo o trabalho para a configuração inicial de um oleoduto DevOps, incluindo tudo, desde a criação do repositório inicial git, configuração do pipeline CI/CD, criação de um recurso Application Insights para monitorização, e proporcionando uma única visão de toda a solução com a criação de um dashboard DevOps Projects no portal Azure.
 
-Você pode usar DevOps Projects para:
+Você pode usar Projetos DevOps para:
 
 * Implementar rapidamente a sua aplicação no Azure
-* Automatizar a configuração de um pipeline de CI/CD
-* Exibir e entender como configurar corretamente um pipeline de CI/CD
-* Personalize ainda mais os pipelines de lançamento com base em seus cenários específicos
+* Automatizar a instalação de um oleoduto CI/CD
+* Ver e entender como configurar corretamente um oleoduto CI/CD
+* Personalize ainda mais os oleodutos de lançamento com base nos seus cenários específicos
 
-## <a name="how-do-i-use-devops-projects"></a>Como fazer usar DevOps Projects?
+## <a name="how-do-i-use-devops-projects"></a>Como uso projetos DevOps?
 
-  DevOps Projects está disponível na portal do Azure. Você cria um recurso de DevOps Projects assim como você cria qualquer outro recurso do Azure no Portal. O DevOps Projects fornece uma experiência passo a passo com o assistente para as várias opções de configuração.  
+  A DevOps Projects está disponível no portal Azure. Cria um recurso de Projetos DevOps tal como cria qualquer outro recurso Azure a partir do portal. A DevOps Projects proporciona uma experiência passo-a-passo para as várias opções de configuração.  
 
 Pode escolher várias opções de configuração como parte da configuração inicial. As opções incluem:
 
-* Usando o aplicativo de exemplo fornecido ou trazendo seu próprio código
-* Selecionando um idioma de aplicativo
-* Escolhendo uma estrutura de aplicativo com base no idioma
-* Selecionando um serviço do Azure (destino de implantação)
-* Criando uma nova organização do Azure DevOps ou usando uma organização existente 
-* Escolhendo sua assinatura do Azure
-* Escolhendo o local dos serviços do Azure
-* Escolhendo entre vários tipos de preço para os serviços do Azure
+* Usando a aplicação de amostra fornecida, ou trazendo o seu próprio código
+* Selecionar um idioma de aplicativo
+* Escolher um quadro de aplicativos baseado na linguagem
+* Selecionar um serviço Azure (alvo de implantação)
+* Criar uma nova organização Azure DevOps ou usar uma organização existente 
+* Escolha a sua subscrição Azure
+* Escolher a localização dos serviços do Azure
+* Escolha de vários níveis de preços para serviços Azure
 
-Depois de usar DevOps Projects, você também pode excluir todos os recursos de um único lugar do painel de DevOps Projects no portal do Azure.
+Depois de utilizar os Projetos DevOps, também pode eliminar todos os recursos de um único local do painel de instrumentos de Projetos DevOps no portal Azure.
 
-## <a name="devops-projects-and-azure-devops-integration"></a>DevOps Projects e integração do Azure DevOps
+## <a name="devops-projects-and-azure-devops-integration"></a>Projetos DevOps e integração azure DevOps
 
-O DevOps Projects é fornecido pelo Azure DevOps. DevOps Projects automatiza todo o trabalho necessário no Azure Pipelines para configurar um pipeline de CI/CD. Ele cria um repositório git em uma organização nova ou existente do Azure DevOps e, em seguida, confirma um aplicativo de exemplo ou seu código existente para um novo repositório git.  
+A DevOps Projects é alimentada pela Azure DevOps. A DevOps Projects automatiza todo o trabalho necessário em Pipelines Azure para criar um oleoduto CI/CD. Cria um repositório Git numa organização nova ou existente da Azure DevOps, e depois comete uma aplicação de amostra ou o seu código existente para um novo repositório Git.  
 
-A automação também estabelece um gatilho de CI para a compilação de forma que cada nova confirmação de código inicie uma compilação. DevOps Projects cria um gatilho de CD e implanta todas as novas compilações bem-sucedidas para o serviço do Azure de sua escolha.  
+A automatização também estabelece um gatilho CI para a construção para que cada novo código comprometa iniciar uma construção. A DevOps Projects cria um gatilho de CD e implementa todas as novas construções bem sucedidas para o serviço Azure à sua escolha.  
 
-Os pipelines de compilação e versão podem ser personalizados para mais cenários. Além disso, você pode clonar os pipelines de compilação e versão para uso em outros projetos.
+Os pipelines de compilação e versão podem ser personalizados para mais cenários. Além disso, pode clonar os oleodutos de construção e lançamento para utilização noutros projetos.
 
 Depois de criar o seu Projeto de DevOps, pode:
 
 * Personalizar a sua compilação e pipeline da versão
 * Utilizar os pedidos Pull para gerir o seu fluxo de códigos e manter uma qualidade elevada
 * Testar e compilar cada consolidação antes de unir o seu código para aumentar a qualidade
-* Acompanhe suas pendências e problemas bem junto com seu aplicativo
+* Acompanhe o seu atraso e problemas junto com a sua aplicação
 
-## <a name="how-do-i-start-using-devops-projects"></a>Como fazer começar a usar o DevOps Projects?
+## <a name="how-do-i-start-using-devops-projects"></a>Como posso começar a usar projetos DevOps?
 
-* [Introdução ao DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Começar com projetos DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
-##  <a name="devops-projects-videos"></a>Vídeos de DevOps Projects
+##  <a name="devops-projects-videos"></a>Vídeos de Projetos DevOps
 
-* [Criar CI/CD com Azure DevOps Projects](https://www.youtube.com/watch?v=NuYDAs3kNV8)
+* [Criar CI/CD com projetos Azure DevOps](https://www.youtube.com/watch?v=NuYDAs3kNV8)

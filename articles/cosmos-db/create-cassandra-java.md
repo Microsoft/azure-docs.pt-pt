@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 5a21f36136c6f1d77a2e9cb9108f539c9fb39334
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77134869"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Quickstart: Construa uma app Java para gerir dados da API da Azure Cosmos DB Cassandra
@@ -21,8 +21,8 @@ ms.locfileid: "77134869"
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
-> * [Node.js](create-cassandra-nodejs.md)
-> * [python](create-cassandra-python.md)
+> * [Nó.js](create-cassandra-nodejs.md)
+> * [Pitão](create-cassandra-python.md)
 >  
 
 Neste arranque rápido, cria-se uma conta API Da API da Azure Cosmos DB Cassandra, e usa-se uma aplicação Cassandra Java clonada do GitHub para criar uma base de dados e um contentor da Cassandra. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
@@ -30,9 +30,9 @@ Neste arranque rápido, cria-se uma conta API Da API da Azure Cosmos DB Cassandr
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure.
-- Kit de [Desenvolvimento Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte a sua variável ambiente `JAVA_HOME` para a pasta onde o JDK está instalado.
-- Um [arquivo binário Maven.](https://maven.apache.org/download.cgi) Em Ubuntu, corra `apt-get install maven` para instalar Maven.
-- [Git](https://www.git-scm.com/downloads). Em Ubuntu, executar `sudo apt-get install git` para instalar Git.
+- Kit de [Desenvolvimento Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Aponte `JAVA_HOME` a sua variável ambiental para a pasta onde o JDK está instalado.
+- Um [arquivo binário Maven.](https://maven.apache.org/download.cgi) Em Ubuntu, `apt-get install maven` corra para instalar Maven.
+- [Git.](https://www.git-scm.com/downloads) Em Ubuntu, `sudo apt-get install git` corra para instalar Git.
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 

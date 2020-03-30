@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258567"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instâncias 
@@ -37,7 +37,7 @@ No estado de encerramento, a Azure Service Fabric está em processo de desligar 
 No estado de queda, a instância já não está a correr no nó. Neste ponto, o Service Fabric mantém os metadados sobre esta instância, que acaba por ser eliminada também.
 
 > [!NOTE]
-> É possível transitar de qualquer estado para o estado abandonado utilizando a opção **ForceRemove** no `Remove-ServiceFabricReplica`.
+> É possível transitar de qualquer estado para o estado `Remove-ServiceFabricReplica`abandonado utilizando a opção **ForceRemove** em .
 >
 
 ## <a name="replicas-of-stateful-services"></a>Réplicas de serviços estatais
@@ -101,27 +101,27 @@ O papel da réplica não é relevante no estado de espera.
 >
 
 > [!NOTE]
-> É possível transitar de qualquer estado para o estado abandonado usando a opção **ForceRemove** em `Remove-ServiceFabricReplica`.
+> É possível transitar de qualquer estado para o estado `Remove-ServiceFabricReplica`abandonado usando a opção **ForceRemove** em .
 >
 
 ## <a name="replica-role"></a>Papel de réplica 
 O papel da réplica determina a sua função no conjunto de réplicas:
 
-- **Primária (P)** : Há uma primária no conjunto de réplicas que é responsável pela realização de operações de leitura e escrita. 
-- **ActiveSecondary (S)** : Estas são réplicas que recebem atualizações estatais a partir das primárias, aplicam-nas e, em seguida, enviam de volta reconhecimentos. Existem múltiplos secundários ativos no conjunto de réplicas. O número destes secundários ativos determina o número de falhas que o serviço pode suportar.
-- **IdleSecondary (I)** : Estas réplicas estão a ser construídas pela primária. Estão a receber estado das primárias antes de poderem ser promovidos a secundários ativos. 
-- **Nenhuma (N)** : Estas réplicas não têm uma responsabilidade no conjunto de réplicas.
-- **Unknown (U)** : Este é o papel inicial de uma réplica antes de receber qualquer chamada da **ChangeRole** API da Fabric service.
+- **Primária (P)**: Há uma primária no conjunto de réplicas que é responsável pela realização de operações de leitura e escrita. 
+- **ActiveSecondary (S)**: Estas são réplicas que recebem atualizações estatais a partir das primárias, aplicam-nas e, em seguida, enviam de volta reconhecimentos. Existem múltiplos secundários ativos no conjunto de réplicas. O número destes secundários ativos determina o número de falhas que o serviço pode suportar.
+- **IdleSecondary (I)**: Estas réplicas estão a ser construídas pela primária. Estão a receber estado das primárias antes de poderem ser promovidos a secundários ativos. 
+- **Nenhuma (N)**: Estas réplicas não têm uma responsabilidade no conjunto de réplicas.
+- **Unknown (U)**: Este é o papel inicial de uma réplica antes de receber qualquer chamada da **ChangeRole** API da Fabric service.
 
 O diagrama seguinte ilustra as transições de papéis da réplica e alguns cenários de exemplo em que podem ocorrer:
 
 ![Papel de réplica](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: Criação de uma nova réplica primária.
-- U -> I: Criação de uma nova réplica ociosa.
+- U-> P: Criação de uma nova réplica primária.
+- U-> I: Criação de uma nova réplica ociosa.
 - U -> N: Eliminação de uma réplica de espera.
-- I -> S: Promoção do secundário inativo para o secundário ativo para que os seus agradecimentos contribuam para o quórum.
-- I -> P: Promoção do secundário inativo para o primário. Isto pode acontecer sob reconfigurações especiais quando o secundário inativo é o candidato correto para ser primário.
+- I -> S: Promoção do secundário ocioso para o secundário ativo, de modo a que os seus agradecimentos contribuam para o quórum.
+- I -> P: Promoção do secundário ocioso para as primárias. Isto pode acontecer sob reconfigurações especiais quando o secundário inativo é o candidato correto para ser primário.
 - I -> N: Eliminação da réplica secundária ociosa.
 - S -> P: Promoção do secundário ativo para o primário. Isto pode ser devido à falha do movimento primário ou primário iniciado pelo Cluster Resource Manager. Por exemplo, pode ser em resposta a uma atualização da aplicação ou ao equilíbrio de carga.
 - S -> N: Eliminação da réplica secundária ativa.

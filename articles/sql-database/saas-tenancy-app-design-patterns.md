@@ -1,203 +1,202 @@
 ---
-title: Padrões de SaaS multilocatário
-description: Saiba mais sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dado SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
+title: Padrões SaaS multi-inquilinos
+description: Conheça os requisitos e padrões comuns de arquitetura de dados do software multi-inquilino como uma base de dados de serviço (SaaS) que funcionam no ambiente de nuvem Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seoapril2019
-ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: seoapril2019
+ms.openlocfilehash: 956d74467c69d9924d26f9cae8d902a6ddd84496
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067495"
 ---
-# <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locação de banco de dados SaaS multilocatário
+# <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de arrendamento de base de dados Multi-inquilinos SaaS
 
-Este artigo descreve os vários modelos de locação disponíveis para um aplicativo SaaS multilocatário.
+Este artigo descreve os vários modelos de arrendamento disponíveis para uma aplicação SaaS multi-inquilino.
 
-Ao criar um aplicativo SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de locação determina como os dados de cada locatário são mapeados para o armazenamento.  Sua escolha de modelo de locação afeta o design e o gerenciamento de aplicativos.  Às vezes, alternar para um modelo diferente é dispendioso.
+Ao conceber uma aplicação SaaS multi-inquilino, deve escolher cuidadosamente o modelo de arrendamento que melhor se adapte às necessidades da sua aplicação.  Um modelo de arrendamento determina como os dados de cada inquilino são mapeados para armazenamento.  A sua escolha do modelo de arrendamento tem impacto no design e gestão da aplicação.  Mudar para um modelo diferente mais tarde é por vezes dispendioso.
 
-## <a name="a-saas-concepts-and-terminology"></a>A. Conceitos e terminologia de SaaS
+## <a name="a-saas-concepts-and-terminology"></a>R. Conceitos saaS e terminologia
 
-No modelo SaaS (software como serviço), sua empresa não vende *licenças* para seu software. Em vez disso, cada cliente faz o aluguel de pagamentos para sua empresa, tornando cada cliente um *locatário* de sua empresa.
+No modelo Software as a Service (SaaS), a sua empresa não vende *licenças* para o seu software. Em vez disso, cada cliente faz pagamentos de rendas à sua empresa, tornando cada cliente um *inquilino* da sua empresa.
 
-Em retorno para o aluguel de pagamento, cada locatário recebe acesso aos componentes do aplicativo SaaS e tem seus dados armazenados no sistema SaaS.
+Em troca do pagamento da renda, cada inquilino recebe acesso aos seus componentes de aplicação SaaS, e tem os seus dados armazenados no sistema SaaS.
 
-O termo *modelo de aluguel* refere-se à forma como os dados armazenados dos locatários são organizados:
+O *termo modelo* de arrendamento refere-se à forma como os dados armazenados dos inquilinos são organizados:
 
-- *Locação única:* o&nbsp; cada banco de dados armazena apenas um locatário.
-- *Multi-locação:* &nbsp; cada banco de dados armazena os dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
-- Os modelos de aluguel híbrido também estão disponíveis.
+- *Arrendamento único:* &nbsp; Cada base de dados armazena dados de apenas um inquilino.
+- *Multi-arrendamento:* &nbsp; Cada base de dados armazena dados de vários inquilinos separados (com mecanismos para proteger a privacidade dos dados).
+- Os modelos de arrendamento híbrido também estão disponíveis.
 
-## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo de aluguel apropriado
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo de arrendamento apropriado
 
-Em geral, o modelo de locação não afeta a função de um aplicativo, mas provavelmente afeta outros aspectos da solução geral.  Os critérios a seguir são usados para avaliar cada um dos modelos:
+Em geral, o modelo de arrendamento não afeta a função de uma aplicação, mas provavelmente impacta outros aspetos da solução global.  São utilizados os seguintes critérios para avaliar cada um dos modelos:
 
-- **Escalabilidade**
-    - Número de locatários.
-    - Armazenamento por locatário.
-    - Armazenamento em agregação.
-    - Pico.
+- **Escalabilidade:**
+    - Número de inquilinos.
+    - Armazenamento por inquilino.
+    - Armazenamento agregado.
+    - Carga de trabalho.
 
-- **Isolamento de locatário:** isolamento de dados de&nbsp; e desempenho (se a carga de trabalho de um locatário impacta outras pessoas).
+- **Isolamento do inquilino:** &nbsp; Isolamento de dados e desempenho (se a carga de trabalho de um inquilino afeta outros).
 
-- **Custo por locatário:** &nbsp; custos de banco de dados.
+- **Custo por inquilino:** &nbsp; Custos da base de dados.
 
-- **Complexidade de desenvolvimento:**
-    - Alterações no esquema.
-    - Alterações em consultas (exigidas pelo padrão).
+- **Complexidade do desenvolvimento:**
+    - Alterações ao esquema.
+    - Alterações nas consultas (exigidas pelo padrão).
 
 - **Complexidade operacional:**
-    - Monitoramento e gerenciamento de desempenho.
-    - Gerenciamento de esquema.
-    - Restaurando um locatário.
+    - Monitorização e gestão do desempenho.
+    - Gestão de esquemas.
+    - Restaurar um inquilino.
     - Recuperação após desastre.
 
-- Personalização **:** &nbsp; facilidade de dar suporte a personalizações de esquema que são específicas de locatário ou de locatário específicos da classe.
+- **Customizabilidade:** &nbsp; Facilidade de apoiar personalizações de esquemas que sejam específicas do inquilino ou da classe de inquilinos.
 
-A discussão sobre locação se concentra na camada de *dados* .  Mas considere por um momento a camada de *aplicativo* .  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em muitos componentes pequenos, sua escolha de modelo de locação poderá ser alterada.  Você pode tratar alguns componentes de forma diferente dos outros em relação à locação e à tecnologia de armazenamento ou à plataforma usada.
+A discussão sobre o arrendamento centra-se na camada de *dados.*  Mas considere por um momento a camada de *aplicação.*  A camada de aplicação é tratada como uma entidade monolítica.  Se dividir a aplicação em muitos pequenos componentes, a sua escolha de modelo de arrendamento pode mudar.  Pode tratar alguns componentes de forma diferente dos outros em relação ao arrendamento e à tecnologia de armazenamento ou plataforma utilizada.
 
-## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicativo de locatário único autônomo com Banco de dados de locatário único
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. App de inquilino único autónomo com base de dados de inquilino único
 
-#### <a name="application-level-isolation"></a>Isolamento de nível de aplicativo
+#### <a name="application-level-isolation"></a>Isolamento nível de aplicação
 
-Nesse modelo, todo o aplicativo é instalado repetidamente, uma vez para cada locatário.  Cada instância do aplicativo é uma instância autônoma, portanto, ela nunca interage com nenhuma outra instância autônoma.  Cada instância do aplicativo tem apenas um locatário e, portanto, precisa de apenas um banco de dados.  O locatário tem o próprio banco de dados para si mesmo.
+Neste modelo, toda a aplicação é instalada repetidamente, uma vez para cada inquilino.  Cada instância da aplicação é um caso autónomo, por isso nunca interage com qualquer outro caso autónomo.  Cada instância da aplicação tem apenas um inquilino, pelo que só precisa de uma base de dados.  O inquilino tem a base de dados só para si.
 
-![Design de aplicativo autônomo com exatamente um banco de dados de locatário único.][image-standalone-app-st-db-111a]
+![Design de app autónoma com exatamente uma base de dados de um único inquilino.][image-standalone-app-st-db-111a]
 
-Cada instância de aplicativo é instalada em um grupo de recursos do Azure separado.  O grupo de recursos pode pertencer a uma assinatura que pertence ao fornecedor do software ou ao locatário.  Em ambos os casos, o fornecedor pode gerenciar o software para o locatário.  Cada instância do aplicativo é configurada para se conectar ao banco de dados correspondente.
+Cada instância de aplicação é instalada num grupo de recursos Azure separado.  O grupo de recursos pode pertencer a uma subscrição que é propriedade do fornecedor de software ou do inquilino.  Em qualquer dos casos, o vendedor pode gerir o software para o inquilino.  Cada instância de aplicação está configurada para se ligar à sua base de dados correspondente.
 
-Cada banco de dados de locatário é implantado como um banco de dados individual.  Esse modelo fornece o maior isolamento de banco de dados.  Mas o isolamento requer que recursos suficientes sejam alocados para cada banco de dados para lidar com suas cargas de pico.  Aqui, é importante que os pools elásticos não possam ser usados para bancos de dados implantados em grupos de recursos diferentes ou para assinaturas diferentes.  Essa limitação torna esse aplicativo de único locatário autônomo a solução mais cara de uma perspectiva de custo geral do banco de dados.
+Cada base de dados de inquilinos é implantada como uma única base de dados.  Este modelo fornece o maior isolamento de base de dados.  Mas o isolamento requer que sejam atribuídos recursos suficientes a cada base de dados para lidar com as suas cargas máximas.  Neste caso, importa que os pools elásticos não possam ser utilizados para bases de dados implantadas em diferentes grupos de recursos ou para diferentes subscrições.  Esta limitação faz deste modelo de aplicação single-tenant autónomo a solução mais cara do ponto de vista geral dos custos da base de dados.
 
-#### <a name="vendor-management"></a>Gerenciamento de fornecedores
+#### <a name="vendor-management"></a>Gestão de fornecedores
 
-O fornecedor pode acessar todos os bancos de dados em todas as instâncias do aplicativo autônomo, mesmo que as instâncias do aplicativo estejam instaladas em assinaturas de locatário diferentes.  O acesso é obtido por meio de conexões SQL.  Esse acesso entre instâncias pode permitir que o fornecedor Centralize o gerenciamento de esquema e a consulta entre bancos de dados para fins de relatório ou análise.  Se esse tipo de gerenciamento centralizado for desejado, será necessário implantar um catálogo que mapeia os identificadores de locatário para URIs de banco de dados.  O banco de dados SQL do Azure fornece uma biblioteca de fragmentação que é usada junto com um banco de dados SQL para fornecer um catálogo.  A biblioteca de fragmentação é formalmente nomeada a [biblioteca de cliente do banco de dados elástico][docu-elastic-db-client-library-536r].
+O fornecedor pode aceder a todas as bases de dados em todas as instâncias de aplicações autónomas, mesmo que as instâncias de aplicação sejam instaladas em diferentes subscrições de inquilinos.  O acesso é obtido através de ligações SQL.  Este acesso transversal pode permitir ao fornecedor centralizar a gestão de esquemas e a consulta de base de dados cruzada para fins de reporte ou análise.  Se este tipo de gestão centralizada for desejada, deve ser implantado um catálogo que mapeie os identificadores de inquilinos para os URIs da base de dados.  A Base de Dados Azure SQL fornece uma biblioteca sharding que é usada juntamente com uma base de dados SQL para fornecer um catálogo.  A biblioteca sharding é formalmente nomeada a Biblioteca de Clientes de Base de [Dados Elástica.][docu-elastic-db-client-library-536r]
 
-## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicativo multilocatário com Banco de dados por locatário
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicativo multi-inquilino com base de dados-por-inquilino
 
-Este próximo padrão usa um aplicativo multilocatário com muitos bancos de dados, todos sendo bancos de dados de único locatário.  Um novo banco de dados é provisionado para cada novo locatário.  A camada de aplicativo é dimensionada *verticalmente* com a adição de mais recursos por nó.  Ou o aplicativo é *dimensionado horizontalmente* com a adição de mais nós.  O dimensionamento é baseado na carga de trabalho e é independente do número ou da escala dos bancos de dados individuais.
+Este próximo padrão usa uma aplicação multi-inquilino com muitas bases de dados, sendo todas bases de dados de inquilinos únicos.  Uma nova base de dados está prevista para cada novo inquilino.  O nível de aplicação é *escalado* verticalmente adicionando mais recursos por nó.  Ou a aplicação é *dimensionada* horizontalmente adicionando mais nós.  A escala baseia-se na carga de trabalho e é independente do número ou escala das bases de dados individuais.
 
-![Design de aplicativo multilocatário com Banco de dados por locatário.][image-mt-app-db-per-tenant-132d]
+![Design de aplicativo multi-inquilino com base de dados-por-inquilino.][image-mt-app-db-per-tenant-132d]
 
-#### <a name="customize-for-a-tenant"></a>Personalizar para um locatário
+#### <a name="customize-for-a-tenant"></a>Personalize para um inquilino
 
-Como o padrão de aplicativo autônomo, o uso de bancos de dados de locatário único fornece isolamento de locatário forte.  Em qualquer aplicativo cujo modelo especifica apenas bancos de dados de locatário único, o esquema para qualquer um dos bancos de dado pode ser personalizado e otimizado para seu locatário.  Essa personalização não afeta outros locatários no aplicativo. Talvez um locatário possa precisar de dados além dos campos de dados básicos que todos os locatários precisam.  Além disso, o campo de dados extra pode precisar de um índice.
+Tal como o padrão de aplicações autónomas, o uso de bases de dados de inquilinos únicos proporciona um forte isolamento de inquilinos.  Em qualquer aplicação cujo modelo especifica apenas bases de dados de um único inquilino, o esquema para qualquer base de dados pode ser personalizado e otimizado para o seu inquilino.  Esta personalização não afeta outros inquilinos da aplicação. Talvez um inquilino precise de dados para além dos campos de dados básicos de que todos os inquilinos precisam.  Além disso, o campo de dados extra pode precisar de um índice.
 
-Com o banco de dados por locatário, a personalização do esquema para um ou mais locatários individuais é simples de atingir.  O fornecedor do aplicativo deve criar procedimentos para gerenciar cuidadosamente as personalizações de esquema em escala.
+Com base de dados por inquilino, personalizar o esquema para um ou mais inquilinos individuais é simples de alcançar.  O fornecedor de aplicações deve conceber procedimentos para gerir cuidadosamente as personalizações de esquemas em escala.
 
 #### <a name="elastic-pools"></a>Conjuntos elásticos
 
-Quando os bancos de dados são implantados no mesmo grupo de recursos, eles podem ser agrupados em pools elásticos.  Os pools fornecem uma maneira econômica de compartilhar recursos em vários bancos de dados.  Essa opção de pool é mais barata do que exigir que cada banco de dados seja grande o suficiente para acomodar os picos de uso que ele enfrenta.  Embora os bancos de dados em pool compartilhem o acesso a recursos, eles ainda podem alcançar um alto grau de isolamento de desempenho.
+Quando as bases de dados são implantadas no mesmo grupo de recursos, podem ser agrunadas em piscinas elásticas.  As piscinas fornecem uma forma rentável de partilhar recursos em muitas bases de dados.  Esta opção de piscina é mais barata do que exigir que cada base de dados seja grande o suficiente para acomodar os picos de utilização que experimenta.  Embora as bases de dados agrinizadas partilhem o acesso aos recursos, ainda podem alcançar um elevado grau de isolamento de desempenho.
 
-![Design de aplicativo multilocatário com Banco de dados por locatário usando pool elástico.][image-mt-app-db-per-tenant-pool-153p]
+![Design de aplicativo multi-inquilino com base de dados-por-inquilino, usando piscina elástica.][image-mt-app-db-per-tenant-pool-153p]
 
-O banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  As métricas de desempenho no nível do pool e no nível de banco de dados estão disponíveis no portal do Azure e por meio de logs de Azure Monitor.  As métricas podem fornecer ótimos percepções sobre o desempenho específico da agregação e do locatário.  Bancos de dados individuais podem ser movidos entre pools para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir um bom desempenho de maneira econômica.
+A Base de Dados Azure SQL fornece as ferramentas necessárias para configurar, monitorizar e gerir a partilha.  Tanto as métricas de desempenho ao nível da piscina como do nível da base de dados estão disponíveis no portal Azure, e através de registos do Monitor Azure.  As métricas podem dar grandes insights sobre o desempenho agregado e específico do inquilino.  As bases de dados individuais podem ser movidas entre piscinas para fornecer recursos reservados a um inquilino específico.  Estas ferramentas permitem-lhe garantir um bom desempenho de forma rentável.
 
-#### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para banco de dados por locatário
+#### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para base de dados por inquilino
 
-A plataforma de banco de dados SQL do Azure tem muitos recursos de gerenciamento projetados para gerenciar um grande número de bancos de dados em escala, como bem mais de 100.000 bancos.  Esses recursos tornam o padrão de banco de dados por locatário plausível.
+A plataforma Azure SQL Database possui muitas funcionalidades de gestão projetadas para gerir um grande número de bases de dados em escala, bem como mais de 100.000 bases de dados.  Estas características tornam plausível o padrão de base de dados por inquilino.
 
-Por exemplo, suponha que um sistema tenha um banco de dados de locatário 1000 como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converter para ter 1000 bancos de dados de único locatário, a quantidade de índices aumentará para 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática são habilitados por padrão.  A indexação automática gerencia todos os índices 20.000 e suas otimizações de criação e remoção em andamento.  Essas ações automatizadas ocorrem dentro de um banco de dados individual e não são coordenadas ou restritas por ações semelhantes em outros bancos.  A indexação automática trata os índices de forma diferente em um banco de dados ocupado do que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável na escala de banco de dados por locatário se essa tarefa de gerenciamento enorme tivesse de ser feita manualmente.
+Por exemplo, suponha que um sistema tem uma base de dados de 1000 inquilinos como a sua única base de dados.  A base de dados pode ter 20 índices.  Se o sistema se converter a ter 1000 bases de dados de um único inquilino, a quantidade de índices sobe para 20.000.  Na Base de Dados SQL como parte da [afinação automática,][docu-sql-db-automatic-tuning-771a]as características de indexação automática são ativadas por padrão.  O indexante automático gere para si todos os 20.000 índices e as suas otimizações contínuas de criação e queda.  Estas ações automatizadas ocorrem dentro de uma base de dados individual, e não são coordenadas ou restringidas por ações semelhantes noutras bases de dados.  A indexação automática trata os índices de forma diferente numa base de dados movimentada do que numa base de dados menos movimentada.  Este tipo de personalização de gestão de índices seria impraticável à escala de base de dados por inquilino se esta enorme tarefa de gestão tivesse de ser feita manualmente.
 
-Outros recursos de gerenciamento que dimensionam bem incluem o seguinte:
+Outras funcionalidades de gestão que escalam bem incluem o seguinte:
 
-- Backups internos.
+- Reforços embutidos.
 - Elevada disponibilidade.
-- Criptografia em disco.
+- Encriptação no disco.
 - Telemetria de desempenho.
 
 #### <a name="automation"></a>Automatização
 
-As operações de gerenciamento podem ser inseridas no script e oferecidas por meio de um modelo [DevOps][http-visual-studio-devops-485m] .  As operações podem até mesmo ser automatizadas e expostas no aplicativo.
+As operações de gestão podem ser escritas e oferecidas através de um modelo [devops.][http-visual-studio-devops-485m]  As operações podem até ser automatizadas e expostas na aplicação.
 
-Por exemplo, você pode automatizar a recuperação de um único locatário para um ponto anterior no tempo.  A recuperação só precisa restaurar um banco de dados de locatário único que armazena o locatário.  Essa restauração não afeta outros locatários, o que confirma que as operações de gerenciamento estão no nível granular de cada locatário individual.
+Por exemplo, você poderia automatizar a recuperação de um único inquilino para um ponto mais cedo no tempo.  A recuperação só precisa de restaurar a base de dados de um único inquilino que armazena o inquilino.  Esta restauração não tem impacto sobre outros inquilinos, o que confirma que as operações de gestão estão ao nível finamente granular de cada inquilino individual.
 
-## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Aplicativo multilocatário com bancos de dados de vários locatários
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Aplicativo multi-inquilino com bases de dados multi-inquilinos
 
-Outro padrão disponível é armazenar vários locatários em um banco de dados de vários locatários.  A instância do aplicativo pode ter qualquer número de bancos de dados de vários locatários.  O esquema de um banco de dados multilocatário deve ter uma ou mais colunas de identificador de locatário para que os dados de qualquer locatário específico possam ser recuperados seletivamente.  Além disso, o esquema pode exigir algumas tabelas ou colunas que são usadas apenas por um subconjunto de locatários.  No entanto, o código estático e os dados de referência são armazenados apenas uma vez e compartilhados por todos os locatários.
+Outro padrão disponível é armazenar muitos inquilinos numa base de dados multi-inquilinos.  A instância de candidatura pode ter várias bases de dados de multi-inquilinos.  O esquema de uma base de dados multi-arrendatária deve ter uma ou mais colunas de identificador de inquilinos para que os dados de qualquer inquilino possam ser recuperados seletivamente.  Além disso, o esquema pode requerer algumas tabelas ou colunas que são usadas apenas por um subconjunto de inquilinos.  No entanto, o código estático e os dados de referência são armazenados apenas uma vez e são partilhados por todos os inquilinos.
 
-#### <a name="tenant-isolation-is-sacrificed"></a>Isolamento de locatário é sacrificado
+#### <a name="tenant-isolation-is-sacrificed"></a>O isolamento do inquilino é sacrificado
 
-*Data:* &nbsp; um banco de dados multilocatário necessariamente sacrificar o isolamento do locatário.  Os dados de vários locatários são armazenados juntos em um banco de dado.  Durante o desenvolvimento, certifique-se de que as consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
+*Dados:* &nbsp; Uma base de dados multi-inquilinos sacrifica necessariamente o isolamento dos inquilinos.  Os dados de vários inquilinos são armazenados juntos numa base de dados.  Durante o desenvolvimento, certifique-se de que as consultas nunca expõem dados de mais do que um inquilino.  A Base de Dados SQL suporta a [segurança de nível de linha,][docu-sql-svr-db-row-level-security-947w]que pode impor que os dados devolvidos de uma consulta sejam examinados a um único inquilino.
 
-*Processamento:* &nbsp; um banco de dados multilocatário compartilha recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir que ele esteja sendo executado de forma aceitável.  No entanto, o sistema do Azure não tem uma maneira interna de monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário tem um risco maior de encontrar vizinhos ruidosas, em que a carga de trabalho de um locatário superativo afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  O monitoramento em nível de aplicativo adicional pode monitorar o desempenho no nível do locatário.
+*Processamento:* &nbsp; Uma base de dados multi-inquilinos partilha dados de cálculo e armazenamento de todos os seus inquilinos.  A base de dados no seu conjunto pode ser monitorizada para garantir que está a funcionar de forma aceitável.  No entanto, o sistema Azure não dispõe de forma integrada para monitorizar ou gerir a utilização destes recursos por um inquilino individual.  Assim, a base de dados multi-inquilinos tem um risco acrescido de encontrar vizinhos barulhentos, onde a carga de trabalho de um inquilino hiperativo afeta a experiência de desempenho de outros inquilinos na mesma base de dados.  Uma monitorização adicional do nível de aplicação poderia monitorizar o desempenho do nível dos inquilinos.
 
-#### <a name="lower-cost"></a>Custo mais reduzido
+#### <a name="lower-cost"></a>Custo mais baixo
 
-Em geral, bancos de dados multilocatários têm o menor custo por locatário.  Os custos de recursos para um único banco de dados são menores do que para um pool elástico de tamanho equivalente.  Além disso, para cenários em que os locatários precisam apenas de armazenamento limitado, potencialmente, milhões de locatários podem ser armazenados em um único banco de dados.  Nenhum pool elástico pode conter milhões de bancos de dados.  No entanto, uma solução que contém 1000 bancos de dados por pool, com pools de 1000, pode alcançar a escala de milhões no risco de se tornar difícil de gerenciar.
+Em geral, as bases de dados multi-inquilinos têm o custo mais baixo por inquilino.  Os custos de recursos para uma única base de dados são inferiores aos de um conjunto elástico de tamanho equivalente.  Além disso, para cenários em que os inquilinos precisam apenas de armazenamento limitado, potencialmente milhões de inquilinos poderiam ser armazenados numa única base de dados.  Nenhuma piscina elástica pode conter milhões de bases de dados.  No entanto, uma solução que contenha 1000 bases de dados por piscina, com 1000 piscinas, poderia atingir a escala de milhões com o risco de se tornar inflexível para gerir.
 
-Duas variações de um modelo de banco de dados multilocatário são discutidas da seguinte maneira, com o modelo multilocatário fragmentado sendo o mais flexível e escalonável.
+Duas variações de um modelo de base de dados multi-inquilinos são discutidas no que se segue, sendo o modelo multi-inquilino sharded o mais flexível e escalável.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>Fixo. Aplicativo multilocatário com um único banco de dados de vários locatários
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicativo multi-inquilino com uma única base de dados multi-inquilino
 
-O padrão mais simples de banco de dados multilocatário usa um banco de dados individual para hospedar o dado para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de armazenamento e computação.  Essa escala vertical pode ser tudo o que é necessário, embora sempre haja um limite de escala final.  No entanto, muito antes que esse limite seja atingido, o banco de dados torna-se difícil de gerenciar.
+O padrão de base de dados multi-inquilino mais simples usa uma única base de dados para alojar dados para todos os inquilinos.  À medida que mais inquilinos são adicionados, a base de dados é dimensionada com mais armazenamento e recursos de computação.  Esta escala pode ser tudo o que é necessário, embora haja sempre um limite de escala final.  No entanto, muito antes de esse limite ser atingido, a base de dados torna-se inflexível de gerir.
 
-As operações de gerenciamento que se concentram em locatários individuais são mais complexas de implementar em um banco de dados de vários locatários.  E em escala, essas operações podem se tornar lentas inaceitáveis.  Um exemplo é uma restauração pontual dos dados para apenas um locatário.
+As operações de gestão focadas nos inquilinos individuais são mais complexas para implementar numa base de dados multi-arrendatária.  E à escala estas operações podem tornar-se inaceitavelmente lentas.  Um exemplo é a restauração pontual dos dados para apenas um inquilino.
 
-## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>m. Aplicativo multilocatário com bancos de dados de vários locatários fragmentados
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Aplicativo multi-inquilino com bases de dados de multi-inquilinos esfartos
 
-A maioria dos aplicativos SaaS acessa os dados de apenas um locatário por vez.  Esse padrão de acesso permite que os dados de locatário sejam distribuídos em vários bancos de dados ou fragmentos, em que todos os todos os dado de um locatário estão contidos em um fragmento.  Combinado com um padrão de banco de dados multilocatário, um modelo fragmentado permite uma escala quase ilimitada.
+A maioria das aplicações saaS acede mato aos dados de apenas um inquilino de cada vez.  Este padrão de acesso permite que os dados dos inquilinos sejam distribuídos por várias bases de dados ou fragmentos, onde todos os dados de qualquer inquilino estão contidos num só fragmento.  Combinado com um padrão de base de dados multi-inquilinos, um modelo fragmento permite uma escala quase ilimitada.
 
-![Design de aplicativo multilocatário com bancos de dados multilocatários fragmentados.][image-mt-app-sharded-mt-db-174s]
+![Design de aplicativo multi-inquilino com bases de dados de multi-inquilinos.][image-mt-app-sharded-mt-db-174s]
 
-#### <a name="manage-shards"></a>Gerenciar fragmentos
+#### <a name="manage-shards"></a>Gerir fragmentos
 
-A fragmentação adiciona complexidade ao design e ao gerenciamento operacional.  Um catálogo é necessário para manter o mapeamento entre locatários e bancos de dados.  Além disso, os procedimentos de gerenciamento são necessários para gerenciar os fragmentos e a população do locatário.  Por exemplo, os procedimentos devem ser projetados para adicionar e remover fragmentos e para mover dados de locatário entre fragmentos.  Uma maneira de dimensionar é adicionar um novo fragmento e preenchê-lo com novos locatários.  Em outras ocasiões, você pode dividir um fragmento muito populado em dois fragmentos com menos densidade.  Depois que vários locatários tiverem sido movidos ou descontinuados, você poderá mesclar os fragmentos com uma população escassada em conjunto.  A mesclagem resultaria em uma utilização de recursos mais econômica.  Os locatários também podem ser movidos entre fragmentos para balancear cargas de trabalho.
+Sharding acrescenta complexidade tanto ao design como à gestão operacional.  É necessário um catálogo para manter o mapeamento entre inquilinos e bases de dados.  Além disso, são necessários procedimentos de gestão para gerir os fragmentos e a população arrendatária.  Por exemplo, devem ser concebidos procedimentos para adicionar e remover fragmentos e mover dados de inquilinos entre fragmentos.  Uma maneira de escalar é adicionar um novo fragmento e povoá-lo com novos inquilinos.  Noutras alturas, pode dividir um fragmento densamente povoado em dois fragmentos menos densamente povoados.  Depois de vários inquilinos terem sido movidos ou descontinuados, você pode fundir fragmentos escassamente povoados juntos.  A fusão resultaria numa utilização mais rentável dos recursos.  Os inquilinos também podem ser movidos entre fragmentos para equilibrar as cargas de trabalho.
 
-O banco de dados SQL fornece uma ferramenta de divisão/mesclagem que funciona em conjunto com a biblioteca de fragmentação e o banco de dados de catálogo.  O aplicativo fornecido pode dividir e mesclar fragmentos e pode mover dados de locatário entre fragmentos.  O aplicativo também mantém o catálogo durante essas operações, marcando locatários afetados como offline antes de movê-los.  Após a movimentação, o aplicativo atualiza o catálogo novamente com o novo mapeamento e marca o locatário como online novamente.
+A Base de Dados SQL fornece uma ferramenta de divisão/fusão que funciona em conjunto com a biblioteca sharding e a base de dados do catálogo.  A aplicação fornecida pode dividir e fundir fragmentos, e pode mover dados de inquilinos entre fragmentos.  A aplicação também mantém o catálogo durante estas operações, marcando os inquilinos afetados como offline antes de movê-los.  Após a mudança, a aplicação atualiza novamente o catálogo com o novo mapeamento, e marca ndo o inquilino como de volta on-line.
 
-#### <a name="smaller-databases-more-easily-managed"></a>Bancos de dados menores mais fáceis de gerenciar
+#### <a name="smaller-databases-more-easily-managed"></a>Bases de dados mais pequenas são geridas mais facilmente
 
-Ao distribuir locatários em vários bancos de dados, a solução de multilocatário fragmentada resulta em bancos de dados menores que são gerenciados com mais facilidade.  Por exemplo, a restauração de um locatário específico para um ponto anterior no tempo agora envolve a restauração de um único banco de dados menor a partir de um backup, em vez de um banco de dados maior que contém todos os locatários. O tamanho do banco de dados e o número de locatários por banco de dados podem ser escolhidos para balancear a carga de trabalho e os esforços de gerenciamento.
+Distribuindo inquilinos por várias bases de dados, a solução de multi-inquilinos fragmentos resulta em bases de dados mais pequenas que são mais facilmente geridas.  Por exemplo, restaurar um inquilino específico para um ponto de tempo anterior envolve agora restaurar uma única base de dados menor de uma cópia de segurança, em vez de uma base de dados maior que contém todos os inquilinos. O tamanho da base de dados, e o número de inquilinos por base de dados, podem ser escolhidos para equilibrar a carga de trabalho e os esforços de gestão.
 
-#### <a name="tenant-identifier-in-the-schema"></a>Identificador do locatário no esquema
+#### <a name="tenant-identifier-in-the-schema"></a>Identificador de inquilino no esquema
 
-Dependendo da abordagem de fragmentação usada, restrições adicionais podem ser impostas no esquema de banco de dados.  O aplicativo de divisão/mesclagem do banco de dados SQL requer que o esquema inclua a chave de fragmentação, que normalmente é o identificador do locatário.  O identificador do locatário é o elemento principal na chave primária de todas as tabelas fragmentadas.  O identificador de locatário permite que o aplicativo de divisão/mesclagem localize rapidamente e mova dados associados a um locatário específico.
+Dependendo da abordagem mais sharding utilizada, podem ser impostas restrições adicionais ao esquema da base de dados.  A aplicação sql database split/merge requer que o esquema inclua a chave sharding, que normalmente é o identificador de inquilino.  O identificador de inquilino é o elemento principal na chave primária de todas as mesas escadas.  O identificador de inquilino permite que a aplicação de divisão/fusão localize e mova rapidamente dados associados a um inquilino específico.
 
-#### <a name="elastic-pool-for-shards"></a>Pool elástico para fragmentos
+#### <a name="elastic-pool-for-shards"></a>Piscina elástica para fragmentos
 
-Bancos de dados de vários locatários fragmentados podem ser colocados em pools elásticos.  Em geral, ter muitos bancos de dados de locatário único em um pool é tão econômico quanto ter muitos locatários em alguns bancos de dados de vários locatários.  Bancos de dados multilocatários são vantajosos quando há um grande número de locatários relativamente inativos.
+Bases de dados de multi-inquilinos podem ser colocadas em piscinas elásticas.  Em geral, ter muitas bases de dados de inquilinos únicos numa piscina é tão rentável como ter muitos inquilinos em algumas bases de dados multi-inquilinos.  As bases de dados multi-inquilinos são vantajosas quando há um grande número de inquilinos relativamente inativos.
 
-## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>t. Modelo de banco de dados multilocatário fragmentado híbrido
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modelo de base de dados híbrido de vários inquilinos
 
-No modelo híbrido, todos os bancos de dados têm o identificador de locatário em seu esquema.  Os bancos de dados são todos capazes de armazenar mais de um locatário, e os bancos de dados podem ser fragmentados.  Portanto, no sentido do esquema, eles são todos os bancos de dados multilocatários.  Ainda na prática, alguns desses bancos de dados contêm apenas um locatário.  Independentemente, a quantidade de locatários armazenados em um determinado banco de dados não tem efeito sobre o esquema de banco de dados.
+No modelo híbrido, todas as bases de dados têm o identificador de inquilino no seu esquema.  As bases de dados são todas capazes de armazenar mais do que um inquilino, e as bases de dados podem ser espumosas.  Então, no sentido do esquema, são todas bases de dados multi-inquilinos.  No entanto, na prática, algumas destas bases de dados contêm apenas um inquilino.  Independentemente disso, a quantidade de inquilinos armazenados numa determinada base de dados não tem qualquer efeito no esquema da base de dados.
 
-#### <a name="move-tenants-around"></a>Mover locatários
+#### <a name="move-tenants-around"></a>Mover inquilinos ao redor
 
-A qualquer momento, você pode mover um locatário específico para seu próprio banco de dados de vários locatários.  E a qualquer momento, você pode mudar de ideia e mover o locatário de volta para um banco de dados que contém vários locatários.  Você também pode atribuir um locatário ao novo banco de dados de locatário único ao provisionar o novo banco de dados.
+A qualquer momento, você pode mover um inquilino particular para a sua própria base de dados multi-inquilinos.  E a qualquer momento, pode mudar de ideias e mudar o inquilino de volta para uma base de dados que contém vários inquilinos.  Também pode atribuir um inquilino a uma nova base de dados de inquilinos únicos quando fornecer a nova base de dados.
 
-O modelo híbrido se destaca quando há grandes diferenças entre as necessidades de recursos de grupos de locatários identificáveis.  Por exemplo, suponha que os locatários que participam de uma avaliação gratuita não tenham garantia do mesmo alto nível de desempenho que os locatários de assinatura.  A política pode ser para os locatários na fase de avaliação gratuita serem armazenados em um banco de dados multilocatário que é compartilhado entre todos os locatários de avaliação gratuita.  Quando um locatário de avaliação gratuita assina a camada de serviço básica, o locatário pode ser movido para outro banco de dados de vários locatários que pode ter menos locatários.  Um assinante que paga para a camada de serviço Premium pode ser movido para seu próprio novo banco de dados de locatário único.
+O modelo híbrido brilha quando há grandes diferenças entre as necessidades de recursos de grupos identificáveis de inquilinos.  Por exemplo, suponha que os inquilinos que participam num julgamento gratuito não estão garantidos o mesmo nível de desempenho que os inquilinos subscritores são.  A política pode ser para os inquilinos em fase de experimentação gratuita para serem armazenados numa base de dados multi-inquilinos que é partilhada entre todos os inquilinos de teste gratuito.  Quando um inquilino de teste gratuito subscreve o nível de serviço básico, o inquilino pode ser transferido para outra base de dados multi-inquilinos que pode ter menos inquilinos.  Um assinante que pague o nível de serviço premium poderia ser transferido para a sua nova base de dados de inquilinos únicos.
 
 #### <a name="pools"></a>Conjuntos
 
-Nesse modelo híbrido, os bancos de dados de locatário único para locatários de assinante podem ser colocados em pools de recursos para reduzir os custos de banco de dados por locatário.  Isso também é feito no modelo de banco de dados por locatário.
+Neste modelo híbrido, as bases de dados de inquilinos únicos para inquilinos assinantes podem ser colocadas em conjuntos de recursos para reduzir os custos de base de dados por inquilino.  Isto também é feito no modelo base de dados por inquilino.
 
-## <a name="i-tenancy-models-compared"></a>I. Modelos de locação comparados
+## <a name="i-tenancy-models-compared"></a>I. Modelos de arrendamento comparados
 
-A tabela a seguir resume as diferenças entre os principais modelos de aluguel.
+A tabela que se segue resume as diferenças entre os principais modelos de arrendamento.
 
-| Medida | Aplicação autónoma | Banco de dados por locatário | Multilocatário fragmentado |
+| Medida | Aplicação autónoma | Base de dados por inquilino | Multi-inquilino sharded |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Médio<br />1-100s | Muito alto<br />1-100, mil | Ilimitado<br />1-1, 000, mil |
-| Isolamento de locatário | Muito alto | Elevado | Pequena exceto para qualquer locatário único (que é sozinho em um MT DB). |
-| Custo do banco de dados por locatário | Elevada é dimensionado para picos. | Pequena pools usados. | Mais baixo, para locatários pequenos em bancos de los MT. |
-| Monitoramento e gerenciamento de desempenho | Somente por locatário | Agregar + por locatário | Tais Embora seja por locatário somente para singles. |
-| Complexidade de desenvolvimento | Baixa | Baixa | Médio devido à fragmentação. |
-| Complexidade operacional | Baixo-alto. Individualmente simples, complexa em escala. | Baixa-média. Os padrões abordam a complexidade em escala. | Baixo-alto. O gerenciamento individual de locatários é complexo. |
+| Dimensionamento | Médio<br />1-100 | Muito alta <br />1-100.000 | Ilimitado<br />1-1.000.000 |
+| Isolamento de inquilinos | Muito alta  | Alta | Baixo; exceto para qualquer inquilino único (que está sozinho em um MT db). |
+| Custo da base de dados por inquilino | Alto; é dimensionado para picos. | Baixo; piscinas usadas. | O mais baixo, para pequenos inquilinos em DBs MT. |
+| Monitorização e gestão de desempenho | Por inquilino apenas | Agregado + por inquilino | Agregado; embora seja por inquilino apenas para solteiros. |
+| Complexidade do desenvolvimento | Baixa | Baixa | Médio; devido a sharding. |
+| Complexidade operacional | Baixo-alto. Individualmente simples, complexo à escala. | Baixo-Médio. Padrões abordam a complexidade em escala. | Baixo-alto. A gestão individual dos inquilinos é complexa. |
 | &nbsp; ||||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implantar e explorar um aplicativo Wingtip multilocatário que usa o modelo de SaaS de banco de dados por locatário – banco de dados SQL do Azure][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
+- [Implemente e explore uma aplicação Wingtip multi-inquilino que utiliza o modelo SaaS de base de dados por inquilino - Base de Dados Azure SQL][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
-- [Bem-vindo ao aplicativo de aluguel de banco de dados SQL do SaaS de exemplo do Wingtip tickets][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
+- [Bem-vindo swingtip Tickets sample SaaS Azure SQL Database app de arrendamento][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
 
 <!--  Article link references.  -->
@@ -214,11 +213,11 @@ A tabela a seguir resume as diferenças entre os principais modelos de aluguel.
 
 <!--  Image references.  -->
 
-[image-standalone-app-st-db-111a]: media/saas-tenancy-app-design-patterns/saas-standalone-app-single-tenant-database-11.png "Design de aplicativo autônomo com exatamente um banco de dados de locatário único."
+[image-standalone-app-st-db-111a]: media/saas-tenancy-app-design-patterns/saas-standalone-app-single-tenant-database-11.png "Design de app autónoma com exatamente uma base de dados de um único inquilino."
 
-[image-mt-app-db-per-tenant-132d]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-13.png "Design de aplicativo multilocatário com Banco de dados por locatário."
+[image-mt-app-db-per-tenant-132d]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-13.png "Design de aplicativo multi-inquilino com base de dados-por-inquilino."
 
-[image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design de aplicativo multilocatário com Banco de dados por locatário usando pool elástico."
+[image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design de aplicativo multi-inquilino com base de dados-por-inquilino, usando piscina elástica."
 
-[image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design de aplicativo multilocatário com bancos de dados multilocatários fragmentados."
+[image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design de aplicativo multi-inquilino com bases de dados de multi-inquilinos."
 

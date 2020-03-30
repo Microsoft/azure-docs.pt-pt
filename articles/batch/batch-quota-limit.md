@@ -15,10 +15,10 @@ ms.date: 08/13/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248232"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
@@ -47,7 +47,7 @@ Se criou uma conta Batch com o modo de alocação de piscina definido para **a s
 
 Os limites do tamanho da piscina são definidos pelo serviço Batch. Ao contrário das quotas de [recursos,](#resource-quotas)estes valores não podem ser alterados. Apenas piscinas com comunicação inter-nó e imagens personalizadas têm restrições diferentes da quota padrão.
 
-| **Recurso** | **Limite Máximo** |
+| **Recurso** | **Limite máximo** |
 | --- | --- |
 | **Nóscomputa em piscina ativada por [comunicação inter-nó](batch-mpi.md)**  ||
 | Modo de atribuição de piscina de serviço de lote | 100 |
@@ -62,7 +62,7 @@ Os limites do tamanho da piscina são definidos pelo serviço Batch. Ao contrár
 
 Limites adicionais definidos pelo serviço Batch. Ao contrário das quotas de [recursos,](#resource-quotas)estes valores não podem ser alterados.
 
-| **Recurso** | **Limite Máximo** |
+| **Recurso** | **Limite máximo** |
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de cálculo | 4 x número de núcleos de nó |
 | [Aplicações](batch-application-packages.md) por conta Lote | 20 |
@@ -89,17 +89,17 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
 
 ### <a name="increase-cores-quota-in-batch"></a>Aumentar a quota de núcleos em Lote 
 
-1. Selecione o azulejo **de suporte Help +** no seu portal dashboard, ou o ponto de interrogação ( **?** ) no canto superior direito do portal.
-1. Selecione **novo pedido** de suporte > **Basics**.
+1. Selecione o azulejo **de suporte Help +** no seu portal dashboard, ou o ponto de interrogação (**?**) no canto superior direito do portal.
+1. Selecione **Novo pedido** > de suporte**Básicos**.
 1. No **Básico:**
    
-    a. **Tipo de emissão** > **Serviço e limites de subscrição (quotas)**
+    a. **Serviço de tipo** > de**emissão e limites de subscrição (quotas)**
    
     b. Selecione a sua subscrição.
    
-    c. **Lote** de ** > ** tipo de quota
+    c. **Lote tipo** > **Batch** quota
       
-    Selecione **Seguinte**.
+    Selecione **Next**.
     
 1. Em **Detalhes**:
       
@@ -119,7 +119,7 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
 
     b. Selecione uma **Severidade** de acordo com o impacto do seu [negócio][support_sev].
 
-    Selecione **Seguinte**.
+    Selecione **Next**.
 
 1. Em informações de **contacto:**
    
@@ -143,7 +143,7 @@ Estes recursos são atribuídos na subscrição que contém a rede virtual forne
 
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Crie uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md)
+* [Criar uma conta do Azure Batch no portal do Azure](batch-account-create-portal.md)
 * [Visão geral da funcionalidade do Lote Azure](batch-api-basics.md)
 * [Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)](../azure-resource-manager/management/azure-subscription-service-limits.md)
 

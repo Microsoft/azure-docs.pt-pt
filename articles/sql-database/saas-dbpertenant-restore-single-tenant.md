@@ -1,6 +1,6 @@
 ---
-title: Restaurar um banco de dados em um aplicativo SaaS multilocatário
-description: Saiba como restaurar um banco de dados SQL do locatário
+title: Restaurar uma base de dados numa aplicação multiarrendatária SaaS
+description: Saiba como restaurar a base de dados SQL de um único inquilino após apagar acidentalmente dados
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,129 +12,129 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
 ms.openlocfilehash: a54e8e5629f6f8ad688b6fe11bbf50fc038095bf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73818532"
 ---
-# <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único locatário com um aplicativo SaaS de banco de dados por locatário
+# <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único inquilino com uma aplicação SaaS de base de dados por inquilino
 
-O modelo de banco de dados por locatário facilita a restauração de um único locatário para um ponto anterior, sem afetar outros locatários.
+O modelo de base de dados por inquilino facilita a restauração de um único inquilino a um ponto anterior sem afetar outros inquilinos.
 
-Neste tutorial, você aprenderá dois padrões de recuperação de dados:
+Neste tutorial, você aprende dois padrões de recuperação de dados:
 
 > [!div class="checklist"]
-> * Restaurar um banco de dados em um banco de dados paralelo (lado a lado).
-> * Restaurar um banco de dados no local, substituindo o banco de dados existente.
+> * Restaurar uma base de dados numa base de dados paralela (lado a lado).
+> * Restaurar uma base de dados no lugar, substituindo a base de dados existente.
 
 |||
 |:--|:--|
-| Restaurar em um banco de dados paralelo | Esse padrão pode ser usado para tarefas como revisão, auditoria e conformidade para permitir que um locatário inspecione seus dados de um ponto anterior. O banco de dados atual do locatário permanece online e inalterado. |
-| Restaurar no local | Esse padrão geralmente é usado para recuperar um locatário para um ponto anterior, depois que um locatário exclui ou corrompe dados acidentalmente. O banco de dados original é tirado da linha e substituído pelo banco de dados restaurado. |
+| Restaurar numa base de dados paralela | Este padrão pode ser utilizado para tarefas como revisão, auditoria e conformidade para permitir que um inquilino inspecione os seus dados a partir de um ponto anterior. A base de dados atual do inquilino permanece on-line e inalterada. |
+| Restaurar no lugar | Este padrão é normalmente usado para recuperar um inquilino para um ponto anterior, depois de um inquilino acidentalmente apagar ou corromper dados. A base de dados original é desligada da linha e substituída pela base de dados restaurada. |
 |||
 
-Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
+Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md).
-* O Azure PowerShell está instalado. Para obter detalhes, consulte Introdução [ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* A aplicação Wingtip SaaS está implantada. Para implantar em menos de cinco minutos, consulte [O Deploy e explore a aplicação Wingtip SaaS](saas-dbpertenant-get-started-deploy.md).
+* O Azure PowerShell está instalado. Para mais detalhes, consulte [Start start with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introdução aos padrões de restauração de locatário de SaaS
+## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introdução aos padrões de restauro do inquilino saaS
 
-Há dois padrões simples para restaurar dados de um locatário individual. Como os bancos de dados de locatário são isolados uns dos outros, a restauração de um locatário não afeta nenhum outro dado de locatário. O recurso de restauração pontual (PITR) do banco de dados SQL do Azure é usado em ambos os padrões. O PITR sempre cria um novo banco de dados.
+Existem dois padrões simples para restaurar os dados de um inquilino individual. Como as bases de dados dos inquilinos estão isoladas umas das outras, restaurar um inquilino não tem impacto nos dados de qualquer outro inquilino. A função de restauro ponto-a-tempo da Base de Dados Azure SQL (PITR) é utilizada em ambos os padrões. O PITR cria sempre uma nova base de dados.
 
-* **Restaurar em paralelo**: no primeiro padrão, um novo banco de dados paralelo é criado junto com o banco de dados atual do locatário. Em seguida, o locatário recebe acesso somente leitura ao banco de dados restaurado. Os dados restaurados podem ser revisados e potencialmente usados para substituir os valores de dados atuais. Cabe ao designer de aplicativo determinar como o locatário acessa o banco de dados restaurado e quais opções de recuperação são fornecidas. Simplesmente permitir que o locatário examine seus dados em um ponto anterior pode ser tudo o que é necessário em alguns cenários.
+* **Restaurar em paralelo**: No primeiro padrão, é criada uma nova base de dados paralela ao lado da base de dados atual do inquilino. O inquilino tem então acesso apenas à base de dados restaurada. Os dados restaurados podem ser revistos e potencialmente utilizados para substituir os valores de dados atuais. Cabe ao designer de aplicações determinar como é que o inquilino acede à base de dados restaurada e que opções de recuperação são fornecidas. Simplesmente permitir que o inquilino reveja os seus dados num ponto mais cedo pode ser tudo o que é necessário em alguns cenários.
 
-* **Restauração in-loco**: o segundo padrão é útil se os dados foram perdidos ou corrompidos e o locatário deseja reverter para um ponto anterior. O locatário é tirado da linha enquanto o banco de dados é restaurado. O banco de dados original é excluído e o banco de dados restaurado é renomeado. A cadeia de backup do banco de dados original permanece acessível após a exclusão, para que você possa restaurar o banco de dados para um ponto anterior no tempo, se necessário.
+* **Restaurar no lugar**: O segundo padrão é útil se os dados foram perdidos ou corrompidos e o inquilino quer voltar a um ponto mais cedo. O inquilino é retirado da linha enquanto a base de dados é restaurada. A base de dados original é eliminada e a base de dados restaurada é renomeada. A cadeia de cópia de segurança da base de dados original permanece acessível após a eliminação, para que possa restaurar a base de dados para um ponto mais precoce, se necessário.
 
-Se o banco de dados usar a [replicação geográfica ativa e a](sql-database-active-geo-replication.md) restauração em paralelo, recomendamos que você copie todos os dados necessários da cópia restaurada para o banco de dados original. Se você substituir o banco de dados original pelo banco de dados restaurado, precisará reconfigurar e ressincronizar a replicação geográfica.
+Se a base de dados utilizar [geo-replicação ativa](sql-database-active-geo-replication.md) e restaurar em paralelo, recomendamos que copie os dados necessários da cópia restaurada para a base de dados original. Se substituir a base de dados original pela base de dados restaurada, terá de reconfigurar e resincronizar a geo-replicação.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo de banco de dados por locatário SaaS Wingtip tickets
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenha os scripts de aplicação de bases de dados SaaS de bilhetes de ala e de bilhetes por inquilino
 
-Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip tickets, consulte as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md).
+Os scripts de base de dados multiarrendatários SaaS Multitenant E o código de origem da aplicação estão disponíveis no repo [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Para que os passos descarreguem e desbloqueiem os scripts SaaS dos Bilhetes Wingtip, consulte a [orientação geral](saas-tenancy-wingtip-app-guidance-tips.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Quando um banco de dados é criado, pode levar de 10 a 15 minutos antes que o primeiro backup completo esteja disponível para restauração. Se você acabou de instalar o aplicativo, talvez seja necessário aguardar alguns minutos antes de tentar esse cenário.
+Quando uma base de dados é criada, pode demorar 10 a 15 minutos até que a primeira cópia de segurança esteja disponível para restaurar. Se acabou de instalar a aplicação, poderá ter de esperar alguns minutos antes de experimentar este cenário.
 
-## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simular um locatário excluindo dados acidentalmente
+## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simular um inquilino apagando acidentalmente dados
 
-Para demonstrar esses cenários de recuperação, primeiro exclua "acidentalmente" um evento em um dos bancos de dados de locatário. 
+Para demonstrar estes cenários de recuperação, primeiro "acidentalmente" apague um evento numa das bases de dados dos inquilinos. 
 
-### <a name="open-the-events-app-to-review-the-current-events"></a>Abrir o aplicativo de eventos para examinar os eventos atuais
+### <a name="open-the-events-app-to-review-the-current-events"></a>Abra a app Eventos para rever os eventos atuais
 
-1. Abra o Hub de eventos (http://events.wtp.&lt; User&gt;. trafficmanager.net) e selecione **contoso Concert Hall**.
+1. Abra o Centrohttp://events.wtp.&ltde&gt;Eventos (.utilizador .trafficmanager.net) e selecione **Contoso Concert Hall**.
 
-   ![Hub de eventos](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
+   ![Centro de Eventos](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
-2. Role a lista de eventos e anote o último evento na lista.
+2. Percorra a lista de eventos e tome nota do último evento da lista.
 
-   ![O último evento é exibido](media/saas-dbpertenant-restore-single-tenant/last-event.png)
+   ![Último evento aparece](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-### <a name="accidentally-delete-the-last-event"></a>Excluir "acidentalmente" o último evento
+### <a name="accidentally-delete-the-last-event"></a>"Acidentalmente" apaga o último evento
 
-1. No ISE do PowerShell, abra...\\módulos de aprendizado\\continuidade dos negócios e recuperação de desastres\\RestoreTenant\\*restoretenant. ps1*e defina o seguinte valor:
+1. No PowerShell ISE, abra... \\Módulos\\de Aprendizagem Continuidade\\de\\Negócios e Recuperação de Desastres RestoreTenant*Demo-RestoreTenant.ps1,* e definir o seguinte valor:
 
-   * **$DemoScenario** = **1**, *exclua o último evento (sem vendas de ingressos)* .
-2. Pressione F5 para executar o script e excluir o último evento. A seguinte mensagem de confirmação é exibida:
+   * **$DemoScenario** = **1**, Apagar o último *evento (sem venda de bilhetes)*.
+2. Pressione F5 para executar o script e apague o último evento. Aparece a seguinte mensagem de confirmação:
 
    ```Console
    Deleting last unsold event from Contoso Concert Hall ...
    Deleted event 'Seriously Strauss' from Contoso Concert Hall venue.
    ```
 
-3. A página de eventos da Contoso é aberta. Role para baixo e verifique se o evento não existe mais. Se o evento ainda estiver na lista, selecione **Atualizar** e verifique se ele está ausente.
-   ![último evento removido](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
+3. A página de eventos contoso abre. Desça e verifique se o evento se foi. Se o evento ainda estiver na lista, selecione **Refresh** e verifique se já se foi.
+   ![Último evento removido](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
 
-## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restaurar um banco de dados de locatário em paralelo com o banco de dados de produção
+## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restaurar uma base de dados de inquilinos em paralelo com a base de dados de produção
 
-Este exercício restaura o banco de dados do contoso Concert Hall para um ponto no tempo antes da exclusão do evento. Esse cenário pressupõe que você deseja examinar os dados excluídos em um banco de dado paralelo.
+Este exercício restaura a base de dados da Sala de Concertos de Contoso a um ponto do tempo antes do evento ser apagado. Este cenário pressupõe que pretende rever os dados eliminados numa base de dados paralela.
 
- O script *Restore-TenantInParallel. ps1* cria um banco de dados de locatário paralelo chamado *ContosoConcertHall\_antigo*, com uma entrada de catálogo paralela. Esse padrão de restauração é mais adequado para a recuperação de uma perda de dados secundária. Você também pode usar esse padrão se precisar revisar os dados para fins de conformidade ou auditoria. É a abordagem recomendada quando você usa a [replicação geográfica ativa](sql-database-active-geo-replication.md).
+ O script *Restore-TenantInParallel.ps1* cria uma base de dados paralela de inquilinos chamada *ContosoConcertHall\_antiga,* com uma entrada paralela de catálogo. Este padrão de restauro é mais adequado para recuperar de uma pequena perda de dados. Também pode utilizar este padrão se precisar de rever dados para efeitos de conformidade ou auditoria. É a abordagem recomendada quando se usa [geo-replicação ativa.](sql-database-active-geo-replication.md)
 
-1. Conclua a seção [simular um locatário excluindo dados acidentalmente](#simulate-a-tenant-accidentally-deleting-data) .
-2. No ISE do PowerShell, abra...\\módulos de aprendizado\\continuidade dos negócios e recuperação de desastres\\RestoreTenant\\_restoretenant. ps1_.
-3. Defina **$DemoScenario** = **2**, *restaurar locatário em paralelo*.
-4. Para executar o script, pressione F5.
+1. Complete o Simular um inquilino que [apagando acidentalmente a](#simulate-a-tenant-accidentally-deleting-data) secção de dados.
+2. No PowerShell ISE, abra... \\Módulos\\de Aprendizagem Continuidade\\de\\Negócios e Recuperação de Desastres Restaurar Tenant_Demo-RestoreTenant.ps1_.
+3. Conjunto **$DemoScenario** = **2,** *Restaurar o inquilino em paralelo.*
+4. Para executar o guião, prima F5.
 
-O script restaura o banco de dados de locatário para um ponto no tempo antes de você excluir o evento. O banco de dados é restaurado para um novo banco de dados chamado _ContosoConcertHall\_antigo_. Os metadados do catálogo que existem neste banco de dados restaurado são excluídos e, em seguida, o banco de dados é adicionado ao catálogo usando uma chave construída do *ContosoConcertHall\_nome antigo* .
+O guião restaura a base de dados do inquilino a um ponto do tempo antes de apagar o evento. A base de dados é restaurada para uma nova base de dados chamada _\_ContosoConcertHall antiga._ Os metadados do catálogo que existem nesta base de dados restaurada são eliminados, e depois a base de dados é adicionada ao catálogo utilizando uma chave construída a partir do nome *antigo ContosoConcertHall.\_*
 
-O script de demonstração abre a página de eventos para esse novo banco de dados de locatário em seu navegador. Observe a partir da URL ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` que essa página mostra dados do banco de dado restaurado onde *_old* é adicionado ao nome.
+O script de demonstração abre a página de eventos para esta nova base de dados de inquilinos no seu navegador. Nota do ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` URL que esta página mostra dados da base de dados restaurada onde *_old* é adicionado ao nome.
 
-Role os eventos listados no navegador para confirmar se o evento excluído na seção anterior foi restaurado.
+Percorra os eventos listados no navegador para confirmar que o evento eliminado na secção anterior foi restaurado.
 
-Expor o locatário restaurado como um locatário adicional, com seu próprio aplicativo de eventos, é improvável que você forneça um acesso de locatário a dados restaurados. Ele serve para ilustrar o padrão de restauração. Normalmente, você concede acesso somente leitura aos dados antigos e mantém o banco de dado restaurado por um período definido. No exemplo, você pode excluir a entrada de locatário restaurado depois de concluir a execução do cenário _remover locatário restaurado_ .
+Expor o inquilino restaurado como inquilino adicional, com a sua própria app Eventos, é improvável que seja a forma como fornece o acesso de um inquilino a dados restaurados. Serve para ilustrar o padrão de restauro. Normalmente, dá acesso apenas a leitura saem dos dados antigos e mantém a base de dados restaurada por um período definido. Na amostra, pode eliminar a entrada restaurada do inquilino depois de terminar, executando o cenário de _inquilino restaurado removendo._
 
-1. Defina **$DemoScenario** = **4**, *remover locatário restaurado*.
-2. Para executar o script, pressione F5.
-3. O *ContosoConcertHall\_entrada antiga* agora é excluído do catálogo. Feche a página de eventos deste locatário em seu navegador.
+1. Conjunto **$DemoScenario** = **4**, Remova o *inquilino restaurado.*
+2. Para executar o guião, prima F5.
+3. A antiga entrada do *ContosoConcertHall\_* está agora apagada do catálogo. Feche a página de eventos deste inquilino no seu navegador.
 
-## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restaurar um locatário no local, substituindo o banco de dados de locatário existente
+## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restaurar um inquilino no local, substituindo a base de dados de inquilinos existente
 
-Este exercício restaura o locatário do contoso Concert Hall para um ponto anterior à exclusão do evento. O script *Restore-TenantInPlace* restaura um banco de dados de locatário para um novo banco de dados e exclui o original. Esse padrão de restauração é mais adequado para recuperação de dados corrompidos sérios, e o locatário pode ter que acomodar perda de dados significativa.
+Este exercício restaura o inquilino da Sala de Concertos de Contoso a um ponto antes do evento ser apagado. O script *Restore-TenantInPlace* restaura uma base de dados de inquilinos para uma nova base de dados e elimina o original. Este padrão de restauro é mais adequado para recuperar de uma grave corrupção de dados, e o inquilino pode ter que acomodar perdas significativas de dados.
 
-1. No ISE do PowerShell, abra o arquivo **restoretenant. ps1** .
-2. Defina **$DemoScenario** = **5**, *restaurar locatário no local*.
-3. Para executar o script, pressione F5.
+1. No PowerShell ISE, abra o ficheiro **Demo-RestoreTenant.ps1.**
+2. Conjunto **$DemoScenario** = **5,** *Restaurar o inquilino no lugar.*
+3. Para executar o guião, prima F5.
 
-O script restaura o banco de dados de locatário para um ponto antes de o evento ser excluído. Primeiro, ele coloca o locatário contoso Concert Hall fora da linha para evitar mais atualizações. Em seguida, um banco de dados paralelo é criado por meio da restauração do ponto de restauração. O banco de dados restaurado é nomeado com um carimbo de data/hora para garantir que o nome do banco de dados não entre em conflito com o nome do banco de dados de Em seguida, o banco de dados de locatário antigo é excluído e o banco de dados restaurado é renomeado para o nome do banco de dados original. Finalmente, contoso Concert Hall é colocado online para permitir que o aplicativo acesse o banco de dados restaurado.
+O guião restaura a base de dados do inquilino a um ponto antes do evento ser apagado. Primeiro, tira o inquilino da Sala de Concertos de Contoso para evitar novas atualizações. Em seguida, uma base de dados paralela é criada restaurando a partir do ponto de restauro. A base de dados restaurada é nomeada com um carimbo de tempo para garantir que o nome da base de dados não entra em conflito com o nome de base de dados dos inquilinos existente. Em seguida, a antiga base de dados de inquilinos é eliminada, e a base de dados restaurada é renomeada para o nome original da base de dados. Por fim, a Sala de Concertos contoso é trazida online para permitir o acesso da app à base de dados restaurada.
 
-Você restaurou com êxito o banco de dados para um ponto no tempo antes de o evento ser excluído. Quando a página **eventos** for aberta, confirme se o último evento foi restaurado.
+Conseguiu restaurar a base de dados a um ponto antes de o evento ser apagado. Quando a página **eventoabrir,** confirme que o último evento foi restaurado.
 
-Depois de restaurar o banco de dados, levará mais de 10 a 15 minutos antes que o primeiro backup completo esteja disponível para restauração novamente.
+Depois de restaurar a base de dados, leva mais 10 a 15 minutos antes que a primeira cópia de segurança esteja disponível para restaurar de novo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Restaurar um banco de dados em um banco de dados paralelo (lado a lado).
-> * Restaurar um banco de dados no local.
+> * Restaurar uma base de dados numa base de dados paralela (lado a lado).
+> * Restaurar uma base de dados no lugar.
 
-Experimente o tutorial [gerenciar esquema de banco de dados de locatário](saas-tenancy-schema-management.md) .
+Experimente o tutorial de schema de base de dados de [inquilinos.](saas-tenancy-schema-management.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [TUTORIAIS adicionais que se baseiam no aplicativo SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Visão geral da continuidade de negócios com o banco de dados SQL do Azure](sql-database-business-continuity.md)
-* [Saiba mais sobre backups do banco de dados SQL](sql-database-automated-backups.md)
+* [Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure](sql-database-business-continuity.md)
+* [Saiba mais sobre cópias de segurança da Base de Dados SQL](sql-database-automated-backups.md)

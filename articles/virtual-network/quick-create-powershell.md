@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241445"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido :criar uma rede virtual com o PowerShell
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se decidir instalar e utilizar o PowerShell localmente, este quickstart requer que utilize a versão 1.0.0 do módulo PowerShell Azure. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Consulte o [módulo PowerShell Azure](/powershell/azure/install-az-ps) para instalar e atualizar informações.
 
-Finalmente, se estiver a executar a PowerShell localmente, também terá de correr `Connect-AzAccount`. Este comando cria uma ligação com o Azure.
+Finalmente, se estiver a executar a PowerShell localmente, também terá de correr. `Connect-AzAccount` Este comando cria uma ligação com o Azure.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
@@ -94,7 +94,7 @@ New-AzVm `
     -AsJob
 ```
 
-A opção `-AsJob` cria o VM em segundo plano. Pode continuar até ao próximo passo.
+A `-AsJob` opção cria o VM em segundo plano. Pode continuar até ao próximo passo.
 
 Quando o Azure começar a criar o VM em segundo plano, terás algo assim de volta:
 
@@ -145,7 +145,7 @@ mstsc /v:<publicIpAddress>
 1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM.
 
     > [!NOTE]
-    > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+    > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 

@@ -1,66 +1,66 @@
 ---
 title: Terminologia do Azure Data Share
-description: Saiba mais sobre os termos comuns usados para descrever os recursos usados no compartilhamento de dados do Azure (provedor de dados, consumidor de dados, compartilhamento de dados, assinatura de compartilhamento, instantâneo, convite, destinatário.)
+description: Conheça os termos comuns utilizados para descrever os recursos utilizados na Partilha de Dados do Azure (fornecedor de dados, consumidor de dados, partilha de dados, subscrição de partilha, instantâneo, convite, destinatário.)
 ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73468551"
 ---
-# <a name="azure-data-share-concepts"></a>Conceitos de compartilhamento de dados do Azure 
+# <a name="azure-data-share-concepts"></a>Conceitos de partilha de dados azure 
 
-O compartilhamento de dados do Azure apresenta uma nova terminologia relacionada ao compartilhamento de dados. Este artigo explica alguns termos usados com frequência que você pode ver em todo o serviço. 
+A Azure Data Share introduz algumas novas terminologias relacionadas com a partilha de dados. Este artigo explica alguns termos frequentemente utilizados que pode ver usados em todo o serviço. 
 
-## <a name="data-provider"></a>Provedor de dados
+## <a name="data-provider"></a>Fornecedor de dados
 
-Um provedor de dados é a organização que está compartilhando dados com seus consumidores. Normalmente, o provedor de dados pode ser um proprietário ou um curador dos dados. Os provedores de dados desejam compartilhar dados de vários tipos. Alguns exemplos de dados que um provedor de dados talvez queira compartilhar incluem dados brutos, como ponto de vendas ou dados de série temporal. Um provedor de dados também pode querer compartilhar dados pré-configurados previamente processados que já contenham análises e ideias. 
+Um fornecedor de Dados é a organização que está a partilhar dados com os seus consumidores. Normalmente, o fornecedor de dados pode ser proprietário ou curador dos dados. Os fornecedores de dados querem partilhar dados de vários tipos. Alguns exemplos de dados que um fornecedor de dados pode querer partilhar incluem dados brutos, tais como dados de ponto de venda ou séries de tempo. Um fornecedor de dados também pode querer partilhar dados pré-processados e curados que já contenham análises e insights. 
 
 ## <a name="data-consumer"></a>Consumidor de dados 
 
-Um consumidor de dados é a organização que está recebendo dados de um provedor de dados. O consumidor de dados pode querer unir os dados compartilhados com seus próprios dados para obter informações. Em alguns casos, o consumidor de dados pode estar recebendo dados que já foram processados. 
+Um consumidor de Dados é a organização que está a receber dados de um fornecedor de dados. O consumidor de dados pode querer juntar os dados partilhados com os seus próprios dados para obter insights. Em alguns casos, o consumidor de dados pode estar a receber dados que já foram tratados. 
 
-## <a name="data-share"></a>Compartilhamento de dados
+## <a name="data-share"></a>Data Share
 
-Um compartilhamento de dados é um grupo de DataSets que são compartilhados como uma única entidade. Conjuntos de dados podem ser de várias fontes de dados do Azure que são compatíveis com o Azure data share. Atualmente, o compartilhamento de dados do Azure dá suporte ao armazenamento de BLOBs do Azure e Azure Data Lake Store. 
+Uma partilha de dados é um grupo de conjuntos de dados que são partilhados como uma única entidade. Os conjuntos de dados podem ser de várias fontes de dados do Azure que são suportadas pela Azure Data Share. Atualmente, a Azure Data Share suporta o Armazenamento Azure Blob e a Azure Data Lake Store. 
 
-## <a name="share-subscription"></a>Compartilhar assinatura 
+## <a name="share-subscription"></a>Subscrição de partilha 
 
-Uma assinatura de compartilhamento é criada quando um consumidor de dados aceita um convite de compartilhamento de dados de um provedor de dados. Os provedores de dados podem exibir as assinaturas de compartilhamento ativas navegando até os **compartilhamentos enviados** em sua conta de compartilhamento de dados do Azure e selecionando **assinaturas de compartilhamento**.
+Uma Subscrição de Partilha é criada quando um consumidor de dados aceita um convite de partilha de dados de um fornecedor de dados. Os fornecedores de dados podem ver subscrições de ações ativas navegando para **Ações Enviadas** na sua conta De dados Azure e selecionando **Subscrições**de Partilha de Ações .
 
-Um consumidor de dados pode verificar se eles têm uma assinatura de compartilhamento ativa navegando até os **compartilhamentos recebidos** e exibindo o status de seus compartilhamentos recebidos. 
+Um consumidor de dados pode verificar se tem uma subscrição de ações ativas navegando para **As Ações Recebidas** e visualizando o estado das suas ações recebidas. 
 
 ## <a name="snapshot"></a>Instantâneo
 
-Um instantâneo pode ser criado por um consumidor de dados quando eles aceitam um convite de compartilhamento de dados. Quando eles aceitam um convite, eles podem disparar um instantâneo completo dos dados compartilhados com eles. O instantâneo é uma cópia dos dados no momento em que o consumidor de dados gerou o instantâneo. 
+Um instantâneo pode ser criado por um consumidor de dados quando aceita um convite de partilha de dados. Quando aceitam um convite, podem desencadear uma imagem completa dos dados partilhados com eles. O instantâneo é uma cópia dos dados no momento em que o consumidor de dados gerou o instantâneo. 
 
-Há dois tipos de instantâneos – completo e incremental. Um instantâneo completo contém todos os dados dentro do compartilhamento de dados. Um instantâneo incremental contém todos os dados que foram atualizados/adicionados desde que o último instantâneo foi disparado. 
+Existem dois tipos de instantâneos - completos e incrementais. Um instantâneo completo contém todos os dados dentro da partilha de dados. Um instantâneo incremental contém todos os dados que foram atualizados/adicionados desde que o último instantâneo foi desencadeado. 
 
-## <a name="snapshot-settings-in-azure-data-share"></a>Configurações de instantâneo no compartilhamento de dados do Azure
+## <a name="snapshot-settings-in-azure-data-share"></a>Configurações instantâneas em Partilha de Dados Azure
  
-Um provedor de dados pode habilitar uma configuração de instantâneo para um compartilhamento de dados. Essa configuração permite que os consumidores de dados recebam atualizações incrementais conforme elas ocorrem. Essa configuração deve ser habilitada se o provedor de dados quiser que seus consumidores de dados recebam atualizações para os dados que foram compartilhados. 
+Um fornecedor de dados pode ativar uma definição instantânea para uma partilha de dados. Esta definição permite que os consumidores de dados recebam atualizações incrementais à medida que ocorrem. Esta definição deve ser ativada se o fornecedor de dados quiser que os seus consumidores de dados recebam atualizações aos dados partilhados. 
 
-Se um provedor de dados habilitar essa configuração, um intervalo de recorrência poderá ser selecionado. O intervalo de recorrência pode ser por hora ou por dia. 
+Se um fornecedor de dados permitir esta definição, pode ser selecionado um intervalo de recorrência. O intervalo de recorrência pode ser de hora em hora ou diariamente. 
 
-Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que inclui todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
+Um consumidor de dados tem a opção de optar por este calendário instantâneo para receber atualizações incrementais, o que inclui quaisquer dados que tenham mudado desde que geraram um novo instantâneo. 
 
 ## <a name="invitation"></a>Convite
 
-Um provedor de dados pode convidar vários destinatários para seu compartilhamento de dados. Eles podem fazer isso adicionando destinatários ao compartilhamento de dados. Os convites também podem ser adicionados após a criação de um compartilhamento de dados. 
+Um fornecedor de dados pode convidar vários destinatários para a sua quota de dados. Podem fazê-lo adicionando destinatários à partilha de dados. Os convites também podem ser adicionados após a criação de uma partilha de dados. 
 
-Um provedor de dados pode excluir um convite após ele ser enviado se ele não tiver sido aceito. Se o provedor de dados excluir um convite e ele ainda não tiver sido aceito, o consumidor de dados não poderá aceitá-lo. 
+Um fornecedor de dados pode apagar um convite depois de ter sido enviado se não tiver sido aceite. Se o fornecedor de dados apagar um convite e ainda não tiver sido aceite, o consumidor de dados não poderá aceitá-lo. 
 
-Os convites podem ser reenviados até cinco vezes por dia. 
+Os convites podem ser ressentidos até cinco vezes por dia. 
 
 ## <a name="recipient"></a>Destinatário
 
-Um destinatário é alguém que recebe um convite para um compartilhamento de dados. Normalmente, um provedor de dados adicionará destinatários ao compartilhamento de dados que eles criam. Depois que o destinatário de um convite aceitar o convite, ele se tornará um consumidor de dados.  
+Um destinatário é alguém que recebe um convite para uma partilha de dados. Normalmente, um fornecedor de dados adicionará destinatários à partilha de dados que criam. Uma vez que o destinatário de um convite aceita o convite, eles tornam-se um consumidor de dados.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
+Para aprender a começar a partilhar dados, continue a partilhar o seu tutorial de [dados.](share-your-data.md)

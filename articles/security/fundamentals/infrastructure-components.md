@@ -1,6 +1,6 @@
 ---
-title: Componentes e limites do sistema de informações do Azure
-description: Este artigo fornece uma descrição geral da arquitetura e do gerenciamento de Microsoft Azure.
+title: Componentes e limites do sistema de informação Azure
+description: Este artigo fornece uma descrição geral da arquitetura e gestão do Microsoft Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,117 +16,117 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727200"
 ---
-# <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informações do Azure
-Este artigo fornece uma descrição geral da arquitetura e do gerenciamento do Azure. O ambiente do sistema do Azure é composto pelas seguintes redes:
+# <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informação Azure
+Este artigo fornece uma descrição geral da arquitetura e gestão azure. O ambiente do sistema Azure é constituído pelas seguintes redes:
 
-- Rede de produção Microsoft Azure (rede do Azure)
+- Rede de produção do Microsoft Azure (rede Azure)
 - Rede corporativa da Microsoft (corpnet)
 
-Equipes de ti separadas são responsáveis por operações e manutenção dessas redes.
+As equipas de TI separadas são responsáveis pelas operações e manutenção destas redes.
 
-## <a name="azure-architecture"></a>Arquitetura do Azure
-O Azure é uma plataforma de computação em nuvem e uma infraestrutura para criação, implantação e gerenciamento de aplicativos e serviços por meio de uma rede de data centers. A Microsoft gerencia esses data centers. Com base no número de recursos que você especificar, o Azure cria VMs (máquinas virtuais) com base na necessidade de recursos. Essas VMs são executadas em um hipervisor do Azure, que é projetado para uso na nuvem e não pode ser acessado pelo público.
+## <a name="azure-architecture"></a>Arquitetura azure
+O Azure é uma plataforma de computação em nuvem e infraestrutura para construção, implantação e gestão de aplicações e serviços através de uma rede de datacenters. A Microsoft gere estes centros de dados. Com base no número de recursos que especifica, o Azure cria máquinas virtuais (VMs) com base na necessidade de recursos. Estes VMs funcionam num hipervisor Azure, projetado para ser usado na nuvem e não é acessível ao público.
 
-Em cada nó do servidor físico do Azure, há um hipervisor que é executado diretamente no hardware. O hipervisor divide um nó em um número variável de VMs convidadas. Cada nó também tem uma VM raiz, que executa o sistema operacional do host. O Firewall do Windows está habilitado em cada VM. Você define quais portas são endereçáveis Configurando o arquivo de definição de serviço. Essas portas são as únicas abertas e endereçáveis, interna ou externamente. Todo o tráfego e acesso ao disco e à rede é corrigido pelo hipervisor e pelo sistema operacional raiz.
+Em cada nó de servidor físico Azure, há um hipervisor que passa diretamente sobre o hardware. O hipervisor divide um nó em um número variável de VMs convidados. Cada nó também tem uma Raiz VM, que executa o sistema operativo do hospedeiro. O Windows Firewall está ativado em cada VM. Define quais portas são endereçadas configurando o ficheiro de definição de serviço. Estes portos são os únicos abertos e endereçados, internamente ou externos. Todo o tráfego e acesso ao disco e rede é mediado pelo hipervisor e pelo sistema operativo raiz.
 
-Na camada de host, as VMs do Azure executam uma versão personalizada e protegida do Windows Server mais recente. O Azure usa uma versão do Windows Server que inclui somente os componentes necessários para hospedar VMs. Isso melhora o desempenho e reduz a superfície de ataque. Os limites de máquina são impostos pelo hipervisor, o que não depende da segurança do sistema operacional.
+Na camada de hospedeiro, os VMs Azure executam uma versão personalizada e endurecida do mais recente Servidor Windows. O Azure utiliza uma versão do Windows Server que inclui apenas os componentes necessários para hospedar VMs. Isto melhora o desempenho e reduz a superfície de ataque. Os limites da máquina são aplicados pelo hipervisor, o que não depende da segurança do sistema operativo.
 
-### <a name="azure-management-by-fabric-controllers"></a>Gerenciamento do Azure por controladores de malha
+### <a name="azure-management-by-fabric-controllers"></a>Gestão azure por controladores de tecido
 
-No Azure, as VMs em execução em servidores físicos (Blades/nós) são agrupadas em clusters de aproximadamente 1000. As VMs são gerenciadas independentemente por um componente de software de plataforma redundante e expandido chamado de controlador de malha (FC).
+Em Azure, os VMs em funcionamento em servidores físicos (lâminas/nós) são agrupados em aglomerados de cerca de 1000. Os VMs são geridos de forma independente por um componente de software de plataforma escalado e redundante chamado controlador de tecido (FC).
 
-Cada FC gerencia o ciclo de vida dos aplicativos em execução em seu cluster e provisiona e monitora a integridade do hardware sob seu controle. Ele executa operações de autonomia, como instâncias de VM reincarnating em servidores íntegros quando determina que um servidor falhou. O FC também executa operações de gerenciamento de aplicativos, como implantação, atualização e dimensionamento de aplicativos.
+Cada FC gere o ciclo de vida das aplicações em execução no seu cluster, e provisões e monitoriza a saúde do hardware sob o seu controlo. Executa operações autonómicas, tais como reencarnar casos de VM em servidores saudáveis quando determina que um servidor falhou. O FC realiza ainda operações de gestão de aplicações, tais como implantação, atualização e dimensionamento de aplicações.
 
-O datacenter é dividido em clusters. Os clusters isolam as falhas no nível do FC e impedem que determinadas classes de erros afetem os servidores além do cluster no qual ocorrem. O FCs que atende a um cluster específico do Azure é agrupado em um cluster FC.
+O datacenter está dividido em clusters. Os clusters isolam falhas ao nível do FC e impedem que certas classes de erros afetem servidores para além do cluster em que ocorrem. Os FCs que servem um determinado cluster Azure são agrupados num cluster FC.
 
-### <a name="hardware-inventory"></a>Inventário de hardware
+### <a name="hardware-inventory"></a>Inventário de Hardware
 
-O FC prepara um inventário de dispositivos de rede e hardware do Azure durante o processo de configuração de inicialização. Todos os novos componentes de hardware e de rede que entram no ambiente de produção do Azure devem seguir o processo de configuração de inicialização. O FC é responsável por gerenciar todo o inventário listado no arquivo de configuração do datacenter. xml.
+O FC prepara um inventário de dispositivos de hardware e rede Azure durante o processo de configuração da armadilha de botas. Quaisquer novos componentes de hardware e rede que entrem no ambiente de produção do Azure devem seguir o processo de configuração da bootstrap. O FC é responsável pela gestão de todo o inventário listado no ficheiro de configuração datacenter.xml.
 
-### <a name="fc-managed-operating-system-images"></a>Imagens do sistema operacional gerenciado por FC
+### <a name="fc-managed-operating-system-images"></a>Imagens do sistema operativo geridos pelo FC
 
-A equipe do sistema operacional fornece imagens, na forma de discos rígidos virtuais, implantadas em todas as VMs de host e convidado no ambiente de produção do Azure. A equipe constrói essas imagens base por meio de um processo de compilação offline automatizado. A imagem base é uma versão do sistema operacional em que o kernel e outros componentes principais foram modificados e otimizados para dar suporte ao ambiente do Azure.
+A equipa do sistema operativo fornece imagens, sob a forma de Discos Rígidos Virtuais, implantados em todos os VMs hospedeiros e convidados no ambiente de produção do Azure. A equipa constrói estas imagens base através de um processo automatizado de construção offline. A imagem base é uma versão do sistema operativo em que o núcleo e outros componentes do núcleo foram modificados e otimizados para suportar o ambiente Azure.
 
-Há três tipos de imagens do sistema operacional gerenciadas por malha:
+Existem três tipos de imagens do sistema operativo geridas por tecidos:
 
-- Hospedeira Um sistema operacional personalizado que é executado em VMs de host.
-- Forma Um sistema operacional nativo que é executado em locatários (por exemplo, armazenamento do Azure). Este sistema operacional não tem nenhum hipervisor.
-- Convite Um sistema operacional convidado que é executado em VMs convidadas.
+- Anfitrião: Um sistema operativo personalizado que funciona em VMs hospedeiros.
+- Nativo: Um sistema operativo nativo que funciona com inquilinos (por exemplo, Armazenamento Azure). Este sistema operativo não tem nenhum hipervisor.
+- Convidado: Um sistema operativo convidado que funciona em VMs convidados.
 
-O host e os sistemas operacionais gerenciados por FC nativo são projetados para uso na nuvem e não são acessíveis publicamente.
+Os sistemas operativos geridos pelo hospedeiro e nativos geridos pelo FC são projetados para serem utilizados na nuvem, e não são acessíveis ao público.
 
-#### <a name="host-and-native-operating-systems"></a>Host e sistemas operacionais nativos
+#### <a name="host-and-native-operating-systems"></a>Sistemas operativos hospedeiros e nativos
 
-Host e nativo são imagens de sistema operacional protegidas que hospedam os agentes de malha e são executadas em um nó de computação (executado como primeira VM no nó) e nós de armazenamento. O benefício de usar imagens base otimizadas do host e nativo é que ela reduz a área de superfície exposta por APIs ou componentes não utilizados. Eles podem apresentar riscos de alta segurança e aumentar a superfície do sistema operacional. Os sistemas operacionais de superfície reduzida incluem apenas os componentes necessários para o Azure.
+Hospedeiro e nativo são imagens endurecidas do sistema operativo que acolhem os agentes de tecido, e funcionam num nó de computação (funciona como primeiro VM no nó) e nós de armazenamento. O benefício de utilizar imagens base otimizadas de hospedeiro e nativo é que reduz a área de superfície exposta por APIs ou componentes não utilizados. Estes podem apresentar riscos de segurança elevados e aumentar a pegada do sistema operativo. Os sistemas operativos de pegada reduzida incluem apenas os componentes necessários ao Azure.
 
-#### <a name="guest-operating-system"></a>Sistema operacional convidado
+#### <a name="guest-operating-system"></a>Sistema operativo convidado
 
-Os componentes internos do Azure executados em VMs do sistema operacional convidado não têm oportunidade de executar protocolo RDP. As alterações nas definições de configuração de linha de base devem passar pelo processo de gerenciamento de alterações e liberações.
+Os componentes internos azure em execução em VMs do sistema operativo de hóspedes não têm oportunidade de executar o Protocolo de Ambiente de Trabalho Remoto. Quaisquer alterações às definições de configuração da linha de base devem passar pelo processo de gestão de alterações e de libertação.
 
-## <a name="azure-datacenters"></a>Datacenters do Azure
-A equipe de Microsoft Cloud infraestrutura e operações (MCIO) gerencia a infraestrutura física e as instalações de datacenter para todos os serviços online da Microsoft. O MCIO é responsável principalmente pelo gerenciamento dos controles físicos e ambientais dentro dos data centers, bem como pelo gerenciamento e suporte de dispositivos de rede de perímetro externos (como roteadores de borda e roteadores de Datacenter). O MCIO também é responsável por configurar o hardware mínimo de servidor em racks no datacenter. Os clientes não têm interação direta com o Azure.
+## <a name="azure-datacenters"></a>Centros de dados azure
+A equipa da Microsoft Cloud Infrastructure and Operations (MCIO) gere as infraestruturas físicas e instalações do datacenter para todos os serviços online da Microsoft. O MCIO é o principal responsável pela gestão dos controlos físicos e ambientais dentro dos datacenters, bem como pela gestão e apoio de dispositivos de rede de perímetro externo (como routers de borda e routers de datacenter). O MCIO também é responsável pela instalação do hardware mínimo do servidor em prateleiras no datacenter. Os clientes não têm interação direta com o Azure.
 
-## <a name="service-management-and-service-teams"></a>Gerenciamento de serviços e equipes de serviço
-Vários grupos de engenharia, conhecidos como equipes de serviço, gerenciam o suporte do serviço do Azure. Cada equipe de serviço é responsável por uma área de suporte para o Azure. Cada equipe de serviço deve tornar um engenheiro disponível 24x7 para investigar e resolver falhas no serviço. As equipes de serviço não, por padrão, têm acesso físico ao hardware operando no Azure.
+## <a name="service-management-and-service-teams"></a>Equipas de gestão e serviços de serviço
+Vários grupos de engenharia, conhecidos como equipas de serviço, gerem o apoio do serviço Azure. Cada equipa de serviço é responsável por uma área de apoio ao Azure. Cada equipa de serviço deve disponibilizar um engenheiro 24x7 para investigar e resolver falhas no serviço. As equipas de serviço não têm, por defeito, acesso físico ao hardware que opera no Azure.
 
-As equipes de serviço são:
+As equipas de serviço são:
 
-- Plataforma de Aplicações
+- Plataforma de Aplicação
 - Azure Active Directory
 - Computação do Azure
-- Rede do Azure
-- Serviços de engenharia de nuvem
+- Rede Azure
+- Serviços de Engenharia de Nuvem
 - ISSD: Segurança
 - Autenticação Multifator
 - SQL Database
-- Armazenamento
+- Storage
 
-## <a name="types-of-users"></a>Tipos de usuários
-Os funcionários (ou contratados) da Microsoft são considerados usuários internos. Todos os outros usuários são considerados usuários externos. Todos os usuários internos do Azure têm seu status de funcionário categorizado com um nível de sensibilidade que define o acesso aos dados do cliente (acesso ou sem acesso). Os privilégios de usuário para o Azure (permissão de autorização após a autenticação ocorrem) são descritos na tabela a seguir:
+## <a name="types-of-users"></a>Tipos de utilizadores
+Os colaboradores (ou empreiteiros) da Microsoft são considerados utilizadores internos. Todos os outros utilizadores são considerados utilizadores externos. Todos os utilizadores internos do Azure têm o seu estatuto de colaborador categorizado com um nível de sensibilidade que define o seu acesso aos dados dos clientes (acesso ou sem acesso). Os privilégios do utilizador para o Azure (autorização após a autenticação) são descritos na tabela seguinte:
 
-| Role | Interno ou externo | Nível de sensibilidade | Privilégios e funções autorizados executados | Tipo de acesso
+| Função | Interna ou externa | Nível de sensibilidade | Privilégios e funções autorizados realizados | Tipo de acesso
 | --- | --- | --- | --- | --- |
-| Engenheiro de datacenter do Azure | Interna | Sem acesso aos dados do cliente | Gerencie a segurança física do local. Realize os patrulhas dentro e fora do datacenter e monitore todos os pontos de entrada. Escort para dentro e fora do datacenter determinadas pessoas não limpas que fornecem serviços gerais (como jantar ou limpeza) ou trabalham no datacenter. Realize monitoramento de rotina e manutenção de hardware de rede. Execute o gerenciamento de incidentes e o trabalho de conserto e correção usando uma variedade de ferramentas. Realize o monitoramento e a manutenção de rotina do hardware físico nos data centers. Acesso ao ambiente sob demanda de proprietários de propriedade. Capaz de realizar investigações forenses, registrar relatórios de incidentes e exigir requisitos de política e treinamento de segurança obrigatórios. Propriedade operacional e manutenção de ferramentas de segurança críticas, como scanners e coleta de log. | Acesso persistente ao ambiente. |
-| Triagem de incidentes do Azure (engenheiros de resposta rápidos) | Interna | Acesso aos dados do cliente | Gerencie comunicações entre equipes de MCIO, suporte e engenharia. Triagem de incidentes de plataforma, problemas de implantação e solicitações de serviço. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas que não são clientes. |
-| Engenheiros de implantação do Azure | Interna | Acesso aos dados do cliente | Implante e atualize componentes de plataforma, software e alterações de configuração agendadas para dar suporte ao Azure. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas que não são clientes. |
-| Suporte de interrupção do cliente do Azure (locatário) | Interna | Acesso aos dados do cliente | Depure e diagnostique interrupções de plataforma e falhas para locatários de computação individuais e contas do Azure. Analise as falhas. Gere correções críticas para a plataforma ou o cliente e gere melhorias técnicas no suporte. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas que não são clientes. |
-| Engenheiros de sites do Azure Live (engenheiros de monitoramento) e incidentes | Interna | Acesso aos dados do cliente | Diagnostique e reduza a integridade da plataforma usando ferramentas de diagnóstico. Fixe as correções para drivers de volume, repare os itens resultantes de interrupções e ajude as ações de restauração de interrupção. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas que não são clientes. |
-|Clientes do Azure | Externo | N/A | N/D | N/A |
+| Engenheiro de datacenter azure | Interno | Sem acesso aos dados dos clientes | Gerir a segurança física das instalações. Conduza patrulhas dentro e fora do datacenter, e monitorize todos os pontos de entrada. Acompanhe para dentro e para fora do datacenter determinado pessoal não autorizado que forneça serviços gerais (como refeições ou limpeza) ou trabalhos de TI dentro do datacenter. Realizar monitorização de rotina e manutenção de hardware de rede. Realizar trabalhos de gestão de incidentes e correção de ruturas utilizando uma variedade de ferramentas. Realizar monitorização de rotina e manutenção do hardware físico nos datacenters. Acesso a ambiente a pedido dos proprietários. Capaz escedânea de investigações forenses, registo de relatórios de incidentes, e exigir formação obrigatória de segurança e requisitos de política. Propriedade operacional e manutenção de ferramentas de segurança críticas, tais como scanners e recolha de registos. | Acesso persistente ao ambiente. |
+| Triagem de incidentes azure (engenheiros de resposta rápida) | Interno | Acesso aos dados dos clientes | Gerir as comunicações entre o MCIO, equipas de apoio e engenharia. Incidentes na plataforma de triagem, problemas de implantação e pedidos de serviço. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas não clientes. |
+| Engenheiros de implantação azure | Interno | Acesso aos dados dos clientes | Implementar e atualizar componentes da plataforma, software e alterações de configuração programadas no suporte do Azure. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas não clientes. |
+| Apoio à paralisação do cliente azure (inquilino) | Interno | Acesso aos dados dos clientes | Depuração e diagnóstico de falhas na plataforma para inquilinos de computação individuais e contas Azure. Analise as falhas. Conduza correções críticas à plataforma ou ao cliente e conduza melhorias técnicas através do suporte. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas não clientes. |
+| Engenheiros do site azure ao vivo (engenheiros de monitorização) e incidente | Interno | Acesso aos dados dos clientes | Diagnosticar e mitigar a saúde da plataforma utilizando ferramentas de diagnóstico. Correções de acionamento para condutores de volume, itens de reparação resultantes de interrupções e ações de restauro de paragem. | Acesso just-in-time ao ambiente, com acesso persistente limitado a sistemas não clientes. |
+|Clientes Azure | Externo | N/D | N/D | N/D |
 
-O Azure usa identificadores exclusivos para autenticar usuários e clientes organizacionais (ou processos agindo em nome de usuários organizacionais). Isso se aplica a todos os ativos e dispositivos que fazem parte do ambiente do Azure.
+O Azure utiliza identificadores únicos para autenticar utilizadores e clientes organizacionais (ou processos que atuam em nome dos utilizadores da organização). Isto aplica-se a todos os ativos e dispositivos que fazem parte do ambiente Azure.
 
-### <a name="azure-internal-authentication"></a>Autenticação interna do Azure
+### <a name="azure-internal-authentication"></a>Autenticação interna azure
 
-As comunicações entre os componentes internos do Azure são protegidas com criptografia TLS. Na maioria dos casos, os certificados X. 509 são autoassinados. Certificados com conexões que podem ser acessadas de fora da rede do Azure são uma exceção, assim como certificados para o FCs. O FCs tem certificados emitidos por um certificado de autoridade de certificação (CA) da Microsoft que é apoiado por uma autoridade de certificação raiz confiável. Isso permite que as chaves públicas do FC sejam transferidas com facilidade. Além disso, as ferramentas de desenvolvedor da Microsoft usam chaves públicas do FC. Quando os desenvolvedores enviam novas imagens de aplicativos, as imagens são criptografadas com uma chave pública FC para proteger quaisquer segredos inseridos.
+As comunicações entre componentes internos do Azure estão protegidas com encriptação TLS. Na maioria dos casos, os certificados X.509 são auto-assinados. Os certificados com ligações que podem ser acedidas de fora da rede Azure são uma exceção, assim como os certificados para os FCs. Os FCs têm certificados emitidos por um Certificado de Autoridade da Microsoft (CA) que é apoiado por uma raiz de confiança CA. Isto permite que as chaves públicas do FC sejam reboladas facilmente. Além disso, as ferramentas de desenvolvimento da Microsoft utilizam chaves públicas FC. Quando os desenvolvedores submetem novas imagens de aplicação, as imagens são encriptadas com uma chave pública FC de forma a proteger quaisquer segredos incorporados.
 
-### <a name="azure-hardware-device-authentication"></a>Autenticação de dispositivo de hardware do Azure
+### <a name="azure-hardware-device-authentication"></a>Autenticação de dispositivo de hardware Azure
 
-O FC mantém um conjunto de credenciais (chaves e/ou senhas) usado para se autenticar em vários dispositivos de hardware sob seu controle. A Microsoft usa um sistema para impedir o acesso a essas credenciais. Especificamente, o transporte, a persistência e o uso dessas credenciais foram projetados para impedir que os desenvolvedores, os administradores e os serviços de backup e o acesso à equipe do Azure acessem informações confidenciais, confidenciais ou privadas.
+O FC mantém um conjunto de credenciais (chaves e/ou senhas) utilizadas para se autenticar em vários dispositivos de hardware sob o seu controlo. A Microsoft utiliza um sistema para impedir o acesso a estas credenciais. Especificamente, o transporte, persistência e utilização destas credenciais destinam-se a impedir os desenvolvedores, administradores e serviços de backup do Azure e o acesso pessoal a informações sensíveis, confidenciais ou privadas.
 
-A Microsoft usa a criptografia com base na chave pública de identidade mestre do FC. Isso ocorre na configuração do FC e nos tempos de reconfiguração de FC, para transferir as credenciais usadas para acessar dispositivos de hardware de rede. Quando o FC precisa das credenciais, o FC as recupera e descriptografa.
+A Microsoft usa encriptação com base na chave pública de identidade principal do FC. Isto ocorre na configuração do FC e nos tempos de reconfiguração do FC, para transferir as credenciais utilizadas para aceder a dispositivos de hardware de rede. Quando o FC precisa das credenciais, o FC recupera e desencripta-as.
 
 ### <a name="network-devices"></a>Dispositivos de rede
 
-A equipe de rede do Azure configura as contas de serviço de rede para permitir que um cliente do Azure se autentique em dispositivos de rede (roteadores, comutadores e balanceadores de carga).
+A equipa de networking Azure configura as contas de serviço de rede para permitir que um cliente Azure autentique dispositivos de rede (routers, switches e equilibradores de carga).
 
-## <a name="secure-service-administration"></a>Administração segura do serviço
-O pessoal de operações do Azure é necessário para usar estações de trabalho de administração segura (SAWs). Os clientes podem implementar controles semelhantes usando estações de trabalho com acesso privilegiado. Com o SAWs, a equipe administrativa usa uma conta administrativa individualmente atribuída que é separada da conta de usuário padrão do usuário. O visto se baseia nessa prática de separação de conta, fornecendo uma estação de trabalho confiável para essas contas confidenciais.
+## <a name="secure-service-administration"></a>Administração de serviços seguros
+O pessoal de operações do Azure é obrigado a utilizar postos de trabalho administrativos seguros (SAWs). Os clientes podem implementar controlos semelhantes utilizando estações de trabalho de acesso privilegiados. Com os SAWs, o pessoal administrativo utiliza uma conta administrativa individualmente atribuída que é separada da conta de utilizador padrão do utilizador. O SAW baseia-se nessa prática de separação de contas, fornecendo uma estação de trabalho de confiança para essas contas sensíveis.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
-- [Instalações do Azure, local e segurança física](physical-security.md)
-- [Disponibilidade de infraestrutura do Azure](infrastructure-availability.md)
-- [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
-- [Operações e gerenciamento de produção do Azure](infrastructure-operations.md)
-- [Monitoramento de infraestrutura do Azure](infrastructure-monitoring.md)
-- [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
-- [Proteção de dados do cliente do Azure](protection-customer-data.md)
+- [Instalações, instalações e segurança física do Azure](physical-security.md)
+- [Disponibilidade de infraestruturas azure](infrastructure-availability.md)
+- [Arquitetura de rede Azure](infrastructure-network.md)
+- [Rede de produção azure](production-network.md)
+- [Funcionalidades de segurança da Base de Dados Azure SQL](infrastructure-sql.md)
+- [Operações e gestão de produção da Azure](infrastructure-operations.md)
+- [Monitorização de infraestruturas Azure](infrastructure-monitoring.md)
+- [Integridade da infraestrutura azure](infrastructure-integrity.md)
+- [Proteção de dados dos clientes azure](protection-customer-data.md)

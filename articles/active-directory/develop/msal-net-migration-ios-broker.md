@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185834"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicações iOS que usam o Autenticador Microsoft de ADAL.NET a MSAL.NET
@@ -36,7 +36,7 @@ Os corretores são aplicações fornecidas pela Microsoft no Android e iOS. (Con
 
 Permitem:
 
-- Um único sinal.
+- Início de sessão único.
 - Identificação do dispositivo, que é exigida por algumas políticas de [Acesso Condicional.](../conditional-access/overview.md) Para mais informações, consulte a [gestão do dispositivo.](../conditional-access/concept-conditional-access-conditions.md#device-platforms)
 - Verificação de identificação de aplicações, que também é necessária em alguns cenários empresariais. Para mais informações, consulte a gestão de [aplicações móveis Intune (MAM)](https://docs.microsoft.com/intune/mam-faq).
 
@@ -49,14 +49,14 @@ Permitem:
 <tr><td>
 Em ADAL.NET, o suporte do corretor foi ativado numa base de contexto por autenticação. É desativado por defeito. Tinha que definir um 
 
-`useBroker` bandeira verdadeira no construtor `PlatformParameters` chamar o corretor:
+`useBroker`bandeira verdadeira no `PlatformParameters` construtor para chamar o corretor:
 
 ```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
-Além disso, no código específico da plataforma, neste exemplo, na página renderizador a iOS, delineou o `useBroker` 
+Além disso, no código específico da plataforma, neste exemplo, na página renderizador para iOS, definir o`useBroker` 
 bandeira verdadeira:
 ```csharp
 page.BrokerParameters = new PlatformParameters(
@@ -80,7 +80,7 @@ Em seguida, inclua os parâmetros na chamada simbólica adquirida:
 </td><td>
 Em MSAL.NET, o suporte de corretor é ativado numa base por PublicClientApplication. É desativado por defeito. Para o ativar, use o 
 
-`WithBroker()` parâmetro (definido por defeito) para chamar o corretor:
+`WithBroker()`Parâmetro (definido por defeito) para chamar o corretor:
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -98,13 +98,13 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-2-set-a-uiviewcontroller"></a>Passo 2: Definir um UIViewController()
-Em ADAL.NET, passou num UIViewController como parte de `PlatformParameters`. (Veja o exemplo no passo 1.) Em MSAL.NET, para dar mais flexibilidade aos desenvolvedores, é utilizada uma janela de objeto, mas não é necessária no uso regular do iOS. Para utilizar o corretor, detete a janela do objeto para enviar e receber respostas do corretor. 
+Em ADAL.NET, passou num UIViewController `PlatformParameters`como parte de . (Veja o exemplo no passo 1.) Em MSAL.NET, para dar mais flexibilidade aos desenvolvedores, é utilizada uma janela de objeto, mas não é necessária no uso regular do iOS. Para utilizar o corretor, detete a janela do objeto para enviar e receber respostas do corretor. 
 <table>
 <tr><td>Código ADAL atual:</td><td>Contrapartida mSAL:</td></tr>
 <tr><td>
 Um UIViewController é passado para 
 
-`PlatformParameters` na plataforma específica do iOS.
+`PlatformParameters`na plataforma específica do iOS.
 
 ```csharp
 page.BrokerParameters = new PlatformParameters(
@@ -115,8 +115,8 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 Em MSAL.NET, faz duas coisas para definir a janela do objeto para o iOS:
 
-1. Em `AppDelegate.cs`, `App.RootViewController` para um novo `UIViewController()`. Esta atribuição garante que há um UIViewController com a chamada para o corretor. Se não estiver corretamente definido, poderá ter este erro: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. Na chamada AcquireTokenInteractive, utilize `.WithParentActivityOrWindow(App.RootViewController)`e passe na referência à janela do objeto que utilizará.
+1. Dentro, `AppDelegate.cs` `App.RootViewController` definido para `UIViewController()`um novo . Esta atribuição garante que há um UIViewController com a chamada para o corretor. Se não estiver corretamente definido, poderá ter este erro:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. Na chamada AcquireTokenInteractive, `.WithParentActivityOrWindow(App.RootViewController)`utilize e passe na referência à janela do objeto que utilizará.
 
 **Por exemplo:**
 
@@ -139,12 +139,12 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Passo 3: Atualizar appDelegate para lidar com o backback
-Tanto a ADAL como a MSAL ligam para o corretor, e o corretor, por sua vez, volta para a sua aplicação através do método `OpenUrl` da classe `AppDelegate`. Para mais informações, consulte [esta documentação.](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback)
+Tanto a ADAL como a MSAL ligam para o corretor, `OpenUrl` e `AppDelegate` o corretor, por sua vez, volta para a sua aplicação através do método da classe. Para mais informações, consulte [esta documentação.](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback)
 
 Não há alterações aqui entre ADAL.NET e MSAL.NET.
 
 ### <a name="step-4-register-a-url-scheme"></a>Passo 4: Registar um esquema de URL
-ADAL.NET e MSAL.NET usam URLs para invocar o corretor e devolver a resposta do corretor à aplicação. Registe o esquema DEURL no ficheiro `Info.plist` para a sua aplicação da seguinte forma:
+ADAL.NET e MSAL.NET usam URLs para invocar o corretor e devolver a resposta do corretor à aplicação. Registe o esquema `Info.plist` DEURL no ficheiro da sua aplicação da seguinte forma:
 
 <table>
 <tr><td>Código ADAL atual:</td><td>Contrapartida mSAL:</td></tr>
@@ -153,11 +153,11 @@ O esquema de URL é exclusivo da sua aplicação.
 </td><td>
 O 
 
-`CFBundleURLSchemes` nome deve incluir 
+`CFBundleURLSchemes`nome deve incluir 
 
 `msauth.`
 
-como prefixo, seguido pelo seu `CFBundleURLName`
+como prefixo, seguido pelo seu`CFBundleURLName`
 
 Por exemplo: `$"msauth.(BundleId")`
 
@@ -184,12 +184,12 @@ Por exemplo: `$"msauth.(BundleId")`
 
 ### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Passo 5: Adicionar o identificador de corretor à secção LSApplicationQueriesSchemes
 
-ADAL.NET e MSAL.NET ambos usam `-canOpenURL:` para verificar se o corretor está instalado no dispositivo. Adicione o identificador correto para o corretor iOS à secção LSApplicationQueriesSchemes do ficheiro info.plist da seguinte forma:
+ADAL.NET e MSAL.NET `-canOpenURL:` ambos usam para verificar se o corretor está instalado no dispositivo. Adicione o identificador correto para o corretor iOS à secção LSApplicationQueriesSchemes do ficheiro info.plist da seguinte forma:
 
 <table>
 <tr><td>Código ADAL atual:</td><td>Contrapartida mSAL:</td></tr>
 <tr><td>
-Utilizações 
+Utiliza 
 
 `msauth`
 
@@ -201,7 +201,7 @@ Utilizações
 </array>
 ```
 </td><td>
-Utilizações 
+Utiliza 
 
 `msauthv2`
 

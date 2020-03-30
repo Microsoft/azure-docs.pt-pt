@@ -8,41 +8,41 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: bde703310bb04cacbda0b90aec337cbbf1768d76
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021139"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arquitetura do modelo de aplicação logística ligada ioT Central
 
 
 
-Parceiros e cliente podem usar o modelo de aplicativo e seguindo orientações para desenvolver **soluções logísticas conectadas**de ponta a ponta.
+Parceiros & cliente pode usar o modelo de aplicação & seguindo orientações para desenvolver **soluções logísticas conectadas**de ponta a ponta.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/concept-connected-logistics-architecture/connected-logistics-architecture.png) de painel logístico conectado
+> ![painel logístico conectado](./media/concept-connected-logistics-architecture/connected-logistics-architecture.png)
 
 1. Conjunto de tags IoT enviando dados de telemetria para um dispositivo gateway
-2. Dispositivos de gateway que enviam telemetria e informações agregadas para IoT Central
+2. Dispositivos gateway que enviam telemetria e insights agregados para IoT Central
 3. Os dados são encaminhados para o serviço Azure pretendido para manipulação
 4. Serviços azure como as funções ASA ou Azure podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas 
 5. Vários fluxos de trabalho empresariais podem ser alimentados por aplicações de negócio sinuoso
 
 ## <a name="details"></a>Detalhes
-A secção seguinte descreve cada parte da arquitetura conceptual A ingestão de Telemetria de Tags e Gateways IoT
+A secção seguinte descreve cada parte da arquitetura conceptual A ingestão de Telemetria de IoT Tags & Gateways
 
 ## <a name="iot-tags"></a>Etiquetas ioT
-As etiquetas ioT fornecem capacidades físicas, ambientais e de sensores ambientais tais como Temperatura, Humidade, Choque, Inclinação e Luz. As etiquetas IoT normalmente ligam-se ao dispositivo gateway através de Zigbee (802.15.4). As etiquetas são sensores mais baratos; assim, podem ser descartados no final de uma típica viagem logística para evitar desafios com logística inversa.
+As etiquetas ioT fornecem capacidades físicas, ambientais e de sensores ambientais tais como Temperatura, Humidade, Choque, Inclinação &Luz. As etiquetas IoT normalmente ligam-se ao dispositivo gateway através de Zigbee (802.15.4). As etiquetas são sensores mais baratos; assim, podem ser descartados no final de uma típica viagem logística para evitar desafios com logística inversa.
 
 ## <a name="gateway"></a>Gateway
 Gateways também podem atuar como tags IoT com as suas capacidades de deteção ambiente. O portal permite a conectividade em nuvem Azure IoT (MQTT) utilizando canais celulares e Wi-Fi.  Os modos Bluetooth, NFC e 802.15.4 Wireless Sensor Network (WSN) são utilizados para a comunicação a jusante com tags IoT. Os gateways fornecem conectividade de ponta a nuvem segura, emparelhamento de etiquetas IoT, agregação de dados de sensores, retenção de dados e capacidade de configurar limiares de alarme.
 
 ## <a name="device-management-with-iot-central"></a>Gestão de dispositivos com IoT Central 
-A Azure IoT Central é uma plataforma de desenvolvimento de soluções que simplifica a conectividade, configuração e gestão do dispositivo IoT. A plataforma reduz significativamente os encargos e custos da gestão, operações e desenvolvimentos relacionados com dispositivos IoT. Os clientes e parceiros podem construir um fim para acabar com as soluções empresariais para alcançar um ciclo de feedback digital na logística.
+A Azure IoT Central é uma plataforma de desenvolvimento de soluções que simplifica a conectividade, configuração e gestão do dispositivo IoT. A plataforma reduz significativamente os encargos e custos da gestão, operações e desenvolvimentos relacionados com dispositivos IoT. Os clientes & parceiros podem construir um fim para acabar com as soluções empresariais para alcançar um ciclo de feedback digital na logística.
 
 ## <a name="business-insights-and-actions-using-data-egress"></a>Insights e ações de negócio suster dados 
-A plataforma Central IoT fornece opções ricas de extebilidade através da Exportação Contínua de Dados (CDE) e APIs. Os conhecimentos empresariais baseados no processamento de dados de telemetria ou na telemetria bruta são normalmente exportados para uma aplicação de linha de negócio preferida. Pode ser alcançado usando webhook, ônibus de serviço, hub de eventos ou armazenamento de blob para construir, treinar e implementar modelos de aprendizagem automática e enriquecer ainda mais insights.
+A plataforma Central IoT fornece opções ricas de extebilidade através da Exportação Contínua de Dados (CDE) e APIs. Os conhecimentos empresariais baseados no processamento de dados de telemetria ou na telemetria bruta são normalmente exportados para uma aplicação de linha de negócio preferida. Pode ser alcançado usando webhook, ônibus de serviço, hub de eventos ou armazenamento de blob para construir, treinar e implementar modelos de aprendizagem automática & enriquecer ainda mais insights.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como implementar [modelo de solução logística conectada](./tutorial-iot-central-connected-logistics-pnp.md)

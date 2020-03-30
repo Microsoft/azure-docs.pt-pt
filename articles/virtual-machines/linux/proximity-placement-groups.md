@@ -1,6 +1,6 @@
 ---
-title: Usar grupos de posicionamento de proximidade para VMs Linux
-description: Saiba como criar e usar grupos de posicionamento de proximidade para máquinas virtuais do Linux no Azure.
+title: Utilize grupos de colocação de proximidade para VMs Linux
+description: Aprenda sobre a criação e utilização de grupos de colocação de proximidade para máquinas virtuais Linux em Azure.
 services: virtual-machines-linux
 author: cynthn
 manager: gwallace
@@ -11,21 +11,21 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
 ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73171051"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implantar VMs em grupos de posicionamento de proximidade usando CLI do Azure
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs para grupos de colocação de proximidade usando o Azure CLI
 
-Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](co-location.md#proximity-placement-groups).
+Para obter VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-los dentro de um grupo de [colocação de proximidade](co-location.md#proximity-placement-groups).
 
-Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Os grupos de posicionamento de proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
+Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos da computação Azure estão fisicamente localizados perto uns dos outros. Os grupos de colocação de proximidade são úteis para cargas de trabalho onde a baixa latência é um requisito.
 
 
-## <a name="create-the-proximity-placement-group"></a>Criar o grupo de posicionamento de proximidade
-Crie um grupo de posicionamento de proximidade usando [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
+## <a name="create-the-proximity-placement-group"></a>Criar o grupo de colocação de proximidade
+Criar um grupo de [`az ppg create`](/cli/azure/ppg#az-ppg-create)colocação de proximidade usando . 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus
@@ -36,9 +36,9 @@ az ppg create \
    -t standard 
 ```
 
-## <a name="list-proximity-placement-groups"></a>Listar grupos de posicionamento de proximidade
+## <a name="list-proximity-placement-groups"></a>Lista de grupos de colocação de proximidade
 
-Você pode listar todos os seus grupos de posicionamento de proximidade usando a [lista AZ PPG](/cli/azure/ppg#az-ppg-list).
+Pode listar todos os seus grupos de colocação de proximidade utilizando a [lista az ppg](/cli/azure/ppg#az-ppg-list).
 
 ```azurecli-interactive
 az ppg list -o table
@@ -46,7 +46,7 @@ az ppg list -o table
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie uma VM dentro do grupo de posicionamento de proximidade usando [New AZ VM](/cli/azure/vm#az-vm-create).
+Crie um VM dentro do grupo de colocação de proximidade utilizando [o novo az vm](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 az vm create \
@@ -59,19 +59,19 @@ az vm create \
    -l westus
 ```
 
-Você pode ver a VM no grupo de posicionamento de proximidade usando [AZ PPG show](/cli/azure/ppg#az-ppg-show).
+Pode ver o VM no grupo de colocação de proximidade usando [o show az ppg](/cli/azure/ppg#az-ppg-show).
 
 ```azurecli-interactive
 az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## <a name="availability-sets"></a>Conjuntos de Disponibilidade
-Você também pode criar um conjunto de disponibilidade em seu grupo de posicionamento de proximidade. Use o mesmo parâmetro `--ppg` com [AZ VM Availability – Set Create](/cli/azure/vm/availability-set#az-vm-availability-set-create) para criar um conjunto de disponibilidade e todas as VMs no conjunto de disponibilidade também serão criadas no mesmo grupo de posicionamento de proximidade.
+Também pode criar um conjunto de disponibilidade sintetária no seu grupo de colocação de proximidade. Utilize o `--ppg` mesmo parâmetro com [az vm disponibilidade-set criar](/cli/azure/vm/availability-set#az-vm-availability-set-create) para criar um conjunto de disponibilidade e todos os VMs no conjunto de disponibilidade também serão criados no mesmo grupo de colocação de proximidade.
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 
-Você também pode criar um conjunto de dimensionamento em seu grupo de posicionamento de proximidade. Use o mesmo parâmetro `--ppg` com [AZ vmss Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) para criar um conjunto de dimensionamento e todas as instâncias serão criadas no mesmo grupo de posicionamento de proximidade.
+Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Use o `--ppg` mesmo parâmetro com [az vmss criar](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os comandos de [CLI do Azure](/cli/azure/ppg) para grupos de posicionamento de proximidade.
+Saiba mais sobre os comandos [Azure CLI](/cli/azure/ppg) para grupos de colocação de proximidade.

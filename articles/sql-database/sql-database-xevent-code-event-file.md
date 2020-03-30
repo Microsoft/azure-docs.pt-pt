@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213981"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código-alvo do Ficheiro de Eventos para eventos alargados na Base de Dados SQL
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>Saída
 
-Quando o script Transact-SQL estiver concluído, clique numa célula sob o cabeçalho da coluna **event_data_XML.** Um **\<evento>** elemento é apresentado que mostra uma declaração de ATUALIZAÇÃO.
+Quando o script Transact-SQL estiver concluído, clique numa célula sob o cabeçalho da coluna **event_data_XML.** Um ** \<evento>** elemento é apresentado que mostra uma declaração de atualização.
 
-Aqui está um **\<evento>** elemento que foi gerado durante os testes:
+Aqui está ** \<** um evento>elemento que foi gerado durante os testes:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -508,7 +508,7 @@ Suponha que queria executar a amostra transact-SQL anterior no Microsoft SQL Ser
 Para mais informações sobre contas e contentores no serviço de Armazenamento Azure, consulte:
 
 - [Como utilizar o armazenamento Blob a partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [Nomenclatura e Referência para Contentores, Blobs e Metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+- [Nomeação e Referenciação de Contentores, Bolhas e Metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Trabalhar com o Recipiente de Raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 - [Lição 1: Criar uma política de acesso armazenada e uma assinatura de acesso partilhado num contentor Azure](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lição 2: Criar uma credencial do Servidor SQL utilizando uma assinatura de acesso partilhado](https://msdn.microsoft.com/library/dn466435.aspx)

@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77132039"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
@@ -38,7 +38,7 @@ O Azure fornece ferramentas incluindo interface de linha de comando Azure, porta
 
 * **Registro SKUs** - Crie um ou mais registos de contentores na sua subscrição Azure. Os registos estão disponíveis em três SKUs: [Basic, Standard e Premium,](container-registry-skus.md)cada um dos quais suporta a integração do webhook, a autenticação de registo com o Diretório Ativo azure e aelimina a funcionalidade. Tire partido do armazenamento local e perto da rede das imagens do seu contentor ao criar um registo na mesma localização do Azure das suas implementações. Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) de registos Premium para replicação avançada e cenários de distribuição de imagens de contentor. 
 
-* **Segurança e acesso** - Faça login num registo utilizando o Azure CLI ou o comando `docker login` padrão. O Registo de Contentores Azure transfere imagens de contentores em HTTPS e suporta a TLS para garantir as ligações ao cliente. 
+* **Segurança e acesso** - Faça login num registo utilizando o `docker login` Azure CLI ou o comando padrão. O Registo de Contentores Azure transfere imagens de contentores em HTTPS e suporta a TLS para garantir as ligações ao cliente. 
 
   > [!IMPORTANT]
   > A partir de 13 de janeiro de 2020, o Registo de Contentores Azure exigirá todas as ligações seguras dos servidores e aplicações para utilizar o TLS 1.2. Ativar o TLS 1.2 utilizando qualquer cliente docker recente (versão 18.03.0 ou posterior). O suporte para TLS 1.0 e 1.1 será retirado. 
@@ -49,7 +49,7 @@ O Azure fornece ferramentas incluindo interface de linha de comando Azure, porta
 
 * **Imagens e artefactos suportados** - Agrupados num repositório, cada imagem é uma foto apenas de leitura de um recipiente compatível com Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentores Docker, o Registo de Contentores Azure armazena [formatos de conteúdo relacionados,](container-registry-image-formats.md) tais como [gráficos helm](container-registry-helm-repos.md) e imagens construídas para a Especificação de Formato de [Imagem da Iniciativa de Contentores Abertos (OCI).](https://github.com/opencontainers/image-spec/blob/master/spec.md)
 
-* **Construções** de imagem automatizadas - Utilize tarefas de registo de [contentores Azure](container-registry-tasks-overview.md) (Tarefas ACR) para agilizar a construção, teste, empurrar e implementar imagens em Azure. Por exemplo, utilize tarefas ACR para estender o seu desenvolvimento em loop interno à nuvem, descarregando `docker build` operações para o Azure. Configure tarefas de compilação para automatizar o SO do contentor e o pipeline de aplicação de patches de arquitetura e compilar imagens automaticamente quando a sua equipa consolidar código para o controlo de origem.
+* **Construções** de imagem automatizadas - Utilize tarefas de registo de [contentores Azure](container-registry-tasks-overview.md) (Tarefas ACR) para agilizar a construção, teste, empurrar e implementar imagens em Azure. Por exemplo, utilize tarefas ACR para estender o seu `docker build` desenvolvimento em loop interno à nuvem, descarregando operações para Azure. Configure tarefas de compilação para automatizar o SO do contentor e o pipeline de aplicação de patches de arquitetura e compilar imagens automaticamente quando a sua equipa consolidar código para o controlo de origem.
 
   [As tarefas em várias etapas](container-registry-tasks-overview.md#multi-step-tasks) fornecem definição e execução de tarefas baseadas em etapas para construir, testar e remendar imagens de contentores na nuvem. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
 

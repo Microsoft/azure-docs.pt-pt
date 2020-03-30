@@ -13,10 +13,10 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085190"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft

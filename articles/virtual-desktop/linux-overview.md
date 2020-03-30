@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127836"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
@@ -30,7 +30,7 @@ Pode utilizar as APIs sDK para recuperar feeds de recursos, ligar-se a sessões 
 
 O SDK é compatível com a maioria dos sistemas operativos com base em Ubuntu 18.04 ou posterior. Se tiver uma distribuição linux diferente, podemos trabalhar consigo para descobrir como melhor suportar as suas necessidades.
 
-### <a name="feature-support"></a>Suporte de funcionalidades
+### <a name="feature-support"></a>Suporte de recurso
 
 O SDK suporta múltiplas ligações a sessões de desktop e aplicações remotas. São apoiadas as seguintes redirecionamentos:
 

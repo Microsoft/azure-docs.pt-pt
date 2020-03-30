@@ -16,10 +16,10 @@ ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086725"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Utilize encriptação dinâmica DRM e serviço de entrega de licenças
@@ -72,7 +72,7 @@ O exemplo "Encrypt with DRM" está localizado na pasta [EncryptWithDRM](https://
 > [!NOTE]
 > A amostra cria recursos únicos sempre que executa a aplicação. Normalmente, você reutilizará os recursos existentes como transformações e políticas (se os recursos existentes tiverem configurações necessárias).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar APIs dos Serviços de Multimédia com SDK do .NET
 
 Para começar a utilizar APIs de Serviços de Media com .NET, crie um objeto **AzureMediaServicesClient.** Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials, com base nas credenciais fornecidas no ficheiro de configuração local.
 
@@ -86,7 +86,7 @@ A saída [Asset](assets-concept.md) armazena o resultado da tarefa de codificaç
 
 ## <a name="get-or-create-an-encoding-transform"></a>Obter ou criar uma Transformação de codificação
 
-Ao criar uma nova instância [Transformar](transforms-jobs-concept.md), tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto `transformOutput`, como indicado no código abaixo. Cada TransformOutput contém um **Preset**. Predefinição descreve as instruções passo-a-passo das operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar a TransformOutput desejada. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. O Preset codifica o vídeo de entrada numa escada de bitrate autogerada (pares de resolução de bitrate) com base na resolução de entrada e bitrate, e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução de bitrate. 
+Ao criar uma nova instância [Transformação](transforms-jobs-concept.md), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é `transformOutput` um objeto, como indicado no código abaixo. Cada TransformOutput contém uma **Predefinição**. A Predefinição descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o TransformOutput pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. O Preset codifica o vídeo de entrada numa escada de bitrate autogerada (pares de resolução de bitrate) com base na resolução de entrada e bitrate, e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução de bitrate. 
 
 Antes de criar uma nova **Transformação**, em primeiro lugar deve verificar se já existe uma com o método **Get**, conforme mostrado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
@@ -135,7 +135,7 @@ Depois de concluída a codificação e de a política de chave de conteúdo esta
 
 O processo de criação do Localizador de **Streaming** chama-se publicação. Por predefinição, o Localizador de **Streaming** é válido imediatamente após a efetuação das chamadas API. Dura até ser apagado, a menos que configure os tempos de início e fim opcionais.
 
-Ao criar um Localizador de **Streaming,** precisa especificar o `StreamingPolicyName`desejado . Neste tutorial, estamos a usar uma das Políticas de Streaming predefinidas, que diz à Azure Media Services como publicar os conteúdos para streaming. Neste exemplo, definimos StreamingLocator.StreamingPolicyName como a política "Predefined_MultiDrmCencStreaming". As encriptações PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças de DRM configuradas. Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
+Ao criar um Localizador de **Streaming,** precisa `StreamingPolicyName`especificar o desejado . Neste tutorial, estamos a usar uma das Políticas de Streaming predefinidas, que diz à Azure Media Services como publicar os conteúdos para streaming. Neste exemplo, definimos StreamingLocator.StreamingPolicyName como a política "Predefined_MultiDrmCencStreaming". As encriptações PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças de DRM configuradas. Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
 
 > [!IMPORTANT]
 > Ao utilizar uma Política de [Streaming](streaming-policy-concept.md)personalizada, deve conceber um conjunto limitado de tais políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções e protocolos de encriptação. A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não devias estar a criar uma nova Política de Streaming para cada StreamingLocator.
@@ -170,7 +170,7 @@ Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
+Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 
 Executar o seguinte comando CLI:
 
@@ -188,7 +188,7 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Fazer Check-out
+Dar saída
 
 > [!div class="nextstepaction"]
 > [Proteja com AES-128](protect-with-aes128.md)

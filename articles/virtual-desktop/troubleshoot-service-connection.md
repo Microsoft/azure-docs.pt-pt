@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127456"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
@@ -47,7 +47,7 @@ Para verificar o estado do anfitrião, execute este cmdlet:
 Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
 ```
 
-Se o estado do anfitrião for `NoHeartBeat`, isso significa que o VM não está a responder e o agente não pode comunicar com o serviço de ambiente de trabalho virtual do Windows.
+Se o estado `NoHeartBeat`do anfitrião for , isso significa que o VM não está a responder e o agente não pode comunicar com o serviço de ambiente de trabalho virtual do Windows.
 
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
@@ -69,7 +69,7 @@ Se o seu FSLogix não estiver atualizado, especialmente se for versão 2.9.7205.
 
 Se a atualização do FSLogix não funcionar, o problema pode ser que um componente BiSrv esteja a esgotar os recursos do sistema durante uma tarefa de manutenção semanal. Desative temporariamente a tarefa de manutenção desativando a Tarefa de Manutenção de Registo seletiva da BgTask com um destes dois métodos:
 
-- Vá ao menu Iniciar e procure o Agendador de **Tarefas**. Navegue para a Biblioteca do Programador de **Tarefas** > **Microsoft** > **Infraestrutura**de corretor estoiro **do Windows** > . Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Quando o encontrar, clique-o à direita e selecione **Desativar** a partir do menu suspenso.
+- Vá ao menu Iniciar e procure o Agendador de **Tarefas**. Navegue para a Biblioteca de Agendadores de **Tarefas** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Quando o encontrar, clique-o à direita e selecione **Desativar** a partir do menu suspenso.
 - Abra um menu de linha de comando como administrador e execute o seguinte comando:
     
     ```cmd

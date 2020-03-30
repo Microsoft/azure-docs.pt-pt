@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
 ms.openlocfilehash: c4dc97453fe50865db74f8918ef3dffdb4013b4f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251898"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gerir os recursos da API da Azure Cosmos DB Cassandra utilizando modelos de Gestor de Recursos Azure
 
 Este artigo descreve como realizar diferentes operações para automatizar a gestão das suas contas, bases de dados e contentores Do MB D SAL utilizando modelos de Gestor de Recursos Azure. Este artigo tem exemplos apenas para contas SQL API, para encontrar exemplos para outras contas do tipo API ver: use modelos de Gestor de Recursos Azure com API do Azure Cosmos DB para [SQL,](manage-sql-with-resource-manager.md) [Gremlin,](manage-gremlin-with-resource-manager.md) [MongoDB,](manage-mongodb-with-resource-manager.md) [Artigos](manage-table-with-resource-manager.md) de mesa.
 
-## Criar conta Azure Cosmos, keyspace e mesa<a id="create-resource"></a>
+## <a name="create-azure-cosmos-account-keyspace-and-table"></a>Criar conta Azure Cosmos, keyspace e mesa<a id="create-resource"></a>
 
-Crie recursos DB Azure Cosmos utilizando um modelo de Gestor de Recursos Azure. Este modelo criará uma conta Azure Cosmos para Cassandra API com duas tabelas que partilham 400 RU/s de entrada no nível do espaço-chave. Copie o modelo e desloque-se como mostrado abaixo ou visite a [Galeria Azure Quickstart](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e desloque-se a partir do portal Azure. Também pode descarregar o modelo para o seu computador local ou criar um novo modelo e especificar o caminho local com o parâmetro `--template-file`.
+Crie recursos DB Azure Cosmos utilizando um modelo de Gestor de Recursos Azure. Este modelo criará uma conta Azure Cosmos para Cassandra API com duas tabelas que partilham 400 RU/s de entrada no nível do espaço-chave. Copie o modelo e desloque-se como mostrado abaixo ou visite a [Galeria Azure Quickstart](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e desloque-se a partir do portal Azure. Também pode descarregar o modelo para o seu computador local ou `--template-file` criar um novo modelo e especificar o caminho local com o parâmetro.
 
 > [!NOTE]
 > Os nomes das contas devem ser minúsculos e 44 ou menos caracteres.
@@ -51,12 +51,12 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-O comando `az cosmosdb show` mostra a recém-criada conta Azure Cosmos depois de ter sido provisionada. Se optar por utilizar uma versão instalada localmente do Azure CLI em vez de utilizar a Cloud Shell, consulte o artigo [do Azure CLI.](/cli/azure/)
+O `az cosmosdb show` comando mostra a recém-criada conta Azure Cosmos depois de ter sido provisionada. Se optar por utilizar uma versão instalada localmente do Azure CLI em vez de utilizar a Cloud Shell, consulte o artigo [do Azure CLI.](/cli/azure/)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão alguns recursos adicionais:
+Seguem-se alguns recursos adicionais:
 
 - [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/)
 - [Esquema de fornecedor de recursos Da Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)

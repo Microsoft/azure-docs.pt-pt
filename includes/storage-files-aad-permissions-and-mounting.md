@@ -9,10 +9,10 @@ ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
 ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208236"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
@@ -37,7 +37,7 @@ Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções
 Para atribuir uma função RBAC a uma identidade Azure AD, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
 
 1. No portal Azure, vá à sua partilha de ficheiros ou Crie uma partilha de [ficheiros.](../articles/storage/files/storage-how-to-create-file-share.md)
-2. Selecione **Controlo de Acesso (IAM)** .
+2. Selecione **Controlo de Acesso (IAM)**.
 3. Selecione **Adicionar uma atribuição de funções**
 4. Na lâmina de atribuição de **funções Add,** selecione a função incorporada apropriada (Armazenamento File Data SMB Share Reader, Storage File Data SMB Share Contributor) da lista **Role.** Deixe **o acesso atribuído** na definição predefinida: Utilizador, grupo ou diretor de serviço **Azure AD**. Selecione a identidade ad-alvo Azure por nome ou endereço de e-mail.
 5. Selecione **Guardar** para completar a operação de atribuição de funções.

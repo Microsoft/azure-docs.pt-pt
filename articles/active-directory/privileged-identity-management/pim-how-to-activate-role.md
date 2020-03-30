@@ -15,13 +15,13 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77499230"
 ---
-# <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções de AD Azure na PIM
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
 
 O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) simplifica a forma como as empresas gerem o acesso privilegiado a recursos em Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
 
@@ -248,6 +248,6 @@ Quando ativa uma função na Gestão de Identidade Privilegiada, a ativação po
 
  ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar as minhas funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-activate-role.md)

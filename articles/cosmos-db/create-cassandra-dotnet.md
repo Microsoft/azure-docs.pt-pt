@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240227"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET SDK e Azure Cosmos DB
@@ -20,17 +20,17 @@ ms.locfileid: "79240227"
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
-> * [Node.js](create-cassandra-nodejs.md)
-> * [python](create-cassandra-python.md)
+> * [Nó.js](create-cassandra-nodejs.md)
+> * [Pitão](create-cassandra-python.md)
 >  
 
-Este guia de introdução mostra como utilizar o .NET e a [Cassandra API](cassandra-introduction.md) do Azure Cosmos DB para criar um perfil de aplicação através da clonagem de um exemplo do GitHub. Este início rápido também mostra como pode utilizar o portal do Azure baseado na Web para criar uma conta do Azure Cosmos DB.
+Este quickstart mostra como usar .NET e o Azure Cosmos DB [Cassandra API](cassandra-introduction.md) para construir uma aplicação de perfil clonando um exemplo do GitHub. Este início rápido também mostra como pode utilizar o portal do Azure baseado na Web para criar uma conta do Azure Cosmos DB.
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a tabela, a chave/valor e as bases de dados de gráficos que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos.
 
 Além disso, necessita: 
 * Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.** Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
@@ -146,7 +146,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-net-app"></a>Executar a aplicação .NET
 
-1. No Visual Studio, selecione **Ferramentas** > **Gestor de Pacotes NuGet** > **Consola do Gestor de Pacotes**.
+1. No Estúdio Visual, selecione **Tools** > **NuGet Package Manager** > **Manager Console**.
 
 2. Na linha de comandos, utilize o comando seguinte para instalar o pacote NuGet do controlador do .NET. 
 
@@ -171,7 +171,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

@@ -1,6 +1,6 @@
 ---
-title: Filtros e manifestos dinâmicos | Microsoft Docs
-description: Este tópico descreve como criar filtros para que o cliente possa utilizar secções específicas do fluxo de um fluxo. Os serviços de mídia criam manifestos dinâmicos para arquivar esse streaming seletivo.
+title: Filtros e manifestos dinâmicos Microsoft Docs
+description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. A Media Services cria manifestos dinâmicos para arquivar este streaming seletivo.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015855"
 ---
-# <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
+# <a name="filters-and-dynamic-manifests"></a>Filters and dynamic manifests (Filtros e manifestos dinâmicos)
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
 > * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
 
-A partir da versão 2,17, os serviços de mídia permitem que você defina filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão que os clientes escolham tarefas como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo que o dispositivo do seu cliente pode manipular ( em vez de todas as representações associadas ao ativo). Essa filtragem de seus ativos é obtida pormeio de manifestos dinâmicos que são criados na solicitação do cliente para transmitir um vídeo com base nos filtros especificados.
+A partir do lançamento de 2.17, o Media Services permite-lhe definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitirão que os seus clientes escolham fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações de áudio e vídeo que o dispositivo do seu cliente pode lidar ( em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações de áudio e vídeo que o dispositivo do seu cliente pode lidar ( em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest**s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
 
-Este tópico discute cenários comuns nos quais o uso de filtros seria benéfico para seus clientes e links para tópicos que demonstram como criar filtros programaticamente.
+Este tópico discute cenários comuns em que o uso de filtros seria benéfico para os seus clientes e ligações a tópicos que demonstram como criar filtros programáticamente.
 
 ## <a name="overview"></a>Descrição geral
-Ao entregar seu conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos sob diferentes condições de rede. Para atingir esse objetivo, faça o seguinte:
+Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Para atingir este objetivo faça o seguinte:
 
-* Codifique seu fluxo para o fluxo de vídeo de múltiplas taxas de bits ([taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Isso cuidará da qualidade e das condições de rede) e 
-* Use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (Isso cuidará do streaming em diferentes dispositivos). Os serviços de mídia oferecem suporte à entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. 
+* codificar o seu fluxo para fluxo de vídeo multibitável[(bitrate adaptativo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (isto cuidará da qualidade e das condições de rede) e 
+* utilizar a Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) para reembalar dinamicamente o seu fluxo em diferentes protocolos (isto cuidará do streaming em diferentes dispositivos). A Media Services suporta a entrega das seguintes tecnologias de streaming adaptativo: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. 
 
-### <a name="manifest-files"></a>Arquivos de manifesto
-Quando você codifica um ativo para streaming de taxa de bits adaptável, um arquivo de **manifesto** (playlist) é criado (o arquivo é baseado em texto ou XML). O arquivo de **manifesto** inclui metadados de streaming como: rastrear tipo (áudio, vídeo ou texto), nome da faixa, hora de início e de término, taxa de bits (qualidades), rastrear idiomas, janela de apresentação (janela deslizante de duração fixa), codec de vídeo (FourCC). Ele também instrui o Player a recuperar o próximo fragmento, fornecendo informações sobre os próximos fragmentos de vídeo reproduzidos disponíveis e sua localização. Fragmentos (ou segmentos) são as "partes" reais de um conteúdo de vídeo.
+### <a name="manifest-files"></a>Ficheiros manifestos
+Quando codifica um ativo para streaming de bitrate adaptativo, é criado um ficheiro **manifesto** (lista de reprodução) (o ficheiro é baseado em texto ou baseado em XML). O ficheiro **manifesto** inclui metadados de streaming tais como: tipo de faixa (áudio, vídeo ou texto), nome da faixa, tempo de início e fim, bitrate (qualidades), linguagem de faixa, janela de apresentação (janela deslizante de duração fixa), código de vídeo (FourCC). Também instrui o jogador a recuperar o próximo fragmento fornecendo informações sobre os próximos fragmentos de vídeo jogáveis disponíveis e a sua localização. Fragmentos (ou segmentos) são os "pedaços" reais de um conteúdo de vídeo.
 
-Aqui está um exemplo de um arquivo de manifesto: 
+Aqui está um exemplo de um ficheiro manifesto: 
 
     <?xml version="1.0" encoding="UTF-8"?>    
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="330187755" TimeScale="10000000">
@@ -73,121 +73,121 @@ Aqui está um exemplo de um arquivo de manifesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestos dinâmicos
-Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Por exemplo:
+Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o seu cliente precisa de mais flexibilidade do que o descrito no ficheiro manifesto do ativo predefinido. Por exemplo:
 
-* Específico do dispositivo: forneça apenas as representações especificadas e/ou faixas de idioma especificadas com suporte pelo dispositivo que é usado para reproduzir o conteúdo ("filtragem de representação"). 
-* Reduza o manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe").
-* Cortar o início de um vídeo ("corte de um vídeo").
-* Ajustar a janela de apresentação (DVR) para fornecer um comprimento limitado da janela DVR no Player ("ajustando a janela de apresentação").
+* Específico do dispositivo: entregar apenas as interpretações especificadas e/ou faixas linguísticas especificadas que são suportadas pelo dispositivo que é utilizado para reproduzir o conteúdo ("filtragem de rendição"). 
+* Reduza o manifesto para mostrar um subclip de um evento ao vivo ("filtragem de sub-clip").
+* Aparar o início de um vídeo ("aparar um vídeo").
+* Ajuste a Janela de Apresentação (DVR) de forma a fornecer um comprimento limitado da janela DVR no leitor ("janela de apresentação de ajuste").
 
-Para atingir essa flexibilidade, os serviços de mídia oferecem manifestos dinâmicos com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma rendição ou subclipes específicos do seu vídeo. Eles especificariam filtro (s) na URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
+Para alcançar esta flexibilidade, a Media Services oferece **Manifestos Dinâmicos baseados** em filtros pré-definidos. [filters](media-services-dynamic-manifest-overview.md#filters)  Uma vez definidos os filtros, os seus clientes podem usá-los para transmitir uma versão específica ou subclips do seu vídeo. Especificariam os filtros no URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de bitrate adaptáveis suportados pela [Dynamic Packaging](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
 
-URL de MPEG DASH com filtro
+URL mpeg DASH com filtro
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
 
-URL de Smooth Streaming com filtro
+URL de streaming suave com filtro
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-Para obter mais informações sobre como entregar seu conteúdo e criar URLs de streaming, consulte [visão geral do fornecimento de conteúdo](media-services-deliver-content-overview.md).
+Para obter mais informações sobre como entregar o seu conteúdo e construir URLs de streaming, consulte a [visão geral](media-services-deliver-content-overview.md)do conteúdo .
 
 > [!NOTE]
-> Observe que os manifestos dinâmicos não alteram o ativo e o manifesto padrão para esse ativo. O cliente pode optar por solicitar um fluxo com ou sem filtros. 
+> Note que os Manifestos Dinâmicos não alteram o ativo e o manifesto padrão para esse ativo. O seu cliente pode optar por solicitar um fluxo com ou sem filtros. 
 > 
 > 
 
-### <a id="filters"></a>Filter
-Há dois tipos de filtros de ativos: 
+### <a name="filters"></a><a id="filters"></a>Filtros
+Existem dois tipos de filtros de ativos: 
 
-* Filtros globais (podem ser aplicados a qualquer ativo na conta dos serviços de mídia do Azure, ter um tempo de vida da conta) e 
-* Filtros locais (só podem ser aplicados a um ativo com o qual o filtro foi associado após a criação, ter um tempo de vida do ativo). 
+* Filtros globais (podem ser aplicados a qualquer ativo na conta Azure Media Services, têm uma vida útil da conta) e 
+* Os filtros locais (só podem ser aplicados a um ativo com o qual o filtro foi associado à criação, têm uma vida útil do ativo). 
 
-Os tipos de filtro global e local têm exatamente as mesmas propriedades. A principal diferença entre os dois é para quais cenários o tipo de um Filer é mais adequado. Os filtros globais são geralmente adequados para perfis de dispositivo (filtragem de representação), em que os filtros locais podem ser usados para cortar um ativo específico.
+Os tipos de filtros globais e locais têm exatamente as mesmas propriedades. A principal diferença entre os dois é para os cenários que tipo de filer é mais adequado. Os filtros globais são geralmente adequados para perfis de dispositivos (filtragem de rendição) onde os filtros locais podem ser usados para aparar um ativo específico.
 
-## <a id="scenarios"></a>Cenários comuns
-Como foi mencionado anteriormente, ao entregar seu conteúdo aos clientes (eventos dinâmicos de streaming ou vídeo sob demanda), seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos sob diferentes condições de rede. Além disso, você pode ter outros requisitos que envolvem a filtragem de seus ativos e o uso de s de **manifesto dinâmico**. As seções a seguir fornecem uma breve visão geral de diferentes cenários de filtragem.
+## <a name="common-scenarios"></a><a id="scenarios"></a>Cenários comuns
+Como já foi referido, ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Além disso, poderá ter outros requisitos que envolvem filtrar os seus ativos e utilizar o **Dynamic Manifest**s. As seguintes secções dão uma visão geral breve de diferentes cenários de filtragem.
 
-* Especifique apenas um subconjunto de representações de áudio e vídeo que determinados dispositivos podem manipular (em vez de todas as representações associadas ao ativo). 
-* Reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro).
-* Ajustar a janela de apresentação do DVR.
+* Especifique apenas um subconjunto de representações áudio e vídeo que certos dispositivos podem manusear (em vez de todas as representações que estão associadas ao ativo). 
+* Reproduzindo apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo).
+* Ajuste a janela de apresentação do DVR.
 
-## <a name="rendition-filtering"></a>Filtragem de representação
-Você pode optar por codificar seu ativo para vários perfis de codificação (H. 264 linha de base, H. 264 High, AACL, AACH, Dolby Digital Plus) e várias taxas de bits de qualidade. No entanto, nem todos os dispositivos cliente terão suporte para todos os perfis e taxas de bits do ativo. Por exemplo, dispositivos Android mais antigos dão suporte apenas a H. 264 Baseline + AACL. Enviando taxas de bits mais altas para um dispositivo que não pode obter os benefícios, desperdiça a largura de banda e a computação do dispositivo. Esse dispositivo deve decodificar todas as informações fornecidas, apenas para diminuí-lo para exibição.
+## <a name="rendition-filtering"></a>Filtragem de rendição
+Pode optar por codificar o seu ativo a múltiplos perfis de codificação (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) e a várias bitrates de qualidade. No entanto, nem todos os dispositivos de cliente irão suportar todos os perfis e bitrates do seu ativo. Por exemplo, dispositivos Android mais antigos suportam apenas H.264 Baseline+AACL. Envio de bitrates mais elevados para um dispositivo que não consegue obter os benefícios, desperdiça largura de banda e computação de dispositivos. Este dispositivo deve descodificar todas as informações dadas, apenas para a reduzir para visualização.
 
-Com o manifesto dinâmico, você pode criar perfis de dispositivo, como móvel, console, HD/SD, etc., e incluir as trilhas e qualidades que você deseja que sejam parte de cada perfil.
+Com o Dynamic Manifest, pode criar perfis de dispositivos como mobile, consola, HD/SD, etc. e incluir as faixas e qualidades que pretende fazer parte de cada perfil.
 
-![Exemplo de filtragem de representação][renditions2]
+![Exemplo de filtragem de rendição][renditions2]
 
-No exemplo a seguir, um codificador foi usado para codificar um ativo de mezanino em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth e MPEG DASH.  Na parte superior do diagrama, o manifesto HLS para o ativo sem filtros é mostrado (ele contém todas as sete representações).  Na parte inferior esquerda, o manifesto HLS ao qual um filtro chamado "Ott" foi aplicado é mostrado. O filtro "Ott" especifica a remoção de todas as taxas de bits abaixo de 1 Mbps, o que resultou na remoção dos dois níveis de qualidade inferiores na resposta. No canto inferior direito, o manifesto HLS ao qual um filtro chamado "Mobile" foi aplicado é mostrado. O filtro "móvel" especifica a remoção de representações em que a resolução é maior que 720p, o que resultou nas duas rendições 1080p sendo eliminadas.
+No exemplo seguinte, um codificador foi usado para codificar um ativo mezanino em sete representações de vídeo ISO MP4s (de 180p a 1080p). O ativo codificado pode ser embalado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth e MPEG DASH.  Na parte superior do diagrama, mostra-se o manifesto HLS para o ativo sem filtros (contém todas as sete representações).  No canto inferior esquerdo, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro "ott" especifica remover todas as bitrates abaixo de 1Mbps, o que resultou na eliminação dos dois níveis de qualidade inferiores na resposta. No canto inferior direito, é mostrado o manifesto HLS a que foi aplicado um filtro chamado "mobile". O filtro "móvel" especifica remover as representações em que a resolução é superior a 720p, o que resultou na retirada das duas representações de 1080p.
 
-![Filtragem de representação][renditions1]
+![Filtragem de rendição][renditions1]
 
-## <a name="removing-language-tracks"></a>Removendo faixas de idioma
-Seus ativos podem incluir vários idiomas de áudio, como Inglês, espanhol, francês, etc. Normalmente, os gerenciadores do SDK do Player são seleção de faixa de áudio padrão e faixas de áudio disponíveis por seleção de usuário. É desafiador desenvolver esses SDKs de Player, que requer implementações diferentes em estruturas de Player específicas de dispositivo. Além disso, em algumas plataformas, as APIs do Player são limitadas e não incluem o recurso de seleção de áudio, em que os usuários não podem selecionar ou alterar a faixa de áudio padrão. Com os filtros de ativos, você pode controlar o comportamento Criando filtros que incluem apenas os idiomas de áudio desejados.
+## <a name="removing-language-tracks"></a>Remoção de faixas linguísticas
+Os seus ativos podem incluir várias línguas áudio, tais como inglês, espanhol, francês, etc. Normalmente, os gestores do Player SDK padrão seleção de faixas de áudio e faixas de áudio disponíveis por seleção do utilizador. É um desafio desenvolver tais SDKs player, requer implementações diferentes em diferentes quadros de jogadores específicos do dispositivo. Além disso, em algumas plataformas, as APIs do Jogador são limitadas e não incluem a funcionalidade de seleção de áudio onde os utilizadores não podem selecionar ou alterar a faixa de áudio padrão. Com filtros de ativos, pode controlar o comportamento criando filtros que apenas incluem idiomas áudio desejados.
 
-![Filtragem de faixas de idiomas][language_filter]
+![Filtragem de faixas linguísticas][language_filter]
 
-## <a name="trimming-start-of-an-asset"></a>Corte do início de um ativo
-Na maioria dos eventos de transmissão ao vivo, os operadores executam alguns testes antes do evento real. Por exemplo, eles podem incluir um Slate como este antes do início do evento: "O programa será iniciado momentaneamente". Se o programa estiver sendo arquivado, os dados de teste e de Slate também serão arquivados e incluídos na apresentação. No entanto, essas informações não devem ser mostradas para os clientes. Com o manifesto dinâmico, você pode criar um filtro de hora de início e remover os dados indesejados do manifesto.
+## <a name="trimming-start-of-an-asset"></a>Aparar o início de um ativo
+Na maioria dos eventos de streaming ao vivo, os operadores executam alguns testes antes do evento real. Por exemplo, podem incluir uma ardósia como esta antes do início do evento: "O programa começará momentaneamente". Se o programa estiver a arquivar, os dados de teste e ardósia também são arquivados e incluídos na apresentação. No entanto, esta informação não deve ser mostrada aos clientes. Com o Dynamic Manifest, pode criar um filtro de hora de início e remover os dados indesejados do manifesto.
 
-![Início da corte][trim_filter]
+![Início de corte][trim_filter]
 
-## <a name="creating-subclips-views-from-a-live-archive"></a>Criando subclipes (exibições) de um arquivo ao vivo
-Muitos eventos ao vivo são de longa execução e o arquivamento dinâmico pode incluir vários eventos. Após o término do evento ao vivo, os difusores podem querer dividir o arquivo ao vivo em sequências de início e parada do programa lógico. Em seguida, publique esses programas virtuais separadamente sem o pós-processamento do arquivo em tempo real e não criando ativos separados (o que não obtém o benefício dos fragmentos armazenados em cache existentes no CDNs). Exemplos desses programas virtuais são os trimestres de um jogo de futebol ou basquete, entradas em beisebol ou eventos individuais de qualquer programa esportivo.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Criação de subclips (vistas) a partir de um arquivo ao vivo
+Muitos eventos ao vivo são longos e arquivo ao vivo pode incluir vários eventos. Após o fim do evento ao vivo, os emissores podem querer dividir o arquivo ao vivo em sequências de início e paragem lógicas do programa. Em seguida, publique estes programas virtuais separadamente sem processar o arquivo ao vivo e não criando ativos separados (que não beneficiam os fragmentos em cache existentes nos CDNs). Exemplos de tais programas virtuais são os quartos de um jogo de futebol ou basquetebol, innings no basebol, ou eventos individuais de qualquer programa desportivo.
 
-Com o manifesto dinâmico, você pode criar filtros usando horários de início/término e criar exibições virtuais na parte superior do seu arquivo em tempo real. 
+Com o Dynamic Manifest, pode criar filtros utilizando tempos de início/fim e criar vistas virtuais sobre o topo do seu arquivo ao vivo. 
 
-![Filtro de subclipe][subclip_filter]
+![Filtro de subclip][subclip_filter]
 
-Ativo filtrado:
+Ativo Filtrado:
 
 ![Esqui][skiing]
 
-## <a name="adjusting-presentation-window-dvr"></a>Ajustando a janela de apresentação (DVR)
-Atualmente, os serviços de mídia do Azure oferecem um arquivo circular em que a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR de interrupção na parte superior do arquivo morto, sem excluir a mídia. Há muitos cenários em que os difusores desejam fornecer uma janela DVR limitada para mover com o Live Edge e, ao mesmo tempo, manter uma janela de arquivamento maior. Um transmissor pode querer usar os dados que estão fora da janela DVR para realçar clipes ou pode querer fornecer janelas DVR diferentes para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e uma hora para clientes de desktop).
+## <a name="adjusting-presentation-window-dvr"></a>Janela de apresentação de ajuste (DVR)
+Atualmente, a Azure Media Services oferece um arquivo circular onde a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem manifesta pode ser usada para criar uma janela DVR rolante sobre a parte superior do arquivo, sem apagar os meios de comunicação. Há muitos cenários em que os emissores querem fornecer uma janela de DVR limitada para mover-se com a borda ao vivo e, ao mesmo tempo, manter uma janela de arquivo maior. Um organismo de radiodifusão televisiva pode querer utilizar os dados que estão fora da janela dVR para realçar clips, ou podem querer fornecer diferentes janelas de DVR para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não lida com grandes janelas de DVR (pode ter uma janela dVR de 2 minutos para dispositivos móveis e uma hora para clientes de desktop).
 
 ![Janela DVR][dvr_filter]
 
-## <a name="adjusting-livebackoff-live-position"></a>Ajustando LiveBackoff (posição dinâmica)
-A filtragem de manifesto pode ser usada para remover vários segundos da borda ao vivo de um programa em tempo real. A filtragem permite que os difusores assistam à apresentação no ponto de publicação de visualização e criem pontos de inserção de anúncio antes que os visualizadores recebam o fluxo (apoiado por 30 segundos). Os difusores podem enviar esses anúncios para suas estruturas de cliente no tempo para que eles recebam e processem as informações antes da oportunidade de anúncio.
+## <a name="adjusting-livebackoff-live-position"></a>Ajuste do LiveBackoff (posição ao vivo)
+A filtragem manifesta pode ser usada para remover alguns segundos da borda ao vivo de um programa ao vivo. A filtragem permite que os emissores assistam à apresentação no ponto de publicação de pré-visualização e criem pontos de inserção de publicidade antes que os espectadores recebam o fluxo (back-off por 30 segundos). Os organismos de radiodifusão podem então empurrar estes anúncios para os seus quadros de clientes a tempo de receberem e processarem a informação antes da oportunidade de publicidade.
 
-Além do suporte a anúncios, a configuração LiveBackoff pode ser usada para ajustar a posição dos visualizadores para que, quando os clientes se descompassom e atingirem a borda ao vivo, ainda possam obter fragmentos do servidor em vez de obter um erro HTTP 404 ou 412.
+Além do suporte publicitário, o cenário LiveBackoff pode ser usado para ajustar a posição dos espectadores para que quando os clientes deslizam e batam na borda ao vivo ainda possam obter fragmentos do servidor em vez de obter um erro HTTP 404 ou 412.
 
 ![livebackoff_filter][livebackoff_filter]
 
-## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinando várias regras em um único filtro
-Você pode combinar várias regras de filtragem em um único filtro. Como exemplo, você pode definir uma "regra de intervalo" para remover os slates de um arquivo em tempo real e também filtrar as taxas de bits disponíveis. Ao aplicar várias regras de filtragem, o resultado final é a interseção de todas as regras.
+## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinando várias regras num único filtro
+Pode combinar várias regras de filtragem num único filtro. Como exemplo, pode definir uma "regra de alcance" para remover as ardósias de um arquivo ao vivo e também filtrar as bitrates disponíveis. Ao aplicar várias regras de filtragem, o resultado final é a intersecção de todas as regras.
 
-![várias regras][multiple-rules]
+![múltiplas regras][multiple-rules]
 
-## <a name="create-filters-programmatically"></a>Criar filtros programaticamente
-O artigo a seguir discute as entidades dos serviços de mídia relacionadas aos filtros. O artigo também mostra como criar filtros programaticamente.  
+## <a name="create-filters-programmatically"></a>Criar filtros programáticamente
+O seguinte artigo discute entidades dos Serviços de Media que estão relacionadas com filtros. O artigo também mostra como criar filtros programáticamente.  
 
 [Crie filtros com APIs REST](media-services-rest-dynamic-manifest.md).
 
-## <a name="combining-multiple-filters-filter-composition"></a>Combinando vários filtros (composição de filtro)
-Você também pode combinar vários filtros em uma única URL. 
+## <a name="combining-multiple-filters-filter-composition"></a>Combinando vários filtros (composição do filtro)
+Também pode combinar vários filtros num único URL. 
 
-O cenário a seguir demonstra por que você pode querer combinar filtros:
+O seguinte cenário demonstra por que razão poderá querer combinar filtros:
 
-1. Você precisa filtrar suas qualidades de vídeo para dispositivos móveis, como Android ou iPAD (para limitar as qualidades de vídeo). Para remover as qualidades indesejadas, você criaria um filtro global adequado para os perfis de dispositivo. Conforme mencionado anteriormente neste artigo, os filtros globais podem ser usados para todos os seus ativos na mesma conta dos serviços de mídia, sem nenhuma associação adicional. 
-2. Você também deseja cortar a hora de início e de término de um ativo. Para conseguir isso, você criaria um filtro local e definiria a hora de início/término. 
-3. Você deseja combinar esses dois filtros (sem combinação, você precisa adicionar a filtragem de qualidade ao filtro de corte, o que torna o uso do filtro mais difícil).
+1. É necessário filtrar as qualidades de vídeo para dispositivos móveis como android ou iPAD (para limitar as qualidades de vídeo). Para remover as qualidades indesejadas, criaria um filtro global adequado para os perfis do dispositivo. Como mencionado anteriormente neste artigo, filtros globais podem ser usados para todos os seus ativos sob a mesma conta de serviços de mídia sem qualquer outra associação. 
+2. Também quer cortar o tempo de início e fim de um ativo. Para tal, criaria um filtro local e definiria o tempo de início/fim. 
+3. Pretende combinar ambos os filtros (sem combinação, é necessário adicionar filtragem de qualidade ao filtro de corte, o que dificulta o uso do filtro).
 
-Para combinar filtros, você precisa definir os nomes de filtro para a URL de manifesto/playlist com delimitado por ponto e vírgula. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtre as qualidades e que você tenha outro chamado mystartime para definir uma hora de início específica. Você pode combiná-los da seguinte maneira:
+Para combinar filtros, é necessário definir os nomes dos filtros para o URL manifesto/lista de reprodução com semiponto delimitado. Vamos supor que tem um filtro chamado *MyMobileDevice* que filtra qualidades e que tem outro chamado *MyStartTime* para definir uma hora de início específica. Pode combiná-los assim:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-Você pode combinar até três filtros. 
+Pode combinar até três filtros. 
 
-Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
-## <a name="know-issues-and-limitations"></a>Conheça os problemas e as limitações
-* O manifesto dinâmico opera em limites de GOP (quadros-chave), portanto, o corte tem precisão de GOP. 
-* Você pode usar o mesmo nome de filtro para filtros locais e globais. Os filtros locais têm maior precedência e substituirão os filtros globais.
-* Se você atualizar um filtro, pode levar até 2 minutos para que o ponto de extremidade de streaming atualize as regras. Se o conteúdo foi servido usando alguns filtros (e armazenados em cache em proxies e caches CDN), a atualização desses filtros pode resultar em falhas do Player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
+## <a name="know-issues-and-limitations"></a>Conheça questões e limitações
+* O manifesto dinâmico funciona nos limites gop (Quadros-chave) pelo que o aparar tem precisão GOP. 
+* Pode usar o mesmo nome de filtro para filtros locais e globais. Os filtros locais têm maior precedência e irão sobrepor-se aos filtros globais.
+* Se atualizar um filtro, pode demorar até 2 minutos para o ponto final de streaming atualizar as regras. Se o conteúdo foi servido usando alguns filtros (e cached em proxies e caches CDN), a atualização destes filtros pode resultar em falhas dos jogadores. Recomenda-se limpar a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -195,8 +195,8 @@ Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar Também
-[Visão geral do fornecimento de conteúdo aos clientes](media-services-deliver-content-overview.md)
+## <a name="see-also"></a>Veja também
+[Entrega de Conteúdo à visão geral dos clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png

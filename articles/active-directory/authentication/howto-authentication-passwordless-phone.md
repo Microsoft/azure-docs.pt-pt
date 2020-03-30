@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126696"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
@@ -45,8 +45,8 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Ativar métodos de autenticação de acesso telefónico sem palavras-passe
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Procure e selecione *Azure Ative Directory*. Selecione **métodos** de **autenticação > de segurança** > política do método de **autenticação (Pré-visualização)**
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Procure e selecione *Azure Active Directory*. Selecione**métodos** > de autenticação de **segurança** > Política do método de**autenticação (Pré-visualização)**
 1. Em **'Sessão de acesso ao telefone Passwordless',** escolha as seguintes opções
    1. **Habilitar** - Sim ou Não
    1. **Alvo** - Todos os utilizadores ou utilizadores Selecionados
@@ -54,7 +54,7 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registo e gestão de utilizadores da aplicação Microsoft Authenticator
 
-1. Navegue para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Navegue para[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Inscreva-se se ainda não
 1. Adicione uma aplicação autenticadorclicando o **método Adicionar,** escolhendo a **aplicação Authenticator,** e clicando em **Adicionar**
 1. Siga as instruções para instalar e configurar a aplicação Autenticadora Microsoft no seu dispositivo
@@ -78,7 +78,7 @@ Depois de digitar o seu nome de utilizador na web e selecionar **Seguinte,** os 
 
 É possível que um utilizador tenha criado, a dada altura, uma credencial de entrada de telefone sem palavras-passe na sua aplicação atual do Microsoft Authenticator ou num dispositivo anterior. Uma vez que um administrador permita a política do método de autenticação para o registo telefónico sem palavras, qualquer utilizador com uma credencial registada, começará a experimentar a nova solicitação de entrada, independentemente de terem sido ou não habilitadas a utilizar a apólice. Se o utilizador não tiver sido autorizado a utilizar a credencial por política, verá um erro após completar o fluxo de autenticação. 
 
-O administrador pode optar por ativar o utilizador a utilizar um sinal de acesso ao telefone sem palavras-passe, ou o utilizador deve remover o método. Se o utilizador deixar de ter o dispositivo registado, pode ir ao [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e removê-lo. Se ainda estiverem a utilizar o Autenticador para MFA, podem escolher **desativar** o registo do telefone dentro do Autenticador Microsoft.  
+O administrador pode optar por ativar o utilizador a utilizar um sinal de acesso ao telefone sem palavras-passe, ou o utilizador deve remover o método. Se o utilizador deixar de ter o [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) dispositivo registado, pode ir e removê-lo. Se ainda estiverem a utilizar o Autenticador para MFA, podem escolher **desativar** o registo do telefone dentro do Autenticador Microsoft.  
 
 ### <a name="ad-fs-integration"></a>Integração AD FS
 
@@ -94,7 +94,7 @@ Os utilizadores finais que estão habilitados para o MFA através do servidor Az
 
 Um dos pré-requisitos para criar esta nova credencial forte, é que o dispositivo, onde a aplicação Microsoft Authenticator está instalada, também deve ser registado dentro do inquilino da AD Azure a um utilizador individual. Devido às restrições de registo do dispositivo, um dispositivo só pode ser registado num único inquilino. Este limite significa que apenas uma conta de trabalho ou escola na aplicação Microsoft Authenticator pode ser ativada para o início de sessão telefónica.
 
-### <a name="intune-mobile-application-management"></a>Gestão de aplicações móveis insinadas 
+### <a name="intune-mobile-application-management"></a>Gestão de aplicações móveis do Intune 
 
 Os utilizadores finais que estejam sujeitos a uma política que exija a gestão de aplicações móveis (MAM) não podem registar a credencial sem palavras-passe na aplicação Microsoft Authenticator. 
 
@@ -103,7 +103,7 @@ Os utilizadores finais que estejam sujeitos a uma política que exija a gestão 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que é sem palavra-passe?](concept-authentication-passwordless.md)
+[O que é o modo sem palavra-passe?](concept-authentication-passwordless.md)
 
 [Conheça o registo do dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
 

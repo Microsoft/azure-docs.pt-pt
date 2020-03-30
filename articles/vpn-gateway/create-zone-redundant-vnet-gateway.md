@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77150197"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
 
-Pode implementar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade Azure separa fisicamente e logicamente os gateways dentro de uma região, protegendo ao mesmo tempo a sua conectividade de rede no local para Azure de falhas ao nível da zona. Para obter informações, consulte [sobre gateways de rede virtual redundantes](about-zone-redundant-vnet-gateways.md) e sobre zonas de [disponibilidade azure](../availability-zones/az-overview.md).
+Pode implementar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. Para obter informações, consulte [sobre gateways de rede virtual redundantes](about-zone-redundant-vnet-gateways.md) e sobre zonas de [disponibilidade azure](../availability-zones/az-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="variables"></a>1. Declare as suas variáveis
+## <a name="1-declare-your-variables"></a><a name="variables"></a>1. Declare as suas variáveis
 
 Declare as variáveis que quer utilizar. Utilize o exemplo seguinte, substituindo os valores pelos seus próprios, quando necessário. Se fechar a sua sessão PowerShell/Cloud Shell em qualquer ponto durante o exercício, basta copiar e colar os valores novamente para redeclarar as variáveis. Ao especificar a localização, verifique se a região que especifica está apoiada. Para mais informações, consulte as [FAQ](#faq).
 
@@ -43,7 +43,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>2. Criar a rede virtual
+## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. Criar a rede virtual
 
 Crie um grupo de recursos.
 
@@ -59,7 +59,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>3. Adicione a sub-rede gateway
+## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. Adicione a sub-rede gateway
 
 A sub-rede gateway contém os endereços IP reservados que os serviços de gateway da rede virtual utilizam. Utilize os seguintes exemplos para adicionar e definir uma sub-rede de gateway:
 
@@ -75,11 +75,11 @@ Detete a configuração da sub-rede de gateway para a rede virtual.
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="publicip"></a>4. Solicitar um endereço IP público
+## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. Solicitar um endereço IP público
  
 Neste passo, escolha as instruções que se aplicam ao portal que pretende criar. A seleção de zonas para implantação dos portões depende das zonas especificadas para o endereço IP público.
 
-### <a name="ipzoneredundant"></a>Para gateways de zona redundante
+### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>Para gateways de zona redundante
 
 Solicite um endereço IP público com um **SKU Standard** PublicIpaddress e não especifique nenhuma zona. Neste caso, o endereço IP público standard criado será um IP público redundante.   
 
@@ -87,7 +87,7 @@ Solicite um endereço IP público com um **SKU Standard** PublicIpaddress e não
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>Para gateways zonais
+### <a name="for-zonal-gateways"></a><a name="ipzonalgw"></a>Para gateways zonais
 
 Solicite um endereço IP público com um **SKU Standard** PublicIpaddress. Especifique a zona (1, 2 ou 3). Todas as instâncias de gateway serão implantadas nesta zona.
 
@@ -95,14 +95,14 @@ Solicite um endereço IP público com um **SKU Standard** PublicIpaddress. Espec
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="ipregionalgw"></a>Para gateways regionais
+### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>Para gateways regionais
 
 Solicite um endereço IP público com **um** SKU Basic PublicIpaddress. Neste caso, a porta de entrada é implantada como porta de entrada regional e não tem qualquer redundância de zona incorporada na porta de entrada. As instâncias de gateway são criadas em qualquer zona, respectivamente.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>5. Criar a configuração IP
+## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. Criar a configuração IP
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -110,7 +110,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>6. Criar o portal
+## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. Criar o portal
 
 Crie o portal da rede virtual.
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>FAQ
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implementar estas novas SKUs?
 

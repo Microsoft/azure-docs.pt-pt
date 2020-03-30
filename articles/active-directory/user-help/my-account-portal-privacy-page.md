@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062443"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como a sua organização utiliza os seus dados relacionados com a privacidade
@@ -24,7 +24,7 @@ Pode ver como a sua organização utiliza os seus dados a partir da página de *
 
 ## <a name="view-your-privacy-related-info"></a>Ver as suas informações relacionadas com a privacidade
 
-1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho https://myprofile.microsoft.com/ ou escola e depois vá para a sua página.
 
 2. Selecione **Privacidade** a partir do painel de navegação esquerdo ou selecione o link de **privacidade Rever** do bloco **Privacidade.**
 
@@ -48,4 +48,4 @@ Depois de ver como a sua organização utiliza os seus dados, pode:
 
 - Consulte a sua [atividade de inscrição](my-account-portal-sign-ins-page.md).
 
-- Também pode visualizar as preferências de contacto relacionadas com o Microsoft Office e informações de privacidade a partir do [portal do Office, página](https://portal.office.com/account/#security)de Segurança e Privacidade.
+- Também pode visualizar as preferências de contacto relacionadas com o Microsoft Office e informações de privacidade a partir do [portal do Office, Security & página](https://portal.office.com/account/#security)de privacidade .

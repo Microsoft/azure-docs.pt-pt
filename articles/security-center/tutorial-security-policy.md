@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com políticas de segurança | Microsoft Docs
-description: Este artigo descreve como trabalhar com políticas de segurança na central de segurança do Azure.
+title: Trabalhar com políticas de segurança Microsoft Docs
+description: Este artigo descreve como trabalhar com políticas de segurança no Centro de Segurança Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,120 +15,120 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73906883"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
-Este artigo explica como as políticas de segurança são configuradas e como exibi-las na central de segurança. 
+Este artigo explica como as políticas de segurança são configuradas e como vê-las no Centro de Segurança. 
 
-## <a name="introduction-to-security-policies"></a>Introdução às políticas de segurança
+## <a name="introduction-to-security-policies"></a>Introdução a políticas de segurança
 
-Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir que você esteja em conformidade com os requisitos de segurança de sua empresa ou reguladores.
+Uma política de segurança define a configuração desejada das suas cargas de trabalho e ajuda a garantir que está a cumprir os requisitos de segurança da sua empresa ou reguladores.
 
-A central de segurança do Azure faz suas recomendações de segurança com base em suas políticas escolhidas. As políticas da central de segurança são baseadas em iniciativas de políticas criadas no Azure Policy. Você pode usar [Azure Policy](../governance/policy/overview.md) para gerenciar suas políticas e definir políticas em grupos de gerenciamento e em várias assinaturas.
+O Azure Security Center faz as suas recomendações de segurança com base nas suas políticas escolhidas. As políticas do Centro de Segurança baseiam-se em iniciativas políticas criadas na Política Azure. Pode utilizar a [Política Azure](../governance/policy/overview.md) para gerir as suas políticas e definir políticas entre grupos de Gestão e através de várias subscrições.
 
-A central de segurança oferece as seguintes opções para trabalhar com políticas de segurança:
+O Security Center oferece as seguintes opções para trabalhar com políticas de segurança:
 
-* **Exibir e editar a política padrão interna** – quando você habilita a central de segurança, uma iniciativa interna denominada ' ASC padrão ' é automaticamente atribuída a todas as assinaturas registradas da central de segurança (camadas gratuitas ou Standard). Para personalizar essa iniciativa, você pode habilitar ou desabilitar políticas individuais dentro dela. Consulte a lista de [políticas de segurança internas](security-center-policy-definitions.md) para entender as opções disponíveis de forma integrada.
+* Ver e editar a política de **predefinição incorporada** - Quando ativa o Security Center, uma iniciativa incorporada chamada 'padrão ASC' é automaticamente atribuída a todas as subscrições registadas pelo Security Center (níveis gratuitos ou standard). Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md) para entender as opções disponíveis fora da caixa.
 
-* **Adicione suas próprias políticas personalizadas** -se desejar personalizar as iniciativas de segurança aplicadas à sua assinatura, você poderá fazer isso na central de segurança. Em seguida, você receberá recomendações se os computadores não seguirem as políticas que você criar. Para obter instruções sobre como criar e atribuir políticas personalizadas, consulte [usando políticas de segurança personalizadas](custom-security-policies.md).
+* **Adicione as suas próprias políticas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para instruções sobre a construção e atribuição de políticas personalizadas, consulte [A utilização de políticas](custom-security-policies.md)de segurança personalizadas .
 
-* **Adicionar políticas de conformidade regulatória** – o painel de conformidade regulatória da central de segurança mostra o status de todas as avaliações em seu ambiente no contexto de um padrão ou regulamento específico (como o cis do Azure, NIST SP 800-53 R4, Swift CSP CSCF-v2020). Para obter mais informações, veja [Improve your regulatory compliance](security-center-compliance-dashboard.md) (Melhorar a sua conformidade de regulamentação).
+* **Adicione políticas** de conformidade regulamentar - O painel de controlo regulamentar do Security Center mostra o estado de todas as avaliações no seu ambiente no contexto de uma norma ou regulação específica (como o Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). Para mais informações, consulte [Melhorar a sua conformidade regulamentar](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Gerenciando suas políticas de segurança
+## <a name="managing-your-security-policies"></a>Gerir as suas políticas de segurança
 
 Para ver as suas políticas de segurança no Centro de Segurança:
 
-1. No painel **central de segurança** , selecione **política de segurança**.
+1. No painel do Centro de **Segurança,** selecione a política de **segurança.**
 
     ![O painel Gestão de Políticas](./media/security-center-policies/security-center-policy-mgt.png)
 
-   Na tela **Gerenciamento de política** , você pode ver o número de grupos de gerenciamento, assinaturas e espaços de trabalho, bem como sua estrutura de grupo de gerenciamento.
+   No ecrã de gestão de **Políticas,** pode ver o número de grupos de gestão, subscrições e espaços de trabalho, bem como a estrutura do seu grupo de gestão.
 
-1. Selecione a assinatura ou grupo de gerenciamento cujas políticas você deseja exibir.
+1. Selecione o grupo de subscrição ou gestão cujas políticas pretende ver.
 
-1. A página política de segurança para essa assinatura ou grupo de gerenciamento é exibida. Ele mostra as políticas disponíveis e atribuídas.
+1. Aparece a página de política de segurança para essa subscrição ou grupo de gestão. Mostra as políticas disponíveis e atribuídas.
 
    ![tela de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se houver um rótulo "MG herdado" junto com a política padrão, significa que a política foi atribuída a um grupo de gerenciamento e herdada pela assinatura que você está exibindo.
+    > Se existe uma etiqueta "MG Herdada" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
 
 
 1. Escolha entre as opções disponíveis nesta página:
 
-    1. Para trabalhar com as políticas do setor, clique em **adicionar mais padrões**. Para obter mais informações, consulte [atualizar para pacotes de conformidade dinâmica](update-regulatory-compliance-packages.md).
+    1. Para trabalhar com as políticas da indústria, clique **em Adicionar mais padrões.** Para mais informações, consulte [Atualização para pacotes dinâmicos](update-regulatory-compliance-packages.md)de conformidade .
 
-    1. Para atribuir e gerenciar iniciativas personalizadas, clique em **Adicionar iniciativas personalizadas**. Para obter mais informações, consulte [usando políticas de segurança personalizadas](custom-security-policies.md).
+    1. Para atribuir e gerir iniciativas personalizadas, clique em **Adicionar iniciativas personalizadas.** Para mais informações, consulte [A utilização de políticas de segurança personalizadas](custom-security-policies.md).
 
-    1. Para exibir e editar a política padrão, clique em **Exibir política efetiva** e prossiga conforme descrito abaixo. 
+    1. Para visualizar e editar a política de predefinição, clique em **Ver a política eficaz** e proceder como descrito abaixo. 
 
        ![tela de política](./media/security-center-policies/policy-screen.png)
        
-       Essa tela de **política de segurança** reflete a ação executada pelas políticas atribuídas na assinatura ou no grupo de gerenciamento selecionado.
+       Este ecrã de política de **segurança** reflete a ação tomada pelas políticas atribuídas no grupo de subscrição ou gestão que selecionou.
        
-       * Use os links na parte superior para abrir uma **atribuição** de política que se aplica à assinatura ou ao grupo de gerenciamento. Esses links permitem que você acesse a atribuição e edite ou desabilite a política. Por exemplo, se você vir que uma atribuição de política específica está efetivamente negando o Endpoint Protection, use o link para editar ou desabilitar a política.
+       * Utilize os links no topo para abrir uma **atribuição** de política que se aplique no grupo de subscrição ou gestão. Estes links permitem-lhe aceder à atribuição e editar ou desativar a apólice. Por exemplo, se vir que uma determinada atribuição de políticas está efetivamente a negar a proteção de pontos finais, utilize o link para editar ou desativar a política.
        
-       * Na lista de políticas, você pode ver o aplicativo efetivo da política em sua assinatura ou grupo de gerenciamento. As configurações de cada política que se aplicam ao escopo são levadas em consideração e o resultado cumulativo das ações executadas pela política é mostrado. Por exemplo, se em uma atribuição da política estiver desabilitada, mas em outra definida como AuditIfNotExist, o efeito cumulativo aplicará AuditIfNotExist. O efeito mais ativo sempre tem precedência.
+       * Na lista de políticas, pode ver a aplicação efetiva da política no seu grupo de subscrição ou gestão. As definições de cada política aplicável ao âmbito de aplicação são tomadas em consideração e o resultado cumulativo das ações tomadas pela política é demonstrado. Por exemplo, se numa atribuição da apólice for desativada, mas noutra está definida para AuditIfNotExist, então o efeito cumulativo aplica-se AuditIfNotExist. O efeito mais ativo sempre tem precedência.
        
-       * O efeito das políticas pode ser: acrescentar, auditar, AuditIfNotExists, negar, DeployIfNotExists, desabilitado. Para obter mais informações sobre como os efeitos são aplicados, consulte [entender os efeitos da política](../governance/policy/concepts/effects.md).
+       * O efeito das políticas pode ser: Apêndice, Auditoria, AuditoriaIfNotExists, Negar, ImplementarIfNotExists, Desativado. Para obter mais informações sobre como os efeitos são aplicados, consulte [compreender os efeitos da Política](../governance/policy/concepts/effects.md).
 
        > [!NOTE]
-       > Ao exibir políticas atribuídas, você pode ver várias atribuições e pode ver como cada atribuição é configurada por conta própria.
+       > Quando vê as políticas atribuídas, pode ver várias atribuições e pode ver como cada atribuição é configurada por si só.
 
 
 ## <a name="who-can-edit-security-policies"></a>Quem pode editar políticas de segurança?
 
-Você pode editar as políticas de segurança por meio do portal de Azure Policy, por meio da API REST ou usando o Windows PowerShell.
+Pode editar políticas de segurança através do portal Política Azure, através da Rest API ou utilizando o Windows PowerShell.
 
-A central de segurança usa o RBAC (controle de acesso baseado em função), que fornece funções internas que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando os usuários abrem a central de segurança, eles veem apenas as informações relacionadas aos recursos aos quais eles têm acesso. Isso significa que os usuários recebem a função de *proprietário*, *colaborador*ou *leitor* para a assinatura do recurso. Além dessas funções, há duas funções de central de segurança específicas:
+O Centro de Segurança utiliza o Controlo de Acesso Baseado em Funções (RBAC), que fornece funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços no Azure. Quando os utilizadores abrem o Security Center, vêem apenas informações relacionadas com os recursos a que têm acesso. O que significa que os utilizadores são atribuídos ao papel de *proprietário*, *contribuinte*ou *leitor* para a subscrição do recurso. Além destas funções, existem duas funções específicas do Centro de Segurança:
 
-- **Leitor de segurança**: tenha direitos de exibição para a central de segurança, que inclui recomendações, alertas, política e integridade, mas não podem fazer alterações.
-- **Administrador de segurança**: tenha os mesmos direitos de exibição que o *leitor de segurança*, e eles também podem atualizar a política de segurança e ignorar recomendações e alertas.
+- **Leitor de segurança**: Tenha direitos de vista para o Centro de Segurança, que inclui recomendações, alertas, política e saúde, mas não podem fazer alterações.
+- **Administração de segurança**: Ter os mesmos direitos de opinião que o leitor de *segurança,* e também podem atualizar a política de segurança e rejeitar recomendações e alertas.
 
 
-## <a name="disable-security-policies"></a>Desabilitar políticas de segurança
-Se a política de segurança padrão estiver gerando uma recomendação que não é relevante para o seu ambiente, você poderá interrompê-la desabilitando a definição de política que envia a recomendação.
-Para obter mais informações sobre recomendações, consulte [Gerenciando recomendações de segurança](security-center-recommendations.md).
+## <a name="disable-security-policies"></a>Desativar as políticas de segurança
+Se a política de segurança padrão estiver a gerar uma recomendação que não seja relevante para o seu ambiente, pode impedi-la desativando a definição de política que envia a recomendação.
+Para obter mais informações sobre recomendações, consulte [a Gestão](security-center-recommendations.md)de recomendações de segurança.
 
-1. Na central de segurança, na seção **conformidade do & de política** , clique em **política de segurança**.
+1. No Centro de Segurança, a partir da secção **Política & Conformidade,** clique na política de **segurança**.
 
-   ![gerenciamento de políticas](./media/tutorial-security-policy/policy-management.png)
+   ![gestão de políticas](./media/tutorial-security-policy/policy-management.png)
 
-2. Clique na assinatura ou grupo de gerenciamento para o qual você deseja desabilitar a recomendação.
+2. Clique no grupo de subscrição ou gestão para o qual pretende desativar a recomendação.
 
    > [!NOTE]
-   > Lembre-se de que um grupo de gerenciamento aplica suas políticas a suas assinaturas. Portanto, se você desabilitar a política de uma assinatura e a assinatura pertencer a um grupo de gerenciamento que ainda usa a mesma política, você continuará a receber as recomendações de política. A política ainda será aplicada a partir do nível de gerenciamento e as recomendações ainda serão geradas.
+   > Lembre-se de que um grupo de gestão aplica as suas políticas às suas subscrições. Portanto, se desativar a política de uma subscrição e a subscrição pertencer a um grupo de gestão que ainda utiliza a mesma política, irá continuar a receber as recomendações de política. A política ainda será aplicada a partir do nível de gestão e as recomendações ainda serão geradas.
 
-1. Clique em **Exibir política efetiva**.
+1. Clique em **Ver a política eficaz**.
 
-   ![desabilitar política](./media/tutorial-security-policy/view-effective-policy.png)
+   ![política de desativar](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Clique na política atribuída.
 
-   ![desabilitar política](./media/tutorial-security-policy/security-policy.png)
+   ![política de desativar](./media/tutorial-security-policy/security-policy.png)
 
-1. Na seção **parâmetros** , procure a política que invoca a recomendação que você deseja desabilitar e, na lista suspensa, selecione **desabilitada**
+1. Na secção **PARAMETERS,** procure a política que invoca a recomendação que pretende desativar, e a partir da lista de abandono, selecione **Disabled**
 
-   ![desabilitar política](./media/tutorial-security-policy/disable-policy.png)
+   ![política de desativar](./media/tutorial-security-policy/disable-policy.png)
 
 1. Clique em **Guardar**.
 
    > [!NOTE]
-   > As alterações de política de desabilitação podem levar até 12 horas para entrar em vigor.
+   > As alterações da política de desativação podem demorar até 12 horas a entrar em vigor.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, você aprendeu sobre as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
+Neste artigo, aprendeste sobre políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
-* Para obter instruções sobre como definir políticas usando o PowerShell, consulte [início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando o módulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
+* Para obter instruções sobre como definir políticas utilizando powerShell, consulte [Quickstart: Criar uma atribuição de política para identificar recursos não conformes utilizando o módulo PowerShell Azure](../governance/policy/assign-policy-powershell.md)
 
-* Para obter instruções sobre como editar uma política de segurança no Azure Policy, consulte [criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
+* Para obter instruções sobre como editar uma política de segurança na Política Azure, consulte [Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md).
 
-* Para obter instruções sobre como definir uma política em assinaturas ou em grupos de gerenciamento usando Azure Policy, consulte [o que é Azure Policy?](../governance/policy/overview.md)
+* Para obter instruções sobre como definir uma política entre subscrições ou grupos de gestão que utilizem a Política Azure, consulte o que é a [Política Azure?](../governance/policy/overview.md)

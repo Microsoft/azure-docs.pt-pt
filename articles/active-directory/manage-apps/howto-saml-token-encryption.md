@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365871"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configure Azure AD AD Token encriptação
@@ -56,9 +56,9 @@ Para configurar a encriptação token SAML, siga estes passos:
 
 Pode adicionar o cert público à sua configuração de aplicação dentro do portal Azure.
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com).
+1. Vá ao [portal Azure.](https://portal.azure.com)
 
-1. Vá à lâmina de **aplicações azure Ative Directory > Enterprise** e, em seguida, selecione a aplicação para a que pretende configurar encriptação simbólica.
+1. Vá à lâmina de aplicações do **Diretório Ativo do Azure > Enterprise** e, em seguida, selecione a aplicação para a que pretende configurar encriptação simbólica.
 
 1. Na página da aplicação, selecione **encriptação Token**.
 
@@ -79,7 +79,7 @@ Pode adicionar o cert público à sua configuração de aplicação dentro do po
 
 ### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Para desativar encriptação simbólica no portal Azure
 
-1. No portal Azure, vá a **aplicações Azure Ative Directory > Enterprise**e, em seguida, selecione a aplicação que tem encriptação token SAML ativada.
+1. No portal Azure, vá ao **Azure Ative Directory > aplicações Enterprise**, e depois selecione a aplicação que tem encriptação token SAML ativada.
 
 1. Na página da aplicação, selecione **encriptação Token,** encontre o certificado e, em seguida, selecione a **opção ...** para mostrar o menu de dropdown.
 
@@ -87,7 +87,7 @@ Pode adicionar o cert público à sua configuração de aplicação dentro do po
 
 ## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Configure encriptação token SAML usando gráfico API, PowerShell ou manifesto de aplicação
 
-Os certificados de encriptação são armazenados no objeto de aplicação em Azure AD com uma etiqueta de utilização `encrypt`. Pode configurar vários certificados de encriptação e o que está ativo para encriptar fichas é identificado pelo atributo `tokenEncryptionKeyID`.
+Os certificados de encriptação são armazenados no objeto `encrypt` de aplicação em Azure AD com uma etiqueta de utilização. Pode configurar vários certificados de encriptação e o que está ativo para `tokenEncryptionKeyID` encriptar fichas é identificado pelo atributo.
 
 Vai precisar do ID do objeto da aplicação para configurar encriptação simbólica utilizando a Microsoft Graph API ou powerShell. Pode encontrar este valor programáticamente, ou indo para a página **Propriedades** da aplicação no portal Azure e notando o valor de ID do **Objeto.**
 
@@ -95,7 +95,7 @@ Quando configurar uma teclaCredential utilizando o Graph, powerShell ou no manif
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Para configurar encriptação simbólica usando o Microsoft Graph
 
-1. Atualize o `keyCredentials` da aplicação com um certificado X.509 para encriptação. O exemplo que se segue mostra como fazê-lo.
+1. Atualize a `keyCredentials` aplicação com um certificado X.509 para encriptação. O exemplo que se segue mostra como fazê-lo.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -141,13 +141,13 @@ Quando configurar uma teclaCredential utilizando o Graph, powerShell ou no manif
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Para configurar encriptação simbólica usando o manifesto de aplicação
 
-1. A partir do portal Azure, vá para as inscrições do **Azure Ative Directory > App.**
+1. A partir do portal Azure, vá ao **Azure Ative Directory > registos**da App.
 
 1. Selecione **Todas as aplicações** a partir do dropdown para mostrar todas as aplicações e, em seguida, selecione a aplicação da empresa que pretende configurar.
 
 1. Na página da aplicação, selecione **Manifesto** para editar o manifesto de [inscrição](../develop/reference-app-manifest.md).
 
-1. Detete o valor para o atributo `tokenEncryptionKeyId`.
+1. Desestabeleça o `tokenEncryptionKeyId` valor para o atributo.
 
     O exemplo seguinte mostra um manifesto de aplicação configurado com dois certificados de encriptação, e com o segundo selecionado como o ativo usando o tokenEnryptionKeyId.
 

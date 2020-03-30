@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057418"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configure LinkedIn Elevate para fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar no
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
 * Um inquilino LinkedIn Elevate
@@ -47,7 +47,7 @@ Antes de configurar e ativar o serviço de provisionamento, terá de decidir qua
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Dicas importantes para atribuir utilizadores ao LinkedIn Elevate
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído ao LinkedIn Elevate para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao LinkedIn Elevate para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 * Ao atribuir um utilizador ao LinkedIn Elevate, deve selecionar a função **utilizador** no diálogo de atribuição. A função "Acesso Predefinido" não funciona para o provisionamento.
 
@@ -59,14 +59,14 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador ao LinkedIn Elevate em Azure AD:
 
-O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrador da Enterprise, pode auto-fornecer um sinal de acesso. No seu centro de contas, vá a **Definições &gt; Definições Globais** e abra o painel de **configuração SCIM.**
+O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrador da Enterprise, pode auto-fornecer um sinal de acesso. No seu centro de contas, vá a **Definições Globais &gt; ** de Definições e abra o painel de **configuração SCIM.**
 
 > [!NOTE]
 > Se estiver a aceder diretamente ao centro de contas e não através de um link, pode alcançá-lo utilizando os seguintes passos.
 
 1. Inscreva-se no Centro de Contas.
 
-2. Selecione **Configurações de administrador &gt; de administração** .
+2. Selecione **Configurações &gt; ** de Administrador .
 
 3. Clique em **Integrações Avançadas** na barra lateral esquerda. Está direcionado para o centro de contas.
 
@@ -86,7 +86,7 @@ O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrad
 
 6. Guarde o seu sinal de acesso à sua área de redação ou computador antes de sair da página.
 
-7. Em seguida, inscreva-se no [portal Azure](https://portal.azure.com), e navegue para o **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+7. Em seguida, inscreva-se no [portal Azure](https://portal.azure.com), e navegue no **Diretório Ativo do Azure > Aplicações Empresariais > Todas as aplicações.**
 
 8. Se já configurou o LinkedIn Elevate para uma única inscrição, procure a sua instância de LinkedIn Elevate utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **linkedIn Elevate** na galeria de aplicações. Selecione LinkedIn Elevate a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -98,7 +98,7 @@ O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrad
 
 11. Preencha os seguintes campos sob **credenciais de administrador:**
 
-    * No campo URL do **Arrendatário,** introduza `https://api.linkedin.com`.
+    * No campo URL do `https://api.linkedin.com` **Inquilino,** introduza .
 
     * No campo **Secret Token,** introduza o sinal de acesso gerado no passo 1 e clique em **Ligação de Teste** .
 
@@ -108,7 +108,7 @@ O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrad
 
 13. Clique em **Guardar**.
 
-14. Na secção **DeAtributom Mappings,** reveja os atributos do utilizador e do grupo que serão sincronizados de Azure AD para LinkedIn Elevate. Note que os atributos selecionados como propriedades **correspondentes** serão usados para corresponder às contas e grupos de utilizadores no LinkedIn Elevate para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+14. Na secção **DeAtributom Mappings,** reveja os atributos do utilizador e do grupo que serão sincronizados de Azure AD para LinkedIn Elevate. Note que os atributos selecionados como propriedades **correspondentes** serão usados para corresponder às contas e grupos de utilizadores no LinkedIn Elevate para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
     ![Fornecimento de elevação linkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 

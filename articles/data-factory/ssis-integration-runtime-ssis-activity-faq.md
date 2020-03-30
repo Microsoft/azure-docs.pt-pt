@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77187483"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Execução de pacote de resolução de problemas no tempo de execução da integração ssis
@@ -36,7 +36,7 @@ Aqui estão as causas potenciais e as ações recomendadas:
 * A fonte de dados ou destino está sobrecarregada. Verifique a carga na sua fonte de dados ou destino e veja se tem capacidade suficiente. Por exemplo, se utilizou a Base de Dados Azure SQL, considere escalonar se a base de dados for suscetível de sair.
 * A rede entre o tempo de execução de integração SSIS e a fonte de dados ou destino é instável, especialmente quando a ligação é transversal ou entre as instalações e o Azure. Aplique o padrão de retry no pacote SSIS seguindo estes passos:
   * Certifique-se de que os seus pacotes SSIS podem reexecutar-se sem efeitos secundários (por exemplo, perda de dados ou duplicação de dados).
-  * Configure o intervalo de **retry** e **retry** da atividade do **pacote Execute SSIS** no separador **Geral.** ![definir propriedades no separador geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Configure o intervalo de **retry** e **retry** da atividade ![do pacote Execute **SSIS** no separador **Geral.**](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * Para obter um componente de origem ou destino de ADO.NET e OLE DB, delineie **O ConnectRetryCount** e **ConnectRetryInterval** no Connection Manager no pacote SSIS ou na atividade SSIS.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Mensagem de erro: "A ADO NET Source falhou em adquirir a ligação '...'" com "Ocorreu um erro específico de rede ou de instância ao estabelecer uma ligação ao Servidor SQL. O servidor não foi encontrado ou não estava acessível."
@@ -72,10 +72,10 @@ Este erro significa que o disco local é utilizado no nó de tempo de execução
 * Causa potencial e ação recomendada:
   * Se a Atividade SSIS estiver a executar o pacote a partir do sistema de ficheiros (ficheiro de pacote ou ficheiro de projeto), este erro ocorrerá se o ficheiro de projeto, pacote ou configuração não estiver acessível com a credencial de acesso ao pacote que forneceu na Atividade SSIS
     * Se estiver a utilizar o Ficheiro Azure:
-      * O caminho do ficheiro deve começar com \\\\\<nome da conta de armazenamento\>.file.core.windows.net\\\<caminho de partilha de ficheiros\>
+      * O caminho do \\ \\ \<ficheiro deve\>começar\\\<com o nome da conta de armazenamento .file.core.windows.net caminho de partilha de ficheiros\>
       * O domínio deve ser "Azure"
-      * O nome de utilizador deve ser \<nome da conta de armazenamento\>
-      * A palavra-passe deve ser \<chave de acesso ao armazenamento\>
+      * O nome de \<utilizador deve ser o nome da conta de armazenamento\>
+      * A senha \<deve ser a chave de acesso ao armazenamento\>
     * Se estiver a utilizar o ficheiro no local, verifique se o VNet, a credencial de acesso ao pacote e a permissão estão configuradas corretamente para que o seu tempo de funcionamento de integração Azure-SSIS possa aceder à sua partilha de ficheiros no local
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Mensagem de erro: "O nome do ficheiro '...' especificado na ligação não era válido"
@@ -106,7 +106,7 @@ Se muitos pacotes estiverem em funcionamento paralelos no tempo de funcionamento
 O erro é causado principalmente por um problema transitório, por isso tente reexecutar a execução do pacote. Aplique o padrão de retry no pacote SSIS seguindo estes passos:
 
 * Certifique-se de que os seus pacotes SSIS podem reexecutar-se sem efeitos secundários (por exemplo, perda de dados ou duplicação de dados).
-* Configure o intervalo de **retry** e **retry** da atividade do **pacote Execute SSIS** no separador **Geral.** ![definir propriedades no separador geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Configure o intervalo de **retry** e **retry** da atividade ![do pacote Execute **SSIS** no separador **Geral.**](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * Para obter um componente de origem ou destino de ADO.NET e OLE DB, delineie **O ConnectRetryCount** e **ConnectRetryInterval** no Connection Manager no pacote SSIS ou na atividade SSIS.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Mensagem de erro: "Não há nenhum trabalhador ativo."
@@ -155,15 +155,15 @@ Uma das causas potenciais é que o seu tempo de funcionação de integração au
   * O registo de execução pode ser encontrado no [relatório SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) ou na pasta de registo especificada na atividade de execução do pacote SSIS.
   * vNet também pode ser usado para aceder aos dados no local como uma alternativa. Mais detalhes podem ser encontrados em [Join a Azure-SSIS integração tempo de execução para uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md)
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Mensagem de erro: "Estado de tarefa de preparação: Falhou. Error error: ErrorCode: 2906, ErrorMessage: A execução do pacote falhou., Saída: {"OperationErrorMessages": "SSIS Executor código de saída: -1.\n", "LogLocation": "...\\SSISTelemettry\\ExecutionLog\\...", "effectiveIntegrationTimetime": "...", "execuçãoDura": ..., "duraçãoInQueue": {integrationTimequeue": }}
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Mensagem de erro: "Estado de tarefa de preparação: Falhou. Error de tarefa de encenação: ErrorCode: 2906, ErrorMessage: A execução do pacote falhou., Saída: {"OperationErrorMessages": "Código de saída do Executor SSIS: -1.\n", "LogLocation": "... \\SSISTelemettry\\ExecutionLog...",\\"effectiveIntegrationTimetime": "...", "execuçãoDura": ..., "duraçãoInQueue": { "integrationRuntimeQueue": } }}"
 
-Certifique-se C++ de que o tempo de execução visual está instalado na máquina de tempo de execução de integração auto-hospedada. Mais detalhes podem ser encontrados no [Configure Self-Hosted IR como um proxy para O IR Azure-SSIS em ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
+Certifique-se de que o tempo de execução visual C++ está instalado na máquina de tempo de execução de integração auto-hospedada. Mais detalhes podem ser encontrados no [Configure Self-Hosted IR como um proxy para O IR Azure-SSIS em ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>As execuções de pacotes múltiplos são desencadeadas inesperadamente
 
 * Causa potencial e ação recomendada:
   * A df stored procedure activity ou Lookup activity são usados para desencadear a execução do pacote SSIS. O comando t-sql pode atingir um problema transitório e desencadear a reexecução que causaria múltiplas execuções de pacotes.
-  * Utilize a atividade ExecuteSSISPackage, o que garante que a execução do pacote não será executada a menos que o utilizador tenha definido a contagem de funções. Os detalhes podem ser encontrados em [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Utilize a atividade ExecuteSSISPackage, o que garante que a execução do pacote não será executada a menos que o utilizador tenha definido a contagem de funções. Detalhes podem ser encontrados em[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
   * Refine o seu comando t-sql para ser capaz de reexecutar verificando se uma execução já foi desencadeada
 
 ### <a name="package-execution-takes-too-long"></a>A execução do pacote demora muito tempo.
@@ -177,7 +177,7 @@ Aqui estão as causas potenciais e as ações recomendadas:
   * Para aprender a definir a contagem do nó e a máxima execução paralela por nó, consulte Criar um tempo de funcionação de [integração Azure-SSIS na Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * O tempo de execução da integração SSIS é interrompido ou tem um estatuto pouco saudável. Para saber como verificar o estado de funcionamento e os erros de funcionamento da integração ssis, consulte o tempo de funcionamento da [integração Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
-Recomendamos também que estabeleça um intervalo no separador **Geral:** ![definir propriedades no separador Geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
+Recomendamos também que estabeleça um intervalo no ![separador](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png) **Geral:** Coloque as propriedades no separador Geral .
 
 ### <a name="poor-performance-in-package-execution"></a>Mau desempenho na execução de pacotes
 
@@ -190,4 +190,4 @@ Tente estas ações:
 * Verifique o desempenho do nó IR no portal Azure:
   * Para obter informações sobre como monitorizar o tempo de funcionação da integração do SSIS, consulte o tempo de funcionação da [integração Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).
   * Pode encontrar o histórico de CPU/memória para o tempo de execução da integração SSIS, visualizando as métricas da fábrica de dados no portal Azure.
-    ![monitorizar as métricas do prazo de execução da integração ssis](media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png)
+    ![Monitorizar as métricas do tempo de execução da integração SSIS](media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png)

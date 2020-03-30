@@ -5,16 +5,16 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241319"
 ---
 > [!NOTE]
-> O Microsoft Flow é agora power automate. Para obter mais informações, veja este [blogue](https://aka.ms/flow-now-pa).
+> O Microsoft Flow é agora o Power Automate. Para obter mais informações, veja este [blogue](https://aka.ms/flow-now-pa).
 > 
-> Este conteúdo será atualizado para refletir a mudança de marca nos próximos dias.
+> Este conteúdo será atualizado para refletir a alteração de imagem corporativa nos próximos dias.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação certos em Azure
 
 Este artigo compara os seguintes serviços cloud do Microsoft:
@@ -58,11 +58,11 @@ Pode combinar serviços ao criar uma orquestração, chamar funções de aplica�
 |  | Funções Duráveis | Aplicações Lógicas |
 | --- | --- | --- |
 | **Desenvolvimento** | Baseada em código (imperativo) | Baseada em designer (declarativo) |
-| **Conetividade** | [Cerca de uma dúzia de tipos de vinculação integrados](functions-triggers-bindings.md#supported-bindings), código de escrita para vinculações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
+| **Conectividade** | [Cerca de uma dúzia de tipos de vinculação integrados](functions-triggers-bindings.md#supported-bindings), código de escrita para vinculações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | **Ações** | Cada atividade é uma função do Azure; escrever código para funções de atividades |[Grande coleção de ações preparadas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Monitorização** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portal Azure,](../logic-apps/quickstart-create-first-logic-app-workflow.md) [Registos do Monitor Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | **Gestão** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
-| **Contexto de execução** | Pode correr [localmente](functions-runtime-overview.md) ou na nuvem | Corre apenas na nuvem|
+| **Contexto de execução** | Pode correr [localmente](functions-runtime-overview.md) ou na nuvem | São executadas apenas na cloud|
 
 <a name="function"></a>
 
@@ -86,11 +86,11 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 |[Programação e testes no browser](functions-create-first-azure-function.md) |✔||
 |[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||
-| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de Ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Linguagens suportadas  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de Eventos do Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de Eventos do Azure](functions-bindings-event-hubs.md)<br>[Sistema de ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Linguagens suportadas  |C#<br>F#<br>Javascript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Gestores de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> Suportes WebJobs (sem o C#WebJobs SDK) suportes , Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, e muito mais. Esta não é uma lista completa. Um WebJob pode executar qualquer programa ou script que possa ser executado na sandbox do Serviço de Aplicações.
+<sup>1</sup> WebJobs (sem o WebJobs SDK) suporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, e muito mais. Esta não é uma lista completa. Um WebJob pode executar qualquer programa ou script que possa ser executado na sandbox do Serviço de Aplicações.
 
 <sup>2</sup> WebJobs (sem o WebJobs SDK) suporta NPM e NuGet.
 

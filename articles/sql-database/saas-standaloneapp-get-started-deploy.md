@@ -1,6 +1,6 @@
 ---
-title: Tutorial de SaaS de locatário único
-description: Implante e explore um aplicativo SaaS autônomo de locatário único, que usa o banco de dados SQL do Azure.
+title: Tutorial SaaS de inquilino único
+description: Implemente e explore uma aplicação autónoma de inquilino único SaaS, que utiliza a Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,53 +12,53 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
 ms.openlocfilehash: e3afc8aa58551b995070ffaca978c8e7c8454da3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822123"
 ---
-# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o banco de dados SQL do Azure
+# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação autónoma de inquilino único que utiliza a Base de Dados Azure SQL
 
-Neste tutorial, você implanta e explora o aplicativo de exemplo do Wingtip tickets SaaS desenvolvido usando o aplicativo autônomo ou o padrão de aplicativo por locatário.  O aplicativo foi projetado para demonstrar recursos do banco de dados SQL do Azure que simplificam a habilitação de cenários de SaaS multilocatário.
+Neste tutorial, você implanta e explora a aplicação de amostra SaaS de Bilhetes Wingtip desenvolvida usando a aplicação autónoma, ou app-per-tenant, padrão.  A aplicação foi concebida para apresentar funcionalidades da Base de Dados Azure SQL que simplificam a ativação de cenários SaaS multi-inquilinos.
 
-O aplicativo autônomo ou o padrão de aplicativo por locatário implanta uma instância de aplicativo para cada locatário.  Cada aplicativo é configurado para um locatário específico e implantado em um grupo de recursos do Azure separado. Várias instâncias do aplicativo são provisionadas para fornecer uma solução multilocatário. Esse padrão é mais adequado para números menores, de locatários em que o isolamento de locatário é uma prioridade mais alta. O Azure tem programas de parceiro que permitem que os recursos sejam implantados na assinatura de um locatário e gerenciados por um provedor de serviços em nome do locatário. 
+A aplicação autónoma ou padrão app-per-tenant implementa uma instância de aplicação para cada inquilino.  Cada aplicação é configurada para um inquilino específico e implantada num grupo de recursos Azure separado. Várias instâncias do pedido são previstas para fornecer uma solução multi-inquilino. Este padrão é mais adequado para números menores, de inquilinos onde o isolamento dos inquilinos é uma prioridade máxima. A Azure tem programas parceiros que permitem que os recursos sejam implantados na subscrição de um inquilino e geridos por um prestador de serviços em nome do inquilino. 
 
-Neste tutorial, você implantará três aplicativos autônomos para três locatários em sua assinatura do Azure.  Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
+Neste tutorial, irá implementar três aplicações autónomas para três inquilinos na sua subscrição Azure.  Tem acesso total para explorar e trabalhar com os componentes de aplicação individuais.
 
-O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório GitHub [repositório wingtipticketssaas-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) . O aplicativo foi criado usando o Visual Studio 2015 e não é aberto e compilado com êxito no Visual Studio 2019 sem atualização.
+O código fonte da aplicação e scripts de gestão estão disponíveis no [repo WingtipTicketsSaa-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub. A aplicação foi criada com recurso ao Visual Studio 2015 e não consegue abrir e compilar com sucesso no Visual Studio 2019 sem atualizar.
 
 
 Neste tutorial, ficará a saber:
 
 > [!div class="checklist"]
-> * Como implantar o aplicativo autônomo SaaS Wingtip tickets.
-> * Onde obter o código-fonte do aplicativo e os scripts de gerenciamento.
-> * Sobre os servidores e bancos de dados que compõem o aplicativo.
+> * Como implementar a aplicação autónoma de bilhetes SaaS.
+> * Onde obter o código fonte da aplicação e scripts de gestão.
+> * Sobre os servidores e bases de dados que compõem a aplicação.
 
-TUTORIAIS adicionais serão lançados. Eles permitirão que você explore uma variedade de cenários de gerenciamento com base nesse padrão de aplicativo.   
+Serão divulgados tutoriais adicionais. Eles vão permitir-lhe explorar uma série de cenários de gestão com base neste padrão de aplicação.   
 
-## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Implantar o aplicativo autônomo SaaS Wingtip tickets
+## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Implementar a aplicação autónoma de bilhetes SaaS
 
-Implante o aplicativo para os três locatários fornecidos:
+Implementar a aplicação para os três inquilinos fornecidos:
 
-1. Clique em cada botão azul **implantar no Azure** para abrir o modelo de implantação no [portal do Azure](https://portal.azure.com). Cada modelo requer dois valores de parâmetro; um nome para um novo grupo de recursos e um nome de usuário que distingue essa implantação de outras implantações do aplicativo. A próxima etapa fornece detalhes para definir esses valores.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; da **contoso Concert Hall**
+1. Clique em cada botão azul **Desdobrar para o** botão Azure para abrir o modelo de implementação no [portal Azure](https://portal.azure.com). Cada modelo requer dois valores de parâmetro; um nome para um novo grupo de recursos, e um nome de utilizador que distingue esta implementação de outras implementações da app. O próximo passo fornece detalhes para a definição destes valores.<br><br>
+    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Sala de Concertos Contoso**
 <br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **dojo dogwood**
+    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dogwood Dojo**
 <br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Fabrikam Jazz Club**
 
-2. Insira os valores de parâmetro necessários para cada implantação.
+2. Introduza os valores de parâmetro necessários para cada implantação.
 
     > [!IMPORTANT]
-    > Alguns firewalls de autenticação e de servidor são intencionalmente desprotegidos para fins de demonstração. **Crie um novo grupo de recursos** para cada implantação de aplicativo.  Não use um grupo de recursos existente. Não use este aplicativo ou todos os recursos que ele cria, para produção. Exclua todos os grupos de recursos quando terminar de fazer com que os aplicativos interrompam a cobrança relacionada.
+    > Algumas firewalls de autenticação e servidor não estão intencionalmente seguras para fins de demonstração. **Crie um novo grupo de recursos** para cada implementação de aplicações.  Não utilize um grupo de recursos existente. Não utilize esta aplicação, nem quaisquer recursos que crie, para produção. Elimine todos os grupos de recursos quando terminar com as aplicações para parar a faturação relacionada.
 
-    É melhor usar apenas letras minúsculas, números e hifens em seus nomes de recursos.
-    * Para **grupo de recursos**, selecione criar novo e forneça um nome em minúsculas para o grupo de recursos. **Wingtip-SA-\<foroname\>-\<\>de usuário** é o padrão recomendado.  Para \<\>LocalName, substitua o nome do local sem espaços. Para \<\>de usuário, substitua o valor do usuário abaixo.  Com esse padrão, os nomes de grupo de recursos podem ser *Wingtip-SA-contosoconcerthall-AF1*, *Wingtip-SA-dogwooddojo-AF1*, *Wingtip-SA-fabrikamjazzclub-AF1*.
-    * Selecione um **local** na lista suspensa.
+    É melhor usar apenas letras minúsculas, números e hífenes nos vossos nomes de recursos.
+    * Para **o grupo Recursos,** selecione Criar novo e, em seguida, fornecer um nome minúsculo para o grupo de recursos. **\<wingtip-sa-venueName\>-\<\> user** é o padrão recomendado.  Para \<localName,\>substitua o nome do local sem espaços. Para \<\>o utilizador, substitua o valor do utilizador a partir de baixo.  Com este padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Selecione um **Local** a partir da lista de lançamentos.
 
-    * Para o **usuário** -recomendamos um valor curto de usuário, como suas iniciais mais um dígito: por exemplo, *AF1*.
+    * Para **utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1*.
 
 
 3. **Implemente a aplicação**.
@@ -66,40 +66,40 @@ Implante o aplicativo para os três locatários fornecidos:
     * Clique para concordar com os termos e condições.
     * Clique em **Comprar**.
 
-4. Monitore o status de todas as três implantações clicando em **notificações** (o ícone de sino à direita da caixa de pesquisa). A implantação dos aplicativos leva cerca de cinco minutos.
+4. Monitorize o estado das três implementações clicando em **Notificações** (o ícone do sino à direita da caixa de pesquisa). A implementação das aplicações demora cerca de cinco minutos.
 
 
 ## <a name="run-the-applications"></a>Executar as aplicações
 
-O aplicativo apresenta locais que hospedam eventos.  Os locais são os locatários do aplicativo. Cada local Obtém um site personalizado para listar seus eventos e vender ingressos. Os tipos de local incluem corredores de concerto, clubes de jazz e clubes esportivos. No exemplo, o tipo de local determina a fotografia de plano de fundo mostrada no site do local.   No modelo de aplicativo autônomo, cada local tem uma instância de aplicativo separada com seu próprio banco de dados SQL autônomo.
+A aplicação apresenta locais que acolhem eventos.  Os locais são os inquilinos da candidatura. Cada local recebe um site personalizado para listar os seus eventos e vender bilhetes. Os tipos de locais incluem salas de concertos, clubes de jazz e clubes desportivos. Na amostra, o tipo de local determina a fotografia de fundo mostrada no site do local do local.   No modelo de aplicação autónoma, cada local tem uma instância de aplicação separada com a sua própria base de dados SQL autónoma.
 
-1. Abra a página de eventos para cada um dos três locatários em guias separadas do navegador:
+1. Abra a página de eventos para cada um dos três inquilinos em separados separados:
 
-   - http://events.contosoconcerthall.&lt; usuário&gt;. trafficmanager.net
-   - http://events.dogwooddojo.&lt; usuário&gt;. trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt; usuário&gt;. trafficmanager.net
+   - http://events.contosoconcerthall.&lt;utilizador&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;utilizador&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;utilizador&gt;.trafficmanager.net
 
-     (Em cada URL, substitua &lt;&gt; de usuário pelo valor de usuário da implantação.)
+     (Em cada URL, substitua &lt;o utilizador&gt; pelo valor de utilizador da sua implementação.)
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-Para controlar a distribuição de solicitações de entrada, o aplicativo usa o [*Gerenciador de tráfego do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância de aplicativo específica do locatário inclui o nome do locatário como parte do nome de domínio na URL. Todas as URLs de locatário incluem seu valor de **usuário** específico. As URLs seguem o seguinte formato:
-- http://events.&lt; LocalName&gt;.&lt;usuário&gt;. trafficmanager.net
+Para controlar a distribuição de pedidos de entrada, a aplicação utiliza o [*Azure Traffic Manager.*](../traffic-manager/traffic-manager-overview.md) Cada instância de aplicação específica do inquilino inclui o nome do inquilino como parte do nome de domínio no URL. Todos os URLs de inquilino incluem o seu valor de **utilizador** específico. Os URLs seguem o seguinte formato:
+- http://events.&lt;nome&gt;do local. &lt;utilizador&gt;.trafficmanager.net
 
-O **local** do banco de dados de cada locatário é incluído nas configurações de aplicativo do aplicativo implantado correspondente.
+Base de dados de cada inquilino **A localização** está incluída nas definições da aplicação da aplicação implantada correspondente.
 
-Em um ambiente de produção, normalmente você cria um registro DNS CNAME para [*apontar um domínio de Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para a URL do perfil do Gerenciador de tráfego.
+Num ambiente de produção, normalmente cria-se um registo CNAME DNS para [*apontar um domínio*](../traffic-manager/traffic-manager-point-internet-domain.md) de internet da empresa para o URL do perfil do gestor de tráfego.
 
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Explorar os servidores e bancos de dados de locatário
+## <a name="explore-the-servers-and-tenant-databases"></a>Explore os servidores e bases de dados dos inquilinos
 
-Vamos examinar alguns dos recursos que foram implantados:
+Vamos ver alguns dos recursos que foram implantados:
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a lista de grupos de recursos.
-2. Você deve ver os três grupos de recursos de locatário.
-3. Abra o grupo de recursos do **usuário Wingtip-SA-Fabrikam-&lt;&gt;** , que contém os recursos para a implantação do Fabrikam Jazz Club.  O servidor de **&gt;de usuário fabrikamjazzclub&lt;** contém o banco de dados **fabrikamjazzclub** .
+1. No [portal Azure,](https://portal.azure.com)navegue pela lista de grupos de recursos.
+2. Devia ver os três grupos de recursos dos inquilinos.
+3. Abra o grupo de recursos de **&lt;utilizador&gt; da asa-sa-fabrikam,** que contém os recursos para a implantação do Fabrikam Jazz Club.  O **&lt;fabrikamjazzclub-&gt; ** servidor de utilizadores contém a base de dados **do Fabrikamjazzclub.**
 
-Cada banco de dados de locatário é um banco de dados *autônomo* de DTU 50.
+Cada base de dados de inquilinos é uma base de dados *autónoma* de 50 DTU.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -109,22 +109,22 @@ Cada banco de dados de locatário é um banco de dados *autônomo* de DTU 50.
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
-- Para saber mais sobre aplicativos SaaS multilocatários, consulte [padrões de design para aplicativos SaaS multilocatários](saas-tenancy-app-design-patterns.md).
+- Para conhecer aplicações saaS multi-inquilinas, consulte padrões de [design para aplicações SaaS multi-inquilinos.](saas-tenancy-app-design-patterns.md)
 
  
-## <a name="delete-resource-groups-to-stop-billing"></a>Excluir grupos de recursos para interromper a cobrança ##
+## <a name="delete-resource-groups-to-stop-billing"></a>Eliminar grupos de recursos para parar a faturação ##
 
-Quando terminar de usar o exemplo, exclua todos os grupos de recursos que você criou para interromper a cobrança associada.
+Quando terminar de utilizar a amostra, elimine todos os grupos de recursos que criou para parar a faturação associada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber:
 
 > [!div class="checklist"]
-> * Como implantar o aplicativo autônomo SaaS Wingtip tickets.
-> * Sobre os servidores e bancos de dados que compõem o aplicativo.
-> * Como excluir recursos de exemplo para interromper a cobrança relacionada.
+> * Como implementar a aplicação autónoma de bilhetes SaaS.
+> * Sobre os servidores e bases de dados que compõem a aplicação.
+> * Como eliminar os recursos da amostra para parar a faturação relacionada.
 
-Em seguida, experimente o tutorial de [provisionamento e catálogo](saas-standaloneapp-provision-and-catalog.md) no qual você explorará o uso de um catálogo de locatários que permite uma variedade de cenários entre locatários, como gerenciamento de esquema e análise de locatário.
+Em seguida, experimente o tutorial [de Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) no qual explorará o uso de um catálogo de inquilinos que permite uma série de cenários de inquilinos transversais, como gestão de esquemas e análise de inquilinos.
  
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244943"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
@@ -33,9 +33,9 @@ Se precisar de adicionar, alterar ou remover endereços IP para uma interface de
 Complete as seguintes tarefas antes de completar os passos em qualquer secção deste artigo:
 
 - Se ainda não tem uma conta Azure, inscreva-se numa [conta de teste gratuita.](https://azure.microsoft.com/free)
-- Se utilizar o portal, abra https://portal.azure.come faça login na sua conta Azure.
+- Se utilizar o https://portal.azure.comportal, abra e faça login na sua conta Azure.
 - Se utilizar os comandos PowerShell para completar tarefas neste artigo, execute os comandos na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando powerShell a partir do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr para criar uma ligação com o Azure.
 
 A conta em que inicia sessão, ou liga-se ao Azure, deve ser atribuída à função de contribuinte da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que lhe seja atribuída as ações adequadas enumeradas nas [Permissões](#permissions).
 
@@ -47,11 +47,11 @@ Ao criar uma máquina virtual utilizando o portal Azure, o portal cria uma inter
 2. Selecione **+ Adicionar** em **interfaces de rede**.
 3. Introduza ou selecione valores para as seguintes definições e, em seguida, selecione **Criar:**
 
-    |Definição|Obrigatório?|Detalhes|
+    |Definição|Necessário?|Detalhes|
     |---|---|---|
     |Nome|Sim|O nome deve ser único dentro do grupo de recursos que selecionar. Com o tempo, provavelmente terá várias interfaces de rede na sua subscrição Azure. Para sugestões ao criar uma convenção de nomeação para facilitar a gestão de várias interfaces de rede, consulte [convenções de naming](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). O nome não pode ser alterado após a criação da interface de rede.|
     |Rede virtual|Sim|Selecione a rede virtual para a interface de rede. Só é possível atribuir uma interface de rede a uma rede virtual que exista na mesma subscrição e localização que a interface de rede. Uma vez criada uma interface de rede, não é possível alterar a rede virtual a que está atribuída. A máquina virtual a que adiciona a interface de rede também deve existir no mesmo local e subscrição que a interface de rede.|
-    |Subnet|Sim|Selecione uma sub-rede dentro da rede virtual selecionada. Pode alterar a sub-rede a que a interface de rede é atribuída após a sua criação.|
+    |Subrede|Sim|Selecione uma sub-rede dentro da rede virtual selecionada. Pode alterar a sub-rede a que a interface de rede é atribuída após a sua criação.|
     |Atribuição privada de endereçoIP|Sim| Neste cenário, está a escolher o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **Dinâmico:** Ao selecionar esta opção, o Azure atribui automaticamente o próximo endereço disponível do espaço de endereço da subnet selecionada. **Estática:** Ao selecionar esta opção, deve atribuir manualmente um endereço IP disponível a partir do espaço de endereço da sub-rede selecionada. Os endereços estáticos e dinâmicos não mudam até que os altere ou a interface da rede seja eliminada. Pode alterar o método de atribuição após a criação da interface de rede. O servidor Azure DHCP atribui este endereço à interface de rede dentro do sistema operativo da máquina virtual.|
     |Grupo de segurança de rede|Não| Deixe definido para **Nenhum,** selecione um [grupo](security-overview.md)de segurança de rede existente, ou [crie um grupo](tutorial-filter-network-traffic.md)de segurança de rede . Os grupos de segurança da rede permitem filtrar o tráfego da rede dentro e fora de uma interface de rede. Pode aplicar zero ou um grupo de segurança de rede a uma interface de rede. O zero ou um grupo de segurança de rede também podem ser aplicados na sub-rede a que a interface de rede é atribuída. Quando um grupo de segurança de rede é aplicado a uma interface de rede e a sub-rede a interface de rede é atribuída, por vezes ocorrem resultados inesperados. Para resolver problemas grupos de segurança de rede aplicados a interfaces de rede e subredes, consulte grupos de segurança da [rede Troubleshoot](diagnose-network-traffic-filter-problem.md).|
     |Subscrição|Sim|Selecione uma das suas [subscrições](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)Azure. A máquina virtual a que se liga uma interface de rede e a rede virtual a que a liga deve existir na mesma subscrição.|
@@ -81,7 +81,7 @@ Pode visualizar e alterar a maioria das definições para uma interface de rede 
 1. Na caixa que contém os recursos de *pesquisa* de texto no topo do portal Azure, tipo *interfaces*de rede . Quando as **interfaces de rede** aparecerem nos resultados da pesquisa, selecione-as.
 2. Selecione a interface de rede que pretende visualizar ou alterar as definições da lista.
 3. Os seguintes itens estão listados para a interface de rede selecionada:
-   - **Visão geral:** Fornece informações sobre a interface da rede, tais como os endereços IP que lhe são atribuídos, a rede virtual/sub-rede a que a interface de rede é atribuída, e a máquina virtual a que a interface de rede está ligada (se estiver anexada a uma). A imagem que se segue mostra as definições de visão geral para uma interface de rede chamada **mywebserver256**: ![visão geral da interface da rede](./media/virtual-network-network-interface/nic-overview.png)
+   - **Visão geral:** Fornece informações sobre a interface da rede, tais como os endereços IP que lhe são atribuídos, a rede virtual/sub-rede a que a interface de rede é atribuída, e a máquina virtual a que a interface de rede está ligada (se estiver anexada a uma). A imagem seguinte mostra as definições de visão geral para ![uma interface de rede chamada **mywebserver256**: Visão geral da interface da rede](./media/virtual-network-network-interface/nic-overview.png)
 
      Pode mover uma interface de rede para um grupo de recursos ou subscrição diferente, selecionando **(alterar)** ao lado do **grupo Derecurso** ou **nome de subscrição**. Se deslocar a interface de rede, deve mover todos os recursos relacionados com a interface da rede com a interface da rede com a interface. Se a interface de rede estiver ligada a uma máquina virtual, por exemplo, também deve mover a máquina virtual e outros recursos relacionados com máquinas virtuais. Para mover uma interface de rede, consulte [o recurso Mover para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista pré-requisitos e como movimentar recursos utilizando o portal Azure, PowerShell e o Azure CLI.
    - **Configurações IP:** Os endereços IPv4 e IPv6 públicos e privados atribuídos às configurações IP estão listados aqui. Se um endereço IPv6 for atribuído a uma configuração IP, o endereço não é apresentado. Para saber mais sobre as configurações IP e como adicionar e remover endereços IP, consulte os [endereços IP configure para uma interface](virtual-network-network-interface-addresses.md)de rede Azure . O encaminhamento ip e a atribuição de sub-redes também estão configurados nesta secção. Para saber mais sobre estas definições, consulte [ativar ou desativar o refinanciamento ip](#enable-or-disable-ip-forwarding) e alterar a atribuição da [sub-rede](#change-subnet-assignment).
@@ -256,18 +256,18 @@ Para executar tarefas em interfaces de rede, a sua conta deve ser atribuída à 
 | Microsoft.Network/networkInterfaces/read                                   | Obtenha interface de rede                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar interface de rede                        |
 | Microsoft.Network/networkInterfaces/join/action                            | Fixe uma interface de rede a uma máquina virtual           |
-| Microsoft.Network/networkInterfaces/delete                                 | Eliminar interface de rede                                  |
+| Microsoft.NetworkInterfaces/delete                                 | Eliminar interface de rede                                  |
 | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Junte-se a um recurso para uma interface de rede através de um servi...     |
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Obtenha uma tabela de rota eficaz para a interface da rede               |
-| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Obtenha grupos de segurança eficazes na interface da rede           |
-| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Obtenha os equilibradores de carga da interface de rede                      |
+| Microsoft.NetworkInterfaces/effectiveNetworkSecurityGroups/action  | Obtenha grupos de segurança eficazes na interface da rede           |
+| Microsoft.NetworkInterfaces/loadBalancers/read                     | Obtenha os equilibradores de carga da interface de rede                      |
 | Microsoft.Network/networkInterfaces/serviceAssociations/read               | Obter associação de serviços                                   |
 | Microsoft.Network/networkInterfaces/serviceAssociations/write              | Criar ou atualizar uma associação de serviços                    |
-| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Eliminar a associação de serviços                                |
-| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Validar associação de serviços                              |
-| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Obtenha a configuração IP da interface da rede                    |
+| Microsoft.NetworkInterfaces/serviceAssociations/delete             | Eliminar a associação de serviços                                |
+| Microsoft.NetworkInterfaces/serviceAssociations/validação/ação    | Validar associação de serviços                              |
+| Microsoft.NetworkInterfaces/ipconfigurations/read                  | Obtenha a configuração IP da interface da rede                    |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie um VM com vários NICs utilizando o [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Crie um único NIC VM com vários endereços IPv4 utilizando o [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) ou [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)

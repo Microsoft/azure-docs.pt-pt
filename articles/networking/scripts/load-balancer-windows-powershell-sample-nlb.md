@@ -1,6 +1,6 @@
 ---
-title: Balancear a carga do tráfego para VMs para HA-Azure PowerShell
-description: Azure PowerShell exemplo de script – balancear a carga de tráfego para VMs para alta disponibilidade
+title: Tráfego de equilíbrio de carga para VMs para HA - Azure PowerShell
+description: Amostra de script Azure PowerShell - Tráfego de equilíbrio de carga para VMs para alta disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 1f0ff6cad90a4e5578a4f0c578a7da5cbbb75457
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74067076"
 ---
-# <a name="load-balance-traffic-to-vms-for-high-availability"></a>Balancear a carga do tráfego para as VMs para alta disponibilidade
+# <a name="load-balance-traffic-to-vms-for-high-availability"></a>Tráfego de equilíbrio de carga para VMs para alta disponibilidade
 
-Este exemplo de script cria tudo o que é necessário para executar várias máquinas virtuais do Windows configuradas em uma configuração altamente disponível e com balanceamento de carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
+Esta amostra de script cria tudo o que é necessário para executar várias máquinas virtuais do Windows configuradas numa configuração altamente disponível e equilibrada em carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual do Azure. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual do Azure. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)  | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
 | [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)  | Cria um balanceador de carga do Azure. |
 | [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga é utilizada para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
@@ -58,7 +58,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Cria uma regra NSG para permitir tráfego de entrada. Neste exemplo, a porta 22 está aberta para o tráfego SSH. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Cria a placa da rede virtual e liga-a à rede virtual, à sub-rede e ao NSG. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
+| [Conjunto de novas disponibilidades](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Cria uma configuração de VM. Esta configuração inclui informações como o nome da VM, sistema operativo e credenciais administrativas. A configuração é utilizada durante a criação da VM. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |

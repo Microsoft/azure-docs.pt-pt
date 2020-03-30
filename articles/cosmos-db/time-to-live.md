@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77188725"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Tempo para viver (TTL) em Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB 
 
 Com **time to Live** ou TTL, o Azure Cosmos DB oferece a capacidade de apagar automaticamente itens de um recipiente após um determinado período de tempo. Por padrão, pode definir o tempo para viver ao nível do contentor e sobrepor o valor numa base por item. Depois de colocar o TTL num recipiente ou a um nível de item, o Azure Cosmos DB removerá automaticamente estes itens após o período de tempo, desde a última vez que foram modificados. O tempo para viver valor é configurado em segundos. Quando configurar o TTL, o sistema eliminará automaticamente os itens expirados com base no valor TTL, sem precisar de uma operação de eliminação que seja explicitamente emitida pela aplicação do cliente.
 
@@ -24,7 +24,7 @@ A eliminação de itens expirados é uma tarefa de fundo que consome [unidades](
 
 O tempo para viver valor é definido em segundos, e é interpretado como um delta desde que um item foi modificado pela última vez. Pode definir tempo para viver num recipiente ou num item dentro do recipiente:
 
-1. **Hora de viver num recipiente** (definido com `DefaultTimeToLive`):
+1. **Hora de viver num** recipiente `DefaultTimeToLive`(definido usando):
 
    - Se faltar (ou definido para nulo), os itens não expiram automaticamente.
 
@@ -32,11 +32,11 @@ O tempo para viver valor é definido em segundos, e é interpretado como um delt
 
    - Se presente e o valor for definido para algum número *"n"* – os itens expirarão *"n"* segundos após o seu último tempo modificado.
 
-2. **Hora de viver num item** (definido com `ttl`):
+2. **Hora de viver num item** (conjunto usando): `ttl`
 
-   - Este Imóvel só é aplicável se `DefaultTimeToLive` estiver presente e não for definido para anular o recipiente-mãe.
+   - Este Imóvel só `DefaultTimeToLive` é aplicável se estiver presente e não for definido para o recipiente-mãe.
 
-   - Se presente, substitui o valor `DefaultTimeToLive` do recipiente-mãe.
+   - Se presente, sobrepõe-se ao `DefaultTimeToLive` valor do recipiente-mãe.
 
 ## <a name="time-to-live-configurations"></a>Configurações de tempo para viver
 

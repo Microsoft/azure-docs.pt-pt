@@ -1,6 +1,6 @@
 ---
 title: Melhorar a segurança da gestão remota no Azure | Microsoft Docs
-description: Este artigo aborda as etapas para aprimorar a segurança de gerenciamento remoto durante a administração de Microsoft Azure ambientes, incluindo serviços de nuvem, máquinas virtuais e aplicativos personalizados.
+description: Este artigo discute passos para melhorar a segurança da gestão remota enquanto administra ambientes Do Microsoft Azure, incluindo serviços na nuvem, máquinas virtuais e aplicações personalizadas.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73643787"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure

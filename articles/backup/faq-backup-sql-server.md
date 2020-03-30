@@ -5,10 +5,10 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247712"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão em execução numa cópia de segurança Azure VM
@@ -33,7 +33,7 @@ Em algumas circunstâncias, o serviço de backup Azure aciona cópias de seguran
 A cicatrização automática como uma capacidade está ativada para todos os utilizadores por padrão; No entanto, caso opte por não o fazer, então execute o seguinte:
 
 - Na instância do Servidor SQL, na pasta *C:\Program Files\Azure Workload Backup\bin,* crie ou edite o ficheiro **ExtensionSettingsOverrides.json.**
-- No **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}* .
+- No **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
 - Guarde as suas alterações e feche o ficheiro.
 - Na instância do Servidor SQL, abra a **Task Manage** e, em seguida, reinicie o serviço **AzureWLBackupCoordinatorSvc.**
 
@@ -62,11 +62,11 @@ De acordo com as limitações do SQL, pode executar cópia apenas cópia de cóp
 
 Não. O Azure Backup protege as bases de dados do SQL Server em funcionamento no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, a Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger grupos de disponibilidade em todas as regiões?
+## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger os grupos de disponibilidade entre regiões?
 
 O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger todos os nós que estão na mesma região que o cofre. Se o seu grupo SQL Server Always On disponibilidade abrange várias regiões Azure, configurar o backup da região que tem o nó principal. O Azure Backup pode detetar e proteger todas as bases de dados do grupo de disponibilidade de acordo com a sua preferência de cópia de segurança. Quando a sua preferência de reserva não é cumprida, os backups falham e recebe o alerta de falha.
 
-## <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de apoio bem sucedidos criam alertas?
+## <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
 Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, caso esteja interessado tem alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando](backup-azure-monitoring-use-azuremonitor.md)o Monitor Azure .
 
@@ -74,7 +74,7 @@ Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são envia
 
 O menu **Backup Job** só mostrará trabalhos de reserva a pedido. Para utilização programada de utilização de trabalho [Monitorização utilizando o Monitor Azure](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="are-future-databases-automatically-added-for-backup"></a>As futuras bases de dados são adicionadas automaticamente para cópia de segurança?
+## <a name="are-future-databases-automatically-added-for-backup"></a>As bases de dados futuras são adicionadas automaticamente para cópia de segurança?
 
 Sim, pode alcançar esta capacidade com [auto-proteção.](backup-sql-server-database-azure-vms.md#enable-auto-protection)  
 

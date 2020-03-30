@@ -1,5 +1,5 @@
 ---
-title: Guia de migração DaAL para Android  ADAL) Azure
+title: Guia de migração DaAL para Android [ ADAL) Azure
 description: Saiba como migrar a sua aplicação Android (ADAL) Da Biblioteca de Autenticação ativa do Azure para a Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084052"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração DaAL para Android
@@ -40,19 +40,19 @@ Suportes:
 A API pública mSAL introduz mudanças importantes, incluindo:
 
 - Um novo modelo de acesso a fichas:
-  - A ADAL fornece acesso a fichas através do `AuthenticationContext`, que representa o servidor. A MSAL dá acesso a fichas através do `PublicClientApplication`, que representa o cliente. Os desenvolvedores de clientes não precisam de criar um novo `PublicClientApplication` exemplo para todas as Autoridades com as quais precisam interagir. É necessária apenas um `PublicClientApplication` configuração.
+  - O ADAL fornece acesso a `AuthenticationContext`fichas através do , que representa o servidor. A MSAL dá acesso a `PublicClientApplication`fichas através do, que representa o cliente. Os desenvolvedores de clientes não `PublicClientApplication` precisam de criar um novo exemplo para todas as Autoridades com as quais precisam interagir. Só `PublicClientApplication` é necessária uma configuração.
   - Suporte para solicitar fichas de acesso utilizando âmbitos para além de identificadores de recursos.
   - Suporte para consentimento incremental. Os desenvolvedores podem solicitar âmbitos à medida que o utilizador acede cada vez mais funcionalidades na aplicação, incluindo as que não estão incluídas durante o registo da aplicação.
   - As autoridades já não são validadas no tempo de execução. Em vez disso, o desenvolvedor declara uma lista de "autoridades conhecidas" durante o desenvolvimento.
 - Alterações da API simbólica:
-  - Na ADAL, `AcquireToken()` primeiro faz um pedido silencioso. Se não o fizer, faz um pedido interativo. Este comportamento resultou em alguns desenvolvedores confiarem apenas em `AcquireToken`, o que resultou em que o utilizador foi inesperadamente solicitado para credenciais às vezes. A MSAL exige que os desenvolvedores sejam intencionais sobre quando o utilizador recebe um pedido de UI.
-    - `AcquireTokenSilent` sempre resulta num pedido silencioso que tenha sucesso ou falhe.
-    - `AcquireToken` sempre resulta num pedido que leva o utilizador através de UI.
+  - Na ADAL, `AcquireToken()` primeiro faz um pedido silencioso. Se não o fizer, faz um pedido interativo. Este comportamento resultou em alguns `AcquireToken`desenvolvedores confiarem apenas em , o que resultou em que o utilizador fosse inesperadamente solicitado para credenciais às vezes. A MSAL exige que os desenvolvedores sejam intencionais sobre quando o utilizador recebe um pedido de UI.
+    - `AcquireTokenSilent`resulta sempre num pedido silencioso que ou sucede ou falha.
+    - `AcquireToken`resulta sempre num pedido que leva o utilizador através da UI.
 - A MSAL suporta o sessão a partir de um navegador padrão ou de uma visão web incorporada:
   - Por padrão, o navegador predefinido no dispositivo é utilizado. Isto permite à MSAL utilizar o estado de autenticação (cookies) que já pode estar presente para uma ou mais contas assinadas. Caso não exista nenhum estado de autenticação, autenticação durante autorização via MSAL resulta em estado de autenticação (cookies) criados em benefício de outras aplicações web que serão utilizadas no mesmo navegador.
 - Novo modelo de exceção:
   - As exceções definem mais claramente o tipo de erro que ocorreu e o que o desenvolvedor precisa de fazer para o resolver.
-- A MSAL suporta objetos de parâmetros para chamadas `AcquireToken` e `AcquireTokenSilent`.
+- A MSAL suporta objetos de parâmetros para `AcquireToken` chamadas e `AcquireTokenSilent` chamadas.
 - A MSAL suporta a configuração declarativa para:
   - ID do cliente, Redirecionamento URI.
   - Incorporado vs Navegador Padrão
@@ -83,10 +83,10 @@ Os administradores da organização podem consentir em permissões que o seu ped
 
 ### <a name="authenticate-and-request-authorization-for-all-permissions-on-first-use"></a>Autenticar e solicitar autorização para todas as permissões na primeira utilização
 
-Se está a usar a ADAL e não precisa de usar o consentimento incremental, a forma mais simples de começar a usar o MSAL é fazer um pedido de `acquireToken` usando o novo objeto `AcquireTokenParameter` e definir o valor de ID do recurso.
+Se está a usar a ADAL e não precisa de usar o consentimento incremental, a forma `acquireToken` mais simples `AcquireTokenParameter` de começar a usar o MSAL é fazer um pedido usando o novo objeto e definir o valor de ID do recurso.
 
 > [!CAUTION]
-> Não é possível definir ambos os âmbitos e uma identificação de recursos. Tentar definir ambos resultará numa `IllegalArgumentException`.
+> Não é possível definir ambos os âmbitos e uma identificação de recursos. Tentar definir ambos resultará `IllegalArgumentException`num .
 
  Isto resultará no mesmo comportamento v1 que é usado. Todas as permissões solicitadas no registo da sua aplicação são solicitadas ao utilizador durante a sua primeira interação.
 
@@ -108,15 +108,15 @@ O objeto de parâmetros utilizado para fazer o seu pedido aos suportes MSAL:
 
 ### <a name="constructing-publicclientapplication"></a>Construção de PublicClientApplication
 
-Quando se usa a MSAL, faz-se uma `PublicClientApplication`. Este objeto modela a sua identidade de aplicação e é usado para fazer pedidos a uma ou mais autoridades. Com este objeto irá configurar a identidade do seu cliente, redirecionar o URI, autoridade padrão, se utilizar o navegador do dispositivo vs. visualização web incorporada, o nível de registo, e muito mais.
+Quando se usa mSAL, `PublicClientApplication`instantaneamente um . Este objeto modela a sua identidade de aplicação e é usado para fazer pedidos a uma ou mais autoridades. Com este objeto irá configurar a identidade do seu cliente, redirecionar o URI, autoridade padrão, se utilizar o navegador do dispositivo vs. visualização web incorporada, o nível de registo, e muito mais.
 
 Pode configurar este objeto de forma declarativa com a JSON, que fornece como ficheiro ou armazena como recurso dentro da sua APK.
 
-Embora este objeto não seja um singleton, internamente utiliza `Executors` partilhadas para pedidos interativos e silenciosos.
+Embora este objeto não seja um singleton, internamente usa partilhado `Executors` para pedidos interativos e silenciosos.
 
 ### <a name="business-to-business"></a>Negócios para Negócios
 
-Na ADAL, todas as organizações a quem solicitam fichas de acesso requerem uma instância separada da `AuthenticationContext`. Na MSAL, isto já não é um requisito. Pode especificar a autoridade a partir da qual pretende solicitar um sinal como parte do seu pedido silencioso ou interativo.
+Na ADAL, todas as organizações a quem solicitam fichas de acesso requerem uma instância separada do `AuthenticationContext`. Na MSAL, isto já não é um requisito. Pode especificar a autoridade a partir da qual pretende solicitar um sinal como parte do seu pedido silencioso ou interativo.
 
 ### <a name="migrate-from-authority-validation-to-known-authorities"></a>Migrar da validação da autoridade para autoridades conhecidas
 
@@ -125,7 +125,7 @@ A MSAL não tem uma bandeira que permita ou desative a validação da autoridade
 > [!TIP]
 > Se é um utilizador do Azure Business to Consumer (B2C), isto significa que já não tem de desativar a validação da autoridade. Em vez disso, inclua cada uma das suas políticas de Azure AD B2C suportadas como autoridades na sua configuração MSAL.
 
-Se tentar usar uma autoridade que não é conhecida da Microsoft, e não está incluída na sua configuração, terá um `UnknownAuthorityException`.
+Se tentar usar uma autoridade que não é conhecida da Microsoft, e não está incluída `UnknownAuthorityException`na sua configuração, receberá um .
 
 ### <a name="logging"></a>Registo
 Agora pode configurar declarativamente a exploração madeireira como parte da sua configuração, assim:
@@ -140,9 +140,9 @@ Agora pode configurar declarativamente a exploração madeireira como parte da s
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrar de UserInfo para Conta
 
-Na ADAL, o `AuthenticationResult` fornece um `UserInfo` objeto usado para recuperar informações sobre a conta autenticada. O termo "utilizador", que significava um agente humano ou de software, foi aplicado de uma forma que dificultava a comunicação de que algumas aplicações suportam um único utilizador (seja um agente humano ou de software) que tem várias contas.
+Na ADAL, `AuthenticationResult` o `UserInfo` elemento fornece um objeto utilizado para recuperar informações sobre a conta autenticada. O termo "utilizador", que significava um agente humano ou de software, foi aplicado de uma forma que dificultava a comunicação de que algumas aplicações suportam um único utilizador (seja um agente humano ou de software) que tem várias contas.
 
-Considere uma conta bancária. Pode ter mais de uma conta em mais de uma instituição financeira. Ao abrir uma conta, você (o utilizador) são emitidas credenciais, como um cartão multibanco e PIN, que são usados para aceder ao seu saldo, pagamentos de conta, e assim por diante, para cada conta. Essas credenciais só podem ser utilizadas na instituição financeira que as emitiu.
+Considere uma conta bancária. Pode ter mais de uma conta em mais de uma instituição financeira. Ao abrir uma conta, você (o utilizador) são emitidas credenciais, como um cartão multibanco & PIN, que são usados para aceder ao seu saldo, pagamentos de conta, e assim por diante, para cada conta. Essas credenciais só podem ser utilizadas na instituição financeira que as emitiu.
 
 Por analogia, como contas numa instituição financeira, as contas na plataforma de identidade da Microsoft são acedidas usando credenciais. Essas credenciais estão registadas ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
@@ -152,13 +152,13 @@ Sam trabalha para Contoso.com mas gere máquinas virtuais Azure que pertencem a 
 
 Adicionar a conta Contoso.com de Sam como membro da Fabrikam.com resultaria na criação de um novo recorde no Azure Ative Directory de Fabrikam.com para Sam. O registo de Sam no Azure Ative Directory é conhecido como um objeto de utilizador. Neste caso, esse objeto de utilizador apontaria para o objeto de utilizador do Sam em Contoso.com. O objeto de utilizador fabrikam de Sam é a representação local de Sam, e seria usado para armazenar informações sobre a conta associada a Sam no contexto de Fabrikam.com. Em Contoso.com, o título de Sam é Consultor Sénior de DevOps. Em Fabrikam, o título de Sam é Empreiteiro-Virtual Machines. Em Contoso.com, Sam não é responsável, nem autorizado, a gerir máquinas virtuais. Em Fabrikam.com, é a sua única função profissional. No entanto, Sam ainda só tem um conjunto de credenciais para acompanhar, que são as credenciais emitidas por Contoso.com.
 
-Uma vez feita uma chamada `acquireToken` bem sucedida, você verá uma referência a um objeto `IAccount` que pode ser usado em pedidos posteriores `acquireTokenSilent`.
+Uma vez `acquireToken` feita uma chamada bem sucedida, `IAccount` verá uma referência `acquireTokenSilent` a um objeto que pode ser usado em pedidos posteriores.
 
 ### <a name="imultitenantaccount"></a>IMultiTenantAccount
 
-Se tiver uma aplicação que aceda a reclamações sobre uma conta de cada um dos inquilinos em que a conta está representada, pode lançar objetos `IAccount` para `IMultiTenantAccount`. Esta interface fornece um mapa de `ITenantProfiles`, chave-chave por ID do arrendatário, que lhe permite aceder às reclamações que pertencem à conta em cada um dos inquilinos de quem solicitou um sinal, em relação à conta corrente.
+Se tiver uma aplicação que aceda a reclamações sobre uma conta de cada `IAccount` um `IMultiTenantAccount`dos inquilinos em que a conta está representada, pode lançar objetos para . Esta interface fornece um `ITenantProfiles`mapa de , chave por ID do inquilino, que permite aceder às reclamações que pertencem à conta em cada um dos inquilinos de que solicitou um sinal, em relação à conta corrente.
 
-As reivindicações na raiz do `IAccount` e `IMultiTenantAccount` contêm sempre as reivindicações do arrendatário. Se ainda não fez um pedido para um símbolo dentro do inquilino da casa, esta coleção estará vazia.
+As reivindicações na `IAccount` raiz `IMultiTenantAccount` do e contêm sempre as reivindicações do inquilino da casa. Se ainda não fez um pedido para um símbolo dentro do inquilino da casa, esta coleção estará vazia.
 
 ## <a name="other-changes"></a>Outras alterações
 
@@ -235,7 +235,7 @@ public interface SilentAuthenticationCallback {
 
 ## <a name="migrate-to-the-new-exceptions"></a>Migrar para as novas exceções
 
-Na ADAL, há um tipo de exceção, `AuthenticationException`, que inclui um método para recuperar o valor `ADALError` enum.
+Na ADAL, há um tipo `AuthenticationException`de exceção, que inclui `ADALError` um método para recuperar o valor enum.
 Na MSAL, há uma hierarquia de exceções, e cada um tem o seu próprio conjunto de códigos de erro específicos associados.
 
 Lista de Exceções à MSAL

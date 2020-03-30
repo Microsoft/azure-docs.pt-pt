@@ -1,5 +1,5 @@
 ---
-title: Migração de Armazenamento Azure FAQ  Microsoft Docs
+title: Migração de Armazenamento Azure FAQ [ Microsoft Docs
 description: Respostas a perguntas comuns sobre o armazenamento azure migratório
 services: storage
 author: genlin
@@ -10,13 +10,13 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77116664"
 ---
-# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre migração de Armazenamento Azure
+# <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
 
 Este artigo responde a perguntas comuns sobre a migração do Armazenamento Azure.
 
@@ -195,8 +195,8 @@ Não há opção de fazer o backup toda uma conta de armazenamento diretamente. 
             /SourceKey:key1 /DestKey:key2 /S
 
     - `/Source`: Forneça o URI para a conta de armazenamento de origem (até ao recipiente).  
-    - `/Dest`: Forneça o URI para a conta de armazenamento-alvo (até ao recipiente).  
-    - `/SourceKey`: Forneça a chave principal para a conta de armazenamento de origem. Pode copiar esta chave do portal Azure selecionando a conta de armazenamento.  
+    - `/Dest`: Fornecer o URI para a conta de armazenamento-alvo (até ao recipiente).  
+    - `/SourceKey`: Fornecer a chave principal para a conta de armazenamento de origem. Pode copiar esta chave do portal Azure selecionando a conta de armazenamento.  
     - `/DestKey`: Fornecer a chave principal para a conta de armazenamento alvo. Pode copiar esta chave a partir do portal selecionando a conta de armazenamento.
 
 Depois de executar este comando, os ficheiros do contentor são transferidos para a conta de armazenamento do alvo.
@@ -225,9 +225,9 @@ Quando cria uma conta de armazenamento, seleciona a região primária para a con
 
 Consulte os seguintes artigos:
 
--  [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md)
+-  [Guia de segurança de armazenamento azure](../blobs/security-recommendations.md)
 
--  [Encriptação do serviço de armazenamento Azure para dados em repouso](storage-service-encryption.md)
+-  [Encriptação do Serviço de Armazenamento do Azure para Dados Inativos](storage-service-encryption.md)
 
 **Como encriptar dados numa conta de armazenamento?**
 
@@ -263,11 +263,11 @@ Para dar a outras pessoas acesso aos recursos de armazenamento:
 
 -   Se aceder ao AzCopy a partir da linha de comando sinuosa Microsoft Azure Storage, **escreva AzCopy**. A linha de comando está instalada ao lado da AzCopy.
 
--   Se instalou a versão de 32 bits, está localizada aqui: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
+-   Se instalou a versão de 32 bits, está localizada aqui: **%ProgramFiles (x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
--   Se instalou a versão de 64 bits, está localizada aqui: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
+-   Se instalou a versão de 64 bits, está localizada aqui: **%ProgramFiles%\\Microsoft\\SDKs Azure\\AzCopy**.
 
-**Como uso um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecer como "https:\//www.contoso.com/images/image.gif"?**
+**Como uso um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço com\/que "https: /mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https:\//www.contoso.com/images/image.gif"?**
 
 O SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
 Mas pode utilizar domínios personalizados não HTTPS. Para mais informações, consulte [Configure um nome](../blobs/storage-custom-domain-name.md)de domínio personalizado para o seu ponto final de armazenamento Blob .
@@ -286,7 +286,7 @@ O armazenamento geo-redundante de acesso de leitura é necessário para aceder a
 
 -   Se estiver a utilizar armazenamento redundante ou armazenamento geo-redundante, não pode aceder a dados da região secundária a menos que inicie uma falha nessa região. Para obter mais informações sobre o processo de failover, consulte a falha da conta de [recuperação de desastres e armazenamento (pré-visualização) no Armazenamento Azure](storage-disaster-recovery-guidance.md).
 
--   Se estiver a utilizar armazenamento geo-redundante de acesso de leitura, pode aceder a dados da região secundária a qualquer momento. Utilize um dos métodos seguintes:  
+-   Se estiver a utilizar armazenamento geo-redundante de acesso de leitura, pode aceder a dados da região secundária a qualquer momento. Utilize um dos seguintes métodos:  
 
     - **AzCopy**: Apêndice **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
 

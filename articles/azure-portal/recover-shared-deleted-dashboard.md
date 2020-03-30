@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77133282"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recuperar um dashboard apagado no portal Azure
@@ -21,7 +21,7 @@ Se estiver na nuvem pública do Azure e apagar um painel _publicado_ no portal A
 
 1. A partir do menu do portal Azure, selecione **grupos de recursos,** em seguida, selecione o grupo de recursos onde publicou o dashboard (por padrão, chama-se **dashboards).**
 
-1. Sob **o registo de atividade,** expanda a operação Eliminar o **Dashboard.** Selecione o separador **'Alterar'** e, em seguida, selecione\<\>de **recursos eliminados** .
+1. Sob **o registo de atividade,** expanda a operação Eliminar o **Dashboard.** Selecione o separador **'Alterar'** e, em seguida, ** \<selecione o\>recurso eliminado**.
 
     ![Screenshot do separador de histórico de mudança](media/recover-shared-deleted-dashboard/change-history-tab.png)
 

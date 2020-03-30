@@ -4,10 +4,10 @@ description: Saiba como usar a REST API para apoiar as ações de ficheiros azur
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248102"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando backup Azure via Rest API
@@ -38,13 +38,13 @@ O cofre precisa descobrir todas as contas de armazenamento do Azure na subscriç
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-O POST URI tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`e `{fabricName}` parâmetros. No nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
+O POST `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}`tem, `{fabricName}` e parâmetros. No nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
 
-- `{fabricName}` é *Azure*
+- `{fabricName}`é *Azure*
 
-- `{vaultName}` é *cofre de arquivos*
+- `{vaultName}`é *azurefilesvault*
 
-- `{vaultresourceGroupName}` são *ficheiros em azul*
+- `{vaultresourceGroupName}`é *azurefiles*
 
 - $filter=backupManagementType eq 'AzureStorage'
 
@@ -397,7 +397,7 @@ O seguinte órgão de pedido define as propriedades necessárias para criar um i
 
 O **SourceResourceId** é o **recipiente-mãeFabricID** em resposta a itens de backup protectable GET.
 
-Pedido de Resposta
+Resposta de Amostra
 
 A criação de um item protegido é uma operação assíncrona, que cria outra operação que precisa de ser rastreada. Devolve duas respostas: 202 (Aceite) quando outra operação é criada e 200 (OK) quando essa operação estiver concluída.
 

@@ -8,20 +8,20 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67184630"
 ---
 ## <a name="run-the-web-application"></a>Execute a aplicação Web
 
-1. Há uma aplicação Web de página única de exemplo alojada no GitHub para sua conveniência. Abra o browser para [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/).
+1. Há uma aplicação Web de página única de exemplo alojada no GitHub para sua conveniência. Abra o [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/)seu navegador para .
 
     > [!NOTE]
-    > A origem do ficheiro HTML está localizada em [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
+    > A fonte do ficheiro HTML está localizada em [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
-1. Quando lhe for pedido para o URL base da aplicação de função, introduza `http://localhost:7071`.
+1. Quando lhe for pedido o URL base da aplicação de funções, introduza `http://localhost:7071`.
 
 1. Introduza um nome de utilizador quando lhe for pedido.
 
@@ -34,4 +34,4 @@ ms.locfileid: "67184630"
 1. Abra outra instância da aplicação Web noutra janela do browser. Verá que todas as mensagens enviadas irão aparecer em todas as instâncias da aplicação.
 
 > [!IMPORTANT]
-> Uma vez que a página HTML é fornecida através de HTTPS, mas o tempo de execução local do funções do Azure está a utilizar HTTP por predefinição, o seu browser (por exemplo, o Firefox) pode impor uma política de conteúdo misto bloquear os pedidos da página da web para as suas funções. Para resolver este problema, utilize um browser que não tenha essa restrição ou iniciar um servidor HTTP local, como [servidor http](https://www.npmjs.com/package/http-server) no */docs/demo/chat-v2* diretório. Certifique-se de que a origem é adicionada para o `CORS` definição *Settings*.
+> Uma vez que a página HTML é servida usando HTTPS, mas o tempo de funcionamento das Funções Azure locais está a utilizar http por padrão, o seu navegador (como o Firefox) pode impor uma política de conteúdo misto que bloqueia os pedidos da página web para as suas funções. Para resolver isto, utilize um navegador que não tenha esta restrição ou inicie um servidor HTTP local, como [http-server](https://www.npmjs.com/package/http-server) no diretório */docs/demo/chat-v2.* Certifique-se de que `CORS` a origem é adicionada à definição em *local.settings.json*.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137707"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Rescisão ssl com certificados key vault
@@ -49,7 +49,7 @@ A integração do Gateway de aplicação com o Key Vault requer um processo de c
 
    Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que percorrem o gateway da aplicação. Neste passo, você também pode usar um segredo de cofre chave que é armazenado como um ficheiro PFX sem palavra-passe, base 64 codificado. Recomendamos a utilização de um tipo de certificado devido à capacidade de renovação automática que está disponível com objetos do tipo certificado no cofre da chave. Depois de criar um certificado ou um segredo, define as políticas de acesso no cofre chave para permitir que a identidade seja concedida *tenha* acesso ao segredo.
 
-1. **Configure o gateway da aplicação**
+1. **Configurar o gateway de aplicação**
 
    Depois de completar os dois passos anteriores, pode configurar ou modificar um portal de aplicação existente para utilizar a identidade gerida atribuída pelo utilizador. Também pode configurar o certificado SSL do ouvinte HTTP para apontar para o URI completo do certificado Key Vault ou ID secreto.
 

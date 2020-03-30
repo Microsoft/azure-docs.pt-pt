@@ -1,5 +1,5 @@
 ---
-title: Mensagens cloud-to-device com Azure IoT Hub (Java)  Microsoft Docs
+title: Mensagens cloud-to-device com Azure IoT Hub (Java) [ Microsoft Docs
 description: Como enviar mensagens cloud-to-device para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Java. Modifica uma aplicação simulada de dispositivopara receber mensagens cloud-to-device e modificar uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: wesmc7777
 manager: philmea
@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: 518f8057f222a628f8c3cd077cad4a7362e2cac8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110821"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envie mensagens cloud-to-device com IoT Hub (Java)
@@ -93,7 +93,7 @@ Nesta secção, modifica a aplicação simulada de dispositivo que criou no [Env
     mvn clean package -DskipTests
     ```
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 Neste artigo cria um serviço de backend para enviar mensagens cloud-to-device através do hub IoT que criou em [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md). Para enviar mensagens cloud-to-device, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 
@@ -122,7 +122,7 @@ Nesta secção, cria-se uma aplicação de consola Java que envia mensagens clou
     ```
 
     > [!NOTE]
-    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-service-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Guarde e feche o ficheiro pom.xml.
 

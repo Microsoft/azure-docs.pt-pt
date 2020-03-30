@@ -1,6 +1,6 @@
 ---
-title: Inscreva-se na sua organização-Azure Active Directory | Microsoft Docs
-description: Instruções sobre como inscrever-se sua organização utilizar o Azure e Azure Active Directory.
+title: Inscreva-se na sua organização - Azure Ative Directy [ Azure Ative Directy ] Microsoft Docs
+description: Instruções sobre como inscrever a sua organização para usar o Diretório Ativo Azure e Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,31 +14,31 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561631"
 ---
-# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva-se a sua organização para utilizar o Azure Active Directory
-Inscreva-se no Azure Active Directory (AD do Azure) ou em uma nova assinatura do Microsoft Azure usando:
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva a sua organização para usar o Diretório Ativo Azure
+Inscreva-se no Azure Ative Directory (Azure AD) ou numa nova subscrição do Microsoft Azure, utilizando:
 
-- **Conta Microsoft.** Utilize a sua conta Microsoft pessoal, para obter acesso ao Azure e todos os produtos Microsoft orientados ao consumidor e serviços em nuvem, como Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou do Office 365. Inscrever-se uma caixa de correio do Outlook.com automaticamente cria uma conta Microsoft. Para obter mais informações, consulte [descrição geral da conta da Microsoft](https://account.microsoft.com/account).
+- **Conta da Microsoft.** Utilize a sua conta pessoal da Microsoft para ter acesso ao Azure e a todos os produtos e serviços da Microsoft orientados para o consumidor, tais como Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. Inscrever-se numa caixa de correio Outlook.com cria automaticamente uma conta Microsoft. Para mais informações, consulte a [visão geral da conta da Microsoft](https://account.microsoft.com/account).
 
-- **Conta escolar ou profissional.** Utilize a sua conta relacionados com a escola ou profissional para obter acesso a todos os pequeno, médio e serviços em cloud empresariais da Microsoft, como o Azure, o Microsoft Intune ou o Office 365. Após a inscrição para um destes serviços como uma organização, o AD do Azure Aprovisiona automaticamente um diretório baseado na nuvem que representa a sua organização. Para obter mais informações, consulte [gerir o seu diretório do Azure AD](active-directory-administer.md).
+- **Trabalho ou conta escolar.** Utilize o seu trabalho ou conta relacionada com a escola para ter acesso a todos os pequenos, médios e empresariais serviços de nuvem da Microsoft, tais como Azure, Microsoft Intune ou Office 365. Depois de se inscrever num destes serviços como organização, a Azure AD disponibiliza automaticamente um diretório baseado na nuvem que representa a sua organização. Para mais informações, consulte [Gerir o seu diretório Azure AD](active-directory-administer.md).
 
   > [!Note]
-  >   Recomendamos que utilize a sua conta escola ou profissional se já tiver acesso ao Azure AD. No entanto, deve usar qualquer tipo de conta está associado a sua subscrição do Azure.
+  >   Recomendamos que utilize o seu trabalho ou conta escolar se já tiver acesso ao Azure AD. No entanto, deve utilizar qualquer tipo de conta associada à sua subscrição Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Como comprar o Azure](https://azure.microsoft.com/pricing/purchase-options/)
+- [Como comprar O Azure](https://azure.microsoft.com/pricing/purchase-options/)
 
-- [Inscreva-se para as edições do Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Inscrever-se nas edições Premium do Azure Active Directory](active-directory-get-started-premium.md)
 
 - [Saiba mais sobre o Azure AD](active-directory-whatis.md)
 
-- [Utilizar a infraestrutura de identidade no local na cloud](../connect/active-directory-aadconnect.md)
+- [Use a sua infraestrutura de identidade no local na nuvem](../connect/active-directory-aadconnect.md)
 
 - [Visite o blog do Microsoft Azure](https://azure.microsoft.com/blog/)
 

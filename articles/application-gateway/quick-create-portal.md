@@ -10,10 +10,10 @@ ms.date: 03/09/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 17adc800bd5a2ae53e27350c7e0d588eaeee4a8f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241403"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
@@ -34,13 +34,13 @@ Também pode completar este quickstart utilizando [o Azure PowerShell](quick-cre
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do Azure.
+Inscreva-se no [portal Azure](https://portal.azure.com) com a sua conta Azure.
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
 Criará o portal de aplicação utilizando os separadores na página **de gateway Criar uma aplicação.**
 
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 
 2. Selecione **Networking** e, em seguida, selecione **Gateway de aplicação** na lista **Em destaque.**
 
@@ -100,7 +100,7 @@ A piscina de backend é usada para encaminhar pedidos para os servidores backend
 
 4. No separador **Backends,** selecione **Seguinte: Configuração**.
 
-### <a name="configuration-tab"></a>Separador Configuração
+### <a name="configuration-tab"></a>Separador de configuração
 
 No separador **Configuração,** irá ligar a piscina frontal e traseira que criou utilizando uma regra de encaminhamento.
 
@@ -145,7 +145,7 @@ Para fazer isto, vai:
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No menu do portal Azure ou na página **Inicial,** selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 2. Selecione **O Datacenter do Windows Server 2016** na lista **Popular.** Aparece a página **Criar uma máquina virtual.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Do Windows Server 2016.
 3. Introduza estes **valores** no separador Basics para as seguintes definições de máquina virtual:
 
@@ -199,7 +199,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 
    > [!div class="mx-imgBorder"]
-   > ![Adicionar servidores de backend](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+   > ![Adicionar servidores back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Selecione **Guardar**.
 
@@ -209,7 +209,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 Embora o IIS não seja necessário para criar o gateway da aplicação, instalou-o neste arranque rápido para verificar se o Azure criou com sucesso o portal de aplicações. Utilize o IIS para testar o gateway de aplicação:
 
-1. Encontre o endereço IP público para o gateway da aplicação na sua página **'Visão Geral'.** ![Registro de endereço IP público](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Ou, pode selecionar **Todos os recursos,** introduzir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **'Overview'.**
+1. Encontre o endereço IP público para o gateway da aplicação na sua página **'Visão Geral'.** ![Registre o endereço](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) IP público da aplicação Ou, pode selecionar **Todos os recursos,** introduzir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **'Overview'.**
 2. Copie o endereço IP público e, em seguida, cole-o na barra de endereços do seu navegador para navegar nesse endereço IP.
 3. Verifique a resposta. Uma resposta válida verifica que o gateway da aplicação foi criado com sucesso e pode ligar-se com sucesso ao backend.
 

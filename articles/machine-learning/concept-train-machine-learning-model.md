@@ -10,13 +10,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129764"
 ---
-# <a name="train-models-with-azure-machine-learning"></a>Utilizar modelos com o Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com aprendizagem automática azure
 
 O Azure Machine Learning fornece várias formas de treinar os seus modelos, desde as primeiras soluções de código utilizando o SDK até soluções de código baixo, como o machine learning automatizado e o designer visual. Utilize a seguinte lista para determinar qual o método de treino certo para si:
 
@@ -25,9 +25,9 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
     | Método de formação | Descrição |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma genérica de treinar modelos** é usar um roteiro de treino e executar a configuração. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino usado para treinar o seu modelo. Você pode pegar uma configuração de execução, seu script de treino, e um alvo de computação (o ambiente de treino) e executar um trabalho de treino. |
-    | [Aprendizagem automática de máquinas](#automated-machine-learning) | O machine learning automatizado permite-lhe **treinar modelos sem uma ciência de dados extensiva ou conhecimento de programação.** Para pessoas com um fundo de ciência de dados e programação, fornece uma forma de poupar tempo e recursos automatizando a seleção de algoritmos e a finação de hiperparâmetros. Não é preciso preocupar-se em definir uma configuração de execução ao utilizar aprendizagem automática de máquinas. |
+    | [Aprendizagem automática automatizada](#automated-machine-learning) | O machine learning automatizado permite-lhe **treinar modelos sem uma ciência de dados extensiva ou conhecimento de programação.** Para pessoas com um fundo de ciência de dados e programação, fornece uma forma de poupar tempo e recursos automatizando a seleção de algoritmos e a finação de hiperparâmetros. Não é preciso preocupar-se em definir uma configuração de execução ao utilizar aprendizagem automática de máquinas. |
     | [Estimadores](#estimators) | As classes de estimativa **tornam mais fácil formar modelos com base em estruturas populares de aprendizagem automática.** Existem classes de estimadores para **scikit-learn**, **PyTorch,** **TensorFlow**e **Chainer**. Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe estimada dedicada. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores. |
-    | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os gasodutos de aprendizagem automática suportam a utilização de machine learning automatizado, estimadores e configuração de execução para treinar modelos. Uma vez que os gasodutos não se centram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode usar um oleoduto quando:<br>* Pretende **agendar processos sem supervisão,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos computacionais heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como reconversão ou pontuação de lotes.<br>* rastrear e ver ver fontes de **dados, inputs e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente**. Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
+    | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os gasodutos de aprendizagem automática suportam a utilização de machine learning automatizado, estimadores e configuração de execução para treinar modelos. Uma vez que os gasodutos não se centram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode usar um oleoduto quando:<br>* Pretende **agendar processos sem supervisão,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos computacionais heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como reconversão ou pontuação de lotes.<br>* **Rastrear e verver fontes de dados, inputs e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente**. Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
 
 + [Azure Machine Learning SDK para Python](#r-sdk): O SDK usa o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos fundamentais implementados no SDK Python a partir de qualquer ambiente R.
 
@@ -35,7 +35,7 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + **CLI**: O CLI de aprendizagem automática fornece comandos para tarefas comuns com o Azure Machine Learning, e é frequentemente utilizado para **scripts e tarefas automatizadas.** Por exemplo, uma vez criado um script ou pipeline de treino, pode utilizar o CLI para iniciar uma execução de treino num horário ou quando os ficheiros de dados utilizados para o treino forem atualizados. Para modelos de formação, fornece comandos que submetem trabalhos de formação. Pode submeter trabalhos utilizando configurações de execução ou oleodutos.
 
-Cada um destes métodos de formação pode utilizar diferentes tipos de recursos computacionais para a formação. Colectivamente, estes recursos são referidos como [__alvos de cálculo.__ ](concept-azure-machine-learning-architecture.md#compute-targets) Um alvo computacional pode ser uma máquina local ou um recurso em nuvem, como uma Computação de Aprendizagem automática Azure, Azure HDInsight ou uma máquina virtual remota.
+Cada um destes métodos de formação pode utilizar diferentes tipos de recursos computacionais para a formação. Colectivamente, estes recursos são referidos como [__alvos de cálculo.__](concept-azure-machine-learning-architecture.md#compute-targets) Um alvo computacional pode ser uma máquina local ou um recurso em nuvem, como uma Computação de Aprendizagem automática Azure, Azure HDInsight ou uma máquina virtual remota.
 
 ## <a name="python-sdk"></a>SDK Python
 
@@ -56,7 +56,7 @@ Pode começar com uma configuração de execução para o seu computador local e
 * [Exemplos: Exemplos de jupyter Notebook de modelos de formação](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
 * [Como: Configurar e utilizar alvos de computação para formação de modelos](how-to-set-up-training-targets.md)
 
-### <a name="automated-machine-learning"></a>Aprendizagem automática de máquinas
+### <a name="automated-machine-learning"></a>Machine Learning Automatizado
 
 Defina as iterações, as definições do hiperparâmetro, a caracterização e outras definições. Durante o treino, o Azure Machine Learning tenta diferentes algoritmos e parâmetros em paralelo. O treino para assim que atinge os critérios de saída que definiu. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores.
 

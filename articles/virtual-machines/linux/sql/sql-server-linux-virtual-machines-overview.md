@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70081956"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
@@ -29,7 +29,7 @@ O SQL Server em máquinas virtuais do Azure permite-lhe utilizar versões comple
 
 As máquinas virtuais do Azure executam em [regiões geográficas](https://azure.microsoft.com/regions/) muito diferentes em todo o mundo. Também oferece uma variedade de [tamanhos de máquina](../sizes.md). A galeria de imagens da máquina virtual permite-lhe criar uma VM do SQL Server com a versão, edição e sistema operativo corretos. Isto faz com que as máquinas virtuais sejam uma boa opção para várias cargas de trabalho do SQL Server.
 
-## <a id="create"></a> Introdução às VMs SQL
+## <a name="get-started-with-sql-vms"></a><a id="create"></a>Começar com VMs SQL
 
 Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server com a versão, edição e sistema operativo necessários. As secções seguintes fornecem ligações diretas para o portal do Azure para as imagens da galeria das máquinas virtuais do SQL Server.
 
@@ -45,11 +45,11 @@ Para começar a utilizar, escolha uma imagem de máquina virtual do SQL Server c
 > [!NOTE]
 > Para ver as imagens de máquina virtual do SQL Server do Windows disponíveis, veja [Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-## <a id="packages"></a> Pacotes instalados
+## <a name="installed-packages"></a><a id="packages"></a> Pacotes instalados
 
 Quando configurar o SQL Server no Linux, instale o pacote do motor de base de dados e, em seguida, vários pacotes opcionais, consoante os seus requisitos. As imagens de máquina virtual do Linux para o SQL Server instalam automaticamente a maioria dos pacotes por si. A tabela seguinte mostra os pacotes que são instalados para cada distribuição.
 
-| Distribuição | [Motor de Base de Dados](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Ferramentas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agente do SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa em Texto Completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Suplemento do HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribuição | [Motor de Base de Dados](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Ferramentas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa de texto completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Suplemento do HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | SLES | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) |
@@ -61,19 +61,19 @@ Quando configurar o SQL Server no Linux, instale o pacote do motor de base de da
 
 * [Descrição Geral das Máquinas Virtuais](../overview.md)
 
-### <a name="storage"></a>Armazenamento
+### <a name="storage"></a>Storage
 
-* [Introdução ao Armazenamento do Microsoft Azure](../../../storage/common/storage-introduction.md)
+* [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Redes
 
-* [Descrição Geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md)
-* [Endereços IP do Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Visão geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md)
+* [Endereços IP no Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
 
 ### <a name="sql"></a>SQL
 
-* [Documentação do SQL Server no Linux](https://docs.microsoft.com/sql/linux)
+* [Servidor SQL na documentação linux](https://docs.microsoft.com/sql/linux)
 * [Comparação da Base de Dados SQL do Azure](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Passos seguintes

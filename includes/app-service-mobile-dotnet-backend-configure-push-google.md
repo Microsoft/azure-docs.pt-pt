@@ -5,18 +5,18 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 3c6147cc24f285fc32dce145e594f743c9633c20
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68857472"
 ---
-Use o procedimento que corresponde ao seu tipo&mdash;de projeto de back-end ou back-end do [node. js](#nodejs)do [.net](#dotnet) .
+Use the procedure that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
 
-### <a name="dotnet"></a>Projeto de back-end do .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Projeto de back-end .NET
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **gerenciar pacotes NuGet**. Procure e clique em instalar. `Microsoft.Azure.NotificationHubs` Isso instala a biblioteca de cliente dos hubs de notificação.
-2. Na pasta controladores, abra TodoItemController.cs e adicione as seguintes `using` instruções:
+1. No Estúdio Visual, clique no projeto do servidor e clique em **Gerir pacotes NuGet**. `Microsoft.Azure.NotificationHubs`Procure, e depois clique em **Instalar**. Isto instala a biblioteca de clientes Do Centro de Notificação.
+2. Na pasta Controladores, abra TodoItemController.cs `using` e adicione as seguintes declarações:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -67,10 +67,10 @@ Use o procedimento que corresponde ao seu tipo&mdash;de projeto de back-end ou b
 
 4. Republique o projeto do servidor.
 
-### <a name="nodejs"></a>Projeto de back-end do node. js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Projeto de back-end node.js
 
-1. Configure seu projeto de back-end.
-2. Substitua o código existente no arquivo todoitem. js pelo seguinte:
+1. Prepara o teu projeto de backend.
+2. Substitua o código existente no ficheiro todoitem.js pelo seguinte:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -117,6 +117,6 @@ Use o procedimento que corresponde ao seu tipo&mdash;de projeto de back-end ou b
     module.exports = table;
     ```
 
-    Isso envia uma notificação GCM que contém o item. Text quando um novo item de tarefas é inserido.
+    Isto envia uma notificação GCM que contém o item.text quando um novo item todo o artigo é inserido.
 
-3. Ao editar o arquivo no computador local, Republique o projeto do servidor.
+3. Ao editar o ficheiro no seu computador local, republique o projeto do servidor.

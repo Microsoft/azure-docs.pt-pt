@@ -11,10 +11,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126751"
 ---
 # <a name="localization"></a>Localização
@@ -41,7 +41,7 @@ O elemento **Localização** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Ativado | Não | Valores possíveis: `true` ou `false`. |
+| Ativado | Não | Valores `true` possíveis: ou `false`. |
 
 O elemento **de localização** contém elementos XML que seguem
 
@@ -57,7 +57,7 @@ O elemento **SupportEdLanguages** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sim | A linguagem a ser usada como padrão para recursos localizados. |
-| Função Função Behavior | Não | Uma enumeração dos valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O valor `Append` especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O valor `Prepend` especifica que a recolha dos dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O valor `ReplaceAll` especifica que a recolha de dados definida na política-mãe deve ser ignorada, utilizando, em vez disso, os dados definidos na política atual. |
+| Função Função Behavior | Não | Uma enumeração dos valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores `Append`possíveis: , `Prepend`ou `ReplaceAll`. O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha dos dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definida na política-mãe deve ser ignorada, utilizando, em vez disso, os dados definidos na política atual. |
 
 ### <a name="supportedlanguages"></a>Línguas suportadas
 
@@ -97,7 +97,7 @@ O elemento **Coleção Localizada** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ElementType | Sim | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
-| ElementId | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se o **ElementType** for definido para um ClaimType. |
+| Elementide | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se o **ElementType** for definido para um ClaimType. |
 | Coleção-alvo | Sim | A coleção do alvo. |
 
 O elemento **Coleção Localizada** contém os seguintes elementos:
@@ -114,7 +114,7 @@ O elemento **Item** contém os seguintes atributos:
 | Valor | Sim | O valor da reclamação de cadeia associado à seleção desta opção. |
 | SelectByDefault | Não | Indica se esta opção deve ou não ser selecionada por defeito na UI. Valores possíveis: Verdadeiro ou Falso. |
 
-O exemplo seguinte mostra a utilização do elemento **Coleções Localizadas.** Contém dois elementos **LocalizadoSCollection,** um para inglês e outro para espanhol. Ambos definiram a coleção **restrição** da reclamação `Gender` com uma lista de itens para inglês e espanhol.
+O exemplo seguinte mostra a utilização do elemento **Coleções Localizadas.** Contém dois elementos **LocalizadoSCollection,** um para inglês e outro para espanhol. Ambos definiram a coleção `Gender` **restrição** da reclamação com uma lista de itens para inglês e espanhol.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -146,9 +146,9 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Uma referência a um elemento do tipo de reclamação ou a um elemento de interface do utilizador na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`ou `GetLocalizedStringsTransformationClaimType`. O valor `ClaimType` é utilizado para localizar um dos atributos de reclamação, conforme especificado no StringId. O valor `UxElement` é utilizado para localizar um dos elementos da interface do utilizador, conforme especificado no StringId. O valor `ErrorMessage` é utilizado para localizar uma das mensagens de erro do sistema, conforme especificado no StringId. O valor `Predicate` é utilizado para localizar uma das mensagens de erro [predicadas,](predicates.md) conforme especificado no StringId. O valor `InputValidation` é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação,](predicates.md) conforme especificado no StringId. O valor `GetLocalizedStringsTransformationClaimType` é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)  | 
-| ElementId | Sim | Se o **ElementType** for definido para `ClaimType`, `Predicate`, ou `InputValidation`, este elemento contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema. |
-| StringId | Sim | Se o **ElementType** estiver definido para `ClaimType`, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName`, `AdminHelpText`ou `PatternHelpText`. O valor `DisplayName` é utilizado para definir o nome do display de reclamação. O valor `AdminHelpText` é utilizado para definir o nome de texto de ajuda do utilizador da reclamação. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de reclamação. Se o **ElementType** for definido para `UxElement`, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se o **ElementType** estiver definido para `ErrorMessage`, este elemento especifica o identificador de uma mensagem de erro. Consulte [as identificações](localization-string-ids.md) de cordas de localização para obter uma lista completa dos identificadores `UxElement`.|
+| ElementType | Sim | Uma referência a um elemento do tipo de reclamação ou a um elemento de interface do utilizador na política. Valores `ClaimType`possíveis: `Predicate`, `GetLocalizedStringsTransformationClaimType` `UxElement`, `ErrorMessage`ou . O `ClaimType` valor é utilizado para localizar um dos atributos de reclamação, conforme especificado no StringId. O `UxElement` valor é utilizado para localizar um dos elementos da interface do utilizador, conforme especificado no StringId. O `ErrorMessage` valor é utilizado para localizar uma das mensagens de erro do sistema, conforme especificado no StringId. O `Predicate` valor é utilizado para localizar uma das mensagens de erro [predicadas,](predicates.md) conforme especificado no StringId. O `InputValidation` valor é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação,](predicates.md) conforme especificado no StringId. O `GetLocalizedStringsTransformationClaimType` valor é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)  | 
+| Elementide | Sim | Se o **ElementType** `Predicate`estiver `InputValidation`definido para, `ClaimType`ou , este elemento contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema. |
+| Cadeia | Sim | Se o **ElementType** estiver `ClaimType`definido, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores `DisplayName`possíveis: , `AdminHelpText`ou `PatternHelpText`. O `DisplayName` valor é utilizado para definir o nome do display de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador da reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se o **ElementType** estiver `UxElement`definido, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se o **ElementType** estiver `ErrorMessage`definido, este elemento especifica o identificador de uma mensagem de erro. Consulte [as identificações](localization-string-ids.md) de cordas de `UxElement` localização para obter uma lista completa dos identificadores.|
 
 
 O exemplo seguinte mostra uma página de inscrição localizada. Os três primeiros valores **da Configuração da Cadeia Localizada** definiram o atributo de reclamação. O terceiro altera o valor do botão de continuação. O último muda a mensagem de erro.
@@ -165,7 +165,7 @@ O exemplo seguinte mostra uma página de inscrição localizada. Os três primei
 </LocalizedResources>
 ```
 
-O exemplo seguinte mostra um **UserHelpText** de **Predicado** localizado com id `IsLengthBetween8And64`. E um **UserHelpText** localizado do **PredicadoGroup** com id `CharacterClasses` de **PredicadoValidação** com id `StrongPassword`.
+O exemplo seguinte mostra um **UserHelpText** de **Predicado** localizado com Id `IsLengthBetween8And64`. E um **UserHelpText** localizado do **PredicadoGroup** com Id `CharacterClasses` de **Predicado Validação** com Id `StrongPassword`.
 
 ```XML
 <PredicateValidation Id="StrongPassword">

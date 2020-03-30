@@ -1,6 +1,6 @@
 ---
-title: Módulo grelha-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Configuração por meio do módulo.
+title: Módulo Twin - Azure Event Grid IoT Edge [ Microsoft Docs
+description: Configuração via Módulo Twin.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,25 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72992148"
 ---
-# <a name="module-twin-json-schema"></a>Esquema JSON de módulo de entrelaçamento
+# <a name="module-twin-json-schema"></a>Esquema JSON twin módulo
 
-A grade de eventos no IoT Edge integra-se com o ecossistema IoT Edge e dá suporte à criação de tópicos e assinaturas por meio do módulo inserir. Ele também relata o estado atual de todos os tópicos e assinaturas de evento para as propriedades relatadas no módulo e...
+A Grelha de Eventos no IoT Edge integra-se com o ecossistema IoT Edge e suporta a criação de tópicos e subscrições através do Módulo Twin. Também relata o estado atual de todos os tópicos e subscrições de eventos para as propriedades reportadas no Módulo Twin.
 
 > [!WARNING]
-> Devido a limitações no ecossistema de IoT Edge, todos os elementos de matriz no exemplo JSON a seguir foram codificados como cadeias de caracteres JSON. Consulte as chaves `EventSubscription.Filter.EventTypes` e `EventSubscription.Filter.AdvancedFilters` no exemplo a seguir.
+> Devido a limitações no ecossistema IoT Edge, todos os elementos da matriz no exemplo json seguinte foram codificados como cordas json. Consulte `EventSubscription.Filter.EventTypes` `EventSubscription.Filter.AdvancedFilters` e as teclas no seguinte exemplo.
 
-## <a name="desired-properties-json"></a>JSON de propriedades desejadas
+## <a name="desired-properties-json"></a>Propriedades desejadas JSON
 
-* O valor de cada par chave-valor na seção Tópicos tem exatamente o mesmo esquema JSON usado para `Topic.Properties` na API ao criar tópicos.
-* O valor de cada par chave-valor na seção **EventSubscriptions** tem exatamente o mesmo esquema JSON usado para `EventSubscription.Properties` na API ao criar tópicos.
-* Para excluir um tópico, defina seu valor como `null` nas propriedades desejadas.
-* Não há suporte para a exclusão de assinaturas de evento via propriedades desejadas.
+* O valor de cada par de valor-chave na secção de tópicos tem exatamente o mesmo esquema JSON que é usado `Topic.Properties` na API ao criar tópicos.
+* O valor de cada par de valor-chave na secção **De Assinaturas** de Eventos `EventSubscription.Properties` tem exatamente o mesmo esquema json que é usado na API ao criar tópicos.
+* Para eliminar um tópico, `null` detete o seu valor nas propriedades desejadas.
+* A desposição de subscrições de eventos através de propriedades desejadas não é suportada.
 
 ```json
 {
@@ -79,13 +79,13 @@ A grade de eventos no IoT Edge integra-se com o ecossistema IoT Edge e dá supor
 }
 ```
 
-## <a name="reported-properties-json"></a>JSON de propriedades relatadas
+## <a name="reported-properties-json"></a>Propriedades reportadas JSON
 
-A seção de propriedades relatadas do módulo "/" inclui as seguintes informações:
+A secção de propriedades reportadas do módulo twin inclui as seguintes informações:
 
-* O conjunto de tópicos e assinaturas que existem na loja do módulo
-* Quaisquer erros encontrados ao criar os tópicos desejados/assinaturas de evento
-* Quaisquer erros de inicialização (como as propriedades desejadas, falha na análise de JSON)
+* O conjunto de tópicos e subscrições que existem na loja do módulo
+* Quaisquer erros encontrados ao criar tópicos/subscrições de eventos desejados
+* Quaisquer erros de arranque (tais como propriedades desejadas JSON parsing falhou)
 
 ```json
 {

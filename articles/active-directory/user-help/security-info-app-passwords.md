@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064075"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicação a partir da página informação de segurança (pré-visualização)
 
-Determinados aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas em sua organização, o aplicativo não funcionará. Para contornar este problema, pode criar uma senha gerada automaticamente para usar com cada aplicação não-navegador, separada da sua senha normal.
+Algumas aplicações, como o Outlook 2010, não suportam a verificação em duas etapas. Esta falta de suporte significa que se estiver a usar uma verificação em duas etapas na sua organização, a aplicação não funcionará. Para contornar este problema, pode criar uma senha gerada automaticamente para usar com cada aplicação não-navegador, separada da sua senha normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >O seu administrador pode não permitir que utilize senhas de aplicação. Se não vir as **palavras-passe** da App como uma opção, não estão disponíveis na sua organização.
 
-Ao usar senhas de aplicativo, é importante lembrar:
+Ao utilizar palavras-passe de aplicativos, é importante lembrar:
 
 - As palavras-passe da aplicação são geradas automaticamente e devem ser criadas e introduzidas uma vez por app.
 
-- Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
+- Há um limite de 40 senhas por utilizador. Se tentar criar uma após esse limite, será-lhe solicitado que apague uma palavra-passe existente antes de ser autorizada a criar a nova.
 
     >[!Note]
     >Os clientes do Office 2013 (incluindo o Outlook) suportam novos protocolos de autenticação e podem ser utilizados com verificação em duas etapas. Este suporte significa que, após a verificação em duas etapas, deixará de precisar de senhas de aplicação para clientes do Office 2013. Para mais informações, consulte o artigo de como a autenticação moderna funciona para o Office 2013 e artigo de [aplicações de clientes do Office 2016.](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517)
@@ -45,13 +45,13 @@ Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e
 
 ### <a name="to-create-a-new-app-password"></a>Para criar uma nova senha de aplicação
 
-1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho https://myprofile.microsoft.com/ ou escola e depois vá para a sua página.
 
-    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![A minha página de Perfil, mostrando links de informação de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecione **informações de segurança** a partir do painel de navegação esquerdo ou do link no bloco de **informações** de Segurança e, em seguida, selecione **adicionar método** a partir da página de informações de **Segurança.**
 
-    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página de informações de segurança com opção de método de adição realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar uma página de método,** selecione a **palavra-passe** da App a partir da lista de drop-down e, em seguida, selecione **Adicionar**.
 

@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 01/06/2020
-ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/18/2020
+ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064196"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são os ambientes de Aprendizagem automática Azure?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Os ambientes de Aprendizagem automática azure especificam os pacotes Python, variáveis ambientais e configurações de software em torno do seu treino e scripts de pontuação. Também especificam os tempos de execução (Python, Spark ou Docker). Os ambientes são geridos e entidades versonizadas dentro do seu espaço de trabalho machine learning que permitem fluxos de trabalho reprodutíveis, auditáveis e portáteis de aprendizagem automática através de uma variedade de alvos computacionais.
 
-Pode usar um objeto `Environment` na sua computação local para:
+Pode usar `Environment` um objeto na sua computação local para:
 * Desenvolva o seu roteiro de treino.
 * Reutilizar o mesmo ambiente na Computação de Aprendizagem automática Azure para formação de modelos em escala.
 * Implante o seu modelo com o mesmo ambiente.
 
-O diagrama que se segue ilustra como pode utilizar um único objeto `Environment` na configuração do seu funcionamento, para treino, e na sua configuração de inferência e implementação, para implementações de serviços web.
+O diagrama que se segue `Environment` ilustra como pode utilizar um único objeto na configuração do seu executo, para treino, e a sua configuração de inferência e implementação, para implementações de serviços web.
 
 ![Diagrama de um ambiente no fluxo de trabalho de aprendizagem automática](./media/concept-environments/ml-environment.png)
 
@@ -36,7 +36,7 @@ Os ambientes podem, em geral, ser divididos em três categorias: *curadoria,* *g
 
 Os ambientes com curadoria são fornecidos pela Azure Machine Learning e estão disponíveis no seu espaço de trabalho por padrão. Eles contêm coleções de pacotes python e configurações para ajudá-lo a começar com vários quadros de aprendizagem automática. 
 
-Em ambientes geridos pelo utilizador, é responsável por configurar o seu ambiente e instalar todos os pacotes que o seu script de treino necessita no alvo da computação. A Conda não verifica o seu ambiente nem instala nada para si. Se está a definir o seu próprio ambiente, deve enumerar `azureml-defaults` com versão `>= 1.0.45` como uma dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
+Em ambientes geridos pelo utilizador, é responsável por configurar o seu ambiente e instalar todos os pacotes que o seu script de treino necessita no alvo da computação. A Conda não verifica o seu ambiente nem instala nada para si. Se está a definir o seu próprio `azureml-defaults` ambiente, tem de listar com a versão `>= 1.0.45` como uma dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 Você usa ambientes geridos pelo sistema quando você quer que [a Conda](https://conda.io/docs/) gere o ambiente Python e as dependências do script para você. O serviço assume este tipo de ambiente por defeito, devido à sua utilidade em alvos de computação remota que não são manualmente configuráveis.
 
@@ -44,8 +44,8 @@ Você usa ambientes geridos pelo sistema quando você quer que [a Conda](https:/
 
 Pode criar ambientes através de:
 
-* Definindo novos objetos `Environment`, seja usando um ambiente curado ou definindo as suas próprias dependências.
-* Utilizando objetos `Environment` existentes do seu espaço de trabalho. Esta abordagem permite consistência e reprodutibilidade com as suas dependências.
+* Definindo `Environment` novos objetos, seja usando um ambiente curado ou definindo as suas próprias dependências.
+* Utilizando objetos existentes `Environment` do seu espaço de trabalho. Esta abordagem permite consistência e reprodutibilidade com as suas dependências.
 * Importando de uma definição ambiental existente da Anaconda.
 * Utilização do CLI de aprendizagem automática azure
 
@@ -92,10 +92,13 @@ Consulte o diagrama que mostra três definições de ambiente. Dois deles têm n
 
 ![Diagrama de ambiente caching como imagens docker](./media/concept-environments/environment-caching.png)
 
-Se criar um ambiente com dependência de pacotes desafixado, por exemplo, ```numpy```, esse ambiente continuará a utilizar a versão do pacote instalada no momento da criação ambiental. Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo, ```numpy==1.18.1```. Note que novas dependências, incluindo as aninhadas serão instaladas que podem quebrar um cenário de trabalho anterior
+>[!IMPORTANT]
+> Se criar um ambiente com uma dependência de ```numpy```pacote sem ênfase, por exemplo, esse ambiente continuará a utilizar a versão do pacote instalada _no momento da criação do ambiente._ Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. 
+
+Para atualizar o pacote, especifique um ```numpy==1.18.1```número de versão para forçar a reconstrução da imagem, por exemplo. Note que novas dependências, incluindo as aninhadas, serão instaladas que poderão quebrar um cenário de funcionamento anterior.
 
 > [!WARNING]
->  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não ligados e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
+>  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não ligados e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138024"
 ---
-# <a name="securing-paas-deployments"></a>Assegurar as implementações do PaaS
+# <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
 Este artigo fornece informações que o ajudam:
 
@@ -100,11 +100,11 @@ A tabela seguinte enumera as ameaças do STRIDE e dá alguns exemplos de atenua�
 
 | Ameaça | Propriedade de segurança | Potenciais mitigações da plataforma Azure |
 | --- | --- | --- |
-| Falsificação | Autenticação | Requerer ligações HTTPS. |
+| Spoofing | Autenticação | Requerer ligações HTTPS. |
 | Adulteração | Integridade | Valide os certificados SSL. |
 | Repúdio | Não-repústação | Ativar [a monitorização e diagnóstico](/azure/architecture/best-practices/monitoring)do Azure. |
 | Divulgação de informação | Confidencialidade | Criptografe dados sensíveis em repouso utilizando [certificados](/rest/api/appservice/certificates)de serviço . |
-| Negação de serviço | Disponibilidade | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. |
+| Denial of service | Disponibilidade | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. |
 | Elevação do privilégio | Autorização | Utilizar [a Gestão de Identidade Privilegiada.](/azure/active-directory/privileged-identity-management/subscription-requirements) |
 
 ## <a name="develop-on-azure-app-service"></a>Desenvolver no Serviço de Aplicações Azure
@@ -144,8 +144,8 @@ Utilize insights de [aplicação Azure](https://azure.microsoft.com/documentatio
 
 O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Pode tirar partido da funcionalidade partilhada, como alertas, dashboards e análise profunda com a linguagem de consulta kusto.
 
-## <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
-Validar defesas de segurança é tão importante como testar qualquer outra funcionalidade. Faça dos testes de [penetração](pen-testing.md) uma parte padrão do seu processo de construção e implementação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
+## <a name="perform-security-penetration-testing"></a>Realizar testes de penetração de segurança
+Validar defesas de segurança é tão importante como testar qualquer outra funcionalidade. Faça dos testes de [penetração](pen-testing.md) uma parte padrão do seu processo de construção e implementação. Agende testes regulares de segurança e verificação de vulnerabilidades em aplicações implementadas e monitorize para portas abertas, pontos finais e ataques.
 
 O teste fuzz é um método para encontrar falhas no programa (erros de código) fornecendo dados de entrada mal formados para interfaces de programa (pontos de entrada) que analisam e consomem estes dados. [A Microsoft Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada na nuvem que pode utilizar para procurar bugs e outras vulnerabilidades de segurança no seu software antes de a implementar no Azure. A ferramenta foi concebida para capturar vulnerabilidades antes de implementar software para que não tenha de corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
 
@@ -153,9 +153,9 @@ O teste fuzz é um método para encontrar falhas no programa (erros de código) 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, focamo-nos nas vantagens de segurança de uma implantação do Azure PaaS e das melhores práticas de segurança para aplicações na nuvem. Em seguida, aprenda as práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure SQL Data Warehouse e Azure Storage. À medida que os artigos sobre práticas recomendadas para outros serviços do Azure ficarem disponíveis, serão fornecidas ligações na seguinte lista:
 
-- [App Service do Azure](paas-applications-using-app-services.md)
+- [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)
 - [Base de Dados Azure SQL e Armazém de Dados Azure SQL](paas-applications-using-sql.md)
-- [Armazenamento do Azure](paas-applications-using-storage.md)
+- [Storage do Azure](paas-applications-using-storage.md)
 - Cache do Azure para Redis
 - Service Bus do Azure
 - Firewalls de aplicação web
@@ -166,4 +166,4 @@ Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de s
 
 Os seguintes recursos estão disponíveis para fornecer informações mais gerais sobre segurança Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas novidades em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com

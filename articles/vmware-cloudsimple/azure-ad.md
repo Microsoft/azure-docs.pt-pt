@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564589"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Use o Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud
@@ -67,7 +67,7 @@ Pode configurar opcionalmente outras funcionalidades da AD Azure.  Estes não s�
     1. Se os utilizadores apenas na nuvem estiverem presentes, devem alterar a sua palavra-passe utilizando o painel de <a href="http://myapps.microsoft.com/" target="_blank">acesso Azure AD</a> para garantir que as hashes de senha são armazenadas no formato exigido pela NTLM ou pela Kerberos.  Siga as instruções em Ativação de sincronização de [hash no domínio gerido para contas de utilizador apenas](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)na nuvem .  Este passo deve ser feito para utilizadores individuais e qualquer novo utilizador que seja criado no seu diretório Azure AD utilizando o portal Azure ou os cmdlets Azure AD PowerShell. Os utilizadores que necessitem de acesso aos serviços de domínio Azure AD devem utilizar o painel de <a href="http://myapps.microsoft.com/" target="_blank">acesso Azure AD</a> e aceder ao seu perfil para alterar a palavra-passe.
 
         > [!NOTE]
-        > Se a sua organização tiver contas de utilizadores exclusivas em nuvem, todos os utilizadores que necessitem de utilizar os Serviços de Domínio do Diretório Ativo Azure devem alterar as suas palavras-passe. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de utilizador não são sincronizadas a partir de um diretório no local.
+        > Se a sua organização tiver contas de utilizador apenas na cloud, todos os utilizadores que precisam de utilizar o Azure Active Directory Domain Services têm de alterar as respetivas palavras-passe. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de utilizador não são sincronizadas a partir de um diretório no local.
 
     2. Se estiver a sincronizar palavras-passe do seu diretório Ativo no local, siga os passos na documentação do [Diretório Ativo](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
@@ -86,14 +86,14 @@ Pode configurar opcionalmente outras funcionalidades da AD Azure.  Estes não s�
     | **Opção** | **Descrição** |
     |------------|-----------------|
     | **Nome** | Nome da fonte de identidade. |
-    | **Base DN para utilizadores** | Nome distinto da base para os utilizadores.  Para o Azure AD, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
+    | **Base DN para utilizadores** | Nome distinto da base para os utilizadores.  Para a AD Azure, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
     | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus endereços ip. |
     | **Pseudónimo de domínio** | *(opcional)* O nome de domínio NetBIOS. Adicione o nome NetBIOS do domínio Ative Diretório como pseudónimo da fonte de identidade se estiver a utilizar autenticações SSPI. |
-    | **Base DN para grupos** | A base distinguia o nome dos grupos. Para a AD Azure, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **URL do Servidor Primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldaps://hostname:port`. A porta é tipicamente 636 para ligações LDAPS. <br><br>É necessário um certificado que estabeleça confiança para o ponto final lDAPS do servidor Ative Directory quando utilizar `ldaps://` no URL LDAP primário ou secundário. |
+    | **Base DN para grupos** | A base distinguia o nome dos grupos. Para a AD Azure, utilize: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` Exemplo:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **URL do Servidor Primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o `ldaps://hostname:port`formato . A porta é tipicamente 636 para ligações LDAPS. <br><br>É necessário um certificado que estabeleça confiança para o ponto final lDAPS `ldaps://` do servidor Ative Directory quando utilizar o URL LDAP primário ou secundário. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para falha. |
-    | **Escolha certificado** | Se pretender utilizar o LDAPS com o seu Servidor LDAP de Diretório Ativo ou a fonte de identidade do Servidor OpenLDAP, aparece um botão de certificado Choose depois de escrever `ldaps://` na caixa de texto URL. Não é necessário um URL secundário. |
-    | **Nome de Utilizador** | ID de um utilizador no domínio que tenha um mínimo de acesso apenas a leitura a Base DN para utilizadores e grupos. |
+    | **Escolha certificado** | Se pretender utilizar o LDAPS com o seu Servidor LDAP de Diretório Ativo ou a `ldaps://` fonte de identidade do Servidor OpenLDAP, aparece um botão de certificado Choose depois de digitar a caixa de texto URL. Não é necessário um URL secundário. |
+    | **Nome de utilizador** | ID de um utilizador no domínio que tenha um mínimo de acesso apenas a leitura a Base DN para utilizadores e grupos. |
     | **Palavra-passe** | Palavra-passe do utilizador especificado pelo Username. |
 
 3. Inscreva-se no seu vCenter Private Cloud depois de os privilégios serem aumentados.

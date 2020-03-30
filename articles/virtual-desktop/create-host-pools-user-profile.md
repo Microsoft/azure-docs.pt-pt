@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250923"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
@@ -47,8 +47,8 @@ As seguintes são instruções gerais sobre como preparar uma máquina virtual p
 1. Adicione os utilizadores ativos do Windows Ao Diretório Ativo do Windows ao [Diretório Ativo](/windows/security/identity-protection/access-control/active-directory-security-groups/). Este grupo de segurança será utilizado para autenticar os utilizadores do Windows Virtual Desktop na máquina virtual de partilha de ficheiros que acaba de criar.
 2. [Ligue-se à máquina virtual de partilha de ficheiros](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
 3. Na máquina virtual de partilha de ficheiros, crie uma pasta na **unidade C** que será utilizada como partilha de perfil.
-4. Clique na nova pasta, selecione **Propriedades,** selecione **Partilhar,** em seguida, selecione **Partilha Avançada...** .
-5. Selecione **Partilhar esta pasta,** selecione **Permissões...** e, em seguida, selecione **Adicionar...** .
+4. Clique na nova pasta, selecione **Propriedades,** selecione **Partilhar,** em seguida, selecione **Partilha Avançada...**.
+5. Selecione **Partilhar esta pasta,** selecione **Permissões...** e, em seguida, selecione **Adicionar...**.
 6. Procure o grupo de segurança ao qual adicionou os utilizadores do Windows Virtual Desktop e, em seguida, certifique-se de que o grupo tem **controlo completo**.
 7. Depois de adicionar o grupo de segurança, clique na pasta, selecione **Propriedades,** **selecione Partilhar,** e depois copie o Caminho da **Rede** para usar mais tarde.
 
@@ -60,9 +60,9 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 
 1. [Ligue-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
 2. Lance um navegador de internet e navegue para [este link](https://go.microsoft.com/fwlink/?linkid=2084562) para descarregar o agente FSLogix.
-3. Navegue para \\\\Win32\\Release ou \\\\X64\\Lançamento no ficheiro .zip e execute **fSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [O Download e instala o FSLogix](/fslogix/install-ht/).
-4. Navegue para **Ficheiros** de Programa > **FSLogix** > **Apps** para confirmar o agente instalado.
-5. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **o software\\de\\HKEY_LOCAL_MACHINE de\\de computador  FSLogix**.
+3. Navegue \\ \\para o\\Lançamento \\ \\Win32 ou Para o Lançamento X64\\no ficheiro .zip e execute o **FSLogixAppsSetup** para instalar o agente FSLogix.  Para saber mais sobre como instalar o FSLogix, consulte [O Download e instala o FSLogix](/fslogix/install-ht/).
+4. Navegue para **O Programa Ficheiros** > **FSLogix** > **Apps** para confirmar o agente instalado.
+5. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **software\\\\\\De HKEY_LOCAL_MACHINE De computador FSLogix**.
 6. Criar uma chave chamada **Perfis.**
 7. Criar os seguintes valores para a chave Perfis:
 

@@ -1,6 +1,6 @@
 ---
-title: Habilitar rede acelerada para recuperação de desastre de VM do Azure com Azure Site Recovery
-description: Descreve como habilitar a rede acelerada com o Azure Site Recovery para a recuperação de desastre da máquina virtual do Azure
+title: Ativar a rede acelerada para a recuperação de desastres do Azure VM com a Recuperação do Site Azure
+description: Descreve como permitir a recuperação acelerada de networking com o site Azure para a recuperação de desastres de máquinas virtuais azure
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -10,82 +10,82 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73622437"
 ---
-# <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com a recuperação de desastre da máquina virtual do Azure
+# <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Networking acelerado com recuperação de desastres de máquina virtual Azure
 
-A rede acelerada habilita o SR-IOV (virtualização de e/s de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de DataPath, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes em tipos de VM com suporte. A figura a seguir mostra a comunicação entre duas VMs com e sem rede acelerada:
+A rede acelerada permite a virtualização de I/O de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este caminho de alto desempenho contorna o hospedeiro a partir da trajetória de dados, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A imagem seguinte mostra a comunicação entre dois VMs com e sem ligação acelerada:
 
 ![Comparação](./media/azure-vm-disaster-recovery-with-accelerated-networking/accelerated-networking-benefit.png)
 
-O Azure Site Recovery permite que você utilize os benefícios da rede acelerada para as máquinas virtuais do Azure que passarem por failover para uma região diferente do Azure. Este artigo descreve como você pode habilitar a rede acelerada para máquinas virtuais do Azure replicadas com o Azure Site Recovery.
+A Recuperação do Site Azure permite-lhe utilizar os benefícios da Rede Acelerada, para máquinas virtuais Azure que são falhadas numa região azure diferente. Este artigo descreve como pode ativar a Rede Acelerada para máquinas virtuais Azure replicadas com a Recuperação do Site Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você entendeu:
--   [Arquitetura de replicação](azure-to-azure-architecture.md) de máquina virtual do Azure
--   [Configurando a replicação](azure-to-azure-tutorial-enable-replication.md) para máquinas virtuais do Azure
--   [](azure-to-azure-tutorial-failover-failback.md) Fazendo failover Máquinas virtuais do Azure
+Antes de começar, certifique-se de que compreende:
+-   Arquitetura de [replicação](azure-to-azure-architecture.md) de máquinas virtuais Azure
+-   [Criação de replicação](azure-to-azure-tutorial-enable-replication.md) para máquinas virtuais Azure
+-   [Falhando](azure-to-azure-tutorial-failover-failback.md) Máquinas virtuais Azure
 
-## <a name="accelerated-networking-with-windows-vms"></a>Rede acelerada com VMs do Windows
+## <a name="accelerated-networking-with-windows-vms"></a>Networking acelerado com VMs do Windows
 
-Azure Site Recovery dá suporte à habilitação da rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a rede acelerada habilitada. Se sua máquina virtual de origem não tiver a rede acelerada habilitada, você poderá aprender como habilitar a rede acelerada para máquinas virtuais do Windows [aqui](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
-
-### <a name="supported-operating-systems"></a>Sistemas operativos suportados
-As distribuições a seguir têm suporte pronto para uso na galeria do Azure:
-* **Windows Server 2016 datacenter**
-* **Datacenter do Windows Server 2012 R2**
-
-### <a name="supported-vm-instances"></a>Instâncias de VM com suporte
-A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/FS
-
-Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/DSv3, E/ESv3, Fsv2 e MS/MMS
-
-Para obter mais informações sobre instâncias de VM, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-## <a name="accelerated-networking-with-linux-vms"></a>Rede acelerada com VMs Linux
-
-Azure Site Recovery dá suporte à habilitação da rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a rede acelerada habilitada. Se sua máquina virtual de origem não tiver a rede acelerada habilitada, você poderá aprender a habilitar a rede acelerada para máquinas virtuais Linux [aqui](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+Suportes de recuperação do site Azure que permitem a rede acelerada para máquinas virtuais replicadas apenas se a máquina virtual de origem tiver ativado a rede acelerada. Se a sua máquina virtual de origem não tiver uma Rede Acelerada ativada, pode aprender a ativar a Rede Acelerada para máquinas virtuais windows [aqui](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
-As distribuições a seguir têm suporte pronto para uso na galeria do Azure:
-* **Ubuntu 16, 4**
+As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
+* **Windows Server 2016 Datacenter**
+* **Windows Server 2012 R2 Datacenter**
+
+### <a name="supported-vm-instances"></a>Casos de VM suportados
+O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para a computação com 2 ou mais vCPUs.  Estas séries apoiadas são: D/DSv2 e F/Fs
+
+Em casos que suportam hiperthreading, o Networking Acelerado é suportado em casos vM com 4 ou mais vCPUs. As séries suportadas são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms
+
+Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="accelerated-networking-with-linux-vms"></a>Networking acelerado com VMs Linux
+
+Suportes de recuperação do site Azure que permitem a rede acelerada para máquinas virtuais replicadas apenas se a máquina virtual de origem tiver ativado a rede acelerada. Se a sua máquina virtual de origem não tiver rede acelerada ativada, pode aprender a ativar a Rede Acelerada para máquinas virtuais Linux [aqui](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+
+### <a name="supported-operating-systems"></a>Sistemas operativos suportados
+As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
+* **Ubuntu 16.04**
 * **SLES 12 SP3**
-* **RHEL 7,4**
+* **RHEL 7.4**
 * **CentOS 7.4**
 * **CoreOS Linux**
-* **Debian "Stretch" com kernel de backports**
-* **Oracle Linux 7,4**
+* **Debian "Esticar" com núcleo de backports**
+* **Oracle Linux 7.4**
 
-### <a name="supported-vm-instances"></a>Instâncias de VM com suporte
-A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/FS
+### <a name="supported-vm-instances"></a>Casos de VM suportados
+O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para a computação com 2 ou mais vCPUs.  Estas séries apoiadas são: D/DSv2 e F/Fs
 
-Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/DSv3, E/ESv3, Fsv2 e MS/MMS.
+Em casos que suportam hiperthreading, o Networking Acelerado é suportado em casos vM com 4 ou mais vCPUs. As séries suportadas são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms.
 
-Para obter mais informações sobre instâncias de VM, consulte [tamanhos de VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre os casos de VM, consulte os [tamanhos de VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="enabling-accelerated-networking-for-replicated-vms"></a>Habilitando a rede acelerada para VMs replicadas
+## <a name="enabling-accelerated-networking-for-replicated-vms"></a>Habilitar a rede acelerada para VMs replicados
 
-Quando você [habilita a replicação](azure-to-azure-tutorial-enable-replication.md) para máquinas virtuais do Azure, site Recovery detectará automaticamente se as interfaces de rede da máquina virtual têm a rede acelerada habilitada. Se a rede acelerada já estiver habilitada, Site Recovery irá configurar automaticamente a rede acelerada nas interfaces de rede da máquina virtual replicada.
+Quando [ativa a replicação](azure-to-azure-tutorial-enable-replication.md) para máquinas virtuais Azure, a Recuperação do Site detetará automaticamente se as interfaces de rede de máquinas virtuais têm rede acelerada ativada. Se a Rede Acelerada já estiver ativada, a Recuperação do Site configurará automaticamente a Rede Acelerada nas interfaces de rede da máquina virtual replicada.
 
-O status de rede acelerada pode ser verificado na seção **interfaces de rede** das configurações de **computação e rede** da máquina virtual replicada.
+O estado da Rede Acelerada pode ser verificado na secção de **interfaces** de rede das definições **Compute e Rede** para a máquina virtual replicada.
 
-![Configuração de rede acelerada](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
+![Definição acelerada de networking](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
 
-Se você tiver habilitado a rede acelerada na máquina virtual de origem depois de habilitar a replicação, poderá habilitar a rede acelerada para as interfaces de rede da máquina virtual replicada pelo seguinte processo:
-1. Abrir as configurações de **computação e rede** para a máquina virtual replicada
-2. Clique no nome da interface de rede na seção **interfaces de rede**
-3. Selecione **habilitado** na lista suspensa para rede acelerada na coluna de **destino**
+Se tiver ativado a Rede Acelerada na máquina virtual de origem após a replicação, pode ativar a Rede Acelerada para as interfaces de rede da máquina virtual replicada pelo seguinte processo:
+1. Configurações de **Computação aberta e rede** para a máquina virtual replicada
+2. Clique no nome da interface de rede sob a secção **interfaces de rede**
+3. Selecione **Ativado** a partir do dropdown para Networking Acelerado sob a coluna **Target**
 
-![Habilitar rede acelerada](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
+![Ativar o Networking Acelerado](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
 
-O processo acima também deve ser seguido para máquinas virtuais replicadas existentes, que anteriormente não tinham a rede acelerada habilitada automaticamente pelo Site Recovery.
+O processo acima deve também ser seguido para máquinas virtuais replicadas existentes, que anteriormente não tinham rede acelerada ativada automaticamente pela Recuperação do Local.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre os [benefícios da rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits).
-- Saiba mais sobre limitações e restrições de rede acelerada para [máquinas virtuais do Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) e [máquinas virtuais do Linux](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints).
-- Saiba mais sobre os [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover de aplicativos.
+- Saiba mais sobre [os benefícios do Networking Acelerado.](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits)
+- Saiba mais sobre limitações e restrições de Networking Acelerado para [máquinas virtuais Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) e [máquinas virtuais Linux](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints).
+- Saiba mais sobre [os planos](site-recovery-create-recovery-plans.md) de recuperação para automatizar falha na aplicação.

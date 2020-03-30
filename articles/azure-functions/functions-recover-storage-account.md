@@ -1,15 +1,15 @@
 ---
 title: 'Erro de resolução de problemas: Funções Azure O tempo de funcionamento é inacessível'
-description: Saiba como solucionar problemas de uma conta de armazenamento inválida.
+description: Aprenda a resolver problemas com uma conta de armazenamento inválida.
 author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063786"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de resolução de problemas: "Funções Azure O tempo de funcionamento é inacessível"
@@ -24,9 +24,9 @@ O resto deste artigo ajuda-o a resolver as seguintes causas deste erro, incluind
 
 ## <a name="storage-account-was-deleted"></a>Conta de armazenamento foi eliminada
 
-Cada aplicativo de funções requer uma conta de armazenamento para operar. Se essa conta for eliminada, a sua função não funcionará.
+Todas as aplicações de função requerem uma conta de armazenamento para funcionar. Se essa conta for eliminada, a sua função não funcionará.
 
-Comece por procurar o nome da sua conta de armazenamento nas definições da sua aplicação. Ou `AzureWebJobsStorage` ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento embrulhada numa cadeia de ligação. Para mais informações, consulte a referência de definições da [App para funções azure](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Comece por procurar o nome da sua conta de armazenamento nas definições da sua aplicação. Ou `AzureWebJobsStorage` `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` ou contém o nome da sua conta de armazenamento embrulhada numa cadeia de ligação. Para mais informações, consulte a referência de definições da [App para funções azure](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
 Procure a sua conta de armazenamento no portal Azure para ver se ainda existe. Se tiver sido eliminada, recrie a conta de armazenamento e substitua as cordas de ligação de armazenamento. O teu código de função perdeu-se e tens de o reimplantar.
 
@@ -34,9 +34,9 @@ Procure a sua conta de armazenamento no portal Azure para ver se ainda existe. S
 
 No passo anterior, se não encontrar uma cadeia de ligação à conta de armazenamento, provavelmente foi apagada ou substituída. A desposição das definições de aplicações ocorre mais frequentemente quando se está a utilizar slots de implementação ou scripts do Gestor de Recursos Do Azure para definir as definições de aplicações.
 
-### <a name="required-application-settings"></a>Configurações de aplicativo necessárias
+### <a name="required-application-settings"></a>Definições de aplicação necessárias
 
-* Necessária:
+* Necessário:
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Necessário para as funções do plano de consumo:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
@@ -48,7 +48,7 @@ Para mais informações, consulte a referência de definições da [App para fun
 
 * Não verifique "configuração de slot" para qualquer destas definições. Se trocar as ranhuras de implementação, a aplicação de função quebra-se.
 * Não modifique estas definições como parte de implementações automatizadas.
-* Essas configurações devem ser fornecidas e válidas no momento da criação. Uma implementação automatizada que não contenha estas definições resulta numa aplicação de função que não será executada, mesmo que as definições sejam adicionadas mais tarde.
+* Estas definições devem ser fornecidas e válidas no momento da criação. Uma implementação automatizada que não contenha estas definições resulta numa aplicação de função que não será executada, mesmo que as definições sejam adicionadas mais tarde.
 
 ## <a name="storage-account-credentials-are-invalid"></a>Credenciais de conta de armazenamento são inválidas
 
@@ -66,13 +66,13 @@ A sua aplicação de funções deve poder aceder à conta de armazenamento. Ques
 
 Se tiver uma quota de execução diária configurada, a sua aplicação de função está temporariamente desativada, o que faz com que muitos dos controlos do portal fiquem indisponíveis. 
 
-Para verificar a quota no [portal Azure,](https://portal.azure.com)selecione **Funcionalidades** da plataforma > Definições de aplicações de **função** na sua aplicação de função. Se tiver ultrapassado a Quota de **Utilização Diária** que definiu, a seguinte mensagem é exibida:
+Para verificar a quota no [portal Azure,](https://portal.azure.com)selecione Definições de**aplicações** de **funcionalidades** > da plataforma na sua aplicação de função. Se tiver ultrapassado a Quota de **Utilização Diária** que definiu, a seguinte mensagem é exibida:
 
   > "A App função atingiu a quota de utilização diária e foi interrompida até às próximas 24 horas."
 
 Para resolver este problema, remova ou aumente a quota diária e, em seguida, reinicie a sua aplicação. Caso contrário, a execução da sua aplicação está bloqueada até ao dia seguinte.
 
-## <a name="app-is-behind-a-firewall"></a>O aplicativo está protegido por um firewall
+## <a name="app-is-behind-a-firewall"></a>App está por trás de uma firewall
 
 O seu tempo de funcionamento pode ser inacessível por qualquer uma das seguintes razões:
 
@@ -95,4 +95,4 @@ Para obter mais informações sobre a configuração das regras de entrada, cons
 Saiba mais sobre a monitorização das suas aplicações de função:
 
 > [!div class="nextstepaction"]
-> [Monitorizar funções azure](functions-monitoring.md)
+> [Monitorizar as Funções do Azure](functions-monitoring.md)

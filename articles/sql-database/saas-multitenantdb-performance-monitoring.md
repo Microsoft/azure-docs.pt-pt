@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214162"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorize e gerencie o desempenho da base de dados Azure SQL multi-inquilino numa aplicação SaaS multi-inquilino
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Aumentar a base de dados em resposta ao aumento da carga da base de dados
 > * Provisão de um inquilino para uma base de dados de um único inquilino
 
-Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
+Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 * A aplicação de base de dados de bilhetes SaaS Multi-inquilinos SaaS está implementada. Para implantar em menos de cinco minutos, consulte Implementar e explorar a aplicação de [base de dados multi-inquilinos SaaS](saas-multitenantdb-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
@@ -63,8 +63,8 @@ Para uma boa compreensão de como funciona a monitorização e gestão de desemp
 
 Se já disponibilizou um lote de inquilinos num tutorial anterior, salte para o uso simular em todas as bases de dados dos [inquilinos.](#simulate-usage-on-all-tenant-databases)
 
-1. No **PowerShell ISE,** aberto... módulos de aprendizagem\\\\monitorização e gestão de desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Defina **$DemoScenario** = **1**, _Aprovisionar um lote de inquilinos_
+1. No **PowerShell ISE,** aberto ... \\Módulos\\de Aprendizagem\\Monitorização de Desempenho e Gestão*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Conjunto **$DemoScenario** = **1**, _Provisiona um lote de inquilinos_
 1. Prima **F5** para executar o script.
 
 O guião coloca 17 inquilinos na base de dados de vários inquilinos em poucos minutos. 
@@ -84,8 +84,8 @@ O script *Demo-PerformanceMonitoringAndManagement.ps1* é fornecido que simula u
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em DTUs), duração e intervalos são variados em todas as bases de dados, simulando atividade de inquilino imprevisível.
 
-1. No **PowerShell ISE,** aberto... módulos de aprendizagem\\\\monitorização e gestão de desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Definir **$DemoScenario** = **2**, Gerar carga de _intensidade normal_
+1. No **PowerShell ISE,** aberto ... \\Módulos\\de Aprendizagem\\Monitorização de Desempenho e Gestão*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Set **$DemoScenario** = **2**, Gerar carga de _intensidade normal_
 1. Pressione **F5** para aplicar uma carga a todos os seus inquilinos.
 
 Wingtip Tickets SaaS Multi-inquilino Base de Dados é uma aplicação SaaS, e a carga real numa aplicação SaaS é tipicamente esporádica e imprevisível. Para simular isto, o gerador de carga produz uma carga aleatória distribuída por todos os inquilinos. São necessários vários minutos para que o padrão de carga emerja, por isso, coloque o gerador de carga durante 3-5 minutos antes de tentar monitorizar a carga nas seguintes secções.
@@ -97,7 +97,7 @@ Wingtip Tickets SaaS Multi-inquilino Base de Dados é uma aplicação SaaS, e a 
 
 Para monitorizar o uso de recursos que resulta da carga aplicada, abra o portal para a base de dados multi-arrendatária, **inquilinos1,** contendo os inquilinos:
 
-1. Abra o [portal Azure](https://portal.azure.com) e navegue até aos *inquilinos do servidor1-mt-&lt;USER&gt;* .
+1. Abra o [portal Azure](https://portal.azure.com) e navegue para os *inquilinos&lt;do servidor1-mt- USER&gt;*.
 1. Desloque-se e localize bases de dados e clique **em inquilinos1**. Esta base de dados de multiinquilinos contém todos os inquilinos criados até agora.
 
 ![gráfico de base de dados](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -106,9 +106,9 @@ Observe o gráfico **dTU.**
 
 ## <a name="set-performance-alerts-on-the-database"></a>Definir alertas de desempenho na base de dados
 
-Deseme um alerta na base de dados que desencadeie \>utilização de 75% da seguinte forma:
+Deseme um alerta na \>base de dados que desencadeie uma utilização de 75% da seguinte forma:
 
-1. Abra a base de dados dos *inquilinos1* (no servidor de&gt;utilizador&lt;dos *inquilinos)* no [portal Azure.](https://portal.azure.com)
+1. Abra a base de dados dos *inquilinos1* (no servidor *&lt;de inquilinos1-mt- USER)&gt; * no portal [Azure](https://portal.azure.com).
 1. Clique em **Regras de Alerta**e, em seguida, clique em **+ Adicionar alerta**:
 
    ![adicionar alerta](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -133,7 +133,7 @@ Se o nível de carga aumentar numa base de dados ao ponto de atingir a base de d
 
 Pode simular uma base de dados movimentada aumentando a carga produzida pelo gerador. Fazendo com que os inquilinos rebentem com mais frequência e, por mais tempo, aumentem a carga na base de dados multi-inquilinos sem alterar os requisitos dos inquilinos individuais. A escala da base de dados é facilmente feita no portal ou no PowerShell. Este exercício utiliza o portal.
 
-1. Defina *$DemoScenario* = **3**, _Gere carga com explosões mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na base de dados sem alterar a carga máxima exigida por cada inquilino.
+1. Conjunto *$DemoScenario* = **3**, Gere carga _com explosões mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na base de dados sem alterar a carga máxima exigida por cada inquilino.
 1. Prima **F5** para aplicar uma carga a todas as bases de dados de inquilinos.
 1. Vá à base de dados dos **inquilinos1** no portal Azure.
 
@@ -143,7 +143,7 @@ Monitorize o uso de DTU da base de dados aumentado na tabela superior. Demora al
 1. Ajuste a regulação **dTU** para **100**. 
 1. Clique **Em Aplicar** para submeter o pedido para escalar a base de dados.
 
-Volte para os **inquilinos1** > **visão geral** para ver as tabelas de monitorização. Monitorize o efeito de fornecer à base de dados mais recursos (embora com poucos inquilinos e uma carga aleatória nem sempre seja fácil de ver conclusivamente até correr durante algum tempo). Enquanto você está olhando para os gráficos lembre-se que 100% na tabela superior agora representa 100 DTUs, enquanto na tabela inferior 100% ainda é 50 DTUs.
+Volte para os **inquilinos1** > **Visão geral** para ver as tabelas de monitorização. Monitorize o efeito de fornecer à base de dados mais recursos (embora com poucos inquilinos e uma carga aleatória nem sempre seja fácil de ver conclusivamente até correr durante algum tempo). Enquanto você está olhando para os gráficos lembre-se que 100% na tabela superior agora representa 100 DTUs, enquanto na tabela inferior 100% ainda é 50 DTUs.
 
 As bases de dados permanecem online e estão totalmente disponíveis durante o processo. O código de aplicação deve ser sempre escrito para voltar a tentar ligações abandonadas, pelo que voltará a ligar-se à base de dados.
 
@@ -153,9 +153,9 @@ O modelo de multiinquilino sharded permite-lhe escolher se deve fornecer um novo
 
 Se já disponibilizou um novo inquilino na sua própria base de dados, ignore os próximos passos.
 
-1. No **PowerShell ISE,** aberto...\\Módulos de Aprendizagem\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
+1. No **PowerShell ISE,** aberto ... \\Módulos\\de Aprendizagem ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
 1. Modificar **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**
-1. Definir **$Scenario** = **2**, _Provisão de um inquilino numa nova base de dados de inquilinos únicos_
+1. Conjunto **$Scenario** = **2**, _Provisão de um inquilino numa nova base de dados de inquilinos únicos_
 1. Prima **F5** para executar o script.
 
 O script fornecerá este inquilino numa base de dados separada, registará a base de dados e o inquilino com o catálogo e, em seguida, abrirá a página de Eventos do inquilino no navegador. Refresque a página do Events Hub e verá que "Salix Salsa" foi adicionado como um local.
@@ -166,12 +166,12 @@ Se um único inquilino dentro de uma base de dados multi-inquilinos experimentar
 
 Este exercício simula o efeito da Salix Salsa experimentando uma carga elevada quando os bilhetes estão à venda para um evento popular.
 
-1. Abra o roteiro ... *\\Demo-PerformanceMonitoringAndManagement.ps1.*
+1. Abra o ... \\ *Roteiro Demo-PerformanceMonitoringAndManagement.ps1.*
 1. Coloque **$DemoScenario = 5**, Gere uma carga normal mais uma carga elevada num único inquilino _(aproximadamente 90 DTU)._
 1. Set **$SingleTenantName = Salix Salsa**
 1. Execute o script com **F5**.
 
-Vá ao portal e navegue até **salixsalsa** > **visão geral** para ver as tabelas de monitorização. 
+Vá ao portal e navegue até à**visão geral** da **salixsalsa** > para ver as tabelas de monitorização. 
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gestão de desempenho
 
@@ -183,7 +183,7 @@ Como o dimensionamento é uma tarefa facilmente chamada através da API de gest�
 
 Onde o uso agregado de inquilinos segue padrões de utilização previsíveis, você pode usar a Automatização Azure para escalar uma base de dados para cima e para baixo em um horário. Por exemplo, reduza uma base de dados depois das 18:00 e volte a subir antes das 6h nos dias úteis, quando souber que há uma diminuição dos requisitos de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficará a saber como:
 
@@ -196,4 +196,4 @@ Neste tutorial, ficará a saber como:
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-* [Automatização do Azure](../automation/automation-intro.md)
+* [Automação Azure](../automation/automation-intro.md)

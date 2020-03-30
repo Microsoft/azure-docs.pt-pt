@@ -1,5 +1,5 @@
 ---
-title: Agendar trabalhos com o Azure IoT Hub (.NET/.NET)  Microsoft Docs
+title: Agendar trabalhos com o Azure IoT Hub (.NET/.NET) [ Microsoft Docs
 description: Como agendar um trabalho do Azure IoT Hub para invocar um método direto em vários dispositivos. Utiliza o dispositivo Azure IoT SDK para implementar as aplicações simuladas do dispositivo e uma aplicação de serviço para executar o trabalho.
 author: robinsh
 manager: philmea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 7925ca5c69d01b098764ff744fb832eaa43118d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77108964"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Horárioe trabalhos de transmissão (.NET)
@@ -43,7 +43,7 @@ Este tutorial mostrar-lhe como:
 
 * Crie uma aplicação de back-end que crie um trabalho para chamar o método direto **LockDoor** em vários dispositivos. Outro trabalho envia atualizações de propriedade desejadas para vários dispositivos.
 
-No final deste tutorial, tens duasC#aplicações de consola .NET ( NET):
+No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
 * **Métodos de Simulação**de Dispositivos . Esta aplicação liga-se ao seu hub IoT e implementa o método direto **LockDoor.**
 
@@ -83,7 +83,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 
     Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet do [dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
-1. Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
+1. Adicione as `using` seguintes declarações na parte superior do ficheiro **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -156,7 +156,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 > Para manter as coisas simples, este tutorial não implementa quaisquer políticas de retenção. No código de produção, deve implementar políticas de retry (como a remarcação da ligação), como sugerido no manuseamento de [falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -164,7 +164,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Agendar trabalhos para chamar um método direto e enviar atualizações gémeas do dispositivo
 
-Nesta secção, cria-se uma aplicação C#de consola .NET (utilizando) que utiliza trabalhos para chamar o método direto **LockDoor** e enviar atualizações de propriedade desejadas para vários dispositivos.
+Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que utiliza trabalhos para ligar para o método direct **LockDoor** e enviar atualizações de propriedade desejadas para vários dispositivos.
 
 1. No Estúdio Visual, selecione **File** > **New** > **Project**. Em **Criar um novo projeto,** escolha a App consola **(.NET Framework)** e, em seguida, selecione **Next**.
 
@@ -178,14 +178,14 @@ Nesta secção, cria-se uma aplicação C#de consola .NET (utilizando) que utili
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet do [serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e às suas dependências.
 
-1. Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
+1. Adicione as `using` seguintes declarações na parte superior do ficheiro **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Adicione a seguinte declaração `using` se ainda não estiver presente nas declarações predefinidas.
+1. Adicione a `using` seguinte declaração se ainda não estiver presente nas declarações predefinidas.
 
     ```csharp
     using System.Threading;
@@ -200,7 +200,7 @@ Nesta secção, cria-se uma aplicação C#de consola .NET (utilizando) que utili
     static string deviceId = "<yourDeviceId>";
     ```
 
-1. Adicione o seguinte método à classe **Programa**:
+1. Adicione o seguinte método à classe **Programa:**
 
     ```csharp
     public static async Task MonitorJob(string jobId)
@@ -216,7 +216,7 @@ Nesta secção, cria-se uma aplicação C#de consola .NET (utilizando) que utili
     }
     ```
 
-1. Adicione o seguinte método à classe **Programa**:
+1. Adicione o seguinte método à classe **Programa:**
 
     ```csharp
     public static async Task StartMethodJob(string jobId)
@@ -296,7 +296,7 @@ Já está pronto para executar as aplicações.
 
 1. Selecione **Common Properties** > **Startup Project**, e, em seguida, selecione Múltiplos projetos de **arranque.**
 
-1. Certifique-se de que `SimulateDeviceMethods` está no topo da lista seguida de `ScheduleJob`. Deteto ambas as suas ações para **Iniciar** e selecionar **OK**.
+1. Certifique-se de que `SimulateDeviceMethods` está no `ScheduleJob`topo da lista seguida por . Deteto ambas as suas ações para **Iniciar** e selecionar **OK**.
 
 1. Execute os projetos clicando **em Iniciar** ou ir ao menu **Debug** e clique **em Iniciar Depuração**.
 

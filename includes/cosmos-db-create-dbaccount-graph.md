@@ -9,10 +9,10 @@ ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: a6cfafd41d1632d99b7ca03bce2316ec679d7579
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061865"
 ---
 1. Numa nova janela do browser, inicie sessão no [portal do Azure](https://portal.azure.com/).
@@ -21,7 +21,7 @@ ms.locfileid: "77061865"
    
    ![Criar um recurso no portal Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-0.png)
    
-3. Na **página Nova,** selecione Bases de **Dados** > **Azure Cosmos DB**.
+3. Na **página Nova,** selecione **Databases** > **Azure Cosmos DB**.
    
    ![O painel da base de dados do portal do Azure](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
    

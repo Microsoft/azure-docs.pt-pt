@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
 ms.openlocfilehash: c79f18669e1b13f79491e98658107221b43f3ff5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77046180"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é Azure Internet of Things (IoT)?
@@ -49,9 +49,9 @@ Os dispositivos IoT têm características diferentes quando comparados com outro
 
 * São, frequentemente, sistemas incorporados sem nenhum operador humano (ao contrário de um telefone).
 * Podem ser implementados em localizações remotas, onde o acesso físico é dispendioso.
-* Podem apenas ser acessíveis através da solução de back-end.
-* Podem ter potência e recursos de processamento limitados.
-* Podem ter uma conectividade de rede intermitente, lenta ou dispendiosa.
+* Podem apenas ser acessíveis através do back-end da solução.
+* Podem recursos de processamento e um poder limitados.
+* Podem ter uma conectividade de rede intermitente, lente ou dispendiosa.
 * Podem ter de utilizar protocolos de aplicação proprietários, personalizados ou específicos da indústria.
 
 ## <a name="back-end-services"></a>Serviços de back-end 
@@ -79,4 +79,4 @@ Para alguns projetos de amostra que pode experimentar com um IoT DevKit, consult
 
 Para uma explicação mais abrangente dos diferentes serviços e como são usados, consulte [os serviços e tecnologias Azure IoT.](iot-services-and-technologies.md)
 
-Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Arquitetura de Referência do Microsoft Azure IoT).
+Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture (Arquitetura de Referência do Microsoft Azure IoT)](https://aka.ms/iotrefarchitecture).

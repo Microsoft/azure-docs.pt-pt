@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191006"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros em Pesquisa Cognitiva Azure 
@@ -47,18 +47,18 @@ Os cenários de exemplo incluem o seguinte:
 
 Se quiser um efeito de redução nos resultados da sua pesquisa, os filtros não são a sua única escolha. Estas alternativas poderiam ser mais adequadas, dependendo do seu objetivo:
 
- + `searchFields` parâmetro de consulta procura em campos específicos. Por exemplo, se o seu índice fornecer campos separados para descrições em inglês e espanhol, pode usar searchFields para direcionar quais os campos a utilizar para pesquisa completa de texto. 
+ + `searchFields`cavilhas de parâmetro sérmetros de consulta procuram em campos específicos. Por exemplo, se o seu índice fornecer campos separados para descrições em inglês e espanhol, pode usar searchFields para direcionar quais os campos a utilizar para pesquisa completa de texto. 
 
-+ `$select` parâmetro é utilizado para especificar quais os campos a incluir num conjunto de resultados, aparando efetivamente a resposta antes de enviá-la para o pedido de chamada. Este parâmetro não refina a consulta nem reduz a recolha de documentos, mas se uma resposta menor for o seu objetivo, este parâmetro é uma opção a considerar. 
++ `$select`O parâmetro é utilizado para especificar quais os campos a incluir num conjunto de resultados, aparando efetivamente a resposta antes de enviá-la para o pedido de chamada. Este parâmetro não refina a consulta nem reduz a recolha de documentos, mas se uma resposta menor for o seu objetivo, este parâmetro é uma opção a considerar. 
 
-Para mais informações sobre qualquer parâmetro, consulte Documentos de [Pesquisa > Request > Parâmetros de consulta](/rest/api/searchservice/search-documents#query-parameters).
+Para mais informações sobre qualquer parâmetro, consulte [documentos de pesquisa > Solicitar > parâmetros](/rest/api/searchservice/search-documents#query-parameters)de consulta .
 
 
 ## <a name="how-filters-are-executed"></a>Como os filtros são executados
 
 Na altura da consulta, um filtro aceita critérios como entrada, converte a expressão em expressões atómicas booleanas representadas como uma árvore, e depois avalia a árvore filtrante sobre campos filtrados num índice.
 
-A filtragem ocorre em conjunto com a pesquisa, qualificando quais os documentos a incluir no processamento a jusante para recuperação de documentos e pontuação de relevância. Quando emparelhado com uma cadeia de pesquisa, o filtro reduz eficazmente o conjunto de recolha da operação de pesquisa subsequente. Quando utilizado sozinho (por exemplo, quando a corda de consulta está vazia onde `search=*`), os critérios do filtro são a única entrada. 
+A filtragem ocorre em conjunto com a pesquisa, qualificando quais os documentos a incluir no processamento a jusante para recuperação de documentos e pontuação de relevância. Quando emparelhado com uma cadeia de pesquisa, o filtro reduz eficazmente o conjunto de recolha da operação de pesquisa subsequente. Quando utilizada sozinha (por exemplo, quando a `search=*`corda de consulta está vazia onde), os critérios do filtro são a entrada única. 
 
 ## <a name="defining-filters"></a>Definição de filtros
 Os filtros são expressões OData, articuladas com um [subconjunto de sintaxe OData V4 suportado na Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
@@ -95,7 +95,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Padrões de utilização de filtros
 
-Os exemplos seguintes ilustram vários padrões de utilização para cenários de filtro. Para mais ideias, consulte [a expressão OData sintaxe > Exemplos](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Os exemplos seguintes ilustram vários padrões de utilização para cenários de filtro. Para mais ideias, consulte a [expressão OData sintaxe > Exemplos](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 + **$filter**autónomas, sem uma corda de consulta, úteis quando a expressão do filtro é capaz de qualificar totalmente documentos de interesse. Sem uma corda de consulta, não há análise léxica ou linguística, nem pontuação, nem classificação. Note que a cadeia de pesquisa é apenas um asterisco, o que significa "combinar todos os documentos".
 
@@ -109,7 +109,7 @@ Os exemplos seguintes ilustram vários padrões de utilização para cenários d
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ Consultas compostas, separadas por "ou", cada uma com os seus próprios critérios de filtro (por exemplo, 'beagles' em 'cão' ou 'siamese' em 'gato'). As expressões combinadas com `or` são avaliadas individualmente, com a união de documentos correspondentes a cada expressão enviada na resposta. Este padrão de utilização é alcançado através da função `search.ismatchscoring`. Também pode utilizar a versão sem pontuação, `search.ismatch`.
++ Consultas compostas, separadas por "ou", cada uma com os seus próprios critérios de filtro (por exemplo, 'beagles' em 'cão' ou 'siamese' em 'gato'). As expressões `or` combinadas são avaliadas individualmente, com a união de documentos correspondentes a cada expressão enviada na resposta. Este padrão de utilização `search.ismatchscoring` é alcançado através da função. Também pode utilizar a versão sem pontuação, `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ Os exemplos seguintes ilustram vários padrões de utilização para cenários d
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  Também é possível combinar pesquisa de texto completo através de `search.ismatchscoring` com filtros usando `and` em vez de `or`, mas isso é funcionalmente equivalente a usar os parâmetros `search` e `$filter` num pedido de pesquisa. Por exemplo, as duas seguintes consultas produzem o mesmo resultado:
+  Também é possível combinar pesquisa `search.ismatchscoring` de texto `and` completo `or`através de filtros usando em `search` `$filter` vez de , mas isso é funcionalmente equivalente a usar os e parâmetros em um pedido de pesquisa. Por exemplo, as duas seguintes consultas produzem o mesmo resultado:
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -135,9 +135,9 @@ Acompanhe estes artigos para obter orientações abrangentes sobre casos de util
 
 ## <a name="field-requirements-for-filtering"></a>Requisitos de campo para filtragem
 
-Na API REST, a filtragem é *por* defeito para campos simples. Os campos filtrados aumentam o tamanho do índice; certifique-se de definir `"filterable": false` para campos que não planeia realmente usar num filtro. Para obter mais informações sobre definições de definições de campo, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Na API REST, a filtragem é *por* defeito para campos simples. Os campos filtrados aumentam o tamanho do índice; certifique-se `"filterable": false` de definir para campos que não planeia realmente usar num filtro. Para obter mais informações sobre definições de definições de campo, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-No SDK .NET, o filterável está *desligado* por defeito. Pode tornar um campo filtrado definindo a [propriedade IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto de [campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente para `true`. Também pode fazê-lo declarativamente utilizando o [atributo IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, o atributo é definido na propriedade `BaseRate` de uma classe modelo que mapeia para a definição de índice.
+No SDK .NET, o filterável está *desligado* por defeito. Pode tornar um campo filtrado definindo a [propriedade isfilterável](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto de [campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente para `true`. Também pode fazê-lo declarativamente utilizando o [atributo IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, o atributo `BaseRate` é definido na propriedade de uma classe modelo que mapeia para a definição de índice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -150,23 +150,23 @@ Não se pode modificar os campos existentes para torná-los filtrados. Em vez di
 
 ## <a name="text-filter-fundamentals"></a>Fundamentos do filtro de texto
 
-Os filtros de texto combinam com os campos de cordas com as cordas literais que fornece no filtro. Ao contrário da pesquisa de texto completo, não há nenhuma análise lexical ou quebra de palavras para filtros de texto, por isso as comparações são apenas para correspondências exatas. Por exemplo, assuma que um campo *f* contém "dia ensolarado", `$filter=f eq 'Sunny'` não corresponde, mas `$filter=f eq 'sunny day'` vai. 
+Os filtros de texto combinam com os campos de cordas com as cordas literais que fornece no filtro. Ao contrário da pesquisa de texto completo, não há nenhuma análise lexical ou quebra de palavras para filtros de texto, por isso as comparações são apenas para correspondências exatas. Por exemplo, assumir *f* que um campo `$filter=f eq 'Sunny'` f contém `$filter=f eq 'sunny day'` "dia ensolarado", não corresponde, mas vai. 
 
-As cordas de texto são sensíveis a casos. Não há um invólucro inferior de palavras maiúsculas: `$filter=f eq 'Sunny day'` não vai encontrar "dia ensolarado".
+As cordas de texto são sensíveis a casos. Não há um invólucro inferior de palavras `$filter=f eq 'Sunny day'` maiúsculas: não vai encontrar "dia ensolarado".
 
 ### <a name="approaches-for-filtering-on-text"></a>Abordagens para filtragem no texto
 
 | Abordagem | Descrição | Quando utilizar |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | Uma função que combina com um campo com uma lista de cordas delimitada. | Recomendado para [filtros](search-security-trimming-for-azure-search.md) de segurança e para quaisquer filtros onde muitos valores de texto bruto precisam de ser combinados com um campo de cordas. A função **search.in** foi concebida para a velocidade e é muito mais rápida do que comparar explicitamente o campo com cada corda utilizando `eq` e `or`. | 
+| [`search.in`](search-query-odata-search-in-function.md) | Uma função que combina com um campo com uma lista de cordas delimitada. | Recomendado para [filtros](search-security-trimming-for-azure-search.md) de segurança e para quaisquer filtros onde muitos valores de texto bruto precisam de ser combinados com um campo de cordas. A função **search.in** é concebida para a velocidade e é muito `eq` `or`mais rápida do que comparar explicitamente o campo com cada fio utilizando e . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Uma função que lhe permite misturar operações de pesquisa de texto completo com operações estritamente de filtro Boolean na mesma expressão de filtro. | Utilize **search.ismatch** (ou o seu equivalente de pontuação, **search.ismatchscoreing**) quando pretender múltiplas combinações de filtros de pesquisa num único pedido. Também pode usá-lo para um filtro *contém* para filtrar uma corda parcial dentro de uma corda maior. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Uma expressão definida pelo utilizador composta por campos, operadores e valores. | Use isto quando quiser encontrar correspondências exatas entre um campo de cordas e um valor de corda. |
 
 ## <a name="numeric-filter-fundamentals"></a>Fundamentos do filtro numérico
 
-Os campos numéricos não são `searchable` no contexto da pesquisa completa de texto. Apenas as cordas estão sujeitas a uma pesquisa completa de texto. Por exemplo, se introduzir 99.99 como termo de pesquisa, não receberá itens de volta com um preço de 99,99 dólares. Em vez disso, veria itens que têm o número 99 em campos de cordas do documento. Assim, se tiver dados numéricos, o pressuposto é que os utilizará para filtros, incluindo intervalos, facetas, grupos, etc. 
+Os campos numéricos não `searchable` estão no contexto da pesquisa completa de texto. Apenas as cordas estão sujeitas a uma pesquisa completa de texto. Por exemplo, se introduzir 99.99 como termo de pesquisa, não receberá itens de volta com um preço de 99,99 dólares. Em vez disso, veria itens que têm o número 99 em campos de cordas do documento. Assim, se tiver dados numéricos, o pressuposto é que os utilizará para filtros, incluindo intervalos, facetas, grupos, etc. 
 
-Documentos que contenham campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados da pesquisa se o campo estiver marcado `retrievable`. A questão aqui é que a pesquisa completa de texto em si não é aplicável aos tipos de campo numéricos.
+Documentos que contenham campos numéricos (preço, tamanho, SKU, ID) `retrievable`fornecem esses valores nos resultados da pesquisa se o campo estiver marcado . A questão aqui é que a pesquisa completa de texto em si não é aplicável aos tipos de campo numéricos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -195,7 +195,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [OData Filter Expression Syntax > Exemplos](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)

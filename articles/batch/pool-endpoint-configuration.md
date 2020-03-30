@@ -1,6 +1,6 @@
 ---
-title: Configurar pontos de extremidade de nó no pool do lote do Azure | Microsoft Docs
-description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós de computação em um pool do lote do Azure.
+title: Configure pontos finais do nó na piscina do Lote Azure [ Microsoft Docs
+description: Como configurar ou desativar o acesso às portas SSH ou RDP em nódeos de computação numa piscina de Lote Azure.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: labrenne
 ms.openlocfilehash: 098ccf999391412520989c4ec2433fd73bc0a72d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77017229"
 ---
-# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto para nós de computação em um pool do lote do Azure
+# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure
 
-Por padrão, o lote permite que um [usuário do nó](/rest/api/batchservice/computenode/adduser) com conectividade de rede se conecte externamente a um nó de computação em um pool do lote. Por exemplo, um usuário pode se conectar por Área de Trabalho Remota (RDP) na porta 3389 a um nó de computação em um pool do Windows. Da mesma forma, por padrão, um usuário pode se conectar por meio de Secure Shell (SSH) na porta 22 para um nó de computação em um pool do Linux. 
+Por padrão, o Batch permite que um utilizador de [nó](/rest/api/batchservice/computenode/adduser) com conectividade de rede se conectem externamente a um nó computacional numa piscina de Lote. Por exemplo, um utilizador pode ligar-se por Remote Desktop (RDP) na porta 3389 a um nó de computação numa piscina do Windows. Da mesma forma, por padrão, um utilizador pode ligar-se por Secure Shell (SSH) na porta 22 a um nó de cálculo numa piscina de Linux. 
 
-Em seu ambiente, talvez seja necessário restringir ou desabilitar essas configurações de acesso externo padrão. Você pode modificar essas configurações usando as APIs do lote para definir a propriedade [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) . 
+No seu ambiente, poderá ser necessário restringir ou desativar estas definições de acesso externo predefinidas. Pode modificar estas definições utilizando as APIs do Lote para definir a propriedade [PoolEndpointConfiguration.](/rest/api/batchservice/pool/add#poolendpointconfiguration) 
 
-## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração do ponto de extremidade do pool
-A configuração do ponto de extremidade consiste em um ou mais [pools de NAT (conversão de endereços de rede)](/rest/api/batchservice/pool/add#inboundnatpool) de portas de front-end. (Não confunda um pool de NAT com o pool do lote de nós de computação.) Você configura cada pool NAT para substituir as configurações de conexão padrão nos nós de computação do pool. 
+## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração do ponto final da piscina
+A configuração do ponto final consiste em um ou mais conjuntos de tradução de endereços de [rede (NAT)](/rest/api/batchservice/pool/add#inboundnatpool) de portas frontendas. (Não confunda uma piscina NAT com o conjunto de nós de computação.) Configura cada piscina NAT para anular as definições de ligação padrão nos nós de computação da piscina. 
 
-Cada configuração de pool de NAT inclui uma ou mais [regras de NSG (grupo de segurança de rede)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra NSG permite ou nega determinado tráfego de rede para o ponto de extremidade. Você pode optar por permitir ou negar todo o tráfego, o tráfego identificado por uma [marca de serviço](../virtual-network/security-overview.md#service-tags) (como "Internet") ou o tráfego de endereços IP ou sub-redes específicos.
+Cada configuração de piscina NAT inclui uma ou mais regras do grupo de segurança de [rede (NSG).](/rest/api/batchservice/pool/add#networksecuritygrouprule) Cada regra NSG permite ou nega determinado tráfego de rede até ao ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por uma etiqueta de [serviço](../virtual-network/security-overview.md#service-tags) (como "Internet"), ou tráfego a partir de endereços IP ou subredes específicos.
 
 ### <a name="considerations"></a>Considerações
-* A configuração do ponto de extremidade do pool faz parte da [configuração de rede](/rest/api/batchservice/pool/add#networkconfiguration)do pool. A configuração de rede pode, opcionalmente, incluir configurações para ingressar o pool em uma [rede virtual do Azure](batch-virtual-network.md). Se você configurar o pool em uma rede virtual, poderá criar regras NSG que usam configurações de endereço na rede virtual.
-* Você pode configurar várias regras NSG ao configurar um pool de NAT. As regras são verificadas na ordem de prioridade. Quando for aplicada uma regra, não são testadas mais regras para correspondência.
+* A configuração do ponto final da piscina faz parte da [configuração](/rest/api/batchservice/pool/add#networkconfiguration)da rede da piscina. A configuração da rede pode incluir opcionalmente configurações para se juntar à piscina a uma [rede virtual Azure.](batch-virtual-network.md) Se configurar a piscina numa rede virtual, pode criar regras NSG que utilizam definições de endereços na rede virtual.
+* Pode configurar várias regras de NSG quando configurar uma piscina NAT. As regras são verificadas na ordem de prioridade. Quando for aplicada uma regra, não são testadas mais regras para correspondência.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Exemplo: negar todo o tráfego RDP
+## <a name="example-deny-all-rdp-traffic"></a>Exemplo: Negar todo o tráfego de RDP
 
-O trecho C# a seguir mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para negar todo o tráfego de rede. O ponto de extremidade usa um pool de front-end de portas no intervalo de *60000 a 60099*. 
+O seguinte c# snippet mostra como configurar o ponto final rdp em nós de computação numa piscina do Windows para negar todo o tráfego da rede. O ponto final utiliza uma piscina frontal de portas na gama *60000 - 60099*. 
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -48,9 +48,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemplo: negar todo o tráfego SSH da Internet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exemplo: Negar todo o tráfego sSH da internet
 
-O seguinte trecho de código do Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para negar todo o tráfego da Internet. O ponto de extremidade usa um pool de front-end de portas no intervalo de *4000 a 4100*. 
+O seguinte snippet Python mostra como configurar o ponto final do SSH em nós de computação numa piscina linux para negar todo o tráfego de internet. O ponto final utiliza uma piscina frontal de portas na gama *4000 - 4100*. 
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -74,9 +74,9 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemplo: permitir o tráfego RDP de um endereço IP específico
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Exemplo: Permitir tráfego rdp a partir de um endereço IP específico
 
-O trecho C# a seguir mostra como configurar o ponto de extremidade RDP em nós de computação em um pool do Windows para permitir o acesso RDP somente do endereço IP *198.51.100.7*. A segunda regra NSG nega o tráfego que não corresponde ao endereço IP.
+O seguinte c# snippet mostra como configurar o ponto final rdp em nóes de computação numa piscina windows para permitir o acesso rdp apenas a partir do endereço IP *198.51.100.7*. A segunda regra do NSG nega o tráfego que não corresponde ao endereço IP.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -92,9 +92,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemplo: permitir o tráfego SSH de uma sub-rede específica
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Exemplo: Permitir o tráfego de SSH a partir de uma subrede específica
 
-O seguinte trecho de código do Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para permitir o acesso somente da sub-rede *192.168.1.0/24*. A segunda regra NSG nega o tráfego que não corresponde à sub-rede.
+O seguinte snippet Python mostra como configurar o ponto final sSH em nós de computação numa piscina linux para permitir o acesso apenas a partir da subnet *192.168.1.0/24*. A segunda regra da NSG nega o tráfego que não corresponde à sub-rede.
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -125,7 +125,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre regras NSG no Azure, consulte [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
+- Para obter mais informações sobre as regras da NSG em Azure, consulte o tráfego da [rede Filter com grupos](../virtual-network/security-overview.md)de segurança da rede .
 
-- Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).
+- Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
 

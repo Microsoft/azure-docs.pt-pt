@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241515"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Quickstart: Criar uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus) no portal Azure
@@ -62,16 +62,16 @@ CREATE TABLE github_users
 );
 ```
 
-O campo `payload` de `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em forma binária em Postgres. O tipo de dados facilita a armazenação de um esquema flexível numa única coluna.
+O `payload` campo `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em forma binária em Postgres. O tipo de dados facilita a armazenação de um esquema flexível numa única coluna.
 
-Os postgres podem criar um índice `GIN` neste tipo, que indexará todas as teclas e valores dentro dele. Com um índice, torna-se rápido e fácil consultar a carga útil com várias condições. Vamos em frente e criar alguns índices antes de carregarmos os nossos dados. No psql:
+Os postgres `GIN` podem criar um índice neste tipo, que indexará todas as teclas e valores dentro dele. Com um índice, torna-se rápido e fácil consultar a carga útil com várias condições. Vamos em frente e criar alguns índices antes de carregarmos os nossos dados. No psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida, pegaremos as mesas postgres no nó coordenador e diremos hyperscale para estoirá-las através dos trabalhadores. Para tal, faremos uma consulta para cada mesa especificando a chave para escasseá-la. No exemplo atual, vamos estoirá-los tanto os eventos como os utilizadores na tabela sobre `user_id`:
+Em seguida, pegaremos as mesas postgres no nó coordenador e diremos hyperscale para estoirá-las através dos trabalhadores. Para tal, faremos uma consulta para cada mesa especificando a chave para escasseá-la. No exemplo atual, vamos estoirá-los `user_id`tanto os eventos como os utilizadores tabela em:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -96,13 +96,13 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## <a name="run-queries"></a>Executar consultas
 
-Agora está na hora da parte divertida, na verdade, fazer algumas perguntas. Vamos começar com uma simples `count (*)` para ver quantos dados carregamos:
+Agora está na hora da parte divertida, na verdade, fazer algumas perguntas. Vamos começar com um `count (*)` simples para ver quantos dados carregamos:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Funcionou bem. Voltaremos a este tipo de agregação daqui a pouco, mas por agora vamos ver outras perguntas. Dentro da coluna de `payload` JSONB há uma boa parte dos dados, mas varia com base no tipo de evento. `PushEvent` eventos contêm um tamanho que inclui o número de compromissos distintos para o impulso. Podemos usá-lo para encontrar o número total de compromissos por hora:
+Funcionou bem. Voltaremos a este tipo de agregação daqui a pouco, mas por agora vamos ver outras perguntas. Dentro da coluna `payload` JSONB há uma boa parte dos dados, mas varia em função do tipo de evento. `PushEvent`eventos contêm um tamanho que inclui o número de compromissos distintos para o impulso. Podemos usá-lo para encontrar o número total de compromissos por hora:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +113,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora as consultas envolveram o github\_eventos exclusivamente, mas podemos combinar esta informação com os utilizadores\_github. Uma vez que esfarrapamos tanto os utilizadores como os eventos no mesmo identificador (`user_id`), as filas de ambas as tabelas com IDs de utilizador correspondentes serão [coalojadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de base de dados e podem facilmente ser unidas.
+Até agora as consultas envolveram exclusivamente os eventos github,\_mas\_podemos combinar esta informação com os utilizadores do Github. Uma vez que esfarrapamos tanto os`user_id`utilizadores como os eventos no mesmo identificador , as filas de ambas as tabelas com iDs de utilizador correspondentes serão [colocalizadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de base de dados e podem facilmente ser unidas.
 
-Se nos juntarmos a `user_id`, a Hyperscale pode empurrar a execução de união para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
+Se nos `user_id`juntarmos, a Hiperescala pode empurrar a execução de união para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
 
 ```sql
 SELECT gu.login, count(*)

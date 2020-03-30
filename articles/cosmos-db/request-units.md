@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246594"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unidades de Pedido em Azure Cosmos DB
+# <a name="request-units-in-azure-cosmos-db"></a>Request Units in Azure Cosmos DB (Unidades de Pedido no Azure Cosmos DB)
 
 Com o Azure Cosmos DB, paga pelo débito que aprovisiona e o armazenamento que consome por hora. O débito deve ser aprovisionado para assegurar que estão sempre disponíveis recursos do sistema suficientes para a base de dados do Azure Cosmos. Você precisa de recursos suficientes para cumprir ou exceder o [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
@@ -38,21 +38,21 @@ Pode fornecer a entrada em duas granularidades distintas:
 
 ## <a name="request-unit-considerations"></a>Considerações da Unidade de Pedido
 
-Embora calcule o número de RUs por segundo para a provisão, considere os seguintes fatores:
+Enquanto estima o número de RUs por segundo para aprovisionar, considere os seguintes fatores:
 
 * **Tamanho do artigo**: À medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou escrever o item também aumenta.
 
-* **Indexação do item**: Por padrão, cada item é automaticamente indexado. Menos RUs são consumidos se optar por não indexar alguns dos seus itens num recipiente.
+* **Indexação do item**: Por padrão, cada item é automaticamente indexado. São consumidas menos RUs se optar por não indexar alguns dos seus itens num contentor.
 
 * **Contagem de propriedades**do artigo : Assumindo que a indexação por defeito está em todas as propriedades, o número de RUs consumidos para escrever um item aumenta à medida que a contagem de imóveis aumenta.
 
-* **Propriedades indexadas**: Uma política de índice em cada recipiente determina quais as propriedades indexadas por padrão. Para reduzir o consumo de RU para operações de escrita, limite o número de propriedades indexadas.
+* **Propriedades indexadas**: Uma política de índice em cada recipiente determina quais as propriedades indexadas por padrão. Para reduzir o consumo de RUs para operações de escrita, limite o número de propriedades indexadas.
 
 * **Consistência dos dados**: Os níveis de consistência forte e limitado consomem aproximadamente duas vezes mais RUs enquanto realizam operações de leitura em comparação com os de outros níveis de consistência descontraídos.
 
 * **Padrões**de consulta : A complexidade de uma consulta afeta quantas RUs são consumidas para uma operação. Os fatores que afetam o custo das operações de consulta incluem: 
     
-    - O número de resultados de consulta
+    - O número de resultados da consulta
     - O número de predicados
     - A natureza dos predicados
     - O número de funções definidas pelo utilizador
@@ -60,9 +60,9 @@ Embora calcule o número de RUs por segundo para a provisão, considere os segui
     - O tamanho do conjunto de resultados
     - Projeções
 
-  A Azure Cosmos DB garante que a mesma consulta nos mesmos dados custa sempre o mesmo número de RUs em execuções repetidas.
+  O Azure Cosmos DB garante que a mesma consulta sobre os mesmos dados custa sempre o mesmo número de RUs em execuções repetidas.
 
-* **Utilização**do script : Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) de carga de pedido para entender melhor a quantidade de capacidade de RU que cada operação consome.
+* **Utilização**do script : Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho de encargos de pedidos](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) para compreender melhor quanta capacidade de RUs é consumida pelas operações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

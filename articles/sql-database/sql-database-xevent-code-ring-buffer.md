@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213974"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código-alvo do tampão de anel para eventos alargados na Base de Dados SQL
@@ -29,7 +29,7 @@ Este tópico apresenta uma amostra de código Transact-SQL que:
 1. Cria uma tabela com dados para demonstrar.
 2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting**.
    
-   * O evento limita-se a declarações SQL que contenham uma determinada cadeia de atualização: **declaração LIKE '%UPDATE tabEmployee%'** .
+   * O evento limita-se a declarações SQL que contenham uma determinada cadeia de atualização: **declaração LIKE '%UPDATE tabEmployee%'**.
    * Opta por enviar a saída do evento para um alvo do tipo Ring Buffer, nomeadamente **pacote0.ring_buffer**.
 3. Começa a sessão do evento.
 4. Emite algumas simples declarações de ATUALIZAÇÃO SQL.
@@ -222,7 +222,7 @@ Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_
 
 Em seguida, no painel de resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Este clique criou outro separador de ficheiros em ssms.exe no qual o conteúdo da célula resultado foi apresentado, como XML.
 
-A saída é mostrada no seguinte bloco. Parece longo, mas são apenas dois **\<evento>** elementos.
+A saída é mostrada no seguinte bloco. Parece longo, mas são apenas dois ** \<eventos>** elementos.
 
 &nbsp;
 

@@ -1,7 +1,7 @@
 ---
-title: Habilidade cognitiva de OCR
+title: Habilidade cognitiva ocr
 titleSuffix: Azure Cognitive Search
-description: Extraia o texto de arquivos de imagem usando OCR (reconhecimento óptico de caracteres) em um pipeline de enriquecimento no Azure Pesquisa Cognitiva.
+description: Extrair texto de ficheiros de imagem utilizando o reconhecimento ótico de caracteres (OCR) num pipeline de enriquecimento em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,61 +9,61 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72791933"
 ---
-# <a name="ocr-cognitive-skill"></a>Habilidade cognitiva de OCR
+# <a name="ocr-cognitive-skill"></a>Habilidade cognitiva ocr
 
-A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) em serviços cognitivas. A habilidade do **OCR** é mapeada para a seguinte funcionalidade:
+A habilidade ótica de reconhecimento de **caracteres (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de machine learning fornecidos pela [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. Os mapas de habilidades **oCR** para a seguinte funcionalidade:
 
-+ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) é usada para idiomas diferentes do inglês. 
-+ Para o inglês, a nova API de ["leitura"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
++ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) é utilizada para outras línguas que não o inglês. 
++ Para inglês, é utilizada a nova API ["Ler".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
 
-A habilidade de **OCR** extrai texto de arquivos de imagem. Os formatos de arquivo com suporte incluem:
+A habilidade **OCR** extrai texto de ficheiros de imagem. Os formatos de ficheirosuportados incluem:
 
 + . JPEG
 + . JPG
 + . PNG
 + . BMP
-+ . Gifs
-+ . FORMATO
++ . GIF
++ . TIFF
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| detectOrientation | Habilita a detecção automática da orientação da imagem. <br/> Valores válidos: true/false.|
-|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (tcheco) <br/>da (dinamarquês) <br/>NL (Holandês) <br/>EN (inglês) <br/>Fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>El (grego) <br/> Hu (húngaro) <br/> It (italiano) <br/>  Ja (japonês) <br/> KO (coreano) <br/> NB (norueguês) <br/>   pl (polonês) <br/> pt (Português) <br/>  ru (russo) <br/>  es (espanhol) <br/>  VA (Sueco) <br/>  TR (Turco) <br/> ar (árabe) <br/> ro (romeno) <br/> Sr-Cyrl (SerbianCyrillic) <br/> Sr-Latn (SerbianLatin) <br/>  SK (eslovaco). <br/>  UNK (desconhecido) <br/><br/> Se o código de idioma não for especificado ou for nulo, o idioma será definido como inglês. Se o idioma estiver explicitamente definido como "UNK", o idioma será detectado automaticamente. </p> |
-|lineEnding | O valor a ser usado entre cada linha detectada. Valores possíveis: ' Space ', ' CarriageReturn ', ' alimentação de espaço '.  O padrão é ' Space ' |
+| detectarOrientação | Permite a deteção automática da orientação da imagem. <br/> Valores válidos: verdadeiros / falsos.|
+|código de idioma padrão | <p>  Código linguístico do texto de entrada. As linguagens suportadas incluem: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChinêsTradicional) <br/>cs (checo) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (grego) <br/> hu (húngaro) <br/> lo (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (norueguês) <br/>   pl (polaco) <br/> pt (Português) <br/>  ru (russo) <br/>  es (espanhol) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (romeno) <br/> sr-Cyrl (sérviocyrillic) <br/> sr-Latn (sérvio latino) <br/>  sk (eslovaco). <br/>  unk (Desconhecido) <br/><br/> Se o código de idioma não for especificado ou nulo, a língua será definida para inglês. Se a linguagem estiver explicitamente definida para "unk", a linguagem será detetada automaticamente. </p> |
+|linhaEnding | O valor a utilizar entre cada linha detetada. Valores possíveis: 'Espaço','CarriageReturn','LineFeed'.  O padrão é 'Space' |
 
-Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especificar se a habilidade deve extrair texto "impresso" ou "manuscrito".  Esse parâmetro é preterido e não é mais necessário, pois o algoritmo mais recente da API de leitura é capaz de extrair os dois tipos de texto de uma só vez.  Se sua definição de habilidade já incluir esse parâmetro, você não precisará removê-lo, mas ele não será mais usado e os dois tipos de texto serão extraídos no futuro, independentemente do que está definido como.
+Anteriormente, existia um parâmetro chamado "TextExtractionAlgorithm" para especificar se a habilidade deveria extrair texto "impresso" ou "manuscrito".  Este parâmetro é depreciado e já não é necessário, uma vez que o mais recente algoritmo de Read API é capaz de extrair ambos os tipos de texto ao mesmo tempo.  Se a sua definição de habilidade já incluir este parâmetro, não precisa de o remover, mas deixará de ser utilizado e ambos os tipos de texto serão extraídos, independentemente do que esteja definido.
 
-## <a name="skill-inputs"></a>Entradas de habilidades
+## <a name="skill-inputs"></a>Inputs de habilidade
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| imagem         | Tipo complexo. No momento, só funciona com o campo "/Document/normalized_images", produzido pelo indexador de blob do Azure quando ```imageAction``` é definido com um valor diferente de ```none```. Consulte o [exemplo](#sample-output) para obter mais informações.|
+| image         | Tipo complexo. Atualmente, apenas funciona com o campo "/documento/normalized_images", produzido ```imageAction``` pelo indexante Azure ```none```Blob quando é fixado para um valor diferente de . Consulte a [amostra](#sample-output) para mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
-| Nome da saída     | Descrição                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
-| texto          | Texto sem formatação extraído da imagem.   |
-| layoutText    | Tipo complexo que descreve o texto extraído e o local onde o texto foi encontrado.|
+| texto          | Texto simples extraído da imagem.   |
+| layoutTexto    | Tipo complexo que descreve o texto extraído e o local onde o texto foi encontrado.|
 
 
-## <a name="sample-definition"></a>Definição de exemplo
+## <a name="sample-definition"></a>Definição de amostra
 
 ```json
 {
@@ -96,7 +96,7 @@ Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especi
 ```
 <a name="sample-output"></a>
 
-## <a name="sample-text-and-layouttext-output"></a>Texto de exemplo e saída de layoutText
+## <a name="sample-text-and-layouttext-output"></a>Saída de texto e layout da amostra
 
 ```json
 {
@@ -134,11 +134,11 @@ Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especi
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exemplo: mesclagem de texto extraído de imagens inseridas com o conteúdo do documento.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Amostra: Texto de fusão extraído de imagens embutidas com o conteúdo do documento.
 
-Um caso de uso comum para a fusão de texto é a capacidade de mesclar a representação textual das imagens (texto de uma habilidade de OCR ou a legenda de uma imagem) no campo de conteúdo de um documento.
+Um caso comum de utilização para a Fusão de Textos é a capacidade de fundir a representação textual de imagens (texto de uma habilidade OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento.
 
-O seguinte o skillset de exemplo cria um campo *merged_text* . Este campo contém o conteúdo textual do seu documento e o texto OCRed de cada uma das imagens inseridas nesse documento.
+O exemplo seguinte cria um campo *merged_text.* Este campo contém o conteúdo textual do seu documento e o texto OCRed de cada uma das imagens incorporadas nesse documento.
 
 #### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json
@@ -190,7 +190,7 @@ O seguinte o skillset de exemplo cria um campo *merged_text* . Este campo conté
   ]
 }
 ```
-O exemplo do skillble acima supõe que exista um campo de imagens normalizadas. Para gerar esse campo, defina a configuração *imageaction* na definição do indexador como *generateNormalizedImages* , conforme mostrado abaixo:
+O exemplo de habilidade acima assume que existe um campo de imagens normalizadas. Para gerar este campo, detete a configuração *imageAction* na definição do indexador para *gerarImagens Normalizadas* como mostrado abaixo:
 
 ```json
 {
@@ -204,8 +204,8 @@ O exemplo do skillble acima supõe que exista um campo de imagens normalizadas. 
 }
 ```
 
-## <a name="see-also"></a>Ver também
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Habilidade do textmerger](cognitive-search-skill-textmerger.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+## <a name="see-also"></a>Consulte também
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Habilidade de fusão de texto](cognitive-search-skill-textmerger.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -8,13 +8,13 @@ ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136910"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemas de suturação de ficheiros Azure no Windows
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
 Este artigo lista problemas comuns relacionados com o Microsoft Azure Files quando se conecta com clientes do Windows. Fornece igualmente possíveis causas e resoluções para estes problemas. Além dos passos de resolução de problemas neste artigo, também pode utilizar o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente do cliente windows tem pré-requisitos corretos. AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o seu ambiente para obter um desempenho ideal. Também pode encontrar esta informação nos [Ficheiros Azure partilha o Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece passos para o ajudar com problemas de ligação/mapeamento/montagem de ações do Azure Files.
 
@@ -65,9 +65,9 @@ Quando tentar montar uma partilha de ficheiros a partir de instalações ou de u
 
 Erro do sistema 53 ou erro do sistema 67 pode ocorrer se a comunicação de saída da porta 445 para um centro de dados Do Ficheiro Sino Do Azure estiver bloqueada. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Para verificar se a sua firewall ou ISP está a bloquear a porta 445, utilize a ferramenta [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou `Test-NetConnection` cmdlet. 
+Para verificar se a sua firewall ou ISP está a bloquear a `Test-NetConnection` porta 445, utilize a ferramenta [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou cmdlet. 
 
-Para utilizar o `Test-NetConnection` cmdlet, o módulo PowerShell Azure deve ser instalado, consulte instalar o [módulo PowerShell Azure](/powershell/azure/install-Az-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
+Para utilizar `Test-NetConnection` o cmdlet, o módulo PowerShell Azure tem de ser instalado, consulte instalar o [módulo PowerShell Azure](/powershell/azure/install-Az-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -98,16 +98,16 @@ Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-#### <a name="solution-1---use-azure-file-sync"></a>Solução 1 - Utilizar sincronização de ficheiros Azure
+#### <a name="solution-1---use-azure-file-sync"></a>Solução 1 – Utilize o Azure File Sync
 O Azure File Sync pode transformar o seu Windows Server no local numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona sobre a porta 443 e pode, assim, ser usado como salção de acesso a Ficheiros Azure de clientes que tenham a porta 445 bloqueada. [Saiba como configurar o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
-#### <a name="solution-2---use-vpn"></a>Solução 2 - Utilizar VPN
+#### <a name="solution-2---use-vpn"></a>Solução 2 – Utilizar a VPN
 Ao configurar uma VPN na sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à internet. Siga as [instruções para configurar vpN](storage-files-configure-p2s-vpn-windows.md) para aceder a Ficheiros Azure a partir do Windows.
 
-#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3 - Desbloquear porta 445 com a ajuda do seu Administrador ISP/IT
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3 – Desbloqueie a porta 445 com a ajuda do ISP/Administrador de TI
 Trabalhe com o seu departamento de TI ou ISP para abrir as gamas 445 de saída para [o Azure IP.](https://www.microsoft.com/download/details.aspx?id=41653)
 
-#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 - Utilize ferramentas baseadas em REST API como Storage Explorer/Powershell
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 – Utilize ferramentas com base na API REST como o Explorador de Armazenamento/Powershell
 O Azure Files também suporta o REST para além do SMB. O acesso ao REST funciona sobre a porta 443 (tcp padrão). Existem várias ferramentas que são escritas usando a API REST que permitem a rica experiência de UI. [O Explorador](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) de Armazenamento é um deles. [Descarregue e instale](https://azure.microsoft.com/features/storage-explorer/) o Storage Explorer e ligue-se à sua partilha de ficheiros apoiada por Ficheiros Azure. Também pode utilizar [o PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) que também utiliza a API REST.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está ativado
@@ -164,7 +164,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no controlo de **acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte como proteger a sua conta de [armazenamento com o Controlo de Acesso baseado em Funções (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Incapaz de apagar um ficheiro ou diretório numa partilha de ficheiros Azure
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure
 Quando tentar apagar um ficheiro, poderá receber o seguinte erro:
 
 O recurso especificado é marcado para eliminação por um cliente SMB.
@@ -184,7 +184,7 @@ Se os clientes SMB tiverem fechado todas as pegas abertas e o problema continuar
 > Os cmdlets de cmdlets de comando Get-AzStorageFileHandle e Close-AzStorageFileHandle estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Cópia lenta de ficheiros de e para Ficheiros Azure no Windows
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Cópia lenta de ficheiros para e de Ficheiros do Azure no Windows
 
 Pode ver um desempenho lento quando tentar transferir ficheiros para o serviço De Ficheiros Azure.
 
@@ -255,7 +255,7 @@ Utilize uma das seguintes soluções:
 
 -   Monte a unidade a partir da mesma conta de utilizador que contém a aplicação. Pode utilizar uma ferramenta como a PsExec.
 - Passe o nome da conta de armazenamento e a chave no nome do utilizador e parâmetros de senha do comando de utilização líquida.
-- Utilize o comando cmdkey para adicionar as credenciais ao Credential Manager. Execute isto a partir de uma linha de comando sob o contexto da conta de serviço, seja através de um login interativo ou utilizando `runas`.
+- Utilize o comando cmdkey para adicionar as credenciais ao Credential Manager. Execute isto a partir de uma linha de comando sob o `runas`contexto da conta de serviço, seja através de um login interativo ou utilizando .
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mapeie a parte diretamente sem usar uma letra de unidade mapeada. Algumas aplicações podem não voltar a ligar-se corretamente à letra de unidade, pelo que a utilização do caminho completo do CNU pode ser mais fiável. 
@@ -273,13 +273,13 @@ Quando um ficheiro é copiado através da rede, o ficheiro é desencriptado no c
 Este problema pode ocorrer se estiver a utilizar o Sistema de Ficheiros encriptadores (EFS). Os ficheiros encriptados bitLocker podem ser copiados para ficheiros Azure. No entanto, o Azure Files não suporta o NTFS EFS.
 
 ### <a name="workaround"></a>Solução
-Para copiar um ficheiro sobre a rede, tem primeiro de o desencriptar. Utilize um dos métodos seguintes:
+Para copiar um ficheiro sobre a rede, tem primeiro de o desencriptar. Utilize um dos seguintes métodos:
 
 - Utilize o comando **de cópia/d.** Permite que os ficheiros encriptados sejam guardados como ficheiros desencriptados no destino.
 - Desprete a seguinte chave de registo:
   - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor = DWORD
-  - Name = CopyFileAllowDecryptedRemoteDestination
+  - Nome = CopyFileAllowDecryptedRemoteDestination
   - Valor = 1
 
 Esteja ciente de que a definição da chave de registo afeta todas as operações de cópia que são feitas às ações da rede.

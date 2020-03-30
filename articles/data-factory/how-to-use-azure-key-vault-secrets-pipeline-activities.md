@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77200117"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utilizar segredos do Azure Key Vault em atividades de pipeline
@@ -23,7 +23,7 @@ Você pode armazenar credenciais ou valores secretos em um Cofre chave Azure e u
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso depende da identidade gerenciada data factory.  Saiba como funciona a partir da [identidade gerida para data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que a sua fábrica de dados tem uma associada.
+Esta funcionalidade baseia-se na identidade gerida pela fábrica de dados.  Saiba como funciona a partir da [identidade gerida para data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que a sua fábrica de dados tem uma associada.
 
 ## <a name="steps"></a>Passos
 
@@ -63,7 +63,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como funciona
     > [!CAUTION]
     > Desdefinir a opção Saída Segura como verdadeira para evitar que o valor secreto seja registado em texto simples.  Quaisquer outras atividades que consumam este valor devem ter a sua opção De Entrada Segura definida como verdadeira.
 
-5. Para utilizar o valor noutra atividade, utilize a seguinte expressão de código **@activity('Web1').output.value**.
+5. Para utilizar o valor noutra atividade, utilize a seguinte expressão ** @activityde código ('Web1').output.value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

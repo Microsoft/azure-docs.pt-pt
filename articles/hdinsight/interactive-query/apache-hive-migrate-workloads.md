@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: ec96189185a06c1fcbd95eed6216ade47f3089c3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214649"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar azure HDInsight 3.6 Cargas de trabalho da Colmeia para HDInsight 4.0
@@ -96,7 +96,7 @@ Uma vez que este script esteja completo, presume-se que o aglomerado antigo deix
 
     Este comando gera um ficheiro chamado **alltables.hql**.
 
-1. Saia da sua sessão de SSH. Em seguida, insira um comando scp para baixar **alltables.hql** localmente.
+1. Encerre a sessão do SSH. Em seguida, insira um comando scp para baixar **alltables.hql** localmente.
 
     ```bash
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.hql c:/hdi
@@ -119,7 +119,7 @@ Uma vez que este script esteja completo, presume-se que o aglomerado antigo deix
 
 Uma vez que a **cópia** da metaloja esteja completa, execute um script de upgrade de esquemas no [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) no cluster HDInsight 3.6 existente para atualizar a nova metaloja para o esquema hive 3. Isto permite que a base de dados seja anexada como metastore HDInsight 4.0.
 
-Utilize os valores na tabela mais abaixo. Substitua `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` pelos valores adequados para a metaloja da Colmeia **copiada,** separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
+Utilize os valores na tabela mais abaixo. Substitua-a `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` pelos valores adequados para a metaloja da Colmeia **copiada,** separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
 
 |Propriedade | Valor |
 |---|---|
@@ -140,7 +140,7 @@ select * from dbo.version
 
 ## <a name="migrate-hive-tables-to-hdinsight-40"></a>Migrar mesas de colmeia para HDInsight 4.0
 
-Depois de completar o conjunto anterior de passos para migrar a Hive Metastore para HDInsight 4.0, as tabelas e bases de dados registadas na metaloja serão visíveis a partir do cluster HDInsight 4.0 executando `show tables` ou `show databases` dentro do cluster. Consulte a execução da [Consulta através das versões HDInsight](#query-execution-across-hdinsight-versions) para obter informações sobre a execução de consultas em clusters HDInsight 4.0.
+Depois de completar o conjunto anterior de passos para migrar a Hive Metastore para HDInsight 4.0, as tabelas e bases de `show tables` `show databases` dados registadas na metaloja serão visíveis a partir do cluster HDInsight 4.0 executando ou de dentro do cluster. Consulte a execução da [Consulta através das versões HDInsight](#query-execution-across-hdinsight-versions) para obter informações sobre a execução de consultas em clusters HDInsight 4.0.
 
 Os dados reais das tabelas, no entanto, não são acessíveis até que o cluster tenha acesso às contas de armazenamento necessárias. Para garantir que o seu cluster HDInsight 4.0 pode aceder aos mesmos dados do seu antigo cluster HDInsight 3.6, complete os seguintes passos:
 
@@ -166,7 +166,7 @@ Esta compactação é necessária porque as tabelas HDInsight 3.6 e HDInsight 4.
 
 Depois de completar os passos de migração e compactação da metaloja, pode migrar o armazém real. Depois de completar a migração do armazém da Hive, o armazém HDInsight 4.0 terá as seguintes propriedades:
 
-|3.6 |4.0 |
+|3.6 |4,0 |
 |---|---|
 |Tabelas externas|Tabelas externas|
 |Tabelas geridas não transacionais|Tabelas externas|
@@ -177,9 +177,9 @@ Poderá ter de ajustar as propriedades do seu armazém antes de executar a migra
 Uma vez que as propriedades da sua mesa são definidas corretamente, execute a ferramenta de migração do armazém hive a partir de um dos headnodos do cluster usando a concha SSH:
 
 1. Ligue-se ao seu headnode de cluster utilizando SSH. Para obter instruções, consulte [Connect to HDInsight utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Abra uma concha de login como utilizador da Colmeia executando `sudo su - hive`
-1. Determine a versão da pilha da plataforma de dados executando `ls /usr/hdp`. Isto apresentará uma cadeia de versão que deve utilizar no próximo comando.
-1. Execute o seguinte comando da concha. Substitua `STACK_VERSION` com a cadeia de versão do passo anterior:
+1. Abra uma concha de login como o utilizador da Colmeia executando`sudo su - hive`
+1. Determine a versão da pilha `ls /usr/hdp`de dados executando . Isto apresentará uma cadeia de versão que deve utilizar no próximo comando.
+1. Execute o seguinte comando da concha. Substitua-a `STACK_VERSION` pela cadeia de versão do passo anterior:
 
 ```bash
 /usr/hdp/STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
@@ -210,7 +210,7 @@ Para mudar para o novo cluster, por exemplo, pode instalar uma nova aplicação 
 
 ## <a name="switch-hdinsight-40-to-the-production"></a>Altere o HDInsight 4.0 para a produção
 
-Se foram criadas diferenças na metaloja durante os testes, terá de atualizar as alterações pouco antes de mudar. Neste caso, pode exportar e importar a metaloja e depois fazer o upgrade novamente.
+Se foram criadas diferenças na metaloja durante os testes, terá de atualizar as alterações pouco antes de mudar. Neste caso, pode exportar & importar a metaloja e depois fazer o upgrade novamente.
 
 ## <a name="remove-the-old-production"></a>Remover a produção antiga
 
@@ -231,14 +231,14 @@ No HDInsight 3.6, o cliente GUI para interagir com o servidor Hive é a Visão d
 |Roteiro de bash URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Tipo de nó(s)|Head|
 
-Aguarde 10 a 15 minutos e, em seguida, lance o Data Analytics Studio utilizando este URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Aguarde 10 a 15 minutos e, `https://CLUSTERNAME.azurehdinsight.net/das/`em seguida, lance o Data Analytics Studio utilizando este URL: .
 
 Pode ser necessária uma atualização da UI Ambari e/ou de um reinício de todos os componentes Ambari antes de aceder às DAS.
 
 Uma vez instalada a DAS, se não vir as consultas que executou no espectador de consultas, faça os seguintes passos:
 
 1. Delineie as configurações para A Colmeia, Tez e DAS, conforme descrito neste guia para resolução de [problemas da instalação das DAS](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Certifique-se de que os seguintes configs de diretório de armazenamento Azure são blobs page, e que estão listados em `fs.azure.page.blob.dirs`:
+2. Certifique-se de que os seguintes configs de diretório de armazenamento `fs.azure.page.blob.dirs`Azure são blobs page, e que estão listados em:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. Reinicie HDFS, Hive, Tez e DAS em ambos os cabeçados.

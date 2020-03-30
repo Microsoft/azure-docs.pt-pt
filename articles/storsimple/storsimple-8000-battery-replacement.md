@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255018"
 ---
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo da bateria de reserva no seu dispositivo StorSimple
+# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substituir um módulo de bateria de reserva no seu dispositivo StorSimple
 
 ## <a name="overview"></a>Descrição geral
 O módulo de alimentação e arrefecimento do recinto primário (PCM) no seu dispositivo Microsoft Azure StorSimple tem uma bateria adicional. Este pacote fornece energia para que o dispositivo StorSimple possa guardar dados se houver perda de energia CA para o recinto primário. Esta bateria é referida como o módulo da *bateria de reserva*. O módulo de bateria de reserva existe apenas para o recinto primário no seu dispositivo StorSimple (o recinto EBOD não contém um módulo de bateria de reserva).
@@ -32,7 +32,7 @@ Este tutorial explica como:
 O módulo de bateria de reserva para o seu dispositivo StorSimple é uma unidade substituível por campo. Antes de ser instalado no PCM, o módulo da bateria deve ser armazenado na sua embalagem original. Execute os seguintes passos para remover a bateria de reserva.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Para remover o módulo da bateria de reserva
-1. No portal Azure, vá à sua lâmina de serviço StorSimple Device Manager. Vá ao **Dispositivo e,** em seguida, selecione o seu dispositivo a partir da lista de dispositivos. Navegue para **monitorizar** a saúde do **hardware** > . Em **componentes partilhados,** veja o estado da bateria.
+1. No portal Azure, vá à sua lâmina de serviço StorSimple Device Manager. Vá ao **Dispositivo e,** em seguida, selecione o seu dispositivo a partir da lista de dispositivos. Navegue para **monitorizar** > a**saúde do hardware.** Em **componentes partilhados,** veja o estado da bateria.
 2. Identifique o PCM em que a bateria falhou. A figura 1 mostra a parte de trás do dispositivo StorSimple.
    
     ![Backplane dos módulos de recinto primário do dispositivo](./media/storsimple-battery-replacement/IC740994.png)
@@ -76,7 +76,7 @@ Execute os seguintes passos para instalar o módulo de bateria de substituição
 1. Coloque o módulo da bateria de reserva na orientação correta no PCM.
 2. Pressione a pega do módulo da bateria até ao lugar do conector.
 3. Substitua o PCM no recinto primário seguindo as diretrizes em Substituir um Módulo de [Alimentação e Arrefecimento no seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Depois de concluída a substituição, vá ao seu dispositivo e depois vá ao **Monitor** > saúde de **Hardware** no portal Azure. Verifique o estado da bateria para se certificar de que a instalação foi bem sucedida. Um estado verde indica que a bateria é saudável.
+4. Depois de concluída a substituição, vá ao seu dispositivo e depois vá para **monitorizar** > a saúde do**Hardware** no portal Azure. Verifique o estado da bateria para se certificar de que a instalação foi bem sucedida. Um estado verde indica que a bateria é saudável.
 
 ## <a name="maintain-the-backup-battery-module"></a>Mantenha o módulo da bateria de reserva
 No seu dispositivo StorSimple, o módulo de bateria de reserva fornece energia ao controlador durante um evento de perda de energia. Permite que o dispositivo StorSimple guarde dados críticos antes de desligar de forma controlada. Com duas baterias totalmente carregadas nos PCMs, o sistema pode lidar com dois eventos de perda consecutivos.

@@ -1,8 +1,8 @@
 ---
-title: Monitoramento remoto de IoT e notificações com aplicativos lógicos do Azure | Microsoft Docs
-description: Use os aplicativos lógicos do Azure para monitoramento de temperatura IoT no Hub IoT e envie automaticamente notificações por email para sua caixa de correio para quaisquer anomalias detectadas.
+title: Monitorização remota ioT e notificações com aplicações da Lógica Azure [ Microsoft Docs
+description: Utilize aplicativos azure logic para monitorização da temperatura IoT no seu hub IoT e envie automaticamente notificações de e-mail para a sua caixa de correio para quaisquer anomalias detetadas.
 author: robinsh
-keywords: monitoramento de IOT, notificações de IOT, monitoramento de temperatura IOT
+keywords: monitorização de iot, notificações oot, monitorização da temperatura iot
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -10,27 +10,27 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68385725"
 ---
-# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto de IoT e notificações com aplicativos lógicos do Azure conectando seu hub IoT e caixa de correio
+# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização e notificações remotas IoT com Aplicações Lógicas Azure que ligam o seu hub IoT e caixa de correio
 
 ![Diagrama de ponta a ponta](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Os [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho em serviços locais e de nuvem, em uma ou mais empresas e em vários protocolos. Um aplicativo lógico começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controles internos, como condições e iteradores. Essa flexibilidade torna os aplicativos lógicos uma solução de IoT ideal para cenários de monitoramento de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo em um ponto de extremidade do Hub IoT pode iniciar fluxos de trabalho de aplicativo lógico para comportar os dados em um blob de armazenamento do Azure, enviar alertas por email para avisar sobre anomalias de dados, agendar uma visita de técnico se um dispositivo relatar uma falha e assim por diante.
+[As Aplicações Lógicas Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho através de serviços no local e na nuvem, uma ou mais empresas, e através de vários protocolos. Uma aplicação lógica começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controlos incorporados, tais como condições e iterres. Esta flexibilidade faz das Aplicações Lógicas uma solução IoT ideal para cenários de monitorização de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo num ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicações lógicas para armazenar os dados numa bolha de Armazenamento Azure, enviar alertas de e-mail para alertar para anomalias de dados, agendar uma visita técnica se um dispositivo reportar uma falha E assim por diante.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
-Você aprende a criar um aplicativo lógico que conecta seu hub IoT e sua caixa de correio para monitoramento e notificações de temperatura.
+Aprende a criar uma aplicação lógica que ligue o seu hub IoT e a sua caixa de correio para monitorização de temperatura e notificações.
 
-O código do cliente em execução no seu dispositivo define uma propriedade `temperatureAlert`de aplicativo,, em cada mensagem de telemetria que envia para o Hub IOT. Quando o código do cliente detecta uma temperatura acima de 30 C, ele define essa `true`Propriedade como; caso contrário, ele define `false`a propriedade como.
+O código do cliente em execução `temperatureAlert`no seu dispositivo define uma propriedade de aplicação, em cada mensagem de telemetria que envia para o seu hub IoT. Quando o código do cliente deteta uma temperatura superior `true`a 30 C, define esta propriedade para; caso contrário, define a `false`propriedade para .
 
-As mensagens que chegam ao seu hub IOT são semelhantes às seguintes, com os dados de telemetria contidos no corpo `temperatureAlert` e a propriedade contida nas propriedades do aplicativo (as propriedades do sistema não são mostradas):
+As mensagens que chegam ao seu hub IoT são semelhantes às seguintes, com os dados de telemetria contidos no corpo e a `temperatureAlert` propriedade contida nas propriedades da aplicação (as propriedades do sistema não são mostradas):
 
 ```json
 {
@@ -46,211 +46,211 @@ As mensagens que chegam ao seu hub IOT são semelhantes às seguintes, com os da
 }
 ```
 
-Para saber mais sobre o formato de mensagem do Hub IoT, confira [criar e ler mensagens do Hub IOT](iot-hub-devguide-messages-construct.md).
+Para saber mais sobre o formato de mensagem IoT Hub, consulte [Criar e ler mensagens IoT Hub](iot-hub-devguide-messages-construct.md).
 
-Neste tópico, você configura o roteamento no Hub IOT para enviar mensagens em que a propriedade é `temperatureAlert` `true` para um ponto de extremidade do barramento de serviço. Em seguida, você configura um aplicativo lógico que dispara as mensagens que chegam ao ponto de extremidade do barramento de serviço e envia uma notificação por email.
+Neste tópico, você configura o encaminhamento no seu hub `temperatureAlert` IoT para enviar mensagens em que a propriedade é `true` para um ponto final de ônibus de serviço. Em seguida, configura uma aplicação lógica que dispara nas mensagens que chegam ao ponto final do Bus de Serviço e envia-lhe uma notificação por e-mail.
 
-## <a name="what-you-do"></a>O que você faz
+## <a name="what-you-do"></a>O que faz
 
-* Crie um namespace do barramento de serviço e adicione uma fila do barramento de serviço a ele.
-* Adicione um ponto de extremidade personalizado e uma regra de roteamento ao Hub IoT para rotear mensagens que contêm um alerta de temperatura para a fila do barramento de serviço.
-* Criar, configurar e testar um aplicativo lógico para consumir mensagens de sua fila do barramento de serviço e enviar emails de notificação para um destinatário desejado.
+* Crie um espaço de nome de ônibus de serviço e adicione-lhe uma fila de ônibus de serviço.
+* Adicione um ponto final personalizado e uma regra de encaminhamento ao seu hub IoT para direcionar mensagens que contenham um alerta de temperatura para a fila do Ônibus de serviço.
+* Crie, configure e teste uma aplicação lógica para consumir mensagens da sua fila de ônibus de serviço e enviar e-mails de notificação para um destinatário pretendido.
 
 ## <a name="what-you-need"></a>Do que precisa
 
-* Conclua o tutorial do [simulador online do Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Eles abrangem os seguintes requisitos:
+* Complete o tutorial de [simulador online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com nó.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes cobrem os seguintes requisitos:
 
   * Uma subscrição ativa do Azure.
-  * Um hub IoT do Azure em sua assinatura.
-  * Um aplicativo cliente em execução no seu dispositivo que envia mensagens de telemetria para o Hub IoT do Azure.
+  * Um hub Azure IoT sob a sua assinatura.
+  * Uma aplicação de cliente em execução no seu dispositivo que envia mensagens de telemetria para o seu hub Azure IoT.
 
-## <a name="create-service-bus-namespace-and-queue"></a>Criar fila e namespace do barramento de serviço
+## <a name="create-service-bus-namespace-and-queue"></a>Criar espaço de nome de ônibus de serviço e fila
 
-Crie um espaço de nomes e uma fila do Service Bus. Posteriormente neste tópico, você criará uma regra de roteamento em seu hub IoT para direcionar mensagens que contêm um alerta de temperatura para a fila do barramento de serviço, onde elas serão coletadas por um aplicativo lógico e as dispararão para enviar um email de notificação.
+Crie um espaço de nomes e uma fila do Service Bus. Mais tarde neste tópico, cria-se uma regra de encaminhamento no seu hub IoT para direcionar mensagens que contenham um alerta de temperatura para a fila do Service Bus, onde serão captadas por uma aplicação lógica e desencadeá-la para enviar um e-mail de notificação.
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione **+ criar um barramento de** > **serviço**de**integração** > de recursos.
+1. No [portal Azure, selecione](https://portal.azure.com/) **+ Crie um** > **ônibus de serviço**de**integração** > de recursos.
 
-1. No painel **criar namespace** , forneça as seguintes informações:
+1. No painel Criar espaço de **nome,** forneça as seguintes informações:
 
-   **Nome**: O nome do namespace do barramento de serviço. O namespace deve ser exclusivo no Azure.
+   **Nome**: O nome do espaço de nome do autocarro de serviço. O espaço de nome deve ser único em Azure.
 
-   **Tipo de preço**: Selecione **básico** na lista suspensa. A camada básica é suficiente para este tutorial.
+   **Nível de preços**: Selecione **Basic** da lista de descidas. O nível básico é suficiente para este tutorial.
 
-   **Grupo de recursos**: Use o mesmo grupo de recursos que o Hub IoT usa.
+   **Grupo de recursos:** Utilize o mesmo grupo de recursos que o seu hub IoT utiliza.
 
-   **Local**: Use o mesmo local que o Hub IoT usa.
+   **Localização**: Utilize o mesmo local que o seu hub IoT.
 
-   ![Criar um namespace do barramento de serviço no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
+   ![Crie um espaço de nome de ônibus de serviço no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Selecione **Criar**. Aguarde a conclusão da implantação antes de passar para a próxima etapa.
+1. Selecione **Criar**. Aguarde que a colocação esteja concluída antes de passar para o próximo passo.
 
-### <a name="add-a-service-bus-queue-to-the-namespace"></a>Adicionar uma fila do barramento de serviço ao namespace
+### <a name="add-a-service-bus-queue-to-the-namespace"></a>Adicione uma fila de ônibus de serviço ao espaço de nome
 
-1. Abra o namespace do barramento de serviço. A maneira mais fácil de acessar o namespace do barramento de serviço é selecionar **grupos de recursos** no painel de recursos, selecionar o grupo de recursos e, em seguida, selecionar o namespace do barramento de serviço na lista de recursos.
+1. Abra o espaço de nome do Ônibus de serviço. A maneira mais fácil de chegar ao espaço de nome do Ônibus de serviço é selecionar **grupos de recursos** a partir do painel de recursos, selecionar o seu grupo de recursos e, em seguida, selecionar o espaço de nome do Ônibus de serviço da lista de recursos.
 
-1. No painel **namespace do barramento de serviço** , selecione **+ fila**.
+1. No painel **Service Bus Namespace,** selecione **+ Fila**.
 
-1. Insira um nome para a fila e, em seguida, selecione **criar**. Quando a fila tiver sido criada com êxito, o painel **criar fila** será fechado.
+1. Introduza um nome para a fila e, em seguida, selecione **Criar**. Quando a fila foi criada com sucesso, o painel de **fila Criar** fecha- se.
 
-   ![Adicionar uma fila do barramento de serviço no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
+   ![Adicione uma fila de ônibus de serviço no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. De volta ao painel **namespace do barramento de serviço** , em **entidades**, selecione **filas**. Abra a fila do barramento de serviço na lista e, em seguida, selecione **políticas** > de acesso compartilhado **+ Adicionar**.
+1. De volta ao painel **Service Bus Namespace,** em **Entidades,** selecione **Filas**. Abra a fila do Ônibus de serviço da lista e, em seguida, selecione **políticas** > de acesso partilhado **+ Adicionar**.
 
-1. Insira um nome para a política, marque **gerenciar**e, em seguida, selecione **criar**.
+1. Introduza um nome para a apólice, verifique **Gerir,** e depois **selecione Criar**.
 
-   ![Adicionar uma política de fila do barramento de serviço no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
+   ![Adicione uma política de fila de ônibus de serviço no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
-## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Adicionar um ponto de extremidade personalizado e uma regra de roteamento ao Hub IoT
+## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Adicione uma regra de endpoint personalizado e encaminhamento ao seu hub IoT
 
-Adicione um ponto de extremidade personalizado para a fila do barramento de serviço ao Hub IoT e crie uma regra de roteamento de mensagens para direcionar mensagens que contêm um alerta de temperatura para esse ponto de extremidade, onde elas serão selecionadas pelo seu aplicativo lógico. A regra de roteamento usa uma consulta de `temperatureAlert = "true"`roteamento,, para encaminhar mensagens com base no `temperatureAlert` valor da Propriedade do aplicativo definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [consulta de roteamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Adicione um ponto final personalizado para a fila do Ônibus de serviço ao seu hub IoT e crie uma regra de encaminhamento de mensagens para direcionar mensagens que contenham um alerta de temperatura para esse ponto final, onde serão captadas pela sua aplicação lógica. A regra de encaminhamento utiliza `temperatureAlert = "true"`uma consulta de encaminhamento, para encaminhar mensagens com base no valor da propriedade da `temperatureAlert` aplicação definida pelo código cliente em execução no dispositivo. Para saber mais, consulte a consulta de [encaminhamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
-### <a name="add-a-custom-endpoint"></a>Adicionar um ponto de extremidade personalizado
+### <a name="add-a-custom-endpoint"></a>Adicione um ponto final personalizado
 
-1. Abra o Hub IoT. A maneira mais fácil de acessar o Hub IoT é selecionar grupos de **recursos** no painel de recursos, selecionar o grupo de recursos e, em seguida, selecionar o Hub IOT na lista de recursos.
+1. Abra o seu centro de iôts. A maneira mais fácil de chegar ao hub IoT é selecionar **grupos de Recursos** a partir do painel de recursos, selecionar o seu grupo de recursos e, em seguida, selecionar o seu hub IoT da lista de recursos.
 
-1. Em **mensagens**, selecione **Roteamento de mensagens**. No painel **Roteamento de mensagens** , selecione a guia **pontos de extremidade personalizados** e, em seguida, selecione **+ Adicionar**. Na lista suspensa, selecione **fila do barramento de serviço**.
+1. Em **Mensagens,** selecione **o encaminhamento de mensagens**. No painel de **encaminhamento de mensagens,** selecione o separador de **pontos finais Personalizado** e, em seguida, selecione + **Adicionar**. A partir da lista de lançamentos, selecione fila de **ônibus de serviço**.
 
-   ![Adicionar um ponto de extremidade ao Hub IoT no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Adicione um ponto final ao seu hub IoT no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
-1. No painel **Adicionar um ponto de extremidade do barramento de serviço** , insira as seguintes informações:
+1. No painel de fim do **autocarro de serviço,** introduza as seguintes informações:
 
-   **Nome do ponto de extremidade**: O nome do ponto de extremidade.
+   **Nome final**: O nome do ponto final.
 
-   **Namespace do barramento de serviço**: Selecione o namespace que você criou.
+   **Espaço de nome de autocarro de serviço**: Selecione o espaço de nome que criou.
 
-   **Fila do barramento de serviço**: Selecione a fila que você criou.
+   **Fila de ônibus de serviço**: Selecione a fila que criou.
 
-   ![Adicionar um ponto de extremidade ao Hub IoT no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
+   ![Adicione um ponto final ao seu hub IoT no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Selecione **Criar**. Depois que o ponto de extremidade for criado com êxito, vá para a próxima etapa.
+1. Selecione **Criar**. Depois de o ponto final ser criado com sucesso, proceda ao próximo passo.
 
 ### <a name="add-a-routing-rule"></a>Adicionar uma regra de encaminhamento
 
-1. De volta ao painel **Roteamento de mensagens** , selecione a guia **rotas** e, em seguida, selecione **+ Adicionar**.
+1. Volte ao painel de **encaminhamento** da mensagem, selecione o separador **Rotas** e, em seguida, selecione **+ Adicionar**.
 
-1. No painel **Adicionar uma rota** , insira as seguintes informações:
+1. No painel adicionar um painel de **rota,** introduza as seguintes informações:
 
-   **Nome**: O nome da regra de roteamento.
+   **Nome**: O nome da regra de encaminhamento.
 
-   **Ponto de extremidade**: Selecione o ponto de extremidade que você criou.
+   **Ponto final**: Selecione o ponto final que criou.
 
-   **Fonte de dados**: Selecione **mensagens**de telemetria do dispositivo.
+   **Fonte de dados**: Selecione Mensagens de **Telemetria do Dispositivo**.
 
-   **Consulta de roteamento**: Introduza `temperatureAlert = "true"`.
+   **Consulta de encaminhamento**: Enter `temperatureAlert = "true"`.
 
-   ![Adicionar uma regra de roteamento no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
+   ![Adicione uma regra de encaminhamento no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. Selecione **Guardar**. Você pode fechar o painel **Roteamento de mensagens** .
+1. Selecione **Guardar**. Pode fechar o painel de **encaminhamento de mensagens.**
 
-## <a name="create-and-configure-a-logic-app"></a>Criar e configurar um aplicativo lógico
+## <a name="create-and-configure-a-logic-app"></a>Criar e configurar uma Aplicação Lógica
 
-Na seção anterior, você configura o Hub IoT para rotear mensagens contendo um alerta de temperatura para a fila do barramento de serviço. Agora, você configura um aplicativo lógico para monitorar a fila do barramento de serviço e enviar uma notificação por email sempre que uma mensagem for adicionada à fila.
+Na secção anterior, configura o seu hub IoT para encaminhar mensagens contendo um alerta de temperatura para a sua fila de ônibus de serviço. Agora, configura uma aplicação lógica para monitorizar a fila do Service Bus e enviar uma notificação de e-mail sempre que uma mensagem é adicionada à fila.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
-1. Selecione **criar um recurso** > **aplicativo lógico**de**integração** > .
+1. Selecione Criar uma**aplicação lógica**de**integração** >  **de recursos.** > 
 
 1. Introduza as seguintes informações:
 
-   **Nome**: O nome do aplicativo lógico.
+   **Nome**: O nome da aplicação lógica.
 
-   **Grupo de recursos**: Use o mesmo grupo de recursos que o Hub IoT usa.
+   **Grupo de recursos:** Utilize o mesmo grupo de recursos que o seu hub IoT utiliza.
 
-   **Local**: Use o mesmo local que o Hub IoT usa.
+   **Localização**: Utilize o mesmo local que o seu hub IoT.
 
-   ![Criar um aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
+   ![Criar uma aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
 1. Selecione **Criar**.
 
-### <a name="configure-the-logic-app-trigger"></a>Configurar o gatilho do aplicativo lógico
+### <a name="configure-the-logic-app-trigger"></a>Configure o gatilho da aplicação lógica
 
-1. Abra o aplicativo lógico. A maneira mais fácil de acessar o aplicativo lógico é selecionar grupos de **recursos** no painel de recursos, selecionar seu grupo de recursos e, em seguida, selecionar seu aplicativo lógico na lista de recursos. Quando você seleciona o aplicativo lógico, o designer de aplicativos lógicos é aberto.
+1. Abra a aplicação lógica. A maneira mais fácil de chegar à aplicação lógica é selecionar **grupos de Recursos** a partir do painel de recursos, selecionar o seu grupo de recursos e, em seguida, selecionar a sua aplicação lógica a partir da lista de recursos. Ao selecionar a aplicação lógica, o Logic Apps Designer abre.
 
-1. No designer de aplicativos lógicos, role para baixo até **modelos** e selecione **aplicativo lógico em branco**.
+1. No Designer de Aplicações Lógicas, desloque-se para os **Modelos** e selecione **Blank Logic App**.
 
-   ![Comece com um aplicativo lógico em branco no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
+   ![Comece com uma aplicação lógica em branco no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
-1. Selecione a guia **tudo** e, em seguida, selecione **barramento de serviço**.
+1. Selecione o separador **All** e, em seguida, selecione **Service Bus**.
 
-   ![Selecione o barramento de serviço para começar a criar seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
+   ![Selecione Service Bus para começar a criar a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Em **gatilhos**, selecione **quando uma ou mais mensagens chegam em uma fila (preenchimento automático)** .
+1. Em **'Gatilhos',** selecione **Quando uma ou mais mensagens chegarem numa fila (completa automática)**.
 
-   ![Selecione o gatilho para seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
+   ![Selecione o gatilho para a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
-1. Crie uma conexão do barramento de serviço.
-   1. Insira um nome de conexão e selecione o namespace do barramento de serviço na lista. A próxima tela é aberta.
+1. Crie uma ligação de ônibus de serviço.
+   1. Introduza um nome de ligação e selecione o seu espaço de nome do Ônibus de serviço na lista. O próximo ecrã abre.
 
-      ![Criar uma conexão do barramento de serviço para seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Crie uma ligação de ônibus de serviço para a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Selecione a política do barramento de serviço (RootManageSharedAccessKey). Em seguida, selecione **criar**.
+   1. Selecione a política de ônibus de serviço (RootManageSharedAccessKey). Em seguida, selecione **Criar**.
 
-      ![Criar uma conexão do barramento de serviço para seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
+      ![Crie uma ligação de ônibus de serviço para a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. Na tela final, em **nome da fila**, selecione a fila que você criou na lista suspensa. Insira `175` para a **contagem máxima de mensagens**.
+   1. No ecrã final, para **o nome da fila,** selecione a fila que criou a partir da queda. Introduza `175` a **contagem máxima de mensagens**.
 
-      ![Especifique a contagem máxima de mensagens para a conexão do barramento de serviço em seu aplicativo lógico](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+      ![Especifique a contagem máxima de mensagens para a ligação de ônibus de serviço na sua aplicação lógica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
-   1. Selecione **salvar** no menu na parte superior do designer de aplicativos lógicos para salvar suas alterações.
+   1. Selecione **Guardar** no menu no topo do Logic Apps Designer para guardar as suas alterações.
 
-### <a name="configure-the-logic-app-action"></a>Configurar a ação do aplicativo lógico
+### <a name="configure-the-logic-app-action"></a>Configure a ação lógica da aplicação
 
-1. Crie uma conexão de serviço SMTP.
+1. Crie uma ligação de serviço SMTP.
 
-   1. Selecione **Novo passo**. Em **escolher uma ação**, selecione a guia **tudo** .
+   1. Selecione **Novo passo**. Em **Escolha uma ação**, selecione o separador **'Todos'.**
 
-   1. Digite `smtp` na caixa de pesquisa, selecione o serviço **SMTP** no resultado da pesquisa e, em seguida, selecione **Enviar email**.
+   1. Digite `smtp` na caixa de pesquisa, selecione o serviço **SMTP** no resultado da pesquisa e, em seguida, selecione **Enviar e-mail**.
 
-      ![Criar uma conexão SMTP em seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
+      ![Crie uma ligação SMTP na sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
 
-   1. Insira as informações de SMTP para sua caixa de correio e, em seguida, selecione **criar**.
+   1. Introduza as informações SMTP para a sua caixa de correio e, em seguida, selecione **Criar**.
 
-      ![Insira as informações de conexão SMTP em seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
+      ![Insira informações de conexão SMTP na sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
 
-      Obtenha as informações de SMTP para [hotmail/Outlook. com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [gmail](https://support.google.com/a/answer/176600?hl=en)e [yahoo mail](https://help.yahoo.com/kb/SLN4075.html).
+      Obtenha as informações sMTP para [Hotmail/Outlook.com,](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970) [Gmail](https://support.google.com/a/answer/176600?hl=en)e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Talvez seja necessário desabilitar o SSL para estabelecer a conexão. Se esse for o caso e você quiser reabilitar o SSL depois que a conexão tiver sido estabelecida, consulte a etapa opcional no final desta seção.
+      > Pode ser necessário desativar o SSL para estabelecer a ligação. Se for esse o caso e pretender reativar o SSL depois de a ligação ter sido estabelecida, consulte o passo opcional no final desta secção.
 
-   1. Na lista suspensa **Adicionar novo parâmetro** na etapa **Enviar email** , selecione **de**, **para**, **assunto** e **corpo**. Clique ou toque em qualquer lugar na tela para fechar a caixa de seleção.
+   1. A partir do **novo parâmetro de** queda na etapa enviar **e-mail,** selecione **From,** **To**, **Subject** and **Body**. Clique ou toque em qualquer lugar do ecrã para fechar a caixa de seleção.
 
-      ![Escolher campos de email de conexão SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+      ![Escolha campos de e-mail de ligação SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. Insira seu endereço de email para **de** e **para** `High temperature detected` e para o **assunto** e o **corpo**. Se a caixa de diálogo **adicionar conteúdo dinâmico dos aplicativos e conectores usados neste fluxo** for aberta, selecione **ocultar** para fechá-la. Você não usa conteúdo dinâmico neste tutorial.
+   1. Insira o seu endereço `High temperature detected` de e-mail para **From** and **To,** e para **Assunto** e **Corpo**. Se o **Adicionar conteúdo dinâmico a partir das aplicações e conectores utilizados neste** diálogo de fluxo se abrir, selecione **'Ocultar'** para o fechar. Não utiliza conteúdo dinâmico neste tutorial.
 
-      ![Preencher campos de email de conexão SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+      ![Preencher campos de e-mail de ligação SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 
-   1. Selecione **salvar** para salvar a conexão SMTP.
+   1. Selecione **Guardar** para salvar a ligação SMTP.
 
-1. Adicional Se você tiver que desabilitar o SSL para estabelecer uma conexão com seu provedor de email e desejar habilitá-lo novamente, siga estas etapas:
+1. (Opcional) Se teve de desativar o SSL para estabelecer uma ligação com o seu fornecedor de e-mail e pretender reativa-lo, siga estes passos:
 
-   1. No painel **aplicativo lógico** , em **ferramentas de desenvolvimento**, selecione **conexões de API**.
+   1. No painel de **aplicações Logic,** em Ferramentas de **Desenvolvimento,** selecione **ligações API**.
 
-   1. Na lista de conexões de API, selecione a conexão SMTP.
+   1. A partir da lista de ligações API, selecione a ligação SMTP.
 
-   1. No painel **conexão de API SMTP** , em **geral**, selecione **Editar conexão de API**.
+   1. No painel **de ligação SMTP API,** em **geral,** selecione **ligação API de edição**.
 
-   1. No painel **Editar conexão de API** , selecione **habilitar SSL?** , insira novamente a senha para sua conta de email e selecione **salvar**.
+   1. No painel de **ligação Editar API,** selecione **Enable SSL?** **Save**
 
-      ![Editar a conexão de API SMTP em seu aplicativo lógico no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
+      ![Editar conexão SMTP API na sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 
-Seu aplicativo lógico agora está pronto para processar alertas de temperatura da fila do barramento de serviço e enviar notificações para sua conta de email.
+A sua aplicação lógica está agora pronta para processar alertas de temperatura da fila do Autocarro de Serviço e enviar notificações para a sua conta de e-mail.
 
 ## <a name="test-the-logic-app"></a>Testar a aplicação lógica
 
-1. Inicie o aplicativo cliente no seu dispositivo.
+1. Inicie a aplicação do cliente no seu dispositivo.
 
-1. Se você estiver usando um dispositivo físico, traga cuidadosamente uma fonte de calor perto do sensor de calor até que a temperatura exceda 30 graus C. Se você estiver usando o simulador online, o código do cliente produzirá mensagens de telemetria aleatoriamente que excedem 30 C.
+1. Se estiver a utilizar um dispositivo físico, traga cuidadosamente uma fonte de calor perto do sensor de calor até que a temperatura exceda os 30 graus C. Se estiver a utilizar o simulador online, o código do cliente irá transmitir aleatoriamente mensagens de telemetria que excedam 30 C.
 
-1. Você deve começar a receber notificações por email enviadas pelo aplicativo lógico.
+1. Deve começar a receber notificações de e-mail enviadas pela aplicação lógica.
 
    > [!NOTE]
-   > Seu provedor de serviço de email pode precisar verificar a identidade do remetente para ter certeza de que você envia o email.
+   > O seu fornecedor de serviços de e-mail poderá ter de verificar a identidade do remetente para se certificar de que é você que envia o e-mail.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Você criou com êxito um aplicativo lógico que conecta seu hub IoT e sua caixa de correio para monitoramento e notificações de temperatura.
+Criou com sucesso uma aplicação lógica que liga o seu hub IoT e a sua caixa de correio para monitorização de temperatura e notificações.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

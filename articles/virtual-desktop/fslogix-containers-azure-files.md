@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127876"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
@@ -63,7 +63,7 @@ A UPD requer espaços de [armazenamento diretos (S2D)](/windows-server/remote/re
 
 Embora os clusters S2D atinjam o desempenho necessário, o custo é caro para os clientes empresariais, mas especialmente caro para os clientes de pequena e média empresa (SMB). Para esta solução, as empresas pagam discos de armazenamento, juntamente com o custo dos VMs que usam os discos para uma ação.
 
-#### <a name="administrative-overhead"></a>Despesas gerais administrativas
+#### <a name="administrative-overhead"></a>Sobrecarga administrativa
 
 Os clusters S2D requerem um sistema operativo que é remendado, atualizado e mantido num estado seguro. Estes processos e a complexidade da criação de uma recuperação de desastres do S2D tornam o S2D viável apenas para empresas com um pessoal de TI dedicado.
 

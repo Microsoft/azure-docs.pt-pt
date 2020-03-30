@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064092"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inscreva-se no seu trabalho ou conta escolar utilizando o seu método de verificação de dois fatores
@@ -60,7 +60,7 @@ As seguintes informações descrevem a experiência de utilização da aplicaç�
    ![Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Abra a notificação no seu telefone e selecione a tecla **Verificar.** Se a sua empresa necessitar de um PIN, insira-o aqui.
-4. A sessão deverá então estar iniciada.
+4. Agora devia sintetrá-lo.
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>Para iniciar sessão utilizando um código de verificação com a aplicação Microsoft Authenticator
 

@@ -9,10 +9,10 @@ ms.date: 09/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127385"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Resolução de problemas das máquinas virtuais do Windows 7 no Windows Virtual Desktop
@@ -43,7 +43,7 @@ Para corrigir este erro, adicione o utilizador ao grupo utilizador remote Deskto
 1. Abra o portal do Azure.
 2. Selecione a máquina virtual em que viu a mensagem de erro.
 3. Selecione **Executar um comando**.
-4. Execute o seguinte comando com `<username>` substituído pelo nome do utilizador que pretende adicionar:
+4. Executar o seguinte `<username>` comando substituído pelo nome do utilizador que pretende adicionar:
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

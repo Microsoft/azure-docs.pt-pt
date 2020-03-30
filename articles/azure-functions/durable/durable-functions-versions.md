@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152895"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das versões de Funções Duráveis
@@ -54,9 +54,9 @@ Funções Duráveis 2.x introduz várias alterações de rutura. Funções Durá
 
 Funções Duráveis 2.x usa um novo esquema host.json. As principais alterações a partir de 1.x incluem:
 
-* `"storageProvider"` (e a subsecção `"azureStorage"`) para configuração específica do armazenamento.
-* `"tracing"` para rastrear e registar configuração.
-* `"notifications"` (e a subsecção `"eventGrid"`) para a configuração da notificação da grelha de eventos.
+* `"storageProvider"`(e `"azureStorage"` a subsecção) para a configuração específica do armazenamento.
+* `"tracing"`para rastrear e registar configuração.
+* `"notifications"`(e `"eventGrid"` a subsecção) para a configuração da notificação da grelha de eventos.
 
 Consulte a documentação de referência do [host.json das Funções Duráveis](durable-functions-bindings.md#durable-functions-2-0-host-json) para obter mais detalhes.
 
@@ -77,8 +77,8 @@ O quadro seguinte representa as principais alterações:
 | `DurableActivityContext` ou `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-No caso em que uma classe base abstrata continha métodos virtuais, estes métodos virtuais foram substituídos por métodos de extensão definidos em `DurableContextExtensions`.
+No caso em que uma classe base abstrata continha métodos virtuais, `DurableContextExtensions`estes métodos virtuais foram substituídos por métodos de extensão definidos em .
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>funções.json alterações C# (JavaScript e Script)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>funções.json alterações (JavaScript e C# Script)
 
-Em Funções Duráveis 1.x, a ligação do cliente da orquestração utiliza uma `type` de `orchestrationClient`. A versão 2.x usa `durableClient` em vez disso.
+Em Funções Duráveis 1.x, a `type` ligação do cliente de orquestração utiliza um de `orchestrationClient`. Versão 2.x `durableClient` usa em vez disso.

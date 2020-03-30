@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218070"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar resultados do modelo no Azure Machine Learning Studio (clássico)
@@ -52,13 +52,13 @@ Existem duas subcategorias de problemas de classificação:
 O Azure Machine Learning Studio (clássico) tem diferentes módulos para lidar com cada um destes tipos de classificação, mas os métodos para interpretar os seus resultados de previsão são semelhantes.
 
 ### <a name="two-class-classification"></a>Classificação de duas classes
-**Experiência de exemplo**
+**Experimentação de exemplo**
 
 Um exemplo de um problema de classificação de duas classes é a classificação das flores da íris. A tarefa é classificar as flores da íris com base nas suas características. O conjunto de dados da Íris fornecido no Azure Machine Learning Studio (clássico) é um subconjunto do popular conjunto de dados da [Íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) que contém instâncias de apenas duas espécies de flores (classes 0 e 1). Existem quatro características para cada flor (comprimento sepal, largura sepal, comprimento de pétala e largura de pétala).
 
 ![Screenshot da experiência da íris](./media/interpret-model-results/1.png)
 
-Figura 1. Experiência de problema de classificação de duas classes da Íris
+Figura 1: Experiência de problema de classificação de duas classes da Íris
 
 Foi realizada uma experiência para resolver este problema, como mostra a Figura 1. Um modelo de árvore de decisão de duas classes foi treinado e marcado. Agora pode visualizar os resultados da previsão do módulo ['Modelo de Pontuação',][score-model] clicando na porta de saída do módulo ['Modelo de Pontuação'][score-model] e, em seguida, clicando em **Visualizar**.
 
@@ -86,7 +86,7 @@ Agora precisa definir a entrada e a saída para o serviço web. A entrada é a e
 
 ![A experiência de classificação de duas classes da íris](./media/interpret-model-results/4.png)
 
-Figura 4. Experiência final de pontuação de um problema de classificação de duas classes da íris
+Figura 4. Experiência final de pontuação de um problema de classificação de duas classes da íris
 
 Depois de executar o serviço web e introduzir alguns valores de características de uma instância de teste, o resultado devolve dois números. O primeiro número é o rótulo marcado, e o segundo é a probabilidade pontuada. Esta flor é prevista como classe 1 com 0,9655 probabilidade.
 
@@ -97,7 +97,7 @@ Depois de executar o serviço web e introduzir alguns valores de característica
 Figura 5. Resultado do serviço web da classificação de duas classes da íris
 
 ### <a name="multi-class-classification"></a>Classificação multi-classe
-**Experiência de exemplo**
+**Experimentação de exemplo**
 
 Nesta experiência, realiza-se uma tarefa de reconhecimento de cartas como exemplo de classificação multiclasse. O classificador tenta prever uma determinada letra (classe) com base em alguns valores de atributo escritos à mão extraídos das imagens escritas à mão.
 
@@ -142,7 +142,7 @@ Figura 10. Resultado do serviço web da classificação multiclasse
 ## <a name="regression"></a>Regressão
 Os problemas de regressão são diferentes dos problemas de classificação. Num problema de classificação, estás a tentar prever classes discretas, como a classe a que uma flor de íris pertence. Mas como pode ver no exemplo seguinte de um problema de regressão, está a tentar prever uma variável contínua, como o preço de um carro.
 
-**Experiência de exemplo**
+**Experimentação de exemplo**
 
 Use a previsão do preço do automóvel como exemplo para a regressão. Está a tentar prever o preço de um carro com base nas suas características, incluindo a make, o tipo de combustível, o tipo de carroçae e a roda de tração. A experiência é mostrada na Figura 11.
 
@@ -177,7 +177,7 @@ Funcionando o serviço web, o resultado devolvido parece figura 14. O preço pre
 Figura 14. Resultado do serviço web de um problema de regressão dos preços do automóvel
 
 ## <a name="clustering"></a>Clustering
-**Experiência de exemplo**
+**Experimentação de exemplo**
 
 Vamos usar o conjunto de dados da Íris novamente para construir uma experiência de agrupamento. Aqui pode filtrar as etiquetas de classe no conjunto de dados para que só tenha funcionalidades e possa ser usada para o agrupamento. Neste caso de utilização da íris, especifique o número de aglomerados para ser dois durante o processo de treino, o que significa que você iria agrupar as flores em duas classes. A experiência é mostrada na Figura 15.
 
@@ -220,7 +220,7 @@ Depois de executar o serviço web, o resultado devolvido parece a Figura 19. Pre
 Figura 19. Resultado do serviço web da classificação de duas classes da íris
 
 ## <a name="recommender-system"></a>Sistema de recomendação
-**Experiência de exemplo**
+**Experimentação de exemplo**
 
 Para sistemas de recomendação, pode utilizar o problema da recomendação do restaurante como exemplo: pode recomendar restaurantes para clientes com base no seu histórico de classificação. Os dados de entrada são constituídos por três partes:
 

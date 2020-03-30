@@ -1,6 +1,6 @@
 ---
-title: Descobrir firewall interno de instância gerenciada
-description: Saiba como verificar a proteção de firewall interna no Instância Gerenciada do Banco de Dados SQL do Azure.
+title: Descubra firewall de instância gerida incorporada
+description: Saiba como verificar a proteção contra firewall incorporada na Instância gerida pela Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,22 +12,22 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 555ef56aafa37a1e1d384f945b04f9237adc5f7d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821808"
 ---
-# <a name="verifying-the-managed-instance-built-in-firewall"></a>Verificando o Instância Gerenciada firewall interno
+# <a name="verifying-the-managed-instance-built-in-firewall"></a>Verificar a firewall incorporada da Instância Gerida
 
-O Instância Gerenciada [regras de segurança de entrada obrigatórias](sql-database-managed-instance-connectivity-architecture.md#mandatory-inbound-security-rules) exigem que as portas de gerenciamento 9000, 9003, 1438, 1440, 1452 sejam abertas de **qualquer fonte** no NSG (grupo de segurança de rede) que protege o instância gerenciada. Embora essas portas estejam abertas no nível de NSG, elas são protegidas no nível de rede pelo firewall interno.
+As regras de [segurança obrigatórias](sql-database-managed-instance-connectivity-architecture.md#mandatory-inbound-security-rules) da Instância Gerida exigem que os portos de gestão 9000, 9003, 1438, 1440, 1452 sejam abertos a partir de **qualquer fonte** do Grupo de Segurança da Rede (NSG) que proteja a Instância Gerida. Embora estas portas estejam abertas ao nível do NSG, estão protegidas ao nível da rede pela firewall incorporada.
 
-## <a name="verify-firewall"></a>Verificar firewall
+## <a name="verify-firewall"></a>Verifique firewall
 
-Para verificar essas portas, use qualquer ferramenta de verificador de segurança para testar essas portas. A captura de tela a seguir mostra como usar uma dessas ferramentas.
+Para verificar estas portas, utilize qualquer ferramenta de scanner de segurança para testar estas portas. A imagem que se segue mostra como usar uma destas ferramentas.
 
-![Verificando o firewall interno](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
+![Verificação de firewall incorporado](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre instâncias gerenciadas e conectividade, consulte [instância gerenciada do banco de dados SQL do Azure arquitetura de conectividade](sql-database-managed-instance-connectivity-architecture.md).
+Para obter mais informações sobre instâncias geridas e conectividade, consulte [a Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).

@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127550"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho gráficos no Ambiente de Trabalho Remoto
@@ -35,7 +35,7 @@ Vai precisar do seu nome de sessão remota para identificar os contadores de des
 
 Depois de ter determinado o seu nome de sessão remota, siga estas instruções para recolher os contadores de desempenho da RemoteFX Graphics para a sua sessão remota.
 
-1. Selecione **Iniciar** > **Ferramentas Administrativas** > Monitor de **Desempenho**.
+1. Selecione **Iniciar** > **Ferramentas Administrativas** > Monitor de**Desempenho**.
 2. Na caixa de diálogo Do Monitor de **Desempenho,** expanda **as ferramentas de monitorização,** selecione **Performance Monitor,** e, em seguida, selecione **Adicionar**.
 3. Na caixa de diálogo **Add Counters,** a partir da lista de **contadores disponíveis,** expanda a secção para Gráficos RemoteFX.
 4. Selecione os balcões a monitorizar.

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021701"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura da monitorização contínua do paciente
@@ -22,11 +22,11 @@ ms.locfileid: "77021701"
 As soluções contínuas de monitorização do paciente podem ser construídas utilizando o modelo de aplicação fornecido e utilizando a arquitetura que está descrita abaixo como orientação.
 
 >[!div class="mx-imgBorder"] 
->![](media/cpm-architecture.png) de arquitetura cpm
+>![Arquitetura CPM](media/cpm-architecture.png)
 
 1. Dispositivos médicos que comunicam utilizando Bluetooth Low Energy (BLE)
 1. Gateway de telemóvel recebendo dados BLE e enviando para a IoT Central
-1. Exportação contínua de dados de saúde do doente para a API Azure para&reg; de FHIR
+1. Exportação contínua de dados de saúde do doente para a API Azure para fhir&reg;
 1. Aprendizagem automática com base em dados interoperáveis
 1. Painel de cuidados construído com dados do FHIR
 
@@ -39,10 +39,10 @@ Muitos wearables médicos usados no espaço IoT de saúde são dispositivos Blue
 ### <a name="mobile-phone-gateway"></a>Gateway do telemóvel
 A função principal da aplicação de telemóvel é ingerir dados DE BLE a partir de dispositivos médicos e comunicá-lo à Azure IoT Central. Além disso, a aplicação pode ajudar a orientar os pacientes através de um fluxo de configuração e fornecimento de dispositivos e ajudá-los a ver uma visão dos seus dados pessoais de saúde. Outras soluções podem usar um portal de tablet ou um portal estático se dentro de um quarto de hospital para alcançar o mesmo fluxo de comunicação.
 
-### <a name="export-to-azure-api-for-fhirreg"></a>Exportação para API Azure para&reg; fhir
-A Azure IoT Central é compatível com a HIPAA e a HITRUST&reg; certificada, mas também pode querer enviar dados relacionados com a saúde do paciente para a API Azure para fhir. [A API Azure para FHIR](../../healthcare-apis/overview.md) é uma API totalmente gerida, baseada em padrões e compatível com dados de saúde clínica que lhe permite criar novos sistemas de envolvimento com os seus dados de saúde. Permite uma rápida troca de dados através de APIs FHIR, apoiado por uma oferta gerida de Serviço plataforma-as-a (PaaS) na nuvem. Utilizando a funcionalidade De Exportação Contínua de Dados da IoT Central, pode enviar dados para a API Azure para FHIR.
+### <a name="export-to-azure-api-for-fhirreg"></a>Exportação para API Azure para FHIR&reg;
+A Azure IoT Central é certificada&reg; em conformidade com a HIPAA e certificada pela HITRUST, mas também pode querer enviar dados relacionados com a saúde do paciente para a API Azure para fhir. [A API Azure para FHIR](../../healthcare-apis/overview.md) é uma API totalmente gerida, baseada em padrões e compatível com dados de saúde clínica que lhe permite criar novos sistemas de envolvimento com os seus dados de saúde. Permite uma rápida troca de dados através de APIs FHIR, apoiado por uma oferta gerida de Serviço plataforma-as-a (PaaS) na nuvem. Utilizando a funcionalidade De Exportação Contínua de Dados da IoT Central, pode enviar dados para a API Azure para FHIR.
 
-### <a name="machine-learning"></a>Machine learning
+### <a name="machine-learning"></a>Aprendizagem automática
 Depois de agregar os seus dados e traduzi-los em formato FHIR, pode construir modelos de aprendizagem automática que possam enriquecer insights e permitir uma tomada de decisão mais inteligente para a sua equipa de cuidados. Existem diferentes tipos de serviços que podem ser usados para construir, treinar e implementar modelos de aprendizagem automática. Mais informações sobre como usar as ofertas de machine learning do Azure podem ser encontradas na nossa documentação de [aprendizagem automática.](../../machine-learning/index.yml)
 
 ### <a name="provider-dashboard"></a>Painel de instrumentos do fornecedor

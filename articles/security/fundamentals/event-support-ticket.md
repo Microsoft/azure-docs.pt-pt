@@ -1,6 +1,6 @@
 ---
-title: Como registrar um tíquete de suporte de evento de segurança – Azure | Microsoft Docs
-description: Como um vendedor no Azure Marketplace, tendo identificado um possível evento de segurança, preciso saber como registrar um tíquete apropriado.
+title: Como registar um bilhete de apoio a eventos de segurança - Azure [ Microsoft Docs
+description: Como vendedor no Mercado Azure, tendo identificado um potencial evento de segurança, preciso de saber como registar um bilhete apropriado.
 documentationcenter: na
 author: DavidBosland
 manager: lakoch
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: barclayn
 ms.openlocfilehash: 5635a9e1403731eabc20a04be880fd0aeb24d729
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727346"
 ---
-# <a name="how-to-log-a-security-event-support-ticket"></a>Como registrar um tíquete de suporte de evento de segurança
+# <a name="how-to-log-a-security-event-support-ticket"></a>Como Registar um Pedido de Suporte de Evento de Segurança
 
-1. Navegue até o [suporte](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) do Publicador e entre com suas credenciais da Microsoft.
-2. Selecione "evento de segurança" como o tipo de problema e escolha entre as categorias "incidente de segurança" e "vulnerabilidade".
+1. Navegue para suporte de [editor](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) e inscreva-se com as suas credenciais da Microsoft.
+2. Selecione "Security Event" como o Tipo de Problema e escolha entre as categorias "Incidente de Segurança" e "Vulnerabilidade".
 
-    ![Tipo e definição de evento](./media/event-support-ticket/chart.png)
+    ![Tipo de evento e Definição](./media/event-support-ticket/chart.png)
 
-3. Depois de selecionar o tipo e a categoria do problema, clique no botão '**Iniciar solicitação**'. Forneça as informações a seguir para nos ajudar a entender melhor o problema.
+3. Depois de selecionar o Tipo e Categoria Problemas, clique no botão '**Iniciar pedido**'. Forneça as seguintes informações para nos ajudar a entender melhor o problema.
 
     i. Qual é o problema e/ou vulnerabilidade?
 
-    ii. Para vulnerabilidades, forneça a CVE (mitre.org) ou a calculadora de CVSS3 v3 preenchida (https://www.first.org/cvss/calculator/3.0).
+    ii. Para obter vulnerabilidades, forneça o CVE (mitre.org) ou ahttps://www.first.org/cvss/calculator/3.0)calculadora CVSS3 v3 preenchida ( .
 
-    III. Há uma resolução ou mitigação? Em caso afirmativo, forneça as etapas de correção.
+    iii. Existe uma resolução ou atenuação? Se sim, então, por favor, forneça os passos de reparação.
 
-    IV. Você tem uma mensagem que deseja enviar aos clientes? Trabalharemos com você para criar uma mensagem apropriada, se aplicável.
+    iv. Tem uma mensagem que quer enviar aos clientes? Trabalharemos consigo para elaborar uma mensagem apropriada, se aplicável.
 
-4. Confirmação de envio-depois de ter enviado seu problema, confirmaremos o recebimento em um dia útil e Atribuiremos a você uma prioridade e severidade ao seu problema.
+4. Confirmação de submissão - Assim que tiver apresentado o seu problema, iremos reconhecer o recibo dentro de um dia útil e atribuir ao seu problema uma prioridade e gravidade.
 
-    - Se você precisar se comunicar conosco sobre seu problema, use o número de confirmação em todas as correspondências.
-    - Você pode exibir o progresso em seu problema a qualquer momento.
+    - Se precisar de comunicar connosco sobre o seu problema, use o número de confirmação em toda a correspondência.
+    - Pode ver progressos no seu assunto a qualquer momento.
 
-5. O que acontece em seguida? Dependendo do problema e da gravidade, as etapas a seguir podem ser executadas:
+5. O que acontece depois? Dependendo da questão e da gravidade, podem ser tomadas as seguintes medidas:
 
-    - Comunicaremos o resultado da nossa avaliação para você. Dependendo do resultado, poderemos remover ou solicitar que você modifique sua oferta. Nesse evento, trabalharemos com você para garantir que a interrupção dos clientes afetados seja minimizada.
-    - Trabalharemos com você para ajudar a mitigar o impacto do incidente/vulnerabilidade para nossos clientes mútuos.
+    - Vamos comunicar-lhe o resultado da nossa avaliação. Dependendo do resultado, podemos remover ou solicitar que modifique a sua oferta. Neste evento, trabalharemos consigo para garantir que a perturbação para os clientes afetados seja minimizada.
+    - Trabalharemos consigo para ajudar a mitigar o impacto do incidente/vulnerabilidade para os nossos clientes mútuos.
 

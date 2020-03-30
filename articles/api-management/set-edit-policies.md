@@ -1,6 +1,6 @@
 ---
-title: Como definir ou editar políticas de gerenciamento de API do Azure | Microsoft Docs
-description: Este tópico mostra como definir ou editar políticas de gerenciamento de API do Azure.
+title: Como definir ou editar políticas de Gestão da API Azure [ Microsoft Docs
+description: Este tópico mostra como definir ou editar políticas de Gestão De API Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,23 +13,23 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70071708"
 ---
-# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar políticas de gerenciamento de API do Azure
+# <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar as políticas de Gestão de API do Azure
 
-A definição de política é um documento XML que descreve uma sequência de instruções de entrada e saída. O XML pode ser editado diretamente na janela de definição. Você também pode selecionar uma política predefinida na lista que é fornecida à direita da janela de política. As instruções aplicáveis ao escopo atual são habilitadas e realçadas. Clicar em uma instrução habilitada adiciona o XML apropriado no local do cursor na exibição de definição. 
+A definição de política é um documento XML que descreve uma sequência de declarações de entrada e saída. O XML pode ser editado diretamente na janela de definição. Pode também selecionar uma política predefinida da lista que é fornecida à direita da janela de política. As declarações aplicáveis ao âmbito atual estão ativadas e destacadas. Clicar numa declaração ativada adiciona o XML apropriado na localização do cursor na vista de definição. 
 
-Para obter informações detalhadas sobre políticas, consulte [políticas no gerenciamento de API do Azure](api-management-howto-policies.md).
+Para obter informações detalhadas sobre políticas, consulte [Políticas na Gestão da API azure.](api-management-howto-policies.md)
 
 ## <a name="set-or-edit-a-policy"></a>Definir ou editar uma política
 
-Para definir ou editar uma política, siga as seguintes etapas:
+Para definir ou editar uma política, siga os seguintes passos:
 
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. Navegue até à sua instância APIM.
 3. Clique no separador **APIs**.
 
@@ -37,9 +37,9 @@ Para definir ou editar uma política, siga as seguintes etapas:
 
 4. Selecione uma das APIs que importou anteriormente.
 5. Selecione o separador **Design**.
-6. Selecione uma operação à qual você deseja aplicar a política. Se você quiser aplicar a política a todas as operações, selecione **todas as operações**.
-7. Selecione o **</>** ícone (editor de código) na seção **processamento de entrada** ou processamento de **saída** .
-8. Cole o código de política desejado em um dos blocos apropriados.
+6. Selecione uma operação à qual pretende aplicar a apólice. Se pretender aplicar a apólice a todas as operações, selecione **Todas as operações**.
+7. Selecione o **</>** ícone (editor de código) na secção de **processamento** de entrada ou de **saída.**
+8. Colar o código político desejado num dos blocos apropriados.
 
     ```XML
     <policies>
@@ -58,74 +58,74 @@ Para definir ou editar uma política, siga as seguintes etapas:
     </policies>
     ```
  
-## <a name="configure-scope"></a>Configurar escopo
+## <a name="configure-scope"></a>Configurar o âmbito
 
-As políticas podem ser configuradas globalmente ou no escopo de um produto, uma API ou uma operação. Para começar a configurar uma política, primeiro você deve selecionar o escopo no qual a política deve ser aplicada.
+As políticas podem ser configuradas globalmente ou no âmbito de um Produto, API ou Operação. Para começar a configurar uma apólice, primeiro deve selecionar o âmbito a que a política deve ser aplicada.
 
-Os escopos de política são avaliados na seguinte ordem:
+Os âmbitos de política são avaliados na seguinte ordem:
 
-1. Escopo global
-2. Escopo do produto
-3. Escopo da API
-4. Escopo da operação
+1. Âmbito global
+2. Âmbito do produto
+3. Âmbito da API
+4. Âmbito de funcionamento
 
-As instruções nas políticas são avaliadas de acordo com o posicionamento `base` do elemento, se estiver presente. A política global não tem nenhuma política pai e `<base>` o uso do elemento não tem nenhum efeito.
+As declarações dentro das políticas são `base` avaliadas de acordo com a colocação do elemento, se estiver presente. A política global não tem `<base>` política parental e a utilização do elemento não tem qualquer efeito.
 
-Para ver as políticas no escopo atual no editor de políticas, clique em **recalcular a política efetiva para o escopo selecionado**.
+Para ver as políticas no âmbito atual no editor de política, clique em **Recalcular uma política eficaz para o âmbito selecionado**.
 
-### <a name="global-scope"></a>Escopo global
+### <a name="global-scope"></a>Âmbito global
 
-O escopo global é configurado para **todas as APIs** em sua instância do APIM.
+O âmbito global está configurado para **todas as APIs** na sua instância APIM.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até sua instância do APIM.
-2. Clique em **todas as APIs**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) e navegue para a sua instância APIM.
+2. Clique em **todos os APIs**.
 
-    ![Escopo global](./media/api-management-howto-policies/global-scope.png)
+    ![Âmbito global](./media/api-management-howto-policies/global-scope.png)
 
-3. Clique no ícone de triângulo.
+3. Clique no ícone do triângulo.
 4. Selecione o **Editor de código**.
 5. Adicionar ou editar políticas.
 6. Prima **Guardar**. 
 
-    As alterações são propagadas para o gateway de gerenciamento de API imediatamente.
+    As alterações são imediatamente propagadas à porta de entrada da API Management.
 
-### <a name="product-scope"></a>Escopo do produto
+### <a name="product-scope"></a>Âmbito do produto
 
-O escopo do produto está configurado para o produto selecionado.
+O âmbito do produto está configurado para o produto selecionado.
 
-1. Clique em **produtos**.
+1. Clique em **Produtos**.
 
-    ![Escopo do produto](./media/api-management-howto-policies/product-scope.png)
+    ![Âmbito do produto](./media/api-management-howto-policies/product-scope.png)
 
-2. Selecione o produto ao qual você deseja aplicar políticas.
-3. Clique em **políticas**.
+2. Selecione o produto ao qual pretende aplicar políticas.
+3. Clique em **Políticas**.
 4. Adicionar ou editar políticas.
 5. Prima **Guardar**. 
 
-### <a name="api-scope"></a>Escopo da API
+### <a name="api-scope"></a>Âmbito da API
 
-O escopo da API está configurado para **todas as operações** da API selecionada.
+O âmbito DaPi está configurado para **todas as operações** da API selecionada.
 
-1. Selecione a **API** à qual você deseja aplicar políticas.
+1. Selecione a **API** a que pretende aplicar políticas.
 
-    ![Escopo da API](./media/api-management-howto-policies/api-scope.png)
+    ![Âmbito da API](./media/api-management-howto-policies/api-scope.png)
 
 2. Selecione **Todas as operações**.
-3. Clique no ícone de triângulo.
+3. Clique no ícone do triângulo.
 4. Selecione o **Editor de código**.
 5. Adicionar ou editar políticas.
 6. Prima **Guardar**. 
 
-### <a name="operation-scope"></a>Escopo da operação 
+### <a name="operation-scope"></a>Âmbito de funcionamento 
 
-O escopo da operação está configurado para a operação selecionada.
+O âmbito de funcionamento está configurado para o funcionamento selecionado.
 
-1. Selecione uma **API**.
-2. Selecione a operação à qual você deseja aplicar políticas.
+1. Selecione um **API**.
+2. Selecione a operação a que pretende aplicar políticas.
 
-    ![Escopo da operação](./media/api-management-howto-policies/operation-scope.png)
+    ![Âmbito de funcionamento](./media/api-management-howto-policies/operation-scope.png)
 
-3. Clique no ícone de triângulo.
+3. Clique no ícone do triângulo.
 4. Selecione o **Editor de código**.
 5. Adicionar ou editar políticas.
 6. Prima **Guardar**. 
@@ -134,6 +134,6 @@ O escopo da operação está configurado para a operação selecionada.
 
 Consulte os seguintes tópicos relacionados:
 
-+ [APIs de transformação](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa de instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)
++ [Transforme APIs](transform-api.md)
++ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas configurações
++ [Amostras políticas](policy-samples.md)

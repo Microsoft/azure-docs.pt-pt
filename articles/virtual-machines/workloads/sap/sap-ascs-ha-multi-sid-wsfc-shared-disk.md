@@ -1,5 +1,5 @@
 ---
-title: SAP ASCS/SCS multi-SID HA com WSFC&shared disk on Azure  SAP ASCS/SCS multi-SID HA) com wSFC&shared disk on Azure  Microsoft Docs
+title: SAP ASCS/SCS multi-SID HA com WSFC&disco partilhado no Azure Microsoft Docs
 description: Multi-SID alta disponibilidade para uma instância SAP ASCS/SCS com Clustering de Falha do Servidor windows e disco partilhado no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 446091263596a1fd5503f38c6a60316f9b0b6843
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245177"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -250,7 +250,7 @@ A paisagem completa com dois sistemas SAP de alta disponibilidade seria assim:
 
 ![Configuração multi-SID de alta disponibilidade SAP com dois SIDs do sistema SAP][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Preparar a infraestrutura para um cenário multi-SID SAP
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Preparar a infraestrutura para um cenário multi-SID SAP
 
 Para preparar a sua infraestrutura, pode instalar uma instância Adicional SAP ASCS/SCS com os seguintes parâmetros:
 

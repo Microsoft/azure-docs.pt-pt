@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
 ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240283"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>O que é o Azure Blockchain Tokens?

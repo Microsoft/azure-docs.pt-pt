@@ -1,5 +1,5 @@
 ---
-title: Patching automatizado para VMs de servidor SQL (Gestor de Recursos)  Microsoft Docs
+title: Patching automatizado para VMs de servidor SQL (Gestor de Recursos) [ Microsoft Docs
 description: Explica a função de Patching Automatizado para máquinas virtuais do Servidor SQL que estão a funcionar em Azure utilizando o Gestor de Recursos.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,18 +16,18 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 292f3e8819f6f9f4b2989423814e02dfcfb4bfdb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127678"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Clássica](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-Patching automatizado estabelece uma janela de manutenção para uma máquina virtual Azure que executa o Servidor SQL. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
+A colocação de patches automática estabelece uma janela de manutenção para uma Máquina Virtual do Azure a executar o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
 
 > [!IMPORTANT]
 > Apenas as atualizações do Windows e do SQL Server marcadas como **importantes** ou **críticas** são instaladas. Outras atualizações do SQL Server, tais como pacotes de serviços e atualizações cumulativas que não estejam marcadas como **Importantes** ou **Críticas,** devem ser instaladas manualmente. 
@@ -39,7 +39,7 @@ Para utilizar patching automatizado, considere os seguintes pré-requisitos:
 
 **Sistema operativo:**
 
-* Windows Server 2008 R2
+* Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -69,7 +69,7 @@ A tabela seguinte descreve as opções que podem ser configuradas para Patching 
 | Definição | Valores possíveis | Descrição |
 | --- | --- | --- |
 | **Aplicação de Patches Automatizada** |Ativar/Desativar (Desativado) |Ativa ou desativa Patching Automatizado para uma máquina virtual Azure. |
-| **Horário de manutenção** |Todos os dias, segunda, terça, quarta, quinta, sexta, sábado, domingo |A programação para descarregar e instalar as atualizações do Windows, SQL Server e Microsoft para a sua máquina virtual. |
+| **Agenda de manutenção** |Todos os dias, segunda, terça, quarta, quinta, sexta, sábado, domingo |A programação para descarregar e instalar as atualizações do Windows, SQL Server e Microsoft para a sua máquina virtual. |
 | **Hora de início da manutenção** |0-24 |A hora de início local para atualizar a máquina virtual. |
 | **Duração da janela de manutenção** |30-180 |O número de minutos permitidos para completar o download e instalação de atualizações. |
 | **Categoria Patch** |Importante | A categoria de atualizações do Windows para descarregar e instalar.|

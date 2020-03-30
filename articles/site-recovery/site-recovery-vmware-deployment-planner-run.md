@@ -1,6 +1,6 @@
 ---
-title: Execute o Planejador de Implantações para a recuperação de desastres do VMware com Azure Site Recovery
-description: Este artigo descreve como executar Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure.
+title: Executar o Planejador de Implantação para recuperação de desastres VMware com recuperação do site Azure
+description: Este artigo descreve como executar o Planejador de Implantação de Recuperação de Sítios Azure para a recuperação de desastres vMware para O Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953286"
 ---
-# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Executar o Planejador de Implantações para a recuperação de desastres do VMware
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Executar o Planejador de Implantação para recuperação de desastres VMware
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modos de executar o planeador de implementação
 Pode executar a ferramenta de linha de comandos (ASRDeploymentPlanner.exe) num dos três modos seguintes:
 
-1.  [Criação de perfis](#profile-vmware-vms)
+1.  [Perfis](#profile-vmware-vms)
 2.  [Geração de relatórios](#generate-report)
 3.  [Obtenção de débito](#get-throughput)
 
@@ -42,7 +42,7 @@ Em primeiro lugar, precisa de uma lista das VMs para as quais vão ser criados p
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Opcionalmente, você pode precisar executar o comando a seguir se Connect-VIServer não for reconhecido como o nome do cmdlet.
+4. Pode ser necessário executar opcionalmente o seguinte comando se o Connect-VIServer não for reconhecido como o nome do cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (Opcional) Protocolo especificado entre "http" ou "https" para ligar ao vCenter. O protocolo predefinido é https.|
 | -StorageAccountName | (Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1). |
 | -StorageAccountKey | (Opcional) A chave da conta de armazenamento utilizada para aceder à mesma. Aceda a o portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de Acesso > Chave1. |
-| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet. |
+| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a região de Azure alvo é o Governo Azure dos EUA ou a Azure China 21Vianet. |
 
 
 Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de alterações alterar durante um mês, recomendamos que crie os perfis durante a semana que vir o volume de alterações máximo. A melhor forma consiste em criar perfis para 31 dias para obter a melhor recomendação. Durante o período de criação de perfis, ASRDeploymentPlanner.exe permanece em execução. A ferramenta aceita a entrada da duração da criação de perfis em dias. Para um teste rápido da ferramenta ou para uma prova de conceito pode criar perfis para algumas horas ou minutos. O período mínimo de criação de perfis são 30 minutos.
@@ -90,12 +90,12 @@ Durante a criação de perfis, pode, opcionalmente, transmitir o nome e a chave 
 
 Pode executar várias instâncias da ferramenta em vários conjuntos de VMs. Confirme que não existem nomes de VMs repetidos em nenhum dos conjuntos de criação de perfis. Por exemplo, se tiver criado perfis para dez VMs (VM1 a VM10) e, ao fim de alguns dias, quiser criar perfis para outras cinco (VM11 a VM15), pode executar a ferramenta noutra consola de linha de comandos para o segundo conjunto de VMs (VM11 a VM15). Assegure-se de que o segundo conjunto não tem nenhum nome de VMs da primeira instância de criação de perfis ou de que utiliza outro diretório de saída para a segunda execução. Se forem utilizadas duas instâncias da ferramenta para criar perfis para as mesmas VMs e o mesmo diretório de saída, o relatório gerado estará incorreto.
 
-Por padrão, a ferramenta está configurada para criar um perfil e gerar relatórios de até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta está configurada para perfilar e gerar relatório até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do Azure Site Recovery, uma com VMList1. txt e outra com VMList2. txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList.
+Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Executar as duas instâncias de Azure Site Recovery Deployment Planner, um com VMList1.txt e outro com VMList2.txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList.
 
 Constatámos que, com base na configuração de hardware, especialmente o tamanho de RAM do servidor a partir do qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se o hardware for bom, pode alterar o MaxVMsSupported para qualquer valor superior.  
 
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Gerar o relatório
-A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O relatório é denominado `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e colocado no diretório especificado.
+A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O relatório `DeploymentPlannerReport_<unique numeric identifier>.xlsm` é nomeado e colocado no diretório especificado.
 
 >[!NOTE]
->A geração de relatórios requer um computador Windows ou Windows Server com o Excel 2013 ou posterior. O símbolo decimal neste computador deve ser configurado como "." para produzir as estimativas de custo. Caso você tenha configurado "," como símbolo decimal, vá para "alterar a data, a hora ou os formatos de número" no painel de controle e vá para "configurações adicionais" para alterar o símbolo decimal para ".".
+>A geração de relatórios requer um Windows PC ou Windows Server com Excel 2013 ou mais tarde. O símbolo decimal desta máquina deve ser configurado como "." para produzir as estimativas de custos. No caso de ter configurado "" como símbolo decimal, por favor vá a "Alterar formatos de data, hora ou número" no Painel de Controlo e vá a "Definições Adicionais" para alterar o símbolo decimal para ".".
 
 Depois de concluída a criação de perfis, pode executar a ferramenta no modo de geração de relatórios. A tabela seguinte contém a lista dos parâmetros obrigatórios e opcionais da ferramenta, para executá-la no modo de geração de relatórios.
 
@@ -159,16 +159,16 @@ Depois de concluída a criação de perfis, pode executar a ferramenta no modo d
 |-Protocol|(Opcional) Protocolo especificado entre "http" ou "https" para ligar ao vCenter. O protocolo predefinido é https.|
 | -DesiredRPO | (Opcional) O objetivo de ponto de recuperação pretendido, em minutos. A predefinição são 15 minutos.|
 | -Bandwidth | A largura de banda em Mbps. O parâmetro a utilizar para calcular o RPO que pode ser alcançado para a largura de banda especificada. |
-| -StartDate | (Opcional) A data e hora de início, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *StartDate* tem de ser especificado juntamente com *EndDate*. Se StartDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
-| -EndDate | (Opcional) A data e hora de fim, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *EndDate* tem de ser especificado juntamente com *StartDate*. Se EndDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
+| -StartDate | (Opcional) A data e hora de início, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *O startDate* deve ser especificado juntamente com o *EndDate*. Se StartDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
+| -EndDate | (Opcional) A data e hora de fim, em MM-DD-AAAA:HH:MM (no formato de 24 horas). *O EndDate* deve ser especificado juntamente com o *StartDate*. Se EndDate for especificado, o relatório será gerado para os dados de criação de perfis recolhidos entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expresso em percentagem. A predefinição é 30 por cento. |
 | -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. A predefinição é Sim. O número de máquinas virtuais para a colocação de uma conta de armazenamento única ser calculada considerando se a Ativação pós-falha/Ativação pós-falha de Teste de máquinas virtuais é realizada no disco gerido, em vez do disco não gerido. |
-|-SubscriptionId |(Opcional) A GUID da subscrição. Observe que esse parâmetro é necessário quando você precisa gerar o relatório de estimativa de custo com o preço mais recente com base em sua assinatura, a oferta associada à sua assinatura e para sua região do Azure de destino específica na **moeda especificada** .|
+|-SubscriptionId |(Opcional) A GUID da subscrição. Note que este parâmetro é necessário quando precisa de gerar o relatório de estimativa de custos com o preço mais recente baseado na sua subscrição, a oferta que está associada à sua subscrição e à sua região específica do Target Azure na **moeda especificada.**|
 |-TargetRegion|(Opcional) A região do Azure para onde está direcionada a replicação. Dado que o Azure tem custos diferentes por região, para gerar um relatório com uma região de destino do Azure específica, utilize este parâmetro.<br>A predefinição é WestUS2 ou a última região de destino utilizada.<br>Consulte a lista de [regiões de destino suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada à subscrição em questão. A Predefinição é MS-AZR-0003P (Pay As You Go).|
 |-Currency|(Opcional) A moeda na qual os custos são mostrados no relatório gerado. A predefinição é o Dólar Norte-Americano ($) ou a última moeda utilizada.<br>Consulte a lista de [moedas suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Por padrão, a ferramenta está configurada para criar um perfil e gerar relatórios de até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta está configurada para perfilar e gerar relatório até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -208,7 +208,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemplo 7: gerar um relatório para a região do Azure do Sul da Índia com a Rúpia Indiana e uma ID de oferta específica
 
-Observe que a ID da assinatura é necessária para gerar o relatório de custo em uma moeda específica.
+Note que o ID de subscrição é necessário para gerar relatório de custos numa moeda específica.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -240,8 +240,8 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
-* [Resumo No Local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recommendations (Recomendações)](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [Resumo no local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
 * [VM<->Storage Placement (VM<->Colocação de Armazenamento)](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatible VMs (VMs Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs (VMs Não Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
@@ -265,7 +265,7 @@ Abra uma consola da linha de comandos e aceda à pasta da ferramenta Site Recove
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
 | -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de acesso > Chave1 (ou uma chave de acesso primário para contas de armazenamento clássicas). |
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Deve conter um nome/endereço IP de VM por linha. Os nomes das VMs especificados no ficheiro devem ser iguais aos nomes das VMs no vCenter Server/anfitrião ESXi do vSphere.<br>Por exemplo, o ficheiro VMList.txt contém as VMs seguintes:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando sua região do Azure de destino for o governo dos EUA do Azure ou o Azure China 21Vianet. |
+| -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Use o parâmetro quando a região de Azure alvo é o Governo Azure dos EUA ou a Azure China 21Vianet. |
 
 A ferramenta cria vários ficheiros asrvhdfile<#>.vhd (em que # corresponde ao número de ficheiros) de 64 MB no diretório especificado. Para encontrar o débito, a ferramenta carrega os ficheiros para a conta de armazenamento. Depois de o débito ser medido, elimina todos os ficheiros da conta de armazenamento e do servidor local. Se a ferramenta for terminada por qualquer motivo enquanto está a calcular o débito, não elimina os ficheiros do armazenamento nem do servidor local. Tem de eliminá-los manualmente.
 
@@ -291,4 +291,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >  4. Altere as definições do Site Recovery no servidor de processos, para [aumentar a quantidade de largura de banda utilizada para a replicação](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Analisar o relatório gerado](site-recovery-vmware-deployment-planner-analyze-report.md).
+* [Analise o relatório gerado.](site-recovery-vmware-deployment-planner-analyze-report.md)

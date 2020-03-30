@@ -1,13 +1,13 @@
 ---
-title: Sobre repositórios e imagens
+title: Sobre os repositórios & imagens
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
 ms.date: 09/10/2019
 ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247062"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
@@ -118,7 +118,7 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Manifesta digestão
 
-Os manifestos são identificados por um hash SHA-256 único, ou *manifesta digestão.* Cada imagem ou artefacto- quer marcado ou não - é identificado pela sua digestão. O valor de digestão é único mesmo que os dados da camada da imagem sejam idênticos aos de outra imagem. Este mecanismo é o que lhe permite empurrar repetidamente imagens marcadas de forma idêntica para um registo. Por exemplo, pode empurrar repetidamente `myimage:latest` para o seu registo sem erros porque cada imagem é identificada pela sua digestão única.
+Os manifestos são identificados por um hash SHA-256 único, ou *manifesta digestão.* Cada imagem ou artefacto- quer marcado ou não - é identificado pela sua digestão. O valor de digestão é único mesmo que os dados da camada da imagem sejam idênticos aos de outra imagem. Este mecanismo é o que lhe permite empurrar repetidamente imagens marcadas de forma idêntica para um registo. Por exemplo, pode empurrar `myimage:latest` repetidamente para o seu registo sem erros porque cada imagem é identificada pela sua digestão única.
 
 Pode retirar uma imagem de um registo especificando a sua digestão na operação de puxar. Alguns sistemas podem ser configurados para puxar por digestão porque garante que a versão de imagem está a ser puxada, mesmo que uma imagem com etiqueta idêntica seja posteriormente empurrada para o registo.
 

@@ -9,21 +9,21 @@ ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 98d765e2f6909f00f8dfe76d06aef017aad67adf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71174983"
 ---
 ## <a name="terminology"></a>Terminologia
 
-Uma imagem do Marketplace no Azure tem os seguintes atributos:
+Uma imagem do Marketplace em Azure tem os seguintes atributos:
 
 * **Editor**: A organização que criou a imagem. Exemplos: Canonical, MicrosoftWindowsServer
-* **Oferta**: O nome de um grupo de imagens relacionadas criadas por um Publicador. Exemplos: UbuntuServer, WindowsServer
-* **SKU**: Uma instância de uma oferta, por exemplo, uma versão principal de uma distribuição. Exemplos: 18.04-LTS, 2019-Datacenter
-* **Versão**: O número de versão de uma SKU de imagem. 
+* **Oferta**: O nome de um grupo de imagens relacionadas criadapor uma editora. Exemplos: UbuntuServer, WindowsServer
+* **SKU**: Um exemplo de uma oferta, como uma grande divulgação de uma distribuição. Exemplos: 18.04-LTS, 2019-Datacenter
+* **Versão**: O número da versão de uma imagem SKU. 
 
-Para identificar uma imagem do Marketplace ao implantar uma VM programaticamente, forneça esses valores individualmente como parâmetros. Algumas ferramentas aceitam uma imagem *urn*, que combina esses valores, separados por dois-pontos (:) espaço *Publicador*:*oferta*:*SKU*:*versão*. Em um URN, você pode substituir o número de versão por "mais recente", que seleciona a versão mais recente da imagem. 
+Para identificar uma imagem do Marketplace quando implementar um VM programáticamente, forneça estes valores individualmente como parâmetros. Algumas ferramentas aceitam uma *URN*de imagem, que combina estes valores, separados pelo cólon (:) personagem: *Editor*:*Oferta*:*Sku*:*Versão*. Numa URN, pode substituir o número da versão por "mais recente", que seleciona a versão mais recente da imagem. 
 
-Se o Publicador de imagem fornecer licença adicional e termos de compra, você deverá aceitar esses termos e habilitar a implantação programática. Você também precisará fornecer parâmetros de *plano de compra* ao implantar uma VM programaticamente. Consulte [implantar uma imagem com os termos do Marketplace](#deploy-an-image-with-marketplace-terms).
+Se o editor de imagem fornecer termos adicionais de licença e compra, então deve aceitar esses termos e ativar a implementação programática. Também terá de fornecer parâmetros de plano de *compra* ao implementar um VM programáticamente. Ver [Implementar uma imagem com termos](#deploy-an-image-with-marketplace-terms)de Marketplace .

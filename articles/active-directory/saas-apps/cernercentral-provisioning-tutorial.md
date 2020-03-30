@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058321"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configure Cerner Central para fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar em
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
 * Um inquilino central de Cerner
@@ -46,7 +46,7 @@ Antes de configurar e ativar o serviço de provisionamento, deve decidir quais o
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Dicas importantes para atribuir utilizadores à Cerner Central
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Cerner Central para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Cerner Central para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 * Uma vez que os testes iniciais estejam completos para um único utilizador, a Cerner Central recomenda a atribuição de toda a lista de utilizadores destinados a aceder a qualquer solução Cerner (e não apenas cerner central) para ser provisionado na lista de utilizadores de Cerner.  Outras soluções Cerner alavancam esta lista de utilizadores na lista de utilizadores.
 
@@ -65,29 +65,29 @@ Para fornecer contas de utilizador à Cerner Central, terá de solicitar uma con
 
 1. O primeiro passo é garantir que as pessoas que gerem a integração da AD Cerner e Azure tenham uma conta CernerCare, que é necessária para aceder à documentação necessária para completar as instruções. Se necessário, utilize os URLs abaixo para criar contas CernerCare em cada ambiente aplicável.
 
-   * Caixa de areia: https://sandboxcernercare.com/accounts/create
+   * Caixa de areia:https://sandboxcernercare.com/accounts/create
 
-   * Produção: https://cernercare.com/accounts/create  
+   * Produção:https://cernercare.com/accounts/create  
 
 2. Em seguida, deve ser criada uma conta de sistema para a AD Azure. Utilize as instruções abaixo para solicitar uma Conta de Sistema para a sua caixa de areia e ambientes de produção.
 
-   * Instruções: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instruções:https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Caixa de areia: https://sandboxcernercentral.com/system-accounts/
+   * Caixa de areia:https://sandboxcernercentral.com/system-accounts/
 
-   * Produção: https://cernercentral.com/system-accounts/
+   * Produção:https://cernercentral.com/system-accounts/
 
 3. Em seguida, gere um símbolo do portador da OAuth para cada uma das suas contas do sistema. Para isso, siga as instruções abaixo.
 
-   * Instruções: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instruções:https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Caixa de areia: https://sandboxcernercentral.com/system-accounts/
+   * Caixa de areia:https://sandboxcernercentral.com/system-accounts/
 
-   * Produção: https://cernercentral.com/system-accounts/
+   * Produção:https://cernercentral.com/system-accounts/
 
-4. Por fim, é necessário adquirir IDs de Domínio da Lista de Utilizadores tanto para os ambientes de sandbox como para a produção em Cerner para completar a configuração. Para obter informações sobre como adquiri-lo, consulte: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Por fim, é necessário adquirir IDs de Domínio da Lista de Utilizadores tanto para os ambientes de sandbox como para a produção em Cerner para completar a configuração. Para obter informações sobre como https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIMadquirir isto, consulte: . 
 
-5. Agora pode configurar a AD Azure para fornecer contas de utilizador a Cerner. Inscreva-se no [portal Azure](https://portal.azure.com)e navegue no **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+5. Agora pode configurar a AD Azure para fornecer contas de utilizador a Cerner. Inscreva-se no [portal Azure](https://portal.azure.com)e navegue no **Diretório Ativo do Azure > Aplicações empresariais > todas as aplicações.**
 
 6. Se já configurou a Cerner Central para uma única inscrição, procure a sua instância de Cerner Central utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **a Cerner Central** na galeria de aplicações. Selecione Cerner Central a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -101,9 +101,9 @@ Para fornecer contas de utilizador à Cerner Central, terá de solicitar uma con
 
    * No campo URL do **Inquilino,** introduza um URL no formato abaixo, substituindo "User-Roster-Realm-ID" pelo ID do reino que adquiriu em passo #4.
 
-    > Caixa de areia: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Caixa de areia:https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
     > 
-    > Produção: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Produção:https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * No campo **Secret Token,** introduza o símbolo do portador oAuth que gerou em passo #3 e clique em **Test Connection**.
 
@@ -113,13 +113,13 @@ Para fornecer contas de utilizador à Cerner Central, terá de solicitar uma con
 
 1. Clique em **Guardar**.
 
-1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador e do grupo a serem sincronizados de Azure AD para Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas e grupos de utilizadores em Cerner Central para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador e do grupo a serem sincronizados de Azure AD para Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas e grupos de utilizadores em Cerner Central para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 1. Para ativar o serviço de provisionamento de AD Azure para a Cerner Central, altere o Estado de **Provisionamento** para **On** na secção **Definições**
 
 1. Clique em **Guardar**.
 
-Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Cerner Central na secção Utilizadores e Grupos. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Cerner Central.
+Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Cerner Central na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Cerner Central.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

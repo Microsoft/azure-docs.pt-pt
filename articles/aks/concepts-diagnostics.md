@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
 ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126600"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do serviço Azure Kubernetes (pré-visualização)
@@ -27,7 +27,7 @@ Para aceder aos Diagnósticos AKS:
 - Clique em **Diagnosticar e resolver problemas** na navegação esquerda, o que abre o AKS Diagnostics.
 - Escolha uma categoria que melhor descreva a questão do seu cluster utilizando as palavras-chave no azulejo da página inicial, ou escreva uma palavra-chave que melhor descreva o seu problema na barra de pesquisa, por _exemplo, problemas_de nó cluster .
 
-![Página inicial](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
+![Home page](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
 ## <a name="view-a-diagnostic-report"></a>Ver um relatório de diagnóstico
 
@@ -55,7 +55,7 @@ Cluster Node Issues verifica por questões relacionadas com o nó que podem faze
 - Falha na autenticação do nó
 - Nó kube-proxy velho
 
-### <a name="create-read-update--delete-operations"></a>Criar, ler, atualizar e eliminar operações
+### <a name="create-read-update--delete-operations"></a>Criar, ler, atualizar & eliminar operações
 
 A CRUD Operations verifica quaisquer operações crud que possam causar problemas no seu cluster.
 
@@ -77,7 +77,7 @@ A Gestão de Identidade e Segurança deteta erros de autenticação e autorizaç
 
 - Falhas na autorização do nó
 - 401 erros
-- 403 erros
+- Erros 403
 
 ## <a name="next-steps"></a>Passos seguintes
 

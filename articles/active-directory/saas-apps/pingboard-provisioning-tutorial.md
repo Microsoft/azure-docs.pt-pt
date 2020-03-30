@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061280"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configure pingboard para fornecimento automático de utilizadores
@@ -28,9 +28,9 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa seguir para permi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
-* Um locatário do Azure AD
+* Um inquilino da AD Azure
 * Uma conta [pro](https://pingboard.com/pricing) de inquilino pingboard
 * Uma conta de utilizador em Pingboard com permissões de administração
 
@@ -58,7 +58,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador ao Pingboard em Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)navegue pelo **Diretório Ativo do Azure** > **Aplicações Empresariais** > **todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até à secção de**aplicações** >  **azure Ative Directory** > Enterprise**Apps Todas as aplicações.**
 
 1. Se já configurar o Pingboard para uma única inscrição, procure a sua instância de Pingboard utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **pingboard** na galeria de aplicações. Selecione **Pingboard** a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -70,11 +70,11 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 1. No âmbito da secção **de Credenciais de Administrador,** utilize os seguintes passos:
 
-    a. No **URL do Arrendatário,** introduza `https://your_domain.pingboard.com/scim/v2`, e substitua "your_domain" pelo seu domínio real.
+    a. No URL do `https://your_domain.pingboard.com/scim/v2` **Arrendatário,** introduza , e substitua "your_domain" pelo seu domínio real.
 
     b. Inscreva-se no [Pingboard](https://pingboard.com/) utilizando a sua conta de administração.
 
-    c. Selecione **Add-Ons** > **Integrações** > **Diretório Ativo Azure**.
+    c. Selecione **Add-Ons** > **Integrações** > **Azure Ative Directory**.
 
     d. Vá ao **separador Configure** e selecione **Ativar o fornecimento do utilizador a partir do Azure**.
 
@@ -102,4 +102,4 @@ Para obter mais informações sobre como ler os registos de fornecimento de AD A
 
 * [Gerir o provisionamento de conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configure single sign-on](pingboard-tutorial.md) (Configurar o início de sessão único)
+* [Configurar o início de sessão único](pingboard-tutorial.md)

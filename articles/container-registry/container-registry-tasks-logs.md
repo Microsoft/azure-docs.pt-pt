@@ -4,10 +4,10 @@ description: Como visualizar e gerir os registos de execução gerados por Taref
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246971"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Ver e gerir registos de execução de tarefas
@@ -65,7 +65,7 @@ Se uma tarefa for automaticamente ativada, por exemplo através de uma atualiza�
 Para visualizar registos de execução no portal:
 
 1. Navegue para o seu registo de contentores.
-1. Em **Serviços,** selecione **Tarefas** > **Executas**.
+1. Nos **Serviços,** selecione**Executões**de **Tarefas** > .
 1. Selecione um **'Executar Id'** para visualizar o estado de execução e executar registos. O registo contém a mesma informação que um registo transmitido, se um for gerado.
 
 ![Ver portal de login de execução de tarefas](./media/container-registry-tasks-logs/portal-task-run-logs.png)

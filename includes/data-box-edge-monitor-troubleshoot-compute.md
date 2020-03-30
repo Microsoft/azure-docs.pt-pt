@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68601368"
 ---
-Em um dispositivo Data Box Edge que tem a função de computação configurada, um subconjunto de comandos do Docker está disponível para monitorar ou solucionar problemas de módulos. Para ver uma lista de comandos disponíveis, [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface) e `dkrdbe` use a função.
+Num dispositivo Data Box Edge que tenha a função de computação configurada, um subconjunto de comandos de estivadores está disponível para monitorizar ou resolver módulos. Para ver uma lista de comandos disponíveis, [ligue-se à interface PowerShell](#connect-to-the-powershell-interface) e utilize a `dkrdbe` função.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -35,28 +35,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-A tabela a seguir tem uma breve descrição dos comandos disponíveis para `dkrdbe`o:
+A tabela seguinte tem uma breve descrição dos comandos disponíveis para: `dkrdbe`
 
-|Comando  |Descrição |
+|command  |Descrição |
 |---------|---------|
-|`image`     | Gerenciar imagens. Para remover imagens não usadas, use:`dkrdbe image prune -a -f`       |
-|`images`     | Listar imagens         |
-|`inspect`     | Retornar informações de baixo nível sobre objetos do Docker         |
-|`login`     | Entrar em um registro do Docker         |
-|`logout`     | Sair de um registro do Docker         |
-|`logs`     | Buscar os logs de um contêiner        |
-|`port`     | Listar mapeamentos de porta ou um mapeamento específico para o contêiner        |
+|`image`     | Gerir imagens. Para remover imagens não utilizadas, utilize:`dkrdbe image prune -a -f`       |
+|`images`     | Lista rumine imagens         |
+|`inspect`     | Devolva informações de baixo nível sobre objetos Does         |
+|`login`     | Inscreva-se num registo do Docker         |
+|`logout`     | Assine-se a partir de um registo do Docker         |
+|`logs`     | Pegue os troncos de um recipiente        |
+|`port`     | Lista mapeamento de portas ou um mapeamento específico para o recipiente        |
 |`ps`     | Listar contentores        |
-|`pull`     | Efetuar pull de uma imagem ou de um repositório de um registro         |
-|`start`     | Iniciar um ou mais contêineres interrompidos         |
-|`stats`     | Exibir uma transmissão ao vivo de estatísticas de uso de recursos de contêineres         |
-|`stop`     | Parar um ou mais contêineres em execução        |
-|`system`     | Gerenciar o Docker         |
-|`top`     | Exibir os processos em execução de um contêiner         |
+|`pull`     | Puxe uma imagem ou um repositório de um registo         |
+|`start`     | Iniciar um ou mais contentores parados         |
+|`stats`     | Apresentar um fluxo vivo de estatísticas de utilização de recursos de contentores         |
+|`stop`     | Pare um ou mais recipientes de funcionamento        |
+|`system`     | Gerir O Docker         |
+|`top`     | Mostrar os processos de funcionamento de um recipiente         |
 
-Para obter ajuda para qualquer comando disponível, use `dkrdbe <command-name> --help`.
+Para obter ajuda para qualquer `dkrdbe <command-name> --help`comando disponível, use .
 
-Por exemplo, para entender o uso do `port` comando, digite:
+Por exemplo, para compreender `port` o uso do comando, escreva:
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-Os comandos disponíveis para a `dkrdbe` função usam os mesmos parâmetros que aqueles usados para os comandos normais do Docker. Para as opções e parâmetros usados com o comando Docker, acesse [usar a linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/docker/).
+Os comandos disponíveis `dkrdbe` para a função utilizam os mesmos parâmetros que os utilizados para os comandos normais de estivador. Para as opções e parâmetros utilizados com o comando do estivador, vá utilizar a linha de [comando do Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>Para verificar se o módulo foi implantado com êxito
+### <a name="to-check-if-the-module-deployed-successfully"></a>Para verificar se o módulo foi implantado com sucesso
 
-Os módulos de computação são contêineres que têm uma lógica de negócios implementada. Para verificar se um módulo de computação foi implantado com êxito `ps` , execute o comando e verifique se o contêiner (correspondente ao módulo de computação) está em execução.
+Os módulos computacionais são recipientes que têm uma lógica de negócio implementada. Para verificar se um módulo computacional é `ps` implantado com sucesso, execute o comando e verifique se o recipiente (correspondente ao módulo de computação) está em funcionamento.
 
-Para obter a lista de todos os contêineres (incluindo aqueles que estão em pausa), execute o `ps -a` comando.
+Para obter a lista de todos os recipientes (incluindo `ps -a` os que estão pausados), executar o comando.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Se houvesse um erro na criação da imagem de contêiner ou durante a extração da imagem `logs edgeAgent`, execute.  `EdgeAgent`é o contêiner IoT Edge tempo de execução que é responsável por provisionar outros contêineres.
+Se houve um erro na criação da imagem do `logs edgeAgent`recipiente ou durante a tração da imagem, corra .  `EdgeAgent`é o recipiente de tempo de execução IoT Edge que é responsável pelo fornecimento de outros contentores.
 
-Como `logs edgeAgent` o despeja todos os logs, uma boa maneira de ver os erros recentes é usar a opção `--tail 20`.
+Como `logs edgeAgent` despeja todos os registos, uma boa maneira de ver `--tail 20`os erros recentes é usar a opção .
 
 
 ```powershell
@@ -117,12 +117,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>Para obter logs de contêiner
+### <a name="to-get-container-logs"></a>Para obter troncos de contentores
 
-Para obter logs de um contêiner específico, primeiro liste o contêiner e, em seguida, obtenha os logs para o contêiner no qual você está interessado.
+Para obter registos para um recipiente específico, primeiro lista o recipiente e, em seguida, obtenha os registos para o recipiente que lhe interessa.
 
-1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
-2. Para obter a lista de contêineres em execução, `ps` execute o comando.
+1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
+2. Para obter a lista de contentores de corrida, executar o `ps` comando.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -133,9 +133,9 @@ Para obter logs de um contêiner específico, primeiro liste o contêiner e, em 
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Anote a ID do contêiner para o contêiner para o qual você precisa dos logs.
+3. Tome nota do ID do recipiente para o recipiente para o que necessita dos registos.
 
-4. Para obter os logs de um contêiner específico, execute o `logs` comando fornecendo a ID do contêiner.
+4. Para obter os registos de um `logs` recipiente específico, faça o comando fornecendo o ID do recipiente.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -150,18 +150,18 @@ Para obter logs de um contêiner específico, primeiro liste o contêiner e, em 
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Para monitorar as estatísticas de uso do dispositivo
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Para monitorizar as estatísticas de utilização do dispositivo
 
-Para monitorar a memória, o uso da CPU e a e/s no dispositivo `stats` , use o comando.
+Para monitorizar a memória, o uso do CPU `stats` e a IO no dispositivo, utilize o comando.
 
-1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
-2. Execute o `stats` comando para desabilitar a transmissão ao vivo e efetuar pull somente do primeiro resultado.
+1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
+2. Executar `stats` o comando de modo a desativar o fluxo ao vivo e puxar apenas o primeiro resultado.
 
    ```powershell
    dkrdbe stats --no-stream
    ```
 
-   O exemplo a seguir mostra o uso desse cmdlet:
+   O exemplo que se segue mostra a utilização deste cmdlet:
 
     ```
     [10.100.10.10]: P> dkrdbe stats --no-stream

@@ -11,10 +11,10 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086893"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
@@ -34,7 +34,7 @@ A Azure Data Factory (ADF) foi especificamente construída para extrair, carrega
 
 A tabela que se segue resume os prós e os contras para a utilização da Azure Data Factory para os seus fluxos de trabalho de ingestão de dados.
 
-|Profissionais de TI|Contras
+|Vantagens|Contras
 ---|---
 Especificamente construído para extrair, carregar e transformar dados.|Atualmente oferece um conjunto limitado de tarefas de pipeline Azure Data Factory 
 Permite-lhe criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformações em escala.|Caro para construir e manter. Consulte [a página](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) de preços da Azure Data Factory para obter mais informações.
@@ -61,7 +61,7 @@ Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode
 
 A tabela que se segue resume os prós e os contra para a utilização do SDK e um passo de gasodutos ML para tarefas de ingestão de dados.
 
-Profissionais de TI| Contras
+Vantagens| Contras
 ---|---
 Configure os seus próprios scripts Python | Não suporta nativamente a mudança de fonte de dados desencadeando. Requer aplicações lógicas ou implementações de funções azure
 Preparação de dados como parte de cada execução de formação de modelos|Requer habilidades de desenvolvimento para criar um script de ingestão de dados

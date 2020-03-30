@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989455"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Ativar e trabalhar com registos de diagnóstico da Bastion
 
 À medida que os utilizadores se ligam às cargas de trabalho utilizando o Azure Bastion, a Bastion pode registar diagnósticos das sessões remotas. Em seguida, pode utilizar os diagnósticos para visualizar quais os utilizadores ligados a que cargas de trabalho, a que horas, de onde e outras informações relevantes sobre o registo. Para utilizar os diagnósticos, deve ativar os registos de diagnóstico no Azure Bastion. Este artigo ajuda-o a ativar os registos de diagnóstico e, em seguida, a visualizar os registos.
 
-## <a name="enable"></a>Ativar o registo de diagnósticos
+## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Ativar o registo de diagnósticos
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **definições** de Diagnóstico a partir da página Do Bastião Azure.
 
@@ -33,7 +33,7 @@ ms.locfileid: "76989455"
 
    ![definições de exemplo](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view"></a>Ver registo de diagnósticos
+## <a name="view-diagnostics-log"></a><a name="view"></a>Ver registo de diagnósticos
 
 Para aceder aos registos de diagnóstico, pode utilizar diretamente a conta de armazenamento que especificou ao mesmo tempo que permite as definições de diagnóstico.
 

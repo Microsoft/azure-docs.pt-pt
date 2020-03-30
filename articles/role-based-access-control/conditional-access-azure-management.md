@@ -16,10 +16,10 @@ ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137417"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir acesso à gestão azure com acesso condicional
@@ -38,12 +38,12 @@ Para criar uma política para a gestão do Azure, selecione a **Microsoft Azure 
 A política que cria aplica-se a todos os pontos finais de gestão do Azure, incluindo os seguintes:
 
 - Portal do Azure
-- Provedor de Azure Resource Manager
+- Fornecedor de Gestor de Recursos Azure
 - APIs de Gestão de Serviços Clássicos
 - Azure PowerShell
-- Portal do administrador de assinaturas do Visual Studio
+- Portal de administrador de subscrições do Estúdio Visual
 - DevOps do Azure
-- Portal de Azure Data Factory
+- Portal azure data factory
 
 Note que a política se aplica ao Azure PowerShell, que chama a API do Gestor de Recursos Azure. Não se aplica ao [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que chama microsoft graph.
 

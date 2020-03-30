@@ -1,5 +1,5 @@
 ---
-title: Integrar computadores Windows à central de segurança do Azure
+title: Carregar computadores Windows para o Centro de Segurança do Azure
 description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
 services: security-center
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686499"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
@@ -29,12 +29,12 @@ Este início rápido mostra-lhe como instalar o MMA num computador Windows.
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Você pode experimentar o padrão da central de segurança sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
-1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
-2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
+1. Assine no [portal Azure.](https://azure.microsoft.com/features/azure-portal/)
+2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - Descrição Geral** é aberto.
 
    ![Descrição geral do Centro de Segurança][2]
 
@@ -91,7 +91,7 @@ Quando já não for necessário, pode remover o agente do computador Windows.
 
 Para remover o agente:
 
-1. Abra o **Painel de Controlo**.
+1. **Painel de Controlo**Aberto .
 2. Abra **Programas e Funcionalidades**.
 3. Em **Programas e Funcionalidades**, selecione **Microsoft Monitoring Agent** e clique em **Desinstalar**.
 

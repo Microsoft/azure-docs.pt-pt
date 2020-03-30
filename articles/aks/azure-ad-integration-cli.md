@@ -1,14 +1,14 @@
 ---
-title: Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
+title: Integrar o Azure Active Directory com o Azure Kubernetes Service
 description: Aprenda a usar o Azure CLI para criar e azure ative diretório Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253055"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes utilizando o Azure CLI
@@ -25,9 +25,9 @@ Aplicam-se as seguintes limitações:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
+Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
-Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador.
 
 Para consistência e para ajudar a executar os comandos neste artigo, crie uma variável para o seu nome de cluster AKS desejado. O exemplo que se segue usa o nome *myakscluster:*
 
@@ -76,7 +76,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 
 O Azure AD necessita de permissões para realizar as seguintes ações:
 
-* Ler dados do diretório
+* Ler os dados do diretório
 * Iniciar sessão e ler o perfil de utilizador
 
 Atribuir estas permissões utilizando a permissão da [aplicação az ad adicionar][az-ad-app-permission-add] comando:
@@ -97,7 +97,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Criar componente de cliente Azure AD
 
-A segunda aplicação Azure AD é utilizada quando um utilizador regista o cluster AKS com o Kubernetes CLI (`kubectl`). Esta aplicação de cliente retira o pedido de autenticação do utilizador e verifica as suas credenciais e permissões. Criar a aplicação Azure AD para o componente cliente utilizando a [aplicação az ad criar][az-ad-app-create] comando:
+A segunda aplicação Azure AD é utilizada quando um utilizador regista o cluster`kubectl`AKS com o Kubernetes CLI (). Esta aplicação de cliente retira o pedido de autenticação do utilizador e verifica as suas credenciais e permissões. Criar a aplicação Azure AD para o componente cliente utilizando a [aplicação az ad criar][az-ad-app-create] comando:
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -171,7 +171,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se o utilizador que concede a ligação RBAC estiver no mesmo inquilino Azure AD, atribua permissões com base no *nome principal*do utilizador . Se o utilizador estiver num inquilino Azure AD diferente, questione e utilize a propriedade *objectId.*
 
-Crie um manifesto YAML chamado `basic-azure-ad-binding.yaml` e cola os seguintes conteúdos. Na última linha, substitua *userPrincipalName_or_objectId* com a saída UPN ou id do objeto do comando anterior:
+Crie um manifesto `basic-azure-ad-binding.yaml` YAML nomeado e cola o seguinte conteúdo. Na última linha, substitua *userPrincipalName_or_objectId* com a saída UPN ou id do objeto do comando anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -196,7 +196,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 
 ## <a name="access-cluster-with-azure-ad"></a>Cluster de acesso com Azure AD
 
-Agora vamos testar a integração da autenticação Azure AD para o cluster AKS. Delineie o contexto `kubectl` config para utilizar credenciais regulares de utilizador. Este contexto passa todos os pedidos de autenticação através da Azure AD.
+Agora vamos testar a integração da autenticação Azure AD para o cluster AKS. Delineie o `kubectl` contexto de config para utilizar credenciais regulares de utilizador. Este contexto passa todos os pedidos de autenticação através da Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
@@ -208,7 +208,7 @@ Agora use o [kubectl obter comando de casulos][kubectl-get] para ver cápsulas e
 kubectl get pods --all-namespaces
 ```
 
-Recebe um sinal de autenticação solicitado para autenticar usando credenciais de AD Azure usando um navegador web. Depois de autenticar com sucesso, o comando `kubectl` exibe as cápsulas no cluster AKS, como mostra a seguinte saída de exemplo:
+Recebe um sinal de autenticação solicitado para autenticar usando credenciais de AD Azure usando um navegador web. Depois de autenticar com sucesso, `kubectl` o comando exibe as cápsulas no cluster AKS, como mostra a seguinte saída de exemplo:
 
 ```console
 kubectl get pods --all-namespaces
@@ -229,7 +229,7 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-O símbolo de autenticação recebido para `kubectl` está em cache. Só é solicitado para iniciar sessão quando o token tiver expirado ou o ficheiro config Kubernetes for recriado.
+O símbolo de autenticação recebido está `kubectl` em cache. Só é solicitado para iniciar sessão quando o token tiver expirado ou o ficheiro config Kubernetes for recriado.
 
 Se vir uma mensagem de erro de autorização depois de ter assinado com sucesso a utilização de um navegador web como na seguinte saída de exemplo, verifique os seguintes problemas possíveis:
 
@@ -239,9 +239,9 @@ error: You must be logged in to the server (Unauthorized)
 
 * Definiu o ID ou UPN de objeto apropriado, dependendo se a conta de utilizador está ou não no mesmo inquilino Azure AD.
 * O utilizador não é membro de mais de 200 grupos.
-* Segredo definido no registo de aplicação para servidor corresponde ao valor configurado usando `--aad-server-app-secret`
+* Segredo definido no registo de aplicação para servidor corresponde ao valor configurado usando`--aad-server-app-secret`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para o script completo que contém os comandos mostrados neste artigo, consulte o script de integração da [AD Azure nas amostras AKS repo][complete-script].
 

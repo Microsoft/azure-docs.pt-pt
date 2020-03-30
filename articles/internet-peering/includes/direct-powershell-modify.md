@@ -9,23 +9,23 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 03c67ccf88a8c73fe04f062c6af9520115c185a1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774266"
 ---
-Esta seção descreve como executar as seguintes operações de modificação para o emparelhamento direto:
+Esta secção descreve como realizar as seguintes operações de modificação para o peering direto:
 
-* Adicionar conexões de emparelhamento direto
-* Remover conexões de emparelhamento direto
-* Atualizar ou fazer downgrade da largura de banda em conexões ativas.
-* Adicionar sessão IPv4/IPv6 em conexões ativas.
-* Remova a sessão IPv4/IPv6 em conexões ativas.
+* Adicionar ligações de peering direto
+* Remover ligações de peering direto
+* Atualize ou desafina a largura de banda em ligações ativas.
+* Adicione a sessão IPv4/IPv6 em ligações ativas.
+* Remova a sessão IPv4/IPv6 sobre ligações ativas.
 
-### <a name="add-direct-peering-connections"></a>Adicionar conexões de emparelhamento direto
+### <a name="add-direct-peering-connections"></a>Adicionar ligações de peering direto
 
-O exemplo abaixo descreve como adicionar conexões ao emparelhamento direto existente
+Abaixo o exemplo descreve como adicionar ligações ao peering direto existente
 
 ```powershell
 
@@ -44,9 +44,9 @@ $directPeering.Connections.Add($connection)
 $directPeering | Update-AzPeering
 ```
 
-### <a name="remove-direct-peering-connections"></a>Remover conexões de emparelhamento direto
+### <a name="remove-direct-peering-connections"></a>Remover ligações de peering direto
 
-Atualmente, não há suporte para a remoção de uma conexão no PowerShell. Entre em contato com [o emparelhamento da Microsoft](mailto:peeringexperience@microsoft.com).
+A remoção de uma ligação não é suportada atualmente no PowerShell. Contacte [o peering da Microsoft](mailto:peeringexperience@microsoft.com).
 
 <!--
 ```powershell
@@ -56,9 +56,9 @@ $directPeering | Update-AzPeering
 ```
 -->
 
-### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Atualizar ou fazer downgrade da largura de banda em conexões ativas
+### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Atualizar ou desvalorizar largura de banda em ligações ativas
 
-O exemplo abaixo descreve como adicionar o 10 Gbps à conexão direta existente.
+Abaixo o exemplo descreve como adicionar 10Gbps à conexão direta existente.
 
 ```powershell
 
@@ -68,9 +68,9 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="add-ipv4ipv6-session-on-active-connections"></a>Adicionar sessão IPv4/IPv6 em conexões ativas.
+### <a name="add-ipv4ipv6-session-on-active-connections"></a>Adicione a sessão IPv4/IPv6 em ligações ativas.
 
-O exemplo abaixo descreve como adicionar uma sessão IPv6 em uma conexão direta existente somente com a sessão IPv4. 
+Abaixo o exemplo descreve como adicionar a sessão IPv6 numa ligação direta existente com apenas a sessão IPv4. 
 
 ```powershell
 
@@ -80,6 +80,6 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Remova a sessão IPv4/IPv6 em conexões ativas.
+### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Remova a sessão IPv4/IPv6 sobre ligações ativas.
 
-Atualmente, não há suporte para a remoção de uma sessão IPv4/IPv6 de uma conexão existente no PowerShell. Entre em contato com [o emparelhamento da Microsoft](mailto:peeringexperience@microsoft.com).
+A remoção de uma sessão IPv4/IPv6 de uma ligação existente não é suportada atualmente no PowerShell. Contacte [o peering da Microsoft](mailto:peeringexperience@microsoft.com).

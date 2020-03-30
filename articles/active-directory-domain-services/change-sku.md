@@ -1,5 +1,5 @@
 ---
-title: Altere o SKU para um Azure AD Domain Services  Serviços de Domínio AD' Azure  Microsoft Docs
+title: Altere o SKU para um Azure AD Domain Services [ Serviços de Domínio AD' Azure [ Microsoft Docs
 description: Saiba como obter o nível SKU para um domínio gerido pelo Azure AD Domain Services se os seus requisitos de negócio mudarem
 services: active-directory-ds
 author: iainfoulds
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126699"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Altere o SKU para um domínio gerido pelos Serviços de Domínio Azure existentes
@@ -50,7 +50,7 @@ Para obter mais informações sobre estes limites, consulte as [funcionalidades 
 Para alterar o SKU para um domínio gerido por Azure AD DS utilizando o portal Azure, complete os seguintes passos:
 
 1. No topo do portal Azure, procure e selecione Serviços de **Domínio Azure AD.** Escolha o seu domínio gerido da lista, como *aaddscontoso.com*.
-1. No menu do lado esquerdo da página Azure AD DS, **selecione Definições > SKU**.
+1. No menu do lado esquerdo da página Azure AD DS, selecione **Definições > SKU**.
 
     ![Selecione a opção de menu SKU para o seu domínio gerido azure AD DS no portal Azure](media/change-sku/overview-change-sku.png)
 

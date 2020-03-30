@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367147"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de livro de corridas na Automação Azure
@@ -123,7 +123,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
-Para lidar com várias subscrições, o seu livro de execução deve utilizar o cmdlet [Desactivação-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) para garantir que o contexto de autenticação não seja recuperado de outro livro de execução que funciona na mesma caixa de areia. O livro de execução também utiliza o parâmetro`AzContext` no módulo Az cmdlets e passa-lhe o contexto adequado.
+Para lidar com várias subscrições, o seu livro de execução deve utilizar o cmdlet [Desactivação-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) para garantir que o contexto de autenticação não seja recuperado de outro livro de execução que funciona na mesma caixa de areia. O livro de`AzContext` execução também utiliza o parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -156,7 +156,7 @@ Esta secção descreve algumas formas de lidar com exceções ou problemas inter
 
 A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não terminando. Os erros de terminação terminam sempre e não são afetados por *ErrorActionPreference*.
 
-Quando o livro de execução utiliza `ErrorActionPreference`, um erro normalmente não terminante, como **o PathNotFound** a partir do `Get-ChildItem` cmdlet impede que o livro de execução esteja concluído. O exemplo que se segue mostra a utilização de `ErrorActionPreference`. O comando `Write-Output` final nunca executa, como o guião para.
+Quando o livro `ErrorActionPreference`de execução se utiliza, um erro `Get-ChildItem` normalmente não terminante, como **o PathNotFound** do cmdlet, impede que o livro de execução esteja concluído. O exemplo que se `ErrorActionPreference`segue mostra a utilização de . O `Write-Output` comando final nunca executa, como o guião para.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -166,7 +166,7 @@ Write-Output "This message will not show"
 
 #### <a name="try-catch-finally"></a>Tente apanhar finalmente
 
-[Experimente o Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é utilizado em scripts PowerShell para lidar com erros de terminação. O script pode usar este mecanismo para capturar exceções específicas ou exceções gerais. A declaração `catch` deve ser usada para rastrear ou tentar lidar com erros. O exemplo que se segue tenta descarregar um ficheiro que não existe. Apanha a `System.Net.WebException` exceção e devolve o último valor para qualquer outra exceção.
+[Experimente o Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) é utilizado em scripts PowerShell para lidar com erros de terminação. O script pode usar este mecanismo para capturar exceções específicas ou exceções gerais. A `catch` declaração deve ser utilizada para rastrear ou tentar lidar com erros. O exemplo que se segue tenta descarregar um ficheiro que não existe. Apanha a `System.Net.WebException` exceção e devolve o último valor para qualquer outra exceção.
 
 ```powershell-interactive
 try
@@ -186,7 +186,7 @@ catch
 
 #### <a name="throw"></a>Arremesso
 
-[O lançamento](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de terminação. Este mecanismo pode ser útil ao definir a sua própria lógica num livro de corridas. Se o guião cumprir um critério que deve detê-lo, pode usar a declaração `throw` para parar. O exemplo seguinte utiliza esta declaração para mostrar um parâmetro de função necessário.
+[O lançamento](/powershell/module/microsoft.powershell.core/about/about_throw) pode ser usado para gerar um erro de terminação. Este mecanismo pode ser útil ao definir a sua própria lógica num livro de corridas. Se o guião cumprir um critério que deve `throw` detê-lo, pode usar a declaração para parar. O exemplo seguinte utiliza esta declaração para mostrar um parâmetro de função necessário.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -204,17 +204,17 @@ Os livros de execução que funcionam em caixas de areia Azure não suportam pro
 
 Os trabalhos de livro de corridas que funcionam em caixas de areia Azure não têm acesso a qualquer dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não têm acesso à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma baseia-se no Modelo de Informação Comum (CIM), fornecendo as normas da indústria para definir as características do dispositivo e da aplicação.
 
-## <a name="handling-errors"></a>Erros de manuseamento
+## <a name="handling-errors"></a>Processar erros
 
 Os seus livros devem ser capazes de lidar com erros. A PowerShell tem dois tipos de erros, terminando e não terminando. Os erros de terminação impedem a execução do livro quando ocorrem. O livro para com um estatuto de trabalho de Falhado.
 
-Erros não terminadores permitem que um script continue mesmo depois de ocorrerem. Um exemplo de um erro não terminante é aquele que ocorre quando um livro de corridas usa o `Get-ChildItem` cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, lança um erro e continua para a próxima pasta. O erro neste caso não define o estado do trabalho do livro de execução para falhado, e o trabalho pode até estar concluído. Para forçar um livro de ruma para parar num erro não terminante, pode utilizar `-ErrorAction Stop` no cmdlet.
+Erros não terminadores permitem que um script continue mesmo depois de ocorrerem. Um exemplo de um erro não terminante é aquele que `Get-ChildItem` ocorre quando um livro de execução usa o cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, lança um erro e continua para a próxima pasta. O erro neste caso não define o estado do trabalho do livro de execução para falhado, e o trabalho pode até estar concluído. Para forçar um livro de ruma para parar `-ErrorAction Stop` num erro não terminante, pode utilizar o cmdlet.
 
 ## <a name="handling-jobs"></a>Manuseamento de postos de trabalho
 
 Pode reutilizar o ambiente de execução para trabalhos na mesma conta de Automação. Um único livro de corridas pode ter muitos empregos a funcionar de uma só vez. Quanto mais empregos se gere ao mesmo tempo, mais frequentemente podem ser enviados para a mesma caixa de areia.
 
-Os empregos a funcionar no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é executar o `Disconnect-AzAccount` cmdlet. A execução deste cmdlet desliga cada trabalho de livro de execução no processo de caixa de areia partilhada.
+Os empregos a funcionar no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é `Disconnect-AzAccount` executar o cmdlet. A execução deste cmdlet desliga cada trabalho de livro de execução no processo de caixa de areia partilhada.
 
 Os trabalhos da PowerShell começaram a partir de um livro de corridas que funciona numa caixa de areia Azure pode não funcionar em modo idioma completo. Para saber mais sobre os modos de idioma PowerShell, consulte [os modos de idioma PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para mais detalhes sobre a interação com os empregos na Azure Automation, consulte [a Recuperação do estatuto de emprego com](#retrieving-job-status-using-powershell)a PowerShell .
 
@@ -234,8 +234,8 @@ A tabela seguinte descreve os estatutos que são possíveis para um trabalho.
 | Correndo, esperando por recursos |O trabalho foi descarregado porque atingiu o limite de ações justas. Será retomado em breve do seu último posto de controlo. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
 | A parar |O sistema está a parar o trabalho. |
-| Suspenso |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um livro não tem um posto de controlo, começa desde o início. Se tiver um posto de controlo, pode recomeçar e retomar a partir do seu último posto de controlo. O sistema só suspende o livro de execução quando ocorre uma exceção. Por predefinição, a variável `ErrorActionPreference` está definida para continuar, indicando que o trabalho continua a funcionar com um erro. Se a variável de preferência for definida para parar, o trabalho suspende-se por um erro.  |
-| A suspender |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) O sistema está a tentar suspender o trabalho a pedido do utilizador. O livro de execução deve chegar ao seu próximo posto de controlo antes de poder ser suspenso. Se já passou o seu último posto de controlo, completa antes de poder ser suspenso. |
+| Suspenso |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um livro não tem um posto de controlo, começa desde o início. Se tiver um posto de controlo, pode recomeçar e retomar a partir do seu último posto de controlo. O sistema só suspende o livro de execução quando ocorre uma exceção. Por predefinição, a `ErrorActionPreference` variável está definida para Continuar, indicando que o trabalho continua a funcionar com um erro. Se a variável de preferência for definida para parar, o trabalho suspende-se por um erro.  |
+| A suspender |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) O sistema está a tentar suspender o trabalho a pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passou o seu último posto de controlo, completa antes de poder ser suspenso. |
 
 ### <a name="viewing-job-status-from-the-azure-portal"></a>Visualização do estado do emprego no portal Azure
 
@@ -273,7 +273,7 @@ Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 
 ### <a name="retrieving-job-status-using-powershell"></a>Recuperação do estado do trabalho usando powerShell
 
-Utilize o `Get-AzAutomationJob` cmdlet para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de corridas com a PowerShell utilizando `Start-AzAutomationRunbook`, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
+Utilize `Get-AzAutomationJob` o cmdlet para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de `Start-AzAutomationRunbook`execução com a utilização da PowerShell, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
 
 O exemplo seguinte obtém o último trabalho para um livro de amostras e mostra o seu estado, os valores previstos para os parâmetros do livro de execução e a saída de trabalho.
 
@@ -336,15 +336,15 @@ foreach ($log in $JobActivityLogs)
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
-## <a name="fair-share"></a>Partilhar recursos entre livros de execução
+## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Partilhar recursos entre livros de execução
 
 Para partilhar recursos entre todos os livros na nuvem, a Azure Automation descarrega ou para temporariamente qualquer trabalho que tenha funcionado por mais de três horas. Os postos de trabalho para os livros de [execução da PowerShell](automation-runbook-types.md#powershell-runbooks) e [os livros de execução python](automation-runbook-types.md#python-runbooks) são parados e não reiniciados, e o estado de trabalho torna-se parado.
 
 Para tarefas de longa duração, é aconselhável utilizar um Trabalhador híbrido do livro de corridas. Os trabalhadores híbridos não são limitados por ações justas, e não têm uma limitação de quanto tempo um livro de corridas pode executar. Os outros [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de trabalho aplicam-se tanto às caixas de areia Azure como aos Trabalhadores híbridos do livro de corridas. Embora os Trabalhadores híbridos não estejam limitados pelo limite de 3 horas de ações justas, você deve desenvolver livros de corridas para executar sobre os trabalhadores que apoiam reinícios de problemas inesperados de infraestruturas locais.
 
-Outra opção é otimizar um livro de corridas utilizando livros infantis. Por exemplo, o seu livro de execução pode passar pela mesma função em vários recursos, como uma operação de base de dados em várias bases de dados. Pode mover esta função para um livro de corridas para [crianças](automation-child-runbooks.md) e pedir ao seu livro de corridas que o chame usando `Start-AzAutomationRunbook`. Os livros de execução de crianças executam em paralelo em processos separados.
+Outra opção é otimizar um livro de corridas utilizando livros infantis. Por exemplo, o seu livro de execução pode passar pela mesma função em vários recursos, como uma operação de base de dados em várias bases de dados. Pode mover esta função para um livro de [corridas para crianças](automation-child-runbooks.md) e pedir ao seu livro de corridas que o chame usando `Start-AzAutomationRunbook`. Os livros de execução de crianças executam em paralelo em processos separados.
 
-A utilização de livros infantis diminui o tempo total para que o livro de execução dos pais esteja concluído. O seu livro de execução pode utilizar o `Get-AzAutomationJob` cmdlet para verificar o estado de trabalho de um livro de corridas para crianças se ainda tiver operações para executar após a conclusão da criança.
+A utilização de livros infantis diminui o tempo total para que o livro de execução dos pais esteja concluído. O seu livro `Get-AzAutomationJob` de execução pode utilizar o cmdlet para verificar o estado de trabalho de um livro de corridas para crianças se ainda tiver operações para executar após a conclusão da criança.
 
 ## <a name="next-steps"></a>Passos seguintes
 

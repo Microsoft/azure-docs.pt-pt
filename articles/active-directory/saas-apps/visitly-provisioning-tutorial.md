@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure De visita para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure De visita para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizadores para visitar.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063174"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configure de visita para fornecimento automático de utilizadores
@@ -33,9 +33,9 @@ O objetivo deste tutorial é demonstrar os passos que executa no Visitly and Azu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um locatário do Azure AD
+* Um inquilino da AD Azure
 * [Um inquilino visitante](https://www.visitly.io/pricing/)
 * Uma conta de utilizador em Visitly com permissões de administração
 
@@ -48,7 +48,7 @@ Antes de configurar e ativar o fornecimento automático de utilizadores, decida 
 
 ## <a name="important-tips-for-assigning-users-to-visitly"></a>Dicas importantes para atribuir utilizadores à Visitly 
 
-* Recomendamos que designe um único utilizador da AD Azure à Visitly para testar a configuração automática de fornecimento do utilizador. Usuários ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomendamos que designe um único utilizador da AD Azure à Visitly para testar a configuração automática de fornecimento do utilizador. Utilizadores ou grupos adicionais podem ser atribuídos mais tarde.
 
 * Quando designar um utilizador para a Visitly, deve selecionar qualquer função específica de aplicação válida (se disponível) na caixa de diálogo de atribuição. Os utilizadores com a função de Acesso Predefinido estão excluídos do fornecimento.
 
@@ -56,7 +56,7 @@ Antes de configurar e ativar o fornecimento automático de utilizadores, decida 
 
 Antes de configurar de visita para o fornecimento automático de utilizadores com a AD Azure, é necessário ativar o fornecimento do Sistema de Gestão de Identidade de Domínio Transversal (SCIM) na Visitly.
 
-1. Inscreva-se na [Visitly](https://app.visitly.io/login). Selecione **Integrações** > **Sincronização do Anfitrião**.
+1. Inscreva-se na [Visitly](https://app.visitly.io/login). Selecione **Integrações** > **Sincronização anfitriã .**
 
     ![Sincronização do hospedeiro](media/Visitly-provisioning-tutorial/login.png)
 
@@ -66,7 +66,7 @@ Antes de configurar de visita para o fornecimento automático de utilizadores co
 
 3. Copiar a **Tecla API**. Estes valores são inseridos na caixa **Token Secreta** no separador de **provisionamento** da sua aplicação Visitly no portal Azure.
 
-    ![Chave API](media/Visitly-provisioning-tutorial/token.png)
+    ![Chave da API](media/Visitly-provisioning-tutorial/token.png)
 
 
 ## <a name="add-visitly-from-the-gallery"></a>Adicione visitly a partir da galeria
@@ -77,15 +77,15 @@ Para adicionar Visitly a partir da galeria de aplicações da AD Azure, siga est
 
 1. No [portal Azure,](https://portal.azure.com)no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza **Visitly**, selecione **Visitly** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar a aplicação.
 
@@ -100,7 +100,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para visita em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais** > **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** > **Todas as aplicações**.
 
     ![Todas as aplicações](common/enterprise-applications.png)
 
@@ -110,13 +110,13 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 3. Selecione o separador **Provisioning.**
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia de provisionamento](common/provisioning.png)
 
 4. Detete o **modo de provisionamento** para **automático**.
 
     ![Modo de provisionamento definido para automático](common/provisioning-automatic.png)
 
-5. De acordo com a secção de Credenciais de Administrador, insera os valores `https://api.visitly.io/v1/usersync/SCIM` e **Chave API** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Selecione **Ligação** de Teste para garantir que o Azure AD pode ligar-se à Visitly. Se a ligação falhar, certifique-se de que a sua conta Visitly tem permissões de administração e tente novamente.
+5. De acordo com a secção `https://api.visitly.io/v1/usersync/SCIM` de Credenciais de Administrador, insera os valores chave e **Chave API** recuperados anteriormente em URL de **Inquilino** e **Token Secreto,** respectivamente. Selecione **Ligação** de Teste para garantir que o Azure AD pode ligar-se à Visitly. Se a ligação falhar, certifique-se de que a sua conta Visitly tem permissões de administração e tente novamente.
 
     ![URL do inquilino + símbolo](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -142,7 +142,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 12. Defina os utilizadores ou grupos que pretende fornecer de visita, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Escopo de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de provisionamento](common/provisioning-scope.png)
 
 13. Quando estiver pronto para fornecer, selecione **Guardar**.
 

@@ -1,6 +1,6 @@
 ---
-title: Redefinir Serviços de Área de Trabalho Remota ou sua senha de administrador em uma VM do Windows | Microsoft Docs
-description: Saiba como redefinir uma senha de conta ou Serviços de Área de Trabalho Remota em uma VM do Windows usando o portal do Azure ou Azure PowerShell.
+title: Redefinir Serviços de Ambiente de Trabalho Remoto ou a sua palavra-passe de administrador num VM do Windows / Microsoft Docs
+description: Saiba como redefinir uma palavra-passe de conta ou serviços de ambiente de trabalho remotonum Windows VM utilizando o portal Azure ou o Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,51 +15,51 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058450"
 ---
-# <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir Serviços de Área de Trabalho Remota ou sua senha de administrador em uma VM do Windows
-Se não for possível se conectar a uma VM (máquina virtual) do Windows, você poderá redefinir sua senha de administrador local ou redefinir a configuração de Serviços de Área de Trabalho Remota (sem suporte em controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
-Se você estiver usando o PowerShell, verifique se você tem o [módulo mais recente do PowerShell instalado e configurado](/powershell/azure/overview) e se está conectado à sua assinatura do Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+# <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir serviços de ambiente de trabalho remotos ou a sua palavra-passe do administrador num VM do Windows
+Se não conseguir ligar-se a uma máquina virtual do Windows (VM), pode redefinir a sua palavra-passe do administrador local ou redefinir a configuração dos Serviços de Ambiente de Trabalho Remoto (não suportados nos controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
+Se estiver a utilizar o PowerShell, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/overview) e está inscrito na sua subscrição Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
-Você pode redefinir Serviços de Área de Trabalho Remota e credenciais das seguintes maneiras:
+Pode repor os Serviços de Ambiente de Trabalho Remoto e as credenciais das seguintes formas:
 
-- [Redefinir usando o portal do Azure](#reset-by-using-the-azure-portal)
+- [Reset usando o portal Azure](#reset-by-using-the-azure-portal)
 
-- [Redefinir usando a extensão VMAccess e o PowerShell](#reset-by-using-the-vmaccess-extension-and-powershell)
+- [Reset utilizando a extensão VMAccess e PowerShell](#reset-by-using-the-vmaccess-extension-and-powershell)
 
-## <a name="reset-by-using-the-azure-portal"></a>Redefinir usando o portal do Azure
+## <a name="reset-by-using-the-azure-portal"></a>Reset usando o portal Azure
 
-Primeiro, entre no [portal do Azure](https://portal.azure.com) e, em seguida, selecione **máquinas virtuais** no menu à esquerda. 
+Primeiro, inscreva-se no [portal Azure](https://portal.azure.com) e, em seguida, selecione **máquinas Virtuais** no menu esquerdo. 
 
-### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha da conta de administrador local**
+### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha da conta do administrador local**
 
-1. Selecione sua VM do Windows e, em seguida, selecione **Redefinir senha** em **suporte + solução de problemas**. A janela **Redefinir senha** é exibida.
+1. Selecione o seu Windows VM e, em seguida, selecione **reset password** em **Suporte + Resolução de Problemas**. A janela de **palavra-passe Reset** é visualizada.
 
-2. Selecione **Redefinir senha**, insira um nome de usuário e uma senha e, em seguida, selecione **Atualizar**. 
+2. Selecione **Redefinir a palavra-passe,** introduza um nome de utilizador e uma palavra-passe e, em seguida, selecione **'Atualizar**' . 
 
-3. Tente se conectar à VM novamente.
+3. Tente ligar-se ao seu VM novamente.
 
-### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração de Serviços de Área de Trabalho Remota**
+### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração dos Serviços de Ambiente de Trabalho Remoto**
 
-Esse processo habilitará Área de Trabalho Remota serviço na VM e criará uma regra de firewall para a porta RDP padrão 3389.
+Este processo ativará o serviço Remote Desktop no VM e criará uma regra de firewall para a porta DERRD Padrão 3389.
 
-1. Selecione sua VM do Windows e, em seguida, selecione **Redefinir senha** em **suporte + solução de problemas**. A janela **Redefinir senha** é exibida. 
+1. Selecione o seu Windows VM e, em seguida, selecione **reset password** em **Suporte + Resolução de Problemas**. A janela de **palavra-passe Reset** é visualizada. 
 
-2. Selecione **Redefinir configuração somente** e, em seguida, selecione **Atualizar**. 
+2. Selecione apenas a **configuração de reset** e, em seguida, selecione **'Atualizar**' . 
 
-3. Tente se conectar à VM novamente.
+3. Tente ligar-se ao seu VM novamente.
 
-## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Redefinir usando a extensão VMAccess e o PowerShell
+## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Reset utilizando a extensão VMAccess e PowerShell
 
-Primeiro, verifique se você tem o [módulo do PowerShell mais recente instalado e configurado](/powershell/azure/overview) e se está conectado à sua assinatura do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/overview) e está inscrito na sua subscrição Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
 
-### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha da conta de administrador local**
+### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha da conta do administrador local**
 
-- Redefina a senha de administrador ou o nome de usuário com o cmdlet [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) do PowerShell. A `typeHandlerVersion` configuração deve ser 2,0 ou maior, pois a versão 1 foi preterida. 
+- Redefinir a palavra-passe do administrador ou o nome do utilizador com o [cmdlet Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. A `typeHandlerVersion` definição deve ser 2.0 ou superior, porque a versão 1 é depreciada. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -73,28 +73,28 @@ Primeiro, verifique se você tem o [módulo do PowerShell mais recente instalado
     ```
 
     > [!NOTE] 
-    > Se você inserir um nome diferente da conta de administrador local atual em sua VM, a extensão VMAccess adicionará uma conta de administrador local com esse nome e atribuirá a senha especificada a essa conta. Se a conta de administrador local em sua VM existir, a extensão VMAccess redefinirá a senha. Se a conta estiver desabilitada, a extensão VMAccess a habilitará.
+    > Se introduzir um nome diferente da conta de administrador local atual no seu VM, a extensão VMAccess adicionará uma conta de administrador local com esse nome e atribuirá a sua senha especificada a essa conta. Se a conta de administrador local no seu VM existir, a extensão VMAccess redefinirá a palavra-passe. Se a conta estiver desativada, a extensão VMAccess irá ativar.
 
-### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração de Serviços de Área de Trabalho Remota**
+### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração dos Serviços de Ambiente de Trabalho Remoto**
 
-1. Redefina o acesso remoto para sua VM com o cmdlet [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) do PowerShell. O exemplo a seguir redefine a extensão de `myVMAccess` acesso chamada na VM `myVM` chamada no `myResourceGroup` grupo de recursos:
+1. Redefinir o acesso remoto ao seu VM com o [cmdlet Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell. O exemplo seguinte repõe a `myVMAccess` extensão de `myVM` acesso `myResourceGroup` nomeada no VM nomeado no grupo de recursos:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]
-    > A qualquer momento, uma VM pode ter apenas um agente de acesso de VM único. Para definir as propriedades do agente de acesso à VM `-ForceRerun` , use a opção. Ao usar `-ForceRerun`o, certifique-se de usar o mesmo nome para o agente de acesso à VM que você pode ter usado em qualquer comando anterior.
+    > Em qualquer momento, um VM pode ter apenas um único agente de acesso VM. Para definir as propriedades do agente `-ForceRerun` de acesso VM, use a opção. Quando utilizar, `-ForceRerun`certifique-se de que utiliza o mesmo nome para o agente de acesso VM que possa ter utilizado em quaisquer comandos anteriores.
 
-1. Se você ainda não conseguir se conectar remotamente à sua máquina virtual, consulte [solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se você perder a conexão com o controlador de domínio do Windows, será necessário restaurá-lo de um backup do controlador de domínio.
+1. Se ainda não conseguir ligar-se remotamente à sua máquina virtual, consulte as ligações de ambiente de [trabalho remoto supor problemas a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se perder a ligação ao controlador de domínio Windows, terá de restaurá-la a partir de uma cópia de segurança do controlador de domínio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se a extensão de acesso à VM do Azure não responder e você não conseguir redefinir a senha, você poderá [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Siga as etapas documentadas neste artigo primeiro e tente o método de redefinição de senha offline somente se essas etapas não funcionarem.
+- Se a extensão de acesso Azure VM não responder e não conseguir redefinir a palavra-passe, pode [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este método é mais avançado e requer que ligue o disco rígido virtual do VM problemático a outro VM problemático. Siga primeiro os passos documentados neste artigo e tente o método de redefinição da palavra-passe offline apenas se esses passos não funcionarem.
 
-- [Saiba mais sobre os recursos e extensões de VM do Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Saiba mais sobre extensões e funcionalidades Azure VM.](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-- [Conecte-se a uma máquina virtual do Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Ligue-se a uma máquina virtual Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-- [Solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Ligações de ambiente de trabalho remoto de [resolução de problemas a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135875"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurar uma política de WAF geofiltrante para a sua Porta da Frente
@@ -64,7 +64,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Adicionar condições de correspondência da filtragem geográfica a uma regra com Ação e Prioridade
 
-Crie um objeto CustomRule `nonUSBlockRule` com base na condição de jogo, uma ação e uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
+Crie um `nonUSBlockRule` objeto CustomRule baseado na condição de jogo, uma ação e uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
@@ -77,7 +77,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 
 ## <a name="add-rules-to-a-policy"></a>Adicionar regras a uma política
 
-Encontre o nome do grupo de recursos que contém o perfil porta da frente usando `Get-AzResourceGroup`. Em seguida, crie um objeto de política `geoPolicy` contendo `nonUSBlockRule` utilizando [a New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente. Deve fornecer um nome único para a geopolítica. 
+Encontre o nome do grupo de recursos `Get-AzResourceGroup`que contém o perfil porta da frente utilizando . Em seguida, `geoPolicy` crie `nonUSBlockRule` um objeto político contendo a utilização [de New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente. Deve fornecer um nome único para a geopolítica. 
 
 O exemplo seguinte usa o nome do Grupo de Recursos *myResourceGroupFD1* com o pressuposto de que criou o perfil porta da frente usando instruções fornecidas no [Quickstart: Criar um](../../frontdoor/quickstart-create-front-door.md) artigo porta da frente. No exemplo abaixo, substitua o nome de política *geoPolicyAllowUSOnly* por um nome de política único.
 
@@ -101,7 +101,7 @@ $geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupF
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Em seguida, detete a propriedade frontend WebApplicationFirewallPolicyLink para o recursoId do `geoPolicy`utilizando [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
+Em seguida, detete a propriedade frontend WebApplicationFirewallPolicyLink para o recursoId do `geoPolicy` [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor)utilizando .
 
 ```
 Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]

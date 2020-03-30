@@ -1,7 +1,7 @@
 ---
-title: Habilidade de cognitiva condicional
+title: Habilidade cognitiva condicional
 titleSuffix: Azure Cognitive Search
-description: A habilidade condicional no Azure Pesquisa Cognitiva permite a filtragem, a criação de padrões e a mesclagem de valores em uma definição de conconhecimento.
+description: A habilidade condicional na Pesquisa Cognitiva Azure permite a filtragem, criação de incumprimentos e fusão de valores numa definição de skillset.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792037"
 ---
-# <a name="conditional-cognitive-skill"></a>Habilidade de cognitiva condicional
+# <a name="conditional-cognitive-skill"></a>Habilidade cognitiva condicional
 
-A habilidade **condicional** habilita o Azure pesquisa cognitiva cenários que exigem uma operação booliana para determinar os dados a serem atribuídos a uma saída. Esses cenários incluem filtragem, atribuição de um valor padrão e mesclagem de dados com base em uma condição.
+A habilidade **condicional** permite cenários de pesquisa cognitiva Azure que requerem uma operação Boolean para determinar os dados para atribuir a uma saída. Estes cenários incluem filtragem, atribuição de um valor predefinido e fusão de dados com base numa condição.
 
-O pseudocódigo a seguir demonstra o que a habilidade condicional realiza:
+O pseudocódigo que se segue demonstra o que a habilidade condicional consegue:
 
 ```
 if (condition) 
@@ -29,19 +29,19 @@ else
 ```
 
 > [!NOTE]
-> Essa habilidade não está associada a uma API de serviços cognitivas do Azure e você não é cobrada por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md) para substituir a opção de recurso "gratuito" que limita você a um pequeno número de aprimoramentos por dia.
+> Esta habilidade não está ligada a uma API dos Serviços Cognitivos Azure, e não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) para anular a opção de recurso "Grátis" que o limita a um pequeno número de enriquecimentos por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. util. ConditionalSkill
+Microsoft.Skills.Util.ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>Campos avaliados
 
-Essa habilidade é especial porque suas entradas são campos avaliados.
+Esta habilidade é especial porque as suas inputs são áreas avaliadas.
 
-Os seguintes itens são valores válidos de uma expressão:
+Os seguintes itens são valores válidos de expressão:
 
--   Caminhos de anotação (caminhos em expressões devem ser delimitados por "$ (" e ")")
+-   Caminhos de anotação (caminhos em expressões devem ser delimitados por "$(" e ")")
  <br/>
     Exemplos:
     ```
@@ -49,7 +49,7 @@ Os seguintes itens são valores válidos de uma expressão:
         "= $(/document/content)"
     ```
 
--  Literais (cadeias de caracteres, números, true, false, NULL) <br/>
+-  Literals (cordas, números, verdadeiro, falso, nulo) <br/>
     Exemplos:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
@@ -58,21 +58,21 @@ Os seguintes itens são valores válidos de uma expressão:
        "= null"                 // null value
     ```
 
--  Expressões que usam operadores de comparação (= =,! =, > =, >, < =, <) <br/>
+-  Expressões que utilizam operadores de comparação (==, ==, >=, >, <=, <) <br/>
     Exemplos:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
--   Expressões que usam operadores boolianos (& &, | |,!, ^) <br/>
+-   Expressões que usam operadores booleanos (&&, [...], ^) <br/>
     Exemplos:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
--   Expressões que usam operadores numéricos (+,-, \*,/,%) <br/>
+-   Expressões que utilizam operadores numéricos (+, -, \*/, %) <br/>
     Exemplos: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -80,25 +80,25 @@ Os seguintes itens são valores válidos de uma expressão:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Como a habilidade condicional dá suporte à avaliação, você pode usá-la em cenários de transformação secundária. Por exemplo, consulte [definição de habilidades 4](#transformation-example).
+Como a habilidade condicional suporta a avaliação, pode usá-la em cenários de transformação menor. Por exemplo, ver [definição de habilidade 4](#transformation-example).
 
-## <a name="skill-inputs"></a>Entradas de habilidades
-As entradas diferenciam maiúsculas de minúsculas.
+## <a name="skill-inputs"></a>Inputs de habilidade
+As inputs são sensíveis aos casos.
 
 | Input   | Descrição |
 |-------------|-------------|
-| problema   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa a condição a ser avaliada. Essa condição deve ser avaliada como um valor booliano (*true* ou *false*).   <br/>  Exemplos: <br/> "= true" <br/> "= $ (/Document/Language) = = ' fr '" <br/> "= $ (/Document/Pages/\*/Language) = = $ (/document/expectedLanguage)" <br/> |
-| whenTrue    | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *true*. As cadeias de caracteres de constantes devem ser retornadas entre aspas simples (' e '). <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
-| whenFalse   | Essa entrada é um [campo avaliado](#evaluated-fields) que representa o valor a ser retornado se a condição for avaliada como *false*. <br/>Valores de exemplo: <br/> "= ' contrato '"<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
+| condição   | Esta entrada é um [campo avaliado](#evaluated-fields) que representa a condição de avaliar. Esta condição deve avaliar para um valor booleano *(verdadeiro* ou *falso).*   <br/>  Exemplos: <br/> "= verdadeiro" <br/> "= $(/documento/língua) =='fr'" <br/> "= $(/documento/páginas/\*/idioma) == $(/documento/linguagem esperada)" <br/> |
+| quandoTrue    | Esta entrada é um [campo avaliado](#evaluated-fields) que representa o valor a devolver se a condição for avaliada de *forma verdadeira*. As cordas de constantes devem ser devolvidas em aspas únicas (' e '). <br/>Valores da amostra: <br/> "= 'contrato'"<br/>"= $(/documento/contractType)" <br/> "= $(/documento/entidades/\*)" <br/> |
+| quando Falso   | Esta entrada é um [campo avaliado](#evaluated-fields) que representa o valor a devolver se a condição for avaliada como *falsa*. <br/>Valores da amostra: <br/> "= 'contrato'"<br/>"= $(/documento/contractType)" <br/> "= $(/documento/entidades/\*)" <br/>
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
-Há uma única saída que é simplesmente chamada de "saída". Ele retornará o valor *whenFalse* se a condição for false ou *whenTrue* se a condição for true.
+Há uma única saída que é simplesmente chamada de "saída". Devolve o valor *quando falso* se a condição for falsa ou *quando verdadeira* se a condição for verdadeira.
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exemplo de definição de habilidade 1: filtrar documentos para retornar apenas documentos franceses
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Definição de habilidade da amostra 1: Filtrar documentos para devolver apenas documentos franceses
 
-A saída a seguir retorna uma matriz de frases ("/document/frenchSentences") se o idioma do documento for francês. Se o idioma não for francês, o valor será definido como *NULL*.
+A saída seguinte devolve um conjunto de frases ("/documento/francêsFrases") se a língua do documento for francesa. Se a língua não for francesa, o valor está definido para *nulo.*
 
 ```json
 {
@@ -112,12 +112,12 @@ A saída a seguir retorna uma matriz de frases ("/document/frenchSentences") se 
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Se "/document/frenchSentences" for usado como o *contexto* de outra habilidade, essa habilidade só será executada se "/Document/frenchSentences" não estiver definido como *nulo*.
+Se "/documento/francêsSentences" for usado como *contexto* de outra habilidade, essa habilidade só funciona se "/documento/francêsSentences" não for em *otonuda*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exemplo de definição de habilidade 2: definir um valor padrão para um valor que não existe
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Definição de habilidade da amostra 2: Definir um valor predefinido para um valor que não existe
 
-A saída a seguir cria uma anotação ("/document/languageWithDefault") que é definida como o idioma do documento ou como "es" se o idioma não estiver definido.
+A saída seguinte cria uma anotação ("/documento/idiomaWithDefault") que é definida para o idioma do documento ou para "es" se a língua não estiver definida.
 
 ```json
 {
@@ -132,9 +132,9 @@ A saída a seguir cria uma anotação ("/document/languageWithDefault") que é d
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemplo de definição de habilidade 3: mesclar valores de dois campos em um
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Definição de habilidade da amostra 3: Fundir valores de dois campos em um
 
-Neste exemplo, algumas frases têm uma propriedade *frenchSentiment* . Sempre que a propriedade *frenchSentiment* for nula, queremos usar o valor *englishSentiment* . Atribuímos a saída a um membro que é chamado de *sentimentos* ("/Document/Sentiment/*/Sentiment").
+Neste exemplo, algumas frases têm uma propriedade *francesa Sentiment.* Sempre que a propriedade *francesa Sentiment* é nula, queremos usar o valor *inglêsSentiment.* Atribuímos a saída a um membro chamado *sentimento* ("/documento/sentimento/*/sentimento").
 
 ```json
 {
@@ -150,11 +150,11 @@ Neste exemplo, algumas frases têm uma propriedade *frenchSentiment* . Sempre qu
 ```
 
 ## <a name="transformation-example"></a>Exemplo de transformação
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exemplo de definição de habilidade 4: transformação de dados em um único campo
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Definição de habilidade da amostra 4: Transformação de dados num único campo
 
-Neste exemplo, recebemos um *sentimentos* entre 0 e 1. Queremos transformá-lo entre-1 e 1. Podemos usar a habilidade condicional para fazer essa transformação secundária.
+Neste exemplo, recebemos um *sentimento* que está entre 0 e 1. Queremos transformá-lo entre -1 e 1. Podemos usar a habilidade condicional para fazer esta pequena transformação.
 
-Neste exemplo, não usamos o aspecto condicional da habilidade porque a condição é sempre *verdadeira*.
+Neste exemplo, não usamos o aspeto condicional da habilidade porque a condição é sempre *verdadeira.*
 
 ```json
 {
@@ -170,10 +170,10 @@ Neste exemplo, não usamos o aspecto condicional da habilidade porque a condiç�
 ```
 
 ## <a name="special-considerations"></a>Considerações especiais
-Alguns parâmetros são avaliados, portanto, você precisa ser especialmente cuidadoso para seguir o padrão documentado. As expressões devem começar com um sinal de igual. Um caminho deve ser delimitado por "$ (" e ")". Certifique-se de colocar cadeias de caracteres entre aspas simples. Isso ajuda o avaliador a distinguir entre cadeias de caracteres e os caminhos e os operadores reais. Além disso, certifique-se de colocar o espaço em branco em volta de operadores (por exemplo, um "*" em um caminho significa algo diferente de multiplicação).
+Alguns parâmetros são avaliados, por isso você precisa ter especial cuidado para seguir o padrão documentado. Expressões devem começar com um sinal igual. Um caminho deve ser delimitado por "$(" e ")". Certifique-se de colocar cordas em aspas únicas. Isso ajuda o avaliador a distinguir entre cordas e caminhos reais e operadores. Além disso, certifique-se de colocar espaço branco em torno dos operadores (por exemplo, um "*" num caminho significa algo diferente do que multiplicar).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)

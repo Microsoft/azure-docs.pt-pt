@@ -13,10 +13,10 @@ ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064041"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Use coleções no portal My Apps
@@ -32,7 +32,7 @@ As coleções são diferentes vistas de aplicações que você vê no portal **M
 
 A lista de coleções no portal **My Apps** não apresenta uma chamada **All Apps,** que tem todas as aplicações a que tem acesso:
 
-![Página todos os aplicativos no portal meus aplicativos](media/my-applications-portal-workspaces/my-apps-all.png)
+![Página de todas as aplicações no portal My Apps](media/my-applications-portal-workspaces/my-apps-all.png)
 
 Qualquer outra coleção que veja nesta lista foi criada pelo seu administrador e partilhada consigo. Pode escolher uma dessas coleções para ver um conjunto de aplicações mais ampla, como *o Suporte* no seguinte exemplo:
 
@@ -44,7 +44,7 @@ Ao selecionar e ver uma coleção, basta ver as aplicações predefinidas a que 
 
 Depois de organizar as suas apps nas várias categorias do portal **My Apps,** pode:
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
+- Rever, atualizar ou revogar as permissões concedidas aos pedidos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
 
 ## <a name="related-articles"></a>Artigos relacionados
 

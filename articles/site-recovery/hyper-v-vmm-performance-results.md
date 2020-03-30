@@ -1,6 +1,6 @@
 ---
-title: Testar a replicação de VM do Hyper-V em um site secundário com o VMM usando Azure Site Recovery
-description: Este artigo fornece informações sobre o teste de desempenho para a replicação de VMs do Hyper-V em nuvens do VMM para um site secundário usando Azure Site Recovery.
+title: Teste a replicação de VM hiper-V para um local secundário com VMM usando a recuperação do site Azure
+description: Este artigo fornece informações sobre testes de desempenho para replicação de VMs Hiper-V em nuvens VMM para um site secundário usando a Recuperação do Site Azure.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
@@ -8,65 +8,65 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73663177"
 ---
-# <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de teste para replicação do Hyper-V para um site secundário
+# <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados dos testes para a replicação hyper-V para um local secundário
 
 
-Este artigo fornece os resultados do teste de desempenho ao replicar VMs do Hyper-V em nuvens System Center Virtual Machine Manager (VMM) para um datacenter secundário.
+Este artigo fornece os resultados dos testes de desempenho ao replicar VMs Hiper-V em nuvens de Gestor de Máquinas Virtuais (VMM) do System Center, para um centro de dados secundário.
 
-## <a name="test-goals"></a>Metas de teste
+## <a name="test-goals"></a>Objetivos de teste
 
-O objetivo do teste era examinar como o Site Recovery é executado durante a replicação de estado estável.
+O objetivo dos testes era examinar como a Recuperação do Site funciona durante a replicação do estado estável.
 
-- A replicação de estado estável ocorre quando as VMs concluíram a replicação inicial e estão sincronizando alterações delta.
-- É importante medir o desempenho usando o estado Steady, pois é o estado no qual a maioria das VMs permanece, a menos que ocorram interrupções inesperadas.
-- A implantação de teste consistia em dois sites locais, com um servidor VMM em cada site. Essa implantação de teste é típica de uma implantação de escritório/filial, com a sede atuando como o site primário e a filial como o site secundário ou de recuperação.
+- A replicação do estado constante ocorre quando os VMs completaram a replicação inicial, e estão a sincronizar alterações delta.
+- É importante medir o desempenho usando um estado estável, porque é o estado em que a maioria dos VMs permanecem, a menos que ocorram interrupções inesperadas.
+- A implementação do teste consistia em dois sites no local, com um servidor VMM em cada site. Esta implantação de teste é típica de uma implantação de sede/sede, com a sede a agir como o local principal, e a sucursal como o local secundário ou de recuperação.
 
 ## <a name="what-we-did"></a>O que fizemos
 
-Veja o que fizemos na fase de teste:
+Eis o que fizemos no teste:
 
-1. VMs criadas usando modelos do VMM.
-2. VMs iniciadas e capturadas métricas de desempenho de linha de base em 12 horas.
-3. Foram criadas nuvens nos servidores VMM primário e de recuperação.
-4. Replicação configurada no Site Recovery, incluindo o mapeamento entre nuvens de origem e recuperação.
-5. Habilitada a proteção para VMs e permitiu que elas concluíssem a replicação inicial.
-6. Esperou algumas horas para estabilização do sistema.
-7. Métricas de desempenho capturadas em 12 horas, em que todas as VMs permaneceram em um estado de replicação esperado por essas 12 horas.
-8. Mediu o Delta entre as métricas de desempenho de linha de base e as métricas de desempenho de replicação.
+1. VMs criados usando modelos VMM.
+2. Começou os VMs e capturou métricas de desempenho de base ao longo de 12 horas.
+3. Criou nuvens nos servidores VMM primários e de recuperação.
+4. Replicação configurada na Recuperação do Local, incluindo mapeamento entre nuvens de origem e recuperação.
+5. Proteção ativada para VMs, e permitiu-lhes completar a replicação inicial.
+6. Esperei algumas horas pela estabilização do sistema.
+7. Mediram métricas de desempenho capturadas ao longo de 12 horas, onde todos os VMs permaneceram num estado de replicação esperado durante essas 12 horas.
+8. Mediu o delta entre as métricas de desempenho da linha de base e as métricas de desempenho da replicação.
 
 
 ## <a name="primary-server-performance"></a>Desempenho do servidor primário
 
-* A réplica do Hyper-V (usada pelo Site Recovery) controla de forma assíncrona as alterações em um arquivo de log, com sobrecarga mínima de armazenamento no servidor primário.
-* A réplica do Hyper-V utiliza o cache de memória automantido para minimizar a sobrecarga de IOPS para acompanhamento. Ele armazena gravações no VHDX na memória e os libera para o arquivo de log antes da hora em que o log é enviado para o site de recuperação. Uma liberação de disco também ocorre se as gravações atingirem um limite predeterminado.
-* O gráfico a seguir mostra a sobrecarga de IOPS de estado estável para replicação. Podemos ver que a sobrecarga de IOPS devido à replicação é de aproximadamente 5%, o que é muito baixo.
+* A réplica hiper-V (utilizada pela Recuperação do Site) rastreia assincronicamente alterações num ficheiro de registo, com a sobrecarga mínima de armazenamento no servidor primário.
+* A Hyper-V Replica utiliza cache de memória auto-mantida para minimizar as despesas gerais do IOPS para o rastreio. Armazena para o VHDX na memória e coloca-as no ficheiro de registo antes do momento em que o registo é enviado para o local de recuperação. Um flush de disco também acontece se as escritas atingirem um limite pré-determinado.
+* O gráfico abaixo mostra o estado constante iOPS sobrecarga para replicação. Podemos ver que a sobrecarga do IOPS devido à replicação é de cerca de 5%, o que é bastante baixo.
 
   ![Resultados primários](./media/hyper-v-vmm-performance-results/IC744913.png)
 
-A réplica do Hyper-V usa a memória no servidor primário para otimizar o desempenho do disco. Conforme mostrado no grafo a seguir, a sobrecarga de memória em todos os servidores no cluster primário é marginal. A sobrecarga de memória mostrada é a porcentagem de memória usada pela replicação, em comparação com a memória total instalada no servidor Hyper-V.
+A Hyper-V Replica utiliza a memória no servidor primário, para otimizar o desempenho do disco. Como mostra o gráfico seguinte, a sobrecarga da memória em todos os servidores do cluster primário é marginal. A sobrecarga da memória mostrada é a percentagem de memória utilizada por replicação, em comparação com a memória total instalada no servidor Hyper-V.
 
 ![Resultados primários](./media/hyper-v-vmm-performance-results/IC744914.png)
 
-A réplica do Hyper-V tem sobrecarga mínima de CPU. Conforme mostrado no grafo, a sobrecarga de replicação está no intervalo de 2-3%.
+A Réplica Hyper-V tem uma sobrecarga mínima de CPU. Como mostrado no gráfico, a sobrecarga de replicação está entre 2-3%.
 
 ![Resultados primários](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Desempenho do servidor secundário
 
-A réplica do Hyper-V usa uma pequena quantidade de memória no servidor de recuperação para otimizar o número de operações de armazenamento. O grafo resume o uso de memória no servidor de recuperação. A sobrecarga de memória mostrada é a porcentagem de memória usada pela replicação, em comparação com a memória total instalada no servidor Hyper-V.
+A Hyper-V Replica utiliza uma pequena quantidade de memória no servidor de recuperação, para otimizar o número de operações de armazenamento. O gráfico resume o uso da memória no servidor de recuperação. A sobrecarga da memória mostrada é a percentagem de memória utilizada por replicação, em comparação com a memória total instalada no servidor Hyper-V.
 
 ![Resultados secundários](./media/hyper-v-vmm-performance-results/IC744916.png)
 
-A quantidade de operações de e/s no site de recuperação é uma função do número de operações de gravação no site primário. Vamos examinar o total de operações de e/s no site de recuperação em comparação com o total de operações de e/s e operações de gravação no site primário. Os gráficos mostram que o IOPS total no site de recuperação é
+A quantidade de operações de E/S no local de recuperação é uma função do número de operações de escrita no local primário. Vamos ver as operações totais de E/S no local de recuperação em comparação com o total de operações de I/S e as operações de escrita no local principal. Os gráficos mostram que o total de IOPS no local de recuperação é
 
-* Cerca de 1,5 vezes o IOPS de gravação no primário.
-* Cerca de 37% do IOPS total no site primário.
+* Cerca de 1,5 vezes o IOPS escrito na primária.
+* Cerca de 37% do total de IOPS no local primário.
 
 ![Resultados secundários](./media/hyper-v-vmm-performance-results/IC744917.png)
 
@@ -74,111 +74,111 @@ A quantidade de operações de e/s no site de recuperação é uma função do n
 
 ## <a name="effect-on-network-utilization"></a>Efeito na utilização da rede
 
-Uma média de 275 MB por segundo de largura de banda de rede foi usada entre os nós primário e de recuperação (com compactação habilitada) em relação a uma largura de banda existente de 5 GB por segundo.
+Uma média de 275 Mb por segundo de largura de banda de rede foi utilizada entre os nós primários e de recuperação (com compressão ativado), contra uma largura de banda existente de 5 Gb por segundo.
 
-![Resultados de utilização de rede](./media/hyper-v-vmm-performance-results/IC744919.png)
+![Utilização da rede de resultados](./media/hyper-v-vmm-performance-results/IC744919.png)
 
 ## <a name="effect-on-vm-performance"></a>Efeito no desempenho da VM
 
-Uma consideração importante é o impacto da replicação em cargas de trabalho de produção em execução nas máquinas virtuais. Se o site primário estiver adequadamente provisionado para replicação, não deverá haver nenhum impacto nas cargas de trabalho. O mecanismo de controle leve da réplica do Hyper-V garante que as cargas de trabalho em execução nas máquinas virtuais não sejam afetadas durante a replicação de estado estável. Isso é ilustrado nos gráficos a seguir.
+Uma consideração importante é o impacto da replicação nas cargas de trabalho de produção em funcionamento nas máquinas virtuais. Se o local primário estiver adequadamente previsto para a replicação, não deve haver qualquer impacto nas cargas de trabalho. O mecanismo de rastreio leve da Hyper-V Replica garante que as cargas de trabalho em funcionamento nas máquinas virtuais não sejam afetadas durante a replicação do estado estável. Isto é ilustrado nos seguintes gráficos.
 
-Este grafo mostra o IOPS executado por máquinas virtuais que executam cargas de trabalho diferentes, antes e depois da habilitação da replicação. Você pode observar que não há nenhuma diferença entre os dois.
+Este gráfico mostra iOPS realizado por máquinas virtuais que executam diferentes cargas de trabalho, antes e depois da replicação ter sido ativada. Pode observar que não há diferença entre os dois.
 
-![Resultados de efeito de réplica](./media/hyper-v-vmm-performance-results/IC744920.png)
+![Resultados do efeito de réplica](./media/hyper-v-vmm-performance-results/IC744920.png)
 
-O grafo a seguir mostra a taxa de transferência de máquinas virtuais que executam cargas de trabalho diferentes, antes e depois da habilitação da replicação. Você pode observar que a replicação não tem impacto significativo.
+O gráfico seguinte mostra a entrada de máquinas virtuais que executam diferentes cargas de trabalho, antes e depois da replicação. Pode observar que a replicação não tem impacto significativo.
 
 ![Efeitos de réplica de resultados](./media/hyper-v-vmm-performance-results/IC744921.png)
 
 ## <a name="conclusion"></a>Conclusão
 
-Os resultados mostram claramente que Site Recovery, juntamente com a réplica do Hyper-V, são bem dimensionados com a sobrecarga mínima para um cluster grande. O Site Recovery fornece implantação, replicação, gerenciamento e monitoramento simples. A réplica do Hyper-V fornece a infraestrutura necessária para o dimensionamento bem-sucedido da replicação. 
+Os resultados mostram claramente que a Recuperação do Site, juntamente com a Réplica Hyper-V, escala bem com a sobrecarga mínima para um grande cluster. A Recuperação do Site proporciona uma simples implantação, replicação, gestão e monitorização. A Réplica Hyper-V fornece a infraestrutura necessária para a escala de replicação bem sucedida. 
 
-## <a name="test-environment-details"></a>Detalhes do ambiente de teste
+## <a name="test-environment-details"></a>Testar detalhes ambientais
 
 ### <a name="primary-site"></a>Site primário
 
-* O site primário tem um cluster que contém cinco servidores Hyper-V, executando máquinas virtuais 470.
-* As VMs executam cargas de trabalho diferentes e todas têm a proteção Site Recovery habilitada.
-* O armazenamento para o nó de cluster é fornecido por uma SAN iSCSI. Modelo – Hitachi HUS130.
-* Cada servidor de cluster tem quatro placas de rede (NICs) de um Gbps cada.
-* Duas das placas de rede estão conectadas a uma rede iSCSI privada e duas estão conectadas a uma rede corporativa externa. Uma das redes externas é reservada somente para comunicações de cluster.
+* O site principal tem um cluster contendo cinco servidores Hyper-V, executando 470 máquinas virtuais.
+* Os VMs executam diferentes cargas de trabalho, e todos têm proteção de recuperação do site ativada.
+* O armazenamento do nó de cluster é fornecido por um iSCSI SAN. Modelo – Hitachi HUS130.
+* Cada servidor de cluster tem quatro cartões de rede (NICs) de um Gbps cada.
+* Dois dos cartões de rede estão ligados a uma rede privada iSCSI, e dois estão ligados a uma rede empresarial externa. Uma das redes externas está reservada apenas para comunicações de cluster.
 
-![Requisitos de hardware primários](./media/hyper-v-vmm-performance-results/IC744922.png)
+![Requisitos primários de hardware](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Server | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| Servidor do VMM |2 | | |2 |1 Gbps |Banco de dados do Windows Server 2012 R2 (x64) + VMM 2012 R2 |
+| Servidores hiper-V em cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Função Hyper-V |
+| Servidor VMM |2 | | |2 |1 Gbps |Base de Dados do Servidor do Windows 2012 R2 (x64) + VMM 2012 R2 |
 
-### <a name="secondary-site"></a>Site secundário
+### <a name="secondary-site"></a>Site Secundário
 
-* O site secundário tem um cluster de failover de seis nós.
-* O armazenamento para o nó de cluster é fornecido por uma SAN iSCSI. Modelo – Hitachi HUS130.
+* O local secundário tem um cluster de seis nós.
+* O armazenamento do nó de cluster é fornecido por um iSCSI SAN. Modelo – Hitachi HUS130.
 
-![Especificação de hardware primário](./media/hyper-v-vmm-performance-results/IC744923.png)
+![Especificação primária de hardware](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
+| Server | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel (R) Xeon (R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel (R) Xeon (R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| Servidor do VMM |2 | | |2 |1 Gbps |Banco de dados do Windows Server 2012 R2 (x64) + VMM 2012 R2 |
+| Servidores hiper-V em cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Função Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Função Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Função Hyper-V |
+| Servidor VMM |2 | | |2 |1 Gbps |Base de Dados do Servidor do Windows 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor
 
-* Para fins de teste, escolhemos as cargas de trabalho comumente usadas em cenários de clientes empresariais.
-* Usamos o [Iometer](http://www.iometer.org) com a característica de carga de trabalho resumida na tabela para simulação.
-* Todos os perfis do IOMeter são definidos para gravar bytes aleatórios para simular padrões de gravação de pior caso para cargas de trabalho.
+* Para efeitos de teste, escolhemos cargas de trabalho comumente usadas em cenários de clientes empresariais.
+* Utilizamos [iOMeter](http://www.iometer.org) com a característica da carga de trabalho resumida na tabela para simulação.
+* Todos os perfis do IOMeter estão definidos para escrever bytes aleatórios para simular os piores padrões de escrita para cargas de trabalho.
 
-| Carga de trabalho | Tamanho de e/s (KB) | % De acesso | % De leitura | E/SS pendentes | Padrão de e/s |
+| Carga de trabalho | Tamanho I/O (KB) | % Acesso | %Ler | Excelente I/Os | Padrão De I/O |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de Ficheiros |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Todos os 100% aleatórios |
-| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% aleatório<br />100% sequencial |
+| Servidor de Ficheiros |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Todos 100% aleatórios |
+| Servidor SQL (volume 1)<br />Servidor SQL (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% aleatório<br />100% sequencial |
 | Troca |32 |100% |67% |8 |100% aleatório |
-| Estação de trabalho/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Ambos 100% aleatórios |
-| Servidor de arquivos da Web |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Todos os 75% aleatórios |
+| Posto de trabalho/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Ambos 100% aleatórios |
+| Servidor de Ficheiros Web |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Todos 75% aleatórios |
 
-### <a name="vm-configuration"></a>Configuração da VM
+### <a name="vm-configuration"></a>Configuração VM
 
-* 470 VMs no cluster primário.
-* Todas as VMs com disco VHDX.
-* VMs que executam cargas de trabalho resumidas na tabela. Todos foram criados com modelos do VMM.
+* 470 VMs no aglomerado primário.
+* Todos os VMs com disco VHDX.
+* VMs executando cargas de trabalho resumidas na mesa. Todos foram criados com modelos VMM.
 
-| Carga de trabalho | N.º de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho do disco lógico (GB) por VM | IOPS máximo |
+| Carga de trabalho | VMs | RAM mínimo (GB) | RAM máximo (GB) | Tamanho lógico do disco (GB) por VM | IOPS máximos |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Servidor de Ficheiros |50 |1 |2 |552 |22 |
-| VDI |149 |5 |1 |80 |6 |
-| Servidor Web |149 |5 |1 |80 |6 |
-| COMPLETA |470 | | |96,83 TB |4108 |
+| VDI |149 |.5 |1 |80 |6 |
+| Servidor Web |149 |.5 |1 |80 |6 |
+| Total |470 | | |96.83 TB |4108 |
 
-### <a name="site-recovery-settings"></a>Configurações de Site Recovery
+### <a name="site-recovery-settings"></a>Definições de recuperação do site
 
-* Site Recovery foi configurado para proteção de local para local
-* O servidor do VMM tem quatro nuvens configuradas, contendo os servidores de cluster do Hyper-V e suas VMs.
+* A recuperação do local foi configurada para a proteção no local para o local
+* O servidor VMM tem quatro nuvens configuradas, contendo os servidores de cluster Hyper-V e os seus VMs.
 
-| Nuvem do VMM primário | VMs protegidas | Frequência de replicação | Pontos de recuperação adicionais |
+| Nuvem VMM primária | VMs protegidas | Frequência de replicação | Pontos de recuperação adicionais |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minutos |Nenhum |
-| PrimaryCloudRpo30s |47 |30 segundos |Nenhum |
+| PrimaryCloudRpo15m |142 |15 minutos |Nenhuma |
+| PrimaryCloudRpo30s |47 |30 segundos |Nenhuma |
 | PrimaryCloudRpo30sArp1 |47 |30 segundos |1 |
-| PrimaryCloudRpo5m |235 |5 mins |Nenhum |
+| PrimaryCloudRpo5m |235 |5 mins |Nenhuma |
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
 
 A tabela resume as métricas de desempenho e os contadores que foram medidos na implantação.
 
-| Métrica | Neutraliza |
+| Métrica | Contador |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
-| Memória disponível |\ Mbytes Mbytes |
-| IOPS |\PhysicalDisk (_Total) \Bytes Transfers/s |
-| Operações de leitura de VM (IOPS)/s |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) operações \/s |
-| Operações de gravação de VM (IOPS)/s |\Dispositivo do dispositivo de armazenamento virtual (\<VHD >) operações de \/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
+| Memória disponível |\Memory\MBytes disponíveis |
+| IOPS |\PhysicalDisk(_Total)\Transferências de disco/seg |
+| VM leitura (IOPS) operações/seg |\Hiper-V Dispositivo de\<Armazenamento Virtual(VHD>)\Ler Operações/Sec |
+| VM escrever operações (IOPS) operações/seg |\Hiper-V Dispositivo de\<Armazenamento Virtual (VHD>)\Write Operations/S |
+| VM ler a entrada |\Hiper-V Dispositivo de\<Armazenamento Virtual (VHD>)\Read Bytes/seg |
+| VM escrever a entrada |\Hiper-V Dispositivo de\<Armazenamento Virtual (VHD>)\Write Bytes/seg |
 
 ## <a name="next-steps"></a>Passos seguintes
 

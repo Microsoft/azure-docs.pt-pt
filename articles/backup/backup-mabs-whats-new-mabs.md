@@ -1,16 +1,16 @@
 ---
-title: Novidades no Microsoft Azure Backup Server
+title: What's new in Microsoft Azure Backup Server (Novidades no Microsoft Azure Backup Server)
 description: O Microsoft Azure Backup Server oferece-lhe capacidades de backup melhoradas para proteger VMs, ficheiros e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o Servidor de Backup Azure V3.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582811"
 ---
-# <a name="whats-new-in-microsoft-azure-backup-server"></a>Novidades no Microsoft Azure Backup Server
+# <a name="whats-new-in-microsoft-azure-backup-server"></a>What's new in Microsoft Azure Backup Server (Novidades no Microsoft Azure Backup Server)
 
 A versão 3 do Microsoft Azure Backup Server (MABS V3) é a mais recente atualização, e inclui correções críticas de bugs, suporte windows Server 2019, suporte SQL 2017 e outras funcionalidades e melhorias. Para visualizar a lista de bugs corrigidos e as instruções de instalação para MABS V3, consulte o artigo [KB 4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 
@@ -30,7 +30,7 @@ O armazenamento de backup moderno (MBS) consome o armazenamento de forma fina, c
 
 ## <a name="optimized-cc-for-rct-vms"></a>CC otimizado para VMs RCT
 
-O MABS usa RCT (o rastreio de mudança nativa em Hyper-V), o que diminui a necessidade de verificações de consistência demoradas nos cenários à medida que o VM se despenha. O RCT proporciona uma melhor resiliência do que o rastreio de alterações fornecido por cópias de segurança baseadas em instantâneos VSS. O MABS V3 otimiza ainda mais o consumo de rede e armazenamento, transferindo apenas os dados alterados durante quaisquer verificações de consistência.
+O MABS usa RCT (o rastreio de mudança nativa em Hyper-V), o que diminui a necessidade de verificações de consistência demoradas nos cenários à medida que o VM se despenha. O RCT proporciona uma melhor resiliência do que o controlo de alterações fornecido pelas cópias de segurança baseadas em instantâneos do VSS. O MABS V3 otimiza ainda mais o consumo de rede e armazenamento, transferindo apenas os dados alterados durante quaisquer verificações de consistência.
 
 ## <a name="support-to-tls-12"></a>Suporte a TLS 1.2
 

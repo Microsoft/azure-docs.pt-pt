@@ -1,6 +1,6 @@
 ---
-title: Integridade da infraestrutura do Azure
-description: Este artigo aborda a integridade da infraestrutura do Azure.
+title: Integridade da infraestrutura azure
+description: Este artigo aborda a integridade da infraestrutura Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,54 +16,54 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727194"
 ---
-# <a name="azure-infrastructure-integrity"></a>Integridade da infraestrutura do Azure
+# <a name="azure-infrastructure-integrity"></a>Integridade da infraestrutura azure
 
 ## <a name="software-installation"></a>Instalação de software
-Todos os componentes na pilha de software instalados no ambiente do Azure são personalizados criados seguindo o processo SDL (Microsoft Security Development Lifecycle). Todos os componentes de software, incluindo imagens do sistema operacional (SO) e banco de dados SQL, são implantados como parte do processo de gerenciamento de alterações e de liberações. O sistema operacional que é executado em todos os nós é uma versão personalizada do Windows Server 2008 ou do Windows Server 2012. A versão exata é escolhida pelo controlador de malha (FC) de acordo com a função que ela pretende que o sistema operacional reproduza. Além disso, o sistema operacional do host não permite a instalação de nenhum componente de software não autorizado.
+Todos os componentes da pilha de software que estão instalados no ambiente Azure são construídos sob medida após o processo microsoft Security Development Lifecycle (SDL). Todos os componentes do software, incluindo imagens do sistema operativo (OS) e a Base de Dados SQL, são implantados como parte do processo de gestão de alterações e de gestão de lançamentos. O SISTEMA que funciona em todos os nós é uma versão personalizada do Windows Server 2008 ou do Windows Server 2012. A versão exata é escolhida pelo controlador de tecido (FC) de acordo com o papel que pretende desempenhar para o OS. Além disso, o osso hospedeiro não permite a instalação de quaisquer componentes de software não autorizados.
 
-Alguns componentes do Azure são implantados como clientes do Azure em uma VM convidada em execução em um sistema operacional convidado.
+Alguns componentes Do Azure são implantados como clientes Azure em um VM convidado em execução em um OS convidado.
 
-## <a name="virus-scans-on-builds"></a>Verificações de vírus em builds
-As compilações do componente de software do Azure (incluindo o SO) precisam passar por uma verificação de vírus que usa a ferramenta de antivírus Endpoint Protection. Cada verificação de vírus cria um log dentro do diretório de compilação associado, detalhando o que foi verificado e os resultados da verificação. A verificação de vírus faz parte do código-fonte da compilação para cada componente no Azure. O código não é movido para a produção sem ter uma verificação de vírus limpa e bem-sucedida. Se algum problema for observado, o Build será congelado e, em seguida, vai para as equipes de segurança do Microsoft Security para identificar onde o código "Rogue" entrou na compilação.
+## <a name="virus-scans-on-builds"></a>O vírus digitaliza as construções
+O componente de software Azure (incluindo o OS) tem de ser submetido a uma varredura de vírus que utiliza a ferramenta antivírus Endpoint Protection. Cada varredura de vírus cria um log dentro do diretório de construção associado, detalhando o que foi digitalizado e os resultados da digitalização. A varredura do vírus faz parte do código fonte de construção de todos os componentes dentro do Azure. O código não é movido para a produção sem ter uma varredura de vírus limpa e bem sucedida. Se algum problema for adotado, a construção está congelada e depois vai para as equipas de segurança dentro da Microsoft Security para identificar onde o código "fraudulento" entrou na construção.
 
-## <a name="closed-and-locked-environment"></a>Ambiente fechado e bloqueado
-Por padrão, os nós de infraestrutura do Azure e as VMs convidadas não têm contas de usuário criadas neles. Além disso, as contas padrão de administrador do Windows também são desabilitadas. Os administradores do suporte ao vivo do Azure podem, com a autenticação adequada, fazer logon nesses computadores e administrar a rede de produção do Azure para reparos de emergência.
+## <a name="closed-and-locked-environment"></a>Ambiente fechado e fechado
+Por padrão, os nós de infraestrutura Azure e os VMs convidados não têm contas de utilizador criadas sobre eles. Além disso, as contas de administrador do Windows por defeito também são desativadas. Os administradores do suporte ao vivo do Azure podem, com a autenticação adequada, entrar nestas máquinas e administrar a rede de produção azure para reparações de emergência.
 
-## <a name="azure-sql-database-authentication"></a>Autenticação do banco de dados SQL do Azure
-Assim como ocorre com qualquer implementação de SQL Server, o gerenciamento de conta de usuário deve ser rigidamente controlado. O banco de dados SQL do Azure dá suporte apenas à autenticação SQL Server. Para complementar o modelo de segurança de dados de um cliente, as contas de usuário com senhas fortes e configuradas com direitos específicos também devem ser usadas.
+## <a name="azure-sql-database-authentication"></a>Autenticação da Base de Dados SQL do Azure
+Tal como acontece com qualquer implementação do SQL Server, a gestão da conta de utilizador deve ser controlada de forma rigorosa. A Base de Dados Azure SQL suporta apenas a autenticação do Servidor SQL. Para complementar o modelo de segurança de dados de um cliente, as contas de utilizador com senhas fortes e configuradas com direitos específicos também devem ser utilizadas.
 
-## <a name="acls-and-firewalls-between-the-microsoft-corporate-network-and-an-azure-cluster"></a>ACLs e firewalls entre a rede corporativa da Microsoft e um cluster do Azure
-As listas de controle de acesso (ACLs) e os firewalls entre a plataforma de serviço e a rede corporativa da Microsoft protegem instâncias do banco de dados SQL contra acesso não autorizado do insider. Além disso, somente os usuários de intervalos de endereços IP da rede corporativa da Microsoft podem acessar o ponto de extremidade de gerenciamento de plataforma Windows Fabric.
+## <a name="acls-and-firewalls-between-the-microsoft-corporate-network-and-an-azure-cluster"></a>ACLs e firewalls entre a rede corporativa da Microsoft e um cluster Azure
+As listas de controlo de acesso (ACLs) e as firewalls entre a plataforma de serviço e a rede corporativa da Microsoft protegem as instâncias da Base de Dados SQL de acesso privilegiado não autorizado. Além disso, apenas os utilizadores de endereços IP variam a partir da rede corporativa da Microsoft pode aceder ao ponto final de gestão da plataforma Windows Fabric.
 
-## <a name="acls-and-firewalls-between-nodes-in-a-sql-database-cluster"></a>ACLs e firewalls entre nós em um cluster de banco de dados SQL
-Como uma proteção adicional, como parte da estratégia de defesa profunda, as ACLs e um firewall foram implementados entre os nós em um cluster de banco de dados SQL. Toda a comunicação dentro do cluster Windows Fabric plataforma, bem como todos os códigos em execução é confiável.
+## <a name="acls-and-firewalls-between-nodes-in-a-sql-database-cluster"></a>ACLs e firewalls entre nós em um cluster de base de dados SQL
+Como proteção adicional, como parte da estratégia de profundidade de defesa, os ACLs e uma firewall foram implementados entre nós num cluster de base de dados SQL. Toda a comunicação dentro do cluster da plataforma Windows Fabric, bem como todo o código de execução, são confiáveis.
 
-## <a name="custom-monitoring-agents"></a>Agentes de monitoramento personalizados
-O banco de dados SQL emprega agentes de monitoramento personalizados (MAs), também chamados de Watchdogs, para monitorar a integridade do cluster do banco de dados SQL.
+## <a name="custom-monitoring-agents"></a>Agentes de monitorização personalizados
+A SQL Database emprega agentes de monitorização personalizados (MAs), também chamados de cães de guarda, para monitorizar a saúde do cluster de base de dados SQL.
 
-## <a name="web-protocols"></a>Protocolos da Web
+## <a name="web-protocols"></a>Protocolos web
 
-### <a name="role-instance-monitoring-and-restart"></a>Monitoramento e reinicialização da instância de função
-O Azure garante que todas as funções implantadas, em execução (funções da Internet ou de trabalho de processamento de back-end) estejam sujeitas a monitoramento de integridade sustentado para garantir que elas forneçam de forma eficiente e eficiente os serviços para os quais foram provisionados. Se uma função se tornar não íntegra, por uma falha crítica no aplicativo que está sendo hospedado ou por um problema de configuração subjacente dentro da própria instância de função, o FC detectará o problema dentro da instância de função e iniciará um estado corretivo.
+### <a name="role-instance-monitoring-and-restart"></a>Monitorização e reinício de instâncias de funções
+O Azure garante que todas as funções implementadas, executantes (web viradas para a Internet ou funções de trabalhadores de processamento de back-end) estão sujeitas a uma monitorização sustentada da saúde para garantir que fornecem de forma eficaz e eficiente os serviços para os quais foram prestados. Se um papel se tornar insalubre, por uma falha crítica na aplicação que está a ser hospedada ou por um problema de configuração subjacente dentro da própria instância de função, o FC deteta o problema dentro da instância de função e inicia um estado corretivo.
 
-### <a name="compute-connectivity"></a>Conectividade de computação
-O Azure garante que o aplicativo ou serviço implantado seja acessível por meio de protocolos baseados na Web padrão. As instâncias virtuais de funções da Web voltadas para a Internet têm conectividade com a Internet externa e podem ser acessadas diretamente por usuários da Web. Para proteger a sensibilidade e a integridade das operações que as funções de trabalho executam em nome das instâncias virtuais de função Web acessíveis publicamente, as instâncias virtuais de funções de trabalho de processamento back-end têm conectividade com a Internet externa, mas não podem ser acessado diretamente por usuários da Web externos.
+### <a name="compute-connectivity"></a>Conectividade computacional
+O Azure garante que a aplicação ou serviço implementado é acessível através de protocolos padrão baseados na Web. As instâncias virtuais de funções web viradas para a Internet têm conectividade externa da Internet e são acessíveis diretamente pelos utilizadores da web. Para proteger a sensibilidade e integridade das operações que os papéis dos trabalhadores desempenham em nome do papel web acessível ao público, as instâncias virtuais das funções de trabalhador esporão de processamento de back-end têm conectividade externa da Internet, mas não podem ser acedido diretamente por utilizadores externos da web.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Azure, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
-- [Instalações do Azure, local e segurança física](physical-security.md)
-- [Disponibilidade de infraestrutura do Azure](infrastructure-availability.md)
-- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
-- [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
-- [Operações e gerenciamento de produção do Azure](infrastructure-operations.md)
-- [Monitoramento de infraestrutura do Azure](infrastructure-monitoring.md)
-- [Proteção de dados do cliente do Azure](protection-customer-data.md)
+- [Instalações, instalações e segurança física do Azure](physical-security.md)
+- [Disponibilidade de infraestruturas azure](infrastructure-availability.md)
+- [Componentes e limites do sistema de informação Azure](infrastructure-components.md)
+- [Arquitetura de rede Azure](infrastructure-network.md)
+- [Rede de produção azure](production-network.md)
+- [Funcionalidades de segurança da Base de Dados Azure SQL](infrastructure-sql.md)
+- [Operações e gestão de produção da Azure](infrastructure-operations.md)
+- [Monitorização de infraestruturas Azure](infrastructure-monitoring.md)
+- [Proteção de dados dos clientes azure](protection-customer-data.md)

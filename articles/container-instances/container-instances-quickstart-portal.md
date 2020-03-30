@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/09/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79087956"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Quickstart: Implementar uma instância de contentores em Azure utilizando o portal Azure
@@ -23,24 +23,24 @@ Neste arranque rápido, utiliza o portal Azure para implantar um recipiente Dock
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-free-account] antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita][azure-free-account] antes de começar.
 
 ## <a name="create-a-container-instance"></a>Criar uma instância de contentor
 
-Selecione **Criar um recurso** > **Contentores** >  **Container Instances**.
+Selecione as**instâncias** > de**contentores** **de transporte de recursos** > .
 
 ![Começar a criar uma nova instância do contentor no portal do Azure][aci-portal-01]
 
 Na página Basics, introduza os **seguintes valores** no **grupo Recurso**, nome **do contentor**e caixas de texto de **imagem contentor.** Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
 
-* Grupo de recursos: **Criar novo** > `myresourcegroup`
+* Grupo de recursos: **Criar novos** > `myresourcegroup`
 * Nome do contentor: `mycontainer`
 * Fonte de imagem: **Imagens Quickstart**
-* Imagem do recipiente: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
+* Imagem do `mcr.microsoft.com/azuredocs/aci-helloworld` recipiente: (Linux)
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Para este arranque rápido, utilize definições predefinidas para implementar a imagem `aci-helloworld` microsoft pública. Esta amostra de imagem Linux embala uma pequena aplicação web escrita no Node.js que serve uma página html estática. Também pode trazer as suas próprias imagens de contentores armazenadas no Registo de Contentores Azure, NoT O Hub ou outros registos.
+Para este arranque rápido, utilize definições `aci-helloworld` predefinidas para implementar a imagem pública da Microsoft. Esta amostra de imagem Linux embala uma pequena aplicação web escrita no Node.js que serve uma página html estática. Também pode trazer as suas próprias imagens de contentores armazenadas no Registo de Contentores Azure, NoT O Hub ou outros registos.
 
 Na página **de Networking,** especifique uma **etiqueta de nome DNS** para o seu recipiente. O nome deve ser único dentro da região de Azure, onde se cria a instância do contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
@@ -54,7 +54,7 @@ Quando a validação estiver concluída, é apresentado um resumo das definiçõ
 
 Quando a implementação começa, uma notificação parece indicar que a implementação está em andamento. É apresentada outra notificação quando o grupo de contentores tiver sido implementado.
 
-Abra a visão geral para o grupo de contentores navegando para **Grupos de Recursos** > **myresourcegroup** > **mycontainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
+Abra a visão geral para o grupo de contentores navegando para **grupos** > de recursos**myresourcegroup** > **mycontainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
 
 ![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 
@@ -68,7 +68,7 @@ Parabéns! Ao configurar apenas algumas definições, implementou uma aplicaçã
 
 Ver os registos de uma instância de contentor é útil quando estiver a resolver problemas no contentor ou na aplicação nele executada.
 
-Para ver os registos do contentor, em **Definições**, selecione **Contentores** e, em seguida, **Registos**. Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
+Para ver os registos do recipiente, em **Definições,** selecione **Recipientes,** em seguida, **regista**. Deverá ver o pedido HTTP GET gerado quando visualizou a aplicação no seu browser.
 
 ![Registos de contentor no portal do Azure][aci-portal-11]
 
@@ -84,7 +84,7 @@ Selecione **Sim** quando caixa de diálogo de confirmação for apresentada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um contentor Azure a partir de uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
+Neste arranque rápido, criou um contentor Azure a partir de uma imagem pública da Microsoft. Se quiser criar uma imagem de contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

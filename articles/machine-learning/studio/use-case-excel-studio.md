@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 85bae9bfc10460b51935c6eb1e14e3a3dd816a8c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217803"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrar análises do Excel para o Azure Machine Learning Studio (clássico)
@@ -75,11 +75,11 @@ Quando aplicámos as recomendações, conseguimos o mesmo desempenho de base no 
 | --- |:---:|:---:|:---:|
 | Valor rotulado |Reais (numérico) |mesmo |mesmo |
 | Aprendiz |Excel -> Análise de Dados -> Regressão |Regressão linear. |Regressão Linear |
-| Opções de aprendizagem |N/D |Incumprimentos |quadrados mínimos comuns<br />L2 = 0,005 |
+| Opções de aprendizagem |N/D |Predefinições |quadrados mínimos comuns<br />L2 = 0,005 |
 | Conjunto de Dados |26 linhas, 3 características, 1 etiqueta. Tudo numérico. |mesmo |mesmo |
 | Split: Comboio |Excel treinou nas primeiras 18 linhas, testadas nas últimas 8 linhas. |mesmo |mesmo |
 | Split: Teste |Fórmula de regressão excel aplicada às últimas 8 linhas |mesmo |mesmo |
-| **Performance** (Desempenho) | | | |
+| **Desempenho** | | | |
 | Quadrado R ajustado |0.96 |N/D | |
 | Coeficiente de Determinação |N/D |0.78 |0.952049 |
 | Erro absoluto médio |$9.5M |$ 19.4M |$9.5M |
@@ -90,8 +90,8 @@ Além disso, os coeficientes Excel compararam-se bem com os pesos de caracterís
 |  | Coeficientes Excel | Pesos de características azure |
 | --- |:---:|:---:|
 | Interceção/Enviesamento |19470209.88 |19328500 |
-| Recurso A |0.832653063 |0.834156 |
-| Recurso B |11071967.08 |11007300 |
+| Funcionalidade A |0.832653063 |0.834156 |
+| Funcionalidade B |11071967.08 |11007300 |
 | Recurso C |25383318.09 |25140800 |
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -134,9 +134,9 @@ A capacidade de transferir a previsão analítica preditiva do Studio (clássico
 ## <a name="resources"></a>Recursos
 Aqui estão alguns recursos para ajudá-lo a trabalhar com regressão: 
 
-* Regressão em Excel. Se nunca experimentou a regressão no Excel, este tutorial facilita: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
+* Regressão em Excel. Se nunca experimentou a regressão no Excel, este tutorial facilita:[https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Regressão vs previsão. Tyler Chessman escreveu um artigo de blogue explicando como fazer previsão de séries de tempo no Excel, que contém uma boa descrição de regressão linear. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
-* Regressão linear dos Quadrados Comuns: Falhas, Problemas e Armadilhas. Para uma introdução e discussão de Regressão: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressão linear dos Quadrados Comuns: Falhas, Problemas e Armadilhas. Para uma introdução e discussão de Regressão: [ https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

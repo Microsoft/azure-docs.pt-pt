@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564028"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade vCenter para usar o Diretório Ativo
@@ -58,10 +58,10 @@ Utilize as informações na tabela seguinte ao configurar o seu domínio de Dire
 | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus endereços ip. |
 | **Pseudónimo de domínio** | O nome de domínio NetBIOS. Adicione o nome NetBIOS do domínio Ative Diretório como pseudónimo da fonte de identidade se estiver a utilizar autenticações SSPI. |
 | **Base DN para grupos** | A base distinguia o nome dos grupos. |
-| **URL do Servidor Primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldap://hostname:port` ou `ldaps://hostname:port`. A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para implementações de controladores multidomínio de Diretório Ativo, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final lDAPS do servidor Ative Directory quando utilizar `ldaps://` no URL LDAP primário ou secundário. |
+| **URL do Servidor Primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o `ldap://hostname:port`  `ldaps://hostname:port`formato ou . A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para implementações de controladores multidomínio de Diretório Ativo, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final lDAPS `ldaps://` do servidor Ative Directory quando utilizar o URL LDAP primário ou secundário. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para falha. |
-| **Escolha certificado** | Se pretender utilizar o LDAPS com o seu Servidor LDAP de Diretório Ativo ou a fonte de identidade do Servidor OpenLDAP, aparece um botão de certificado Choose depois de escrever `ldaps://` na caixa de texto URL. Não é necessário um URL secundário. |
-| **Nome de Utilizador** | ID de um utilizador no domínio que tenha um mínimo de acesso apenas a leitura a Base DN para utilizadores e grupos. |
+| **Escolha certificado** | Se pretender utilizar o LDAPS com o seu Servidor LDAP de Diretório Ativo ou a `ldaps://` fonte de identidade do Servidor OpenLDAP, aparece um botão de certificado Choose depois de digitar a caixa de texto URL. Não é necessário um URL secundário. |
+| **Nome de utilizador** | ID de um utilizador no domínio que tenha um mínimo de acesso apenas a leitura a Base DN para utilizadores e grupos. |
 | **Palavra-passe** | Palavra-passe do utilizador especificado pelo Username. |
 
 Quando tiver a informação na tabela anterior, pode adicionar o seu Diretório Ativo no local como uma fonte de identidade de um único sign-on no vCenter.
@@ -114,11 +114,11 @@ Após a criação da ligação de rede, siga os passos no [Diretório Ativo Add 
 
     ![Administração](media/OnPremAD01.png)
 
-4. Selecione **um sinal único ligado > Configuração**.
+4. Selecione **um sinal único na configuração >**.
 
-    ![Sinal único](media/OnPremAD02.png)
+    ![Início de Sessão Único](media/OnPremAD02.png)
 
-5. Abra o separador **Fontes de Identidade** e clique **em+** para adicionar uma nova fonte de identidade.
+5. Abra o separador **+** **Fontes de Identidade** e clique para adicionar uma nova fonte de identidade.
 
     ![Fontes de Identidade](media/OnPremAD03.png)
 

@@ -9,10 +9,10 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dac17da4aa3d3d73ccbbc101cba4326a17fec9b1
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127779"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implementar uma ferramenta de gestão com um modelo de Gestor de Recursos Azure
@@ -53,7 +53,7 @@ Siga estas instruções para implementar o modelo de Gestão de Recursos Azure:
     - Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estas instruções para implementar para o Azure:
         1. Desloque-se para baixo e clique à **direita, desloque-se para O Azure**e, em seguida, selecione **Copy Link Location**.
         2. Abra um editor de texto como o Notepad e colhe o link lá.
-        3. Logo após <https://portal.azure.com/> e antes da hashtag (#), insira um sinal de at sign (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Logo <https://portal.azure.com/> a seguir e antes da hashtag (#), insira um sinal de at sign (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>formato: .
         4. Inscreva-se no portal Azure como utilizador com permissões Admin/Contributor para a subscrição do Cloud Solution Provider.
         5. Colhe o link que copiou para o editor de texto na barra de endereços.
 3. Ao introduzir os parâmetros, faça o seguinte:
@@ -102,7 +102,7 @@ Siga estas instruções para lançar a ferramenta:
   > [!NOTE]
   > Se tiver um grupo de inquilinos personalizados, insira o nome manualmente em vez de escolher a partir da lista de lançamentos.
 
-## <a name="report-issues"></a>Questões de relatório
+## <a name="report-issues"></a>Comunicar problemas
 
 Se encontrar algum problema com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos modelos do Gestor de [Recursos Azure para serviços](https://github.com/Azure/RDS-Templates/blob/master/README.md) de ambiente de trabalho remotos para os reportar no GitHub.
 

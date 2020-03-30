@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de unidades administrativas (visualização)-Azure AD | Microsoft Docs
-description: Usando unidades administrativas para delegação mais granular de permissões no Azure Active Directory
+title: Gestão de unidades administrativas (pré-visualização) - Azure AD / Microsoft Docs
+description: Utilização de unidades administrativas para uma delegação mais granular de permissões no Diretório Ativo do Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,32 +15,32 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c4958975a080a98fb900bf317229ba9eda795d5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74028418"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gerenciamento de unidades administrativas no Azure Active Directory (versão prévia)
+# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestão de unidades administrativas em Diretório Ativo Azure (pré-visualização)
 
-Este artigo descreve as unidades administrativas no Azure Active Directory (AD do Azure). Uma unidade administrativa é um recurso do Azure AD que pode ser um contêiner para outros recursos do Azure AD. Nesta versão de visualização, esses recursos podem ser apenas usuários. Por exemplo, um administrador de conta de usuário com escopo de unidade administrativa pode atualizar informações de perfil, redefinir senhas e atribuir licenças para usuários somente em sua unidade administrativa.
+Este artigo descreve unidades administrativas em Azure Ative Directory (Azure AD). Uma unidade administrativa é um recurso Azure AD que pode ser um recipiente para outros recursos da AD Azure. Neste lançamento de pré-visualização, estes recursos podem ser apenas utilizadores. Por exemplo, um administrador administrativo de conta de utilizador com âmbito de unidade administrativa pode atualizar informações de perfil, redefinir senhas e atribuir licenças para utilizadores apenas na sua unidade administrativa.
 
-Você pode usar unidades administrativas para delegar permissões administrativas sobre subconjuntos de usuários e aplicar políticas a um subconjunto de usuários. Você pode usar unidades administrativas para delegar permissões para administradores regionais ou para definir a política em um nível granular.
+Pode utilizar unidades administrativas para delegar permissões administrativas sobre subconjuntos de utilizadores e aplicar políticas a um subconjunto de utilizadores. Pode utilizar unidades administrativas para delegar permissões a administradores regionais ou definir a política a um nível granular.
 
-## <a name="deployment-scenario"></a>Cenário de implantação
+## <a name="deployment-scenario"></a>Cenário de implementação
 
-As unidades administrativas podem ser úteis em organizações com divisões independentes. Considere o exemplo de uma Universidade grande que é composta por muitas escolas autônomas (escola de negócios, escola de engenharia e assim por diante) que cada uma tem seus próprios administradores de ti que controlam o acesso, gerenciam usuários e definem políticas para sua escola. Um administrador central poderia criar uma unidade administrativa para a escola de negócios e preenchê-la apenas com os alunos e a equipe da escola de negócios. Em seguida, o administrador central pode adicionar a equipe de ti da escola de negócios a uma função com escopo que concede permissões administrativas somente a usuários do Azure AD na unidade administrativa da escola de negócios.
+As unidades administrativas podem ser úteis em organizações com divisões independentes. Considere o exemplo de uma grande universidade que é composta por muitas escolas autónomas (School of Business, School of Engineering, e assim por diante) que cada uma tem os seus próprios administradores de TI que controlam o acesso, gerem os utilizadores e estabelecem políticas para a sua escola. Um administrador central poderia criar uma unidade administrativa para a Escola de Negócios e povoá-la apenas com os alunos e funcionários da escola de negócios. Em seguida, o administrador central pode adicionar o pessoal de TI da Business school a um papel de âmbito que concede permissões administrativas sobre apenas utilizadores de AD Azure na unidade administrativa da escola de negócios.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-O uso de unidades administrativas requer uma licença de Azure Active Directory Premium para cada administrador de unidade administrativa. Para obter mais informações, consulte [introdução ao Azure ad Premium](../fundamentals/active-directory-get-started-premium.md).
+Para utilizar unidades administrativas é necessária uma licença Azure Ative Directory Premium para cada administrador de unidade administrativa. Para mais informações, consulte [Começar com o Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
 
-## <a name="managing-administrative-units"></a>Gerenciando unidades administrativas
+## <a name="managing-administrative-units"></a>Gestão de unidades administrativas
 
-Nesta versão de visualização, a única maneira de criar e gerenciar unidades administrativas é usar o módulo Azure Active Directory para cmdlets do Windows PowerShell, conforme descrito em [trabalhando com unidades administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
+Nesta versão de pré-visualização, a única forma de criar e gerir unidades administrativas é utilizar o Módulo de Diretório Ativo Azure para cmdlets Windows PowerShell, conforme descrito em [Trabalhar com Unidades Administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Para obter mais informações sobre requisitos de software e como instalar o módulo do Azure AD, e para obter informações de referência sobre os cmdlets de módulo do Azure AD para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre os requisitos de software e a instalação do módulo Azure AD, e para informações de referência sobre o Módulo AD Azure cmdlets para gestão de unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [o Azure Ative Directory PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Azure Active Directory edições](../fundamentals/active-directory-whatis.md)
+[Edições azure ative diretório](../fundamentals/active-directory-whatis.md)

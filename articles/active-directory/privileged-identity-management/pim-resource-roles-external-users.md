@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de recurso do Azure a convidados no PIM – Azure AD | Microsoft Docs
-description: Saiba como convidar usuários convidados externos e atribuir funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
+title: Atribuir funções de recursos azure aos hóspedes na PIM - Azure AD [ Microsoft Docs
+description: Saiba como convidar utilizadores externos e atribuir funções de recursos Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,154 +16,154 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74021946"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide usuários convidados e atribua funções de recursos do Azure no Privileged Identity Management
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide os utilizadores convidados e atribua funções de recurso Azure na Gestão de Identidade Privilegiada
 
-Os usuários convidados do Azure Active Directory (Azure AD) fazem parte dos recursos de colaboração B2B (entre empresas) no Azure AD para que você possa gerenciar usuários e fornecedores externos convidados como convidados no Azure AD. Ao combinar a colaboração B2B com o Azure AD Privileged Identity Management (PIM), você pode estender seus requisitos de conformidade e governança para convidados. Por exemplo, você pode usar esses recursos de Privileged Identity Management para tarefas de identidade do Azure com convidados:
+Os utilizadores convidados do Azure Ative Directory (Azure AD) fazem parte das capacidades de colaboração business-to-business (B2B) dentro do Azure AD para que possa gerir utilizadores e fornecedores externos como hóspedes em Azure AD. Ao combinar a colaboração B2B com a Azure AD Privileged Identity Management (PIM), pode estender os seus requisitos de conformidade e governação aos hóspedes. Por exemplo, pode utilizar estas funcionalidades de Gestão de Identidade Privilegiada para tarefas de identidade Azure com os hóspedes:
 
 - Atribuir acesso a recursos específicos do Azure
-- Habilitar o acesso just-in-time
-- Especificar a duração da atribuição e a data de término
-- Exigir autenticação multifator na atribuição ou ativação ativa
-- Executar revisões de acesso
-- Utilizar alertas e logs de auditoria
+- Ativar acesso just-in-time
+- Especificar a duração da atribuição e a data final
+- Exigir autenticação de vários fatores na atribuição ativa ou ativação
+- Realizar avaliações de acesso
+- Utilizar alertas e registos de auditoria
 
-Este artigo descreve como convidar um convidado para sua organização e gerenciar o acesso aos recursos do Azure usando Privileged Identity Management.
+Este artigo descreve como convidar um hóspede para a sua organização e gerir o seu acesso aos recursos do Azure usando a Privileged Identity Management.
 
-## <a name="when-would-you-invite-guests"></a>Quando você convidar convidados?
+## <a name="when-would-you-invite-guests"></a>Quando convidaria convidados?
 
-Aqui estão alguns exemplos de quando você pode convidar convidados para sua organização:
+Aqui estão alguns exemplos de quando você pode convidar convidados para a sua organização:
 
-- Permitir que um fornecedor autônomo externo tenha apenas uma conta de email para acessar os recursos do Azure para um projeto.
-- Permita que um parceiro externo em uma grande organização que usa o Serviços de Federação do Active Directory (AD FS) local Acesse seu aplicativo de despesas.
-- Permita que os engenheiros de suporte que não estejam em sua organização (como o suporte da Microsoft) acessem temporariamente o recurso do Azure para solucionar problemas.
+- Permita a um fornecedor externo independente que tenha apenas uma conta de e-mail para aceder aos seus recursos Azure para um projeto.
+- Permita a um parceiro externo numa grande organização que utiliza no local serviços da Federação de Directórioactivo ativo para aceder ao seu pedido de despesas.
+- Permitir que os engenheiros de suporte que não estão na sua organização (como suporte da Microsoft) acedam temporariamente ao seu recurso Azure para resolver problemas.
 
-## <a name="how-does-collaboration-using-b2b-guests-work"></a>Como funciona a colaboração usando os convidados B2B?
+## <a name="how-does-collaboration-using-b2b-guests-work"></a>Como funciona a colaboração com os hóspedes B2B?
 
-Ao usar a colaboração B2B, você pode convidar um usuário externo para sua organização como um convidado. O convidado pode ser gerenciado como um usuário em sua organização, mas um convidado precisa ser autenticado em sua organização inicial e não em sua organização do Azure AD. Isso significa que, se o convidado não tiver mais acesso à sua organização inicial, eles também perderão o acesso à sua organização. Por exemplo, se o convidado deixar sua organização, ele perderá automaticamente o acesso a todos os recursos que você compartilhou com eles no Azure AD sem precisar fazer nada. Para obter mais informações sobre a colaboração B2B, consulte [o que é acesso de usuário convidado em Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+Quando utilizar a colaboração B2B, pode convidar um utilizador externo para a sua organização como convidado. O hóspede pode ser gerido como utilizador na sua organização, mas um hóspede tem de ser autenticado na sua organização doméstica e não na sua organização Azure AD. Isto significa que se o hóspede já não tiver acesso à sua organização doméstica, também perde acesso à sua organização. Por exemplo, se o hóspede deixar a sua organização, perde automaticamente o acesso a quaisquer recursos que partilhou com eles em Azure AD sem ter de fazer nada. Para obter mais informações sobre a colaboração b2B, consulte [O que é o acesso dos utilizadores convidados no Azure Ative Directory B2B?](../b2b/what-is-b2b.md)
 
-![Diagrama mostrando como um usuário convidado é autenticado em seu diretório base](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagrama mostrando como um utilizador convidado é autenticado no seu diretório de casa](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
-## <a name="check-guest-collaboration-settings"></a>Verificar as configurações de colaboração do convidado
+## <a name="check-guest-collaboration-settings"></a>Verifique as definições de colaboração dos hóspedes
 
-Para garantir que você possa convidar convidados para sua organização, verifique suas configurações de colaboração de convidado.
+Para se certificar de que pode convidar os hóspedes para a sua organização, deve verificar as definições de colaboração dos seus hóspedes.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Azure Active Directory** > **configurações de usuário**.
+1. Selecione > **definições**de utilizador de **diretório ativo Azure**.
 
-1. Selecione **gerenciar configurações de colaboração externas**.
+1. Selecione **Gerir as definições**de colaboração externa .
 
-    ![Página Configurações de colaboração externa mostrando permissão, convite e configurações de restrição de colaboração](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Página de definições de colaboração externa mostrando permissão, convite e definições de restrição de colaboração](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
-1. Verifique se os **Administradores e usuários na função de convite do emissor de convidado podem convidar** o comutador está definido como **Sim**.
+1. Certifique-se de que os **Administradores e utilizadores na função** de convidado podem convidar a switch está definida para **Sim**.
 
-## <a name="invite-a-guest-and-assign-a-role"></a>Convidar um convidado e atribuir uma função
+## <a name="invite-a-guest-and-assign-a-role"></a>Convide um hóspede e atribua um papel
 
-Usando Privileged Identity Management, você pode convidar um convidado e torná-lo qualificado para uma função de recurso do Azure.
+Utilizando a Gestão de Identidade Privilegiada, pode convidar um hóspede e torná-lo elegível para um papel de recurso Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função Administrador de [função privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ou [administrador de usuário](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) .
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro [do](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) papel privilegiado administrador ou administrador de [utilizador.](../users-groups-roles/directory-assign-admin-roles.md#user-administrator)
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Use o **filtro de recursos** para filtrar a lista de recursos gerenciados.
+1. Utilize o **filtro Derecurso** para filtrar a lista de recursos geridos.
 
-1. Selecione o recurso que você deseja gerenciar, como um recurso, grupo de recursos, assinatura ou grupo de gerenciamento.
+1. Selecione o recurso que pretende gerir, como um grupo de recursos, recursos, subscrição ou grupo de gestão.
 
-    Você deve definir o escopo para apenas o que o convidado precisa.
+    Deve definir o âmbito apenas para o que o hóspede precisa.
 
-1. Em gerenciar, selecione **funções** para ver a lista de funções para recursos do Azure.
+1. Em Manage, selecione **Roles** para ver a lista de funções para os recursos Azure.
 
-    ![Lista de funções de recursos do Azure mostrando o número de usuários que estão ativos e qualificados](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Lista de funções de recursos do Azure mostrando número de utilizadores ativos e elegíveis](./media/pim-resource-roles-external-users/resources-roles.png)
 
-1. Selecione a função mínima que será necessária para o usuário.
+1. Selecione a função mínima que o utilizador necessitará.
 
-    ![Página de função selecionada listando os membros atuais dessa função](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Página de funções selecionada listando os membros atuais dessa função](./media/pim-resource-roles-external-users/selected-role.png)
 
-1. Na página função, selecione **Adicionar membro** para abrir o painel nova atribuição.
+1. Na página de funções, selecione **Adicionar membro** para abrir o novo painel de atribuição.
 
-1. Clique em **selecionar um membro ou grupo**.
+1. Clique **em Selecionar um membro ou grupo**.
 
-    ![Nova atribuição – selecione um painel membro ou grupo listando usuários e grupos junto com uma opção de convite](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Nova atribuição - Selecione um membro ou painel de grupo listando utilizadores e grupos juntamente com uma opção Convidar](./media/pim-resource-roles-external-users/select-member-group.png)
 
-1. Para convidar um convidado, clique em **convidar**.
+1. Para convidar um hóspede, clique **em Convidar.**
 
-    ![Convide uma página de convidado com caixas para inserir um endereço de email e especificar uma mensagem pessoal](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Convide uma página de hóspedes com caixas para inserir um endereço de e-mail e especifique uma mensagem pessoal](./media/pim-resource-roles-external-users/invite-guest.png)
 
-1. Depois de selecionar um convidado, clique em **convidar**.
+1. Depois de ter selecionado um hóspede, clique em **Convidar**.
 
-    O convidado deve ser adicionado como um membro selecionado.
+    O hóspede deve ser adicionado como membro selecionado.
 
-1. No painel **selecionar um membro ou grupo** , clique em **selecionar**.
+1. No **Select um painel de membro ou grupo,** clique em **Selecionar**.
 
-1. No painel **configurações de associação** , selecione o tipo de atribuição e a duração.
+1. No painel de **definições de Adesão,** selecione o tipo de atribuição e a duração.
 
-    ![Nova atribuição – página Configurações de associação com opções para especificar tipo de atribuição, data de início e data de término](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Nova atribuição - Página de definições de membrocom opções para especificar o tipo de atribuição, data de início e data de fim](./media/pim-resource-roles-external-users/membership-settings.png)
 
-1. Para concluir a atribuição, selecione **concluído** e, em seguida, **Adicionar**.
+1. Para completar a atribuição, selecione **Done** **e,** em seguida, Adicionar .
 
-    A atribuição de função de convidado aparecerá na sua lista de funções.
+    A atribuição do papel de convidado aparecerá na sua lista de papéis.
 
-    ![Página de função que lista o convidado como qualificado](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Página de funções listando o hóspede como elegível](./media/pim-resource-roles-external-users/role-assignment.png)
 
-## <a name="activate-role-as-a-guest"></a>Ativar a função como um convidado
+## <a name="activate-role-as-a-guest"></a>Ativar o papel como convidado
 
-Se você for um usuário externo, deverá aceitar o convite para ser convidado na organização do Azure AD e possivelmente ativar sua atribuição de função.
+Se é um utilizador externo, deve aceitar o convite para ser hóspede na organização da AD Azure e, possivelmente, ativar a sua atribuição de funções.
 
-1. Abra o email com seu convite. O email será semelhante ao seguinte.
+1. Abra o e-mail com o seu convite. O e-mail será semelhante ao seguinte.
 
-    ![Convite por email com nome de diretório, mensagem pessoal e um link de introdução](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Convite por e-mail com nome de diretório, mensagem pessoal e um link Get Started](./media/pim-resource-roles-external-users/email-invite.png)
 
-1. Selecione o **link de introdução no** email.
+1. Selecione o link **Get Started** no e-mail.
 
-1. Depois de revisar as permissões, clique em **aceitar**.
+1. Depois de rever as permissões, clique em **Aceitar**.
 
-    ![Página examinar permissões em um navegador com uma lista de permissões que a organização gostaria de examinar](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Reveja a página de permissões num navegador com uma lista de permissões que a organização gostaria que você reveja](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. Você pode ser solicitado a aceitar os termos de uso e especificar se deseja permanecer conectado. No portal do Azure, se você estiver *qualificado* para uma função, ainda não terá acesso aos recursos.
+1. Pode ser-lhe pedido que aceite um prazo de utilização e especifique se pretende permanecer inscrito. No portal Azure, se for *elegível* para um papel, ainda não terá acesso aos recursos.
 
-1. Para ativar a atribuição de função, abra o email com o link ativar função. O email será semelhante ao seguinte.
+1. Para ativar a sua atribuição de funções, abra o e-mail com o seu link de função ativado. O e-mail será semelhante ao seguinte.
 
-    ![Email indicando que você está qualificado para uma função com um link de função de ativação](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![E-mail indicando que você elegível para um papel com um link de função Ativar](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
-1. Selecione **Ativar função** para abrir suas funções qualificadas no Privileged Identity Management.
+1. Selecione **a função Activate** para abrir as suas funções elegíveis na Gestão de Identidade Privilegiada.
 
-    ![Página minhas funções no Privileged Identity Management listando suas funções qualificadas](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![A minha página de papéis na Privilegiada Gestão de Identidade seleta as suas funções elegíveis](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
-1. Em ação, selecione o link **Ativar** .
+1. Em Ação, selecione o link **Activate.**
 
-    Dependendo das configurações de função, você precisará especificar algumas informações para ativar a função.
+    Dependendo das definições de função, terá de especificar algumas informações para ativar a função.
 
-1. Depois de especificar as configurações para a função, clique em **Ativar** para ativar a função.
+1. Depois de especificar as definições para a função, clique em **Ativar** a função.
 
-    ![Ativar o escopo e as opções de listagem de páginas para especificar a hora de início, a duração e o motivo](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Ativar o âmbito e as opções de listagem de página para especificar a hora de início, duração e razão](./media/pim-resource-roles-external-users/activate-role.png)
 
-    A menos que o administrador precise aprovar sua solicitação, você deve ter acesso aos recursos especificados.
+    A menos que o administrador seja obrigado a aprovar o seu pedido, deverá ter acesso aos recursos especificados.
 
-## <a name="view-activity-for-a-guest"></a>Exibir atividade para um convidado
+## <a name="view-activity-for-a-guest"></a>Ver atividade para um hóspede
 
-Você pode exibir os logs de auditoria para controlar o que os convidados estão fazendo.
+Pode ver registos de auditoria para acompanhar o que os hóspedes estão a fazer.
 
-1. Como administrador, abra Privileged Identity Management e selecione o recurso que foi compartilhado.
+1. Como administrador, abra a Gestão de Identidade Privilegiada e selecione o recurso que foi partilhado.
 
-1. Selecione **auditoria de recurso** para exibir a atividade para esse recurso. Veja a seguir um exemplo da atividade de um grupo de recursos.
+1. Selecione **a auditoria de Recursos** para visualizar a atividade desse recurso. O seguinte mostra um exemplo da atividade de um grupo de recursos.
 
-    ![Recursos do Azure – página de auditoria de recursos listando a hora, o solicitante e a ação](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Recursos Azure - Página de auditoria de recursos listando o tempo, o pedido e a ação](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Para exibir a atividade para o convidado, selecione **Azure Active Directory** > **usuários** > *nome do convidado*.
+1. Para ver a atividade do hóspede, selecione O*nome de hóspede*seletiva dos**Utilizadores** >  **de Diretório** > Ativo do Azure .
 
-1. Selecione **logs de auditoria** para ver os logs de auditoria da organização. Se necessário, você pode especificar filtros.
+1. Selecione **registos de auditoria** para ver os registos de auditoria da organização. Se necessário, pode especificar filtros.
 
-    ![Logs de auditoria de diretório listando data, destino, iniciado por e atividade](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Data de listagem de registos de registos de auditoria de diretório, alvo, iniciado por e atividade](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções de administrador do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [O que é o acesso de usuário convidado na colaboração B2B do Azure AD?](../b2b/what-is-b2b.md)
+- [Atribuir funções de administrador da AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
+- [O que é o acesso do utilizador convidado na colaboração Azure AD B2B?](../b2b/what-is-b2b.md)

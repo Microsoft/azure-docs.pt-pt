@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127691"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementar VMs para anfitriões dedicados usando o Azure CLI
@@ -18,7 +18,7 @@ ms.locfileid: "79127691"
 
 Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
-Certifique-se de que instalou a versão 2.0.70 do Azure CLI ou posteriormente, e inscreveu-se numa conta Azure utilizando `az login`. 
+Certifique-se de que instalou a versão 2.0.70 do Azure CLI `az login`ou posteriormente, e inscreveu-se numa conta Azure utilizando . 
 
 
 ## <a name="limitations"></a>Limitações
@@ -229,7 +229,7 @@ Você pode exportar um modelo se você agora quiser criar um ambiente de desenvo
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Este comando cria o ficheiro `myDHResourceGroup.json` no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no seu ficheiro de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o seu modelo JSON para especificar os nomes dos recursos ou crie um ficheiro parameters.json que especifica os nomes dos recursos.
+Este comando `myDHResourceGroup.json` cria o ficheiro no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no `--include-parameter-default-value` seu ficheiro `az group export` de modelo adicionando o parâmetro ao comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou crie um ficheiro parameters.json que especifica os nomes dos recursos.
  
 Para criar um ambiente a partir do seu modelo, use a criação de implementação do [grupo Az](/cli/azure/group/deployment#az-group-deployment-create).
 

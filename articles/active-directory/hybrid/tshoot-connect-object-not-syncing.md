@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de um objeto que não está a sincronizar com o Diretório Ativo do Azure  Microsoft Docs'
+title: Problemas de resolução de um objeto que não está a sincronizar com o Diretório Ativo do Azure [ Microsoft Docs'
 description: Problemas de resolução de um objeto que não está a sincronizar com o Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253536"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Problemas de resolução de um objeto que não está sincronizando com O Diretório Ativo Azure
@@ -54,7 +54,7 @@ O processo de sincronização envolve seguir etapas:
 
 5. **Exportação para AD Azure:** Após a sincronização, os objetos são exportados do CS Azure AD para O D.Azure.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Para encontrar os erros, olhe para alguns lugares diferentes, na seguinte ordem:
 
@@ -76,30 +76,30 @@ A coluna **Status** contém as informações mais importantes e mostra o problem
 | Estado | Comentário |
 | --- | --- |
 | parou-* |A corrida não podia terminar. Isto pode acontecer, por exemplo, se o sistema remoto estiver avariado e não puder ser contactado. |
-| stopped-error-limit |Há mais de 5.000 erros. A corrida foi automaticamente interrompida devido ao grande número de erros. |
-| concluído-\*-erros |A corrida terminou, mas há erros (menos de 5.000) que devem ser investigados. |
-| concluído-\*-avisos |A corrida terminou, mas alguns dados não estão no estado esperado. Se tiver erros, esta mensagem geralmente é apenas um sintoma. Não investigue avisos até ter resolvido erros. |
-| êxito |Sem problemas. |
+| parou-erro-limite |Há mais de 5.000 erros. A corrida foi automaticamente interrompida devido ao grande número de erros. |
+| concluídos-\*-erros |A corrida terminou, mas há erros (menos de 5.000) que devem ser investigados. |
+| concluídas-\*-avisos |A corrida terminou, mas alguns dados não estão no estado esperado. Se tiver erros, esta mensagem geralmente é apenas um sintoma. Não investigue avisos até ter resolvido erros. |
+| exito |Sem problemas. |
 
-Quando selecionar uma linha, a parte inferior do separador **Operações** é atualizada para mostrar os detalhes dessa execução. No lado mais à esquerda desta área, você pode ter uma lista intitulada **Step #** . Esta lista só aparece se tiver vários domínios na sua floresta e cada domínio for representado por um passo. O nome de domínio pode ser encontrado na rubrica **Partição**. No âmbito da rubrica Estatísticas de **Sincronização,** pode encontrar mais informações sobre o número de alterações que foram processadas. Selecione os links para obter uma lista dos objetos alterados. Se tiver objetos com erros, esses erros aparecem sob a rubrica Erros de **Sincronização.**
+Quando selecionar uma linha, a parte inferior do separador **Operações** é atualizada para mostrar os detalhes dessa execução. No lado mais à esquerda desta área, você pode ter uma lista intitulada **Step #**. Esta lista só aparece se tiver vários domínios na sua floresta e cada domínio for representado por um passo. O nome de domínio pode ser encontrado na rubrica **Partição**. No âmbito da rubrica Estatísticas de **Sincronização,** pode encontrar mais informações sobre o número de alterações que foram processadas. Selecione os links para obter uma lista dos objetos alterados. Se tiver objetos com erros, esses erros aparecem sob a rubrica Erros de **Sincronização.**
 
 ### <a name="errors-on-the-operations-tab"></a>Erros no separador Operações
 Quando tem erros, o Gestor de Serviços de Sincronização mostra tanto o objeto em erro como o próprio erro como links que fornecem mais informações.
 
-![Screenshot de erros no](./media/tshoot-connect-object-not-syncing/errorsync.png) de Gestor de Serviços de Sincronização  
+![Screenshot de erros no Gestor de Serviços de Sincronização](./media/tshoot-connect-object-not-syncing/errorsync.png)  
 Comece por selecionar a cadeia de erro. (Na figura anterior, a cadeia de erro é **ativada por funções de erro de sincronização**.) É apresentado pela primeira vez com uma visão geral do objeto. Para ver o erro real, selecione **Stack Trace**. Este vestígio fornece informações de nível de depuração para o erro.
 
 Clique na caixa de **informação** de pilhas de chamadas, clique em **Selecionar Tudo,** e depois selecione **Copiar**. Em seguida, copie a pilha e veja o erro no seu editor favorito, como o Notepad.
 
-Se o erro for do **SyncRulesEngine,** a informação da pilha de chamadas lista primeiro todos os atributos do objeto. Percorra para baixo até ver o título **InnerException =>** .  
+Se o erro for do **SyncRulesEngine,** a informação da pilha de chamadas lista primeiro todos os atributos do objeto. Desloque-se para baixo até ver a rubrica **InnerException =>**.  
 
-  ![Screenshot do Gestor de Serviços de Sincronização, mostrando informações de erro sob a rubrica InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
+  ![Screenshot do Gestor de Serviço de Sincronização, mostrando informações de erro sob a rubrica InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
 A linha após a direção mostra o erro. Na figura anterior, o erro é de uma regra de sincronização personalizada que Fabrikam criou.
 
 Se o erro não der informações suficientes, é hora de olhar para os próprios dados. Selecione a ligação com o identificador de objetos e continue a resolver problemas com o objeto importado do [espaço do conector](#cs-import).
 
-## <a name="connector-space-object-properties"></a>Propriedades de objetos espaciais conector
+## <a name="connector-space-object-properties"></a>Propriedades dos objetos de espaço conector
 Se o separador [**Operações**](#operations) não apresentar erros, siga o objeto espacial do conector do Diretório Ativo para o metaverso para o AD Azure. Neste caminho, deve encontrar onde está o problema.
 
 ### <a name="searching-for-an-object-in-the-cs"></a>À procura de um objeto no CS
@@ -208,6 +208,6 @@ Se faltar o conector ao Azure AD, reveja a secção de [atributos MV](#mv-attrib
 
 A partir do separador **Conectores** também pode ir ao [objeto espacial do conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre a [sincronização Azure AD Connect](how-to-connect-sync-whatis.md).
 - Saiba mais sobre [identidade híbrida.](whatis-hybrid-identity.md)

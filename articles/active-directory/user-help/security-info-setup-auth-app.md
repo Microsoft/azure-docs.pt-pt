@@ -1,6 +1,6 @@
 ---
-title: Configurar o aplicativo Microsoft Authenticator como seu método de verificação-Azure AD
-description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade usando o aplicativo Microsoft Authenticator como seu método de verificação.
+title: Configurar a aplicação Microsoft Authenticator como o seu método de verificação - Azure AD
+description: Como configurar a sua página de informações de Segurança (pré-visualização) para verificar a sua identidade utilizando a aplicação Do Autenticador microsoft como método de verificação.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,59 +12,59 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 16cb512d3f8f8afcc199cb52c13e09b12107576f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062426"
 ---
-# <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar o aplicativo Microsoft Authenticator como seu método de verificação
+# <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar a aplicação Microsoft Authenticator como o seu método de verificação
 
-Você pode seguir estas etapas para adicionar os métodos de verificação de dois fatores e de redefinição de senha. Depois de configurar isto pela primeira vez, pode voltar à página de **informações** de Segurança para adicionar, atualizar ou apagar as suas informações de segurança.
+Pode seguir estes passos para adicionar os seus métodos de verificação de dois fatores e redefinição de palavra-passe. Depois de configurar isto pela primeira vez, pode voltar à página de **informações** de Segurança para adicionar, atualizar ou apagar as suas informações de segurança.
 
 Se for solicitado que o instale imediatamente após iniciar sessão na sua conta de trabalho ou escola, consulte os passos detalhados no Conjunto de informações de segurança a partir do artigo de solicitação da página de início de [sessão.](security-info-setup-signin.md)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
-> Se você não vir a opção de aplicativo autenticador, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+> Se não vir a opção de aplicação autenticadora, é possível que a sua organização não lhe permita utilizar esta opção para verificação. Neste caso, terá de escolher outro método ou contactar o balcão de ajuda da sua organização para obter mais assistência.
 
-## <a name="security-vs-password-reset-verification"></a>Segurança vs. verificação de redefinição de senha
+## <a name="security-vs-password-reset-verification"></a>Verificação de segurança vs redefinição de palavra-passe
 
-Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+Os métodos de informação de segurança são utilizados tanto para a verificação de segurança de dois fatores como para o reset de palavras-passe. No entanto, nem todos os métodos podem ser utilizados para ambos.
 
 | Método | Utilizado para |
 | ------ | -------- |
-| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Chave de segurança | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
-| Questões de segurança | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
+| Aplicação de autenticação | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Mensagens de texto | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Telefonemas | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Chave de segurança | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Conta de e-mail | Apenas a autenticação de reset da palavra-passe. Terá de escolher outro método para verificação de dois fatores. |
+| Perguntas de segurança | Apenas a autenticação de reset da palavra-passe. Terá de escolher outro método para verificação de dois fatores. |
 
-## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurar o aplicativo Microsoft Authenticator na página informações de segurança
+## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurar a aplicação Microsoft Authenticator a partir da página de informações de Segurança
 
-Dependendo das configurações da sua organização, você poderá usar um aplicativo de autenticação como um dos seus métodos de informações de segurança. Você não precisa usar o aplicativo Microsoft Authenticator e pode escolher um aplicativo diferente durante o processo de configuração. No entanto, este artigo usa o aplicativo Microsoft Authenticator.
+Dependendo das definições da sua organização, poderá utilizar uma aplicação de autenticação como um dos seus métodos de informação de segurança. Não é obrigado a utilizar a aplicação Microsoft Authenticator e pode escolher uma aplicação diferente durante o processo de configuração. No entanto, este artigo utiliza a aplicação Microsoft Authenticator.
 
-### <a name="to-set-up-the-microsoft-authenticator-app"></a>Para configurar o aplicativo Microsoft Authenticator
+### <a name="to-set-up-the-microsoft-authenticator-app"></a>Para configurar a aplicação Microsoft Authenticator
 
-1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho https://myprofile.microsoft.com/ ou escola e depois vá para a sua página.
 
-    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![A minha página de Perfil, mostrando links de informação de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecione **informações de segurança** a partir do painel de navegação esquerdo ou do link no bloco de **informações** de Segurança e, em seguida, selecione **adicionar método** a partir da página de informações de **Segurança.**
 
-    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página de informações de segurança com opção de método de adição realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar uma página de método,** selecione **aplicação Autenticador** a partir da lista de lançamentos e, em seguida, selecione **Adicionar**.
 
-    ![Caixa Adicionar método, com o aplicativo autenticador selecionado](media/security-info/securityinfo-myprofile-addauthapp.png)
+    ![Adicionar caixa de método, com app Autenticador selecionado](media/security-info/securityinfo-myprofile-addauthapp.png)
 
 4. No **Início, obtendo a página da aplicação,** selecione **Descarregar agora** para descarregar e instalar a aplicação Microsoft Authenticator no seu dispositivo móvel e, em seguida, selecione **Next**.
 
     Para mais informações sobre como descarregar e instalar a aplicação, consulte [O Download e instale a aplicação Microsoft Authenticator](user-help-auth-app-download-install.md).
 
-    ![Comece obtendo a página do aplicativo](media/security-info/securityinfo-myprofile-getauthapp.png)
+    ![Comece por obter a página de aplicativos](media/security-info/securityinfo-myprofile-getauthapp.png)
 
    > [!Note]
    > Se pretender utilizar uma aplicação autenticadora diferente da aplicação Microsoft Authenticator, selecione o I pretendo utilizar um link de **aplicação autenticador diferente.**
@@ -73,88 +73,88 @@ Dependendo das configurações da sua organização, você poderá usar um aplic
 
 5. Mantenha-se na página de **'Configurar'** enquanto configura a aplicação Microsoft Authenticator no seu dispositivo móvel.
 
-    ![Configurar a página do aplicativo autenticador](media/security-info/securityinfo-myprofile-setupauthapp.png)
+    ![Configurar a página de aplicações do autenticador](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
 6. Abra a aplicação Microsoft Authenticator, selecione para permitir notificações (se solicitado), selecione **Adicionar conta** a partir do ícone Personalizar **e controlar** no canto superior direito e, em seguida, selecione Trabalho ou **conta escolar**.
 
     >[!Note]
-    >Se esta for a primeira vez que você estiver configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou permitir que o aplicativo tire fotos e grave vídeo (Android). Deve selecionar **Permitir** para que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no próximo passo. Se você não permitir a câmera, ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
+    >Se esta for a primeira vez que está a configurar a aplicação Microsoft Authenticator, poderá receber uma pergunta rápida sobre se permite que a aplicação aceda à sua câmara (iOS) ou para permitir que a aplicação tire fotografias e grave vídeos (Android). Deve selecionar **Permitir** para que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no próximo passo. Se não permitir a câmara, ainda pode configurar a aplicação autenticadora, mas terá de adicionar manualmente a informação do código. Para obter informações sobre como adicionar o código manualmente, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
 
 7. Volte à página da **sua conta** No computador e, em seguida, selecione **Next**.
 
     Aparece a página de **código QR.**
 
-    ![Digitalizar o código QR usando o aplicativo autenticador](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
+    ![Digitalizar o código QR utilizando a aplicação Authenticator](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-8. Digitalize o código fornecido com o leitor de código QR do aplicativo Microsoft Authenticator, que apareceu em seu dispositivo móvel depois de criar sua conta corporativa ou de estudante na etapa 6.
+8. Resumie o código fornecido com o leitor de códigoQ da aplicação Microsoft Authenticator, que apareceu no seu dispositivo móvel depois de ter criado o seu trabalho ou conta escolar no Passo 6.
 
-    O aplicativo autenticador deve adicionar com êxito sua conta corporativa ou de estudante sem precisar de nenhuma informação adicional de você. No entanto, se o leitor de códigoQ não conseguir ler o código, pode selecionar o link de **código QR e** introduzir manualmente o código e o URL na aplicação Microsoft Authenticator. Para obter mais informações sobre a adição manual de um código, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
+    A aplicação autenticadora deve adicionar com sucesso o seu trabalho ou conta escolar sem necessitar de qualquer informação adicional sua. No entanto, se o leitor de códigoQ não conseguir ler o código, pode selecionar o link de **código QR e** introduzir manualmente o código e o URL na aplicação Microsoft Authenticator. Para obter mais informações sobre a adição manual de um código, consulte [Manualmente adicionar uma conta à aplicação](user-help-auth-app-add-account-manual.md).
 
 9. Selecione **Em seguida** na página de **código QR** no seu computador.
 
-    Uma notificação é enviada para o aplicativo Microsoft Authenticator em seu dispositivo móvel, para testar sua conta.
+    Uma notificação é enviada para a aplicação Microsoft Authenticator no seu dispositivo móvel, para testar a sua conta.
 
-    ![Testar sua conta com o aplicativo autenticador](media/security-info/securityinfo-myprofile-tryitauthapp.png)
+    ![Teste a sua conta com a aplicação autenticadora](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
 10. Aprove a notificação na aplicação Microsoft Authenticator e, em seguida, selecione **Next**.
 
-     ![Notificação de êxito, conectando o aplicativo e sua conta](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Notificação de sucesso, ligando a app e a sua conta](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-     Suas informações de segurança são atualizadas para usar o aplicativo Microsoft Authenticator por padrão para verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha.
+     A sua informação de segurança é atualizada para utilizar a aplicação Microsoft Authenticator por padrão para verificar a sua identidade ao utilizar a verificação em duas etapas ou o reset da palavra-passe.
 
-## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Excluir seu aplicativo autenticador de seus métodos de informações de segurança
+## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Elimine a sua aplicação autenticadora dos seus métodos de informação de segurança
 
-Se já não quiser utilizar a sua aplicação autenticadora como método de informação de segurança, pode removê-la da página de informações de **Segurança.** Isso funciona para todos os aplicativos autenticadores, não apenas para o aplicativo Microsoft Authenticator. Depois de excluir o aplicativo, você precisará entrar no aplicativo autenticador em seu dispositivo móvel e excluir a conta.
+Se já não quiser utilizar a sua aplicação autenticadora como método de informação de segurança, pode removê-la da página de informações de **Segurança.** Isto funciona para todas as aplicações autenticadoras, e não apenas para a aplicação Microsoft Authenticator. Depois de eliminar a aplicação, terá de entrar na aplicação autenticadora do seu dispositivo móvel e apagar a conta.
 
 >[!Important]
->Se você excluir o aplicativo autenticador por engano, não há como desfazê-lo. Terá de adicionar novamente a aplicação autenticadora, seguindo os passos na secção de aplicações do [autenticador](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) deste artigo.
+>Se apagar a aplicação do autenticador por engano, não há como desfazê-la. Terá de adicionar novamente a aplicação autenticadora, seguindo os passos na secção de aplicações do [autenticador](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) deste artigo.
 
-### <a name="to-delete-the-authenticator-app"></a>Para excluir o aplicativo autenticador
+### <a name="to-delete-the-authenticator-app"></a>Para eliminar a aplicação autenticadora
 
 1. Na página de informações de **Segurança,** selecione o link **Eliminar** ao lado da aplicação Autenticador.
 
-    ![Link para excluir o aplicativo autenticador das informações de segurança](media/security-info/securityinfo-myprofile-deleteauthapp.png)
+    ![Link para eliminar a aplicação autenticadora a partir de informações de segurança](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-2. Selecione **Sim** da caixa de confirmação para eliminar a aplicação autenticadora. Após a eliminação da aplicação autenticadora, é removida das suas informações de segurança e desaparece da página de informações de **Segurança.** Se o aplicativo autenticador for seu método padrão, o padrão será alterado para outro método disponível.
+2. Selecione **Sim** da caixa de confirmação para eliminar a aplicação autenticadora. Após a eliminação da aplicação autenticadora, é removida das suas informações de segurança e desaparece da página de informações de **Segurança.** Se a aplicação autenticadora for o seu método padrão, a predefinição mudará para outro método disponível.
 
 3. Abra a aplicação autenticadora no seu dispositivo móvel, selecione **contas Edit**e, em seguida, apague o seu trabalho ou conta escolar da aplicação autenticadora.
 
-    Sua conta foi completamente removida do aplicativo autenticador para solicitações de verificação de dois fatores e de redefinição de senha.
+    A sua conta é completamente removida da aplicação autenticadora para pedidos de verificação de dois fatores e redefinição de palavra-passe.
 
-## <a name="change-your-default-security-info-method"></a>Alterar o método de informações de segurança padrão
+## <a name="change-your-default-security-info-method"></a>Altere o seu método de informação de segurança padrão
 
 Se pretender que a aplicação autenticadora seja o método predefinido utilizado quando iniciar sessão na sua conta de trabalho ou escolar utilizando verificação de dois fatores ou para pedidos de reset de palavra-passe, pode defini-la a partir da página de **informações** de Segurança.
 
-### <a name="to-change-your-default-security-info-method"></a>Para alterar o método de informações de segurança padrão
+### <a name="to-change-your-default-security-info-method"></a>Para alterar o seu método de informação de segurança padrão
 
 1. Na página de informações de **Segurança,** selecione o link **Alterar** ao lado da informação do método de **iniciar sessão Predefinido.**
 
-    ![Alterar o link para o método de entrada padrão](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+    ![Alterar o link para o método de sessão predefinido](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
 2. Escolha **o Autenticador Microsoft - notificação** da lista de métodos disponíveis. Se não estiver a utilizar a aplicação Microsoft Authenticator, selecione a **aplicação Authenticator ou** a opção de ficha de hardware.
 
-    ![Escolha o método para entrar no padrão](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+    ![Escolha o método de inscrição por defeito](media/security-info/securityinfo-myprofile-defaultauthapp.png)
 
 3. Selecione **Confirmar**.
 
-    O método padrão usado para alterações de entrada no aplicativo Microsoft Authenticator.
+    O método predefinido utilizado para alterações de sessão na aplicação Microsoft Authenticator.
 
-## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
+## <a name="additional-security-info-methods"></a>Métodos adicionais de informação de segurança
 
-Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
+Tem opções adicionais para como a sua organização o contacta para verificar a sua identidade, com base no que está a tentar fazer. As opções incluem:
 
-- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte Configurar informações de segurança para utilizar mensagens de [texto (SMS)](security-info-setup-text-msg.md).
+- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um código de texto que utilizará para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte Configurar informações de segurança para utilizar mensagens de [texto (SMS)](security-info-setup-text-msg.md).
 
-- **Dispositivo móvel ou chamada telefónica de trabalho.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [Configurar informações](security-info-setup-phone-number.md)de segurança para utilizar chamadas telefónicas .
+- **Dispositivo móvel ou chamada telefónica de trabalho.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefónica para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [Configurar informações](security-info-setup-phone-number.md)de segurança para utilizar chamadas telefónicas .
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma chave de segurança, consulte [Configurar informações](security-info-setup-security-key.md)de segurança para utilizar uma chave de segurança .
+- **Chave de segurança.** Registe a sua chave de segurança compatível com a Microsoft e utilize-a juntamente com um PIN para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com uma chave de segurança, consulte [Configurar informações](security-info-setup-security-key.md)de segurança para utilizar uma chave de segurança .
 
-- **Endereço de e-mail.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [Configurar informações](security-info-setup-email.md)de segurança para utilizar o e-mail .
+- **Endereço de e-mail.** Insira o seu endereço de e-mail de trabalho ou escola para obter um e-mail para reset de palavra-passe. Esta opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [Configurar informações](security-info-setup-email.md)de segurança para utilizar o e-mail .
 
-- **Questões de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar as suas questões de segurança, consulte a informação de [segurança configurar para utilizar](security-info-setup-questions.md) o artigo de questões de segurança.
+- **Questões de segurança.** Responda a algumas questões de segurança criadas pelo seu administrador para a sua organização. Esta opção só está disponível para reset de palavra-passe e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar as suas questões de segurança, consulte a informação de [segurança configurar para utilizar](security-info-setup-questions.md) o artigo de questões de segurança.
 
     >[!Note]
-    >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
+    >Se algumas destas opções estão em falta, é muito provável porque a sua organização não permite esses métodos. Se for esse o caso, terá de escolher um método disponível ou contactar o seu administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos seguintes
 

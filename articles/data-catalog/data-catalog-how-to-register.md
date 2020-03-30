@@ -1,81 +1,81 @@
 ---
-title: Registrar fontes de dados no catálogo de dados do Azure
-description: Este artigo realça como registrar fontes de dados no catálogo de dados do Azure, incluindo os campos de metadados extraídos durante o registro.
+title: Registar fontes de dados no Catálogo de Dados do Azure
+description: Este artigo destaca como registar fontes de dados no Catálogo de Dados do Azure, incluindo os campos de metadados extraídos durante o registo.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68736329"
 ---
-# <a name="register-data-sources-in-azure-data-catalog"></a>Registrar fontes de dados no catálogo de dados do Azure
+# <a name="register-data-sources-in-azure-data-catalog"></a>Registar fontes de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
-O catálogo de dados do Azure é um serviço de nuvem totalmente gerenciado que serve como um sistema de registro e descoberta para fontes de dados empresariais. Em outras palavras, o catálogo de dados ajuda as pessoas a descobrir, entender e usar fontes de dados, além de ajudar as organizações a obter mais valor de seus dados existentes. A primeira etapa para tornar uma fonte de dados detectável por meio do catálogo de dados é registrar essa fonte de dados.
+O Azure Data Catalog é um serviço de cloud totalmente gerido que serve como um sistema de registo e descoberta para fontes de dados da empresa. Por outras palavras, o Data Catalog ajuda as pessoas a descobrir, compreender e usar fontes de dados, e ajuda as organizações a obter mais valor a partir dos seus dados existentes. O primeiro passo para tornar uma fonte de dados descoberta através do Data Catalog é registar essa fonte de dados.
 
 ## <a name="register-data-sources"></a>Registar origens de dados
-O registro é o processo de extração de metadados da fonte de dados e de cópia desses dados para o serviço de catálogo de dados. Os dados permanecem no local onde residem atualmente e continuam sob o controlo dos administradores e das políticas do sistema atual.
+O registo é o processo de extração de metadados da fonte de dados e cópia desses dados para o serviço Data Catalog. Os dados permanecem no local onde residem atualmente e continuam sob o controlo dos administradores e das políticas do sistema atual.
 
-Para registrar uma fonte de dados, faça o seguinte:
-1. No portal do catálogo de dados do Azure, inicie a ferramenta de registro de fonte de dados do catálogo de dados. 
-2. Entre com sua conta corporativa ou de estudante com as mesmas credenciais de Azure Active Directory que você usa para entrar no Portal.
-3. Selecione a fonte de dados que você deseja registrar.
+Para registar uma fonte de dados, faça o seguinte:
+1. No portal Do Catálogo de Dados Do Azure, inicie a ferramenta de registo de fonte de dados do Catálogo de Dados. 
+2. Inscreva-se no seu trabalho ou conta escolar com as mesmas credenciais de Diretório Ativo Azure que usa para iniciar sessão no portal.
+3. Selecione a fonte de dados que pretende registar.
 
-Para obter mais detalhes passo a passo, consulte o tutorial [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) .
+Para mais detalhes passo a passo, consulte o [tutorial Get Started with Azure Data Catalog.](data-catalog-get-started.md)
 
-Depois de registrar a fonte de dados, o catálogo rastreia seu local e indexa seus metadados. Os usuários podem pesquisar, procurar e descobrir a fonte de dados e, em seguida, usar seu local para se conectar a ele usando o aplicativo ou a ferramenta de sua escolha.
+Depois de ter registado a fonte de dados, o catálogo rastreia a sua localização e indexa os seus metadados. Os utilizadores podem pesquisar, navegar e descobrir a fonte de dados e, em seguida, usar a sua localização para se conectar a ele usando a aplicação ou ferramenta à sua escolha.
 
 ## <a name="supported-data-sources"></a>Origens de dados suportadas
-Para obter uma lista de fontes de dados com suporte no momento, consulte [Catálogo de dados DSR](data-catalog-dsr.md).
+Para obter uma lista de fontes de dados atualmente suportadas, consulte data [Catalog DSR](data-catalog-dsr.md).
 
 ## <a name="structural-metadata"></a>Metadados estruturais
-Quando você registra uma fonte de dados, a ferramenta de registro extrai informações sobre a estrutura dos objetos selecionados. Essas informações são chamadas de metadados estruturais.
+Ao registar uma fonte de dados, a ferramenta de registo extrai informações sobre a estrutura dos objetos que seleciona. Esta informação é referida como metadados estruturais.
 
-Para todos os objetos, esses metadados estruturais incluem o local do objeto, para que os usuários que descobrirem os dados possam usar essas informações para se conectarem ao objeto nas ferramentas de cliente de sua escolha. Outros metadados estruturais incluem o nome e o tipo do objeto, bem como o nome do atributo/coluna e o tipo de dados.
+Para todos os objetos, estes metadados estruturais incluem a localização do objeto, para que os utilizadores que descubram os dados possam usar essa informação para se conectarem ao objeto nas ferramentas do cliente à sua escolha. Outros metadados estruturais incluem nome e tipo de objeto, e nome de atributo/coluna e tipo de dados.
 
 ## <a name="descriptive-metadata"></a>Metadados descritivos
-Além dos metadados estruturais principais que são extraídos da fonte de dados, a ferramenta de registro de fonte de dados extrai metadados descritivos. Para SQL Server Analysis Services e SQL Server Reporting Services, esses metadados são obtidos das propriedades de descrição expostas por esses serviços. Por SQL Server, os valores fornecidos usando a\_propriedade estendida MS Description são extraídos. Por Oracle Database, a ferramenta de registro de fonte de dados extrai a coluna comentários da exibição\_todos\_os comentários guia.
+Além dos metadados estruturais fundamentais extraídos da fonte de dados, a ferramenta de registo de fonte de dados extrai metadados descritivos. Para os Serviços de Análise de Servidores SQL e serviços de reporte de servidores SQL, estes metadados são retirados das propriedades da Descrição expostas por estes serviços. Para o Servidor SQL, os\_valores fornecidos utilizando a descrição ms propriedade estendida são extraídos. Para a Oracle Database, a ferramenta de registo de\_fontes de dados extrai a coluna DE COMENTÁRIOS DA visão DE TODOS OS COMENTÁRIOS DO TAB.\_
 
-Além dos metadados descritivos extraídos da fonte de dados, os usuários podem inserir metadados descritivos usando a ferramenta de registro de fonte de dados. Os usuários podem adicionar marcas e podem identificar especialistas para os objetos que estão sendo registrados. Todos esses metadados descritivos são copiados para o serviço de catálogo de dados junto com os metadados estruturais.
+Além dos metadados descritivos extraídos da fonte de dados, os utilizadores podem introduzir metadados descritivos utilizando a ferramenta de registo de fonte de dados. Os utilizadores podem adicionar tags e identificar especialistas para os objetos que estão a ser registados. Todos estes metadados descritivos são copiados para o serviço data catalog juntamente com os metadados estruturais.
 
-## <a name="include-previews"></a>Incluir visualizações
-Por padrão, somente os metadados são extraídos das fontes de dados e copiados para o serviço de catálogo de dados, mas a compreensão de uma fonte de dados geralmente é mais fácil quando você pode exibir uma amostra dos dados que ela contém.
+## <a name="include-previews"></a>Incluir pré-visualizações
+Por padrão, apenas os metadados são extraídos de fontes de dados e copiados para o serviço data Catalog, mas compreender uma fonte de dados é muitas vezes facilitado quando se pode visualizar uma amostra dos dados que contém.
 
-Usando a ferramenta de registro de fonte de dados do catálogo de dados, você pode incluir uma visualização de instantâneo dos dados em cada tabela e exibição registrada. Se você optar por incluir visualizações durante o registro, a ferramenta de registro incluirá até 20 registros de cada tabela e exibição. Esse instantâneo é copiado para o catálogo junto com os metadados estruturais e descritivos.
+Ao utilizar a ferramenta de registo de fonte de dados do Data Catalog, pode incluir uma pré-visualização instantânea dos dados em cada tabela e visualização que está registada. Se optar por incluir pré-visualizações durante o registo, a ferramenta de registo inclui até 20 registos de cada tabela e vista. Este instantâneo é então copiado para o catálogo juntamente com os metadados estruturais e descritivos.
 
 > [!NOTE]
-> Tabelas largas com um grande número de colunas podem ter menos de 20 registros incluídos em sua visualização.
+> Mesas largas com um grande número de colunas podem ter menos de 20 registos incluídos na sua pré-visualização.
 >
 >
 
 ## <a name="include-data-profiles"></a>Incluir perfis de dados
-Assim como a inclusão de visualizações pode fornecer um contexto valioso para os usuários que pesquisam fontes de dados no catálogo de dados, a inclusão de um perfil de dados pode facilitar a compreensão das fontes de dados descobertas.
+Assim como a inclusão de pré-visualizações pode fornecer um contexto valioso para os utilizadores que procuram fontes de dados no Data Catalog, incluindo um perfil de dados pode facilitar a compreensão de fontes de dados descobertas.
 
-Usando a ferramenta de registro de fonte de dados do catálogo de dados, você pode incluir um perfil de dados para cada tabela e exibição registrada. Se você optar por incluir um perfil de dados durante o registro, a ferramenta de registro incluirá estatísticas de agregação sobre os dados em cada tabela e exibição, incluindo:
+Ao utilizar a ferramenta de registo de fonte de dados do Data Catalog, pode incluir um perfil de dados para cada tabela e visualização que está registada. Se optar por incluir um perfil de dados durante o registo, a ferramenta de registo inclui estatísticas agregadas sobre os dados em cada tabela e vista, incluindo:
 
 * O número de linhas e o tamanho dos dados no objeto.
-* A data para a atualização mais recente dos dados e o esquema de objeto.
-* O número de registros nulos e valores distintos para colunas.
-* Os valores de desvio mínimo, máximo, médio e padrão para colunas.
+* A data para a mais recente atualização dos dados e o esquema do objeto.
+* O número de registos nulos e valores distintos para colunas.
+* Os valores mínimos, máximos, médios e padrão de desvio para colunas.
 
-Essas estatísticas são então copiadas para o catálogo junto com os metadados estruturais e descritivos.
+Estas estatísticas são então copiadas para o catálogo juntamente com os metadados estruturais e descritivos.
 
 > [!NOTE]
-> As colunas de texto e de data não incluem estatísticas de desvio médio ou padrão em seu perfil de dados.
+> As colunas de texto e data sem incluir estatísticas médias ou padrão de desvio no seu perfil de dados.
 >
 >
 
-## <a name="update-registrations"></a>Atualizar registros
-O registro de uma fonte de dados torna-o detectável no catálogo de dados quando você usa os metadados e a visualização opcional extraída durante o registro. Se a fonte de dados precisar ser atualizada no catálogo (por exemplo, se o esquema de um objeto tiver sido alterado, as tabelas originalmente excluídas deverão ser incluídas ou você desejar atualizar os dados que estão incluídos nas visualizações), a ferramenta de registro de fonte de dados poderá ser executada novamente.
+## <a name="update-registrations"></a>Atualizar registos
+Registar uma fonte de dados torna-a detetável no Data Catalog quando utiliza os metadados e a pré-visualização opcional extraída durante o registo. Se a fonte de dados tiver de ser atualizada no catálogo (por exemplo, se o esquema de um objeto tiver mudado, as tabelas originalmente excluídas devem ser incluídas ou se pretender atualizar os dados incluídos nas pré-visualizações), a ferramenta de registo de fontes de dados pode ser reexecutada.
 
-O novo registro de uma fonte de dados já registrada executa uma operação de mesclagem "Upsert": os objetos existentes são atualizados e novos objetos são criados. Todos os metadados fornecidos pelos usuários por meio do portal do catálogo de dados são mantidos.
+O reregisto de uma fonte de dados já registada realiza uma operação de fusão "upsert": os objetos existentes são atualizados e novos objetos são criados. Os metadados fornecidos pelos utilizadores através do portal Data Catalog são retidos.
 
 ## <a name="summary"></a>Resumo
-Como ele copia metadados estruturais e descritivos de uma fonte de dados para o serviço de catálogo, registrar a fonte de dados no catálogo de dados torna os dados mais fáceis de descobrir e entender. Depois de registrar a fonte de dados, você pode anotar, gerenciar e descobri-la usando o portal do catálogo de dados.
+Uma vez que copia metadados estruturais e descritivos de uma fonte de dados para o serviço de catálogo, registar a fonte de dados no Data Catalog facilita a descoberta e a compreensão dos dados. Depois de ter registado a fonte de dados, pode anotar, gerir e descobrir através do portal Data Catalog.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre como registrar fontes de dados, consulte o tutorial [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) .
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações sobre o registo de fontes de dados, consulte o [tutorial Get Started with Azure Data Catalog.](data-catalog-get-started.md)

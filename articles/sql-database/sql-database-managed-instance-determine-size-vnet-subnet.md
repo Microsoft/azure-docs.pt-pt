@@ -1,6 +1,6 @@
 ---
-title: Instância gerenciada determinar o tamanho da VNet/sub-rede
-description: Este tópico descreve como calcular o tamanho da sub-rede em que as instâncias gerenciadas do banco de dados SQL do Azure serão implantadas.
+title: Instância gerida determinar tamanho VNet/subnet
+description: Este tópico descreve como calcular o tamanho da subnet onde serão implementadas as instâncias geridas pela Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,41 +12,41 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
 ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825743"
 ---
-# <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede VNet para Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determine o tamanho da subnet VNet para a instância gerida pela base de dados Azure SQL
 
-Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantado em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md)do Azure.
+A instância gerida pela base de dados Azure SQL deve ser implantada dentro de uma rede virtual Azure [(VNet)](../virtual-network/virtual-networks-overview.md).
 
-O número de instâncias gerenciadas que podem ser implantadas na sub-rede da VNet depende do tamanho da sub-rede (intervalo de sub-rede).
+O número de Instâncias Geridas que podem ser implantadas na sub-rede da VNet depende do tamanho da sub-rede (gama de sub-rede).
 
-Quando você cria uma Instância Gerenciada, o Azure aloca um número de máquinas virtuais dependendo da camada selecionada durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir a alta disponibilidade durante as operações regulares e a manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior do que o número de instâncias gerenciadas nessa sub-rede.
+Ao criar uma Instância Gerida, o Azure aloca uma série de máquinas virtuais dependendo do nível selecionado durante o fornecimento. Como estas máquinas virtuais estão associadas à sua sub-rede, necessitam de endereços IP. Para garantir uma elevada disponibilidade durante operações regulares e manutenção de serviços, o Azure poderá alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários numa subnet é maior do que o número de Instâncias Geridas nessa sub-rede.
 
-Por design, uma Instância Gerenciada precisa de um mínimo de 16 endereços IP em uma sub-rede e pode usar até 256 endereços IP. Como resultado, você pode usar uma máscara de sub-rede entre/28 e/24 ao definir seus intervalos de IP de sub-rede. Um bit de máscara de rede de/28 (14 hosts por rede) é um bom tamanho para uma única finalidade geral ou implantação crítica para os negócios. Um bit de máscara de/27 (30 hosts por rede) é ideal para várias implantações de Instância Gerenciada dentro da mesma VNet. As configurações de bits de máscara de/26 (62 hosts) e/24 (hosts 254) permitem a expansão adicional da VNet para dar suporte a instâncias gerenciadas adicionais.
-
-> [!IMPORTANT]
-> Um tamanho de sub-rede com 16 endereços IP é o mínimo, com potencial limitado, em que uma operação de dimensionamento como alteração de tamanho vCore não é suportada. É altamente recomendável escolher a sub-rede com o prefixo/27 ou o prefixo mais longo.
-
-## <a name="determine-subnet-size"></a>Determinar o tamanho da sub-rede
-
-Se você planeja implantar várias instâncias gerenciadas dentro da sub-rede e precisar otimizar o tamanho da sub-rede, use esses parâmetros para formar um cálculo:
-
-- O Azure usa cinco endereços IP na sub-rede para suas próprias necessidades
-- Cada instância de Uso Geral precisa de dois endereços
-- Cada instância de Comercialmente Crítico precisa de quatro endereços
-
-**Exemplo**: você planeja ter três uso geral e duas comercialmente crítico instâncias gerenciadas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos IP são definidos na potência de 2, você precisa do intervalo IP de 32 (2 ^ 5) endereços IP. Portanto, você precisa reservar a sub-rede com a máscara de sub-rede de/27.
+Por conceção, uma Instância Gerida necessita de um mínimo de 16 endereços IP numa sub-rede e pode utilizar até 256 endereços IP. Como resultado, pode utilizar uma máscara de sub-rede entre /28 e /24 ao definir as gamas IP da sub-rede. Um bit de máscara de rede de /28 (14 hospedeiros por rede) é um bom tamanho para um único propósito geral ou implantação crítica do negócio. Um bit de máscara de /27 (30 hospedeiros por rede) é ideal para uma múltipla implementação de Instância Gerida dentro do mesmo VNet. As definições de bits de máscara de /26 (62 anfitriões) e /24 (254 anfitriões) permitem uma maior escala fora da VNet para suportar instâncias geridas adicionais.
 
 > [!IMPORTANT]
-> O cálculo exibido acima se tornará obsoleto com outras melhorias.
+> Um tamanho de sub-rede com 16 endereços IP é o mínimo nu com potencial limitado onde uma operação de escala como a alteração do tamanho vCore não é suportada. A escolha da sub-rede com o prefixo /27 ou prefixo mais longo é altamente recomendada.
+
+## <a name="determine-subnet-size"></a>Determinar o tamanho da subnet
+
+Se planeia implementar múltiplas Instâncias Geridas dentro da subnet e precisa de otimizar o tamanho da sub-rede, utilize estes parâmetros para formar um cálculo:
+
+- Azure usa cinco endereços IP na subnet para as suas próprias necessidades
+- Cada instância de Propósito Geral precisa de dois endereços
+- Cada instância Business Critical precisa de quatro endereços
+
+**Exemplo:** Pretende ter três General Purpose e duas Business Critical Managed. Isto significa que precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como as gamas IP são definidas na potência de 2, você precisa da gama IP de 32 (2^5) endereços IP. Por isso, é necessário reservar a sub-rede com máscara de sub-rede de /27.
+
+> [!IMPORTANT]
+> O cálculo acima apresentado tornar-se-á obsoleto com novas melhorias.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral, consulte [o que é um instância gerenciada](sql-database-managed-instance.md).
-- Saiba mais sobre [a arquitetura de conectividade para instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
-- Consulte como [criar VNet onde você implantará instâncias gerenciadas](sql-database-managed-instance-create-vnet-subnet.md)
-- Para problemas de DNS, consulte [Configurando um DNS personalizado](sql-database-managed-instance-custom-dns.md)
+- Para uma visão geral, veja [O que é uma Instância Gerida](sql-database-managed-instance.md).
+- Saiba mais sobre [a arquitetura de conectividade para o Exemplo Gerido.](sql-database-managed-instance-connectivity-architecture.md)
+- Veja como [criar vNet onde irá implementar Instâncias Geridas](sql-database-managed-instance-create-vnet-subnet.md)
+- Para problemas dNS, consulte [Configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md)

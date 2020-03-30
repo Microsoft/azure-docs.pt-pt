@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
 ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022686"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Utilize casos para gateway de caixa de dados Azure
@@ -65,11 +65,11 @@ Utilize o Data Box e data Box Gateway juntos quando pretender fazer um upload a 
 
 Siga estes passos para copiar os dados para Data Box e fazer upload para o Armazenamento Azure.
 
-1. [Ordene seu data Box](/azure/databox/data-box-deploy-ordered).
+1. [Encomende a sua Caixa de Dados.](/azure/databox/data-box-deploy-ordered)
 2. [Configurar a sua Caixa](/azure/databox/data-box-deploy-set-up)de Dados .
 3. [Copiar dados para Data Box via SMB](/azure/databox/data-box-deploy-copy-data).
 4. [Devolva a Caixa de Dados, verifique o upload de dados para o Azure](/azure/databox/data-box-deploy-picked-up).
-5. Uma vez que o envio de dados para o Azure esteja completo, todos os dados devem estar em contentores de armazenamento Azure. Na conta de armazenamento da Data Box, vá ao recipiente Blob (e File) para se certificar de que todos os dados são copiados. Tome nota do nome do recipiente, pois utilizará este nome mais tarde. Por exemplo, na seguinte imagem, `databox` recipiente será utilizado para a transferência incremental.
+5. Uma vez que o envio de dados para o Azure esteja completo, todos os dados devem estar em contentores de armazenamento Azure. Na conta de armazenamento da Data Box, vá ao recipiente Blob (e File) para se certificar de que todos os dados são copiados. Tome nota do nome do recipiente, pois utilizará este nome mais tarde. Por exemplo, na seguinte `databox` imagem, o recipiente será utilizado para a transferência incremental.
 
     ![Contentor com dados sobre Caixa de Dados](media/data-box-gateway-use-cases/data-container1.png)
 

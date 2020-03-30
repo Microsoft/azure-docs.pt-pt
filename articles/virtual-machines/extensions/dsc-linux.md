@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250624"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
@@ -62,7 +62,7 @@ Aqui estão todos os parâmetros de configuração pública suportados:
 * `FileUri`: (opcional, corda) O uri do ficheiro MOF, ficheiro meta MOF ou ficheiro zip de recurso personalizado.
 * `ResourceName`: (opcional, corda) O nome do módulo de recursos personalizados.
 * `ExtensionAction`: (opcional, corda) Especifica o que uma extensão faz. Os valores válidos são Registar, Empurrar, Puxar, Instalar e Remover. Se não especificado, é considerado uma Ação push por padrão.
-* `NodeConfigurationName`: (opcional, corda) O nome de uma configuração do nó a aplicar.
+* `NodeConfigurationName`: (opcional, corda) O nome de uma configuração nó a aplicar.
 * `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) que o DSC tenta obter a configuração do servidor de puxar. 
        Se a configuração no servidor de puxar difere da atual no nó alvo, é copiada para a loja pendente e aplicada.
 * `ConfigurationMode`: (opcional, corda) Especifica como o DSC deve aplicar a configuração. Os valores válidos são ApplyOnly, ApplyAndMonitor e ApplyAndAutoCorrect.
@@ -77,7 +77,7 @@ Aqui estão todos os parâmetros de configuração pública suportados:
 Aqui estão todos os parâmetros de configuração protegidos suportados:
 
 * `StorageAccountName`: (opcional, cadeia) O nome da conta de armazenamento que contém o ficheiro
-* `StorageAccountKey`: (opcional, cadeia) A chave da conta de armazenamento que contém o ficheiro
+* `StorageAccountKey`: (opcional, corda) A chave da conta de armazenamento que contém o ficheiro
 * `RegistrationUrl`: (opcional, cadeia) O URL da conta Azure Automation
 * `RegistrationKey`: (opcional, cadeia) A chave de acesso da conta Azure Automation
 
@@ -85,14 +85,14 @@ Aqui estão todos os parâmetros de configuração protegidos suportados:
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="register-an-azure-automation-account"></a>Registe uma conta Azure Automation
-protected.json
+protegido.json
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-public.json
+público.json
 ```json
 {
   "ExtensionAction" : "Register",
@@ -121,7 +121,7 @@ $publicConfig = '{
 
 ### <a name="apply-an-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um ficheiro de configuração MOF (numa conta de armazenamento Azure) ao VM
 
-protected.json
+protegido.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -129,7 +129,7 @@ protected.json
 }
 ```
 
-public.json
+público.json
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -153,7 +153,7 @@ $publicConfig = '{
 
 ### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um ficheiro de configuração MOF (em armazenamento público) ao VM
 
-public.json
+público.json
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -169,7 +169,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um ficheiro de configuração meta MOF (numa conta de armazenamento Azure) ao VM
 
-protected.json
+protegido.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -177,7 +177,7 @@ protected.json
 }
 ```
 
-public.json
+público.json
 ```json
 {
   "ExtensionAction": "Pull",
@@ -199,7 +199,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um ficheiro de configuração meta MOF (em armazenamento público) ao VM
-public.json
+público.json
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -215,14 +215,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>Instale um módulo de recursos personalizados (um ficheiro zip numa conta de armazenamento Azure) para o VM
-protected.json
+protegido.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-public.json
+público.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -244,7 +244,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>Instale um módulo de recursos personalizados (um ficheiro zip em armazenamento público) para o VM
-public.json
+público.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -260,7 +260,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Remova um módulo de recursos personalizado sacar do VM
-public.json
+público.json
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -277,17 +277,17 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração pós-implantação, como o embarque na Automação Azure. 
+As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração pós-implantação, como o embarque na Automação Azure. 
 
 O modelo de Gestor de Recursos da amostra é [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
 Para obter mais informações sobre o modelo do Gestor de Recursos Azure, consulte [os modelos de Gestor de Recursos Do Azure.](../../azure-resource-manager/templates/template-syntax.md)
 
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI
 
 ### <a name="use-azure-cliazure-cli"></a>Utilizar [Azure CLI][azure-cli]
-Antes de implementar a extensão DSCForLinux, configure o seu `public.json` e `protected.json` de acordo com os diferentes cenários da secção 3.
+Antes de implementar a extensão DSCForLinux, configure o seu `public.json` e `protected.json` de acordo com os diferentes cenários na secção 3.
 
 #### <a name="classic"></a>Clássica
 
@@ -322,7 +322,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> No modo Azure Resource Manager, `azure vm extension list` não está disponível por enquanto.
+> No modo Azure `azure vm extension list` Resource Manager, não está disponível por enquanto.
 >
 
 ### <a name="use-azure-powershellazure-powershell"></a>Utilizar [Azure PowerShell][casca de potência azul]
@@ -408,7 +408,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
@@ -418,7 +418,7 @@ Os dados sobre o estado das extensões podem ser recuperados a partir do portal 
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Resultado da execução de extensão é registado para o ficheiro seguinte:
+A saída de execução de extensão é registada no seguinte ficheiro:
 
 ```
 /var/log/azure/<extension-name>/<version>/extension.log file.

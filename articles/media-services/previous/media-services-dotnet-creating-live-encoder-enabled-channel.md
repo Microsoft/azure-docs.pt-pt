@@ -16,20 +16,20 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015513"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como realizar uma transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões com velocidade de transmissão múltipla com .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -44,7 +44,7 @@ Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 
-1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador em direto no local que possa enviar uma transmissão de velocidade de transmissão única através de um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Este passo também pode ser realizado depois de criar o Canal.
 
@@ -90,7 +90,7 @@ O artigo mostra como fazer o seguinte:
 ## <a name="prerequisites"></a>Pré-requisitos
 O seguinte é necessário para concluir o tutorial.
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Recebe créditos que podem ser utilizados para experimentar os serviços pagos do Azure. Mesmo depois de gastar todos os créditos, pode manter a conta e utilizar os serviços e recursos gratuitos do Azure, tal como a funcionalidade Web Apps no App Service do Azure.
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Recebe créditos que podem ser utilizados para experimentar os serviços pagos do Azure. Mesmo depois de gastar todos os créditos, pode manter a conta e utilizar os serviços e recursos gratuitos do Azure, tal como a funcionalidade Web Apps no App Service do Azure.
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Criar Conta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
 * Tem de utilizar a versão 3.2.0.0 ou mais recente do SDK .NET dos Media Services.
@@ -98,7 +98,7 @@ O seguinte é necessário para concluir o tutorial.
 
 ## <a name="considerations"></a>Considerações
 * Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
-* Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+* Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ## <a name="download-sample"></a>Transferir exemplo
 

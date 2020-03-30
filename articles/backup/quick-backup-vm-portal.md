@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240451"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
@@ -21,7 +21,7 @@ Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma VM para fazer uma cópia de segurança
 
@@ -60,7 +60,7 @@ Pode iniciar uma cópia de segurança agora em vez de aguardar até que a polít
 
 ## <a name="monitor-the-backup-job"></a>Monitorizar a tarefa de cópia de segurança
 
-Na janela **Cópia de segurança** da VM, o estado da cópia de segurança e o número de pontos de restauro concluídos são apresentados. Assim que a tarefa de cópia de segurança da VM estiver concluída, as informações sobre a **Hora da última cópia de segurança**, o **Ponto de restauro mais recente** e o **Ponto de restauro mais antigo** são apresentadas no lado direito da janela  **Descrição geral**.
+Na janela **Cópia de segurança** da VM, o estado da cópia de segurança e o número de pontos de restauro concluídos são apresentados. Assim que a tarefa de cópia de segurança da VM estiver concluída, as informações sobre a **Hora da última cópia de segurança**, o **Ponto de restauro mais recente** e o **Ponto de restauro mais antigo** são apresentadas no lado direito da janela ** Descrição geral**.
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 

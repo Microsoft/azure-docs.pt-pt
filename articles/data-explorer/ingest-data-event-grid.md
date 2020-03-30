@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370445"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingest blobs no Azure Data Explorer ao subscrever notificações da Rede de Eventos
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-grid.md)
-> * [C#](data-connection-event-grid-csharp.md)
-> * [python](data-connection-event-grid-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-grid-resource-manager.md)
+> * [C #](data-connection-event-grid-csharp.md)
+> * [Pitão](data-connection-event-grid-python.md)
+> * [Modelo Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração rápida e escalável de dados para dados de registo e telemetria. Oferece ingestão contínua (carregamento de dados) de bolhas escritas a recipientes de bolhas. 
 
@@ -36,7 +36,7 @@ Neste artigo, você aprende como definir uma subscrição [azure Event Grid,](/a
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Crie uma subscrição da Grelha de Eventos na sua conta de armazenamento
 
 1. No portal Azure, encontre a sua conta de armazenamento.
-1. Selecione **Eventos** > **Subscrição de Eventos**.
+1.  > **Selecione Subscrição de** **Eventos**.
 
     ![Ligação da aplicação de consulta](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -45,18 +45,18 @@ Neste artigo, você aprende como definir uma subscrição [azure Event Grid,](/a
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome | *ligação à grelha de ensaio* | O nome da grelha de eventos que quer criar.|
-    | Evento Schema | *Esquema da Grelha de Eventos* | O esquema que deve ser usado para a grelha do evento. |
+    | Esquema de Eventos | *Esquema do Event Grid* | O esquema que deve ser usado para a grelha do evento. |
     | Tipo de Tópico | *Conta de armazenamento* | O tipo de tópico da grelha de eventos. |
     | Recurso tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
     | Subscreva todos os tipos de eventos | *claro* | Não seja notificado de todos os eventos. |
-    | Tipos de eventos definidos | *Blob criado* | Que eventos específicos para ser notificado. |
+    | Tipos de eventos definidos | *Criado pelo Blob* | Que eventos específicos para ser notificado. |
     | Tipo endpoint | *Hubs de eventos* | O tipo de ponto final para o qual envia os eventos. |
     | Ponto Final | *test-hub* | O hub de eventos que criou. |
     | | |
 
 1. Selecione o separador **Filtros** se pretender rastrear ficheiros a partir de um recipiente específico. Detete os filtros para as notificações da seguinte forma:
     * **Assunto Começa Com** o campo é o prefixo *literal* do recipiente de bolhas. À medida que o padrão aplicado *é iniciado,* pode abranger vários recipientes. Não são permitidos wildcards.
-     Deve *must* ser definido da seguinte forma: *`/blobServices/default/containers/`* [prefixo do recipiente]
+     Deve *must* ser definido da *`/blobServices/default/containers/`* seguinte forma: [prefixo do recipiente]
     * **O assunto termina com** o campo é o sufixo *literal* da bolha. Não são permitidos wildcards.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Azure Data Explorer
@@ -87,11 +87,11 @@ Agora ligue-se à Grelha de Eventos do Azure Data Explorer, de modo a que os dad
 
 1. Selecione **Notificações** na barra de ferramentas para verificar se a implementação do hub de eventos foi concluída com êxito.
 
-1. Sob o cluster que criou, selecione **Bases de Dados** > **TestDatabase**.
+1. Sob o cluster que criou, selecione **Databases** > **TestDatabase**.
 
     ![Selecionar a base de dados de teste](media/ingest-data-event-grid/select-test-database.png)
 
-1. **Selecione a ingestão** de dados > **Adicionar a ligação de dados**.
+1.  >  **Selecione ingestão**de dados**Adicionar ligação de dados**.
 
     ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
@@ -101,7 +101,7 @@ Agora ligue-se à Grelha de Eventos do Azure Data Explorer, de modo a que os dad
 
     ![Ligação ao hub de eventos](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
-     Fonte de dados:
+     Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -118,7 +118,7 @@ Agora ligue-se à Grelha de Eventos do Azure Data Explorer, de modo a que os dad
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compressão suportadas: Zip e GZip |
+    | Formato de dados | *Rio JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compressão suportadas: Zip e GZip |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
     | | |
     
@@ -159,7 +159,7 @@ Guarde os dados num ficheiro e carregue-os com este script:
 ```
 
 > [!NOTE]
-> Para obter o melhor desempenho de ingestão, deve ser comunicada a dimensão *descomprimido* das bolhas comprimidos submetidas para ingestão. Dado que as notificações da Rede de Eventos contêm apenas detalhes básicos, as informações de tamanho devem ser explicitamente comunicadas. As informações de tamanho não comprimido podem ser fornecidas definindo a propriedade `rawSizeBytes` nos metadados blob com o tamanho de dados *não comprimido* em bytes.
+> Para obter o melhor desempenho de ingestão, deve ser comunicada a dimensão *descomprimido* das bolhas comprimidos submetidas para ingestão. Dado que as notificações da Rede de Eventos contêm apenas detalhes básicos, as informações de tamanho devem ser explicitamente comunicadas. As informações de tamanho não comprimido `rawSizeBytes` podem ser fornecidas definindo a propriedade nos metadados blob com o tamanho de dados *não comprimido* em bytes.
 
 ### <a name="ingestion-properties"></a>Propriedades de ingestão
 
@@ -170,10 +170,10 @@ Estas propriedades podem ser definidas:
 |**Propriedade** | **Descrição do imóvel**|
 |---|---|
 | `rawSizeBytes` | Tamanho dos dados brutos (não comprimidos). Para a Avro/ORC/Parquet, este é o tamanho antes da aplicação da compressão específica do formato.|
-| `kustoTable` |  Nome da tabela-alvo existente. Sobrepõe-se ao `Table` colocado na lâmina `Data Connection`. |
-| `kustoDataFormat` |  Formato de dados. Sobrepõe-se ao `Data format` colocado na lâmina `Data Connection`. |
-| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser utilizado. Sobrepõe-se ao `Column mapping` colocado na lâmina `Data Connection`.|
-| `kustoIgnoreFirstRecord` | Se for programado para `true`, Kusto ignora a primeira linha da bolha. Utilize em dados de formato tabular (CSV, TSV ou similar) para ignorar os cabeçalhos. |
+| `kustoTable` |  Nome da tabela-alvo existente. Sobrepõe-se `Table` do `Data Connection` conjunto na lâmina. |
+| `kustoDataFormat` |  Formato de dados. Sobrepõe-se `Data format` do `Data Connection` conjunto na lâmina. |
+| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser utilizado. Sobrepõe-se `Column mapping` do `Data Connection` conjunto na lâmina.|
+| `kustoIgnoreFirstRecord` | Se estiver `true`programado, Kusto ignora a primeira linha da bolha. Utilize em dados de formato tabular (CSV, TSV ou similar) para ignorar os cabeçalhos. |
 | `kustoExtentTags` | Etiquetas [representativas](/azure/kusto/management/extents-overview#extent-tagging) de cordas que serão anexadas à extensão resultante. |
 | `kustoCreationTime` |  Substitui [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para a bolha, formatada como uma corda ISO 8601. Utilize para recheio. |
 

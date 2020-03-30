@@ -1,5 +1,5 @@
 ---
-title: Crie um laboratório de scripts linux com serviços de laboratório azure  Microsoft Docs
+title: Crie um laboratório de scripts linux com serviços de laboratório azure [ Microsoft Docs
 description: Aprenda a montar um laboratório para ensinar scripts de concha sintetmente no Linux.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443555"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Criar um laboratório para ensinar o script de concha sintetmente em Linux
@@ -26,7 +26,7 @@ Este artigo mostra-te como criar um laboratório para ensinar guiões de conchas
 Os alunos que têm estas aulas de scripting recebem uma máquina virtual Linux para aprender o básico do Linux, e também se familiarizarem com o script da concha da bash. A máquina virtual Linux vem com acesso remoto ao ambiente de trabalho ativado e com editores de texto [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) instalados.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
-Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
+Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
 
 Depois de criar a conta de laboratório, ative as seguintes definições na conta de laboratório: 
 
@@ -47,7 +47,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 A imagem [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) não tem um servidor de ambiente de trabalho remoto instalado por padrão. Siga as instruções no Ambiente de [Trabalho Remoto de Instalação e configure para ligar a um Artigo do Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar as embalagens necessárias na máquina do modelo para se ligar através de um protocolo de ambiente de trabalho remoto.
 
 ## <a name="install-ruby"></a>Instalar o Ruby
-Ruby é uma linguagem dinâmica de código aberto que pode ser combinada com scripts de bash. Esta secção mostra como usar `apt-get` para instalar a versão mais recente da [Ruby.](https://www.ruby-lang.org/)
+Ruby é uma linguagem dinâmica de código aberto que pode ser combinada com scripts de bash. Esta secção mostra `apt-get` como usar para instalar a versão mais recente da [Ruby.](https://www.ruby-lang.org/)
 
 1. Instale atualizações executando os seguintes comandos:
 

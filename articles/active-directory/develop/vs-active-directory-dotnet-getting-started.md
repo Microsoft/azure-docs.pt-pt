@@ -1,5 +1,5 @@
 ---
-title: Começar com a Azure AD em projetos de MVC .NET  Azure
+title: Começar com a Azure AD em projetos de MVC .NET [ Azure
 description: Como começar a usar o Azure Ative Directory em projetos .NET MVC após ligar ou criar um Azure AD utilizando serviços conectados ao Estúdio Visual
 author: ghogen
 manager: jillfra
@@ -12,10 +12,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: eae649a4de88373ee79e49ecb7d5f14564a3054b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159493"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Começar com o Diretório Ativo Azure (ASP.NET Projetos MVC)
@@ -24,17 +24,17 @@ ms.locfileid: "77159493"
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo fornece orientação adicional depois de ter adicionado Diretório Ativo a um projeto ASP.NET MVC através do comando **do Project > Connected Services** do Visual Studio. Se ainda não adicionou o serviço ao seu projeto, pode fazê-lo a qualquer momento.
+Este artigo fornece orientação adicional depois de ter adicionado O Diretório Ativo a um projeto ASP.NET MVC através do **comando de Serviços Conectados do Project > Connected Services** do Visual Studio. Se ainda não adicionou o serviço ao seu projeto, pode fazê-lo a qualquer momento.
 
 Veja [o que aconteceu ao meu projeto mVC?](vs-active-directory-dotnet-what-happened.md)
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para aceder aos controladores
 
-Todos os controladores do seu projeto foram adornados com o atributo `[Authorize]`. Este atributo exige que o utilizador seja autenticado antes de aceder a estes controladores. Para permitir que o controlador seja acedido de forma anónima, remova este atributo do controlador. Se pretender definir as permissões a um nível mais granular, aplique o atributo a cada método que requer autorização em vez de a aplicar à classe de controlador.
+Todos os controladores do seu `[Authorize]` projeto foram adornados com o atributo. Este atributo exige que o utilizador seja autenticado antes de aceder a estes controladores. Para permitir que o controlador seja acedido de forma anónima, remova este atributo do controlador. Se pretender definir as permissões a um nível mais granular, aplique o atributo a cada método que requer autorização em vez de a aplicar à classe de controlador.
 
 ## <a name="adding-signin--signout-controls"></a>Adicionar controlos signin /signout
 
-Para adicionar os controlos SignIn/SignOut à sua vista, pode utilizar a visão parcial `_LoginPartial.cshtml` para adicionar a funcionalidade a uma das suas opiniões. Aqui está um exemplo da funcionalidade adicionada à visão padrão `_Layout.cshtml`. (Note o último elemento no div com o colapso da navbar de classe):
+Para adicionar os controlos SignIn/SignOut à `_LoginPartial.cshtml` sua vista, pode utilizar a vista parcial para adicionar a funcionalidade a uma das suas opiniões. Aqui está um exemplo da funcionalidade `_Layout.cshtml` adicionada à vista padrão. (Note o último elemento no div com o colapso da navbar de classe):
 
 ```html
 <!DOCTYPE html>

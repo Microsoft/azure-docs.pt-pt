@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 105a91d8bfddeae3ed12c4ebb5b761d5989b91a2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033097"
 ---
-# <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais no Azure 
+# <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais em Azure 
 
 [!INCLUDE [virtual-machines-common-network-overview](../../../includes/virtual-machines-common-network-overview.md)]

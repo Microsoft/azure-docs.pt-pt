@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110682"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e desconexões de problemas com hub Azure IoT
@@ -23,7 +23,7 @@ Problemas de conectividade para dispositivos IoT podem ser difíceis de resolver
 
 Utilize o Monitor Azure para obter alertas e escrever registos quando os dispositivos se desligarem.
 
-### <a name="turn-on-diagnostic-logs"></a>Ativar registos de diagnóstico
+### <a name="turn-on-diagnostic-logs"></a>Ligue os registos de diagnóstico
 
 Para registar eventos e erros de ligação do dispositivo, ligue os diagnósticos para o IoT Hub. Recomendamos que se ligar estes registos o mais cedo possível, porque se os registos de diagnóstico não estiverem ativados, quando ocorrerem desconexões do dispositivo, não terá qualquer informação para resolver o problema.
 
@@ -73,7 +73,7 @@ Quando liga os registos de diagnóstico e alertas para dispositivos conectados, 
 
 1. Navegue pelo seu hub ioT.
 
-1. Selecione **Registos**.
+1. Selecionar **Registos**.
 
 1. Para isolar os registos de erro de conectividade para o IoT Hub, introduza a seguinte consulta e, em seguida, selecione **Executar:**
 
@@ -82,16 +82,16 @@ Quando liga os registos de diagnóstico e alertas para dispositivos conectados, 
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Se houver resultados, procure `OperationName`, `ResultType` (código de erro) e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
+1. Se houver resultados, `OperationName` `ResultType` procure , (código de erro) e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
 
    ![Exemplo de registo de erros](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
 1. Siga os guias de resolução de problemas para os erros mais comuns:
 
-    - **[404104 DispositivoConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
+    - **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
     - **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
     - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
-    - **[Erro de servidor 500001](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+    - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
     - **[500008 GenéricoTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Tentei os passos, mas não funcionaram.
@@ -100,7 +100,7 @@ Se os passos anteriores não ajudaram, tente:
 
 * Se tiver acesso aos dispositivos problemáticos, física ou remotamente (como o SSH), siga o [guia de resolução de problemas](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) do lado do dispositivo para continuar a resolução de problemas.
 
-* Verifique se os seus dispositivos estão **ativados** no portal Azure > os seus dispositivos IoT hub > IoT.
+* Verifique se os seus dispositivos estão **ativados** no portal Azure > o seu hub IoT > dispositivos IoT.
 
 * Se o seu dispositivo utilizar o protocolo MQTT, verifique se a porta 8883 está aberta. Para mais informações, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 

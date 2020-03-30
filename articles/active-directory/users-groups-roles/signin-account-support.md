@@ -1,6 +1,6 @@
 ---
-title: Minha página de entrada do Azure AD aceita contas da Microsoft | Microsoft Docs
-description: Como as mensagens na tela refletem a pesquisa de nome de usuário durante a entrada
+title: Será que a minha página de entrada de Anúncio saque a Azure aceita contas da Microsoft / Microsoft Docs
+description: Como as mensagens no ecrã refletem a procura de nome de utilizador durante o iniciar o sessão
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,26 +14,26 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 221ab7c50a84650f1b2adf3fdb2b284365795f42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74024289"
 ---
-# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opções de entrada para contas da Microsoft no Azure Active Directory
+# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opções de entrada para contas da Microsoft no Diretório Ativo do Azure
 
-A página de entrada Microsoft 365 do Azure Active Directory (AD do Azure) dá suporte a contas corporativas ou de estudante e contas da Microsoft, mas dependendo da situação do usuário, ela pode ser uma ou outra ou ambas. Por exemplo, a página de entrada do Azure AD dá suporte a:
+A página de inscrição do Microsoft 365 para o Azure Ative Directory (Azure AD) suporta contas de trabalho ou de escola e contas da Microsoft, mas dependendo da situação do utilizador, pode ser uma ou outra ou ambas. Por exemplo, a página de entrada da AD Azure suporta:
 
-* Aplicativos que aceitam entradas de ambos os tipos de conta
-* Organizações que aceitam convidados
+* Apps que aceitam inscrições de ambos os tipos de conta
+* Organizações que aceitam hóspedes
 
-## <a name="identification"></a>ID
-Você pode saber se a página de entrada que sua organização usa dá suporte a contas da Microsoft examinando o texto de dica no campo username. Se o texto de dica diz "email, telefone ou Skype", a página de entrada dá suporte a contas da Microsoft.
+## <a name="identification"></a>Identificação
+Pode dizer se a página de início de sessão que a sua organização utiliza suporta as contas da Microsoft, olhando para o texto de sugestão no campo do nome de utilizador. Se o texto da dica diz "E-mail, telefone ou Skype", a página de inscrição suporta as contas da Microsoft.
 
-![Diferença entre as páginas de entrada da conta](./media/signin-account-support/ui-prompt.png)
+![Diferença entre as páginas de inscrição da conta](./media/signin-account-support/ui-prompt.png)
 
-[As opções de entrada adicionais só funcionam para contas pessoais da Microsoft](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) , mas não podem ser usadas para entrar em recursos de conta corporativa ou de estudante.
+[Opções adicionais de inscrição funcionam apenas para contas pessoais](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) da Microsoft, mas não podem ser usadas para iniciar sessão para trabalhar ou recursos de conta escolar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Personalizar sua identidade visual de entrada](../fundamentals/add-custom-domain.md)
+[Personalize a sua marca de sessão](../fundamentals/add-custom-domain.md)

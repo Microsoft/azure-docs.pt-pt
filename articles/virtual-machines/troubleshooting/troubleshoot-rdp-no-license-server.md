@@ -1,6 +1,6 @@
 ---
-title: O servidor de licença Área de Trabalho Remota não está disponível quando você se conecta a uma VM do Azure | Microsoft Docs
-description: Saiba como solucionar problemas de falha de RDP porque não há Área de Trabalho Remota servidor de licença disponível | Microsoft Docs
+title: O servidor de licença Remote Desktop não está disponível quando se conecta a um Azure VM [ Microsoft Docs
+description: Saiba como resolver problemas de falha no RDP porque não está disponível nenhum servidor de licença de Desktop Remoto [ Desktop' remoto ] Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,28 +13,28 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71088525"
 ---
-# <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Área de Trabalho Remota servidor de licença não está disponível quando você se conecta a uma VM do Azure
+# <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>O servidor de licença seleção remote não está disponível quando se conecta a um VM Azure
 
-Este artigo ajuda a resolver o problema quando você não pode se conectar a uma VM (máquina virtual) do Azure porque nenhum servidor de licença Área de Trabalho Remota está disponível para fornecer uma licença.
+Este artigo ajuda a resolver o problema quando não é possível ligar-se a uma máquina virtual Azure (VM) porque nenhum servidor de licença de Ambiente de Trabalho Remoto está disponível para fornecer uma licença.
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao tentar se conectar a uma VM (máquina virtual), você terá os seguintes cenários:
+Quando tenta ligar-se a uma máquina virtual (VM), experimenta os seguintes cenários:
 
-- A captura de tela da VM mostra que o sistema operacional está totalmente carregado e aguardando credenciais.
-- Você recebe as seguintes mensagens de erro ao tentar fazer uma conexão de protocolo de Área de Trabalho Remota da Microsoft (RDP):
+- A imagem vM mostra que o sistema operativo está completamente carregado e à espera de credenciais.
+- Recebe as seguintes mensagens de erro quando tenta efar uma ligação do Protocolo de Ambiente de Trabalho Remoto da Microsoft (RDP):
 
-  - A sessão remota foi desconectada porque não há servidores de licença Área de Trabalho Remota disponíveis para fornecer uma licença.
+  - A sessão remota foi desligada porque não existem servidores de licença seletiva remota disponíveis para fornecer uma licença.
 
-  - Não há Área de Trabalho Remota servidor de licença disponível. Serviços de Área de Trabalho Remota deixará de funcionar porque este computador ultrapassou seu período de carência e não contatou pelo menos um servidor de licença válido do Windows Server 2008. Selecione esta mensagem para abrir Host da Sessão RD configuração do servidor para usar o diagnóstico de licenciamento.
+  - Não existe nenhum servidor de licença de Ambiente de Trabalho Remoto disponível. Os Serviços de Ambiente de Trabalho Remoto deixarão de funcionar porque este computador já passou do seu período de carência e não contactou pelo menos um servidor de licença válido do Windows Server 2008. Selecione esta mensagem para abrir a configuração do servidor do anfitrião rd session para utilizar o diagnóstico de licenciamento.
 
-No entanto, você pode se conectar à VM normalmente usando uma sessão administrativa:
+No entanto, pode ligar-se normalmente ao VM através de uma sessão administrativa:
 
 ```
 mstsc /v:<Server>[:<Port>] /admin
@@ -42,90 +42,90 @@ mstsc /v:<Server>[:<Port>] /admin
 
 ## <a name="cause"></a>Causa
 
-Esse problema ocorre se um servidor de licença Área de Trabalho Remota não estiver disponível para fornecer uma licença para iniciar uma sessão remota. Pode ser causado por vários cenários, embora uma função de Host da Sessão da Área de Trabalho Remota tenha sido configurada na VM:
+Este problema ocorre se um servidor de licença de Ambiente de Trabalho Remoto não estiver disponível para fornecer uma licença para iniciar uma sessão remota. Pode ser causado por vários cenários, mesmo que tenha sido criado um papel de anfitrião de sessão de ambiente de trabalho remoto no VM:
 
-- Nunca havia uma Área de Trabalho Remota função de licenciamento no ambiente, e o período de carência, 180 dias, terminará.
-- Uma licença Área de Trabalho Remota foi instalada no ambiente, mas ela nunca é ativada.
-- Uma licença de Área de Trabalho Remota no ambiente não tem CALs (licenças de acesso para cliente) injetadas para configurar a conexão.
-- Uma licença de Área de Trabalho Remota foi instalada no ambiente. Há CALs disponíveis, mas elas não foram configuradas corretamente.
-- Uma licença Área de Trabalho Remota tem CALs e foi ativada. No entanto, alguns outros problemas na Área de Trabalho Remota servidor de licença impedem que ele forneça licenças no ambiente.
+- Nunca houve um papel de licenciamento remoto no ambiente, e o período de graça, de 180 dias, acabou.
+- Uma licença de Ambiente de Trabalho Remoto foi instalada no ambiente, mas nunca foi ativada.
+- Uma licença de ambiente de trabalho remoto no ambiente não tem licenças de acesso ao cliente (CALs) injetadas para configurar a ligação.
+- Foi instalada uma licença de Ambiente de Trabalho Remoto no ambiente. Existem CALs disponíveis, mas não foram configurados corretamente.
+- Uma licença de ambiente de trabalho remoto tem CALs, e foi ativada. No entanto, alguns outros problemas no servidor de licença seleção remota impedem-no de fornecer licenças no ambiente.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse problema, [faça backup do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md) e siga estas etapas:
+Para resolver este problema, [volte a fazer o disquedo](../windows/snapshot-copy-managed-disk.md) e siga estes passos:
 
-1. Conecte-se à VM usando uma sessão administrativa:
+1. Ligue-se ao VM através de uma sessão administrativa:
 
    ```
    mstsc /v:<Server>[:<Port>] /admin
    ```
 
-    Se você não conseguir se conectar à VM usando uma sessão administrativa, poderá usar o [console serial da máquina virtual no Azure](serial-console-windows.md) para acessar a VM da seguinte maneira:
+    Se não conseguir ligar-se ao VM utilizando uma sessão administrativa, pode utilizar a Consola de Série de [Máquina Virtual em Azure](serial-console-windows.md) para aceder ao VM da seguinte forma:
 
-    1. Acesse o console serial selecionando **suporte & solução de problemas** > **console serial (versão prévia)** . Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
+    1. Aceda à Consola em Série selecionando suporte & consola série de **resolução** > de problemas **(pré-visualização)**. Se a funcionalidade estiver ativada no VM, pode ligar o VM com sucesso.
 
-    2. Crie um novo canal para uma instância CMD. Insira **cmd** para iniciar o canal e obter o nome do canal.
+    2. Crie um novo canal para uma instância CMD. Introduza a **CMD** para iniciar o canal e obter o nome do canal.
 
-    3. Alterne para o canal que executa a instância CMD. Nesse caso, deve ser o canal 1:
+    3. Mude para o canal que executa a instância CMD. Neste caso, deve ser o canal 1:
 
        ```
        ch -si 1
        ```
 
-    4. Selecione **Enter** novamente e insira um nome de usuário e senha, local ou ID de domínio válidos para a VM.
+    4. Selecione **Entrar** novamente e introduzir um nome de utilizador e senha válidos, id local ou de domínio, para o VM.
 
-2. Verifique se a VM tem uma função de Host da Sessão da Área de Trabalho Remota habilitada. Se a função estiver habilitada, verifique se ela está funcionando corretamente. Abra uma instância de CMD elevada e siga estas etapas:
+2. Verifique se o VM tem uma função de anfitrião de sessão de ambiente de trabalho remota ativada. Se o papel estiver ativado, certifique-se de que está a funcionar corretamente. Abra uma instância CMD elevada e siga estes passos:
 
-    1. Use o seguinte comando para verificar o status da função de Host da Sessão da Área de Trabalho Remota:
+    1. Utilize o seguinte comando para verificar o estado da função anfitrião da sessão de ambiente de trabalho remoto:
 
        ```
         reg query "HKLM\SOFTWARE\Microsoft\ServerManager\ServicingStorage\ServerComponentCache\RDS-RD-Server" /v InstallState
         ```
 
-        Se esse comando retornar um valor de 0, significa que a função está desabilitada e você pode ir para a etapa 3.
+        Se este comando devolver um valor de 0, significa que o papel está desativado, e pode ir para o passo 3.
 
-    2. Use o seguinte comando para verificar as políticas e reconfigurar conforme necessário:
+    2. Utilize o seguinte comando para verificar as políticas e reconfigurar conforme necessário:
 
        ```
         reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
-        Se o valor **LicensingMode** for definido como qualquer valor diferente de 4, por usuário, defina o valor como 4:
+        Se o valor do **Modo de Licenciamento** for definido para qualquer valor diferente de 4, por utilizador, então detete o valor para 4:
 
          ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode /t REG_DWORD /d 4
         ```
 
-       Se o valor de **SpecifiedLicenseServers** não existir ou se tiver informações incorretas do servidor de licença, altere-o da seguinte maneira:
+       Se o valor **dos Servidores Licenciados Especificados** não existir, ou tiver informações incorretas sobre o servidor da licença, então altere-as da seguinte forma:
 
        ```
         reg add "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers /t REG_MULTI_SZ /d "<FQDN / IP License server>"
        ```
 
-    3. Depois de fazer alterações no registro, reinicie a VM.
+    3. Depois de efazer quaisquer alterações no registo, reinicie o VM.
 
-    4. Se você não tiver CALs, remova a função de Host da Sessão da Área de Trabalho Remota. Em seguida, o RDP será configurado de volta para normal. Ele só permite duas conexões simultâneas RDP para a VM:
+    4. Se não tiver CALs, retire a função de anfitrião da sessão de ambiente de trabalho remoto. Em seguida, o PDR será reposto ao normal. Só permite duas ligações pDR simultâneas ao VM:
 
         ```
        dism /ONLINE /Disable-feature /FeatureName:Remote-Desktop-Services
         ```
 
-        Se a VM tiver a função de licenciamento Área de Trabalho Remota e não for usada, você também poderá remover essa função:
+        Se o VM tiver a função de licenciamento remote Desktop e não for utilizado, também pode remover essa função:
 
        ```
         dism /ONLINE /Disable-feature /FeatureName:Licensing
        ```
 
-    5. Verifique se a VM pode se conectar ao servidor de licença Área de Trabalho Remota. Você pode testar a conectividade com a porta 135 entre a VM e o servidor de licença: 
+    5. Certifique-se de que o VM pode ligar-se ao servidor de licença seleção remota. Pode testar a conectividade com a porta 135 entre o VM e o servidor de licença: 
 
        ```
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Se não houver um servidor de licença Área de Trabalho Remota no ambiente e você quiser um, você poderá [instalar um serviço de função de licenciamento área de trabalho remota](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Em seguida, [Configure o licenciamento RDS](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
+3. Se não houver um servidor de licença de ambiente de trabalho remoto no ambiente e quiser um, pode instalar um serviço de [licenciamento de desktop remoto.](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)) Em seguida, [configurar o licenciamento RDS](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
-4. Se um servidor de licença Área de Trabalho Remota estiver configurado e íntegro, verifique se o servidor de licença Área de Trabalho Remota está ativado com CALs.
+4. Se um servidor de licença de ambiente de trabalho remoto estiver configurado e saudável, certifique-se de que o servidor de licença de ambiente de trabalho remoto é ativado com CALs.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
+Se ainda precisar de ajuda, [contacte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o suporte para resolver o seu problema.

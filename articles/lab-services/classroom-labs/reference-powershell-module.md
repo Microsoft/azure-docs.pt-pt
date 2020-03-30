@@ -1,6 +1,6 @@
 ---
-title: Módulo do PowerShell para Azure Lab Services | Microsoft Docs
-description: Este artigo fornece informações sobre um módulo do PowerShell que ajuda no gerenciamento de artefatos no Azure Lab Services.
+title: Módulo PowerShell para serviços de laboratório azure / Microsoft Docs
+description: Este artigo fornece informações sobre um módulo PowerShell que ajuda na gestão de artefactos nos Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,38 +14,38 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: spelluru
 ms.openlocfilehash: cc82355ee43f9fee4f9c2e1bb1bcc0481e4dcea3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73609401"
 ---
-# <a name="azlabservices-powershell-module-preview"></a>Módulo do PowerShell AZ. LabServices (versão prévia)
-AZ. LabServices é um módulo do PowerShell que simplifica o gerenciamento dos serviços de laboratório do Azure. Ele fornece funções combináveis para criar, consultar, atualizar e excluir contas de laboratório, laboratórios, VMs e imagens. Para obter mais informações sobre esse módulo, consulte [AZ. LabServices Home Page no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+# <a name="azlabservices-powershell-module-preview"></a>Módulo do PowerShell Az.LabServices (pré-visualização)
+Az.LabServices é um módulo PowerShell que simplifica a gestão dos serviços do Azure Lab. Fornece funções compostas para criar, consultar, atualizar e eliminar contas de laboratório, laboratórios, VMs e Imagens. Para obter mais informações sobre este módulo, consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 > [!NOTE]
-> Este módulo está em versão **prévia**. 
+> Este módulo está em **pré-visualização.** 
 
-## <a name="example-command"></a>Exemplo de comando
-Aqui está um exemplo de como usar um comando do PowerShell para interromper todas as VMs em execução em todos os laboratórios.
+## <a name="example-command"></a>Comando de exemplo
+Aqui está um exemplo de usar um comando PowerShell para parar todos os VMs em todos os laboratórios.
 
 ```powershell
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
 ## <a name="get-started"></a>Introdução
-1. Instale [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) se ele não existir em seu computador. 
-2. Baixe [AZ. LabServices. psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) em seu computador.
-3. Importe o módulo:
+1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) se não existir na sua máquina. 
+2. Baixe [Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) para a sua máquina.
+3. Importar o módulo:
 
     ```powershell
     Import-Module .\Az.LabServices.psm1
     ```
-4. Execute o comando a seguir para listar todos os laboratórios em sua assinatura.
+4. Execute o seguinte comando para listar todos os laboratórios na sua subscrição.
 
     ```powershell
     Get-AzLabAccount | Get-AzLab
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o [Home Page AZ. LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+Consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).

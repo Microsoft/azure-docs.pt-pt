@@ -15,19 +15,19 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160003"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicação de página única: Ligue para uma API web
 
-Recomendamos que ligue para o método `acquireTokenSilent` para adquirir ou renovar um token de acesso antes de chamar uma API web. Depois de ter um token, você pode chamar uma API Web protegida.
+Recomendamos que ligue `acquireTokenSilent` para o método para adquirir ou renovar um token de acesso antes de chamar uma API web. Depois de ter um símbolo, pode chamar uma API protegida.
 
 ## <a name="call-a-web-api"></a>Chamar uma API Web
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Utilize o token de acesso adquirido como portador num pedido http para ligar para qualquer API web, como a Microsoft Graph API. Por exemplo:
 
@@ -47,7 +47,7 @@ Utilize o token de acesso adquirido como portador num pedido http para ligar par
         }
 ```
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
 O invólucro MSAL Angular aproveita o intercetor HTTP para adquirir automaticamente fichas de acesso silenciosamente e anexá-las aos pedidos http às APIs. Para mais informações, consulte [AdQuira um símbolo para chamar a API](scenario-spa-acquire-token.md).
 
@@ -56,4 +56,4 @@ O invólucro MSAL Angular aproveita o intercetor HTTP para adquirir automaticame
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Passar para a produção](scenario-spa-production.md)
+> [Mover para produção](scenario-spa-production.md)

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127633"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Windows contentores em Tecido de Serviço Azure usando O Estúdio Visual 2019
@@ -27,15 +27,15 @@ Com o Visual Studio 2019, pode depurar as aplicações .NET em contentores como 
 
 1. Para apoiar a resolução de DNS entre contentores, terá de configurar o seu cluster de desenvolvimento local, utilizando o nome da máquina. Estes passos também são necessários se quiser endereçar serviços através do proxy inverso.
    1. Open PowerShell como administrador
-   2. Navegue para a pasta de configuração do Cluster SDK, tipicamente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-   3. Executar o guião `DevClusterSetup.ps1`
+   2. Navegue para a pasta de configuração `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`do Cluster SDK, tipicamente .
+   3. Executar o script`DevClusterSetup.ps1`
 
       ``` PowerShell
         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
       ```
 
       > [!NOTE]
-      > Pode usar o `-CreateOneNodeCluster` para configurar um aglomerado de um nó. O padrão criará um aglomerado local de cinco nós.
+      > Pode usar `-CreateOneNodeCluster` o conjunto de um nó. O padrão criará um aglomerado local de cinco nós.
       >
 
       Para saber mais sobre o Serviço DNS em Tecido de Serviço, consulte o [Serviço DNS em Tecido de Serviço Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Para saber mais sobre a utilização do proxy inverso do Tecido de Serviço a partir de serviços que estão a funcionar num contentor, consulte o [manuseamento especial de procuração reversa para serviços em funcionamento em contentores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
@@ -65,7 +65,7 @@ Abaixo está uma lista de limitações conhecidas com contentores de depuração
 
 1. Abra uma aplicação .NET existente ou crie uma nova.
 
-1. Clique no projeto e selecione **Add -> Container Orchestrator Support -> Service Fabric**
+1. Clique no projeto à direita e selecione **Adicionar -> Suporte de Orquestrador de Contentores -> Tecido de Serviço**
 
 1. Pressione **f5** para começar a depurar a aplicação.
 

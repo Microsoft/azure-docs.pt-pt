@@ -1,6 +1,6 @@
 ---
-title: INDEX_OF na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL INDEX_OF no Azure Cosmos DB.
+title: INDEX_OF na linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL INDEX_OF em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 50e489fdf57398d486b07944782ecbb3fd1d6a43
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71350987"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
- Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada.  
+ Devolve a posição inicial da primeira ocorrência da segunda expressão de corda dentro da primeira expressão especificada da corda, ou -1 se a corda não for encontrada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,12 +26,12 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 ## <a name="arguments"></a>Argumentos
   
 *str_expr1*  
-   É a expressão de cadeia de caracteres a ser pesquisada.  
+   É a expressão de corda a ser revistada.  
   
 *str_expr2*  
-   É a expressão de cadeia de caracteres a ser pesquisada.  
+   É a expressão de corda para procurar.  
 
-*numeric_expr* Expressão numérica opcional que define a posição que será iniciada pela pesquisa. A primeira posição em *str_expr1* é 0. 
+*numeric_expr* Expressão numérica opcional que define a posição que a procura iniciará. A primeira posição em *str_expr1* é 0. 
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -39,7 +39,7 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve o índice de várias subseqüências dentro de "abc".  
+  O exemplo seguinte devolve o índice de várias subcordas dentro do "abc".  
   
 ```sql
 SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
@@ -53,6 +53,6 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

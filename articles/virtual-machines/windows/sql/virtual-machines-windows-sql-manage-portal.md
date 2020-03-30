@@ -1,5 +1,5 @@
 ---
-title: Gerir VMs do Servidor SQL em Azure utilizando o portal Azure  Microsoft Docs
+title: Gerir VMs do Servidor SQL em Azure utilizando o portal Azure [ Microsoft Docs
 description: Saiba como aceder ao recurso de máquina virtual SQL no portal Azure para um VM SQL Server hospedado no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243214"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerencie os VMs do Servidor SQL em Azure utilizando o portal Azure
@@ -36,7 +36,7 @@ No [portal Azure,](https://portal.azure.com)o recurso **sql virtual machines** �
 ## <a name="access-the-sql-virtual-machines-resource"></a>Aceda ao recurso das máquinas virtuais SQL
 Para aceder ao recurso das **máquinas virtuais SQL,** faça o seguinte:
 
-1. Abra o [Portal do Azure](https://portal.azure.com). 
+1. Abra o [portal Azure.](https://portal.azure.com) 
 1. Selecione **todos os Serviços**. 
 1. Introduza **as máquinas virtuais SQL** na caixa de pesquisa.
 1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais SQL** para adicionar esta opção ao seu menu **Favoritos.** 
@@ -61,18 +61,18 @@ O separador de **configuração do Servidor SQL** foi depreciado. Neste momento,
 
 Para aceder ao separador de configuração do **Servidor SQL** deprecatado, aceda ao recurso das **máquinas Virtuais.** Utilize os passos seguintes:
 
-1. Abra o [Portal do Azure](https://portal.azure.com). 
+1. Abra o [portal Azure.](https://portal.azure.com) 
 1. Selecione **todos os Serviços**. 
 1. Introduza **máquinas virtuais** na caixa de pesquisa.
 1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais** para adicionar esta opção ao seu menu **Favoritos.** 
-1. Selecione **máquinas Virtuais**. 
+1. Selecione **Máquinas virtuais**. 
 
    ![Pesquisa de máquinas virtuais](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
 
 1. O portal lista todas as máquinas virtuais na subscrição. Selecione o que pretende conseguir abrir o recurso das **máquinas Virtuais.** Utilize a caixa de pesquisa se o seu VM do Servidor SQL não aparecer. 
 1. Selecione **a configuração do Servidor SQL** no painel **definições** para gerir o vM do servidor SQL. 
 
-   ![Configuração do Servidor SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
+   ![Configuração do SQL Server](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

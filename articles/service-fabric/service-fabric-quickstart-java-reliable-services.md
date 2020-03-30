@@ -7,10 +7,10 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121502"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Quickstart: Implemente uma aplicação Java para Azure Service Fabric no Linux
@@ -41,12 +41,12 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente em funcionar, aceda ao Service Fabric Explorer em `http://localhost:19080`. Os cinco nós em bom estado indicam que o cluster local está a funcionar.
+    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em `http://localhost:19080`. Os cinco nós em bom estado indicam que o cluster local está a funcionar.
 
     ![Explorador de tecido de serviço Azure mostra nóssaudáveis](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Abra o Eclipse.
-3. Selecione **File** > **Import** > **Gradle** > **Projeto Gradle Existente** e siga o assistente.
+3. Selecione **File** > **Import** > **Gradle** > **Existido Gradle Project** e siga o assistente.
 4. **Selecione Diretório** e escolha o diretório de **Votação** a partir da pasta de início rápido de **serviço-tecido-java-rápido** que clonou do GitHub. Selecione **Concluir**.
 
     ![Projeto De Gradle de Importação em Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Azure Service Fabric publica JSON local](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
-7. Abra o seu navegador web favorito e aceda à aplicação acedendo a `http://localhost:8080`.
+7. Abra o browser favorito e aceda à aplicação em `http://localhost:8080`.
 
     ![Anfitrião local de Tecido de Serviço Azure](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
@@ -66,14 +66,14 @@ Agora, pode adicionar um conjunto de opções de voto e começar a recolher voto
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicações e serviços num cluster
 
-Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Há muitas formas de escalar os seus serviços. Por exemplo, pode utilizar scripts ou comandos do Service Fabric CLI (`sfctl`). Nos passos seguintes, é utilizado o Service Fabric Explorer.
+Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Há muitas formas de escalar os seus serviços. Por exemplo, pode utilizar scripts ou comandos`sfctl`do Service Fabric CLI (). Nos passos seguintes, é utilizado o Service Fabric Explorer.
 
 Service Fabric Explorer funciona em todos os clusters de Tecido de Serviço e pode ser acedido a partir de um navegador navegando para a porta de gestão HTTP do cluster (19080). Por exemplo, `http://localhost:19080`.
 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Open Service Fabric Explorer no seu cluster. Por exemplo, `https://localhost:19080`.
-2. Selecione a elipse **(...** ) ao lado do **tecido:/Vote/VoteWeb** nó na vista da árvore e selecione **Scale Service**.
+2. Selecione a elipse **(...**) ao lado do **tecido:/Vote/VoteWeb** nó na vista da árvore e selecione **Scale Service**.
 
     ![Escala um serviço em Tecido de Serviço Azure](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
@@ -94,7 +94,7 @@ Neste início rápido, aprendeu a:
 
 * Utilize o Eclipse como uma ferramenta para as suas aplicações de Java do Service Fabric
 * Implementar aplicações Java no seu cluster local
-* Aumentar horizontalmente a aplicação em vários nós
+* Escalar horizontalmente a aplicação em vários nós
 
 Para saber mais sobre como trabalhar com aplicações Java no Service Fabric, avance para o tutorial para aplicações Java.
 

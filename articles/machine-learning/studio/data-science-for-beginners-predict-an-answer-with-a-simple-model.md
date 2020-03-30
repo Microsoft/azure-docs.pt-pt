@@ -1,7 +1,7 @@
 ---
 title: Prever respostas com modelos de regressão
 titleSuffix: ML Studio (classic) - Azure
-description: Como criar um modelo de regressão simples para prever um preço no vídeo ciência de dados para iniciantes 4. Inclui uma regressão linear com dados de destino.
+description: Como criar um modelo simples de regressão para prever um preço em Data Science para Iniciantes vídeo 4. Inclui uma regressão linear com dados do alvo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,121 +11,121 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837780"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
-## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: série de ciência de dados para iniciantes
-Saiba como criar um modelo de regressão simples para prever o preço de um losango no vídeo de ciência de dados para iniciantes 4. Vamos desenhar um modelo de regressão com dados de destino.
+## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Data Science for Beginners series
+Aprenda a criar um modelo de regressão simples para prever o preço de um diamante em Data Science para Iniciantes vídeo 4. Desenharemos um modelo de regressão com dados de destino.
 
-Para obter o máximo da série, Assista a todos eles. [Ir para a lista de vídeos](#other-videos-in-this-series)
+Para tirar o máximo partido da série, vê-los a todos. [Vá à lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
-A *ciência de dados para iniciantes* é uma rápida introdução à ciência de dados em cinco vídeos curtos.
+## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
+*Data Science for Beginners* é uma introdução rápida à ciência dos dados em cinco pequenos vídeos.
 
-* Vídeo 1: [as cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 s)*
-* Vídeo 2: [seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-* Vídeo 3: [faça uma pergunta que você possa responder com os dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Vídeo 4: prever uma resposta com um modelo simples
-* Vídeo 5: [copiar o trabalho de outras pessoas para a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos e 18 segundos)*
+* Vídeo 1: [As 5 perguntas respostas da ciência](data-science-for-beginners-the-5-questions-data-science-answers.md) dos dados *(5 min 14 seg)*
+* Vídeo 2: [Os seus dados estão prontos para a ciência](data-science-for-beginners-is-your-data-ready-for-data-science.md) dos dados? *(4 min 56 seg)*
+* Vídeo 3: [Faça uma pergunta que pode responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
+* Vídeo 4: Prever uma resposta com um modelo simples
+* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) de dados *(3 min 18 seg)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: prever uma resposta com um modelo simples
-Bem-vindo ao quarto vídeo da série "ciência de dados para iniciantes". Neste um, vamos criar um modelo simples e fazer uma previsão.
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: Prever uma resposta com um modelo simples
+Bem-vindos ao quarto vídeo da série "Data Science for Beginners". Neste, vamos construir um modelo simples e fazer uma previsão.
 
-Um *modelo* é uma história simplificada sobre nossos dados. Mostrarei o que eu quero dizer.
+Um *modelo* é uma história simplificada sobre os nossos dados. Vou mostrar-lhe o que quero dizer.
 
-## <a name="collect-relevant-accurate-connected-enough-data"></a>Colete dados relevantes, precisos, conectados e suficientes
-Digamos que eu queira comprar um losango. Tenho um anel que pertencia ao meu avó com uma configuração para um diamante de 1,35 quilate e quero ter uma ideia de quanto ele custará. Pegarei um bloco de notas e uma caneta na joia Store, e escrevo o preço de todos os ouros no caso e quanto eles pesam em quilate. A partir do primeiro diamante, é 1, 1 quilate e $7366.
+## <a name="collect-relevant-accurate-connected-enough-data"></a>Recolher dados relevantes, precisos, conectados e suficientes
+Digamos que quero comprar um diamante. Tenho um anel que pertencia à minha avó com um cenário para um diamante de 1,35 quilates, e quero ter uma ideia de quanto vai custar. Levo um bloco de notas e uma caneta para a joalharia, e anotei o preço de todos os diamantes da mala e o peso que pesam em quilates. Começando com o primeiro diamante- são 1,01 quilates e $7.366.
 
-Agora, vou fazer isso para todos os outros ouros na loja.
+Agora faço isto por todos os outros diamantes da loja.
 
-![Colunas de dados de losango](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
+![Colunas de dados de diamantes](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
-Observe que nossa lista tem duas colunas. Cada coluna tem um peso de atributo diferente em quilate e Price-e cada linha é um único ponto de dados que representa um único losango.
+Reparem que a nossa lista tem duas colunas. Cada coluna tem um atributo diferente - peso em quilates e preço - e cada linha é um único ponto de dados que representa um único diamante.
 
-Na verdade, criamos um pequeno conjunto de dados aqui-uma tabela. Observe que ele atende aos nossos critérios de qualidade:
+Na verdade, criamos um pequeno conjunto de dados aqui- uma mesa. Note que satisfaz os nossos critérios de qualidade:
 
-* Os dados são **relevantes** para que o peso esteja definitivamente relacionado ao preço
-* É preciso que tenhamos verificado **cuidadosamente** os preços que escrevemos
-* Ele está **conectado** -não há espaços em branco em nenhuma dessas colunas
+* Os dados são **relevantes** - o peso está definitivamente relacionado com o preço
+* É **preciso** - verificamos os preços que escrevemos
+* Está **ligado** - não há espaços em branco em qualquer uma destas colunas
 * E, como veremos, são dados **suficientes** para responder à nossa pergunta
 
-## <a name="ask-a-sharp-question"></a>Faça uma pergunta nítida
-Agora, apresentaremos nossa pergunta de uma maneira nítida: "quanto custará comprar um diamante de 1,35 quilate?"
+## <a name="ask-a-sharp-question"></a>Faça uma pergunta afiada
+Agora vamos colocar a nossa pergunta de forma afiada: "Quanto vai custar comprar um diamante de 1,35 quilates?"
 
-Nossa lista não tem um quilate Diamond de 1,35, portanto, precisaremos usar o restante de nossos dados para obter uma resposta para a pergunta.
+A nossa lista não tem um diamante de 1,35 quilates, por isso vamos ter de usar o resto dos nossos dados para obter uma resposta à pergunta.
 
-## <a name="plot-the-existing-data"></a>Plotar os dados existentes
-A primeira coisa que faremos é desenhar uma linha de número horizontal, chamada de eixo, para criar um gráfico dos pesos. O intervalo dos pesos é de 0 a 2, portanto, vamos desenhar uma linha que cubra esse intervalo e colocar tiques para cada metade de quilate.
+## <a name="plot-the-existing-data"></a>Traçar os dados existentes
+A primeira coisa que faremos é desenhar uma linha de número horizontal, chamada eixo, para traçar os pesos. O alcance dos pesos é de 0 a 2, por isso vamos desenhar uma linha que cobre essa gama e colocar carrapatos para cada meia quilate.
 
-Em seguida, vamos desenhar um eixo vertical para registrar o preço e conectá-lo ao eixo de espessura horizontal. Isso estará em unidades de dólar. Agora temos um conjunto de eixos de coordenadas.
+Em seguida, desenharemos um eixo vertical para registar o preço e ligá-lo ao eixo de peso horizontal. Isto será em unidades de dólares. Agora temos um conjunto de eixos de coordenadas.
 
-![Eixos de peso e preço](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
+![Eixos de peso e preços](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Vamos pegar esses dados agora e transformá-los em um gráfico de *dispersão*. Essa é uma ótima maneira de visualizar conjuntos de dados numéricos.
+Vamos pegar nestes dados agora e transformá-lo num *enredo de dispersão.* Esta é uma ótima maneira de visualizar conjuntos de dados numéricos.
 
-Para o primeiro ponto de dados, olho uma linha vertical em 1, 1 quilate. Em seguida, olho uma linha horizontal em $7366. Onde eles se encontram, desenhamos um ponto. Isso representa nosso primeiro diamante.
+Para o primeiro ponto de dados, olhamos para uma linha vertical a 1,01 quilates. Depois, olhamos para uma linha horizontal de $7.366. Onde se encontram, desenhamos um ponto. Isto representa o nosso primeiro diamante.
 
-Agora, passamos por cada diamante nessa lista e fazemos a mesma coisa. Quando estamos usando, isso é o que obtemos: vários pontos, um para cada diamante.
+Agora passamos por cada diamante desta lista e fazemos a mesma coisa. Quando acabamos, isto é o que temos: um monte de pontos, um para cada diamante.
 
-![Gráfico de dispersão](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Lote de dispersão](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## <a name="draw-the-model-through-the-data-points"></a>Desenhar o modelo por meio dos pontos de dados
-Agora, se você olhar os pontos e semicerrar, a coleção se parece com uma linha de FAT, difusa. Podemos pegar nosso marcador e desenhar uma linha reta.
+## <a name="draw-the-model-through-the-data-points"></a>Desenhe o modelo através dos pontos de dados
+Agora, se olharmos para os pontos e olhares, a coleção parece uma linha gorda e felpuda. Podemos pegar no nosso marcador e traçar uma linha reta através dele.
 
-Ao desenhar uma linha, criamos um *modelo*. Considere isso como pegar o mundo real e criar uma versão de desenho simplista. Agora o desenho está errado – a linha não passa por todos os pontos de dados. Mas, é uma simplificação útil.
+Ao desenhar uma linha, criámos um *modelo.* Pense nisto como pegar no mundo real e fazer uma versão de desenho animado simplista. Agora os desenhos animados estão errados- a linha não passa por todos os pontos de dados. Mas é uma simplificação útil.
 
 ![Linha de regressão linear](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-O fato de que todos os pontos não passam exatamente pela linha está OK. Os cientistas de dados explicam isso dizendo que há o modelo, que é a linha e, em seguida, cada ponto tem algum *ruído* ou *variação* associada a ele. Há a relação perfeita subjacente e, em seguida, existe o mundo real que adiciona ruído e incerteza.
+O facto de todos os pontos não passarem exatamente pela linha é ok. Os cientistas de dados explicam isto dizendo que há o modelo - esta é a linha - e então cada ponto tem algum *ruído* ou *variação* associado a ele. Há a relação perfeita subjacente, e depois há o mundo real que acrescenta ruído e incerteza.
 
-Porque estamos tentando responder à pergunta o *quanto?* isso é chamado de *regressão*. E como estamos usando uma linha reta, é uma *regressão linear*.
+Porque estamos a tentar responder à pergunta *Quanto isto* se chama *regressão.* E como estamos a usar uma linha reta, é uma *regressão linear.*
 
-## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para localizar a resposta
-Agora temos um modelo e fazemos nossa pergunta: quanto custará 1,35 quilate Diamond?
+## <a name="use-the-model-to-find-the-answer"></a>Use o modelo para encontrar a resposta
+Agora temos um modelo e fazemos a nossa pergunta: quanto custa um diamante de 1,35 quilates?
 
-Para responder à nossa pergunta, nós olhomos 1,35 quilate e desenhamos uma linha vertical. Onde ele cruza a linha do modelo, nós olhomos uma linha horizontal ao eixo de dólar. Chega à direita em 10.000. Pronto! Essa é a resposta: um quilate de 1,35 em diamante custa cerca de $10000.
+Para responder à nossa pergunta, olhamos 1,35 quilates e desenhamos uma linha vertical. Onde cruza a linha modelo, olhamos uma linha horizontal para o eixo do dólar. Atinge os 10.000. Bum! Esta é a resposta: um diamante de 1,35 quilates custa cerca de $10.000.
 
-![Localizar a resposta no modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
+![Encontre a resposta no modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Criar um intervalo de confiança
-É natural imaginar qual é a precisão dessa previsão. É útil saber se o 1,35 quilate Diamond será muito próximo de $10000 ou muito mais ou menos. Para descobrir isso, vamos desenhar um envelope em torno da linha de regressão que inclui a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos muito confiantes de que os preços se enquadram nesse envelope, pois, na última parte, eles têm. Podemos desenhar duas linhas horizontais de onde a linha 1,35 quilate cruza a parte superior e a inferior do envelope.
+É natural pensar o quão precisa é esta previsão. É útil saber se o diamante de 1,35 quilates será muito perto de $10.000, ou muito mais alto ou inferior. Para resolver isto, vamos desenhar um envelope em torno da linha de regressão que inclui a maioria dos pontos. Este envelope chama-se nosso intervalo de *confiança:* Estamos bastante confiantes de que os preços caem dentro deste envelope, porque no passado a maioria deles tem. Podemos desenhar mais duas linhas horizontais de onde a linha de 1,35 quilates cruza a parte superior e a parte inferior do envelope.
 
 ![Intervalo de confiança](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Agora, podemos dizer algo sobre nosso intervalo de confiança: podemos dizer com confiança que o preço de um diamante de 1,35 quilate é cerca de $10000, mas pode ser tão baixo quanto $8000 e pode ser tão alto quanto $12000.
+Agora podemos dizer algo sobre o nosso intervalo de confiança: podemos dizer com confiança que o preço de um diamante de 1,35 quilates é de cerca de $10.000 - mas pode ser tão baixo como $8.000 e pode chegar aos $12.000.
 
-## <a name="were-done-with-no-math-or-computers"></a>Pronto, sem matemática ou computadores
-Fizemos o que os cientistas de dados são pagos, e fizemos isso apenas por meio de desenho:
+## <a name="were-done-with-no-math-or-computers"></a>Estamos acabados, sem matemática ou computadores.
+Fizemos o que os cientistas de dados são pagos para fazer, e fizemos isso apenas desenhando:
 
-* Pedimos uma pergunta que poderíamos responder com os dados
-* Criamos um *modelo* usando a *regressão linear*
-* Fizemos uma *previsão*, completo com um intervalo de *confiança*
+* Fizemos uma pergunta que poderíamos responder com dados
+* Construímos um *modelo* usando a *regressão linear*
+* Fizemos uma *previsão,* completa com um intervalo de *confiança*
 
-E não usamos cálculos ou computadores para fazer isso.
+E não usámos matemática ou computadores para o fazer.
 
 Agora, se tivéssemos mais informações, como...
 
-* o recorte do losango
-* variações de cores (o quão perto o diamante está sendo branco)
-* o número de inclusões no losango
+* o corte do diamante
+* variações de cor (quão perto o diamante está de ser branco)
+* o número de inclusãos no diamante
 
-... em seguida, teríamos mais colunas. Nesse caso, Math se torna útil. Se você tiver mais de duas colunas, é difícil desenhar pontos no papel. A matemática permite que você ajuste a linha ou o plano aos seus dados muito bem.
+... então teríamos tido mais colunas. Nesse caso, a matemática torna-se útil. Se tiver mais de duas colunas, é difícil desenhar pontos no papel. A matemática permite-lhe encaixar essa linha ou o avião nos seus dados muito bem.
 
-Além disso, se, em vez de apenas alguns ouros, tivéssemos 2000 ou 2 milhões, você poderá fazer isso funcionar muito mais rapidamente com um computador.
+Além disso, se em vez de apenas um punhado de diamantes, tínhamos dois mil ou dois milhões, então podes fazer isso trabalhar muito mais depressa com um computador.
 
-Hoje, falamos sobre como fazer uma regressão linear e fizemos uma previsão usando dados.
+Hoje, falamos sobre como fazer regressão linear, e fizemos uma previsão usando dados.
 
-Certifique-se de conferir os outros vídeos em "ciência de dados para iniciantes" em Microsoft Azure Machine Learning Studio (clássico).
+Certifique-se de conferir os outros vídeos em "Data Science for Beginners" do Microsoft Azure Machine Learning Studio (clássico).
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução a Machine Learning em Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Experimente uma primeira experiência de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

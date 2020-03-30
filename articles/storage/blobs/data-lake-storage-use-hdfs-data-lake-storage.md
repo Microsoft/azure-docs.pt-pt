@@ -1,6 +1,6 @@
 ---
-title: Usando a CLI do HDFS com Azure Data Lake Storage Gen2
-description: Introdução à CLI do HDFS para Data Lake Storage Gen2
+title: Utilização do HDFS CLI com Azure Data Lake Storage Gen2
+description: Introdução ao HDFS CLI para Data Lake Storage Gen2
 services: storage
 author: normesta
 ms.service: storage
@@ -10,26 +10,26 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992210"
 ---
-# <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com Data Lake Storage Gen2
+# <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilização do HDFS CLI com Data Lake Storage Gen2
 
-Você pode acessar e gerenciar os dados em sua conta de armazenamento usando uma interface de linha de comando, assim como faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Este artigo fornece alguns exemplos que irão ajudá-lo a começar.
+Pode aceder e gerir os dados na sua conta de armazenamento utilizando uma interface de linha de comando tal como faria com um Sistema de [Ficheiros Distribuídos Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Este artigo fornece alguns exemplos que o ajudarão a começar.
 
-O HDInsight fornece acesso ao contêiner distribuído que está anexado localmente aos nós de computação. Você pode acessar esse contêiner usando o shell que interage diretamente com o HDFS e com os outros sistemas de arquivos aos quais o Hadoop dá suporte.
+O HDInsight fornece acesso ao recipiente distribuído que está ligado localmente aos nódosos da computação. Pode aceder a este recipiente utilizando a concha que interage diretamente com o HDFS e os outros sistemas de ficheiros que hadoop suporta.
 
-Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [Guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Para mais informações sobre o HDFS CLI, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o Guia de [Permissões HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)do databricks.
+>Se estiver a utilizar os Bricks Azure em vez do HDInsight, e pretender interagir com os seus dados utilizando uma interface de linha de comando, pode utilizar o CLI de Databricks para interagir com o sistema de ficheiros Databricks. Ver [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
-## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar a CLI do HDFS com um cluster HDInsight Hadoop no Linux
+## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Utilize o HDFS CLI com um cluster HDInsight Hadoop em Linux
 
-Primeiro, estabeleça o [acesso remoto aos serviços](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Se você escolher [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) , o código do PowerShell de exemplo será semelhante ao seguinte:
+Primeiro, estabelecer [acesso remoto aos serviços.](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services) Se escolher o [SSH,](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) o código PowerShell da amostra será o seguinte:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -39,24 +39,24 @@ hdfs dfs -ls /
 #Create a sample directory.
 hdfs dfs -mkdir /samplefolder
 ```
-A cadeia de conexão pode ser encontrada na seção "SSH + logon de cluster" da folha do cluster HDInsight em portal do Azure. As credenciais SSH foram especificadas no momento da criação do cluster.
+A cadeia de ligação pode ser encontrada na secção "SSH + Cluster login" da lâmina de cluster HDInsight no portal Azure. As credenciais SSH foram especificadas no momento da criação do cluster.
 
 >[!IMPORTANT]
->A cobrança do cluster HDInsight começa depois que um cluster é criado e é interrompido quando o cluster é excluído. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Para saber como excluir um cluster, consulte nosso [artigo sobre o tópico](../../hdinsight/hdinsight-delete-cluster.md). No entanto, os dados armazenados em uma conta de armazenamento com Data Lake Storage Gen2 habilitado persistem mesmo depois que um cluster HDInsight é excluído.
+>A faturação do cluster HDInsight começa após a criação de um cluster e para quando o cluster é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Para aprender a apagar um cluster, consulte o nosso [artigo sobre o tema](../../hdinsight/hdinsight-delete-cluster.md). No entanto, os dados armazenados numa conta de armazenamento com data Lake Storage Gen2 ativado persistem mesmo depois de um cluster HDInsight ser eliminado.
 
 ## <a name="create-a-container"></a>Criar um contentor
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Substitua o `<container-name>` espaço reservado pelo nome que você deseja dar ao seu contêiner.
+* Substitua `<container-name>` o espaço reservado pelo nome que pretende dar ao seu recipiente.
 
-* Substitua o `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua `<storage-account-name>` o espaço reservado com o nome da sua conta de armazenamento.
 
-## <a name="get-a-list-of-files-or-directories"></a>Obter uma lista de arquivos ou diretórios
+## <a name="get-a-list-of-files-or-directories"></a>Obtenha uma lista de ficheiros ou diretórios
 
     hdfs dfs -ls <path>
 
-Substitua o `<path>` espaço reservado pelo URI do contêiner ou da pasta do contêiner.
+Substitua `<path>` o espaço reservado pelo URI do recipiente ou da pasta do contentor.
 
 Por exemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,19 +64,19 @@ Por exemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windo
 
     hdfs dfs -mkdir [-p] <path>
 
-Substitua o `<path>` espaço reservado pelo nome do contêiner raiz ou por uma pasta dentro do contêiner.
+Substitua `<path>` o espaço reservado pelo nome do recipiente de raiz ou por uma pasta dentro do seu recipiente.
 
 Por exemplo: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
-## <a name="delete-a-file-or-directory"></a>Excluir um arquivo ou diretório
+## <a name="delete-a-file-or-directory"></a>Eliminar um ficheiro ou diretório
 
     hdfs dfs -rm <path>
 
-Substitua o `<path>` espaço reservado pelo URI do arquivo ou da pasta que você deseja excluir.
+Substitua `<path>` o espaço reservado pelo URI do ficheiro ou pasta que pretende eliminar.
 
 Por exemplo: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
-## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Exibir as listas de controle de acesso (ACLs) de arquivos e diretórios
+## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Mostrar as Listas de Controlo de Acesso (ACLs) de ficheiros e diretórios
 
     hdfs dfs -getfacl [-R] <path>
 
@@ -84,9 +84,9 @@ Exemplo:
 
 `hdfs dfs -getfacl -R /dir`
 
-Consulte [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#getfacl)
+Ver [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#getfacl)
 
-## <a name="set-acls-of-files-and-directories"></a>Definir ACLs de arquivos e diretórios
+## <a name="set-acls-of-files-and-directories"></a>Definir ACLs de ficheiros e diretórios
 
     hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
@@ -94,30 +94,30 @@ Exemplo:
 
 `hdfs dfs -setfacl -m user:hadoop:rw- /file`
 
-Consulte [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
+Ver [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#setfacl)
 
-## <a name="change-the-owner-of-files"></a>Alterar o proprietário dos arquivos
+## <a name="change-the-owner-of-files"></a>Alterar o proprietário dos ficheiros
 
     hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
 
-Ver [proprietário](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown) da
+Ver [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
-## <a name="change-group-association-of-files"></a>Alterar Associação de grupo de arquivos
+## <a name="change-group-association-of-files"></a>Alterar associação de grupo supor ficheiros
 
     hdfs dfs -chgrp [-R] <group> <URI>
 
-Consulte [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
+Ver [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
 
-## <a name="change-the-permissions-of-files"></a>Alterar as permissões de arquivos
+## <a name="change-the-permissions-of-files"></a>Alterar as permissões dos ficheiros
 
     hdfs dfs -chmod [-R] <mode> <URI>
 
-Consulte [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
+Ver [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
 
-Você pode exibir a lista completa de comandos no site [Apache Hadoop guia do shell do sistema de arquivos 2.4.1](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) .
+Pode ver a lista completa de comandos no Website do Guia de Membrana do Sistema de [Ficheiros Apache Hadoop 2.4.1.](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use uma conta compatível com Azure Data Lake Storage Gen2 no Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+* [Utilize uma conta de armazenamento de lagos de dados Azure Gen2 capaz em Tijolos de Dados Azure](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Conheça as listas de controlo de acesso em ficheiros e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

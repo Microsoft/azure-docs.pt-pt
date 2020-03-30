@@ -13,10 +13,10 @@ ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 7d1d27cede6c593150d3937bb3aa0ca59394eea9
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062171"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inscreva-se usando informações de verificação ou segurança em duas etapas

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
 ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082902"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Cofre-Chave
 
-Para obter mais garantias, quando utilizar o Cofre chave Azure, pode importar ou gerar chaves em módulos de segurança de hardware (HSMs) que nunca saem do limite HSM. Este cenário é muitas vezes referido como *trazer a sua própria chave*, ou BYOK. O Azure Key Vault utiliza a família nCipher nShield de HSMs (FIPS 140-2 Level 2 validado) para proteger as suas chaves.
+Para obter mais garantias, quando utilizar o Cofre chave Azure, pode importar ou gerar chaves em módulos de segurança de hardware (HSMs) que nunca saem do limite HSM. Este cenário costuma chamar-se *Bring Your Own Key* ou BYOK. O Azure Key Vault utiliza a família nCipher nShield de HSMs (FIPS 140-2 Level 2 validado) para proteger as suas chaves.
 
 Esta funcionalidade não está disponível para o Azure China 21Vianet.
 

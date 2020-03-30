@@ -8,10 +8,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137503"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifique vários recursos de Insights de Aplicação do Monitor Azure 
@@ -24,12 +24,12 @@ Este exemplo demonstra como pode monitorizar vários recursos de Insights de Apl
 
 Crie uma função utilizando o operador sindical com a lista de aplicações e, em seguida, guarde a consulta no seu espaço de trabalho em função das aplicações do *pseudónimoSS .* 
 
-Pode modificar as aplicações listadas a qualquer momento no portal navegando para o explorador de Consulta no seu espaço de trabalho e selecionando a função para edição e, em seguida, para poupar, ou usando o `SavedSearch` cmdlet PowerShell. 
+Pode modificar as aplicações listadas a qualquer momento no portal navegando para o explorador de Consulta no seu `SavedSearch` espaço de trabalho e selecionando a função para edição e, em seguida, para poupar, ou usando o cmdlet PowerShell. 
 
 >[!NOTE]
 >Este método não pode ser utilizado com alertas de registo porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicações, é realizada em tempo de criação de alerta. Adicionar novos recursos à função após a criação de alerta não é suportado. Se preferir utilizar a função de deteção de recursos em alertas de registo, tem de editar a regra de alerta no portal ou com um modelo de Gestor de Recursos para atualizar os recursos com âmbito de aplicação. Em alternativa, pode incluir a lista de recursos na consulta de alerta de registo.
 
-O comando `withsource= SourceApp` adiciona uma coluna aos resultados que designam a aplicação que enviou o registo. O operador de parse é opcional neste exemplo e utiliza para extrair o nome da aplicação da propriedade SourceApp. 
+O `withsource= SourceApp` comando adiciona uma coluna aos resultados que designam a aplicação que enviou o registo. O operador de parse é opcional neste exemplo e utiliza para extrair o nome da aplicação da propriedade SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -65,50 +65,50 @@ A tabela que se segue mostra as diferenças de esquemaentre Log Analytics e Appl
 | Propriedades do espaço de trabalho log Analytics| Propriedades de recursos de Insights de Aplicação|
 |------------|------------| 
 | AnonUserId | user_id|
-| ApplicationId | appId|
-| ApplicationName | appName|
-| ApplicationTypeVersion | application_Version |
-| AvailabilityCount | itemCount |
-| AvailabilityDuration | duration |
-| AvailabilityMessage | message |
-| AvailabilityRunLocation | localização |
-| AvailabilityTestId | ID |
-| AvailabilityTestName | nome |
-| AvailabilityTimestamp | carimbo de data/hora |
+| ApplicationID | appId|
+| ApplicationName | nome de app|
+| AplicaçãoTypeVersion | application_Version |
+| Contagem de disponibilidades | itensCount |
+| DisponibilidadeDura | duration |
+| Mensagem de disponibilidade | message |
+| DisponibilidadeRunLocation | localização |
+| DisponibilidadeTestId | ID |
+| Nome de Teste de Disponibilidade | nome |
+| DisponibilidadeTimestamp | carimbo de data/hora |
 | Browser | client_browser |
 | Localidade | client_city |
 | ClientIP | client_IP |
 | Computador | cloud_RoleInstance | 
 | País | client_CountryOrRegion | 
-| CustomEventCount | itemCount | 
-| CustomEventDimensions | customDimensions |
-| CustomEventName | nome | 
+| CustomEventCount | itensCount | 
+| CustomEventDimensions | dimensões personalizadas |
+| Nome personalizado do evento | nome | 
 | DeviceModel | client_Model | 
-| deviceType | client_Type | 
-| ExceptionCount | itemCount | 
-| ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
-| ExceptionType | tipo |
-| OperationID | operation_id |
+| DeviceType | client_Type | 
+| ExcepçõesContagem | itensCount | 
+| ExcepçõesHandledAt | handledAt |
+| Mensagem de exceção | message | 
+| Tipo de exceção | tipo |
+| OperaçãoID | operation_id |
 | OperationName | operation_Name | 
 | SO | client_OS | 
-| PageViewCount | itemCount |
-| PageViewDuration | duration | 
-| PageViewName | nome | 
+| PageViewCount | itensCount |
+| PageViewDura | duration | 
+| Nome pageview | nome | 
 | ParentOperationID | operation_Id | 
-| RequestCount | itemCount | 
-| RequestDuration | duration | 
+| Contagem de Pedidos | itensCount | 
+| Duração do pedido | duration | 
 | RequestID | ID | 
-| RequestName | nome | 
+| Nome de pedido | nome | 
 | RequestSuccess | exito | 
-| ResponseCode | resultCode | 
+| Código de Resposta | resultadoCódigo | 
 | Função | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
-| SessionId | session_Id | 
+| SessãoId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemettryTYpe | tipo |
 | do IdP | url |
-| UserAccountId | user_AccountId |
+| UserAccountid | user_AccountId |
 
 ## <a name="next-steps"></a>Passos seguintes
 

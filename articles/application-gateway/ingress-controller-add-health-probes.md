@@ -1,6 +1,6 @@
 ---
-title: Adicionar investigações de integridade ao seu pods AKS
-description: Este artigo fornece informações sobre como adicionar investigações de integridade (prontidão e/ou vida) a AKS pods com um gateway de aplicativo.
+title: Adicione sondas de saúde às suas cápsulas AKS
+description: Este artigo fornece informações sobre como adicionar sondas de saúde (prontidão e/ou vivacidade) a cápsulas AKS com um Gateway de Aplicação.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795596"
 ---
-# <a name="add-health-probes-to-your-service"></a>Adicionar investigações de integridade ao seu serviço
-Por padrão, o controlador de entrada provisionará uma investigação HTTP GET para o pods exposto.
-As propriedades de investigação podem ser personalizadas adicionando uma [investigação de preparação ou vida](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) ao seu `deployment`/especificação de `pod`.
+# <a name="add-health-probes-to-your-service"></a>Adicione sondas de saúde ao seu serviço
+Por padrão, o controlador Ingress fornecerá uma sonda HTTP GET para as cápsulas expostas.
+As propriedades da sonda podem ser personalizadas adicionando `deployment` / `pod` uma [Sonda de Prontidão ou Vivacidade](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) à sua especificação.
 
-## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou `livenessProbe`
+## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou`livenessProbe`
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -45,22 +45,22 @@ spec:
           timeoutSeconds: 1
 ```
 
-Referência da API do kubernetes:
-* [Investigações de contêiner](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [Ação HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+Referência Kubernetes API:
+* [Sondas de contentores](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+* [Ação httpget](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * Há suporte para `readinessProbe` e `livenessProbe` quando configurado com `httpGet`.
-> * No momento, não há suporte para investigação em uma porta diferente daquela exposta no pod.
-> * Não há suporte para `HttpHeaders`, `InitialDelaySeconds``SuccessThreshold`.
+> * `readinessProbe`e `livenessProbe` são suportados quando `httpGet`configurados com .
+> * A sondagem numa porta que não a exposta na cápsula não é suportada atualmente.
+> * `HttpHeaders`não `InitialDelaySeconds` `SuccessThreshold` são apoiados.
 
-##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou `livenessProbe`
-Se as investigações acima não forem fornecidas, o controlador de entrada fará uma suposição de que o serviço pode ser acessado no `Path` especificado para `backend-path-prefix` anotação ou o `path` especificado na definição de `ingress` para o serviço.
+##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem ou sem `readinessProbe``livenessProbe`
+Se as sondas acima não forem fornecidas, então o `Path` Controlador Ingress `backend-path-prefix` assuma `path` que o `ingress` serviço é acessível especificado para anotação ou o especificado na definição para o serviço.
 
-## <a name="default-values-for-health-probe"></a>Valores padrão para investigação de integridade
-Para qualquer propriedade que não pode ser inferida pela investigação de preparação/vida, os valores padrão são definidos.
+## <a name="default-values-for-health-probe"></a>Valores padrão para sonda de saúde
+Para qualquer imóvel que não possa ser inferido pela sonda de prontidão/vivacidade, os valores predefinidos são definidos.
 
-| Propriedade de investigação do gateway de aplicativo | Valor padrão |
+| Propriedade da sonda Gateway de aplicação | Valor Predefinido |
 |-|-|
 | `Path` | / |
 | `Host` | localhost |

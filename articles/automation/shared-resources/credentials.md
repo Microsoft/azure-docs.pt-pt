@@ -1,5 +1,5 @@
 ---
-title: Ativos credenciais na Automação Azure
+title: Recursos de credenciais na Automatização do Azure
 description: Os ativos credenciais na Azure Automation contêm credenciais de segurança que podem ser usadas para autenticar recursos acedidos pela configuração do livro de execução ou dSC. Este artigo descreve como criar ativos credenciais e usá-los numa configuração de rumbook ou DSC.
 services: automation
 ms.service: automation
@@ -10,13 +10,13 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 767c1fddbc3d1f46d4341a70c990c2b57ad40e54
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252704"
 ---
-# <a name="credential-assets-in-azure-automation"></a>Ativos credenciais na Automação Azure
+# <a name="credential-assets-in-azure-automation"></a>Recursos de credenciais na Automatização do Azure
 
 Um ativo credencial automationis detém um objeto, que contém credenciais de segurança como um nome de utilizador e uma senha. Os livros de execução e as configurações dSC podem utilizar cmdlets que aceitem um objeto PSCredential para autenticação, ou podem extrair o nome de utilizador e a palavra-passe do objeto PSCredential para fornecer a alguma aplicação ou serviço que exija a autenticação. As propriedades para uma credencial são armazenadas de forma segura na Automação Azure e podem ser acedidas na configuração do livro de execução ou DSC com a atividade [Get-AutomationPSCredential.](#activities)
 
@@ -53,7 +53,7 @@ A função na tabela seguinte é utilizada para aceder a credenciais num livro p
 
 | Função | Descrição |
 |:---|:---|
-| automationassets.get_automation_credential | Recupera informações sobre um ativo credencial. |
+| automaçãoactivos.get_automation_credential | Recupera informações sobre um ativo credencial. |
 
 > [!NOTE]
 > Deve importar o módulo de "automação" no topo do seu livro de execução Python para aceder às funções do ativo.
@@ -89,7 +89,7 @@ Você recupera um ativo credencial em um livro de execução ou configuração D
 
 ### <a name="textual-runbook-sample"></a>Amostra de livro textual
 
-Comandos de exemplo seguintes mostram como utilizar uma credencial do PowerShell num runbook. Neste exemplo, a credencial é recuperada e o seu nome de utilizador e senha atribuídos a variáveis.
+Os comandos de exemplo seguintes explicam como utilizar uma credencial do PowerShell num runbook. Neste exemplo, a credencial é recuperada e o seu nome de utilizador e senha atribuídos a variáveis.
 
 ```azurepowershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
@@ -139,10 +139,10 @@ print cred["username"]
 print cred["password"]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre links na autoria gráfica, consulte [Links na autoria gráfica](../automation-graphical-authoring-intro.md#links-and-workflow)
 * Para compreender os diferentes métodos de autenticação com automação, consulte [Azure Automation Security](../automation-security-overview.md)
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](../automation-first-runbook-graphical.md)
-* Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](../automation-first-runbook-textual.md)
+* Para começar com os livros de workflow powerShell, consulte o meu primeiro livro de corridas de fluxo de [trabalho PowerShell](../automation-first-runbook-textual.md)
 * Para começar com os livros python2, veja [o meu primeiro livro python2](../automation-first-runbook-textual-python2.md) 

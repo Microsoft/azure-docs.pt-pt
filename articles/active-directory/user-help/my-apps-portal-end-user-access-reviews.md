@@ -1,5 +1,5 @@
 ---
-title: Gerencie o acesso da sua organização a apps e grupos - Azure AD
+title: Gerencie o acesso da sua organização a apps & grupos - Azure AD
 description: Saiba como realizar uma revisão de acesso para gerir o acesso à segurança das aplicações e grupos da sua organização a partir do portal My Apps.
 services: active-directory
 author: curtand
@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: c71195b247af6d5046d88d3e6918a660eddf09b3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062388"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Execute uma análise de acesso a partir do portal My Apps
@@ -39,11 +39,11 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 
 ## <a name="to-perform-your-access-reviews"></a>Para realizar as suas avaliações de acesso
 
-1. Entre em sua conta corporativa ou de estudante.
+1. Inscreva-se no seu trabalho ou na conta da escola.
 
-2. Abra o seu navegador web e vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o seu navegador https://myapps.microsoft.comweb e vá para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada https://myapps.microsoft.com/contoso.compara a sua organização, como .
 
-    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
+    A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
     ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
@@ -76,5 +76,5 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso e utilização de aplicações no portal My Apps](my-apps-portal-end-user-access.md)
-- [Altere a informação do seu perfil](my-apps-portal-end-user-update-profile.md)
+- [Alterar as informações de perfil](my-apps-portal-end-user-update-profile.md)
 - [Ver e atualizar as informações relacionadas com os seus grupos](my-apps-portal-end-user-groups.md)

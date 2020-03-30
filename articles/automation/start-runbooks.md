@@ -1,24 +1,24 @@
 ---
-title: Inicie um livro de corridas na Automação Azure
+title: Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)
 description: Resume os diferentes métodos que podem ser usados para iniciar um livro de execução na Azure Automation e fornece detalhes sobre a utilização tanto do portal Azure como do Windows PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 71dd83db02537ed12dc2e711127e32d90603af6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252652"
 ---
-# <a name="start-a-runbook-in-azure-automation"></a>Inicie um livro de corridas na Automação Azure
+# <a name="start-a-runbook-in-azure-automation"></a>Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)
 
 A tabela seguinte ajuda-o a determinar o método para iniciar um livro de execução em Automação Azure que seja mais adequado ao seu cenário particular. Este artigo inclui detalhes sobre o início de um livro de execução com o portal Azure e com o Windows PowerShell. Os detalhes sobre os outros métodos são fornecidos em outra documentação a que pode aceder a partir dos links abaixo.
 
 | **Método** | **Características** |
 | --- | --- |
-| [Portal do Azure](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface de utilizador interativo.<br> <li>Formulário para fornecer valores simples de parâmetros.<br> <li>Facilmente rastrear o estado de trabalho.<br> <li>Acesso autenticado com entrada de Azure. |
+| [Portal Azure](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface de utilizador interativo.<br> <li>Formulário para fornecer valores simples de parâmetros.<br> <li>Facilmente rastrear o estado de trabalho.<br> <li>Acesso autenticado com entrada de Azure. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Ligue da linha de comando com cmdlets Windows PowerShell.<br> <li>Pode ser incluído em solução automatizada com vários passos.<br> <li>O pedido é autenticado com certificado ou diretor de serviço de utilizador da OAuth.<br> <li>Forneça valores simples e complexos de parâmetros.<br> <li>Estado de trabalho de pista.<br> <li>Cliente necessário para suportar cmdlets PowerShell. |
 | [API de Automação Azure](/rest/api/automation/) |<li>Método mais flexível, mas também mais complexo.<br> <li>Ligue a partir de qualquer código personalizado que possa fazer pedidos HTTP.<br> <li>Pedido autenticado com certificado, ou diretor de serviço de utilizador da Oauth.<br> <li>Forneça valores simples e complexos de parâmetros. *Se está a chamar um livro de execução python usando a API, a carga útil da JSON deve ser serializada.*<br> <li>Estado de trabalho de pista. |
 | [Webhooks](automation-webhooks.md) |<li>Inicie o livro de corridas a partir de um único pedido http.<br> <li>Autenticado com ficha de segurança em URL.<br> <li>O cliente não pode sobrepor-se aos valores dos parâmetros especificados quando o webhook criou. O Livro de Execução pode definir um único parâmetro que é povoado com os detalhes do pedido http.<br> <li>Nenhuma capacidade de rastrear o estado de trabalho através de URL webhook. |
@@ -40,13 +40,13 @@ A imagem que se segue ilustra um processo detalhado passo a passo no ciclo de vi
 
 ## <a name="start-a-runbook-with-powershell"></a>Inicie um livro de corridas com a PowerShell
 
-Pode utilizar o [Livro Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) para iniciar um livro de execução com o Windows PowerShell. O seguinte código de amostra inicia um livro de execução chamado Test-Runbook.
+Pode utilizar o [Livro Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) para iniciar um livro de execução com o Windows PowerShell. O código de exemplo seguinte inicia um runbook denominado Test-Runbook.
 
 ```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-Start-AzureRmAutomationRunbook devolve um objeto de trabalho que pode utilizar para rastrear o seu estado assim que o livro de execução estiver iniciado. Em seguida, pode utilizar este objeto de trabalho com o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para determinar o estado do trabalho e o [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para obter a sua saída. O seguinte código de amostra inicia um livro de execução chamado Test-Runbook, aguarda até que esteja concluído e, em seguida, exibe a sua saída.
+Start-AzureRmAutomationRunbook devolve um objeto de trabalho que pode utilizar para rastrear o seu estado assim que o livro de execução estiver iniciado. Em seguida, pode utilizar este objeto de trabalho com o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para determinar o estado do trabalho e o [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para obter a sua saída. O código de exemplo seguinte inicia um runbook denominado Test-Runbook, aguarda pela sua conclusão e, em seguida, apresenta o resultado.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"
@@ -65,14 +65,14 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Se o livro de execução necessitar de parâmetros, então deve fornecê-los como um [hashtable](https://technet.microsoft.com/library/hh847780.aspx). A chave do hashtable deve coincidir com o nome do parâmetro e o valor é o valor do parâmetro. O exemplo seguinte mostra como iniciar um livro de execução com dois parâmetros de corda chamados FirstName e LastName, um inteiro chamado RepeatCount, e um parâmetro booleano chamado Show. Para obter mais informações sobre os parâmetros, consulte os [Parâmetros do Livro](#runbook-parameters) de Execução abaixo.
+Se o livro de execução necessitar de parâmetros, então deve fornecê-los como um [hashtable](https://technet.microsoft.com/library/hh847780.aspx). A chave do hashtable deve coincidir com o nome do parâmetro e o valor é o valor do parâmetro. O exemplo seguinte mostra como iniciar um runbook com dois parâmetros de cadeia denominados FirstName e LastName, um número inteiro denominado RepeatCount e um parâmetro booleano denominado Show. Para obter mais informações sobre os parâmetros, consulte os [Parâmetros do Livro](#runbook-parameters) de Execução abaixo.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
-## <a name="runbook-parameters"></a>Parâmetros do Runbook
+## <a name="runbook-parameters"></a>Parâmetros do livro de corridas
 
 Quando inicia um livro de execução a partir do portal Azure ou do Windows PowerShell, a instrução é enviada através do serviço web Azure Automation. Este serviço não suporta parâmetros com tipos de dados complexos. Se precisa de fornecer um valor para um parâmetro complexo, então deve chamá-lo de linha a partir de outro livro de execução, como descrito em [livros infantis em Automação Azure](automation-child-runbooks.md).
 
@@ -80,7 +80,7 @@ O serviço web Azure Automation fornece uma funcionalidade especial para parâme
 
 ### <a name="named-values"></a>Valores com nome
 
-Se o parâmetro for tipo de dados [objeto], então pode utilizar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{Nome1:'Value1', Nome2:'Value2', Nome3:'Value3'}* . Estes valores devem ser tipos simples. O livro de execução recebe o parâmetro como [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) com propriedades que correspondem a cada valor nomeado.
+Se o parâmetro for tipo de dados [objeto], então pode utilizar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{Nome1:'Value1', Nome2:'Value2', Nome3:'Value3'}*. Estes valores têm de ser tipos simples. O livro de execução recebe o parâmetro como [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) com propriedades que correspondem a cada valor nomeado.
 
 Considere o runbook de teste abaixo, que aceita um parâmetro denominado user.
 
@@ -100,7 +100,7 @@ Workflow Test-Parameters
 }
 ```
 
-O texto seguinte pode ser utilizado para o parâmetro do utilizador.
+Pode ser utilizado o texto seguinte para o parâmetro user.
 
 ```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
@@ -117,9 +117,9 @@ Smith
 
 ### <a name="arrays"></a>Matrizes
 
-Se o parâmetro for uma matriz como [array] ou [string], então pode utilizar o seguinte formato JSON para enviar-lhe uma lista de valores: *[Valor1, Valor2, Valor3]* . Estes valores devem ser tipos simples.
+Se o parâmetro for uma matriz como [array] ou [string], então pode utilizar o seguinte formato JSON para enviar-lhe uma lista de valores: *[Valor1, Valor2, Valor3]*. Estes valores têm de ser tipos simples.
 
-Considere o seguinte livro de ensaios que aceita um parâmetro chamado *utilizador*.
+Considere o runbook de teste abaixo, que aceita um parâmetro denominado *user*.
 
 ```powershell
 Workflow Test-Parameters
@@ -136,7 +136,7 @@ Workflow Test-Parameters
 }
 ```
 
-O texto seguinte pode ser utilizado para o parâmetro do utilizador.
+Pode ser utilizado o texto seguinte para o parâmetro user.
 
 ```input
 ["Joe","Smith",2,true]

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085858"
 ---
 # <a name="configure-keychain"></a>Configurar keychain
@@ -30,23 +30,23 @@ Este artigo abrange como configurar os direitos da aplicação para que a MSAL p
 
 ### <a name="ios"></a>iOS
 
-A MSAL no iOS utiliza o grupo de acesso `com.microsoft.adalcache` por padrão. Este é o grupo de acesso partilhado utilizado tanto pela MSAL como pela Azure AD Authentication Library (ADAL) SDKs e garante a melhor experiência de inscrição individual (SSO) entre várias aplicações da mesma editora.
+A MSAL no `com.microsoft.adalcache` iOS utiliza o grupo de acesso por defeito. Este é o grupo de acesso partilhado utilizado tanto pela MSAL como pela Azure AD Authentication Library (ADAL) SDKs e garante a melhor experiência de inscrição individual (SSO) entre várias aplicações da mesma editora.
 
-No iOS, adicione o `com.microsoft.adalcache` grupo keychain ao direito da sua aplicação no XCode de acordo **com as definições** do Projeto > **Capabilities** > **a partilha de keychain**
+No iOS, `com.microsoft.adalcache` adicione o grupo keychain ao direito da sua aplicação no XCode ao abrigo das **definições** > do Projeto**Capabilities** > **Keychain partilhando**
 
 ### <a name="macos"></a>macOS
 
-O MSAL no macOS utiliza `com.microsoft.identity.universalstorage` grupo de acesso por defeito.
+O MSAL no `com.microsoft.identity.universalstorage` macOS utiliza o grupo de acesso por defeito.
 
-Devido às limitações do porta-chaves macOS, o `access group` da MSAL não se traduz diretamente para o atributo do grupo de acesso à porta-chaves (ver [kSecAttrAccessGroup)](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)no macOS 10.14 e anterior. No entanto, comporta-se de forma semelhante do ponto de vista do SSO, garantindo que várias aplicações distribuídas pelo mesmo desenvolvedor da Apple podem ter SSO silencioso.
+Devido às limitações do porta-chaves macOS, o MSAL's `access group` não se traduz diretamente para o atributo do grupo de acesso à porta-chaves (ver [kSecAttrAccessGroup)](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)no macOS 10.14 e anterior. No entanto, comporta-se de forma semelhante do ponto de vista do SSO, garantindo que várias aplicações distribuídas pelo mesmo desenvolvedor da Apple podem ter SSO silencioso.
 
 No macOS 10.15 em diante (macOS Catalina), o MSAL utiliza o atributo do grupo de acesso à cadeia de chaves para alcançar sSO silencioso, à semelhança do iOS.
 
 ## <a name="custom-keychain-access-group"></a>Grupo de acesso personalizado ao porta-chaves
 
-Se quiser usar um grupo de acesso a um porta-chaves diferente, pode passar pelo seu grupo personalizado ao criar `MSALPublicClientApplicationConfig` antes de criar `MSALPublicClientApplication`, assim:
+Se quiser usar um grupo de acesso a um porta-chaves `MSALPublicClientApplicationConfig` diferente, `MSALPublicClientApplication`pode passar pelo seu grupo personalizado ao criar , assim:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -62,7 +62,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -84,13 +84,13 @@ do {
 
 Se não quiser partilhar o estado SSO entre várias aplicações, ou utilizar qualquer grupo de acesso à cadeia de chaves, desative a partilha de porta-chaves passando o pacote de aplicações ID como o seu keychainGroup:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {

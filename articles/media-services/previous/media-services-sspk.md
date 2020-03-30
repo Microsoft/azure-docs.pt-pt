@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096708"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® Smooth Streaming Cliente Porting Kit 
@@ -27,12 +27,12 @@ O Microsoft Smooth Streaming Client Porting Kit **(SSPK** para abreviar) é uma 
 
 Incluído abaixo é uma arquitetura de alto nível e iIS Smooth Streaming Porting Kit box é a implementação smooth streaming client fornecida pela Microsoft e inclui toda a lógica central para a reprodução de conteúdos de Streaming Suave. Este conteúdo é então deportado por parceiros para um dispositivo ou plataforma específico, implementando interfaces apropriadas. 
 
-![SSPK](./media/media-services-sspk/sspk-arch.png)
+![Rio SSPK](./media/media-services-sspk/sspk-arch.png)
 
 ## <a name="description"></a>Descrição
 A SSPK é licenciada em termos que oferecem excelente valor de negócio. A licença SSPK fornece à indústria:
 
-* Fonte de kit de porting de streaming suave emC++ 
+* Fonte de kit de porting de streaming suave em C++ 
   * implementa funcionalidade do Cliente de Streaming Suave
   * adiciona análise de formato, heurística, lógica de tampão, etc.
 * APIs de aplicação do jogador 
@@ -75,7 +75,7 @@ E-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) para todas as con
 
 O [portal de distribuição SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) está acessível a licenciados provisórios registados.
 
-Os licenciados provisórios e finais da SSPK podem submeter questões técnicas a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+Os licenciados provisórios e finais da [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)SSPK podem submeter questões técnicas a .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft Smooth Streaming Cliente Provisório Contrato de Produto Licenciado
 
@@ -154,7 +154,7 @@ Os licenciados provisórios e finais da SSPK podem submeter questões técnicas 
 * Tecnologias de Entrega Technicolor, SAS
 * Tongfang Global Ltd.
 * Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products and Services Corporation
+* Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Eslováquia/ s.r.o.
 * VIZIO, Inc.
 * Corporação Wistron

@@ -8,13 +8,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726462"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar BLOBs usando o go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: carregar, transferir e listar blobs através de Go
 
 Neste início rápido, vai aprender a utilizar a linguagem de programação Go para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
 
@@ -22,22 +22,22 @@ Neste início rápido, vai aprender a utilizar a linguagem de programação Go p
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Verifique se você tem os seguintes pré-requisitos adicionais instalados:
+Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
  
-* [Acesse 1,8 ou superior](https://golang.org/dl/)
-* [Azure Storage blob SDK para go](https://github.com/azure/azure-storage-blob-go/), usando o seguinte comando:
+* [Ir 1.8 ou acima](https://golang.org/dl/)
+* [Azure Storage Blob SDK for Go,](https://github.com/azure/azure-storage-blob-go/)utilizando o seguinte comando:
 
     ```
     go get -u github.com/Azure/azure-storage-blob-go/azblob
     ``` 
 
     > [!NOTE]
-    > Certifique-se de que você `Azure` coloca em maiúscula na URL para evitar problemas de importação relacionados a maiúsculas e minúsculas ao trabalhar com o SDK. Aproveite também as `Azure` instruções de importação.
+    > Certifique-se de `Azure` que capitaliza o URL para evitar problemas de importação relacionados com casos ao trabalhar com o SDK. Também capitalize `Azure` nas suas declarações de importação.
     
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) utilizado neste início rápido é uma aplicação Go básica.  
 
-Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
+Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
@@ -50,14 +50,14 @@ Este comando clona o repositório para a sua pasta local do git. Para abrir o ex
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 Esta solução requer o nome e a chave da conta de armazenamento para ser armazenada em segurança nas variáveis de ambiente locais do computador que executa o exemplo. Siga um dos exemplos abaixo, consoante o sistema operativo, para criar as variáveis de ambiente.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -110,7 +110,7 @@ Assim que tiver o ContainerURL, pode instanciar o objeto **BlobURL** que aponta 
 > [!IMPORTANT]
 > Os nomes dos contentores têm de estar em minúscula. Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
 
-Nesta secção, vai criar um novo contentor. O contentor é chamado **quickstartblobs-[random string]** . 
+Nesta secção, vai criar um novo contentor. O contentor é chamado **quickstartblobs-[random string]**. 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -147,11 +147,11 @@ handleErrors(err)
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, você pode carregar o arquivo no caminho especificado usando uma das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Para carregar um ficheiro para um blob, abra o ficheiro com **os.Open**. Em seguida, pode carregar o ficheiro para o caminho especificado com um das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Em alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de baixo nível. Por exemplo, a função ***UploadFileToBlockBlob*** utiliza operações StageBlock (PutBlock) para carregar simultaneamente um ficheiro em segmentos para otimizar o débito. Se o ficheiro tiver menos de 256 MB, utiliza a operação Upload (PutBlob) para concluir a transferência numa única transação.
 
-O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs-[randomstring]** .
+O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs-[randomstring]**.
 
 ```go
 // Create a file to test the upload and download.
@@ -207,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Transferir o blob
 
-Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma conexão falhar durante a leitura, ela fará solicitações adicionais para restabelecer uma conexão e continuar a leitura. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
+Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma ligação falhar durante a leitura, irá fazer pedidos adicionais para restabelecer uma ligação e continuar a leitura. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
 
 O código seguinte transfere o blob com a função **Download**. O conteúdo do blob é escrito numa memória intermédia e apresentado na consola.
 
@@ -244,6 +244,6 @@ Veja estes recursos adicionais para o desenvolvimento de Go com armazenamento de
 - Veja e instale o [código fonte da biblioteca de cliente do Go](https://github.com/Azure/azure-storage-blob-go) para o Armazenamento do Azure no GitHub.
 - Explore os [exemplos de armazenamento de blobs](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#pkg-examples) escritos com a biblioteca de cliente Go.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Go. Para obter mais informações sobre o SDK do Azure Storage Blob, veja as páginas [Código Fonte](https://github.com/Azure/azure-storage-blob-go/) e [Referência da API](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob).

@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128228"
 ---
 # <a name="connect-with-the-web-client"></a>Ligar com o cliente web
@@ -22,11 +22,11 @@ O cliente web permite-lhe aceder aos seus recursos de Desktop Virtual do Windows
 >[!NOTE]
 >O cliente web não tem atualmente suporte para os Sistemas operativos móveis.
 
-## <a name="supported-operating-systems-and-browsers"></a>Sistemas operativos e navegadores suportados
+## <a name="supported-operating-systems-and-browsers"></a>Browsers e sistemas operativos suportados
 
 Embora qualquer navegador com capacidade html5 funcione, suportamos oficialmente os seguintes sistemas operativos e navegadores.
 
-| Browser           | SO Suportados                     | Notas               |
+| Browser           | Os Suportado                     | Notas               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

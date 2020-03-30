@@ -1,6 +1,6 @@
 ---
-title: Implantar e configurar o Firewall do Azure usando o Azure PowerShell
-description: Neste artigo, você aprenderá a implantar e configurar o Firewall do Azure usando o Azure PowerShell.
+title: Implementar e configurar firewall Azure usando o Azure PowerShell
+description: Neste artigo, aprende-se a implementar e configurar o Azure Firewall utilizando o Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73831845"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar e configurar firewall Azure usando o Azure PowerShell
 
-Controlar o acesso de rede de saída é uma parte importante de um plano de segurança de rede geral. Por exemplo, talvez você queira limitar o acesso a sites da Web. Ou, talvez você queira limitar os endereços IP de saída e as portas que podem ser acessadas.
+Controlar o acesso de rede de saída é uma parte importante de um plano de segurança de rede geral. Por exemplo, pode querer limitar o acesso aos sites. Ou, pode querer limitar os endereços IP de saída e as portas que podem ser acedidas.
 
 Uma forma de controlar o acesso de rede de saída a partir de uma sub-rede do Azure é com a Azure Firewall. Com a Azure Firewall, pode configurar:
 
@@ -25,7 +25,7 @@ Uma forma de controlar o acesso de rede de saída a partir de uma sub-rede do Az
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando encaminha o tráfego de rede para a firewall como o gateway padrão de sub-rede.
 
-Para este artigo, você cria uma VNet única simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, um [modelo de Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) é recomendado, onde o firewall está em sua própria VNet. Os servidores de carga de trabalho estão em VNets emparelhados na mesma região com uma ou mais sub-redes.
+Para este artigo, cria um VNet simples simplificado com três subredes para uma fácil implantação. Para implementações de produção, [recomenda-se](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo hub e falado, onde a firewall se encontra no seu próprio VNet. Os servidores de carga de trabalho estão em VNets empares na mesma região com uma ou mais subredes.
 
 * **AzureFirewallSubnet** - a firewall está nesta sub-rede.
 * **Workload-SN** - o servidor de carga de trabalho está nesta sub-rede. O tráfego de rede desta sub-rede passa pela firewall.
@@ -39,17 +39,17 @@ Neste artigo, vai aprender a:
 > * Configurar um ambiente de rede de teste
 > * Implementar uma firewall
 > * Criar uma rota predefinida
-> * Configurar uma regra de aplicativo para permitir o acesso ao www.google.com
+> * Configure uma regra de aplicação para permitir o acesso a www.google.com
 > * Configurar uma regra de rede para permitir o acesso aos servidores DNS externos
 > * Testar a firewall
 
-Se preferir, você pode concluir este procedimento usando o [portal do Azure](tutorial-firewall-deploy-portal.md).
+Se preferir, pode concluir este procedimento utilizando o [portal Azure](tutorial-firewall-deploy-portal.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este procedimento requer que você execute o PowerShell localmente. Você deve ter o módulo Azure PowerShell instalado. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma ligação ao Azure.
+Este procedimento requer que execute a PowerShell localmente. Tem de instalar o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
@@ -65,10 +65,10 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-vnet"></a>Criar uma VNet
 
-Essa rede virtual tem três sub-redes:
+Esta rede virtual tem três subredes:
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é de /26. Para obter mais informações sobre o tamanho da subrede, consulte [O FaQ da Firewall Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque-as nas sub-redes adequadas.
 Quando lhe for pedido, escreva um nome de utilizador e palavra-passe para a máquina virtual.
 
-Crie a máquina virtual SRV-salto.
+Crie a máquina virtual Srv-Jump.
 
 ```azurepowershell
 New-AzVm `
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 
-Agora, implante o firewall na rede virtual.
+Agora, desloque a firewall para a rede virtual.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -139,7 +139,7 @@ Anote o endereço IP privado. Vai utilizá-lo mais tarde quando criar a rota pre
 
 ## <a name="create-a-default-route"></a>Criar uma rota predefinida
 
-Criar uma tabela, com a propagação de rota BGP desabilitada
+Criar uma tabela, com propagação de rota BGP desativada
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -168,7 +168,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>Configurar uma regra de aplicação
 
-A regra de aplicativo permite o acesso de saída ao www.google.com.
+A regra da aplicação permite o acesso de saída a www.google.com.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
@@ -186,7 +186,7 @@ O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de in
 
 ## <a name="configure-a-network-rule"></a>Configurar uma regra de rede
 
-A regra de rede permite o acesso de saída a dois endereços IP na porta 53 (DNS).
+A regra da rede permite o acesso de saída a dois endereços IP na porta 53 (DNS).
 
 ```azurepowershell
 $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Alterar o endereço DNS primário e secundário para a interface de rede **Srv-Work**
 
-Para fins de teste neste procedimento, configure os endereços DNS primários e secundários do servidor. Esse não é um requisito geral de firewall do Azure.
+Para efeitos de teste neste procedimento, configure os endereços DNS primários e secundários do servidor. Isto não é um requisito geral da Firewall Azure.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -212,24 +212,24 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="test-the-firewall"></a>Testar a firewall
 
-Agora, teste o firewall para confirmar se ele funciona conforme o esperado.
+Agora, teste a firewall para confirmar que funciona como esperado.
 
-1. Anote o endereço IP privado para a máquina virtual **SRV-Work** :
+1. Note o endereço IP privado para a máquina virtual **Srv-Work:**
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Conecte uma área de trabalho remota à máquina virtual **SRV-salto** e entre. A partir daí, abra uma conexão de área de trabalho remota para o endereço IP privado de **trabalho SRV** e entre.
+1. Ligue um ambiente de trabalho remoto à máquina virtual **Srv-Jump** e inscreva-se. A partir daí, abra uma ligação remota para o ambiente de trabalho remoto para o endereço IP privado **Srv-Work** e inscreva-se.
 
-3. Em **SRV-trabalho**, abra uma janela do PowerShell e execute os seguintes comandos:
+3. No **SRV-Work,** abra uma janela PowerShell e execute os seguintes comandos:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Os dois comandos devem retornar respostas, mostrando que as consultas DNS estão passando pelo firewall.
+   Ambos os comandos devem devolver respostas, mostrando que as suas consultas de DNS estão a passar pela firewall.
 
 1. Execute os seguintes comandos:
 
@@ -241,16 +241,16 @@ Agora, teste o firewall para confirmar se ele funciona conforme o esperado.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   As solicitações de `www.google.com` devem ter êxito e as solicitações de `www.microsoft.com` devem falhar. Isso demonstra que as regras de firewall estão funcionando conforme o esperado.
+   Os `www.google.com` pedidos devem ser `www.microsoft.com` bem sucedidos, e os pedidos devem falhar. Isto demonstra que as suas regras de firewall estão a funcionar como esperado.
 
-Agora você verificou que as regras de firewall estão funcionando:
+Então agora verificou que as regras da firewall estão funcionando:
 
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode manter seus recursos de firewall para o próximo tutorial ou, se não for mais necessário, excluir o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall:
+Pode manter os seus recursos de firewall para o próximo tutorial, ou se já não for necessário, eliminar o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com firewall:
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

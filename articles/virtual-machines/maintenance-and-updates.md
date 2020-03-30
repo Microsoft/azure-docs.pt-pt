@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
 ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250234"
 ---
-# <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção para máquinas virtuais em Azure
+# <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure
 
 O Azure atualiza periodicamente a sua plataforma para melhorar a fiabilidade, desempenho e segurança da infraestrutura hospedeira para máquinas virtuais. O objetivo destas atualizações vai da correção de componentes de software no ambiente anfitrião à atualização de componentes de rede ou desativação de hardware. 
 
@@ -44,7 +44,7 @@ Este tipo de atualizações pode afetar algumas aplicações. Quando o VM é mig
 Existe também uma funcionalidade, controlo de manutenção, na pré-visualização pública que pode ajudar a gerir a manutenção que não requer um reboot. Deve utilizar [anfitriões dedicados azure](./linux/dedicated-hosts.md) ou um [VM isolado.](../security/fundamentals/isolation-choices.md) O controlo de manutenção dá-lhe a opção de ignorar as atualizações da plataforma e aplicar as atualizações à sua escolha de tempo dentro de uma janela de rolamento de 35 dias. Para mais informações, consulte as atualizações de Controlo com controlo de [manutenção e o Azure CLI](maintenance-control-cli.md).
 
 
-### <a name="live-migration"></a>Migração ao vivo
+### <a name="live-migration"></a>Migração em direto
 
 A migração ao vivo é uma operação que não requer um reboot e que preserva a memória para o VM. Causa uma pausa ou congelamento, normalmente não dura mais de 5 segundos. Com exceção das séries G, M, N e H, todas as infraestruturas como VMs de serviço (IaaS), são elegíveis para migração ao vivo. Os VMelegíveis representam mais de 90% dos VMs IaaS que são implantados na frota Azure. 
 
@@ -91,12 +91,12 @@ Para obter mais informações sobre a configuração dos seus VMs para uma eleva
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 
-As zonas de disponibilidade são locais físicos únicos dentro de uma região de Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
+As zonas de disponibilidade são locais físicos únicos dentro de uma região de Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
 
 Uma zona de disponibilidade é uma combinação de um domínio de falha e um domínio de atualização. Se criar três ou mais VMs em três zonas de uma região do Azure, os seus VMs são efetivamente distribuídos por três domínios de falha e três domínios de atualização. A plataforma Azure reconhece esta distribuição através de domínios de atualização para garantir que os VMs em diferentes zonas não são atualizados ao mesmo tempo.
 
 Cada atualização de infraestrutura sai zona por zona, dentro de uma única região. Mas, pode ter implantação em curso na Zona 1, e diferente implantação na Zona 2, ao mesmo tempo. As missões não são todas serializadas. Mas, uma única implantação só sai de uma zona de cada vez para reduzir o risco.
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 Pode utilizar o [Azure CLI,](maintenance-notifications-cli.md) [O Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerir a manutenção planeada. 

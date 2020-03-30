@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252613"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
@@ -47,7 +47,7 @@ Siga estes passos para adicionar um ficheiro principal da NAS:
 
 1. A partir do Painel de Controlo Avere, clique no separador **Definições** na parte superior.
 
-1. Clique no **Ficheiro Core** > **gerir ficheiros core** à esquerda.
+1. Clique em **Core Filer** > **Manage Core Filers** à esquerda.
 
 1. Clique em **Criar**.
 
@@ -119,7 +119,7 @@ Para adicionar o armazenamento Blob depois de criar o cluster, siga estes passos
 
    ![Portal Azure GUI para copiar a chave](media/avere-vfxt-copy-storage-key.png)
 
-1. Abra o Painel de Controlo de Avere para o seu cluster. Clique em **Definições**, em seguida, abra **o Cluster** > **Credenciais** cloud no painel de navegação esquerdo. Na página Cloud Credentials, clique em **Adicionar Credencial**.
+1. Abra o Painel de Controlo de Avere para o seu cluster. Clique em **Definições**e abra**as credenciais** de nuvem de **cluster** > no painel de navegação esquerdo. Na página Cloud Credentials, clique em **Adicionar Credencial**.
 
    ![Clique no botão Adicionar Credencial na página de configuração de Credenciais cloud](media/avere-vfxt-new-credential-button.png)
 
@@ -137,7 +137,7 @@ Para adicionar o armazenamento Blob depois de criar o cluster, siga estes passos
 
    ![Forma credencial de nuvem completa em Painel de Controlo de Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Em seguida, crie o ficheiro principal. No lado esquerdo do Painel de Controlo Avere, clique em **Core Filer** >  **Gerir Ficheiros Core**.
+1. Em seguida, crie o ficheiro principal. No lado esquerdo do Painel de Controlo Avere, clique em Core Filer Manage Core **FilerS** >  **Manage Core Filers**.
 
 1. Clique no botão **Criar** na página de definições de **'Gerir ficheiros Core'.**
 
@@ -166,14 +166,14 @@ Em seguida, tens de [criar uma junção.](#create-a-junction)
 
 Uma junção é um caminho que se cria para os clientes. Os clientes montam o caminho e chegam ao destino que escolher.
 
-Por exemplo, pode criar `/vfxt/files` para mapear o seu arquivo central NetApp `/vol0/data` exportar e o subdiretório `/project/resources`.
+Por exemplo, pode `/vfxt/files` criar para mapear a `/vol0/data` exportação `/project/resources` de ficheiros core NetApp e o subdiretório.
 
 Mais informações sobre junções podem ser encontradas na [secção espaço de nome do guia de configuração do cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Siga estes passos na interface do Painel de Controlo de Avere:
 
-* Clique no **VServer** > **Espaço de Nome** na parte superior esquerda.
-* Forneça um caminho espaço de nome a partir de /(barra para a frente), como ``/vfxt/data``.
+* Clique no espaço de**nome** do **VServer** > na parte superior esquerda.
+* Forneça um caminho espaço de nome a ``/vfxt/data``partir de / (barra para a frente), como .
 * Escolha o seu ficheiro principal.
 * Escolha a exportação de filer principal.
 * Clique em **Seguinte**.

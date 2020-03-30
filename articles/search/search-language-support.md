@@ -1,7 +1,7 @@
 ---
-title: Indexação de vários idiomas para consultas de pesquisa que não estão em inglês
+title: Indexação multi-idioma para consultas de pesquisa não inglesas
 titleSuffix: Azure Cognitive Search
-description: O Azure Pesquisa Cognitiva dá suporte a 56 idiomas, aproveitando os analisadores de idioma da tecnologia de processamento de idioma natural e Lucene da Microsoft.
+description: A Azure Cognitive Search suporta 56 idiomas, alavancando os analisadores linguísticos da tecnologia Lucene e Natural Language Processing da Microsoft.
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
@@ -9,48 +9,48 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: ca2bc66c755da2011cc7016f37b194caa6200d9a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793599"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Como criar um índice para vários idiomas no Azure Pesquisa Cognitiva
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Como criar um índice para várias línguas na Pesquisa Cognitiva Azure
 
-Os índices podem incluir campos que contenham conteúdo de vários idiomas, por exemplo, criando campos individuais para cadeias de caracteres específicas do idioma. Para obter melhores resultados durante a indexação e a consulta, atribua um analisador de linguagem que fornece as regras linguísticas apropriadas. 
+Os índices podem incluir campos que contenham conteúdo de várias línguas, por exemplo, criando campos individuais para cordas específicas da linguagem. Para obter os melhores resultados durante a indexação e consulta, atribua um analisador de linguagem que forneça as regras linguísticas apropriadas. 
 
-O Azure Pesquisa Cognitiva oferece uma grande seleção de analisadores de linguagem tanto do Lucene quanto da Microsoft que podem ser atribuídos a campos individuais usando a propriedade do analisador. Você também pode especificar um analisador de idioma no portal, conforme descrito neste artigo.
+A Azure Cognitive Search oferece uma grande seleção de analisadores de idiomas tanto da Lucene como da Microsoft que podem ser atribuídos a campos individuais usando a propriedade Do Analisador. Também pode especificar um analisador de línguas no portal, como descrito neste artigo.
 
-## <a name="add-analyzers-to-fields"></a>Adicionar analisadores a campos
+## <a name="add-analyzers-to-fields"></a>Adicionar analisadores aos campos
 
-Um analisador de idioma é especificado quando um campo é criado. A adição de um analisador a uma definição de campo existente requer a substituição (e o recarregamento) do índice ou a criação de um novo campo idêntico ao original, mas com uma atribuição de analisador. Em seguida, você pode excluir o campo não utilizado de sua conveniência.
+Um analisador de linguagem é especificado quando um campo é criado. A adição de um analisador a uma definição de campo existente requer sobreposição (e recarga) do índice, ou criar um novo campo idêntico ao original, mas com uma atribuição de analisador. Em seguida, pode apagar o campo não utilizado à sua conveniência.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e localize o serviço de pesquisa.
-1. Clique em **Adicionar índice** na barra de comandos na parte superior do painel de serviço para iniciar um novo índice ou abra um índice existente para definir um analisador sobre novos campos que você está adicionando a um índice existente.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e encontre o seu serviço de pesquisa.
+1. Clique em **Adicionar índice** na barra de comando na parte superior do painel de serviço para iniciar um novo índice, ou abra um índice existente para definir um analisador em novos campos que está adicionando a um índice existente.
 1. Inicie uma definição de campo fornecendo um nome.
-1. Escolha o tipo de dados EDM. String. Somente os campos de cadeia de caracteres são pesquisáveis com texto completo.
-1. Defina o atributo **pesquisável** para habilitar a propriedade do analisador. Um campo deve ser baseado em texto para fazer uso de um analisador de idioma.
+1. Escolha o tipo de dados Edm.String. Só os campos de cordas são pesquisáveis por texto.
+1. Defino o atributo **Pesquisável** para ativar a propriedade Do Analisador. Um campo deve ser baseado em texto para fazer uso de um analisador de linguagem.
 1. Escolha um dos analisadores disponíveis. 
 
-![Atribuir analisadores de idioma durante a definição do campo](media/search-language-support/select-analyzer.png "Atribuir analisadores de idioma durante a definição do campo")
+![Atribuir analisadores de linguagem durante a definição de campo](media/search-language-support/select-analyzer.png "Atribuir analisadores de linguagem durante a definição de campo")
 
-Por padrão, todos os campos pesquisáveis usam o [analisador Lucene padrão](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , que é independente de linguagem. Para exibir a lista completa de analisadores com suporte, consulte [Adicionar analisadores de idioma a um índice de pesquisa cognitiva do Azure](index-add-language-analyzers.md).
+Por padrão, todos os campos pesquisáveis utilizam o [analisador Standard Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que é linguagem-agnóstico. Para ver a lista completa de analisadores suportados, consulte [Adicionar analisadores de linguagem a um índice](index-add-language-analyzers.md)de Pesquisa Cognitiva Azure .
 
-No portal, os analisadores se destinam a serem usados no estado em que se encontram. Se você precisar de personalização ou de uma configuração específica de filtros e criadores, deverá [criar um analisador personalizado](index-add-custom-analyzers.md) no código. O portal não dá suporte à seleção ou configuração de analisadores personalizados.
+No portal, os analisadores destinam-se a ser usados como está. Se necessitar de personalização ou de uma configuração específica de filtros e tokenizers, deve [criar um analisador personalizado](index-add-custom-analyzers.md) em código. O portal não suporta selecionar ou configurar analisadores personalizados.
 
 ## <a name="query-language-specific-fields"></a>Campos específicos da linguagem de consulta
 
-Depois que o analisador de idioma for selecionado para um campo, ele será usado com cada solicitação de indexação e pesquisa para esse campo. Quando uma consulta é emitida em vários campos usando analisadores diferentes, a consulta será processada independentemente pelos analisadores atribuídos para cada campo.
+Uma vez selecionado o analisador de idiomas para um campo, este será utilizado com cada indexação e pedido de pesquisa para esse campo. Quando uma consulta é emitida contra vários campos usando diferentes analisadores, a consulta será processada independentemente pelos analisadores atribuídos para cada campo.
 
-Se o idioma do agente que emite uma consulta for conhecido, uma solicitação de pesquisa poderá ser delimitada para um campo específico usando o parâmetro de consulta **searchFields** . A consulta a seguir será emitida somente em relação à descrição em polonês:
+Se a linguagem do agente emitir uma consulta for conhecida, um pedido de pesquisa pode ser consultado para um campo específico utilizando o parâmetro de consulta **searchFields.** A seguinte consulta será emitida apenas contra a descrição em polaco:
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-Você pode consultar o índice no portal, usando o [**Search Explorer**](search-explorer.md) para colar uma consulta semelhante à mostrada acima.
+Pode consultar o seu índice a partir do portal, utilizando o explorador de [**pesquisa**](search-explorer.md) para colar numa consulta semelhante à que se pode apresentar acima.
 
-## <a name="boost-language-specific-fields"></a>Impulsionar campos específicos do idioma
+## <a name="boost-language-specific-fields"></a>Impulsionar campos específicos da linguagem
 
-Às vezes, o idioma do agente que emite uma consulta não é conhecido; nesse caso, a consulta pode ser emitida em todos os campos simultaneamente. Se necessário, a preferência por resultados em um determinado idioma pode ser definida usando [perfis de Pontuação](index-add-scoring-profiles.md). No exemplo a seguir, as correspondências encontradas na descrição em inglês serão pontuadas em relação às correspondências em polonês e francês:
+Por vezes, a linguagem do agente que emite uma consulta não é conhecida, caso em que a consulta pode ser emitida contra todos os campos simultaneamente. Se necessário, a preferência pelos resultados de uma determinada língua pode ser definida utilizando [perfis de pontuação](index-add-scoring-profiles.md). No exemplo abaixo, os fósforos encontrados na descrição em inglês serão pontuados mais em relação aos jogos em polaco e francês:
 
     "scoringProfiles": [
       {
@@ -65,4 +65,4 @@ Você pode consultar o índice no portal, usando o [**Search Explorer**](search-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você for um desenvolvedor do .NET, observe que é possível configurar os analisadores de idioma usando o [SDK do .net pesquisa cognitiva do Azure](https://www.nuget.org/packages/Microsoft.Azure.Search) e a propriedade do [analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) . 
+Se for um desenvolvedor .NET, note que pode configurar os analisadores de idiomas utilizando a [Pesquisa Cognitiva Azure .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) e a propriedade [Do Analisador.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) 
