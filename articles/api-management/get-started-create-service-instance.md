@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442563"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Criar uma nova instância de serviço da Gestão de API do Azure
@@ -27,7 +27,7 @@ Este início rápido descreve os passos para a criação de uma nova instância 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![Instância de gerenciamento de API](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+![Instância de Gestão API](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -35,27 +35,27 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Criar um novo serviço
 
-1. No menu portal do Azure, selecione **criar um recurso**. Você também pode selecionar **criar um recurso** na **Home** Page do Azure. 
+1. A partir do menu do portal Azure, selecione **Criar um recurso**. Também pode selecionar **Criar um recurso** na página **Inicial** do Azure. 
    
-   ![Selecione criar um recurso](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   ![Selecione Criar um recurso](./media/get-started-create-service-instance/00-CreateResource-01.png)
    
-1. Na **nova** tela, selecione **integração** e, em seguida, selecione **Gerenciamento de API**.
+1. No **ecrã Novo,** selecione **Integração** e, em seguida, selecione **API Management**.
    
    ![Nova instância da Gestão de API do Azure](./media/get-started-create-service-instance/00-CreateResource-02.png)
    
-1. Na tela **serviço de gerenciamento de API** , insira configurações.
+1. No ecrã de **serviço de Gestão API,** introduza as definições.
    
    ![nova instância](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
    | Definição                 | Valor sugerido                               | Descrição                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nome**                | Um nome exclusivo para o serviço de Gestão de API | O nome não pode ser alterado mais tarde. O nome do serviço é utilizado para gerar um nome de domínio predefinido na forma de *{nome}.azure-api.net.* Se gostaria de utilizar um nome de domínio personalizado, consulte [Configurar um domínio personalizado](configure-custom-domain.md). <br/> O nome de serviço é utilizado para fazer referência ao serviço e ao recurso do Azure correspondente. |
-| **Subscrição**        | A sua subscrição                             | A subscrição sob a qual esta nova instância do serviço será criada. Pode selecionar a subscrição entre as diferentes subscrições do Azure disponíveis para si.                                                                                                                                                            |
+| **Assinatura**        | A sua subscrição                             | A subscrição sob a qual esta nova instância do serviço será criada. Pode selecionar a subscrição entre as diferentes subscrições do Azure disponíveis para si.                                                                                                                                                            |
 | **Grupo de Recursos**      | *apimResourceGroup*                           | Pode selecionar um recurso novo ou existente. Um grupo de recursos é uma coleção de recursos que partilham o ciclo de vida, as permissões e as políticas. Sabia mais [aqui](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
-| **Localização**            | *EUA Oeste*                                    | Selecione a região geográfica perto de si. Apenas as regiões de serviço de Gestão de API disponíveis são apresentadas na caixa de lista pendente.                                                                                                                                                                                                          |
+| **Localização**            | *E.U.A. Oeste*                                    | Selecione a região geográfica perto de si. Apenas as regiões de serviço de Gestão de API disponíveis são apresentadas na caixa de lista pendente.                                                                                                                                                                                                          |
 | **Nome da organização**   | O nome da sua organização                 | Este nome é utilizado em vários sítios, incluindo o título do portal do programador e o remetente de e-mails de notificação.                                                                                                                                                                                                             |
-| **E-mail do administrador** | *admin\@org.com*                               | Defina um endereço de e-mail para o qual serão enviadas todas as notificações da **Gestão de API**.                                                                                                                                                                                                                                              |
-| **Escalão de preço**        | *Programador*                                   | Defina o escalão de **Programador** para avaliar o serviço. Este escalão não é para utilização em produção. Para obter mais informações sobre o dimensionamento dos escalões da Gestão de API, consulte [Atualização de versão do software e dimensionamento](upgrade-and-scale.md).                                                                                                                                    |
+| **E-mail do administrador** | *org.com\@de administração*                               | Defina um endereço de e-mail para o qual serão enviadas todas as notificações da **Gestão de API**.                                                                                                                                                                                                                                              |
+| **Nível de preços**        | *Programador*                                   | Defina o escalão de **Programador** para avaliar o serviço. Este escalão não é para utilização em produção. Para obter mais informações sobre o dimensionamento dos escalões da Gestão de API, consulte [Atualização de versão do software e dimensionamento](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Escolha **Criar**.
 
@@ -68,17 +68,17 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 Quando já não for necessário, pode remover o grupo de recursos e todos os recursos relacionados seguindo estes passos:
 
-1. Na portal do Azure, procure e selecione grupos de **recursos**. Você também pode selecionar **grupos de recursos** na **Home** Page. 
+1. No portal Azure, procure e selecione **grupos de Recursos.** Também pode selecionar **grupos de Recursos** na página **Inicial.** 
 
    ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-1. Na página **grupos de recursos** , selecione o grupo de recursos.
+1. Na página dos **grupos Derecursos,** selecione o seu grupo de recursos.
 
    ![Navegação de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
-1. Na página grupo de recursos, selecione **excluir grupo de recursos**. 
+1. Na página do grupo de recursos, **selecione Eliminar o grupo de recursos**. 
    
-1. Digite o nome do seu grupo de recursos e, em seguida, selecione **excluir**.
+1. Digite o nome do seu grupo de recursos e, em seguida, selecione **Delete**.
 
    ![Eliminar grupo de recursos](./media/get-started-create-service-instance/00-DeleteResource-03.png)
 

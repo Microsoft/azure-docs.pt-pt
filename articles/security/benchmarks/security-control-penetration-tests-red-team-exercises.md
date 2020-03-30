@@ -1,6 +1,6 @@
 ---
-title: Controle de segurança do Azure – testes de penetração e exercícios de equipe vermelho
-description: Testes de penetração de controle de segurança e exercícios de equipe vermelho
+title: Controlo de Segurança Azure - Testes de Penetração e Exercícios de Equipa Vermelha
+description: Testes de penetração de controlo de segurança e exercícios de equipa vermelha
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -9,30 +9,30 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934310"
 ---
-# <a name="security-control-penetration-tests-and-red-team-exercises"></a>Controle de segurança: testes de penetração e exercícios de equipe vermelhos
+# <a name="security-control-penetration-tests-and-red-team-exercises"></a>Controlo de Segurança: Testes de penetração e exercícios de equipa vermelha
 
-Teste a força geral da defesa de uma organização (a tecnologia, os processos e as pessoas) simulando os objetivos e as ações de um invasor.
+Teste a força geral da defesa de uma organização (a tecnologia, os processos e as pessoas) simulando os objetivos e ações de um intruso.
 
-## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas dentro de 60 dias
+## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todos os resultados críticos de segurança no prazo de 60 dias
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 11,1 | 20.1-20,8 | Partilhado |
+| 11.1 | 20.1-20.8 | Partilhado |
 
-Siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft:
+Siga as Regras de Envolvimento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui:
+Pode encontrar mais informações sobre a estratégia e execução da Microsoft de Red Teaming e testes de penetração no site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft, aqui:
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia mais sobre os [controles de segurança do Azure](overview.md)
+Ler mais sobre controlos de [segurança do Azure](overview.md)

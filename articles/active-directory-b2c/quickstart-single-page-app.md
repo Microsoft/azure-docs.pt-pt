@@ -12,10 +12,10 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a5d4319f47530a91bcceb9b2dba94c6aa8e4c388
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78183895"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: Configurar o início de sessão para uma aplicação de uma página através do Azure Active Directory B2C
@@ -27,7 +27,7 @@ O Azure Ative Directory B2C (Azure AD B2C) fornece gestão de identidade na nuve
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a **carga de trabalho de ASP.NET e desenvolvimento web**
-- [Node.js](https://nodejs.org/en/download/)
+- [Nó.js](https://nodejs.org/en/download/)
 - Conta social do Facebook, Google ou Microsoft
 - Amostra de código do GitHub: [active-directy-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 
@@ -55,7 +55,7 @@ O Azure Ative Directory B2C (Azure AD B2C) fornece gestão de identidade na nuve
 
 2. Navegue para o URL da aplicação. Por exemplo, `http://localhost:6420`.
 
-## <a name="sign-in-using-your-account"></a>Inicie sessão com a sua conta
+## <a name="sign-in-using-your-account"></a>Iniciar sessão com a sua conta
 
 1. Clique em **Iniciar sessão** para iniciar o fluxo de trabalho.
 

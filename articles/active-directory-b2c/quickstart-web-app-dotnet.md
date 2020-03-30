@@ -12,10 +12,10 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 197155650bf7b8d113f96dbcfd6d9e2b58924b7f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78187207"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Quickstart: Instale o sinal para uma aplicação ASP.NET utilizando o Diretório Ativo Azure B2C
@@ -39,7 +39,7 @@ O Azure Ative Directory B2C (Azure AD B2C) fornece gestão de identidade na nuve
     - **TaskWebApp** - uma aplicação Web que cria e edita uma lista de tarefas. A aplicação web utiliza o fluxo de utilizador de **inscrição ou de entrada** para se inscrever ou inscrever nos utilizadores.
     - **TaskService** - uma API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
-## <a name="run-the-application-in-visual-studio"></a>Execute a aplicação no Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Executar a aplicação no Visual Studio
 
 1. Na pasta de projeto da aplicação de exemplo, abra a solução **B2C-WebAPI-DotNet.sln** no Visual Studio.
 2. Para este início rápido, vai executar ambos os projetos **TaskWebApp** e **TaskService** em simultâneo. Clique com o botão direito do rato na solução **B2C-WebAPI-DotNet** no Explorador de Soluções e, em seguida, selecione **Definir Projetos de Arranque**.
@@ -50,7 +50,7 @@ O Azure Ative Directory B2C (Azure AD B2C) fornece gestão de identidade na nuve
     - `https://localhost:44316/` - aplicação Web ASP.NET. No início rápido, interage diretamente com esta aplicação.
     - `https://localhost:44332/` - a API Web que é chamada pela aplicação Web ASP.NET.
 
-## <a name="sign-in-using-your-account"></a>Inicie sessão com a sua conta
+## <a name="sign-in-using-your-account"></a>Iniciar sessão com a sua conta
 
 1. Clique em **Inscrever-se / Iniciar sessão** na aplicação Web ASP.NET para iniciar o fluxo de trabalho.
 

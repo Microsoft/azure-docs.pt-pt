@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768454"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Quickstart: Criar e treinar um modelo preditivo em R com serviços de machine learning de base de dados Azure SQL (pré-visualização)
@@ -39,7 +39,7 @@ Neste arranque rápido, cria e treina um modelo preditivo utilizando R, guarde o
 Este exemplo usa um modelo simples de regressão para prever a distância de paragem de um carro com base na velocidade utilizando o conjunto de dados dos **carros** incluído com R.
 
 > [!TIP]
-> Muitos conjuntos de dados estão incluídos com o tempo de execução r, para obter uma lista de conjuntos de dados instalados, tipo `library(help="datasets")` a partir do pedido de comando R.
+> Muitos conjuntos de dados estão incluídos com o tempo de execução `library(help="datasets")` r, para obter uma lista de conjuntos de dados instalados, tipo a partir do pedido de comando R.
 
 ## <a name="create-and-train-a-predictive-model"></a>Criar e treinar um modelo preditivo
 
@@ -54,7 +54,7 @@ Os requisitos dos modelos lineares são simples:
 
 Nos seguintes passos, irá configurar os dados de treino, criar um modelo de regressão, treiná-lo usando os dados de treino e, em seguida, guardar o modelo para uma tabela SQL.
 
-1. Abra o **SQL Server Management Studio** e ligue à sua base de dados SQL.
+1. Abra o **Estúdio de Gestão de Servidores SQL** e ligue-se à sua base de dados SQL.
 
    Se precisar de ajuda para se ligar, consulte [Quickstart: Use o Estúdio de Gestão de Servidores SQL para ligar e consultar uma base de dados Azure SQL](sql-database-connect-query-ssms.md).
 
@@ -78,7 +78,7 @@ Nos seguintes passos, irá configurar os dados de treino, criar um modelo de reg
     GO
     ```
 
-1. Crie um modelo de regressão usando `rxLinMod`. 
+1. Criar um modelo de `rxLinMod`regressão usando . 
 
    Para construir o modelo, define a fórmula dentro do código R e, em seguida, passa os dados de treino **CarSpeed** como parâmetro de entrada.
 
@@ -200,13 +200,13 @@ Reparou que os dados de preparação originais param nos 45 quilómetros por hor
 
 2. Preveja a distância de paragem destes novos valores de velocidade.
 
-   Como o seu modelo é baseado no algoritmo **rxLinMod** fornecido como parte do pacote **RevoScaleR,** você chama a função [rxPredict,](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) em vez da função genérica R `predict`.
+   Como o seu modelo é baseado no algoritmo **rxLinMod** fornecido como parte do pacote **RevoScaleR,** você chama a função [rxPredict,](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) em vez da função R `predict` genérica.
 
    Este roteiro de exemplo:
    - Usa uma declaração SELECT para obter um único modelo da tabela
    - Passa-o como parâmetro de entrada
-   - Chama a função `unserialize` no modelo
-   - Aplica a função `rxPredict` com argumentos adequados ao modelo
+   - Chama `unserialize` a função no modelo
+   - Aplica a `rxPredict` função com argumentos adequados ao modelo
    - Fornece os novos dados de entrada
 
    > [!TIP]
@@ -242,7 +242,7 @@ Reparou que os dados de preparação originais param nos 45 quilómetros por hor
    ![Conjunto de resultados para prever a distância de paragem](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
-> Neste roteiro de exemplo, a função `str` é adicionada durante a fase de teste para verificar o esquema de dados que estão sendo devolvidos de R. Pode retirar a declaração mais tarde.
+> Neste roteiro de `str` exemplo, a função é adicionada durante a fase de teste para verificar o esquema de dados que estão sendo devolvidos de R. Pode retirar a declaração mais tarde.
 >
 > Os nomes das colunas utilizados no script R não são necessariamente transmitidos para a saída do procedimento armazenado. Aqui a cláusula COM RESULTADOS define alguns novos nomes de colunas.
 

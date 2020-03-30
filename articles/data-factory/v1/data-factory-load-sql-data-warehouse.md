@@ -1,6 +1,6 @@
 ---
-title: Carregar terabytes de dados em SQL Data Warehouse
-description: Demonstra como 1 TB de dados podem ser carregados no Azure SQL Data Warehouse menos de 15 minutos com Azure Data Factory
+title: Carregue terabytes de dados no Armazém de Dados SQL
+description: Demonstra como 1 TB de dados pode ser carregado no Armazém de Dados Azure SQL em menos de 15 minutos com a Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,75 +12,75 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980922"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130894"
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Azure SQL Data Warehouse menos de 15 minutos com Data Factory
+# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Armazém de Dados Azure SQL com menos de 15 minutos com data factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [copiar dados de ou para o Azure SQL data warehouse usando data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte os dados da Cópia de ou para o [Armazém de Dados Azure SQL utilizando](../connector-azure-sql-data-warehouse.md)a Data Factory .
 
 
-O [Azure SQL data warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem, escalável e em expansão capaz de processar grandes volumes de data, relacionais e não relacionais.  Baseado na arquitetura MPP (processamento paralelo maciço), a SQL Data Warehouse é otimizada para cargas de trabalho de data warehouse empresarial.  Ele oferece elasticidade de nuvem com a flexibilidade para dimensionar o armazenamento e a computação de forma independente.
+[O Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada em nuvem, baseada em escala, capaz de processar volumes maciços de dados, tanto relacionais como não relacionais.  Construído com base na arquitetura de processamento massivamente paralelo (MPP), o SQL Data Warehouse está otimizado para cargas de trabalho de armazém de dados empresariais.  Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
 
-A introdução ao SQL Data Warehouse do Azure agora está mais fácil do que nunca usando **Azure data Factory**.  Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para preencher um SQL Data Warehouse com os dados do seu sistema existente e economizar tempo valioso ao avaliar SQL Data Warehouse e criar sua análise soluções. Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando Azure Data Factory:
+Começar com o Azure SQL Data Warehouse é agora mais fácil do que nunca usando a **Azure Data Factory**.  A Azure Data Factory é um serviço de integração de dados totalmente gerido em nuvem, que pode ser usado para povoar um Armazém de Dados SQL com os dados do seu sistema existente, e economizando-lhe tempo valioso enquanto avalia o Armazém de Dados SQL e constrói a sua análise soluções. Aqui estão os principais benefícios de carregar dados no Armazém de Dados Azure SQL utilizando a Azure Data Factory:
 
-* **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
-* **Suporte a armazenamento de dados avançado**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
-* **Seguro e em conformidade**: os dados são transferidos por HTTPS ou ExpressRoute, e a presença do serviço global garante que seus dados nunca saiam do limite geográfico
-* O **desempenho inigualável usando o polybase** – usar o polybase é a maneira mais eficiente de mover dados para o Azure SQL data warehouse. Usando o recurso de blob de preparo, você pode obter altas velocidades de carga de todos os tipos de armazenamentos de dados além do armazenamento de BLOBs do Azure, ao qual o polybase dá suporte por padrão.
+* **Fácil de configurar**: Assistente intuitivo de 5 passos sem necessidade de scripts.
+* **Suporte rico em lojas**de dados : suporte incorporado para um conjunto rico de lojas de dados no local e baseadas na nuvem.
+* **Seguro e conforme:** os dados são transferidos sobre HTTPS ou ExpressRoute, e a presença global de serviçogarante que os seus dados nunca saem da fronteira geográfica
+* **Desempenho inigualável utilizando a PolyBase** – A utilização da Polybase é a forma mais eficiente de mover dados para o Azure SQL Data Warehouse. Utilizando a função de "staging blob", pode obter altas velocidades de carga de todos os tipos de lojas de dados para além do armazenamento Azure Blob, que a Polybase suporta por padrão.
 
-Este artigo mostra como usar Data Factory assistente de cópia para carregar dados de 1 TB do armazenamento de BLOBs do Azure para o Azure SQL Data Warehouse em menos de 15 minutos, com mais de 1,2 GBps de taxa de transferência.
+Este artigo mostra-lhe como usar o Data Factory Copy Wizard para carregar dados de 1 TB do Armazenamento De Azure Blob no Armazém de Dados Azure SQL em menos de 15 minutos, a mais de 1,2 GBps.
 
-Este artigo fornece instruções passo a passo para mover dados para o Azure SQL Data Warehouse usando o assistente de cópia.
+Este artigo fornece instruções passo a passo para transferir dados para o Armazém de Dados Azure SQL utilizando o Assistente de Cópia.
 
 > [!NOTE]
->  Para obter informações gerais sobre os recursos de Data Factory na movimentação de dados de/para o Azure SQL Data Warehouse, consulte [mover dados de e para o azure SQL data warehouse usando](data-factory-azure-sql-data-warehouse-connector.md) o artigo Azure data Factory.
+>  Para obter informações gerais sobre as capacidades da Data Factory na movimentação de dados de/para o Armazém de Dados Azure SQL, consulte os dados de e para o [Armazém de Dados Azure SQL utilizando](data-factory-azure-sql-data-warehouse-connector.md) o artigo da Azure Data Factory.
 >
-> Você também pode criar pipelines usando o Visual Studio, o PowerShell, etc. Consulte [tutorial: copiar dados do blob do Azure para o banco](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) de dados SQL do Azure para obter uma rápida explicação com instruções passo a passo para usar a atividade de cópia no Azure data Factory.  
+> Também pode construir oleodutos usando visual studio, PowerShell, etc. Ver [Tutorial: Copie os dados de Azure Blob para Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para uma rápida passagem com instruções passo a passo para a utilização da Atividade de Cópia na Fábrica de Dados Azure.  
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Armazenamento de BLOBs do Azure: esse experimento usa o armazenamento de BLOBs do Azure (GRS) para armazenar o conjunto de testes de TPC-H.  Se você não tiver uma conta de armazenamento do Azure, saiba [como criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
-* Dados do [TPC-h](http://www.tpc.org/tpch/) : vamos usar o TPC-h como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, que ajuda a gerar o conjunto de um.  Você pode baixar o código-fonte para `dbgen` de [Ferramentas do TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou baixar o binário compilado do [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Execute o dbgen. exe com os seguintes comandos para gerar um arquivo simples de 1 TB para a tabela `lineitem` se espalhar em 10 arquivos:
+* Armazenamento Azure Blob: esta experiência utiliza o Armazenamento De Blob Azure (GRS) para armazenar o conjunto de dados de teste TPC-H.  Se não tiver uma conta de armazenamento Azure, aprenda a criar uma conta de [armazenamento.](../../storage/common/storage-account-create.md)
+* [Dados tPC-H:](http://www.tpc.org/tpch/) vamos usar o TPC-H como conjunto de dados de teste.  Para isso, é necessário `dbgen` utilizar a partir do conjunto de ferramentas TPC-H, o que o ajuda a gerar o conjunto de dados.  Você pode baixar código `dbgen` fonte para [ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo você mesmo, ou baixar o binário compilado do [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Executar dbgen.exe com os seguintes comandos `lineitem` para gerar 1 TB ficheiro plano para tabela distribuída por 10 ficheiros:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
   * …
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
-    Agora, copie os arquivos gerados para o blob do Azure.  Consulte [mover dados de e para um sistema de arquivos local usando Azure data Factory](data-factory-onprem-file-system-connector.md) para saber como fazer isso usando a cópia do ADF.    
-* SQL Data Warehouse do Azure: este experimento carrega dados no Azure SQL Data Warehouse criado com 6.000 DWUs
+    Agora copie os ficheiros gerados para O Blob Azure.  Consulte a [Move de e para um sistema de ficheiros no local utilizando](data-factory-onprem-file-system-connector.md) a Azure Data Factory para saber como fazê-lo usando a ADF Copy.    
+* Azure SQL Data Warehouse: esta experiência carrega dados no Azure SQL Data Warehouse criado com 6.000 DWUs
 
-    Consulte [criar uma SQL data warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para obter instruções detalhadas sobre como criar um banco de dados SQL data warehouse.  Para obter o melhor desempenho de carga possível em SQL Data Warehouse usando o polybase, escolhemos o número máximo de DWUs (unidades de data warehouse) permitido na configuração de desempenho, que é 6.000 DWUs.
+    Consulte a Create a [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para obter instruções detalhadas sobre como criar uma base de dados de Depósito de Dados SQL.  Para obter o melhor desempenho de carga possível no SQL Data Warehouse usando a Polybase, escolhemos o número máximo de Unidades de Armazém de Dados (DWUs) permitidas na definição de Desempenho, que é de 6.000 DWUs.
 
   > [!NOTE]
-  > Ao carregar do blob do Azure, o desempenho do carregamento de dados é diretamente proporcional ao número de DWUs que você configura no SQL Data Warehouse:
+  > Ao carregar a partir de Azure Blob, o desempenho de carregamento de dados é diretamente proporcional ao número de DWUs que configura no Armazém de Dados SQL:
   >
-  > O carregamento de 1 TB em 1.000 DWU SQL Data Warehouse leva 87 minutos (~ 200 MBps de taxa de transferência) carregando 1 TB em 2.000 DWU SQL Data Warehouse leva de 46 minutos (~ 380 de taxa de transferência) carregando 1 TB em 6.000 DWU SQL Data Warehouse leva 14 minutos (~ 1,2 de taxa de transferência)
+  > Carregar 1 TB em 1.000 DWU SQL Data Warehouse demora 87 minutos (~200 MBps de entrada) Carregar 1 TB em 2.000 DWU SQL Data Warehouse demora 46 minutos (~380 MBps) Carregar 1 TB em 6.000 DWU SQL Data Warehouse demora 14 minutos (~1,2 GBps através da entrada)
   >
   >
 
-    Para criar um SQL Data Warehouse com 6.000 DWUs, mova o controle deslizante de desempenho até o lado direito:
+    Para criar um Armazém de Dados SQL com 6.000 DWUs, mova o slider performance todo o caminho para a direita:
 
-    ![Controle deslizante de desempenho](media/data-factory-load-sql-data-warehouse/performance-slider.png)
+    ![Deslize de desempenho](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    Para um banco de dados existente que não está configurado com 6.000 DWUs, você pode dimensioná-lo usando portal do Azure.  Navegue até o banco de dados em portal do Azure, e há um botão de **escala** no painel **visão geral** mostrado na imagem a seguir:
+    Para uma base de dados existente que não esteja configurada com 6.000 DWUs, pode dimensioná-la utilizando o portal Azure.  Navegue para a base de dados no portal Azure, e há um botão **Escala** no painel **de visão geral** mostrado na seguinte imagem:
 
     ![Botão de escala](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    Clique no botão **escala** para abrir o painel a seguir, mova o controle deslizante para o valor máximo e clique no botão **salvar** .
+    Clique no botão **Escala** para abrir o painel seguinte, mova o slider para o valor máximo e clique em **Guardar** o botão.
 
-    ![Caixa de diálogo dimensionar](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
+    ![Diálogo de escala](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    Esse experimento carrega dados no Azure SQL Data Warehouse usando `xlargerc` classe de recurso.
+    Esta experiência carrega dados no Azure `xlargerc` SQL Data Warehouse utilizando a classe de recursos.
 
-    Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um SQL Data Warehouse usuário pertencente `xlargerc` classe de recurso.  Saiba como fazer isso seguindo [alterar um exemplo de classe de recurso de usuário](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
-* Crie um esquema de tabela de destino no banco de dados SQL Data Warehouse do Azure, executando a seguinte instrução DDL:
+    Para obter a melhor entrada possível, a cópia precisa de `xlargerc` ser realizada utilizando um utilizador do SQL Data Warehouse pertencente à classe de recursos.  Aprenda a fazê-lo seguindo alterar um exemplo de [classe de recursos do utilizador](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+* Crie esquema de tabela de destino na base de dados do Armazém de Dados Azure SQL, executando a seguinte declaração dDL:
 
     ```SQL  
     CREATE TABLE [dbo].[lineitem]
@@ -108,15 +108,15 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-  Com as etapas de pré-requisito concluídas, agora estamos prontos para configurar a atividade de cópia usando o assistente de cópia.
+  Com os passos pré-requisitos concluídos, estamos agora prontos para configurar a atividade de cópia utilizando o Assistente de Cópia.
 
 ## <a name="launch-copy-wizard"></a>Inicie o Assistente de Cópia
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **criar um recurso** no canto superior esquerdo, clique em **inteligência + análise**e clique em **Data Factory**.
-3. No painel **novo data Factory** :
+1. Faça login no [portal Azure.](https://portal.azure.com)
+2. Clique **em Criar um recurso** a partir do canto superior esquerdo, clique em Inteligência + **análise,** e clique em **Data Factory**.
+3. No painel da nova fábrica de **dados:**
 
-   1. Digite **LoadIntoSQLDWDataFactory** para o **nome**.
-       O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: o **nome do data Factory "LoadIntoSQLDWDataFactory" não está disponível**, altere o nome do data Factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  
+   1. Introduza **loadIntoSQLDWDataFactory** para o **nome**.
+       O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: O nome de **fábrica de dados "LoadIntoSQLDWDataFactory" não está disponível,** altere o nome da fábrica de dados (por exemplo, o seu nomeLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  
    2. Selecione a sua **subscrição** do Azure.
    3. No Grupo de Recursos, siga um destes passos:
       1. Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
@@ -124,7 +124,7 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
    4. Selecione uma **localização** para a fábrica de dados.
    5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
    6. Clique em **Criar**.
-4. Após concluir a criação, verá o painel **Data Factory**, conforme apresentado na imagem seguinte:
+4. Após a criação estar concluída, vê a lâmina **data Factory** como mostrado na seguinte imagem:
 
    ![Home page da fábrica de dados](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
 5. Na home page do Data Factory, clique no mosaico **Copiar dados** para iniciar o **Assistente de Cópia**.
@@ -134,84 +134,84 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>Etapa 1: configurar o agendamento de carregamento de dados
-A primeira etapa é configurar o agendamento de carregamento de dados.  
+## <a name="step-1-configure-data-loading-schedule"></a>Passo 1: Configurar o calendário de carregamento de dados
+O primeiro passo é configurar o calendário de carregamento de dados.  
 
 Na página **Propriedades**:
 
-1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **nome da tarefa**
-2. Selecione a opção **executar uma vez agora** .   
+1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para nome de **tarefa**
+2. Selecione **Executar uma vez agora** opção.   
 3. Clique em **Seguinte**.  
 
-    ![Assistente de cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    ![Copy Wizard - Página de propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
-## <a name="step-2-configure-source"></a>Etapa 2: configurar a origem
-Esta seção mostra as etapas para configurar a origem: BLOB do Azure que contém os arquivos de item de linha de 1 TB TPC-H.
+## <a name="step-2-configure-source"></a>Passo 2: Configurar a fonte
+Esta secção mostra-lhe os passos para configurar a fonte: Azure Blob contendo os ficheiros de itens de linha TPC-H de 1 TB.
 
-1. Selecione o **armazenamento de BLOBs do Azure** como o armazenamento de dados e clique em **Avançar**.
+1. Selecione o **Armazenamento De Blob Azure** como a loja de dados e clique **em Next**.
 
-    ![Assistente de cópia – selecionar página de origem](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Copy Wizard - Selecione página de origem](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. Preencha as informações de conexão para a conta de armazenamento de BLOBs do Azure e clique em **Avançar**.
+2. Preencha as informações de ligação para a conta de armazenamento Do Blob Azure e clique em **Next**.
 
-    ![Assistente de cópia-informações de conexão de origem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Assistente de cópia - Informações de ligação de origem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. Escolha a **pasta** que contém os arquivos de item de linha TPC-H e clique em **Avançar**.
+3. Escolha a **pasta** que contém os ficheiros de itens da linha TPC-H e clique em **Next**.
 
-    ![Assistente de cópia – selecionar pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    ![Copy Wizard - selecione pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Quando você clicar em **Avançar**, as configurações de formato de arquivo serão detectadas automaticamente.  Verifique se o delimitador de coluna é ' | ' em vez da vírgula padrão ', '.  Clique em **Avançar** depois de visualizar os dados.
+4. Ao clicar **em Seguinte,** as definições do formato de ficheiro são detetadas automaticamente.  Verifique se o delimitador da coluna está '/' em vez da vírem predefinida ''.  Clique **em Seguir** depois de ter pré-visualizado os dados.
 
-    ![Assistente de cópia – configurações de formato de arquivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Copy Wizard - definições de formato de ficheiro](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
-## <a name="step-3-configure-destination"></a>Etapa 3: configurar o destino
-Esta seção mostra como configurar a tabela de destino: `lineitem` no banco de dados de SQL Data Warehouse do Azure.
+## <a name="step-3-configure-destination"></a>Passo 3: Destino de configuração
+Esta secção mostra-lhe como configurar o destino: `lineitem` tabela na base de dados do Armazém de Dados Azure SQL.
 
-1. Escolha **Azure SQL data warehouse** como o repositório de destino e clique em **Avançar**.
+1. Escolha o **Azure SQL Data Warehouse** como loja de destino e clique **em Next**.
 
-    ![Assistente de cópia – selecionar armazenamento de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![Copy Wizard - selecione loja de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Preencha as informações de conexão do SQL Data Warehouse do Azure.  Certifique-se de especificar o usuário que é membro da função `xlargerc` (consulte a seção **pré-requisitos** para obter instruções detalhadas) e clique em **Avançar**.
+2. Preencha as informações de ligação para o Azure SQL Data Warehouse.  Certifique-se de especificar o utilizador que `xlargerc` é membro da função (consulte a secção **de pré-requisitos** para instruções detalhadas) e clique em **Seguinte**.
 
-    ![Assistente de cópia-informações de conexão de destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Copy Wizard - informações de ligação ao destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. Escolha a tabela de destino e clique em **Avançar**.
+3. Escolha a tabela de destino e clique **em Seguinte**.
 
-    ![Assistente de cópia – página mapeamento de tabela](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    ![Copy Wizard - página de mapeamento de tabela](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Na página mapeamento de esquema, deixe a opção "aplicar mapeamento de coluna" desmarcada e clique em **Avançar**.
+4. Na página de mapeamento de Schema, deixe a opção "Aplicar o mapeamento da coluna" sem ser controlada e clique **em Next**.
 
-## <a name="step-4-performance-settings"></a>Etapa 4: configurações de desempenho
+## <a name="step-4-performance-settings"></a>Passo 4: Definições de desempenho
 
-A opção **permitir polybase** é marcada por padrão.  Clique em **Seguinte**.
+**Permitir que a polibase** seja verificada por defeito.  Clique em **Seguinte**.
 
-![Assistente de cópia – página mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
+![Copy Wizard - página de mapeamento de esquemas](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
-## <a name="step-5-deploy-and-monitor-load-results"></a>Etapa 5: implantar e monitorar os resultados da carga
-1. Clique no botão **concluir** para implantar.
+## <a name="step-5-deploy-and-monitor-load-results"></a>Passo 5: Implementar e monitorizar os resultados da carga
+1. Clique no botão **Terminar** para desdobrar.
 
-    ![Assistente de cópia – página Resumo](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Copy Wizard - página sumária](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. Após a conclusão da implantação, clique em `Click here to monitor copy pipeline` para monitorar o andamento da execução da cópia. Selecione o pipeline de cópia que você criou na lista **janelas de atividades** .
+2. Depois de concluída a `Click here to monitor copy pipeline` implementação, clique para monitorizar o progresso da execução da cópia. Selecione o pipeline de cópia que criou na lista Do Windows de **Atividade.**
 
-    ![Assistente de cópia – página Resumo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![Copy Wizard - página sumária](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    Você pode exibir os detalhes da execução de cópia no **Gerenciador de janelas de atividade** no painel direito, incluindo o volume de dados lido da origem e gravado no destino, a duração e a taxa de transferência média para a execução.
+    Pode visualizar os detalhes da execução da cópia no Activity **Window Explorer** no painel certo, incluindo o volume de dados lido a partir de fonte e escrito no destino, duração e a produção média para a execução.
 
-    Como você pode ver na captura de tela a seguir, a cópia de 1 TB do armazenamento de BLOBs do Azure em SQL Data Warehouse levou 14 minutos, atingindo efetivamente a taxa de transferência de 1,22 GBps!
+    Como pode ver na seguinte imagem, copiar 1 TB do Armazenamento Azure Blob para o SQL Data Warehouse demorou 14 minutos, efetivamente alcançando a entrada de 1,22 GBps!
 
-    ![Assistente de cópia-diálogo com êxito](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Copy Wizard - diálogo bem sucedido](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Melhores práticas
-Aqui estão algumas práticas recomendadas para executar o banco de dados SQL Data Warehouse do Azure:
+Aqui estão algumas boas práticas para executar a sua base de dados Azure SQL Data Warehouse:
 
-* Use uma classe de recursos maior ao carregar em um índice COLUMNSTORE CLUSTERIZAdo.
-* Para junções mais eficientes, considere usar a distribuição de hash por uma coluna Select em vez da distribuição de round robin padrão.
-* Para velocidades de carga mais rápidas, considere o uso de heap para dados transitórios.
-* Crie estatísticas depois de concluir o carregamento do SQL Data Warehouse do Azure.
+* Utilize uma classe de recursos maior ao carregar num ÍNDICE DE COLUNAS CLUSTERED.
+* Para juntar-se mais eficiente, considere utilizar a distribuição de hash por uma coluna selecionada em vez da distribuição de robin redondo padrão.
+* Para velocidades de carga mais rápidas, considere usar heap para dados transitórios.
+* Crie estatísticas depois de terminar de carregar o Azure SQL Data Warehouse.
 
-Consulte [práticas recomendadas para o Azure SQL data warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) para obter detalhes.
+Consulte [as melhores práticas para o Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) para mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Data Factory assistente de cópia](data-factory-copy-wizard.md) – este artigo fornece detalhes sobre o assistente de cópia.
-* [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) – este artigo contém as medições de desempenho de referência e o guia de ajuste.
+* [Data Factory Copy Wizard](data-factory-copy-wizard.md) - Este artigo fornece detalhes sobre o Assistente de Cópia.
+* Guia de [desempenho e afinação](data-factory-copy-activity-performance.md) da atividade da cópia - Este artigo contém as medições de desempenho de referência e o guia de afinação.

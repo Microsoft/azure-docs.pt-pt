@@ -1,59 +1,59 @@
 ---
-title: Continuidade dos negócios-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para PostgreSQL.
+title: Continuidade do negócio - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve a continuidade do negócio (restauro de tempo, interrupção do centro de dados, geo-restauro) ao utilizar a Base de Dados Azure para postgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981918"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
-Esta visão geral descreve os recursos que o banco de dados do Azure para PostgreSQL fornece para continuidade dos negócios e recuperação de desastres. Saiba mais sobre as opções de recuperação de eventos de interrupção que podem causar perda de dados ou fazer com que seu banco de dado e aplicativo se tornem indisponíveis. Saiba o que fazer quando um erro de usuário ou aplicativo afeta a integridade dos dados, uma região do Azure tem uma interrupção ou seu aplicativo requer manutenção.
+Esta visão geral descreve as capacidades que a Base de Dados Azure para postgreSQL fornece para a continuidade do negócio e recuperação de desastres. Saiba mais sobre as opções de recuperação de eventos disruptivos que possam causar perda de dados ou fazer com que a sua base de dados e aplicação fiquem indisponíveis. Saiba o que fazer quando um erro de utilizador ou aplicação afeta a integridade dos dados, uma região do Azure tem uma falha, ou a sua aplicação requer manutenção.
 
-## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Recursos que você pode usar para fornecer continuidade de negócios
+## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funcionalidades que pode usar para fornecer continuidade ao negócio
 
-O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de negócios que incluem backups automatizados e a capacidade de os usuários iniciarem a restauração geográfica. Cada um tem características diferentes para ERT (tempo de recuperação estimado) e potencial perda de dados. Depois de entender essas opções, você pode escolher entre elas e usá-las juntas para cenários diferentes. Ao desenvolver seu plano de continuidade de negócios, você precisa entender o tempo máximo aceitável antes que o aplicativo se recupere completamente após o evento de interrupção – esse é o RTO (objetivo de tempo de recuperação). Você também precisa entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo pode tolerar a perda ao recuperar após o evento de interrupção – esse é o RPO (objetivo de ponto de recuperação).
+A Base de Dados Azure para PostgreSQL fornece funcionalidades de continuidade do negócio que incluem backups automatizados e a capacidade para os utilizadores iniciarem a geo-restauração. Cada um tem características diferentes para o Tempo estimado de recuperação (ERT) e perda de dados potenciais. Assim que compreenderes estas opções, podes escolher entre elas e usá-las juntas para diferentes cenários. À medida que desenvolve o seu plano de continuidade de negócios, precisa de compreender o tempo máximo aceitável antes de a aplicação recuperar totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder quando se recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
 
-A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
+O quadro seguinte compara o ERT e o RPO para as funcionalidades disponíveis:
 
-| **Capacidade** | **Básica** | **Uso Geral** | **Com otimização de memória** |
+| **Capacidade** | **Básico** | **Propósito Geral** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
-| Restauração geográfica de backups replicados geograficamente | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção |
+| Geo-restauro de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Use o [bloqueio de recursos do Azure](../azure-resource-manager/management/lock-resources.md) para ajudar a evitar a exclusão acidental do seu servidor.
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Utilize o bloqueio de [recursos Azure](../azure-resource-manager/management/lock-resources.md) para ajudar a evitar a supressão acidental do seu servidor.
 
-## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de usuário ou aplicativo
+## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de utilizador ou aplicação
 
-Você pode usar os backups do serviço para recuperar um servidor de vários eventos de interrupção. Um usuário pode excluir acidentalmente alguns dados, remover inadvertidamente uma tabela importante ou até mesmo remover um banco de dado inteiro. Um aplicativo pode substituir acidentalmente bons dados com dados incorretos devido a um defeito do aplicativo e assim por diante.
+Pode utilizar as cópias de segurança do serviço para recuperar um servidor de vários eventos disruptivos. Um utilizador pode acidentalmente apagar alguns dados, deixar cair inadvertidamente uma tabela importante ou mesmo deixar cair uma base de dados inteira. Uma aplicação pode acidentalmente substituir bons dados com dados maus devido a um defeito de aplicação, e assim por diante.
 
-Você pode executar uma **restauração pontual** para criar uma cópia do seu servidor para um momento bom conhecido no tempo. Esse ponto no tempo deve estar dentro do período de retenção de backup que você configurou para o servidor. Depois que os dados forem restaurados para o novo servidor, você poderá substituir o servidor original pelo servidor restaurado recentemente ou copiar os dados necessários do servidor restaurado para o servidor original.
+Pode realizar um **restauro** pontual para criar uma cópia do seu servidor para um bom ponto de tempo conhecido. Este ponto de tempo deve estar dentro do período de retenção de cópia de segurança configurado para o seu servidor. Depois de os dados forem restaurados ao novo servidor, pode substituir o servidor original pelo servidor recém-restaurado ou copiar os dados necessários do servidor restaurado para o servidor original.
 
-## <a name="recover-from-an-azure-data-center-outage"></a>Recuperar de uma interrupção de data center do Azure
+## <a name="recover-from-an-azure-data-center-outage"></a>Recuperar de uma paragem do centro de dados do Azure
 
-Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma interrupção, ela causa uma interrupção de negócios que pode durar apenas alguns minutos, mas pode durar por horas.
+Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma paragem, causa uma perturbação no negócio que pode durar apenas alguns minutos, mas pode durar horas.
 
-Uma opção é aguardar que o servidor volte a ficar online quando a interrupção de data center terminar. Isso funciona para aplicativos que podem deixar o servidor offline por um período de tempo, por exemplo, um ambiente de desenvolvimento. Quando um data center tem uma interrupção, você não sabe por quanto tempo a interrupção pode durar, portanto, essa opção só funcionará se você não precisar do seu servidor por algum tempo.
+Uma opção é esperar que o seu servidor volte a funcionar quando a interrupção do centro de dados terminar. Isto funciona para aplicações que podem dar ao luxo de ter o servidor offline por algum tempo, por exemplo, um ambiente de desenvolvimento. Quando um data center tem uma paragem, não sabe quanto tempo a paralisação pode durar, pelo que esta opção só funciona se não precisar do seu servidor por um tempo.
 
 ## <a name="geo-restore"></a>Georrestauro
 
-O recurso de restauração geográfica restaura o servidor usando backups com redundância geográfica. Os backups são hospedados na [região emparelhada](../best-practices-availability-paired-regions.md)do servidor. Você pode restaurar esses backups para qualquer outra região. A restauração geográfica cria um novo servidor com os dados dos backups. Saiba mais sobre a restauração geográfica no [artigo conceitos de backup e restauração](concepts-backup.md).
+A função de geo-restauro restaura o servidor utilizando backups georedundantes. As cópias de segurança estão alojadas na [região emparelhada](../best-practices-availability-paired-regions.md)do seu servidor. Pode restaurar estes reforços para qualquer outra região. O geo-restauro cria um novo servidor com os dados das cópias de segurança. Saiba mais sobre geo-restauro a partir do artigo de backup e restauro de [conceitos.](concepts-backup.md)
 
 > [!IMPORTANT]
-> A restauração geográfica só será possível se você tiver provisionado o servidor com o armazenamento de backup com redundância geográfica. Se desejar alternar de localmente redundante para backups com redundância geográfica para um servidor existente, você deverá fazer um despejo usando pg_dump do servidor existente e restaurá-lo para um servidor recém-criado configurado com backups com redundância geográfica.
+> A geo-restauração só é possível se for metodo o servidor com armazenamento de backup geo-redundante. Se pretender mudar de backups redundantes localmente para cópias de segurança georedundantes para um servidor existente, deve descarregar usando pg_dump do seu servidor existente e restaurá-lo para um servidor recém-criado configurado com backups georedundantes.
 
-## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
-Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
+## <a name="cross-region-read-replicas"></a>Réplicas de leitura transversal
+Você pode usar réplicas de leitura transversal para melhorar a continuidade do seu negócio e planeamento de recuperação de desastres. As réplicas de leitura são atualizadas sincronicamente utilizando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como falhar com o artigo de [replicas de leitura.](concepts-read-replicas.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre os [backups automatizados no banco de dados do Azure para PostgreSQL](concepts-backup.md). 
-- Saiba como restaurar usando [o portal do Azure](howto-restore-server-portal.md) ou [o CLI do Azure](howto-restore-server-cli.md).
-- Saiba mais sobre [réplicas de leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).
+- Saiba mais sobre as cópias de [segurança automatizadas na Base de Dados Azure para PostgreSQL](concepts-backup.md). 
+- Aprenda a restaurar [utilizando o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).
+- Saiba mais sobre [as réplicas de leitura na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).

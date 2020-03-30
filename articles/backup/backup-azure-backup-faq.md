@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255028"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156060"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -22,7 +22,7 @@ Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região supo
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
-Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente do Microsoft Azure Backup, poderá registar até 50 agentes MAB por cofre. Pode registar 50 servidores MAB/servidores DPM num cofre.
+Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a utilizar o Agente de Backup Microsoft Azure, pode registar até 50 agentes MARS por cofre. E pode registar 50 servidores MABS/servidores DPM num cofre.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantas origens de dados/itens podem ser protegidos num cofre?
 
@@ -82,7 +82,7 @@ Windows 10 de 64 bits | Enterprise, Pro, Home | Os computadores devem estar a 
 Windows 8.1 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
-Servidor | |
+Server | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -113,7 +113,7 @@ VM do Azure | 16 discos de dados<br/> Para se registar para obter a pré-visuali
 
 A tabela seguinte explica a forma como é determinado cada tamanho da origem de dados.
 
-**Origem de dados** | **Detalhes**
+**Origem de Dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados para a cópia de segurança a partir de único volume de VM para a cópia de segurança.
 Base de dados do SQL Server |Tamanho da base de dados SQL única para a cópia de segurança.

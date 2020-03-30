@@ -10,10 +10,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
 ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78851412"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e monitorize-a com o Azure CLI
@@ -66,7 +66,7 @@ O Azure CLI exige que esteja registado na sua conta Azure. Toda a comunicação 
 *  Abra uma segunda sessão do CLI.  Se estiver a utilizar a Cloud Shell, **selecione Open new session**. Se estiver a usar o CLI localmente, abra uma segunda instância. 
 
     >[!div class="mx-imgBorder"]
-    >![Open nova sessão cloud shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+    >![Abrir nova sessão cloud shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 Nesta secção, você usa o AZURE CLI para criar um grupo de recursos e um Hub IoT.  Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um IoT Hub funciona como um centro de mensagens central para a comunicação bidirecional entre a sua aplicação IoT e os dispositivos. 
@@ -171,7 +171,7 @@ Para visualizar as métricas de mensagens no portal Azure:
 
     ![Ver métricas do Hub Azure IoT](media/quickstart-send-telemetry-cli/iot-hub-portal-view-metrics.png)
 
-5. Opcionalmente, utilize a queda **métrica** para exibir outras métricas no seu dispositivo simulado. Por exemplo, entregas de *mensagens C2d concluídas* ou *dispositivos Totais (pré-visualização)* . 
+5. Opcionalmente, utilize a queda **métrica** para exibir outras métricas no seu dispositivo simulado. Por exemplo, entregas de *mensagens C2d concluídas* ou *dispositivos Totais (pré-visualização)*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se já não precisar dos recursos Azure criados neste arranque rápido, pode utilizar o Azure CLI para os apagar.

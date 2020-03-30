@@ -3,16 +3,16 @@ title: Implementar múltiplas instâncias de recursos
 description: Utilize a operação de cópia e as matrizes num modelo de Gestor de Recursos Azure para implementar o tipo de recursos muitas vezes.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: e90673504ceaccdc25a477e856defa77eed37d86
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620226"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153323"
 ---
-# <a name="resource-iteration-in-azure-resource-manager-templates"></a>Iteração de recursos nos modelos do Gestor de Recursos Azure
+# <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
 
-Este artigo mostra-lhe como criar mais do que uma instância de um recurso no seu modelo de Gestor de Recursos Azure. Ao adicionar o elemento **de cópia** à secção de recursos do seu modelo, pode configurar dinamicamente o número de recursos para implantar. Também evita ter que repetir a sintaxe do modelo.
+Este artigo mostra-lhe como criar mais do que uma instância de um recurso no seu modelo de Gestor de Recursos Azure (ARM). Ao adicionar o elemento **de cópia** à secção de recursos do seu modelo, pode configurar dinamicamente o número de recursos para implantar. Também evita ter que repetir a sintaxe do modelo.
 
 Também pode utilizar cópias com [propriedades,](copy-properties.md) [variáveis](copy-variables.md) e [saídas.](copy-outputs.md)
 
@@ -68,7 +68,7 @@ O exemplo seguinte cria o número de contas de armazenamento especificadas no pa
 }
 ```
 
-Note que o nome de cada recurso inclui a função `copyIndex()`, que devolve a iteração atual no loop. `copyIndex()` é baseado em zero. Então, o seguinte exemplo:
+Note que o nome `copyIndex()` de cada recurso inclui a função, que devolve a iteração atual no loop. `copyIndex()` é baseado em zero. Então, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -92,7 +92,7 @@ Cria estes nomes:
 * armazenamento2
 * armazenamento3
 
-A operação de cópia é útil quando se trabalha com matrizes porque pode iterar através de cada elemento da matriz. Utilize a função `length` na matriz para especificar a contagem para iterações e `copyIndex` para recuperar o índice atual na matriz.
+A operação de cópia é útil quando se trabalha com matrizes porque pode iterar através de cada elemento da matriz. Utilize `length` a função na matriz para especificar `copyIndex` a contagem para iterações e para recuperar o índice atual na matriz.
 
 O exemplo seguinte cria uma conta de armazenamento para cada nome fornecido no parâmetro.
 
@@ -137,7 +137,7 @@ Se pretender devolver valores dos recursos implantados, pode utilizar [cópiana 
 
 Por padrão, o Gestor de Recursos cria os recursos em paralelo. Não aplica limites ao número de recursos utilizados paralelamente, com a lém do limite total de 800 recursos no modelo. A ordem em que são criadas não está garantida.
 
-No entanto, pode querer especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, é possível que queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma instância de um recurso, coloque `mode` em **série** e `batchSize` ao número de instâncias a implementar de cada vez. Com o modo de série, o Gestor de Recursos cria uma dependência de instâncias anteriores no loop, por isso não inicia um lote até que o lote anterior esteja concluído.
+No entanto, pode querer especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, é possível que queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma `mode` instância `batchSize` de um recurso, definido para **série** e para o número de instâncias a implantar de cada vez. Com o modo de série, o Gestor de Recursos cria uma dependência de instâncias anteriores no loop, por isso não inicia um lote até que o lote anterior esteja concluído.
 
 Por exemplo, para implantar em série contas de armazenamento duas de cada vez, use:
 
@@ -172,7 +172,7 @@ A propriedade do modo também aceita **paralelo,** que é o valor padrão.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em loop
 
-Especifica que um recurso é implantado após outro recurso utilizando o elemento `dependsOn`. Para implantar um recurso que dependa da recolha de recursos em loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo seguinte mostra como implementar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Note que o elemento de cópia tem o nome definido para `storagecopy` e o elemento dependsOn para a máquina virtual também está definido para `storagecopy`.
+Especifica que um recurso é implantado após `dependsOn` outro recurso utilizando o elemento. Para implantar um recurso que dependa da recolha de recursos em loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo seguinte mostra como implementar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Note que o elemento `storagecopy` de cópia tem o nome definido e `storagecopy`o elemento dependsOn para a máquina virtual também está definido para .
 
 ```json
 {
@@ -231,7 +231,7 @@ Por exemplo, suponha que tipicamente define um conjunto de dados como um recurso
   ]
 ```
 
-Para criar mais do que um conjunto de dados, mova-o para fora da fábrica de dados. O conjunto de dados deve estar ao mesmo nível da fábrica de dados, mas ainda é um recurso infantil da fábrica de dados. Preserva a relação entre o conjunto de dados e a fábrica de dados através das propriedades do tipo e do nome. Uma vez que o tipo já não pode ser inferido da sua posição no modelo, deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Para criar mais do que um conjunto de dados, mova-o para fora da fábrica de dados. O conjunto de dados deve estar ao mesmo nível da fábrica de dados, mas ainda é um recurso infantil da fábrica de dados. Preserva a relação entre o conjunto de dados e a fábrica de dados através das propriedades do tipo e do nome. Uma vez que o tipo já não pode ser inferido da sua posição `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`no modelo, deve fornecer o tipo totalmente qualificado no formato: .
 
 Para estabelecer uma relação pai/filho com uma instância da fábrica de dados, forneça um nome para o conjunto de dados que inclua o nome do recurso-mãe. Utilize o formato: `{parent-resource-name}/{child-resource-name}`.
 
@@ -280,12 +280,12 @@ Os exemplos seguintes mostram cenários comuns para a criação de mais do que u
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos de Gestor de Recursos .
+* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos ARM .
 * Para outras utilizações do elemento cópia, consulte:
-  * [Iteração de propriedade em modelos de Gestor de Recursos Azure](copy-properties.md)
-  * [Iteração variável nos modelos do Gestor de Recursos Azure](copy-variables.md)
-  * [Iteração de saída nos modelos do Gestor de Recursos Azure](copy-outputs.md)
+  * [Iteração de propriedade em modelos ARM](copy-properties.md)
+  * [Iteração variável em modelos ARM](copy-variables.md)
+  * [Iteração de saída em modelos ARM](copy-outputs.md)
 * Para obter informações sobre a utilização da cópia com modelos aninhados, consulte [A Utilização da Cópia](linked-templates.md#using-copy).
-* Se quiser saber sobre as secções de um modelo, consulte os modelos de gestor de [recursos do Azure .](template-syntax.md)
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o Modelo](deploy-powershell.md)de Gestor de Recursos Azure .
+* Se quiser saber sobre as secções de um modelo, consulte [os modelos ARM autores](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com modelo ARM](deploy-powershell.md).
 

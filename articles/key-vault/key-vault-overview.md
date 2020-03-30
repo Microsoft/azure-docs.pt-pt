@@ -12,18 +12,18 @@ ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4e2953b107b017d032e737e2878472166c677839
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78194959"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
 O Cofre chave Azure ajuda a resolver os seguintes problemas:
 
-- **Gestão de Segredos** – o Azure Key Vault pode ser utilizado para armazenar de forma segura e controlar totalmente o acesso a tokens, palavras-passe, certificados, chaves de API e outros segredos
-- **Gestão de Chaves** – o Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
+- **Gestão de Segredos** – O Azure Key Vault pode ser utilizado para armazenar de forma segura e controlar totalmente o acesso aos tokens, palavras-passe, certificados, chaves de API e outros segredos
+- **Gestão de Chaves** – O Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
 - **Gestão de Certificados** - Azure Key Vault é também um serviço que lhe permite fornecer, gerir e implementar facilmente certificados de segurança/camada de tomadas seguras de transporte (TLS/SSL) para uso com o Azure e os seus recursos internos conectados. 
 - **Guarde segredos apoiados por Módulos** de Segurança de Hardware - Os segredos e chaves podem ser protegidos quer por software quer por HSMs validados de nível 2
 
@@ -72,7 +72,7 @@ Além disso, o Azure Key Vault permite-lhe segregar segredos das aplicações. A
 ### <a name="integrate-with-other-azure-services"></a>Integrar com outros serviços do Azure
 
 Como uma loja segura em Azure, key vault tem sido usado para simplificar cenários como:
--  [Encriptação do disco azure](../security/fundamentals/encryption-overview.md)
+-  [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)
 -  A funcionalidade [sempre encriptada]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) no servidor SQL e na Base de Dados Azure SQL
 - [Serviço de Aplicações Azure.]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate) 
 
@@ -80,5 +80,5 @@ O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de E
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Create an Azure Key Vault using the CLI](quick-create-cli.md) (Início Rápido: Criar um Cofre de Chaves do Azure com a CLI do Azure)
-- [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar uma aplicação Web do Azure para ler segredos em cofres de segurança)
+- [Início Rápido: Criar um Azure Key Vault com a CLI](quick-create-cli.md)
+- [Configure uma aplicação web Azure para ler um segredo do cofre key](tutorial-web-application-keyvault.md)

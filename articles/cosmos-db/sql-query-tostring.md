@@ -8,14 +8,14 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304264"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
- Devolve uma representação de cadeia de expressão escalar. 
+ Devolve uma representação de corda de expressão escalar. 
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -30,11 +30,11 @@ ToString(<expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como `ToString` se comporta em diferentes tipos.   
+  O exemplo que `ToString` se segue mostra como se comporta em diferentes tipos.   
   
 ```sql
 SELECT 
@@ -53,11 +53,11 @@ SELECT
 ```json
 [{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
 ```  
- Tendo em conta a seguinte entrada:
+ Dada a seguinte entrada:
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- O exemplo que se segue mostra como `ToString` pode ser usado com outras funções de cadeia, como `CONCAT`.   
+ O exemplo que `ToString` se segue mostra como `CONCAT`pode ser usado com outras funções de cadeia como .   
  
 ```sql
 SELECT 
@@ -74,11 +74,11 @@ Aqui está o conjunto de resultados.
 {"$1":"8999mg" }]
 
 ```  
-Tendo em conta a seguinte entrada.
+Dada a seguinte entrada.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-O exemplo que se segue mostra como `ToString` pode ser usado com outras funções de cadeia, como `REPLACE`.   
+O exemplo que `ToString` se segue mostra como `REPLACE`pode ser usado com outras funções de cadeia como .   
 ```sql
 SELECT 
     n.id AS nutrientID,

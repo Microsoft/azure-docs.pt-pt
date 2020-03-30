@@ -9,19 +9,19 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184692"
 ---
-## <a name="download-the-source-code"></a>Baixe o código-fonte
+## <a name="download-the-source-code"></a>Descarregue o código fonte
 
-Os repositórios de código de origem monitorização remota incluem o código-fonte e os ficheiros de configuração do Docker que tem de executar os microsserviços imagens do Docker.
+Os repositórios de código de código de monitorização remota incluem o código fonte e os ficheiros de configuração do Docker que você precisa para executar as imagens do Docker de microserviços.
 
-Para clonar e criar uma versão local do repositório, utilize o seu ambiente de linha de comandos para navegar para uma pasta adequada no seu computador local. Em seguida, execute um dos seguintes conjuntos de comandos para clonar o repositório .NET:
+Para clonar e criar uma versão local do repositório, use o seu ambiente de linha de comando para navegar para uma pasta adequada na sua máquina local. Em seguida, executar um dos seguintes conjuntos de comandos para clonar o repositório .NET:
 
-Para transferir a versão mais recente das implementações de microsserviços .NET, execute:
+Para descarregar a versão mais recente das implementações de microserviços .NET, executar:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -33,47 +33,47 @@ git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
-> Estes comandos Baixe o código-fonte para todos os microsserviços, além dos scripts que utiliza para executar os microsserviços localmente. Apesar de não precisar do código-fonte para executar os microsserviços no Docker, o código-fonte é útil se pretender mais tarde modificar o acelerador de solução e testar as suas alterações localmente.
+> Estes comandos descarregam o código fonte para todos os microserviços, além dos scripts que utiliza para executar os microserviços localmente. Embora não precise do código fonte para executar os microserviços no Docker, o código fonte é útil se planeia posteriormente modificar o acelerador de soluções e testar as suas alterações localmente.
 
-## <a name="deploy-the-azure-services"></a>Implementar os serviços do Azure
+## <a name="deploy-the-azure-services"></a>Implementar os serviços Azure
 
-Embora este artigo mostra como executar os microsserviços localmente, dependem de serviços do Azure em execução na cloud. Utilize o seguinte script para implementar os serviços do Azure. Os exemplos de script seguintes partem do princípio de que estiver a utilizar o repositório .NET num computador Windows. Se estiver trabalhando em outro ambiente, ajuste adequadamente os caminhos, extensões de ficheiro e os separadores de caminho.
+Embora este artigo mostre como gerir os microserviços localmente, eles dependem dos serviços azure que funcionam na nuvem. Utilize o seguinte script para implantar os serviços Azure. Os seguintes exemplos de scripts assumem que está a usar o repositório .NET numa máquina Windows. Se estiver a trabalhar noutro ambiente, ajuste os caminhos, as extensões de ficheiros e os separadores de caminhos adequadamente.
 
-### <a name="create-new-azure-resources"></a>Criar novos recursos do Azure
+### <a name="create-new-azure-resources"></a>Criar novos recursos Azure
 
-Se ainda não criou os recursos do Azure necessários, siga estes passos:
+Se ainda não criou os recursos azure necessários, siga estes passos:
 
-1. No seu ambiente de linha de comandos, navegue para o **\services\scripts\local\launch** pasta na sua cópia clonada do repositório.
+1. No seu ambiente de linha de comando, navegue para a pasta **\services\scripts\local\launch** na sua cópia clonada do repositório.
 
-1. Execute os seguintes comandos para instalar o **pcs** CLI a ferramenta e inicie sessão na sua conta do Azure:
+1. Execute os seguintes comandos para instalar a ferramenta **CLI do PCS** e iniciar sessão na sua conta Azure:
 
     ```cmd
     npm install -g iot-solutions
     pcs login
     ```
 
-1. Executar o **start.cmd** script. O script pede-lhe as seguintes informações:
+1. Execute o script **start.cmd.** O script solicita-lhe as seguintes informações:
    * Um nome de solução.
    * A subscrição do Azure que deve utilizar.
-   * A localização do datacenter do Azure para utilizar.
+   * A localização do datacenter Azure a utilizar.
 
-     O script cria o grupo de recursos no Azure com o nome da sua solução. Este grupo de recursos contém os recursos do Azure que utiliza o solution accelerator. Pode eliminar este grupo de recursos assim que não precisa mais os recursos correspondentes.
+     O script cria um grupo de recursos em Azure com o seu nome de solução. Este grupo de recursos contém os recursos Azure que o acelerador de solução utiliza. Pode eliminar este grupo de recursos assim que deixar de precisar dos recursos correspondentes.
 
-     O script também adiciona um conjunto de variáveis de ambiente com um prefixo **PCS** no seu computador local. Estas variáveis de ambiente fornecem os detalhes para a monitorização remota poder ler a partir de um recurso do Azure Key Vault. Este recurso do Key Vault é onde a monitorização remota irá ler seus valores de configuração de.
+     O script também adiciona um conjunto de variáveis ambientais com um **PCS** prefixo à sua máquina local. Estas variáveis ambientais fornecem os detalhes para a Monitorização Remota para poder ler a partir de um recurso Azure Key Vault. Este recurso Key Vault é onde a Monitorização Remota irá ler os seus valores de configuração.
 
      > [!TIP]
-     > Quando o script tiver concluído, ele também salva as variáveis de ambiente num arquivo chamado  **\<sua pasta de raiz\>\\.pcs\\\<nome da solução\>. env** . Pode usá-los para implementações de acelerador de solução futuras. Tenha em atenção que todas as variáveis de ambiente definidas no seu computador local substituem valores a **serviços\\scripts\\local\\. env** ficheiro ao executar **docker-compose**.
+     > Quando o script completa, também guarda as variáveis ambientais para um ficheiro chamado ** \<"your home folder\>\\".pcs\\\<solution name\>.env**. Pode usá-los para futuras implementações de aceleradores de soluções. Note que quaisquer variáveis ambientais definidas na sua máquina local sobrepõem valores nos **scripts de\\serviços\\ficheiro .env local\\** quando executa **docker-compose**.
 
-1. Sair do seu ambiente de linha de comandos.
+1. Saia do seu ambiente de linha de comando.
 
-### <a name="use-existing-azure-resources"></a>Utilizar recursos do Azure existentes
+### <a name="use-existing-azure-resources"></a>Utilizar os recursos azure existentes
 
-Se já tiver criado os recursos do Azure necessários, crie as variáveis de ambiente correspondente no seu computador local.
-Defina as variáveis de ambiente para o seguinte:
-* **PCS_KEYVAULT_NAME** -nome do recurso do Azure Key Vault
-* **PCS_AAD_APPID** -ID da aplicação do AAD
-* **PCS_AAD_APPSECRET** -segredo da aplicação do AAD
+Se já criou os recursos Azure necessários, crie as variáveis ambientais correspondentes na sua máquina local.
+Definir as variáveis ambientais para o seguinte:
+* **PCS_KEYVAULT_NAME** - Nome do recurso Azure Key Vault
+* **PCS_AAD_APPID** - O ID da aplicação AAD
+* **PCS_AAD_APPSECRET** - O segredo da aplicação aAD
 
-Valores de configuração serão lido a partir deste recurso do Azure Key Vault. Estas variáveis de ambiente podem ser salvo no  **\<sua pasta de raiz\>\\.pcs\\\<nome da solução\>. env** ficheiro da implementação. Tenha em atenção que as variáveis de ambiente definidas no seu computador local substituem valores a **serviços\\scripts\\local\\. env** ficheiro ao executar **docker-compose**.
+Os valores de configuração serão lidos a partir deste recurso Azure Key Vault. Estas variáveis ambientais podem ser guardadas na ** \<sua pasta\>\\inicial\\\<.pcs nome de solução\>.env** da implementação. Note que as variáveis ambientais definidas na sua máquina local sobrepõem os valores nos **scripts de\\serviços\\ficheiro .env local\\** quando executa **docker-compor**.
 
-Algumas das configurações do necessários para os microsserviços são armazenados numa instância do **Key Vault** que foi criado na implementação inicial. As variáveis correspondentes no Cofre de chaves devem ser modificadas conforme necessário.
+Parte da configuração necessária pelo microserviço é armazenada num caso de **Key Vault** que foi criado na implementação inicial. As variáveis correspondentes no cofre devem ser modificadas conforme necessário.

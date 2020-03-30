@@ -1,6 +1,6 @@
 ---
-title: Gerenciar permissões de banco de dados no Azure Data Explorer
-description: Este artigo descreve os controles de acesso baseado em função para bancos de dados e tabelas no Azure Data Explorer.
+title: Gerir permissões de base de dados no Azure Data Explorer
+description: Este artigo descreve controlos de acesso baseados em papéis para bases de dados e tabelas no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76030102"
 ---
-# <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados Data Explorer do Azure
+# <a name="manage-azure-data-explorer-database-permissions"></a>Gerir permissões de base de dados do Azure Data Explorer
 
-O Azure Data Explorer permite que você controle o acesso a bancos de dados e tabelas usando um modelo de *controle de acesso baseado em função* . Nesse modelo, as *entidades* (usuários, grupos e aplicativos) são mapeadas para *funções*. As entidades de segurança podem acessar recursos de acordo com as funções que são atribuídas.
+O Azure Data Explorer permite controlar o acesso a bases de dados e tabelas, utilizando um modelo *de controlo de acesso baseado em papéis.* Neste modelo, os *principais* (utilizadores, grupos e aplicações) são mapeados para *funções.* Os diretores podem aceder aos recursos de acordo com as funções que lhes são atribuídas.
 
-Este artigo descreve as funções disponíveis e como atribuir entidades a essas funções usando os comandos portal do Azure e gerenciamento de Data Explorer do Azure.
+Este artigo descreve as funções disponíveis e como atribuir os principais a essas funções utilizando o portal Azure e comandos de gestão do Azure Data Explorer.
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
@@ -26,55 +26,55 @@ O Azure Data Explorer tem as seguintes funções:
 
 |Função                       |Permissões                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
-|Administrador de banco de dados             |Pode fazer qualquer coisa no escopo de um banco de dados específico.|
-|Usuário do banco de dados              |Pode ler todos os dados e metadados no banco de dado. Além disso, eles podem criar tabelas (tornando-se o administrador da tabela para essa tabela) e funções no banco de dados.|
-|Visualizador de banco de dados            |Pode ler todos os dados e metadados no banco de dado.|
-|Ingestão de banco de dados          |Pode ingerir os dados para todas as tabelas existentes no banco de dados, mas não para consultar os mesmos.|
-|Monitor de banco de dados           |Pode executar '. show... ' comandos no contexto do banco de dados e suas entidades filho.|
-|Administrador de tabela                |Pode fazer qualquer coisa no escopo de uma tabela específica. |
-|Ingerir tabela             |Pode ingerir dados no escopo de uma tabela específica, mas não consultar os dados.|
+|Administração de base de dados             |Pode fazer qualquer coisa no âmbito de uma determinada base de dados.|
+|Utilizador de base de dados              |Pode ler todos os dados e metadados na base de dados. Além disso, podem criar tabelas (tornando-se a administração da tabela para essa tabela) e funções na base de dados.|
+|Visualizador de base de dados            |Pode ler todos os dados e metadados na base de dados.|
+|Base de dados ingestor          |Pode ingerir dados para todas as tabelas existentes na base de dados, mas não consultar os dados.|
+|Monitor de base de dados           |Pode executar '.show...' comandos no contexto da base de dados e das suas entidades infantis.|
+|Administrador de mesa                |Pode fazer qualquer coisa no âmbito de uma determinada mesa. |
+|Quadro ingestor             |Pode ingerir dados no âmbito de uma determinada tabela, mas não consultar os dados.|
 
-## <a name="manage-permissions-in-the-azure-portal"></a>Gerenciar permissões no portal do Azure
+## <a name="manage-permissions-in-the-azure-portal"></a>Gerir permissões no portal Azure
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Navegue até o cluster de Data Explorer do Azure.
+1. Navegue para o seu cluster Azure Data Explorer.
 
-1. Na seção **visão geral** , selecione o banco de dados para o qual você deseja gerenciar permissões.
+1. Na secção **Visão Geral,** selecione a base de dados onde pretende gerir as permissões.
 
     ![Selecionar base de dados](media/manage-database-permissions/select-database.png)
 
-1. Selecione **permissões** e **Adicionar**.
+1. Selecione **Permissões** **e,** em seguida, adicionar .
 
-    ![Permissões de banco de dados](media/manage-database-permissions/database-permissions.png)
+    ![Permissões de base de dados](media/manage-database-permissions/database-permissions.png)
 
-1. Em **adicionar permissões de banco de dados**, selecione a função à qual você deseja atribuir a entidade de segurança e, em seguida, **selecione entidades**.
+1. Em **adicionar permissões**de base de dados, selecione a função a que pretende atribuir o comitente e, em seguida, **selecione os principais**.
 
-    ![Adicionar permissões de banco de dados](media/manage-database-permissions/add-permission.png)
+    ![Adicionar permissões de base de dados](media/manage-database-permissions/add-permission.png)
 
-1. Pesquise a entidade de segurança, selecione-a e, em seguida, **selecione**.
+1. Procure o diretor, selecione-o e, em seguida, **selecione**.
 
-    ![Gerenciar permissões no portal do Azure](media/manage-database-permissions/new-principals.png)
+    ![Gerir permissões no portal Azure](media/manage-database-permissions/new-principals.png)
 
 1. Selecione **Guardar**.
 
-    ![Gerenciar permissões no portal do Azure](media/manage-database-permissions/save-permission.png)
+    ![Gerir permissões no portal Azure](media/manage-database-permissions/save-permission.png)
 
-## <a name="manage-permissions-with-management-commands"></a>Gerenciar permissões com comandos de gerenciamento
+## <a name="manage-permissions-with-management-commands"></a>Gerir permissões com comandos de gestão
 
-1. Entre no [https://dataexplorer.azure.com](https://dataexplorer.azure.com)e adicione o cluster se ele ainda não estiver disponível.
+1. Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com)e adicione o seu cluster se ainda não estiver disponível.
 
-1. No painel esquerdo, selecione o banco de dados apropriado.
+1. No painel esquerdo, selecione a base de dados adequada.
 
-1. Use o comando `.add` para atribuir entidades a funções: `.add database databasename rolename ('aaduser | aadgroup=user@domain.com')`. Para adicionar um usuário à função de usuário do banco de dados, execute o comando a seguir, substituindo o nome do banco de dados e o usuário.
+1. Utilize `.add` o comando para atribuir os `.add database databasename rolename ('aaduser | aadgroup=user@domain.com')`princípios às funções: . Para adicionar um utilizador à função de utilizador da Base de Dados, execute o seguinte comando, substituindo o nome da base de dados e o utilizador.
 
     ```Kusto
     .add database <TestDatabase> users ('aaduser=<user@contoso.com>')
     ```
 
-    A saída do comando mostra a lista de usuários existentes e as funções às quais eles estão atribuídos no banco de dados.
+    A saída do comando mostra a lista de utilizadores existentes e as funções a que estão atribuídos na base de dados.
     
-    Para obter exemplos referentes à Azure Active Directory e ao modelo de autorização Kusto, consulte [princípios e provedores de identidade](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
+    Por exemplo, referentes ao Diretório Ativo Azure e ao modelo de autorização Kusto, consulte [Princípios e Fornecedores](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers) de Identidade
 
 ## <a name="next-steps"></a>Passos seguintes
 

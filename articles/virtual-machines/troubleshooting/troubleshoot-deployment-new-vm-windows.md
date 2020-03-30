@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de implantação de VM do Windows no Azure | Microsoft Docs
-description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual do Windows no Azure
+title: Implantação de Windows VM em Azure Microsoft Docs
+description: Problemas de implementação do Gestor de Recursos de Resolução de Problemas quando cria uma nova máquina virtual do Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
@@ -16,79 +16,79 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981396"
 ---
-# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM do Windows no Azure
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Problemas de implementação de problemas ao criar um novo Windows VM em Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## <a name="top-issues"></a>Principais problemas
+## <a name="top-issues"></a>Principais questões
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-Para outros problemas de implantação de VM e perguntas, consulte [solucionar problemas de implantação de máquina virtual do Windows no Azure](troubleshoot-deploy-vm-windows.md).
+Para outros problemas e questões de implementação de VM, consulte [a Troubleshoot implementando problemas de máquinas virtuais do Windows no Azure](troubleshoot-deploy-vm-windows.md).
 
-## <a name="collect-activity-logs"></a>Coletar logs de atividade
-Para iniciar a solução de problemas, colete os logs de atividade para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
+## <a name="collect-activity-logs"></a>Recolher registos de atividade
+Para iniciar a resolução de problemas, recolha os registos de atividade para identificar o erro associado ao problema. Os seguintes links contêm informações detalhadas sobre o processo a seguir.
 
 [Ver as operações de implementação](../../azure-resource-manager/templates/deployment-history.md)
 
-[Exibir logs de atividade para gerenciar recursos do Azure](../../resource-group-audit.md)
+[Ver registos de atividade para gerir recursos Do Azure](../../resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** Se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** Se o SISTEMA for generalizado pelo Windows e for carregado e/ou capturado com a definição generalizada, não haverá erros. Da mesma forma, se o SISTEMA for especializado no Windows, e for carregado e/ou capturado com a definição especializada, então não haverá erros.
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** Se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento com a VM paralisada na tela do OOBE.
+**N<sup>1:</sup>** Se o SISTEMA for generalizado pelo Windows e for carregado como especializado, terá um erro de tempo de fornecimento com o VM preso no ecrã OOBE.
 
-**N<sup>2</sup>:** Se o sistema operacional for Windows especializado e ele for carregado como generalizado, você receberá um erro de falha de provisionamento com a VM paralisada na tela do OOBE porque a nova VM está em execução com o nome do computador, nome de usuário e senha originais.
+**N<sup>2:</sup>** Se o SISTEMA for especializado no Windows e for carregado como generalizado, terá um erro de falha de provisionamento com o VM preso no ecrã OOBE porque o novo VM está a funcionar com o nome de computador, nome de utilizador e senha original.
 
 **Resolução**
 
-Para resolver esses dois erros, use [Add-AzVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponível no local, com a mesma configuração do sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar o Sysprep primeiro.
+Para resolver estes dois erros, utilize [add-AzVhd para carregar o VHD original,](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)disponível no local, com a mesma definição que para o OS (generalizado/especializado). Para fazer o upload como generalizado, lembre-se de executar sysprep primeiro.
 
 **Erros de captura:**
 
-**N<sup>3</sup>:** Se o sistema operacional for Windows generalizado e ele for capturado como especializado, você obterá um erro de tempo limite de provisionamento porque a VM original não é utilizável, pois está marcada como generalizada.
+**N<sup>3:</sup>** Se o Sistema operativo for generalizado pelo Windows, e for capturado como especializado, terá um erro de tempo de fornecimento porque o VM original não é utilizável, uma vez que está marcado como generalizado.
 
-**N<sup>4</sup>:** Se o sistema operacional for Windows especializado e ele for capturado como generalizado, você receberá um erro de falha de provisionamento porque a nova VM está em execução com o nome do computador, o nome de usuário e a senha originais. Além disso, a VM original não é utilizável porque está marcada como especializada.
+**N<sup>4:</sup>** Se o SISTEMA for especializado no Windows e for capturado como generalizado, terá um erro de falha de provisionamento porque o novo VM está a funcionar com o nome de computador, nome de utilizador e senha original. Além disso, o VM original não é utilizável porque é marcado como especializado.
 
 **Resolução**
 
-Para resolver esses erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../windows/create-vm-specialized.md) com a mesma configuração que para o sistema operacional (generalizado/especializado).
+Para resolver estes dois erros, elimine a imagem atual do portal e [recapture-a dos VHDs atuais](../windows/create-vm-specialized.md) com a mesma definição que para o SISTEMA (generalizado/especializado).
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: imagem personalizada/de galeria/do Marketplace; falha de alocação
-Esse erro ocorre em situações em que a nova solicitação de VM é fixada em um cluster que não dá suporte ao tamanho da VM que está sendo solicitada ou não tem espaço livre disponível para acomodar a solicitação.
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Edição: Imagem personalizada/galeria/marketplace; falha de atribuição
+Este erro surge em situações em que o novo pedido vm é fixado a um cluster que não pode suportar a dimensão VM que está a ser solicitada, ou não tem espaço livre disponível para acomodar o pedido.
 
-**Causa 1:** O cluster não dá suporte ao tamanho de VM solicitado.
+**Causa 1:** O cluster não pode suportar o tamanho de VM solicitado.
 
-**Resolução 1:**
+**Resolução 1:**
 
-* Repita a solicitação usando um tamanho de VM menor.
-* Se o tamanho da VM solicitada não puder ser alterado:
-  * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em grupos de recursos** > *seu grupo de recursos* > **recursos** > *seu conjunto de disponibilidade* > **máquinas virtuais** > *sua máquina virtual* > **parar**.
-  * Depois que todas as VMs forem interrompidas, crie a nova VM no tamanho desejado.
-  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
+* Tente novamente o pedido utilizando um tamanho VM menor.
+* Se o tamanho do VM solicitado não puder ser alterado:
+  * Pare todos os VMs no conjunto de disponibilidade.
+    Clique em **Grupos** > de Recursos*o seu grupo* > de recursos**Recursos O** > *seu conjunto* > de disponibilidade**máquinas** > virtuais para**parar**a*máquina* > virtual .
+  * Depois de todos os VMs pararem, crie o novo VM no tamanho desejado.
+  * Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em **Iniciar**.
 
-**Causa 2:** O cluster não tem recursos gratuitos.
+**Causa 2:** O cluster não tem recursos livres.
 
-**Resolução 2:**
+**Resolução 2:**
 
-* Repita a solicitação mais tarde.
-* Se a nova VM puder fazer parte de um conjunto de disponibilidade diferente
-  * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
-  * Adicione a nova VM à mesma rede virtual.
+* Tente o pedido mais tarde.
+* Se o novo VM pode fazer parte de um conjunto de disponibilidade diferente
+  * Crie um novo VM num conjunto de disponibilidade diferente (na mesma região).
+  * Adicione o novo VM à mesma rede virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
-Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [solucionar problemas de implantação do Resource Manager com a reinicialização ou redimensionamento de uma máquina virtual do Windows existente no Azure](restart-resize-error-troubleshooting.md).
+Se encontrar problemas quando iniciar um Windows VM parado ou redimensionar um Windows VM existente em Azure, consulte problemas de implementação do [Troubleshoot Resource Manager com o reinício ou redimensionamento de uma máquina virtual do Windows existente no Azure.](restart-resize-error-troubleshooting.md)
 
 

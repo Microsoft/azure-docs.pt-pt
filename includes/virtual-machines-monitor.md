@@ -5,73 +5,73 @@ ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
 ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75751753"
 ---
-Com o crescimento significativo das VMs hospedadas no Azure, é importante identificar problemas de desempenho e integridade que afetam os aplicativos e serviços de infraestrutura aos quais eles dão suporte. O monitoramento básico é fornecido por padrão com o Azure pelos tipos de métrica uso de CPU, utilização de disco, utilização de memória e tráfego de rede coletado pelo hipervisor de host. Dados de métrica e de log adicionais podem ser coletados usando [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar o diagnóstico em suas VMs a partir do sistema operacional convidado.
+Com o crescimento significativo dos VMs alojados no Azure, é importante identificar problemas de desempenho e saúde que impactam aplicações e serviços de infraestrutura que apoiam. A monitorização básica é entregue por padrão com o Azure pelos tipos métricos de utilização do CPU, utilização do disco, utilização da memória e tráfego de rede recolhido pelo hipervisor hospedeiro. Dados métricos e de registo adicionais podem ser recolhidos usando [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar diagnósticos nos seus VMs a partir do sistema operativo convidado.
 
-Para detectar e ajudar a diagnosticar problemas de desempenho e integridade com os componentes do sistema operacional convidado, baseados em .NET ou aplicativos Web Java em execução dentro da VM, Azure Monitor fornece monitoramento centralizado com recursos abrangentes, como Azure Monitor para VMs e Application Insights.
+Para detetar e ajudar a diagnosticar problemas de desempenho e saúde com o sistema operativo dos hóspedes, os componentes da aplicação web baseados em .NET ou Java que funcionam dentro do VM, o Azure Monitor fornece monitorização centralizada com funcionalidades abrangentes, como o Monitor Azure para VMs e Insights de Aplicação.
 
-## <a name="diagnostics-and-metrics"></a>Diagnóstico e métricas 
+## <a name="diagnostics-and-metrics"></a>Diagnósticos e métricas 
 
-Você pode configurar e monitorar a coleção de [dados de diagnóstico](https://docs.microsoft.com/cli/azure/vm/diagnostics) usando [métricas](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) no portal do Azure, as interfaces de programação de aplicativos CLI do Azure, Azure PowerShell e programação (APIs). Por exemplo, pode:
+Pode configurar e monitorizar a recolha de dados de [diagnóstico](https://docs.microsoft.com/cli/azure/vm/diagnostics) utilizando [métricas](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) no portal Azure, no Azure CLI, no Azure PowerShell e na programação de Interfaces de Programação de Aplicações (APIs). Pode, por exemplo:
 
-- **Observe as métricas básicas para a VM.** Na tela de visão geral do portal do Azure, as métricas básicas mostradas incluem uso de CPU, uso de rede, total de bytes de disco e operações de disco por segundo.
+- **Observe as métricas básicas para o VM.** No ecrã geral do portal Azure, as métricas básicas mostradas incluem a utilização do CPU, o uso da rede, o total de bytes de disco e as operações de disco por segundo.
 
-- **Habilite a coleta de diagnóstico de inicialização e exiba-o usando o portal do Azure.** Ao trazer sua própria imagem para o Azure ou até mesmo inicializar uma das imagens da plataforma, pode haver muitas razões pelas quais uma VM entra em um estado não inicializável. Você pode habilitar o diagnóstico de inicialização facilmente ao criar uma VM clicando em **habilitado** para diagnóstico de inicialização na seção monitoramento da tela Configurações.
+- **Ative a recolha de diagnósticos de botas e veja-o utilizando o portal Azure.** Ao trazer a sua própria imagem para o Azure ou até mesmo arrancar uma das imagens da plataforma, pode haver muitas razões pelas quais um VM entra num estado não-sabotável. Pode ativar facilmente o diagnóstico da bota quando criar um VM clicando **ativado** para diagnósticos de arranque sob a secção de monitorização do ecrã Definições.
 
-    À medida que as VMs são inicializadas, o agente de diagnóstico de inicialização captura a saída de inicialização e a armazena no armazenamento do Azure. Estes dados podem ser utilizados para resolver problemas de arranque das VMs. O diagnóstico de inicialização não é habilitado automaticamente quando você cria uma VM com base em ferramentas de linha de comando. Antes de ativar os diagnósticos de arranque, tem de ser criada uma conta de armazenamento para guardar os registos de arranque. Se você habilitar o diagnóstico de inicialização no portal do Azure, uma conta de armazenamento será criada automaticamente para você.
+    À medida que os VMs arrancam, o agente de diagnóstico de botas captura a saída de botas e armazena-a no armazenamento Azure. Estes dados podem ser utilizados para resolver problemas de arranque das VMs. Os diagnósticos de arranque não são ativados automaticamente quando cria um VM a partir de ferramentas de linha de comando. Antes de ativar os diagnósticos de arranque, tem de ser criada uma conta de armazenamento para guardar os registos de arranque. Se ativar diagnósticos de arranque no portal Azure, é criada automaticamente uma conta de armazenamento para si.
 
-    Se você não habilitou o diagnóstico de inicialização quando a VM foi criada, você sempre poderá habilitá-la mais tarde usando [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic)ou um [modelo de Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Se não tiver ativado o diagnóstico de arranque quando o VM foi criado, pode sempre capacitá-lo mais tarde utilizando [o Azure CLI,](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics) [O Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic)ou um modelo de Gestor de [Recursos Azure](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
-- **Habilite a coleção de dados de diagnóstico do sistema operacional convidado.** Ao criar uma VM, você tem a oportunidade na tela configurações para habilitar o diagnóstico do sistema operacional convidado. Quando você habilita a coleta de dados de diagnóstico, a [extensão IaaSDiagnostics para Linux](../articles/virtual-machines/linux/diagnostic-extension.md) ou a [extensão IaaSDiagnostics para Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) é adicionada à VM, o que permite que você colete dados de disco, CPU e memória adicionais.
+- **Ativar a recolha de dados de diagnóstico solista sinuoso convidado.** Ao criar um VM, tem a oportunidade no ecrã de definições para ativar os diagnósticos de OS do hóspede. Quando permite a recolha de dados de diagnóstico, a [extensão IaaSDiagnostics para O Linux](../articles/virtual-machines/linux/diagnostic-extension.md) ou a [extensão IaaSDiagnostics para Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) é adicionada ao VM, o que lhe permite recolher dados adicionais de disco, CPU e memória.
 
-    Usando os dados de diagnóstico coletados, você pode configurar o dimensionamento automático para suas VMs. Você também pode configurar [logs de Azure monitor](../articles/azure-monitor/platform/data-platform-logs.md) para armazenar os dados e configurar alertas para que você saiba quando o desempenho não está certo.
+    Utilizando os dados de diagnóstico recolhidos, pode configurar a autoscalcificação para os seus VMs. Também pode configurar registos do [Monitor Azure](../articles/azure-monitor/platform/data-platform-logs.md) para armazenar os dados e configurar alertas para que saiba quando o desempenho não está certo.
 
 ## <a name="alerts"></a>Alertas
 
-Você pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicas. Exemplos dos problemas sobre os quais você pode ser alertado incluem quando o uso médio da CPU excede um determinado limite ou o espaço livre em disco disponível cai abaixo de um determinado valor. Os alertas podem ser configurados no [portal do Azure](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), usando [modelos de Azure Resource Manager](../articles/azure-monitor/platform/alerts-metric-create-templates.md)ou [CLI do Azure](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
+Pode criar alertas com base em [métricas](../articles/azure-monitor/platform/alerts-overview.md) de desempenho específicas. Exemplos dos problemas sobre os quais pode ser alertado incluem quando o uso médio de CPU excede um determinado limiar, ou o espaço de disco livre disponível cai abaixo de um determinado valor. Os alertas podem ser configurados no [portal Azure,](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal)utilizando modelos de [Gestor de Recursos Azure,](../articles/azure-monitor/platform/alerts-metric-create-templates.md)ou [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
-A [integridade do serviço do Azure](../articles/service-health/service-health-overview.md) fornece orientação e suporte personalizados quando problemas nos serviços do Azure afetam você e ajuda você a se preparar para a próxima manutenção planejada. A integridade do serviço do Azure alerta você e suas equipes usando notificações de destino e flexíveis.
+[A Azure Service Health](../articles/service-health/service-health-overview.md) fornece orientação e apoio personalizados quando problemas nos serviços do Azure o afetam, e ajuda-o a preparar-se para a próxima manutenção planeada. A Azure Service Health alerta-o a si e às suas equipas através de notificações direcionadas e flexíveis.
 
 ## <a name="azure-resource-health"></a>Azure Resource Health
 
-O [Azure Resource Health](../articles/service-health/resource-health-overview.md) ajuda você a diagnosticar e obter suporte quando um problema do Azure impacta seus recursos. Informa-o relativamente ao estado de funcionamento atual e passado dos seus recursos e ajuda-o a atenuar problemas. O Resource Health fornece suporte técnico quando precisar de ajuda com problemas de serviço do Azure.
+[A saúde](../articles/service-health/resource-health-overview.md) da Azure Resource ajuda-o a diagnosticar e a obter apoio quando um problema do Azure afeta os seus recursos. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. O estado de funcionamento dos recursos fornece suporte técnico quando precisa de ajuda para resolver problemas relacionados com o serviço do Azure.
 
 ## <a name="azure-activity-log"></a>Registo de Atividades do Azure
 
-O [log de atividades do Azure](../articles/azure-monitor/platform/platform-logs-overview.md) é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. O log inclui um intervalo de dados, de Azure Resource Manager dados operacionais a atualizações em eventos de integridade do serviço. Você pode clicar em log de atividades no portal do Azure para exibir o log de sua VM.
+O [Registo de Atividades do Azure](../articles/azure-monitor/platform/platform-logs-overview.md) é um registo de subscrição que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. O registo inclui uma série de dados, desde dados operacionais do Gestor de Recursos do Azure até atualizações sobre eventos de Saúde de Serviço. Pode clicar em 'Iniciar sessão de atividades' no portal Azure para visualizar o registo do seu VM.
 
-Algumas das coisas que você pode fazer com o log de atividades incluem:
+Algumas das coisas que pode fazer com o registo de atividade incluem:
 
-- Criar um [alerta em um evento do log de atividades](../articles/azure-monitor/platform/platform-logs-overview.md).
-- [Transmita-o para um hub de eventos](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou uma solução de análise personalizada, como Power bi.
-- Analise-o em Power BI usando o [pacote de conteúdo do Power bi](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Salve-o em uma conta de armazenamento para a](../articles/azure-monitor/platform/archive-activity-log.md) inspeção manual ou de arquivamento. Você pode especificar o tempo de retenção (em dias) usando o perfil de log.
+- Criar um [alerta sobre um evento de Registo](../articles/azure-monitor/platform/platform-logs-overview.md)de Atividades.
+- [Transmita-o para um Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) de Eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada, como o Power BI.
+- Analise-o no Power BI utilizando o pacote de [conteúdo Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+- [Guarde-o para uma conta](../articles/azure-monitor/platform/archive-activity-log.md) de armazenamento para inspeção de arquivo ou manual. Pode especificar o tempo de retenção (em dias) utilizando o Perfil de Registo.
 
-Você também pode acessar os dados do log de atividades usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), o [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor)ou [monitorar as APIs REST](https://docs.microsoft.com/rest/api/monitor/).
+Também pode aceder aos dados de registo de atividade utilizando o [Azure PowerShell,](https://docs.microsoft.com/powershell/module/azurerm.insights/)o [Azure CLI](https://docs.microsoft.com/cli/azure/monitor)ou [o Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
-[Os logs de recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md) são logs emitidos por sua VM que fornecem dados avançados e frequentes sobre sua operação. Os logs de recursos diferem do log de atividades, fornecendo informações sobre as operações que foram executadas na VM.
+[Os Registos](../articles/azure-monitor/platform/platform-logs-overview.md) de Recursos Azure são registos emitidos pelo seu VM que fornecem dados ricos e frequentes sobre o seu funcionamento. Os registos de recursos diferem do registo de atividade, fornecendo informações sobre as operações que foram realizadas dentro do VM.
 
-Algumas das coisas que você pode fazer com os logs de diagnóstico incluem:
+Algumas das coisas que pode fazer com registos de diagnóstico incluem:
 
-- [Salve-os em uma conta de armazenamento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias) usando as configurações de diagnóstico de recurso.
-- [Transmita-os para os hubs de eventos](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) para ingestão por um serviço de terceiros ou uma solução de análise personalizada, como Power bi.
-- Analise-os com [log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- [Guarde-os para uma conta](../articles/azure-monitor/platform/archive-diagnostic-logs.md) de armazenamento para auditoria ou inspeção manual. Pode especificar o tempo de retenção (em dias) utilizando as Definições de Diagnóstico de Recursos.
+- [Transmita-os para Centros](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) de Eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada, como o Power BI.
+- Analise-os com [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-Para obter visibilidade do aplicativo ou serviço com suporte dos conjuntos de dimensionamento de máquinas virtuais e VM do Azure, identificação de problemas com o sistema operacional convidado ou carga de trabalho em execução na VM para entender se ele está afetando a disponibilidade ou o desempenho do aplicativo, ou é um problema com o aplicativo, habilite [Azure monitor para VMs](../articles/azure-monitor/insights/vminsights-overview.md) e [Application insights](../articles/azure-monitor/app/app-insights-overview.md).
+Para visibilidade da aplicação ou serviço suportado pelo VM Azure e conjuntos de escala de máquinavirtual, identificação de problemas com o oss o de hóspedes ou carga de trabalho em execução no VM para perceber se está a afetar a disponibilidade ou o desempenho da aplicação, ou se é um problema com a aplicação, permitir tanto o [Monitor Azure para VMs](../articles/azure-monitor/insights/vminsights-overview.md) como [insights de aplicação.](../articles/azure-monitor/app/app-insights-overview.md)
 
-O Azure Monitor para VMs monitora suas máquinas virtuais (VM) do Azure em escala analisando o desempenho e a integridade de suas VMs Windows e Linux, incluindo os diferentes processos e dependências interconectadas em outros recursos e processos externos descobre. Ele inclui vários gráficos de tendências de desempenho para ajudar durante a investigação de problemas e avaliar a capacidade de suas VMs. O mapa de dependências mostra computadores monitorados e não monitorados, conexões de rede com falha e ativas entre processos e esses computadores e mostra gráficos de tendência com métricas de conexão de rede padrão. Combinado com Application Insights, você monitora seu aplicativo e captura a telemetria, como solicitações HTTP, exceções, etc., para que você possa correlacionar os problemas entre as VMs e seu aplicativo. Configure [Azure monitor alertas](../articles/azure-monitor/platform/alerts-overview.md) para alertá-lo sobre condições importantes detectadas por meio de monitoramento de dados coletados pelo Azure monitor para VMs.
+O Monitor Azure para VMs monitoriza as suas máquinas virtuais Azure (VM) em escala, analisando o desempenho e a saúde dos seus VMs Windows e Linux, incluindo os diferentes processos e dependências interligadas de outros recursos e processos externos descobre. Inclui vários gráficos de desempenho de tendências para ajudar durante a investigação de problemas e avaliar a capacidade dos seus VMs. O mapa de dependência mostra máquinas monitorizadas e não monitorizadas, ligações de rede falhadas e ativas entre processos e estas máquinas, e mostra gráficos de tendências com métricas padrão de ligação de rede. Combinado com os Insights de Aplicação, monitoriza a sua aplicação e captura telemetria, tais como pedidos HTTP, exceções, etc. para que possa correlacionar problemas entre os VMs e a sua aplicação. O Configure [Azure Monitor alerta](../articles/azure-monitor/platform/alerts-overview.md) para alertá-lo sobre as condições importantes detetadas a partir da monitorização dos dados recolhidos pelo Monitor Azure para VMs.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Percorra as etapas em [monitorar uma máquina virtual do Windows com Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) ou [monitorar uma máquina virtual Linux com o CLI do Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).
+- Caminhe pelos degraus do [Monitor uma máquina virtual do Windows com Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) ou [Monitorize uma máquina virtual Linux com o Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
 
-- Saiba mais sobre as práticas recomendadas em relação ao [monitoramento e ao diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
+- Saiba mais sobre as melhores práticas em torno da [Monitorização e diagnósticos.](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)

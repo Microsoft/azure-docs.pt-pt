@@ -1,41 +1,41 @@
 ---
-title: Disponibilidade de serviços de Service Fabric
-description: Descreve a detecção de falhas, o failover e a recuperação de um serviço em um aplicativo Service Fabric do Azure.
+title: Disponibilidade de serviços de Tecido de Serviço
+description: Descreve a deteção de falhas, a falha e a recuperação de um serviço numa aplicação Azure Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551867"
 ---
-# <a name="availability-of-service-fabric-services"></a>Disponibilidade de serviços de Service Fabric
-Este artigo fornece uma visão geral de como o Azure Service Fabric mantém a disponibilidade de um serviço.
+# <a name="availability-of-service-fabric-services"></a>Disponibilidade de serviços de Tecido de Serviço
+Este artigo dá uma visão geral de como o Azure Service Fabric mantém a disponibilidade de um serviço.
 
-## <a name="availability-of-service-fabric-stateless-services"></a>Disponibilidade de serviços sem estado Service Fabric
-Os serviços de Service Fabric podem ser com ou sem estado. Um serviço sem estado é um serviço de aplicativo que não tem um [estado local](service-fabric-concepts-state.md) que precisa ser altamente disponível ou confiável.
+## <a name="availability-of-service-fabric-stateless-services"></a>Disponibilidade de serviços apátridas de Tecido de Serviço
+Serviço Os serviços de tecido podem ser audais ou apátridas. Um serviço apátrida é um serviço de aplicação que não tem um [estado local](service-fabric-concepts-state.md) que precisa de ser altamente disponível ou confiável.
 
-A criação de um serviço sem estado requer a definição de um `InstanceCount`. A contagem de instâncias define o número de instâncias da lógica do aplicativo do serviço sem estado que devem ser executadas no cluster. Aumentar o número de instâncias é a maneira recomendada de escalar horizontalmente um serviço sem estado.
+A criação de um serviço `InstanceCount`apátrida requer a definição de um . A contagem de exemplos define o número de casos da lógica de aplicação do serviço apátrida que deveriam estar em execução no cluster. Aumentar o número de casos é a forma recomendada de escalonar um serviço apátrida.
 
-Quando uma instância de um serviço nomeado sem estado falha, uma nova instância é criada em um nó qualificado no cluster. Por exemplo, uma instância de serviço sem estado pode falhar no Node1 e ser recriada no Nó5.
+Quando um caso de um serviço de nome apátrida falha, uma nova instância é criada num nó elegível no cluster. Por exemplo, uma instância de serviço apátrida pode falhar no Nó1 e ser recriada no Node5.
 
-## <a name="availability-of-service-fabric-stateful-services"></a>Disponibilidade de serviços com estado Service Fabric
-Um serviço com estado tem um estado associado a ele. No Service Fabric, um serviço com estado é modelado como um conjunto de réplicas. Cada réplica é uma instância em execução do código do serviço. A réplica também tem uma cópia do estado para esse serviço. As operações de leitura e gravação são executadas em uma réplica, chamada *primária*. As alterações no estado de operações de gravação são *replicadas* para as outras réplicas no conjunto de réplicas, chamadas de *secundárias ativas*e aplicadas. 
+## <a name="availability-of-service-fabric-stateful-services"></a>Disponibilidade de serviços de estado de tecido de serviço
+Um serviço imponente tem um estado associado a ele. No Tecido de Serviço, um serviço imponente é modelado como um conjunto de réplicas. Cada réplica é uma instância de execução do código do serviço. A réplica também tem uma cópia do Estado para esse serviço. As operações de leitura e escrita são realizadas numa réplica, chamada *Primária.* As alterações ao estado das operações de escrita são *replicadas* para as outras réplicas do conjunto de réplicas, denominadas *Ative Secondáriories*, e aplicadas. 
 
-Pode haver apenas uma réplica primária, mas pode haver várias réplicas secundárias ativas. O número de réplicas secundárias ativas é configurável e um número maior de réplicas pode tolerar um número maior de falhas de software e hardware simultâneas.
+Pode haver apenas uma réplica primária, mas pode haver múltiplas réplicas secundárias ativas. O número de réplicas secundárias ativas é configurável, e um maior número de réplicas pode tolerar um maior número de falhas de software e hardware simultâneas.
 
-Se a réplica primária ficar inativa, Service Fabric fará com que uma das réplicas secundárias ativas seja a nova réplica primária. Essa réplica secundária ativa já tem a versão atualizada do estado, via *replicação*, e pode continuar processando outras operações de leitura/gravação. Esse processo é conhecido como *reconfiguração* e é descrito mais detalhadamente no artigo [reconfiguração](service-fabric-concepts-reconfiguration.md) .
+Se a réplica primária cair, o Tecido de Serviço faz uma das réplicas secundárias ativas da nova réplica primária. Esta réplica secundária ativa já tem a versão atualizada do Estado, através da *replicação,* e pode continuar a processar mais operações de leitura/escrita. Este processo é conhecido como *reconfiguração* e é descrito ainda mais no artigo [de reconfiguração.](service-fabric-concepts-reconfiguration.md)
 
-O conceito de uma réplica sendo primária ou secundária ativa é conhecido como a *função de réplica*. Essas réplicas são descritas mais detalhadamente no artigo [réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md) . 
+O conceito de uma réplica sendo um Secundário Primário ou Ativo, é conhecido como o *papel de réplica.* Estas réplicas são descritas ainda mais no artigo [das Réplicas e instâncias.](service-fabric-concepts-replica-lifecycle.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre conceitos de Service Fabric, consulte os seguintes artigos:
+Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
-- [Dimensionamento de serviços de Service Fabric](service-fabric-concepts-scalability.md)
-- [Particionando serviços de Service Fabric](service-fabric-concepts-partitioning.md)
-- [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
+- [Serviço de Serviço de Serviço de Fabricação](service-fabric-concepts-scalability.md)
+- [Serviço de Partição Serviço De Tecido](service-fabric-concepts-partitioning.md)
+- [Definição e gestão do Estado](service-fabric-concepts-state.md)
 - [Reliable Services](service-fabric-reliable-services-introduction.md)
 

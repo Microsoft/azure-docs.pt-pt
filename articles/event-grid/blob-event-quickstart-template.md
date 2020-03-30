@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
 ms.openlocfilehash: 343ed57c87ea6df5db4cde0978132af31419f905
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78303346"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Route Blob eventos de armazenamento para ponto final web usando o modelo de Gestor de Recursos Azure
@@ -22,7 +22,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você u
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto f
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
-    [Implementar no Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
+    [Desdobre para Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 1. A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 
 1. Vê o site, mas ainda não foram publicados eventos no mesmo.
@@ -50,7 +50,7 @@ O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://git
 Dois recursos Azure são definidos no modelo:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crie uma conta de Armazenamento Azure.
-* [ **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): crie uma subscrição da Rede de Eventos Azure para a conta de armazenamento.
+* [**"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): crie uma subscrição da Rede de Eventos Azure para a conta de armazenamento.
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -58,7 +58,7 @@ Dois recursos Azure são definidos no modelo:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
-2. Especifique o **ponto final**: forneça o URL da sua aplicação web e adicione `api/updates` ao URL da página inicial.
+2. Especifique o **ponto final**: forneça `api/updates` o URL da sua aplicação web e adicione ao URL da página inicial.
 3. **Selecione Comprar** para implementar o modelo.
 
   O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a API Azure PowerShell, Azure CLI e REST. Para aprender outros métodos de implementação, consulte [os modelos de implantação](../azure-resource-manager/templates/deploy-powershell.md).

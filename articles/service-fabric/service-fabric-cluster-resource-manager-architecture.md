@@ -1,63 +1,63 @@
 ---
-title: Arquitetura do Gerenciador de recursos
-description: Uma visão geral do e informações arquitetônicas sobre o serviço do Gerenciador de recursos de Cluster Service Fabric do Azure.
+title: Arquitetura gestora de recursos
+description: Uma visão geral e informação arquitetónica sobre o serviço azure service Fabric Cluster Resource Manager.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551697"
 ---
-# <a name="cluster-resource-manager-architecture-overview"></a>Visão geral da arquitetura do Gerenciador de recursos de cluster
-O Gerenciador de recursos de Cluster Service Fabric é um serviço central que é executado no cluster. Ele gerencia o estado desejado dos serviços no cluster, particularmente em relação ao consumo de recursos e a qualquer regra de posicionamento. 
+# <a name="cluster-resource-manager-architecture-overview"></a>Visão geral da arquitetura do gestor de recursos cluster
+O Gestor de Recursos de Cluster de Tecidos de Serviço é um serviço central que funciona no cluster. Gere o estado desejado dos serviços no cluster, nomeadamente no que diz respeito ao consumo de recursos e a quaisquer regras de colocação. 
 
-Para gerenciar os recursos em seu cluster, o Gerenciador de recursos de Cluster Service Fabric deve ter várias informações:
+Para gerir os recursos do seu cluster, o Gestor de Recursos de Cluster de Tecidos de Serviço deve ter várias informações:
 
-- Quais serviços existem atualmente
-- Consumo de recursos atual (ou padrão) de cada serviço 
+- Quais os serviços atualmente existentes
+- O consumo atual (ou padrão) de recursos de cada serviço 
 - A capacidade restante do cluster 
-- A capacidade dos nós no cluster 
+- A capacidade dos nós no aglomerado 
 - A quantidade de recursos consumidos em cada nó
 
-O consumo de recursos de um determinado serviço pode mudar ao longo do tempo, e os serviços geralmente se preocupam com mais de um tipo de recurso. Em diferentes serviços, pode haver recursos físicos e físicos reais sendo medidos. Os serviços podem rastrear métricas físicas, como consumo de memória e disco. Mais comumente, os serviços podem se preocupar com métricas lógicas – coisas como "WorkQueueDepth" ou "TotalRequests". As métricas lógica e física podem ser usadas no mesmo cluster. As métricas podem ser compartilhadas entre vários serviços ou ser específicas para um serviço específico.
+O consumo de recursos de um determinado serviço pode mudar ao longo do tempo, e os serviços geralmente se preocupam com mais de um tipo de recurso. Através de diferentes serviços, pode haver recursos físicos e físicos reais a ser medidos. Os serviços podem rastrear métricas físicas como a memória e o consumo de disco. Mais frequentemente, os serviços podem preocupar-se com métricas lógicas - coisas como "WorkQueueDepth" ou "TotalRequests". As métricas lógicas e físicas podem ser usadas no mesmo aglomerado. As métricas podem ser partilhadas em muitos serviços ou ser específicas de um determinado serviço.
 
 ## <a name="other-considerations"></a>Outras considerações
-Os proprietários e os operadores do cluster podem ser diferentes dos autores do serviço e do aplicativo ou, no mínimo, são as mesmas pessoas que desgastam diferentes chapéus. Ao desenvolver seu aplicativo, você sabe algumas coisas sobre o que ele exige. Você tem uma estimativa dos recursos que ele consumirá e de como os serviços diferentes devem ser implantados. Por exemplo, a camada da Web precisa ser executada em nós expostos à Internet, enquanto os serviços de banco de dados não devem. Como outro exemplo, os serviços Web são provavelmente restritos pela CPU e pela rede, enquanto os serviços da camada de dados se preocupam mais com o consumo de memória e disco. No entanto, a pessoa que trata um incidente de site ativo para esse serviço em produção ou que está gerenciando uma atualização para o serviço tem um trabalho diferente a ser feito e requer ferramentas diferentes. 
+Os proprietários e operadores do cluster podem ser diferentes dos autores de serviços e aplicações, ou no mínimo são as mesmas pessoas que usam chapéus diferentes. Quando desenvolves a tua aplicação, sabes algumas coisas sobre o que ela requer. Tem uma estimativa dos recursos que irá consumir e de como devem ser implantados diferentes serviços. Por exemplo, o nível web precisa de ser executado em nós expostos à Internet, enquanto os serviços de base de dados não devem. Como outro exemplo, os serviços web são provavelmente limitados pela CPU e pela rede, enquanto os serviços de nível de dados se preocupam mais com o consumo de memória e disco. No entanto, a pessoa que está a lidar com um incidente no local ao vivo para esse serviço em produção, ou que está a gerir uma atualização para o serviço tem um trabalho diferente a fazer, e requer diferentes ferramentas. 
 
-O cluster e os serviços são dinâmicos:
+Tanto o cluster como os serviços são dinâmicos:
 
-- O número de nós no cluster pode crescer e reduzir
-- Nós de diferentes tamanhos e tipos podem vir e ir
-- Os serviços podem ser criados, removidos e alterar as alocações de recursos desejadas e as regras de posicionamento
-- Atualizações ou outras operações de gerenciamento podem passar pelo cluster no aplicativo em níveis de infraestrutura
-- As falhas podem ocorrer a qualquer momento.
+- O número de nós no cluster pode crescer e diminuir
+- Nós de diferentes tamanhos e tipos podem ir e vir
+- Os serviços podem ser criados, removidos e alterar as suas desejadas alocações de recursos e regras de colocação
+- Upgrades ou outras operações de gestão podem passar pelo cluster na aplicação a níveis de infraestrutura
+- Falhas podem acontecer a qualquer momento.
 
-## <a name="cluster-resource-manager-components-and-data-flow"></a>Componentes do Gerenciador de recursos de cluster e fluxo de dados
-O Gerenciador de recursos de cluster precisa controlar os requisitos de cada serviço e o consumo de recursos por cada objeto de serviço dentro desses serviços. O Gerenciador de recursos de cluster tem duas partes conceituais: agentes que são executados em cada nó e um serviço tolerante a falhas. Os agentes em cada nó controlam a carga de relatórios de serviços, agregam-os e os relatam periodicamente. O serviço do Gerenciador de recursos de cluster agrega todas as informações dos agentes locais e reage com base em sua configuração atual.
+## <a name="cluster-resource-manager-components-and-data-flow"></a>Componentes do gestor de recursos de cluster e fluxo de dados
+O Cluster Resource Manager tem de acompanhar os requisitos de cada serviço e o consumo de recursos por cada objeto de serviço dentro desses serviços. O Cluster Resource Manager tem duas partes conceptuais: agentes que funcionam em cada nó e um serviço tolerante a falhas. Os agentes de cada nó rastreiam relatórios de carga dos serviços, agregam-nos e reportam-nos periodicamente. O serviço Cluster Resource Manager agrega toda a informação dos agentes locais e reage com base na sua configuração atual.
 
-Vamos examinar o diagrama a seguir:
+Vejamos o seguinte diagrama:
 
 <center>
 
-![arquitetura do balanceador de recursos][Image1]
+![Arquitetura de Equilíbrio de Recursos][Image1]
 </center>
 
-Durante o tempo de execução, há muitas alterações que podem acontecer. Por exemplo, digamos que a quantidade de recursos que alguns serviços consomem alteram, alguns serviços falham e alguns nós ingressam e deixam o cluster. Todas as alterações em um nó são agregadas e enviadas periodicamente para o serviço do Gerenciador de recursos de cluster (1, 2), em que são agregadas novamente, analisadas e armazenadas. A cada poucos segundos, o serviço examina as alterações e determina se as ações são necessárias (3). Por exemplo, ele pode observar que alguns nós vazios foram adicionados ao cluster. Como resultado, ele decide mover alguns serviços para esses nós. O Gerenciador de recursos de cluster também pode observar que um nó específico está sobrecarregado ou que determinados serviços falharam ou foram excluídos, liberando recursos em outro lugar.
+Durante o tempo de execução, há muitas mudanças que podem acontecer. Por exemplo, digamos que a quantidade de recursos que alguns serviços consomem alterações, alguns serviços falham, e alguns nós se juntam e saem do cluster. Todas as alterações num nó são agregadas e periodicamente enviadas para o serviço cluster Resource Manager (1,2) onde são agregadas novamente, analisadas e armazenadas. A cada poucos segundos esse serviço olha para as alterações e determina se são necessárias quaisquer ações (3). Por exemplo, poderia notar que alguns nós vazios foram adicionados ao aglomerado. Como resultado, decide transferir alguns serviços para esses nós. O Gestor de Recursos cluster também poderia notar que um nó específico está sobrecarregado, ou que certos serviços falharam ou foram eliminados, libertando recursos em outros lugares.
 
-Vamos examinar o diagrama a seguir e ver o que acontece em seguida. Digamos que o Gerenciador de recursos de cluster determine que as alterações são necessárias. Ele coordena com outros serviços do sistema (em particular a Gerenciador de Failover) para fazer as alterações necessárias. Em seguida, os comandos necessários são enviados para os nós apropriados (4). Por exemplo, digamos que o Gerenciador de recursos tenha notado que o Nó5 estava sobrecarregado e, portanto, decidiu mover o serviço B de Nó5 para Nó4. No final da reconfiguração (5), o cluster tem esta aparência:
+Vamos ver o seguinte diagrama e ver o que acontece a seguir. Digamos que o Gestor de Recursos de Cluster determina que as mudanças são necessárias. Coordena com outros serviços do sistema (em particular o Failover Manager) para efazer as alterações necessárias. Em seguida, os comandos necessários são enviados para os nódosos apropriados (4). Por exemplo, digamos que o Gestor de Recursos reparou que o Node5 estava sobrecarregado, e por isso decidiu mudar o serviço B do Nó 5 para o Node4. No final da reconfiguração (5), o cluster é assim:
 
 <center>
 
-![arquitetura do balanceador de recursos][Image2]
+![Arquitetura de Equilíbrio de Recursos][Image2]
 </center>
 
 ## <a name="next-steps"></a>Passos seguintes
-- O Gerenciador de recursos de cluster tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre como [descrever um cluster Service Fabric](./service-fabric-cluster-resource-manager-cluster-description.md)
-- As principais tarefas do Gerenciador de recursos de cluster estão reequilibrando o cluster e impondo regras de posicionamento. Para obter mais informações sobre como configurar esses comportamentos, consulte [balanceamento do cluster de Service Fabric](./service-fabric-cluster-resource-manager-balancing.md)
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de Tecido de Serviço](./service-fabric-cluster-resource-manager-cluster-description.md)
+- Os deveres primários do Gestor de Recursos cluster estão a reequilibrar o cluster e a impor as regras de colocação. Para obter mais informações sobre a configuração destes comportamentos, consulte [o equilíbrio do seu cluster De Serviço Tecido](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

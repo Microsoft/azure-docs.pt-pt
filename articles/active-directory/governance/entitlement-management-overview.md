@@ -3,7 +3,7 @@ title: O que é a gestão de direitos? - Azure AD
 description: Obtenha uma visão geral da gestão de direitos do Azure Ative Diretório e como pode usá-lo para gerir o acesso a grupos, aplicações e sites SharePoint Online para utilizadores internos e externos.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128550"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -114,16 +114,16 @@ Os pacotes de acesso não substituem outros mecanismos de atribuição de acesso
 
 Para melhor compreender a gestão do direito e a sua documentação, pode remeter para a seguinte lista de termos.
 
-| Duração | Descrição |
+| Termo | Descrição |
 | --- | --- |
 | pacote de acesso | Um conjunto de recursos que uma equipa ou projeto precisa e é governado com políticas. Um pacote de acesso está sempre contido num catálogo. Criaria um novo pacote de acesso para um cenário em que os utilizadores precisam de solicitar acesso.  |
 | pedido de acesso | Um pedido de acesso aos recursos num pacote de acesso. Um pedido normalmente passa por um fluxo de trabalho de aprovação.  Se aprovado, o utilizador solicitado recebe uma atribuição de pacote de acesso. |
 | atribuição | Uma atribuição de um pacote de acesso a um utilizador garante que o utilizador tem todas as funções de recursos desse pacote de acesso.  As atribuições de pacotes de acesso normalmente têm um prazo antes de expirarem. |
-| catalog | Um contentor de recursos relacionados e pacotes de acesso.  Os catálogos são utilizados para a delegação, para que os não administradores possam criar os seus próprios pacotes de acesso. Os proprietários de catálogos podem adicionar recursos que possuem a um catálogo. |
+| catálogo | Um contentor de recursos relacionados e pacotes de acesso.  Os catálogos são utilizados para a delegação, para que os não administradores possam criar os seus próprios pacotes de acesso. Os proprietários de catálogos podem adicionar recursos que possuem a um catálogo. |
 | criador de catálogo | Uma coleção de utilizadores que estão autorizados a criar novos catálogos.  Quando um utilizador não administrador autorizado a ser criador de catálogos cria um novo catálogo, torna-se automaticamente o proprietário desse catálogo. |
 | organização conectada | Um diretório ou domínio externo da AD Azure com o que tem uma relação. Os utilizadores de uma organização conectada podem ser especificados numa política como sendo permitido solicitar acesso. |
 | política | Um conjunto de regras que define o ciclo de vida de acesso, como a forma como os utilizadores têm acesso, quem pode aprovar, e quanto tempo os utilizadores têm acesso através de uma atribuição. Uma política está ligada a um pacote de acesso. Por exemplo, um pacote de acesso poderia ter duas políticas - uma para os colaboradores solicitarem acesso e uma segunda para os utilizadores externos solicitarem acesso. |
-| resource | Um ativo, como um grupo de Escritórios, um grupo de segurança, uma aplicação ou um site SharePoint Online, com uma função a que um utilizador pode ser autorizado. |
+| recurso | Um ativo, como um grupo de Escritórios, um grupo de segurança, uma aplicação ou um site SharePoint Online, com uma função a que um utilizador pode ser autorizado. |
 | diretório de recursos | Um diretório que tem um ou mais recursos para partilhar. |
 | papel de recursos | Uma coleção de permissões associadas e definidas por um recurso. Um grupo tem duas funções : membro e proprietário. Os sites do SharePoint normalmente têm 3 funções, mas podem ter funções personalizadas adicionais. As aplicações podem ter papéis personalizados. |
 
@@ -158,8 +158,8 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 
 | Cenário | Cálculo | Número de licenças |
 | --- | --- | --- |
-| Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a 6 outros utilizadores. Uma das políticas especifica que **Todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários solicitam os pacotes de acesso. | 2\.000 funcionários que **podem** solicitar os pacotes de acesso | 2,000 |
-| Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a 6 outros utilizadores. Uma das políticas especifica que **Todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns utilizadores **de Utilizadores do parceiro Contoso** (hóspedes) podem solicitar os mesmos pacotes de acesso sujeitos a aprovação. Contoso tem 30.000 utilizadores. 150 colaboradores solicitam o acesso aos pacotes de acesso e 10.500 utilizadores da Contoso solicitam acesso. | 2\.000 colaboradores + 500 utilizadores convidados de Contoso que excedem o rácio 1:5 (10.500 - (2.000 * 5)) | 2,500 |
+| Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a 6 outros utilizadores. Uma das políticas especifica que **Todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários solicitam os pacotes de acesso. | 2.000 funcionários que **podem** solicitar os pacotes de acesso | 2.000 |
+| Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a 6 outros utilizadores. Uma das políticas especifica que **Todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns utilizadores **de Utilizadores do parceiro Contoso** (hóspedes) podem solicitar os mesmos pacotes de acesso sujeitos a aprovação. Contoso tem 30.000 utilizadores. 150 colaboradores solicitam o acesso aos pacotes de acesso e 10.500 utilizadores da Contoso solicitam acesso. | 2.000 colaboradores + 500 utilizadores convidados de Contoso que excedem o rácio 1:5 (10.500 - (2.000 * 5)) | 2.500 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

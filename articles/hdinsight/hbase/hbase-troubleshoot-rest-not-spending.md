@@ -1,6 +1,6 @@
 ---
-title: O Apache HBase REST não está respondendo a solicitações no Azure HDInsight
-description: Resolver o problema com o Apache HBase REST não respondendo a solicitações no Azure HDInsight.
+title: Apache HBase REST não responde a pedidos no Azure HDInsight
+description: Resolver problema com apache HBase REST não respondendo aos pedidos no Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,23 +8,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
 ms.openlocfilehash: 49b547829a369ea6df35e2f1c2f7d60458e41040
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887177"
 ---
-# <a name="scenario-apache-hbase-rest-not-responding-to-requests-in-azure-hdinsight"></a>Cenário: o Apache HBase REST não está respondendo a solicitações no Azure HDInsight
+# <a name="scenario-apache-hbase-rest-not-responding-to-requests-in-azure-hdinsight"></a>Cenário: Apache HBase REST não responde a pedidos no Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-O serviço REST do Apache HBase não responde às solicitações no Azure HDInsight.
+O serviço Apache HBase REST não responde aos pedidos no Azure HDInsight.
 
 ## <a name="cause"></a>Causa
 
-A causa possível aqui pode ser o serviço REST do Apache HBase está vazando soquetes, o que é especialmente comum quando o serviço está em execução por um longo período (por exemplo, meses). No SDK do cliente, você pode ver uma mensagem de erro semelhante a:
+A causa possível aqui pode ser o serviço Apache HBase REST são as tomadas de fuga, o que é especialmente comum quando o serviço está em funcionamento há muito tempo (por exemplo, meses). A partir do SDK cliente, pode ver uma mensagem de erro semelhante a:
 
 ```
 System.Net.WebException : Unable to connect to the remote server --->
@@ -33,15 +33,15 @@ System.Net.Sockets.SocketException : A connection attempt failed because the con
 
 ## <a name="resolution"></a>Resolução
 
-Reinicie o HBase REST usando o comando abaixo após SSHing para o host. Você também pode usar ações de script para reiniciar esse serviço em todos os nós de trabalho:
+Reiniciar o HBase REST utilizando o comando abaixo após o SSHing ao hospedeiro. Também pode usar ações de script para reiniciar este serviço em todos os nós dos trabalhadores:
 
 ```bash
 sudo service hdinsight-hbrest restart
 ```
 
-Esse comando irá parar o servidor de região do HBase no mesmo host. Você pode iniciar manualmente o servidor de região do HBase por meio de Ambari ou deixar a funcionalidade de reinicialização automática do Ambari recuperar o servidor de região do HBase automaticamente.
+Este comando irá parar o Servidor da Região HBase no mesmo hospedeiro. Pode iniciar manualmente o Servidor da Região HBase através de Ambari, ou deixar a funcionalidade de reinício automático da Ambari recuperar automaticamente o Servidor da Região HBase.
 
-Se o problema ainda persistir, você poderá instalar o script de mitigação a seguir como um trabalho CRON que é executado a cada 5 minutos em cada nó de trabalho. Esse script de mitigação executa ping no serviço REST e o reinicia caso o serviço REST não responda.
+Se o problema persistir, pode instalar o seguinte guião de mitigação como um trabalho de CRON que funciona a cada 5 minutos em cada nó de trabalhador. Este roteiro de mitigação pings o serviço REST e reinicia-o caso o serviço REST não responda.
 
 ```bash
 #!/bin/bash
@@ -55,10 +55,10 @@ fi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

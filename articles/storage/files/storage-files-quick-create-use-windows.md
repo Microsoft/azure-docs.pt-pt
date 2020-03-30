@@ -1,6 +1,6 @@
 ---
-title: Criar e usar um compartilhamento de arquivos do Azure em VMs do Windows
-description: Neste guia de início rápido, você configura um compartilhamento de arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento de arquivos, carrega um arquivo no compartilhamento de arquivos. Em seguida, você tira um instantâneo do compartilhamento de arquivos, modifica o arquivo no compartilhamento de arquivos e restaura um instantâneo anterior do compartilhamento de arquivos.
+title: Criar e utilizar uma partilha de Ficheiros Azure em VMs do Windows
+description: Neste arranque rápido, configura uma partilha de Ficheiros Azure no portal Azure e liga-o a uma máquina virtual do Windows. Liga-se à partilha de Ficheiros, faz o upload de um ficheiro para a partilha de Ficheiros. Em seguida, tira uma fotografia da partilha de Ficheiros, modifica o ficheiro na partilha de Ficheiros e restaura uma fotografia anterior da partilha de Ficheiros.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,32 +8,32 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75463907"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: criar e gerenciar o compartilhamento de arquivos do Azure com máquinas virtuais do Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Criar e gerir a partilha de Ficheiros Azure com máquinas virtuais windows
 
-O artigo demonstra as etapas básicas para criar e usar um compartilhamento de arquivos do Azure. Neste guia de início rápido, a ênfase é configurar rapidamente um compartilhamento de arquivos do Azure para que você possa experimentar como o serviço funciona. Se você precisar de instruções mais detalhadas para criar e usar compartilhamentos de arquivos do Azure em seu próprio ambiente, consulte [usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md).
+O artigo demonstra os passos básicos para criar e utilizar uma partilha de Ficheiros Azure. Neste arranque rápido, a ênfase está na configuração rápida de uma partilha de Ficheiros Azure para que possa experimentar como o serviço funciona. Se precisar de instruções mais detalhadas para criar e utilizar partilhas de ficheiros Azure no seu próprio ambiente, consulte Utilize uma partilha de [ficheiros Azure com o Windows](storage-how-to-use-files-windows.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Prepare o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
-Neste guia de início rápido, você configura os seguintes itens:
+Neste arranque rápido, configura os seguintes itens:
 
-- Uma conta de armazenamento do Azure e um compartilhamento de arquivos do Azure
-- Uma VM do Windows Server 2016 datacenter
+- Uma conta de armazenamento Azure e uma partilha de ficheiros Azure
+- Um Windows Server 2016 Datacenter VM
 
 ### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Para poder trabalhar com um compartilhamento de arquivos do Azure, você precisa criar uma conta de armazenamento do Azure. Uma conta de armazenamento de uso geral v2 fornece acesso a todos os serviços de armazenamento do Azure: BLOBs, arquivos, filas e tabelas. O início rápido cria uma conta de armazenamento v2 de uso geral, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
+Antes de poder trabalhar com uma partilha de ficheiros Azure, tem de criar uma conta de armazenamento Azure. Uma conta de armazenamento v2 de uso geral fornece acesso a todos os serviços de Armazenamento Azure: blobs, ficheiros, filas e mesas. O quickstart cria uma conta de armazenamento v2 de propósito geral, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -41,139 +41,139 @@ Para poder trabalhar com um compartilhamento de arquivos do Azure, você precisa
 
 Depois, crie uma partilha de ficheiros.
 
-1. Quando a implantação da conta de armazenamento do Azure for concluída, selecione **ir para o recurso**.
-1. Selecione **arquivos** no painel da conta de armazenamento.
+1. Quando a implantação da conta de armazenamento Azure estiver concluída, selecione **Ir para o recurso**.
+1. Selecione **Ficheiros** do painel da conta de armazenamento.
 
-    ![Selecionar arquivos](./media/storage-files-quick-create-use-windows/click-files.png)
+    ![Selecione Ficheiros](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Selecione **compartilhamento de arquivos**.
+1. Selecione **Partilha de Ficheiros**.
 
-    ![Selecione o botão Adicionar compartilhamento de arquivos](./media/storage-files-quick-create-use-windows/create-file-share.png)
+    ![Selecione o botão de partilha de ficheiros adicionais](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Nomeie o novo compartilhamento de arquivos *qsfileshare* > Insira "1" para a **cota** > selecione **criar**. A cota pode ter no máximo 5 TiB, mas você só precisa de 1 GiB para este guia de início rápido.
-1. Crie um novo arquivo txt chamado *qsTestFile* no computador local.
-1. Selecione o novo compartilhamento de arquivos e, em seguida, no local do compartilhamento de arquivos, selecione **carregar**.
+1. Nomeie a nova partilha de *ficheiros qsfileshare* > insira "1" para o **> de quota** selecione **Criar**. A quota pode ser um máximo de 5 TiB, mas você só precisa de 1 GiB para este arranque rápido.
+1. Crie um novo ficheiro txt chamado *qsTestFile* na sua máquina local.
+1. Selecione a nova partilha de ficheiros e, em seguida, na localização da partilha de ficheiros, **selecione Upload**.
 
     ![Carregar um ficheiro](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
-1. Navegue até o local em que você criou o arquivo. txt > selecione *qsTestFile. txt* > selecione **carregar**.
+1. Navegue no local onde criou o seu ficheiro .txt > selecione *qsTestFile.txt* > selecione **Upload**.
 
-Até agora, você criou uma conta de armazenamento do Azure e um compartilhamento de arquivos com um arquivo nele no Azure. Em seguida, você criará a VM do Azure com o Windows Server 2016 datacenter para representar o servidor local neste guia de início rápido.
+Até agora, criou uma conta de armazenamento Azure e uma partilha de ficheiros com um ficheiro no Azure. Em seguida, irá criar o Azure VM com o Windows Server 2016 Datacenter para representar o servidor no local neste arranque rápido.
 
 ### <a name="deploy-a-vm"></a>Implementar uma VM
 
 1. Em seguida, expanda o menu no lado esquerdo do portal e escolha **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace**, procure e selecione **Windows Server 2016 Datacenter** e escolha **Criar**.
-1. Na guia **noções básicas** , em **detalhes do projeto**, selecione o grupo de recursos que você criou para este guia de início rápido.
+1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace,** procure e selecione **o Datacenter do Windows Server 2016,** em seguida, escolha **Criar**.
+1. No separador **Basics,** sob os detalhes do **Projeto,** selecione o grupo de recursos que criou para este arranque rápido.
 
    ![Introduza as informações básicas sobre a VM no painel do portal](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
-1. Em **detalhes da instância**, nomeie a VM *qsVM*.
+1. Em **detalhes de instância**, nomeie o VM *qsVM*.
 1. Mantenha as predefinições para **Região**, **Opções de disponibilidade**, **Imagem** e **Tamanho**.
-1. Em **conta de administrador**, adicione *VMadmin* como o **nome de usuário** e insira uma **senha** para a VM.
+1. Na **conta 'Administrador',** adicione *vMadmin* como nome de **utilizador** e introduza uma **palavra-passe** para o VM.
 1. Em **Regras da porta de entrada**, selecione **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** na lista pendente.
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**. A criação da VM nova irá demorar alguns minutos a concluir.
 
-1. Quando a implantação da VM for concluída, selecione **ir para o recurso**.
+1. Assim que a sua implementação VM estiver completa, selecione **Ir para o recurso**.
 
 Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agora, é preciso ligar à VM.
 
 ### <a name="connect-to-your-vm"></a>Ligar à VM
 
-1. Selecione **conectar** na página de propriedades da máquina virtual.
+1. Selecione **Connect** na página de propriedades da máquina virtual.
 
    ![Ligar a uma VM do Azure a partir do portal](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. Na página **conectar à máquina virtual** , mantenha as opções padrão para se conectar por **endereço IP** no **número da porta** *3389* e selecione **baixar arquivo RDP**.
-1. Abra o arquivo RDP baixado e selecione **conectar** quando solicitado.
-1. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de usuário como *localhost\username*, em que &lt;nome de usuário&gt; é o nome de usuário do administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e, em seguida, selecione **OK**.
+1. Na página **Connect to virtual machine,** mantenha as opções predefinidas para ligar por **endereço IP** através do número de **porta** *3389* e selecione **download ficheiro RDP**.
+1. Abra o ficheiro RDP descarregado e selecione **Connect** quando solicitado.
+1. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de utilizador como &lt; *localhost\username*, onde o nome&gt; de utilizador é o nome de utilizador vM que criou para a máquina virtual. Introduza a palavra-passe que criou para a máquina virtual e, em seguida, selecione **OK**.
 
    ![Mais opções](./media/storage-files-quick-create-use-windows/local-host2.png)
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** ou **continuar** para criar a conexão.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. selecione **Sim** ou **Continuar** a criar a ligação.
 
-## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Mapear o compartilhamento de arquivos do Azure para uma unidade do Windows
+## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Mapeie a partilha de ficheiros Azure para uma unidade windows
 
-1. Na portal do Azure, navegue até o FileShare *qsfileshare* e selecione **conectar**.
-1. Copie o conteúdo da segunda caixa e cole-o no **bloco de notas**.
+1. No portal Azure, navegue para o *fileshare qsfileshare* e selecione **Connect**.
+1. Copie o conteúdo da segunda caixa e cole-a no Bloco de **Notas**.
 
    ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
-1. Na VM, abra o **Explorador de arquivos** e selecione **este PC** na janela. Essa seleção irá alterar os menus disponíveis na faixa de opção. No menu **computador** , selecione **Mapear unidade de rede**.
-1. Selecione a letra de unidade e introduza o caminho UNC. Se você seguiu as sugestões de nomenclatura neste guia de início rápido, copie *\\qsstorageacct. File. Core. Windows. net\qsfileshare* do **bloco de notas**.
+1. No VM, abra o **File Explorer** e selecione **Este PC** na janela. Esta seleção irá alterar os menus disponíveis na fita. No menu **computador,** selecione a **unidade de rede Map**.
+1. Selecione a letra de unidade e introduza o caminho UNC. Se seguiu as sugestões de nomeação neste quickstart, * \\copie qsstorageacct.file.core.windows.net\qsfileshare* do **Notepad**.
 
-   Certifique-se de que ambas as caixas de seleção estejam marcadas.
+   Certifique-se de que ambas as caixas de verificação estão verificadas.
 
    ![Instantâneo da caixa de diálogo “Mapear Unidade de Rede”](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
 
 1. Selecione **Concluir**.
-1. Na caixa de diálogo **segurança do Windows** :
+1. Na caixa de diálogo **De Segurança do Windows:**
 
-   - No bloco de notas, copie o nome da conta de armazenamento que você precedeu com o AZURE \ e cole-o na caixa de diálogo **segurança do Windows** como o nome de usuário. Se você seguiu as sugestões de nomenclatura neste guia de início rápido, copie *AZURE\qsstorageacct*.
-   - No bloco de notas, copie a chave da conta de armazenamento e cole-a na caixa de diálogo **segurança do Windows** como a senha.
+   - A partir do Bloco de Notas, copie o nome da conta de armazenamento preparado com O AZURE\ e cole-o na caixa de diálogo **Windows Security** como nome de utilizador. Se seguiu as sugestões de nomeação neste arranque rápido, copie *o AZURE\qsstorageacct*.
+   - A partir do Bloco de Notas, copie a chave da conta de armazenamento e cole-a na caixa de diálogo **do Windows Security** como palavra-passe.
 
       ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
-## <a name="create-a-share-snapshot"></a>Criar um instantâneo de compartilhamento
+## <a name="create-a-share-snapshot"></a>Criar um instantâneo de partilha
 
-Agora que você mapeou a unidade, você pode criar um instantâneo.
+Agora que mapeou a unidade, pode criar uma foto.
 
-1. No portal, navegue até o compartilhamento de arquivos e selecione **criar instantâneo**.
+1. No portal, navegue para a sua partilha de ficheiros e selecione **Criar instantâneo**.
 
    ![Criar um instantâneo](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
-1. Na VM, abra o *qstestfile. txt* e digite "este arquivo foi modificado" > salvar e fechar o arquivo.
+1. No VM, abra o *qstestfile.txt* e escreva "este ficheiro foi modificado" > Guardar e fechar o ficheiro.
 1. Crie outro instantâneo.
 
-## <a name="browse-a-share-snapshot"></a>Procurar um instantâneo de compartilhamento
+## <a name="browse-a-share-snapshot"></a>Navegue por um instantâneo de partilha
 
-1. Em seu compartilhamento de arquivos, selecione **Exibir instantâneos**.
-1. No painel **instantâneos de compartilhamento de arquivos** , selecione o primeiro instantâneo na lista.
+1. Na sua partilha de ficheiros, selecione **Ver instantâneos**.
+1. No painel de imagens de **partilha de ficheiros,** selecione o primeiro instantâneo da lista.
 
-   ![Instantâneo selecionado na lista de carimbos de data/hora](./media/storage-files-quick-create-use-windows/snapshot-list.png)
+   ![Instantâneo selecionado na lista de selos temporais](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
-1. No painel desse instantâneo, selecione *qsTestFile. txt*.
+1. No painel para esse instantâneo, selecione *qsTestFile.txt*.
 
-## <a name="restore-from-a-snapshot"></a>Restaurar de um instantâneo
+## <a name="restore-from-a-snapshot"></a>Restaurar a partir de um instantâneo
 
-1. Na folha instantâneo de compartilhamento de arquivo, clique com o botão direito do mouse em *qsTestFile*e selecione o botão **restaurar** .
-1. Selecione **Substituir arquivo original**.
+1. A partir da lâmina de instantâneo de partilha de ficheiros, clique à direita no *qsTestFile*, e selecione o botão **Restaurar.**
+1. **Selecione Sobreescrever o ficheiro original**.
 
-   ![Botões baixar e restaurar](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
+   ![Descarregar e Restaurar botões](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
-1. Na VM, abra o arquivo. A versão não modificada foi restaurada.
+1. No VM, abra o ficheiro. A versão não modificada foi restaurada.
 
 ## <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
 
-1. Em seu compartilhamento de arquivos, selecione **Exibir instantâneos**.
-1. No painel **instantâneos de compartilhamento de arquivos** , selecione o último instantâneo na lista e clique em **excluir**.
+1. Na sua partilha de ficheiros, selecione **Ver instantâneos**.
+1. No painel de **imagens de partilha de ficheiros,** selecione o último instantâneo da lista e clique em **Eliminar**.
 
-   ![Botão de eliminar](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
+   ![Eliminar botão](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
-## <a name="use-a-share-snapshot-in-windows"></a>Usar um instantâneo de compartilhamento no Windows
+## <a name="use-a-share-snapshot-in-windows"></a>Use uma imagem de partilha no Windows
 
-Assim como ocorre com instantâneos do VSS locais, você pode exibir os instantâneos do seu compartilhamento de arquivos do Azure montado usando a guia versões anteriores.
+Tal como acontece com as imagens VSS no local, pode ver as imagens da partilha de ficheiros Azure montadas utilizando o separador Versões Anteriores.
 
-1. No explorador de arquivos, localize o compartilhamento montado.
+1. No File Explorer, localize a parte montada.
 
-   ![Compartilhamento montado no explorador de arquivos](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
+   ![Participação montada no Explorador de Ficheiros](./media/storage-files-quick-create-use-windows/snapshot-windows-mount.png)
 
-1. Selecione *qsTestFile. txt* e > clique com o botão direito do mouse e selecione **Propriedades** no menu.
+1. Selecione *qsTestFile.txt* e > clique direito e selecione **Propriedades** do menu.
 
    ![Clique com o botão direito do rato no menu para um diretório selecionado](./media/storage-files-quick-create-use-windows/snapshot-windows-previous-versions.png)
 
 1. Selecione **Versões Anteriores** para ver a lista de instantâneos de partilha para este diretório.
 
-1. Selecione **abrir** para abrir o instantâneo.
+1. **Selecione Abrir** para abrir o instantâneo.
 
    ![Separador Versões Anteriores](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
 
 ## <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
 
-1. Selecione **restaurar**. Essa ação copia o conteúdo do diretório inteiro recursivamente para o local original no momento em que o instantâneo de compartilhamento foi criado.
+1. Selecione **Restaurar**. Esta ação copia o conteúdo de todo o diretório recursivamente para a localização original no momento em que o instantâneo de partilha foi criado.
 
-   ![botão restaurar na mensagem de aviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Observação: se o arquivo não tiver sido alterado, você não verá uma versão anterior para esse arquivo porque esse arquivo é da mesma versão que o instantâneo. Isso é consistente com a maneira como isso funciona em um servidor de arquivos do Windows.
+   ![Restaurar o botão na mensagem](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) de aviso Nota: Se o seu ficheiro não tiver mudado, não verá uma versão anterior para esse ficheiro, uma vez que esse ficheiro é a mesma versão que o instantâneo. Isto é consistente com a forma como isto funciona num servidor de ficheiros windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

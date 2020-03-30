@@ -1,19 +1,19 @@
 ---
-title: Crie e gere empregos na sua aplicação Azure IoT Central  Microsoft Docs
+title: Crie e gere empregos na sua aplicação Azure IoT Central [ Microsoft Docs
 description: Os trabalhos centrais da Azure IoT permitem capacidades de gestão de dispositivos a granel, tais como atualizar propriedades ou executar um comando.
 ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 03/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c9d5a0daa364b09e45699e898511c28d4b4d92ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252301"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157760"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crie e faça um trabalho na sua aplicação Azure IoT Central
 
@@ -98,5 +98,5 @@ Para ver o estado do trabalho e todos os dispositivos afetados, abra o trabalho.
 
 Agora que aprendeu a criar empregos na sua aplicação Azure IoT Central, eis alguns passos seguintes:
 
-- [Gerir os seus dispositivos](howto-manage-devices.md)
+- [Faça a gestão dos seus dispositivos](howto-manage-devices.md)
 - [Verifique o seu modelo de dispositivo](howto-version-device-template.md)

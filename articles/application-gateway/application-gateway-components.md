@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301357"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133098"
 ---
 # <a name="application-gateway-components"></a>Componentes de gateway de aplicação
 
@@ -32,7 +32,7 @@ O V1 SKU pode ser configurado para suportar endereço ip interno estático ou di
 
 O nome DNS associado a um gateway de aplicação não muda ao longo do ciclo de vida do portal. Como resultado, deve utilizar um pseudónimo CNAME e apontá-lo para o endereço DNS do gateway da aplicação.
 
-## <a name="listeners"></a>Ouvintes
+## <a name="listeners"></a>Serviços de escuta
 
 Um ouvinte é uma entidade lógica que verifica os pedidos de ligação. Um ouvinte aceita um pedido se o protocolo, porta, nome de anfitrião e endereço IP associado sofram os mesmos elementos associados à configuração do ouvinte.
 
@@ -55,9 +55,9 @@ O Application Gateway suporta quatro protocolos: HTTP, HTTPS, HTTP/2 e WebSocket
 - Especifique entre os protocolos HTTP e HTTPS na configuração do ouvinte.
 - O suporte para [WebSockets e protocolos HTTP/2](features.md#websocket-and-http2-traffic) é fornecido de forma nativa, e o [suporte WebSocket](application-gateway-websocket.md) é ativado por padrão. Não existe qualquer definição configurável pelo utilizador para ativar ou desativar seletivamente o suporte de WebSocket. Utilize WebSockets com os ouvintes HTTP e HTTPS.
 
-Utilize um ouvinte HTTPS para a rescisão de SSL. Um ouvinte HTTPS descarrega o trabalho de encriptação e desencriptação para o seu portal de aplicações, para que os seus servidores web não sejam sobrecarregados com a sobrecarga.
+Utilize um ouvinte HTTPS para a rescisão de TLS. Um ouvinte HTTPS descarrega o trabalho de encriptação e desencriptação para o seu portal de aplicações, para que os seus servidores web não sejam sobrecarregados com a sobrecarga.
 
-### <a name="custom-error-pages"></a>Páginas de erro personalizadas
+### <a name="custom-error-pages"></a>Páginas de erros personalizadas
 
 O Gateway de aplicação permite-lhe criar páginas de erro personalizadas em vez de apresentar páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada. O Application Gateway apresenta uma página de erro personalizada quando um pedido não consegue chegar ao backend.
 
@@ -107,11 +107,11 @@ Os cabeçalhos podem ser definidos para valores estáticos ou para outros cabeç
 
 Para mais informações, consulte [os cabeçalhos http da reescrita na sua porta](rewrite-http-headers.md)de entrada de aplicação .
 
-## <a name="http-settings"></a>Definições http
+## <a name="http-settings"></a>Definições de HTTP
 
 Um gateway de aplicação encaminha o tráfego para os servidores backend (especificado na regra de encaminhamento de pedidos que incluem as definições http) utilizando o número de porta, protocolo e outras definições detalhadas neste componente.
 
-A porta e o protocolo utilizados nas definições http determinam se o tráfego entre o gateway da aplicação e os servidores backend está encriptado (fornecendo SSL de ponta a ponta) ou não encriptado.
+A porta e o protocolo utilizados nas definições http determinam se o tráfego entre o gateway da aplicação e os servidores backend está encriptado (fornecendo TLS de ponta a ponta) ou não encriptado.
 
 Este componente também é utilizado para:
 

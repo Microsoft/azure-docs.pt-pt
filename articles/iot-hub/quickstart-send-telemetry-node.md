@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
 ms.openlocfilehash: 8b99cf08e0e47ab99deb443a0fefee6ba0d61a88
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675394"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e leia-a com uma aplicação de back-end (Node.js)
@@ -105,9 +105,9 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Abra o ficheiro **SimulatedDevice.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` com a cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as alterações para **SimulatedDevice.js**.
+    Substitua o `connectionString` valor da variável pela cadeia de ligação do dispositivo de que fez uma nota anterior. Em seguida, guarde as alterações para **SimulatedDevice.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e execute a aplicação de dispositivo simulado:
+1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado:
 
     ```cmd/sh
     npm install
@@ -126,9 +126,9 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 1. Abra o ficheiro **ReadDeviceToCloudMessages.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` com a cadeia de ligação de serviço de que fez uma nota anterior. Em seguida, guarde as suas alterações para **ReadDeviceToCloudMessages.js**.
+    Substitua o `connectionString` valor da variável pela cadeia de ligação de serviço de que fez uma nota anterior. Em seguida, guarde as suas alterações para **ReadDeviceToCloudMessages.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação back-end:
+1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e executar a aplicação back-end:
 
     ```cmd/sh
     npm install

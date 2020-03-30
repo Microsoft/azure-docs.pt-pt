@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79217230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124997"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Boas práticas para garantir bases de dados PaaS em Azure
 
-Neste artigo, discutimos uma coleção de bases de [dados Azure SQL](../../sql-database/sql-database-technical-overview.md) e [sQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) de segurança para garantir as suas aplicações web e móveis (PaaS) de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
+Neste artigo, discutimos uma coleção de bases de [dados Azure SQL](../../sql-database/sql-database-technical-overview.md) e [sQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) de segurança para garantir as suas aplicações web e móveis (PaaS) de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
 
 A Base de Dados Azure SQL e o SQL Data Warehouse fornecem um serviço de base de dados relacional para as suas aplicações baseadas na Internet. Vamos ver serviços que ajudam a proteger as suas aplicações e dados ao utilizar a Base de Dados Azure SQL e o Armazém de Dados SQL numa implementação paaS:
 
@@ -39,7 +39,7 @@ As bases de dados Azure SQL podem ser configuradas para utilizar um de dois tipo
 
 - A **autenticação do Diretório Ativo Azure** utiliza identidades geridas pelo Azure Ative Directory e é suportada por domínios geridos e integrados. Para utilizar a Autenticação de Diretório Ativo Azure, deve criar outro administrador de servidor chamado "Administração AD Azure", que é permitido administrar utilizadores e grupos de Anúncios Azure. Este administrador também pode fazer todas as operações que um administrador de servidor normal faz.
 
-[A autenticação do Diretório Ativo Azure](../../active-directory/develop/authentication-scenarios.md) é um mecanismo de ligação à Base de Dados Azure SQL e ao SQL Data Warehouse utilizando identidades no Diretório Ativo azure (AD). O Azure AD fornece uma alternativa à autenticação do SQL Server para que possa parar a proliferação de identidades de utilizadores através de servidores de base de dados. A autenticação Azure AD permite-lhe gerir centralmente as identidades dos utilizadores de bases de dados e de outros serviços da Microsoft numa localização central. A gestão central de ID fornece um único lugar para gerir utilizadores de bases de dados e simplifica a gestão de permissões.  
+[A autenticação do Diretório Ativo Azure](../../active-directory/develop/authentication-scenarios.md) é um mecanismo de ligação à Base de Dados Azure SQL e ao SQL Data Warehouse utilizando identidades no Diretório Ativo azure (AD). O Azure AD fornece uma alternativa à autenticação do SQL Server para que possa parar a proliferação de identidades de utilizadores através de servidores de base de dados. A autenticação Azure AD permite-lhe gerir centralmente as identidades dos utilizadores de bases de dados e de outros serviços da Microsoft numa localização central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Benefícios da utilização de AD Azure em vez da autenticação SQL
 - Permite a rotação da palavra-passe num único local.
@@ -53,7 +53,7 @@ As bases de dados Azure SQL podem ser configuradas para utilizar um de dois tipo
 Para saber mais sobre a autenticação da Azure AD, consulte:
 
 - [Utilize a autenticação de diretório ativo Azure para autenticação com base de dados SQL, Instância Gerida ou Armazém de Dados SQL](../../sql-database/sql-database-aad-authentication.md)
-- [Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Suporte à autenticação baseado em token para O BD Azure utilizando autenticação Azure AD](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]
@@ -69,10 +69,10 @@ As restrições de endereço IP de origem padrão da Base de Dados SQL permitem 
 Para saber mais sobre as restrições de Firewall Azure SQL e IP, consulte:
 
 - [Base de Dados Azure SQL e controlo de acesso ao Armazém de Dados SQL](../../sql-database/sql-database-manage-logins.md)
-- [Base de Dados Azure SQL e regras de firewall do Armazém de Dados SQL](../../sql-database/sql-database-firewall-configure.md)
+- [Regras de firewall da Base de Dados SQL e do SQL Data Warehouse](../../sql-database/sql-database-firewall-configure.md)
 
 
-## <a name="encrypt-data-at-rest"></a>Criptografe dados em repouso
+## <a name="encrypt-data-at-rest"></a>Encriptar dados inativos
 [A Encriptação transparente de dados (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) é ativada por padrão. O TDE encripta de forma transparente os dados do SQL Server, da Base de Dados Azure SQL e do Azure SQL Data Warehouse e dos ficheiros de registo. O TDE protege contra um compromisso de acesso direto aos ficheiros ou à sua cópia de segurança. Isto permite-lhe encriptar dados em repouso sem alterar as aplicações existentes. O TDE deve manter-se sempre ativado; no entanto, isto não impedirá um intruso de usar a via de acesso normal. A TDE oferece a capacidade de cumprir muitas leis, regulamentos e orientações estabelecidas em várias indústrias.
 
 O Azure SQL gere questões relacionadas com a chave para o TDE. Tal como acontece com o TDE, há que ter especial cuidado no local para garantir a recuperabilidade e a deslocação das bases de dados. Em cenários mais sofisticados, as chaves podem ser geridas explicitamente no Cofre chave Azure através de uma gestão de chaves extensíveis. Ver [Ativar o TDE no servidor SQL utilizando](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm)o EKM . Isto também permite trazer a sua própria chave (BYOK) através da capacidade de ByOK de Cofres de Chave Azure.
@@ -83,7 +83,7 @@ A encriptação do nível de aplicação também deve ser utilizada para dados s
 
 Pode utilizar precauções adicionais para ajudar a proteger a base de dados, como desenhar um sistema seguro, encriptar ativos confidenciais e construir uma firewall em torno dos servidores da base de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe uma coleção de bases de dados SQL e sQL Data Warehouse de segurança para garantir as suas aplicações web e móveis PaaS. Para saber mais sobre como garantir as suas implementações paas, consulte:
 
 - [Proteger implementações PaaS](paas-deployments.md)

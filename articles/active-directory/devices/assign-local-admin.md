@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672732"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128887"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD aderiu a dispositivos
 
@@ -40,15 +40,15 @@ A Azure AD também adiciona o papel de administrador de dispositivos Azure AD ao
 Para visualizar e atualizar a adesão ao papel de administrador global, consulte:
 
 - [Ver todos os membros de um papel de administrador no Diretório Ativo Azure](../users-groups-roles/directory-manage-roles-portal.md)
-- [Atribuir um utilizador a funções de administrador no Diretório Ativo do Azure](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Atribua um utilizador a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
 ## <a name="manage-the-device-administrator-role"></a>Gerir a função de administrador do dispositivo 
 
 No portal Azure, pode gerir a função de administrador de dispositivos na página **dispositivos.** Para abrir a página **Dispositivos:**
 
-1. Inscreva-se no seu [portal Azure](https://portal.azure.com) como administrador global ou administrador de dispositivos.
-1. Procure e selecione *Azure Ative Directory*.
+1. Inscreva-se no seu [portal Azure](https://portal.azure.com) como administrador global.
+1. Procure e selecione *Azure Active Directory*.
 1. Na secção **Gerir,** clique em **Dispositivos**.
 1. Na página **Dispositivos,** clique nas **definições do Dispositivo**.
 
@@ -75,12 +75,12 @@ Por predefinição, a Azure AD adiciona ao utilizador que executa o AD Azure a j
 
 Além de utilizar o processo de adesão ao Azure AD, também pode elevar manualmente um utilizador regular para se tornar um administrador local num dispositivo específico. Este passo requer que já seja membro do grupo de administradores locais. 
 
-A partir do lançamento do **Windows 10 1709,** pode executar esta tarefa a partir de **Definições -> Contas -> Outros utilizadores**. **Selecione Adicionar um trabalho ou utilizador escolar,** insira a UPN do utilizador sob conta de **utilizador** e selecione *Administrador* sob o tipo de **conta**  
+A partir do lançamento **do Windows 10 1709,** pode executar esta tarefa a partir de **Definições -> Contas -> Outros utilizadores**. **Selecione Adicionar um trabalho ou utilizador escolar,** insira a UPN do utilizador sob conta de **utilizador** e selecione *Administrador* sob o tipo de **conta**  
  
 Além disso, também pode adicionar utilizadores usando o pedido de comando:
 
-- Se os utilizadores dos seus inquilinos estiverem sincronizados a partir do Diretório Ativo no local, utilize `net localgroup administrators /add "Contoso\username"`.
-- Se os utilizadores do seu inquilino forem criados em Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
+- Se os utilizadores dos seus inquilinos estiverem sincronizados `net localgroup administrators /add "Contoso\username"`a partir do Diretório Ativo no local, utilize .
+- Se os utilizadores do seu inquilino forem criados em Azure AD, use`net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Considerações 
 

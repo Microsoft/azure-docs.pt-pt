@@ -1,65 +1,65 @@
 ---
-title: Introdução ao suporte do Jupyter notebooks interno no Azure Cosmos DB (versão prévia)
-description: Saiba como você pode usar o suporte interno do Jupyter notebooks no Azure Cosmos DB para executar consultas interativamente.
+title: Introdução ao suporte de cadernos jupyter incorporado sintetizadores em Azure Cosmos DB (Pré-visualização)
+description: Saiba como pode usar o suporte de cadernos Jupyter incorporado sinuoso em Azure Cosmos DB para executar consultas interativas.
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
 ms.openlocfilehash: 5b320485001d6cbc457d39ef193ed8c57f7161df
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76760288"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Suporte de cadernos jupyter incorporados em Azure Cosmos DB (pré-visualização)
 
-O Jupyter Notebook é um aplicativo Web de software livre que permite criar e compartilhar documentos que contêm código ao vivo, equações, visualizações e texto de narração. O Azure Cosmos DB dá suporte a blocos de anotações Jupyter internos para todas as APIs, como Cassandra, MongoDB, SQL, Gremlin e tabela. O suporte ao bloco de anotações interno para todos os Azure Cosmos DB APIs e modelos de dados permite executar consultas interativamente. Os notebooks Jupyter são executados nas contas do Azure Cosmos e permitem que os desenvolvedores realizem exploração de dados, limpeza de dados, transformações de dados, simulações numéricas, modelagem estatística, visualização de dados e aprendizado de máquina.
+O portátil Jupyter é uma aplicação web de código aberto que permite criar e partilhar documentos que contenham código vivo, equações, visualizações e texto narrativo. A Azure Cosmos DB suporta cadernos jupyter incorporados para todas as APIs como Cassandra, MongoDB, SQL, Gremlin e Table. O suporte portátil incorporado para todas as APIs DB do Azure Cosmos e modelos de dados permite-lhe executar consultas interativamente. Os cadernos Jupyter funcionam dentro das contas do Azure Cosmos e permitem aos desenvolvedores realizar a exploração de dados, limpeza de dados, transformações de dados, simulações numéricas, modelação estatística, visualização de dados e machine learning.
 
-![Visualizações do Jupyter notebooks no Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+![Visualizações de cadernos jupyter em Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
-Os notebooks Jupyter dão suporte a funções mágicas que estendem os recursos do kernel ao dar suporte a comandos adicionais. Cosmos Magic é um comando que estende os recursos do kernel do Python no notebook Jupyter para que você possa executar consultas da API do SQL do Azure Cosmos, além de Apache Spark. Você pode combinar facilmente consultas de API do Python e do SQL para consultar e Visualizar dados usando bibliotecas de visualização avançadas integradas com comandos de renderização.
-Portal do Azure integra nativamente a experiência do Jupyter Notebook às contas do Azure Cosmos, conforme mostrado na imagem a seguir:
+Os cadernos Jupyter suportam funções mágicas que alargam as capacidades do núcleo suportando comandos adicionais. Cosmos magic é um comando que estende as capacidades do kernel Python no caderno Jupyter para que você possa executar consultas De API Azure Cosmos SQL além de Apache Spark. Você pode facilmente combinar consultas de Python e SQL API para consulta e visualização de dados usando bibliotecas de visualização ricas integradas com comandos render.
+O portal Azure integra de forma nativa a experiência do portátil Jupyter nas contas da Azure Cosmos, como mostra a seguinte imagem:
 
-![Suporte a notebooks Jupyter no Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
+![Suporte de cadernos jupyter em Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
 
-## <a name="benefits-of-jupyter-notebooks"></a>Benefícios dos Notebooks Jupyter
+## <a name="benefits-of-jupyter-notebooks"></a>Benefícios dos cadernos Jupyter
 
-Os notebooks Jupyter foram desenvolvidos originalmente para aplicativos de ciência de dados escritos em Python, R. No entanto, eles podem ser usados de várias maneiras para diferentes tipos de projetos, como:
+Os cadernos jupyter foram originalmente desenvolvidos para aplicações de ciência de dados escritas em Python, R. No entanto, podem ser utilizados de várias formas para diferentes tipos de projetos, tais como:
 
-* ***visualizações de dados: os** notebooks Jupyter permitem visualizar dados na forma de um bloco de anotações compartilhado que processa alguns conjuntos de dados como um gráfico. O Jupyter Notebook permite que você crie visualizações, compartilhe-as e permita alterações interativas no código compartilhado e no conjunto de dados.
+* ***Visualizações de dados:** Os cadernos jupyter permitem visualizar dados sob a forma de um caderno partilhado que torna alguns conjuntos de dados como um gráfico. O caderno jupyter permite visualizações de autor, partilhá-las e permitir alterações interativas no código e conjunto de dados partilhados.
 
-* **Compartilhamento de código:** Serviços como o GitHub fornecem maneiras de compartilhar código, mas eles são amplamente não interativos. Com um notebook Jupyter, você pode exibir o código, executá-lo e exibir os resultados diretamente no portal do Azure.
+* **Partilha de códigos:** Serviços como o GitHub fornecem formas de partilhar código, mas são em grande parte não interativos. Com um caderno Jupyter, pode ver código, executá-lo e exibir os resultados diretamente no portal Azure.
 
-* **Interações ao vivo com código:** O código do bloco de anotações Jupyter é dinâmico; Ele pode ser editado e executado novamente de forma incremental em tempo real. Os blocos de anotações também podem inserir controles de usuário (por exemplo, seletores ou campos de entrada de texto) que podem ser usados como fontes de entrada para código, demonstrações ou provas de conceitos (POCs).
+* **Interações ao vivo com código:** O código do caderno jupyter é dinâmico; pode ser editado e reexecutado incrementalmente em tempo real. Os cadernos também podem incorporar controlos de utilizadores (por exemplo, sliders ou campos de entrada de texto) que podem ser usados como fontes de entrada para código, demonstrações ou provas de conceitos (POCs).
 
-* **Documentação de exemplos de código e resultados de exploração de dados:** Se você tiver um trecho de código e desejar explicar como ele funciona em Azure Cosmos DB, com saída em tempo real, tudo ao longo do caminho, você poderá incorporá-lo em um Jupyter Notebook. O código permanecerá totalmente funcional. Você pode adicionar interatividade junto com a documentação ao mesmo tempo.
+* **Documentação de amostras de código e resultados da exploração de dados:** Se tiver um pedaço de código e quiser explicar line-by-line como funciona em Azure Cosmos DB, com saída em tempo real ao longo do caminho, você poderia inseri-lo em um Caderno Jupyter. O código permanecerá totalmente funcional. Pode adicionar interatividade juntamente com a documentação ao mesmo tempo.
 
-* **Comandos mágicos do Cosmos:** Nos notebooks Jupyter, você pode usar comandos mágicos personalizados para Azure Cosmos DB para facilitar a computação interativa. Por exemplo, a magia %%sql que permite consultar um recipiente Cosmos usando API SQL diretamente em um caderno.
+* **Comandos mágicos cosmos:** Nos cadernos jupyter, você pode usar comandos de magia personalizados para Azure Cosmos DB para facilitar a computação interativa. Por exemplo, a magia %%sql que permite consultar um recipiente Cosmos usando API SQL diretamente em um caderno.
 
-* **Tudo em um ambiente único local:** Os notebooks Jupyter combinam código, Rich Text, imagens, vídeos, animações, equações matemáticas, plotagens, mapas, figuras interativas, widgets e interfaces gráficas do usuário em um único documento.
+* **Tudo num só lugar ambiente:** Os cadernos jupyter combinam código, texto rico, imagens, vídeos, animações, equações matemáticas, enredos, mapas, figuras interativas, widgets e interfaces gráficas de utilizadores num único documento.
 
-## <a name="components-of-a-jupyter-notebook"></a>Componentes de um notebook Jupyter
+## <a name="components-of-a-jupyter-notebook"></a>Componentes de um caderno Jupyter
 
-Os notebooks Jupyter podem incluir vários tipos de componentes, cada um organizado em blocos discretos:
+Os cadernos jupyter podem incluir vários tipos de componentes, cada um organizado em blocos discretos:
 
-* **Texto e HTML:** Texto sem formatação ou texto anotado na sintaxe de redução para gerar HTML, pode ser inserido no documento a qualquer momento. O estilo de CSS também pode ser incluído embutido ou adicionado ao modelo usado para gerar o bloco de anotações.
+* **Texto e HTML:** O texto simples, ou texto anotado na sintaxe de marcação para gerar HTML, pode ser inserido no documento em qualquer ponto. O estilo CSS também pode ser incluído inline ou adicionado ao modelo utilizado para gerar o caderno.
 
-* **Código e saída:** Os notebooks Jupyter dão suporte ao código Python. Os resultados do código executado aparecem imediatamente após os blocos de código, e os blocos de código podem ser executados várias vezes em qualquer ordem desejada.
+* **Código e saída:** Os cadernos jupyter suportam o código Python. Os resultados do código executado aparecem imediatamente após os blocos de código, e os blocos de código podem ser executados várias vezes em qualquer ordem que você quiser.
 
-* **Visualizações:** Elementos gráficos e gráficos podem ser gerados a partir do código, usando módulos como matplotlib, Plotal ou bokeh. Semelhante à saída, essas visualizações aparecem embutidas ao lado do código que as gera.
+* **Visualizações:** Gráficos e gráficos podem ser gerados a partir do código, usando módulos como Matplotlib, Plotly ou Bokeh. Semelhante à saída, estas visualizações aparecem inline ao lado do código que as gera.
 
-* **Multimídia:** Como o Jupyter Notebook é criado na tecnologia da Web, ele pode exibir todos os tipos de multimídia com suporte em uma página da Web. Você pode incluí-los em um bloco de anotações como elementos HTML ou pode gerá-los programaticamente usando o módulo `IPython.display`.
+* **Multimédia:** Como o portátil Jupyter é construído sobre a tecnologia web, pode exibir todos os tipos de multimédia suportados numa página web. Pode incluí-los num caderno como elementos HTML, ou pode `IPython.display` gerá-los programáticamente utilizando o módulo.
 
-* **Dados:** Os dados dos contêineres Cosmos do Azure e os resultados das consultas podem ser importados em um notebook Jupyter de forma programática. Por exemplo, ao incluir o código no bloco de anotações para consultar os dados usando qualquer uma das APIs de Cosmos DB ou Apache Spark interno nativo.
+* **Dados:** Os dados dos contentores da Azure Cosmos e os resultados das consultas podem ser importados para um caderno Jupyter programáticamente. Por exemplo, ao incluir código no caderno para consultar os dados usando qualquer um dos APIs db cosmos ou apache spark nativo-incorporado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a usar o Jupyter notebooks internos no Azure Cosmos DB consulte os seguintes artigos:
+Para começar com cadernos jupyter embutidos em Azure Cosmos DB veja os seguintes artigos:
 
-* [Habilitar blocos de anotações em uma conta do Azure Cosmos](enable-notebooks.md)
-* [Usar recursos e comandos do bloco de anotações](use-notebook-features-and-commands.md)
+* [Ativar cadernos numa conta Azure Cosmos](enable-notebooks.md)
+* [Utilize funcionalidades e comandos de cadernos](use-notebook-features-and-commands.md)
 
 
 

@@ -9,19 +9,19 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 64c900e01496dad0d5f6a96d8d790ae0c2a8c95a
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927406"
 ---
 Pode utilizar consultas no Data Explorer para recuperar e filtrar os seus dados.
 
-1. No topo do separador **Itens** no Data Explorer, reveja a consulta padrão `SELECT * FROM c`. Esta consulta recupera e exibe todos os documentos da recolha por ordem de identificação. 
+1. No topo do separador **Itens** no Data Explorer, `SELECT * FROM c`reveja a consulta padrão . Esta consulta recupera e exibe todos os documentos da recolha por ordem de identificação. 
    
    ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
    
-1. Para alterar a consulta, selecione **Editar Filtro,** substitua a consulta predefinida por `ORDER BY c._ts DESC`, e, em seguida, selecione **Apply Filter**.
+1. Para alterar a consulta, selecione **Editar Filtro,** substitua a consulta predefinida com `ORDER BY c._ts DESC`, e, em seguida, selecione Apply **Filter**.
    
    ![Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
 

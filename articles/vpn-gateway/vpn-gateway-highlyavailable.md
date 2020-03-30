@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: visão geral – configurações de gateway altamente disponíveis'
+title: 'Gateway Azure VPN: Visão geral - Configurações de gateway altamente disponíveis'
 description: Este artigo disponibiliza uma descrição geral das opções de configurações de elevada disponibilidade através de Gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779625"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade em Vários Locais de Elevada Disponibilidade e VNet a VNet
 Este artigo disponibiliza uma descrição geral das opções de configurações de elevada disponibilidade para a conectividade em vários locais e VNet a VNet através dos Gateways de VPN do Azure.
 
-## <a name = "activestandby"></a>Sobre a redundância de gateway de VPN do Azure
+## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Acerca da redundância do Gateway de VPN do Azure
 Todos os Gateways de VPN do Azure consistem em duas instâncias numa configuração ativa-em espera. Caso ocorra uma manutenção planeada ou uma interrupção não planeada na instância ativa, a instância em espera assume o controlo (ativação pós-falha) automaticamente e retoma as ligações VPN S2S ou VNet a VNet. A mudança causará uma breve interrupção. Nas manutenções planeadas, a conectividade deve ser restabelecida ao fim de 10 a 15 segundos. Relativamente a problemas não planeados, a recuperação da ligação demorará mais tempo, cerca de um minuto a um minuto e meio, na pior das hipóteses. Para as ligações de cliente VPN S2S ao gateway, as ligações P2S serão desligadas e os utilizadores terão de restabelecê-las a partir dos computadores cliente.
 
 ![Ativa- em espera](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -29,19 +29,19 @@ Para proporcionar melhor disponibilidade para as ligações em vários locais, h
 * Gateway de VPN do Azure ativo-ativo
 * Uma combinação de ambos
 
-### <a name = "activeactiveonprem"></a>Vários dispositivos VPN locais
+### <a name="multiple-on-premises-vpn-devices"></a><a name = "activeactiveonprem"></a>Vários dispositivos VPN no local
 Pode utilizar vários dispositivos VPN da sua rede no local para ligar ao Gateway de VPN do Azure, conforme mostrado no diagrama seguinte:
 
 ![Várias VPNs no Local](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
 
 Esta configuração fornece vários túneis ativos do mesmo gateway de VPN do Azure para os dispositivos no local na mesma localização. Existem alguns requisitos e limitações:
 
-1. Tem de criar várias ligações VPN S2S dos dispositivos VPN para o Azure. Ao conectar vários dispositivos VPN da mesma rede local ao Azure, você precisa criar um gateway de rede local para cada dispositivo VPN e uma conexão do gateway de VPN do Azure para cada gateway de rede local.
+1. Tem de criar várias ligações VPN S2S dos dispositivos VPN para o Azure. Quando liga vários dispositivos VPN da mesma rede no local ao Azure, é necessário criar uma porta de entrada de rede local para cada dispositivo VPN e uma ligação desde o portal Azure VPN até cada gateway de rede local.
 2. Os gateways de rede local correspondentes aos dispositivos VPN têm de ter endereços IP públicos exclusivos na propriedade "GatewayIpAddress".
 3. O BGP é necessário para esta configuração. Cada gateway de rede local que representa um dispositivo VPN tem de ter um endereço IP de elemento de rede BGP especificado na propriedade “BgpPeerIpAddress”.
 4. O campo da propriedade AddressPrefix de cada gateway de rede local não se pode sobrepor. Deve especificar "BgpPeerIpAddress" no formato /32 CIDR no campo AddressPrefix, por exemplo, 10.200.200.254/32.
 5. Deve utilizar o BGP para anunciar os mesmos prefixos dos mesmos prefixos da rede no local ao gateway de VPN do Azure e o tráfego será encaminhado através destes túneis simultaneamente.
-6. Você deve usar o roteamento de vários caminhos de custo igual (ECMP).
+6. Deve utilizar o encaminhamento multi-caminho de custo igual (ECMP).
 7. Cada ligação é contabilizada face ao número máximo de túneis do seu gateway de VPN do Azure, 10 para os SKUs Básico e Standard e 30 para o SKU HighPerformance. 
 
 Nesta configuração, o gateway de VPN do Azure continua no modo ativo-em espera, pelo que o mesmo comportamento de ativação pós-falha e a breve interrupção ainda vão ocorrer, conforme descrito [anteriormente](#activestandby). Contudo, esta configuração protege de falhas ou interrupções na sua rede no local e nos seus dispositivos VPN.

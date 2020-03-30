@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: a2d15dd520db16012f530d2ac6188a4642c89795
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75421647"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
@@ -27,16 +27,16 @@ Inicie sessão no Azure a https://portal.azure.com
 
 1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Azure.
 
-1. Selecione **-o & ferramentas de gerenciamento**e, em seguida, selecione **automação**.
+1. Selecione **ferramentas de gestão de TI &** e, em seguida, selecione **Automation**.
 
-1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. *Os nomes de conta de automação são exclusivos por região e grupo de recursos. Os nomes das contas de automação que foram excluídas podem não estar imediatamente disponíveis.* Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
+1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. *Os nomes da Conta de Automação são únicos por região e grupo de recursos. Os nomes das Contas de Automação que foram eliminadas podem não estar imediatamente disponíveis.* Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
 
     ![Introduza as informações sobre a conta de Automatização na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
     > Para obter uma lista de localizações nas quais pode implementar uma Conta de Automatização, veja [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
-1. Quando a implantação for concluída, clique em **todos os serviços**, selecione **contas de automação** e selecione a conta de automação que você criou.
+1. Quando a implementação estiver concluída, clique em **Todos os Serviços,** selecione **Contas de Automação** e selecione a Conta de Automação que criou.
 
     ![Descrição geral da conta de Automatização](./media/automation-quickstart-create-account/automation-account-overview.png)
 

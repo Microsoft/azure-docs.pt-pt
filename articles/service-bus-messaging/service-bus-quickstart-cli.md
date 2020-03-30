@@ -1,6 +1,6 @@
 ---
-title: Início rápido - utilizar a CLI do Azure para criar uma fila do Service Bus | Documentos da Microsoft
-description: Neste início rápido, irá aprender a utilizar a CLI do Azure para criar uma fila do Service Bus. Em seguida, usar um exemplo de aplicação de Java para enviar mensagens para e receber mensagens da fila.
+title: Quickstart - Use o Azure CLI para criar uma fila de ônibus de serviço / Microsoft Docs
+description: Neste arranque rápido, aprende-se a usar o Azure CLI para criar uma fila de ônibus de serviço. Em seguida, utiliza uma aplicação Java de amostra para enviar mensagens e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -10,29 +10,29 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66400252"
 ---
-# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início rápido: Utilizar a CLI do Azure para criar uma fila do Service Bus
-Este início rápido descreve como enviar e receber mensagens com o Service Bus, utilizando a CLI do Azure e a biblioteca de Java do Service Bus. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Quickstart: Use o Azure CLI para criar uma fila de ônibus de serviço
+Este quickstart descreve como enviar e receber mensagens com o Service Bus utilizando o Azure CLI e a biblioteca Service Bus Java. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita] [ free account] antes de começar.
+Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][free account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Se utilizar o **experimentar** botão para iniciar o Cloud Shell, inicie sessão no Azure com as suas credenciais. 
+Se utilizar o botão **Try It** para lançar a Cloud Shell, inicie sessão no Azure utilizando as suas credenciais. 
 
-Se iniciou o Cloud Shell no seu navegador da Web seja diretamente ou no portal do Azure, mude para o **Bash** se vir **PowerShell** no canto superior esquerdo do Cloud Shell. 
+Se lançou a Cloud Shell no seu navegador Web diretamente ou no portal Azure, mude para **Bash** se vir **powerShell** no canto superior esquerdo da Cloud Shell. 
 
-## <a name="use-the-azure-cli-to-create-resources"></a>Utilizar a CLI do Azure para criar recursos
-No Cloud Shell, na linha de comandos do Bash, indique os seguintes comandos para aprovisionar os recursos do Service Bus. Não se esqueça de substituir todos os marcadores de posição pelos valores apropriados: O programa de exemplo de Java espera o nome da fila para ser BasicQueue, pelo que não são alterados. Talvez queira copiar/colar comandos um a um, para que pode substituir os valores antes de gerá-los. 
+## <a name="use-the-azure-cli-to-create-resources"></a>Use o Azure CLI para criar recursos
+No Cloud Shell, na linha de comandos do Bash, indique os seguintes comandos para aprovisionar os recursos do Service Bus. Certifique-se de substituir todos os espaços reservados com os valores apropriados: O programa de amostras Java espera que o nome da fila seja BasicQueue, por isso não o altere. Pode querer copiar/colar comandos um a um para que possa substituir os valores antes de os executar. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -57,7 +57,7 @@ Depois da execução do último comando, copie e cole a cadeia de ligação e o 
 
 Depois de ter criado a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-1. Clone o [repositório do GitHub de barramento de serviço](https://github.com/Azure/azure-service-bus/) no seu computador emitindo o comando seguinte:
+1. Clone o [repositório De Serviço GitHub](https://github.com/Azure/azure-service-bus/) no seu computador, emitindo o seguinte comando:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
@@ -75,13 +75,13 @@ Depois de ter criado a fila e o espaço de nomes e se tiver as credenciais neces
    mvn clean package -DskipTests
    ```
 
-1. Para executar o programa, emita o comando seguinte depois de substituir a cadeia de ligação com o valor que copiou anteriormente:
+1. Para executar o programa, emita o seguinte comando depois de substituir a cadeia de ligação pelo valor que copiou anteriormente:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-1. Observe 10 mensagens que estão a ser enviadas para a fila. Ordenação de mensagens não é garantida, mas pode ver as mensagens enviadas, em seguida, confirmados e recebido, juntamente com os dados de carga:
+1. Observe 10 mensagens que estão a ser enviadas para a fila. O envio de mensagens não está garantido, mas pode ver as mensagens enviadas, depois reconhecidas e recebidas, juntamente com os dados de carga útil:
 
     ```
     Message sending: Id = 0
@@ -187,7 +187,7 @@ Depois de ter criado a fila e o espaço de nomes e se tiver as credenciais neces
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-No Azure Cloud Shell, execute o seguinte comando para remover o grupo de recursos, o espaço de nomes e todos os recursos relacionados:
+Na Nuvem Azure, execute o seguinte comando para remover o grupo de recursos, espaço de nome e todos os recursos relacionados:
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup
@@ -197,9 +197,9 @@ az group delete --resource-group myResourceGroup
 
 Esta secção contém mais detalhes sobre as secções-chave do código de exemplo. Pode procurar o código, localizado no repositório do GitHub [aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### <a name="get-connection-string"></a>Obter cadeia de ligação
+### <a name="get-connection-string"></a>Obter corda de ligação
 
-O método runApp lê o valor da cadeia de ligação dos argumentos para o programa. 
+O método runApp lê o valor da cadeia de ligação dos argumentos ao programa. 
 
 ```java
 public static void main(String[] args) {
@@ -368,11 +368,11 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 ```
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, avance para os tutoriais a **enviar e receber mensagens** secção. 
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre escrever código para enviar e receber mensagens, continue aos tutoriais na secção **Enviar e receber mensagens.** 
 
 > [!div class="nextstepaction"]
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)

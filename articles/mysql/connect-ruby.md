@@ -1,5 +1,5 @@
 ---
-title: Conectar usando Ruby-banco de dados do Azure para MySQL
+title: Conecte-se usando Ruby - Base de Dados Azure para MySQL
 description: Este guia de início rápido proporciona vários exemplos de código Ruby que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -9,17 +9,17 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74770650"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar Ruby para se ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [Ruby](https://www.ruby-lang.org) e o gem [mysql2](https://rubygems.org/gems/mysql2) a partir de plataformas Windows, Ubuntu Linux e Mac. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Ruby e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -52,7 +52,7 @@ Instale Ruby, Gem e a biblioteca de MySQL2 no seu computador.
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.

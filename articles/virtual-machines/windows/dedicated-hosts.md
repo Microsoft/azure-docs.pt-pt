@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.openlocfilehash: 39d1c0ddb4961800e889346ec110ca629ae73546
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251553"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados azure

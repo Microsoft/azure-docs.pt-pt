@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844666"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>O que é azure event grid em Azure IoT Edge?
@@ -47,7 +47,7 @@ Tal como na nuvem, a Grelha de Eventos no IoT Edge permite a integração direta
 
 * Armazenamento de Blobs do Azure no IoT Edge
 * Fontes cloudEvents
-* Módulos e recipientes personalizados via HTTP POST
+* Módulos personalizados & contentores via HTTP POST
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
@@ -58,9 +58,9 @@ A Grelha de Eventos em IoT Edge foi construída para enviar eventos para onde qu
 * WebHooks
 * Serviço de nuvem Azure Event Grid
 * Event Hubs
-* Filas do Service Bus
-* Tópicos do Service Bus
-* Filas de armazenamento
+* Filas de Service Bus
+* Tópicos de Service Bus
+* Filas de Armazenamento
 
 ## <a name="supported-environments"></a>Ambientes apoiados
 Atualmente, os ambientes windows 64-bit, Linux 64-bit e ARM 32 bits são suportados.
@@ -88,4 +88,4 @@ Informe quaisquer problemas com a utilização da Grelha de Eventos no IoT Edge 
 * [Publique, subscreva eventos na nuvem](pub-sub-events-webhook-cloud.md)
 * [Eventos avançados para a nuvem da Grelha de Eventos](forward-events-event-grid-cloud.md)
 * [Eventos avançados para ioTHub](forward-events-iothub.md)
-* [Reagir a eventos de armazenamento blob localmente](react-blob-storage-events-locally.md)
+* [Reagir aos eventos do Armazenamento de Blobs localmente](react-blob-storage-events-locally.md)

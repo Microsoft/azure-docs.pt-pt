@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: af303928490d2570fa9430bd4b9d30c4a49df304
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675494"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração C (pré-visualização)
@@ -30,7 +30,7 @@ Este arranque rápido descreve a configuração para o túnel secure Shell (SSH)
 
 A figura que se segue ilustra como os programas de procuração local de dispositivos e serviços permitem a conectividade de ponta a ponta entre o cliente SSH e os processos de daemon SSH. Durante a pré-visualização pública, o C SDK suporta fluxos de dispositivos apenas no lado do dispositivo. Como resultado, este quickstart cobre instruções para executar apenas a aplicação de procuração local do dispositivo. Para construir e executar a aplicação do lado do serviço que acompanha, siga as instruções numa das seguintes acelerações:
 
-* [SSH/RDP sobre fluxos de dispositivos IoT Hub usando C# proxy](./quickstart-device-streams-proxy-csharp.md)
+* [SSH/RDP sobre fluxos de dispositivos IoT Hub usando proxy C#](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP sobre fluxos de dispositivos IoT Hub utilizando proxy NodeJS](./quickstart-device-streams-proxy-nodejs.md).
 
 ![Configuração local de procuração](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
@@ -48,7 +48,7 @@ A figura que se segue ilustra como os programas de procuração local de disposi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   * Europa do Norte
   * Ásia Sudeste
 
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do [Ambiente de Trabalho com C++ ](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabalho ativada.
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do Ambiente de Trabalho com carga de trabalho [C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
 * Execute o seguinte comando para adicionar a extensão Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) específicos para o Azure CLI.
@@ -76,7 +76,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 1. Descarregue o [sistema de construção CMake](https://cmake.org/download/).
 
-    É importante que os pré-requisitos do Estúdio Visual (Visual Studio e o desenvolvimento do *Ambiente de Trabalho com C++*  carga de trabalho) estejam instalados na sua máquina, *antes* de iniciar a instalação do CMake. Depois de os pré-requisitos estarem em vigor e o download ser verificado, pode instalar o sistema de construção CMake.
+    É importante que os pré-requisitos do Estúdio Visual (Visual Studio e o desenvolvimento do Ambiente de Trabalho com carga de trabalho *C++)* estejam instalados na sua máquina, *antes* de iniciar a instalação Do CMake. Depois de os pré-requisitos estarem em vigor e o download ser verificado, pode instalar o sistema de construção CMake.
 
 1. Abra uma linha de comandos ou a shell do Git Bash. Executar os seguintes comandos para clonar o [repositório Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub:
 
@@ -198,7 +198,7 @@ Nesta secção, estabelece-se um fluxo de ponta a ponta para o túnel de tráfeg
 
 Tal como discutido na secção "Como funciona", o estabelecimento de um fluxo de ponta a ponta para o tráfego de SSH do túnel requer um proxy local em cada extremidade (tanto no lado do serviço como do dispositivo). Durante a pré-visualização pública, o IoT Hub C SDK suporta fluxos de dispositivos apenas no lado do dispositivo. Para construir e executar o representante local de serviço, siga as instruções numa das seguintes acelerações:
 
-   * [Streams de dispositivos SSH/RDP C# sobre ioT Hub usando aplicações proxy](./quickstart-device-streams-proxy-csharp.md)
+   * [SSH/RDP sobre fluxos de dispositivos IoT Hub usando aplicações de procuração C#](./quickstart-device-streams-proxy-csharp.md)
    * [Streams de dispositivos SSH/RDP sobre ioT Hub usando aplicações de proxy Node.js](./quickstart-device-streams-proxy-nodejs.md)
 
 ### <a name="establish-an-ssh-session"></a>Estabelecer uma sessão de SSH
@@ -211,7 +211,7 @@ ssh {username}@localhost -p 2222
 
 Neste ponto, a janela de entrada ssh leva-o a introduzir as suas credenciais.
 
-A imagem seguinte mostra a saída da consola no proxy local do dispositivo, que se liga ao daemon SSH em `IP_address:22`:
+A imagem seguinte mostra a saída da consola no proxy local do dispositivo, `IP_address:22`que se liga ao daemon SSH em:
 
 ![Saída de procuração local de dispositivo](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 

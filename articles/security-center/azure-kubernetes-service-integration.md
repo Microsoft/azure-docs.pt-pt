@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0743499b019bd1c7b985636e886eee9352284a55
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125150"
 ---
-# <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integração de serviços azure Kubernetes com Centro de Segurança (Pré-visualização)
+# <a name="azure-kubernetes-services-integration-with-security-center"></a>Integração de serviços azure Kubernetes com Centro de Segurança
+
 O Azure Kubernetes Service (AKS) é o serviço gerido pela Microsoft para desenvolver, implementar e gerir aplicações contentorizadas. 
 
 Utilize AKS juntamente com o nível padrão do Azure Security Center (ver [preços)](security-center-pricing.md)para obter uma visibilidade mais profunda para os seus nós AKS, tráfego na nuvem e controlos de segurança.
@@ -35,9 +36,6 @@ Juntos, estas duas ferramentas formam a melhor oferta de segurança kubernetes n
 A utilização dos dois serviços em conjunto fornece:
 
 * **Recomendações de segurança** - O Centro de Segurança identifica os seus recursos AKS e categoriza-os: desde aglomerados a máquinas virtuais individuais. Em seguida, pode ver recomendações de segurança por recurso. Para mais informações, consulte as recomendações dos contentores na [lista de recomendações de referência.](recommendations-reference.md#recs-computeapp) 
-
-    > [!NOTE]
-    > Se o nome de uma recomendação do Security Center terminar com uma etiqueta "(Pré-visualização)", está a referir-se à natureza de pré-visualização da recomendação, e não à funcionalidade.
 
 * **Endurecimento ambiental** - O Security Center monitoriza constantemente a configuração dos seus clusters Kubernetes e configurações do Docker. Em seguida, gera recomendações de segurança que refletem os padrões do setor.
 
@@ -61,6 +59,6 @@ Para saber mais sobre as funcionalidades de segurança de contentores do Securit
 
 * [Centro de Segurança Azure e segurança de contentores](container-security.md)
 
-* [Integração com registo de contentores Azure](azure-container-registry-integration.md)
+* [Integração com o Azure Container Registry](azure-container-registry-integration.md)
 
 * [Gestão](https://www.microsoft.com/trust-center/privacy/data-management) de dados na Microsoft - Descreve as políticas de dados dos serviços da Microsoft (incluindo Azure, Intune e Office 365), detalhes da gestão de dados da Microsoft e as políticas de retenção que afetam os seus dados

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/03/2020
 ms.openlocfilehash: 97814f4d22629fd74f395887a7361a3aabe55012
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271841"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>O que é Apache HBase em Azure HDInsight

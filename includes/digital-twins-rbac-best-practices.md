@@ -10,26 +10,26 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: 893beb0800af0eece4d69e727e427c3e92b79121
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044955"
 ---
-O controle de acesso baseado em função é uma estratégia de segurança controlada por herança para gerenciar o acesso, as permissões e as funções. As funções descendentes herdam permissões de funções pai. As permissões também podem ser atribuídas sem serem herdadas de uma função pai. Eles também podem ser atribuídos para personalizar uma função, conforme necessário.
+O controlo de acesso baseado em papéis é uma estratégia de segurança orientada para a gestão do acesso, permissões e funções. Os papéis descendentes herdam permissões dos papéis dos pais. As permissões também podem ser atribuídas sem serem herdadas de um papel-mãe. Também podem ser designados para personalizar um papel conforme necessário.
 
-Por exemplo, um administrador de espaço pode precisar de acesso global para executar todas as operações para um espaço especificado. O acesso inclui todos os nós abaixo ou dentro do espaço. Um instalador de dispositivo pode precisar apenas de permissões de *leitura* e *atualização* para dispositivos e sensores.
+Por exemplo, um Administrador Espacial pode precisar de acesso global para executar todas as operações para um espaço especificado. O acesso inclui todos os nós por baixo ou dentro do espaço. Um instalador de dispositivos pode necessitar apenas de *ser lido* e *atualizado* permissões para dispositivos e sensores.
 
-Em todos os casos, as funções são concedidas *exatamente e não mais do que o acesso necessário* para atender às suas tarefas de acordo com o princípio de privilégio mínimo. De acordo com esse princípio, uma identidade é concedida *apenas*:
+Em todos os casos, as funções são concedidas *exatamente e não mais do que o acesso necessário* para cumprir as suas tarefas de acordo com o Princípio do Menor Privilégio. De acordo com este princípio, só é *concedida*uma identidade:
 
-* A quantidade de acesso necessária para concluir seu trabalho.
-* Uma função apropriada e limitada para realizar seu trabalho.
+* A quantidade de acesso necessária para completar o seu trabalho.
+* Um papel adequado e limitado ao seu trabalho.
 
 >[!IMPORTANT]
-> Sempre siga o princípio de privilégios mínimos.
+> Siga sempre o Princípio do Menos Privilégio.
 
-Duas outras práticas importantes de controle de acesso baseado em função a seguir:
+Duas outras práticas importantes de controlo de acesso baseadas em papéis a seguir:
 
 > [!div class="checklist"]
-> * Auditar periodicamente atribuições de função para verificar se cada função tem as permissões corretas.
-> * Limpar funções e atribuições quando indivíduos alterarem funções ou atribuições.
+> * Audite periodicamente atribuições de funções para verificar se cada função tem as permissões corretas.
+> * Limpe funções e atribuições quando os indivíduos mudam de funções ou atribuições.

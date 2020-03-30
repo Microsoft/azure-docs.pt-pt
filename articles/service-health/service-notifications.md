@@ -1,37 +1,37 @@
 ---
 title: Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
-description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
+description: As notificações de saúde do serviço permitem-lhe visualizar mensagens de saúde de serviço publicadas pelo Microsoft Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748648"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
 
-As notificações de integridade do serviço são publicadas pela infraestrutura do Azure no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).  As notificações contêm informações sobre os recursos em sua assinatura. Considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas sobre notificações de integridade do serviço. 
+As notificações de saúde de serviço são publicadas pela infraestrutura Azure no registo de [atividade sinuosa do Azure.](../azure-monitor/platform/platform-logs-overview.md)  As notificações contêm informações sobre os recursos sob a sua subscrição. Dado o possível grande volume de informação armazenada no registo de atividade, existe uma interface separada do utilizador para facilitar a visualização e configuração de alertas sobre notificações de saúde de serviço. 
 
-As notificações de integridade do serviço podem ser informativas ou acionáveis, dependendo da classe.
+As notificações de saúde do serviço podem ser informativas ou exequíveis, dependendo da classe.
 
-Para obter mais informações sobre as várias classes de notificações de integridade do serviço, consulte [Propriedades de notificações de integridade do serviço](service-health-notifications-properties.md).
+Para obter mais informações sobre as várias classes de notificações de saúde de serviço, consulte as propriedades das notificações de saúde do [Serviço.](service-health-notifications-properties.md)
 
-## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Exibir suas notificações de integridade do serviço no portal do Azure
+## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Consulte as notificações de saúde do seu serviço no portal Azure
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **Monitor**.
+1. No [portal Azure,](https://portal.azure.com)selecione **Monitor**.
 
-    ![Captura de tela do menu portal do Azure, com o monitor selecionado](./media/service-notifications/home-monitor.png)
+    ![Screenshot do menu do portal Azure, com Monitor selecionado](./media/service-notifications/home-monitor.png)
 
-    Azure Monitor reúne todas as suas configurações e dados de monitoramento em uma exibição consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
+    O Monitor Azure reúne todas as suas definições de monitorização e dados numa única vista consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
 
-1. Selecione **alertas**.
+1. Selecione **Alertas**.
 
-    ![Captura de tela de monitorar log de atividades, com alertas selecionados](./media/service-notifications/service-health-summary.png)
+    ![Screenshot do registo de atividade do monitor, com alertas selecionados](./media/service-notifications/service-health-summary.png)
 
-1. Selecione **+ adicionar alerta do log de atividades**e configure um alerta para garantir que você seja notificado para futuras notificações de serviço. Para obter mais informações, consulte [criar alertas do log de atividades em notificações de serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Selecione **+Adicionar alerta**de registo de atividade , e configurar um alerta para garantir que é notificado para futuras notificações de serviço. Para mais informações, consulte Criar alertas de registo de [atividade sonantes em notificações](../azure-monitor/platform/alerts-activity-log-service-notifications.md)de serviço .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [alertas do log de atividades](../azure-monitor/platform/activity-log-alerts.md).
+* Saiba mais sobre [alertas](../azure-monitor/platform/activity-log-alerts.md)de registo de atividade .

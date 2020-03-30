@@ -1,5 +1,5 @@
 ---
-title: Início rápido – integrar uma conta de armazenamento do Azure com a CDN do Azure
+title: Quickstart - Integre uma conta de armazenamento Azure com o Azure CDN
 description: Saiba como utilizar a Rede de Entrega de Conteúdos (CDN) do Azure para entregar conteúdo de largura de banda elevada ao colocar blobs do Armazenamento do Microsoft Azure em cache.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75386991"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: integrar uma conta de armazenamento do Azure com a CDN do Azure
@@ -55,9 +55,9 @@ Pode utilizar vários métodos para criar uma conta de armazenamento, incluindo 
    
     Este valor torna-se o nome do anfitrião no URI que é utilizado para endereçar os recursos de blob, fila ou tabela para a subscrição. Para endereçar um recurso de contentor no armazenamento de Blobs, utilize um URI no seguinte formato:
    
-    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt; *
 
-    em que *&lt;StorageAccountLabel&gt;* se refere ao valor introduzido na caixa **Nome**.
+    onde * &lt;o&gt; StorageAccountLabel* se refere ao valor introduzido na caixa **nome.**
    
     > [!IMPORTANT]    
     > A etiqueta do URL forma o subdomínio do URI da conta de armazenamento e tem de ser exclusivo em todos os serviços alojados em Azure.
@@ -68,13 +68,13 @@ Pode utilizar vários métodos para criar uma conta de armazenamento, incluindo 
 
     | Definição  | Valor |
     | -------- | ----- |
-    | **Deployment model** (Modelo de implementação) | Utilize o valor predefinido. |
-    | **Account kind** (Tipo de conta) | Utilize o valor predefinido. |
-    | **Localização**    | Selecione **EUA Central** na lista pendente. |
+    | **Modelo de implantação** | Utilize o valor predefinido. |
+    | **Tipo de conta** | Utilize o valor predefinido. |
+    | **Localização**    | Selecione **E.U.A. Central** na lista pendente. |
     | **Replicação** | Utilize o valor predefinido. |
-    | **Performance** (Desempenho) | Utilize o valor predefinido. |
-    | **Secure transfer required** (Transferência segura necessária) | Utilize o valor predefinido. |
-    | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
+    | **Desempenho** | Utilize o valor predefinido. |
+    | **Transferência segura necessária** | Utilize o valor predefinido. |
+    | **Assinatura** | Selecione uma subscrição do Azure na lista pendente. |
     | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Este nome tem de ser globalmente exclusivo. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. <br />Para informações sobre grupos de recursos, consulte o artigo [Descrição geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configurar redes virtuais** | Utilize o valor predefinido. |  
     
@@ -96,9 +96,9 @@ Pode ativar a CDN do Azure para a sua conta de armazenamento diretamente a parti
 
     | Definição  | Valor |
     | -------- | ----- |
-    | **Perfil da CDN** | Selecione **criar novo** e insira o nome do perfil, por exemplo, *meu-CDN-Profile-123*. Este nome tem de ser globalmente exclusivo.  |
-    | **Escalão de preço** | Selecione **Standard da Verizon** na lista pendente. |
-    | **Nome do ponto final da CDN** | Insira o nome de host do ponto de extremidade, ou seja, *My-endpoint-123*. Este nome tem de ser globalmente exclusivo. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_ .azureedge.net. |
+    | **Perfil da CDN** | Selecione **Criar novo** e introduza o seu nome de perfil, por exemplo, *my-cdn-profile-123*. Este nome tem de ser globalmente exclusivo.  |
+    | **Nível de preços** | Selecione **Standard da Verizon** na lista pendente. |
+    | **Nome do ponto final da CDN** | Introduza o seu nome de anfitrião final, ou seja, *o meu ponto final-123*. Este nome tem de ser globalmente exclusivo. Este nome é usado para aceder aos seus recursos em cache no _ &lt;nome&gt;final_do domínio .azureedge.net. |
     | **Nome de anfitrião da origem** | Por predefinição, um novo ponto final da CDN utiliza o nome do anfitrião da conta de armazenamento com o servidor de origem. |
 
 3. Selecione **Criar**. Depois da criação do ponto final, este é apresentado na lista de pontos finais.

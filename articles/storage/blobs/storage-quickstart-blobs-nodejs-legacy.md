@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78269508"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v10 SDK em Node.js
@@ -21,8 +21,8 @@ Neste arranque rápido, aprende-se a gerir bolhas usando o Node.js. As bolhas s�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
-- [Node.js](https://nodejs.org/en/download/).
+- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento.](../common/storage-account-create.md)
+- [Node.js.](https://nodejs.org/en/download/)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -80,7 +80,7 @@ Container "demo" is deleted
 Done
 ```
 
-Se estiver a utilizar uma nova conta de armazenamento para este arranque rápido, então só poderá ver o recipiente *de demonstração* listado sob a etiqueta "*Contentores:* ".
+Se estiver a utilizar uma nova conta de armazenamento para este arranque rápido, então só poderá ver o recipiente *de demonstração* listado sob a etiqueta "*Contentores:*".
 
 ## <a name="understanding-the-code"></a>Compreender o código
 
@@ -143,7 +143,7 @@ const ONE_MINUTE = 60 * 1000;
 
 ### <a name="calling-code"></a>Código de chamada
 
-Para suportar a sintaxe de JavaScript *async/await*, todo o código de chamada é encapsulado num wrapper numa função chamada *execute*. Em seguida, a função *execute* é chamada e processada como uma promessa.
+Para suportar a sintaxe de JavaScript *async/await*, todo o código de chamada é encapsulado num wrapper numa função chamada *execute*. Então *executar* é chamado e tratado como uma promessa.
 
 ```javascript
 async function execute() {
@@ -227,7 +227,7 @@ await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
 
-Como o nome do contentor é definido ao chamar *ContainerURL.fromServiceURL(serviceURL, containerName)* , só é preciso chamar o método *create* para criar o contentor.
+Como o nome do contentor é definido ao chamar *ContainerURL.fromServiceURL(serviceURL, containerName)*, só é preciso chamar o método *create* para criar o contentor.
 
 ### <a name="show-container-names"></a>Mostrar nomes de contentores
 
@@ -408,5 +408,5 @@ Todos os dados escritos na conta de armazenamento são eliminados automaticament
 Este início rápido demonstra como gerir blobs e contentores no armazenamento de Blobs do Azure com Node.js. Para saber mais sobre a utilização deste SDK, consulte o repositório do GitHub.
 
 > [!div class="nextstepaction"]
-> [Azure Storage v10 SDK para repositório JavaScript](https://github.com/Azure/azure-storage-js)
-> [Referência JavaScript API](/javascript/api/overview/azure/storage-overview) de armazenamento azul
+> [Azure Storage v10 SDK para referência javascript de armazenamento](https://github.com/Azure/azure-storage-js)
+> [azure](/javascript/api/overview/azure/storage-overview)

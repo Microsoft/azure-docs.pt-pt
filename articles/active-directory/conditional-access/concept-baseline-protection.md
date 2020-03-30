@@ -1,6 +1,6 @@
 ---
-title: Políticas de linha de base de acesso condicional-Azure Active Directory
-description: Políticas de acesso condicional de linha de base para proteger as organizações contra ataques comuns
+title: Políticas de base de acesso condicional - Diretório Ativo Azure
+description: Políticas de acesso condicional de base para proteger as organizações de ataques comuns
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,88 +12,88 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75767573"
 ---
-# <a name="what-are-baseline-policies"></a>O que são políticas de linha de base?
+# <a name="what-are-baseline-policies"></a>O que são as políticas de base?
 
-As políticas de linha de base são um conjunto de políticas predefinidas que ajudam a proteger as organizações contra muitos ataques comuns. Esses ataques comuns podem incluir pulverização, reprodução e phishing de senha. As políticas de linha de base estão disponíveis em todas as edições do Azure AD. A Microsoft está tornando essas políticas de proteção de linha de base disponíveis para todos, pois os ataques baseados em identidade estão aumentando os últimos anos. O objetivo dessas quatro políticas é garantir que todas as organizações tenham um nível de linha de base de segurança habilitado sem nenhum custo adicional.
+As políticas de base são um conjunto de políticas predefinidas que ajudam a proteger as organizações contra muitos ataques comuns. Estes ataques comuns podem incluir spray de senha, repetição e phishing. As políticas de base estão disponíveis em todas as edições da Azure AD. A Microsoft está a disponibilizar estas políticas de proteção de base a todos, porque os ataques baseados na identidade têm vindo a aumentar nos últimos anos. O objetivo destas quatro políticas é garantir que todas as organizações tenham um nível de segurança de base, sem custos adicionais.
 
-O gerenciamento de políticas de acesso condicional personalizado requer uma licença de Azure AD Premium.
+Gerir políticas de acesso condicional personalizadas requer uma licença Azure AD Premium.
 
 > [!IMPORTANT]
-> As políticas de linha de base estão sendo preteridas. Veja [o que há de novo no Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) para obter mais informações.
+> As políticas de base estão a ser depreciadas. Vê [o que há de novo no Diretório Ativo Azure](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) para mais informações.
 
 ## <a name="baseline-policies"></a>Políticas de linha de base
 
-![Políticas de linha de base de acesso condicional no portal do Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Políticas de base de acesso condicional no portal Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Há quatro políticas de linha de base:
+Há quatro políticas de base:
 
-* Exigir MFA para administradores (versão prévia)
-* Proteção do usuário final (versão prévia)
-* Bloquear autenticação herdada (versão prévia)
-* Exigir MFA para gerenciamento de serviços (versão prévia)
+* Exigir MFA para administradores (pré-visualização)
+* Proteção do utilizador final (pré-visualização)
+* Autenticação do legado do bloco (pré-visualização)
+* Exigir MFA para gestão de serviços (pré-visualização)
 
-Todas as quatro políticas afetarão os fluxos de autenticação herdados como POP, IMAP e clientes de área de trabalho do Office mais antigos.
+Todas estas quatro políticas terão impacto em fluxos de autenticação legado, como pop, IMAP e clientes de desktop mais antigos do Office.
 
 ### <a name="exclusions"></a>Exclusões
 
-Quando as políticas de linha de base entraram em sua visualização pública inicial, havia uma opção para excluir usuários das políticas. Essa funcionalidade evoluiu pela versão prévia e foi removida em julho de 2019. As organizações que já criaram exclusões foram capazes de continuar a mantê-las, os novos usuários não podiam adicionar exclusões às políticas.
+Quando as políticas de base entraram na sua pré-visualização pública inicial, havia uma opção de excluir os utilizadores das políticas. Esta capacidade evoluiu através da pré-visualização e foi removida em julho de 2019. As organizações que já tinham criado exclusões puderam continuar a mantê-los novos utilizadores incapazes de acrescentar exclusões às políticas.
 
-### <a name="require-mfa-for-admins-preview"></a>Exigir MFA para administradores (versão prévia)
+### <a name="require-mfa-for-admins-preview"></a>Exigir MFA para administradores (pré-visualização)
 
-Devido à potência e ao acesso que as contas de administrador têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta quando eles são usados para entrar. No Azure Active Directory, você pode obter uma verificação de conta mais forte exigindo que os administradores se registrem e usem a autenticação multifator do Azure.
+Devido ao poder e acesso que as contas do administrador têm, deve tratá-las com especial cuidado. Um método comum para melhorar a proteção das contas privilegiadas é exigir uma forma mais forte de verificação de contas quando são utilizadas para iniciar sessão. No Diretório Ativo Azure, pode obter uma verificação de conta mais forte, exigindo que os administradores se registem e utilizem a Autenticação Multi-Factor Azure.
 
-Exigir MFA para administradores (visualização) é uma política de linha de base que requer MFA (autenticação multifator) para as seguintes funções de diretório, consideradas como as funções mais privilegiadas do Azure AD:
+Exigir MFA para administradores (pré-visualização) é uma política de base que requer a autenticação de vários fatores (MFA) para as seguintes funções de diretório, consideradas as funções de AD Azure mais privilegiadas:
 
 * Administrador global
 * Administrador do SharePoint
 * Administrador do Exchange
-* Administrador de acesso condicional
+* Administrador de Acesso Condicional
 * Administrador de segurança
-* Administrador de assistência técnica/administrador de senha
+* Administrador de helpdesk / Administrador de palavra-passe
 * Administrador de faturação
-* Administrador do usuário
+* Administrador de utilizadores
 
-Se sua organização tiver essas contas em uso em scripts ou código, considere substituí-las por [identidades gerenciadas](../managed-identities-azure-resources/overview.md).
+Se a sua organização tiver estas contas em uso em scripts ou código, considere substituí-las por [identidades geridas](../managed-identities-azure-resources/overview.md).
 
-### <a name="end-user-protection-preview"></a>Proteção do usuário final (versão prévia)
+### <a name="end-user-protection-preview"></a>Proteção do utilizador final (pré-visualização)
 
-Administradores com alto privilégio não são os únicos destinados a ataques. Atores ruins tendem a ter como alvo usuários normais. Depois de obter acesso, esses atores inválidos podem solicitar acesso a informações privilegiadas em nome do titular da conta original ou baixar o diretório inteiro e executar um ataque de phishing em toda a organização. Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta quando uma entrada arriscada é detectada.
+Administradores privilegiados não são os únicos visados em ataques. Os maus atores tendem a visar utilizadores normais. Depois de terem acesso, estes maus atores podem solicitar acesso a informações privilegiadas em nome do titular da conta original ou descarregar todo o diretório e realizar um ataque de phishing a toda a sua organização. Um método comum para melhorar a proteção de todos os utilizadores é exigir uma forma mais forte de verificação da conta quando for detetado um sinal de inscrição de risco.
 
-A **proteção do usuário final (versão prévia)** é uma política de linha de base que protege todos os usuários em um diretório. A habilitação dessa política exige que todos os usuários se registrem para a autenticação multifator do Azure dentro de 14 dias. Depois de registrado, os usuários receberão uma solicitação pela MFA somente durante tentativas de entrada arriscadas. As contas de usuário comprometidas são bloqueadas até que a redefinição de senha e o risco sejam ignorados. 
+**A proteção do utilizador final (pré-visualização)** é uma política de base que protege todos os utilizadores num diretório. Ativar esta política requer que todos os utilizadores se registem para autenticação multi-factor Azure no prazo de 14 dias. Uma vez registados, os utilizadores serão solicitados apenas para MFA durante tentativas de entrada arriscadas. As contas de utilizador comprometidas são bloqueadas até que a palavra-passe seja reposta e o despedimento de risco. 
 
 > [!NOTE]
-> Todos os usuários sinalizados anteriormente para risco são bloqueados até a redefinição de senha e o risco serem ignorados na ativação da política.
+> Quaisquer utilizadores previamente sinalizados para o risco são bloqueados até que a palavra-passe reset e o risco de despedimento após a ativação da política.
 
-### <a name="block-legacy-authentication-preview"></a>Bloquear autenticação herdada (versão prévia)
+### <a name="block-legacy-authentication-preview"></a>Autenticação do legado do bloco (pré-visualização)
 
-Os protocolos de autenticação herdados (ex: IMAP, SMTP, POP3) são protocolos normalmente usados por clientes de email mais antigos para autenticar. Os protocolos herdados não dão suporte à autenticação multifator. Mesmo que você tenha uma política que exija autenticação multifator para seu diretório, um ator inadequado pode autenticar usando um desses protocolos herdados e ignorar a autenticação multifator.
+Os protocolos de autenticação legado (ex: IMAP, SMTP, POP3) são protocolos normalmente utilizados por clientes de correio mais antigos para autenticar. Os protocolos legados não suportam a autenticação de vários fatores. Mesmo que tenha uma política que exija a autenticação de vários fatores para o seu diretório, um mau ator pode autenticar usando um destes protocolos legados e contornar a autenticação de vários fatores.
 
-A melhor maneira de proteger sua conta contra solicitações de autenticação mal-intencionadas feitas por protocolos herdados é bloqueá-las.
+A melhor forma de proteger a sua conta de pedidos de autenticação maliciosos feitos por protocolos legados é bloqueá-los.
 
-A política de linha de base de **autenticação herdada de bloqueio (versão prévia)** bloqueia as solicitações de autenticação feitas usando protocolos herdados. A autenticação moderna deve ser usada para entrar com êxito para todos os usuários. Usado em conjunto com as outras políticas de linha de base, as solicitações provenientes de protocolos herdados serão bloqueadas. Além disso, todos os usuários serão solicitados a MFA sempre que necessário. Esta política não bloqueia o Exchange ActiveSync.
+A **autenticação do legado bloco (pré-visualização)** bloqueia pedidos de autenticação que são feitos com protocolos legados. A autenticação moderna deve ser utilizada para iniciar sessão com sucesso para todos os utilizadores. Utilizados em conjunto com as outras políticas de base, os pedidos provenientes de protocolos antigos serão bloqueados. Além disso, todos os utilizadores serão obrigados a MFA sempre que necessário. Esta política não bloqueia o Exchange ActiveSync.
 
-### <a name="require-mfa-for-service-management-preview"></a>Exigir MFA para gerenciamento de serviços (versão prévia)
+### <a name="require-mfa-for-service-management-preview"></a>Exigir MFA para gestão de serviços (pré-visualização)
 
-As organizações usam uma variedade de serviços do Azure e os gerenciam de ferramentas baseadas em Azure Resource Manager como:
+As organizações utilizam uma variedade de serviços Azure e gerem-nos a partir de ferramentas baseadas em Gestor de Recursos Azure, como:
 
 * Portal do Azure
 * Azure PowerShell
 * CLI do Azure
 
-Usar qualquer uma dessas ferramentas para executar o gerenciamento de recursos é uma ação altamente privilegiada. Essas ferramentas podem alterar as configurações de toda a assinatura, como configurações de serviço e cobrança de assinatura.
+Usar qualquer uma destas ferramentas para realizar a gestão de recursos é uma ação altamente privilegiada. Estas ferramentas podem alterar configurações em toda a subscrição, tais como configurações de serviço e faturação de subscrição.
 
-Para proteger ações privilegiadas, isso **requer MFA para a política de gerenciamento de serviços (versão prévia)** exigirá autenticação multifator para qualquer usuário que acesse portal do Azure, Azure PowerShell ou CLI do Azure.
+Para proteger as ações privilegiadas, esta política **requer MFA para gestão de serviços (pré-visualização)** exigirá a autenticação de vários fatores para qualquer utilizador que aceda ao portal Azure, Azure PowerShell ou Azure CLI.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
-* [Habilitando padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
-* [Cinco passos para proteger a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
+* [Ativar incumprimentos de segurança](../fundamentals/concept-fundamentals-security-defaults.md)
+* [Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
+* [Cinco passos para garantir a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)

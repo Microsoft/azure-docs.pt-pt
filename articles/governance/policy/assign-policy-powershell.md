@@ -1,42 +1,42 @@
 ---
-title: 'Início rápido: nova atribuição de política com o PowerShell'
-description: Neste guia de início rápido, você usa Azure PowerShell para criar uma atribuição de Azure Policy para identificar recursos sem conformidade.
+title: 'Quickstart: Nova atribuição de política com a PowerShell'
+description: Neste arranque rápido, você usa o Azure PowerShell para criar uma atribuição de Política Azure para identificar recursos não conformes.
 ms.date: 11/25/2019
 ms.topic: quickstart
 ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978297"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes usando a Azure PowerShell
 
-O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. Neste início rápido, vai criar uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos. Ao concluir, você identificará as máquinas virtuais que _não estão em conformidade_.
+O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. Neste arranque rápido, cria-se uma missão política para identificar máquinas virtuais que não estão a usar discos geridos. Quando estiver concluído, identificará máquinas virtuais que não são _conformes_.
 
-O módulo Azure PowerShell é usado para gerenciar recursos do Azure na linha de comando ou em scripts.
-Este guia explica como usar o módulo AZ para criar uma atribuição de política.
+O módulo Azure PowerShell é utilizado para gerir os recursos azure a partir da linha de comando ou em scripts.
+Este guia explica como usar o módulo Az para criar uma atribuição de política.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Antes de começar, verifique se a versão mais recente do Azure PowerShell está instalada. Consulte [instalar Azure PowerShell módulo](/powershell/azure/install-az-ps) para obter informações detalhadas.
+- Antes de começar, certifique-se de que a versão mais recente do Azure PowerShell está instalada. Consulte o [módulo PowerShell Azure](/powershell/azure/install-az-ps) para obter informações detalhadas.
 
-- Registre o provedor de recursos do Azure Policy insights usando Azure PowerShell. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+- Registe o fornecedor de recursos Azure Policy Insights utilizando o Azure PowerShell. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, deve ter permissão para a operação do fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para obter mais informações sobre como registar e visualizar os fornecedores de recursos, veja [Fornecedores e Tipos de Recursos](../../azure-resource-manager/management/resource-providers-and-types.md).
+  Para obter mais informações sobre o registo e visualização de fornecedores de recursos, consulte [Fornecedores e Tipos](../../azure-resource-manager/management/resource-providers-and-types.md)de Recursos .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, você cria uma atribuição de política para a definição _auditar VMs sem Managed disks_ . Essa definição de política identifica as máquinas virtuais que não usam discos gerenciados.
+Neste arranque rápido, cria-se uma atribuição de políticas para os _VMs de Auditoria sem_ definição de discos geridos. Esta definição de política identifica máquinas virtuais que não utilizam discos geridos.
 
 Execute os seguintes comandos para criar uma nova atribuição de política:
 
@@ -54,11 +54,11 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 Os comandos anteriores utilizam as seguintes informações:
 
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
-- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está usando _VMs de auditoria sem discos geridos atribuição_.
-- **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _VMs de auditoria que não utilizam discos geridos_.
+- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem dispor de discos geridos_.
+- **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é a identificação da definição de política _Audit VMs que não usam discos geridos_.
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
-Agora você está pronto para identificar recursos sem conformidade para entender o estado de conformidade do seu ambiente.
+Está pronto para identificar recursos não conformes para entender o estado de conformidade do seu ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
@@ -69,7 +69,7 @@ Utilize as seguintes informações para identificar recursos que não estão em 
 Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-Para obter mais informações sobre como obter o estado da política, consulte [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
+Para obter mais informações sobre como obter o estado político, consulte [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Os resultados assemelham-se ao seguinte exemplo:
 
@@ -91,11 +91,11 @@ PolicyDefinitionCategory    : Compute
 ManagementGroupIds          : {managementGroupId}
 ```
 
-Os resultados correspondem ao que você vê na guia **conformidade de recursos** de uma atribuição de política na exibição portal do Azure.
+Os resultados correspondem ao que se vê no separador de conformidade de **recursos** de uma atribuição de políticas na visão do portal Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover a atribuição de criado, utilize o seguinte comando:
+Para remover a atribuição criada, utilize o seguinte comando:
 
 ```azurepowershell-interactive
 # Removes the policy assignment
@@ -106,7 +106,7 @@ Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<
 
 Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 
-Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, avance para o tutorial para:
+Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, continue o tutorial para:
 
 > [!div class="nextstepaction"]
 > [Criar e gerir políticas](./tutorials/create-and-manage.md)

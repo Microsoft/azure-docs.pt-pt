@@ -3,16 +3,16 @@ title: Funções de modelos
 description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implementação.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156264"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Gestor de Recursos Azure
+# <a name="arm-template-functions"></a>Funções do modelo ARM
 
-Este artigo descreve todas as funções que pode utilizar num modelo de Gestor de Recursos Azure. Para obter informações sobre a utilização de funções no seu modelo, consulte a [sintaxe](template-expressions.md)do modelo .
+Este artigo descreve todas as funções que pode utilizar num modelo de Gestor de Recursos Azure (ARM). Para obter informações sobre a utilização de funções no seu modelo, consulte a [sintaxe](template-expressions.md)do modelo .
 
 Para criar as suas próprias funções, consulte [funções definidas pelo Utilizador](template-syntax.md#functions).
 
@@ -40,7 +40,7 @@ A maioria das funções funciona da mesma forma quando implantada num grupo de r
 
 O Gestor de Recursos fornece várias funções para trabalhar com matrizes e objetos.
 
-* [matriz](template-functions-array.md#array)
+* [array](template-functions-array.md#array)
 * [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contém](template-functions-array.md#contains)
@@ -69,9 +69,9 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes e obj
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
 
 * [iguais](template-functions-comparison.md#equals)
-* [menos](template-functions-comparison.md#less)
+* [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
-* [maior](template-functions-comparison.md#greater)
+* [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
@@ -82,9 +82,9 @@ O Gestor de Recursos fornece várias funções para fazer comparações nos seus
 
 O Gestor de Recursos fornece as seguintes funções para obter valores a partir de secções do modelo e valores relacionados com a implementação:
 
-* [implantação](template-functions-deployment.md#deployment)
+* [implementação](template-functions-deployment.md#deployment)
 * [ambiente](template-functions-deployment.md#environment)
-* [parameters](template-functions-deployment.md#parameters)
+* [parâmetros](template-functions-deployment.md#parameters)
 * [variáveis](template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
@@ -121,7 +121,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com os inteir
 * [adicionar](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [flutuar](template-functions-numeric.md#float)
+* [float](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [min](template-functions-numeric.md#min)
 * [máximo](template-functions-numeric.md#max)
@@ -142,7 +142,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com os inteir
 
 ## <a name="resource-functions"></a>Funções de recursos
 
-O Resource Manager proporciona as seguintes funções para obter valores do recurso:
+O Gestor de Recursos fornece as seguintes funções para obter valores de recursos:
 
 * [extensãoResourceId](template-functions-resource.md#extensionresourceid)
 * [listAccountSas](template-functions-resource.md#list)
@@ -214,7 +214,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](template-functions-string.md#skip)
 * [dividir](template-functions-string.md#split)
 * [começaCom](template-functions-string.md#startswith)
-* [cadeia](template-functions-string.md#string)
+* [string](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
 * [tomar](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
@@ -228,7 +228,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure Authoring](template-syntax.md)
+* Para uma descrição das secções num modelo ARM, consulte [os modelos ARM de autoria](template-syntax.md)
 * Para fundir vários modelos, consulte [Usar modelos ligados com o Gestor de Recursos Azure](linked-templates.md)
 * Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md) de Recursos Azure
+* Para ver como implementar o modelo que criou, consulte [Implementar uma aplicação com modelos ARM](deploy-powershell.md)

@@ -11,16 +11,16 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 01/07/2020
-ms.openlocfilehash: 7c439091cecca153779017358188e6c1388086a9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 881c7076d5131746c730757a07da6fb938429c38
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79256656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125042"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configure e gerea autenticação de Diretório Ativo Azure com SQL
 
-Este artigo mostra-lhe como criar e povoar a AD Azure, e depois utilizar o Azure AD com base de dados Azure [SQL,](sql-database-technical-overview.md) [instância gerida](sql-database-managed-instance.md)e Armazém de [Dados SQL.](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Para uma visão geral, consulte [a autenticação do diretório ativo azure](sql-database-aad-authentication.md).
+Este artigo mostra-lhe como criar e povoar a AD Azure, e depois utilizar o Azure AD com base de dados Azure [SQL,](sql-database-technical-overview.md) [instância gerida](sql-database-managed-instance.md)e Armazém de [Dados SQL.](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Para uma visão geral, consulte [a autenticação do diretório ativo azure](sql-database-aad-authentication.md).
 
 > [!NOTE]
 > Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
@@ -34,7 +34,7 @@ Crie um Anúncio Azure e povoe-o com utilizadores e grupos. O Azure AD pode ser 
 
 Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/hybrid/reference-connect-ports.md).
 
-## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição Azure ao Azure Ative Directory
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
 1. Associe a sua subscrição Azure ao Azure Ative Directory, tornando o diretório um diretório de confiança para a subscrição azure que acolhe a base de dados. Para mais detalhes, consulte como as [subscrições do Azure estão associadas ao Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -128,11 +128,11 @@ A sua instância gerida necessita de permissões para ler a AD Azure para realiz
 
 5. Após a conclusão da operação com sucesso, a seguinte notificação aparecerá no canto superior direito:
 
-    ![êxito](./media/sql-database-aad-authentication/success.png)
+    ![exito](./media/sql-database-aad-authentication/success.png)
 
 6. Agora pode escolher o seu administrador Azure AD para a sua instância gerida. Para isso, na página de administração do Diretório Ativo, selecione o comando **de administração set.**
 
-    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+    ![set-administrador](./media/sql-database-aad-authentication/set-admin.png)
 
 7. Na página de administração aAD, procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**.
 
@@ -142,7 +142,7 @@ A sua instância gerida necessita de permissões para ler a AD Azure para realiz
 
 8. No topo da página de administração do Diretório Ativo, selecione **Guardar**.
 
-    ![salvar](./media/sql-database-aad-authentication/save.png)
+    ![save](./media/sql-database-aad-authentication/save.png)
 
     O processo de alteração do administrador pode demorar vários minutos. Em seguida, o novo administrador aparece na caixa de administração do Diretório Ativo.
 
@@ -165,10 +165,10 @@ Como uma melhor prática para os administradores atuais da AD Azure para o MI cr
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Questões conhecidas com o login da AD Azure para MI
 
-- Se existe um login Azure AD na base de dados principal para O MI, criada utilizando o comando T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`, não pode ser configurado como administrador ad-ad azure para MI. Sentirá um erro definindo o login como um administrador Azure AD utilizando o portal Azure, PowerShell ou comandos CLI para criar o login Azure AD.
-  - O login deve ser introduzido na base de dados principal utilizando o comando `DROP LOGIN [myaadaccount]`, antes de a conta poder ser criada como administrador ad.ida e statal.
-  - Criar a conta de administração da Azure AD no portal Azure após o sucesso do `DROP LOGIN`. 
-  - Se não conseguir configurar a conta de administração da AD Azure, verifique na base de dados principal da instância gerida o login. Utilize o seguinte comando: `SELECT * FROM sys.server_principals`
+- Se existe um login Azure AD na base de dados principal `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`para O MI, criada com o comando T-SQL, não pode ser configurada como administrador ad-ad azure para MI. Sentirá um erro definindo o login como um administrador Azure AD utilizando o portal Azure, PowerShell ou comandos CLI para criar o login Azure AD.
+  - O login deve ser introduzido na `DROP LOGIN [myaadaccount]`base de dados principal utilizando o comando, antes de a conta poder ser criada como administrador ad.ida e statal.
+  - Criar a conta de administração da Azure AD no portal Azure após o `DROP LOGIN` sucesso. 
+  - Se não conseguir configurar a conta de administração da AD Azure, verifique na base de dados principal da instância gerida o login. Utilize o seguinte comando:`SELECT * FROM sys.server_principals`
   - A criação de um administrador Azure AD para O MI criará automaticamente um login na base de dados principal para esta conta. A remoção do administrador Azure AD retirará automaticamente o login da base de dados principal.
 
 - Os utilizadores individuais de anúncios da AD Azure não são suportados como administradores da Azure AD para o MI. Os utilizadores convidados devem fazer parte de um grupo Azure AD para ser criado como administrador da Azure AD. Atualmente, a lâmina do portal Azure não gray os utilizadores convidados para outro Azure AD, permitindo que os utilizadores continuem com a configuração da administração. Salvar os utilizadores como administrador da AD Azure fará com que a configuração falhe.
@@ -178,7 +178,7 @@ Como uma melhor prática para os administradores atuais da AD Azure para o MI cr
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets PowerShell, é necessário instalar e executar o Azure PowerShell. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Para executar os cmdlets PowerShell, é necessário instalar e executar o Azure PowerShell. Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -190,7 +190,7 @@ Para fornecer um administrador Azure AD, execute os seguintes comandos Azure Pow
 
 Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a instância gerida pela SQL:
 
-| Nome cmdlet | Descrição |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Provisões um administrador da AD Azure para a SQL gerido na subscrição atual. (Deve ser da subscrição atual)|
 | [Remover-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador de Anúncio SQL para a SQL gerida na subscrição atual. |
@@ -214,7 +214,7 @@ O comando seguinte remove o administrador azure AD para a instância gerida cham
 Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Também pode fornecer um administrador Azure AD para a instância gerida pela SQL, ligando para os seguintes comandos CLI:
 
@@ -274,14 +274,14 @@ Para mais tarde remover um Administrador, no topo da página de administração 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets PowerShell, é necessário instalar e executar o Azure PowerShell. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para fornecer um administrador Azure AD, execute os seguintes comandos Azure PowerShell:
+Para executar os cmdlets PowerShell, é necessário instalar e executar o Azure PowerShell. Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para fornecer um administrador Azure AD, execute os seguintes comandos Azure PowerShell:
 
 - Connect-AzAccount
 - Select-AzSubscription
 
 Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a Base de Dados Azure SQL e o Armazém de Dados Azure SQL:
 
-| Nome cmdlet | Descrição |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisões um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. (Deve ser da subscrição atual) |
 | [Remover-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. |
@@ -289,16 +289,16 @@ Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a
 
 Utilize o comando PowerShell get-help para ver mais informações para cada um destes comandos. Por exemplo, `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
-As seguintes disposições de script um grupo de administrador da AD Azure chamado **DBA_Group** (id `40b79501-b343-44ed-9ce7-da4c8cc7353f`de objeto ) para o servidor **demo_server** num grupo de recursos chamado **Grupo-23**:
+As seguintes disposições de script um grupo de `40b79501-b343-44ed-9ce7-da4c8cc7353f`administrador da AD Azure chamado **DBA_Group** (ID de objeto ) para o servidor **demo_server** num grupo de recursos chamado **Grupo-23:**
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para os grupos Azure AD apenas o nome de exibição Azure AD é suportado.
+O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por ``DisplayName="John Smith"`` exemplo, ``DisplayName="johns@contoso.com"``e . Para os grupos Azure AD apenas o nome de exibição Azure AD é suportado.
 
 > [!NOTE]
-> O comando Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` não o impede de fornecer administradores da Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser provisionado, mas não pode ligar-se a uma base de dados.
+> O comando ```Set-AzSqlServerActiveDirectoryAdministrator``` Azure PowerShell não o impede de fornecer administradores da Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser provisionado, mas não pode ligar-se a uma base de dados.
 
 O exemplo que se segue utiliza o **ObjectID**opcional:
 
@@ -322,7 +322,7 @@ O exemplo seguinte remove um administrador da AD Azure:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pode fornecer um administrador Azure AD, ligando para os seguintes comandos CLI:
 
@@ -344,9 +344,9 @@ Para obter mais informações sobre comandos CLI, consulte [o servidor az sql](/
 
 Em todas as máquinas de clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados Azure SQL ou ao Azure SQL Data Warehouse utilizando identidades AD Azure, deve instalar o seguinte software:
 
-- .NET Quadro 4.6 ou posterior mente a partir de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+- .NET Quadro 4.6 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)ou posterior de .
 - Biblioteca de Autenticação de Diretório Ativo Azure para Servidor SQL *(ADAL. DLL*). Abaixo estão os links de descarregamento para instalar o mais recente ssms, ODBC e o controlador OLE DB que contém o *ADAL. Biblioteca DLL.*
-    1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+    1. [Estúdio de Gestão de Servidores SQL](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [Condutor ODBC 17 para Servidor SQL](https://www.microsoft.com/download/details.aspx?id=56567)
     1. [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
@@ -368,7 +368,7 @@ A autenticação do Diretório Ativo do Azure exige que os utilizadores de bases
 > Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções RBAC não são propagadas ao SQL Server, À Base de Dados SQL ou ao Armazém de Dados SQL. As funções Azure RBAC são utilizadas para a gestão dos Recursos Azure e não se aplicam às permissões de base de dados. Por exemplo, a função De Contribuinte do **Servidor SQL** não concede acesso à ligação à Base de Dados SQL ou ao Armazém de Dados SQL. A autorização de acesso deve ser concedida diretamente na base de dados utilizando declarações transact-SQL.
 
 > [!WARNING]
-> Personagens especiais como `:` de cólon ou ampersand `&` quando incluídos como nomes de utilizador nas declarações de LOGIN e UTILIZADOR da Criação de T-SQL não são suportados.
+> Personagens especiais como `:` cólon `&` ou ampersand quando incluídos como nomes de utilizador nas declarações de LOGIN e CREATE USER do T-SQL não são suportados.
 
 Para criar um utilizador de base de dados baseado em AD Azure (com a lém do administrador do servidor que detém a base de dados), ligue-se à base de dados com uma identidade Azure AD, como utilizador com pelo menos a permissão **ALTER ANY USER.** Em seguida, utilize a seguinte sintaxe Transact-SQL:
 
@@ -409,7 +409,7 @@ Para obter mais informações sobre a criação de utilizadores de bases de dado
 > A remoção do administrador de Diretório Ativo Azure para o servidor Azure SQL impede que qualquer utilizador de autenticação Azure AD se ligue ao servidor. Se necessário, os utilizadores de Anúncios Azure inutilizáveis podem ser abandonados manualmente por um administrador de base de dados SQL.
 
 > [!NOTE]
-> Se receber um tempo de **ligação expirado,** poderá ter de definir o parâmetro `TransparentNetworkIPResolution` da cadeia de ligação a falso. Para mais informações, consulte a questão do [tempo limite de ligação com .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
+> Se receber um tempo de **ligação expirado,** poderá ter de definir o `TransparentNetworkIPResolution` parâmetro da cadeia de ligação a falso. Para mais informações, consulte a questão do [tempo limite de ligação com .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
 Quando cria um utilizador de base de dados, esse utilizador recebe a permissão **CONNECT** e pode ligar-se a essa base de dados como membro da função **PÚBLICA.** Inicialmente, as únicas permissões disponíveis ao utilizador são quaisquer permissões concedidas ao **PÚBLICO,** ou quaisquer permissões concedidas a quaisquer grupos de AD Azure de que sejam membros. Uma vez que for prestada a um utilizador de base de dados baseado em AD Azure, pode conceder ao utilizador permissões adicionais, da mesma forma que concede permissão a qualquer outro tipo de utilizador. Normalmente concedepers permissões a funções de base de dados e adiciona os utilizadores às funções. Para mais informações, consulte base de dados de [permissões de motores básicos](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre as funções especiais da Base de Dados SQL, consulte A Gestão de Bases de [Dados e Logins na Base de Dados Azure SQL](sql-database-manage-logins.md).
 Uma conta de utilizador de domínio federado que seja importada para um domínio gerido como utilizador externo, deve utilizar a identidade de domínio gerida.
@@ -445,11 +445,11 @@ Utilize este método se estiver registado no Windows utilizando as suas credenci
 
 Utilize este método quando estiver ligado a um nome principal da AD Azure utilizando o domínio gerido pelo Azure AD. Também pode usá-lo para contas federadas sem acesso ao domínio, por exemplo, quando trabalha remotamente.
 
-Utilize este método para autenticar o SQL DB/DW com AD Azure para utilizadores nativos ou federados de AD Azure. Um utilizador nativo é um utilizador criado explicitamente em AD Azure e a ser autenticado usando o nome do utilizador e a palavra-passe, enquanto um utilizador federado é um utilizador do Windows cujo domínio é federado com AD Azure. Este último método (utilizando o utilizador e a palavra-passe) pode ser utilizado quando um utilizador quer utilizar a sua credencial de janelas, mas a sua máquina local não está unida com o domínio (por exemplo, utilizando um acesso remoto). Neste caso, um utilizador do Windows pode indicar a sua conta de domínio e senha e pode autenticar a SQL DB/DW utilizando credenciais federadas.
+Utilize este método para autenticar o SQL DB/DW com AD Azure para utilizadores nativos ou federados de AD Azure. Um utilizador nativo é um utilizador criado explicitamente em AD Azure e a ser autenticado usando o nome do utilizador e a palavra-passe, enquanto um utilizador federado é um utilizador do Windows cujo domínio é federado com AD Azure. Este último método (utilizando o utilizador & palavra-passe) pode ser utilizado quando um utilizador quer utilizar a sua credencial de janelas, mas a sua máquina local não está unida com o domínio (por exemplo, utilizando um acesso remoto). Neste caso, um utilizador do Windows pode indicar a sua conta de domínio e senha e pode autenticar a SQL DB/DW utilizando credenciais federadas.
 
 1. Inicie o Estúdio de Gestão ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Ative Diretor - Password**.
 
-2. Na caixa de nome sinuoso, digite o nome de utilizador do Diretório Ativo Azure no **nome de utilizador do**formato\@domain.com . Os nomes dos utilizadores devem ser uma conta do Diretório Ativo Azure ou uma conta de um federado de domínio com o Diretório Ativo Azure.
+2. Na caixa de nome sinuoso, digite o nome de utilizador do Diretório Ativo Azure no nome **User name** **\@** de utilizador do formato domain.com . Os nomes dos utilizadores devem ser uma conta do Diretório Ativo Azure ou uma conta de um federado de domínio com o Diretório Ativo Azure.
 
 3. Na caixa **Password,** digite a sua palavra-passe de utilizador para a conta de Diretório Ativo Azure ou para a conta de domínio federado.
 
@@ -465,7 +465,7 @@ Os seguintes procedimentos mostram-lhe como se conectar a uma base de dados SQL 
 
 Para utilizar a autenticação integrada do Windows, o Diretório Ativo do seu domínio deve ser federado com o Diretório Ativo Azure. A sua aplicação ao cliente (ou um serviço) que ligue à base de dados deve estar a funcionar numa máquina unida ao domínio sob as credenciais de domínio de um utilizador.
 
-Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação na cadeia de ligação à base de dados deve ser definida para Ative Directory Integrado. A C# amostra de código seguinte utiliza ADO .NET.
+Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação na cadeia de ligação à base de dados deve ser definida para Ative Directory Integrado. A seguinte amostra de código C# utiliza ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -473,11 +473,11 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-A palavra-chave de linha de ligação `Integrated Security=True` não é suportada para a ligação à Base de Dados Azure SQL. Ao efetuar uma ligação ODBC, terá de remover espaços e definir a Autenticação para 'ActiveDirectoryIntegrated'.
+A palavra-chave `Integrated Security=True` de corda de ligação não é suportada para a ligação à Base de Dados Azure SQL. Ao efetuar uma ligação ODBC, terá de remover espaços e definir a Autenticação para 'ActiveDirectoryIntegrated'.
 
 ### <a name="active-directory-password-authentication"></a>Autenticação de senha de diretório ativo
 
-Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação deve ser definida para a palavra-passe do Diretório Ativo. A cadeia de ligação deve conter palavras e valores id/uID do utilizador e palavras-chave/palavras-chave/PWD. A C# amostra de código seguinte utiliza ADO .NET.
+Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação deve ser definida para a palavra-passe do Diretório Ativo. A cadeia de ligação deve conter palavras e valores id/uID do utilizador e palavras-chave/palavras-chave/PWD. A seguinte amostra de código C# utiliza ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -513,7 +513,7 @@ Para mais informações, consulte [o SQL Server Security Blog](https://blogs.msd
 As seguintes declarações, liguem-se utilizando a versão 13.1 de sqlcmd, que está disponível no [Centro de Descarregamento](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
-> `sqlcmd` com o comando `-G` não funciona com identidades do sistema e requer um login principal do utilizador.
+> `sqlcmd`com `-G` o comando não funciona com identidades do sistema, e requer um login principal do utilizador.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
@@ -522,9 +522,9 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 ## <a name="troubleshooting-azure-ad-authentication"></a>Resolução de problemas da autenticação da AD Azure
 
-A orientação sobre problemas de resolução de problemas com a Autenticação AD Azure pode ser encontrada no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+A orientação sobre problemas de resolução de problemas com a Autenticação AD Azure pode ser encontrada no seguinte blog:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções](sql-database-manage-logins.md)de base de dados e contas de utilizador .
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).

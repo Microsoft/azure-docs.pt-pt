@@ -1,6 +1,6 @@
 ---
-title: Visão geral das VMs do Windows no Azure
-description: Visão geral das máquinas virtuais do Windows no Azure.
+title: Visão geral dos VMs do Windows em Azure
+description: Visão geral das máquinas virtuais do Windows em Azure.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -12,10 +12,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: efcbdb2ebd7f4830214dbd0f2ea2ea1cfe36c3de
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75893506"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
@@ -51,7 +51,7 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 | Método | Descrição |
 | --- | --- |
 | Portal do Azure |Selecione uma localização da lista ao criar uma VM. |
-| Azure PowerShell |Use o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) . |
+| Azure PowerShell |Utilize o comando [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) |
 | API REST |Utilize a operação [Listar localizações](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | CLI do Azure |Utilize a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
@@ -59,16 +59,16 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9% para máquinas virtuais de instância única, desde que implemente a VM com armazenamento premium para todos os discos.  Para a sua implementação se qualificar para o Contrato de Nível de Serviço de VM de 99,95% standard, continua a ter de implementar duas ou mais VMs que executem a sua carga de trabalho num conjunto de disponibilidade. Um conjunto de disponibilidade garante que as suas VMs são distribuídas em vários domínios de falha nos datacenters do Azure, bem como implementadas em anfitriões com diferentes janelas de manutenção. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
 
-## <a name="vm-size"></a>Tamanhos de VM
+## <a name="vm-size"></a>Tamanho da VM
 O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da VM que utiliza é determinado pela carga de trabalho que pretende executar. O tamanho que escolher determina fatores como o poder de processamento, a memória e capacidade de armazenamento. O Azure disponibiliza uma vasta variedade de tamanhos para suportar muitos tipos de utilizações.
 
-O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) com base no tamanho da VM e do sistema operativo. Para horas parciais, o Azure cobra apenas os minutos utilizados. O armazenamento tem um preço à parte e é cobrado separadamente.
+O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) com base no tamanho e no sistema operativo do VM. Para horas parciais, o Azure cobra apenas os minutos utilizados. O armazenamento tem um preço à parte e é cobrado separadamente.
 
 ## <a name="vm-limits"></a>Limites da VM
 A subscrição tem [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predefinidos num local que pode afetar a implementação de muitas VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região. Os limites podem ser aumentados ao [preencher um pedido de suporte a pedir um aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Discos do sistema operativo e imagens
-As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar o respetivo sistema operativo (SO) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
+As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar o seu sistema operativo (OS) e os dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
 
 O Azure oferece muitas [imagens do marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) para utilizar com diversas versões e tipos de sistemas operativos do Windows Server. A imagens do marketplace são identificadas pelo publicador da imagem, oferta, sku e versão (normalmente, a versão especificada é a mais recente). Apenas os sistemas operativos de 64 bits são suportados. Para obter mais informações sobre os sistemas operativos convidados suportados, as funções e funcionalidades, veja [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Suporte do software do servidor da Microsoft para máquinas virtuais do Microsoft Azure).
 
@@ -77,9 +77,9 @@ Esta tabela mostra algumas formas para encontrar as informações de uma imagem.
 | Método | Descrição |
 | --- | --- |
 | Portal do Azure |Os valores são especificados automaticamente ao selecionar uma imagem a utilizar. |
-| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) - *local* do local<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) *-localização do local-editor* *PublisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) *-localização local-* Publisher *PublisherName* -oferta *offername* |
+| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) *-Localização*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) *-Localização* - *EditorName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) *-Localização localização* *-Editor editorName* *-OfferName* |
 | APIs REST |[Listar publicadores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas da imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus da imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --Localização*location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --Localização*location* --Publicador*publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --Localização*location* --Publicador *publisherName* --Oferta *offerName*|
+| CLI do Azure |[az vm lista de editores --localização](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) *localização*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --Localização*location* --Publicador*publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) *--localização* localização *--editorName* *--ofertaName*|
 
 Pode optar por [carregar e utilizar a sua própria imagem](upload-generalized-managed.md) e quando o fizer, o nome do publicador, a oferta e o sku não são utilizados.
 
@@ -95,7 +95,7 @@ Estas tarefas comuns podem ser realizadas com extensões:
 ### <a name="related-resources"></a>Recursos relacionados
 Os recursos nesta tabela são utilizados pela VM e têm de existir ou ser criados quando a VM é criada.
 
-| Recurso | Obrigatório | Descrição |
+| Recurso | Necessário | Descrição |
 | --- | --- | --- |
 | [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Sim |A VM tem de estar contida num grupo de recursos. |
 | [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |Sim |A VM precisa da conta de armazenamento para armazenar os respetivos discos rígidos virtuais. |
@@ -106,9 +106,9 @@ Os recursos nesta tabela são utilizados pela VM e têm de existir ou ser criado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Crie sua primeira VM!
+Crie o seu primeiro VM!
 
 - [Portal](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)
-- [CLI do Azure](quick-create-cli.md)
+- [Azure CLI](quick-create-cli.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Crie um cofre chave Azure e um segredo usando o modelo de Gestor de Recursos Azure  Microsoft Docs
+title: Azure Quickstart - Crie um cofre chave Azure e um segredo usando o modelo de Gestor de Recursos Azure [ Microsoft Docs
 description: Quickstart mostrando como criar cofres chave Azure, e adicionar segredos aos cofres usando o modelo De Gestor de Recursos Azure.
 services: key-vault
 author: mumian
@@ -12,10 +12,10 @@ ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
 ms.openlocfilehash: 015ae2e8e36d4a563138051bce33f5d283bde789
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78297924"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Definir e recuperar um segredo do Cofre de Chaves Azure usando o modelo de Gestor de Recursos
@@ -24,7 +24,7 @@ ms.locfileid: "78297924"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ Mais amostras de modelo de cofre de chave azure podem ser encontradas [aqui](htt
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre chave e um segredo.
 
-    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+    [![Desdobre para Azure](../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 2. Selecione ou introduza os seguintes valores.
 

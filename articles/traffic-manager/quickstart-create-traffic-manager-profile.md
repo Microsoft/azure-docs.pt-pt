@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: rohink
 ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934774"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Criar um perfil de Gestor de Tráfego utilizando o portal Azure
@@ -35,20 +35,20 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 Para este arranque rápido, você precisará de dois casos de uma aplicação web implantada em duas regiões azure diferentes *(Leste dos EUA* e *Europa Ocidental).* Cada um servirá como pontos finais primários e falhados para o Gestor de Tráfego.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Web** > **Web App**.
+1. No lado superior esquerdo do ecrã, selecione **Criar uma** > **Aplicação****Web** > de recursos .
 
 1. Em **Criar uma Aplicação Web,** escreva ou selecione os **seguintes valores** no separador Basics:
 
-   - **Grupo de** **recursos** > de assinatura : Selecione **Criar novo** e, em seguida, digitar o **meu ResourceGroupTM1**.
-   - **Detalhes da > ** **Nome**: Digite *myWebAppEastUS*.
-   - **Detalhes da > ** **Publicar**: Selecione **Código**.
-   - **Detalhes da > ** **stack Runtime**: Selecione **ASP.NET V4.7**
-   - **Detalhes da instância** > **sistema operativo**: Selecione **Windows**.
-   - **Detalhes da instância** > **Região**: Selecione **East US**.
-   - **Plano de serviço de aplicações** > **Plano Windows (East US)** : Selecione **Criar novo** e, em seguida, digitar **myAppServicePlanEastUS**
-   - **Plano de serviço de aplicações** > **Sku e tamanho**: Selecione **Standard S1**.
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **Criar novo** e, em seguida, digitar o **meu ResourceGroupTM1**.
+   - **Nome dos detalhes** > **da**instância : Digite *myWebAppEastUS*.
+   - **Caso Sem** > **detalhes Publicação**: Selecione **Código**.
+   - **Detalhes da** > ocorrência Stack de tempo de**execução**: Selecione **ASP.NET V4.7**
+   - **Detalhes da** > ocorrência**Sistema operativo**: Selecione **Windows**.
+   - **Região de Detalhes** > **Region**de Instância : Selecione **East US**.
+   - **Plano** > de serviço de aplicações**Plano Windows Plan (East US)**: Selecione **Criar novo** e, em seguida, digitar **myAppServicePlanEastUS**
+   - **Plano** > de serviço de aplicações**Sku e tamanho**: Selecione **Standard S1**.
    
-3. Selecione o separador **monitoramento** ou selecione **Next:Monitoring**.  Em **monitorização,** detete os **insights da aplicação** > **ativar os insights da aplicação** para **o nº**.
+3. Selecione o separador **monitoramento** ou selecione **Next:Monitoring**.  Em **monitorização,** detete insights **de** > aplicação que permitem insights de**aplicação** para **nº**.
 
 4. Selecione **Rever e criar**
 
@@ -60,7 +60,7 @@ Para este arranque rápido, você precisará de dois casos de uma aplicação we
 
 Crie um perfil de Gestor de Tráfego que direcione o tráfego do utilizador com base na prioridade do ponto final.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > perfil de **Networking** > **Traffic Manager**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um** > perfil de Gestor de**Tráfego**em**Rede** > de recursos .
 2. No **perfil Criar Gestor de Tráfego,** introduza ou selecione estas definições:
 
     | Definição | Valor |
@@ -87,7 +87,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
     | Tipo | Selecione **ponto final Azure**. |
     | Nome | Introduza *o meu Ponto final primário.* |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicações**. |
-    | Recurso de destino | **Selecione Escolha um serviço de aplicações** > East **US**. |
+    | Recurso de destino | **Selecione Escolha um serviço** > de aplicações East**US**. |
     | Prioridade | Selecione **1**. Todo o tráfego vai para este ponto final quando é saudável. |
 
     ![Screenshot de onde adiciona um ponto final ao seu perfil de Gestor de Tráfego.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
@@ -100,7 +100,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
     | Tipo | Selecione **ponto final Azure**. |
     | Nome | Introduza *o myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **Serviço de Aplicações**. |
-    | Recurso de destino | Selecione **Escolha um serviço de aplicações** > Europa **Ocidental**. |
+    | Recurso de destino | **Selecione Escolha um serviço** > de aplicações West**Europe**. |
     | Prioridade | Selecione **2**. Todo o tráfego vai para este ponto final falhado se o ponto final primário não for saudável. |
 
 7. Selecione **OK**.
@@ -113,7 +113,7 @@ Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de 
 
 ### <a name="check-the-dns-name"></a>Verifique o nome DNS
 
-1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior.
+1. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de **Tráfego** que criou na secção anterior.
 2. Selecione o perfil do gestor de tráfego. A **visão geral** aparece.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar.
   

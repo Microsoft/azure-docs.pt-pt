@@ -1,36 +1,36 @@
 ---
-title: Visão geral do Service Fabric no Azure
+title: Visão geral do tecido de serviço em Azure
 description: Uma descrição geral do Service Fabric, onde as aplicações são compostas por muitos microsserviços, de modo a proporcionar dimensionamento e resiliência. O Service Fabric é uma plataforma de sistemas distribuídos que é utilizada para criar aplicações escaláveis, fiáveis e facilmente geridas para a cloud.
 ms.topic: overview
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 3c8eb7ead7851c311c79c2f9e9bdc7e703c3af71
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75747495"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Descrição Geral do Azure Service Fabric
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis. O Service Fabric também faz face aos desafios significativos colocados pelo desenvolvimento e pela gestão de aplicações nativas da cloud. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e fáceis de gerir. O Service Fabric representa a plataforma de próxima geração para criar e gerir estas aplicações empresariais, de escalão 1, à escala da cloud executadas em contentores.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis. O Service Fabric também faz face aos desafios significativos no desenvolvimento e na gestão de aplicações nativas da cloud. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis. O Service Fabric representa a plataforma de próxima geração para criar e gerir estas aplicações empresariais à escala da cloud executadas em contentores.
 
 Este vídeo breve introduz o Service Fabric e os microsserviços:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Conformidade
 
-O provedor de recursos de Service Fabric do Azure está disponível em todas as regiões do Azure e está em conformidade com todos os certificados de conformidade que o Azure tem; Isso inclui o seguinte: SOC, ISO, PCI DSS, HIPAA e GDPR. Examine o seguinte para obter uma lista completa de certificados de conformidade: [ofertas de conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+O Azure Service Fabric Resource Provider está disponível em todas as regiões do Azure e está em conformidade com todas as certidões de conformidade que a Azure tem; isto inclui o seguinte: SOC, ISO, PCI DSS, HIPAA e RGPD. Por favor, reveja o seguinte para uma lista completa de certificados de conformidade: [Ofertas](https://www.microsoft.com/trustcenter/compliance/complianceofferings) de conformidade
 
 ## <a name="applications-composed-of-microservices"></a>Aplicações compostas por microsserviços
 
-Service Fabric permite que você crie e gerencie aplicativos escalonáveis e confiáveis compostos por microservices. Esses microserviços distribuídos são executados em alta densidade em um pool compartilhado de computadores, que é conhecido como um cluster. O Service Fabric fornece um tempo de execução leve e sofisticado que dá suporte a microserviços com e sem estado. Ele também fornece recursos abrangentes de gerenciamento de aplicativos para provisionar, implantar, monitorar, atualizar/corrigir e excluir aplicativos implantados.
+O Serviço Fabric permite-lhe construir e gerir aplicações escaláveis e fiáveis compostas por microserviços. Estes microserviços distribuídos funcionam com alta densidade numa piscina partilhada de máquinas, que é referida como um cluster. O Service Fabric proporciona um tempo de execução sofisticado e leve que suporta microserviços apátridas e apátridas. Também fornece capacidades abrangentes de gestão de aplicações para fornecer, implementar, monitorizar, atualizar/corrigir e eliminar aplicações implementadas.
 
 O Service Fabric foi concebido para criar serviços cloud nativos que podem começar por ser pequenos, conforme necessário, e crescer massivamente, com centenas ou milhares de máquinas. Os serviços à escala da Internet atuais são compostos por microsserviços. Alguns exemplos destes microsserviços incluem gateways de protocolos, perfis de utilizadores, carrinhos de compras, processamento de inventários, filas e caches.
 
 Atualmente, o Service Fabric está subjacente a muitos serviços da Microsoft, entre os quais a Base de Dados SQL do Azure, o Azure Cosmos DB, o Cortana, o Microsoft Power BI, o Microsoft Intune, os Hubs de Eventos do Azure, o Hub IoT do Azure, o Dynamics 365, o Skype para Empresas e muitos dos mais importantes serviços do Azure.
 
-O Service Fabric hospeda microservices dentro de contêineres que são implantados e ativados no Cluster Service Fabric. A mudança das máquinas virtuais para os contentores possibilita um aumento de ordem de grandeza na densidade. Da mesma forma, se mudar dos contentores para os microsserviços nestes contentores, é possibilitada outra ordem de grandeza na densidade. Por exemplo, um cluster individual da Base de Dados SQL do Azure compreende centenas de máquinas que executam dezenas de milhares de contentores, os quais alojam um total de centenas de milhares de bases de dados. Cada base de dados é um microsserviço do Service Fabric com monitorização de estado.
+O Serviço Fabric acolhe microserviços dentro de recipientes que são implantados e ativados em todo o cluster De Tecido de Serviço. A mudança das máquinas virtuais para os contentores possibilita um aumento de ordem de grandeza na densidade. Da mesma forma, se mudar dos contentores para os microsserviços nestes contentores, é possibilitada outra ordem de grandeza na densidade. Por exemplo, um cluster individual da Base de Dados SQL do Azure compreende centenas de máquinas que executam dezenas de milhares de contentores, os quais alojam um total de centenas de milhares de bases de dados. Cada base de dados é um microsserviço do Service Fabric com monitorização de estado.
 
 Para saber mais sobre a abordagem de microsserviços, leia [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Porquê seguir a abordagem de microsserviços para criar aplicações?).
 
@@ -52,7 +52,7 @@ Para obter mais informações sobre a criação de clusters, leia [Creating a cl
 
 O Service Fabric permite-lhe criar aplicações que consistem em microsserviços ou contentores. Os microsserviços sem estado (como gateways de protocolos e proxies Web) não mantêm um estado mutável fora dos pedidos nem na respetiva resposta do serviço. As funções de trabalho dos Serviços Cloud do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de utilizador, bases de dados, dispositivos, carrinhos de compras e filas) mantêm um estado mutável e autoritativo para lá do pedido e da respetiva resposta. As aplicações à escala da cloud dos nossos dias são compostas por uma combinação de microsserviços com e sem estado. 
 
-Uma importante diferença na Service Fabric é seu forte enfoque na criação de serviços com estado, com os [modelos de programação internos](service-fabric-choose-framework.md) ou com serviços com estado em contêineres. Os [cenários de aplicação](service-fabric-application-scenarios.md) descrevem os cenários em que são utilizados os serviços com estado.
+Uma diferenciação fundamental com o Service Fabric é o seu forte foco na construção de serviços estatais, quer com os [modelos de programação incorporados,](service-fabric-choose-framework.md) quer com serviços estatais contentorizados. Os [cenários de aplicação](service-fabric-application-scenarios.md) descrevem os cenários em que são utilizados os serviços com estado.
 
 ## <a name="application-lifecycle-management"></a>Gestão do ciclo de vida das aplicações
 
@@ -60,7 +60,7 @@ O Service Fabric proporciona suporte para todo o ciclo de vida das aplicações 
 
 As capacidades de gestão do ciclo de vida das aplicações do Service Fabric permitem que os administradores de aplicações e os profissionais de TI utilizem fluxos de trabalho simples e com pouca interação para aprovisionar, implementar, corrigir e monitorizar aplicações. Estes fluxos de trabalho incorporados reduzem significativamente a carga sobre os profissionais de IT para manterem as aplicações disponíveis continuamente.
 
-A maioria das aplicações é constituída por uma combinação de microsserviços com e sem estado, contentores e outros executáveis que são implementados em conjunto. Ao ter tipos seguros nas aplicações, o Service Fabric possibilita a implementação de múltiplas instâncias das aplicações. Cada instância é gerida e atualizada independentemente. Mais importante, pode implementar contentores ou executáveis e torná-los fiáveis. Por exemplo, Service Fabric pode implantar .NET, ASP.NET Core, Python, Node. js, contêineres do Windows, contêineres do Linux, máquinas virtuais Java, scripts, angular ou literalmente qualquer coisa que compõe seu aplicativo.
+A maioria das aplicações é constituída por uma combinação de microsserviços com e sem estado, contentores e outros executáveis que são implementados em conjunto. Ao ter tipos seguros nas aplicações, o Service Fabric possibilita a implementação de múltiplas instâncias das aplicações. Cada instância é gerida e atualizada independentemente. Mais importante, pode implementar contentores ou executáveis e torná-los fiáveis. Por exemplo, o Service Fabric pode implementar .NET, ASP.NET Core, Python, Node.js, recipientes Windows, recipientes Linux, máquinas virtuais Java, scripts, Angular, ou literalmente qualquer coisa que componha a sua aplicação.
 
 O Service Fabric está integrado com ferramentas de CI/CD como o [Azure Pipelines](https://www.visualstudio.com/team-services/), o [Jenkins](https://jenkins.io/index.html) e o [Octopus Deploy](https://octopus.com/) e pode ser utilizado com qualquer outra ferramenta de CI/CD popular.
 
@@ -85,7 +85,7 @@ Ao utilizar o Service Fabric, pode:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para mais informações:
+* Para obter mais informações:
   * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Porquê seguir a abordagem de microsserviços para criar aplicações?)
   * [Terminology overview](service-fabric-technical-overview.md) (Descrição geral da terminologia)
 * Preparar o [ambiente de desenvolvimento no Windows](service-fabric-get-started.md)  

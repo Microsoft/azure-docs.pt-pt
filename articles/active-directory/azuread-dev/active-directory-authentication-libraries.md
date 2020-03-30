@@ -4,7 +4,6 @@ description: A Biblioteca de Autenticação AD Azure (ADAL) permite que os desen
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -13,14 +12,15 @@ ms.date: 12/01/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd880c98878f1f778047cd2d60b115b857ad0809
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: 32375c14d95dc9e100cbf496c8550f0a195a11dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263624"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154615"
 ---
-# <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação de diretório ativo Azure
+# <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -39,8 +39,8 @@ A Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) v1.0 permite q
 
 | Plataforma | Biblioteca | Transferência | Código Fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicativo de ambiente de trabalho](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referência](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
-| JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
+| .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[Nuget](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicação de ambiente de trabalho](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referência](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| Javascript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[aplicativo iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicativo Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplicação Web Node.Js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Referência](https://docs.microsoft.com/javascript/api/overview/azure/activedirectory) |
@@ -51,11 +51,11 @@ A Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) v1.0 permite q
 
 | Plataforma | Biblioteca | Transferência | Código Fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN para AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
-| .NET |OWIN para OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Aplicação Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
-| .NET |OWIN para A WS-Federação |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[Aplicação Web MVC](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
-| .NET |Extensões do Protocolo de Identidade para .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| .NET |Manipulador JWT para .NET 4.5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET |OWIN para AzureAD|[Nuget](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
+| .NET |OWIN para OpenIDConnect |[Nuget](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Aplicação Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
+| .NET |OWIN para A WS-Federação |[Nuget](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[Aplicação Web MVC](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
+| .NET |Extensões do Protocolo de Identidade para .NET 4.5 |[Nuget](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET |Manipulador JWT para .NET 4.5 |[Nuget](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | Node.js |Passaporte Azure AD |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [API Web](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapi-nodejs)| |
 
 ## <a name="scenarios"></a>Cenários
@@ -78,7 +78,7 @@ Neste cenário, um desenvolvedor tem uma aplicação em execução num servidor 
 
 Neste cenário, um desenvolvedor tem uma aplicação web a funcionar num servidor que precisa de aceder a um recurso remoto, como uma API web. A API web não permite chamadas anónimas, pelo que deve ser chamada de um serviço autorizado em nome de um utilizador autenticado. A Web API está pré-configurada para confiar em fichas de acesso emitidas por um inquilino específico da AD Azure, e a Azure AD está pré-configurada para emitir fichas de acesso para esse recurso a um serviço com credenciais de cliente. Uma vez autenticado o utilizador na aplicação web, a aplicação pode obter um código de autorização para o utilizador a partir do Azure AD. A aplicação web pode então usar a ADAL para obter um token de acesso e um sinal de atualização em nome de um utilizador usando o código de autorização e credenciais de cliente associadas à aplicação da Azure AD. Uma vez que a aplicação web esteja na posse do token de acesso, pode ligar para a Web API até que o token expire. Quando o token expirar, a aplicação web pode usar a ADAL para obter um novo sinal de acesso utilizando o token de atualização que foi previamente recebido. Para obter uma amostra de código que demonstre este cenário, consulte o [cliente nativo da Web API para a Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 - [O guia do desenvolvedor do Diretório Ativo Azure](v1-overview.md)
 - [Cenários de autenticação para o diretório Azure Ative](v1-authentication-scenarios.md)

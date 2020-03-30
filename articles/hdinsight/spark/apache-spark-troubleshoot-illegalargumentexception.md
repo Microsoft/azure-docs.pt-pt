@@ -1,6 +1,6 @@
 ---
-title: Erro IllegalArgumentException para o Apache Spark-Azure HDInsight
-description: IllegalArgumentException para atividade de Apache Spark no Azure HDInsight para Azure Data Factory
+title: Erro de exceção ilegal de Apache Spark - Azure HDInsight
+description: IllegalArgumentException for Apache Spark activity in Azure HDInsight for Azure Data Factory
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: df62dbd8db7d41eb11207c7741aed76cec0ac7a8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894389"
 ---
-# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Cenário: IllegalArgumentException para a atividade de Apache Spark no Azure HDInsight
+# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Cenário: IllegalArgumentException for Apache Spark activity in Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao usar componentes Apache Spark em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Você recebe a seguinte exceção ao tentar executar uma atividade do Spark em um pipeline de Azure Data Factory:
+Recebe a seguinte exceção ao tentar executar uma atividade spark num oleoduto Azure Data Factory:
 
 ```error
 Exception in thread "main" java.lang.IllegalArgumentException:
@@ -29,22 +29,22 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 ## <a name="cause"></a>Causa
 
-Um trabalho do Spark falhará se o arquivo JAR do aplicativo não estiver localizado no armazenamento padrão/primário do cluster do Spark.
+Uma função Spark falhará se o ficheiro do frasco de aplicação não estiver localizado no armazenamento padrão/primário do cluster Spark.
 
-Esse é um problema conhecido com a estrutura de código-fonte aberto do Spark rastreada nesse bug: [falha no trabalho do Spark se FS. defaultFS e aplicativo jar forem URLs diferentes](https://issues.apache.org/jira/browse/SPARK-22587).
+Esta é uma questão conhecida com a estrutura de código aberto Spark rastreada neste bug: [O trabalho de faísca falha se fs.defaultFS e frasco de aplicação forem url diferentes](https://issues.apache.org/jira/browse/SPARK-22587).
 
-Esse problema foi resolvido no Spark 2.3.0.
+Esta questão foi resolvida em Spark 2.3.0.
 
 ## <a name="resolution"></a>Resolução
 
-Verifique se o JAR do aplicativo está armazenado no armazenamento padrão/primário do cluster HDInsight. No caso de Azure Data Factory, verifique se o serviço vinculado do ADF está apontado para o contêiner padrão do HDInsight em vez de um contêiner secundário.
+Certifique-se de que o jarro de aplicação está armazenado no armazenamento predefinido/primário do cluster HDInsight. No caso da Azure Data Factory, certifique-se de que o serviço ligado à ADF é apontado para o recipiente padrão HDInsight em vez de um recipiente secundário.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

@@ -4,10 +4,10 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre como prot
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302547"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
@@ -55,7 +55,7 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 - Oeste do Japão (JPW)
 - Índia Central (INC)
 - Índia do Sul (INS)
-- Coreia do Sul Central (KRC)
+- Coreia Central (KRC)
 - Sul da Coreia do Sul (KRS)
 - E.U.A. Centro-Norte (NCUS)
 - Europa do Norte (NE)
@@ -83,7 +83,7 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 - NWW (Noruega Ocidental)
 - SZN (Suíça Norte)
 
-Envie uma mensagem para [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) se precisar de a utilizar numa área geográfica específica que não esteja listada acima.
+Escreva [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) para se precisar usá-lo num geo específico que não esteja listado acima.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quantas partilhas de ficheiros do Azure posso proteger num Cofre?
 

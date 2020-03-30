@@ -1,6 +1,6 @@
 ---
-title: Controle de segurança do Azure – configuração segura
-description: Configuração segura do controle de segurança
+title: Controlo de Segurança Azure - Configuração segura
+description: Configuração segura de controlo de segurança
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -9,206 +9,206 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934299"
 ---
-# <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
+# <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração segura
 
-Estabeleça, implemente e gerencie ativamente (acompanhe, relate e corrija) a configuração de segurança dos recursos do Azure para impedir que os invasores explorem serviços e configurações vulneráveis.
+Estabelecer, implementar e gerir ativamente (rastrear, reportar, corrigir) a configuração de segurança dos recursos do Azure de modo a evitar que os atacantes explorem serviços e configurações vulneráveis.
 
-## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: estabelecer configurações seguras para todos os recursos do Azure
+## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.1 | 5.1 | Cliente |
 
-Use Azure Policy ou a central de segurança do Azure para manter as configurações de segurança para todos os recursos do Azure.
+Utilize a Política Azure ou o Azure Security Center para manter as configurações de segurança de todos os Recursos Azure.
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerir a Política Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## <a name="72-establish-secure-operating-system-configurations"></a>7,2: estabelecer configurações seguras do sistema operacional
+## <a name="72-establish-secure-operating-system-configurations"></a>7.2: Estabelecer configurações seguras do sistema operativo
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.2 | 5.1 | Cliente |
 
-Use a recomendação da central de segurança do Azure &quot;corrigir vulnerabilidades em configurações de segurança em suas máquinas virtuais&quot; para manter as configurações de segurança em todos os recursos de computação.
+Utilize a recomendação &quot;do Azure Security Center para remediar vulnerabilidades em configurações de segurança nas suas Máquinas&quot; Virtuais para manter configurações de segurança em todos os recursos do cálculo.
 
-Como monitorar as recomendações da central de segurança do Azure:
+Como monitorizar as recomendações do Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-Como corrigir as recomendações da central de segurança do Azure:
+Como remediar as recomendações do Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: manter configurações de recursos do Azure seguras
+## <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.3 | 5.2 | Cliente |
 
-Use a política do Azure [negar] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
+Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerir a Política Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Entender Azure Policy efeitos:
+Compreender efeitos políticos do Azure:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-## <a name="74-maintain-secure-operating-system-configurations"></a>7,4: manter configurações de sistema operacional seguras
+## <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Manter configurações seguras do sistema operativo
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.4 | 5.2 | Partilhado |
 
-As imagens básicas do sistema operacional são gerenciadas e mantidas pela Microsoft.
+As imagens do sistema operativo base são geridas e mantidas pela Microsoft.
 
-No entanto, você pode aplicar as configurações de segurança exigidas por sua organização usando modelos de Azure Resource Manager e/ou configuração de estado desejado.
+No entanto, pode aplicar as definições de segurança exigidas pela sua organização utilizando modelos do Gestor de Recursos Azure e/ou configuração de Estado Desejada.
 
-Como criar uma máquina virtual do Azure com base em um modelo de Azure Resource Manager:
+Como criar uma Máquina Virtual Azure a partir de um modelo de Gestor de Recursos Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
 
-Entender a configuração de estado desejado para máquinas virtuais do Azure:
+Compreender a configuração de estado desejada para máquinas virtuais azure:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 
-## <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: armazenar a configuração de recursos do Azure com segurança
+## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Configuração segura dos recursos Do Azure
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.5 | 5.3 | Cliente |
+| 7,5 | 5.3 | Cliente |
 
-Se você estiver usando definições personalizadas de política do Azure, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
+Se utilizar definições políticas personalizadas do Azure, utilize o Azure DevOps ou o Azure Repos para armazenar e gerir de forma segura o seu código.
 
-Como armazenar código no Azure DevOps:
+Como armazenar código em Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentação do Azure Repos:
+Documentação Azure Repos:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-## <a name="76-securely-store-custom-operating-system-images"></a>7,6: armazenar com segurança imagens personalizadas do sistema operacional
+## <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.6 | 5.3 | Cliente |
 
-Se estiver usando imagens personalizadas, use o RBAC para garantir que somente usuários autorizados possam acessar as imagens. Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.
+Se utilizar imagens personalizadas, utilize o RBAC para garantir que apenas os utilizadores autorizados podem aceder às imagens. Para imagens de contentores, guarde-as no Registo de Contentores Do Azure e aproveite o RBAC para garantir que apenas os utilizadores autorizados possam aceder às imagens.
 
-Entender o RBAC no Azure:
+Compreender o RBAC em Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Entender o RBAC para registro de contêiner:
+Compreender o RBAC para registo de contentores:
 
 https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
-Como configurar o RBAC no Azure:
+Como configurar o RBAC em Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
-## <a name="77-deploy-system-configuration-management-tools"></a>7,7: implantar ferramentas de gerenciamento de configuração do sistema
+## <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implementar ferramentas de gestão de configuração do sistema
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.7 | 5.4 | Cliente |
 
-Use Azure Policy para alertar, auditar e impor configurações do sistema. Além disso, desenvolva um processo e um pipeline para gerenciar exceções de política.
+Utilize a Política Azure para alertar, auditar e impor configurações do sistema. Além disso, desenvolver um processo e um oleoduto para gerir as exceções políticas.
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerir a Política Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: implantar ferramentas de gerenciamento de configuração do sistema para sistemas operacionais
+## <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração do sistema para sistemas operativos
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.8 | 5.4 | Cliente |
 
-Use extensões de computação do Azure, como a configuração de estado desejado do PowerShell para a extensão Windows Compute ou chefe do Linux para Linux.
+Utilize extensões de computação Azure, tais como PowerShell Desired State Configuration for Windows compute ou Linux Chef Extension for Linux.
 
-Como instalar extensões de máquina virtual no Azure:
+Como instalar extensões de máquinas virtuais em Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension
 
-## <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementar o monitoramento automatizado de configuração para os serviços do Azure
+## <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.9 | 5.5 | Cliente |
 
-Usar a central de segurança do Azure para executar verificações de linha de base para os recursos do Azure
+Utilize o Azure Security Center para realizar digitalizações de base para os seus Recursos Azure
 
-Como corrigir recomendações na central de segurança do Azure:
+Como remediar recomendações no Centro de Segurança Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementar o monitoramento automatizado de configuração para sistemas operacionais
+## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementar monitorização automatizada de configuração para sistemas operativos
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
 | 7.1 | 5.5 | Cliente |
 
-Use a central de segurança do Azure para executar verificações de linha de base para configurações do sistema operacional e do Docker para contêineres.
+Utilize o Azure Security Center para efetuar as definições de base para os ajustes de OS e Docker para recipientes.
 
-Entender as recomendações de contêiner da central de segurança do Azure:
+Compreender as recomendações do contentor do Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
-## <a name="711-manage-azure-secrets-securely"></a>7,11: gerenciar segredos do Azure com segurança 
+## <a name="711-manage-azure-secrets-securely"></a>7.11: Gerir os segredos do Azure de forma segura 
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.11 | 13,1 | Cliente |
+| 7.11 | 13.1 | Cliente |
 
-Use Identidade de Serviço Gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
+Utilize a Identidade de Serviço Gerida em conjunto com o Cofre chave Azure para simplificar e proteger a gestão secreta para as suas aplicações na nuvem.
 
-Como integrar com identidades gerenciadas do Azure:
+Como integrar-se com identidades geridas pelo Azure:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Key Vault:
+Como criar um Cofre chave:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Como fornecer Key Vault autenticação com uma identidade gerenciada:
+Como fornecer a autenticação do Cofre Chave com uma identidade gerida:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-## <a name="712-manage-identities-securely-and-automatically"></a>7,12: gerenciar identidades de forma segura e automática
+## <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7,12 | 4.1 | Cliente |
+| 7.12 | 4.1 | Cliente |
 
-Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Key Vault, sem nenhuma credencial em seu código.
+Utilize identidades geridas para fornecer aos serviços Azure uma identidade gerida automaticamente em Azure AD. Identidades Geridas permite-lhe autenticar qualquer serviço que suporte a autenticação AD Azure, incluindo o Key Vault, sem qualquer credencial no seu código.
 
-Como configurar identidades gerenciadas:
+Como configurar identidades geridas:
 
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminar exposição de credencial não intencional
+## <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-| ID do Azure | IDs de CIS | Responsabilidade |
+| Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7,13 | 13,3 | Cliente |
+| 7.13 | 13.3 | Cliente |
 
-Implemente o verificador de credenciais para identificar as credenciais no código. O verificador de credenciais também encorajará a movimentação de credenciais descobertas para locais mais seguros, como Azure Key Vault. 
+Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure. 
 
-Como configurar o verificador de credenciais:
+Como configurar o Scanner Credencial:
 
 https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o próximo controle de segurança: [defesa contra malware](security-control-malware-defense.md)
+Veja o próximo controlo de segurança: [Malware Defense](security-control-malware-defense.md)

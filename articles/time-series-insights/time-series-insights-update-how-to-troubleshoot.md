@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e resolver problemas um ambiente de pré-visualização - Azure Time Series Insights  Microsoft Docs
+title: Diagnosticar e resolver problemas um ambiente de pré-visualização - Azure Time Series Insights [ Microsoft Docs
 description: Aprenda a diagnosticar e resolver problemas com um ambiente de pré-visualização da Série De Tempo Azure Insights.
 author: deepakpalled
 ms.author: dpalled
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a306707f0ed47fba8fd854d820554bc1bd80e8bc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110296"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152667"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e resolver problemas um ambiente de pré-visualização
 
@@ -25,7 +25,7 @@ Este artigo resume vários problemas comuns que poderá encontrar quando trabalh
 
 Este problema pode ocorrer se não tiver permissão para aceder ao ambiente Time Series Insights. Os utilizadores precisam de uma função de acesso ao nível dos leitores para visualizar o seu ambiente time series Insights. Para verificar os atuais níveis de acesso e conceder acesso adicional, aceda à secção políticas de acesso a **dados** no recurso Time Series Insights no [portal Azure](https://portal.azure.com/).
 
-  [![Verificar as políticas de acesso a dados.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
+  [![Verifique as políticas de acesso a dados.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: Não são vistos dados no explorador de pré-visualização
 
@@ -35,7 +35,7 @@ Existem várias razões comuns pelas quais os seus dados podem não aparecer no 
 
     Verifique se a sua fonte de evento, que é um hub de eventos ou um hub IoT, está a receber dados das suas tags ou instâncias. Para verificar, consulte a página geral do seu recurso no portal Azure.
 
-    [![Rever a visão geral das métricas do painel de instrumentos.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
+    [![Reveja a visão geral das métricas do painel de instrumentos.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
@@ -51,7 +51,7 @@ Existem várias razões comuns pelas quais os seus dados podem não aparecer no 
 
   * Para um centro de eventos, você precisa fornecer a chave que tem permissão **ouvir.**
   
-    [![Rever permissões do centro de eventos.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
+    [![Rever permissões no centro do evento.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
     * Tanto as políticas **de Leitura** como **de Gestão** funcionam porque têm permissão **de Escuta.**
 
@@ -73,14 +73,28 @@ Pode estar a enviar dados sem o ID da Série Do Tempo.
     > [!NOTE]
     > Neste momento, a Time Series Insights suporta uma taxa máxima de ingestão de 6 Mbps.
 
+## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problema: Os dados estavam a aparecer, mas agora a ingestão parou
+
+- A chave de origem do evento pode ter sido regenerada e o seu ambiente de pré-visualização precisa da nova chave de origem do evento.
+
+Este problema ocorre quando a chave fornecida ao criar a fonte do seu evento já não é válida. Veria telemetria no seu centro, mas sem Mensagens Recebidas em Insights da Série Time. Se não tiver a certeza se a chave foi ou não regenerada, pode pesquisar o registo de atividade dos seus Hubs de Eventos para "Criar ou Atualizar regras de autorização de espaço de nome" ou pesquisar "Criar ou atualizar recurso IotHub" para o hub IoT. 
+
+Para atualizar o ambiente de pré-visualização da Time Series Insights com a nova chave abra o seu recurso hub no portal Azure e copie a nova chave. Navegue para o seu recurso TSI e clique em Fontes de Evento. 
+
+   [![Tecla de atualização.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+
+Selecione a fonte do evento(s) que têm a partir da qual a ingestão parou, cola na nova tecla e clique em Guardar.
+
+   [![Tecla de atualização.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: O nome da propriedade timestamp da minha fonte de evento não funciona
 
-Certifique-se de que o nome e o valor está em conformidade com as seguintes regras:
+Certifique-se de que o nome e o valor estão em conformidade com as seguintes regras:
 
 * O nome da propriedade timestamp é sensível ao caso.
-* O valor da propriedade timestamp que vem da sua fonte de evento como uma cadeia JSON tem o formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Um exemplo de tal corda é `“2008-04-12T12:53Z”`.
+* O valor da propriedade timestamp que vem da sua fonte `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`de evento como uma cadeia JSON tem o formato . Um exemplo de tal `“2008-04-12T12:53Z”`corda é.
 
-A maneira mais fácil de garantir que o seu nome de propriedade timestamp é capturado e funcionando corretamente é usar o explorador de pré-visualização time series Insights. Dentro do explorador de pré-visualização time series Insights, utilize o gráfico para selecionar um período de tempo após fornecer o nome de propriedade timestamp. Clique na seleção e selecione a opção **de explorar eventos.** O cabeçalho da primeira coluna é o nome da propriedade do Timestamp. Deveria ter `($ts)` ao lado da palavra `Timestamp`, em vez de:
+A maneira mais fácil de garantir que o seu nome de propriedade timestamp é capturado e funcionando corretamente é usar o explorador de pré-visualização time series Insights. Dentro do explorador de pré-visualização time series Insights, utilize o gráfico para selecionar um período de tempo após fornecer o nome de propriedade timestamp. Clique na seleção e selecione a opção **de explorar eventos.** O cabeçalho da primeira coluna é o nome da propriedade do Timestamp. Deve ter `($ts)` ao lado `Timestamp`da palavra, em vez de:
 
 * `(abc)`, o que indica que a Time Series Insights lê os valores dos dados como cordas.
 * O ícone do **calendário,** que indica que a Time Series Insights lê o valor dos dados como data.
@@ -99,7 +113,7 @@ Se a propriedade timestamp não for explicitamente especificada, o centro ioT ou
 
    Os Modelos time series são suportados apenas em ambientes pay-as-you-go. Para obter mais informações sobre como aceder ao seu ambiente S1 ou S2 do explorador de pré-visualização da Série Time Insights, leia [os dados visualizar no explorador](./time-series-insights-update-explorer.md).
 
-   [![nenhum evento no ambiente.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
+   [![Sem eventos ambientais.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Pode não ter permissões para visualizar e editar o modelo.
 
@@ -109,7 +123,7 @@ Se a propriedade timestamp não for explicitamente especificada, o centro ioT ou
 
 Este problema pode ocorrer se o seu ambiente não tiver uma hierarquia do Modelo da Série Tempo definida. Para mais informações, leia [Trabalhar com modelos da Série de Tempo.](./time-series-insights-update-how-to-tsm.md)
 
-  [![casos não parentais apresentarão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
+  [![Casos não parentais mostrarão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

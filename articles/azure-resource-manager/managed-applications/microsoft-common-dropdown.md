@@ -1,22 +1,22 @@
 ---
-title: Elemento de interface do usuário suspensa
-description: Descreve o elemento Microsoft. Common. DropDown da interface do usuário para portal do Azure. Use para selecionar as opções disponíveis ao implantar um aplicativo gerenciado.
+title: Elemento UI dropdown
+description: Descreve o elemento Microsoft.Common.DropDown UI para o portal Azure. Utilize para selecionar as opções disponíveis ao implementar uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652388"
 ---
-# <a name="microsoftcommondropdown-ui-element"></a>Elemento de interface do usuário Microsoft. Common. DropDown
+# <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI
 
-Um controle de seleção com uma lista suspensa.
+Um controlo de seleção com uma lista de abandono.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
 
@@ -54,12 +54,12 @@ Um controle de seleção com uma lista suspensa.
 
 ## <a name="remarks"></a>Observações
 
-- O rótulo de `constraints.allowedValues` é o texto de exibição de um item e seu valor é o valor de saída do elemento quando selecionado.
-- Se especificado, o valor padrão deve ser um rótulo presente no `constraints.allowedValues`. Se não for especificado, o primeiro item em `constraints.allowedValues` será selecionado. O valor padrão é **NULL**.
-- `constraints.allowedValues` deve ter pelo menos um item.
-- Para emular um valor que não está sendo necessário, adicione um item com um rótulo e um valor de `""` (cadeia de caracteres vazia) a `constraints.allowedValues`.
+- A etiqueta `constraints.allowedValues` para é o texto de exibição para um item, e o seu valor é o valor de saída do elemento quando selecionado.
+- Se especificado, o valor predefinido `constraints.allowedValues`deve ser um rótulo presente em . Se não especificado, o `constraints.allowedValues` primeiro item é selecionado. O valor predefinido é **nulo.**
+- `constraints.allowedValues`deve ter pelo menos um item.
+- Para imitar um valor que não seja necessário, adicione `""` um item `constraints.allowedValues`com um rótulo e valor de (corda vazia) a .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

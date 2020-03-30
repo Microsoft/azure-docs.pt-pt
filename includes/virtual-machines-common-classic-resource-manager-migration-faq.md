@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78383984"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
@@ -33,11 +33,11 @@ Como parte do processo de reforma, a IaaS VM (clássica) já não está disponí
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
-Só a 1 de março de 2023 para Os VMs IaaS (clássico). Os VMs IaaS (clássicos) são serviços totalmente suportados na disponibilidade geral. Pode continuar a utilizar estes recursos para expandir a sua utilização no Microsoft Azure. No dia 1 de março de 2023, estes VMs serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão parados e transferidos. Não haverá impacto para outros recursos clássicos como cloud services (Classic), Contas de Armazenamento (Clássico), etc.   
+Só a 1 de março de 2023 para Os VMs IaaS (clássico). Os VMs IaaS (clássicos) são serviços totalmente suportados na disponibilidade geral. Pode continuar a utilizar estes recursos para expandir a sua utilização no Microsoft Azure. No dia 1 de março de 2023, estes VMs serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão interrompidos & negócio. Não haverá impacto para outros recursos clássicos como cloud services (Classic), Contas de Armazenamento (Clássico), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>O que acontece às minhas VMs se não pretender migrá-las no futuro próximo? 
 
-No dia 1 de março de 2023, os VMs IaaS (Clássico) serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão interrompidos e transferidos. Para evitar o impacto do negócio, recomentamos para começar a planear a sua migração hoje e completá-la antes de 1 de março de 2023. Não estamos a depreciar os APIs clássicos existentes, os Serviços de Nuvem e o modelo de recursos. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos que comece a planear migrar estes recursos para o Azure Resource Manager. 
+No dia 1 de março de 2023, os VMs IaaS (Clássico) serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão interrompidos & negócio. Para evitar o impacto do negócio, recomentamos para começar a planear a sua migração hoje e completá-la antes de 1 de março de 2023. Não estamos a depreciar os APIs clássicos existentes, os Serviços de Nuvem e o modelo de recursos. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos que comece a planear migrar estes recursos para o Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>O que significa este plano de migração para as minhas ferramentas existentes? 
 

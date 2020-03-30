@@ -16,10 +16,10 @@ ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75660635"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?
@@ -38,7 +38,7 @@ Para obter uma lista das localizações de nós da CDN atual, veja [Azure CDN PO
 ## <a name="how-it-works"></a>Como funciona
 ![Descrição geral da CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Um utilizador (Alice) solicita um ficheiro (também denominado recurso) ao utilizar um URL com um nome de domínio especial, como _&lt; nome do ponto final&gt;_ .azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
+1. Um utilizador (Alice) solicita um ficheiro (também chamado de ativo) utilizando um _ &lt;&gt;_ URL com um nome especial de domínio, como o nome final .azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
     
 2. Se nenhuns servidores Edge no POP tiverem o ficheiro na respetiva cache, o POP solicita o ficheiro do servidor de origem. O servidor de origem pode ser uma aplicação Web do Azure, um Serviço em Nuvem do Azure, uma conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
    
@@ -64,7 +64,7 @@ Para obter mais informações sobre os limites das subscrições da CDN, veja [C
 ## <a name="azure-cdn-features"></a>Funcionalidades da CDN do Azure
 A CDN do Azure oferece as seguintes funcionalidades principais:
 
-- [Aceleração de site dinâmico](cdn-dynamic-site-acceleration.md)
+- [Aceleração dinâmica do site](cdn-dynamic-site-acceleration.md)
 - [Regras de colocação em cache da CDN](cdn-caching-rules.md)
 - [Suporte de domínio HTTPS personalizado](cdn-custom-ssl.md)
 - [Registos de diagnóstico do Azure](cdn-azure-diagnostic-logs.md)

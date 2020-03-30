@@ -5,39 +5,42 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ac80262a39e410e1967cc964d04fa9b7d4879a4
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117123"
 ---
-### <a name="azure-regions-within-a-geopolitical-region"></a>Regiões do Azure em uma região geopolítica
+### <a name="azure-regions-within-a-geopolitical-region"></a>Regiões de Azure dentro de uma região geopolítica
 
-A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão disponíveis para as seguintes regiões:
+A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponíveis para as seguintes regiões:
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
-| América do Norte | E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |
-|América do Sul |Sul do Brasil |
-| Europa | França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |
-| Ásia | Ásia Leste, Ásia Sudeste |
-| Japão  | Oeste do Japão, Leste do Japão |
-| Austrália | Austrália Sudeste, Leste da Austrália |
 | Governo da Austrália | Austrália Central, Austrália Central 2 |
+| Europa | France Central, França Sul, Alemanha Norte, Alemanha West Central, Norte Europa, Noruega Leste, Suíça Norte, Suíça Oeste, Europa Ocidental, Reino Unido, Reino Unido Sul |
+| América do Norte | E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Leste do Canadá |
+| Ásia | Ásia Leste, Ásia Sudeste |
 | Índia | Oeste da Índia, Índia Central, Sul da Índia |
+| Japão  | Oeste do Japão, Leste do Japão |
+| Oceânia | Austrália Sudeste, Leste da Austrália |
+| África do Sul | África do Sul Norte, África do Sul Oeste |
+| América do Sul |Sul do Brasil |
 | Coreia do Sul | Coreia do Sul Central, Sul da Coreia do Sul |
-| África do Sul | Norte da África do Sul, oeste da África do Sul |
+| E.A.U. | Emirados Unidos Norte, Emirados Emirados Unidos |
 
-### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões do Azure e limites de geopolítica para nuvens nacionais
 
-A conectividade de VPN baseada em site a site e a arquitetura WAN virtual estão disponíveis para as seguintes regiões:
+
+### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões azuis e fronteiras geopolíticas para nuvens nacionais
+
+A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponíveis para as seguintes regiões:
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
-| Nuvem do US Gov | US Gov - Arizona, US Gov - Iowa, US Gov - Texas, US Gov - Virginia, US DoD - Centro, US DoD - Leste |
+| Nuvem do US Gov | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East |
 | Leste da China | Leste da China, Leste da China 2|
 | Norte da China | Norte da China, Norte da China 2 |

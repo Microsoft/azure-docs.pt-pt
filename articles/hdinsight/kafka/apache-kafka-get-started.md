@@ -8,24 +8,24 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/24/2020
-ms.openlocfilehash: 9e220c7a7813f89eacab5137362e39153d2b334a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 90f7010970f70379c8adecc4214c44d896a1beaf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207188"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130271"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar o cluster Apache Kafka no Azure HDInsight usando o portal Azure
 
 [Apache Kafka](./apache-kafka-introduction.md) é uma plataforma de streaming distribuída de código aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição.
 
-Neste arranque rápido, aprende-se a criar um cluster Apache Kafka usando o portal Azure. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Apache Kafka. Para obter explicações aprofundadas das configurações disponíveis, consulte [Conjunto de clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter informações adicionais sobre a utilização do portal para criar clusters, consulte [Criar clusters no portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+Neste início rápido, vai aprender a criar um cluster do Apache Kafka com o portal do Azure. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Apache Kafka. Para obter explicações aprofundadas das configurações disponíveis, consulte [Conjunto de clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter informações adicionais sobre a utilização do portal para criar clusters, consulte [Criar clusters no portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 Só os recursos dentro da mesma rede virtual podem aceder à API do Apache Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Apache Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede. Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache 
 
 Para criar um cluster Apache Kafka no HDInsight, utilize os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. A partir do menu superior, selecione **+ Criar um recurso**.
 
@@ -48,22 +48,22 @@ Para criar um cluster Apache Kafka no HDInsight, utilize os seguintes passos:
     |Propriedade  |Descrição  |
     |---------|---------|
     |Subscrição    |  A partir da lista de lançamentos, selecione a subscrição Azure que é usada para o cluster. |
-    |Grupo de recursos     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
-    |Nome do cluster   | Introduza um nome globalmente único. O nome pode ser composto por até 59 caracteres, incluindo letras, números e hífenes. O primeiro e o último carateres do nome não podem ser hífenes. |
+    |Grupo de recursos     | Crie um grupo de recursos ou selecione crie um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
+    |Nome do cluster   | Introduza um nome globalmente exclusivo. O nome pode ser composto por até 59 caracteres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
     |Região    | A partir da lista de abandono, selecione uma região onde o cluster é criado.  Escolha uma região mais próxima de si para um melhor desempenho. |
     |Tipo de cluster| Selecione o tipo de **cluster selecione** para abrir uma lista. Da lista, selecione **Kafka** como o tipo de cluster.|
     |Versão|Será especificada a versão predefinida para o tipo de cluster. Selecione na lista de drop-down se pretender especificar uma versão diferente.|
-    |Nome de utilizador de login de cluster e senha    | O nome de login predefinido é **administrador**. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula e uma letra minúscula, um caracteres não alfanuméricos (exceto os caracteres " \). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
+    |Nome de utilizador e palavra-passe de início de sessão do cluster    | O nome de login predefinido é **administrador**. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' ' ' \). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
     |Utilize senha de login de cluster para SSH| Selecione esta caixa de verificação para utilizar a mesma palavra-passe para o utilizador SSH como a que forneceu para o utilizador de login do cluster.|
 
-   ![Portal Azure cria fundamentos de cluster](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
+   ![Portal Azure cria fundamentos de cluster](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
     Cada região do Azure (localização) fornece _domínios de falha_. Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. As máquinas virtuais e os discos geridos que implementam os nós num cluster HDInsight são distribuídos por esses domínios de falha. Esta arquitetura limita o possível impacto de falhas físicas de hardware.
 
     Para obter uma elevada disponibilidade de dados, selecione uma região (localização) que contenha __três domínios de falha__. Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-    Selecione o **Seguinte: Armazenamento >>** aba para avançar para as definições de armazenamento.
+    Selecione o **seguinte: >>** aba de armazenamento para avançar para as definições de armazenamento.
 
 1. A partir do separador **Armazenamento,** forneça os seguintes valores:
 
@@ -132,19 +132,19 @@ Para criar um cluster Apache Kafka no HDInsight, utilize os seguintes passos:
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
-## <a id="getkafkainfo"></a>Obtenha a informação do anfitrião do Zoológico apache e corretor
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obtenha a informação do anfitrião do Zoológico apache e corretor
 
 Ao trabalhar com Kafka, deve conhecer os anfitriões do *Zoológico* Apache e do *Corretor.* Estes anfitriões são utilizados com a API do Apache Kafka e com muitos dos utilitários que são enviados com o Kafka.
 
 Nesta secção, obtém-se a informação do anfitrião da API do Apache Ambari REST no cluster.
 
-1. Instale [jq,](https://stedolan.github.io/jq/)um processador JSON de linha de comando. Este utilitário é usado para analisar documentos JSON, e é útil para analisar a informação do anfitrião. A partir da ligação SSH aberta, introduza o seguinte comando para instalar `jq`:
+1. Instale [jq,](https://stedolan.github.io/jq/)um processador JSON de linha de comando. Este utilitário é usado para analisar documentos JSON, e é útil para analisar a informação do anfitrião. A partir da ligação SSH `jq`aberta, introduza o seguinte comando para instalar:
 
     ```bash
     sudo apt -y install jq
     ```
 
-1. Configurar a variável de senha. Substitua `PASSWORD` com a senha de login do cluster e, em seguida, introduza o comando:
+1. Configurar a variável de senha. Substitua-a `PASSWORD` pela senha de login do cluster e introduza o comando:
 
     ```bash
     export password='PASSWORD'
@@ -157,7 +157,7 @@ Nesta secção, obtém-se a informação do anfitrião da API do Apache Ambari R
     ```
 
     > [!Note]  
-    > Se está a fazer este processo de fora do cluster, há um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em maiúsculas do portal Azure. Em seguida, substitua o nome do cluster por `<clustername>` no seguinte comando e execute-o: `export clusterName='<clustername>'`.
+    > Se está a fazer este processo de fora do cluster, há um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em maiúsculas do portal Azure. Em seguida, substitua `<clustername>` o nome do cluster `export clusterName='<clustername>'`no seguinte comando e execute-o: .
 
 
 1. Para definir uma variável ambiental com informações do anfitrião zookeeper, use o comando abaixo. O comando recupera todos os anfitriões do Zookeeper, e depois devolve apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.openlocfilehash: 03dee0570faa863ca411ed91f2a6ec85a1e38380
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76985684"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Ligue-se ao Azure Data Explorer a partir de Databricks Azure usando Python
@@ -68,7 +68,7 @@ Por exemplo, se o seu domínio for *contoso.com*, o URL é: [https://login.windo
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
-Sua identificação do inquilino é `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. 
+A sua `6babcaad-604b-40ac-a9d7-9fd97c0b779f`identificação do inquilino é. 
 
 ### <a name="store-and-secure-your-azure-ad-app-id-and-key"></a>Armazenar e proteger o id e a chave da aplicação Azure AD 
 

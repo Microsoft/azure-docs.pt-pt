@@ -4,13 +4,13 @@ description: Aprenda a criar rapidamente um cluster Kubernetes usando um modelo 
 services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.custom: mvc
-ms.openlocfilehash: 9c4a79f196cc0737ddc9490f2fedda99961289f4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273783"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129460"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Quickstart: Implemente um cluster azure Kubernetes Service (AKS) utilizando um modelo de Gestor de Recursos Azure
 
@@ -18,13 +18,15 @@ O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permi
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
 Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para mais informações, consulte os [conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este quickstart requer que esteja a executar a versão 2.0.61 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Se optar por instalar e utilizar o CLI localmente, este quickstart requer que esteja a executar a versão 2.0.61 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,9 +34,9 @@ Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece um
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
-Para aceder aos nós AKS, ligue-se utilizando um par de chaves SSH. Utilize o comando `ssh-keygen` para gerar ficheiros de chaves públicas e privadas SSH. Por padrão, estes ficheiros são criados no diretório *~/.ssh.* Se um par de chaves SSH com o mesmo nome existir no local dado, esses ficheiros são substituídos.
+Para aceder aos nós AKS, ligue-se utilizando um par de chaves SSH. Utilize `ssh-keygen` o comando para gerar ficheiros de chaves públicas e privadas SSH. Por padrão, estes ficheiros são criados no diretório *~/.ssh.* Se um par de chaves SSH com o mesmo nome existir no local dado, esses ficheiros são substituídos.
 
-Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador.
 
 O seguinte comando cria um par de chaves SSH usando encriptação RSA e um pouco de comprimento de 2048:
 
@@ -68,25 +70,33 @@ Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos pa
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-O modelo utilizado neste quickstart é implantar um cluster de [serviço Azure Kubernetes](https://azure.microsoft.com/resources/templates/101-aks/). Para mais amostras de AKS, consulte o site [de modelos de arranque rápido AKS.][aks-quickstart-templates]
+### <a name="review-the-template"></a>Reveja o modelo
+
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-aks/).
+
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+
+Para mais amostras de AKS, consulte o site [de modelos de arranque rápido AKS.][aks-quickstart-templates]
+
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo.
 
-    [![Implementar no Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [![Desdobre para Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-2. Selecione ou introduza os seguintes valores.  
+2. Selecione ou introduza os seguintes valores.
 
     Para este arranque rápido, deixe os valores predefinidos para o *tamanho do disco OS GB,* Contagem de *Agentes,* *Tamanho do Agente VM,* *Tipo OS*e *versão Kubernetes*. Forneça os seus próprios valores para os seguintes parâmetros de modelo:
 
-    * **Subscrição**: selecione uma subscrição do Azure.
+    * **Subscrição**: Selecione uma subscrição Azure.
     * **Grupo de recursos**: Selecione **Criar nova**. Introduza um nome único para o grupo de recursos, como o *myResourceGroup,* e depois escolha **OK**.
     * **Localização**: Selecione uma localização, como **east us**.
     * **Nome do cluster**: Introduza um nome único para o cluster AKS, como *myAKSCluster*.
     * **Prefixo DNS**: Introduza um prefixo DNS único para o seu cluster, como *myakscluster*.
     * **Nome de utilizador**do Administrador Linux : Introduza um nome de utilizador para se ligar utilizando o SSH, como *o azureuser*.
     * **Chave Pública SSH RSA**: Copiar e colar a parte *pública* do seu par de teclas SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub).*
-    * **Id principal de serviço Cliente:** Copie e cole a *appId* do seu diretor de serviço a partir do comando `az ad sp create-for-rbac`.
-    * **Serviço Principal Cliente Secreto**: Copie e cole a *palavra-passe* do seu diretor de serviço a partir do comando `az ad sp create-for-rbac`.
+    * **Id principal de serviço Cliente:** Copie e cole `az ad sp create-for-rbac` a *appId* do seu diretor de serviço a partir do comando.
+    * **Serviço Principal Cliente Secreto**: Copiar e colar a `az ad sp create-for-rbac` *palavra-passe* do seu diretor de serviço a partir do comando.
     * **Concordo com os termos e condições acima referidos:** Verifique esta caixa para concordar.
 
     ![Modelo de Gestor de Recursos para criar um cluster de serviço Azure Kubernetes no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
@@ -95,15 +105,17 @@ O modelo utilizado neste quickstart é implantar um cluster de [serviço Azure K
 
 Leva alguns minutos para criar o aglomerado AKS. Aguarde que o cluster seja implantado com sucesso antes de passar para o próximo passo.
 
-## <a name="connect-to-the-cluster"></a>Ligar ao cluster
+## <a name="validate-the-deployment"></a>Validar a implementação
 
-Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, já se `kubectl` instalada. Para instalar `kubectl` localmente, utilize o comando [az aks install-cli:][az-aks-install-cli]
+### <a name="connect-to-the-cluster"></a>Ligar ao cluster
+
+Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Se utilizar a Azure `kubectl` Cloud Shell, já está instalada. Para `kubectl` instalar localmente, utilize o comando [az aks install-cli:][az-aks-install-cli]
 
 ```azurecli
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][az-aks-get-credentials] Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -124,14 +136,14 @@ aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
 aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
-## <a name="run-the-application"></a>Executar a aplicação
+### <a name="run-the-application"></a>Executar a aplicação
 
 Um ficheiro manifesto Kubernetes define um estado desejado para o cluster, como quais as imagens de contentores a executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Este manifesto inclui duas [implantações kubernetes][kubernetes-deployment] - uma para as aplicações azure vote Python, e outra para uma instância Redis. São também criados dois [Serviços Kubernetes][kubernetes-service] - um serviço interno para a instância Redis, e um serviço externo para aceder à aplicação Azure Vote a partir da internet.
 
 > [!TIP]
-> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [O Azure Dev Spaces][azure-dev-spaces] para iterar rapidamente e desinchar o seu código diretamente no cluster AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
+> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em mais cenários do mundo real, pode utilizar o [Azure Dev Spaces][azure-dev-spaces] para iterar e depurar o seu código rápida e diretamente no cluster do AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-Crie um ficheiro chamado `azure-vote.yaml` e copie na seguinte definição YAML. Se utilizar a Casca de Nuvem Azure, este ficheiro pode ser criado utilizando `vi` ou `nano` como se trabalhasse num sistema virtual ou físico:
+Crie um `azure-vote.yaml` ficheiro nomeado e copie na seguinte definição YAML. Se utilizar a Casca de Nuvem Azure, `vi` `nano` este ficheiro pode ser criado utilizando ou como se trabalhasse num sistema virtual ou físico:
 
 ```yaml
 apiVersion: apps/v1
@@ -233,7 +245,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Testar a aplicação
+### <a name="test-the-application"></a>Testar a aplicação
 
 Quando a aplicação é executado, um serviço Kubernetes expõe a extremidade frontal da aplicação à internet. Este processo pode demorar alguns minutos a concluir.
 
@@ -250,7 +262,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando o endereço *EXTERNO-IP* passar de *pendente* para um endereço IP público real, utilize `CTRL-C` para parar o processo de observação `kubectl`. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *EXTERNO-IP* passar de *pendente* para `CTRL-C` um `kubectl` endereço IP público real, utilize para parar o processo de observação. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -260,16 +272,16 @@ Para ver a aplicação Azure Vote em ação, abra um navegador web para o endere
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## <a name="delete-cluster"></a>Eliminar o cluster
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando o cluster já não for necessário, utilize o [grupo AZ eliminar][az-group-delete] o comando para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Quando o cluster já não for necessário, utilize o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter medidas sobre como remover o diretor de serviço, consulte as [principais considerações e a eliminação do serviço AKS.][sp-delete]
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
 
 ## <a name="get-the-code"></a>Obter o código
 

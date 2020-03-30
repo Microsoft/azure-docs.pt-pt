@@ -1,6 +1,6 @@
 ---
-title: HDFS local paralisado no modo de segurança no cluster do Azure HDInsight
-description: Solucionar problemas do Apache HDFS local preso no modo de segurança no cluster do Apache no Azure HDInsight
+title: HDFS local preso em modo de segurança no cluster Azure HDInsight
+description: Sessão de problemas Apache HDFS local preso em modo de segurança no cluster Apache em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 4d19a05129970b26ca1af20263fbfe93a0053c7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894195"
 ---
-# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Cenário: HDFS local paralisado no modo de segurança no cluster do Azure HDInsight
+# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Cenário: HDFS local preso em modo de segurança no cluster Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-O HDFS (Apache Hadoop local Sistema de Arquivos Distribuído) está preso no modo de segurança no cluster HDInsight. Você receberá uma mensagem de erro semelhante à seguinte:
+O sistema de ficheiros distribuídos Apache Hadoop (HDFS) local está preso no modo de segurança no cluster HDInsight. Recebe uma mensagem de erro semelhante à seguinte:
 
 ```output
 hdiuser@spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -34,11 +34,11 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ## <a name="cause"></a>Causa
 
-O cluster HDInsight foi reduzido para poucos nós abaixo, ou o número de nós está perto do fator de replicação HDFS.
+O cluster HDInsight foi reduzido para muito poucos nós abaixo, ou o número de nós está próximo do fator de replicação HDFS.
 
 ## <a name="resolution"></a>Resolução
 
-1. Relate o status do HDFS no cluster HDInsight com o seguinte comando:
+1. Relatório sobre o estado do HDFS no cluster HDInsight com o seguinte comando:
 
     ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -50,7 +50,7 @@ O cluster HDInsight foi reduzido para poucos nós abaixo, ou o número de nós e
     hdiuser@spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
-1. Se determinado que não há blocos ausentes, corrompidos ou em replicados, ou esses blocos podem ser ignorados, execute o seguinte comando para retirar o nó de nome do modo de segurança:
+1. Se determinado que não há falta, corrupção ou blocos replicados ou esses blocos podem ser ignorados executar o seguinte comando para tirar o nó de nome do modo de segurança:
 
     ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
@@ -58,10 +58,10 @@ O cluster HDInsight foi reduzido para poucos nós abaixo, ou o número de nós e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

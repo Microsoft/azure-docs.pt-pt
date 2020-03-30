@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77915644"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicação web azure na porta da frente do Azure
@@ -79,7 +79,7 @@ Pode configurar regras personalizadas WAF da seguinte forma:
 
 Os conjuntos de regras geridos pelo Azure proporcionam uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que tais regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque. O Conjunto de Regras padrão gerido pelo Azure inclui regras contra as seguintes categorias de ameaças:
 
-- Scripts cross-site
+- Scripting entre sites
 - Ataques de Java
 - Inclusão de ficheiros locais
 - Ataques de injeção php

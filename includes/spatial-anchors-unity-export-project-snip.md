@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
 ms.openlocfilehash: fa51e40f70764dcdb8ff750b06786dd665081926
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67135146"
 ---
-Open **definições de criação** ao selecionar **ficheiro** > **definições de criação**.
+Abra **as definições** de construção selecionando definições de**construção**de **ficheiros** > .
 
-Sob **plano criar**, certifique-se de que todos os plano têm uma marca de verificação junto a eles.
+Em **Scenes In Build,** certifique-se de que todas as cenas têm uma marca de verificação ao lado delas.

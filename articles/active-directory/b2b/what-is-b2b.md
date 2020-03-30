@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ccfb4719d14d0ce73caf093c5fe63631eda2a7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195220"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050724"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -28,6 +28,9 @@ Veja o vídeo para saber como pode colaborar de forma segura com utilizadores co
 O seguinte vídeo apresenta uma visão geral útil.
 
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
+
+   > [!IMPORTANT]
+   > A partir de 31 de março de **2021,** a Microsoft deixará de apoiar o resgate de convites através da criação de contas AD Azure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optarem pela autenticação de código de acesso único por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaborar com parceiros com recurso às identidades deles
 

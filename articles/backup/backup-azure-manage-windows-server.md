@@ -3,16 +3,16 @@ title: Gerir cofres e servidores dos Serviços de Recuperação Azure
 description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos Serviços de Recuperação para monitorizar e gerir os seus cofres de Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131979"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
-Este artigo explica como usar o painel de visão **geral** do cofre dos Serviços de Recuperação para monitorizar e gerir os seus cofres de Serviços de Recuperação. Quando abrir um cofre dos Serviços de Recuperação da lista, abre o painel de visão **geral** para o cofre selecionado. O painel fornece vários detalhes sobre o cofre. Há *azulejos* que mostram: o estado dos alertas críticos e de alerta, os postos de trabalho em curso e os trabalhos de backup falhados, bem como a quantidade de armazenamento redundante localmente (LRS) e armazenamento georedundant (GRS) utilizados. Se apoiar os VMs Azure no cofre, o azulejo [ **de pré-verificação** de backup apresenta quaisquer itens críticos ou de aviso](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). A imagem seguinte é o painel de **visão geral** para **Contoso-cofre**. Os itens de **backup** mostram que há nove itens registados no cofre.
+Este artigo explica como usar o painel de visão **geral** do cofre dos Serviços de Recuperação para monitorizar e gerir os seus cofres de Serviços de Recuperação. Quando abrir um cofre dos Serviços de Recuperação da lista, abre o painel de visão **geral** para o cofre selecionado. O painel fornece vários detalhes sobre o cofre. Há *azulejos* que mostram: o estado dos alertas críticos e de alerta, os postos de trabalho em curso e os trabalhos de backup falhados, bem como a quantidade de armazenamento redundante localmente (LRS) e armazenamento georedundant (GRS) utilizados. Se apoiar os VMs Azure no cofre, o azulejo [ **de pré-verificação** de backup apresenta quaisquer itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem seguinte é o painel de **visão geral** para **Contoso-cofre**. Os itens de **backup** mostram que há nove itens registados no cofre.
 
 ![painel de dados de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -24,7 +24,7 @@ Os pré-requisitos para este artigo são: uma subscrição Azure, um cofre de Se
 
 Para monitorizar alertas, ou ver dados de gestão sobre um cofre dos Serviços de Recuperação, abra o cofre.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando a sua assinatura Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua subscrição do Azure.
 
 2. No portal, clique em **Todos os serviços.**
 
@@ -99,7 +99,7 @@ A lista de Alertas de Backup apresenta as informações selecionadas para os ale
 | Aviso | Recebe alertas quando: Trabalhos de backup completos com avisos, por exemplo, quando menos de 100 ficheiros não são apoiados devido a problemas de corrupção, ou quando mais de 1.000.000 ficheiros são apoiados com sucesso). |
 | Informativo | atualmente, não existem alertas informativos. |
 
-### <a name="viewing-alert-details"></a>Visualização de detalhes de alerta
+### <a name="viewing-alert-details"></a>Visualizar detalhes do alerta
 
 O relatório de Alertas de Apoio rastreia oito detalhes sobre cada alerta. Utilize o botão Escolha de **colunas** para editar os detalhes do relatório.
 
@@ -112,7 +112,7 @@ Por defeito, todos os detalhes, exceto o Tempo de **Última Ocorrência,** apare
 * Servidor Protegido
 * Gravidade
 * Duração
-* Hora de criação
+* Tempo de Criação
 * Estado
 * Última ocorrência
 
@@ -178,7 +178,7 @@ Para explorar um tipo específico de instância protegida, clique no item na col
 
 ![lista do tipo de backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos Associados, [pré-verificação](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)prévia de backup, último estado de backup e data do ponto de restauro mais recente. A elipse, na última coluna, abre o menu para desencadear tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de cópia de segurança.
+A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos Associados, [pré-verificação](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)prévia de backup, último estado de backup e data do ponto de restauro mais recente. A elipse, na última coluna, abre o menu para desencadear tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de cópia de segurança.
 
 ![lista do tipo de backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -221,7 +221,7 @@ Para alterar os filtros:
 O tipo item é o tipo de gestão de backup da instância protegida. Existem quatro tipos; ver a seguinte lista. Pode ver todos os tipos de artigos, ou um tipo de item. Não é possível selecionar dois ou três tipos de itens. Os tipos de artigos disponíveis são:
 
 * Todos os tipos de itens
-* Máquina virtual azure
+* Máquina virtual do Azure
 * Ficheiros e pastas
 * Storage do Azure
 * Carga de trabalho azul
@@ -274,14 +274,14 @@ O azulejo de armazenamento de reserva no painel de instrumentos mostra o armazen
 
 **Emissão:** Empregos e/ou alertas do agente de backup Azure não aparecem no portal.
 
-**Passos de resolução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia o trabalho e os dados de alerta para o serviço de backup Azure. Ocasionalmente, este processo pode ficar preso ou encerrado.
+**Passos de resolução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```envia o trabalho e os dados de alerta para o serviço de backup Azure. Ocasionalmente, este processo pode ficar preso ou encerrado.
 
-1. Para verificar se o processo não está em execução, abra **o Task Manager**e verifique ```OBRecoveryServicesManagementAgent``` está a decorrer.
+1. Para verificar se o processo não está em ```OBRecoveryServicesManagementAgent``` execução, abra o Task **Manager**e verifique se está em execução.
 
 2. Se o processo não estiver em execução, abra o Painel de **Controlo**e navegue na lista de serviços. Inicie ou reinicie o Agente de **Gestão de Serviços de Recuperação do Microsoft Azure**.
 
     Para mais informações, navegue nos registos em:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Por exemplo:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Passos seguintes

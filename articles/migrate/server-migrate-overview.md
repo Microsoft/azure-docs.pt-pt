@@ -1,63 +1,63 @@
 ---
-title: Selecione uma opção de migração VMware com migração de servidor migrações para Azure | Microsoft Docs
-description: Fornece uma visão geral das opções para migrar VMs VMware para o Azure com migração de servidor de migrações para Azure
+title: Selecione uma opção de migração VMware com migração do servidor migratório de migração do Azure Migrate [ Microsoft Docs
+description: Fornece uma visão geral das opções para vMware migratório vMs para Azure com migração de servidores migratórios Azure
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76028724"
 ---
-# <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
+# <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
-Você pode migrar VMs do VMware para o Azure usando a ferramenta de migração de servidor de migrações para Azure. Essa ferramenta oferece algumas opções para a migração de VM do VMware:
+Pode migrar VMware VMs para Azure utilizando a ferramenta migração do servidor de migração do servidor migratório Azure Migrate. Esta ferramenta oferece um par de opções para a migração VMware VM:
 
-- Migração usando a replicação sem agente. Migre VMs sem a necessidade de instalar nada nelas.
-- Migração com um agente para replicação. Instale um agente na VM para replicação.
+- Migração usando replicação sem agente. Migrar VMs sem precisar de instalar nada neles.
+- Migração com um agente para replicação. Instale um agente no VM para replicação.
 
 
 
 
 ## <a name="compare-migration-methods"></a>Comparar métodos de migração
 
-Use essas comparações selecionadas para ajudá-lo a decidir qual método usar. Você também pode examinar os requisitos de suporte completo para migração [baseada em](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) agente e sem [agentes](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) .
+Utilize estas comparações selecionadas para ajudá-lo a decidir qual o método a utilizar. Também pode rever os requisitos completos de apoio para a migração [sem agente](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) e [baseada em agentes.](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers)
 
 **Definição** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
-**Permissões do Azure** | Você precisa de permissões para criar um projeto de migrações para Azure e registrar os aplicativos do Azure AD criados ao implantar o dispositivo de migrações para Azure. | Você precisa de permissões de colaborador na assinatura do Azure. 
-**Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho. | N/D
-**Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
-**Compatibilidade Site Recovery** | Compatível. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
-**Disco de destino** | Managed Disks | Managed Disks
-**Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
-**Discos de passagem** | Não suportado | Suportadas
-**Inicialização UEFI** | Não suportado | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
+**Permissões azure** | É necessário permissão para criar um projeto Azure Migrate e para registar aplicações Azure AD criadas quando implementar o aparelho Azure Migrate. | Precisa de permissões do Colaborador na subscrição do Azure. 
+**Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente a partir de um servidor vCenter.<br/> Se tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais numa só vez terá impacto no desempenho. | ND
+**Implantação de aparelhos** | O [aparelho Azure Migrate](migrate-appliance.md) é implantado no local. | O aparelho de [replicação de migração Azure](migrate-replication-appliance.md) é implantado no local.
+**Compatibilidade de recuperação do site** | É compatível. | Não é possível replicar com a Migração do Servidor Migratório Migratório De Migração de Migração de Migração de Migração de Migração de Migração de Migrações Azure se tiver configurado a replicação para uma máquina que utilize a Recuperação do Site.
+**Disco-alvo** | Managed disks | Managed disks
+**Limites de disco** | Disco osso: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Discos máximos: 60 | Disco osso: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Discos máximos: 63
+**Discos de passagem** | Não suportado | Suportado
+**Bota UEFI** | Não suportado | O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS.<br/><br/> O disco osso deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
 
 
 ## <a name="deployment-steps-comparison"></a>Comparação de etapas de implantação
 
-Depois de revisar as limitações, entender as etapas envolvidas na implantação de cada solução pode ajudá-lo a decidir qual opção escolher.
+Depois de rever as limitações, compreender os passos envolvidos na implementação de cada solução pode ajudá-lo a decidir qual a opção a escolher.
 
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
-**Avaliação** | Avalie servidores antes da migração.  A avaliação é opcional. Sugerimos que você avalie as máquinas antes de migrá-las, mas não é necessário. <br/><br/> Para avaliação, as migrações para Azure configuram um dispositivo leve para descobrir e avaliar as VMs. | Se você executar uma migração sem agente após a avaliação, o mesmo dispositivo de migração do Azure configurado para avaliação será usado para a migração sem agente.  |  Se você executar uma migração baseada em agente após a avaliação, a configuração do dispositivo para avaliação não será usada durante a migração sem agente. Você pode deixar o dispositivo em vigor ou removê-lo se não quiser fazer mais descoberta e avaliação.
-**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
-**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
-**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | Obrigatório | Não é necessário.
-**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não necessário | Obrigatório
-**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não necessário | Obrigatório
-**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
-**Executar uma migração de teste** | Execute uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
-**Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório
+**Avaliação** | Avaliar servidores antes da migração.  A avaliação é opcional. Sugerimos que avalie as máquinas antes de as migrar, mas não tem de o fazer. <br/><br/> Para avaliação, a Azure Migrate cria um aparelho leve para descobrir e avaliar VMs. | Se realizar uma migração sem agente após avaliação, o mesmo aparelho Azure Migrate criado para avaliação é utilizado para migração sem agente.  |  Se executar uma migração baseada em agente após avaliação, o aparelho configurado para avaliação não é utilizado durante a migração sem agente. Pode deixar o aparelho no lugar ou removê-lo se não quiser fazer mais descobertas e avaliações.
+**Prepare servidores VMware e VMs para migração** | Configure uma série de definições em servidores VMware e VMs. | Necessário | Necessário
+**Adicione a ferramenta de migração do servidor** | Adicione a ferramenta de migração do servidor migratório Azure no projeto Azure Migrate. | Necessário | Necessário
+**Implante o aparelho Azure Migrate** | Instale um aparelho leve num VMware VM para a descoberta e avaliação vm. | Necessário | Não é necessário.
+**Instalar o serviço de Mobilidade em VMs** | Instale o serviço de Mobilidade em cada VM que pretende replicar | Não é necessária | Necessário
+**Implementar o aparelho de replicação de migração do servidor migratório Azure** | Instale um aparelho num VMware VM para descobrir VMs, e ponte entre o serviço de Mobilidade em funcionamento em VMs e Migração de Servidores Migratórios Azure Migrate | Não é necessária | Necessário
+**Replicar VMs.** Ativar a replicação vm. | Configure as definições de replicação e selecione VMs para replicar | Necessário | Necessário
+**Executar uma migração de teste** | Faça uma migração de teste para ter certeza de que está tudo funcionando como esperado. | Necessário | Necessário
+**Executar uma migração completa** | Migrar os VMs. | Necessário | Necessário
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Migre VMs VMware](tutorial-migrate-vmware.md) com migração sem agente.
+[VMs migratórios](tutorial-migrate-vmware.md) com migração sem agente.
 
 
 

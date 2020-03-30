@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 26030c12d98d796ceb1f66f198aede6e40eebd94
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399012"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicação de plataforma de identidade microsoft
@@ -42,12 +42,12 @@ Plataforma de identidade da Microsoft Para calcular a afirmação, pode utilizar
 
 | Parâmetro |  Observações |
 | --- | --- |
-| `aud` | Público: Deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Público: Deve ser ** https://login.microsoftonline.com/ *tenant_Id*/oauth2/token** |
 | `exp` | Data de validade: a data em que o token expira. O tempo é representado como o número de segundos de 1 de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até ao momento em que a validade do símbolo expira.|
 | `iss` | Emitente: deve ser o client_id (Id de aplicação do serviço ao cliente) |
 | `jti` | GUID: o ID JWT |
 | `nbf` | Não antes: a data anterior à qual o símbolo não pode ser utilizado. O tempo é representado como o número de segundos de 1 de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até ao momento em que o token foi emitido. |
-| `sub` | Objeto: Quanto à `iss`, deve ser o client_id (Id de aplicação do serviço ao cliente) |
+| `sub` | Objeto: Quanto `iss`a, deve ser o client_id (Id de aplicação do serviço ao cliente) |
 
 ### <a name="signature"></a>Assinatura
 
@@ -93,7 +93,7 @@ Pode associar a credencial de certificado à aplicação do cliente na plataform
 ### <a name="uploading-the-certificate-file"></a>Upload do ficheiro de certificado
 
 No registo da aplicação Azure para a aplicação do cliente:
-1. Selecione **Certificados e segredos.**
+1. Selecione **Certificados & segredos**.
 2. Clique no **certificado de upload** e selecione o ficheiro de certificado para carregar.
 3. Clique em **Adicionar**.
   Uma vez carregado o certificado, a impressão digital, a data de início e os valores de validade são apresentados.
@@ -105,7 +105,7 @@ Tendo um certificado, precisa calcular:
 - `$base64Thumbprint`, que é a codificação base64 do certificado hash
 - `$base64Value`, que é a codificação base64 dos dados brutos do certificado
 
-Também precisa de fornecer um GUID para identificar a chave no manifesto de aplicação (`$keyId`).
+Também precisa de fornecer um GUID para identificar`$keyId`a chave no manifesto de aplicação ( ).
 
 No registo da aplicação Azure para a aplicação do cliente:
 1. Selecione **Manifesto** para abrir o manifesto de aplicação.
@@ -124,11 +124,11 @@ No registo da aplicação Azure para a aplicação do cliente:
    ```
 3. Guarde as edições para o manifesto da aplicação e, em seguida, faça upload do manifesto para a plataforma de identidade da Microsoft.
 
-   A propriedade `keyCredentials` é multi-valor, para que possa carregar vários certificados para uma gestão chave mais rica.
+   A `keyCredentials` propriedade é multi-valiosa, por isso pode carregar vários certificados para uma gestão chave mais rica.
 
 ## <a name="code-sample"></a>Exemplo de código
 
 > [!NOTE]
-> Deve calcular o cabeçalho X5T convertendo-o numa corda base 64 utilizando o hash do certificado. O código para C# a realização disto é `System.Convert.ToBase64String(cert.GetCertHash());`.
+> Deve calcular o cabeçalho X5T convertendo-o numa corda base 64 utilizando o hash do certificado. O código para executar isto `System.Convert.ToBase64String(cert.GetCertHash());`em C# é .
 
-A aplicação de consola da net [Core daemon utilizando](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) a plataforma de identidade da Microsoft mostra como uma aplicação utiliza as suas próprias credenciais para autenticação. Também mostra como pode [criar um certificado auto-assinado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) utilizando o comando `New-SelfSignedCertificate` Powershell. Você também pode aproveitar e usar os scripts de criação de [aplicativos](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) para criar os certificados, calcular a impressão digital, e assim por diante.
+A aplicação de consola da net [Core daemon utilizando](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) a plataforma de identidade da Microsoft mostra como uma aplicação utiliza as suas próprias credenciais para autenticação. Também mostra como pode criar um certificado `New-SelfSignedCertificate` [auto-assinado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) utilizando o comando Powershell. Você também pode aproveitar e usar os scripts de criação de [aplicativos](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) para criar os certificados, calcular a impressão digital, e assim por diante.

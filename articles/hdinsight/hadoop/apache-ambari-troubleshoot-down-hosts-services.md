@@ -1,6 +1,6 @@
 ---
-title: A interface do usuário do Apache Ambari mostra hosts e serviços no Azure HDInsight
-description: Solução de problemas de um problema da interface do usuário do Apache Ambari quando ele mostra hosts e serviços no Azure HDInsight
+title: Apache Ambari UI mostra anfitriões e serviços no Azure HDInsight
+description: Problemas de resolução de um problema da UI Apache Ambari quando mostra anfitriões e serviços em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,25 +8,25 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/02/2019
 ms.openlocfilehash: 5340b1c7a6510595376789bc5777e6fb6f07dd4a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895639"
 ---
-# <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Cenário: a interface do usuário do Apache Ambari mostra hosts e serviços no Azure HDInsight
+# <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Cenário: Apache Ambari UI mostra anfitriões e serviços no Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-A interface do usuário do Apache Ambari é acessível, mas a interface do usuário mostra quase todos os serviços estão inativos, todos os hosts mostrando a pulsação perdida
+Apache Ambari UI é acessível, mas a UI mostra que quase todos os serviços estão em baixo, todos os anfitriões mostrando batimentos cardíacos perdidos.
 
 ## <a name="cause"></a>Causa
 
-Na maioria dos cenários, isso é um problema com o Ambari Server não estar em execução no Active cabeçalho. Verifique qual cabeçalho é o cabeçalho ativo e certifique-se de que o ambari-Server seja executado à direita. Não inicie manualmente o ambari-Server, deixe que o serviço do controlador de failover seja responsável por iniciar o ambari-Server no cabeçalho correto. Reinicialize o cabeçalho ativo para forçar um failover.
+Na maioria dos cenários, este é um problema com o servidor Ambari não funcionar no nódeo ativo. Verifique qual o nódoo ativo e certifique-se de que o seu servidor ambari corre no lado certo. Não inicie manualmente o servidor ambari, deixe que o serviço de controlador failover seja responsável por iniciar o servidor ambari no nódoado direito. Reinicie o nódeodo ativo para forçar uma falha.
 
-Problemas de rede também podem causar esse problema. Em cada nó de cluster, consulte se você pode executar ping `headnodehost`. Há uma situação rara em que nenhum nó de cluster pode se conectar a `headnodehost`:
+As questões de networking também podem causar este problema. De cada nó de cluster, `headnodehost`veja se consegue ping. Há uma situação rara em que nenhum `headnodehost`nó de cluster pode ligar-se a:
 
 ```
 $>telnet headnodehost 8440
@@ -35,14 +35,14 @@ $>telnet headnodehost 8440
 
 ## <a name="resolution"></a>Resolução
 
-Geralmente, reinicializar o cabeçalho ativo atenuará esse problema. Caso contrário, entre em contato com a equipe de suporte do HDInsight.
+Normalmente reiniciar o nódoado ativo irá atenuar esta questão. Caso contrário, contacte a equipa de suporte da HDInsight.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

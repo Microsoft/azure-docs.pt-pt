@@ -1,6 +1,6 @@
 ---
-title: Ingerir dados de exemplo no Azure Data Explorer
-description: Saiba mais sobre como ingerir (carregar) dados de exemplo relacionados ao clima no Azure Data Explorer.
+title: Ingerir dados de amostra no Azure Data Explorer
+description: Saiba como ingerir (carregar) dados de amostras relacionados com o tempo no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,18 +8,18 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
 ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74975181"
 ---
-# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Início rápido: ingestão de dados de exemplo no Azure Data Explorer
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Quickstart: Ingerir dados de amostra no Azure Data Explorer
 
-Este artigo mostra como ingerir (carregar) os dados de exemplo em um Azure Data Explorer Database. Há [várias maneiras de ingerir dados](ingest-data-overview.md); Este artigo se concentra em uma abordagem básica que é adequada para fins de teste.
+Este artigo mostra-lhe como ingerir (carregar) dados de amostra numa base de dados do Azure Data Explorer. Existem [várias formas de ingerir dados;](ingest-data-overview.md) este artigo centra-se numa abordagem básica que é adequada para efeitos de teste.
 
 > [!NOTE]
-> Você já terá esses dados se tiver concluído [a ingestão de dados usando a biblioteca do Azure data Explorer Python](python-ingest-data.md).
+> Já tem estes dados se tiver completado [os dados da Ingest utilizando a biblioteca Python do Explorador de Dados Do Azure.](python-ingest-data.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,36 +29,36 @@ Este artigo mostra como ingerir (carregar) os dados de exemplo em um Azure Data 
 
 O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Meteorologia dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
 
-1. Inicie sessão em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+1. Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com)em .
 
 1. Na parte superior esquerda da aplicação, selecione **Adicionar cluster**.
 
-1. Na caixa de diálogo **Adicionar cluster** , insira a URL do cluster no formato `https://<ClusterName>.<Region>.kusto.windows.net/`e, em seguida, selecione **Adicionar**.
+1. Na caixa de diálogo do **cluster Adicionar,** `https://<ClusterName>.<Region>.kusto.windows.net/`introduza o URL do cluster no formulário, em seguida, selecione **Adicionar**.
 
-1. Cole o comando a seguir e selecione **executar** para criar uma tabela StormEvents.
+1. Colhe no comando seguinte e selecione **Run** para criar uma tabela StormEvents.
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
     ```
-1. Cole o comando a seguir e selecione **executar** para ingerir dados na tabela StormEvents.
+1. Colá-cola no comando seguinte e selecione **Executar** para ingerir dados na tabela StormEvents.
 
     ```Kusto
     .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
     ```
 
-1. Após a conclusão da ingestão, Cole a consulta a seguir, selecione a consulta na janela e selecione **executar**.
+1. Depois de a ingestão terminar, cola na seguinte consulta, selecione a consulta na janela e selecione **Executar**.
 
     ```Kusto
     StormEvents
     | sort by StartTime desc
     | take 10
     ```
-    A consulta retorna os seguintes resultados dos dados de exemplo ingeridos.
+    A consulta devolve os seguintes resultados dos dados da amostra ingeridos.
 
     ![Resultados da consulta](media/ingest-sample-data/query-results.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* O [Azure data Explorer ingestão de dados](ingest-data-overview.md) para saber mais sobre os métodos de ingestão.
-* [Início rápido: consultar dados no Azure data Explorer](web-query-data.md) Interface do usuário da Web.
-* [Escreva consultas](write-queries.md) com linguagem de consulta Kusto.
+* [Ingestão](ingest-data-overview.md) de dados do Azure Data Explorer para saber mais sobre métodos de ingestão.
+* [Quickstart: Dados de consulta no Azure Data Explorer](web-query-data.md) Web UI.
+* [Escreva consultas](write-queries.md) com linguagem de consulta kusto.

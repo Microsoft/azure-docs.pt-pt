@@ -1,5 +1,5 @@
 ---
-title: Controle um dispositivo do Azure IoT Hub quickstart (Android)  Microsoft Docs
+title: Controle um dispositivo do Azure IoT Hub quickstart (Android) [ Microsoft Docs
 description: Neste guia de início rápido, irá executar duas aplicações Java de exemplo. Uma aplicação é uma aplicação de serviço que pode controlar remotamente dispositivos ligados ao seu hub. A outra aplicação funciona num dispositivo físico ou simulado ligado ao seu hub que pode ser controlado remotamente.
 author: wesmc7777
 manager: philmea
@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
 ms.openlocfilehash: 5a912199869cb2cce690a3502345ec6f9ca43d22
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675674"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
@@ -29,7 +29,7 @@ Neste arranque rápido, utiliza-se um método direto para controlar um dispositi
 
 * [Android Studio com Android SDK 27](https://developer.android.com/studio/). Para mais informações, consulte [Instalar o Android Studio.](https://developer.android.com/studio/install)
 
-* [Git](https://git-scm.com/download/).
+* [Git.](https://git-scm.com/download/)
 
 * [Aplicação Android amostra de dispositivo SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample), incluída em [Amostras Azure IoT (Java)](https://github.com/Azure-Samples/azure-iot-samples-java).
 
@@ -129,7 +129,7 @@ A aplicação de amostras SDK do dispositivo pode ser executada num dispositivo 
    > * As versões do plugin E Gradle do Android Gradle referenciados no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referência e instale as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e baixar o SDK.
 
-4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'** . Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
+4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação estiver carregada, clique no botão **Iniciar** para começar a enviar telemetria para o seu Hub IoT:
 
@@ -182,7 +182,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
    > * As versões do plugin E Gradle do Android Gradle referenciados no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referência e instale as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e baixar o SDK.
 
-4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'** . Configure a aplicação para executar num dispositivo Android físico separado ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
+4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico separado ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação estiver carregada, atualize o valor do intervalo de **mensagens para** **1000** e clique **em Invocar**.
 

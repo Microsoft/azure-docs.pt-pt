@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 540223d28542a78245dfe699d9068accb618ea76
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673477"
 ---
-Este tutorial orienta-a criar a solução a partir do portal do Azure. Se estiver interessado na criação desta solução a partir de um modelo, escolha o modelo apropriado a partir [modelos do Microsoft Azure GitHub](https://github.com/Azure/azure-quickstart-templates). O [criar um grupo de disponibilidade com máquinas de virtuais de réplica do SQL Server 2014](https://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) modelo cria a mesma solução que este tutorial. 
+Este tutorial acompanha-o através da construção da solução a partir do portal Azure. Se estiver interessado em criar esta solução a partir de um modelo, escolha o modelo apropriado a partir dos [modelos Do Microsoft Azure GitHub](https://github.com/Azure/azure-quickstart-templates). O [Modelo de máquinas virtuais SQL Server 2014](https://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) cria a mesma solução que este tutorial. 
 

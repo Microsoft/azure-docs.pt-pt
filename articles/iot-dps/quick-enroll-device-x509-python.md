@@ -10,17 +10,17 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: ed51fb7589247b1a52930931ed297d4292b07ea6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77921135"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Neste arranque rápido, você usa Python para criar programáticamente um grupo de inscrição que usa certificados ca.509 intermédios ou raiz. Um grupo de inscrição controla o acesso ao serviço de aprovisionamento de dispositivos que partilham um certificado de assinatura comum na respetiva cadeia de certificados. O grupo de inscrições é criado utilizando o Python Provisioning Service SDK e uma aplicação de python de amostra.
+Neste arranque rápido, você usa Python para criar programáticamente um grupo de inscrição que usa certificados ca.509 intermédios ou raiz. Um grupo de inscrição controla o acesso ao serviço de aprovisionamento de dispositivos que partilham um certificado de assinatura comum na respetiva cadeia de certificados. O grupo de inscrição é criado com o SDK do Serviço de Aprovisionamento Python e uma aplicação Python de exemplo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Neste arranque rápido, você usa Python para criar programáticamente um grupo 
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Python 2.x ou 3.x](https://www.python.org/downloads/). Adicione Python às suas variáveis ambientais específicas da plataforma. Este quickstart instala o Serviço de [Provisionamento Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) abaixo.
 - [Pip,](https://pip.pypa.io/en/stable/installing/)se não incluído com a sua distribuição de Python.
-- [Git](https://git-scm.com/download/).
+- [Git.](https://git-scm.com/download/)
 
 > [!IMPORTANT]
 > Este artigo aplica-se apenas ao SDK Desprecated V1 Python. Os clientes de dispositivos e serviços do Serviço de Provisionamento de Dispositivos IoT Hub ainda não estão disponíveis no V2. A equipa está neste momento a trabalhar arduamente para trazer o V2 para a paridade.
@@ -45,7 +45,7 @@ Para utilizar estas ferramentas de teste para gerar certificados, execute os seg
 
 1. Encontre o nome da etiqueta para o [mais recente lançamento](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do Azure IoT C SDK.
 
-2. Abra uma linha de comandos ou shell do Git Bash e mude para uma pasta de trabalho no seu computador. Executar os seguintes comandos para clonar o mais recente lançamento do [repositório Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub. Utilize a etiqueta encontrada no passo anterior como valor para o parâmetro `-b`:
+2. Abra uma linha de comandos ou shell do Git Bash e mude para uma pasta de trabalho no seu computador. Executar os seguintes comandos para clonar o mais recente lançamento do [repositório Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub. Utilize a etiqueta encontrada no passo anterior `-b` como valor para o parâmetro:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -65,7 +65,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
 1. Num editor de texto, crie um novo ficheiro **EnrollmentGroup.py**.
 
-1. Adicione as seguintes `import` afirmações e variáveis no início do ficheiro **EnrollmentGroup.py**. Em seguida, substitua `dpsConnectionString` pela sua cadeia de ligação, que se encontra nas **Políticas de acesso partilhadas** no seu **Serviço Aprovisionamento de Dispositivos** no **portal do Azure**. Substitua o marcador de posição do certificado pelo certificado criado anteriormente em [Preparar os certificados de teste](quick-enroll-device-x509-python.md#prepare-test-certificates). Por fim, crie um `registrationid` exclusivo e certifique-se de que este consiste apenas em carateres alfanuméricos em minúsculas e hífenes.  
+1. Adicione as seguintes `import` afirmações e variáveis no início do ficheiro **EnrollmentGroup.py**. Em `dpsConnectionString` seguida, substitua-a pela sua cadeia de ligação encontrada no âmbito das políticas de **acesso partilhado** no seu Serviço de **Provisionamento** de Dispositivos no **portal Azure**. Substitua o marcador de posição do certificado pelo certificado criado anteriormente em [Preparar os certificados de teste](quick-enroll-device-x509-python.md#prepare-test-certificates). Por fim, crie um `registrationid` exclusivo e certifique-se de que este consiste apenas em carateres alfanuméricos em minúsculas e hífenes.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

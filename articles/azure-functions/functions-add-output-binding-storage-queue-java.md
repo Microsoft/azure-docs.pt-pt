@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
 ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78272795"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Ligue a sua função Java ao Armazenamento Azure
@@ -19,7 +19,7 @@ ms.locfileid: "78272795"
 
 Este artigo mostra-lhe como integrar a função que criou no [artigo quickstart anterior](functions-create-first-java-maven.md) com uma fila de Armazenamento Azure. O encadernação de saída que adiciona a esta função escreve dados de um pedido HTTP para uma mensagem na fila.
 
-A maioria das ligações requer uma cadeia de ligação armazenada que as Funções usam para aceder ao serviço de encadernação. Para facilitar esta ligação, utiliza a conta de Armazenamento que criou com a sua aplicação de funções. A ligação a esta conta já está armazenada numa definição de aplicação chamada `AzureWebJobsStorage`.  
+A maioria das ligações requer uma cadeia de ligação armazenada que as Funções usam para aceder ao serviço de encadernação. Para facilitar esta ligação, utiliza a conta de Armazenamento que criou com a sua aplicação de funções. A ligação a esta conta já está `AzureWebJobsStorage`armazenada numa definição de aplicação chamada .  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,15 +39,15 @@ Agora pode adicionar a ligação de saída de Armazenamento ao seu projeto.
 
 Num projeto java, as encadernações são definidas como anotações vinculativas no método da função. O ficheiro *função.json* é então autogerado com base nestas anotações.
 
-Navegue na localização do seu código de funções sob _o sRC/main/java,_ abra o ficheiro do projeto *Function.java* e adicione o seguinte parâmetro à definição de método `run`:
+Navegue na localização do seu código de funções sob _o sRC/main/java,_ abra o `run` ficheiro do projeto *Function.java* e adicione o seguinte parâmetro à definição de método:
 
 ```java
 @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
 ```
 
-O parâmetro `msg` é um tipo [`OutputBinding<T>`,](/java/api/com.microsoft.azure.functions.outputbinding) que representa uma coleção de cordas que são escritas como mensagens para uma ligação de saída quando a função completa. Neste caso, a saída é uma fila de armazenamento chamada `outqueue`. A cadeia de ligação para a conta de armazenamento é definida pelo método `connection`. Em vez da cadeia de ligação em si, passa a definição de aplicação que contém a cadeia de ligação da conta de armazenamento.
+O `msg` parâmetro é [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) um tipo, que representa uma coleção de cordas que são escritas como mensagens para uma ligação de saída quando a função completa. Neste caso, a saída é `outqueue`uma fila de armazenamento chamada . A cadeia de ligação para `connection` a conta de armazenamento é definida pelo método. Em vez da cadeia de ligação em si, passa a definição de aplicação que contém a cadeia de ligação da conta de armazenamento.
 
-A definição de método `run` deve agora parecer o seguinte exemplo:  
+A `run` definição do método deve agora parecer o seguinte exemplo:  
 
 ```java
 @FunctionName("HttpTrigger-Java")
@@ -62,7 +62,7 @@ public HttpResponseMessage run(
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Agora, pode usar o novo parâmetro de `msg` para escrever para a ligação de saída a partir do seu código de funcionamento. Adicione a seguinte linha de código antes da resposta de sucesso para adicionar o valor de `name` à ligação de saída `msg`.
+Agora, pode usar `msg` o novo parâmetro para escrever para a ligação de saída a partir do seu código de função. Adicione a seguinte linha de código antes da `name` resposta `msg` de sucesso para adicionar o valor da ligação de saída.
 
 ```java
 msg.setValue(name);
@@ -70,7 +70,7 @@ msg.setValue(name);
 
 Quando utiliza uma ligação de saída, não é necessário utilizar o código SDK de Armazenamento Azure para autenticação, obtendo uma referência de fila ou escrevendo dados. O tempo de funcionamento das Funções e a ligação de saída da fila fazem essas tarefas para si.
 
-O seu método `run` deve agora parecer o seguinte exemplo:
+O `run` seu método deve agora parecer o seguinte exemplo:
 
 ```java
 @FunctionName("HttpTrigger-Java")
@@ -97,9 +97,9 @@ public HttpResponseMessage run(
 
 ## <a name="update-the-tests"></a>Atualizar os testes
 
-Como o arquétipo também cria um conjunto de testes, é necessário atualizar estes testes para lidar com o novo parâmetro de `msg` na assinatura do método `run`.  
+Como o arquétipo também cria um conjunto de testes, `msg` é necessário `run` atualizar estes testes para lidar com o novo parâmetro na assinatura do método.  
 
-Navegue na localização do seu código de teste sob _o sRC/test/java,_ abra o ficheiro do projeto *Function.java* e substitua a linha de código sob `//Invoke` pelo seguinte código.
+Navegue na localização do seu código de teste sob _o sRC/teste/java,_ abra o `//Invoke` ficheiro do projeto *Function.java* e substitua a linha de código sob o seguinte código.
 
 ```java
 @SuppressWarnings("unchecked")
@@ -138,7 +138,7 @@ Como antes, acionar a função a partir da linha de comando utilizando cURL numa
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-Desta vez, a ligação de saída também cria uma fila chamada `outqueue` na sua conta de Armazenamento e adiciona uma mensagem com esta mesma corda.
+Desta vez, a ligação de `outqueue` saída também cria uma fila nomeada na sua conta de Armazenamento e adiciona uma mensagem com esta mesma corda.
 
 Em seguida, usa o Azure CLI para ver a nova fila e verificar se foi adicionada uma mensagem. Também pode ver a sua fila utilizando o [Microsoft Azure Storage Explorer][Azure Storage Explorer] ou no portal [Azure](https://portal.azure.com).
 
@@ -162,7 +162,7 @@ gradle azureFunctionsDeploy
 ```
 ::: zone-end
 
-Mais uma vez, pode utilizar cURL para testar a função implantada. Como antes, passe o valor `AzureFunctions` no corpo do pedido post para o URL, como neste exemplo:
+Mais uma vez, pode utilizar cURL para testar a função implantada. Como antes, passe `AzureFunctions` o valor no corpo do pedido post para o URL, como neste exemplo:
 
 ```bash
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions

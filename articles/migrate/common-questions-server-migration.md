@@ -3,12 +3,12 @@ title: FaQ migração do servidor migratório Azure
 description: Obtenha respostas a perguntas comuns sobre a utilização da Migração do Servidor Migratório Azure migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939207"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127808"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor migratório Azure Migrador: Questões comuns
 
@@ -75,6 +75,14 @@ Não. A Azure Migrate apoia a migração apenas para discos geridos (Standard HD
 
 Atualmente, pode migrar 100 VMs por exemplo de vCenter Server simultaneamente. Migrar em lotes de 10 VMs.
 
+## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como é que eu estrangulo a replicação na utilização do aparelho Azure Migrate para uma replicação vmware sem agente?  
+
+Pode acelerar utilizando a NetQosPolicy. Por exemplo:
+
+O AppNamePrefix a utilizar na NetQosPolicy é "GatewayWindowsService.exe". Poderia criar uma política sobre o aparelho Azure Migrate para acelerar o tráfego de replicação do aparelho, criando uma política como esta:
+ 
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando migrarei máquinas como servidores físicos?
 
 As máquinas migratórias, tratando-as como servidores físicos, são úteis em vários cenários:
@@ -88,6 +96,6 @@ As máquinas migratórias, tratando-as como servidores físicos, são úteis em 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso de VMware vCenter para migrar VMware VMware VMs?
 Para [migrar VMware VMs](server-migrate-overview.md) usando migração baseada em vMware ou sem agente, os anfitriões ESXi em que os VMs estão localizados devem ser geridos pelo VCenter Server. Se não tiver vCenter Server, pode migrar VMware VMware VMware migrando-os como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

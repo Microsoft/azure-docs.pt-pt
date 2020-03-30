@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
 ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78303533"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Quickstart: Criar alertas personalizados

@@ -1,41 +1,41 @@
 ---
-title: Criar contêineres Cosmos do Azure com chave de partição grande
-description: Saiba como criar um contêiner em Azure Cosmos DB com chave de partição grande usando portal do Azure e SDKs diferentes.
+title: Crie recipientes Azure Cosmos com grande chave de partição
+description: Aprenda a criar um recipiente em Azure Cosmos DB com grande chave de partição utilizando o portal Azure e diferentes SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 7184a6b85e93c41dfe914813301a4b1a0c88f2cd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887687"
 ---
-# <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
+# <a name="create-containers-with-large-partition-key"></a>Criar recipientes com grande chave de partição
 
-Azure Cosmos DB usa o esquema de particionamento baseado em hash para atingir o dimensionamento horizontal dos dados. Todos os contêineres de Cosmos do Azure criados antes de maio de 3 2019 usam uma função de hash que computa o hash com base nos primeiros 100 bytes da chave de partição. Se houver várias chaves de partição que tenham os mesmos primeiros 100 bytes, essas partições lógicas serão consideradas como a mesma partição lógica pelo serviço. Isso pode levar a problemas, como a cota de tamanho da partição sendo incorreta e a aplicação de índices exclusivos nas chaves de partição. Chaves de partição grandes são introduzidas para resolver esse problema. O Azure Cosmos DB agora dá suporte a chaves de partição grandes com valores de até 2 KB.
+A Azure Cosmos DB utiliza um esquema de partição baseado em hash para alcançar a escala horizontal de dados. Todos os contentores Azure Cosmos criados antes de 3 de maio de 2019 usam uma função de haxixe que calcula haxixe com base nos primeiros 100 bytes da chave de partição. Se existem várias teclas de partição que têm os mesmos 100 primeiros bytes, então essas divisórias lógicas são consideradas como a mesma divisória lógica pelo serviço. Isto pode levar a que questões como a quota de tamanho da divisória sejam incorretas, e índices únicos sejam aplicados através das teclas de partição. São introduzidas chaves de partição grandes para resolver este problema. A Azure Cosmos DB suporta agora grandes teclas de partição com valores até 2 KB.
 
-Chaves de partição grandes têm suporte usando a funcionalidade de uma versão aprimorada da função de hash, que pode gerar um hash exclusivo de chaves de partição grandes de até 2 KB. Essa versão de hash também é recomendada para cenários com alta cardinalidade de chave de partição, independentemente do tamanho da chave de partição. Uma cardinalidade de chave de partição é definida como o número de partições lógicas exclusivas, por exemplo, na ordem de ~ 30000 partições lógicas em um contêiner. Este artigo descreve como criar um contêiner com uma chave de partição grande usando o portal do Azure e diferentes SDKs.
+As grandes teclas de partição são suportadas utilizando a funcionalidade de uma versão melhorada da função hash, que pode gerar um hash único a partir de grandes teclas de partição até 2 KB. Esta versão hash também é recomendada para cenários com alta cardeal-chave de partição, independentemente do tamanho da chave de partição. Uma cardeal-chave de partição é definida como o número de divisórias lógicas únicas, por exemplo na ordem de ~30000 divisórias lógicas em um recipiente. Este artigo descreve como criar um recipiente com uma grande chave de partição usando o portal Azure e diferentes SDKs.
 
-## <a name="create-a-large-partition-key-azure-portal"></a>Criar uma chave de partição grande (portal do Azure)
+## <a name="create-a-large-partition-key-azure-portal"></a>Criar uma grande chave de partição (portal Azure)
 
-Para criar uma chave de partição grande, ao criar um novo contêiner usando o portal do Azure, verifique a opção **minha chave de partição é maior que 100-bytes** . Desmarque a caixa de seleção se você não precisar de chaves de partição grandes ou se tiver aplicativos em execução na versão de SDKs com mais de 1,18.
+Para criar uma grande chave de partição, quando criar um novo recipiente utilizando o portal Azure, verifique se a **chave de partição My é maior do que a opção de 100 bytes.** Desmarque a caixa de verificação se não precisar de chaves de partição grandes ou se tiver aplicações em execução na versão SDKs com mais de 1.18.
 
-![Criar chaves de partição grandes usando portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+![Crie grandes chaves de partição usando o portal Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
 
-## <a name="create-a-large-partition-key-powershell"></a>Criar uma chave de partição grande (PowerShell)
+## <a name="create-a-large-partition-key-powershell"></a>Criar uma grande chave de partição (PowerShell)
 
-Para criar um contêiner com suporte de chave de partição grande, consulte
+Para criar um recipiente com grande suporte à chave de divisória, consulte,
 
-* [Criar um contêiner Cosmos do Azure com um tamanho de chave de partição grande](manage-with-powershell.md#create-container-big-pk)
+* [Crie um recipiente Azure Cosmos com uma grande chave de partição](manage-with-powershell.md#create-container-big-pk)
 
-## <a name="create-a-large-partition-key-net-sdk"></a>Criar uma chave de partição grande (SDK do .net)
+## <a name="create-a-large-partition-key-net-sdk"></a>Criar uma grande chave de partição (.Net SDK)
 
-Para criar um contêiner com uma chave de partição grande usando o SDK do .NET, especifique a propriedade `PartitionKeyDefinitionVersion.V2`. O exemplo a seguir mostra como especificar a Propriedade Version dentro do objeto PartitionKeyDefinition e defini-la como PartitionKeyDefinitionVersion. v2.
+Para criar um recipiente com uma grande chave de partição utilizando o .NET SDK, especifique a `PartitionKeyDefinitionVersion.V2` propriedade. O exemplo seguinte mostra como especificar a propriedade versão dentro do objeto PartitionKeyDefinition e defini-la para PartitionKeyDefinitionVersion.V2.
 
-### <a name="v3-net-sdk"></a>SDK do .NET v3
+### <a name="v3-net-sdk"></a>v3 .NET SDK
 
 ```csharp
 await database.CreateContainerAsync(
@@ -62,23 +62,23 @@ database,
       new RequestOptions { OfferThroughput = 400 });
 ```
 
-## <a name="supported-sdk-versions"></a>Versões do SDK com suporte
+## <a name="supported-sdk-versions"></a>Versões SDK suportadas
 
-As chaves de partição grandes têm suporte com as seguintes versões mínimas dos SDKs:
+As teclas de partição Grandes são suportadas com as seguintes versões mínimas de SDKs:
 
-|Tipo de SDK  | Versão mínima   |
+|Tipo SDK  | Versão mínima   |
 |---------|---------|
-|.Net     |    1,18     |
-|Sincronização de Java     |   2.4.0      |
-|Assíncrono de Java   |  2.5.0        |
-| API REST | versão maior que `2017-05-03` usando o cabeçalho de solicitação `x-ms-version`.|
-| Modelo do Resource Manager | versão 2 usando a propriedade `"version":2` dentro do objeto `partitionKey`. |
+|.Net     |    1.18     |
+|Sincronização java     |   2.4.0      |
+|Java Async   |  2.5.0        |
+| API REST | versão superior `2017-05-03` ao `x-ms-version` usando o cabeçalho de pedido.|
+| Modelo do Resource Manager | versão 2 usando `"version":2` a `partitionKey` propriedade dentro do objeto. |
 
-No momento, você não pode usar contêineres com chave de partição grande dentro do Power BI e aplicativos lógicos do Azure. Você pode usar contêineres sem uma chave de partição grande desses aplicativos.
+Atualmente, não é possível utilizar recipientes com grande chave de partição dentro de Aplicações lógicas Power BI e Azure. Pode utilizar recipientes sem uma grande chave de partição destas aplicações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com a conta do Azure Cosmos](account-overview.md)
+* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)

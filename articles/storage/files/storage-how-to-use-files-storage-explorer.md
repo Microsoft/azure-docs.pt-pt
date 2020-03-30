@@ -1,5 +1,5 @@
 ---
-title: Gerenciando compartilhamentos de arquivos do Azure usando o Gerenciador de Armazenamento do Azure
+title: Gerir as ações de ficheiros azure usando o Azure Storage Explorer
 description: Utilize este início rápido para saber como utilizar o Explorador de Armazenamento do Azure para gerir Ficheiros do Azure.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431827"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: criar e gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
@@ -19,7 +19,7 @@ Este guia orienta-o pelas noções básicas de utilizar [partilhas de ficheiros 
 
 O Explorador de Armazenamento do Azure é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este início rápido requer a instalação do Explorador de Armazenamento. Para transferi-lo e instalá-lo, aceda ao [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
@@ -49,7 +49,7 @@ Para criar a sua primeira partilha de ficheiros do Azure na conta de armazenamen
 
 3. Para a partilha de ficheiros, introduza *myshare* e, em seguida, prima Enter.
 
-Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomeação de partilhas e ficheiros de ficheiros, consulte [nomear e referenciar ações, diretórios, ficheiros e metadados.](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
 
 Depois de criar a partilha de ficheiros, é aberto um separador para a partilha de ficheiros no painel direito. 
 

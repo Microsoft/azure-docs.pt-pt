@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76770741"
 ---
 # <a name="azure-table-storage-overview"></a>Descrição geral do armazenamento de tabelas do Azure
@@ -30,7 +30,7 @@ Pode utilizar o Armazenamento de Tabelas para armazenar conjuntos de dados flex�
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
-* [Inicie com o armazenamento da Mesa API e da Mesa Azure Azure azure azure com o .NET SDK](table-storage-how-to-use-dotnet.md)
+* [Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET](table-storage-how-to-use-dotnet.md)
 
 * Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
 

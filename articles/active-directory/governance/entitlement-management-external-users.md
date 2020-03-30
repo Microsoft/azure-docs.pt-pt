@@ -3,7 +3,7 @@ title: Reger o acesso a utilizadores externos na gestão de direitos da AD Azure
 description: Saiba mais sobre as definições que pode especificar para reger o acesso a utilizadores externos na gestão de direitos do Diretório Ativo Do Azure.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128686"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso a utilizadores externos na gestão de direitos da AD Azure
 
@@ -105,7 +105,7 @@ Para garantir que as pessoas fora da sua organização possam solicitar pacotes 
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>Reveja as definições de partilha de grupo seleções do Office 365
 
-- Se pretender incluir os grupos office 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que os utilizadores do **Let adicionam novos hóspedes à organização** para permitir o acesso dos hóspedes. Para mais informações, consulte [Gerir o acesso dos hóspedes ao Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Se pretender incluir os grupos office 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que os utilizadores do **Let adicionam novos hóspedes à organização** para permitir o acesso dos hóspedes. **On** Para mais informações, consulte [Gerir o acesso dos hóspedes ao Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
 - Se quiser que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo do Office 365, certifique-se de que liga a partilha externa do SharePoint Online. Para mais informações, consulte [a partilha externa ligar ou desligar.](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)
 
@@ -147,6 +147,6 @@ Pode selecionar o que acontece quando um utilizador externo, que foi convidado p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar uma organização conectada](entitlement-management-organization.md)
+- [Adicionar uma organização associada](entitlement-management-organization.md)
 - [Para utilizadores que não estão no seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Resolução de problemas](entitlement-management-troubleshoot.md)

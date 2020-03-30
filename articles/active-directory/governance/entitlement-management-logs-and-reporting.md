@@ -1,9 +1,9 @@
 ---
-title: Archive & report com o Azure Monitor - Gestão de direitos da Azure AD
+title: Relatório de & de Arquivo com o Azure Monitor - Gestão de direitos da Azure AD
 description: Saiba como arquivar registos e criar relatórios com o Azure Monitor na gestão de direitos do Diretório Ativo Azure.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/27/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f89af42e32783de479c4302b19c0a7ddc1289bb8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128630"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da Azure AD no Monitor Azure
 
@@ -89,11 +89,11 @@ Para definir a atribuição de funções e criar uma consulta, faça os seguinte
 1. No portal Azure, localize o espaço de [trabalho log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 ).
 
-1. Selecione **Controlo de Acesso (IAM)** .
+1. Selecione **Controlo de Acesso (IAM)**.
 
 1. Em seguida, clique em **Adicionar** uma atribuição de funções.
 
-    ![Adicionar uma atribuição de funções](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
+    ![Adicionar uma atribuição de função](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
 ### <a name="install-azure-powershell-module"></a>Instale módulo PowerShell Azure
 
@@ -125,10 +125,10 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Pode reautenticar e associar a sua sessão PowerShell a essa subscrição utilizando um comando como `Connect-AzAccount –Subscription $subs[0].id`. Para saber mais sobre como autenticar o Azure a partir da PowerShell, incluindo não interactivamente, consulte [O Sign in com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
+Pode reautenticar e associar a sua sessão PowerShell `Connect-AzAccount –Subscription $subs[0].id`a essa subscrição utilizando um comando como . Para saber mais sobre como autenticar o Azure a partir da PowerShell, incluindo não interactivamente, consulte [O Sign in com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Se tiver vários espaços de trabalho log analytics nessa subscrição, então o cmdlet [Get-AzOperationalInsightsWorkspace devolve](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) a lista de espaços de trabalho. Depois pode encontrar aquele que tem os registos da AD Azure. O campo `CustomerId` devolvido por este cmdlet é o mesmo que o valor do "Workspace id" exibido no portal Azure na visão geral do espaço de trabalho Log Analytics.
+Se tiver vários espaços de trabalho log analytics nessa subscrição, então o cmdlet [Get-AzOperationalInsightsWorkspace devolve](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) a lista de espaços de trabalho. Depois pode encontrar aquele que tem os registos da AD Azure. O `CustomerId` campo devolvido por este cmdlet é o mesmo que o valor do "Workspace id" exibido no portal Azure na visão geral do espaço de trabalho Log Analytics.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace

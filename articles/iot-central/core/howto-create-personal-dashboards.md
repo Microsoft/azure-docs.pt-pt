@@ -1,73 +1,73 @@
 ---
-title: Criar painéis pessoais do Azure IoT Central | Microsoft Docs
-description: Como usuário, saiba como criar e gerenciar seus painéis pessoais.
+title: Crie dashboards pessoais Azure IoT Central [ Microsoft Docs
+description: Como utilizador, aprenda a criar e gerir os seus dashboards pessoais.
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9da7efad816a466eb9d2902e36a95c5ae0fa626b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950668"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158134"
 ---
-# <a name="create-and-manage-multiple-dashboards"></a>Criar e gerenciar vários dashboards
+# <a name="create-and-manage-multiple-dashboards"></a>Criar e gerir vários dashboards
 
-O **painel** é a página que carrega quando você navega pela primeira vez para seu aplicativo. Um **Construtor** em seu aplicativo define o painel do aplicativo padrão para todos os usuários. Você pode substituir esse painel padrão por seu próprio painel de aplicativo personalizado. Você pode ter vários painéis que exibem dados diferentes e alternam entre eles. 
+O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o dashboard de aplicação padrão para todos os utilizadores. Pode substituir este dashboard predefinido por um painel de aplicação personalizado. Pode ter vários dashboards que exibem diferentes dados e alternam entre eles. 
 
-Se você for um **administrador** do aplicativo, também poderá criar até 10 painéis de nível de aplicativo para compartilhar com outros usuários do aplicativo. Somente os **Administradores** têm a capacidade de criar, editar e excluir painéis de nível de aplicativo. 
+Se for **administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para partilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação. 
 
-## <a name="create-dashboard"></a>Criar painel
+## <a name="create-dashboard"></a>Criar painel de instrumentos
 
-A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **aplicativo personalizado** . Você pode substituir o painel do aplicativo padrão por um painel pessoal, ou se você for um administrador, outro painel de nível de aplicativo. Para fazer isso, selecione **+ novo** na parte superior esquerda da página.
+A imagem seguinte mostra o dashboard numa aplicação criada a partir do modelo de **aplicação personalizada.** Pode substituir o painel de aplicações predefinido por um dashboard pessoal, ou se for administrador, outro painel de instrumentos de nível de aplicação. Para isso, selecione **+ Novo** na parte superior à esquerda da página.
  
 > [!div class="mx-imgBorder"]
-> ![painel para aplicativos com base no modelo "aplicativo personalizado"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
+> ![Painel de instrumentos para aplicações com base no modelo "Aplicação Personalizada"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
-Selecionar **+ novo** abre o editor de painel. No editor, você pode dar um nome ao seu painel e escolher itens da biblioteca. A biblioteca contém os blocos e os primitivos de painel que você pode usar para personalizar o painel.
-
-> [!div class="mx-imgBorder"]
-> ![](media/howto-create-personal-dashboards/dashboard-library.png) de biblioteca do painel
-
-Se você for um **administrador** do aplicativo, terá a opção de alternar se quiser criar um painel de nível pessoal ou um painel de nível de aplicativo. Se você criar um painel de nível pessoal, apenas você poderá vê-lo. Se você criar um painel de nível de aplicativo, todos os usuários do aplicativo poderão vê-lo. Depois de inserir um título e selecionar o tipo de painel que você deseja criar, você pode salvar e adicionar blocos posteriormente. Ou, se você estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, poderá criar seu primeiro bloco. 
+Selecionar **+ Nova** abre o editor do dashboard. No editor, pode dar um nome ao seu painel de instrumentos e escolher artigos da biblioteca. A biblioteca contém os azulejos e os primitivos do painel que pode usar para personalizar o painel de instrumentos.
 
 > [!div class="mx-imgBorder"]
-> formulário ![configurar detalhes do dispositivo "com detalhes para](media/howto-create-personal-dashboards/device-details.png) de temperatura
+> ![Biblioteca do painel de instrumentos](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Por exemplo, você pode adicionar um bloco de **telemetria** para a temperatura atual do dispositivo. Para tal:
-1. Selecionar um **modelo de dispositivo**
-1. Selecione uma **instância de dispositivo** para o dispositivo que você deseja ver em um bloco do Dashboard. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
-1. Para criar o bloco no painel, clique em **temperatura** e arraste-o para a área painel. Você também pode clicar na caixa de seleção ao lado de **temperatura** e clicar em **combinar**. A captura de tela a seguir mostra a seleção de um modelo de dispositivo e uma instância de dispositivo, criando um bloco de telemetria de temperatura no painel.
-1. Selecione **salvar** na parte superior esquerda para salvar o bloco no painel.
+Se for **administrador** da aplicação, terá a opção de alternar se quiser criar um painel de instrumentos de nível pessoal ou um painel de instrumentos de nível de aplicação. Se criar um painel de instrumentos de nível pessoal, só poderá vê-lo. Se criar um painel de instrumentos de nível de aplicação, todos os utilizadores da aplicação poderão vê-lo. Depois de introduzir um título e selecionar o tipo de painel que pretende criar, pode guardar e adicionar azulejos mais tarde. Ou se estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, pode ir em frente e criar o seu primeiro azulejo. 
 
 > [!div class="mx-imgBorder"]
-> guia ![painel "com detalhes para o bloco de temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
+> ![Configurar detalhes do dispositivo" formulário com detalhes para temperatura](media/howto-create-personal-dashboards/device-details.png)
 
-Agora, quando você exibir seu painel pessoal, verá o novo bloco com a configuração de **temperatura** para o dispositivo:
-
-> [!div class="mx-imgBorder"]
-> guia ![painel "com detalhes para o bloco de temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
-
-Você pode explorar outros tipos de bloco na biblioteca para descobrir como personalizar ainda mais seus painéis pessoais.
-
-Para saber mais sobre como usar blocos no Azure IoT Central, confira [Adicionar blocos ao seu painel](howto-add-tiles-to-your-dashboard.md).
-
-## <a name="manage-dashboards"></a>Gerenciar painéis
-
-Você pode ter vários painéis pessoais e alternar entre eles ou escolher um dos painéis de aplicativo padrão:
+Por exemplo, pode adicionar um azulejo **telemetria** para a temperatura atual do dispositivo. Para tal:
+1. Selecione um **modelo de dispositivo**
+1. Selecione uma Instância de **Dispositivo** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
+1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **Combine**. A imagem seguinte mostra selecionando um modelo de dispositivo e instância de dispositivo, criando um azulejo de telemetria de temperatura no painel de instrumentos.
+1. Selecione **Guardar** na parte superior esquerda para guardar o azulejo para o tablier.
 
 > [!div class="mx-imgBorder"]
-> ![alternar entre os painéis](media/howto-create-personal-dashboards/switch-dashboards.png)
+> ![Tab dashboard com detalhes para o azulejo temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
 
-Você pode editar seus painéis pessoais e excluir os painéis que não são mais necessários. Se você for um **administrador**, também terá a capacidade de editar ou excluir painéis de nível de aplicativo também.
+Agora, quando vê o seu painel pessoal, vê o novo azulejo com a definição **de temperatura** para o dispositivo:
 
 > [!div class="mx-imgBorder"]
-> ![excluir painéis](media/howto-create-personal-dashboards/delete-dashboards.png)
+> ![Tab dashboard com detalhes para o azulejo temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+
+Você pode explorar outros tipos de azulejos na biblioteca para descobrir como personalizar ainda mais seus dashboards pessoais.
+
+Para saber mais sobre como usar azulejos em Azure IoT Central, consulte [Adicionar azulejos ao seu Dashboard](howto-add-tiles-to-your-dashboard.md).
+
+## <a name="manage-dashboards"></a>Gerir dashboards
+
+Pode ter vários dashboards pessoais e alternar entre eles ou escolher entre um dos dashboards de aplicação padrão:
+
+> [!div class="mx-imgBorder"]
+> ![Alternar entre dashboards](media/howto-create-personal-dashboards/switch-dashboards.png)
+
+Pode editar os seus dashboards pessoais e eliminar quaisquer painéis de que já não necessite. Se for **administrador,** também tem a capacidade de editar ou eliminar os dashboards de nível de aplicação.
+
+> [!div class="mx-imgBorder"]
+> ![Eliminar dashboards](media/howto-create-personal-dashboards/delete-dashboards.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu como criar e gerenciar painéis pessoais, você pode [aprender a gerenciar suas preferências de aplicativo](howto-manage-preferences.md)
+Agora que aprendeu a criar e gerir dashboards pessoais, pode [aprender a gerir as suas preferências](howto-manage-preferences.md) de candidatura

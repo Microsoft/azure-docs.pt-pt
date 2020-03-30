@@ -1,46 +1,46 @@
 ---
-title: Instalar ou atualizar manualmente Azure Functions extensões de associação
-description: Saiba como instalar ou atualizar Azure Functions extensões de associação para aplicativos de funções implantados.
+title: Instalação manual ou atualização das extensões de ligação das funções do Azure
+description: Saiba como instalar ou atualizar as extensões de ligação das Funções Azure para aplicações de função implementadas.
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75768865"
 ---
-# <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente Azure Functions extensões de associação do portal
+# <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente as extensões de ligação das funções Azure do portal
 
-A partir da versão 2. x, o tempo de execução do Azure Functions usa extensões de associação para implementar o código para gatilhos e associações. As extensões de associação são fornecidas em pacotes NuGet. Para registrar uma extensão, você essencialmente instala um pacote. Ao desenvolver funções, a maneira como você instala as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [registrar extensões de associação](./functions-bindings-register.md) no artigo gatilhos e associações.
+A partir da versão 2.x, o tempo de funcionamento das Funções Azure utiliza extensões de ligação para implementar código para gatilhos e encadernações. As extensões de encadernação são fornecidas nos pacotes NuGet. Para registar uma extensão, instala essencialmente um pacote. Ao desenvolver funções, a forma como instala extensões de ligação depende do ambiente de desenvolvimento. Para mais informações, consulte O Registo de [extensões vinculativas](./functions-bindings-register.md) no artigo de gatilhos e encadernações.
 
-Às vezes, você precisa instalar ou atualizar manualmente suas extensões de associação no portal do Azure. Por exemplo, talvez seja necessário atualizar uma associação registrada para uma versão mais recente. Talvez você também precise registrar uma associação com suporte que não possa ser instalada na guia **integrar** no Portal.
+Por vezes, é necessário instalar ou atualizar manualmente as suas extensões de ligação no portal Azure. Por exemplo, poderá ter de atualizar uma ligação registada para uma versão mais recente. Pode também ser necessário registar uma ligação suportada que não possa ser instalada no separador **Integração** no portal.
 
-## <a name="install-a-binding-extension"></a>Instalar uma extensão de associação
+## <a name="install-a-binding-extension"></a>Instalar uma extensão de ligação
 
-Use as etapas a seguir para instalar manualmente ou atualizar extensões do Portal.
+Utilize os seguintes passos para instalar ou atualizar manualmente as extensões do portal.
 
-1. Na [portal do Azure](https://portal.azure.com), localize seu aplicativo de funções e selecione-o. Escolha a guia **visão geral** e selecione **parar**.  Parar o aplicativo de funções desbloqueia arquivos para que as alterações possam ser feitas.
+1. No [portal Azure,](https://portal.azure.com)localize a sua aplicação de funções e selecione-a. Escolha o separador **Overview** e selecione **Stop**.  Parar a aplicação de funções desbloqueia ficheiros para que as alterações possam ser feitas.
 
-1. Escolha a guia **recursos da plataforma** e, em ferramentas de **desenvolvimento** , selecione **ferramentas avançadas (kudu)** . O ponto de extremidade kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) é aberto em uma nova janela.
+1. Escolha o separador **de funcionalidades da Plataforma** e, sob ferramentas de **Desenvolvimento,** selecione **Advanced Tools (Kudu)**. O ponto`https://<APP_NAME>.scm.azurewebsites.net/`final de Kudu é aberto numa nova janela.
 
-1. Na janela kudu, selecione **console de depuração** > **cmd**.  
+1. Na janela Kudu, selecione > **CmD**da **consola Debug**.  
 
-1. Na janela comando, navegue até `D:\home\site\wwwroot` e escolha o ícone excluir ao lado de `bin` para excluir a pasta. Selecione **OK** para confirmar a exclusão.
+1. Na janela de comando, navegue `D:\home\site\wwwroot` e `bin` escolha o ícone de exclusão ao lado para eliminar a pasta. Selecione **OK** para confirmar a eliminação.
 
-1. Escolha o ícone Editar ao lado do arquivo `extensions.csproj`, que define as extensões de associação para o aplicativo de funções. O arquivo de projeto é aberto no editor online.
+1. Escolha o ícone de `extensions.csproj` edição ao lado do ficheiro, que define as extensões de ligação para a aplicação de função. O ficheiro do projeto é aberto no editor online.
 
-1. Faça as adições e atualizações necessárias dos itens **PackageReference** no **grupo**de item e selecione **salvar**. A lista atual de versões de pacotes com suporte pode ser encontrada no artigo [quais pacotes são necessários?](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) wiki. Todas as três associações de armazenamento do Azure exigem o pacote Microsoft. Azure. webjobs. Extensions. Storage.
+1. Faça as adições e atualizações necessárias dos itens **PackageReference** no **ItemGroup**e, em seguida, selecione **Guardar**. A lista atual de versões de pacotes suportadas pode ser encontrada [no](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) artigo da Wiki. Todas as três encadernações de armazenamento Azure requerem o pacote Microsoft.Azure.WebJobs.Extensions.Storage.
 
-1. Na pasta `wwwroot`, execute o comando a seguir para recriar os assemblies referenciados na pasta `bin`.
+1. A `wwwroot` partir da pasta, executar o seguinte comando para `bin` reconstruir os conjuntos referenciados na pasta.
 
     ```cmd
     dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget
     ```
 
-1. De volta à guia **visão geral** no portal, escolha **Iniciar** para reiniciar o aplicativo de funções.
+1. De volta ao separador **Overview** no portal, escolha **Iniciar** a reinicialização da aplicação de funções.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções azure gatilhos e encadernações](functions-triggers-bindings.md)

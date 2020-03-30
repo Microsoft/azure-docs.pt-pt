@@ -11,10 +11,10 @@ ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78184065"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
@@ -105,7 +105,7 @@ Clicar no botão **Criar** faz com que o Azure AD B2C redirecione o utilizador d
 
 Quando um cliente seleciona uma das opções sob **clientes empresariais,** o site da WoodGrove Mercearias invoca uma política Azure AD B2C diferente da que faz para os clientes individuais.
 
-Esta política apresenta ao utilizador a opção de utilizar as suas credenciais corporativas para o inscrição e inscrição. No exemplo do WoodGrove, os utilizadores são solicitados a iniciar sessão com qualquer conta ad 365 ou Azure. Esta política utiliza uma [aplicação Azure AD multi-inquilino](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e o ponto final da `/common` Azure AD para federar o Azure AD B2C com qualquer cliente do Office 365 no mundo.
+Esta política apresenta ao utilizador a opção de utilizar as suas credenciais corporativas para o inscrição e inscrição. No exemplo do WoodGrove, os utilizadores são solicitados a iniciar sessão com qualquer conta ad 365 ou Azure. Esta política utiliza uma [aplicação Azure AD multi-inquilino](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e o `/common` ponto final da Azure AD para federar o Azure AD B2C com qualquer cliente do Office 365 no mundo.
 
 ### <a name="authenticate-partners"></a>Parceiros autenticados
 

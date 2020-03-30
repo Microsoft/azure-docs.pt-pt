@@ -1,5 +1,5 @@
 ---
-title: Monitorização da Aprendizagem automática Azure  Microsoft Docs
+title: Monitorização da Aprendizagem automática Azure [ Microsoft Docs
 description: Aprenda a usar o Monitor Azure para visualizar, analisar e criar alertas sobre métricas do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399101"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Monitorização da aprendizagem automática azure
@@ -24,9 +24,9 @@ Este artigo descreve os dados de monitorização gerados pela Azure Machine Lear
 > A informação neste documento é principalmente para administradores, uma vez que descreve a monitorização para o Azure Machine Learning. Se for um cientista de dados ou desenvolvedor e pretender monitorizar informações específicas das suas corridas de formação de modelos, consulte os seguintes documentos:
 >
 > * [Iniciar, monitorizar e cancelar treinos](how-to-manage-runs.md)
-> * [Métricas de log para treinos](how-to-track-experiments.md)
-> * [Track experiments com MLflow](how-to-use-mlflow.md)
-> * [Visualizar corre com tensorBoard](how-to-monitor-tensorboard.md)
+> * [Métricas de registo para execuções de preparações](how-to-track-experiments.md)
+> * [Controlar experiências com o MLflow](how-to-use-mlflow.md)
+> * [Visualizar execuções com TensorBoard](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -111,7 +111,7 @@ Os dados em Registos do Monitor Azure são armazenados em tabelas, com cada tabe
 
 Para obter uma referência detalhada dos registos e métricas, consulte a referência de dados de monitorização do [Azure Machine Learning](monitor-resource-reference.md).
 
-### <a name="sample-queries"></a>Amostras de consultas
+### <a name="sample-queries"></a>Consultas de exemplo
 
 Seguem-se as consultas que pode utilizar para o ajudar a monitorizar os seus recursos de Aprendizagem automática Azure: 
 

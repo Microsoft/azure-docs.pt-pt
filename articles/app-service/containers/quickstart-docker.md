@@ -1,88 +1,88 @@
 ---
-title: 'Início rápido: executar um contêiner personalizado do Linux'
-description: Introdução aos contêineres do Linux no serviço de Azure App implantando seu primeiro contêiner personalizado usando registros de contêiner do Azure.
+title: 'Quickstart: Executar um recipiente linux personalizado'
+description: Inicie com os contentores Linux no Serviço de Aplicações Azure, implantando o seu primeiro recipiente personalizado utilizando registos de contentores Azure.
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
 ms.openlocfilehash: 62e6b007e89fc6be726d3d971ca838770db9cb6e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75422141"
 ---
-# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Implantar um contêiner personalizado do Linux no serviço Azure App
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Desloque um recipiente linux personalizado para o Serviço de Aplicações Azure
 
-O serviço de aplicativo no Linux fornece pilhas de aplicativos predefinidas no Linux com suporte para linguagens como .NET, PHP, Node. js e outros. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este guia de início rápido mostra como implantar uma imagem de um ACR ( [registro de contêiner do Azure](/azure/container-registry) ) para o serviço de aplicativo.
+O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definidas no Linux com suporte para idiomas como .NET, PHP, Node.js e outros. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este quickstart mostra-lhe como implementar uma imagem de um Registo de [Contentores Azure](/azure/container-registry) (ACR) para o Serviço de Aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [conta do Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* [Docker](https://www.docker.com/community-edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* A [extensão de serviço de Azure app para vs Code](vscode:extension/ms-azuretools.vscode-azureappservice). Você pode usar essa extensão para criar, gerenciar e implantar aplicativos Web do Linux na plataforma como um serviço (PaaS) do Azure.
-* A [extensão do Docker para vs Code](vscode:extension/ms-azuretools.vscode-docker). Você pode usar essa extensão para simplificar o gerenciamento de imagens e comandos do Docker local e implantar imagens de aplicativo criadas no Azure.
+* Uma [conta Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
+* [Estivador](https://www.docker.com/community-edition)
+* [Código de estúdio visual](https://code.visualstudio.com/)
+* A extensão do Serviço de [Aplicações Azure para o Código VS](vscode:extension/ms-azuretools.vscode-azureappservice). Pode utilizar esta extensão para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como serviço (PaaS).
+* A [extensão do Docker para o Código VS](vscode:extension/ms-azuretools.vscode-docker). Pode utilizar esta extensão para simplificar a gestão de imagens e comandos locais do Docker e para implementar imagens de aplicações construídas para o Azure.
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
-Para concluir este guia de início rápido, você precisará de uma imagem de aplicativo Web adequada armazenada em um [registro de contêiner do Azure](/azure/container-registry). Siga as instruções em [início rápido: criar um registro de contêiner privado usando o portal do Azure](/azure/container-registry/container-registry-get-started-portal), mas use a imagem de `mcr.microsoft.com/azuredocs/go` em vez da imagem de `hello-world`. Para referência, o [exemplo de Dockerfile é encontrado no repositório de exemplos do Azure](https://github.com/Azure-Samples/go-docs-hello-world).
+Para completar este arranque rápido, necessitará de uma imagem de aplicação web adequada armazenada num Registo de [Contentores Azure](/azure/container-registry). Siga as instruções em [Quickstart: Crie um registo de contentores privado utilizando o portal Azure,](/azure/container-registry/container-registry-get-started-portal)mas utilize a `mcr.microsoft.com/azuredocs/go` imagem em vez da `hello-world` imagem. Para referência, a [amostra Dockerfile encontra-se em Azure Samples repo](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
-> Certifique-se de definir a opção de **usuário administrador** para **habilitar** ao criar o registro de contêiner. Você também pode defini-lo na seção **chaves de acesso** da página do registro na portal do Azure. Essa configuração é necessária para o acesso ao serviço de aplicativo.
+> Certifique-se de definir a opção **De utilizador de administrador** para **ativar** quando criar o registo do recipiente. Também pode defini-lo a partir da secção de chaves de **acesso** da sua página de registo no portal Azure. Esta definição é necessária para o acesso ao Serviço de Aplicações.
 
 ## <a name="sign-in"></a>Iniciar sessão
 
-Em seguida, inicie VS Code e faça logon em sua conta do Azure usando a extensão do serviço de aplicativo. Para fazer isso, selecione o logotipo do Azure na barra de atividades, navegue até o Gerenciador do **serviço de aplicativo** e selecione **entrar no Azure** e siga as instruções.
+Em seguida, lance o Código VS e inicie sessão na sua conta Azure utilizando a extensão do Serviço de Aplicações. Para isso, selecione o logótipo Azure na Barra de Atividades, navegue para o explorador de **SERVIÇO SAL,** em seguida, selecione **Iniciar sessão no Azure** e siga as instruções.
 
-![entrar no Azure](./media/quickstart-docker/sign-in.png)
+![assinar em Azure](./media/quickstart-docker/sign-in.png)
 
 ## <a name="check-prerequisites"></a>Verificar pré-requisitos
 
-Agora você pode verificar se você tem todos os pré-requisitos instalados e configurados corretamente.
+Agora pode verificar se tem todos os pré-requisitos instalados e configurados corretamente.
 
-No VS Code, você deve ver seu endereço de email do Azure na barra de status e sua assinatura no Gerenciador do **serviço de aplicativo** .
+No Código VS, deverá consultar o seu endereço de e-mail Azure na Barra de Estado e a sua subscrição no explorador de **SERVIÇOS APP.**
 
-Em seguida, verifique se você tem o Docker instalado e em execução. O comando a seguir exibirá a versão do Docker, se estiver em execução.
+Em seguida, verifique se tem o Docker instalado e a correr. O seguinte comando irá exibir a versão Docker se estiver em execução.
 
 ```bash
 docker --version
 ```
 
-Por fim, verifique se o registro de contêiner do Azure está conectado. Para fazer isso, selecione o logotipo do Docker na barra de atividade e, em seguida, navegue até **registros**.
+Por fim, certifique-se de que o registo de contentores Azure está ligado. Para isso, selecione o logótipo Does na Barra de Atividades e, em seguida, navegue para **REGISTRIES**.
 
 ![Registos](./media/quickstart-docker/registries.png)
 
-## <a name="deploy-the-image-to-azure-app-service"></a>Implantar a imagem no serviço Azure App
+## <a name="deploy-the-image-to-azure-app-service"></a>Desloque a imagem para o Serviço de Aplicações Azure
 
-Agora que tudo está configurado, você pode implantar sua imagem para [Azure app serviço](https://azure.microsoft.com/services/app-service/) diretamente do Gerenciador de extensões do Docker.
+Agora que tudo está configurado, pode implementar a sua imagem para o [Azure App Service](https://azure.microsoft.com/services/app-service/) diretamente do explorador de extensão Docker.
 
-Localize a imagem no nó **registros** no Gerenciador do **Docker** e expanda-a para mostrar suas marcas. Clique com o botão direito do mouse em uma marca e selecione **implantar imagem para Azure app serviço**.
+Encontre a imagem sob o nó **dos Registos** no explorador **do DOCKER** e expanda-a para mostrar as suas etiquetas. Clique na direita numa etiqueta e, em seguida, selecione Implementar imagem para o Serviço de **Aplicações Azure**.
 
-A partir daqui, siga os prompts para escolher uma assinatura, um nome de aplicativo exclusivo globalmente, um grupo de recursos e um plano do serviço de aplicativo. Escolha o **básico B1** para o tipo de preço e uma região.
+A partir daqui, siga as instruções para escolher uma subscrição, um nome de aplicação globalmente único, um Grupo de Recursos e um Plano de Serviço de Aplicações. Escolha **B1 Basic** para o nível de preços, e uma região.
 
-Após a implantação, seu aplicativo estará disponível em `http://<app name>.azurewebsites.net`.
+Após a implementação, `http://<app name>.azurewebsites.net`a sua aplicação está disponível em .
 
-Um **grupo de recursos** é uma coleção nomeada de todos os recursos do seu aplicativo no Azure. Por exemplo, um grupo de recursos pode conter uma referência a um site, um banco de dados e uma função do Azure.
+A **Resource Group** é uma coleção nomeada de todos os recursos da sua aplicação em Azure. Por exemplo, um Grupo de Recursos pode conter uma referência a um website, uma base de dados e uma Função Azure.
 
-Um **plano do serviço de aplicativo** define os recursos físicos que serão usados para hospedar seu site. Este guia de início rápido usa um plano de hospedagem **básico** na infraestrutura do **Linux** , o que significa que o site será hospedado em um computador Linux junto com outros sites. Se você começar com o plano **básico** , poderá usar o portal do Azure para escalar verticalmente para que seu seja o único site em execução em um computador.
+Um Plano de Serviço de **Aplicações** define os recursos físicos que serão usados para hospedar o seu website. Este quickstart usa um plano **básico** de hospedagem na infraestrutura **Linux,** o que significa que o site será hospedado numa máquina Linux ao lado de outros sites. Se começar com o plano **Basic,** pode usar o portal Azure para escalar para que o seu seja o único site a funcionar numa máquina.
 
-## <a name="browse-the-website"></a>Navegar no site
+## <a name="browse-the-website"></a>Navegue no site
 
-O painel **saída** será aberto durante a implantação para indicar o status da operação. Quando a operação for concluída, localize o aplicativo criado no Gerenciador do **serviço de aplicativo** , clique nele com o botão direito do mouse e selecione **procurar site** para abrir o site no navegador.
+O painel **de saída** será aberto durante a implantação para indicar o estado da operação. Quando a operação estiver concluída, encontre a aplicação criada no explorador de **SERVIÇOS APP,** clique-a com o botão direito e, em seguida, selecione **O Website Browse** para abrir o site no seu navegador.
 
 > [!div class="nextstepaction"]
-> [Ocorreu um problema](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
+> [Deparei-me com um problema.](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Parabéns, você concluiu com êxito este guia de início rápido!
+Parabéns, conseguiste ter conseguido este arranque rápido!
 
-Em seguida, Confira as outras extensões do Azure.
+Em seguida, confira as outras extensões Azure.
 
-* [BD do Cosmos](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-* [Ferramentas de CLI do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Ferramentas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+* [Ferramentas Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Ferramentas de Gestor de Recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-Ou então, faça tudo isso instalando o pacote de extensão das [Ferramentas do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) .
+Ou obtenha-os todos instalando o pacote de extensão [Azure Tools.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299578"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Centro de Segurança Azure para alertas de segurança ioT
+# <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança do Centro de Segurança do Azure para IoT
 
 O Azure Security Center for IoT analisa continuamente a sua solução IoT utilizando análises avançadas e inteligência de ameaça para alertá-lo para atividades maliciosas.
 
@@ -33,7 +33,7 @@ A seguinte lista de alertas do Azure Security Center para alertas IoT é definí
 
 
 
-| Gravidade | Nome de alerta | Origem de dados | Descrição | Remediação sugerida|
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
 | Baixa      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do alcance permitido          | IoT Hub     | O número de mensagens cloud to device (protocolo AMQP) dentro de uma janela de tempo específica está fora do intervalo atualmente configurado e admissível.||
 | Baixa      | Alerta personalizado - número de mensagens de nuvem rejeitada para dispositivos no protocolo AMQP está fora do intervalo permitido | IoT Hub     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo, dentro de um intervalo de tempo específico está fora do intervalo atualmente configurado e admissível.||
@@ -53,7 +53,7 @@ A seguinte lista de alertas do Azure Security Center para alertas IoT é definí
 
 ## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização 
 
-| Gravidade | Nome de alerta | Origem de dados | Descrição | Remediação sugerida|
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
 | Baixa      | Alerta personalizado - o número de ligações ativas está fora do intervalo permitido  | Agente       | O número de ligações ativas dentro de um prazo específico está fora do intervalo atualmente configurado e admissível.|  Investigue os registos do dispositivo. Saiba de onde a ligação originou e determine se é benigna ou maliciosa. Se for malicioso, remova possível malware e compreenda a origem. Se benigno, adicione a fonte à lista de ligação permitida.  |
 | Baixa      | Alerta personalizado - ligação de saída criada a um IP que não é permitido                             | Agente       | Foi criada uma ligação de saída a um IP que está fora da sua lista de IP permitida. |Investigue os registos do dispositivo. Saiba de onde a ligação originou e determine se é benigna ou maliciosa. Se for malicioso, remova possível malware e compreenda a origem. Se benigno, adicione a fonte à lista ip permitida.                        |

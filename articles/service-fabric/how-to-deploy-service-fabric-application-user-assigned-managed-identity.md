@@ -1,33 +1,33 @@
 ---
-title: Implantar o aplicativo com uma identidade gerenciada atribuída pelo usuário
-description: Este artigo mostra como implantar Service Fabric aplicativo com uma identidade gerenciada atribuída pelo usuário
+title: Implementar app com uma identidade gerida atribuída pelo utilizador
+description: Este artigo mostra-lhe como implementar aplicação Service Fabric com uma identidade gerida atribuída pelo utilizador
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610340"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Implantar Service Fabric aplicativo com uma identidade gerenciada atribuída pelo usuário (versão prévia)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída pelo utilizador (pré-visualização)
 
-Para implantar um aplicativo Service Fabric com identidade gerenciada, o aplicativo precisa ser implantado por meio de Azure Resource Manager, normalmente com um modelo de Azure Resource Manager. Para obter mais informações sobre como implantar Service Fabric aplicativo por meio de Azure Resource Manager, consulte [gerenciar aplicativos e serviços como Azure Resource Manager recursos](service-fabric-application-arm-resource.md).
+Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a aplicação precisa de ser implementada através do Gestor de Recursos Azure, tipicamente com um modelo de Gestor de Recursos Azure. Para obter mais informações sobre como implementar a aplicação service Fabric através do Gestor de Recursos Azure, consulte [gerir aplicações e serviços como recursos do Gestor de Recursos Azure.](service-fabric-application-arm-resource.md)
 
 > [!NOTE] 
 > 
-> Os aplicativos que não são implantados como um recurso do Azure **não podem** ter identidades gerenciadas. 
+> Aplicações que não são implementadas como recurso Azure **não podem** ter Identidades Geridas. 
 >
-> Service Fabric implantação de aplicativo com identidade gerenciada tem suporte com a versão de API `"2019-06-01-preview"`. Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço.
+> A implementação da aplicação Service Fabric com `"2019-06-01-preview"`identidade gerida é suportada com versão API . Também pode utilizar a mesma versão API para o tipo de aplicação, versão tipo de aplicação e recursos de serviço.
 >
 
-## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
+## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
 
-Para habilitar o aplicativo com identidade atribuída pelo usuário, primeiro adicione a propriedade **Identity** ao recurso do aplicativo com o tipo **userassigned** e as identidades atribuídas ao usuário referenciadas. Em seguida, adicione uma seção **managedIdentities** dentro da seção **Propriedades** para o recurso de **aplicativo** que contém uma lista de nomes amigáveis para o mapeamento de PrincipalId para cada uma das identidades atribuídas pelo usuário. Para obter mais informações sobre identidades atribuídas ao usuário [, consulte criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
+Para ativar a aplicação com identidade Atribuída pelo Utilizador, adicione primeiro a propriedade **de identidade** ao recurso da aplicação com o utilizador do tipo **Assigned** e as identidades atribuídas ao utilizador referenciadas. Em seguida, adicione uma secção de **identidades geridas** dentro da secção **de propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principalid para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### <a name="application-template"></a>Modelo de aplicação
 
-Para habilitar o aplicativo com a identidade atribuída pelo usuário, primeiro adicione a propriedade **Identity** ao recurso do aplicativo com o tipo **userassigned** e as identidades atribuídas pelo usuário referenciadas e, em seguida, adicione um objeto **managedIdentities** dentro da seção **Propriedades** que contém uma lista de nomes amigáveis para o mapeamento de PrincipalId para cada uma das identidades atribuídas pelo usuário.
+Para ativar a aplicação com identidade atribuída ao Utilizador, primeiro adicione propriedade **de identidade** ao recurso de aplicação com o utilizador **do tipoAssigned** e as identidades atribuídas ao utilizador referenciado, em seguida, adicione um objeto **de identidades geridas** dentro da secção **de propriedades** que contém uma lista de nome amigável para mapeamento principalId para cada um dos utilizadores designados identidades.
 
     {
       "apiVersion": "2019-06-01-preview",
@@ -58,13 +58,13 @@ Para habilitar o aplicativo com a identidade atribuída pelo usuário, primeiro 
       }
     }
 
-No exemplo acima, o nome do recurso da identidade atribuída ao usuário está sendo usado como o nome amigável da identidade gerenciada para o aplicativo. Os exemplos a seguir pressupõem que o nome amigável real é "AdminUser".
+No exemplo acima do nome de recurso da identidade atribuída ao utilizador está a ser usado como o nome amigável da identidade gerida para a aplicação. Os exemplos que se seguem assumem que o nome verdadeiro é "AdminUser".
 
-### <a name="application-package"></a>Pacote de aplicação
+### <a name="application-package"></a>Pacote de candidatura
 
-1. Para cada identidade definida na seção `managedIdentities` no modelo de Azure Resource Manager, adicione uma marca `<ManagedIdentity>` no manifesto do aplicativo na seção **principais** . O atributo `Name` precisa corresponder à propriedade `name` definida na seção `managedIdentities`.
+1. Para cada identidade `managedIdentities` definida na secção do modelo do `<ManagedIdentity>` Gestor de Recursos Azure, adicione uma etiqueta no manifesto de aplicação sob a secção **principais.** O `Name` atributo precisa `name` de corresponder `managedIdentities` à propriedade definida na secção.
 
-    **ApplicationManifest. xml**
+    **ApplicationManifest.xml**
 
     ```xml
       <Principals>
@@ -74,9 +74,9 @@ No exemplo acima, o nome do recurso da identidade atribuída ao usuário está s
       </Principals>
     ```
 
-2. Na seção **ServiceManifestImport** , adicione um **IdentityBindingPolicy** para o serviço que usa a identidade gerenciada. Essa política mapeia a identidade de `AdminUser` para um nome de identidade específico do serviço que precisa ser adicionado ao manifesto do serviço posteriormente.
+2. Na secção **ServiceManifestImport,** adicione uma Política de **Ligação de Identidade** para o serviço que utiliza a Identidade Gerida. Esta política `AdminUser` mapeia a identidade para um nome de identidade específico do serviço que precisa de ser adicionado ao manifesto de serviço mais tarde.
 
-    **ApplicationManifest. xml**
+    **ApplicationManifest.xml**
 
     ```xml
       <ServiceManifestImport>
@@ -86,9 +86,9 @@ No exemplo acima, o nome do recurso da identidade atribuída ao usuário está s
       </ServiceManifestImport>
     ```
 
-3. Atualize o manifesto do serviço para adicionar um **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao `ServiceIdentityRef` no `IdentityBindingPolicy` do manifesto do aplicativo:
+3. Atualize o manifesto de serviço para adicionar uma **Identidade Gerida** `IdentityBindingPolicy` dentro da secção **Recursos** com o nome correspondente `ServiceIdentityRef` ao do manifesto de aplicação:
 
-    **Manifesto. xml**
+    **ServiceManifest.xml**
 
     ```xml
       <Resources>
@@ -101,5 +101,5 @@ No exemplo acima, o nome do recurso da identidade atribuída ao usuário está s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como usar a identidade gerenciada no código do aplicativo Service Fabric](how-to-managed-identity-service-fabric-app-code.md)
-* [Como conceder acesso Service Fabric aplicativo a outros recursos do Azure](how-to-grant-access-other-resources.md)
+* [Como utilizar identidade gerida no código de aplicação de tecido de serviço](how-to-managed-identity-service-fabric-app-code.md)
+* [Como conceder acesso à aplicação de serviço fabric a outros recursos Azure](how-to-grant-access-other-resources.md)

@@ -12,18 +12,18 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 473c58fa5097c4f4e318543c59ad1cf3a3899594
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 17ca8cbb7a55e9c0d44af099f4884f71b1cd457a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194092"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124763"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection para a Base de Dados SQL do Azure
 
-Advanced Threat Protection for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados.
+Advanced Threat Protection for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados.
 
-Advanced Threat Protection faz parte da oferta avançada de segurança de [dados](sql-database-advanced-data-security.md) (ADS), que é um pacote unificado para capacidades avançadas de segurança SQL. A Proteção Avançada de Ameaças pode ser acedida e gerida através do portal Central SQL ADS.
+Advanced Threat Protection faz parte da oferta avançada de segurança de [dados](sql-database-advanced-data-security.md) (ADS), que é um pacote unificado para capacidades avançadas de segurança SQL. O Advanced Threat Protection pode ser acedido e gerido através do portal ADS SQL central.
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor Azure SQL, e tanto à Base de Dados SQL como ao Synapse Azure que são criados no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é utilizada quando se refere tanto à Base de Dados SQL como ao Synapse Azure.

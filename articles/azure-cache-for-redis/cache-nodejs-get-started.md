@@ -9,10 +9,10 @@ ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 07e2d6f174e5af4af9bdcac73dc74f5cf061ed41
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78300490"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Quickstart: Use Azure Cache para Redis com Node.js
@@ -22,7 +22,7 @@ Neste arranque rápido, incorpora o Azure Cache for Redis numa aplicação Node.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [node_redis,](https://github.com/mranney/node_redis)que pode instalar com o comando `npm install redis`. 
+- [node_redis,](https://github.com/mranney/node_redis)que pode instalar `npm install redis`com o comando . 
 
 Para obter exemplos de utilização de outros clientes Node.js, consulte a documentação individual para os clientes Node.js listados em [Clientes Node.js Redis](https://redis.io/clients#nodejs).
 
@@ -55,7 +55,7 @@ Não crie uma ligação nova para cada operação no código. Em vez disso, reut
 
 ## <a name="create-a-new-nodejs-app"></a>Criar uma aplicação nova em Node.js
 
-Crie um novo ficheiro de script com o nome *redistest.js*. Utilize o comando `npm install redis bluebird` para instalar as embalagens necessárias.
+Crie um novo ficheiro de script com o nome *redistest.js*. Utilize o `npm install redis bluebird` comando para instalar as embalagens necessárias.
 
 Adicione o seguinte exemplo de JavaScript ao ficheiro. Este código mostra-lhe como se ligar a um Azure Cache para redis, utilizando o nome do anfitrião da cache e variáveis ambientais chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de utilização de Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [https://redis.js.org/](https://redis.js.org/).
 
@@ -113,15 +113,15 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-No **Filter por caixa** de texto, introduza o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, selecione... em **seguida, elimine**o grupo de recursos .
+No **Filter por caixa** de texto, introduza o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos **...** na lista de resultados, selecione... em **seguida, elimine**o grupo de recursos .
 
 ![Eliminar o grupo de recursos Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 

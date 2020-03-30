@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76935433"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Quickstart: Criar uma zona DNS privada Azure utilizando o Azure CLI
 
 Este quickstart acompanha-o através dos degraus para criar a sua primeira zona privada de DNS e gravar usando o Azure CLI.
 
-Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  Estas são chamadas redes virtuais *ligadas.* Quando o registo automático está ativado, o Azure DNS também atualiza os registos de zona sempre que uma máquina virtual é criada, altera o seu endereço IP ou é eliminado.
+Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  Estas são chamadas redes virtuais *ligadas.* Quando o registo automático está ativado, o Azure DNS também atualiza os registos de zona sempre que uma máquina virtual é criada, altera o seu endereço IP ou é eliminado.
 
 Neste início rápido, vai aprender a:
 
@@ -28,7 +28,7 @@ Neste início rápido, vai aprender a:
 > * Criar um registo DNS adicional
 > * Testar a zona privada
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Se preferir, pode completar este quickstart utilizando [o Azure PowerShell](private-dns-getstarted-powershell.md).
 
@@ -62,7 +62,7 @@ az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
    -z private.contoso.com -v myAzureVNet -e true
 ```
 
-Se quiser criar uma zona apenas para resolução de nomes (sem registo automático do nome de anfitrião), pode utilizar o parâmetro `-e false`.
+Se quiser criar uma zona apenas para resolução de nomes `-e false` (sem registo automático do nome de anfitrião), pode utilizar o parâmetro.
 
 ### <a name="list-dns-private-zones"></a>Listar as zonas DNS privadas
 
@@ -213,5 +213,5 @@ az group delete --name MyAzureResourceGroup
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Cenários de Zonas Privadas Do DNS azure](private-dns-scenarios.md)
+> [Cenários de Zonas Privadas do DNS do Azure](private-dns-scenarios.md)
 

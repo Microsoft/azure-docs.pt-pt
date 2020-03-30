@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade Microsoft Android quickstart  Azure
+title: Plataforma de identidade Microsoft Android quickstart [ Azure
 description: Saiba como as aplicações Android podem chamar um API que requer acesso a fichas por parte da plataforma de identidade da Microsoft.
 services: active-directory
 author: mmacy
@@ -12,10 +12,10 @@ ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.openlocfilehash: a184b035e3296f82ecdacf74a99ea7148d99bd49
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271104"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
@@ -25,7 +25,7 @@ Este quickstart usa uma amostra de código para demonstrar como uma aplicação 
 As aplicações devem ser representadas por um objeto de aplicação no Azure Ative Directory para que a plataforma de identidade da Microsoft possa fornecer tokens à sua aplicação.
 
 > [!div renderon="docs"]
-> Como conveniência, a amostra de código vem com um `redirect_uri` pré-configurado no ficheiro `AndroidManifest.xml` para que não tenha primeiro de registar o seu próprio objeto de aplicação. Um `redirect_uri` baseia-se em parte na chave de assinatura da sua aplicação. O projeto da amostra é reconfigurado com uma chave de assinatura para que o `redirect_uri` fornecido funcione. Para saber mais sobre o registo de um objeto de aplicação e a sua integração com a sua aplicação, consulte o Sign in users e ligue para o Microsoft Graph a partir de um tutorial [de aplicações Android.](tutorial-v2-android.md)
+> Como conveniência, a amostra de `redirect_uri` código vem com `AndroidManifest.xml` um predefinido prereconfigurado no ficheiro para que não tenha primeiro de registar o seu próprio objeto de aplicação. A `redirect_uri` baseia-se em parte na chave de assinatura da sua aplicação. O projeto da amostra é reconfigurado com `redirect_uri` uma chave de assinatura para que o fornecido funcione. Para saber mais sobre o registo de um objeto de aplicação e a sua integração com a sua aplicação, consulte o Sign in users e ligue para o Microsoft Graph a partir de um tutorial [de aplicações Android.](tutorial-v2-android.md)
 
 
 > [!NOTE]
@@ -110,7 +110,7 @@ Vamos agora analisar estes ficheiros com mais detalhes e chamar o código espec�
 
 ### <a name="adding-msal-to-the-app"></a>Adicionar MSAL à app
 
-MSAL[(com.microsoft.identity.client)](https://javadoc.io/doc/com.microsoft.identity.client/msal)é a biblioteca usada para assinar utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade microsoft. Gradle 3.0+ instala a biblioteca quando adiciona o seguinte aos **Scripts Gradle** > **build.gradle (Módulo: app)** em **Dependências:**
+MSAL[(com.microsoft.identity.client)](https://javadoc.io/doc/com.microsoft.identity.client/msal)é a biblioteca usada para assinar utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade microsoft. Gradle 3.0+ instala a biblioteca quando adiciona o seguinte a **Gradle Scripts** > **build.gradle (Módulo: app)** em **Dependências:**
 
 ```gradle  
 implementation 'com.microsoft.identity.client:msal:1.+'
@@ -130,7 +130,7 @@ Isto instrui Gradle a descarregar e construir MSAL a partir da central maven.
 
 ### <a name="msal-imports"></a>Importações de MSAL
 
-As importações relevantes para a biblioteca MSAL são `com.microsoft.identity.client.*`.  Por exemplo, você verá `import com.microsoft.identity.client.PublicClientApplication;` qual é o espaço de nome para a classe `PublicClientApplication`, que representa a sua aplicação de cliente público.
+As importações relevantes para a biblioteca `com.microsoft.identity.client.*`MSAL são.  Por exemplo, você `import com.microsoft.identity.client.PublicClientApplication;` verá qual é o `PublicClientApplication` espaço de nome para a classe, que representa a sua aplicação de cliente público.
 
 ### <a name="singleaccountmodefragmentjava"></a>SingleAccountModeFragment.java
 
@@ -140,7 +140,7 @@ As aplicações de conta única são usadas apenas por um único utilizador.  Po
 
 #### <a name="single-account-msal-initialization"></a>Inicialização de MSAL de conta única
 
-Em `auth_config_single_account.json`, em `onCreateView()`, é criada uma única conta `PublicClientApplication` utilizando as informações de config armazenadas no ficheiro `auth_config_single_account.json`.  É assim que se inicia a biblioteca MSAL para utilização numa aplicação MSAL de uma única conta:
+Em, `auth_config_single_account.json` `onCreateView()`in , `PublicClientApplication` é criada uma única conta utilizando `auth_config_single_account.json` as informações de config armazenadas no ficheiro.  É assim que se inicia a biblioteca MSAL para utilização numa aplicação MSAL de uma única conta:
 
 ```java
 ...
@@ -167,9 +167,9 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
 
 #### <a name="sign-in-a-user"></a>Inscreva-se num utilizador
 
-No `SingleAccountModeFragment.java`, o código para iniciar sessão num utilizador está em `initializeUI()`, no manipulador de cliques `signInButton`.
+No `SingleAccountModeFragment.java`manual, o código para `initializeUI()`iniciar sessão num utilizador está no manipulador de `signInButton` cliques.
 
-Ligue `signIn()` antes de tentar adquirir fichas. `signIn()` se comporta como se `acquireToken()` fosse chamado, resultando numa solicitação interativa para o utilizador iniciar o seu contrato.
+Ligue `signIn()` antes de tentar adquirir fichas. `signIn()`comporta-se `acquireToken()` como se fosse chamado, resultando num pedido interativo para o utilizador iniciar sessão.
 
 A assinatura num utilizador é uma operação assíncrona. É passado um backback que liga para o Microsoft Graph API e atualiza o UI assim que o utilizador assinar:
 
@@ -179,7 +179,7 @@ mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCal
 
 #### <a name="sign-out-a-user"></a>Assine um utilizador
 
-Em `SingleAccountModeFragment.java`, o código para assinar um utilizador está em `initializeUI()`, no manipulador de cliques `signOutButton`.  Assinar um utilizador é uma operação assíncrona. A assinatura do utilizador também limpa a cache simbólica para essa conta. É criado um backback para atualizar o UI assim que a conta de utilizador for assinada:
+No `SingleAccountModeFragment.java`manual, o código para `initializeUI()`assinar um `signOutButton` utilizador está no manipulador de cliques.  Assinar um utilizador é uma operação assíncrona. A assinatura do utilizador também limpa a cache simbólica para essa conta. É criado um backback para atualizar o UI assim que a conta de utilizador for assinada:
 
 ```java
 mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
@@ -198,7 +198,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### <a name="get-a-token-interactively-or-silently"></a>Obtenha um símbolo interativamente ou silenciosamente
 
-Para apresentar o menor número de solicitações ao utilizador, você normalmente receberá um token silenciosamente. Então, se houver um erro, tente chegar a um símbolo interactivamente. A primeira vez que a aplicação chama `signIn()`, funciona efetivamente como uma chamada para `acquireToken()`, o que irá levar o utilizador a credenciais.
+Para apresentar o menor número de solicitações ao utilizador, você normalmente receberá um token silenciosamente. Então, se houver um erro, tente chegar a um símbolo interactivamente. A primeira vez `signIn()`que a aplicação chama `acquireToken()`, funciona efetivamente como uma chamada para , o que irá levar o utilizador a credenciais.
 
 Algumas situações em que o utilizador pode ser solicitado a selecionar a sua conta, introduzir as suas credenciais ou consentir com as permissões que a sua app solicitou são:
 
@@ -209,7 +209,7 @@ Algumas situações em que o utilizador pode ser solicitado a selecionar a sua c
 * Quando a sua aplicação está a solicitar acesso a um recurso pela primeira vez
 * Quando mFA ou outras políticas de acesso condicional são necessárias
 
-O código para obter um símbolo interactivamente, isto é, com UI que envolverá o utilizador, está em `SingleAccountModeFragment.java`, em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
+O código para obter um token interativamente, isto é, com `SingleAccountModeFragment.java`UI que envolverá o utilizador, está `initializeUI()`dentro, dentro , no manipulador de `callGraphApiInteractiveButton` cliques:
 
 ```java
 /**
@@ -224,7 +224,7 @@ O código para obter um símbolo interactivamente, isto é, com UI que envolver�
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Se o utilizador já se inscreveu, `acquireTokenSilentAsync()` permite que as aplicações solicitem tokens silenciosamente, como mostra `initializeUI()`, no manipulador de cliques `callGraphApiSilentButton`:
+Se o utilizador já `acquireTokenSilentAsync()` se inscreveu, permite que as aplicações solicitem fichas silenciosamente como mostrado no `initializeUI()`manipulador de `callGraphApiSilentButton` cliques:
 
 ```java
 /**
@@ -236,7 +236,7 @@ Se o utilizador já se inscreveu, `acquireTokenSilentAsync()` permite que as apl
 
 #### <a name="load-an-account"></a>Carregar uma conta
 
-O código para carregar uma conta está em `SingleAccountModeFragment.java` em `loadAccount()`.  Carregar a conta do utilizador é uma operação assíncrona, pelo que as chamadas para manusear quando a conta carrega, alterações ou um erro ocorre são passadas para MSAL.  O código que se segue também lida com `onAccountChanged()`, que ocorre quando uma conta é removida, o utilizador muda para outra conta, e assim por diante.
+O código para carregar `SingleAccountModeFragment.java` uma `loadAccount()`conta está dentro .  Carregar a conta do utilizador é uma operação assíncrona, pelo que as chamadas para manusear quando a conta carrega, alterações ou um erro ocorre são passadas para MSAL.  O código que `onAccountChanged()`se segue também manuseia , o que ocorre quando uma conta é removida, o utilizador muda para outra conta, e assim por diante.
 
 ```java
 private void loadAccount() {
@@ -266,7 +266,7 @@ private void loadAccount() {
 
 #### <a name="call-microsoft-graph"></a>Ligue para o Microsoft Graph
 
-Quando um utilizador é inscrito, a chamada para o Microsoft Graph é feita através de um pedido HTTP por `callGraphAPI()` que é definido em `SingleAccountModeFragment.java`. Esta função é um invólucro que simplifica a amostra fazendo algumas tarefas, tais como obter o sinal de acesso do `authenticationResult` e embalar a chamada para o MSGraphRequestWrapper, e exibir os resultados da chamada.
+Quando um utilizador é inscrito, a chamada para o `callGraphAPI()` Microsoft Graph `SingleAccountModeFragment.java`é feita através de um pedido HTTP pelo qual é definido em . Esta função é um invólucro que simplifica a amostra fazendo algumas `authenticationResult` tarefas, tais como obter o token de acesso do e embalar a chamada para o MSGraphRequestWrapper, e exibir os resultados da chamada.
 
 ```java
 private void callGraphAPI(final IAuthenticationResult authenticationResult) {
@@ -296,10 +296,10 @@ Este é o ficheiro de configuração de uma aplicação MSAL que utiliza uma ún
 
 Consulte o ficheiro de [configuração Android MSAL](msal-configuration.md) para obter uma explicação destes campos.
 
-Note a presença de `"account_mode" : "SINGLE"`, que configura esta aplicação para usar uma única conta.
+Note a `"account_mode" : "SINGLE"`presença de , que configura esta app para usar uma única conta.
 
-`"client_id"` é configurado para usar um registo de objetos de aplicação que a Microsoft mantém.
-`"redirect_uri"`é configurado para utilizar a chave de assinatura fornecida com a amostra de código.
+`"client_id"`é configurado para utilizar um registo de objetos de aplicação que a Microsoft mantém.
+`"redirect_uri"`é reconfigurada para utilizar a chave de assinatura fornecida com a amostra de código.
 
 ```json
 {
@@ -328,7 +328,7 @@ Um exemplo de uma aplicação de várias contas é uma aplicação de correio qu
 
 #### <a name="multiple-account-msal-initialization"></a>Ininicialização msal de conta múltipla
 
-No ficheiro `MultipleAccountModeFragment.java`, em `onCreateView()`, é criado um objeto de aplicação de conta múltipla (`IMultipleAccountPublicClientApplication`) utilizando as informações de config armazenadas no `auth_config_multiple_account.json file`:
+No `MultipleAccountModeFragment.java` ficheiro, `onCreateView()`em, é criado`IMultipleAccountPublicClientApplication`um objeto de aplicação de conta `auth_config_multiple_account.json file`múltipla ( ) utilizando as informações de config armazenadas no :
 
 ```java
 // Creates a PublicClientApplication object with res/raw/auth_config_multiple_account.json
@@ -348,11 +348,11 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(
         });
 ```
 
-O objeto criado `MultipleAccountPublicClientApplication` é armazenado numa variável de membro da classe para que possa ser usado para interagir com a biblioteca MSAL para adquirir fichas e carregar e remover a conta do utilizador.
+O `MultipleAccountPublicClientApplication` objeto criado é armazenado numa variável de membro da classe para que possa ser usado para interagir com a biblioteca MSAL para adquirir fichas e carregar e remover a conta de utilizador.
 
 #### <a name="load-an-account"></a>Carregar uma conta
 
-Várias aplicações de conta geralmente chamam `getAccounts()` para selecionar a conta para usar para operações MSAL. O código para carregar uma conta está no ficheiro `MultipleAccountModeFragment.java`, em `loadAccounts()`.  Carregar a conta do utilizador é uma operação assíncrona. Assim, uma chamada lida com as situações quando a conta é carregada, altera ou ocorre um erro.
+Várias aplicações `getAccounts()` de conta geralmente ligam para selecionar a conta para usar para operações MSAL. O código para carregar uma `MultipleAccountModeFragment.java` conta `loadAccounts()`está no ficheiro, em .  Carregar a conta do utilizador é uma operação assíncrona. Assim, uma chamada lida com as situações quando a conta é carregada, altera ou ocorre um erro.
 
 ```java
 /**
@@ -390,7 +390,7 @@ Algumas situações em que o utilizador pode ser solicitado a selecionar a sua c
 * Quando a sua aplicação está a solicitar acesso a um recurso pela primeira vez
 * Quando mFA ou outras políticas de acesso condicional são necessárias
 
-As aplicações de conta múltiplas devem normalmente adquirir tokens interativamente, isto é, com UI que envolve o utilizador, com uma chamada para `acquireToken()`.  O código para obter um token interativamente está no ficheiro `MultipleAccountModeFragment.java` em `initializeUI()`, no manipulador de cliques `callGraphApiInteractiveButton`:
+Várias aplicações de conta devem normalmente adquirir fichas interativamente, isto é, `acquireToken()`com UI que envolve o utilizador, com uma chamada para .  O código para obter um token `MultipleAccountModeFragment.java` interativamente está no ficheiro no `initializeUI()`manipulador de `callGraphApiInteractiveButton` cliques:
 
 ```java
 /**
@@ -407,7 +407,7 @@ As aplicações de conta múltiplas devem normalmente adquirir tokens interativa
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-As aplicações não devem exigir que o utilizador assine cada vez que pede um sinal. Se o utilizador já tiver assinado, `acquireTokenSilentAsync()` permite que as aplicações solicitem fichas sem avisar o utilizador, como mostra o ficheiro `MultipleAccountModeFragment.java`, em`initializeUI()` no manipulador de cliques `callGraphApiSilentButton`:
+As aplicações não devem exigir que o utilizador assine cada vez que pede um sinal. Se o utilizador já `acquireTokenSilentAsync()` tiver assinado, permite que as aplicações solicitem `MultipleAccountModeFragment.java` fichas`initializeUI()` sem `callGraphApiSilentButton` solicitar ao utilizador, como mostra o ficheiro, no manipulador de cliques:
 
 ```java
 /**
@@ -424,7 +424,7 @@ mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
 
 #### <a name="remove-an-account"></a>Remover uma conta
 
-O código para remover uma conta, e quaisquer fichas em cache para a conta, está no ficheiro `MultipleAccountModeFragment.java` em `initializeUI()` no manipulador para o botão de conta de remoção. Antes de poder remover uma conta, precisa de um objeto de conta, que obtém de métodos MSAL como `getAccounts()` e `acquireToken()`. Como a remoção de uma conta é uma operação assíncrona, o `onRemoved` chamada é fornecida para atualizar o UI.
+O código para remover uma conta, e quaisquer fichas `MultipleAccountModeFragment.java` em `initializeUI()` cache para a conta, está no ficheiro no manipulador para o botão de remoção da conta. Antes de poder remover uma conta, precisa de um objeto de `getAccounts()` `acquireToken()`conta, que obtém de métodos MSAL como e . Como a remoção de uma conta é uma `onRemoved` operação assíncrona, o backback é fornecido para atualizar o UI.
 
 ```java
 /**
@@ -452,10 +452,10 @@ Este é o ficheiro de configuração de uma aplicação MSAL que utiliza várias
 
 Consulte o ficheiro de [configuração Android MSAL](msal-configuration.md) para obter uma explicação dos vários campos.
 
-Ao contrário do ficheiro de configuração [auth_config_single_account.json,](#auth_config_single_accountjson) este ficheiro config tem `"account_mode" : "MULTIPLE"` em vez de `"account_mode" : "SINGLE"` porque esta é uma aplicação de conta múltipla.
+Ao contrário do ficheiro de configuração [auth_config_single_account.json,](#auth_config_single_accountjson) este ficheiro config tem `"account_mode" : "MULTIPLE"` em vez de porque `"account_mode" : "SINGLE"` esta é uma aplicação de conta múltipla.
 
-`"client_id"` é configurado para usar um registo de objetos de aplicação que a Microsoft mantém.
-`"redirect_uri"`é configurado para utilizar a chave de assinatura fornecida com a amostra de código.
+`"client_id"`é configurado para utilizar um registo de objetos de aplicação que a Microsoft mantém.
+`"redirect_uri"`é reconfigurada para utilizar a chave de assinatura fornecida com a amostra de código.
 
 ```json
 {
