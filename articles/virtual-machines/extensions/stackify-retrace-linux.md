@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253796"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux Agent Extension
@@ -54,14 +54,14 @@ O agente Retrace pode ser executado contra estas distribuições linux
 
 A extensão do Agente Stackify para o Linux requer que a máquina virtual alvo esteja ligada à internet. 
 
-Pode ser necessário ajustar a configuração da sua rede para permitir que as ligações ao Stackify, consulte https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+Pode ser necessário ajustar a configuração da sua rede https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewallpara permitir que as ligações ao Stackify, ver . 
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
 ---
 
-O jSON seguinte mostra o esquema para a extensão do Agente de Retrace Stackify. A extensão requer a `environment` e `activationKey`.
+O jSON seguinte mostra o esquema para a extensão do Agente de Retrace Stackify. A extensão `environment` requer `activationKey`a e .
 
 ```json
     {
@@ -89,13 +89,13 @@ O jSON seguinte mostra o esquema para a extensão do Agente de Retrace Stackify.
 
 ## <a name="template-deployment"></a>Implementação de modelos 
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do agente Stackify Retrace Linux durante uma implementação do modelo do Gestor de Recursos Azure.  
+As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. O esquema JSON detalhado na secção anterior pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do agente Stackify Retrace Linux durante uma implementação do modelo do Gestor de Recursos Azure.  
 
 O JSON para uma extensão virtual da máquina pode ser aninhado dentro do recurso virtual da máquina, ou colocado no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o tipo de definição para os recursos infantis.
 
 O exemplo seguinte pressupõe que a extensão Stackify Retrace Linux está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado nos "recursos": [] objeto da máquina virtual.
 
-A extensão requer a `environment` e `activationKey`.
+A extensão `environment` requer `activationKey`a e .
 
 ```json
     {
@@ -121,7 +121,7 @@ A extensão requer a `environment` e `activationKey`.
     }      
 ```
 
-Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo reflete a configuração aninhada.
+Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual dos pais, e o tipo reflete a configuração aninhada.
 
 ```json
     {
@@ -150,9 +150,9 @@ Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui um
 
 ## <a name="powershell-deployment"></a>Implementação powerShell
 
-O comando `Set-AzVMExtension` pode ser usado para implantar a extensão virtual do Agente Stackify Retrace Linux para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de hash PowerShell.
+O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão virtual do Agente De trace Stackify para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de hash PowerShell.
 
-A extensão requer a `environment` e `activationKey`.
+A extensão `environment` requer `activationKey`a e .
 
 ```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -169,17 +169,17 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -Location WestUS `
 ```
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure 
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI 
 
 A ferramenta Azure CLI pode ser utilizada para implementar a extensão virtual do Agente Stackify Retrace Linux para uma máquina virtual existente.  
 
-A extensão requer a `environment` e `activationKey`.
+A extensão `environment` requer `activationKey`a e .
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="error-codes"></a>Códigos de erro
 
@@ -196,6 +196,6 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 90 | Ativar erro | Startup de serviço falhou |
 | 100 | Erro de desativar | Paragem de serviço falhada |
 | 110 | Erro de desativar | Remoção de serviço falhou |
-| 120 | Erro de Desinstalação | Paragem de serviço falhada |
+| 120 | Desinstalar erro | Paragem de serviço falhada |
 
-Se precisar de mais ajuda, pode contactar o suporte stackify em https://support.stackify.com.
+Se precisar de mais ajuda, pode https://support.stackify.comcontactar o suporte stackify em .

@@ -1,5 +1,5 @@
 ---
-title: Configure contas de laboratório nos Serviços de Laboratório Azure  Microsoft Docs
+title: Configure contas de laboratório nos Serviços de Laboratório Azure [ Microsoft Docs
 description: Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou apagar uma conta de laboratório nos Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284307"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configure contas de laboratório em Serviços de Laboratório Azure 
@@ -52,7 +52,7 @@ Esta definição aplica-se a todos os laboratórios criados na conta do laborat�
 
 Para saber como um dono de laboratório pode configurar este cenário a nível de laboratório, consulte [este artigo](how-to-enable-shutdown-disconnect.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Permitir que o criador do laboratório escolha a localização do laboratório](allow-lab-creator-pick-lab-location.md)

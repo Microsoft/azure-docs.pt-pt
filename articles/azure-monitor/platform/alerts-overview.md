@@ -5,13 +5,13 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274791"
 ---
-# <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
+# <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
 Este artigo descreve quais são os alertas, os seus benefícios e como começar a usá-los.  
 
@@ -36,9 +36,9 @@ Seguem-se os principais atributos de uma regra de alerta:
 
 **Critérios**: Uma combinação de sinal e lógica aplicada num recurso-alvo. Exemplos: 
 
-- Percentagem CPU > 70%
+- Percentagem cpu > 70%
 - Tempo de resposta do servidor > 4 ms 
-- Contagem de resultados de uma consulta de log > 100
+- Contagem de resultados de uma consulta de registo > 100
 
 **Nome do alerta**: Um nome específico para a regra de alerta configurado pelo utilizador.
 
@@ -56,13 +56,13 @@ Seguem-se os principais atributos de uma regra de alerta:
 
 ## <a name="what-you-can-alert-on"></a>O que pode alertar
 
-Pode alertar sobre métricas e registos, conforme descrito na monitorização de [fontes](../../azure-monitor/platform/data-sources.md)de dados . Estes incluem, mas não se limitam a:
+Pode alertar sobre métricas e registos, conforme descrito na monitorização de [fontes](../../azure-monitor/platform/data-sources.md)de dados . Estes incluem, mas não estão limitados a:
 
-- Valores métricos
-- Consultas de pesquisa de log
-- Eventos de registo de atividade
-- Saúde da plataforma Azure subjacente
-- Testes para disponibilidade do site
+- Valores de métricas
+- Consultas de pesquisa de registos
+- Eventos de registo de atividades
+- Estado de funcionamento da plataforma subjacente do Azure
+- Testes de disponibilidade do site
 
 Anteriormente, as métricas do Monitor Azure, Insights de Aplicação, Log Analytics e Service Health tinham capacidades de alerta separadas. Com o tempo, o Azure melhorou e combinou tanto a interface do utilizador como os diferentes métodos de alerta. Esta consolidação ainda está em curso. Como resultado, ainda existem algumas capacidades de alerta ainda não no novo sistema de alertas.  
 
@@ -79,7 +79,7 @@ Os seguintes estados de alerta são apoiados.
 | Estado | Descrição |
 |:---|:---|
 | Novo | O assunto acabou de ser detetado e ainda não foi revisto. |
-| Reconhecido | Um administrador reviu o alerta e começou a trabalhar nele. |
+| Confirmado | Um administrador reviu o alerta e começou a trabalhar nele. |
 | Fechado | A questão foi resolvida. Depois de um alerta ter sido encerrado, pode reabri-lo mudando-o para outro estado. |
 
 *O estado* de alerta é diferente e independente da condição do *monitor.* O estado de alerta é definido pelo utilizador. A condição do monitor é definida pelo sistema. Quando um alerta dispara, o estado de monitorização do alerta está definido para *ser disparado*. Quando a condição subjacente que causou o alerta a disparar, a condição do monitor está definida para *ser resolvida*. O estado de alerta não é alterado até que o utilizador o altere. Aprenda [a mudar o estado dos seus alertas e grupos inteligentes.](https://aka.ms/managing-alert-smart-group-states)
@@ -118,7 +118,7 @@ Selecione os seguintes valores na parte superior da página Alertas para abrir o
 | Regras totais de alerta | O número total de regras de alerta no grupo de subscrição e recursos selecionados. Selecione este valor para abrir a visão regras filtrada no grupo de subscrição e recursos selecionados.
 
 
-## <a name="manage-alert-rules"></a>Gerir as regras de alerta
+## <a name="manage-alert-rules"></a>Gere regras do alerta
 Para mostrar a página **Regras,** **selecione Gerir regras**de alerta . A página Regras é um único local para gerir todas as regras de alerta em todas as suas subscrições do Azure. Ele lista todas as regras de alerta e pode ser classificado com base em recursos-alvo, grupos de recursos, nome de regra ou estado. Também pode editar, ativar ou desativar as regras de alerta a partir desta página.  
 
  ![Screenshot da página Regras](./media/alerts-overview/alerts-preview-rules.png)
@@ -175,7 +175,7 @@ A página de detalhes do Alerta inclui as seguintes secções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções (RBAC) para as suas instâncias de alerta
 
-O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funções rBAC incorporadas quer do colaborador de [monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) quer do [leitor de monitorização.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Gestor de Recursos Azure, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas monitorização do acesso dos colaboradores a máquinas virtuais `ContosoVM1`, esse utilizador só pode consumir e gerir apenas os alertas gerados na `ContosoVM1`.
+O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funções rBAC incorporadas quer do colaborador de [monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) quer do [leitor de monitorização.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Gestor de Recursos Azure, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas `ContosoVM1`monitorização do acesso dos contribuintes `ContosoVM1`à máquina virtual, esse utilizador só pode consumir e gerir apenas os alertas gerados em .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie os seus casos de alerta programáticamente
 

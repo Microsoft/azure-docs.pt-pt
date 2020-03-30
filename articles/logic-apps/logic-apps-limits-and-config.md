@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
 ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284021"
 ---
-# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicações lógicas do Azure
+# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
 Este artigo descreve os limites e detalhes de configuração para a criação e execução de fluxos de trabalho automatizados com aplicações lógicas azure. Para Power Automate, consulte [Limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config).
 
@@ -32,11 +32,11 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Limite de casos de âmbito de comutação | 25 | |
 | Variáveis por fluxo de trabalho | 250 | |
 | Caracteres por expressão | 8,192 | |
-| Tamanho máximo para `trackedProperties` | 16.000 caracteres |
-| Nome para `action` ou `trigger` | 80 caracteres | |
-| Comprimento de `description` | 256 caracteres | |
-| `parameters` máximo | 50 | |
-| `outputs` máximo | 10 | |
+| Tamanho máximo para`trackedProperties` | 16.000 caracteres |
+| Nome `action` para ou`trigger` | 80 caracteres | |
+| Comprimento de`description` | 256 caracteres | |
+| Máximo`parameters` | 50 | |
+| Máximo`outputs` | 10 | |
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -64,7 +64,7 @@ Para alterar o limite de predefinição para a duração do execução e a reten
 > Para aplicações lógicas em Azure multi-inquilino, o limite de incumprimento de 90 dias é o mesmo que o limite máximo. Só se pode diminuir este valor.
 > Para aplicações lógicas num ambiente de serviço de integração, pode diminuir ou aumentar o limite de incumprimento de 90 dias.
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, encontre e selecione **aplicações Lógica.**
+1. Vá ao [portal Azure.](https://portal.azure.com) Na caixa de pesquisa do portal, encontre e selecione **aplicações Lógica.**
 
 1. Selecione e, em seguida, abra a sua aplicação lógica no Logic App Designer.
 
@@ -89,12 +89,12 @@ Aqui estão os limites para uma única aplicação lógica executada:
 | Itens de matriz foreach | 100 000 | Este limite descreve o maior número de itens matrizques que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, pode utilizar a ação de [consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Foreach concurrency | 20 é o limite de incumprimento quando o controlo da moeda é desligado. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite é o maior número de iterações em loop "para cada" que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 inclusive, consulte [alterar o limite de moeda "para cada"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou executar [ciclos "para cada" circuitos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Itens SplitOn | - 100.000 sem a moeda do gatilho <p><p>- 100 com troca de gatilho | Para os gatilhos que devolvem uma matriz, pode especificar uma expressão que utiliza uma propriedade 'SplitOn' que [divide ou debatcha itens de matriz em várias instâncias](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) de fluxo de trabalho para processamento, em vez de usar um loop "Foreach". Esta expressão refere a matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Nota:** Quando a moeda é ligada, o limite SplitOn é reduzido a 100 itens. |
-| Até iterações | - Padrão: 60 <p><p>- Máximo: 5.000 | |
+| Iterações Until | - Padrão: 60 <p><p>- Máximo: 5.000 | |
 ||||
 
 <a name="throughput-limits"></a>
 
-## <a name="throughput-limits"></a>Limites de entrada
+## <a name="throughput-limits"></a>Limites de débito
 
 Aqui estão os limites para uma definição de aplicação lógica única:
 
@@ -103,11 +103,11 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Nome | Limite | Notas |
 | ---- | ----- | ----- |
 | Ação: Execuções por 5 minutos | 100.000 é o limite de incumprimento, mas 300.000 é o limite máximo. | Para alterar o limite predefinido, consulte [Executar a sua aplicação lógica no modo "alta potência",](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)que está em pré-visualização. Ou, pode distribuir a carga de trabalho por mais do que uma aplicação lógica, se necessário. |
-| Ação: Chamadas de saída simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
-| Ponto final: Chamadas de entrada simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
-| Ponto final: Leia as chamadas por 5 minutos  | 60,000 | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
-| Ponto final: Invocar chamadas por 5 minutos | 45,000 | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
-| Entrada de conteúdo por 5 minutos | 600 MB | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
+| Ação: Chamadas de saída simultâneas | ~2500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
+| Ponto final: Chamadas de entrada simultâneas | ~1.000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
+| Ponto final: Leia as chamadas por 5 minutos  | 60 000 | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
+| Ponto final: Invocar chamadas por 5 minutos | 45 000 | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
+| Entrada de conteúdo por 5 minutos | 600 MB | Pode distribuir carga de trabalho por mais do que uma aplicação, se necessário. |
 ||||
 
 ### <a name="integration-service-environment-ise"></a>Ambiente de serviço de integração (ISE)
@@ -163,7 +163,7 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 
 | Nome | Notas |
 |------|-------|
-| Limite de avaliação de expressão | 131.072 caracteres | A `@concat()`, `@base64()`, `@string()` expressões não podem ser maiores do que este limite. |
+| Limite de avaliação da expressão | 131 072 carateres | `@base64()` `@string()` As `@concat()`expressões não podem ser maiores do que este limite. |
 | Limite de caracteres URL de pedido | 16.384 caracteres |
 |||
 
@@ -171,9 +171,9 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 
 | Nome | Limite | Notas |
 | ---- | ----- | ----- |
-| Tentativas de repetição | 90 | O padrão é 4. Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Retry max atraso | 1 dia | Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Retry min delay | 5 segundos | Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Tentativas de repetição | 90 | A predefinição é 4. Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Intervalo máx. de repetição | 1 dia | Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Intervalo mín. de repetição | 5 segundos | Para alterar o padrão, utilize o parâmetro da política de [retry](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -185,7 +185,7 @@ Aqui estão os limites para conectores personalizados que você pode criar a par
 | Nome | Limite de multi-inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1000 por subscrição do Azure | 1000 por subscrição do Azure ||
-| Número de pedidos por minuto para um conector personalizado | 500 pedidos por minuto por ligação | 2\.000 pedidos por minuto por *conector personalizado* ||
+| Número de pedidos por minuto para um conector personalizado | 500 pedidos por minuto por ligação | 2.000 pedidos por minuto por *conector personalizado* ||
 |||
 
 <a name="managed-identity"></a>
@@ -206,7 +206,7 @@ Cada subscrição do Azure tem estes limites de conta de integração:
 
 * Uma conta de integração [de nível livre](../logic-apps/logic-apps-pricing.md#integration-accounts) por região de Azure
 
-* 1\.000 contas totais de integração, incluindo contas de integração em quaisquer ambientes de [serviçode integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tanto em desenvolvedores como [em SKUs premium.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
+* 1.000 contas totais de integração, incluindo contas de integração em quaisquer ambientes de [serviçode integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tanto em desenvolvedores como [em SKUs premium.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
 * Cada ISE, seja [Developer ou Premium,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)está limitado a 5 contas totais de integração:
 
@@ -228,13 +228,13 @@ Para preços, consulte [preços de Apps Lógicas.](https://azure.microsoft.com/p
 > [!NOTE]
 > Utilize o nível Livre apenas para cenários exploratórios, não cenários de produção. Este nível restringe a entrada e utilização e não tem acordo de nível de serviço (SLA).
 
-| Artefacto | Gratuito | Básica | Standard |
+| Artefacto | Gratuito | Básico | Standard |
 |----------|------|-------|----------|
 | Acordos comerciais EDI | 10 | 1 | 1,000 |
 | Parceiros comerciais EDI | 25 | 2 | 1,000 |
 | Maps | 25 | 500 | 1,000 |
 | Esquemas | 25 | 500 | 1,000 |
-| Assembleias | 10 | 25 | 1,000 |
+| Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 1,000 |
 | Configurações do lote | 5 | 1 | 50 |
 ||||
@@ -252,14 +252,14 @@ Para preços, consulte [preços de Apps Lógicas.](https://azure.microsoft.com/p
 
 <a name="integration-account-throughput-limits"></a>
 
-### <a name="throughput-limits"></a>Limites de entrada
+### <a name="throughput-limits"></a>Limites de débito
 
-| Ponto final de tempo de execução | Gratuito | Básica | Standard | Notas |
+| Ponto final de tempo de execução | Gratuito | Básico | Standard | Notas |
 |------------------|------|-------|----------|-------|
-| Leia as chamadas por 5 minutos | 3\.000 | 30,000 | 60,000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
-| Invocar chamadas por 5 minutos | 3\.000 | 30,000 | 45,000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
-| Chamadas de rastreio por 5 minutos | 3\.000 | 30,000 | 45,000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
-| Bloquear chamadas simultâneas | ~1,000 | ~1,000 | ~1,000 | O mesmo para todas as SKUs. Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
+| Leia as chamadas por 5 minutos | 3.000 | 30,000 | 60 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
+| Invocar chamadas por 5 minutos | 3.000 | 30,000 | 45 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
+| Chamadas de rastreio por 5 minutos | 3.000 | 30,000 | 45 000 | Pode distribuir a carga de trabalho por mais de uma conta, se necessário. |
+| Bloquear chamadas simultâneas | ~1.000 | ~1.000 | ~1.000 | O mesmo para todas as SKUs. Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. |
 ||||
 
 <a name="b2b-protocol-limits"></a>
@@ -348,7 +348,7 @@ Esta secção lista os endereços IP de entrada apenas para o serviço De Aplica
 | Sul do Reino Unido | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Oeste do Reino Unido | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | E.U.A. Centro-Oeste | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
-| Europa Ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| Europa ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
 | Oeste da Índia | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | E.U.A. Oeste | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | E.U.A.Oeste 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
@@ -404,7 +404,7 @@ Esta secção lista os endereços IP de saída para o serviço de Aplicações D
 | Sul do Reino Unido | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150 |
 | Oeste do Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185 |
 | E.U.A. Centro-Oeste | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 13.78.132.82, 52.161.101.204 |
-| Europa Ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118, 40.91.208.65, 52.166.78.89 |
+| Europa ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118, 40.91.208.65, 52.166.78.89 |
 | Oeste da Índia | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218, 104.211.189.124 |
 | E.U.A. Oeste | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49, 40.112.195.87, 13.93.148.62 |
 | E.U.A.Oeste 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 52.191.164.250 |

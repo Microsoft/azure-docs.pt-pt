@@ -1,17 +1,17 @@
 ---
-title: Amostras de arranque rápido do Monitor Azure PowerShell
+title: Azure Monitor PowerShell quick start samples (Exemplos de início rápido do PowerShell do Azure Monitor)
 description: Utilize o PowerShell para aceder a funcionalidades do Monitor Azure, tais como escala automática, alertas, webhooks e registos de atividade de pesquisa.
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274323"
 ---
-# <a name="azure-monitor-powershell-quick-start-samples"></a>Amostras de arranque rápido do Monitor Azure PowerShell
+# <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell quick start samples (Exemplos de início rápido do PowerShell do Azure Monitor)
 Este artigo mostra que experimenta comandos PowerShell para ajudá-lo a aceder às funcionalidades do Monitor Azure.
 
 > [!NOTE]
@@ -94,10 +94,10 @@ O seguinte comando recupera os últimos 1000 eventos do registo de atividade:
 Get-AzLog -MaxRecord 10
 ```
 
-`Get-AzLog` suporta muitos outros parâmetros. Consulte a `Get-AzLog` referência para mais informações.
+`Get-AzLog`suporta muitos outros parâmetros. Consulte `Get-AzLog` a referência para mais informações.
 
 > [!NOTE]
-> `Get-AzLog` só dá 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos eventos N, além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK (amostraC# utilizando o SDK). Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
+> `Get-AzLog`apenas fornece 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos eventos N, além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize a amostra REST API ou SDK (C# utilizando o SDK). Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
 > 
 > 
 
@@ -108,7 +108,7 @@ Para ver todos os eventos de alerta, pode consultar os registos do Gestor de Rec
 Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Para ver a história para uma regra específica de alerta, pode utilizar o `Get-AzAlertHistory` cmdlet, passando a identificação de recursos da regra de alerta.
+Para ver a história para uma regra `Get-AzAlertHistory` específica de alerta, pode utilizar o cmdlet, passando a identificação de recursos da regra de alerta.
 
 ```powershell
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
@@ -137,28 +137,28 @@ Recupere todas as regras de alerta definidas para um recurso-alvo. Por exemplo, 
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` suporta outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
+`Get-AzAlertRule`suporta outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
 
 ## <a name="create-metric-alerts"></a>Criar alertas de métricas
-Pode utilizar o `Add-AlertRule` cmdlet para criar, atualizar ou desativar uma regra de alerta.
+Pode utilizar `Add-AlertRule` o cmdlet para criar, atualizar ou desativar uma regra de alerta.
 
-Pode criar propriedades de e-mail e webhook usando `New-AzAlertRuleEmail` e `New-AzAlertRuleWebhook`, respectivamente. Na regra de Alerta, atribua estes imóveis como ações à propriedade **das Ações** da Regra de Alerta.
+Pode criar propriedades de e-mail e webhook utilizando `New-AzAlertRuleEmail` e, `New-AzAlertRuleWebhook`respectivamente. Na regra de Alerta, atribua estes imóveis como ações à propriedade **das Ações** da Regra de Alerta.
 
 A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta usando uma métrica.
 
-| parâmetro | Valor |
+| parameter | valor |
 | --- | --- |
 | Nome |simpletestdiskwrite |
-| Localização desta regra de alerta |EUA Leste |
+| Localização desta regra de alerta |E.U.A. Leste |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Nome métrico do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/seg. Veja o `Get-MetricDefinitions` cmdlet sobre como recuperar os nomes métricos exatos |
+| TargetResourceid |/subscrições/s1/recursosGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| Nome métrico do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/seg. Veja `Get-MetricDefinitions` o cmdlet sobre como recuperar os nomes métricos exatos |
 | operador |GreaterThan |
 | Valor limiar (contagem/sec para esta métrica) |1 |
 | Tamanho do janela (hh:mm:ss formato) |00:05:00 |
 | agregador (estatística da métrica, que utiliza a contagem média, neste caso) |Média |
-| e-mails personalizados (string array) |'foo@example.com'',bar@example.com' |
-| enviar e-mail para proprietários, contribuintes e leitores |-SendToServiceOwners |
+| e-mails personalizados (string array) |'foo@example.com','bar@example.com' |
+| enviar e-mail para proprietários, contribuintes e leitores |-EnviarServiços Proprietários |
 
 Criar uma ação de e-mail
 
@@ -187,7 +187,7 @@ Get-AzAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 O alerta Adicionar cmdlet também atualiza a regra se já existir uma regra de alerta para as propriedades dadas. Para desativar uma regra de alerta, inclua o parâmetro **-DisableRule**.
 
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Obtenha uma lista de métricas disponíveis para alertas
-Pode utilizar o `Get-AzMetricDefinition` cmdlet para visualizar a lista de todas as métricas para um recurso específico.
+Pode utilizar `Get-AzMetricDefinition` o cmdlet para visualizar a lista de todas as métricas para um recurso específico.
 
 ```powershell
 Get-AzMetricDefinition -ResourceId <resource_id>
@@ -199,10 +199,10 @@ O exemplo seguinte gera uma tabela com o nome métrico e a Unidade para ele.
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Uma lista completa de opções disponíveis para `Get-AzMetricDefinition` está disponível no [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+Uma lista completa de `Get-AzMetricDefinition` opções disponíveis está disponível no [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-activity-log-alerts"></a>Criar e gerir alertas de Registo de Atividades
-Pode utilizar o `Set-AzActivityLogAlert` cmdlet para definir um alerta de Registo de Atividade. Um alerta de Registo de Atividade requer que primeiro defina as suas condições como um dicionário de condições e, em seguida, crie um alerta que utilize essas condições.
+Pode utilizar `Set-AzActivityLogAlert` o cmdlet para definir um alerta de Registo de Atividade. Um alerta de Registo de Atividade requer que primeiro defina as suas condições como um dicionário de condições e, em seguida, crie um alerta que utilize essas condições.
 
 ```powershell
 
@@ -215,7 +215,7 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 
 ```
 
-As propriedades adicionais do webhook são opcionais. Pode recuperar o conteúdo de um Alerta de Registo de Atividade sem `Get-AzActivityLogAlert`.
+As propriedades adicionais do webhook são opcionais. Pode recuperar o conteúdo de um `Get-AzActivityLogAlert`Alerta de Registo de Atividade utilizando .
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerir as definições de AutoScale
 Um recurso (uma aplicação Web, VM, Cloud Service ou Virtual Machine Scale set) pode ter apenas uma definição de escala automática configurada para o mesmo.
@@ -275,7 +275,7 @@ O exemplo que se segue mostra como pode ver eventos recentes de escala automáti
 Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Pode utilizar o `Get-AzAutoScaleHistory` cmdlet para recuperar o histórico de AutoScale.
+Pode utilizar `Get-AzAutoScaleHistory` o cmdlet para recuperar o histórico de AutoScale.
 
 ```powershell
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
@@ -284,7 +284,7 @@ Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/provid
 Para mais informações, consulte [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### <a name="view-details-for-an-autoscale-setting"></a>Ver detalhes para uma definição de escala automática
-Pode utilizar o `Get-Autoscalesetting` cmdlet para obter mais informações sobre a definição de escala automática.
+Pode utilizar `Get-Autoscalesetting` o cmdlet para obter mais informações sobre a definição de escala automática.
 
 O exemplo que se segue mostra detalhes sobre todas as definições de escala automática no grupo de recursos 'myrg1'.
 
@@ -299,17 +299,17 @@ Get-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOu
 ```
 
 ### <a name="remove-an-autoscale-setting"></a>Remover uma definição de escala automática
-Pode utilizar o `Remove-Autoscalesetting` cmdlet para eliminar uma definição de escala automática.
+Pode utilizar `Remove-Autoscalesetting` o cmdlet para eliminar uma definição de escala automática.
 
 ```powershell
 Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Gerir perfis de registo para registo de atividade
-Pode criar um perfil de *registo* e exportar dados desde o registo da sua atividade até uma conta de armazenamento e pode configurar a retenção de dados para o mesmo. Opcionalmente, também pode transmitir os dados para o seu Hub de Eventos. Esta funcionalidade encontra-se atualmente em Pré-visualização e só pode criar um perfil de registo por subscrição. Pode utilizar os seguintes cmdlets com a sua subscrição atual para criar e gerir perfis de registo. Também pode escolher uma subscrição específica. Embora o PowerShell falhe na subscrição atual, pode sempre alterar isso usando `Set-AzContext`. Pode configurar o registo de atividade supor dados para qualquer conta de armazenamento ou Hub de Eventos dentro dessa subscrição. Os dados são escritos como ficheiros blob no formato JSON.
+Pode criar um perfil de *registo* e exportar dados desde o registo da sua atividade até uma conta de armazenamento e pode configurar a retenção de dados para o mesmo. Opcionalmente, também pode transmitir os dados para o seu Hub de Eventos. Esta funcionalidade encontra-se atualmente em Pré-visualização e só pode criar um perfil de registo por subscrição. Pode utilizar os seguintes cmdlets com a sua subscrição atual para criar e gerir perfis de registo. Também pode escolher uma subscrição específica. Embora o PowerShell falhe com a subscrição `Set-AzContext`atual, pode sempre alterar isso usando . Pode configurar o registo de atividade supor dados para qualquer conta de armazenamento ou Hub de Eventos dentro dessa subscrição. Os dados são escritos como ficheiros blob no formato JSON.
 
 ### <a name="get-a-log-profile"></a>Obtenha um perfil de registo
-Para obter os perfis de registo existentes, utilize o `Get-AzLogProfile` cmdlet.
+Para obter os perfis de registo `Get-AzLogProfile` existentes, use o cmdlet.
 
 ### <a name="add-a-log-profile-without-data-retention"></a>Adicione um perfil de registo sem retenção de dados
 ```powershell
@@ -385,7 +385,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-Note que a propriedade WorkspaceId leva a *identificação* de recursos do espaço de trabalho. Pode obter o ID de recurso da sua área de trabalho do Log Analytics com o seguinte comando:
+Note que a propriedade WorkspaceId leva a *identificação* de recursos do espaço de trabalho. Pode obter o ID de recurso do seu espaço de trabalho Log Analytics utilizando o seguinte comando:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

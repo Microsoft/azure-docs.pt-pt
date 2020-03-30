@@ -1,5 +1,5 @@
 ---
-title: Compreenda o Hub Azure IoT embutido no ponto final  Microsoft Docs
+title: Compreenda o Hub Azure IoT embutido no ponto final [ Microsoft Docs
 description: Guia de desenvolvimento - descreve como usar o ponto final compatível com o Event Hub para ler mensagens dispositivo-a-nuvem.
 author: wesmc7777
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284606"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
@@ -54,13 +54,13 @@ No portal, o campo final compatível com o Event Hub contém uma cadeia completa
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
-| Espaço de nomes | abcd1234namespace |
+| Espaço de nomes | espaço abcd1234nome |
 
 Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para se ligar ao Centro de Eventos especificado.
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eventos incorporado que o IoT Hub expõe incluem:
 
-| Linguagem | SDK | Exemplo | Notas |
+| Idioma | SDK | Exemplo | Notas |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Utiliza informações compatíveis com hubs de eventos |
  Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Utiliza informações compatíveis com hubs de eventos |
@@ -70,13 +70,13 @@ Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eve
 As integrações do produto que pode utilizar com o ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
 * [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/) Consulte [o Processamento de dados do IoT Hub com funções Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consulte [os dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Azure Stream Analytics.](https://docs.microsoft.com/azure/stream-analytics/) Consulte [os dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 * [Insights da Série Time.](https://docs.microsoft.com/azure/time-series-insights/) Consulte Adicionar uma fonte de evento de [hub IoT ao seu ambiente Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
 * [Apache Storm bico.](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md) Pode ver a fonte de [bico](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração Apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 * [Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre os pontos finais do Hub IoT, consulte os [pontos finais do Hub IoT](iot-hub-devguide-endpoints.md).
 

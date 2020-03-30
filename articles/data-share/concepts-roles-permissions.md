@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265509"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
@@ -33,7 +33,7 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 |---|---|---|
 |**Tipo de loja de dados**|**Loja de Dados de Fonte do Fornecedor de Dados**|**Data Consumer Target Data Store**|
 |Armazenamento de Blobs do Azure| Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
-|Lago de Dados Azure Gen1 | Proprietário | Não Suportado
+|Lago de Dados Azure Gen1 | Proprietário | Não suportado
 |Lago de Dados Azure Gen2 | Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
 |Servidor Azure SQL | Contribuinte SQL DB | Contribuinte SQL DB
 |Azure Data Explorer Cluster | Contribuinte | Contribuinte
@@ -59,7 +59,7 @@ Em alternativa, o utilizador pode ter o proprietário da loja de dados Azure adi
 Para criar uma atribuição de funções para a identidade gerida do recurso de partilha de dados, siga os passos seguintes:
 
 1. Navegue para a loja de dados Azure.
-1. Selecione **Controlo de Acesso (IAM)** .
+1. Selecione **Controlo de Acesso (IAM)**.
 1. Selecione **Adicionar uma atribuição de funções**.
 1. Em *Funções*, selecione a função na tabela de atribuição de funções acima (por exemplo, para conta de armazenamento, *selecione Storage Blob Data Reader).*
 1. Em *Select*, escreva em nome do seu recurso Azure Data Share.
@@ -77,7 +77,7 @@ Em alternativa, o utilizador pode ter o proprietário da loja de dados Azure adi
 Para criar manualmente uma atribuição de funções para a identidade gerida pelo recurso de partilha de dados, siga os passos seguintes:
 
 1. Navegue para a loja de dados Azure.
-1. Selecione **Controlo de Acesso (IAM)** .
+1. Selecione **Controlo de Acesso (IAM)**.
 1. Selecione **Adicionar uma atribuição de funções**.
 1. Em *Funções*, selecione a função na tabela de atribuição de funções acima (por exemplo, para conta de armazenamento, *selecione Storage Blob Data Reader).*
 1. Em *Select*, escreva em nome do seu recurso Azure Data Share.
@@ -99,7 +99,7 @@ Para ver o convite da Azure Data Share pela primeira vez no seu inquilino Azure,
 1. Pesquisa por Microsoft.DataShare.
 1. Clique no **Registo**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre papéis no Azure - [Compreender definições de papéis](../role-based-access-control/role-definitions.md)
 

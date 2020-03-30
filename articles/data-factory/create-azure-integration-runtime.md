@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260764"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Tempo de Funcionação de Integração Azure
@@ -63,6 +63,6 @@ Uma vez criado um IR Azure, pode referenciar na definição do Serviço Linked. 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos sobre como criar outros tipos de tempos de integração:
 
-- [Criar um integration runtime autoalojado](create-self-hosted-integration-runtime.md)
-- [Criar o tempo de execução da integração Azure-SSIS](create-azure-ssis-integration-runtime.md)
+- [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
+- [Criar o runtime de integração de SSIS do Azure](create-azure-ssis-integration-runtime.md)
  

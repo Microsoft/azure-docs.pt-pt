@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274479"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades standard em Registos de Monitor Estoque Azure
@@ -45,8 +45,8 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="_timereceived"></a>\_Tempo Recebido
-A **propriedade\_TimeReceived** contém a data e hora que o registo foi recebido pelo ponto de ingestão do Monitor Azure na nuvem Azure. Isto pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de networking que causaria um atraso com a envio de dados de um agente. Consulte o tempo de [ingestão](data-ingestion-time.md) de dados de registo no Monitor Azure para obter mais detalhes.
+## <a name="_timereceived"></a>\_TimeReceived
+A propriedade ** \_TimeReceived** contém a data e hora que o registo foi recebido pelo ponto de ingestão do Monitor Azure na nuvem Azure. Isto pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de networking que causaria um atraso com a envio de dados de um agente. Consulte o tempo de [ingestão](data-ingestion-time.md) de dados de registo no Monitor Azure para obter mais detalhes.
 
 A seguinte consulta dá a latência média por hora para registos de eventos de um agente. Isto inclui o tempo do agente para a nuvem e o tempo total para que o registo esteja disponível para consultas de registo.
 
@@ -60,7 +60,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>Tipo e artigoTipo
-As propriedades **do Tipo** (Log Analytics) e **do itemType** (aplicação Application Insights) possuem o nome da tabela a que o registo foi recuperado, do qual também pode ser considerado o tipo de registo. Esta propriedade é útil em consultas que combinam registos de várias tabelas, como as que usam o operador `search`, para distinguir entre registos de diferentes tipos. **$table** pode ser usado no lugar do **Tipo** em alguns lugares.
+As propriedades **do Tipo** (Log Analytics) e **do itemType** (aplicação Application Insights) possuem o nome da tabela a que o registo foi recuperado, do qual também pode ser considerado o tipo de registo. Esta propriedade é útil em consultas que combinam registos de `search` várias tabelas, como as que usam o operador, para distinguir entre registos de diferentes tipos. **$table** pode ser usado no lugar do **Tipo** em alguns lugares.
 
 ### <a name="examples"></a>Exemplos
 A seguinte consulta devolve a contagem de registos por tipo recolhido ao longo da última hora.
@@ -72,11 +72,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-A propriedade **\_ItemId** detém um identificador único para o registo.
+A propriedade ** \_ItemId** detém um identificador único para o registo.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-A propriedade **\_ResourceId** detém um identificador único para o recurso com o que o registo está associado. Isto dá-lhe uma propriedade padrão para usar para analisar a sua consulta apenas para registos a partir de um determinado recurso, ou para juntar dados relacionados em várias tabelas.
+A propriedade ** \_ResourceId** detém um identificador único para o recurso com o que o registo está associado. Isto dá-lhe uma propriedade padrão para usar para analisar a sua consulta apenas para registos a partir de um determinado recurso, ou para juntar dados relacionados em várias tabelas.
 
 Para os recursos Azure, o valor do **_ResourceId** é o URL de ID de [recurso Azure.](../../azure-resource-manager/templates/template-functions-resource.md) A propriedade está atualmente limitada aos recursos Azure, mas será estendida a recursos fora de Azure, como computadores no local.
 
@@ -119,16 +119,16 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Utilize estas consultas `union withsource = tt *` com moderação, uma vez que as análises através de tipos de dados são caras para executar.
+Utilize `union withsource = tt *` estas consultas com moderação, uma vez que as análises através de tipos de dados são caras para executar.
 
 ## <a name="_isbillable"></a>\_IsBillable
-A **propriedade isBillable\_** especifica se os dados ingeridos são faturados. Os dados com **\_IsBillable** igual a _falso_ são recolhidos gratuitamente e não faturados na sua conta Azure.
+A propriedade ** \_IsBillable** especifica se os dados ingeridos são faturados. Os dados com ** \_IsBillable** igual a _falso_ são recolhidos gratuitamente e não faturados na sua conta Azure.
 
 ### <a name="examples"></a>Exemplos
 Para obter uma lista de computadores que enviam tipos de dados faturados, utilize a seguinte consulta:
 
 > [!NOTE]
-> Utilize consultas com `union withsource = tt *` com moderação, uma vez que os exames através de tipos de dados são caros de executar. 
+> Utilize consultas `union withsource = tt *` com moderação, pois as digitalizações entre os tipos de dados são caras para executar. 
 
 ```Kusto
 union withsource = tt * 
@@ -148,12 +148,12 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="_billedsize"></a>\_BilledSize
-A **propriedade\_BilledSize** especifica o tamanho em bytes de dados que serão faturados na sua conta Azure se **\_IsBillable** for verdade.
+## <a name="_billedsize"></a>\_Faturado
+A ** \_propriedade BilledSize** especifica o tamanho em bytes de dados que serão faturados na sua conta Azure se ** \_isBillable** for verdadeiro.
 
 
 ### <a name="examples"></a>Exemplos
-Para ver o tamanho dos eventos faturados ingeridos por computador, utilize a propriedade `_BilledSize` que fornece o tamanho em bytes:
+Para ver o tamanho dos eventos faturados `_BilledSize` ingeridos por computador, utilize a propriedade que fornece o tamanho em bytes:
 
 ```Kusto
 union withsource = tt * 
@@ -205,7 +205,7 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre como os dados de registo do [Monitor Azure são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre escrever consultas de [registo.](../../azure-monitor/log-query/get-started-queries.md)

@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278509"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de Gestão de Atualização em Azure
@@ -44,7 +44,7 @@ O diagrama que se segue ilustra como a solução avalia e aplica atualizações 
 
 ![Fluxo de processo de gestão de atualização](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-A Atualização Gestão pode ser usada para máquinas de bordo nativas em múltiplas subscrições no mesmo inquilino.
+A Gestão de Atualizações pode ser utilizada para integrar máquinas de forma nativa em múltiplas subscrições no mesmo inquilino.
 
 Depois de um pacote ser lançado, leva 2 a 3 horas para o patch aparecer para as máquinas Linux para avaliação. Para as máquinas Windows, o patch demora 12 a 15 horas para que o patch apareça para avaliação depois de lançado.
 
@@ -73,7 +73,7 @@ Ter uma máquina registada para Gestão de Atualizações em mais de um espaço 
 
 ## <a name="clients"></a>Clientes
 
-### <a name="supported-client-types"></a>Tipos de cliente suportados
+### <a name="supported-client-types"></a>Tipos de clientes suportados
 
 A tabela seguinte lista os sistemas operativos suportados para avaliações de atualizações. Remendar requer um Trabalhador Híbrido do Livro de Corridas. Para obter informações sobre os requisitos do Trabalhador do Livro de Execução Híbrido, consulte os guias de instalação para instalar um Trabalhador do [Livro híbrido do Windows](automation-windows-hrw-install.md) e um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
@@ -81,7 +81,7 @@ A tabela seguinte lista os sistemas operativos suportados para avaliações de a
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Management apenas suporta a realização de avaliações para este sistema operativo, patching não é suportado uma vez que o [Hybrid Runbook Worker](automation-windows-hrw-install.md) não é suportado para o Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux exigem acesso a um repositório de atualização. A correção baseada na classificação requer `yum` para devolver dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [classificações de atualização no Linux](automation-view-update-assessments.md#linux-2).          |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux exigem acesso a um repositório de atualização. A correção baseada na `yum` classificação requer a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [classificações de atualização no Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes linux exigem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes linux exigem acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)      |Os agentes linux exigem acesso a um repositório de atualização.         |
@@ -90,14 +90,14 @@ A tabela seguinte lista os sistemas operativos suportados para avaliações de a
 > Os conjuntos de escala de máquinas virtuais Azure podem ser geridos através da Atualização. A Atualização Management trabalha nas próprias instâncias e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias vm sejam atualizadas de uma só vez.
 > Pode adicionar nódosos para conjuntos de escala de máquinavirtual seguindo os degraus sob [bordo de uma máquina não Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
-### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
+### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
 
 A tabela que se segue enumera sistemas operativos não suportados:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Não são suportados sistemas operativos de cliente (por exemplo, o Windows 7 e Windows 10).        |
-|Servidor de Nano do Windows Server 2016     | Não suportado.       |
+|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.        |
+|Windows Server 2016 Nano Server     | Não suportado.       |
 |Nódosos de serviço Azure Kubernetes | Não suportado. Utilize o processo de correção descrito em Aplicar atualizações de [segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
@@ -143,7 +143,7 @@ Pode adicionar a máquina Windows a um grupo híbrido Runbook Worker na sua cont
 
 ### <a name="management-packs"></a>Pacotes de gestão
 
-Se o seu grupo de gestão de Gestão de Operações do System Center estiver ligado a um espaço de [trabalho de Log Analytics,](../azure-monitor/platform/om-agents.md)os seguintes pacotes de gestão são instalados no Gestor de Operações. Estes pacotes de gestão também são instalados em máquinas Windows diretamente conectadas depois de adicionar a solução. Não é necessário configurar ou gerir estes pacotes de gestão.
+Se o seu grupo de gestão de Gestão de Operações do System Center estiver ligado a um espaço de [trabalho de Log Analytics,](../azure-monitor/platform/om-agents.md)os seguintes pacotes de gestão são instalados no Gestor de Operações. Estes pacotes de gestão também são instalados em máquinas Windows diretamente conectadas depois de adicionar a solução. Não precisa de configurar nem de gerir estes pacotes de gestão.
 
 * Pacote de Informações de Avaliação de Atualização do Microsoft System Center Advisor (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -167,7 +167,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução recolhe informações sobre atualizações do sistema a partir de agentes Linux e inicia a instalação de atualizações necessárias sobre distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
+| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são encaminhados do grupo de gestão para o espaço de trabalho log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -179,11 +179,11 @@ Pode levar entre 30 minutos e 6 horas para o painel de instrumentos apresentar d
 
 A utilização média de dados por registos do Monitor Azure para uma máquina que utilize a Atualização é de aproximadamente 25 megabytes (MB) por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar o seu uso exato. Para obter mais informações para analisar o uso de dados, consulte [Gerir o uso e o custo.](../azure-monitor/platform/manage-cost-storage.md)
 
-## <a name="ports"></a>Planeamento da rede
+## <a name="network-planning"></a><a name="ports"></a>Planeamento da rede
 
 Os seguintes endereços são necessários especificamente para gestão de atualizações. A comunicação a estes endereços ocorre sobre a porta 443.
 
-|Azure Public  |Azure Government  |
+|Azure Público  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -200,7 +200,7 @@ Recomendamos que utilize os endereços listados ao definir exceções. Para ende
 
 Siga as instruções em [Connect computadores sem acesso](../azure-monitor/platform/gateway.md) à Internet para configurar máquinas que não tenham acesso à Internet.
 
-## <a name="update-classifications"></a>Classificações de atualização
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas seguintes listam as classificações de atualização em Gestão de Atualizações, com uma definição para cada classificação.
 
@@ -217,7 +217,7 @@ As tabelas seguintes listam as classificações de atualização em Gestão de A
 |Ferramentas     | Um utilitário ou funcionalidade que ajuda a completar uma ou mais tarefas.        |
 |Atualizações     | Uma atualização de uma aplicação ou ficheiro que está atualmente instalado.        |
 
-### <a name="linux-2"></a>Linux
+### <a name="linux"></a><a name="linux-2"></a>Linux
 
 |Classificação  |Descrição  |
 |---------|---------|
@@ -244,7 +244,7 @@ Para aprender a integrar a solução de gestão com o Gestor de Configuração, 
 
 A Update Management conta com o repositório de atualização configurado localmente para atualizar os sistemas Windows suportados. Isto ou é WSUS ou Windows Update. Ferramentas como [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) (Updates Publisher) permite-lhe importar e publicar atualizações personalizadas com a WSUS. Este cenário permite que a Atualização de Gestão atualize máquinas que utilizam o Gestor de Configuração como o seu repositório de atualização com software de terceiros. Para saber como configurar atualizações, consulte instalar [atualizações editora](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
 
-## <a name="onboard"></a>Ativar a Gestão de Atualizações
+## <a name="enable-update-management"></a><a name="onboard"></a>Ativar a Gestão de Atualizações
 
 Para começar a atualizar os sistemas, é necessário ativar a solução de Gestão de Atualização. Seguem-se os métodos recomendados e suportados para embarcar na solução:
 

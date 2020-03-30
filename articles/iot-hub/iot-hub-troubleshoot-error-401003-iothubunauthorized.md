@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: d0a9f643516af5945037acb3dd1da24b06944171
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284411"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -30,10 +30,10 @@ Nos registos de diagnóstico, vê-se um padrão de dispositivos desligados com *
 Os pedidos ao IoT Hub falham com uma das seguintes mensagens de erro:
 
 * Cabeçalho de autorização em falta
-* O\*do IotHub não contém o dispositivo especificado '\*'
-* Regra de autorização '\*' não permite o acesso para '\*'
+* IotHub\*' ' não contém o\*dispositivo especificado ' '
+* Regra de\*autorização ' '\*não permite o acesso para ' '
 * A autenticação falhou para este dispositivo, renovar ficha ou certificado e reconectar
-* A impressão digital não corresponde à configuração: Impressão digital: SHA1Hash=\*, SHA2Hash=\*; Configuração: Impressão PrimaryThumb=\*, Impressão Secundária Do Polegar=\*
+* A impressão digital não corresponde à configuração:\*Impressão digital:\*SHA1Hash=, SHA2Hash= ; Configuração: Impressão PrimaryThumb=\*, Impressão Secundária Do Polegar=\*
 
 ## <a name="cause"></a>Causa
 

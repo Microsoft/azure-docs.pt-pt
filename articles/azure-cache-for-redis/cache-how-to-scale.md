@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278002"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como escalar o Cache Azure para Redis
@@ -24,14 +24,14 @@ Pode monitorizar as seguintes métricas para ajudar a determinar se precisa de e
 * Carga do servidor Redis
 * Utilização de Memória
 * Largura de banda de rede
-* Utilização do CPU
+* Utilização da CPU
 
 Se determinar que o seu cache já não satisfaz os requisitos da sua aplicação, pode escalar para um nível de preços de cache maior ou menor que é adequado para a sua aplicação. Para obter mais informações sobre a determinação do nível de preços da cache a utilizar, consulte [o que azure cache para a oferta e tamanho do Redis devo utilizar.](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="scale-a-cache"></a>Escalar uma cache
 Para escalar a sua cache, [navegue até à cache](cache-configure.md#configure-azure-cache-for-redis-settings) no [portal Azure](https://portal.azure.com) e clique em **Escala** a partir do **menu Recurso**.
 
-![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Dimensionamento](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selecione o nível de preços desejado a partir da lâmina seleta de **nível** de preços e clique **em Selecionar**.
 
@@ -64,19 +64,19 @@ Além de escalonar as suas instâncias de cache no portal Azure, pode escalar ut
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode escalar o seu Cache Azure para os casos Redis com a PowerShell utilizando o cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando as propriedades `Size`, `Sku`ou `ShardCount` forem modificadas. O exemplo seguinte mostra como escalar uma cache chamada `myCache` para uma cache de 2,5 GB. 
+Pode escalar o seu Cache Azure para os casos Redis com a PowerShell utilizando `Sku`o `ShardCount` cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando o `Size`, ou propriedades forem modificados. O exemplo seguinte mostra como `myCache` escalar uma cache com o nome de uma cache de 2,5 GB. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Para obter mais informações sobre a escala com powerShell, consulte [Para escalar um Cache Azure para Redis utilizando powershell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Escala usando Azure CLI
-Para escalar o seu Cache Azure para os casos Redis utilizando o Azure CLI, ligue para o comando `azure rediscache set` e passe nas alterações de configuração desejadas que incluam um novo tamanho, sku ou tamanho de cluster, dependendo da operação de escalagem desejada.
+Para escalar o seu Cache Azure para os casos `azure rediscache set` Redis utilizando o Azure CLI, ligue para o comando e passe nas alterações de configuração desejadas que incluam um novo tamanho, sku ou tamanho de cluster, dependendo da operação de escalagem desejada.
 
 Para obter mais informações sobre escala com o Azure CLI, consulte [as definições de alteração de um Azure Cache existente para Redis](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Escala usando MAML
-Para escalar o seu Cache Azure para os casos Redis utilizando as Bibliotecas de [Gestão Microsoft Azure (MAML),](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)ligue para o método `IRedisOperations.CreateOrUpdate` e passe o novo tamanho para o `RedisProperties.SKU.Capacity`.
+Para escalar o seu Cache Azure para os casos Redis utilizando as `IRedisOperations.CreateOrUpdate` Bibliotecas de [Gestão Microsoft Azure (MAML),](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)ligue para o método e passe o novo tamanho para o `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -134,13 +134,13 @@ Não, o seu nome de cache e as chaves permanecem inalterados durante uma operaç
 * Quando uma cache **Standard** é dimensionada para um tamanho ou nível maior, ou uma cache **Premium** é dimensionada para um tamanho maior, todos os dados são normalmente preservados. Ao escalonar uma cache **Standard** ou **Premium** para um tamanho menor, os dados podem ser perdidos dependendo da quantidade de dados na cache relacionada com o novo tamanho quando é escalado. Se os dados forem perdidos ao escalonar, as chaves são despejadas usando a política de despejo [allkeys-lru.](https://redis.io/topics/lru-cache) 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>As minhas bases de dados personalizadas estão a ser afetadas durante a escala?
-Se configurar um valor personalizado para a definição de `databases` durante a criação de cache, lembre-se que alguns níveis de preços têm [diferentes limites](cache-configure.md#databases)de bases de dados . Aqui estão algumas considerações ao escalonar neste cenário:
+Se configurar um valor `databases` personalizado para a definição durante a criação de cache, lembre-se que alguns níveis de preços têm [diferentes limites](cache-configure.md#databases)de bases de dados . Aqui estão algumas considerações ao escalonar neste cenário:
 
-* Ao escalonar para um nível de preços com um limite de `databases` inferior ao atual nível:
-  * Se estiver a utilizar o número padrão de `databases`, que é 16 para todos os níveis de preços, não se perdem dados.
-  * Se estiver a utilizar um número personalizado de `databases` que se insere dentro dos limites para o nível a que está a escalonar, esta configuração `databases` é mantida e não se perdem dados.
-  * Se estiver a utilizar um número personalizado de `databases` que exceda os limites do novo nível, a definição de `databases` é reduzida para os limites do novo nível e todos os dados nas bases de dados removidas são perdidos.
-* Ao escalonar para um nível de preços com o mesmo limite de `databases` ou superior ao nível atual, a sua definição `databases` é mantida e não se perdem dados.
+* Ao escalonar para um nível `databases` de preços com um limite inferior ao atual:
+  * Se estiver a utilizar `databases`o número padrão de , que é 16 para todos os níveis de preços, não se perdem dados.
+  * Se estiver a utilizar `databases` um número personalizado que se insere dentro dos `databases` limites para o nível a que está a escalonar, esta definição é mantida e não se perdem dados.
+  * Se estiver a utilizar `databases` um número personalizado que exceda os `databases` limites do novo nível, a definição é reduzida para os limites do novo nível e todos os dados nas bases de dados removidos são perdidos.
+* Ao escalonar para um nível de `databases` preços com o `databases` mesmo limite ou superior ao nível atual, a sua definição é mantida e não se perdem dados.
 
 Embora os caches Standard e Premium tenham um SLA de 99,9% para disponibilidade, não existe SLA para perda de dados.
 

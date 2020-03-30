@@ -4,10 +4,10 @@ description: Localizar, criar, gerir e apagar projetos em Azure Migrate.
 ms.topic: how-to
 ms.date: 02/17/2020
 ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269643"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
@@ -24,7 +24,7 @@ A primeira vez que configura o Azure Migrate, cria um projeto e adiciona uma fer
 Se já tem um projeto Azure Migrate e pretende criar um projeto adicional, faça o seguinte:  
 
 1. No [portal Azure,](https://portal.azure.com)procure **azure migrate.**
-2. No painel de instrumentos Emigração Azure > **Servers,** selecione **a alteração** no canto superior direito.
+2. No painel de instrumentos do Azure Migrate > **Servers,** selecione **a alteração** no canto superior direito.
 
    ![Projeto Change Azure Migrate](./media/create-manage-projects/switch-project.png)
 
@@ -38,7 +38,7 @@ Se já tem um projeto Azure Migrate e pretende criar um projeto adicional, faça
 Encontre um projeto da seguinte forma:
 
 1. No [portal Azure,](https://portal.azure.com)procure **azure migrate.**
-2. No painel de instrumentos Emigração Azure > **Servers,** selecione **a alteração** no canto superior direito.
+2. No painel de instrumentos de migração Azure > **Servers**, selecione **a alteração** no canto superior direito.
 
     ![Mude para um projeto existente do Azure Migrate](./media/create-manage-projects/switch-project.png)
 
@@ -78,8 +78,8 @@ Tenha em atenção que:
 
 1. Navegue no espaço de trabalho do Log Analytics ligado ao projeto.
 
-    - Se ainda não apagou o projeto Azure Migrate, pode encontrar a ligação ao espaço de trabalho na **Essentials** > **Server Assessment**.
-       ![](./media/create-manage-projects/loganalytics-workspace.png)do espaço de trabalho de LA.
+    - Se ainda não apagou o projeto Azure Migrate, pode encontrar a ligação ao espaço de trabalho na**Avaliação**do Servidor **Essencial** > .
+       ![La Workspace](./media/create-manage-projects/loganalytics-workspace.png).
        
     - Se já apagou o projeto Azure Migrate, selecione **Grupos de Recursos** no painel esquerdo do portal Azure e encontre o espaço de trabalho.
        

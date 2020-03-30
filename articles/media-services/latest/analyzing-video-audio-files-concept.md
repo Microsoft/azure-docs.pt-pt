@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269890"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
@@ -32,7 +32,7 @@ Para analisar o seu conteúdo utilizando predefinições de Media Services v3, c
 
 Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua utilização do Indexer de Vídeo, e você não pode usar O Indexer de Vídeo ou qualquer outro serviço Azure de uma forma que viole os direitos de outros ou pode ser prejudicial para os outros. Antes de enviar quaisquer vídeos, incluindo quaisquer dados biométricos, para o serviço de Indexer de Vídeo para processamento e armazenamento, deve ter todos os direitos adequados, incluindo todos os consentimentos adequados, do(s) indivíduo(s) no vídeo. Para conhecer a conformidade, privacidade e segurança no Indexer de Vídeo, os [Termos dos Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft . Para as obrigações de privacidade da Microsoft e o tratamento dos seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e a [Adenda](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) de Processamento de Dados ("DPA"). Informações adicionais sobre a privacidade, incluindo sobre a retenção de dados, eliminação/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Ao utilizar o Indexer de Vídeo, concorda em ficar vinculado aos Termos dos Serviços Cognitivos, ao OST, dPA e à Declaração de Privacidade.
 
-## <a name="built-in-presets"></a>Configurações predefinidas incorporadas
+## <a name="built-in-presets"></a>Presets incorporados
 
 Atualmente, a Media Services suporta as seguintes predefinições de analisadores incorporados:  
 
@@ -154,12 +154,12 @@ Exemplo:
 |nome|O nome do rosto. Pode ser 'Unknown #0', uma celebridade identificada, ou uma pessoa treinada por clientes.|
 |confiança|A confiança na identificação facial.|
 |descrição|Uma descrição da celebridade. |
-|thumbnailId|A identificação da miniatura daquele rosto.|
-|knownPersonId|A identificação interna (se for uma pessoa conhecida).|
-|referenceId|O Bing ID (se for uma celebridade bing).|
-|referenceType|Atualmente, só o Bing.|
-|Título|O título (se for uma celebridade - por exemplo, "CEO da Microsoft").|
-|imageUrl|A URL de imagem, se for uma celebridade.|
+|miniaturaId|A identificação da miniatura daquele rosto.|
+|conhecidoPersonId|A identificação interna (se for uma pessoa conhecida).|
+|referênciaId|O Bing ID (se for uma celebridade bing).|
+|referênciaTipoType|Atualmente, só o Bing.|
+|título|O título (se for uma celebridade - por exemplo, "CEO da Microsoft").|
+|imagemUrl|A URL de imagem, se for uma celebridade.|
 |instâncias|Casos em que o rosto apareceu no intervalo de tempo dado. Cada instância também tem uma miniaturaId. |
 
 ```json
@@ -255,8 +255,8 @@ Exemplo:
 |CorrespondênciaCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por orador.|
 |AltifalanteNumberOfFragments|A quantidade de fragmentos que o altifalante tem num vídeo.|
-|SpeakerLongestMonolog|O monologmais mais longo do orador. Se o altifalante tiver silêncios dentro do monolog, está incluído. O silêncio no início e o fim do monologéno são removidos.|
-|SpeakerTalkToListenRatio|O cálculo baseia-se no tempo gasto no monolog (sem o silêncio pelo meio) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
+|AltifalanteMais Monolog|O monologmais mais longo do orador. Se o altifalante tiver silêncios dentro do monolog, está incluído. O silêncio no início e o fim do monologéno são removidos.|
+|Rácio SpeakerTalkToListen|O cálculo baseia-se no tempo gasto no monolog (sem o silêncio pelo meio) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
 
 
 ### <a name="sentiments"></a>sentimentos
@@ -296,7 +296,7 @@ Os sentimentos são agregados pelo seu campo sentimentType (Positivo/Neutro/Nega
 ]
 ```
 
-### <a name="labels"></a>etiquetas
+### <a name="labels"></a>rótulos
 
 |Nome|Descrição|
 |---|---|
@@ -354,7 +354,7 @@ Os sentimentos são agregados pelo seu campo sentimentType (Positivo/Neutro/Nega
   ] 
 ```
 
-### <a name="keywords"></a>palavras-chave
+### <a name="keywords"></a>keywords
 
 |Nome|Descrição|
 |---|---|
@@ -401,11 +401,11 @@ Os sentimentos são agregados pelo seu campo sentimentType (Positivo/Neutro/Nega
 ] 
 ```
 
-#### <a name="visualcontentmoderation"></a>visualContentModeration
+#### <a name="visualcontentmoderation"></a>visualContentModeração
 
 O bloco visualContentModeration contém intervalos de tempo que o Indexer de Vídeo descobriu potencialmente ter conteúdo adulto. Se o visualContentModeração estiver vazio, não há conteúdo adulto que tenha sido identificado.
 
-Os vídeos que se encontram com conteúdo adulto ou picante podem estar disponíveis apenas para visualização privada. Os utilizadores podem submeter um pedido de revisão humana do conteúdo, caso em que o atributo `IsAdult` conterá o resultado da revisão humana.
+Os vídeos que se encontram com conteúdo adulto ou picante podem estar disponíveis apenas para visualização privada. Os utilizadores podem submeter um pedido de revisão humana `IsAdult` do conteúdo, caso em que o atributo conterá o resultado da revisão humana.
 
 |Nome|Descrição|
 |---|---|
@@ -442,4 +442,4 @@ Os vídeos que se encontram com conteúdo adulto ou picante podem estar disponí
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial: Analisar vídeos com a Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Tutorial: analisar vídeos com os Serviços de Multimédia do Azure](analyze-videos-tutorial-with-api.md)

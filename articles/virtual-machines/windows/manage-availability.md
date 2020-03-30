@@ -16,13 +16,13 @@ ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae5d60f77319a6590807ae0b18a0c07c116e128b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267446"
 ---
-# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade de máquinas virtuais windows em Azure 
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade das máquinas virtuais do Windows no Azure 
 
 Aprenda formas de configurar e gerir várias máquinas virtuais para garantir uma elevada disponibilidade para a sua aplicação Windows no Azure. Também pode [gerir a disponibilidade de máquinas virtuais Linux.](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270241"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar registos do Monitor Azure e recolher dados de diagnóstico para aplicações lógicas do Azure
@@ -51,7 +51,7 @@ Pode ligar o Log Analytics quando criar a sua aplicação lógica.
 
 Se ligou o Log Analytics quando criou a sua aplicação lógica, ignore este passo. Já tem a solução de Gestão de Aplicações Lógicas instalada no seu espaço de trabalho Log Analytics.
 
-1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com)introduza `log analytics workspaces`e, em seguida, selecione espaços de **trabalho Log Analytics**.
+1. Na caixa de pesquisa do portal `log analytics workspaces` [Azure,](https://portal.azure.com)introduza, e, em seguida, selecione espaços de trabalho Log **Analytics**.
 
    ![Selecione "Log Analytics workspaces"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -59,7 +59,7 @@ Se ligou o Log Analytics quando criou a sua aplicação lógica, ignore este pas
 
    ![Selecione o seu espaço de trabalho Log Analytics](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel **overview,** em **Iniciar-se com log analytics** > **Configurar soluções de monitorização,** selecione **soluções de visualização**.
+1. No painel **overview,** em **Iniciar-se com** > soluções de monitorização de Log Analytics**Configure**, selecione **Soluções de Visualização**.
 
    ![No painel de visão geral, selecione "Ver soluções"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
@@ -67,7 +67,7 @@ Se ligou o Log Analytics quando criou a sua aplicação lógica, ignore este pas
 
    ![No painel de visão geral, adicione nova solução](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
-1. Depois do **Marketplace** abrir, na caixa de pesquisa, insira `logic apps management`e selecione **Logic Apps Management**.
+1. Depois do **Marketplace** abrir, na caixa `logic apps management`de pesquisa, insira, e selecione **Logic Apps Management**.
 
    ![Do Marketplace, selecione "Logic Apps Management"](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
@@ -91,7 +91,7 @@ Quando armazena informações sobre eventos e dados em registos do [Monitor Desc
 
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua aplicação lógica.
 
-1. No menu de aplicações lógicas, sob **monitorização,** selecione **definições** de diagnóstico > **Adicione a definição de diagnóstico**.
+1. No menu de aplicações lógicas, sob **monitorização,** selecione **definições** > de diagnóstico**Adicione a definição de diagnóstico**.
 
    ![Em "Monitorização", selecione "Definições de diagnóstico" > "Adicionar definição de diagnóstico"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
@@ -123,7 +123,7 @@ Depois de a sua aplicação lógica ser executado, pode ver os dados sobre essas
 
 1. No [portal Azure,](https://portal.azure.com)encontre e abra o seu espaço de trabalho Log Analytics.
 
-1. No menu do seu espaço de trabalho, selecione **workspace resumo** > **Logic Apps Management**.
+1. No menu do seu espaço de trabalho, selecione **Workspace resumo** > **Logic Apps Management**.
 
    ![Estado de execução de aplicativológico lógico e contagem](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
@@ -192,11 +192,11 @@ Com base nos locais onde pretende enviar dados de diagnóstico, certifique-se de
 
 ## <a name="azure-monitor-diagnostics-events"></a>Eventos de diagnóstico do Azure Monitor
 
-Cada evento de diagnóstico tem detalhes sobre a sua aplicação lógica e esse evento, por exemplo, o estado, hora de início, hora de fim, e assim por diante. Para configurar programáticamente a monitorização, o rastreio e o registo, pode utilizar esta informação com a [API REST para Aplicações Lógicas Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para O Monitor Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as propriedades `clientTrackingId` e `trackedProperties`, que aparecem em 
+Cada evento de diagnóstico tem detalhes sobre a sua aplicação lógica e esse evento, por exemplo, o estado, hora de início, hora de fim, e assim por diante. Para configurar programáticamente a monitorização, o rastreio e o registo, pode utilizar esta informação com a [API REST para Aplicações Lógicas Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para O Monitor Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode `clientTrackingId` `trackedProperties` usar as propriedades e propriedades, que aparecem em 
 
-* `clientTrackingId`: Se não for fornecido, o Azure gera automaticamente este ID e correlaciona eventos através de uma aplicação lógica, incluindo quaisquer fluxos de trabalho aninhados que sejam chamados a partir da aplicação lógica. Pode especificar manualmente este ID num gatilho, passando um cabeçalho `x-ms-client-tracking-id` com o seu valor de identificação personalizado no pedido de gatilho. Pode utilizar um gatilho de pedido, gatilho HTTP ou gatilho webhook.
+* `clientTrackingId`: Se não for fornecido, o Azure gera automaticamente este ID e correlaciona eventos através de uma aplicação lógica, incluindo quaisquer fluxos de trabalho aninhados que sejam chamados a partir da aplicação lógica. Pode especificar manualmente este ID num `x-ms-client-tracking-id` gatilho, passando um cabeçalho com o seu valor de identificação personalizado no pedido de gatilho. Pode utilizar um gatilho de pedido, gatilho HTTP ou gatilho webhook.
 
-* `trackedProperties`: Para rastrear inputs ou saídas em dados de diagnóstico, pode adicionar uma secção `trackedProperties` a uma ação, quer utilizando o Logic App Designer ou diretamente na definição JSON da sua aplicação lógica. As propriedades rastreadas podem rastrear apenas as inputs e saídas de uma única ação, mas você pode usar as propriedades `correlation` de eventos para se relacionar com ações em uma corrida. Para rastrear mais de uma propriedade, uma ou mais propriedades, adicione a secção `trackedProperties` e as propriedades que pretende para a definição de ação.
+* `trackedProperties`: Para rastrear as inputs ou saídas nos `trackedProperties` dados de diagnóstico, pode adicionar uma secção a uma ação, quer utilizando o Logic App Designer, quer diretamente na definição JSON da sua aplicação lógica. As propriedades rastreadas podem rastrear apenas as inputs e `correlation` saídas de uma única ação, mas você pode usar as propriedades dos eventos para se relacionar com ações em uma corrida. Para rastrear mais de uma propriedade, uma `trackedProperties` ou mais propriedades, adicione a secção e as propriedades que pretende para a definição de ação.
 
   Aqui está um exemplo que mostra como a definição de ação **variável Inicialize** inclui propriedades rastreadas a partir da entrada da ação onde a entrada é uma matriz, não um registo.
 
@@ -243,7 +243,7 @@ Cada evento de diagnóstico tem detalhes sobre a sua aplicação lógica e esse 
   }
   ```
 
-Este exemplo mostra como o evento `ActionCompleted` inclui os atributos `clientTrackingId` e `trackedProperties`:
+Este exemplo mostra `ActionCompleted` como `clientTrackingId` o `trackedProperties` evento inclui os e atributos:
 
 ```json
 {
@@ -282,4 +282,4 @@ Este exemplo mostra como o evento `ActionCompleted` inclui os atributos `clientT
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar consultas de monitorização e rastreio](../logic-apps/create-monitoring-tracking-queries.md)
-* [Monitor de mensagens B2B com registos do Monitor Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Monitorizar mensagens B2B com os registos do Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280472"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar diagnósticos de login para apps no Serviço de Aplicações Azure
@@ -41,9 +41,9 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 
 Para permitir o registo de aplicações para aplicações windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do **Serviço de Aplicações.**
 
-Selecione **para** qualquer **registo de aplicações (Sistema de Ficheiros)** ou Registo de **Aplicações (Blob)** , ou ambos. 
+Selecione **para** qualquer **registo de aplicações (Sistema de Ficheiros)** ou Registo de **Aplicações (Blob)**, ou ambos. 
 
-A opção **Filesystem** é para fins de depuração temporária, e desliga-se em 12 horas. A opção **Blob** é para a exploração a longo prazo, e precisa de um recipiente de armazenamento de bolhas para escrever troncos.  A opção **Blob** também inclui informações adicionais nas mensagens de registo, tais como a identificação da instância VM de origem da mensagem de log (`InstanceId`), id de linha (`Tid`) e um carimbo de tempo mais granular[ (`EventTickCount`). ](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)
+A opção **Filesystem** é para fins de depuração temporária, e desliga-se em 12 horas. A opção **Blob** é para a exploração a longo prazo, e precisa de um recipiente de armazenamento de bolhas para escrever troncos.  A opção **Blob** também inclui informações adicionais nas mensagens de registo,`InstanceId`tais como`Tid`a identificação da instância[`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)VM de origem da mensagem de log ( ), id de linha ( ) e um carimbo de tempo mais granular ().
 
 > [!NOTE]
 > Atualmente, apenas os registos de aplicações .NET podem ser escritos no armazenamento de blob. Java, PHP, Node.js, os registos de aplicações Python só podem ser armazenados no sistema de ficheiros do Serviço de Aplicações (sem modificações de código para escrever registos para armazenamento externo).
@@ -59,11 +59,11 @@ Selecione o **Nível**, ou o nível de detalhes para registar. O quadro seguinte
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhum |
+|**Desativado** | Nenhuma |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
-|**Informação** | Informação, Aviso, Erro, Crítico|
-|**Verbose** | Trace, Debug, Info, Warning, Error, Critical (todas as categorias) |
+|**Informações** | Informação, Aviso, Erro, Crítico|
+|**Verboso** | Trace, Debug, Info, Warning, Error, Critical (todas as categorias) |
 
 Quando terminar, selecione **Guardar**.
 
@@ -73,7 +73,7 @@ Para permitir o registo de aplicações para aplicações Linux ou aplicações 
 
 No registo de registo de **aplicações,** selecione **Sistema de Ficheiros**.
 
-No **Contingente (MB)** , especifique a quota do disco para os registos de aplicação. No período de **retenção (Dias)** , detete o número de dias em que os registos devem ser conservados.
+No **Contingente (MB)**, especifique a quota do disco para os registos de aplicação. No período de **retenção (Dias)**, detete o número de dias em que os registos devem ser conservados.
 
 Quando terminar, selecione **Guardar**.
 
@@ -83,7 +83,7 @@ Para permitir o registo de servidores web para aplicações windows no [portal A
 
 Para **o registo do servidor Web,** selecione **Storage** para armazenar registos no armazenamento de blob ou sistema **de ficheiros** para armazenar registos no sistema de ficheiros do Serviço de Aplicações. 
 
-No período de **retenção (Dias)** , detete o número de dias em que os registos devem ser conservados.
+No período de **retenção (Dias)**, detete o número de dias em que os registos devem ser conservados.
 
 > [!NOTE]
 > Se [regenerar as chaves](../storage/common/storage-create-storage-account.md)de acesso da sua conta de armazenamento, tem de redefinir a respetiva configuração de registo para utilizar as teclas atualizadas. Para efetuar este procedimento:
@@ -99,7 +99,7 @@ Quando terminar, selecione **Guardar**.
 
 Para guardar a página de erro ou o pedido falhado que rastreia as aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do Serviço de **Aplicações**.
 
-Em registo **de erro detalhado ou** rastreio de pedido **falhado,** selecione, e depois selecione **Save**.
+Em registo **de erro detalhado ou** rastreio de pedido **falhado,** selecione, e depois selecione **Save**. **On**
 
 Ambos os tipos de registos são armazenados no sistema de ficheiros do Serviço de Aplicações. São retidos até 50 erros (ficheiros/pastas). Quando o número de ficheiros HTML ultrapassa os 50, os 26 erros mais antigos são automaticamente eliminados.
 
@@ -156,8 +156,8 @@ Se configurar a opção de blobs de armazenamento Azure para um tipo de log, pre
 
 Para registos armazenados no sistema de ficheiros do Serviço de Aplicações, a forma mais fácil é descarregar o ficheiro ZIP no navegador em:
 
-- Aplicativos Linux/contentor: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Aplicativos para windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
+- Aplicativos Linux/contentores:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplicativos windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída de consolas tanto para o hospedeiro do estivador como para o recipiente de estivador. Para uma aplicação com escala, o ficheiro ZIP contém um conjunto de registos para cada instância. No sistema de ficheiros do Serviço de Aplicações, estes ficheiros de registo são o conteúdo do diretório */home/LogFiles.*
 
@@ -168,7 +168,7 @@ Para aplicações Windows, o ficheiro ZIP contém o conteúdo do diretório *D:\
 | **Registos de aplicação** |*/Ficheiros de Registo/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
 | **Vestígios de pedido falhados** | */LogFiles/W3SVC##########* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
 | **Registos de erros detalhados** | */Ficheiros de Registo/Erros Detalhados/* | Contém ficheiros de erro HTM. Pode ver os ficheiros HTM no navegador.<br/>Outra forma de ver os vestígios de pedido falhados é navegar para a página da sua aplicação no portal. A partir do menu esquerdo, selecione **Diagnosticar e resolver problemas,** em seguida, procurar registos de rastreio de rastreio de **pedidos falhados,** em seguida, clique no ícone para navegar e ver o traço que deseja. |
-| **Registos de servidores web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o formato de ficheiro de [registo alargado W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas com um editor de texto ou um utilitário como [o Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O Serviço de Aplicações não suporta os campos `s-computername`, `s-ip`ou `cs-version`. |
+| **Registos de servidores web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o formato de ficheiro de [registo alargado W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas com um editor de texto ou um utilitário como [o Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O Serviço de Aplicações `s-ip`não `cs-version` suporta os `s-computername`campos ou campos. |
 | **Registos de implantação** | */LogFiles/Git/* e */implementações/* | Contenha registos gerados pelos processos internos de implantação, bem como registos para implementações git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Envie registos para o Monitor Azure (pré-visualização)
@@ -176,7 +176,7 @@ Para aplicações Windows, o ficheiro ZIP contém o conteúdo do diretório *D:\
 Com a nova integração do [Monitor Azure,](https://aka.ms/appsvcblog-azmon)pode criar Definições de [Diagnóstico (pré-visualização)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar registos para Contas de Armazenamento, Centros de Eventos e Log Analytics. 
 
 > [!div class="mx-imgBorder"]
-> ![Definições de Diagnóstico (pré-visualização)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+> ![Definições de diagnóstico (pré-visualização)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### <a name="supported-log-types"></a>Tipos de registo suportados
 
@@ -189,9 +189,9 @@ A tabela que se segue mostra os tipos e descrições suportadas:
 | AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
 | AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
 | AppServiceFileAuditLogs | TBA | Sim | Alterações de ficheiros via FTP e Kudu |
-| AppServiceAppLogs | TBA | Java SE e Tomcat | Registos de aplicação |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Registos de aplicação |
 
-## <a name="nextsteps"></a> Passos seguintes
+## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
 * [Como monitorizar o Serviço de Aplicações Azure](web-sites-monitor.md)
 * [Troubleshooting Azure App Service em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)

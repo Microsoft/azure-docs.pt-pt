@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270956"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Forneça a autenticação do Cofre Chave com uma identidade gerida
@@ -66,7 +66,7 @@ az login
 
 Para obter mais informações sobre as opções de login com o Azure CLI, consulte [Iniciar sessão com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest). 
 
-Para criar a identidade para esta aplicação, utilize o comando de [](/cli/azure/functionapp/identity?view=azure-cli-latest#az-functionapp-identity-assign) design de design webapp Azure CLI [az:](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign)
+Para criar a identidade para esta aplicação, utilize o comando de [az functionapp identity assign](/cli/azure/functionapp/identity?view=azure-cli-latest#az-functionapp-identity-assign) design de design webapp Azure CLI [az:](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign)
 
 
 ```azurecli-interactive
@@ -77,7 +77,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Tome nota do `PrincipalId`, que será necessário na próxima secção.
+Tome nota `PrincipalId`do , que será necessário na próxima secção.
 
 ```json
 {
@@ -110,7 +110,7 @@ Para conceder o acesso à sua aplicação ao seu cofre chave, utilize o comando 
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre chave Azure: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
 - [Forneça a autenticação do Cofre chave com uma política de controlo de acesso](key-vault-group-permissions-for-apps.md)

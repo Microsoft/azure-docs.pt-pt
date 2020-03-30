@@ -1,6 +1,6 @@
 ---
-title: Sobre os gateways de rede virtual do ExpressRoute - Azure | Documentos da Microsoft
-description: Saiba mais sobre os gateways de rede virtual para o ExpressRoute. Este artigo inclui informações sobre SKUs de gateway e de tipos.
+title: Sobre os gateways da rede virtual ExpressRoute - Azure. Microsoft Docs
+description: Conheça os gateways de rede virtuais para o ExpressRoute. Este artigo inclui informações sobre as SKUs e tipos de gateway.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281421"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Sobre gateways de rede virtual ExpressRoute
@@ -20,30 +20,30 @@ Para ligar a sua rede virtual Azure e a sua rede no local via ExpressRoute, tem 
 
 ## <a name="gateway-types"></a>Tipos de gateway
 
-Quando cria um gateway de rede virtual, tem de especificar várias definições. Uma das definições necessárias, '-GatewayType ", especifica se o gateway é utilizado para o ExpressRoute, ou tráfego VPN. Os tipos de dois gateway são:
+Quando cria um portal de rede virtual, precisa especificar várias definições. Uma das definições necessárias, 'GatewayType', especifica se o gateway é utilizado para o tráfego ExpressRoute ou VPN. Os dois tipos de gateway são:
 
-* **Vpn** - Para enviar tráfego encriptado através da Internet pública, utiliza o tipo de gateway 'Vpn'. Isto é também referido como um gateway VPN. As ligações Sites para Site, Ponto para site e VNet para VNet utilizam todas um gateway de VPN.
+* **Vpn** - Para enviar tráfego encriptado através da Internet pública, utiliza o tipo de gateway 'Vpn'. Isto também é referido como um gateway VPN. As ligações Sites para Site, Ponto para site e VNet para VNet utilizam todas um gateway de VPN.
 
-* **ExpressRoute** - Para enviar tráfego de rede numa ligação privada, utiliza o tipo de gateway 'ExpressRoute'. Isso também é referido como um gateway do ExpressRoute e é o tipo de gateway utilizado quando configurar o ExpressRoute.
+* **ExpressRoute** - Para enviar tráfego de rede numa ligação privada, utiliza o tipo de gateway 'ExpressRoute'. Isto também é referido como um gateway ExpressRoute e é o tipo de gateway usado na configuração do ExpressRoute.
 
 Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, pode ter um gateway de rede virtual que utilize -GatewayType Vpn e outro que utilize GatewayType ExpressRoute.
 
-## <a name="gwsku"></a>SKUs de Gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se quiser atualizar a sua porta de entrada para um Portal De entrada mais potente SKU, na maioria dos casos pode utilizar o cmdlet PowerShell 'Resize-AzVirtualNetworkGateway'. Isso funcionará para atualizações para Standard e o SKU HighPerformance. No entanto, para atualizar para o SKU de UltraPerformance, precisa de recriar o gateway. Recriação de um gateway, incorre em tempo de inatividade.
+Se quiser atualizar a sua porta de entrada para um Portal De entrada mais potente SKU, na maioria dos casos pode utilizar o cmdlet PowerShell 'Resize-AzVirtualNetworkGateway'. Isto funcionará para upgrades para SKUs Standard e HighPerformance. No entanto, para fazer o upgrade para o UltraPerformance SKU, terá de recriar o portal. Recriar um portal incorre no tempo de inatividade.
 
-### <a name="aggthroughput"></a>Desempenhos estimados por Gateway SKU
-A tabela seguinte mostra os tipos de gateway e os desempenhos estimados. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager.
+### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Desempenhos estimados por Gateway SKU
+A tabela seguinte mostra os tipos de gateway e as performances estimadas. Esta tabela aplica-se aos modelos de implementação clássica e Resource Manager.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Desempenho da aplicação depende de vários fatores, como a latência de ponto-a-ponto e o número de fluxos de tráfego, que o aplicativo é aberto. Os números na tabela representam o limite superior que o aplicativo, teoricamente, pode alcançar num ambiente ideal.
+> O desempenho da aplicação depende de múltiplos fatores, como a latência de ponta a ponta, e o número de fluxos de tráfego que a aplicação abre. Os números na tabela representam o limite superior que a aplicação pode teoricamente alcançar num ambiente ideal.
 >
 >
 
-## <a name="gwsub"></a>Sub-rede gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Sub-rede de gateway
 
 Antes de criar um gateway ExpressRoute, deve criar uma sub-rede de gateway. A sub-rede gateway contém os endereços IP que os VMs e serviços de gateway de rede virtual utilizam. Quando cria o portal de rede virtual, os VMs de gateway são implantados na subnet gateway e configurados com as definições de gateway expressRoute necessárias. Nunca coloque mais nada (por exemplo, VMs adicionais) na sub-rede gateway. A sub-rede gateway deve ser denominada 'GatewaySubnet' para funcionar corretamente. Nomear a subnet 'GatewaySubnet' permite ao Azure saber que esta é a subrede para implantar os VMs e serviços de gateway de rede virtual para.
 
@@ -63,35 +63,35 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="zrgw"></a>SKUs de gateway redundante de zona
+### <a name="zone-redundant-gateway-skus"></a><a name="zrgw"></a>SKUs de gateway redundante de zona
 
-Também pode implementar gateways do ExpressRoute em zonas de disponibilidade do Azure. Isso física e logicamente separa-los em diferentes zonas de disponibilidade, a proteger a conectividade da rede no local para o Azure de falhas de nível de zona.
+Também pode implementar gateways ExpressRoute em Zonas de Disponibilidade Azure. Isto, física e logicamente, separa-os em diferentes Zonas de Disponibilidade, protegendo a sua conectividade de rede no local para o Azure de falhas ao nível da zona.
 
-![Gateway do ExpressRoute com redundância de zona](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+![Gateway ExpressRoute redundante em zona](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Os gateways com redundância de zona utilizam novos SKUs de gateway específico para o gateway do ExpressRoute.
+Os gateways redundantes em zonas utilizam novas portas específicas para gateway SKUs para gateway ExpressRoute.
 
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+* Ergw1Az
+* Ergw2Az
+* Ergw3Az
 
-Os novos SKU de gateway também suportam outras opções de implementação para melhor satisfazerem as suas necessidades. Ao criar um gateway de rede virtual com o novo gateway SKUs, tem também a opção de implementar o gateway de uma zona específica. Isto é referido como um gateway zona. Quando implementa um gateway zonal, todas as instâncias do gateway são implementadas na mesma zona de disponibilidade.
+O novo gateway SKUs também suporta outras opções de implementação para melhor corresponder às suas necessidades. Ao criar um portal de rede virtual utilizando o novo gateway SKUs, também tem a opção de implementar o gateway numa zona específica. Isto é referido como um portal zonal. Quando você implanta um gateway zonal, todas as instâncias do gateway são implantadas na mesma Zona de Disponibilidade.
 
-## <a name="fastpath"></a>Caminho rápido
+## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 
 O gateway da rede virtual ExpressRoute foi concebido para trocar rotas de rede e tráfego de rede de rotas. O FastPath foi concebido para melhorar o desempenho do caminho de dados entre a sua rede no local e a sua rede virtual. Quando ativado, o FastPath envia o tráfego de rede diretamente para máquinas virtuais na rede virtual, contornando o portal.
 
 Para mais informações sobre o FastPath, incluindo limitações e requisitos, consulte [sobre fastpath](about-fastpath.md).
 
-## <a name="resources"></a>APIs rest e powerShell cmdlets
-Para recursos técnicos adicionais e requisitos de sintaxe específica ao utilizar REST APIs e cmdlets do PowerShell para configurações de gateway de rede virtual, consulte as seguintes páginas:
+## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>APIs rest e powerShell cmdlets
+Para recursos técnicos adicionais e requisitos específicos de sintaxe ao utilizar APIs REST e cmdlets PowerShell para configurações de gateway de rede virtual, consulte as páginas seguintes:
 
-| **Clássico** | **Resource Manager** |
+| **Clássica** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as configurações de ligação disponíveis, consulte a visão geral da [ExpressRoute](expressroute-introduction.md).
 

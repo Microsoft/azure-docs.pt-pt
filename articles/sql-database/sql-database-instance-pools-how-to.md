@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299367"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Piscinas de instância sql de base de dados Azure (pré-visualização) como guiar
@@ -267,7 +267,7 @@ Para mover bases de dados existentes:
 Se houver várias bases de dados, repita o processo para cada base de dados.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns da SQL](sql-database-features.md).
 - Para obter mais informações sobre a configuração vNet, consulte a [configuração VNet de instância gerida](sql-database-managed-instance-connectivity-architecture.md).

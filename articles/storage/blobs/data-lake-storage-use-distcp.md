@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255538"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utilize o DistCp para copiar dados entre as Bolhas de Armazenamento de Azure e o Azure Data Lake Storage Gen2
@@ -23,7 +23,7 @@ A DistCp fornece uma variedade de parâmetros de linha de comando e encorajamo-l
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de armazenamento azure existente sem capacidades de Armazenamento de Data Lake Gen2 (espaço hierárquico) habilitado**.
 * **Uma conta de armazenamento azure com recurso Data Lake Storage Gen2 ativada**. Para obter instruções sobre como criar uma, consulte Criar uma conta de armazenamento de armazenamento [de lago de dados Azure Gen2](data-lake-storage-quickstart-create-account.md)
 * Um sistema de **ficheiros** que foi criado na conta de armazenamento com espaço de nome hierárquico habilitado.

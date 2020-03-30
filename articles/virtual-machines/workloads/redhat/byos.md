@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264599"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens gold de subscrição própria em Azure
@@ -111,16 +111,16 @@ As seguintes instruções passam pelo processo inicial de implantação de um VM
     az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
     ```
 
-1. Provisão do seu VM executando o mesmo comando mostrado no exemplo anterior sem o argumento `--validate`.
+1. Provisão do seu VM executando o mesmo `--validate` comando mostrado no exemplo anterior sem o argumento.
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
     ```
 
-1. SSH no seu VM, e verifique se tem uma imagem sem direito. Para fazer este passo, corra `sudo yum repolist`. Para rHEL 8, utilize `sudo dnf repolist`. A saída pede-lhe que utilize o Subscription-Manager para registar o VM com Chapéu Vermelho.
+1. SSH no seu VM, e verifique se tem uma imagem sem direito. Para fazer este `sudo yum repolist`passo, corra. Para rHEL 8, utilize `sudo dnf repolist`. A saída pede-lhe que utilize o Subscription-Manager para registar o VM com Chapéu Vermelho.
 
 >[!NOTE]
->No RHEL 8, `dnf` e `yum` são permutáveis. Para mais informações, consulte o [guia de administração RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
+>No RHEL `dnf` 8, e `yum` são permutáveis. Para mais informações, consulte o [guia de administração RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
 
 ## <a name="use-the-red-hat-gold-images-from-powershell"></a>Use as imagens de ouro do chapéu vermelho da PowerShell
 
@@ -212,7 +212,7 @@ Para obter passos para aplicar encriptação de disco azure, consulte cenários 
 
 - Se utilizar a automatização para fornecer VMs a partir das imagens RHEL BYOS, deve fornecer parâmetros de plano semelhantes aos mostrados nos comandos da amostra. Por exemplo, se utilizar a Terraform, fornece a informação do plano num bloco de [planos](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter guias passo a passo e detalhes do programa para o Cloud Access, consulte a [documentação de Acesso](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)à Nuvem de Chapéu Vermelho .
 - Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho, consulte a Infraestrutura de Atualização do [Chapéu Vermelho Azure](./redhat-rhui.md).

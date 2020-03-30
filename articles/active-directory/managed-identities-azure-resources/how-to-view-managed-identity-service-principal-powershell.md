@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33fc6fbfd7c47b5809e8aff8ee9806c9eeac1162
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298687"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Ver o principal de serviço de uma identidade gerida usando powerShell
@@ -39,13 +39,13 @@ Neste artigo, aprende-se a ver o principal de serviço de uma identidade gerida 
 
 ## <a name="view-the-service-principal"></a>Ver o diretor de serviço
 
-Este comando seguinte demonstra como visualizar o diretor de serviço de um VM ou aplicação com identidade atribuída ao sistema. Substitua `<VM or application name>` com os seus próprios valores.
+Este comando seguinte demonstra como visualizar o diretor de serviço de um VM ou aplicação com identidade atribuída ao sistema. Substitua-os `<VM or application name>` com os seus próprios valores.
 
 ```powershell
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a visualização dos diretores de serviço saqueados do Azure AD utilizando o PowerShell, consulte [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 

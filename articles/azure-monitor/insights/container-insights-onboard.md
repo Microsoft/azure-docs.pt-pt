@@ -1,13 +1,13 @@
 ---
-title: Como ativar o Monitor Azure para contentores  Microsoft Docs
+title: Como ativar o Monitor Azure para contentores [ Microsoft Docs
 description: Este artigo descreve como ativa e configura o Monitor Azure para contentores para que possa compreender como está a funcionar o seu contentor e quais os problemas relacionados com o desempenho.
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.openlocfilehash: 7aad7e7dd5ec2569377f9276c2e4793c7afd631a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275311"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Como ativar o Monitor Azure para contentores
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral das opções disponíveis para configurar o
 
 - Aglomerados Kubernetes autogeridos hospedados em [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local usando o AKS Engine.
 
-- [OpenShift do chapéu vermelho azure](../../openshift/intro-openshift.md)
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 
 O Monitor Azure para contentores pode ser ativado para novas ou mais implantações existentes de Kubernetes utilizando os seguintes métodos suportados:
 
@@ -34,7 +34,7 @@ O Monitor Azure para contentores pode ser ativado para novas ou mais implantaç�
 
 Antes de começar, certifique-se de que tem o seguinte:
 
-- **Um espaço de trabalho log Analytics.**
+- **Uma área de trabalho do Log Analytics.**
 
     O Azure Monitor para contentores suporta um espaço de trabalho log Analytics nas regiões listadas em Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)
 
@@ -76,7 +76,7 @@ As informações na tabela seguinte listam as informações de configuração pr
 | *.ods.opinsights.azure.cn | 443 | Ingestão de dados |
 | *.oms.opinsights.azure.cn | 443 | Onboarding OMS |
 | *.blob.core.windows.net | 443 | Usado para monitorizar a conectividade de saída. |
-| Microsoft.com | 80 | Usado para conectividade de rede. Isto só é necessário se a versão de imagem do agente for ciprod09262019 ou mais cedo. |
+| microsoft.com | 80 | Usado para conectividade de rede. Isto só é necessário se a versão de imagem do agente for ciprod09262019 ou mais cedo. |
 | dc.services.visualstudio.com | 443 | Para telemetria de agente usando Insights de aplicação de nuvem pública Azure. |
 
 As informações na tabela seguinte listam as informações de configuração de procuração e firewall para o Governo dos EUA.
@@ -86,22 +86,22 @@ As informações na tabela seguinte listam as informações de configuração de
 | *.ods.opinsights.azure.us | 443 | Ingestão de dados |
 | *.oms.opinsights.azure.us | 443 | Onboarding OMS |
 | *.blob.core.windows.net | 443 | Usado para monitorizar a conectividade de saída. |
-| Microsoft.com | 80 | Usado para conectividade de rede. Isto só é necessário se a versão de imagem do agente for ciprod09262019 ou mais cedo. |
+| microsoft.com | 80 | Usado para conectividade de rede. Isto só é necessário se a versão de imagem do agente for ciprod09262019 ou mais cedo. |
 | dc.services.visualstudio.com | 443 | Para telemetria de agente usando Insights de aplicação de nuvem pública Azure. |
 
 ## <a name="components"></a>Componentes
 
-A sua capacidade de monitorizar o desempenho baseia-se num agente de Log Analytics contentorizado para o Linux desenvolvido especificamente para o Monitor Azure para contentores. Este agente especializada recolhe dados de eventos de desempenho e de todos os nós do cluster e o agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada durante a implementação. A versão do agente é microsoft/oms:ciprod04202018 ou posterior, e é representada por uma data no seguinte formato: *mmddyyyy*.
+A sua capacidade de monitorizar o desempenho baseia-se num agente de Log Analytics contentorizado para o Linux desenvolvido especificamente para o Monitor Azure para contentores. Este agente especializado recolhe dados de desempenho e evento de todos os nós do cluster, e o agente é automaticamente implantado e registado com o espaço de trabalho especificado log Analytics durante a implementação. A versão do agente é microsoft/oms:ciprod04202018 ou posterior, e é representada por uma data no seguinte formato: *mmddyyyy*.
 
 >[!NOTE]
 >Com a versão de pré-visualização do suporte do Windows Server para AKS, um cluster AKS com nós do Windows Server não tem um agente instalado para recolher dados e reencaminhar para o Monitor Azure. Em vez disso, um nó Linux implantado automaticamente no cluster como parte da implementação padrão recolhe e envia os dados para o Monitor Azure em nome de todos os nós do Windows no cluster.  
 >
 
-Quando for lançada uma nova versão do agente, é atualizada automaticamente nos seus clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS). Para acompanhar as versões lançadas, consulte os [anúncios](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)de lançamento do agente .
+Quando uma nova versão do agente é lançada, é automaticamente atualizada nos seus clusters Kubernetes geridos hospedados no Serviço Azure Kubernetes (AKS). Para acompanhar as versões lançadas, consulte os [anúncios](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)de lançamento do agente .
 
 >[!NOTE]
->Se já tiver implementado um cluster do AKS, ativa a monitorização com o CLI do Azure ou um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, reutilizar ou implementar o agente.
->O modelo precisa ser implantado no mesmo grupo de recursos do cluster.
+>Se já implementou um cluster AKS, permite a monitorização utilizando o Azure CLI ou um modelo de Gestor de Recursos Azure fornecido, como demonstrado mais tarde neste artigo. Não é `kubectl` possível utilizar para atualizar, eliminar, reutilizar ou implementar o agente.
+>O modelo precisa de ser implantado no mesmo grupo de recursos que o cluster.
 
 Ativa o Monitor Azure para os contentores utilizando um dos seguintes métodos descritos na tabela a seguir.
 

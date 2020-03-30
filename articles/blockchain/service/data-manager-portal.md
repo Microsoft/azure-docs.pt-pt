@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273166"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Blockchain Data Manager com o portal do Azure
@@ -32,7 +32,7 @@ Uma instância do Gestor de Dados blockchain conecta e monitoriza um nó de tran
 
 Uma ligação de saída envia dados blockchain para a Rede de Eventos Azure. Configura uma única ligação de saída quando cria a instância. O Blockchain Data Manager suporta várias ligações de saída do Tópico de Evento para qualquer instância do Gestor de Dados blockchain. Pode enviar dados blockchain para um único destino ou enviar dados blockchain para vários destinos. Para adicionar outro destino, adicione apenas ligações adicionais de saída à instância.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Vá ao membro do Serviço Azure Blockchain que pretende ligar ao Blockchain Data Manager. Selecione **Blockchain Data Manager**.
 1. Selecione **Adicionar**.
 
@@ -104,7 +104,7 @@ O Blockchain Data Manager exige que os ficheiros ABI e bytecode sejam acessívei
 
 #### <a name="upload-contract-files"></a>Carregar ficheiros de contratos
 
-1. Crie um novo recipiente para a conta de armazenamento. Selecione **Recipientes > Recipiente**.
+1. Crie um novo recipiente para a conta de armazenamento. Selecione **recipientes > recipiente**.
 
     ![Criar um recipiente de conta de armazenamento](./media/data-manager-portal/create-container.png)
 
@@ -171,4 +171,4 @@ Pare a instância do Blockchain Manager quando pretender parar de capturar event
 Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando blockchain Data Manager e Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Use o Gestor de Dados blockchain para enviar dados para o Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Utilizar o Blockchain Data Manager para enviar dados para o Azure Cosmos DB](data-manager-cosmosdb.md)

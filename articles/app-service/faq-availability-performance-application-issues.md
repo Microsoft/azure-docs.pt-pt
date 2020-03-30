@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259867"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas de desempenho de aplicações para aplicações web em Azure
@@ -32,11 +32,11 @@ Vários fatores podem contribuir para um desempenho lento da aplicação. Para o
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como posso resolver um cenário de consumo de CPU?
 
-Em alguns cenários elevados de consumo de CPU, a sua aplicação pode realmente necessitar de mais recursos informáticos. Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, o elevado consumo de CPU pode ser causado por um mau ciclo ou por uma prática de codificação. Obter informações sobre o que está a desencadear o aumento do consumo de CPU é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para um alto consumo de CPU para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Em alguns cenários elevados de consumo de CPU, a sua aplicação pode realmente necessitar de mais recursos informáticos.Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, o elevado consumo de CPU pode ser causado por um mau ciclo ou por uma prática de codificação. Obter informações sobre o que está a desencadear o aumento do consumo de CPU é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para um alto consumo de CPU para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como posso resolver um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, a sua aplicação pode realmente necessitar de mais recursos informáticos. Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, um inseto no código pode causar uma fuga de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está a desencadear um elevado consumo de memória é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. O Diagnosticizador de Acidentes da Galeria de Extensão do Sítio Azure pode executar eficazmente estes dois passos. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para alta memória intermitente para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Em alguns cenários de alto consumo de memória, a sua aplicação pode realmente necessitar de mais recursos informáticos.Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, um inseto no código pode causar uma fuga de memória. Uma prática de codificação também pode aumentar o consumo de memória.Obter informações sobre o que está a desencadear um elevado consumo de memória é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. O Diagnosticizador de Acidentes da Galeria de Extensão do Sítio Azure pode executar eficazmente estes dois passos. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para alta memória intermitente para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar aplicações web do App Service utilizando o PowerShell?
 
@@ -50,7 +50,7 @@ Para ver os registos de eventos da sua aplicação web:
 2. No menu, selecione **Debug Console** > **CMD**.
 3. Selecione a pasta **LogFiles.**
 4. Para ver os registos de eventos, selecione o ícone do lápis ao lado do **eventlog.xml**.
-5. Para descarregar os registos, execute o cmdlet PowerShell `Save-AzureWebSiteLog -Name webappname`.
+5. Para descarregar os registos, execute `Save-AzureWebSiteLog -Name webappname`o cmdlet PowerShell .
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Como posso capturar um despejo de memória em modo utilizador da minha aplicação web?
 
@@ -59,7 +59,7 @@ Para capturar um despejo de memória em modo utilizador da sua aplicação web:
 1. Inscreva-se no seu [site da Kudu.](https://*yourwebsitename*.scm.azurewebsites.net)
 2. Selecione o menu **Process Explorer.**
 3. Clique no processo **w3wp.exe** ou no seu processo WebJob.
-4. Selecione **Descarregar despejo de memória** > despejo **completo**.
+4. Selecione **Descarregar depósito completo de** > memória **.**
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como vejo informações de nível de processo para a minha aplicação web?
 
@@ -101,7 +101,7 @@ Por padrão, as aplicações web são descarregadas se ficarem inativas por um d
 Para ativar o rastreio de pedido falhado:
 
 1. No portal Azure, vá à sua aplicação web.
-3. **Selecione todas as definições** > **registos**de diagnóstico .
+3. Selecione todos os**registos**de diagnóstico de **definições** > .
 4. Para rastreio de **pedido falhado,** selecione **On**.
 5. Selecione **Guardar**.
 6. Na lâmina da aplicação web, selecione **Tools**.
@@ -174,7 +174,7 @@ Esta edição é corrigida na versão 1.0.2 da Kestrel. Esta versão está inclu
 
 Se utilizar a funcionalidade Cache Local do Serviço de Aplicações, a estrutura de pastas das pastas LogFiles e Data para a sua instância de Serviço de Aplicações é afetada. Quando a Cache Local é utilizada, as subpastas são criadas nas pastas de registo de armazenamento Files e Data. As subpastas utilizam o padrão de nomeação "identificador único" + carimbo de tempo. Cada subpasta corresponde a uma instância VM em que a aplicação web está a funcionar ou executa.
 
-Para determinar se está a utilizar cache local, verifique o separador de definições de aplicações do serviço de **aplicações.** Se o Cache Local estiver a ser utilizado, a definição de `WEBSITE_LOCAL_CACHE_OPTION` da aplicação está definida para `Always`.
+Para determinar se está a utilizar cache local, verifique o separador de definições de aplicações do serviço de **aplicações.** Se o Cache Local estiver `WEBSITE_LOCAL_CACHE_OPTION` a ser `Always`utilizado, a definição da aplicação está definida para .
 
 Se não estiver a usar cache local e estiver a passar por este problema, apresente um pedido de apoio.
 

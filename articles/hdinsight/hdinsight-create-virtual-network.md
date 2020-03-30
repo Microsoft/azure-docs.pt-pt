@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272542"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters Azure HDInsight
@@ -33,7 +33,7 @@ Outros pré-requisitos para as amostras deste artigo incluem os seguintes requis
 > [!IMPORTANT]  
 > Se estiver à procura de orientação passo a passo na ligação do HDInsight à sua rede no local utilizando uma Rede Virtual Azure, consulte o [Connect HDInsight para o seu](connect-on-premises-network.md) documento de rede no local.
 
-## <a id="hdinsight-nsg"></a>Exemplo: grupos de segurança de rede com HDInsight
+## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>Exemplo: grupos de segurança de rede com HDInsight
 
 Os exemplos desta secção demonstram como criar regras de grupo de segurança de rede que permitem ao HDInsight comunicar com os serviços de gestão do Azure. Antes de utilizar os exemplos, ajuste os endereços IP para combinar com os da região azure que está a utilizar. Pode encontrar estas informações nos endereços IP de [gestão hDInsight](hdinsight-management-ip-addresses.md).
 
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego de entrada, mas permite o tráfego a partir dos endereços IP exigidos pelo HDInsight.
 
-1. Utilize o seguinte comando para criar um novo grupo de segurança de rede chamado `hdisecure`. Substitua `RESOURCEGROUP` pelo grupo de recursos que contém a Rede Virtual Azure. Substitua `LOCATION` pela localização (região) em que o grupo foi criado.
+1. Utilize o seguinte comando para criar `hdisecure`um novo grupo de segurança de rede chamado . Substitua-o `RESOURCEGROUP` pelo grupo de recursos que contém a Rede Virtual Azure. Substitua-a `LOCATION` pela localização (região) em que o grupo foi criado.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -194,7 +194,7 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. Utilize o seguinte comando para aplicar o grupo de segurança da rede numa sub-rede. Substitua os valores `GUID` e `RESOURCEGROUP` com os devolvidos do escalão anterior. Substitua `VNETNAME` e `SUBNETNAME` pelo nome de rede virtual e nome de sub-rede que pretende criar.
+4. Utilize o seguinte comando para aplicar o grupo de segurança da rede numa sub-rede. Substitua `GUID` `RESOURCEGROUP` os valores e valores com os devolvidos do passo anterior. `VNETNAME` Substitua `SUBNETNAME` e com o nome de rede virtual e o nome da sub-rede que pretende criar.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -211,7 +211,7 @@ O seguinte código demonstra como permitir o acesso sSH a partir da Internet:
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a id="example-dns"></a>Exemplo: Configuração DNS
+## <a name="example-dns-configuration"></a><a id="example-dns"></a>Exemplo: Configuração DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Resolução de nomes entre uma rede virtual e uma rede de instalações conectada
 
@@ -238,7 +238,7 @@ No servidor DNS personalizado na rede virtual:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. No servidor DNS personalizado para a rede virtual, utilize o seguinte texto como conteúdo do ficheiro `/etc/bind/named.conf.local`:
+2. No servidor DNS personalizado para a rede virtual, utilize `/etc/bind/named.conf.local` o seguinte texto como conteúdo do ficheiro:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -248,11 +248,11 @@ No servidor DNS personalizado na rede virtual:
     };
     ```
 
-    Substitua o valor `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` pelo sufixo DNS da sua rede virtual.
+    Substitua `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` o valor pelo sufixo DNS da sua rede virtual.
 
     Esta configuração encaminha todos os pedidos dNS para o sufixo DNS da rede virtual para o resolver recursivo Azure.
 
-2. No servidor DNS personalizado para a rede virtual, utilize o seguinte texto como conteúdo do ficheiro `/etc/bind/named.conf.options`:
+2. No servidor DNS personalizado para a rede virtual, utilize `/etc/bind/named.conf.options` o seguinte texto como conteúdo do ficheiro:
 
     ```
     // Clients to accept requests from
@@ -282,11 +282,11 @@ No servidor DNS personalizado na rede virtual:
     };
     ```
     
-    * Substitua o valor `10.0.0.0/16` pela gama de endereços IP da sua rede virtual. Esta entrada permite endereços de pedidos de resolução de nomes dentro desta gama.
+    * Substitua `10.0.0.0/16` o valor pela gama de endereços IP da sua rede virtual. Esta entrada permite endereços de pedidos de resolução de nomes dentro desta gama.
 
-    * Adicione a gama de endereços IP da rede no local à secção `acl goodclients { ... }`.  a entrada permite pedidos de resolução de nomes de recursos na rede no local.
+    * Adicione a gama de endereços IP da `acl goodclients { ... }` rede no local à secção.  a entrada permite pedidos de resolução de nomes de recursos na rede no local.
     
-    * Substitua o valor `192.168.0.1` pelo endereço IP do seu servidor DNS no local. Esta entrada encaminha todos os outros pedidos de DNS para o servidor DNS no local.
+    * Substitua `192.168.0.1` o valor pelo endereço IP do seu servidor DNS no local. Esta entrada encaminha todos os outros pedidos de DNS para o servidor DNS no local.
 
 3. Para utilizar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart`.
 
@@ -320,7 +320,7 @@ Este exemplo faz os seguintes pressupostos:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Utilize o seguinte texto como conteúdo do ficheiro `/etc/bind/named.config.local` no servidor DNS personalizado. Faça esta alteração no servidor DNS personalizado em ambas as redes virtuais.
+2. Utilize o seguinte texto como `/etc/bind/named.config.local` o conteúdo do ficheiro no servidor DNS personalizado. Faça esta alteração no servidor DNS personalizado em ambas as redes virtuais.
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -330,9 +330,9 @@ Este exemplo faz os seguintes pressupostos:
     };
     ```
 
-    Substitua o valor `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` pelo sufixo DNS da __outra__ rede virtual. Esta entrada solicita o sufixo DNS da rede remota ao DNS personalizado nessa rede.
+    Substitua `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` o valor pelo sufixo DNS da __outra__ rede virtual. Esta entrada solicita o sufixo DNS da rede remota ao DNS personalizado nessa rede.
 
-3. Nos servidores DNS personalizados em ambas as redes virtuais, utilize o seguinte texto como conteúdo do ficheiro `/etc/bind/named.conf.options`:
+3. Nos servidores DNS personalizados em ambas as redes virtuais, `/etc/bind/named.conf.options` utilize o seguinte texto como conteúdo do ficheiro:
 
     ```
     // Clients to accept requests from
@@ -361,7 +361,7 @@ Este exemplo faz os seguintes pressupostos:
     };
     ```
     
-   Substitua os valores `10.0.0.0/16` e `10.1.0.0/16` pelas gamas de endereços IP das suas redes virtuais. Esta entrada permite que os recursos em cada rede façam pedidos dos servidores DNS.
+   Substitua `10.0.0.0/16` `10.1.0.0/16` os valores e valores pelas gamas de endereços IP das suas redes virtuais. Esta entrada permite que os recursos em cada rede façam pedidos dos servidores DNS.
 
     Quaisquer pedidos que não sejam para os sufixos DNS das redes virtuais (por exemplo, microsoft.com) são tratados pelo resolver recursivo azure.
 

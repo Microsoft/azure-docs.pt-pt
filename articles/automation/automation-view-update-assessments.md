@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278418"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Ver avaliações de atualização da Atualização do Azure
@@ -28,7 +28,7 @@ Selecione **as atualizações Em falta** para visualizar a lista de atualizaçõ
 
 ![Atualizações em falta](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualização
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas seguintes listam as classificações de atualização suportadas na Gestão de Atualizações, com uma definição para cada classificação.
 
@@ -45,7 +45,7 @@ As tabelas seguintes listam as classificações de atualização suportadas na G
 |Ferramentas     | Um utilitário ou funcionalidade que ajuda a completar uma ou mais tarefas.        |
 |Atualizações     | Uma atualização de uma aplicação ou ficheiro que está atualmente instalado.        |
 
-### <a name="linux-2"></a>Linux
+### <a name="linux"></a><a name="linux-2"></a>Linux
 
 |Classificação  |Descrição  |
 |---------|---------|

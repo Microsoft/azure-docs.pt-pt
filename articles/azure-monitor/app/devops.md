@@ -4,10 +4,10 @@ description: Como os Insights de Aplicação se enquadram no ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669697"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
@@ -93,9 +93,9 @@ Em ambos os casos, o alerta não só lhe diz os sintomas que foi descoberto, com
 
 ![E-mail de diagnósticos proativos](./media/devops/030.png)
 
-O cliente Samtec disse: "Durante um recente corte de funcionalidades, encontramos uma base de dados subdimensionada que estava a atingir os seus limites de recursos e a causar intervalos. Os alertas de deteção proactiva surgiu literalmente enquanto estávamos a triagem do problema, muito perto do tempo real, como anunciado. Este alerta associado aos alertas da plataforma Azure ajudou-nos quase instantaneamente a resolver o problema. Total de tempo de inatividade e 10 minutos."
+O cliente Samtec disse: "Durante um recente corte de funcionalidades, encontramos uma base de dados subdimensionada que estava a atingir os seus limites de recursos e a causar intervalos. Os alertas de deteção proactiva surgiu literalmente enquanto estávamos a triagem do problema, muito perto do tempo real, como anunciado. Este alerta associado aos alertas da plataforma Azure ajudou-nos quase instantaneamente a resolver o problema. O tempo total de inatividade < 10 minutos."
 
-## <a name="live-metrics-stream"></a>Fluxo de Métricas Ao Vivo
+## <a name="live-metrics-stream"></a>Live Metrics Stream (Fluxo de Métricas em Direto)
 Implementar a última construção pode ser uma experiência ansiosa. Se houver algum problema, quer saber imediatamente sobre eles, para que possa recuar se necessário. Live Metrics Stream dá-lhe métricas chave com uma latência de cerca de um segundo.
 
 ![Métricas ao vivo](./media/devops/0040.png)

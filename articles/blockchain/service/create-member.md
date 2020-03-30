@@ -5,10 +5,10 @@ ms.date: 03/12/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.openlocfilehash: 3c468633a193d78fb1c017a756ee372c6feefb12
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79203666"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Quickstart: Criar um membro blockchain azure blockchain Service usando o portal Azure
@@ -21,9 +21,9 @@ Neste arranque rápido, você implementa um novo membro blockchain e consórcio 
 
 Um membro do Azure Blockchain Service é um nó blockchain numa rede privada de blockchain de consórcio. Ao fornecer um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Selecione **Blockchain** > **Azure Blockchain Service (pré-visualização)** .
+1. Selecione **Blockchain** > **Azure Blockchain Service (pré-visualização)**.
 
     ![Criar Serviço](./media/create-member/create-member.png)
 
@@ -49,7 +49,7 @@ Selecione **Visão Geral,** pode ver as informações básicas sobre o seu servi
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode utilizar o membro que criou para o próximo quickstart ou tutorial. Quando já não for necessário, pode eliminar os recursos eliminando o grupo de recursos `myResourceGroup` que criou para o arranque rápido.
+Pode utilizar o membro que criou para o próximo quickstart ou tutorial. Quando já não for necessário, pode eliminar `myResourceGroup` os recursos eliminando o grupo de recursos que criou para o arranque rápido.
 
 Para eliminar o grupo de recursos:
 

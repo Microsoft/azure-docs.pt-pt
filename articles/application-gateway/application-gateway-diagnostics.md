@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279159"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para gateway de aplicação
@@ -39,7 +39,7 @@ O relatório de saúde back-end reflete a produção da sonda de saúde Applicat
 
 ### <a name="view-back-end-health-through-the-portal"></a>Ver saúde de back-end através do portal
 
-No portal, a saúde de back-end é fornecida automaticamente. Num gateway de aplicação existente, **selecione Monitorização** > **saúde backend**.
+No portal, a saúde de back-end é fornecida automaticamente. Num gateway de aplicação existente, selecione **Monitorizar a** > **saúde backend**.
 
 Cada membro na piscina de fundo está listado nesta página (seja um NIC, IP ou FQDN). Nome de piscina de back-end, porta, nome de definições HTTP back-end e estado de saúde são mostrados. Os valores válidos para o estado de saúde são **Saudáveis,** **Insalubres**e **Desconhecidos.**
 
@@ -50,7 +50,7 @@ Cada membro na piscina de fundo está listado nesta página (seja um NIC, IP ou 
 
 ### <a name="view-back-end-health-through-powershell"></a>Ver saúde de back-end através da PowerShell
 
-O seguinte código PowerShell mostra como visualizar a saúde de back-end utilizando o `Get-AzApplicationGatewayBackendHealth` cmdlet:
+O seguinte código PowerShell mostra como visualizar `Get-AzApplicationGatewayBackendHealth` a saúde de back-end utilizando o cmdlet:
 
 ```powershell
 Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
@@ -91,7 +91,7 @@ O seguinte corte mostra um exemplo da resposta:
 }
 ```
 
-## <a name="diagnostic-logging"></a>Registos de diagnóstico
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnóstico
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas nos gateways de aplicações. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos do armazenamento da Blob Azure e vistos em diferentes ferramentas, tais como [registos Do Monitor Azure,](../azure-monitor/insights/azure-networking-analytics.md)Excel e Power BI. Pode saber mais sobre os diferentes tipos de registos da seguinte lista:
 
@@ -113,11 +113,11 @@ Tem três opções para armazenar os registos:
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Tem de permitir que o acesso e o registo de desempenho comecem a recolher os dados disponíveis através desses registos. Para ativar a exploração madeireira, utilize os seguintes passos:
 
-1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Este valor é do formulário: /subscrições/ subscrição\<Id\>/recursosGroups/\<nome de grupo de recursos\>/fornecedores/Microsoft.StorageAccounts/\<nome da conta de armazenamento\>. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
+1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Este valor é do formulário: /subscriptions/\<subscriptionId\>/resourceGroups/\<nome do grupo de recursos\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
 
     ![Portal: ID de recursos para conta de armazenamento](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note o ID de recurso do seu portal de aplicação para o qual o registo está ativado. Este valor é do formulário: /subscrições/ subscrição\<Id\>/resourceGroups/\<nome de grupo de recursos\>/fornecedores/Microsoft.Network/applicationGateways/\<nome de gateway de aplicação\>. Pode utilizar o portal para encontrar estas informações.
+2. Note o ID de recurso do seu portal de aplicação para o qual o registo está ativado. Este valor é do formulário:\<\>/subscrições/ subscriçõesId /resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/ applicationGateways/\<application gateway name\>. Pode utilizar o portal para encontrar estas informações.
 
     ![Portal: ID de recursos para gateway de aplicação](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -162,18 +162,18 @@ O registo de acesso só é gerado se o tiver ativado em cada instância de Gatew
 |---------|---------|
 |instanceId     | Instância de gateway de aplicação que serviu o pedido.        |
 |clientIP     | Originando IP para o pedido.        |
-|clientPort     | Porta de origem para o pedido.       |
+|clientPorto     | Porta de origem para o pedido.       |
 |httpMethod     | Método HTTP utilizado pelo pedido.       |
 |requestUri     | URI do pedido recebido.        |
 |RequestQuery     | **Server-Routed**: Instância de piscina de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: Id de correlação utilizado para o pedido. Pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**SERVIDOR-STATUS**: Código de resposta HTTP que o Gateway de Aplicação recebeu na parte de trás.       |
 |UserAgent     | Agente de utilizador do cabeçalho de pedido HTTP.        |
 |httpStatus     | Código de estado HTTP devolvido ao cliente a partir do Gateway de Aplicação.       |
-|httpVersion     | VERSÃO HTTP do pedido.        |
-|receivedBytes     | Tamanho do pacote recebido, em bytes.        |
+|httpVersão     | VERSÃO HTTP do pedido.        |
+|recebidoBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
-|timeTaken| O tempo (em milissegundos) que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
+|tempo Tomada| O tempo (em milissegundos) que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
 |sslEnabled| Se a comunicação para as piscinas traseiras usava SSL. Valores válidos estão dentro e fora.|
-|host| O nome de anfitrião com o qual o pedido foi enviado para o servidor backend. Se o nome de anfitrião está a ser ultrapassado, este nome refletirá isso.|
+|anfitrião| O nome de anfitrião com o qual o pedido foi enviado para o servidor backend. Se o nome de anfitrião está a ser ultrapassado, este nome refletirá isso.|
 |anfitrião original| O nome de anfitrião com o qual o pedido foi recebido pelo Gateway de Aplicação do cliente.|
 ```json
 {
@@ -206,22 +206,22 @@ Para o Application Gateway e waf v2, os registos mostram um pouco mais de inform
 |---------|---------|
 |instanceId     | Instância de gateway de aplicação que serviu o pedido.        |
 |clientIP     | Originando IP para o pedido.        |
-|clientPort     | Porta de origem para o pedido.       |
+|clientPorto     | Porta de origem para o pedido.       |
 |httpMethod     | Método HTTP utilizado pelo pedido.       |
 |requestUri     | URI do pedido recebido.        |
 |UserAgent     | Agente de utilizador do cabeçalho de pedido HTTP.        |
 |httpStatus     | Código de estado HTTP devolvido ao cliente a partir do Gateway de Aplicação.       |
-|httpVersion     | VERSÃO HTTP do pedido.        |
-|receivedBytes     | Tamanho do pacote recebido, em bytes.        |
+|httpVersão     | VERSÃO HTTP do pedido.        |
+|recebidoBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
-|timeTaken| Duração (em **segundos)** que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
+|tempo Tomada| Duração (em **segundos)** que leva para que um pedido seja processado e a sua resposta seja enviada. Isto é calculado como o intervalo a partir do momento em que o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o momento em que a resposta envia a operação termina. É importante notar que o campo Time-Taken geralmente inclui o tempo que os pacotes de pedido e resposta estão viajando sobre a rede. |
 |sslEnabled| Se a comunicação para as piscinas traseiras usava SSL. Valores válidos estão dentro e fora.|
 |sslCipher| Suíte cifra a ser utilizada para comunicação SSL (se o SSL estiver ativado).|
 |sslProtocol| O protocolo SSL/TLS está a ser utilizado (se o SSL estiver ativado).|
-|serverRouted| O servidor backend que aplica o gateway de aplicação encaminha o pedido para.|
-|serverStatus| Código de estado HTTP do servidor backend.|
-|serverResponseLatency| Latência da resposta do servidor de backend.|
-|host| Endereço listado no cabeçalho do anfitrião do pedido.|
+|servidorRouted| O servidor backend que aplica o gateway de aplicação encaminha o pedido para.|
+|servidorStatus| Código de estado HTTP do servidor backend.|
+|servidorResponseLatency| Latência da resposta do servidor de backend.|
+|anfitrião| Endereço listado no cabeçalho do anfitrião do pedido.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -259,12 +259,12 @@ O registo de desempenho só é gerado se o tiver ativado em cada instância de G
 |Valor  |Descrição  |
 |---------|---------|
 |instanceId     |  Aplicativo Gateway exemplo para os dados de desempenho que estão sendo gerados. Para um gateway de aplicação de múltiplas instâncias, há uma linha por exemplo.        |
-|healthyHostCount     | Número de anfitriões saudáveis na piscina de trás.        |
-|unHealthyHostCount     | Número de anfitriões insalubres na piscina de trás.        |
+|saudáveisHostCount     | Número de anfitriões saudáveis na piscina de trás.        |
+|NãoHealthyHostCount     | Número de anfitriões insalubres na piscina de trás.        |
 |pedidoCount     | Número de pedidos servidos.        |
 |latência | Latência média (em milissegundos) de pedidos da instância para a parte de trás que serve os pedidos. |
 |failedRequestCount| Número de pedidos falhados.|
-|Taxa de transferência| A produção média desde o último registo, medido em bytes por segundo.|
+|de transferência de dados| A produção média desde o último registo, medido em bytes por segundo.|
 
 ```json
 {
@@ -296,22 +296,22 @@ O registo de firewall só é gerado se o tiver ativado para cada gateway de apli
 |Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Aplicativo Gateway exemplo para os dados de firewall que estão sendo gerados. Para um gateway de aplicação de múltiplas instâncias, há uma linha por exemplo.         |
-|clientIp     |   Originando IP para o pedido.      |
-|clientPort     |  Porta de origem para o pedido.       |
+|clienteIp     |   Originando IP para o pedido.      |
+|clientPorto     |  Porta de origem para o pedido.       |
 |requestUri     | URL do pedido recebido.       |
-|ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
-|ruleSetVersion     | Versão definida de regras usada. Os valores disponíveis são 2.2.9 e 3.0.     |
-|ruleId     | Identificação da regra do evento de desencadeamento.        |
+|regraSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
+|regraSetVersion     | Versão definida de regras usada. Os valores disponíveis são 2.2.9 e 3.0.     |
+|regraId     | Identificação da regra do evento de desencadeamento.        |
 |message     | Mensagem fácil de utilizar para o evento de desencadeamento. Mais detalhes são fornecidos na secção de detalhes.        |
-|ação     |  Ação tomada a pedido. Os valores disponíveis são combinados e bloqueados.      |
+|action     |  Ação tomada a pedido. Os valores disponíveis são combinados e bloqueados.      |
 |site     | Local para o qual o tronco foi gerado. Atualmente, apenas a Global está listada porque as regras são globais.|
-|details     | Detalhes do evento de desencadeamento.        |
-|details.message     | Descrição da regra.        |
-|details.data     | Dados específicos encontrados a pedido que correspondem à regra.         |
+|detalhes     | Detalhes do evento de desencadeamento.        |
+|detalhes.mensagem     | Descrição da regra.        |
+|detalhes.dados     | Dados específicos encontrados a pedido que correspondem à regra.         |
 |detalhes.arquivo     | Ficheiro de configuração que continha a regra.        |
 |detalhes.line     | Número de linha no ficheiro de configuração que desencadeou o evento.       |
 |nome de anfitrião   | Nome de anfitrião ou endereço IP do Gateway de Aplicação.    |
-|transactionId  | Identificação única para uma determinada transação que ajuda a agrupar várias violações de regras que ocorreram dentro do mesmo pedido.   |
+|transaçãoId  | Identificação única para uma determinada transação que ajuda a agrupar várias violações de regras que ocorreram dentro do mesmo pedido.   |
 
 ```json
 {
@@ -365,7 +365,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicamos um modelo de Gestor de Recursos que instala e executa o popular analisador de log [GoAccess](https://goaccess.io/) para registos de acesso a gateway de aplicação. O GoAccess fornece estatísticas de tráfego http valiosas, tais como Visitantes Únicos, Ficheiros Solicitados, Anfitriões, Sistemas Operativos, Navegadores, códigos de Estado HTTP e muito mais. Para mais detalhes, consulte o ficheiro Readme na pasta do modelo Do Gestor de [Recursos no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Visualizar os registos de contadores e eventos utilizando [registos do Monitor Azure](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o seu log](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) de atividade do Azure com a publicação de blog Power BI.

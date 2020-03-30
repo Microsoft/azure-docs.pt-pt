@@ -17,19 +17,19 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279731"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir a Norma de Proteção DDoS Azure utilizando o portal Azure
 
 Aprenda a ativar e desativar a proteção de negação de serviço distribuída (DDoS) e use a telemetria para mitigar um ataque DDoS com a Norma de Proteção DDoS Azure. A DDoS Protection Standard protege os recursos do Azure, tais como máquinas virtuais, equilibradores de carga e gateways de aplicação que têm um [endereço IP público](virtual-network-public-ip-address.md) Azure atribuído ao mesmo. Para saber mais sobre o Padrão de Proteção DDoS e as suas capacidades, consulte a visão geral do Padrão de [Proteção dDoS](ddos-protection-overview.md).
 
-Antes de concluir quaisquer etapas neste tutorial, inicie sessão no portal Azure em https://portal.azure.com com uma conta atribuída à função de colaborador da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações apropriadas listadas nas [Permissões.](#permissions)
+Antes de concluir quaisquer etapas neste tutorial, https://portal.azure.com inicie sessão no portal Azure com uma conta atribuída à função de colaborador da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações apropriadas listadas em [Permissões](#permissions).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção DDoS
 
@@ -59,7 +59,7 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
     | ---------       | ---------                                                    |
     | Nome            | myVirtualNetwork                                             |
     | Subscrição    | Selecione a sua subscrição.                                    |
-    | Grupo de recursos  | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
+    | Grupo de recursos  | Selecione **Use existente,** e, em seguida, selecione **myResourceGroup** |
     | Localização        | E.U.A. Leste                                                      |
     | Proteção dDos | Selecione **Standard** e, em seguida, sob **a proteção DDoS,** selecione **myDdosProtectionPlan**. O plano que selecionar pode estar na mesma subscrição, ou subscrição diferente da rede virtual, mas ambas as subscrições devem ser associadas ao mesmo inquilino do Azure Ative Directory.|
 
@@ -114,7 +114,7 @@ Pode selecionar qualquer uma das métricas de proteção DDoS disponíveis para 
     |Métrica                   | Sob ataque DDoS ou não                                                                            |
     |Limiar                | 1 - **1** significa que está a ser atacado. **0** significa que não está saqueado.                         |
     |Período                   | Selecione o valor que escolher.                                                                   |
-    |Notificar via E-mail         | Verifique a caixa de verificação                                                                                  |
+    |Notificar via E-mail         | marque a caixa de verificação                                                                                  |
     |Administrador adicional | Insira o seu endereço de e-mail se não for proprietário de e-mail, colaborador ou leitor para a subscrição. |
 
     Poucos minutos após a deteção do ataque, recebe um e-mail das métricas do Monitor Do Azure que se parece com a seguinte imagem:
@@ -154,8 +154,8 @@ A Norma de Proteção DDoS aplica três políticas de mitigação auto-afinadas 
 
 Os limiares de política são configurados automaticamente através do perfil de tráfego de rede baseado em machine learning Azure. Só quando o limiar de política é violado é que a mitigação do DDoS ocorre para o endereço IP sob ataque.
 
-## <a name="configure-ddos-attack-analytics"></a>Configure análise de ataque DDoS
-A norma azure DDoS Protection fornece informações detalhadas de ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques dDoS têm visibilidade detalhada no tráfego de ataque e ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques e registos de fluxo de mitigação. 
+## <a name="configure-ddos-attack-analytics"></a>Configurar a análise do ataque DDoS
+A norma azure DDoS Protection fornece informações detalhadas de ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques dDoS têm visibilidade detalhada no tráfego de ataque e ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. 
 
 ## <a name="configure-ddos-attack-mitigation-reports"></a>Configure relatórios de mitigação de ataques dDoS
 Os relatórios de mitigação de ataques utilizam os dados do protocolo Netflow que é agregado para fornecer informações detalhadas sobre o ataque ao seu recurso. Sempre que um recurso IP público estiver a ser atacado, a geração do relatório começará assim que a mitigação começar. Haverá um relatório incremental gerado a cada 5 minutos e um relatório pós-mitigação para todo o período de mitigação. Isto é para garantir que, em caso de o ataque do DDoS continuar por um período mais longo, poderá ver o mais atual relatório de mitigação a cada 5 minutos e um resumo completo assim que a mitigação do ataque terminar. 
@@ -171,7 +171,7 @@ Os relatórios de mitigação de ataques utilizam os dados do protocolo Netflow 
     - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de diagnóstico do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [registos de recolha para utilização em registos do Monitor Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Tanto os relatórios incrementais e pós-ataque incluem os seguintes campos
+Tanto os relatórios de mitigação & incrementais pós-ataque incluem os seguintes campos
 - Vetores de ataque
 - Estatísticas do tráfego
 - Razão para pacotes abandonados
@@ -192,7 +192,7 @@ Os Registos de Fluxo de Mitigação de Ataque permitem-lhe rever o tráfego perd
     - **Arquivo para uma conta**de armazenamento : Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [registos de diagnóstico do Arquivo](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream para um centro de eventos**: Permite que um recetor de registo saqueie registos utilizando um Hub de Eventos Azure. Os centros de eventos permitem a integração com splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de diagnóstico do Stream para um centro de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [registos de recolha para utilização em registos do Monitor Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Para ver os dados de registos de fluxo no painel de análise azure, pode importar o painel de dados da amostra a partir de https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. Para ver os dados de registos de fluxo no painel de análise azure, você pode importar o painel de dados da amostra dehttps://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Os registos de fluxo terão os seguintes campos: 
 - IP de origem

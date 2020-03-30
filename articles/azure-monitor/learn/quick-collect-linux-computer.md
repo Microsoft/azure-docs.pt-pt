@@ -14,10 +14,10 @@ ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241263"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em um ambiente híbrido com o Monitor Azure
@@ -26,15 +26,15 @@ O [Azure Monitor](../overview.md) pode recolher dados diretamente dos seus compu
 
 Para compreender a configuração suportada, consulte [sistemas operativos Suportados Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)de firewall da rede .
  
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 
     ![Encontrar espaço de trabalho log Analytics no portal Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
@@ -87,7 +87,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    O seguinte comando inclui o parâmetro de procuração `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando `-p` inclui o parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -99,7 +99,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    O seguinte comando inclui o parâmetro de procuração `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando `-p` inclui o parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -119,7 +119,7 @@ O Azure Monitor pode recolher eventos a partir dos contadores linux Syslog e per
 
 2. Selecione **Dados,** e, em seguida, selecione **Syslog**.  
 
-3. Adicione syslog digitando em nome do diário. Introduza o **Syslog** e, em seguida, selecione o sinal plus **+** .  
+3. Adicione syslog digitando em nome do diário. Introduza **o Syslog** e, em seguida, selecione o sinal **+** de mais .  
 
 4. Na tabela, desmarque as gravidades **Informações**, **Aviso** e **Depurar**. 
 
@@ -141,7 +141,7 @@ Agora que ativou a recolha de dados, vamos executar um exemplo de pesquisa de re
 
 1. No espaço de trabalho selecionado, a partir do painel da esquerda, selecione **Logs**.
 
-2. Na página de consulta de Registos, digite `Perf` no editor de consulta e selecione **Executar**.
+2. Na página de consulta de `Perf` Registos, digite no editor de consulta e selecione **Executar**.
  
     ![Pesquisa de registo de Log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

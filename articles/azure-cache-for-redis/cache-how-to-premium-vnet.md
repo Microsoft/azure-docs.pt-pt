@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278119"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para um Cache Premium Azure para Redis
@@ -94,11 +94,11 @@ Quando o Azure Cache for Redis é hospedado num VNet, as portas das seguintes me
 - [Requisitos de porta de saída](#outbound-port-requirements)
 - [Requisitos de porta de entrada](#inbound-port-requirements)
 
-#### <a name="outbound-port-requirements"></a>Requisitos portuário de saída
+#### <a name="outbound-port-requirements"></a>Requisitos de porta de saída
 
 Há nove requisitos de saída. Os pedidos de saída nestas gamas são ou de saída para outros serviços necessários para que o cache funcione ou interno para a subnet Redis para comunicação interno. Para a geo-replicação, existem requisitos adicionais de saída para a comunicação entre as subredes da cache primária e secundária.
 
-| Porto(s) | Direção | Protocolo de Transportes | Objetivo | Local IP | IP remoto |
+| Porta(s) | Direção | Protocolo de Transportes | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Dependências redis em Armazenamento Azure/PKI (Internet) | (Sub-rede Redis) |* |
 | 443 | Saída | TCP | Dependência de Redis no Cofre chave Azure | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
@@ -116,15 +116,15 @@ Há nove requisitos de saída. Os pedidos de saída nestas gamas são ou de saí
 
 <sup>3</sup> Não é necessário para subredes sem servidor DNS personalizado, ou caches redis mais recentes que ignoram DNS personalizados.
 
-#### <a name="geo-replication-peer-port-requirements"></a>Requisitos de porto de geo-replicação
+#### <a name="geo-replication-peer-port-requirements"></a>Requisitos da porta do elemento de rede de georreplicação
 
 Se estiver a utilizar a georeplicação entre caches em Redes Virtuais Azure, por favor note que a configuração recomendada é desbloquear portas 15000-15999 para toda a subrede em ambas as direções de entrada e saída para ambos os caches, de modo que todos os componentes de réplica na sub-rede pode comunicar diretamente uns com os outros mesmo em caso de uma futura geo-falha.
 
-#### <a name="inbound-port-requirements"></a>Requisitos de portas de entrada
+#### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
 
 Existem oito requisitos de alcance de entrada. Os pedidos de entrada nestas gamas são de entrada de outros serviços hospedados no mesmo VNET ou internos para as comunicações de sub-rede Redis.
 
-| Porto(s) | Direção | Protocolo de Transportes | Objetivo | Local IP | IP remoto |
+| Porta(s) | Direção | Protocolo de Transportes | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente à Redis, equilíbrio de carga azure | (Sub-rede Redis) | (Redis subnet), Rede Virtual, Equilíbrio de Carga Azure <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para redis | (Sub-rede Redis) |(Sub-rede Redis) |
@@ -146,7 +146,7 @@ Existem requisitos de conectividade de rede para O Cache Azure para Redis que po
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos finais e domínios mencionados nos pontos anteriores. Estes requisitos dNS podem ser cumpridos garantindo que uma infraestrutura DNS válida é configurada e mantida para a rede virtual.
 * Conectividade de rede de saída para os seguintes pontos finais de monitorização Azure, que se resolvem sob os seguintes domínios DNS: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
-### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como posso verificar se a minha cache está a funcionar num VNET?
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como posso verificar se a minha cache está a funcionar numa VNET?
 
 >[!IMPORTANT]
 >Ao ligar-se a um Azure Cache para a instância Redis que esteja hospedado num VNET, os seus clientes de cache devem estar no mesmo VNET ou num VNET com o lúbis VNET ativado na mesma região Azure. O Global VNET Peering não é atualmente apoiado. Isto inclui quaisquer aplicações de teste ou ferramentas de diagnóstico de pinging. Independentemente do local onde a aplicação do cliente esteja hospedada, os grupos de segurança da rede devem ser configurados de modo a que o tráfego de rede do cliente seja autorizado a chegar à instância Redis.
@@ -161,7 +161,7 @@ Uma vez configurados os requisitos da porta como descrito na secção anterior, 
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
-    Se a ferramenta `tcping` reportar que a porta está aberta, a cache está disponível para ligação de clientes no VNET.
+    Se `tcping` a ferramenta reportar que a porta está aberta, a cache está disponível para ligação de clientes no VNET.
 
   - Outra forma de testar é criar um cliente de cache de teste (que poderia ser uma simples aplicação de consola usando StackExchange.Redis) que se conecta à cache e adiciona e recupera alguns itens da cache. Instale a aplicação do cliente da amostra num VM que esteja no mesmo VNET que a cache e execute-a para verificar a conectividade com a cache.
 
@@ -180,7 +180,7 @@ Evite utilizar o endereço IP semelhante à seguinte cadeia de ligação:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Se não conseguir resolver o nome DNS, algumas bibliotecas de clientes incluem opções de configuração como `sslHost` que é fornecida pelo cliente StackExchange.Redis. Isto permite-lhe anular o nome de anfitrião utilizado para validação de certificado. Por exemplo:
+Se não conseguir resolver o nome DNS, algumas `sslHost` bibliotecas de clientes incluem opções de configuração como as fornecidas pelo cliente StackExchange.Redis. Isto permite-lhe anular o nome de anfitrião utilizado para validação de certificado. Por exemplo:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

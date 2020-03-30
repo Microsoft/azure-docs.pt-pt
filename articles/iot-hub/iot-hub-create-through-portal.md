@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284736"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Crie um hub IoT usando o portal Azure
@@ -20,7 +20,7 @@ ms.locfileid: "79284736"
 
 Este artigo descreve como criar e gerir centros IoT usando o [portal Azure](https://portal.azure.com).
 
-Para utilizar os passos deste tutorial, precisa de uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para utilizar os passos deste tutorial, precisa de uma subscrição Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -86,7 +86,7 @@ Clique **em escolher um recipiente** para selecionar a conta de armazenamento e 
 
 Para **obter dados,** selecione Mensagens de Telemetria do Dispositivo. 
 
-Em seguida, adicione uma consulta de encaminhamento. Neste exemplo, as mensagens que têm um imóvel de aplicação chamado `level` com um valor igual ao `critical` são encaminhados para a conta de armazenamento.
+Em seguida, adicione uma consulta de encaminhamento. Neste exemplo, as mensagens que `level` têm um imóvel de aplicação chamado com um valor igual ao `critical` são encaminhados para a conta de armazenamento.
 
 ![Screenshot mostrando salvar uma nova regra de encaminhamento](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 
@@ -112,7 +112,7 @@ Aqui estão duas maneiras de encontrar um hub ioT específico na sua subscriçã
 
 1. Se conhecer o grupo de recursos a que pertence o hub IoT, clique em **grupos de Recursos**e, em seguida, selecione o grupo de recursos da lista. O ecrã do grupo de recursos mostra todos os recursos desse grupo, incluindo os hubs IoT. Clique no centro para o qual está procurando.
 
-2. Clique em **todos os recursos.** No painel **De Todos os Recursos,** há uma lista de abandono que não se `All types`. Clique na lista de dropdown, desfaça `Select all`. Encontre `IoT Hub` e verifique. Clique na caixa da lista de dropdown para fechá-la e as entradas serão filtradas, mostrando apenas os seus hubs IoT.
+2. Clique em **Todos os recursos**. No painel **de todos os recursos,** há uma `All types`lista de abandono que não se aplica a . Clique na lista de dropdown, desfaça- se `Select all`. Encontre `IoT Hub` e verifique. Clique na caixa da lista de dropdown para fechá-la e as entradas serão filtradas, mostrando apenas os seus hubs IoT.
 
 ## <a name="delete-the-iot-hub"></a>Eliminar o hub IoT
 

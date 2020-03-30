@@ -4,10 +4,10 @@ description: Saiba como configurar um recipiente Linux personalizado no Serviço
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280147"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente linux personalizado para o Serviço de Aplicações Azure
@@ -18,7 +18,7 @@ Este guia fornece conceitos e instruções fundamentais para a contentorização
 
 ## <a name="configure-port-number"></a>Configurar o número da porta
 
-O servidor web na sua imagem personalizada pode utilizar uma porta diferente de 80. Informe o Azure sobre a porta que o seu recipiente personalizado utiliza utilizando a definição de aplicações `WEBSITES_PORT`. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode defini-lo executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando na Cloud Shell. Por exemplo:
+O servidor web na sua imagem personalizada pode utilizar uma porta diferente de 80. Informe o Azure sobre a porta que `WEBSITES_PORT` o seu recipiente personalizado utiliza utilizando a definição da aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode defini-lo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) com o comando na Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
-O seu recipiente personalizado pode utilizar variáveis ambientais que precisam de ser fornecidas externamente. Pode passá-los correndo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando na Cloud Shell. Por exemplo:
+O seu recipiente personalizado pode utilizar variáveis ambientais que precisam de ser fornecidas externamente. Pode passá-los [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) correndo o comando na Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -36,11 +36,11 @@ Este método funciona tanto para aplicações de um único contentor como para a
 
 ## <a name="use-persistent-shared-storage"></a>Use armazenamento partilhado persistente
 
-Pode utilizar o diretório */home* no sistema de ficheiros da sua aplicação para persistir ficheiros em reinícios e partilhá-los em instâncias. O `/home` na sua aplicação é fornecido para permitir que a sua aplicação de contentores aceda ao armazenamento persistente.
+Pode utilizar o diretório */home* no sistema de ficheiros da sua aplicação para persistir ficheiros em reinícios e partilhá-los em instâncias. A `/home` sua aplicação é fornecida para permitir que a sua aplicação de contentores aceda ao armazenamento persistente.
 
-Quando o armazenamento persistente é desativado, então escreve para o diretório `/home` não são persistidos em reinícios de aplicações ou em vários casos. A única exceção é o diretório `/home/LogFiles`, que é usado para armazenar os registos do Docker e dos contentores. Quando o armazenamento persistente é ativado, todos os escritos para o diretório `/home` são persistidos e podem ser acedidos por todos os casos de uma aplicação de escala.
+Quando o armazenamento persistente é desativado, então os escritos para o `/home` diretório não são persistidos em reinícios de aplicações ou em vários casos. A única exceção é o `/home/LogFiles` diretório, que é usado para armazenar os registos do Docker e dos contentores. Quando o armazenamento persistente é ativado, todas as escritas para o `/home` diretório são percedidas e podem ser acedidas por todos os casos de uma aplicação de escala.
 
-Por defeito, o armazenamento persistente está *ativado* e a definição não está exposta nas Definições de Aplicação. Para desative-o, defina a definição de aplicações `WEBSITES_ENABLE_APP_SERVICE_STORAGE` executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando na Cloud Shell. Por exemplo:
+Por defeito, o armazenamento persistente está *ativado* e a definição não está exposta nas Definições de Aplicação. Para desative-a, defina a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) o comando na Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -56,14 +56,14 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para obter
 > [!TIP]
 > Todos os recipientes linux incorporados adicionaram as instruções de SSH nos seus repositórios de imagem. Pode seguir as seguintes instruções com o [repositório Nó.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como é ativado lá.
 
-- Utilize a instrução [RUN](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e definir a palavra-passe para a conta raiz para `"Docker!"`. Por exemplo, para uma imagem baseada no [Alpine Linux,](https://hub.docker.com/_/alpine)precisa dos seguintes comandos:
+- Utilize a instrução [RUN](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH `"Docker!"`e definir a palavra-passe para a conta raiz para . Por exemplo, para uma imagem baseada no [Alpine Linux,](https://hub.docker.com/_/alpine)precisa dos seguintes comandos:
 
     ```Dockerfile
     RUN apk add openssh \
          && echo "root:Docker!" | chpasswd 
     ```
 
-    Esta configuração não permite ligações externas ao recipiente. O SSH só está disponível através de `https://<app-name>.scm.azurewebsites.net` e autenticado com as credenciais de publicação.
+    Esta configuração não permite ligações externas ao recipiente. O SSH só `https://<app-name>.scm.azurewebsites.net` está disponível através e autenticado com as credenciais de publicação.
 
 - Adicione [este ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) ao seu repositório de imagem e utilize a instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar o ficheiro para o */etc/ssh/diretório.* Para obter mais informações sobre *sshd_config* ficheiros, consulte [a documentação OpenBSD](https://man.openbsd.org/sshd_config).
 
@@ -104,7 +104,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para obter
 
 Aplicações multi-contentores como o WordPress precisam de armazenamento persistente para funcionar corretamente. Para o ativar, a configuração do Docker Compose deve apontar para um local de armazenamento *fora* do seu recipiente. Os locais de armazenamento dentro do seu contentor não persistem alterações para além do reinício da aplicação.
 
-Ative o armazenamento persistente definindo a definição de aplicações `WEBSITES_ENABLE_APP_SERVICE_STORAGE`, utilizando as definições de definição de definições de config da [Webapp az](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) na Cloud Shell.
+Ativar o armazenamento `WEBSITES_ENABLE_APP_SERVICE_STORAGE` persistente definindo a definição da aplicação, utilizando as definições de definição de definições de [config az webapp](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) em Cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

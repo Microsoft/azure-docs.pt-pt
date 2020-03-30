@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte à migração de servidores físicos em 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269552"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
@@ -26,12 +26,12 @@ Pode migrar as máquinas no local como servidores físicos, utilizando replicaç
 - VMs correndo em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
-## <a name="migration-limitations"></a>Limitações de migração
+## <a name="migration-limitations"></a>Limitações da migração
 
 Pode selecionar até 10 máquinas ao mesmo tempo para replicação. Se quiser migrar mais máquinas, reproduza-se em grupos de 10.
 
 
-## <a name="physical-server-requirements"></a>Requisitos físicos do servidor
+## <a name="physical-server-requirements"></a>Requisitos do servidor físico
 
 A tabela resume o suporte aos servidores físicos que pretende migrar utilizando a migração baseada em agentes.
 
@@ -54,7 +54,7 @@ A tabela resume o suporte aos servidores físicos que pretende migrar utilizando
 **NFS** | Os volumes nFS montados à medida que os volumes das máquinas não serão replicados.
 **metas iSCSI** | Máquinas com alvos iSCSI não são suportadas para migração sem agente.
 **IO multipata** | Não suportado.
-**Armazenamento vMotion** | Suportadas
+**Armazenamento vMotion** | Suportado
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 
@@ -68,7 +68,7 @@ Se configurar manualmente o aparelho de replicação num servidor físico, certi
 - O MySQL deve ser instalado no aparelho. Saiba mais sobre as opções de [instalação.](migrate-replication-appliance.md#mysql-installation)
 - Saiba mais sobre [os URLs](migrate-replication-appliance.md#url-access) que o aparelho de replicação precisa de aceder.
 
-## <a name="azure-vm-requirements"></a>Requisitos de VM Azure
+## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
 Todos os VMs no local replicados ao Azure devem satisfazer os requisitos de VM Azure resumidos nesta tabela. Quando a Recuperação do Site executa um pré-requisito para verificar a replicação, a verificação falhará se alguns dos requisitos não forem cumpridos.
 
@@ -80,15 +80,15 @@ Tamanho do disco do sistema operativo | Até 2.048 GB. | A verificação falha s
 Contagem de discos do sistema operativo | 1 | A verificação falha se não for suportada.
 Contagem de discos de dados | 64 ou menos. | A verificação falha se não for suportada.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não for suportada.
-Adaptadores de rede | São suportados múltiplos adaptadores. |
-VHD Partilhado | Não suportado. | A verificação falha se não for suportada.
-Disco fc | Não suportado. | A verificação falha se não for suportada.
+Placas de rede | São suportados múltiplos adaptadores. |
+VHD partilhado | Não suportado. | A verificação falha se não for suportada.
+Disco FC | Não suportado. | A verificação falha se não for suportada.
 BitLocker | Não suportado. | O BitLocker deve ser desativado antes de ativar a replicação de uma máquina.
 o nome da VM | De 1 a 63 caracteres.<br/> Limitado a letras, números e hífenes.<br/><br/> O nome da máquina deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina na Recuperação do Site.
-Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o Windows após a migração:<br/> - Antes que a migração permita o PDR no VM no local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site-to-site, ative rdP e permita RDP no **Windows Firewall** -> **permitidas aplicações e funcionalidades** para redes **De domínio e privadas.** Além disso, verifique se a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
+Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o Windows após a migração:<br/> - Antes que a migração permita o PDR no VM no local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/> Para acesso VPN site-to-site, ative rdP e permita RDP em **Windows Firewall** -> **Permitida aplicações e funcionalidades** para redes **De domínio e privadas.** Além disso, verifique se a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conecte-se após a migração-Linux | Para ligar aos VMs Azure após a migração utilizando o SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após a falha, no Azure VM, permitir ligações de entrada à porta SSH para as regras do grupo de segurança da rede sobre o VM falhado, e para a subnet Azure a que está conectado. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar](tutorial-migrate-physical-virtual-machines.md) servidores físicos.

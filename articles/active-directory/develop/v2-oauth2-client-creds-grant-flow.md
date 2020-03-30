@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 4bf6d777662ad1ba4843d6e650dfd3a6a357822f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262363"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade microsoft e o fluxo de credenciais de clientes OAuth 2.0
@@ -54,9 +54,9 @@ Estes dois métodos são os mais comuns em Azure AD e recomendamo-los para clien
 
 ### <a name="access-control-lists"></a>Lista de controlo de acesso
 
-Um fornecedor de recursos pode impor um controlo de autorização com base numa lista de iDs de aplicação (cliente) que conhece e concede um nível específico de acesso. Quando o recurso recebe um símbolo do ponto final da plataforma de identidade da Microsoft, pode descodificar o símbolo e extrair o ID da aplicação do cliente a partir das alegações de `appid` e `iss`. Em seguida, compara a aplicação com uma lista de controlo de acesso (ACL) que mantém. A granularidade e o método da ACL podem variar substancialmente entre recursos.
+Um fornecedor de recursos pode impor um controlo de autorização com base numa lista de iDs de aplicação (cliente) que conhece e concede um nível específico de acesso. Quando o recurso recebe um símbolo do ponto final da plataforma de identidade da Microsoft, pode `appid` descodificar o símbolo e extrair o ID da aplicação do cliente do e sinistros. `iss` Em seguida, compara a aplicação com uma lista de controlo de acesso (ACL) que mantém. A granularidade e o método da ACL podem variar substancialmente entre recursos.
 
-Um caso de uso comum é usar um ACL para executar testes para uma aplicação web ou para uma API web. A API web pode conceder apenas um subconjunto de permissões completas a um cliente específico. Para realizar testes de ponta a ponta na API, crie um cliente de teste que adquira fichas do ponto final da plataforma de identidade da Microsoft e, em seguida, envie-os para a API. A API verifica então a ACL para obter o ID de aplicação do cliente de teste para acesso total a toda a funcionalidade da API. Se utilizar este tipo de ACL, certifique-se de validar não só o valor `appid` do chamador, mas também validar que o valor `iss` do token é de confiança.
+Um caso de uso comum é usar um ACL para executar testes para uma aplicação web ou para uma API web. A API web pode conceder apenas um subconjunto de permissões completas a um cliente específico. Para realizar testes de ponta a ponta na API, crie um cliente de teste que adquira fichas do ponto final da plataforma de identidade da Microsoft e, em seguida, envie-os para a API. A API verifica então a ACL para obter o ID de aplicação do cliente de teste para acesso total a toda a funcionalidade da API. Se utilizar este tipo de ACL, certifique-se de `appid` validar não `iss` só o valor do chamador, mas também validar que o valor do token é de confiança.
 
 Este tipo de autorização é comum para daemons e contas de serviço que precisam de aceder a dados de utilizadores de consumo que tenham contas pessoais da Microsoft. Para dados pertencentes a organizações, recomendamos que obtenha a autorização necessária através de permissões de pedido.
 
@@ -67,7 +67,7 @@ Em vez de utilizar ACLs, pode utilizar APIs para expor um conjunto de **permiss�
 * Leia o correio em todas as caixas de correio
 * Ler e escrever correio em todas as caixas de correio
 * Enviar correio como qualquer utilizador
-* Ler dados do diretório
+* Ler os dados do diretório
 
 Para mais informações sobre permissões de aplicação, vá ao [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -81,7 +81,7 @@ Para utilizar permissões de aplicação na sua aplicação, siga os passos disc
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicite as permissões no portal de registo da aplicação
 
 1. Registe-se e crie uma aplicação através da nova experiência de registos de [aplicações (Pré-visualização).](quickstart-register-app.md)
-2. Vá à sua aplicação na experiência de registos da App (Pré-visualização). Navegue para a secção **Certificados e Segredos** e adicione um novo segredo de **cliente,** porque precisará de pelo menos um segredo de cliente para solicitar um símbolo.
+2. Vá à sua aplicação na experiência de registos da App (Pré-visualização). Navegue para a secção **de Certificados & segredos,** e adicione um novo segredo de **cliente,** porque precisará de pelo menos um segredo de cliente para solicitar um símbolo.
 3. Localize a secção de **permissões da API** e, em seguida, adicione as **permissões** de aplicação que a sua aplicação necessita.
 4. **Guarde** o registo da aplicação.
 
@@ -96,7 +96,7 @@ Se assinar o utilizador na sua aplicação, pode identificar a organização a q
 Quando estiver pronto para solicitar permissões ao administrador da organização, pode redirecionar o utilizador para o *ponto final*de consentimento da plataforma de identidade da Microsoft .
 
 > [!TIP]
-> Tente executar este pedido no Carteiro! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar este pedido no Carteiro! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [Tente executar este pedido no Carteiro ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -117,7 +117,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O inquilino do diretório de quem quer pedir autorização. Isto pode ser em formato DE NOME GUIA ou amigável. Se não sabe a que inquilino pertence o utilizador e quer deixá-los assinar com qualquer inquilino, use `common`. |
+| `tenant` | Necessário | O inquilino do diretório de quem quer pedir autorização. Isto pode ser em formato DE NOME GUIA ou amigável. Se não sabe a que inquilino pertence o utilizador e quer deixá-los `common`assinar com qualquer inquilino, use. |
 | `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
 | `redirect_uri` | Necessário | O URI redireciona do URI onde pretende que a resposta seja enviada para a sua aplicação manusear. Deve corresponder exatamente a uma das URIs redirecionais que registou no portal, exceto que deve ser codificada por URL, e pode ter segmentos de caminho adicionais. |
 | `state` | Recomendado | Um valor que está incluído no pedido que também é devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queira. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que se encontrava. |
@@ -155,10 +155,10 @@ Depois de ter recebido uma resposta bem-sucedida do ponto final do fornecimento 
 
 ## <a name="get-a-token"></a>Pegue um símbolo
 
-Depois de ter adquirido a autorização necessária para o seu pedido, proceda à aquisição de fichas de acesso para APIs. Para obter um sinal através da concessão de credenciais de cliente, envie um pedido POST para o `/token` ponto final da plataforma de identidade microsoft:
+Depois de ter adquirido a autorização necessária para o seu pedido, proceda à aquisição de fichas de acesso para APIs. Para obter um sinal através da concessão de credenciais de cliente, envie um pedido POST para o ponto final da `/token` plataforma de identidade da Microsoft:
 
 > [!TIP]
-> Tente executar este pedido no Carteiro! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar este pedido no Carteiro! (Use o seu próprio ID de aplicação para obter os melhores resultados - a aplicação tutorial não solicitará permissões úteis.) [Tente executar este pedido no Carteiro ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Pedido de acesso com um segredo partilhado
 
@@ -182,9 +182,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Necessário | O inquilino do diretório a aplicação planeia operar contra, em formato GUID ou nome de domínio. |
 | `client_id` | Necessário | O ID da aplicação que é atribuído à sua aplicação. Pode encontrar esta informação no portal onde registou a sua aplicação. |
-| `scope` | Necessário | O valor passado para o parâmetro `scope` neste pedido deve ser o identificador de recursos (id uri de aplicação) do recurso que pretende, afixado com o `.default` sufixo. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Este valor diz à plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configuraste para a sua aplicação, o ponto final deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais sobre o âmbito `/.default`, consulte a documentação de [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
+| `scope` | Necessário | O valor passado `scope` para o parâmetro neste pedido deve ser o identificador de recursos (ID `.default` URI de aplicação) do recurso que pretende, afixado com o sufixo. Para o exemplo do Microsoft `https://graph.microsoft.com/.default`Graph, o valor é . <br/>Este valor diz à plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configuraste para a sua aplicação, o ponto final deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais `/.default` sobre o âmbito, consulte a documentação do [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
 | `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação no portal de registo de aplicações. O segredo do cliente deve ser codificado antes de ser enviado. |
-| `grant_type` | Necessário | Deve ser definido para `client_credentials`. |
+| `grant_type` | Necessário | Tem de `client_credentials`ser definido para. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de acesso aceso com certificado
 
@@ -204,10 +204,10 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | `tenant` | Necessário | O inquilino do diretório a aplicação planeia operar contra, em formato GUID ou nome de domínio. |
 | `client_id` | Necessário |O ID de aplicação (cliente) que é atribuído à sua aplicação. |
-| `scope` | Necessário | O valor passado para o parâmetro `scope` neste pedido deve ser o identificador de recursos (id uri de aplicação) do recurso que pretende, afixado com o `.default` sufixo. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Este valor informa o ponto final da plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configurapara a sua aplicação, deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais sobre o âmbito `/.default`, consulte a documentação de [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
-| `client_assertion_type` | Necessário | O valor deve ser fixado para `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `scope` | Necessário | O valor passado `scope` para o parâmetro neste pedido deve ser o identificador de recursos (ID `.default` URI de aplicação) do recurso que pretende, afixado com o sufixo. Para o exemplo do Microsoft `https://graph.microsoft.com/.default`Graph, o valor é . <br/>Este valor informa o ponto final da plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configurapara a sua aplicação, deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais `/.default` sobre o âmbito, consulte a documentação do [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
+| `client_assertion_type` | Necessário | O valor deve `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`ser fixado para . |
 | `client_assertion` | Necessário | Uma afirmação (um símbolo web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Leia sobre [credenciais](active-directory-certificate-credentials.md) de certificado para saber como registar o seu certificado e o formato da afirmação.|
-| `grant_type` | Necessário | Deve ser definido para `client_credentials`. |
+| `grant_type` | Necessário | Tem de `client_credentials`ser definido para. |
 
 Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
@@ -226,7 +226,7 @@ Uma resposta com êxito tem o seguinte aspeto:
 | Parâmetro | Descrição |
 | --- | --- |
 | `access_token` | O sinal de acesso solicitado. A aplicação pode usar este símbolo para autenticar o recurso seguro, como por exemplo a uma API Web. |
-| `token_type` | Indica o valor do tipo simbólico. O único tipo que a plataforma de identidade da Microsoft suporta é `bearer`. |
+| `token_type` | Indica o valor do tipo simbólico. O único tipo que a `bearer`plataforma de identidade da Microsoft suporta é . |
 | `expires_in` | O tempo que um token de acesso é válido (em segundos). |
 
 ### <a name="error-response"></a>Resposta de erro
@@ -257,7 +257,7 @@ Uma resposta de erro é a seguinte:
 
 ## <a name="use-a-token"></a>Use um símbolo
 
-Agora que adquiriu um símbolo, use o símbolo para fazer pedidos ao recurso. Quando o símbolo expirar, repita o pedido para o `/token` ponto final para adquirir um novo sinal de acesso.
+Agora que adquiriu um símbolo, use o símbolo para fazer pedidos ao recurso. Quando o símbolo expirar, repita o `/token` pedido para o ponto final para adquirir um novo sinal de acesso.
 
 ```
 GET /v1.0/me/messages

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275038"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows ao Monitor Azure
@@ -19,7 +19,7 @@ Para monitorizar e gerir máquinas virtuais ou computadores físicos no seu data
 
 Num computador Windows monitorizado, o agente está listado como o serviço do Microsoft Monitoring Agent. O serviço Microsoft Monitoring Agent recolhe eventos a partir de ficheiros de registo e registo de eventos do Windows, dados de desempenho e outratelemetria. Mesmo quando o agente não consegue comunicar com o Azure Monitor a que reporta, o agente continua a executar e faz fila dos dados recolhidos no disco do computador monitorizado. Quando a ligação é restaurada, o serviço do Microsoft Monitoring Agent envia dados recolhidos para o serviço.
 
-O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das instalações utiliza uma combinação destes métodos para instalar diferentes conjuntos de computadores, conforme apropriado.  Os detalhes sobre a utilização de cada método são fornecidos mais tarde no artigo.
+O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das instalações utiliza uma combinação dos seguintes métodos para instalar diferentes conjuntos de computadores, conforme adequado.  Os detalhes sobre a utilização de cada método são fornecidos mais tarde no artigo.
 
 * Instalação manual. A configuração é executada manualmente no computador utilizando o assistente de configuração, a partir da linha de comando, ou implantado utilizando uma ferramenta de distribuição de software existente.
 * Configuração do Estado desejada pela automatização azure (DSC). Utilizar o DSC em Automatização Azure com um script para computadores Windows já implantados no seu ambiente.  
@@ -60,7 +60,7 @@ Para configurar a utilização do protocolo [TLS 1.2](https://docs.microsoft.com
 
 Configure a .NET Framework 4.6 ou posteriormente para suportar a criptografia segura, uma vez que por padrão é desativada. A [criptografia forte](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de rede mais seguros como o TLS 1.2, e bloqueia protocolos que não são seguros. 
 
-1. Localize a seguinte subchave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Localize a seguinte subchave de registo: **\\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft . NETFramework\v4.0.30319**.  
 2. Crie o valor DWORD **SchUseStrongCrypto** sob esta subchave com um valor de **1**.  
 3. Localize a seguinte subchave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
 4. Crie o valor DWORD **SchUseStrongCrypto** sob esta subchave com um valor de **1**. 
@@ -103,7 +103,7 @@ A tabela seguinte destaca os parâmetros específicos suportados pela configura�
 |OPINSIGHTS_PROXY_USERNAME               | Nome de utilizador para aceder a um proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Senha para aceder a um proxy autenticado |
 
-1. Para extrair os ficheiros de instalação do agente, a partir de um comando elevado, `MMASetup-<platform>.exe /c` e irá levá-lo para o caminho para extrair ficheiros para.  Em alternativa, pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
+1. Para extrair os ficheiros de instalação `MMASetup-<platform>.exe /c` do agente, a partir de uma execução rápida de comando elevado e irá levá-lo para o caminho para extrair ficheiros para.  Em alternativa, pode especificar o caminho `MMASetup-<platform>.exe /c /t:<Full Path>`passando os argumentos.  
 2. Para instalar silenciosamente o agente e configurá-lo para reportar a um espaço de trabalho na nuvem comercial Azure, a partir da pasta que extraiu os ficheiros de configuração para escrever: 
    
      ```dos
@@ -122,20 +122,20 @@ A tabela seguinte destaca os parâmetros específicos suportados pela configura�
 
 Pode utilizar o seguinte exemplo de script para instalar o agente utilizando o Azure Automation DSC.   Se não tiver uma conta de Automação, consulte O Get start com a [Azure Automation](/azure/automation/) para compreender os requisitos e passos necessários para criar uma conta de Automação necessária antes de utilizar o Automation DSC.  Se não está familiarizado com a Automation DSC, reveja [Começar com A Automação DSC](../../automation/automation-dsc-getting-started.md).
 
-O exemplo seguinte instala o agente de 64 bits, identificado pelo valor `URI`. Também pode utilizar a versão de 32 bits substituindo o valor URI. Os URIs para ambas as versões são:
+O exemplo seguinte instala o agente de 64 `URI` bits, identificado pelo valor. Também pode utilizar a versão de 32 bits substituindo o valor URI. Os URIs para ambas as versões são:
 
-- Agente windows 64-bit - https://go.microsoft.com/fwlink/?LinkId=828603
-- Agente do Windows 32-bit - https://go.microsoft.com/fwlink/?LinkId=828604
+- Agente windows 64-bit -https://go.microsoft.com/fwlink/?LinkId=828603
+- Agente windows 32-bit -https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
 >Este procedimento e o exemplo do script não suportam a atualização do agente já implantado para um computador Windows.
 
-As versões de 32 bits e 64 bits do pacote de agente têm diferentes códigos de produto e as novas versões lançadas também têm um valor único.  O código do produto é um GUID que é a principal identificação de uma aplicação ou produto e está representado pela propriedade do **ProductCode** do Instalador do Windows.  O valor `ProductId` no script **MMAgent.ps1** tem de coincidir com o código do produto do pacote de instalação de agente de 32 bits ou 64 bits.
+As versões de 32 bits e 64 bits do pacote de agente têm diferentes códigos de produto e as novas versões lançadas também têm um valor único.  O código do produto é um GUID que é a principal identificação de uma aplicação ou produto e está representado pela propriedade do **ProductCode** do Instalador do Windows.  O `ProductId` valor no script **MMAgent.ps1** tem de coincidir com o código do produto do pacote de instalação de agente de 32 bits ou 64 bits.
 
 Para recuperar o código de produto do pacote de instalação do agente diretamente, pode utilizar Orca.exe a partir dos [Componentes SDK do Windows para desenvolvedores](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) de instaladores windows que é um componente do Kit de Desenvolvimento de Software windows ou usando powerShell seguindo um script de [exemplo](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um Microsoft Valuable Professional (MVP).  Para qualquer uma das abordagens, primeiro é necessário extrair o ficheiro **MOMagent.msi** do pacote de instalação MMASetup.  Isto é mostrado no início do primeiro passo sob a secção [Instale o agente utilizando a linha de comando](#install-the-agent-using-the-command-line).  
 
-1. Importar o módulo DSC de [configuração](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) do Estado xPSDesired Configuração de https://www.powershellgallery.com/packages/xPSDesiredStateConfigurationpara a Automação Azure.  
+1. Importar o módulo DSC de configuração do Estado xPSDesired Configuração de DSC para [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) a Automação Azure.  
 2.  Crie ativos variáveis da Automação Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY.* *Detete OPSINSIGHTS_WS_ID* para o seu ID de espaço de trabalho Log Analytics e detete *OPSINSIGHTS_WS_KEY* a chave principal do seu espaço de trabalho.
 3.  Copie o script e guarde-o como MMAgent.ps1.
 
@@ -175,7 +175,7 @@ Para recuperar o código de produto do pacote de instalação do agente diretame
 
     ```
 
-4. Atualize o valor `ProductId` no script com o código do produto extraído da versão mais recente do pacote de instalação do agente utilizando os métodos recomendados anteriormente. 
+4. Atualize `ProductId` o valor no script com o código do produto extraído da versão mais recente do pacote de instalação do agente utilizando os métodos recomendados anteriormente. 
 5. [Importe o script de configuração MMAgent.ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) na sua conta De automação. 
 5. [Atribuir um computador ou nó do Windows](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) à configuração. Dentro de 15 minutos, o nó verifica a sua configuração e o agente é empurrado para o nó.
 

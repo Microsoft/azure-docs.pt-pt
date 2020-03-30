@@ -4,10 +4,10 @@ description: Utilize o portal Azure para exportar um modelo de Gestor de Recurso
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273738"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação de recursos únicos e múltiplos para um modelo no portal Azure
@@ -113,9 +113,9 @@ Pode exportar o modelo que foi usado para implantar recursos existentes. O model
 
    ![Selecione implementação](./media/export-template-portal/select-details.png)
 
-1. Modelode seleção . O modelo utilizado para esta implementação é apresentado e está disponível para download.
+1. Modelo **Template**de seleção . O modelo utilizado para esta implementação é apresentado e está disponível para download.
 
-   ![Modelo selecionado](./media/export-template-portal/show-template-from-history.png)
+   ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

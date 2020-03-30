@@ -1,5 +1,5 @@
 ---
-title: Caixa de dados Azure Limites pesados  Microsoft Docs
+title: Caixa de dados Azure Limites pesados [ Microsoft Docs
 description: Descreve os limites do sistema e os tamanhos recomendados para a caixa de dados do Microsoft Azure Componentes e ligações.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260101"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Limites pesados da caixa de dados azure
@@ -33,7 +33,7 @@ Considere estes limites à medida que implementa e opera o seu dispositivo Azure
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 
-## <a name="data-upload-caveats"></a>Ressalvas de upload de dados
+## <a name="data-upload-caveats"></a>Limitações do carregamento de dados
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 

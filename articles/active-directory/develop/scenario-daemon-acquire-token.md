@@ -16,19 +16,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262649"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
 
-Depois de ter construído uma aplicação de cliente confidencial, pode adquirir um símbolo para a app, ligando para `AcquireTokenForClient`, passando o âmbito e forçando opcionalmente uma atualização do símbolo.
+Depois de ter construído uma aplicação de cliente confidencial, pode `AcquireTokenForClient`adquirir um símbolo para a app, ligando, passando o âmbito e forçando opcionalmente uma atualização do símbolo.
 
 ## <a name="scopes-to-request"></a>Âmbitos a solicitar
 
-O âmbito a solicitar um fluxo de credencial do cliente é o nome do recurso seguido de `/.default`. Esta notação indica ao Azure Ative Directory (Azure AD) que utilize as *permissões de nível de aplicação declaradas* estáticadurante o registo da aplicação. Além disso, estas permissões da API devem ser concedidas por um administrador inquilino.
+O âmbito a solicitar um fluxo de credencial do `/.default`cliente é o nome do recurso seguido de . Esta notação indica ao Azure Ative Directory (Azure AD) que utilize as *permissões de nível de aplicação declaradas* estáticadurante o registo da aplicação. Além disso, estas permissões da API devem ser concedidas por um administrador inquilino.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -37,7 +37,7 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Em MSAL Python, o ficheiro de configuração parece este código:
 
@@ -57,15 +57,15 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Recursos Azure AD (v1.0)
 
-O âmbito utilizado para as credenciais do cliente deve ser sempre o ID de recurso seguido de `/.default`.
+O âmbito utilizado para as credenciais do `/.default`cliente deve ser sempre o ID de recurso seguido de .
 
 > [!IMPORTANT]
 > Quando a MSAL solicita um sinal de acesso para um recurso que aceite um token de acesso à versão 1.0, a Azure AD analisa o público desejado do âmbito solicitado, tomando tudo antes do último corte e usando-o como identificador de recursos.
-> Assim, se, tal como a Base de Dados Azure SQL **(https:\//database.windows.net),** o recurso espera um público que termine com um corte (para a Base de Dados Azure SQL, `https://database.windows.net/`), terá de solicitar um âmbito de `https://database.windows.net//.default`. (Note o duplo corte.) Consulte também MSAL.NET problema [#747: O corte de rasto do url de recursos é omitido, o que causou falha no sql auth](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Assim, se, tal como a Base de Dados Azure SQL **(https:\//database.windows.net),** o recurso `https://database.windows.net/`espera um público que termine `https://database.windows.net//.default`com um corte (para a Base de Dados Azure SQL, terá de solicitar um âmbito de ... (Note o duplo corte.) Consulte também MSAL.NET problema [#747: O corte de rasto do url de recursos é omitido, o que causou falha no sql auth](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-Para adquirir um símbolo para a app, utilizará `AcquireTokenForClient` ou o seu equivalente, dependendo da plataforma.
+Para adquirir um símbolo para a aplicação, irá utilizar `AcquireTokenForClient` ou o seu equivalente, dependendo da plataforma.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -96,7 +96,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 # The pattern to acquire a token looks like this.
@@ -171,7 +171,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 ---
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 Se ainda não tem uma biblioteca para a sua língua escolhida, talvez queira usar o protocolo diretamente:
 
@@ -206,13 +206,13 @@ Para mais informações, consulte a documentação do protocolo: plataforma de i
 
 ## <a name="application-token-cache"></a>Cache de ficha de aplicação
 
-Em MSAL.NET, `AcquireTokenForClient` usa a cache token da aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache token do utilizador.) Não ligue `AcquireTokenSilent` antes de ligar para `AcquireTokenForClient`, porque `AcquireTokenSilent` usa a cache token do *utilizador.* `AcquireTokenForClient` verifica a própria cache de ficha de *aplicação* e atualiza-a.
+Em MSAL.NET, `AcquireTokenForClient` utiliza a cache token da aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache token do utilizador.) Não `AcquireTokenSilent` ligue antes de `AcquireTokenForClient`ligar, porque `AcquireTokenSilent` usa a cache token do *utilizador.* `AcquireTokenForClient`verifica a própria cache de ficha de *aplicação* e atualiza-a.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.padrão?
 
-Se receber uma mensagem de erro a dizer-lhe que usou um âmbito inválido, provavelmente não usou o âmbito `resource/.default`.
+Se receber uma mensagem de erro a dizer-lhe que usou um `resource/.default` âmbito inválido, provavelmente não usou o âmbito.
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Esqueceu-se de dar consentimento à administração? As aplicações da Daemon precisam!
 
@@ -233,14 +233,14 @@ Content: {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
 > [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 > [!div class="nextstepaction"]
 > [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)

@@ -7,13 +7,13 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274817"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
+# <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
 
 Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Monitor Do Azure estão a ser retirados até 31 de agosto de 2019 (foi originalmente 30 de junho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras clássicas de alerta e que querem desencadear a migração por si mesmas.
 
@@ -22,7 +22,7 @@ Este artigo explica como funciona a ferramenta de migração voluntária. També
 > [!NOTE]
 > Devido ao atraso no lançamento da ferramenta de migração, a data de reforma para alertas clássicos migração foi alargada para 31 de agosto de [2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) a partir da data inicialmente anunciada de 30 de junho de 2019.
 
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Regras clássicas de alerta que não serão migradas
+## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Regras de alerta clássicas que não serão migradas
 
 > [!IMPORTANT]
 > Os alertas de registo de atividade (incluindo alertas de saúde de serviço) e alertas de registo não são afetados pela migração. A migração aplica-se apenas às regras clássicas de alerta [aqui](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)descritas.
@@ -53,9 +53,9 @@ Depois destes passos serem feitos, pode criar novos alertas métricos sobre as m
 
 Todos os alertas clássicos sobre contas de armazenamento podem ser migrados, exceto alertas sobre estas métricas:
 
-- PercentAuthorizationError
-- PercentClientOtherError
-- PercentNetworkError
+- Erro de percentauthorization
+- PercentclientOtherError
+- Erro de Rede Por Percent
 - PercentServerOtherError
 - PercentSuccess
 - PercentThrottlingError
@@ -112,21 +112,21 @@ Estas são regras clássicas de alerta sobre métricas que foram previamente apo
 
 | Tipo de recurso| Métricas depreciadas |
 |-------------|----------------- |
-| Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
-| Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
-| Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft.SQL/servers/databases | service_level_objetive, storage_limit, storage_used, estrangulando, dtu_consumption_percent, storage_used |
-| Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
+| Microsoft.DBforMySQL/servidores | compute_consumption_percent, compute_limit |
+| Microsoft.DBforPostgreSQL/servidores | compute_consumption_percent, compute_limit |
+| Microsoft.Network/publicIPAddresss | defaultddostriggerrate |
+| Microsoft.SQL/servidores/bases de dados | service_level_objetive, storage_limit, storage_used, estrangulando, dtu_consumption_percent, storage_used |
+| Microsoft.Web/hostingEnvironments/multirolepools | conjunto de trabalho de memória média |
 | Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Como são criadas novas regras de alerta equivalentes e grupos de ação
 
-A ferramenta de migração converte as suas regras clássicas de alerta para novas regras de alerta equivalentes e grupos de ação. Para a maioria das regras clássicas de alerta, novas regras de alerta equivalentes estão na mesma métrica com as mesmas propriedades como `windowSize` e `aggregationType`. No entanto, existem algumas regras clássicas de alerta sobre métricas que têm uma métrica diferente e equivalente no novo sistema. Os seguintes princípios aplicam-se à migração de alertas clássicos, salvo especificação na secção abaixo:
+A ferramenta de migração converte as suas regras clássicas de alerta para novas regras de alerta equivalentes e grupos de ação. Para a maioria das regras clássicas de alerta, novas regras `windowSize` `aggregationType`de alerta equivalentes estão na mesma métrica com as mesmas propriedades como e . No entanto, existem algumas regras clássicas de alerta sobre métricas que têm uma métrica diferente e equivalente no novo sistema. Os seguintes princípios aplicam-se à migração de alertas clássicos, salvo especificação na secção abaixo:
 
-- **Frequência**: Define com que frequência uma regra de alerta clássica ou nova verifica a circunstância. O `frequency` em regras clássicas de alerta não foi configurável pelo utilizador e foi sempre de 5 minutos para todos os tipos de recursos, exceto componentes application Insights para os quais era de 1 min. Assim, a frequência de regras equivalentes também está definida para 5 min e 1 min respectivamente.
-- **Tipo de agregação**: Define como a métrica é agregada sobre a janela de interesse. O `aggregationType` é também o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, uma vez que a métrica é diferente entre alertas clássicos e novos alertas, `aggregationType` equivalentes ou o `primary Aggregation Type` definido para a métrica é usado.
+- **Frequência**: Define com que frequência uma regra de alerta clássica ou nova verifica a circunstância. As `frequency` regras clássicas de alerta não eram configuráveis pelo utilizador e eram sempre 5 minutos para todos os tipos de recursos, exceto componentes de Application Insights para os quais era de 1 min. Assim, a frequência de regras equivalentes também está definida para 5 min e 1 min respectivamente.
+- **Tipo de agregação**: Define como a métrica é agregada sobre a janela de interesse. O `aggregationType` é também o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, uma vez que a métrica `aggregationType` é `primary Aggregation Type` diferente entre alertas clássicos e novos alertas, equivalente ou definido para a métrica é usado.
 - **Unidades**: Propriedade da métrica em que o alerta é criado. Algumas métricas equivalentes têm unidades diferentes. O limiar é ajustado adequadamente conforme necessário. Por exemplo, se a métrica original tiver segundos como unidades, mas uma nova métrica equivalente tem milissegundos como unidades, o limiar original é multiplicado por 1000 para garantir o mesmo comportamento.
-- **Tamanho da janela**: Define a janela sobre a qual os dados métricos são agregados para comparar com o limiar. Para valores padrão `windowSize` como 5mins, 15mins, 30mins, 1hora, 3horas, 6 horas, 12 horas, 1 dia, não há alteração para nova regra de alerta equivalente. Para outros valores, o `windowSize` mais próximo é escolhido para ser usado. Para a maioria dos clientes, não há impacto com esta mudança. Para uma pequena percentagem de clientes, pode haver a necessidade de ajustar o limiar para obter exatamente o mesmo comportamento.
+- **Tamanho da janela**: Define a janela sobre a qual os dados métricos são agregados para comparar com o limiar. Para `windowSize` valores padrão como 5mins, 15mins, 30mins, 1hora, 3horas, 6 horas, 12 horas, 1 dia, não há alteração para nova regra de alerta equivalente. Para outros valores, `windowSize` o mais próximo é escolhido para ser usado. Para a maioria dos clientes, não há impacto com esta mudança. Para uma pequena percentagem de clientes, pode haver a necessidade de ajustar o limiar para obter exatamente o mesmo comportamento.
 
 Nas seguintes secções, detalhamos as métricas que têm uma métrica diferente e equivalente no novo sistema. Qualquer métrica que permaneça a mesma para regras clássicas e novas de alerta não está listada. Pode encontrar aqui uma lista de métricas suportadas no novo [sistema.](metrics-supported.md)
 
@@ -140,61 +140,61 @@ Para serviços de conta de armazenamento como blob, mesa, arquivo e fila, as seg
 | Erro de Cliente Anónimo | Métrica de transações com dimensões "ResponseType="ClientOtherError" e "Autenticação" = "Anónimo" | |
 | Erro de timeoutdo cliente anónimo| Métrica de transações com dimensões "ResponseType"="ClientTimeOutError" e "Autenticação" = "Anónimo" | |
 | Erro de Rede Anónimo | Métrica de transações com dimensões "ResponseType="Error de rede" e "Autenticação" = "Anónimo" | |
-| AnonymousServerOtherError | Métrica de transações com dimensões "ResponseType="ServerOtherError" e "Autenticação" = "Anónimo" | |
-| AnonymousServerTimeOutError | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError" e "Autenticação" = "Anónimo" | |
+| Erro de outro servidor anónimo | Métrica de transações com dimensões "ResponseType="ServerOtherError" e "Autenticação" = "Anónimo" | |
+| Erro de timeoutdo do servidor anónimo | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError" e "Autenticação" = "Anónimo" | |
 | Sucesso Anónimo | Métrica de transações com dimensões "ResponseType="Sucesso" e "Autenticação" = "Anónimo" | |
-| AuthorizationError | Métrica de transações com dimensões "ResponseType="AuthorizationError" | |
-| MédiaE2ELatency | SuccessE2ELatency | |
+| Erro de Autorização | Métrica de transações com dimensões "ResponseType="AuthorizationError" | |
+| AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| Capacidade | BlobCapacity | Use `aggregationType` "média" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
-| ClientOtherError | Métrica de transações com dimensões "ResponseType="ClientOtherError"  | |
+| Capacidade | BlobCapacity | Use `aggregationType` "médio" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
+| Erro clientotherError | Métrica de transações com dimensões "ResponseType="ClientOtherError"  | |
 | Error Timeout do cliente | Métrica de transações com dimensões "ResponseType="ClientTimeOutError" | |
-| ContainerCount | ContainerCount | Use `aggregationType` "média" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
+| Contagem de contentores | Contagem de contentores | Use `aggregationType` "médio" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
 | NetworkError | Métrica de transações com dimensões "ResponseType="Error networkerror" | |
-| Contagem de Objetos | BlobCount| Use `aggregationType` "média" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
-| SASAuthorizationError | Métrica de transações com dimensões "ResponseType="AuthorizationError" e "Autenticação" = "SAS" | |
-| SASClientOtherError | Métrica de transações com dimensões "ResponseType="ClientOtherError" e "Autenticação" = "SAS" | |
-| SASClientTimeOutError | Métrica de transações com dimensões "ResponseType"="ClientTimeOutError" e "Autenticação" = "SAS" | |
-| SASNetworkError | Métrica de transações com dimensões "ResponseType="Error de rede" e "Autenticação" = "SAS" | |
-| SASServerOtherError | Métrica de transações com dimensões "ResponseType="ServerOtherError" e "Autenticação" = "SAS" | |
-| SASServerTimeOutError | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError" e "Autenticação" = "SAS" | |
+| Contagem de Objetos | BlobCount| Use `aggregationType` "médio" em vez de "último". A métrica aplica-se apenas aos serviços Blob |
+| Erro de Autorização sas | Métrica de transações com dimensões "ResponseType="AuthorizationError" e "Autenticação" = "SAS" | |
+| Erro SASClientOtherError | Métrica de transações com dimensões "ResponseType="ClientOtherError" e "Autenticação" = "SAS" | |
+| Erro de timeouterror SASClientTime | Métrica de transações com dimensões "ResponseType"="ClientTimeOutError" e "Autenticação" = "SAS" | |
+| Erro sasNetwork | Métrica de transações com dimensões "ResponseType="Error de rede" e "Autenticação" = "SAS" | |
+| Erro SASServerOtherError | Métrica de transações com dimensões "ResponseType="ServerOtherError" e "Autenticação" = "SAS" | |
+| Erro de timeouterror sASServer | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError" e "Autenticação" = "SAS" | |
 | SASSuccess | Métrica de transações com dimensões "ResponseType="Success" e "Autenticação" = "SAS" | |
-| ServerOtherError | Métrica de transações com dimensões "ResponseType="ServerOtherError" | |
-| ServerTimeOutError | Métrica de transações com dimensões "ResponseType="ServerTimeOutError"  | |
+| Error serverOtherError | Métrica de transações com dimensões "ResponseType="ServerOtherError" | |
+| Error timeout do servidor | Métrica de transações com dimensões "ResponseType="ServerTimeOutError"  | |
 | Êxito | Métrica de transações com dimensões "ResponseType="Sucesso" | |
 | TotalBillableRequests| Transações | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
-| Total De Pedidos | Transações | |
+| TotalRequests | Transações | |
 
-### <a name="microsoftinsightscomponents"></a>Microsoft.insights/components
+### <a name="microsoftinsightscomponents"></a>Microsoft.insights/componentes
 
 Para insights de aplicação, as métricas equivalentes são como mostrado abaixo:
 
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
-| disponibilidade.disponibilidadeMetric.value | availabilityResults/availabilityPercentage|   |
-| availability.durationMetric.value | availabilityResults/duration| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| disponibilidade.disponibilidadeMetric.value | disponibilidadeResultados/disponibilidadePercentage|   |
+| disponibilidade.duraÇãoMetric.value | disponibilidadeResultados/duração| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
 | basicExceptionBrowser.count | exceções/navegador|  Use `aggregationType` "contar" em vez de "soma". |
 | basicExceptionServer.count | exceções/servidor| Use `aggregationType` "contar" em vez de "soma".  |
-| clientPerformance.clientProcess.value | browserTimings/processingDuration| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
-| clientPerformance.networkConnection.value | browserTimings/networkDuration|  Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos. |
-| clientPerformance.receiveRequest.value | browserTimings/receiveDuration| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
-| clientPerformance.sendRequest.value | browserTimings/sendDuration| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
-| clientPerformance.total.value | browserTimings/totalDuration| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
-| performanceCounter.available_bytes.value | performanceCounters/memoryAvailableBytes|   |
+| clientePerformance.clienteProcess.value | navegadorTimings/processamentoDuração| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| clientePerformance.networkConnection.value | navegadorTimings/redeDura|  Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos. |
+| clientePerformance.receiveRequest.value | navegadorTimings/recepçãoDura| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| clientePerformance.sendRequest.value | navegadorTimings/sendDura| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| clientePerformance.total.valor | browserTimings/totalDuração| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| performanceCounter.available_bytes.value | desempenhoCounters/memoryAvailableBytes|   |
 | performanceCounter.io_data_bytes_per_sec.value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter.number_of_exceps_thrown_per_sec.value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec.value | desempenhoCounters/excepçõesPerSecond|   |
 | performanceCounter.percentage_processor_time_normalized.value | performanceCounters/processCpuPercentage|   |
 | performanceCounter.percentage_processor_time.value | performanceCounters/processCpuPercentage| O limiar terá de ser devidamente modificado, uma vez que a métrica original foi em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não muda os limiares.  |
-| performanceCounter.percentage_processor_total.value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.percentage_processor_total.value | desempenhoCounters/processadorCpuPercentage|   |
 | performanceCounter.process_private_bytes.value | performanceCounters/processPrivateBytes|   |
 | performanceCounter.request_execution_time.value | performanceCounters/requestExecutionTime|   |
 | performanceCounter.requests_in_application_queue.value | performanceCounters/requestsInQueue|   |
 | performanceCounter.requests_per_sec.value | performanceCounters/requestsPerSecond|   |
-| request.duration | pedidos/duração| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
+| pedido.duração | pedidos/duração| Multiplique o limiar original em 1000, uma vez que as unidades para métricaclássica estão em segundos e para uma nova estão em milissegundos.  |
 | pedido.taxa | pedidos/taxa|   |
-| requestFailed.count | pedidos/falhado| Use `aggregationType` "contar" em vez de "soma".   |
+| pedidoFailed.count | pedidos/falhado| Use `aggregationType` "contar" em vez de "soma".   |
 | vista.contar | pageViews/count| Use `aggregationType` "contar" em vez de "soma".   |
 
 ### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
@@ -204,8 +204,8 @@ Para cosmos DB, as métricas equivalentes são como mostrado abaixo:
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | Armazenamento Disponível     |Armazenamento Disponível|   |
-| Tamanho dos dados | DataUsage| |
-| Contagem de documentos | DocumentCount||
+| Tamanho dos dados | Utilização de dados| |
+| Contagem de Documentos | Contagem de documentos||
 | Tamanho do índice | Utilização de índices||
 | Taxa de pedido de contagem de Mongo| MongoRequestCharge com dimensão "Nome de comando" = "contagem"||
 | Taxa de pedido de contagem de Mongo | MongoRequestsCount com dimensão "Nome de comando" = "contagem"||
@@ -217,7 +217,7 @@ Para cosmos DB, as métricas equivalentes são como mostrado abaixo:
 | Taxa de pedido de consulta de Mongo | MongoRequestsCount com dimensão "Nome de comando" = "encontrar"||
 | Taxa de pedido de atualização de Mongo | MongoRequestCharge com dimensão "Nome de comando" = "atualização"||
 | Serviço Indisponível| ServiçoDisponibilidade||
-| TotalRequestUnits | TotalRequestUnits||
+| TotaldeUnidades de Pedidos | TotaldeUnidades de Pedidos||
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Como são criados grupos de ação equivalentes
 
@@ -226,7 +226,7 @@ As regras clássicas de alerta tinham e-mail, webhook, aplicação lógica e aç
 > [!NOTE]
 > Os alertas clássicos enviaram e-mails localizados com base na localização do administrador clássico quando usados para notificar funções clássicas de administrador. Novos e-mails de alerta são enviados através de Action Groups e são apenas em inglês.
 
-## <a name="rollout-phases"></a>Fases de implantação
+## <a name="rollout-phases"></a>Fases de implementação
 
 A ferramenta de migração está a desenrolar-se por fases para os clientes que usam regras clássicas de alerta. Os proprietários de subscrições receberão um e-mail quando a subscrição estiver pronta para ser migrada utilizando a ferramenta.
 
@@ -236,7 +236,7 @@ A ferramenta de migração está a desenrolar-se por fases para os clientes que 
 A maioria das subscrições estão atualmente marcadas como prontas para a migração. Apenas as subscrições que têm alertas clássicos sobre os seguintes tipos de recursos ainda não estão prontas para a migração.
 
 - Microsoft.classicCompute/domainNames/slots/roles
-- Microsoft.insights/components
+- Microsoft.insights/componentes
 
 ## <a name="who-can-trigger-the-migration"></a>Quem pode desencadear a migração?
 
@@ -270,7 +270,7 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 - Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração a partir da atribuição de políticas. [Saiba mais sobre a gestão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)do âmbito de exclusão de políticas.
 - Remoção ou alteração do efeito para "auditoria" ou "apêndice" (que, por exemplo, pode resolver questões relacionadas com as etiquetas em falta). [Saiba mais sobre como gerir o efeito das políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

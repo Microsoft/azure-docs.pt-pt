@@ -4,15 +4,15 @@ description: Este artigo descreve a visão em tempo real das métricas sem usar 
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79216598"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como ver as métricas em tempo real
 
-A funcionalidade Azure Monitor para recipientes Live Data (pré-visualização) permite visualizar métricas sobre o estado do nó e do casulo num cluster em tempo real. Emudeia o acesso direto ao `kubectl top nodes`, `kubectl get pods –all-namespaces`, e `kubectl get nodes` comandos para ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight. 
+A funcionalidade Azure Monitor para recipientes Live Data (pré-visualização) permite visualizar métricas sobre o estado do nó e do casulo num cluster em tempo real. Emudeia o `kubectl top nodes` `kubectl get pods –all-namespaces`acesso `kubectl get nodes` direto ao , e ordena ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight. 
 
 Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade.  
 
@@ -28,7 +28,7 @@ Para ajudar na configuração ou resolução de problemas da funcionalidade Live
 
 A funcionalidade De Dados Ao Vivo (pré-visualização) acede diretamente à API Kubernetes, podendo ser encontradas informações adicionais sobre o modelo de autenticação [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Esta funcionalidade realiza uma operação de sondagem contra os pontos finais das métricas (incluindo `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`e `/api/v1/pods`), que é a cada cinco segundos por defeito. Estes dados estão em cache no seu navegador e estão mapeados nas quatro tabelas de desempenho incluídas no Monitor Azure para contentores no separador **Cluster,** selecionando **Go Live (pré-visualização)** . Cada sondagem subsequente é cartografada numa janela de visualização rolante de cinco minutos. 
+Esta funcionalidade realiza uma operação de sondagem `/api/v1/nodes` `/apis/metrics.k8s.io/v1beta1/nodes`contra `/api/v1/pods`os pontos finais das métricas (incluindo , e ), que é a cada cinco segundos por defeito. Estes dados estão em cache no seu navegador e estão mapeados nas quatro tabelas de desempenho incluídas no Monitor Azure para contentores no separador **Cluster,** selecionando **Go Live (pré-visualização)**. Cada sondagem subsequente é cartografada numa janela de visualização rolante de cinco minutos. 
 
 ![Ir ao vivo opção na vista cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
@@ -48,7 +48,7 @@ Estes gráficos não podem ser fixados ao último painel de instrumentos Azure q
 
 ### <a name="node-cpu-utilization---node-memory-utilization-"></a>Utilização do CPU do nó % / Utilização da memória do nó % 
 
-Estes dois gráficos de desempenho mapeiam um equivalente a invocar `kubectl top nodes` e capturar os resultados das colunas **CPU%** e **MEMORY%** para o respetivo gráfico. 
+Estes dois gráficos de desempenho `kubectl top nodes` mapeiam um equivalente a invocar e capturar os resultados das colunas **CPU%** e **MEMORY%** para o respetivo gráfico. 
 
 ![Kubectl nodes de topo exemplo resultados](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -62,7 +62,7 @@ Isto também ajuda a compreender quais os nós que estão a ser empurrados para 
 
 ### <a name="node-count"></a>Contagem de nó
 
-Este gráfico de desempenho mapeia um equivalente a invocar `kubectl get nodes` e mapear a coluna **STATUS** para um gráfico agrupado por tipos de estado.
+Este gráfico de desempenho mapeia um equivalente a invocar e mapear a `kubectl get nodes` coluna **STATUS** para um gráfico agrupado por tipos de estado.
 
 ![Kubectl obtém resultados exemplo de nódosos](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
@@ -80,8 +80,8 @@ Este gráfico de desempenho mapeia um equivalente a invocar `kubectl get pods �
 ![Gráfico de contagem de pods de nó](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Os nomes de estado interpretados por `kubectl` podem não corresponder exatamente à tabela. 
+>Os nomes de `kubectl` estado interpretados podem não corresponder exatamente à tabela. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Veja [exemplos](container-insights-log-search.md#search-logs-to-analyze-data) de consultas de registo para ver consultas e exemplos pré-definidos para criar alertas, visualizações ou realizar uma análise mais aprofundada dos seus clusters.

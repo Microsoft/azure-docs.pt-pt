@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270813"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminar um laboratório ou VM num laboratório em Laboratórios Azure DevTest
@@ -31,13 +31,13 @@ Ao eliminar uma instância de DevTest Labs de um grupo de recursos, o serviço D
 
 Para eliminar um laboratório, faça as seguintes ações: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** do menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
     ![Selecione o seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Na página **DevTest Lab,** clique em **Apagar** na barra de ferramentas. 
 
-    ![Botão de eliminar](media/devtest-lab-delete-lab-vm/delete-button.png)
+    ![Eliminar botão](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Na página **confirmação,** introduza o **nome** do seu laboratório e selecione **Eliminar**. 
 
     ![Confirmar](media/devtest-lab-delete-lab-vm/confirm-delete.png)
@@ -56,7 +56,7 @@ A máquina virtual, a interface de rede e o disco associado saem.
 
 Para eliminar um VM num laboratório, faça as seguintes ações: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** do menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
     ![Selecione o seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -75,4 +75,4 @@ Para eliminar um VM da **página Máquina Virtual,** selecione **Eliminar** da b
 Se quiser criar um laboratório, consulte os seguintes artigos: 
 
 - [Criar um laboratório](devtest-lab-create-lab.md)
-- [Adicione um VM ao laboratório](devtest-lab-add-vm.md)
+- [Adicionar uma VM ao laboratório](devtest-lab-add-vm.md)

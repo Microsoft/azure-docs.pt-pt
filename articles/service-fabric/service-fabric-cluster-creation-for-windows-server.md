@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258827"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
@@ -109,7 +109,7 @@ O administrador do cluster que irá implementar e configurar o cluster tem de te
 
 #### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Cenário C: Criar um cluster offline (desligado da Internet)
 O pacote de tempo de funcionação do Tecido de Serviço é automaticamente descarregado na criação do cluster. Ao implantar um cluster para máquinas não ligadas à internet, terá de descarregar separadamente o pacote de tempo de funcionamento do Tecido de Serviço e fornecer-lhe o caminho na criação de clusters.
-O pacote de tempo de execução pode ser descarregado separadamente, a partir de outra máquina ligada à internet, no [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie o pacote de tempo de funcionamento para onde está a implantar o cluster offline e crie o cluster executando `CreateServiceFabricCluster.ps1` com o parâmetro `-FabricRuntimePackagePath` incluído, como mostra este exemplo: 
+O pacote de tempo de execução pode ser descarregado separadamente, a partir de outra máquina ligada à internet, no [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie o pacote de tempo de funcionamento para onde está `CreateServiceFabricCluster.ps1` a `-FabricRuntimePackagePath` implantar o cluster offline e crie o cluster correndo com o parâmetro incluído, como mostra este exemplo: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Passo 3: Visualizar o cluster utilizando o explorador de tecido de serviço
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  Service Fabric Explorer é um serviço que funciona no cluster, a que você acede usando um navegador navegando para [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  Service Fabric Explorer é um serviço que funciona no cluster, a [http://localhost:19080/Explorer](http://localhost:19080/Explorer)que você acede usando um navegador navegando para .
 
 O dashboard do cluster fornece uma descrição geral do cluster, incluindo um resumo de aplicações e do estado de funcionamento do nó. A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pode inspecionar as aplicações que têm um código implementado nesse nó.
 
@@ -157,7 +157,7 @@ Pode adicionar ou remover nós para o cluster do Service Fabric autónomo, confo
 ## <a name="remove-a-cluster"></a>Remover um cluster
 Para remover um cluster, execute o script *RemoveServiceFabricCluster.ps1* do PowerShell a partir da pasta do pacote e passe no caminho para o ficheiro de configuração do JSON. Opcionalmente, pode especificar uma localização para o registo da eliminação.
 
-Este script pode ser executado em qualquer máquina que tenha acesso de administrador para todas as máquinas que estão listadas como nós no ficheiro de configuração de cluster. A máquina que este script é executado não tem de ser parte do cluster.
+Este script pode ser executado em qualquer máquina que tenha acesso ao administrador a todas as máquinas listadas como nós no ficheiro de configuração do cluster. A máquina em que este guião é executado não tem de fazer parte do cluster.
 
 ```powershell
 # Removes Service Fabric from each machine in the configuration
@@ -172,9 +172,9 @@ Este script pode ser executado em qualquer máquina que tenha acesso de administ
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Dados de telemetria recolhidos e como optar por não o fazer
-Como padrão, o produto recolhe telemetria no uso do Tecido de Serviço para melhorar o produto. O Analisador de Boas Práticas que funciona como parte da configuração verifica a conectividade com [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Se não for alcançável, a configuração falha a menos que opte por não telemetria.
+Como padrão, o produto recolhe telemetria no uso do Tecido de Serviço para melhorar o produto. O Analisador de Boas Práticas que funciona como parte [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)da configuração verifica a conectividade de . Se não for alcançável, a configuração falha a menos que opte por não telemetria.
 
-1. O gasoduto de telemetria tenta enviar os seguintes dados para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) uma vez por dia. É um upload de melhor esforço e não tem impacto na funcionalidade do cluster. A telemetria só é enviada do nó que dirige o gerente de failover primária. Nenhum outro nó envia telemetria.
+1. O gasoduto de telemetria tenta [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) carregar os seguintes dados para uma vez por dia. É um upload de melhor esforço e não tem impacto na funcionalidade do cluster. A telemetria só é enviada do nó que dirige o gerente de failover primária. Nenhum outro nó envia telemetria.
 2. A telemetria consiste no seguinte:
 
 * Número de serviços
@@ -188,10 +188,10 @@ Como padrão, o produto recolhe telemetria no uso do Tecido de Serviço para mel
 * Número de Réplicas inbuild
 * Número de Réplicas StandBy
 * Número de Réplicas Offline
-* CommonQueueLength
-* QueryQueueLength
+* Comprimento da fila comum
+* ConsultaQueueLength
 * FailoverUnitQueueLength
-* CommitQueueLength
+* CommitqueueLength
 * Número de nós
 * IsContextComplete: True/False
 * ClusterId: Este é um GUID gerado aleatoriamente para cada cluster

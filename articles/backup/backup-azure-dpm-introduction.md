@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a preparar-se para backups do System Center D
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273465"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar as cargas de trabalho para Azure com o Centro de Sistema DPM
@@ -44,14 +44,14 @@ DPM em um VM Hiper-V | System Center 2012 SP1 ou mais tarde; Centro de Sistema 2
 DPM em um VMware VM | System Center 2012 R2 com Rollup update 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e a .NET Framework 4.5 instalados.
 Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode fazer.
-Tipos de ficheiros suportados | Estes tipos de ficheiros podem ser apoiados com cópia de segurança Azure: Encriptado (apenas cópias de segurança completas); Comprimido (backups incrementais suportados); Escassos (backups incrementais suportados); Comprimido e escasso (tratado como escasso).
+Tipos de ficheiro suportados | Estes tipos de ficheiros podem ser apoiados com cópia de segurança Azure: Encriptado (apenas cópias de segurança completas); Comprimido (backups incrementais suportados); Escassos (backups incrementais suportados); Comprimido e escasso (tratado como escasso).
 Tipos de ficheiros não suportados | Servidores em sistemas de ficheiros sensíveis a casos; ligações duras (ignoradas); pontos de reparse (ignorado); encriptado e comprimido (ignorado); encriptado e escasso (ignorado); Fluxo comprimido; fluxo de parse.
 Armazenamento local | Cada máquina que você quer fazer back deve ter armazenamento gratuito local que é pelo menos 5% do tamanho dos dados que estão sendo apoiados. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre no local do risco.
 Armazenamento de cofre | Não há limite para a quantidade de dados que pode fazer até um cofre de backup Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou base de dados) não deve exceder 54.400 GB.
 Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o peering privado ou microsoft, não pode ser utilizado para fazer o backback dos dados para o Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o Public Peering, pode ser usado para fazer o back-up dos dados ao Azure.<br/><br/> **Nota:** O Público está predestinado a novos circuitos.
 Agente do Backup do Azure | Se o DPM estiver a funcionar no System Center 2012 SP1, instale o Rollup 2 ou mais tarde para dPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente De backup Azure, também conhecido como o agente do Microsoft Azure Recovery Service (MARS). Se tiver uma versão anterior implementada, atualize para a versão mais recente para garantir que a cópia de segurança funcione como esperado.
 
-Antes de começar, precisa de uma conta Azure com a funcionalidade De backup Azure ativada. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os preços de [backup do Azure.](https://azure.microsoft.com/pricing/details/backup/)
+Antes de começar, precisa de uma conta Azure com a funcionalidade De backup Azure ativada. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Leia mais sobre os [preços do Microsoft Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -97,13 +97,13 @@ Para obter as credenciais, descarregue o ficheiro credencial do cofre através d
 
 Descarregue o ficheiro de credenciais do cofre para uma máquina local da seguinte forma:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Abra o cofre no qual pretende registar o servidor DPM.
 3. Em **Definições,** clique em **Propriedades**.
 
     ![Abrir o menu do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. Em **Propriedades** > Credenciais de **Backup,** clique em **Baixar**. O portal gera o ficheiro credencial do cofre usando uma combinação do nome do cofre e da data atual, e disponibiliza-o para download.
+4. Nas**credenciais**de backup **de propriedades,** > clique em **Baixar**. O portal gera o ficheiro credencial do cofre usando uma combinação do nome do cofre e da data atual, e disponibiliza-o para download.
 
     ![Transferência](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
@@ -134,7 +134,7 @@ Todas as máquinas apoiadas pelo Azure Backup devem ter o agente de backup (tamb
 1. Na consola do Administrador DPM > **Management,** clique **em Online**. Selecione **Registar**. Abrirá o Assistente do Servidor de Registos.
 2. Na **Configuração proxy,** especifique as definições de procuração conforme necessário.
 
-    ![Configuração proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
+    ![Configuração do proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 3. No **Backup Vault,** navegue e selecione o ficheiro de credenciais de cofre que descarregou.
 
     ![Credenciais de cofre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)

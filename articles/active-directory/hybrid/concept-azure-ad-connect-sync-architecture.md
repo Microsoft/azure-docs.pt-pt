@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261622"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização Azure AD Connect: Compreender a arquitetura
@@ -107,7 +107,7 @@ A ilustração que se segue mostra como um objeto de exportação é criado util
 
 O motor sincronizado confirma a exportação do objeto reimportando o objeto da fonte de dados ligada. Os objetos de exportação tornam-se objetos de importação quando o motor sincronizado os recebe durante a próxima importação a partir dessa fonte de dados ligada.
 
-### <a name="placeholders"></a>Espaços Reservados
+### <a name="placeholders"></a>Marcadores de Posição
 O motor sincronizado usa um espaço de nome plano para armazenar objetos. No entanto, algumas fontes de dados conectadas, como o Ative Directory, utilizam um espaço de nome hierárquico. Para transformar a informação de um espaço de nome hierárquico num espaço de nome plano, o motor sincronizado utiliza espaços reservados para preservar a hierarquia.
 
 Cada espaço reservado representa um componente (por exemplo, uma unidade organizacional) do nome hierárquico de um objeto que não foi importado para o motor de sincronização, mas que é obrigado a construir o nome hierárquico. Preenchem lacunas criadas por referências na fonte de dados conectadas a objetos que não estão a encenar objetos no espaço do conector.
@@ -179,7 +179,7 @@ Se o motor sincronizado localizar um objeto de paragem que corresponde ao objeto
 
 A encenação de objetos com dados atualizados é marcada como importação pendente. Estão disponíveis diferentes tipos de importações pendentes. Dependendo do resultado do processo de importação, um objeto de preparação no espaço do conector tem um dos seguintes tipos de importação pendentes:
 
-* **Nenhuma**. Não existem alterações em nenhum dos atributos do objeto de encenação. O motor sync não assinala este tipo como importação pendente.
+* **Nenhuma.** Não existem alterações em nenhum dos atributos do objeto de encenação. O motor sync não assinala este tipo como importação pendente.
 * **Adicione**. O objeto de preparação é um novo objeto de importação no espaço do conector. O motor sync sinaliza este tipo como uma importação pendente para processamento adicional no metaverso.
 * **Atualização**. O motor Sync encontra um objeto de paragem correspondente no espaço do conector e sinaliza este tipo como importação pendente para que as atualizações aos atributos possam ser processadas no metaverso. As atualizações incluem o renomeação de objetos.
 * **Apagar**. O motor Sync encontra um objeto de preparação correspondente no espaço do conector e sinaliza este tipo como importação pendente para que o objeto unido possa ser eliminado.
@@ -256,7 +256,7 @@ O motor sincronizado armazena informações sobre o estado de exportação e imp
 
 Por exemplo, se as exportações de motores sincronizados atributoC, que tem um valor de 5, a uma fonte de dados conectada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados conectada novamente porque o motor sincronizado assume que este valor não foi persistentemente aplicado ao objeto (isto é, a menos que um valor diferente tenha sido importado recentemente do fonte de dados conectada). A memória de exportação é limpa quando C=5 é recebida durante uma operação de importação do objeto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

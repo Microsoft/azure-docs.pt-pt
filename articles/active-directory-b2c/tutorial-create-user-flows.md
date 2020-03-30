@@ -11,10 +11,10 @@ ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264248"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Diretório Ativo Azure B2C
@@ -30,7 +30,7 @@ Neste artigo, vai aprender a:
 
 Este tutorial mostra-lhe como criar alguns fluxos de utilizador recomendados utilizando o portal Azure. Se procura informações sobre como configurar um fluxo de credenciais de senha do proprietário de recursos (ROPC) na sua aplicação, consulte Configurar as credenciais de senha do proprietário de [recursos fluem no Azure AD B2C](configure-ropc.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O fluxo de utilizador de inscrição e de entrada de entrada manuseia experiências de inscrição e de inscrição com uma única configuração. Os utilizadores da sua aplicação são conduzidos pelo caminho certo, dependendo do contexto.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 
     ![Painel de inquilinos, diretórios e assinaturas B2C, portal Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
@@ -68,14 +68,14 @@ O fluxo de utilizador de inscrição e de entrada de entrada manuseia experiênc
 ### <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 1. Selecione o fluxo de utilizador que criou para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O URL de `https://jwt.ms` **resposta** deve mostrar .
 1. Clique em **Executar fluxo de utilizador**, e, em seguida, selecione **'Inscreva-se' agora**.
 
     ![Executar página de fluxo do utilizador no portal com botão de fluxo do utilizador executar realçado](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Introduza um endereço de e-mail válido, clique em Enviar código de **verificação,** introduza o código de verificação que recebe e, em seguida, selecione **Verificar código**.
 1. Introduza uma nova senha e confirme a senha.
-1. Selecione o seu país e região, introduza o nome que deseja exibido, introduza um código postal e, em seguida, clique em **Criar**. O símbolo é devolvido à `https://jwt.ms` e deve ser exibido a si.
+1. Selecione o seu país e região, introduza o nome que deseja exibido, introduza um código postal e, em seguida, clique em **Criar**. O símbolo é `https://jwt.ms` devolvido e deve ser exibido para si.
 1. Agora pode executar o fluxo do utilizador novamente e deverá poder iniciar sessão com a conta que criou. O símbolo devolvido inclui as alegações que selecionou de país/região, nome e código postal.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de utilizador de edição de perfil
@@ -92,9 +92,9 @@ Se pretender ativar os utilizadores para editar em sua aplicação, utiliza um f
 ### <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 1. Selecione o fluxo de utilizador que criou para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O URL de `https://jwt.ms` **resposta** deve mostrar .
 1. Clique no **fluxo do utilizador executar**, e depois inscreva-se na conta que criou anteriormente.
-1. Tem agora a oportunidade de alterar o nome de exibição e o título de trabalho para o utilizador. Clique em **Continue** (Continuar). O símbolo é devolvido à `https://jwt.ms` e deve ser exibido a si.
+1. Tem agora a oportunidade de alterar o nome de exibição e o título de trabalho para o utilizador. Clique em **Continue** (Continuar). O símbolo é `https://jwt.ms` devolvido e deve ser exibido para si.
 
 ## <a name="create-a-password-reset-user-flow"></a>Criar uma palavra-passe redefinir o fluxo do utilizador
 
@@ -111,11 +111,11 @@ Para permitir que os utilizadores da sua aplicação reponham a sua palavra-pass
 ### <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 1. Selecione o fluxo de utilizador que criou para abrir a sua página de visão geral e, em seguida, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O URL de `https://jwt.ms` **resposta** deve mostrar .
 1. Clique no **fluxo do utilizador run,** verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continuar**.
-1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e selecione **Continuar**. O símbolo é devolvido à `https://jwt.ms` e deve ser exibido a si.
+1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e selecione **Continuar**. O símbolo é `https://jwt.ms` devolvido e deve ser exibido para si.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a:
 

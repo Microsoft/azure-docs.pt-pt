@@ -1,5 +1,5 @@
 ---
-title: Servidor SQL em Máquinas Virtuais do Windows em FaQ Azure  Microsoft Docs
+title: Servidor SQL em Máquinas Virtuais do Windows em FaQ Azure [ Microsoft Docs
 description: Este artigo fornece respostas a perguntas frequentes sobre executar o SQL Server em VMs Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249740"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas frequentes para o Servidor SQL em execução em máquinas virtuais do Windows em Azure
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Frequently asked questions for SQL Server running on Windows virtual machines in Azure (Perguntas frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure)
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -34,7 +34,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Imagens
+## <a name="images"></a><a id="images"></a>Imagens
 
 1. **Que imagens de galeria de máquinas virtuais SQL Server estão disponíveis?** 
 
@@ -235,4 +235,4 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 * [Visão geral do Servidor SQL em um VM Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Documentação do SQL Server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Servidor SQL na documentação linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

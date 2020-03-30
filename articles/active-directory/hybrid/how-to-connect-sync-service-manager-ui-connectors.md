@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261050"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização de Ligação AD Azure
@@ -33,15 +33,15 @@ O separador Conectores é utilizado para gerir todos os sistemas a que o motor s
 ## <a name="connector-actions"></a>Ações de conector
 | Ação | Comentário |
 | --- | --- |
-| Criar |Não utilize. Para ligar a florestas aD adicionais, utilize o assistente de instalação. |
+| Criar |Não utilizar. Para ligar a florestas aD adicionais, utilize o assistente de instalação. |
 | Propriedades |Usado para filtragem de domínio e U. |
 | [Eliminar](#delete) |Utilizado para apagar os dados no espaço do conector ou para eliminar a ligação a uma floresta. |
 | [Configure perfis de execução](#configure-run-profiles) |Exceto a filtragem de domínio, nada para configurar aqui. Pode utilizar esta ação para ver perfis de execução já configurados. |
 | Executar |Costumava começar uma série única de perfil. |
 | Parar |Para um Connector atualmente com um perfil. |
-| Conector de exportação |Não utilize. |
-| Conector de Importação |Não utilize. |
-| Atualizar O Conector |Não utilize. |
+| Conector de exportação |Não utilizar. |
+| Conector de Importação |Não utilizar. |
+| Atualizar O Conector |Não utilizar. |
 | Refresh Schema |Refresca o esquema em cache. É preferível utilizar a opção no assistente de instalação, uma vez que também atualiza as regras de sincronização. |
 | [Pesquisar Espaço conector](#search-connector-space) |Usado para encontrar objetos e seguir um objeto e seus dados através do sistema. |
 
@@ -55,7 +55,7 @@ A opção Eliminar o Connector e o **espaço do conector** remove os dados e a c
 
 Ambas as opções sincronizam todos os objetos e atualizam os objetos metaversos. Esta ação é uma operação de longa duração.
 
-### <a name="configure-run-profiles"></a>Configurar Perfis de Execução
+### <a name="configure-run-profiles"></a>Configure perfis de execução
 Esta opção permite-lhe ver os perfis de execução configurados para um Connector.
 
 ![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
@@ -66,12 +66,12 @@ A ação espacial do conector de pesquisa é útil para encontrar objetos e prob
 ![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Comece por selecionar um **alcance**. Pode pesquisar com base em dados (RDN, DN, Anchor, Sub-Tree) ou no estado do objeto (todas as outras opções).  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Se, por exemplo, fizer uma pesquisa sub-árvore, obtém todos os objetos num só OU.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 A partir desta grelha pode selecionar um objeto, selecionar **propriedades,** e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso, e para o espaço do conector alvo.
 
-### <a name="changing-the-ad-ds-account-password"></a>Alterar a senha da conta AD DS
+### <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
 Se alterar a palavra-passe da conta, o Serviço de Sincronização deixará de poder importar/exportar alterações para a AD no local.   Pode ver o seguinte:
 
 - O passo de importação/exportação do conector AD falha com o erro de "não iniciar credenciais".
@@ -81,14 +81,14 @@ Para resolver o problema, atualize a conta de utilizador AD DS utilizando o segu
 
 
 1. Inicie o Gestor de Serviços de Sincronização (START → Serviço de Sincronização).
-</br>![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
+</br>![Gestor de Serviços de Sincronização](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. Vá ao separador **Conectores.**
 3. Selecione o Conector AD que está configurado para utilizar a conta AD DS.
 4. Em Ações, selecione **Propriedades**.
 5. No diálogo pop-up, selecione Connect to Ative Directory Forest:
 6. O nome Forest indica o correspondente nas instalações ad.
 7. O nome utilizador indica a conta AD DS utilizada para a sincronização.
-8. Introduza a nova palavra-passe da conta AD DS na caixa de texto password ![Azure AD Connect Sync Password Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
+8. Introduza a nova palavra-passe da conta AD DS na password textbox ![Azure AD Connect Sync Password Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Clique em OK para guardar a nova palavra-passe e reiniciar o Serviço de Sincronização para remover a antiga palavra-passe da cache de memória.
 
 

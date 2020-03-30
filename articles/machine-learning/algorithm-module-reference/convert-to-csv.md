@@ -1,7 +1,7 @@
 ---
-title: 'Converter em CSV: referência de módulo'
+title: 'Converter para CSV: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo converter para CSV no Azure Machine Learning para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
+description: Saiba como utilizar o módulo Convert para CSV em Azure Machine Learning para converter um conjunto de dados num formato CSV que pode ser descarregado, exportado ou partilhado com módulos de script R ou Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,39 +9,39 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8206a88695c89d04eabe89e79a5aff8469cc6862
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152436"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477685"
 ---
-# <a name="convert-to-csv-module"></a>Converter em módulo CSV
+# <a name="convert-to-csv-module"></a>Converter para módulo CSV
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
+Utilize este módulo para converter um conjunto de dados num formato CSV que pode ser descarregado, exportado ou partilhado com módulos de script R ou Python.
 
 ### <a name="more-about-the-csv-format"></a>Mais sobre o formato CSV 
 
-O formato CSV, que significa "valores separados por vírgulas", é um formato de arquivo usado por muitas ferramentas de aprendizado de máquina externas. CSV é um formato de intercâmbio comum ao trabalhar com linguagens de software livre, como R ou Python.
+O formato CSV, que significa "valores separados de vírem", é um formato de ficheiro utilizado por muitas ferramentas externas de aprendizagem automática. O CSV é um formato de intercâmbio comum quando se trabalha com línguas de código aberto, como R ou Python.
 
-Mesmo que você faça a maior parte de seu trabalho no Azure Machine Learning, há ocasiões em que você pode achar útil converter seu conjunto de seus conjuntos de seus para CSV para uso em ferramentas externas. Por exemplo:
+Mesmo que faça a maior parte do seu trabalho em Azure Machine Learning, há momentos em que pode achar útil converter o seu conjunto de dados em CSV para usar em ferramentas externas. Por exemplo:
 
-+ Baixe o arquivo CSV para abri-lo com o Excel ou importe-o para um banco de dados relacional.  
-+ Salve o arquivo CSV no armazenamento em nuvem e conecte-o de Power BI para criar visualizações.  
-+ Use o formato CSV para preparar dados para uso em R e Python. 
++ Descarregue o ficheiro CSV para o abrir com o Excel, ou importe-o numa base de dados relacional.  
++ Guarde o ficheiro CSV para o armazenamento em nuvem e ligue-o a partir do Power BI para criar visualizações.  
++ Utilize o formato CSV para preparar dados para utilização em R e Python. 
 
-Quando você converte um conjunto de um em CSV, o CSV é salvo em seu espaço de trabalho do Azure ML. Você pode usar um utilitário de armazenamento do Azure para abrir e usar o arquivo diretamente. Também pode aceder ao CSV no designer selecionando o módulo **Convert e CSV** e, em seguida, selecione o ícone histograma sob o separador **Saídas** no painel certo para visualizar a saída. Você pode baixar o CSV da pasta de resultados para um diretório local.  
+Quando converte um conjunto de dados para CSV, o csv é guardado no seu espaço de trabalho Azure ML. Pode utilizar um utilitário de armazenamento Azure para abrir e utilizar o ficheiro diretamente. Também pode aceder ao CSV no designer selecionando o módulo **Convert e CSV** e, em seguida, selecione o ícone histograma sob o separador **Saídas** no painel certo para visualizar a saída. Pode transferir o CSV da pasta Resultados para um diretório local.  
 
-## <a name="how-to-configure-convert-to-csv"></a>Como configurar converter em CSV
+## <a name="how-to-configure-convert-to-csv"></a>Como configurar Converter em CSV
 
 
-1.  Adicione o módulo converter em CSV ao seu pipeline. Pode encontrar este módulo no grupo **de Transformação** de Dados no designer. 
+1.  Adicione o módulo Converte ao módulo CSV ao seu pipeline. Pode encontrar este módulo no grupo **de Transformação** de Dados no designer. 
 
 2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
   
-3.  Executar o pipeline.
+3.  Submeta o oleoduto.
 
 ### <a name="results"></a>Resultados
   

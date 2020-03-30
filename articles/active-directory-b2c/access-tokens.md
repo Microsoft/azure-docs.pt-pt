@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259776"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como solicitar um sinal de acesso para uma aplicação we
 
 ## <a name="scopes"></a>Âmbitos
 
-Os âmbitos fornecem uma forma de gerir permissões para recursos protegidos. Quando é solicitada uma ficha de acesso, a aplicação do cliente necessita de especificar as permissões desejadas no parâmetro de **âmbito** do pedido. Por exemplo, para especificar o **Valor de Âmbito** de `read` para a API que tem o ID da **aplicação URI** de `https://contoso.onmicrosoft.com/api`, o âmbito seria `https://contoso.onmicrosoft.com/api/read`.
+Os âmbitos fornecem uma forma de gerir permissões para recursos protegidos. Quando é solicitada uma ficha de acesso, a aplicação do cliente necessita de especificar as permissões desejadas no parâmetro de **âmbito** do pedido. Por exemplo, para especificar `read` o Valor de **Âmbito** da API que tem o ID app **URI** de `https://contoso.onmicrosoft.com/api`, o âmbito seria `https://contoso.onmicrosoft.com/api/read`.
 
 São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Para adquirir múltiplas permissões no mesmo pedido, pode adicionar múltiplas entradas no parâmetro de **âmbito** único do pedido, separados por espaços.
 
@@ -54,18 +54,18 @@ Se solicitar mais âmbitos do que o concedido para o seu pedido de cliente, a ch
 - **openid** - Solicita um símbolo de identificação.
 - **offline_access** - Solicita um token de atualização utilizando [fluxos de Código Auth](authorization-code-flow.md).
 
-Se o parâmetro **response_type** num pedido de `/authorize` incluir `token`, o parâmetro de **âmbito** deve incluir pelo menos um âmbito de recurso diferente do `openid` e `offline_access` que será concedido. Caso contrário, o pedido de `/authorize` falha.
+Se **response_type** o parâmetro response_type `/authorize` num `token`pedido incluir, o parâmetro de **âmbito** `openid` deve `offline_access` incluir pelo menos um âmbito de recurso diferente e que será concedido. Caso contrário, `/authorize` o pedido falha.
 
 ## <a name="request-a-token"></a>Solicite um símbolo
 
-Para pedir um sinal de acesso, precisa de um código de autorização. Abaixo está um exemplo de um pedido ao `/authorize` ponto final para um código de autorização. Os domínios personalizados não são suportados para uso com fichas de acesso. Utilize o seu domínio tenant-name.onmicrosoft.com no URL de pedido.
+Para pedir um sinal de acesso, precisa de um código de autorização. Abaixo está um exemplo de `/authorize` um pedido ao ponto final de um código de autorização. Os domínios personalizados não são suportados para uso com fichas de acesso. Utilize o seu domínio tenant-name.onmicrosoft.com no URL de pedido.
 
 No exemplo seguinte, substitui estes valores:
 
-- `<tenant-name>` - O nome do seu inquilino Azure AD B2C.
-- `<policy-name>` - O nome da sua política personalizada ou fluxo de utilizador.
-- `<application-ID>` - O identificador de aplicação da aplicação web que registou para suportar o fluxo do utilizador.
-- `<redirect-uri>` - O **Redirect URI** que inscreveu quando registou o pedido de cliente.
+- `<tenant-name>`- O nome do seu inquilino Azure AD B2C.
+- `<policy-name>`- O nome da sua política personalizada ou fluxo de utilizador.
+- `<application-ID>`- O identificador de aplicação da aplicação web que registou para suportar o fluxo do utilizador.
+- `<redirect-uri>`- O **Redirect URI** que inscreveu quando registou o pedido de cliente.
 
 ```HTTP
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
@@ -111,7 +111,7 @@ Deve ver algo semelhante à seguinte resposta:
 }
 ```
 
-Ao utilizar https://jwt.ms para examinar o sinal de acesso que foi devolvido, deve ver algo semelhante ao seguinte exemplo:
+Ao https://jwt.ms utilizar para examinar o sinal de acesso que foi devolvido, deve ver algo semelhante ao seguinte exemplo:
 
 ```JSON
 {
@@ -135,6 +135,6 @@ Ao utilizar https://jwt.ms para examinar o sinal de acesso que foi devolvido, de
 }.[Signature]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar fichas em Azure AD B2C](configure-tokens.md)

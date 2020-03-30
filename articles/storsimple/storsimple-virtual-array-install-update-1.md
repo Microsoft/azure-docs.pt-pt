@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254511"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instale a Atualização 1.0 na sua Matriz Virtual StorSimple
@@ -46,7 +46,7 @@ Se executar o Update 0.2 e mais tarde, recomendamos que instale atualizações a
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-1.md)]
 
-Depois de concluída a instalação, vá ao serviço StorSimple Device Manager. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que acaba de atualizar. Vá a **Definições > Gerir > Atualizações**do dispositivo . A versão de software exibida deve ser **10.0.10296.0**.
+Depois de concluída a instalação, vá ao serviço StorSimple Device Manager. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que acaba de atualizar. Vá para **as Definições > Gerir > atualizações**de dispositivos . A versão de software exibida deve ser **10.0.10296.0**.
 
 ![Versão de software após atualização](./media/storsimple-virtual-array-install-update-1/azupdate17m1.png)
 
@@ -66,7 +66,7 @@ Se a sua matriz virtual estiver a executar o Update 0.6, execute os seguintes pa
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para descarregar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue para [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie o Internet [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
 
 2. Se estiver a utilizar o Catálogo de Atualizações da Microsoft pela primeira vez neste computador, clique em **Instalar** quando for solicitado para instalar o add-on do Microsoft Update Catalog.
 
@@ -76,7 +76,7 @@ Se a sua matriz virtual estiver a executar o Update 0.6, execute os seguintes pa
    
     ![Catálogo de pesquisa](./media/storsimple-virtual-array-install-update-1/download1.png)
 
-4. Clique em **Transferir**.
+4. Clique em **Baixar**.
 
 5. Descarregue os dois ficheiros para uma pasta. Também pode copiar a pasta para uma partilha de rede que é acessível a partir do dispositivo.
 
@@ -85,8 +85,8 @@ Se a sua matriz virtual estiver a executar o Update 0.6, execute os seguintes pa
     ![Ficheiros no pacote](./media/storsimple-virtual-array-install-update-1/update01folder.png)
 
     Vê dois ficheiros:
-    -  Um ficheiro de pacote autónomo da Microsoft Update `WindowsTH-KB3011067-x64`. Este ficheiro é utilizado para atualizar o software do dispositivo.
-    - Um ficheiro que contém atualizações cumulativas para o `windows8.1-kb4034681-x64`de agosto . Para mais informações sobre o que está incluído neste rollup, vá para o rollup mensal de [segurança de agosto.](https://support.microsoft.com/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810)
+    -  Um ficheiro `WindowsTH-KB3011067-x64`de pacote autónomo da Microsoft Update . Este ficheiro é utilizado para atualizar o software do dispositivo.
+    - Um ficheiro que contém atualizações cumulativas para agosto. `windows8.1-kb4034681-x64` Para mais informações sobre o que está incluído neste rollup, vá para o rollup mensal de [segurança de agosto.](https://support.microsoft.com/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810)
 
 ### <a name="install-the-update-or-the-hotfix"></a>Instale a atualização ou o hotfix
 
@@ -99,7 +99,7 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou o hotfix
 
-1. Na Web UI local, vá à **Manutenção** > **Atualização**de Software . Tome nota da versão de software que está a executar. **Proceda aesta atualização apenas se estiver a executar a Atualização 0.6 (10.0.10293.0). Se estiver a executar uma versão anterior, instale primeiro o [Update 0.6](storsimple-virtual-array-install-update-06.md) no seu dispositivo e, em seguida, aplique o Update 1.**
+1. Na Web UI local, vá a**Atualização**de Software **de Manutenção** > . Tome nota da versão de software que está a executar. **Proceda aesta atualização apenas se estiver a executar a Atualização 0.6 (10.0.10293.0). Se estiver a executar uma versão anterior, instale primeiro o [Update 0.6](storsimple-virtual-array-install-update-06.md) no seu dispositivo e, em seguida, aplique o Update 1.**
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
@@ -115,14 +115,14 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
-5. Após o reinício, é levado para a página **do Sinal.** Para verificar se o software do dispositivo foi atualizado, na Web UI local, vá à **Manutenção** > **Atualização**de Software . A versão de software exibida deve ser **10.0.0.0.0.10296** para a Atualização 1.0.
+5. Após o reinício, é levado para a página **do Sinal.** Para verificar se o software do dispositivo foi atualizado, na Web UI local, vá para **a Atualização** > de**Software**de Manutenção . A versão de software exibida deve ser **10.0.0.0.0.10296** para a Atualização 1.0.
    
    > [!NOTE]
    > Relatamos as versões de software de uma forma ligeiramente diferente na UI web local e no portal Azure. Por exemplo, a UI web local reporta **10.0.0.0.10296** e o portal Azure reporta **10.0.10296.0** para a mesma versão.
    
     ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
-6. Repita os passos 2-4 para instalar a correção de segurança do Windows utilizando `windows8.1-kb4012213-x64`de ficheiros . A matriz virtual reinicia após a instalação e precisa de assinar na UI web local.
+6. Repita os passos 2-4 para `windows8.1-kb4012213-x64`instalar a correção de segurança do Windows utilizando o ficheiro . A matriz virtual reinicia após a instalação e precisa de assinar na UI web local.
 
 > [!NOTE]
 > Se aplicou diretamente o Update 1 a um dispositivo que executa uma versão antes do Update 0.6, está a perder algumas atualizações. Contacte o Microsoft Support para os próximos passos.

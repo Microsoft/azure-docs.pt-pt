@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260166"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do disco de caixa de dados azure
@@ -42,9 +42,9 @@ Para obter as mais recentes informações sobre os limites do serviço de armaze
 > [!IMPORTANT]
 > Se existirem ficheiros ou diretórios que excedam os limites do serviço de armazenamento azure, ou não estejam em conformidade com as convenções de nomeação Azure Files/Blob, então estes ficheiros ou diretórios não são ingeridos no Armazenamento Azure através do serviço Data Box.
 
-## <a name="data-upload-caveats"></a>Ressalvas de upload de dados
+## <a name="data-upload-caveats"></a>Limitações do carregamento de dados
 
-- Não copie os dados diretamente nos discos. Copiar dados para pastas *blockBlob,* *PageBlob*e *AzureFile* pré-criadas.
+- Não copie os dados diretamente nos discos. Copiar dados para pastas *blockBlob,**PageBlob*e *AzureFile* pré-criadas.
 - Uma pasta sob o *BlockBlob* e *PageBlob* é um recipiente. Por exemplo, os recipientes são criados como *BlockBlob/contentor* e *PageBlob/contentor*.
 - Se tiver um objeto Azure existente (como uma bolha) na nuvem com o mesmo nome que o objeto que está a ser copiado, o Disco da Caixa de Dados renomeará o ficheiro como ficheiro(1) na nuvem.
 - Todos os ficheiros escritos nas ações *do BlockBlob* e *do PageBlob* são carregados como uma bolha de bloco e uma bolha de página, respectivamente.
@@ -83,14 +83,14 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 | Entidade                                       | Convenções                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomes de contentores para bloco blob e página blob <br> Nomes de fileshare para Ficheiros Azure | Deve ser um nome DNS válido que tenha 3 a 63 caracteres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Só pode conter letras minúsculas, números e o hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Não são permitidos hífenes consecutivos em nomes. |
-| Nomes de diretório e arquivo para ficheiros Azure     |<li> Conservação de casos, insensível a casos e não deve exceder 255 caracteres de comprimento. </li><li> Não pode terminar com o corte dianteiro (/). </li><li>Se fornecido, será automaticamente removido. </li><li> Não são permitidos caracteres seguintes: <code>" \\ / : \| < > * ?</code></li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos caracteres ilegais de caminhos de URL. Pontos de código como \\uE000 não são caracteres Unicode válidos. Alguns caracteres ASCII ou Unicode, como caracteres de controlo (0x00 a 0x1F, \\u0081, etc.), também não são permitidos. Para as regras que regem as cordas Unicode em HTTP/1.1 ver RFC 2616, Secção 2.2: Regras Básicas e RFC 3987. </li><li> Não são permitidos os seguintes nomes de ficheiros: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, dot character (.), e dois caracteres pontos (..</li>|
+| Nomes de diretório e arquivo para ficheiros Azure     |<li> Conservação de casos, insensível a casos e não deve exceder 255 caracteres de comprimento. </li><li> Não pode terminar com o corte dianteiro (/). </li><li>Se fornecido, será automaticamente removido. </li><li> Os seguintes caracteres não são permitidos:<code>" \\ / : \| < > * ?</code></li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos caracteres ilegais de caminhos de URL. Pontos \\de código como o uE000 não são caracteres Unicode válidos. Alguns caracteres ASCII ou Unicode, como caracteres de controlo \\(0x00 a 0x1F, u0081, etc.), também não são permitidos. Para as regras que regem as cordas Unicode em HTTP/1.1 ver RFC 2616, Secção 2.2: Regras Básicas e RFC 3987. </li><li> Não são permitidos os seguintes nomes de ficheiros: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, dot character (.), e dois caracteres pontos (..</li>|
 | Nomes de blobs para blob de blocos e blob de páginas      | Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. <br> Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento. <br> Os carateres de URL reservados devem ser escritos corretamente. <br>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual. |
 
 ## <a name="managed-disk-naming-conventions"></a>Convenções de nomeação de discos geridos
 
 | Entidade | Convenções                                             |
 |-------------------|-----------------------------------------------------------|
-| Nomes de discos geridos       | <li> O nome deve ter 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, períodos ou hífenes. </li><li>   O nome não deve ter espaços ou `/`.                                              |
+| Nomes de discos geridos       | <li> O nome deve ter 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, períodos ou hífenes. </li><li>   O nome não deve `/`ter espaços ou .                                              |
 
 ## <a name="next-steps"></a>Passos seguintes
 

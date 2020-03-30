@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257618"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Capacidade de plano e escala para recuperação de desastres vMware para Azure
@@ -24,7 +24,7 @@ Para conhecer os requisitos de infraestrutura de recuperação de sítios do Azu
 
 O Planificador de Implementação de Recuperação do Site fornece um relatório que tem informações completas sobre VMs compatíveis e incompatíveis, discos por VM e churn de dados por disco. A ferramenta também resume os requisitos de largura de banda da rede para atender o RPO-alvo e a infraestrutura Azure que é necessária para a replicação bem sucedida e falha de teste.
 
-## <a name="capacity-considerations"></a>Considerações sobre capacidade
+## <a name="capacity-considerations"></a>Considerações de capacidade
 
 Componente | Detalhes
 --- | ---
@@ -38,9 +38,9 @@ Um servidor de configuração que utiliza um servidor de processo incorporado pa
 
 CPU | Memória | Tamanho do disco cache | Taxa de alteração de dados | Máquinas protegidas
 --- | --- | --- | --- | ---
-8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | Use para replicar menos de 100 máquinas.
-12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | Utilize para replicar 100 a 150 máquinas.
-16 vCPUs (2 tomadas * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB a 2 TB | Utilize para replicar 151 a 200 máquinas.
+8 vCPUs (2 tomadas \@ * 4 núcleos 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | Use para replicar menos de 100 máquinas.
+12 vCPUs (2 tomadas \@ * 6 núcleos 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | Utilize para replicar 100 a 150 máquinas.
+16 vCPUs (2 tomadas \@ * 8 núcleos 2,5 GHz) | 32 GB | 1 TB | >1 TB a 2 TB | Utilize para replicar 151 a 200 máquinas.
 Implemente outro servidor de configuração utilizando um [modelo OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Implemente um novo servidor de configuração se estiver a replicar mais de 200 máquinas.
 Implementar outro servidor de [processo](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Implemente um novo servidor de processo sem escala se a taxa global de mudança de dados diária for superior a 2 TB.
 
@@ -64,9 +64,9 @@ A tabela seguinte descreve este cenário:
 
 Servidor de processo adicional | Tamanho do disco cache | Taxa de alteração de dados | Máquinas protegidas
 --- | --- | --- | ---
-4 vCPUs (2 tomadas * 2 núcleos \@ 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Utilize para replicar 85 ou menos máquinas.
-8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz), 12 GB de memória | 600 GB | 251 GB a 1 TB | Utilize para replicar 86 a 150 máquinas.
-12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz) 24 GB de memória | 1 TB | >1 TB a 2 TB | Utilize para replicar 151 a 225 máquinas.
+4 vCPUs (2 tomadas \@ * 2 núcleos 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Utilize para replicar 85 ou menos máquinas.
+8 vCPUs (2 tomadas \@ * 4 núcleos 2,5 GHz), 12 GB de memória | 600 GB | 251 GB a 1 TB | Utilize para replicar 86 a 150 máquinas.
+12 vCPUs (2 tomadas \@ * 6 núcleos 2,5 GHz) 24 GB de memória | 1 TB | >1 TB a 2 TB | Utilize para replicar 151 a 225 máquinas.
 
 A forma como escala os seus servidores depende da sua preferência por um modelo de escala ou escala. Para aumentar a escala, implemente alguns servidores de configuração topo de gama e servidores de processos. Para escalar, implementar mais servidores com menos recursos. Por exemplo, se quiser proteger 200 máquinas com uma taxa global diária de alteração de dados de 1,5 TB, poderá tomar uma das seguintes ações:
 
@@ -124,7 +124,7 @@ Se dimensionar a sua implementação para além de 200 máquinas de origem ou se
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para usar o novo servidor de processos
 
-1. Selecione **Definições** > servidores de **recuperação**do site . Selecione o servidor de configuração e, em seguida, expandir **os servidores de processo**.
+1. Selecione os servidores de**recuperação**do site de **definições** > . Selecione o servidor de configuração e, em seguida, expandir **os servidores de processo**.
 
     ![Screenshot da caixa de diálogo do Servidor de Processos](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Clique no servidor de processo sintetizador atualmente em uso e, em seguida, selecione **Switch**.
@@ -144,12 +144,12 @@ Para aprender a adicionar um servidor de alvo principal para uma máquina virtua
 
 Para adicionar um servidor de alvo principal para uma máquina virtual baseada no Windows:
 
-1. Vá ao Cofre de **Serviços** de Recuperação > Infraestrutura de **Recuperação** do Local > servidores de **configuração**.
+1. Vá para os servidores de configuração de configuração de**infraestrutura** > de recuperação do site > de recuperação de**serviços**de **recuperação.**
 2. Selecione o servidor de configuração necessário e, em seguida, selecione **Master Target Server**.
 
     ![Screenshot que mostra o botão Adicionar Master Target Server](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Descarregue o ficheiro de configuração unificado e, em seguida, execute o ficheiro no VM para configurar o servidor alvo principal.
-4. **Selecione Instalar** o alvo principal > **Seguinte**.
+4. **Selecione Instalar o alvo** > principal**A seguir**.
 
     ![Screenshot que mostra a seleção da opção de alvo principal de instalação](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Selecione a localização de instalação predefinida e, em seguida, **selecione Instalar**.
@@ -163,7 +163,7 @@ Para adicionar um servidor de alvo principal para uma máquina virtual baseada n
     ![Screenshot que mostra onde introduzir o endereço IP e a frase-passe para o servidor de configuração](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selecione **Registar**. Quando a inscrição estiver terminada, selecione **Terminar**.
 
-Quando o registo termina com sucesso, o servidor está listado no portal Azure no Cofre de Recuperação de **Serviços** de **Recuperação** > Infraestrutura de Recuperação do Site > servidores de **configuração,** nos servidores-alvo principal do servidor de configuração.
+Quando o registo termina com sucesso, o servidor está listado no portal Azure nos servidores de configuração de configuração de**infraestruturade recuperação** > do **site de** > recuperação de**serviços**de recuperação, nos servidores-alvo principal do servidor de configuração.
 
  > [!NOTE]
  > Descarregue a versão mais recente do [ficheiro de configuração unificado](https://aka.ms/latestmobsvc)do servidor alvo principal para windows .

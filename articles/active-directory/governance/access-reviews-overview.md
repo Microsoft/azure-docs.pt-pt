@@ -1,5 +1,5 @@
 ---
-title: O que são as revisões de acesso? -O azure Active Directory | Documentos da Microsoft
+title: O que são as revisões de acesso? - Diretório Ativo Azure / Microsoft Docs
 description: Utilizando avaliações de acesso ao Azure Ative Directory, pode controlar a adesão do grupo e o acesso a aplicações para atender à governação, gestão de riscos e iniciativas de conformidade na sua organização.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262090"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
@@ -56,7 +56,7 @@ Dependendo do que pretende rever, irá criar a sua análise de acesso em avalia�
 
 | Direitos de acesso dos utilizadores | Os revisores podem ser | Revisão criada em | Experiência do revisor |
 | --- | --- | --- | --- |
-| Membros do grupo de segurança</br>Membros do grupo de escritórios | Revisores especificados</br>Proprietários de grupos</br>Auto-revisão | Revisões de acesso do Azure AD</br>Grupos Azure AD | Painel de acesso |
+| Membros do grupo de segurança</br>Membros do grupo de escritórios | Revisores especificados</br>Proprietários de grupos</br>Auto-revisão | Revisões de acesso do Azure AD</br>Grupos do Azure AD | Painel de acesso |
 | Atribuído a uma aplicação conectada | Revisores especificados</br>Auto-revisão | Revisões de acesso do Azure AD</br>Aplicativos empresariais Azure AD (em pré-visualização) | Painel de acesso |
 | Papel da AD Azure | Revisores especificados</br>Auto-revisão | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
 | Papel de recurso Azure | Revisores especificados</br>Auto-revisão | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal do Azure |
@@ -68,7 +68,7 @@ Para criar uma avaliação de acesso, siga estes passos:
 
 1. Vá ao [portal Azure](https://portal.azure.com) para gerir as avaliações de acesso e iniciar sessão como administrador global ou administrador de utilizador.
 
-1. Procure e selecione **Azure Ative Directory**.
+1. Procure e selecione **Azure Active Directory**.
 
       ![Pesquisa do portal Azure por Azure Ative Directory](media/access-reviews-overview/search-azure-active-directory.png)
 
@@ -120,7 +120,7 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores e 3 proprietários do grupo, e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada proprietário de grupo como revisores | 3 |
 | Um administrador cria uma revisão de acesso do Grupo B com 500 utilizadores. Faz com que seja uma auto-revisão. | 500 licenças para cada utilizador como auto-revisores | 500 |
 | Um administrador cria uma revisão de acesso do Grupo C com 50 utilizadores membros e 25 utilizadores convidados. Faz com que seja uma auto-revisão. | 50 licenças para cada utilizador como auto-revisores.<br/>(os utilizadores convidados estão cobertos na relação de 1:5 exigida) | 50 |
-| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Faz com que seja uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores + 16 licenças adicionais para cobrir todos os 108 utilizadores convidados na relação de 1:5 exigida. 6 licenças, que cobrem 6\*5=30 utilizadores convidados. Para os restantes (108-6\*5)=78 utilizadores convidados, são necessárias 78/5=16 licenças adicionais. Assim, no total, são necessárias 6+16=22 licenças. | 22 |
+| Um administrador cria uma revisão de acesso do Grupo D com 6 utilizadores membros e 108 utilizadores convidados. Faz com que seja uma auto-revisão. | 6 licenças para cada utilizador como auto-revisores + 16 licenças adicionais para cobrir todos os 108 utilizadores convidados na relação de 1:5 exigida. 6 licenças, que\*abrangem 6 5=30 utilizadores convidados. Para os restantes (108-6\*5)=78 utilizadores convidados, são necessárias 78/5=16 licenças adicionais. Assim, no total, são necessárias 6+16=22 licenças. | 22 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

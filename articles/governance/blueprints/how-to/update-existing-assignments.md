@@ -4,10 +4,10 @@ description: Conheça o mecanismo de atualização de uma atribuição de planta
 ms.date: 11/21/2019
 ms.topic: how-to
 ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264664"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plantas existente
@@ -45,7 +45,7 @@ A implantação das atribuições atualizadas segue algumas regras importantes. 
 
 - Atribuições de Funções
   - Se o papel ou o designado (utilizador, grupo ou app) mudar, é criada uma nova atribuição de funções. As atribuições de funções anteriormente implantadas são deixadas no lugar.
-- Atribuições de Políticas
+- Atribuições de Política
   - Se os parâmetros da atribuição de apólices forem alterados, a atribuição existente é atualizada.
   - Se a definição da atribuição de políticas for alterada, é criada uma nova atribuição de políticas.
     As atribuições políticas previamente implantadas são deixadas no lugar.
@@ -63,9 +63,9 @@ Não há limite para quantas vezes uma missão pode ser atualizada. Se ocorrer u
 - Um objeto já existente
 - Uma mudança não suportada pelo Gestor de Recursos azure
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

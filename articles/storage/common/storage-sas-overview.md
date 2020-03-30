@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 7a5967f52a187fe289c6fb1ca72af2d5fd17f010
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255239"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
@@ -43,7 +43,7 @@ O Azure Storage suporta três tipos de assinaturas de acesso partilhado:
 Uma assinatura de acesso partilhado pode assumir uma de duas formas:
 
 - **Ad hoc SAS:** Quando se cria um SAS ad hoc, o tempo de início, o tempo de validade e as permissões para o SAS são todas especificadas no SAS URI (ou implícito, se a hora de início for omitida). Qualquer tipo de SAS pode ser um SAS ad hoc.
-- **Serviço SAS com política de acesso armazenada:** Uma política de acesso armazenada é definida num recipiente de recursos, que pode ser um recipiente de bolhas, mesa, fila ou partilha de ficheiros. A política de acesso armazenada pode ser utilizada para gerir constrangimentos para uma ou mais assinaturas de acesso partilhado seleto. Quando associa um serviço SAS a uma política de acesso armazenada, o SAS herda os constrangimentos&mdash;hora de início, tempo de validade e permissões&mdash;definidas para a política de acesso armazenada.
+- **Serviço SAS com política de acesso armazenada:** Uma política de acesso armazenada é definida num recipiente de recursos, que pode ser um recipiente de bolhas, mesa, fila ou partilha de ficheiros. A política de acesso armazenada pode ser utilizada para gerir constrangimentos para uma ou mais assinaturas de acesso partilhado seleto. Quando associa um serviço SAS a uma política de acesso armazenada, o SAS herda os constrangimentos&mdash;o tempo de início, o tempo de validade e as permissões definidas&mdash;para a política de acesso armazenada.
 
 > [!NOTE]
 > Uma delegação de utilizadores SAS ou uma conta SAS deve ser um SAS ad hoc. As políticas de acesso armazenadas não são suportadas para a delegação de utilizadores SAS ou para a conta SAS.
@@ -76,13 +76,13 @@ Aqui está um exemplo de um serviço SAS URI, mostrando o recurso URI e o token 
 
 Utilize um SAS quando pretender fornecer acesso seguro aos recursos na sua conta de armazenamento a qualquer cliente que de outra forma não tenha permissões para esses recursos.
 
-Um cenário comum em que um SAS é útil é um serviço onde os utilizadores lêem e escrevem os seus próprios dados na sua conta de armazenamento. Num cenário em que uma conta de armazenamento armazena dados dos utilizadores, existem dois padrões de design típicos:
+Um cenário comum em que um SAS é útil é um serviço onde os utilizadores lêem e escrevem os seus próprios dados na sua conta de armazenamento. Num cenário em que uma conta de armazenamento armazene dados de utilizador, existem dois padrões de conceção típicos:
 
-1. Os clientes fazem o upload e o download de dados através de um serviço de proxy frontal, que realiza a autenticação. Este serviço de procuração frontal tem a vantagem de permitir a validação das regras de negócio, mas para grandes quantidades de dados ou transações de alto volume, criar um serviço que pode escalar para corresponder à procura pode ser caro ou difícil.
+1. Os clientes carregam e transferem dados através de um serviço de proxy de front-end, o qual realiza a autenticação. Este serviço de procuração frontal tem a vantagem de permitir a validação das regras de negócio, mas para grandes quantidades de dados ou transações de alto volume, criar um serviço que pode escalar para corresponder à procura pode ser caro ou difícil.
 
    ![Diagrama de cenário: Serviço de procuração frontal](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
-1. Um serviço leve autentica o cliente conforme necessário e, em seguida, gera um SAS. Assim que a aplicação do cliente receber o SAS, podem aceder diretamente aos recursos da conta de armazenamento com as permissões definidas pelo SAS e pelo intervalo permitido pelo SAS. O SAS atenua a necessidade de encaminhamento de todos os dados através do serviço de procuração frontal.
+1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Assim que a aplicação do cliente receber o SAS, podem aceder diretamente aos recursos da conta de armazenamento com as permissões definidas pelo SAS e pelo intervalo permitido pelo SAS. A SAS reduz a necessidade de encaminhamento de todos os dados através do serviço de proxy de front-end.
 
    ![Diagrama de cenário: Serviço de prestador sas](./media/storage-sas-overview/sas-storage-provider-service.png)
 
@@ -94,7 +94,7 @@ Além disso, é necessário um SAS para autorizar o acesso ao objeto de origem n
 - Quando copia um ficheiro para outro ficheiro que reside numa conta de armazenamento diferente, deve utilizar um SAS para autorizar o acesso ao ficheiro fonte. Também pode utilizar opcionalmente um SAS para autorizar o acesso ao ficheiro de destino.
 - Quando copia uma bolha para um ficheiro, ou um ficheiro para uma bolha, deve utilizar um SAS para autorizar o acesso ao objeto de origem, mesmo que os objetos de origem e destino residam na mesma conta de armazenamento.
 
-## <a name="best-practices-when-using-sas"></a>Boas práticas ao utilizar sas
+## <a name="best-practices-when-using-sas"></a>Práticas recomendadas ao usar SAS
 
 Quando utiliza assinaturas de acesso partilhado nas suas aplicações, tem de estar ciente de dois riscos potenciais:
 
@@ -135,7 +135,7 @@ Para começar com assinaturas de acesso partilhado, consulte os seguintes artigo
 
 - [Criar uma conta SAS com .NET](storage-account-sas-create-dotnet.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso delegado com assinatura de acesso partilhado (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

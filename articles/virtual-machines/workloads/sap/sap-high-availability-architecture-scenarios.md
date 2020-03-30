@@ -17,10 +17,10 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279913"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
@@ -265,7 +265,7 @@ Existe atualmente um SLA De Um VM único de 99,9% com armazenamento premium. Par
 
 A base para o cálculo é de 30 dias por mês, ou 43.200 minutos. Por exemplo, um tempo de inatividade de 0,05% corresponde a 21,6 minutos. Como de costume, a disponibilidade dos vários serviços é calculada da seguinte forma:
 
-(Serviço de Disponibilidade #1/100) * (Serviço de Disponibilidade #2/100) * (Serviço de Disponibilidade #3/100) \*...
+(Serviço de Disponibilidade #1/100) * (Serviço de Disponibilidade #2/100) * \*(Serviço de Disponibilidade #3/100) ...
 
 Por exemplo:
 
@@ -288,7 +288,7 @@ Um conjunto de disponibilidade é usado para alcançar uma elevada disponibilida
 * Agrupamentos com dois ou mais nós (VMs, por exemplo) que protegem Os SPOFs, tais como uma instância SAP ASCS/SCS ou um DBMS.
 
 
-### <a name="azure-availability-zones"></a>Zonas de Disponibilidade Azure
+### <a name="azure-availability-zones"></a>Zonas de Disponibilidade do Azure
 O Azure está em processo de lançar um conceito de Zonas de [Disponibilidade Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) em [diferentes regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) Nas regiões de Azure onde são oferecidas zonas de disponibilidade, as regiões de Azure dispõem de múltiplos centros de dados, independentes no fornecimento de fonte de energia, arrefecimento e rede. A razão para oferecer diferentes zonas dentro de uma única região do Azure é permitir-lhe implementar aplicações em duas ou três Zonas de Disponibilidade oferecidas. Assumindo que os problemas em fontes de energia e/ou rede afetariam apenas uma infraestrutura da Zona de Disponibilidade, a sua implementação de aplicações dentro de uma região do Azure ainda está totalmente funcional. Eventualmente, com alguma capacidade reduzida, uma vez que alguns VMs numa zona podem perder-se. Mas os VMs nas outras duas zonas ainda estão a funcionar. As regiões azure que oferecem zonas estão listadas em [Zonas de Disponibilidade Azure.](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
 Usando zonas de disponibilidade, há algumas coisas a considerar. A lista de considerações como:
@@ -332,7 +332,7 @@ Se decidir não utilizar funcionalidades como WSFC ou Pacemaker no Linux (atualm
 
 Para obter mais informações sobre esta abordagem, consulte a [infraestrutura Utilize Azure VM reiniciando para obter uma maior disponibilidade do sistema SAP][sap-higher-availability].
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Elevada disponibilidade de aplicações SAP no Azure IaaS
+## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Elevada disponibilidade de aplicações SAP no Azure IaaS
 
 Para obter uma alta disponibilidade do sistema SAP, deve proteger todos os componentes críticos do sistema SAP. Por exemplo:
   * Servidores de aplicações SAP redundantes.
@@ -344,7 +344,7 @@ As secções seguintes discutem como alcançar uma elevada disponibilidade para 
 
 > Esta secção aplica-se a:
 >
-> ![Portal do][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
 >
 
 Normalmente não precisa de uma solução específica de alta disponibilidade para o servidor de aplicações SAP e para as instâncias de diálogo. Obtém uma elevada disponibilidade por redundância e configura vários casos de diálogo em vários casos de máquinas virtuais Azure. Deverá ter pelo menos duas instâncias de aplicação SAP instaladas em dois casos de máquinas virtuais Azure.
@@ -367,8 +367,8 @@ O número de domínios de atualização e de avaria que pode ser utilizado por u
 
 Se implementar algumas instâncias de servidor de aplicações SAP nos seus VMs dedicados, assumindo que temos cinco domínios de atualização, surge a seguinte imagem. O número máximo real de domínios de atualização e de avaria dentro de um conjunto de disponibilidade pode mudar no futuro:
 
-![Figura 2: Elevada disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure][planning-guide-figure-3000]
-_ **Figura 2:** Elevada disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure_
+![Figura 2: Alta disponibilidade de servidores de aplicações][planning-guide-figure-3000]
+SAP num conjunto de disponibilidade do Azure_**Figura 2:** Alta disponibilidade de servidores de aplicações SAP num conjunto de disponibilidade do Azure_
 
 Para mais informações, consulte [Gerir a disponibilidade de máquinas virtuais windows no Azure][azure-virtual-machines-manage-availability].
 
@@ -382,7 +382,7 @@ Para mais informações, consulte a secção de conjuntos de disponibilidade do 
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitetura de alta disponibilidade para uma instância SAP ASCS/SCS no Windows
 
-> ![Portal do][Logo_Windows] Portal do
+> ![Windows][Logo_Windows] Windows
 >
 
 Pode utilizar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
@@ -404,7 +404,7 @@ Para obter mais informações sobre o agrupamento da instância SAP ASCS/SCS uti
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID SAP NetWeaver para uma instância SAP ASCS/SCS agrupada
 
-> ![Portal do][Logo_Windows] Portal do
+> ![Windows][Logo_Windows] Windows
 > 
 > O Multi-SID é suportado com o WSFC, utilizando a partilha de ficheiros e o disco partilhado.
 > 

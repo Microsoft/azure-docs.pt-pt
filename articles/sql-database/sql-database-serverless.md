@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
 ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268707"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
@@ -66,9 +66,9 @@ O quadro seguinte resume distinções entre o nível de computação sem servido
 | | **Computação sem servidor** | **Cálculo provisionado** |
 |:---|:---|:---|
 |**Padrão de utilização da base de dados**| Uso intermitente e imprevisível com menor utilização média de cálculo ao longo do tempo. |  Padrões de utilização mais regulares com uma utilização média mais alta da computação ao longo do tempo, ou várias bases de dados usando piscinas elásticas.|
-| **Esforço de gestão de desempenho** |Mais baixo|Mais alto|
+| **Esforço de gestão de desempenho** |Lower|Superior|
 |**Escala de computação**|Automático|Manual|
-|**Capacidade de resposta computacional**|Menor após períodos inativos|Imediata|
+|**Capacidade de resposta computacional**|Menor após períodos inativos|Imediato|
 |**Granularidade de faturação**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra e nível de serviço
@@ -254,11 +254,11 @@ Uma base de dados sem servidores pode ser transferida para um nível de computa�
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
-A modificação dos vCores máximos ou mínimos e atraso de pausa automática é realizada utilizando o comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) no PowerShell utilizando os argumentos `MaxVcore`, `MinVcore`e `AutoPauseDelayInMinutes`.
+A modificação dos vCores máximos ou mínimos e atraso de pausa automática é realizada utilizando `MaxVcore` `MinVcore`o `AutoPauseDelayInMinutes` comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) em PowerShell utilizando os argumentos e argumentos.
 
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-A modificação dos vCores máximos ou mínimos, e atraso de pausa automática, é realizada utilizando o comando de [atualização az sql db](/cli/azure/sql/db#az-sql-db-update) em Azure CLI utilizando os argumentos `capacity`, `min-capacity`e `auto-pause-delay`.
+A modificação dos vCores máximos ou mínimos, e atraso de pausa automática, é realizada `capacity`utilizando `min-capacity`o `auto-pause-delay` comando de [atualização az sql db](/cli/azure/sql/db#az-sql-db-update) em Azure CLI utilizando os argumentos e argumentos.
 
 
 ## <a name="monitoring"></a>Monitorização
@@ -267,7 +267,7 @@ A modificação dos vCores máximos ou mínimos, e atraso de pausa automática, 
 
 Os recursos de uma base de dados sem servidores são encapsulados por pacote de aplicativos, instância SQL e entidades de piscina de recursos de utilizador.
 
-#### <a name="app-package"></a>Pacote de aplicativos
+#### <a name="app-package"></a>Pacote de aplicações
 
 O pacote de aplicações é o limite de gestão de recursos mais exterior para uma base de dados, independentemente de a base de dados estar num nível de computação sem servidorou aprovisionado. O pacote de aplicações contém a instância SQL e os serviços externos que, em conjunto, âmbito de todos os recursos de utilizador e sistema utilizados por uma base de dados na Base de Dados SQL. Exemplos de serviços externos incluem pesquisa de Texto R e texto completo. A instância SQL geralmente domina a utilização global de recursos em todo o pacote de aplicações.
 
@@ -281,9 +281,9 @@ As métricas para monitorizar a utilização de recursos do pacote de aplicaçõ
 
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
-|Pacote de aplicativos|app_cpu_percent|Percentagem de vCores utilizados pela app em relação a vCores max permitidos para a aplicação.|Percentagem|
-|Pacote de aplicativos|app_cpu_billed|A quantidade de cálculo faturado para a app durante o período de reporte. O valor pago durante este período é o produto desta métrica e o preço unitário vCore. <br><br>Os valores desta métrica são determinados por agregação ao longo do tempo o máximo de CPU utilizado e memória usada a cada segundo. Se o montante utilizado for inferior ao montante mínimo previsto pelos min vCores e pela memória min, então o montante mínimo previsto é faturado. Para comparar cpU com memória para efeitos de faturação, a memória é normalizada em unidades de vCores, rescalando a quantidade de memória em GB por 3 GB por vCore.|vCore segundos|
-|Pacote de aplicativos|app_memory_percent|Percentagem de memória utilizada pela app em relação à memória máxima permitida para a aplicação.|Percentagem|
+|Pacote de aplicações|app_cpu_percent|Percentagem de vCores utilizados pela app em relação a vCores max permitidos para a aplicação.|Percentagem|
+|Pacote de aplicações|app_cpu_billed|A quantidade de cálculo faturado para a app durante o período de reporte. O valor pago durante este período é o produto desta métrica e o preço unitário vCore. <br><br>Os valores desta métrica são determinados por agregação ao longo do tempo o máximo de CPU utilizado e memória usada a cada segundo. Se o montante utilizado for inferior ao montante mínimo previsto pelos min vCores e pela memória min, então o montante mínimo previsto é faturado.Para comparar cpU com memória para efeitos de faturação, a memória é normalizada em unidades de vCores, rescalando a quantidade de memória em GB por 3 GB por vCore.|vCore segundos|
+|Pacote de aplicações|app_memory_percent|Percentagem de memória utilizada pela app em relação à memória máxima permitida para a aplicação.|Percentagem|
 |Piscina de utilizadores|cpu_percent|Percentagem de vCores utilizados pela carga de trabalho do utilizador em relação ao vCores max permitido para a carga de trabalho do utilizador.|Percentagem|
 |Piscina de utilizadores|data_IO_percent|Percentagem de dados iOPS utilizados pela carga de trabalho do utilizador em relação aos iOPS de dados máximos permitidos para a carga de trabalho do utilizador.|Percentagem|
 |Piscina de utilizadores|log_IO_percent|Percentagem de MB/s de registo utilizado pela carga de trabalho do utilizador em relação ao registo máximo MB/s permitido para a carga de trabalho do utilizador.|Percentagem|
@@ -338,7 +338,7 @@ Neste caso, a base de dados é cobrada para computação e armazenamento durante
 
 Mais precisamente, a conta do cálculo neste exemplo é calculada da seguinte forma:
 
-|Intervalo de Tempo|vCores usados a cada segundo|GB usado a cada segundo|Dimensão computacional faturada|vCore segundos faturados ao longo do intervalo de tempo|
+|Intervalo de tempo|vCores usados a cada segundo|GB usado a cada segundo|Dimensão computacional faturada|vCore segundos faturados ao longo do intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores utilizados|4 vCores * 3600 segundos = 14400 vCore segundos|
 |1:00-2:00|1|12|Memória usada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|
@@ -356,7 +356,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Alemanha Central, Alemanha Nordeste, Reino Unido Norte, Reino Unido Sul 2, Oeste Central DOS EUA e EUA Gov Central (Iowa).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte os limites de recursos de [nível de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

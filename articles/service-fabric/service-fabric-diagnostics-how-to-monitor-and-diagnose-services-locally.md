@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258515"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa instalação de desenvolvimento de máquinas locais
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 > * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -40,16 +40,16 @@ Service Fabric emite eventos Da ETW para ajudar os desenvolvedores de aplicaçõ
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>Adicione os seus próprios vestígios personalizados ao código de aplicação
 Os modelos do projeto Service Fabric Visual Studio contêm código de amostra. O código mostra como adicionar os traços de código de aplicação personalizados ETW que aparecem no espectador Visual Studio ETW ao lado de vestígios de sistema do Service Fabric. A vantagem deste método é que os metadados são adicionados automaticamente aos vestígios, e o VisualizaStudio Diagnostic Events Viewer já está configurado para os exibir.
 
-Para projetos **criados** a partir dos modelos de serviço (apátridas ou apátridas) basta procurar a implementação `RunAsync`:
+Para projetos **criados** a partir dos modelos de `RunAsync` serviço (apátridas ou apátridas) basta pesquisar a implementação:
 
-1. A chamada para `ServiceEventSource.Current.ServiceMessage` no método `RunAsync` mostra um exemplo de um traço ETW personalizado do código de aplicação.
-2. No ficheiro **ServiceEventSource.cs,** encontrará uma sobrecarga para o método `ServiceEventSource.ServiceMessage` que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
+1. A chamada `ServiceEventSource.Current.ServiceMessage` para `RunAsync` o método mostra um exemplo de um traço ETW personalizado do código de aplicação.
+2. No ficheiro **ServiceEventSource.cs,** encontrará uma sobrecarga `ServiceEventSource.ServiceMessage` para o método que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
 
 Para projetos **criados** a partir dos modelos de ator (apátrida ou apátrida):
 
 1. Abra o ficheiro **"ProjectName".cs** onde *o ProjectName* é o nome que escolheu para o seu projeto Visual Studio.  
-2. Encontre o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync.*  Este é um exemplo de um traço ETW personalizado escrito a partir do código de aplicação.  
-3. No ficheiro **ActorEventSource.cs,** encontrará uma sobrecarga para o método `ActorEventSource.ActorMessage` que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
+2. Encontre o `ActorEventSource.Current.ActorMessage(this, "Doing Work");` código no método *DoWorkAsync.*  Este é um exemplo de um traço ETW personalizado escrito a partir do código de aplicação.  
+3. No ficheiro **ActorEventSource.cs,** encontrará uma sobrecarga para o `ActorEventSource.ActorMessage` método que deve ser usado para eventos de alta frequência devido a razões de desempenho.
 
 Depois de adicionar o rastreio personalizado da ETW ao seu código de serviço, pode construir, implementar e executar novamente a aplicação para ver o seu(s) evento no Visualizador de Eventos de Diagnóstico. Se depurar a aplicação com **F5,** o Visualizador de Eventos de Diagnóstico abrirá automaticamente.
 

@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263715"
 ---
-# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerir as definições do utilizador com autenticação de multi-factor azure na nuvem
+# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Manage user settings with Azure Multi-Factor Authentication in the cloud (Gerir definições de utilizador com o Multi-Factor Authentication do Azure na cloud)
 
 Como administrador, pode gerir as seguintes definições de utilizador e dispositivo:
 
@@ -32,8 +32,8 @@ Como administrador designado pela função de Administrador de Autenticação, p
 
 ![Gerir métodos de autenticação a partir do portal Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. À esquerda, selecione **Diretório Ativo Azure** > **utilizadores** > **Todos os utilizadores**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. À esquerda, selecione **Utilizadores de Diretório** > **Users** > Ativo Azure**Todos os utilizadores**.
 1. Escolha o utilizador que deseja realizar uma ação e **selecione métodos**de autenticação .
    - **Redefinir a palavra-passe redefinirá** a palavra-passe do utilizador e atribuirá uma senha temporária que deve ser alterada no próximo início de sessão.
    - **Exigir o re-registo do MFA** fará com que, quando o utilizador assinar na próxima vez, seja solicitado que instale um novo método de autenticação MFA.
@@ -45,14 +45,14 @@ Esta definição elimina todas as palavras-passe da aplicação que um utilizado
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como eliminar as senhas de aplicação existentes dos utilizadores
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Diretório Ativo Azure** > **utilizadores** > **Todos os utilizadores**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. À esquerda, selecione **Utilizadores de Diretório** > **Users** > Ativo Azure**Todos os utilizadores**.
 3. À direita, selecione **A autenticação multi-factor** na barra de ferramentas. A página de autenticação de vários fatores abre.
 4. Verifique a caixa ao lado do utilizador ou utilizadores que deseja gerir. Uma lista de opções rápidas aparece à direita.
 5. Selecione **Gerir as definições do utilizador**.
 6. Verifique a caixa para **Eliminar todas as palavras-passe de aplicação existentes geradas pelos utilizadores selecionados**.
    ![Eliminar todas as senhas de aplicação existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Clique em **Guardar**.
+7. Clique em **guardar**.
 8. Clique **perto**.
 
 ## <a name="next-steps"></a>Passos seguintes

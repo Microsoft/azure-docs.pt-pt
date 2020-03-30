@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256266"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Esforce as bases de dados com o gestor de mapas de fragmentos
 
 Para eliminar facilmente as bases de dados do SQL Azure, utilize um gestor de mapas de fragmentos. O gestor de mapas de fragmentos é uma base de dados especial que mantém informações globais de mapeamento sobre todos os fragmentos (bases de dados) num conjunto de fragmentos. Os metadados permitem que uma aplicação se conectem à base de dados correta com base no valor da **chave sharding**. Além disso, cada fragmento do conjunto contém mapas que rastreiam os dados locais do fragmento (conhecidos como **fragmentos).**
 
-![Gestão de mapas de fragmentos](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+![Gestão de mapas de partições horizontais](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
 Compreender como estes mapas são construídos é essencial para a gestão de mapas. Isto é feito usando a classe ShardMapManager[(Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)), encontrada na biblioteca de [clientes da Base](sql-database-elastic-database-client-library.md) de Dados Elástica para gerir mapas de fragmentos.  
 
@@ -54,12 +54,12 @@ A Escala Elástica suporta os seguintes tipos como teclas sharding:
 | .NET | Java |
 | --- | --- |
 | número inteiro |número inteiro |
-| long |long |
-| guid |uuid |
+| longo |longo |
+| guia |uuid |
 | byte[]  |byte[] |
 | datetime | carimbo de data/hora |
-| TimeSpan | duration|
-| datetimeoffset |offsetdatetime |
+| tempospan | duration|
+| datacompensação |tempo de compensação |
 
 ### <a name="list-and-range-shard-maps"></a>Mapas de fragmentos de lista e alcance
 
@@ -93,12 +93,12 @@ Por exemplo, **[0,100)** inclui todos os inteiros superiores ou iguais a 0 e men
 
 Cada uma das tabelas acima mostradas é um exemplo conceptual de um objeto **ShardMap.** Cada linha é um exemplo simplificado de um **ponto Mapmap** individual (para o mapa de fragmentos da lista) ou **RangeMapping** (para o mapa de alcance) objeto.
 
-## <a name="shard-map-manager"></a>Gestor de mapas de fragmentos
+## <a name="shard-map-manager"></a>Gestor de mapas de partições horizontais
 
 Na biblioteca de clientes, o gestor de mapas de fragmentos é uma coleção de mapas de fragmentos. Os dados geridos por uma instância **do ShardMapManager** são mantidos em três locais:
 
-1. **Mapa Global do Fragmento (GSM)** : Especifica uma base de dados para servir de repositório para todos os seus mapas e mapeamentos. Tabelas especiais e procedimentos armazenados são automaticamente criados para gerir a informação. Trata-se tipicamente de uma pequena base de dados e de acesso leve, e não deve ser utilizada para outras necessidades da aplicação. As mesas estão num esquema especial chamado **__ShardManagement.**
-2. Mapa local do **fragmento (LSM)** : Todas as bases de dados que especifica ser um fragmento são modificadas para conter várias pequenas tabelas e procedimentos especiais armazenados que contêm e gerem informações específicas do mapa de fragmentos específicas desse fragmento. Esta informação é redundante com a informação no GSM, e permite que a aplicação validar informações de mapas de fragmentos em cache sem colocar qualquer carga no GSM; a aplicação utiliza o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no esquema **__ShardManagement**.
+1. **Mapa Global do Fragmento (GSM)**: Especifica uma base de dados para servir de repositório para todos os seus mapas e mapeamentos. Tabelas especiais e procedimentos armazenados são automaticamente criados para gerir a informação. Trata-se tipicamente de uma pequena base de dados e de acesso leve, e não deve ser utilizada para outras necessidades da aplicação. As mesas estão num esquema especial chamado **__ShardManagement.**
+2. Mapa local do **fragmento (LSM)**: Todas as bases de dados que especifica ser um fragmento são modificadas para conter várias pequenas tabelas e procedimentos especiais armazenados que contêm e gerem informações específicas do mapa de fragmentos específicas desse fragmento. Esta informação é redundante com a informação no GSM, e permite que a aplicação validar informações de mapas de fragmentos em cache sem colocar qualquer carga no GSM; a aplicação utiliza o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no esquema **__ShardManagement**.
 3. **Cache de aplicação**: Cada instância de aplicação que acede a um objeto **ShardMapManager** mantém uma cache local de memória dos seus mapeamentos. Armazena informações de encaminhamento que foram recentemente recuperadas.
 
 ## <a name="constructing-a-shardmapmanager"></a>Construção de um ShardMapManager

@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280537"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Diretório Ativo Azure para o Azure Red Hat OpenShift
@@ -23,14 +23,14 @@ O Microsoft Azure Red Hat OpenShift necessita de permissões para executar taref
 
 No [portal Azure,](https://portal.azure.com)certifique-se de que o seu inquilino aparece sob o seu nome de utilizador no canto superior direito do portal:
 
-![Screenshot do portal com o inquilino listado no](./media/howto-create-tenant/tenant-callout.png) superior direito Se o inquilino errado for apresentado, clique no seu nome de utilizador no direito superior, em seguida, clique em **Switch Directy**, e selecione o inquilino correto da lista **de Todos os Diretórios.**
+![Screenshot do portal com inquilino](./media/howto-create-tenant/tenant-callout.png) listado no topo direito Se o inquilino errado for apresentado, clique no seu nome de utilizador no direito superior, em seguida, clique em **Switch Diretório**, e selecione o inquilino correto da lista **de Todos os Diretórios.**
 
 Crie um novo utilizador de administrador global do Azure Ative Diretório para iniciar sessão no seu cluster Azure Red Hat OpenShift.
 
 1. Vá para a lâmina [utilizadores-todos os utilizadores.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
 2. Clique em **+Novo utilizador** para abrir o painel **do Utilizador.**
 3. Introduza um **Nome** para este utilizador.
-4. Crie um **nome de Utilizador** com base no nome do inquilino que criou, com `.onmicrosoft.com` anexado no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Escreva este nome de utilizador. Vai precisar dele para se inscrever no seu agrupamento.
+4. Crie um **nome de Utilizador** com base `.onmicrosoft.com` no nome do inquilino que criou, com anexação no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Escreva este nome de utilizador. Vai precisar dele para se inscrever no seu agrupamento.
 5. Clique na **função de Diretório** para abrir o painel de papéis de diretório e selecione **administrador global** e, em seguida, clique em **Ok** na parte inferior do painel.
 6. No painel **do Utilizador,** clique em **Mostrar Palavra-passe** e grave a palavra-passe temporária. Depois de assinar pela primeira vez, será solicitado a reset-lo.
 7. Na parte inferior do painel, clique em **Criar** para criar o utilizador.
@@ -54,14 +54,14 @@ Para conceder acesso ao cluster admin, os membros de um grupo de segurança Azur
     Escreva o valor de identificação do grupo.
 
 9. Quando o grupo for criado, você vai vê-lo na lista de todos os grupos. Clique no novo grupo.
-10. Na página que aparece, copie o ID do **Objeto**. Vamos referir-nos a este valor como `GROUPID` no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
+10. Na página que aparece, copie o ID do **Objeto**. Vamos referir-nos a `GROUPID` este valor como no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
 
 > [!IMPORTANT]
 > Para sincronizar este grupo com o grupo osa-cliente-administradoropens OpenShift, crie o cluster utilizando o Azure CLI. O portal Azure carece atualmente de um campo para definir este grupo.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar uma inscrição de aplicação Azure AD
 
-Pode criar automaticamente um cliente de registo de aplicações Azure Ative Directory (Azure AD) como parte da criação do cluster, omitindo a bandeira `--aad-client-app-id` ao comando `az openshift create`. Este tutorial mostra-lhe como criar o registo da aplicação Azure AD para a completude.
+Pode criar automaticamente um cliente de registo de aplicações Azure Ative Directory (Azure `--aad-client-app-id` AD) como parte da criação do cluster, omitindo a bandeira ao `az openshift create` comando. Este tutorial mostra-lhe como criar o registo da aplicação Azure AD para a completude.
 
 Se a sua organização ainda não tiver um registo de aplicação Azure Ative Directory (Azure AD) para usar como diretor de serviço, siga estas instruções para criar uma.
 
@@ -69,7 +69,7 @@ Se a sua organização ainda não tiver um registo de aplicação Azure Ative Di
 2. No **Registo de um** painel de candidatura, insira um nome para o seu registo de candidatura.
 3. Certifique-se de que, nos **tipos de conta suportadas,** as contas neste diretório organizacional são selecionadas **apenas.** Esta é a escolha mais segura.
 4. Adicionaremos um URI redirecionado mais tarde assim que soubermos o URI do cluster. Clique no botão **Register** para criar o registo de aplicação Azure AD.
-5. Na página que aparece, copie o ID do **Pedido (cliente).** Vamos referir-nos a este valor como `APPID` no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
+5. Na página que aparece, copie o ID do **Pedido (cliente).** Vamos referir-nos a `APPID` este valor como no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
 
 ![Screenshot da página de objeto de aplicativo](./media/howto-create-tenant/get-app-id.png)
 
@@ -77,12 +77,12 @@ Se a sua organização ainda não tiver um registo de aplicação Azure Ative Di
 
 Gere um segredo de cliente para autenticar a sua app ao Azure Ative Directory.
 
-1. Na secção **Gerir** a página de registos da aplicação, clique em **Certificados e segredos.**
-2. No painel **de Certificados e segredos,** clique em **+Novo segredo de cliente.**  O **Add um painel secreto do cliente** aparece.
+1. Na secção **Gerir** a página de registos da aplicação, clique em **Certificados & segredos.**
+2. No painel de **certificados & segredos,** clique em **+Novo segredo de cliente.**  O **Add um painel secreto do cliente** aparece.
 3. Forneça uma **descrição**.
 4. O conjunto **expira** à duração que preferir, por exemplo **em 2 anos.**
 5. Clique em **Adicionar** e o valor chave aparecerá na secção de **segredos** do Cliente da página.
-6. Copie o valor-chave. Vamos referir-nos a este valor como `SECRET` no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
+6. Copie o valor-chave. Vamos referir-nos a `SECRET` este valor como no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
 
 ![Screenshot dos certificados e segredos painel](./media/howto-create-tenant/create-key.png)
 
@@ -90,7 +90,7 @@ Para mais informações sobre objetos de aplicação Azure, consulte [os objetos
 
 Para mais detalhes sobre a criação de uma nova aplicação Azure AD, consulte Registar uma aplicação com o Ponto final do [Azure Ative Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
-## <a name="add-api-permissions"></a>Adicionar permissões API
+## <a name="add-api-permissions"></a>Adicionar permissões de APIs
 
 [//]: # (Não mude para o Microsoft Graph. Não funciona com o Microsoft Graph.)
 1. Na secção **Gerir** clique em **permissões API**
@@ -103,7 +103,7 @@ Para mais detalhes sobre a criação de uma nova aplicação Azure AD, consulte 
 5. Expandir **o Diretório** na lista abaixo e ativar **o Diretório.ReadAll**.
 6. Clique em **Adicionar permissões** para aceitar as alterações.
 7. O painel de permissões DaPI deve agora mostrar tanto *user.Read* como *Diretório.ReadAll*. Por favor, note o aviso em **consentimento da Administração requer uma** coluna próxima ao *Diretório.ReadAll*.
-8. Se for o Administrador de *Subscrição Azure,* clique no consentimento do **Administrador grant para o Nome de *Subscrição***  abaixo. Se não for o Administrador de *Assinatura Azure,* solicite o consentimento do seu administrador.
+8. Se for o Administrador de *Subscrição Azure,* clique no consentimento do **Administrador grant para o Nome de *Subscrição* ** abaixo. Se não for o Administrador de *Assinatura Azure,* solicite o consentimento do seu administrador.
 
 ![Screenshot do painel de permissões DaPI. User.Read and Directy.ReadTodas as permissões adicionadas, consentimento administrativo necessário para O Diretório.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
@@ -115,7 +115,7 @@ Para mais informações sobre a gestão de administradores e outras funções, c
 ## <a name="resources"></a>Recursos
 
 * [Aplicações e objetos principais de serviço no Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Quickstart: Registe uma aplicação com o Diretório Ativo Azure v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Início rápido: Registar uma aplicação com o ponto de final do Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Passos seguintes
 

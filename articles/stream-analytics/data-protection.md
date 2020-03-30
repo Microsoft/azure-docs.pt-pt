@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299401"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
@@ -32,11 +32,11 @@ Atualizar ou rodar chaves na sua conta de armazenamento não é possível utiliz
 
 Utilize os seguintes passos para configurar a sua conta de armazenamento para ativos de dados privados. Esta configuração é feita a partir do seu trabalho de Stream Analytics, não da sua conta de armazenamento.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure. 
 
-1. Selecione **Analytics** > **stream analytics** da lista de resultados. 
+1. Selecione **o trabalho**  **analytics** >Stream Analytics na lista de resultados. 
 
 1. Preencha a página de trabalho do Stream Analytics com detalhes necessários, como nome, região e escala. 
 
@@ -62,7 +62,7 @@ Os detalhes de ligação dos seus recursos, que são utilizados pelo seu trabalh
 
 Para ajudá-lo a cumprir as suas obrigações de conformidade em qualquer indústria ou ambiente regulado, pode ler mais sobre as ofertas de [conformidade da Microsoft.](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md)
 * [Compreender as inputs para azure stream analytics](stream-analytics-add-inputs.md)

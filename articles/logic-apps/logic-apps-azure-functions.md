@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284125"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Ligue para as funções do Azure Logic Apps
 
-Quando pretende executar um código que executa um trabalho específico nas suas aplicações lógicas, pode criar a sua própria função utilizando [funções Azure](../azure-functions/functions-overview.md). Este serviço ajuda-o a criar C#node.js, e F# funções para que não tenha de construir uma app completa ou infraestrutura para executar código. Também pode [ligar para aplicações lógicas de dentro das funções do Azure.](#call-logic-app) As Funções Azure fornecem computação sem servidor estonteante na nuvem e são úteis para executar tarefas como estes exemplos:
+Quando pretende executar um código que executa um trabalho específico nas suas aplicações lógicas, pode criar a sua própria função utilizando [funções Azure](../azure-functions/functions-overview.md). Este serviço ajuda-o a criar funções Node.js, C#e F# para que não tenha de construir uma app ou infraestrutura completa para executar código. Também pode [ligar para aplicações lógicas de dentro das funções do Azure.](#call-logic-app) As Funções Azure fornecem computação sem servidor estonteante na nuvem e são úteis para executar tarefas como estes exemplos:
 
-* Estenda o comportamento da sua aplicação lógica com C#funções no Node.js ou .
+* Estenda o comportamento da sua aplicação lógica com funções em Node.js ou C#.
 * Execute cálculos no fluxo de trabalho da sua aplicação lógica.
 * Aplique campos avançados de formatação ou computação nas suas aplicações lógicas.
 
@@ -36,11 +36,11 @@ Para executar snippets de código sem criar funções Azure, aprenda a [adiciona
 
   * A sua aplicação de funções e a sua aplicação lógica devem utilizar a mesma subscrição do Azure.
 
-  * As novas aplicações de função devem usar o .NET ou o JavaScript como a stack de tempo de execução. Quando adicionar uma nova função às aplicações C# de função existentes, pode selecionar ou JavaScript.
+  * As novas aplicações de função devem usar o .NET ou o JavaScript como a stack de tempo de execução. Quando adicionar uma nova função às aplicações de função existentes, pode selecionar C# ou JavaScript.
 
   * A sua função utiliza o modelo de **gatilho HTTP.**
 
-    O modelo de gatilho HTTP pode aceitar conteúdo que `application/json` tipo a partir da sua aplicação lógica. Ao adicionar uma função Azure à sua aplicação lógica, o Logic App Designer mostra funções personalizadas que são criadas a partir deste modelo dentro da sua subscrição Azure.
+    O modelo de gatilho HTTP `application/json` pode aceitar conteúdo que tenha tipo a partir da sua aplicação lógica. Ao adicionar uma função Azure à sua aplicação lógica, o Logic App Designer mostra funções personalizadas que são criadas a partir deste modelo dentro da sua subscrição Azure.
 
   * A sua função não utiliza rotas personalizadas a menos que tenha definido uma [definição OpenAPI](../azure-functions/functions-openapi-definition.md) (anteriormente conhecida como [ficheiro Swagger).](https://swagger.io/)
 
@@ -60,11 +60,11 @@ Para uma experiência mais rica quando trabalha com parâmetros de função no L
 
 1. Na sua aplicação de funções, instale a [Partilha de Recursos De Origem Cruzada (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para que todas as origens sejam permitidas seguindo estes passos:
 
-   1. Na lista de Aplicações de **Funções,** selecione a sua aplicação de funções. No painel da direita, selecione **funcionalidades da Plataforma** > **CORS**.
+   1. Na lista de Aplicações de **Funções,** selecione a sua aplicação de funções. No painel da direita, selecione **Plataforma apresenta** > **CORS**.
 
-      ![Selecione a sua app de funções > "Funcionalidades da Plataforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+      ![Selecione a sua aplicação de função > "Funcionalidades da Plataforma" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. Em **CORS,** adicione o caracteres wildcard asterisco ( **`*`),** mas remova todas as outras origens da lista e selecione **Guardar**.
+   1. Em **CORS,** adicione o**`*`** caracteres wildcard asterisco , mas remova todas as outras origens da lista e selecione **Save**.
 
       ![Definir "CORS* para o personagem wildcard "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -83,13 +83,13 @@ function convertToDateString(request, response){
 
 Eis o que acontece dentro desta função:
 
-1. A função cria uma variável `data` e atribui o objeto `body` dentro do `request` objeto a essa variável. A função utiliza o operador do ponto (.) para fazer referência ao `body` objeto no interior do objeto `request`:
+1. A função `data` cria uma `body` variável `request` e atribui o objeto dentro do objeto a essa variável. A função utiliza o operador do `body` ponto (.) para fazer referência ao objeto no interior do `request` objeto:
 
    ```javascript
    var data = request.body;
    ```
 
-1. A função pode agora aceder à propriedade `date` através da variável `data`, e converter esse valor de propriedade do tipo DateTime para o tipo DateString, chamando a função `ToDateString()`. A função também devolve o resultado através da propriedade `body` na resposta da função:
+1. A função pode `date` agora `data` aceder à propriedade através da variável, e converter `ToDateString()` esse valor de propriedade do tipo DateTime para o tipo DateString, chamando a função. A função também devolve `body` o resultado através da propriedade na resposta da função:
 
    ```javascript
    body: data.date.ToDateString();
@@ -129,22 +129,22 @@ Antes de poder criar uma função Azure a partir de dentro da sua aplicação l�
 
    ![Defina a sua função](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   No código do modelo, o *`context` objeto* refere-se à mensagem que a sua aplicação lógica envia através do campo **Request Body** num passo posterior. Para aceder às propriedades do objeto `context` a partir do interior da sua função, utilize esta sintaxe:
+   No código do modelo, * `context` * o objeto refere-se à mensagem que a sua aplicação lógica envia através do campo **Request Body** num passo posterior. Para aceder `context` às propriedades do objeto a partir do interior da sua função, utilize esta sintaxe:
 
    `context.body.<property-name>`
 
-   Por exemplo, para fazer referência à propriedade `content` dentro do objeto `context`, utilize esta sintaxe:
+   Por exemplo, para `content` fazer `context` referência à propriedade no interior do objeto, utilize esta sintaxe:
 
    `context.body.content`
 
-   O código de modelo também inclui uma variável `input`, que armazena o valor do parâmetro `data` para que a sua função possa realizar operações com esse valor. Dentro das funções JavaScript, a variável `data` também é um atalho para `context.body`.
+   O código do `input` modelo também inclui uma `data` variável, que armazena o valor do parâmetro para que a sua função possa realizar operações com esse valor. Dentro das funções `data` JavaScript, a variável também é um atalho para `context.body`.
 
    > [!NOTE]
-   > A propriedade `body` aqui aplica-se ao objeto `context` e não é o mesmo que o **símbolo do Corpo** a partir da saída de uma ação, que você também pode passar para a sua função.
+   > A `body` propriedade aqui aplica-se ao `context` objeto e não é o mesmo que o símbolo do **Corpo** a partir da saída de uma ação, que você também pode passar para a sua função.
 
 1. Na caixa **Request Body,** forneça a entrada da sua função, que deve ser formatada como um objeto de notação de objetos JavaScript (JSON).
 
-   Esta entrada é o objeto de *contexto* ou mensagem que a sua aplicação lógica envia para a sua função. Quando clica no campo **Request Body,** a lista de conteúdos dinâmicos aparece para que possa selecionar tokens para saídas a partir de passos anteriores. Este exemplo especifica que a carga útil do contexto contém uma propriedade chamada `content` que tem o valor do **Token** a partir do gatilho de e-mail.
+   Esta entrada é o objeto de *contexto* ou mensagem que a sua aplicação lógica envia para a sua função. Quando clica no campo **Request Body,** a lista de conteúdos dinâmicos aparece para que possa selecionar tokens para saídas a partir de passos anteriores. Este exemplo especifica que a carga útil `content` do contexto contém uma propriedade chamada que tem o valor do **Token a** partir do gatilho de e-mail.
 
    ![Exemplo "Request Body" - carga útil de objeto de contexto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -178,7 +178,7 @@ Para chamar as funções azure existentes a partir das suas aplicações lógica
 
 1. Na caixa **Request Body,** forneça a entrada da sua função, que deve ser formatada como um objeto de notação de objetos JavaScript (JSON).
 
-   Esta entrada é o objeto de *contexto* ou mensagem que a sua aplicação lógica envia para a sua função. Quando clica no campo **Request Body,** aparece a lista de conteúdos dinâmicos para que possa selecionar fichas para saídas a partir de passos anteriores. Este exemplo especifica que a carga útil do contexto contém uma propriedade chamada `content` que tem o valor do **Token** a partir do gatilho de e-mail.
+   Esta entrada é o objeto de *contexto* ou mensagem que a sua aplicação lógica envia para a sua função. Quando clica no campo **Request Body,** aparece a lista de conteúdos dinâmicos para que possa selecionar fichas para saídas a partir de passos anteriores. Este exemplo especifica que a carga útil `content` do contexto contém uma propriedade chamada que tem o valor do **Token a** partir do gatilho de e-mail.
 
    ![Exemplo "Request Body" - carga útil de objeto de contexto](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -219,7 +219,7 @@ Para utilizar a identidade gerida da sua aplicação lógica na sua função Azu
 
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua aplicação de funções. Estes passos utilizam o "FabrikamFunctionApp" como aplicação de função de exemplo.
 
-1. No painel de aplicações de funções, selecione **funcionalidades da Plataforma**. Sob **as ferramentas de Desenvolvimento,** selecione **ferramentas avançadas (Kudu)** .
+1. No painel de aplicações de funções, selecione **funcionalidades da Plataforma**. Sob **as ferramentas de Desenvolvimento,** selecione **ferramentas avançadas (Kudu)**.
 
    ![Abrir ferramentas avançadas para Kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
@@ -227,15 +227,15 @@ Para utilizar a identidade gerida da sua aplicação lógica na sua função Azu
 
    ![A partir do menu de consola de depuração, selecione a opção "CMD"](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. Depois da página seguinte aparecer, a **site** partir da lista de pastas, selecione site > **wwwroot** > *sua função*. Estes passos utilizam "FabrikamAzureFunction" como função de exemplo.
+1. Depois da página seguinte aparecer, a partir da lista de pastas, selecione **site** > **wwwroot** > *your-function*. Estes passos utilizam "FabrikamAzureFunction" como função de exemplo.
 
-   ![Selecione "site" > "wwwroot" > a sua função](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
+   ![Selecione "site" > "wwwroot" > sua função](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
-1. Abra o ficheiro `function.json` para edição.
+1. Abra `function.json` o ficheiro para edição.
 
    ![Clique em editar para ficheiro "function.json"](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
-1. No objeto `bindings`, verifique se a propriedade `authLevel` existe. Se o imóvel existir, detete o valor do imóvel para `anonymous`. Caso contrário, adicione esse imóvel e detete o valor.
+1. No `bindings` objeto, verifique se `authLevel` a propriedade existe. Se o imóvel existir, `anonymous`detete o valor do imóvel para . Caso contrário, adicione esse imóvel e detete o valor.
 
    ![Adicione a propriedade "authLevel" e coloque-se em "anónimo"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
@@ -251,11 +251,11 @@ Antes de iniciar esta tarefa, encontre e coloque estes valores de lado para post
 
   * Para gerar este ID de objeto, ative a identidade atribuída ao [sistema da sua aplicação lógica.](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app)
 
-  * Caso contrário, para encontrar este ID de objeto, abra a sua aplicação lógica no Logic App Designer. No menu de aplicações lógicas, em **Definições,** selecione **Identidade** > **Sistema atribuído**.
+  * Caso contrário, para encontrar este ID de objeto, abra a sua aplicação lógica no Logic App Designer. No menu de aplicações lógicas, em **Definições,** selecione **Identity** > **System atribuído**.
 
 * O ID do diretório para o seu inquilino em Azure Ative Directory (Azure AD)
 
-  Para obter a identificação do seu inquilino, pode executar o comando [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) Powershell. Ou, no portal Azure, siga estes passos:
+  Para obter a identificação do seu inquilino, pode dirigir o [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) comando Powershell. Ou, no portal Azure, siga estes passos:
 
   1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua aplicação de funções.
 
@@ -294,7 +294,7 @@ Agora está pronto para configurar a autenticação Azure AD para a sua aplicaç
 
    1. Na propriedade id do **cliente,** insira o ID do objeto para a identidade atribuída pelo sistema da sua aplicação lógica.
 
-   1. Na propriedade **Emitente Url,** insira o URL `https://sts.windows.net/` e apreenda o seu ID de diretório do seu inquilino Azure AD.
+   1. Na propriedade **Emitente Url,** insira o `https://sts.windows.net/` URL e apreenda o seu ID de diretório do seu inquilino Azure AD.
 
       `https://sts.windows.net/<Azure-AD-tenant-directory-ID>`
 

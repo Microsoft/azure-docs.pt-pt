@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281564"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Empurre dados para um índice de pesquisa cognitiva Azure usando a Fábrica de Dados Azure
@@ -51,24 +51,24 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas para um Índice de pesquisa:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado à Pesquisa Cognitiva Azure.
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Sim |
-| URL | URL para o serviço de pesquisa. | Sim |
+| url | URL para o serviço de pesquisa. | Sim |
 | key | Chave de administrador para o serviço de pesquisa. | Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados. A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção TypeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Sim |
-| indexName | Nome do índice de pesquisa. Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
+| nome de índice | Nome do índice de pesquisa. Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -76,9 +76,9 @@ Para obter uma lista completa de secções e imóveis disponíveis para definir 
 
 Para a Atividade de Cópia, quando o lavatório é do tipo **AzureSearchIndexSink,** as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| fusão (padrão)<br/>Carregar| Não |
+| WriteBehavior | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| Fusão (padrão)<br/>Carregar| Não |
 | WriteBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | 1 a 1.000. O valor padrão é de 1000. | Não |
 
 ### <a name="writebehavior-property"></a>WriteBehavior propriedade
@@ -99,14 +99,14 @@ A tabela seguinte especifica se um tipo de dados de Pesquisa Cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva azure | Suportado em Pia de Pesquisa Cognitiva Azure |
 | ---------------------- | ------------------------------ |
-| String | S |
+| Cadeia | S |
 | Int32 | S |
 | Int64 | S |
-| Valor de duplo | S |
+| Double | S |
 | Booleano | S |
 | DataTimeOffset | S |
-| String Array | N |
-| GeographyPoint | N |
+| Array de cordas | N |
+| GeografiaPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Exemplo jSON: Copiar dados do SQL Server no local para o índice de pesquisa cognitiva Azure
 
@@ -255,7 +255,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar o
 }
 ```
 
-Se estiver a copiar dados de uma loja de dados em nuvem para a Pesquisa Cognitiva Azure, `executionLocation` propriedade é necessária. O seguinte corte JSON mostra a mudança necessária no âmbito da Atividade de Cópia `typeProperties` como exemplo. Verifique [os dados de cópia entre as lojas de dados em nuvem](data-factory-data-movement-activities.md#global) para obter valores suportados e mais detalhes.
+Se estiver a copiar dados de uma loja de `executionLocation` dados em nuvem para a Pesquisa Cognitiva Azure, a propriedade é necessária. O seguinte corte JSON mostra a mudança `typeProperties` necessária no âmbito da Atividade de Cópia como exemplo. Verifique [os dados de cópia entre as lojas de dados em nuvem](data-factory-data-movement-activities.md#global) para obter valores suportados e mais detalhes.
 
 ```JSON
 "typeProperties": {
@@ -271,7 +271,7 @@ Se estiver a copiar dados de uma loja de dados em nuvem para a Pesquisa Cognitiv
 
 
 ## <a name="copy-from-a-cloud-source"></a>Cópia de uma fonte de nuvem
-Se estiver a copiar dados de uma loja de dados em nuvem para a Pesquisa Cognitiva Azure, `executionLocation` propriedade é necessária. O seguinte corte JSON mostra a mudança necessária no âmbito da Atividade de Cópia `typeProperties` como exemplo. Verifique [os dados de cópia entre as lojas de dados em nuvem](data-factory-data-movement-activities.md#global) para obter valores suportados e mais detalhes.
+Se estiver a copiar dados de uma loja de `executionLocation` dados em nuvem para a Pesquisa Cognitiva Azure, a propriedade é necessária. O seguinte corte JSON mostra a mudança `typeProperties` necessária no âmbito da Atividade de Cópia como exemplo. Verifique [os dados de cópia entre as lojas de dados em nuvem](data-factory-data-movement-activities.md#global) para obter valores suportados e mais detalhes.
 
 ```JSON
 "typeProperties": {
@@ -290,7 +290,7 @@ Também pode mapear colunas desde o conjunto de dados de origem até colunas a p
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md) da Atividade de Cópia para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) e várias formas de o otimizar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 * [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instruções passo a passo para criar um pipeline com uma Atividade de Cópia.

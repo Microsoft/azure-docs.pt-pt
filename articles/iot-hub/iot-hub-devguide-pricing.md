@@ -1,6 +1,6 @@
 ---
-title: Compreender os preços do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do desenvolvedor – informações sobre como medição e funcionam os preços com o IoT Hub, incluindo exemplos funcionavam.
+title: Compreender os preços do Hub Azure IoT [ Microsoft Docs
+description: Guia de desenvolvedores - informações sobre como a medição e os preços funcionam com o IoT Hub, incluindo exemplos trabalhados.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -9,59 +9,59 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271229"
 ---
-# <a name="azure-iot-hub-pricing-information"></a>Informações de preços do Hub de IoT do Azure
+# <a name="azure-iot-hub-pricing-information"></a>Informação sobre preços do Hub Azure IoT
 
-Os preços do [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) fornecem as informações gerais sobre diferentes SKUs e preços para ioT Hub. Este artigo contém detalhes adicionais sobre como as diversas funcionalidades do IoT Hub são medidas como mensagens pelo IoT Hub.
+Os preços do [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) fornecem as informações gerais sobre diferentes SKUs e preços para ioT Hub. Este artigo contém detalhes adicionais sobre como as várias funcionalidades do IoT Hub são medidos como mensagens pelo IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="charges-per-operation"></a>Cobrança por operação
+## <a name="charges-per-operation"></a>Encargos por operação
 
-| Operação | Informações de faturação | 
+| Operação | Informação de faturação | 
 | --------- | ------------------- |
-| Operações de registo de identidade <br/> (criar, obter, listar, atualizar e eliminar) | Não será cobrado. |
-| Mensagens do dispositivo para a cloud | Mensagens enviadas com êxito são cobradas em blocos de 4 KB na entrada para o IoT Hub. Por exemplo, uma mensagem de 6 KB é cobrada 2 mensagens. |
-| Mensagens da cloud para dispositivo | Mensagens enviadas com êxito são cobradas em blocos de 4 KB, por exemplo uma mensagem de 6 KB é cobrada 2 mensagens. |
-| Carrega o ficheiro | Transferência de ficheiros para o armazenamento do Azure não tem tráfego limitada pelo IoT Hub. Mensagens de início e conclusão de transferência do ficheiro são cobradas conforme messaged medido em incrementos de 4 KB. Por exemplo, a transferência de um ficheiro de 10 MB é cobrada como duas mensagens para além do custo de Armazenamento Azure. |
-| Métodos diretos | Os pedidos de métodos bem sucedidos são cobrados em pedaços de 4 KB, e as respostas são cobradas em pedaços de 4 KB como mensagens adicionais. Pedidos para os dispositivos desligados são cobrados conforme as mensagens em blocos de 4 KB. Por exemplo, um método com um corpo de 4 KB que resulta numa resposta sem corpo do dispositivo é carregado como duas mensagens. Um método com um corpo de 6 KB resulta numa resposta de 1 KB do dispositivo é cobrado como duas mensagens para o pedido e ainda outra mensagem para a resposta. |
-| Leituras de dispositivo e o módulo duplo | Duplo lê a partir do dispositivo ou do módulo e para a solução de back-end é cobrada conforme as mensagens em blocos de 512 bytes. Por exemplo, a leitura de um gémeo 6 KB é cobrado como 12 mensagens. |
-| Atualizações de dispositivo e o módulo duplo (etiquetas e propriedades) | Atualizações de Twin do dispositivo ou módulo e para o back-end de solução são cobradas conforme as mensagens em blocos de 512 bytes. Por exemplo, a leitura de um gémeo 6 KB é cobrado como 12 mensagens. |
-| Consultas de gémeos de dispositivo e módulo | Consultas são cobradas como mensagens, dependendo do tamanho do resultado em blocos de 512 bytes. |
-| Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | Não será cobrado. |
-| Operações das tarefas por dispositivo | Operações de tarefas (como atualizações de gémeos e métodos) são cobradas como normal. Por exemplo, uma tarefa, resultando em chamadas de método de 1000 com solicitações de 1 KB e respostas de corpo vazio é cobrada 1000 mensagens. |
-| Mensagens Keep-alive | Ao utilizar protocolos AMQP ou MQTT, mensagens trocadas para estabelecer a ligação e as mensagens trocadas na negociação não são cobradas. |
+| Operações de registo de identidade <br/> (criar, recuperar, listar, atualizar, eliminar) | Não carregado. |
+| Mensagens do dispositivo para a cloud | Mensagens enviadas com sucesso são carregadas em pedaços de 4 KB sobre entrada no IoT Hub. Por exemplo, uma mensagem de 6 KB é carregada 2 mensagens. |
+| Mensagens cloud-to-device | As mensagens enviadas com sucesso são carregadas em pedaços de 4 KB, por exemplo, uma mensagem de 6 KB é carregada 2 mensagens. |
+| Uploads de ficheiros | A transferência de ficheiros para o Armazenamento Azure não é mediante de IoT Hub. As mensagens de iniciação e conclusão da transferência de ficheiros são carregadas como mensagens medição em incrementos de 4 KB. Por exemplo, a transferência de um ficheiro de 10 MB é cobrada como duas mensagens para além do custo de Armazenamento Azure. |
+| Métodos diretos | Os pedidos de métodos bem sucedidos são cobrados em pedaços de 4 KB, e as respostas são cobradas em pedaços de 4 KB como mensagens adicionais. Os pedidos para dispositivos desligados são carregados como mensagens em pedaços de 4 KB. Por exemplo, um método com um corpo de 4 KB que resulta numa resposta sem corpo do dispositivo é carregado como duas mensagens. Um método com um corpo de 6 KB que resulta numa resposta de 1 KB do dispositivo é carregado como duas mensagens para o pedido mais outra mensagem para a resposta. |
+| Leituras gémeas de dispositivo e módulo | As leituras gémeas do dispositivo ou do módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 512 bytes. Por exemplo, ler um gémeo de 6 KB é carregado como 12 mensagens. |
+| Atualizações gémeas de dispositivos e módulos (tags e propriedades) | As atualizações gémeas do dispositivo ou do módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 512 bytes. Por exemplo, ler um gémeo de 6 KB é carregado como 12 mensagens. |
+| Consultas gémeas de dispositivo e módulo | As consultas são cobradas como mensagens dependendo do tamanho do resultado em pedaços de 512 bytes. |
+| Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | Não carregado. |
+| Operações de emprego por dispositivo | As operações de emprego (tais como atualizações duplas e métodos) são cobradas normalmente. Por exemplo, é cobrado 1000 pedidos de métodos com pedidos de 1 KB e respostas de corpo vazio. |
+| Mensagens de manter vivas | Ao utilizar protocolos AMQP ou MQTT, as mensagens trocadas para estabelecer a ligação e as mensagens trocadas na negociação não são cobradas. |
 
 > [!NOTE]
-> Todas as dimensões são calculadas considerando o tamanho de payload em bytes (delimitação de quadros do protocolo é ignorada). Para mensagens, que tem propriedades e o corpo, o tamanho é calculado de forma independente de protocolo. Para mais informações, consulte o formato de [mensagem IoT Hub](iot-hub-devguide-messages-construct.md).
+> Todos os tamanhos são calculados tendo em conta o tamanho da carga útil em bytes (o enquadramento do protocolo é ignorado). Para mensagens, que têm propriedades e corpo, o tamanho é calculado de forma protocolar-agnóstica. Para mais informações, consulte o formato de [mensagem IoT Hub](iot-hub-devguide-messages-construct.md).
 
 ## <a name="example-1"></a>Exemplo #1
 
-Um dispositivo envia uma mensagem de dispositivo para a cloud de 1 KB por minuto para o IoT Hub, que, em seguida, é lido pelo Azure Stream Analytics. A extremidade traseira da solução invoca um método (com uma carga útil de 512 bytes) no dispositivo a cada 10 minutos para desencadear uma ação específica. O dispositivo responde ao método com um resultado de 200 bytes.
+Um dispositivo envia uma mensagem de 1 KB para cloud por minuto para o IoT Hub, que é depois lido pelo Azure Stream Analytics. A extremidade traseira da solução invoca um método (com uma carga útil de 512 bytes) no dispositivo a cada 10 minutos para desencadear uma ação específica. O dispositivo responde ao método com um resultado de 200 bytes.
 
-O dispositivo consuma:
+O dispositivo consome:
 
-* Uma mensagem * 60 minutos * 24 horas = 1440 de mensagens por dia para as mensagens do dispositivo para a cloud.
-* Dois do pedido e resposta * 6 vezes por hora * 24 horas = 288 mensagens para os métodos.
+* Uma mensagem * 60 minutos * 24 horas = 1440 mensagens por dia para as mensagens dispositivo-a-nuvem.
+* Dois pedidos mais resposta * 6 vezes por hora * 24 horas = 288 mensagens para os métodos.
 
-Este cálculo dá um total de mensagens de 1728 por dia.
+Este cálculo dá um total de 1728 mensagens por dia.
 
 ## <a name="example-2"></a>Exemplo #2
 
-Um dispositivo envia uma mensagem de dispositivo para a cloud de 100 KB a cada hora. Ele também atualiza o dispositivo duplo com payloads de 1 KB a cada quatro horas. A solução de back-end, uma vez por dia, lê o twin do dispositivo de 14 KB e atualiza-o com payloads de 512 bytes para alterar as configurações.
+Um dispositivo envia uma mensagem de 100 KB para nuvem a cada hora. Também atualiza o seu dispositivo twin com cargas de 1 KB a cada quatro horas. A solução volta, uma vez por dia, lê o dispositivo 14-KB twin e atualiza-o com cargas de 512 bytes para alterar configurações.
 
-O dispositivo consuma:
+O dispositivo consome:
 
-* 25 mensagens de (100 KB/4 KB) * 24 horas para mensagens de dispositivo para a cloud.
-* Duas mensagens (1 KB/0,5 KB) * seis vezes por dia para atualizações de dispositivo duplo.
+* 25 (100 KB / 4 KB) mensagens * 24 horas para mensagens dispositivo-a-nuvem.
+* Duas mensagens (1 KB / 0,5 KB) * seis vezes por dia para atualizações gémeas do dispositivo.
 
 Este cálculo dá um total de 612 mensagens por dia.
 
-A solução de back-end consome 28 mensagens (14 KB/0,5 KB) para ler o dispositivo duplo, além de uma mensagem para atualizá-lo, para um total de 29 mensagens.
+A solução traseira consome 28 mensagens (14 KB / 0,5 KB) para ler o dispositivo twin, mais uma mensagem para atualizá-lo, num total de 29 mensagens.
 
-No total, o dispositivo e o back-end de solução consumam 641 mensagens por dia.
+No total, o dispositivo e a solução traseira consomem 641 mensagens por dia.

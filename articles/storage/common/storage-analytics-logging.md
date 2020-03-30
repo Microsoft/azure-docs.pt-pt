@@ -1,5 +1,5 @@
 ---
-title: Exploração madeireira Azure Storage Analytics
+title: Registo da Análise de Armazenamento do Azure
 description: Saiba como registar detalhes sobre pedidos feitos contra o Armazenamento Azure.
 author: normesta
 ms.service: storage
@@ -9,13 +9,13 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268421"
 ---
-# <a name="azure-storage-analytics-logging"></a>Exploração analítica de armazenamento azure
+# <a name="azure-storage-analytics-logging"></a>Registo da análise de Armazenamento do Azure
 
 A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados com o melhor esforço.
 
@@ -31,11 +31,11 @@ A Análise de Armazenamento regista informações detalhadas sobre os pedidos co
 ## <a name="requests-logged-in-logging"></a>Pedidos registados em exploração madeireira
 ### <a name="logging-authenticated-requests"></a>Pedidos autenticados
 
- Registam-se os seguintes tipos de pedidos autenticados:
+ São registados os seguintes tipos de pedidos autenticados:
 
-- Pedidos bem-sucedidos
-- Pedidos falhados, incluindo timeout, estrangulamento, rede, autorização e outros erros
-- Pedidos que utilizem uma Assinatura de Acesso Partilhado (SAS) ou OAuth, incluindo pedidos falhados e bem sucedidos
+- Pedidos com êxito
+- Pedidos falhados, incluindo tempo limite, limitação, rede, autorização e outros erros
+- Pedidos que utilizam uma Assinatura de Acesso Partilhado (SAS) ou OAuth, incluindo pedidos falhados e com êxito
 - Pedidos de dados de análise
 
   Os pedidos feitos pela própria Storage Analytics, tais como criação de registo ou eliminação, não são registados. Uma lista completa dos dados registados está documentada nos tópicos de [Operações e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) de Estado de Armazenamento Analytics e de Formato de [Registo de Armazenamento.](/rest/api/storageservices/storage-analytics-log-format)
@@ -44,19 +44,19 @@ A Análise de Armazenamento regista informações detalhadas sobre os pedidos co
 
  Registam-se os seguintes tipos de pedidos anónimos:
 
-- Pedidos bem-sucedidos
-- Erros do servidor
+- Pedidos com êxito
+- Erros de servidor
 - Erros de timeout tanto para clientes como para servidor
-- Pedidos de GET falhados com código de erro 304 (não modificado)
+- Pedidos GET falhados com código de erro 304 (Não Modificado)
 
   Todos os outros pedidos anónimos falhados não estão registados. Uma lista completa dos dados registados está documentada nos tópicos de [Operações e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) de Estado de Armazenamento Analytics e de Formato de [Registo de Armazenamento.](/rest/api/storageservices/storage-analytics-log-format)
 
 ## <a name="how-logs-are-stored"></a>Como os registos são armazenados
 
-Todos os registos são armazenados em blocos num recipiente chamado `$logs`, que é automaticamente criado quando o Storage Analytics está ativado para uma conta de armazenamento. O recipiente `$logs` está localizado no espaço de nome blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este recipiente não pode ser eliminado uma vez que o Storage Analytics tenha sido ativado, embora o seu conteúdo possa ser eliminado. Se utilizar a sua ferramenta de navegação de armazenamento para navegar diretamente para o contentor, verá todas as bolhas que contêm os seus dados de registo.
+Todos os registos são armazenados em blocos num recipiente chamado `$logs`, que é automaticamente criado quando o Storage Analytics está ativado para uma conta de armazenamento. O `$logs` recipiente encontra-se no espaço de nome blob `http://<accountname>.blob.core.windows.net/$logs`da conta de armazenamento, por exemplo: . Este recipiente não pode ser eliminado uma vez que o Storage Analytics tenha sido ativado, embora o seu conteúdo possa ser eliminado. Se utilizar a sua ferramenta de navegação de armazenamento para navegar diretamente para o contentor, verá todas as bolhas que contêm os seus dados de registo.
 
 > [!NOTE]
->  O recipiente `$logs` não é apresentado quando é executada uma operação de listagem de contentores, como a operação 'List Containers'. Deve ser acedido diretamente. Por exemplo, pode utilizar a operação List Blobs para aceder às bolhas no recipiente `$logs`.
+>  O `$logs` recipiente não é apresentado quando é executada uma operação de listagem de contentores, como a operação 'List Containers'. Deve ser acedido diretamente. Por exemplo, pode utilizar a operação List Blobs para `$logs` aceder às bolhas no recipiente.
 
 À medida que os pedidos são registados, o Storage Analytics carregará os resultados intermédios como blocos. Periodicamente, o Storage Analytics irá comprometer estes blocos e disponibilizá-los como uma bolha. Pode levar até uma hora para que os dados de registo apareçam nas bolhas **do** $logs contentor, porque a frequência com que o serviço de armazenamento descarrega os escritores de registo. Podem existir registos duplicados para os registos criados na mesma hora. Pode determinar se um registo é duplicado verificando o número **de RequestId** e **Operação.**
 
@@ -90,13 +90,13 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob`, `table`ou `queue`|
+|`<service-name>`|O nome do serviço de armazenamento. Por `blob`exemplo: `table`, ou`queue`|
 |`YYYY`|O ano de quatro dígitos para o tronco. Por exemplo: `2011`|
 |`MM`|O mês de dois dígitos para o tronco. Por exemplo: `07`|
 |`DD`|O dia de dois dígitos para o tronco. Por exemplo: `31`|
 |`hh`|A hora de dois dígitos que indica a hora de partida para os registos, em formato UTC 24 horas. Por exemplo: `18`|
-|`mm`|O número de dois dígitos que indica o minuto de partida para os registos. **Nota:**  Este valor não é suportado na versão atual do Storage Analytics, e o seu valor será sempre `00`.|
-|`<counter>`|Um contador de base zero com seis dígitos que indica o número de bolhas de log geradas para o serviço de armazenamento num período de tempo de hora. Este balcão começa em `000000`. Por exemplo: `000001`|
+|`mm`|O número de dois dígitos que indica o minuto de partida para os registos. **Nota:**  Este valor não é suportado na versão atual do Storage `00`Analytics, e o seu valor será sempre .|
+|`<counter>`|Um contador de base zero com seis dígitos que indica o número de bolhas de log geradas para o serviço de armazenamento num período de tempo de hora. Este balcão `000000`começa a. Por exemplo: `000001`|
 
  Segue-se um nome completo de registo de amostras que combina os exemplos acima:
 
@@ -106,7 +106,7 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Quando um pedido de armazenamento é registado, o nome de registo resultante correlaciona-se com a hora em que a operação solicitada foi concluída. Por exemplo, se um pedido GetBlob fosse concluído às 18:30 do dia 7/31/2011, o registo seria escrito com o seguinte prefixo: `blob/2011/07/31/1800/`
+ Quando um pedido de armazenamento é registado, o nome de registo resultante correlaciona-se com a hora em que a operação solicitada foi concluída. Por exemplo, se um pedido GetBlob fosse concluído às 18:30 h do dia 7/31/2011, o registo seria escrito com o seguinte prefixo:`blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Registar metadados
 
@@ -114,9 +114,9 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`LogType`|Descreve se o registo contém informações relativas a leitura, escrita ou exclusão de operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3: `read,write,delete`|
-|`StartTime`|O primeiro tempo de uma entrada no diário, sob a forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:21:46Z`|
-|`EndTime`|A última hora de uma entrada no registo, sob a forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:22:09Z`|
+|`LogType`|Descreve se o registo contém informações relativas a leitura, escrita ou exclusão de operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1:`write`<br /><br /> Exemplo 2:`read,write`<br /><br /> Exemplo 3:`read,write,delete`|
+|`StartTime`|O mais cedo tempo de uma entrada no `YYYY-MM-DDThh:mm:ssZ`diário, na forma de . Por exemplo: `2011-07-31T18:21:46Z`|
+|`EndTime`|A última hora de uma entrada no `YYYY-MM-DDThh:mm:ssZ`registo, na forma de . Por exemplo: `2011-07-31T18:22:09Z`|
 |`LogVersion`|A versão do formato de registo.|
 
  A lista seguinte apresenta metadados completos da amostra utilizando os exemplos acima referidos:
@@ -160,7 +160,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Além de utilizar o portal Azure ou os cmdlets Azure PowerShell para controlar o armazenamento de madeira, também pode utilizar uma das APIs de Armazenamento Azure. Por exemplo, se estiver a usar um idioma .NET pode utilizar a Biblioteca do Cliente de Armazenamento.  
 
- As classes **CloudBlobClient,** **CloudQueueClient**e **CloudTableClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar o Registo de Armazenamento. Por exemplo, C# o seguinte corte mostra como alterar o que está registado e o período de retenção para a exploração de filas:  
+ As classes **CloudBlobClient,** **CloudQueueClient**e **CloudTableClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar o Registo de Armazenamento. Por exemplo, o seguinte corte C# mostra como alterar o que está registado e o período de retenção para a exploração de filas:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -202,7 +202,7 @@ Para saber mais sobre como descarregar ficheiros específicos, consulte [O Downl
 
 Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registo são capazes de analisar, incluindo o Microsoft Message Analyzer (para mais informações, consulte o guia [Monitoring, Diagnosticng e Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o [Formato](/rest/api/storageservices/storage-analytics-log-format) de Registo de Armazenamento Analytics e [o Armazenamento Analytics Operações registadas e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)de Estado .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Formato de registo de armazenamento analytics](/rest/api/storageservices/storage-analytics-log-format)
 * [Armazenamento Analytics Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

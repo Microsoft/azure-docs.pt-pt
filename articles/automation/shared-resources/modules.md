@@ -9,10 +9,10 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278340"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos em Automação Azure
@@ -24,7 +24,7 @@ A Azure Automation fornece a capacidade de importar módulos PowerShell para a s
 Existem várias formas de importar um módulo para a sua Conta de Automação. As seguintes secções mostram as diferentes formas de importar um módulo.
 
 > [!NOTE]
-> O caminho máximo de um ficheiro num módulo a utilizar na Automatização Azure é de 140 caracteres. Qualquer caminho com mais de 140 caracteres não poderá ser importado para a sessão powerShell com `Import-Module`.
+> O caminho máximo de um ficheiro num módulo a utilizar na Automatização Azure é de 140 caracteres. Qualquer caminho com mais de 140 caracteres não poderá ser `Import-Module`importado para a sessão powerShell com .
 
 ### <a name="powershell"></a>PowerShell
 
@@ -50,7 +50,7 @@ No portal Azure, navegue para a sua Conta de Automação e selecione **Módulos*
 
 Os módulos da galeria PowerShell podem ser importados diretamente da [PowerShell Gallery](https://www.powershellgallery.com) ou da sua Conta de Automação.
 
-Para importar um módulo da Galeria PowerShell, vá a https://www.powershellgallery.com e procure o módulo que pretende importar. Clique em **Implementar para Automatização Azure** no separador **Automação Azure** em opções de **instalação**. Esta ação abre o portal Azure. Na página **Import,** selecione a sua Conta de Automação e clique **EM OK**.
+Para importar um módulo da Galeria https://www.powershellgallery.com PowerShell, vá procurar o módulo que pretende importar. Clique em **Implementar para Automatização Azure** no separador **Automação Azure** em opções de **instalação**. Esta ação abre o portal Azure. Na página **Import,** selecione a sua Conta de Automação e clique **EM OK**.
 
 ![Módulo de importação da PowerShell Gallery](../media/modules/powershell-gallery.png)
 
@@ -76,7 +76,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 ## <a name="internal-cmdlets"></a>Cmdlets internos
 
-Segue-se uma listagem de cmdlets no módulo de `Orchestrator.AssetManagement.Cmdlets` interna que é importado em todas as Conta sugóticas. Estes cmdlets são acessíveis nos seus livros de execução e configurações DSC e permitem interagir com os seus ativos dentro da sua Conta de Automação. Além disso, os cmdlets internos permitem-lhe recuperar segredos de valores **variáveis** encriptados, **credenciais**e campos de **Ligação** encriptados. Os cmdlets Azure PowerShell não são capazes de recuperar estes segredos. Estes cmdlets não requerem que se ligue implicitamente ao Azure ao utilizá-los, como por exemplo, utilizar uma Conta Run As para autenticar o Azure.
+Segue-se uma listagem de cmdlets no módulo interno `Orchestrator.AssetManagement.Cmdlets` que é importado em todas as Conta sugóticas. Estes cmdlets são acessíveis nos seus livros de execução e configurações DSC e permitem interagir com os seus ativos dentro da sua Conta de Automação. Além disso, os cmdlets internos permitem-lhe recuperar segredos de valores **variáveis** encriptados, **credenciais**e campos de **Ligação** encriptados. Os cmdlets Azure PowerShell não são capazes de recuperar estes segredos. Estes cmdlets não requerem que se ligue implicitamente ao Azure ao utilizá-los, como por exemplo, utilizar uma Conta Run As para autenticar o Azure.
 
 >[!NOTE]
 >Estes cmdlets internos estão disponíveis num Windows Hybrid Runbook Worker, não estão disponíveis num Trabalhador de Runbook Híbrido Linux. Utilize os módulos [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) ou [Az correspondentes](../az-modules.md) para livros de execução que funcionam diretamente no computador ou contra recursos no seu ambiente. 
@@ -98,7 +98,7 @@ Pode fornecer um tipo de [ligação](../automation-connections.md) personalizado
 
 ![Utilize uma ligação personalizada no portal Azure](../media/modules/connection-create-new.png)
 
-Para adicionar um tipo de ligação De automatização Azure, o seu módulo deve conter um ficheiro com o nome `<ModuleName>-Automation.json` que especifica as propriedades do tipo de ligação. O ficheiro json é colocado dentro da pasta do módulo do seu ficheiro .zip comprimido. Este ficheiro contém os campos de uma ligação que é necessária para ligar ao sistema ou servir o módulo que o módulo representa. A configuração acaba por criar um tipo de ligação na Automação Azure. Utilizando este ficheiro pode definir os nomes de campo, tipos e se os campos devem ser encriptados ou opcionais, para o tipo de ligação do módulo. O exemplo seguinte é um modelo no formato de ficheiro json que define um nome de utilizador e propriedade de senha:
+Para adicionar um tipo de ligação de automação `<ModuleName>-Automation.json` Azure, o seu módulo deve conter um ficheiro com o nome que especifica as propriedades do tipo de ligação. O ficheiro json é colocado dentro da pasta do módulo do seu ficheiro .zip comprimido. Este ficheiro contém os campos de uma ligação que é necessária para ligar ao sistema ou servir o módulo que o módulo representa. A configuração acaba por criar um tipo de ligação na Automação Azure. Utilizando este ficheiro pode definir os nomes de campo, tipos e se os campos devem ser encriptados ou opcionais, para o tipo de ligação do módulo. O exemplo seguinte é um modelo no formato de ficheiro json que define um nome de utilizador e propriedade de senha:
 
 ```json
 {
@@ -184,7 +184,7 @@ myModule
 
 * Se o módulo se ligar a um serviço externo, deve conter um tipo de [ligação](#add-a-connection-type-to-your-module). Cada cmdlet no módulo deve ser capaz de considerar um objeto de ligação (uma instância desse tipo de ligação) como um parâmetro. Os utilizadores mapeiam parâmetros do ativo de ligação aos parâmetros correspondentes do cmdlet cada vez que chamam cmdlet. Com base no exemplo do livro de executantes acima, utiliza um ativo de conexão Contoso chamado ContosoConnection para aceder aos recursos contoso e devolver dados do serviço externo.
 
-  No exemplo seguinte, os campos são mapeados para as propriedades userName e Password de um objeto `PSCredential` e depois passados para o cmdlet.
+  No exemplo seguinte, os campos são mapeados para `PSCredential` as propriedades userName e Password de um objeto e depois passados para o cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -203,11 +203,11 @@ myModule
   }
   ```
 
-  Pode ativar comportamentos como o exemplo anterior para os seus cmdlets, permitindo-lhes aceitar um objeto de ligação diretamente como parâmetro, em vez de apenas campos de ligação para parâmetros. Normalmente, pretende um parâmetro definido para cada um, para que um utilizador que não utilize a Automatização Azure possa ligar para os seus cmdlets sem construir um hashtable para agir como objeto de ligação. O parâmetro definido `UserAccount`, é utilizado para passar as propriedades do campo de ligação. `ConnectionObject` permite-lhe passar a ligação diretamente.
+  Pode ativar comportamentos como o exemplo anterior para os seus cmdlets, permitindo-lhes aceitar um objeto de ligação diretamente como parâmetro, em vez de apenas campos de ligação para parâmetros. Normalmente, pretende um parâmetro definido para cada um, para que um utilizador que não utilize a Automatização Azure possa ligar para os seus cmdlets sem construir um hashtable para agir como objeto de ligação. O conjunto `UserAccount`de parâmetros é utilizado para passar as propriedades do campo de ligação. `ConnectionObject`Permite-lhe passar a ligação diretamente.
 
 * Defina o tipo de saída para todos os cmdlets do módulo. Definir um tipo de saída para um cmdlet permite que o IntelliSense, no momento da conceção, o ajude a determinar as propriedades de saída do cmdlet para uma utilização durante a criação. É especialmente útil durante a autoria gráfica do livro de execução automation, onde o conhecimento do tempo de design é fundamental para uma experiência fácil do utilizador com o seu módulo.
 
-Adicione `[OutputType([<MyOutputType>])]` onde o MyOutputType é um tipo válido. Para saber mais sobre o OutputType, consulte [sobre funções OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). O seguinte código é um exemplo de adição de `OutputType` a um cmdlet:
+Adicione `[OutputType([<MyOutputType>])]` onde o MyOutputType é um tipo válido. Para saber mais sobre o OutputType, consulte [sobre funções OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). O seguinte código é `OutputType` um exemplo de adição a um cmdlet:
 
   ```powershell
   function Get-ContosoUser {
@@ -246,7 +246,7 @@ Adicione `[OutputType([<MyOutputType>])]` onde o MyOutputType é um tipo válido
 
 * O módulo deve estar totalmente contido num pacote xcopy-able. Os módulos Azure Automation são distribuídos nas caixas de areia da Automação quando os livros de execução precisam de ser executados. Os módulos precisam de funcionar independentemente do hospedeiro em que estão a funcionar. Você deve ser capaz de fechar e mover um pacote de módulos e fazê-lo funcionar normalmente quando importado para o ambiente PowerShell de outro anfitrião. Para que isso aconteça, o módulo não deve depender de quaisquer ficheiros fora da pasta do módulo. Esta pasta é a pasta que fica fechada quando o módulo é importado para a Automação Azure. O módulo também não deve depender de quaisquer configurações únicas de registo num hospedeiro, como as configurações definidas quando um produto é instalado. Todos os ficheiros do módulo devem ter um caminho inferior a 140 caracteres. Quaisquer caminhos com mais de 140 caracteres causarão problemas importando o seu livro de corridas. Se esta melhor prática não for seguida, o módulo não será utilizável na Automação Azure.  
 
-* Se fizer referência aos [módulos Azure Powershell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) no seu módulo, certifique-se de que também não está a fazer referência `AzureRM`. O módulo `Az` não pode ser utilizado em conjunto com os módulos `AzureRM`. `Az` é suportado em livros de execução, mas não são importados por defeito. Para conhecer os módulos e considerações `Az` a ter em conta, consulte o suporte do [módulo Az na Automação Azure.](../az-modules.md)
+* Se fizer referência aos [módulos Azure Powershell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) no `AzureRM`seu módulo, certifique-se de que também não está a fazer referências . O `Az` módulo não pode ser utilizado `AzureRM` em conjunto com os módulos. `Az`é suportado em livros de execução, mas não são importados por defeito. Para conhecer `Az` os módulos e considerações a ter em conta, consulte o suporte do [módulo Az na Automação Azure.](../az-modules.md)
 
 ## <a name="default-modules"></a>Módulos padrão
 
@@ -254,7 +254,7 @@ A tabela seguinte lista os módulos importados por padrão quando é criada uma 
 
 |Nome do módulo|Versão|
 |---|---|
-| AuditPolicyDsc | 1.1.0.0 |
+| AuditoriaPolíticaDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
 | AzureRM.Automation | 1.0.3 |
@@ -264,17 +264,17 @@ A tabela seguinte lista os módulos importados por padrão quando é criada uma 
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0.2 |
+| GPRegistryPolicyParser | 0,2 |
 | Microsoft.PowerShell.Core | 0 |
 | Microsoft.PowerShell.Diagnostics |  |
 | Microsoft.PowerShell.Management |  |
 | Microsoft.PowerShell.Security |  |
 | Microsoft.PowerShell.Utility |  |
-| Microsoft.WSMan.Management |  |
+| Microsoft.WSman.Management |  |
 | Orchestrator.AssetManagement.Cmdlets | 1 |
-| PSDscResources | 2.9.0.0 |
-| SecurityPolicyDsc | 2.1.0.0 |
-| StateConfigCompositeResources | 1 |
+| PSDscRecursos | 2.9.0.0 |
+| Política de SegurançaDsc | 2.1.0.0 |
+| Recursos Compostos estatais | 1 |
 | xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |

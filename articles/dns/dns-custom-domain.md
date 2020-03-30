@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266237"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer configurações de domínio personalizadas para um serviço Azure
 
-O Azure DNS fornece DNS para um domínio personalizado para qualquer um dos seus recursos Azure que suportedomínios personalizados ou que tenham um nome de domínio totalmente qualificado (FQDN). Um exemplo é que tem uma aplicação web Azure e quer que os seus utilizadores acedam a ela usando contoso.com, ou www\.contoso.com como um FQDN. Este artigo acompanha-o através da configuração do seu serviço Azure com o Azure DNS para utilizar domínios personalizados.
+O Azure DNS fornece DNS para um domínio personalizado para qualquer um dos seus recursos Azure que suportedomínios personalizados ou que tenham um nome de domínio totalmente qualificado (FQDN). Um exemplo é que tem uma aplicação web Azure e quer que\.os seus utilizadores acedam a ela usando contoso.com, ou www contoso.com como um FQDN. Este artigo acompanha-o através da configuração do seu serviço Azure com o Azure DNS para utilizar domínios personalizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 |Nome     | myfunctionapp        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está usando um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
-|Unidade TTL     | Horas        | As horas são usadas como a medição do tempo         |
+|Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | O nome DNS para o que está a criar, neste exemplo, é o nome dNS adatumfunction.azurewebsites.net fornecido por padrão à aplicação de funções.        |
 
 Navegue de volta para a sua aplicação de função, clique em **funcionalidades da Plataforma**, e em **Networking** clique em **domínios personalizados**e, em seguida, em nomes de **anfitriões personalizados** clique **+ Adicione nome de anfitrião**.
@@ -56,7 +56,7 @@ Na lâmina **Add hostname,** introduza o registo CNAME no campo de texto do nome
 
 Para configurar um domínio personalizado para serviços que utilizam um recurso de endereço IP público, como Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs e, Classic VMs, é utilizado um registo A.
 
-Navegue para **networking** > **endereço IP público,** selecione o recurso IP público e clique na **configuração**. Repare no endereço IP mostrado.
+Navegue para o**endereço IP público**em **rede,** > selecione o recurso IP público e clique na **configuração**. Repare no endereço IP mostrado.
 
 ![lâmina ip pública](./media/dns-custom-domain/publicip.png)
 
@@ -68,12 +68,12 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 |Nome     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | A        | Utilize um registo A, uma vez que o recurso é um endereço IP.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
-|Unidade TTL     | Horas        | As horas são usadas como a medição do tempo         |
+|Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Endereço IP     | `<your ip address>`       | O endereço IP público.|
 
 ![criar um registo A](./media/dns-custom-domain/arecord.png)
 
-Uma vez criado o disco A, execute `nslookup` para validar as resoluções do registo.
+Uma vez criado o `nslookup` registo A, corra para validar as resoluções do registo.
 
 ![público ip dns olharup](./media/dns-custom-domain/publicipnslookup.png)
 
@@ -95,7 +95,7 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 |Nome     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está usando um pseudónimo. Se o recurso usasse um endereço IP, seria utilizado um registo A.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
-|Unidade TTL     | Horas        | As horas são usadas como a medição do tempo         |
+|Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | webserver.azurewebsites.net        | O nome DNS para o que está a criar, neste exemplo, é o nome dNS webserver.azurewebsites.net fornecido por padrão para a aplicação web.        |
 
 
@@ -119,7 +119,7 @@ Se precisar de adquirir um domínio personalizado, visite Compre um nome de [dom
 
 Os seguintes passos levam-no através da configuração de um registo CNAME para uma conta de armazenamento blob utilizando o método de verificação. Este método garante que não há tempo de inatividade.
 
-Navegue para **Guardar** > Contas de **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. Note o FQDN sob o passo 2, este valor é usado para criar o primeiro disco CNAME
+Navegue para Contas de > **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. **Storage** Note o FQDN sob o passo 2, este valor é usado para criar o primeiro disco CNAME
 
 ![domínio personalizado de armazenamento blob](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -128,17 +128,17 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Nome     | asverify.mystorageaccount        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | asverificar.mystorageaccount        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está usando um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
-|Unidade TTL     | Horas        | As horas são usadas como a medição do tempo         |
+|Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | O nome DNS para o que está a criar, neste exemplo, é o nome asverify.adatumfunctiona9ed.blob.core.windows.net DNS fornecido por padrão à conta de armazenamento.        |
 
-Navegue de volta para a sua conta de armazenamento clicando em Contas de **Armazenamento** > **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. Digite o pseudónimo que criou sem o prefixo assionna na caixa de texto, verifique **Use a validação cname indireta e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona DNS e crie um registo CNAME sem o prefixo de assuma.  Depois disso, é seguro eliminar o registo CNAME com o prefixo de cdncheck.
+Navegue de volta para a sua conta de armazenamento clicando em Contas de > **Armazenamento,** selecione a sua conta de armazenamento e clique no **domínio Personalizado**. **Storage** Digite o pseudónimo que criou sem o prefixo assionna na caixa de texto, verifique **Use a validação cname indireta e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona DNS e crie um registo CNAME sem o prefixo de assuma.  Depois disso, é seguro eliminar o registo CNAME com o prefixo de cdncheck.
 
 ![domínio personalizado de armazenamento blob](./media/dns-custom-domain/indirectvalidate.png)
 
-Validar a resolução dNS executando `nslookup`
+Validar a resolução dNS executando`nslookup`
 
 Para saber mais sobre mapear um domínio personalizado para um ponto final de armazenamento blob, [configure um nome de domínio personalizado para o seu ponto final](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json) de armazenamento Blob
 
@@ -146,7 +146,7 @@ Para saber mais sobre mapear um domínio personalizado para um ponto final de ar
 
 Os seguintes passos levam-no através da configuração de um registo CNAME para um ponto final da CDN utilizando o método de cdncheck. Este método garante que não há tempo de inatividade.
 
-Navegue para **Networking** > **Perfis CDN,** selecione o seu perfil CDN.
+Navegue para**perfis CDN**em **rede,** > selecione o seu perfil CDN.
 
 Selecione o ponto final com que está a trabalhar e clique **em + Domínio personalizado**. Note o nome de **anfitrião endpoint** como este valor é o registo a que o recorde CNAME aponta.
 
@@ -156,13 +156,13 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Nome     | cdnverify.mycdnendpoint        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | cdncheck.mycdnendpoint        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está usando um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
-|Unidade TTL     | Horas        | As horas são usadas como a medição do tempo         |
+|Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | O nome DNS para o que está a criar, neste exemplo, é o nome cdnverify.adatumcdnendpoint.azureedge.net DNS fornecido por padrão à conta de armazenamento.        |
 
-Navegue de volta ao seu ponto final do CDN clicando em **Networking** > **Perfis CDN**, e selecione o seu perfil CDN. Clique **em + domínio personalizado** e introduza o seu pseudónimo de registo CNAME sem o prefixo de cdncheck e clique em **Adicionar**.
+Navegue de volta ao seu ponto final cdN clicando em**Perfis CDN**de **Rede** > e selecione o seu perfil CDN. Clique **em + domínio personalizado** e introduza o seu pseudónimo de registo CNAME sem o prefixo de cdncheck e clique em **Adicionar**.
 
 Uma vez concluído este passo, volte à sua zona DNS e crie um registo CNAME sem o prefixo de cdncheck.  Depois disso, é seguro eliminar o registo CNAME com o prefixo de cdncheck. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem a etapa de registo intermédio visite o [conteúdo do Map Azure CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 

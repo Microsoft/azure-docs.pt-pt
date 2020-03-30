@@ -4,10 +4,10 @@ description: Quando um recurso não é compatível, existem muitas razões poss�
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264638"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
@@ -94,7 +94,7 @@ A seguinte matriz mapeia cada _motivo_ possível para a [condição](../concepts
 |O valor atual deve estar no valor-alvo. |dentro ou **nãoIn** |
 |O valor atual deve ser como o valor-alvo. |como ou **não** |
 |O valor atual deve corresponder ao valor-alvo. |jogo ou **nãoMatch** |
-|O valor atual deve corresponder ao valor-alvo. |matchInsensitivemente ou nãoMatchInsensitively |
+|O valor atual deve corresponder ao valor-alvo. |matchInsensitivemente **not** ou nãoMatchInsensitively |
 |O valor atual não deve conter o valor-alvo como chave. |notContainsKey ou **não** contémChave|
 |O valor atual não deve conter o valor-alvo. |não Contém ou **não** contém |
 |O valor atual não deve ser igual ao valor-alvo. |não igual ou **não** igual |
@@ -188,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Alterar a história (Pré-visualização)
+## <a name="change-history-preview"></a><a name="change-history"/>Alterar a história (Pré-visualização)
 
 Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de história da mudança estão disponíveis para todos os recursos do Azure que suportam a [eliminação completa](../../../azure-resource-manager/templates/complete-mode-deletion.md)do modo. A história da mudança fornece detalhes sobre quando uma mudança foi detetada e uma _difusão visual_ para cada mudança. Uma deteção de alterações é desencadeada quando as propriedades do Gestor de Recursos são adicionadas, removidas ou alteradas.
 

@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270176"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: Criar e acelerar os modelos ML
@@ -26,13 +26,13 @@ Otimizar modelos de machine learning para inferência (ou pontuação de modelos
 
 A Microsoft e uma comunidade de parceiros criaram o ONNX como um padrão aberto para representar modelos de machine learning. Os [modelos de muitas estruturas,](https://onnx.ai/supported-tools) incluindo TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet e MATLAB podem ser exportados ou convertidos para o formato PADRÃO ONNX. Uma vez que os modelos estão no formato ONNX, podem ser executados em várias plataformas e dispositivos.
 
-[OnNX Runtime](https://github.com/Microsoft/onnxruntime) é um motor de inferência de alto desempenho para a implantação de modelos ONNX para produção. É otimizado tanto para nuvem como borda e funciona em Linux, Windows e Mac. Escrito em, C++também tem C, C# Python e APIs. O ONNX Runtime fornece suporte para toda a especificação ONNX-ML e também integra-se com aceleradores em diferentes hardware, como o TensorRT nas GPUs da NVidia.
+[OnNX Runtime](https://github.com/Microsoft/onnxruntime) é um motor de inferência de alto desempenho para a implantação de modelos ONNX para produção. É otimizado tanto para nuvem como borda e funciona em Linux, Windows e Mac. Escrito em C++, também tem C, Python e C# APIs. O ONNX Runtime fornece suporte para toda a especificação ONNX-ML e também integra-se com aceleradores em diferentes hardware, como o TensorRT nas GPUs da NVidia.
 
 O ONNX Runtime é utilizado em serviços de alta escala da Microsoft, tais como Bing, Office e Cognitive Services. Os ganhos de desempenho dependem de uma série de fatores, mas estes serviços da Microsoft viram um ganho médio de desempenho de __2x no CPU__. O TEMPO DE Execução ONNX também é usado como parte do Windows ML em centenas de milhões de dispositivos. Pode utilizar o tempo de execução com o Azure Machine Learning. Ao utilizar o TEMPO DE Execução ONNX, pode beneficiar das extensas otimizações de nível de produção, testes e melhorias em curso.
 
-[![diagrama de fluxo ONNX mostrando treino, conversores e implantação](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de fluxo ONNX mostrando treino, conversores e implantação](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
 
-## <a name="get-onnx-models"></a>Obter modelos ONNX
+## <a name="get-onnx-models"></a>Obtenha modelos ONNX
 
 Pode obter modelos ONNX de várias formas:
 + Treine um novo modelo ONNX em Azure Machine Learning (ver exemplos na parte inferior deste artigo)
@@ -42,7 +42,7 @@ Pode obter modelos ONNX de várias formas:
 
 Muitos modelos, incluindo classificação de imagem, deteção de objetos e processamento de texto podem ser representados como modelos ONNX. No entanto, alguns modelos podem não ser capazes de ser convertidos com sucesso. Se encontrar esta situação, por favor apresente um problema no GitHub do respetivo conversor que utilizou. Pode continuar a utilizar o modelo de formato existente até que o problema seja abordado.
 
-## <a name="deploy-onnx-models-in-azure"></a>Implementar modelos ONNX no Azure
+## <a name="deploy-onnx-models-in-azure"></a>Implementar modelos ONNX em Azure
 
 Com o Azure Machine Learning, pode implementar, gerir e monitorizar os seus modelos ONNX. Utilizando o fluxo de trabalho de [implementação](concept-model-management-and-deployment.md) padrão e o tempo de funcionamento ONNX, pode criar um ponto final REST alojado na nuvem. Veja como exemplo os cadernos jupyter no final deste artigo para experimentá-lo por si mesmo. 
 
@@ -56,20 +56,20 @@ pip install onnxruntime       # CPU build
 pip install onnxruntime-gpu   # GPU build
 ```
 
-Para chamar ONNX tempo de execução no seu script de Python, utilize:    
+Para ligar para o TEMPO de Execução ONNX no seu script Python, use:    
 ```python
 import onnxruntime
 session = onnxruntime.InferenceSession("path to model")
 ```
 
-A documentação que acompanha o modelo geralmente indica as entradas e saídas para utilizar o modelo. Também pode utilizar uma ferramenta de visualização como a [Netron](https://github.com/lutzroeder/Netron) para visualizar o modelo. Tempo de execução ONNX também permite-lhe os metadados do modelo de consulta, entradas e saídas:    
+A documentação que acompanha o modelo costuma dizer-lhe as inputs e saídas para a utilização do modelo. Também pode utilizar uma ferramenta de visualização como a [Netron](https://github.com/lutzroeder/Netron) para visualizar o modelo. OnNX Runtime também permite consultar os metadados do modelo, inputs e saídas:    
 ```python
 session.get_modelmeta()
 first_input_name = session.get_inputs()[0].name
 first_output_name = session.get_outputs()[0].name
 ```
 
-Para inferenciar o seu modelo, use `run` e passe na lista de saídas que deseja devolvido (deixe vazio se quiser todos) e um mapa dos valores de entrada. O resultado é uma lista das saídas.  
+Para inferência do seu `run` modelo, use e passe na lista de saídas que deseja devolvida (deixe vazio se quiser todas) e um mapa dos valores de entrada. O resultado é uma lista das saídas.  
 ```python
 results = session.run(["output1", "output2"], {
                       "input1": indata1, "input2": indata2})
@@ -86,11 +86,11 @@ Consulte [como usar-azureml/implementação/onnx,](https://github.com/Azure/Mach
 
 ## <a name="more-info"></a>Mais informações
 
-Saiba mais sobre ONNX ou contribuir para o projeto:
+Saiba mais sobre o ONNX ou contribua para o projeto:
 + [Site do projeto ONNX](https://onnx.ai)
 + [Código ONNX no GitHub](https://github.com/onnx/onnx)
 
-Saiba mais sobre o tempo de execução ONNX ou contribuir para o projeto:
+Saiba mais sobre o TEMPO DE Execução ONNX ou contribua para o projeto:
 + [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
 
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299010"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
@@ -20,7 +20,7 @@ Este artigo irá acompanhá-lo através dos passos como configurar o acesso ao D
 > [!IMPORTANT]
 > A autenticação Azure AD para a Base de Dados Azure para MySQL está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Definição do utilizador azure AD Admin
 
@@ -46,7 +46,7 @@ Depois de configurar o administrador, pode agora iniciar o seu insessão:
 
 O diagrama de alto nível que se segue resume o fluxo de trabalho da utilização da autenticação Azure AD com base de dados Azure para MySQL:
 
-![Fluxo de autenticação][1]
+![fluxo de autenticação][1]
 
 Desenhamos a integração da AD Azure para trabalhar com ferramentas mysql comuns como o mysql CLI, que não são conscientes do Azure AD e apenas suportam especificar o nome de utilizador e a palavra-passe quando se conectam ao MySQL. Passamos o token Azure AD como a palavra-passe como mostrado na imagem acima.
 
@@ -73,7 +73,7 @@ Este comando lançará uma janela de navegador para a página de autenticação 
 
 > [!NOTE]
 > Também pode utilizar a Azure Cloud Shell para realizar estes passos.
-> Tenha em atenção que ao recuperar o token de acesso azure AD na Casca de Nuvem Azure terá de ligar explicitamente para `az login` e iniciar sessão (na janela separada com um código). Depois desse sinal no comando `get-access-token` funcionará como esperado.
+> Tenha em atenção que ao recuperar o token de acesso azure AD `az login` na Casca de Nuvem Azure terá de ligar e iniciar sessão (na janela separada com um código). Depois do sinal `get-access-token` no comando funcionará como esperado.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Passo 2: Ficha de acesso a AD Da Recuperação Azure
 
@@ -136,9 +136,9 @@ Agora está autenticado no seu servidor MySQL utilizando a autenticação Azure 
 
 Para adicionar um utilizador Azure AD à sua base de dados Azure para base de dados MySQL, execute os seguintes passos após a ligação (ver secção posterior sobre como ligar):
 
-1. Em primeiro lugar, certifique-se de que o utilizador da AD Azure `<user>@yourtenant.onmicrosoft.com` é um utilizador válido no inquilino Da Azure AD.
+1. Em primeiro lugar, certifique-se de que o utilizador `<user>@yourtenant.onmicrosoft.com` da AD Azure é um utilizador válido no inquilino Da Azure AD.
 2. Inscreva-se na sua Base de Dados Azure para a instância MySQL como utilizador do Anúncio AD Azure.
-3. Crie `<user>@yourtenant.onmicrosoft.com` de utilizadores na Base de Dados Azure para o MySQL.
+3. Crie `<user>@yourtenant.onmicrosoft.com` o utilizador na Base de Dados Azure para o MySQL.
 
 **Exemplo:**
 
@@ -186,7 +186,7 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
   * libmysqlclient: Suportado
   * mysql-connector-c++: Suportado
 * Java
-  * Conector/J (mysql-connector-java): Suportado, deve utilizar `useSSL` definição
+  * Conector/J (mysql-connector-java): Suportado, deve utilizar `useSSL` a definição
 * Python
   * Conector/Python: Suportado
 * Ruby
@@ -201,9 +201,9 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
   * DBD::mysql: Suportado
   * Net::MySQL: Não suportado
 * Ir
-  * go-sql-driver: Suportado, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de ligação
+  * go-sql-driver: Suportado, `?tls=true&allowCleartextPasswords=true` adicione à cadeia de ligação
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja os conceitos globais para [autenticação de Diretório Ativo Azure com Base de Dados Azure para MySQL](concepts-azure-ad-authentication.md)
 

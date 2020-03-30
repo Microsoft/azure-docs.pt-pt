@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278743"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache Azure para redis
@@ -30,16 +30,16 @@ As definições de Azure Cache para Redis são vistas e configuradas na **cache 
 
 Pode visualizar e configurar as seguintes definições utilizando o **Menu de Recursos**.
 
-* [Descrição geral](#overview)
+* [Descrição Geral](#overview)
 * [Registo de atividades](#activity-log)
 * [Controlo de acesso (IAM)](#access-control-iam)
 * [Etiquetas](#tags)
 * [Diagnosticar e resolver problemas](#diagnose-and-solve-problems)
 * [Definições](#settings)
     * [Chaves de acesso](#access-keys)
-    * [Configurações avançadas](#advanced-settings)
+    * [Definições avançadas](#advanced-settings)
     * [Azure Cache para Redis Advisor](#azure-cache-for-redis-advisor)
-    * [Dimensionar](#scale)
+    * [Escala](#scale)
     * [Tamanho do cluster](#cluster-size)
     * [Persistência de dados](#redis-data-persistence)
     * [Atualizações agendadas](#schedule-updates)
@@ -48,7 +48,7 @@ Pode visualizar e configurar as seguintes definições utilizando o **Menu de Re
     * [Firewall](#firewall)
     * [Propriedades](#properties)
     * [Fechaduras](#locks)
-    * [Roteiro de automação](#automation-script)
+    * [Script de automatização](#automation-script)
 * Administração
     * [Importar dados](#importexport)
     * [Exportar dados](#importexport)
@@ -57,7 +57,7 @@ Pode visualizar e configurar as seguintes definições utilizando o **Menu de Re
     * [Métricas redis](#redis-metrics)
     * [Regras de alerta](#alert-rules)
     * [Diagnóstico](#diagnostics)
-* Configurações de suporte e resolução de problemas
+* Apoiar & configurações de resolução de problemas
     * [Saúde dos recursos](#resource-health)
     * [Novo pedido de apoio](#new-support-request)
 
@@ -89,9 +89,9 @@ Clique em **Diagnosticar e resolver problemas** a serem fornecidos com questões
 A secção **Definições** permite-lhe aceder e configurar as seguintes definições para a sua cache.
 
 * [Chaves de acesso](#access-keys)
-* [Configurações avançadas](#advanced-settings)
+* [Definições avançadas](#advanced-settings)
 * [Azure Cache para Redis Advisor](#azure-cache-for-redis-advisor)
-* [Dimensionar](#scale)
+* [Escala](#scale)
 * [Tamanho do cluster](#cluster-size)
 * [Persistência de dados](#redis-data-persistence)
 * [Atualizações agendadas](#schedule-updates)
@@ -100,7 +100,7 @@ A secção **Definições** permite-lhe aceder e configurar as seguintes defini�
 * [Firewall](#firewall)
 * [Propriedades](#properties)
 * [Fechaduras](#locks)
-* [Roteiro de automação](#automation-script)
+* [Script de automatização](#automation-script)
 
 
 
@@ -132,20 +132,20 @@ A **política Maxmemory,** **reservada à memória máxima**e as definições **
 
 A política de **maxmemory** configura a política de despejo para o cache e permite-lhe escolher entre as seguintes políticas de despejo:
 
-* `volatile-lru` - Esta é a política de despejo por defeito.
+* `volatile-lru`- Esta é a política de despejo por defeito.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
 * `volatile-ttl`
 * `noeviction`
 
-Para obter mais informações sobre as políticas `maxmemory`, consulte as políticas de [despejo.](https://redis.io/topics/lru-cache#eviction-policies)
+Para obter `maxmemory` mais informações sobre políticas, consulte políticas de [despejo.](https://redis.io/topics/lru-cache#eviction-policies)
 
 A definição **reservada à memória máxima** confunde a quantidade de memória, em MB, reservada para operações não cache, como a replicação durante a failover. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a sua carga varia. Este valor deve ser mais elevado para as cargas de trabalho que são pesadas. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
 
 A definição reservada à **memória máxima** confunde a quantidade de memória em MB reservada para acomodar para fragmentação da memória. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a cache está cheia ou perto da totalidade e a relação de fragmentação é elevada. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
 
-Uma coisa a considerar na escolha de um novo valor de reserva de memória **(reservado** à memória máxima ou reservado à **memória máxima**) é como esta mudança pode afetar uma cache que já está a funcionar com grandes quantidades de dados na si. Por exemplo, se tiver uma cache de 53 GB com 49 GB de dados, então mude o valor da reserva para 8 GB, esta alteração reduzirá a memória máxima disponível para o sistema para 45 GB. Se os seus `used_memory` atuais ou os seus valores `used_memory_rss` forem superiores ao novo limite de 45 GB, então o sistema terá de despejar dados até que tanto `used_memory` como `used_memory_rss` estejam abaixo dos 45 GB. O despejo pode aumentar a carga do servidor e a fragmentação da memória. Para obter mais informações sobre métricas de cache, como `used_memory` e `used_memory_rss`, consulte [métricas disponíveis e intervalos de reporte.](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)
+Uma coisa a considerar na escolha de um novo valor de reserva de memória **(reservado** à memória máxima ou reservado à **memória máxima**) é como esta mudança pode afetar uma cache que já está a funcionar com grandes quantidades de dados na si. Por exemplo, se tiver uma cache de 53 GB com 49 GB de dados, então mude o valor da reserva para 8 GB, esta alteração reduzirá a memória máxima disponível para o sistema para 45 GB. Se os `used_memory` seus `used_memory_rss` valores atuais ou os seus forem superiores ao novo `used_memory` limite `used_memory_rss` de 45 GB, então o sistema terá de despejar dados até ambos e estiver abaixo dos 45 GB. O despejo pode aumentar a carga do servidor e a fragmentação da memória. Para obter mais informações `used_memory` sobre `used_memory_rss`métricas de cache tais como e, ver [métricas disponíveis e intervalos](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)de reporte .
 
 > [!IMPORTANT]
 > As definições **reservadas** à memória máxima e **à máxima fragmentação** estão disponíveis apenas para caches Standard e Premium.
@@ -185,7 +185,7 @@ Cada nível de preços tem limites diferentes para ligações ao cliente, memór
 
 | Azure Cache para a métrica Redis | Mais informações |
 | --- | --- |
-| Utilização da largura de banda da rede |[Desempenho da cache - largura de banda disponível](cache-faq.md#cache-performance) |
+| Utilização da largura de banda de rede |[Desempenho da cache - largura de banda disponível](cache-faq.md#cache-performance) |
 | Clientes conectados |[Configuração do servidor Predefinido Redis - clientes max](#maxclients) |
 | Carga do servidor |[Gráficos de utilização - Carga do Servidor Redis](cache-how-to-monitor.md#usage-charts) |
 | Uso da memória |[Desempenho da cache - tamanho](cache-faq.md#cache-performance) |
@@ -193,7 +193,7 @@ Cada nível de preços tem limites diferentes para ligações ao cliente, memór
 Para atualizar a sua cache, clique **em Upgrade agora** para alterar o nível de preços e [escalar](#scale) a sua cache. Para obter mais informações sobre a escolha de um nível de preços, veja [o que azure cache para redis oferecendo e tamanho devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Escala
+### <a name="scale"></a>Dimensionamento
 Clique em **Escala** para visualizar ou alterar o nível de preços para a sua cache. Para obter mais informações sobre escala, consulte [Como escalar o Cache Azure para Redis](cache-how-to-scale.md).
 
 ![Azure Cache para o nível de preços redis](./media/cache-configure/pricing-tier.png)
@@ -213,7 +213,7 @@ Para alterar o tamanho do cluster, utilize o slider ou escreva um número entre 
 >
 
 
-### <a name="redis-data-persistence"></a>Redis persistência de dados
+### <a name="redis-data-persistence"></a>Persistência de dados de Redis
 Clique na **persistência de Dados** para ativar, desativar ou configurar a persistência de dados para a sua cache premium. O Azure Cache for Redis oferece persistência redis usando a [persistência de RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para mais informações, consulte [Como configurar a persistência de um Cache Premium Azure para Redis](cache-how-to-premium-persistence.md).
@@ -281,7 +281,7 @@ Clique em **Propriedades** para ver informações sobre a sua cache, incluindo o
 ### <a name="locks"></a>Bloqueios
 A secção **Locks** permite-lhe bloquear uma subscrição, grupo de recursos ou recurso para evitar que outros utilizadores da sua organização apagam ou modifiquem acidentalmente recursos críticos. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-### <a name="automation-script"></a>Roteiro de automação
+### <a name="automation-script"></a>Script de automatização
 
 Clique no **script automation** para construir e exportar um modelo dos seus recursos implantados para futuras implementações. Para obter mais informações sobre o trabalho com modelos, consulte implementar recursos com modelos de [Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -338,7 +338,7 @@ Para obter mais informações sobre o Azure Cache para monitorização e diagnó
 ### <a name="redis-metrics"></a>Métricas redis
 Clique nas **métricas do Redis** para [ver as métricas](cache-how-to-monitor.md#view-cache-metrics) para a sua cache.
 
-### <a name="alert-rules"></a>Regras de alertas
+### <a name="alert-rules"></a>Regras de alerta
 
 Clique nas regras de **alerta** para configurar alertas baseados em Azure Cache para métricas Redis. Para mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
@@ -351,10 +351,10 @@ Por predefinição, as métricas de cache no Monitor Azure são [armazenadas dur
 >
 >
 
-## <a name="support--troubleshooting-settings"></a>Configurações de suporte e resolução de problemas
+## <a name="support--troubleshooting-settings"></a>Apoiar & configurações de resolução de problemas
 As definições na secção **Suporte + resolução** de problemas fornecem-lhe opções para resolver problemas com a sua cache.
 
-![Suporte + resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Suporte e resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Saúde dos recursos](#resource-health)
 * [Novo pedido de apoio](#new-support-request)
@@ -378,7 +378,7 @@ Clique em **Novo pedido** de suporte para abrir um pedido de suporte para a sua 
 Os novos casos de Azure Cache para Redis estão configurados com os seguintes valores de configuração predefinidos do Redis:
 
 > [!NOTE]
-> As definições desta secção não podem ser alteradas utilizando o método `StackExchange.Redis.IServer.ConfigSet`. Se este método for chamado com um dos comandos desta secção, é lançada uma exceção semelhante ao seguinte exemplo:  
+> As definições nesta secção não `StackExchange.Redis.IServer.ConfigSet` podem ser alteradas utilizando o método. Se este método for chamado com um dos comandos desta secção, é lançada uma exceção semelhante ao seguinte exemplo:  
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
@@ -388,16 +388,16 @@ Os novos casos de Azure Cache para Redis estão configurados com os seguintes va
 
 | Definição | Valor predefinido | Descrição |
 | --- | --- | --- |
-| `databases` |16 |O número padrão de bases de dados é de 16, mas pode configurar um número diferente com base no nível de preços. <sup>1</sup> A base de dados predefinida é DB 0, pode selecionar uma diferente numa base por ligação utilizando `connection.GetDatabase(dbid)` em que `dbid` é um número entre `0` e `databases - 1`. |
+| `databases` |16 |O número padrão de bases de dados é de 16, mas pode configurar um número diferente com base no nível de preços. <sup>1</sup> A base de dados predefinida é DB 0, pode `connection.GetDatabase(dbid)` `dbid` selecionar uma `0` diferente `databases - 1`numa base por ligação utilizando um número entre e . |
 | `maxclients` |Depende do nível<sup>de</sup> preços 2 |Este valor é o número máximo de clientes conectados permitidos ao mesmo tempo. Uma vez atingido o limite, a Redis fecha todas as novas ligações, devolvendo um erro de "número máximo de clientes atingidos". |
-| `maxmemory-policy` |`volatile-lru` |A política de maxmemory é a definição de como redis seleciona o que remover quando `maxmemory` (o tamanho da oferta de cache que selecionou quando criou a cache) é alcançada. Com o Azure Cache para Redis, a definição padrão é `volatile-lru`, que remove as teclas com um conjunto de expiração utilizando um algoritmo LRU. Esta definição pode ser configurada no portal Azure. Para mais informações, consulte [as políticas de Memória.](#memory-policies) |
+| `maxmemory-policy` |`volatile-lru` |A política de maxmemory é a definição `maxmemory` de como redis seleciona o que remover quando (o tamanho da oferta de cache que selecionou quando criou a cache) é alcançada. Com o Azure Cache para `volatile-lru`Redis, a definição padrão é, que remove as teclas com um conjunto de expiração utilizando um algoritmo LRU. Esta definição pode ser configurada no portal Azure. Para mais informações, consulte [as políticas de Memória.](#memory-policies) |
 | `maxmemory-samples` |3 |Para salvar a memória, a LRU e os algoritmos Mínimos de TTL são algoritmos aproximados em vez de algoritmos precisos. Por padrão, redis verifica três chaves e escolhe a que foi usada menos recentemente. |
-| `lua-time-limit` |5\.000 |Tempo máximo de execução de um guião lua em milissegundos. Se o tempo máximo de execução for atingido, redis regista que um script ainda está em execução após o tempo máximo permitido, e começa a responder a consultas com um erro. |
+| `lua-time-limit` |5000 |Tempo máximo de execução de um guião lua em milissegundos. Se o tempo máximo de execução for atingido, redis regista que um script ainda está em execução após o tempo máximo permitido, e começa a responder a consultas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila do evento do guião. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites máximos de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão a ler dados do servidor suficientemente rápido por alguma razão (uma razão comum é que um cliente Pub/Sub não pode consumir mensagens tão rapidamente quanto a editora as pode produzir). Para mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 0 32mb 8mb 60 |Os limites máximos de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão a ler dados do servidor suficientemente rápido por alguma razão (uma razão comum é que um cliente Pub/Sub não pode consumir mensagens tão rapidamente quanto a editora as pode produzir). Para mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
-<a name="databases"></a><sup>
-1</sup>O limite para `databases` é diferente para cada Azure Cache para o nível de preços Redis e pode ser definido na criação de cache. Se não for especificada a definição `databases` durante a criação do cache, o padrão é de 16.
+<a name="databases"></a>
+<sup>1</sup> O limite `databases` para é diferente para cada Cache Azure para o nível de preços Redis e pode ser definido na criação de cache. Se `databases` não for especificada qualquer definição durante a criação de cache, a predefinição é de 16.
 
 * Caches básicos e standard
   * Cache C0 (250 MB) - até 16 bases de dados
@@ -412,17 +412,17 @@ Os novos casos de Azure Cache para Redis estão configurados com os seguintes va
   * P2 (13 GB - 130 GB) - até 32 bases de dados
   * P3 (26 GB - 260 GB) - até 48 bases de dados
   * P4 (53 GB - 530 GB) - até 64 bases de dados
-  * Todos os caches premium com cluster Redis ativados - O cluster Redis apenas suporta a utilização da base de dados 0, pelo que o limite de `databases` para qualquer cache premium com cluster Redis ativado é efetivamente 1 e o comando [Select](https://redis.io/commands/select) não é permitido. Para mais informações, consulte [Se preciso de fazer alterações na aplicação do meu cliente para utilizar o clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Todos os caches premium com cluster Redis ativados - O cluster `databases` Redis apenas suporta a utilização da base de dados 0, pelo que o limite para qualquer cache premium com cluster Redis ativado é efetivamente 1 e o comando [Select](https://redis.io/commands/select) não é permitido. Para mais informações, consulte [Se preciso de fazer alterações na aplicação do meu cliente para utilizar o clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Para mais informações sobre bases de dados, veja o que são as [bases de dados redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> A definição `databases` só pode ser configurada durante a criação de cache e apenas utilizando powerShell, CLI ou outros clientes de gestão. Para um exemplo de configuração `databases` durante a criação de cache usando powerShell, consulte [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
+> A `databases` definição só pode ser configurada durante a criação de cache e apenas utilizando powerShell, CLI ou outros clientes de gestão. Para um exemplo `databases` de configuração durante a criação de cache usando powerShell, consulte [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 >
 >
 
 <a name="maxclients"></a>
-<sup>2</sup>`maxclients` é diferente para cada Cache Azure para o nível de preços Redis.
+<sup>2</sup> `maxclients` é diferente para cada Cache Azure para o nível de preços Redis.
 
 * Caches básicos e standard
   * Cache C0 (250 MB) - até 256 ligações
@@ -447,28 +447,28 @@ Para mais informações sobre bases de dados, veja o que são as [bases de dados
 
 ## <a name="redis-commands-not-supported-in-azure-cache-for-redis"></a>Comandos Redis não suportados em Azure Cache para redis
 > [!IMPORTANT]
-> Uma vez que a configuração e gestão do Azure Cache para os casos Redis é gerida pela Microsoft, os seguintes comandos são desativados. Se tentar invocá-los, recebe uma mensagem de erro semelhante à `"(error) ERR unknown command"`.
+> Uma vez que a configuração e gestão do Azure Cache para os casos Redis é gerida pela Microsoft, os seguintes comandos são desativados. Se tentar invocá-los, recebe uma `"(error) ERR unknown command"`mensagem de erro semelhante a .
 >
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
-> * DEPURADO
+> * DEPURAR
 > * MIGRAÇÃO
-> * SALVAR
+> * GUARDAR
 > * ENCERRAMENTO
-> * SLAVEOF
+> * ESCRAVO
 > * CLUSTER - Os comandos de escrita do cluster são desativados, mas os comandos cluster apenas de leitura são permitidos.
 >
 >
 
-Para mais informações sobre os comandos redis, consulte [https://redis.io/commands](https://redis.io/commands).
+Para mais informações sobre os [https://redis.io/commands](https://redis.io/commands)comandos redis, consulte .
 
 ## <a name="redis-console"></a>Consola Redis
 Pode emitir comandos de segurança para os casos do Seu Azure Cache para Redis utilizando a **Consola Redis,** que está disponível no portal Azure para todos os níveis de cache.
 
 > [!IMPORTANT]
 > - A Consola Redis não funciona com [o VNET.](cache-how-to-premium-vnet.md) Quando a sua cache faz parte de um VNET, apenas os clientes do VNET podem aceder à cache. Como a Consola Redis funciona no seu navegador local, que está fora do VNET, não pode ligar-se à sua cache.
-> - Nem todos os comandos Redis são apoiados em Azure Cache para Redis. Para obter uma lista de comandos Redis que são desativados para Azure Cache for Redis, consulte os comandos redis anteriores [não suportados em Azure Cache para](#redis-commands-not-supported-in-azure-cache-for-redis) a secção Redis. Para mais informações sobre os comandos redis, consulte [https://redis.io/commands](https://redis.io/commands).
+> - Nem todos os comandos Redis são apoiados em Azure Cache para Redis. Para obter uma lista de comandos Redis que são desativados para Azure Cache for Redis, consulte os comandos redis anteriores [não suportados em Azure Cache para](#redis-commands-not-supported-in-azure-cache-for-redis) a secção Redis. Para mais informações sobre os [https://redis.io/commands](https://redis.io/commands)comandos redis, consulte .
 >
 >
 
@@ -494,7 +494,7 @@ shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
 
-No exemplo anterior, o fragmento 1 é o fragmento selecionado, mas `myKey` está localizado no fragmento 0, como indicado pela parte `(shard 0)` da mensagem de erro. Neste exemplo, para aceder a `myKey`, selecione o fragmento 0 utilizando o picker de fragmentos e, em seguida, emita o comando desejado.
+No exemplo anterior, o fragmento 1 é `myKey` o fragmento selecionado, mas está `(shard 0)` localizado no fragmento 0, como indicado pela parte da mensagem de erro. Neste exemplo, para `myKey`aceder , selecione o fragmento 0 utilizando o picker de fragmentos e, em seguida, emita o comando desejado.
 
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>Mova a sua cache para uma nova subscrição

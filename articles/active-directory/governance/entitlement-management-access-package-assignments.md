@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262025"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos da AD Azure
@@ -51,7 +51,7 @@ Na gestão de direitos da Azure AD, pode ver quem foi designado para aceder a pa
 
 ### <a name="viewing-assignments-programmatically"></a>Tarefas de visualização programática
 
-Também pode recuperar atribuições num pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão de `EntitlementManagement.ReadWrite.All` delegada pode ligar para a API para [listar acessoS PacoteS](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
+Também pode recuperar atribuições num pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma `EntitlementManagement.ReadWrite.All` aplicação que tenha a permissão delegada pode ligar para a API para [listar acessoS PacoteS](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Atribuir diretamente um utilizador
 
@@ -83,7 +83,7 @@ Em alguns casos, é possível atribuir diretamente utilizadores específicos a u
 
 ### <a name="directly-assigning-users-programmatically"></a>Atribuição direta dos utilizadores programáticamente
 
-Também pode atribuir diretamente um utilizador a um pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a autorização de `EntitlementManagement.ReadWrite.All` delegada pode ligar para a API para [criar um AccessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+Também pode atribuir diretamente um utilizador a um pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma `EntitlementManagement.ReadWrite.All` aplicação que tenha a permissão delegada pode ligar para a API para [criar um AccessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Remover uma atribuição
 

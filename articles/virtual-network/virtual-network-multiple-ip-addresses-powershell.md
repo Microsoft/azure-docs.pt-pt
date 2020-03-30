@@ -17,10 +17,10 @@ ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
 ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279575"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando powerShell
@@ -33,12 +33,12 @@ Este artigo explica como criar uma máquina virtual (VM) através do modelo de i
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Criar um VM com vários endereços IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Criar uma VM com vários endereços IP
 
 Os passos que se seguem explicam como criar um vM de exemplo com vários endereços IP, como descrito no cenário. Altere os valores variáveis conforme necessário para a sua implementação.
 
 1. Abra um pedido de comando PowerShell e complete os passos restantes nesta secção numa única sessão powerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/overview)
-2. Faça login na sua conta com o comando `Connect-AzAccount`.
+2. Faça login na `Connect-AzAccount` sua conta com o comando.
 3. Substitua *o myResourceGroup* e *o westus* por um nome e localização à sua escolha. Crie um grupo de recursos. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
    ```powershell
@@ -95,9 +95,9 @@ Os passos que se seguem explicam como criar um vM de exemplo com vários endere�
     -SecurityRules $NSGRule
     ```
 
-6. Defina a configuração ip primária para o NIC. Altere 10.0.0.4 para um endereço válido na subnet que criou, se não utilizar o valor previamente definido. Antes de atribuir um endereço IP estático, recomenda-se que primeiro confirme que ainda não está a ser utilizado. Introduza o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso* e uma lista de endereços disponíveis. 
+6. Defina a configuração ip primária para o NIC. Altere 10.0.0.4 para um endereço válido na subnet que criou, se não utilizar o valor previamente definido. Antes de atribuir um endereço IP estático, recomenda-se que primeiro confirme que ainda não está a ser utilizado. Introduza `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`o comando . Se o endereço estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso* e uma lista de endereços disponíveis. 
 
-    Nos seguintes comandos, **substitua \<substituir-por-o-seu-nome único> com o nome DNS único a utilizar.** O nome deve ser único em todos os endereços IP públicos dentro de uma região de Azure. Este é um parâmetro opcional. Pode ser removido se pretender ligar-se apenas ao VM utilizando o endereço IP público.
+    Nos seguintes comandos, **substitua \<a substituição por> de nome único com o nome DNS único a utilizar.** O nome deve ser único em todos os endereços IP públicos dentro de uma região de Azure. Este é um parâmetro opcional. Pode ser removido se pretender ligar-se apenas ao VM utilizando o endereço IP público.
 
     ```powershell
     
@@ -195,7 +195,7 @@ Os passos que se seguem explicam como criar um vM de exemplo com vários endere�
 
 10. Adicione os endereços IP privados ao sistema operativo VM, preenchendo as etapas do seu sistema operativo nos [endereços ADD IP a uma](#os-config) secção do sistema operativo VM deste artigo. Não adicione os endereços IP públicos ao sistema operativo.
 
-## <a name="add"></a>Adicione endereços IP a um VM
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Adicione endereços IP a um VM
 
 Pode adicionar endereços IP privados e públicos à interface de rede Azure, completando os passos que se seguem. Os exemplos nas seguintes secções assumem que já tem um VM com as três configurações IP descritas no [cenário](#scenario) neste artigo, mas não é necessário que o faça.
 
@@ -245,7 +245,7 @@ Pode adicionar endereços IP privados e públicos à interface de rede Azure, co
 
    **Adicione um endereço IP privado**
 
-   Para adicionar um endereço IP privado a um NIC, tem de criar uma configuração IP. O seguinte comando cria uma configuração com um endereço IP estático de 10.0.0.7. Ao especificar um endereço IP estático, deve ser um endereço não utilizado para a sub-rede. Recomenda-se que teste primeiro o endereço para garantir que está disponível entrando no comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Se o endereço IP estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso,* e uma lista de endereços disponíveis.
+   Para adicionar um endereço IP privado a um NIC, tem de criar uma configuração IP. O seguinte comando cria uma configuração com um endereço IP estático de 10.0.0.7. Ao especificar um endereço IP estático, deve ser um endereço não utilizado para a sub-rede. Recomenda-se que teste primeiro o endereço para garantir que `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` está disponível entrando no comando. Se o endereço IP estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso,* e uma lista de endereços disponíveis.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -295,7 +295,7 @@ Pode adicionar endereços IP privados e públicos à interface de rede Azure, co
    $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
    ```
 
-   Vê-se uma saída semelhante à seguinte:
+   Verá um resultado semelhante ao seguinte:
 
    ```
    Name       PrivateIpAddress PublicIpAddress                                           Primary

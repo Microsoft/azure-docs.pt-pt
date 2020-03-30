@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265912"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mova dados De uma fonte OData utilizando a Fábrica de Dados Azure
@@ -67,8 +67,8 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | authenticationType |Tipo de autenticação utilizada para ligar à fonte OData. <br/><br/> Para o OData em nuvem, os valores possíveis são Anónimos, Básicos e OAuth (nota Azure Data Factory atualmente apenas suporta o OAuth baseado em Diretório Ativo Azure). <br/><br/> Para o OData no local, os valores possíveis são Anónimos, Básicos e Windows. |Sim |
 | o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. |Sim (apenas se estiver a usar a autenticação básica) |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Sim (apenas se estiver a usar a autenticação básica) |
-| authorizedCredential |Se estiver a utilizar o OAuth, clique em **autorizar** o botão no Data Factory Copy Wizard ou Editor e introduza a sua credencial, então o valor desta propriedade será gerado automaticamente. |Sim (apenas se estiver a usar a autenticação OAuth) |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especificar apenas se estiver a copiar dados a partir de origem OData no local. |Não |
+| credenciadoCredential |Se estiver a utilizar o OAuth, clique em **autorizar** o botão no Data Factory Copy Wizard ou Editor e introduza a sua credencial, então o valor desta propriedade será gerado automaticamente. |Sim (apenas se estiver a usar a autenticação OAuth) |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especificar apenas se estiver a copiar dados a partir de origem OData no local. |Não |
 
 ### <a name="using-basic-authentication"></a>Utilização da autenticação básica
 ```json
@@ -140,17 +140,17 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **ODataResource** (que inclui dataset OData) tem as seguintes propriedades
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| caminho |Caminho para o recurso OData |Não |
+| path |Caminho para o recurso OData |Não |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na secção tipoPropriedades da atividade por outro lado variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -158,7 +158,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui OData) as seguintes p
 
 | Propriedade | Descrição | Exemplo | Necessário |
 | --- | --- | --- | --- |
-| consulta |Use a consulta personalizada para ler dados. |"?$select=Name, Description&$top=5" |Não |
+| consulta |Use a consulta personalizada para ler dados. |"?$select=Nome, Descrição&$top=5" |Não |
 
 ## <a name="type-mapping-for-odata"></a>Tipo de mapeamento para OData
 Conforme mencionado no artigo de atividades de movimento de [dados,](data-factory-data-movement-activities.md) a atividade de cópia realiza conversões automáticas de tipos de origem para tipos de sink com a seguinte abordagem de dois passos.
@@ -168,23 +168,23 @@ Conforme mencionado no artigo de atividades de movimento de [dados,](data-factor
 
 Ao mover dados do OData, os seguintes mapeamentos são utilizados dos tipos OData para o tipo .NET.
 
-| Tipo de dados odados | Tipo .NET |
+| Tipo de Dados OData | Tipo .NET |
 | --- | --- |
 | Edm.Binary |Byte[] |
-| Edm.Boolean |Bool |
+| Edm.Boolean |Booleano |
 | Edm.Byte |Byte[] |
 | Edm.DateTime |DateTime |
-| Edm.Decimal |decimal |
-| Edm.Double |Valor de duplo |
+| Edm.Decimal |Decimal |
+| Edm.Double |Double |
 | Edm.Single |Único |
-| Edm.Guid |Guid |
+| Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |String |
-| EDM.Time |TimeSpan |
-| Edm.DateTimeOffset |DateTimeOffset |
+| Edm.String |Cadeia |
+| Edm.Tempo |TimeSpan |
+| Edm.DateTimeOffset |DataTimeOffset |
 
 > [!Note]
 > Os tipos de dados complexos OData, por exemplo, o objeto não são suportados.

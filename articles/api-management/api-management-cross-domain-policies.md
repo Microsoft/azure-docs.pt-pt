@@ -1,5 +1,5 @@
 ---
-title: Políticas de domínio transversal da Azure API Management  Microsoft Docs
+title: Políticas de domínio transversal da Azure API Management [ Microsoft Docs
 description: Conheça as políticas de domínio transversal disponíveis para utilização na Gestão aPI Azure.
 services: api-management
 documentationcenter: ''
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265990"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="CrossDomainPolicies"></a>Políticas de domínio transversal
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Políticas de domínio transversal
 
 - [Permitir chamadas cruzadas](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível a partir de clientes baseados no navegador Adobe Flash e Microsoft Silverlight.
 - [CORS](api-management-cross-domain-policies.md#CORS) - Adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio cruzado de clientes baseados no navegador.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona jSON com suporte de estofamento (JSONP) a uma operação ou a uma API para permitir chamadas cruzadas de clientes baseados no navegador JavaScript.
 
-## <a name="AllowCrossDomainCalls"></a>Permitir chamadas de domínio transversal
-Utilize a política `cross-domain` para tornar a API acessível a partir de clientes baseados no navegador Adobe Flash e Microsoft Silverlight.
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Permitir chamadas de domínio transversal
+Utilize `cross-domain` a política para tornar a API acessível a partir de clientes baseados no navegador Adobe Flash e Microsoft Silverlight.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -63,8 +63,8 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="CORS"></a>CORS
-A política `cors` adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio cruzado de clientes baseados no navegador.
+## <a name="cors"></a><a name="CORS"></a>CORS
+A `cors` política adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio cruzado de clientes baseados no navegador.
 
 O CORS permite que um navegador e um servidor interajam e determinem se permitem ou não pedidos específicos de origem cruzada (isto é, XMLHttpRequests chamadas feitas a partir de JavaScript numa página web para outros domínios). Isto permite mais flexibilidade do que apenas permitir pedidos de origem mesma, mas é mais seguro do que permitir todos os pedidos de origem cruzada.
 
@@ -88,7 +88,7 @@ O CORS permite que um navegador e um servidor interajam e determinem se permitem
 ```
 
 ### <a name="example"></a>Exemplo
-Este exemplo demonstra como apoiar pedidos de pré-voo, como aqueles com cabeçalhos ou métodos personalizados que não o GET e O POST. Para suportar cabeçalhos personalizados e verbos HTTP adicionais, utilize as secções `allowed-methods` e `allowed-headers`, como mostra o seguinte exemplo.
+Este exemplo demonstra como apoiar pedidos de pré-voo, como aqueles com cabeçalhos ou métodos personalizados que não o GET e O POST. Para suportar cabeçalhos personalizados e verbos HTTP adicionais, utilize as `allowed-methods` secções e secções `allowed-headers` conforme mostrado no exemplo seguinte.
 
 ```xml
 <cors allow-credentials="true">
@@ -125,20 +125,20 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, como aqueles com cabeça
 |Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento de raiz.|Sim|N/D|
-|origens permitidas|Contém elementos `origin` que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins` pode conter um único elemento `origin` que especifica `*` permitir qualquer origem, ou um ou mais elementos `origin` que contenham um URI.|Sim|N/D|
-|origem|O valor pode ser `*` permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
-|métodos permitidos|Este elemento é necessário se forem permitidos métodos que não o GET ou o POST. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|Não|Se esta secção não estiver presente, o GET e o POST são suportados.|
-|método|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a secção `allowed-methods` estiver presente.|N/D|
-|cabeçalhos permitidos|Este elemento contém elementos `header` especificando os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|
-|expose-headers|Este elemento contém elementos `header` especificando nomes dos cabeçalhos que serão acessíveis pelo cliente.|Não|N/D|
-|cabeçalho|Especifica um nome cabeçalho.|É necessário pelo menos um elemento `header` em `allowed-headers` ou `expose-headers` se a secção estiver presente.|N/D|
+|origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins`pode conter um `origin` único elemento `*` que especifica para permitir `origin` qualquer origem, ou um ou mais elementos que contenham um URI.|Sim|N/D|
+|origem|O valor pode `*` ser permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
+|métodos permitidos|Este elemento é necessário se forem permitidos métodos que não o GET ou o POST. Contém `method` elementos que especificam os verbos HTTP suportados. O `*` valor indica todos os métodos.|Não|Se esta secção não estiver presente, o GET e o POST são suportados.|
+|método|Especifica um verbo HTTP.|Pelo menos `method` um elemento é `allowed-methods` necessário se a secção estiver presente.|N/D|
+|cabeçalhos permitidos|Este elemento `header` contém elementos que especificam os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|
+|expor cabeçalhos|Este elemento `header` contém elementos que especificam os nomes dos cabeçalhos que serão acessíveis pelo cliente.|Não|N/D|
+|cabeçalho|Especifica um nome cabeçalho.|Pelo menos `header` um elemento `allowed-headers` é `expose-headers` necessário dentro ou se a secção estiver presente.|N/D|
 
 ### <a name="attributes"></a>Atributos
 
 |Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|O cabeçalho `Access-Control-Allow-Credentials` na resposta pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|Não|false|
-|pré-voo-resultado-idade máxima|O cabeçalho `Access-Control-Max-Age` na resposta pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta pré-voo.|Não|0|
+|permitir credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|Não|false|
+|pré-voo-resultado-idade máxima|O `Access-Control-Max-Age` cabeçalho na resposta pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta pré-voo.|Não|0|
 
 ### <a name="usage"></a>Utilização
 Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
@@ -146,8 +146,8 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="JSONP"></a>JSONP
-A política `jsonp` adiciona o Suporte jSON com estofamento (JSONP) a uma operação ou a uma API para permitir chamadas cruzadas de clientes baseados no navegador JavaScript. JSONP é um método usado em programas JavaScript para solicitar dados de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos navegadores da Web onde o acesso às páginas web deve estar no mesmo domínio.
+## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+A `jsonp` política adiciona o Suporte JSON com estofamento (JSONP) a uma operação ou a uma API para permitir chamadas cruzadas de clientes baseados no navegador JavaScript. JSONP é um método usado em programas JavaScript para solicitar dados de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos navegadores da Web onde o acesso às páginas web deve estar no mesmo domínio.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -163,7 +163,7 @@ A política `jsonp` adiciona o Suporte jSON com estofamento (JSONP) a uma opera�
 
 Se ligar para o método sem o parâmetro de chamada ?cb=XXX, devolverá o JSON simples (sem um invólucro de chamada de função).
 
-Se adicionar o parâmetro de retorno de chamada `?cb=XXX` devolverá um resultado JSONP, envolvendo os resultados originais do JSON em torno da função de chamada como `XYZ('<json result goes here>');`
+Se adicionar o parâmetro `?cb=XXX` de retorno de chamada, devolverá um resultado JSONP, envolvendo os resultados originais do JSON em torno da função de chamada como`XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Elementos
 

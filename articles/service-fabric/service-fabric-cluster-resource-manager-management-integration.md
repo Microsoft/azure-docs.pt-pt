@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258749"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de gestor de recursos cluster com gestão de cluster de tecido de serviço
@@ -18,7 +18,7 @@ O Gestor de Recursos de Cluster de Tecidos de Serviço não conduz upgrades em T
 ## <a name="health-integration"></a>Integração da saúde
 O Cluster Resource Manager segue constantemente as regras que definiu para a colocação dos seus serviços. Também rastreia a capacidade restante para cada métrica nos nós e no cluster e no cluster como um todo. Se não conseguir cumprir essas regras ou se não houver capacidade suficiente, são emitidos avisos de saúde e erros. Por exemplo, se um nó tiver excesso de capacidade e o Gestor de Recursos de Cluster tentará corrigir a situação através da mudança de serviços. Se não conseguir corrigir a situação, emite um aviso sanitário indicando qual o nó acima da capacidade e para que métricas.
 
-Outro exemplo dos avisos de saúde do Gestor de Recursos é a violação dos constrangimentos de colocação. Por exemplo, se definiu uma restrição de colocação (como `“NodeColor == Blue”`) e o Gestor de Recursos detetar uma violação desse constrangimento, emite um aviso de saúde. Isto é verdade para restrições personalizadas e as restrições predefinidas (como os constrangimentos do Domínio de Falha e do Domínio de Atualização).
+Outro exemplo dos avisos de saúde do Gestor de Recursos é a violação dos constrangimentos de colocação. Por exemplo, se definiu um constrangimento `“NodeColor == Blue”`de colocação (como) e o Gestor de Recursos detetar uma violação desse constrangimento, emite um aviso de saúde. Isto é verdade para restrições personalizadas e as restrições predefinidas (como os constrangimentos do Domínio de Falha e do Domínio de Atualização).
 
 Aqui está um exemplo de um relatório de saúde. Neste caso, o relatório de saúde é para uma das divisórias do serviço de sistema. A mensagem de saúde indica que as réplicas dessa divisória são temporariamente embaladas em poucos Domínios de Upgrade.
 
@@ -68,7 +68,7 @@ Eis o que esta mensagem de saúde nos está a dizer:
 2. A restrição de distribuição do Domínio de Atualização está atualmente a ser violada. Isto significa que um domínio de upgrade particular tem mais réplicas desta divisória do que deveria.
 3. Que nó contém a réplica causando a violação. Neste caso é o nó com o nome "Nó.8"
 4. Se está a acontecer uma atualização para esta partição ("Atualmente A atualizar -- falso")
-5. A política de distribuição deste serviço: "Política de Distribuição -- Embalagem". Isto rege-se pela política de [colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. A "embalagem" indica que, neste caso, a DomainDistribution _não_ era necessária, pelo que sabemos que a política de colocação não foi especificada para este serviço. 
+5. A política de distribuição deste serviço: "Política de Distribuição -- Embalagem". Isto rege-se `RequireDomainDistribution` pela política de [colocação.](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) A "embalagem" indica que, neste caso, a DomainDistribution _não_ era necessária, pelo que sabemos que a política de colocação não foi especificada para este serviço. 
 6. Quando o relatório aconteceu - 8/10/2015 19:13:02
 
 Informações como esta alertam que o fogo na produção para que saiba que algo correu mal e também é usado para detetar e travar maus upgrades. Neste caso, queremos ver se conseguimos descobrir porque é que o Gestor de Recursos teve de embalar as réplicas para o Domínio de Atualização. Normalmente, a embalagem é transitória porque os nós nos outros Domínios de Upgrade estavam em baixo, por exemplo.
@@ -174,14 +174,14 @@ via ClusterConfig.json para implantações autónomas ou template.json para clus
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restrições de domínio de falha e atualização de domínio
 O Cluster Resource Manager quer manter os serviços distribuídos entre domínios de falha e atualização. Modela isto como uma restrição dentro do motor do Cluster Resource Manager. Para obter mais informações sobre como são usados e o seu comportamento específico, consulte o artigo sobre a [configuração](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior)do cluster .
 
-O Cluster Resource Manager pode ter de embalar algumas réplicas num domínio de upgrade para lidar com upgrades, falhas ou outras violações de restrições. A embalagem em domínios de avaria ou de atualização normalmente só acontece quando há várias falhas ou outras falhas no sistema que impedem a correta colocação. Se pretender evitar a embalagem mesmo durante estas situações, pode utilizar a política de [colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Note que isto pode afetar a disponibilidade e a fiabilidade do serviço como um efeito colateral, por isso considere-o cuidadosamente.
+O Cluster Resource Manager pode ter de embalar algumas réplicas num domínio de upgrade para lidar com upgrades, falhas ou outras violações de restrições. A embalagem em domínios de avaria ou de atualização normalmente só acontece quando há várias falhas ou outras falhas no sistema que impedem a correta colocação. Se desejar evitar a embalagem mesmo durante estas `RequireDomainDistribution` situações, pode utilizar a política de [colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Note que isto pode afetar a disponibilidade e a fiabilidade do serviço como um efeito colateral, por isso considere-o cuidadosamente.
 
 Se o ambiente estiver configurado corretamente, todos os constrangimentos são totalmente respeitados, mesmo durante as atualizações. O importante é que o Gestor de Recursos de Cluster está atento aos seus constrangimentos. Quando deteta uma violação, reporta-a imediatamente e tenta corrigir o problema.
 
 ## <a name="the-preferred-location-constraint"></a>A restrição de localização preferida
-A restrição PreferredLocation é um pouco diferente, uma vez que tem dois usos diferentes. Uma utilização desta restrição é durante as atualizações da aplicação. O Cluster Resource Manager gere automaticamente esta restrição durante as atualizações. É utilizado para garantir que, quando as atualizações estiverem concluídas, as réplicas regressem aos seus locais iniciais. A outra utilização da restrição PreferredLocation [destina-se à política de colocação`PreferredPrimaryDomain`.](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) Ambas são otimizações, e por isso a restrição PreferredLocation é o único constrangimento definido para "Otimização" por padrão.
+A restrição PreferredLocation é um pouco diferente, uma vez que tem dois usos diferentes. Uma utilização desta restrição é durante as atualizações da aplicação. O Cluster Resource Manager gere automaticamente esta restrição durante as atualizações. É utilizado para garantir que, quando as atualizações estiverem concluídas, as réplicas regressem aos seus locais iniciais. A outra utilização da restrição [ `PreferredPrimaryDomain` ](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)PreferredLocation é para a política de colocação. Ambas são otimizações, e por isso a restrição PreferredLocation é o único constrangimento definido para "Otimização" por padrão.
 
-## <a name="upgrades"></a>Atualizações
+## <a name="upgrades"></a>Upgrades
 O Cluster Resource Manager também ajuda durante as atualizações de aplicações e clusters, durante as quais tem dois empregos:
 
 * garantir que as regras do cluster não são comprometidas
@@ -196,7 +196,7 @@ Quando uma atualização começa, o Gestor de Recursos tira uma foto do atual ar
 ### <a name="reduced-churn"></a>Churn reduzido
 Outra coisa que acontece durante as atualizações é que o Gestor de Recursos de Cluster desliga o equilíbrio. Evitar o equilíbrio evita reações desnecessárias à própria atualização, como a deslocação de serviços para nós que foram esvaziados para a atualização. Se a atualização em questão for uma atualização do Cluster, todo o cluster não é equilibrado durante a atualização. As verificações de restrição mantêm-se ativas, apenas o movimento com base no equilíbrio proactivo das métricas é desativado.
 
-### <a name="buffered-capacity--upgrade"></a>Capacidade e atualização tamponadas
+### <a name="buffered-capacity--upgrade"></a>Atualização de & de capacidade tamponada
 Geralmente, pretende que a atualização esteja concluída mesmo que o cluster esteja limitado ou perto do seu estado. Gerir a capacidade do cluster é ainda mais importante durante as atualizações do que o habitual. Dependendo do número de domínios de atualização, entre 5 e 20 por cento da capacidade deve ser migrada à medida que a atualização passa pelo cluster. O trabalho tem que ir para algum lugar. É aqui que a noção de [capacidades tamponadas](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. A capacidade tamponada é respeitada durante o funcionamento normal. O Gestor de Recursos de Cluster pode preencher nós até à sua capacidade total (consumindo o tampão) durante as atualizações, se necessário.
 
 ## <a name="next-steps"></a>Passos seguintes

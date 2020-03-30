@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7fc0b2822195d952c2a4f9c02bf3758c0e2b809a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260504"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para a Base de Dados Azure SQL utilizando a Azure Data Factory
@@ -59,21 +59,21 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas da Base de Dados Azure SQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 Um serviço ligado ao Azure SQL liga uma base de dados Azure SQL à sua fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Azure SQL.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **AzureSqlDatabase** |Sim |
-| connectionString |Especifique as informações necessárias para se ligar à base de dados Azure SQL para a propriedade de ligaçãoString. Apenas a autenticação básica é suportada. |Sim |
+| conexãoString |Especifique as informações necessárias para se ligar à base de dados Azure SQL para a propriedade de ligaçãoString. Apenas a autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
 > Configure firewall de base de [dados Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) o servidor de base de dados para [permitir que os Serviços Azure acedam ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a Base de Dados Azure SQL de fora do Azure, incluindo a partir de fontes de dados no local com gateway de fábrica de dados, configure o intervalo de endereçoip apropriado para a máquina que está a enviar dados para a Base de Dados Azure SQL.
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para especificar um conjunto de dados para representar dados de entrada ou saída numa base de dados Azure SQL, definiu a propriedade do tipo do conjunto de dados para: **AzureSqlTable**. Detete a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço ligado ao Azure SQL.
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **TypeProperties** para o conjunto de dados do tipo **AzureSqlTable** tem as seguintes propriedades:
 
@@ -82,7 +82,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 | tableName |Nome da tabela ou vista na instância de base de dados Azure SQL a que o serviço ligado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
 > A Copy Activity leva apenas uma entrada e produz apenas uma saída.
@@ -97,12 +97,12 @@ Na atividade de cópia, quando a fonte é do tipo **SqlSource,** as seguintes pr
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado. |Nome/pares de valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última declaração sQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 
 Se o **sqlReaderQuery** for especificado para o SqlSource, a Atividade de Cópia executa esta consulta contra a fonte de base de dados Azure SQL para obter os dados. Em alternativa, pode especificar um procedimento armazenado especificando o nome de **procedimento sqlReaderStoredEdE** e **os parâmetros de procedimento armazenados** (se o procedimento armazenado tiver parâmetros).
 
-Se não especificar o sqlReaderQuery ou o sqlReaderStoredProcedureName, as colunas definidas na secção de estrutura do conjunto de dados JSON são usadas para construir uma consulta (`select column1, column2 from mytable`) para ser executada contra a Base de Dados Azure SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
+Se não especificar o sqlReaderQuery ou o sqlReaderStoredProcedureName, as colunas definidas na secção de estrutura`select column1, column2 from mytable`do conjunto de dados JSON são usadas para construir uma consulta () para ser executada contra a Base de Dados Azure SQL. Se a definição de conjunto de dados não tiver a estrutura, todas as colunas são selecionadas a partir da tabela.
 
 > [!NOTE]
 > Quando utiliza o nome de **procedimento sqlReaderStored**, ainda precisa especificar um valor para a propriedade **tableName** no conjunto de dados JSON. No entanto, não há validações realizadas contra esta tabela.
@@ -146,12 +146,12 @@ GO
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
-| writeBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique uma consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte [a cópia repetível](#repeatable-copy). |Uma instrução de consulta. |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| sqlWriterCleanupScript |Especifique uma consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte [a cópia repetível](#repeatable-copy). |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a Copy Activity para preencher com identificador de fatias gerado saqueado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. Para mais informações, consulte [a cópia repetível](#repeatable-copy). |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se pretender fazer uma operação que só funciona uma vez e não tem nada a ver com dados de origem, por exemplo, eliminar/truncar, utilize `sqlWriterCleanupScript` propriedade. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado. |Nome/pares de valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a `sqlWriterCleanupScript` ver com dados de origem, por exemplo, eliminar/truncar, utilize a propriedade. |Nome do procedimento armazenado. |Não |
+| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 | sqlWriterTableType |Especifique um nome de tipo de tabela a utilizar no procedimento armazenado. A atividade de cópia disponibiliza os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome tipo de mesa. |Não |
 
 #### <a name="sqlsink-example"></a>Exemplo sqlSink
@@ -643,28 +643,28 @@ Ao mover dados de e para a Base de Dados Azure SQL, os seguintes mapeamentos sã
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Valor de duplo |
+| Datatimeoffset |DataTimeOffset |
+| Decimal |Decimal |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimal |
+| dinheiro |Decimal |
 | nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |decimal |
+| ntexto |String, Char[] |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Único |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| linhaversão |Byte[] |
+| tempo de data pequena |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Object * |
+| dinheiro pequeno |Decimal |
+| sql_variant |Objeto * |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |

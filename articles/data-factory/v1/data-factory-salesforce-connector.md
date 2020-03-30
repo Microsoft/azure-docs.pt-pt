@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281135"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mova dados da Salesforce utilizando a Azure Data Factory
@@ -63,18 +63,18 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas da Salesforce:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado à Salesforce.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **Salesforce**. |Sim |
-| environmentUrl | Especifique o URL da instância Salesforce. <br><br> - O predefinição é "https:\//login.salesforce.com". <br> - Para copiar dados da caixa de areia, especifique"https://test.salesforce.com". <br> - Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
+| ambienteUrl | Especifique o URL da instância Salesforce. <br><br> - O predefinição é "https:\//login.salesforce.com". <br> - Para copiar dados da caixahttps://test.salesforce.comde areia, especifique ". <br> - Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe para a conta de utilizador. |Sim |
-| securityToken |Especifique um sinal de segurança para a conta de utilizador. Consulte a ficha de [segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como redefinir/obter um sinal de segurança. Para saber sobre fichas de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) |Sim |
+| segurançaToken |Especifique um sinal de segurança para a conta de utilizador. Consulte a ficha de [segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como redefinir/obter um sinal de segurança. Para saber sobre fichas de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) |Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, e assim por diante).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as seguintes propriedades:
@@ -108,13 +108,13 @@ Na atividade de cópia, quando a fonte é do tipo **RelationalSource** (que incl
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperação de dados utilizando a cláusula na coluna DateTime
 Quando especificar a consulta SOQL ou SQL, preste atenção à diferença de formato DateTime. Por exemplo:
 
-* **Amostra SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Amostra SOQL:**`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Amostra SQL:**
-    * **Utilizando o assistente de cópia para especificar a consulta:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Utilizando a edição jSON para especificar a consulta (escape char corretamente):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Utilizando o assistente de cópia para especificar a consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Utilizando a edição jSON para especificar a consulta (escape char corretamente):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recuperação de dados do Relatório Salesforce
-Pode obter dados dos relatórios da Salesforce especificando a consulta como `{call "<report name>"}`,por exemplo, `"query": "{call \"TestReport\"}"`.
+Pode obter dados dos relatórios da Salesforce especificando a consulta como,por `{call "<report name>"}`exemplo. `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperação de registos apagados do Salesforce Recycle Bin
 Para consultar os registos eliminados suaves da Caixa de Reciclagem salesforce, pode especificar **"IsDeleted = 1"** na sua consulta. Por exemplo,
@@ -152,7 +152,7 @@ Este exemplo utiliza o serviço ligado à **Salesforce.** Consulte a secção de
     }
 }
 ```
-**Serviço ligado do Armazenamento do Azure**
+**Serviço ligado do Storage do Azure**
 
 ```json
 {
@@ -199,7 +199,7 @@ A definição **externa** para **verdadeira** informa o serviço Data Factory de
 
 ![Fábrica de Dados - Ligação Salesforce - Nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-**Conjunto de dados de saída do blob do Azure**
+**Conjunto de dados de saída de blob azure**
 
 Os dados são escritos para uma nova bolha a cada hora (frequência: hora, intervalo: 1).
 
@@ -285,25 +285,25 @@ Consulte propriedades do [tipo RelationalSource](#copy-activity-properties) para
 
 | Tipo salesforce | . Tipo baseado em NET |
 | --- | --- |
-| Auto Number |String |
-| Checkbox |Booleano |
-| Moeda |decimal |
-| Data |DateTime |
-| Data/hora |DateTime |
-| Email |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
-| Number |decimal |
-| Percentagem |decimal |
-| Phone |String |
-| Picklist |String |
-| Texto |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| do IdP |String |
+| Número automático |Cadeia |
+| Caixa de verificação |Booleano |
+| Moeda |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |Cadeia |
+| Id |Cadeia |
+| Relação de procura |Cadeia |
+| Lista de Picklist multi-selecionada |Cadeia |
+| Número |Decimal |
+| Percentagem |Decimal |
+| Telefone |Cadeia |
+| Picklist |Cadeia |
+| Texto |Cadeia |
+| Área de Texto |Cadeia |
+| Área de texto (longa) |Cadeia |
+| Área de Texto (Rica) |Cadeia |
+| Texto (Encriptado) |Cadeia |
+| do IdP |Cadeia |
 
 > [!NOTE]
 > Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .

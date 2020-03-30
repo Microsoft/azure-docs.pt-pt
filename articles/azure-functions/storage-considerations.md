@@ -4,10 +4,10 @@ description: Conheça os requisitos de armazenamento das Funções Azure e sobre
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276585"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
@@ -17,10 +17,10 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 |Serviço de armazenamento  | Utilização de funções  |
 |---------|---------|
-| [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
+| [Armazenamento Azure Blob](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
 | [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros utilizada para armazenar e executar o código da aplicação de funções num Plano de [Consumo](functions-scale.md#consumption-plan). |
 | [Armazenamento de fila azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)   |
-| [Armazenamento de tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)       |
+| [Armazenamento de mesa azure](../storage/tables/table-storage-overview.md)  |  Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)       |
 
 > [!IMPORTANT]
 > Ao utilizar o plano de Consumo de alojamento, os ficheiros de configuração de enlace e código de função são armazenados no armazenamento de Ficheiro do Azure na conta de armazenamento principal. Ao eliminar a conta de armazenamento principal, este conteúdo é eliminado e não pode ser recuperado.
@@ -47,7 +47,7 @@ A cadeia de ligação à conta de armazenamento deve ser atualizada quando regen
 
 É possível que várias aplicações de função partilhem a mesma conta de armazenamento sem qualquer problema. Por exemplo, no Estúdio Visual pode desenvolver várias aplicações usando o Emulador de Armazenamento Azure. Neste caso, o emulador age como uma única conta de armazenamento. A mesma conta de armazenamento utilizada pela sua aplicação de funções também pode ser utilizada para armazenar os dados da sua aplicação. No entanto, esta abordagem nem sempre é uma boa ideia num ambiente de produção.
 
-### <a name="optimize-storage-performance"></a>Otimizar o desempenho do armazenamento
+### <a name="optimize-storage-performance"></a>Otimizar o desempenho de armazenamento
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -59,15 +59,15 @@ Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para u
 
 ## <a name="mount-file-shares-linux"></a>Monte ações de ficheiro (Linux)
 
-Pode montar as ações existentes do Azure Files para as suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar o comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) para montar uma parte existente na sua aplicação de função Linux. 
+Pode montar as ações existentes do Azure Files para as suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) o comando para montar uma parte existente na sua aplicação de função Linux. 
 
-Neste comando, `share-name` é o nome da partilha de Ficheiros Azure existentes, e `custom-id` pode ser qualquer cadeia que defina exclusivamente a parte quando montada na aplicação de funções. Além disso, `mount-path` é o caminho a partir do qual a partilha é acedida na sua aplicação de função. `mount-path` deve estar no formato `/dir-name`, e não pode começar com `/home`.
+Neste comando, `share-name` é o nome da partilha dos `custom-id` Ficheiros Azure existentes, e pode ser qualquer cadeia que defina exclusivamente a parte quando montada na aplicação de funções. Além `mount-path` disso, é o caminho a partir do qual a partilha é acedida na sua aplicação de funções. `mount-path`deve estar no `/dir-name`formato , e `/home`não pode começar com .
 
 Para um exemplo completo, consulte os scripts em [Create a Python function app e monte uma partilha de Ficheiros Azure](scripts/functions-cli-mount-files-storage-linux.md). 
 
-Atualmente, apenas um `storage-type` de `AzureFiles` é apoiado. Só pode montar cinco ações numa determinada aplicação de função. A montagem de uma parte de ficheiro pode aumentar o tempo de início frio em pelo menos 200-300 ms, ou ainda mais quando a conta de armazenamento estiver numa região diferente.
+Atualmente, apenas um `storage-type` de é `AzureFiles` apoiado. Só pode montar cinco ações numa determinada aplicação de função. A montagem de uma parte de ficheiro pode aumentar o tempo de início frio em pelo menos 200-300 ms, ou ainda mais quando a conta de armazenamento estiver numa região diferente.
 
-A parte montada está disponível para o seu código de funcionamento no `mount-path` especificado. Por exemplo, quando `mount-path` é `/path/to/mount`, pode aceder ao directório-alvo por APIs do sistema de ficheiros, como no exemplo python seguinte:
+A parte montada está disponível para `mount-path` o seu código de função no especificado. Por exemplo, `mount-path` `/path/to/mount`quando estiver, pode aceder ao directório-alvo por APIs do sistema de ficheiros, como no exemplo python seguinte:
 
 ```python
 import os

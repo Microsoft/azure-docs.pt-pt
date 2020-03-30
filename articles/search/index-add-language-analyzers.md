@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283150"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem aos campos de cordas num índice de pesquisa cognitiva azure
@@ -66,37 +66,37 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Arménio||hy.lucene|  
-|Bangla|bn.microsoft||  
-|Basco (Basco)||eu.lucene|  
+|Rio Bangla|bn.microsoft||  
+|Basco||eu.lucene|  
 |Búlgaro|bg.microsoft|bg.lucene|  
 |Catalão|ca.microsoft|ca.lucene|  
 |Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
-|Chinês Tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
+|Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croata|hr.microsoft||  
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Português|en.microsoft|en.lucene|  
+|Inglês|en.microsoft|en.lucene|  
 |Estónio|et.microsoft||  
 |Finlandês|fi.microsoft|fi.lucene|  
 |Francês|fr.microsoft|fr.lucene|  
 |Galego||gl.lucene|  
 |Alemão|de.microsoft|de.lucene|  
 |Grego|el.microsoft|el.lucene|  
-|Guzarate|gu.microsoft||  
+|Guzerate|gu.microsoft||  
 |Hebraico|he.microsoft||  
 |Hindi|hi.microsoft|hi.lucene|  
 |Húngaro|hu.microsoft|hu.lucene|  
-|Islandês|is.microsoft||  
+|Islandês|é.microsoft||  
 |Indonésio (Bahasa)|id.microsoft|id.lucene|  
 |Irlandês||ga.lucene|  
 |Italiano|it.microsoft|it.lucene|  
 |Japonês|ja.microsoft|ja.lucene|  
-|Canarim|kn.microsoft||  
+|Canarês|kn.microsoft||  
 |Coreano|ko.microsoft|ko.lucene|  
 |Letão|lv.microsoft|lv.lucene|  
-|Lituano|lt.microsoft||  
-|Malayalam|ml.microsoft||  
+|Lituano|Lt.microsoft||  
+|Malaiala|ml.microsoft||  
 |Malaio (latim)|ms.microsoft||  
 |Marata|mr.microsoft||  
 |Norueguês|nb.microsoft|no.lucene|  
@@ -107,25 +107,25 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 |Punjabi|pa.microsoft||  
 |Romeno|ro.microsoft|ro.lucene|  
 |Russo|ru.microsoft|ru.lucene|  
-|Sérvio (Cirílico)|sr-cyrillic.microsoft||  
+|Sérvio (Cirílico)|sr-cirílico.microsoft||  
 |Sérvio (Latim)|sr-latin.microsoft||  
 |Eslovaco|sk.microsoft||  
 |Esloveno|sl.microsoft||  
 |Espanhol|es.microsoft|es.lucene|  
 |Sueco|sv.microsoft|sv.lucene|  
-|Tamil|ta.microsoft||  
-|Télego|te.microsoft||  
+|Tâmil|ta.microsoft||  
+|Telugu|te.microsoft||  
 |Tailandês|th.microsoft|th.lucene|  
 |Turco|tr.microsoft|tr.lucene|  
 |Ucraniano|uk.microsoft||  
-|Urdu|ur.microsoft||  
+|Urdu|sua.microsoft||  
 |Vietnamita|vi.microsoft||  
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
 ## <a name="see-also"></a>Consulte também  
 
-+ [Criar &#40;a API de pesquisa cognitiva do Index Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Criar índice &#40;&#41;de API de pesquisa cognitiva de pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 
 + [Classe AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
 

@@ -1,5 +1,5 @@
 ---
-title: Ativar o ambiente de trabalho remoto para linux nos Serviços de Laboratório Azure  Microsoft Docs
+title: Ativar o ambiente de trabalho remoto para linux nos Serviços de Laboratório Azure [ Microsoft Docs
 description: Aprenda a ativar o ambiente de trabalho remoto para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
 ms.openlocfilehash: cb9a3e2b9ddcd0f74bfa4978f0bc3f4eb0688257
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270865"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Serviços de Laboratório Azure
@@ -63,5 +63,5 @@ Os professores devem ligar-se ao modelo VM usando primeiro o SSH e instalar paco
 4. Instale pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. Para mais informações, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md). Depois, publica a imagem para que os alunos possam fazer RDP nos VMs do aluno Linux.
 5. Depois de instaladas estas embalagens, pode utilizar o **Modelo Connect para** a barra de ferramentas e, em seguida, selecionar Ligar via **RDP** para ligar ao modelo VM via RDP. Guarde o ficheiro RDP e use-o para ligar ao modelo VM via RDP. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de um instrutor ativar a função de ligação remota de ambiente de trabalho, os alunos podem ligar-se aos seus VMs via RDP/SSH. Para mais informações, consulte Utilize o [ambiente de trabalho remoto para VMs linux num laboratório de sala de aula](how-to-use-remote-desktop-linux-student.md). 

@@ -4,10 +4,10 @@ description: Aprenda sobre o failover e failable na Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281811"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local falha/failback
@@ -45,7 +45,7 @@ Para ligar aos VMs Azure criados após a falha utilizando RDP/SSH, existem uma s
 
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
-**Azure VM (Windows).** | Na máquina no local antes do fracasso | **Acesso através da internet**: Ativar rdp. Certifique-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis no **Windows Firewall** > **Permitidas Apps**.<br/><br/> **Acesso através do SITE-para-site VPN**: Ativar o RDP na máquina. Verifique se o RDP é permitido no **Firewall do Windows** -> **permitidas aplicações e funcionalidades**, para redes **De domínio e privadas.**<br/><br/>  Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. O Windows Update poderá começar quando falhar, e não poderá entrar no VM até que as atualizações estejam prontas.
+**Azure VM (Windows).** | Na máquina no local antes do fracasso | **Acesso através da internet**: Ativar rdp. Certifique-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis em**Aplicações permitidas**pelo **Windows Firewall** > .<br/><br/> **Acesso através do SITE-para-site VPN**: Ativar o RDP na máquina. Verifique se o RDP é permitido nas**aplicações e funcionalidades permitidas**pelo **Windows Firewall,** -> para redes **De domínio e privadas.**<br/><br/>  Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. O Windows Update poderá começar quando falhar, e não poderá entrar no VM até que as atualizações estejam prontas.
 **Vitrina Azure VM executando janelas** | No VM Azure após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) devem permitir a entrada de ligações à porta RDP.<br/><br/> Verifique os **diagnósticos da Boot** para verificar uma imagem do VM. Se não conseguir ligar, verifique se o VM está em execução e reveja as dicas de [resolução de problemas.](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 **Azure VM executando Linux** | Na máquina no local antes do fracasso | Certifique-se de que o serviço Secure Shell no VM está programado para começar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 **Azure VM executando Linux** | No VM Azure após falha | As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique os **diagnósticos** da Boot para obter uma imagem do VM.<br/><br/>

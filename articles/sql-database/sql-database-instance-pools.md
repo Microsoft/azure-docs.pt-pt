@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256214"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são piscinas de instâncias de base de dados SQL (pré-visualização)?
@@ -31,7 +31,7 @@ Além disso, piscinas de exemplo suportam integração vnet nativa para que voc�
 
 As piscinas de instâncias proporcionam os seguintes benefícios:
 
-1. Capacidade de acolher 2 instâncias vCore. *\*Apenas por exemplo, por exemplo, piscinas.*
+1. Capacidade de acolher 2 instâncias vCore. *Apenas por exemplo, por exemplo, piscinas. \**
 2. Tempo de implantação previsível e rápido (até 5 minutos).
 3. Atribuição mínima de endereço IP.
 
@@ -148,7 +148,7 @@ Se criar piscinas de instâncias em [subscrições elegíveis para benefício](h
 
 Para obter mais detalhes sobre os preços do pool, consulte a secção de *piscinas* de exemplo na página de preços de [instância gerida](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com piscinas de instância, consulte [a instância de dados de dados SQL piscinas como guiar](sql-database-instance-pools-how-to.md).
 - Para aprender a criar a sua primeira instância gerida, consulte [o guia Quickstart](sql-database-managed-instance-get-started.md).

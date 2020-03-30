@@ -1,5 +1,5 @@
 ---
-title: Gestão automática de dispositivos em escala com o Hub Azure IoT  Microsoft Docs
+title: Gestão automática de dispositivos em escala com o Hub Azure IoT [ Microsoft Docs
 description: Utilize configurações automáticas Azure IoT Hub para gerir vários dispositivos e módulos IoT
 author: ChrisGMsft
 manager: bruz
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
 ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271307"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Dispositivo ioT automático e gestão de módulos utilizando o portal Azure
@@ -35,7 +35,7 @@ As configurações automáticas funcionam pela primeira vez pouco depois da conf
 
 ## <a name="implement-twins"></a>Implementar gémeos
 
-As configurações automáticas do dispositivo requerem a utilização de gémeos dispositivos para sincronizar o estado entre a nuvem e os dispositivos.  Para obter mais informações, veja [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
+As configurações automáticas do dispositivo requerem a utilização de gémeos dispositivos para sincronizar o estado entre a nuvem e os dispositivos.  Para mais informações, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](iot-hub-devguide-device-twins.md).
 
 As configurações automáticas do módulo requerem a utilização de gémeos módulos para sincronizar o estado entre a nuvem e os módulos. Para mais informações, consulte [Compreender e utilizar gémeos módulos no IoT Hub](iot-hub-devguide-module-twins.md).
 
@@ -62,7 +62,7 @@ Antes de criar uma configuração, deve especificar quais os dispositivos ou mó
 
    ![Adicionar configuração do dispositivo ou do módulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
-Há cinco passos para criar uma configuração. As seções a seguir, percorra cada um deles. 
+Há cinco passos para criar uma configuração. As seguintes secções passam por cada uma. 
 
 ### <a name="name-and-label"></a>Nome e Etiqueta
 
@@ -76,7 +76,7 @@ Há cinco passos para criar uma configuração. As seções a seguir, percorra c
 
 Esta secção define o conteúdo a definir em dispositivos ou gémeos de módulos direcionados. Existem duas inputs para cada conjunto de definições. O primeiro é o caminho gémeo, que é o caminho para a secção JSON dentro das propriedades gémeas que serão definidas.  A segunda é o conteúdo jSON a ser inserido nessa secção. 
 
-Por exemplo, pode definir o caminho gémeo para `properties.desired.chiller-water` e, em seguida, fornecer o seguinte conteúdo JSON: 
+Por exemplo, pode definir o `properties.desired.chiller-water` caminho gémeo para e, em seguida, fornecer o seguinte conteúdo JSON: 
 
 ```json
 {
@@ -88,7 +88,7 @@ Por exemplo, pode definir o caminho gémeo para `properties.desired.chiller-wate
 ![Desloque o caminho e o conteúdo gémeos](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
 
-Também pode definir configurações individuais especificando todo o caminho gémeo e fornecendo o valor sem parênteses. Por exemplo, com o caminho gémeo `properties.desired.chiller-water.temperature`, coloque o conteúdo para `66`. Em seguida, crie um novo cenário gémeo para a propriedade de pressão. 
+Também pode definir configurações individuais especificando todo o caminho gémeo e fornecendo o valor sem parênteses. Por exemplo, com `properties.desired.chiller-water.temperature`o caminho gémeo, defino o conteúdo para `66`. Em seguida, crie um novo cenário gémeo para a propriedade de pressão. 
 
 Se duas ou mais configurações visarem o mesmo caminho gémeo, o conteúdo da configuração de prioridade mais alta aplicar-se-á (a prioridade é definida no passo 4).
 
@@ -121,7 +121,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Se estiver a construir uma métrica para reportar módulos configurados, selecione `moduleId` a partir de `devices.modules`. Por exemplo:
+Se estiver a construir uma métrica para reportar `moduleId` módulos configurados, selecione a partir de `devices.modules`. Por exemplo:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules
@@ -188,7 +188,7 @@ Para ver os detalhes de uma configuração e monitorizar os dispositivos que a e
 
 Quando modifica uma configuração, as alterações replicam-se imediatamente para todos os dispositivos ou módulos direcionados. 
 
-Se atualizar a condição de destino, ocorrem as seguintes atualizações:
+Se atualizar a condição-alvo, ocorrem as seguintes atualizações:
 
 * Se um gémeo não cumpriu a condição de alvo antiga, mas cumpre a nova condição-alvo e esta configuração é a maior prioridade para esse gémeo, então esta configuração é aplicada. 
 
@@ -204,11 +204,11 @@ Para modificar uma configuração, utilize os seguintes passos:
 
 3. Selecione a configuração que pretende modificar. 
 
-4. Efetue as atualizações para os seguintes campos: 
+4. Faça atualizações para os seguintes campos: 
 
-   * Condição de destino 
+   * Condição do alvo 
    * Etiquetas 
-   * Priority 
+   * Prioridade 
    * Métricas
 
 4. Selecione **Guardar**.
@@ -229,7 +229,7 @@ Ao eliminar uma configuração, qualquer dispositivo gémeos assume a sua próxi
 
 5. Um pedido vai pedir-lhe para confirmar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
@@ -240,7 +240,7 @@ Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Si
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
-* [Implementação de IA para dispositivos de borda com Borda Azure IoT](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar a utilização do Serviço de Provisionamento de Dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 

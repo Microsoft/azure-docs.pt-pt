@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277859"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Erros de manuseamento em Funções Duráveis (Funções Azure)
@@ -17,11 +17,11 @@ As orquestrações de função durável são implementadas em código e podem us
 
 ## <a name="errors-in-activity-functions"></a>Erros nas funções de atividade
 
-Qualquer exceção que seja lançada numa função de atividade é remeterida para a função de orquestrador e lançada como uma `FunctionFailedException`. Pode escrever código de manuseamento de erros e compensação que se adequa às suas necessidades na função de orquestrador.
+Qualquer exceção que seja lançada numa função de atividade é remeterida para a função de orquestrador e lançada como a `FunctionFailedException`. Pode escrever código de manuseamento de erros e compensação que se adequa às suas necessidades na função de orquestrador.
 
 Por exemplo, considere a seguinte função orquestradora que transfere fundos de uma conta para outra:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,7 +60,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Os C# exemplos anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -106,7 +106,7 @@ Se a primeira chamada de função **CreditAccount** falhar, a função orquestra
 
 Quando liga para funções de atividade ou funções de sub-orquestração, pode especificar uma política automática de retry. O exemplo seguinte tenta ligar para uma função até três vezes e espera 5 segundos entre cada retry:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,7 +123,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Os C# exemplos anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -156,9 +156,9 @@ A chamada de função de atividade no exemplo anterior tem um parâmetro para co
 
 ## <a name="function-timeouts"></a>Intervalos de função
 
-Talvez queira abandonar uma chamada de função dentro de uma função de orquestrador, se demorar muito tempo a ser concluída. A maneira correta de o fazer hoje é criando um [temporizador durável](durable-functions-timers.md) utilizando `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), como no seguinte exemplo:
+Talvez queira abandonar uma chamada de função dentro de uma função de orquestrador, se demorar muito tempo a ser concluída. A maneira correta de o fazer hoje é `context.CreateTimer` criando um `context.df.createTimer` [temporizador durável](durable-functions-timers.md) `Task.WhenAny` usando (.NET) ou (JavaScript) em conjunto com (.NET) ou `context.df.Task.any` (JavaScript), como no seguinte exemplo:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,7 +189,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Os C# exemplos anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
+> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, deve utilizar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo de [versões De Funções Duráveis.](durable-functions-versions.md)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -222,9 +222,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="unhandled-exceptions"></a>Exceções não processadas
 
-Se uma função de orquestrador falhar com uma exceção não tratada, os detalhes da exceção são registados e a instância completa com um estatuto de `Failed`.
+Se uma função de orquestrador falhar com uma exceção não tratada, os detalhes `Failed` da exceção são registados e a instância completa com um estado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre orquestrações eternas](durable-functions-eternal-orchestrations.md)

@@ -7,17 +7,17 @@ ms.date: 08/23/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: d58eb333c930d2ffac4eb57340ea776338325181
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266042"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua para o Serviço de Aplicações Azure
 
 O Serviço de [Aplicações Azure](overview.md) permite a implantação contínua dos repositórios GitHub, BitBucket e [Azure Repos,](https://azure.microsoft.com/services/devops/repos/) puxando as últimas atualizações. Este artigo mostra-lhe como usar o portal Azure para implantar continuamente a sua app através do serviço de construção Kudu ou [dos Oleodutos Azure](https://azure.microsoft.com/services/devops/pipelines/). 
 
-Para obter mais informações sobre os serviços de controlo de fontes, consulte [Criar um repositório (GitHub)], [Criar um repositório (BitBucket)]ou [Crie um novo Git repo (Azure Repos)].
+Para obter mais informações sobre os serviços de controlo de fontes, consulte [Criar um repo (GitHub)], [Criar um repo (BitBucket)]ou [Criar um novo Repo Git (Azure Repos)].
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -43,7 +43,7 @@ Para bitbucket ou GitHub, autorize o Serviço de Aplicações Azure a ligar-se a
    
 1. Inscreva-se no serviço se necessário e siga as indicações de autorização. 
 
-## <a name="enable-continuous-deployment"></a>Permitir a implantação contínua 
+## <a name="enable-continuous-deployment"></a>Ativar a implementação contínua 
 
 Depois de autorizar um serviço de controlo de fontes, configure a sua aplicação para uma implementação contínua através do servidor de construção de [apps Kudu](#option-1-use-the-app-service-build-service)incorporado, ou através de [Pipelines Azure](#option-2-use-azure-pipelines). 
 
@@ -69,7 +69,7 @@ Pode utilizar o servidor de construção de aplicativos Kudu incorporado para im
    - Para o GitHub, desça e selecione a **Organização**, **Repositório**e **Ramo** que pretende implementar continuamente.
      
      > [!NOTE]
-     > Se não vir quaisquer repositórios, poderá ter de autorizar o Azure App Service no GitHub. Navegue no seu repositório GitHub e vá às **Definições** > **Aplicações** > **Aplicações Autorizadas oAuth**. Selecione O Serviço de **Aplicações Azure**e, em seguida, selecione **Grant**. Para os repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
+     > Se não vir quaisquer repositórios, poderá ter de autorizar o Azure App Service no GitHub. Navegue no seu repositório GitHub e vá a**Aplicações OAuth autorizadas**de > **Definições.** >  **Settings** Selecione O Serviço de **Aplicações Azure**e, em seguida, selecione **Grant**. Para os repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
      
    - Para bitbucket, selecione a **Equipa**Bitbucket, **repositório**e **Branch** que pretende implementar continuamente.
      
@@ -106,14 +106,14 @@ Para configurar os gasodutos Azure (Pré-visualização):
    
 1. Na página da aplicação, selecione **Deployment Center** no menu esquerdo.
    
-1. Na página do **fornecedor Build,** selecione **Pipelines Azure (Pré-visualização)** , e, em seguida, selecione **Continuar**. 
+1. Na página do **fornecedor Build,** selecione **Pipelines Azure (Pré-visualização)**, e, em seguida, selecione **Continuar**. 
    
 1. Na página **Configure,** na secção **Código:**
    
    - Para o GitHub, desça e selecione a **Organização**, **Repositório**e **Ramo** que pretende implementar continuamente.
      
      > [!NOTE]
-     > Se não vir quaisquer repositórios, poderá ter de autorizar o Azure App Service no GitHub. Navegue no seu repositório GitHub e vá às **Definições** > **Aplicações** > **Aplicações Autorizadas oAuth**. Selecione O Serviço de **Aplicações Azure**e, em seguida, selecione **Grant**. Para os repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
+     > Se não vir quaisquer repositórios, poderá ter de autorizar o Azure App Service no GitHub. Navegue no seu repositório GitHub e vá a**Aplicações OAuth autorizadas**de > **Definições.** >  **Settings** Selecione O Serviço de **Aplicações Azure**e, em seguida, selecione **Grant**. Para os repositórios da organização, você deve ser um proprietário da organização para conceder as permissões.
      
    - Para o Azure Repos, selecione a **Organização Azure DevOps**, **Projeto,** **Repositório**e **Sucursal** que pretende implementar continuamente, ou configurar uma nova organização Azure DevOps.
      
@@ -137,11 +137,11 @@ Para configurar os gasodutos Azure (Pré-visualização):
    
    ![Track compromete e implanta no Centro de Implantação](media/app-service-continuous-deployment/github-finished.png)
 
-## <a name="disable-continuous-deployment"></a>Desativar a implantação contínua
+## <a name="disable-continuous-deployment"></a>Desativar a implementação contínua
 
 Para desativar a implementação contínua, selecione **Disconnect** na parte superior da página do Centro de **Implementação** da sua aplicação.
 
-![Desativar a implantação contínua](media/app-service-continuous-deployment/disable.png)
+![Desativar a implementação contínua](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
@@ -152,8 +152,8 @@ Para aplicações Windows, pode configurar manualmente a implementação contín
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Investigar questões comuns com implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Utilizar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Documentação do Git](https://git-scm.com/documentation)
+* [Utilizar a PowerShell Azure](/powershell/azureps-cmdlets-docs)
+* [Documentação git](https://git-scm.com/documentation)
 * [Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
 
 [Criar um repositório (GitHub)]: https://help.github.com/articles/create-a-repo

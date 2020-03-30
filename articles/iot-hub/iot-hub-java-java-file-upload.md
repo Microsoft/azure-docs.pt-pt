@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284528"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Java)
@@ -60,9 +60,9 @@ No final deste tutorial executa duas aplicações de consola Java:
 
 Nesta secção, modifica a aplicação do dispositivo que criou em [Enviar mensagens cloud-to-device com IoT Hub](iot-hub-java-java-c2d.md) para fazer o upload de um ficheiro para o hub IoT.
 
-1. Copie um ficheiro de imagem para a pasta `simulated-device` e mude o nome `myimage.png`.
+1. Copie um ficheiro `simulated-device` de imagem `myimage.png`para a pasta e mude o nome.
 
-2. Usando um editor de texto, abra o ficheiro `simulated-device\src\main\java\com\mycompany\app\App.java`.
+2. Usando um editor de `simulated-device\src\main\java\com\mycompany\app\App.java` texto, abra o ficheiro.
 
 3. Adicione a declaração variável à classe **App:**
 
@@ -138,9 +138,9 @@ Nesta secção, cria-se uma aplicação de consola Java que recebe mensagens de 
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. A seu pedido de comando, navegue para a nova pasta `read-file-upload-notification`.
+2. A seu pedido de comando, navegue para a nova `read-file-upload-notification` pasta.
 
-3. Utilizando um editor de texto, abra o ficheiro `pom.xml` na pasta `read-file-upload-notification` e adicione a seguinte dependência ao nó de **dependências.** A adição da dependência permite-lhe utilizar o pacote **iothub-java-service-client** na sua aplicação para comunicar com o seu serviço de hub IoT:
+3. Utilizando um editor de `pom.xml` texto, `read-file-upload-notification` abra o ficheiro na pasta e adicione a seguinte dependência ao nó de **dependências.** A adição da dependência permite-lhe utilizar o pacote **iothub-java-service-client** na sua aplicação para comunicar com o seu serviço de hub IoT:
 
     ```xml
     <dependency>
@@ -151,11 +151,11 @@ Nesta secção, cria-se uma aplicação de consola Java que recebe mensagens de 
     ```
 
     > [!NOTE]
-    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-service-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Guarde e feche o ficheiro `pom.xml`.
+4. Guarde e `pom.xml` feche o ficheiro.
 
-5. Usando um editor de texto, abra o ficheiro `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`.
+5. Usando um editor de `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` texto, abra o ficheiro.
 
 6. Adicione as seguintes declarações de **importação** ao ficheiro:
 
@@ -167,7 +167,7 @@ Nesta secção, cria-se uma aplicação de consola Java que recebe mensagens de 
     import java.util.concurrent.Executors;
     ```
 
-7. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua o valor do espaço reservado `{Your IoT Hub connection string}` pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
+7. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{Your IoT Hub connection string}` o valor do espaço reservado pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -230,7 +230,7 @@ Nesta secção, cria-se uma aplicação de consola Java que recebe mensagens de 
     }
     ```
 
-10. Guarde e feche o ficheiro `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`.
+10. Guarde e `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` feche o ficheiro.
 
 11. Utilize o seguinte comando para construir a aplicação **de notificação de leitura-upload de ficheiros** e verificar se há erros:
 
@@ -242,13 +242,13 @@ Nesta secção, cria-se uma aplicação de consola Java que recebe mensagens de 
 
 Agora pode executar as aplicações.
 
-Num pedido de comando na pasta `read-file-upload-notification`, execute o seguinte comando:
+Num pedido de `read-file-upload-notification` comando na pasta, execute o seguinte comando:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-Num pedido de comando na pasta `simulated-device`, execute o seguinte comando:
+Num pedido de `simulated-device` comando na pasta, execute o seguinte comando:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

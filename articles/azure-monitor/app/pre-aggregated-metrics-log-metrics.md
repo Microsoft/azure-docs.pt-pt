@@ -1,5 +1,5 @@
 ---
-title: Métricas baseadas em log e pré-agregados em Insights de Aplicação Azure  Microsoft Docs
+title: Métricas baseadas em log e pré-agregados em Insights de Aplicação Azure [ Microsoft Docs
 description: Porquê utilizar métricas baseadas em log versus pré-agregados em Insights de Aplicação Azure
 ms.topic: conceptual
 author: vgorbenko
@@ -7,13 +7,13 @@ ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275844"
 ---
-# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e pré-agregadas em Insights de Aplicação
+# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
 
 Este artigo explica a diferença entre métricas "tradicionais" de Insights de Aplicação que são baseadas em registos, e métricas pré-agregadas que estão atualmente em pré-visualização pública. Ambos os tipos de métricas estão disponíveis para os utilizadores de Insights de Aplicação, e cada um traz um valor único na monitorização da saúde da aplicação, diagnósticos e análise. Os desenvolvedores que estão a instrumentar aplicações podem decidir qual o tipo de métrica mais adequado a um determinado cenário, dependendo da dimensão da aplicação, volume esperado de telemetria e requisitos de negócio para a precisão e alerta de métricas.
 
@@ -30,7 +30,7 @@ Ao mesmo tempo, recolher um conjunto completo de eventos pode ser impraticável 
 
 ## <a name="pre-aggregated-metrics"></a>Métricas pré-agregadas
 
-Além das métricas baseadas em log, no outono de 2018, a equipa de Application Insights enviou uma pré-visualização pública de métricas que são armazenadas num repositório especializado que está otimizado para séries temporais. As novas métricas já não são mantidas como eventos individuais com muitas propriedades. Em vez disso, são armazenados como séries temporais pré-agregadas, e apenas com dimensões-chave. Isto torna as novas métricas superiores no momento da consulta: recuperar dados acontece muito mais rapidamente e requer menos potência computacional. Isto permite, consequentemente, novos cenários, como alertar quase em [tempo real sobre dimensões de métricas,](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)painéis mais responsivos e muito mais. [](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)
+Além das métricas baseadas em log, no outono de 2018, a equipa de Application Insights enviou uma pré-visualização pública de métricas que são armazenadas num repositório especializado que está otimizado para séries temporais. As novas métricas já não são mantidas como eventos individuais com muitas propriedades. Em vez disso, são armazenados como séries temporais pré-agregadas, e apenas com dimensões-chave. Isto torna as novas métricas superiores no momento da consulta: recuperar dados acontece muito mais rapidamente e requer menos potência computacional. Isto permite, consequentemente, novos cenários, como alertar quase em [tempo real sobre dimensões de métricas,](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)painéis mais responsivos e muito mais. [dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)
 
 > [!IMPORTANT]
 > Ambas, métricas baseadas em log e pré-agregadas coexistem em Insights de Aplicação. Para diferenciar os dois, na Aplicação Insights UX as métricas pré-agregadas são agora chamadas de "Métricas Padrão (pré-visualização)", enquanto as métricas tradicionais dos eventos foram rebatizadas para "Métricas baseadas em Log".

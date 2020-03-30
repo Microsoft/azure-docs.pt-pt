@@ -1,38 +1,38 @@
 ---
-title: Referência do C# desenvolvedor de scripts funções azure
-description: Entenda como desenvolver funções C# Azure usando script.
+title: Referência do desenvolvedor de scripts Azure Funções C#
+description: Entenda como desenvolver funções Azure usando o script C#.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 76af1f51c83e9554a51e6c17266fac739e6bd6b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276819"
 ---
-# <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do C# desenvolvedor de funções azure (.csx)
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor funções Azure C# (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Este artigo é uma introdução ao desenvolvimento C# de Funções Azure utilizando o script *(.csx).*
+Este artigo é uma introdução ao desenvolvimento de Funções Azure utilizando o script C#*(.csx).*
 
-As Funções C# Azure C# suportam e programam linguagens. Se procura orientação sobre [ C# a utilização de um projeto](functions-develop-vs.md)de biblioteca de classe Visual Studio, consulte [ C# ](functions-dotnet-class-library.md)a referência do desenvolvedor.
+As Funções Azure suportam linguagens de programação de scripts C# e C#. Se procura orientação sobre a utilização de C# num projeto de biblioteca de [classe Visual Studio,](functions-develop-vs.md)consulte a referência do desenvolvedor [C#](functions-dotnet-class-library.md).
 
 Este artigo assume que já leu o guia de desenvolvedores de [Funções Azure.](functions-reference.md)
 
 ## <a name="how-csx-works"></a>Como funciona .csx
 
-A C# experiência do script para funções Azure baseia-se no [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Os dados C# fluem para a sua função através de argumentos de método. Os nomes de argumentos são especificados num ficheiro `function.json`, e existem nomes predefinidos para aceder a coisas como o logger de funções e fichas de cancelamento.
+A experiência de script C# para Funções Azure baseia-se no [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Os dados fluem para a sua função C# através de argumentos de método. Os nomes dos `function.json` argumentos são especificados num ficheiro, e existem nomes predefinidos para aceder a coisas como o logger de funções e fichas de cancelamento.
 
-O formato *.csx* permite-lhe escrever menos "placa C# de caldeira" e concentrar-se na escrita apenas uma função. Em vez de embrulhar tudo num espaço de nome e classe, apenas defina um método `Run`. Inclua quaisquer referências de montagem e espaços de nome no início do ficheiro, como de costume.
+O formato *.csx* permite-lhe escrever menos "placa de caldeira" e concentrar-se na escrita apenas com uma função C#. Em vez de embrulhar tudo num espaço `Run` de nome e classe, apenas defina um método. Inclua quaisquer referências de montagem e espaços de nome no início do ficheiro, como de costume.
 
-Os ficheiros *.csx* de uma aplicação de função são compilados quando uma instância é inicializada. Este passo de compilação significa que C# coisas como o C# arranque a frio podem demorar mais tempo para as funções do script em comparação com as bibliotecas de classes. Este passo de compilação é também por isso que C# as C# funções de script são editáveis no portal Azure, enquanto as bibliotecas de classes não são.
+Os ficheiros *.csx* de uma aplicação de função são compilados quando uma instância é inicializada. Este passo de compilação significa que coisas como o arranque a frio podem demorar mais tempo para as funções do script C# em comparação com as bibliotecas da classe C#. Este passo de compilação é também por isso que as funções de script C# são editáveis no portal Azure, enquanto as bibliotecas da classe C# não são.
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
-A estrutura da C# pasta para um projeto de script parece ser a seguinte:
+A estrutura da pasta para um projeto de script C# parece ser a seguinte:
 
 ```
 FunctionsProject
@@ -51,11 +51,11 @@ FunctionsProject
 
 Há um ficheiro [host.json](functions-host-json.md) partilhado que pode ser usado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.csx) e ficheiro de configuração de ligação (função.json).
 
-As extensões de encadernação exigidas na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução das Funções são definidas no ficheiro `extensions.csproj`, com os ficheiros da biblioteca reais na pasta `bin`. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
+As extensões de encadernação exigidas na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros da biblioteca reais na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
 
 ## <a name="binding-to-arguments"></a>Vinculativo aos argumentos
 
-Os dados de entrada ou C# saída estão ligados a um parâmetro de função de script através da propriedade `name` no ficheiro de configuração *function.json.* O exemplo seguinte mostra um ficheiro *function.json* e ficheiro *run.csx* para uma função ativada pela fila. O parâmetro que recebe dados da mensagem de fila chama-se `myQueueItem` porque é esse o valor da propriedade `name`.
+Os dados de entrada ou saída estão ligados `name` a um parâmetro de função de script C# através da propriedade no ficheiro de configuração *function.json.* O exemplo seguinte mostra um ficheiro *function.json* e ficheiro *run.csx* para uma função ativada pela fila. O parâmetro que recebe dados da mensagem `myQueueItem` de fila é nomeado `name` porque é esse o valor da propriedade.
 
 ```json
 {
@@ -85,11 +85,11 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 }
 ```
 
-A declaração `#r` é explicada [mais tarde neste artigo.](#referencing-external-assemblies)
+A `#r` declaração é explicada [mais tarde neste artigo.](#referencing-external-assemblies)
 
 ## <a name="supported-types-for-bindings"></a>Tipos suportados para encadernações
 
-Cada encadernação tem os seus próprios tipos suportados; por exemplo, um gatilho de bolha pode ser usado com um parâmetro de corda, um parâmetro POCO, um parâmetro `CloudBlockBlob`, ou qualquer um de vários outros tipos suportados. O [artigo de referência vinculativo para encadernações blob](functions-bindings-storage-blob-trigger.md#usage) lista todos os tipos de parâmetros suportados para os gatilhos de bolhas. Para mais informações, consulte [Gatilhos e encadernações](functions-triggers-bindings.md) e os [docs de referência vinculativos para cada tipo de encadernação](functions-triggers-bindings.md#next-steps).
+Cada encadernação tem os seus próprios tipos suportados; por exemplo, um gatilho de bolha pode ser usado com um `CloudBlockBlob` parâmetro de corda, um parâmetro POCO, um parâmetro ou qualquer um de vários outros tipos suportados. O [artigo de referência vinculativo para encadernações blob](functions-bindings-storage-blob-trigger.md#usage) lista todos os tipos de parâmetros suportados para os gatilhos de bolhas. Para mais informações, consulte [Gatilhos e encadernações](functions-triggers-bindings.md) e os [docs de referência vinculativos para cada tipo de encadernação](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -116,7 +116,7 @@ Uma classe POCO deve ter um getter e setter definidos para cada propriedade.
 
 ## <a name="reusing-csx-code"></a>Reutilizar o código .csx
 
-Pode utilizar classes e métodos definidos noutros *ficheiros .csx* no ficheiro *run.csx.* Para isso, use `#load` diretivas no seu ficheiro *run.csx.* No exemplo seguinte, uma rotina de exploração madeireira chamada `MyLogger` é partilhada em *myLogger.csx* e carregada em *run.csx* usando a diretiva `#load`:
+Pode utilizar classes e métodos definidos noutros *ficheiros .csx* no ficheiro *run.csx.* Para isso, `#load` use diretivas no seu ficheiro *run.csx.* No exemplo seguinte, uma `MyLogger` rotina de exploração madeireira nomeada é partilhada em *myLogger.csx* e carregada em *run.csx* usando a `#load` diretiva:
 
 Exemplo *run.csx:*
 
@@ -141,7 +141,7 @@ public static void MyLogger(ILogger log, string logtext)
 }
 ```
 
-Usar um ficheiro *.csx* partilhado é um padrão comum quando se pretende escrever fortemente os dados passados entre funções utilizando um objeto POCO. No exemplo simplificado seguinte, um gatilho http e o gatilho da fila partilham um objeto POCO chamado `Order` para escrever fortemente os dados da encomenda:
+Usar um ficheiro *.csx* partilhado é um padrão comum quando se pretende escrever fortemente os dados passados entre funções utilizando um objeto POCO. No exemplo simplificado seguinte, um gatilho HTTP e um `Order` gatilho de fila partilham um objeto POCO nomeado para escrever fortemente os dados da encomenda:
 
 Exemplo *run.csx* para o gatilho HTTP:
 
@@ -208,25 +208,25 @@ public class Order
 }
 ```
 
-Pode utilizar um caminho relativo com a diretiva `#load`:
+Pode utilizar um caminho `#load` relativo com a diretiva:
 
-* `#load "mylogger.csx"` carrega um ficheiro localizado na pasta de funções.
-* `#load "loadedfiles\mylogger.csx"` carrega um ficheiro localizado numa pasta na pasta de funções.
-* `#load "..\shared\mylogger.csx"` carrega um ficheiro localizado numa pasta ao mesmo nível da pasta de funções, ou seja, diretamente em *wwwroot*.
+* `#load "mylogger.csx"`carrega um ficheiro localizado na pasta de funções.
+* `#load "loadedfiles\mylogger.csx"`carrega um ficheiro localizado numa pasta na pasta de funções.
+* `#load "..\shared\mylogger.csx"`carrega um ficheiro localizado numa pasta ao mesmo nível da pasta de funções, ou seja, diretamente em *wwwroot*.
 
-A diretiva `#load` funciona apenas com ficheiros *.csx,* não com ficheiros *.cs.*
+A `#load` diretiva funciona apenas com ficheiros *.csx,* não com ficheiros *.cs.*
 
 ## <a name="binding-to-method-return-value"></a>Vinculação ao valor de retorno do método
 
-Pode utilizar um valor de devolução de método para uma ligação de saída, utilizando o nome `$return` em *função.json*. Por exemplo, consulte [Gatilhos e encadernações](./functions-bindings-return-value.md).
+Pode utilizar um valor de devolução de método `$return` para uma ligação de saída, utilizando o nome em *função.json*. Por exemplo, consulte [Gatilhos e encadernações](./functions-bindings-return-value.md).
 
-Utilize o valor de devolução apenas se uma execução de função bem sucedida resultar sempre num valor de retorno para passar para a ligação de saída. Caso contrário, utilize `ICollector` ou `IAsyncCollector`, como se pode ver na secção seguinte.
+Utilize o valor de devolução apenas se uma execução de função bem sucedida resultar sempre num valor de retorno para passar para a ligação de saída. Caso contrário, `ICollector` `IAsyncCollector`utilize ou, como se pode ver na secção seguinte.
 
 ## <a name="writing-multiple-output-values"></a>Escrever vários valores de saída
 
-Para escrever vários valores para uma ligação de saída, ou se uma invocação de função bem sucedida pode não resultar em nada para passar para a ligação de saída, use os [tipos`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`.](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) Estes tipos são coleções escritas apenas que são escritas para a ligação de saída quando o método completa.
+Para escrever vários valores para uma ligação de saída, ou se uma invocação [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) de função bem sucedida pode não resultar em nada para passar para a ligação de saída, use os ou tipos. Estes tipos são coleções escritas apenas que são escritas para a ligação de saída quando o método completa.
 
-Este exemplo escreve várias mensagens de fila na mesma fila usando `ICollector`:
+Este exemplo escreve várias mensagens `ICollector`de fila na mesma fila usando:
 
 ```csharp
 public static void Run(ICollector<string> myQueue, ILogger log)
@@ -238,7 +238,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Registo
 
-Para iniciar sessão nos C#seus registos de streaming, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que o nomeie `log`. Evite utilizar `Console.Write` em funções Azure.
+Para registar a saída nos seus registos de streaming em C#, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que o `log`nomeie. Evite `Console.Write` utilizar em Funções Azure.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -248,11 +248,11 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> Para obter informações sobre uma nova estrutura de registo supérbio que pode utilizar em vez de `TraceWriter`, consulte [registos de escrita em C# funções](functions-monitoring.md#write-logs-in-c-functions) no artigo **Funções Monitor Azure.**
+> Para obter informações sobre uma nova estrutura `TraceWriter`de registo supérbio que pode utilizar em vez de , consulte [registos de escrita em funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Funções Monitor Azure.**
 
 ## <a name="async"></a>Async
 
-Para fazer uma função [assíncrona,](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)use a palavra-chave `async` e devolva um objeto `Task`.
+Para fazer uma função [assíncrona,](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)use `async` `Task` a palavra-chave e devolva um objeto.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -264,7 +264,7 @@ public async static Task ProcessQueueMessageAsync(
 }
 ```
 
-Não se pode usar `out` parâmetros em funções de asincronização. Para encadernações de saída, utilize o valor de devolução da [função](#binding-to-method-return-value) ou um [objeto de coleção.](#writing-multiple-output-values)
+Não se pode `out` usar parâmetros em funções de asincronização. Para encadernações de saída, utilize o valor de devolução da [função](#binding-to-method-return-value) ou um [objeto de coleção.](#writing-multiple-output-values)
 
 ## <a name="cancellation-tokens"></a>Fichas de cancelamento
 
@@ -297,7 +297,7 @@ public static void Run(
 
 ## <a name="importing-namespaces"></a>Espaços de nomes importando
 
-Se precisar de importar espaços com nomes, pode fazê-lo como de costume, com a cláusula `using`.
+Se precisar de importar espaços com nomes, pode `using` fazê-lo como de costume, com a cláusula.
 
 ```csharp
 using System.Net;
@@ -320,7 +320,7 @@ Os seguintes espaços de nome são automaticamente importados e, portanto, são 
 
 ## <a name="referencing-external-assemblies"></a>Referenciação de conjuntos externos
 
-Para os conjuntos-quadro, adicione referências utilizando a diretiva `#r "AssemblyName"`.
+Para os conjuntos-quadro, adicione `#r "AssemblyName"` referências utilizando a diretiva.
 
 ```csharp
 #r "System.Web.Http"
@@ -346,7 +346,7 @@ Os seguintes conjuntos são automaticamente adicionados pelo ambiente de hospeda
 * `System.Web.Http`
 * `System.Net.Http.Formatting`
 
-Os seguintes conjuntos podem ser referenciados por nome simples (por exemplo, `#r "AssemblyName"`):
+Os seguintes conjuntos podem ser referenciados por `#r "AssemblyName"`nome simples (por exemplo, ):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -359,18 +359,18 @@ Os seguintes conjuntos podem ser referenciados por nome simples (por exemplo, `#
 
 Para fazer referência a um conjunto personalizado, pode utilizar um conjunto *partilhado* ou um conjunto *privado:*
 
-* As assembléias partilhadas são partilhadas em todas as funções dentro de uma aplicação de função. Para fazer referência a um conjunto personalizado, faça o upload do conjunto para uma pasta chamada `bin` na pasta raiz da [sua app de função](functions-reference.md#folder-structure) (wwwroot).
+* As assembléias partilhadas são partilhadas em todas as funções dentro de uma aplicação de função. Para fazer referência a um conjunto personalizado, faça o upload do conjunto para uma pasta nomeada `bin` na pasta raiz da sua app de [função](functions-reference.md#folder-structure) (wwwroot).
 
-* As assembleias privadas fazem parte do contexto de uma determinada função e suportam o carregamento lateral de diferentes versões. As assembleias privadas devem ser colocadas numa pasta `bin` no diretório de funções. Faça referência aos conjuntos utilizando o nome do ficheiro, como `#r "MyAssembly.dll"`.
+* As assembleias privadas fazem parte do contexto de uma determinada função e suportam o carregamento lateral de diferentes versões. As assembleias privadas devem `bin` ser colocadas numa pasta no diretório de funções. Faça referência aos conjuntos utilizando o `#r "MyAssembly.dll"`nome do ficheiro, tais como .
 
 Para obter informações sobre como enviar ficheiros para a sua pasta de funções, consulte a secção na [gestão](#using-nuget-packages)do pacote .
 
 ### <a name="watched-directories"></a>Diretórios assistidos
 
-O diretório que contém o ficheiro do script de função é automaticamente observado para alterações nas assembléias. Para ter em conta as alterações de montagem noutras direções, adicione-as à lista de `watchDirectories` no [host.json](functions-host-json.md).
+O diretório que contém o ficheiro do script de função é automaticamente observado para alterações nas assembléias. Para ter em conta as alterações de `watchDirectories` montagem noutras direções, adicione-as à lista em [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
-Para utilizar os pacotes NuGet numa C# função 2.x e posterior, faça upload de um ficheiro *function.proj* para a pasta da função no sistema de ficheiros da aplicação de função. Aqui está um ficheiro *fun.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
+Para utilizar os pacotes NuGet numa função 2.x e c# posterior, faça upload de um ficheiro *function.proj* para a pasta da função no sistema de ficheiros da aplicação de função. Aqui está um ficheiro *fun.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,7 +387,7 @@ Para utilizar os pacotes NuGet numa C# função 2.x e posterior, faça upload de
 Para utilizar um feed NuGet personalizado, especifique o feed num ficheiro *Nuget.Config* na raiz da App função. Para mais informações, consulte [configurar o comportamento do NuGet](/nuget/consume-packages/configuring-nuget-behavior).
 
 > [!NOTE]
-> Em funções C# 1.x, os pacotes NuGet são referenciados com um ficheiro *project.json* em vez de um ficheiro *function.proj.*
+> Nas funções 1.x C#, os pacotes NuGet são referenciados com um ficheiro *project.json* em vez de um ficheiro *function.proj.*
 
 Para funções de 1.x, utilize um ficheiro *project.json.* Aqui está um arquivo de *projeto.json* exemplo:
 
@@ -423,7 +423,7 @@ Para funções de 1.x, utilize um ficheiro *project.json.* Aqui está um arquivo
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Para obter uma variável ambiental ou um valor de definição de app, use `System.Environment.GetEnvironmentVariable`, como mostra o seguinte exemplo de código:
+Para obter uma variável ambiental ou `System.Environment.GetEnvironmentVariable`um valor de definição de app, use, como mostra o seguinte exemplo de código:
 
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
@@ -444,13 +444,13 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>Encadernação no tempo de execução
 
-Em C# e noutras línguas .NET, você pode usar um padrão de ligação [imperativo,](https://en.wikipedia.org/wiki/Imperative_programming) em oposição às encadernações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em *função.json*. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados no tempo de execução em vez de tempo de conceção. Com este padrão, pode ligar-se a encadernações de entrada e saída suportadas no seu código de função.
+Em C# e outras línguas .NET, você pode usar um padrão de ligação [imperativo,](https://en.wikipedia.org/wiki/Imperative_programming) em oposição às encadernações [*declarativas*](https://en.wikipedia.org/wiki/Declarative_programming) em *função.json*. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados no tempo de execução em vez de tempo de conceção. Com este padrão, pode ligar-se a encadernações de entrada e saída suportadas no seu código de função.
 
 Defina uma vinculação imperativa da seguinte forma:
 
 - **Não** inclua uma entrada em *função.json* para as suas encadernações imperativas desejadas.
-- Passe num parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
-- Utilize o C# seguinte padrão para efetuar a encadernação de dados.
+- Passe num parâmetro [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) de [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)entrada ou .
+- Utilize o seguinte padrão C# para efetuar a encadernação de dados.
 
 ```cs
 using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` é o atributo .NET que define a sua ligação e `T` é um tipo de entrada ou saída que é suportado por esse tipo de ligação. `T` não pode ser do tipo de parâmetro `out` (como `out JObject`). Por exemplo, a ligação de saída da tabela mobile Apps suporta seis tipos de [saída,](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)mas só pode utilizar [o ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+`BindingTypeAttribute`é o atributo .NET que `T` define a sua ligação e é um tipo de entrada ou saída que é suportado por esse tipo de ligação. `T`não pode `out` ser do tipo `out JObject`parâmetro (como). Por exemplo, a ligação de saída da tabela mobile Apps suporta seis [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T`tipos de [saída,](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)mas só pode utilizar [o ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou para .
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
@@ -482,7 +482,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
-O exemplo anterior obtém a definição da aplicação para a cadeia de ligação à conta de armazenamento principal da aplicação de função (que é `AzureWebJobsStorage`). Pode especificar uma definição de aplicação personalizada para usar na conta de Armazenamento, adicionando o [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando o conjunto de atributos para `BindAsync<T>()`. Utilize um parâmetro `Binder`, não `IBinder`.  Por exemplo:
+O exemplo anterior obtém a definição da aplicação para a `AzureWebJobsStorage`cadeia de ligação à conta de armazenamento principal da aplicação de função (que é ). Pode especificar uma definição de aplicação personalizada para usar na conta de Armazenamento, adicionando o [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando o array de atributo para `BindAsync<T>()`. Use `Binder` um parâmetro, `IBinder`não.  Por exemplo:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -506,16 +506,16 @@ public static async Task Run(string input, Binder binder)
 A tabela seguinte lista os atributos .NET para cada tipo de encadernação e as embalagens em que são definidos.
 
 > [!div class="mx-codeBreakAll"]
-> | Vínculo | Atributo | Adicionar referência |
+> | Enlace | Atributo | Adicionar referência |
 > |------|------|------|
-> | BD do Cosmos | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-> | Hubs de Eventos | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, ](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+> | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
+> | Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 > | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 > | Hubs de Notificação | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-> | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`, ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs) [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-> | Fila de armazenamento | [`Microsoft.Azure.WebJobs.QueueAttribute`, ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs) [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-> | Blob de armazenamento | [`Microsoft.Azure.WebJobs.BlobAttribute`, ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-> | Mesa de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`, ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs) [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+> | Fila de armazenamento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | Blob de armazenamento | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | Mesa de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 ## <a name="next-steps"></a>Passos seguintes

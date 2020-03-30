@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 80bbf83da17d833c4f8bb1abac9610d70e9a23cb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274830"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
@@ -25,7 +25,7 @@ ms.locfileid: "79274830"
 As métricas do Monitor Azure são leves e capazes de suportar cenários próximos em tempo real, tornando-os particularmente úteis para alertar e detetar rapidamente problemas. Este artigo descreve como as métricas são estruturadas, o que pode fazer com elas, e identifica diferentes fontes de dados que armazenam dados em métricas.
 
 ## <a name="what-are-metrics"></a>O que são métricas?
-As métricas são valores numéricos que descrevem algum aspeto de um sistema num determinado momento. As métricas são recolhidas em intervalos regulares e são úteis para alertar porque podem ser amostradas com frequência, e um alerta pode ser disparado rapidamente com uma lógica relativamente simples.
+As métricas são valores numéricos que descrevem alguns aspetos de um sistema num determinado momento. As métricas são recolhidas em intervalos regulares e são úteis para alertar porque podem ser amostradas com frequência, e um alerta pode ser disparado rapidamente com uma lógica relativamente simples.
 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que se pode fazer com as Métricas do Monitor Azure?
 A tabela seguinte enumera as diferentes formas de utilizar dados métricos no Monitor Azure.
@@ -48,45 +48,45 @@ Os dados recolhidos pela Azure Monitor Metrics são armazenados numa base de dad
 * Um espaço de nome que age como uma categoria para a métrica
 * Um nome métrico
 * O valor em si
-* Algumas métricas podem ter múltiplas dimensões, conforme descrito em [métricas multidimensionais.](#multi-dimensional-metrics) Métricas personalizadas podem ter até 10 dimensões.
+* Algumas métricas podem ter múltiplas dimensões, conforme descrito em [métricas multidimensionais.](#multi-dimensional-metrics) As métricas personalizadas podem ter até 10 dimensões.
 
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionais
-Um dos desafios para os dados métricos é que muitas vezes tem informação limitada para fornecer contexto para valores recolhidos. O Monitor Azure aborda este desafio com métricas multidimensionais. As dimensões de uma métrica são pares nome-valor que transportar dados adicionais para descrever o valor de métrica. Por exemplo, um espaço de _disco disponível_ métrico poderia ter uma dimensão chamada _Drive_ com valores _C:_ , _D:_ , que permitiria visualizar o espaço do disco disponível em todas as unidades ou para cada unidade individualmente.
+Um dos desafios para os dados métricos é que muitas vezes tem informação limitada para fornecer contexto para valores recolhidos. O Monitor Azure aborda este desafio com métricas multidimensionais. As dimensões de uma métrica são pares de valor-nome que transportam dados adicionais para descrever o valor métrico. Por exemplo, um espaço de _disco disponível_ métrico poderia ter uma dimensão chamada _Drive_ com valores _C:_, _D:_, que permitiria visualizar o espaço do disco disponível em todas as unidades ou para cada unidade individualmente.
 
 O exemplo abaixo ilustra dois conjuntos de dados para uma métrica hipotética chamada _"Network Throughput"._ O primeiro conjunto de dados não tem dimensões. O segundo conjunto de dados mostra os valores com duas dimensões, _endereço IP_ e _direção:_
 
-### <a name="network-throughput"></a>Débito de rede
+### <a name="network-throughput"></a>Entrada de rede
 
-| Carimbo de data/hora     | Valor de métrica |
+| Carimbo de data/hora     | Valor Métrico |
 | ------------- |:-------------|
-| 8/9/2017 8:14 | 1,331.8 kbps |
-| 8/9/2017 8:15 | 1,141.4 kbps |
-| 8/9/2017 8:16 | 1,110.2 kbps |
+| 8/9/2017 8:14 | 1.331.8 Kbps |
+| 8/9/2017 8:15 | 1.141.4 Kbps |
+| 8/9/2017 8:16 | 1.110.2 Kbps |
 
-Esta métrica não dimensionais pode apenas resposta uma pergunta básica, como "o que era minha débito de rede num determinado momento?"
+Esta métrica não dimensional só pode responder a uma pergunta básica como "qual era a minha rede de entrada num dado momento?"
 
-### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Débito de rede + duas dimensões ("IP" e "Direção")
+### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Entrada de rede + duas dimensões ("IP" e "Direção")
 
-| Carimbo de data/hora     | Dimensão "IP"   | Dimensão de "Direção" | Valor de métrica|
+| Carimbo de data/hora     | Dimensão "IP"   | Dimensão "Direção" | Valor Métrico|
 | ------------- |:-----------------|:------------------- |:-----------|
-| 8/9/2017 8:14 | IP = "192.168.5.2" | Direção = "Enviar"    | 646.5 kbps |
-| 8/9/2017 8:14 | IP = "192.168.5.2" | Direção = "Receber" | 420.1 kbps |
-| 8/9/2017 8:14 | IP = "10.24.2.15"  | Direção = "Enviar"    | 150.0 kbps |
-| 8/9/2017 8:14 | IP = "10.24.2.15"  | Direção = "Receber" | 115.2 kbps |
-| 8/9/2017 8:15 | IP = "192.168.5.2" | Direção = "Enviar"    | 515.2 kbps |
-| 8/9/2017 8:15 | IP = "192.168.5.2" | Direção = "Receber" | 371.1 kbps |
-| 8/9/2017 8:15 | IP = "10.24.2.15"  | Direção = "Enviar"    | 155.0 kbps |
-| 8/9/2017 8:15 | IP = "10.24.2.15"  | Direção = "Receber" | 100.1 kbps |
+| 8/9/2017 8:14 | IP="192.168.5.2" | Direção="Enviar"    | 646.5 Kbps |
+| 8/9/2017 8:14 | IP="192.168.5.2" | Direção="Receber" | 420.1 Kbps |
+| 8/9/2017 8:14 | IP="10.24.2.15"  | Direção="Enviar"    | 150.0 Kbps |
+| 8/9/2017 8:14 | IP="10.24.2.15"  | Direção="Receber" | 115.2 Kbps |
+| 8/9/2017 8:15 | IP="192.168.5.2" | Direção="Enviar"    | 515.2 Kbps |
+| 8/9/2017 8:15 | IP="192.168.5.2" | Direção="Receber" | 371.1 Kbps |
+| 8/9/2017 8:15 | IP="10.24.2.15"  | Direção="Enviar"    | 155.0 Kbps |
+| 8/9/2017 8:15 | IP="10.24.2.15"  | Direção="Receber" | 100.1 Kbps |
 
-Esta métrica pode responder a perguntas como "qual era o débito de rede para cada endereço IP?" e "a quantidade de dados foi enviado e recebido?" Métricas multidimensionais trazer o valor de análise e diagnóstico adicional em comparação comparado as métricas não dimensionais.
+Esta métrica pode responder a questões como "qual foi o serviço de entrada de rede para cada endereço IP?", e "quantos dados foram enviados versus recebidos?" As métricas multidimensionais têm um valor analítico e de diagnóstico adicional em comparação com métricas não dimensionais.
 
-## <a name="interacting-with-azure-monitor-metrics"></a>Interagindo com métricas de monitor azure
+## <a name="interacting-with-azure-monitor-metrics"></a>Interagir com Métricas do Azure Monitor
 Use [o Metrics Explorer](metrics-charts.md) para analisar interativamente os dados na sua base de dados métrica e traçar os valores de várias métricas ao longo do tempo. Pode fixar as tabelas num painel de instrumentos para vê-las com outras visualizações. Também pode recuperar métricas utilizando a API de [monitorização Azure](rest-api-walkthrough.md).
 
 ![Explorador de Métricas](media/data-platform/metrics-explorer.png)
 
 ## <a name="sources-of-azure-monitor-metrics"></a>Fontes de Métricas de Monitor Azure
-Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. Uma vez recolhidas estas métricas na base de dados métrica do Monitor Azure, podem ser avaliadas em conjunto independentemente da sua origem.
+Existem três fontes fundamentais de métricas recolhidas pelo Monitor Azure. Uma vez recolhidas estas métricas na base de dados métrica do Monitor Azure, podem ser avaliadas em conjunto independentemente da sua origem.
 
 **As métricas** da plataforma são criadas pelos recursos do Azure e dão-lhe visibilidade para a sua saúde e desempenho. Cada tipo de recurso cria um [conjunto distinto de métricas](metrics-supported.md) sem qualquer configuração necessária. As métricas da plataforma são recolhidas a partir de recursos Azure com uma frequência de um minuto, salvo especificação em contrário na definição da métrica. 
 

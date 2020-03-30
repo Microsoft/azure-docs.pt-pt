@@ -1,5 +1,5 @@
 ---
-title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos Hub Azure IoT  Microsoft Docs
+title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos Hub Azure IoT [ Microsoft Docs
 description: Descreve conceitos de provisionamento de serviços específicos de dispositivos com o Serviço de Provisionamento de Dispositivos (DPS) e IoT Hub
 author: nberdy
 ms.author: nberdy
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285217"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos de serviço de provisionamento de dispositivos IoT Hub

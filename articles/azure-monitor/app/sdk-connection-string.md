@@ -1,5 +1,5 @@
 ---
-title: Cordas de ligação em Insights de Aplicação Azure  Microsoft Docs
+title: Cordas de ligação em Insights de Aplicação Azure [ Microsoft Docs
 description: Como utilizar cordas de ligação.
 ms.topic: conceptual
 author: timothymothra
@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136711"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
@@ -55,19 +55,19 @@ A ligação tem um comprimento máximo suportado de 4096 caracteres.
 
 #### <a name="key-value-pairs"></a>Pares valor-chave
 
-A cadeia de ligação consiste numa lista de definições representadas como pares de valor-chave separados por ponto evígula: `key1=value1;key2=value2;key3=value3`
+A cadeia de ligação consiste numa lista de definições representadas como pares de valor-chave separados por ponto evígula:`key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Sintaxe
 
-- `InstrumentationKey` (ex: 00000000-0000-0000-0000-000000000000000000) A corda de ligação é um campo **necessário.**
-- `Authorization` (ex: ikey) (Esta definição é opcional porque hoje só apoiamos a autorização ikey.)
-- `EndpointSuffix` (ex: applicationinsights.azure.cn) A definição do sufixo de ponto final instruirá o SDK a que a nuvem Azure se liga. O SDK reunirá o resto do ponto final para serviços individuais.
+- `InstrumentationKey`(ex: 00000000-0000-0000-0000-0000-000000000000000000000)  A corda de ligação é um campo **necessário.**
+- `Authorization`(ex: ikey) (Esta definição é opcional porque hoje só apoiamos a autorização ikey.)
+- `EndpointSuffix`(ex: applicationinsights.azure.cn) A definição do sufixo de ponto final instruirá o SDK a que a nuvem Azure se liga. O SDK reunirá o resto do ponto final para serviços individuais.
 - Pontos Finais Explícitos.
   Qualquer serviço pode ser explicitamente ultrapassado na cadeia de ligação.
-   - `IngestionEndpoint` (ex: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (ex: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (ex: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (ex: https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(ex:https://dc.applicationinsights.azure.com)
+   - `LiveEndpoint`(ex:https://live.applicationinsights.azure.com)
+   - `ProfilerEndpoint`(ex:https://profiler.applicationinsights.azure.com)
+   - `SnapshotEndpoint`(ex:https://snapshot.applicationinsights.azure.com)
 
 #### <a name="endpoint-schema"></a>Esquema de endpoint
 
@@ -82,15 +82,15 @@ Aqui está uma lista de sufixos válidos
 - applicationinsights.us
 
 
-Ver também: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Consulte também:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Prefixos válidos
 
-- [Ingestão de telemetria](./app-insights-overview.md): `dc`
-- [Métricas ao Vivo](./live-stream.md): `live`
-- [Perfil :](./profiler-overview.md)`profiler`
-- [Snapshot](./snapshot-debugger.md): `snapshot`
+- [Ingestão de telemetria:](./app-insights-overview.md)`dc`
+- [Métricas ao vivo:](./live-stream.md)`live`
+- [Perfilador:](./profiler-overview.md)`profiler`
+- [Instantâneo:](./snapshot-debugger.md)`snapshot`
 
 
 
@@ -106,10 +106,10 @@ Neste exemplo, apenas foi definida a chave de instrumentação.
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - Os URIs de serviço regional baseiam-se nos incumprimentos do [SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e ligar-se-ão ao azure global público:
-   - Ingestão: https://dc.services.visualstudio.com/
-   - Métricas ao vivo: https://rt.services.visualstudio.com/
-   - Profiler: https://agent.azureserviceprofiler.net/
-   - https://agent.azureserviceprofiler.net/  
+   - Ingestão:https://dc.services.visualstudio.com/
+   - Métricas ao vivo:https://rt.services.visualstudio.com/
+   - Perfilador:https://agent.azureserviceprofiler.net/
+   - Debugger:https://agent.azureserviceprofiler.net/  
 
 
 
@@ -122,10 +122,10 @@ Neste exemplo, esta cadeia de ligação especifica o sufixo de ponto final e o S
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - As URIs de serviço regional baseiam-se no sufixo final fornecido: 
-   - Ingestão: https://dc.ai.contoso.com
-   - Métricas ao vivo: https://live.ai.contoso.com
-   - Profiler: https://profiler.ai.contoso.com 
-   - https://snapshot.ai.contoso.com   
+   - Ingestão:https://dc.ai.contoso.com
+   - Métricas ao vivo:https://live.ai.contoso.com
+   - Perfilador:https://profiler.ai.contoso.com 
+   - Debugger:https://snapshot.ai.contoso.com   
 
 
 
@@ -159,11 +159,11 @@ Uma cadeia de ligação pode ser definida em código, variável ambiental ou fic
 
 ### <a name="environment-variable"></a>Variável de ambiente
 
-- Fio de ligação: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Fio de ligação:`APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 ### <a name="net-sdk-example"></a>exemplo sDK .Net
 
-TelemettryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetriaConfigura.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .Net Explicitamente Definido:
 ```csharp
@@ -273,7 +273,7 @@ Introdução ao tempo de execução com:
 Introdução no momento de programação com:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [python](../../azure-monitor/app/opencensus-python.md)
+* [Nó.js](../../azure-monitor/app/nodejs.md)
+* [Pitão](../../azure-monitor/app/opencensus-python.md)

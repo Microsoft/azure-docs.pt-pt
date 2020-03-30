@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Access web APIs for app - Microsoft identity platform  Azure'
+title: 'Quickstart: Access web APIs for app - Microsoft identity platform [ Azure'
 description: Neste arranque rápido, configure uma aplicação registada na plataforma de identidade da Microsoft para incluir REdirecionamento de URIs, credenciais ou permissões para aceder a APIs web.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240899"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Quickstart: Configure uma aplicação de cliente para aceder a APIs web
@@ -35,28 +35,28 @@ Antes de um cliente poder aceder a uma API web exposta por uma aplicação de re
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Detete a sua sessão de portal para o inquilino da AD Azure que quiser.
-1. Procure e selecione **Azure Ative Directory**. Under **Manage**, selecione **Registos de Aplicações**.
+1. Procure e selecione **Azure Active Directory**. Em **Gerir**, selecione **Registos de aplicações**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, consulte a **visão geral** da aplicação ou a página principal de registo.
 
 Utilize os seguintes procedimentos para configurar a sua aplicação para aceder a APIs web.
 
-## <a name="add-redirect-uris-to-your-application"></a>Adicione URIs redirecionamento à sua aplicação
+## <a name="add-redirect-uris-to-your-application"></a>Adicionar URIs de redirecionamento à aplicação
 
 Pode adicionar URIs de redirecionamento personalizado e redirecionar URIs para a sua aplicação. Para adicionar um URI personalizado para aplicações de clientes web e públicos:
 
 1. A partir da página de **visão geral** da aplicação, selecione **Autenticação**.
 1. Localizar **URIs de redirecionamento**. Pode ser necessário selecionar **a Switch para a experiência antiga.**
-1. Selecione o tipo de aplicação que está a construir: **Web** ou **Cliente Público/nativo (mobile & desktop)** .
+1. Selecione o tipo de aplicação que está a construir: **Web** ou **Cliente Público/nativo (mobile & desktop)**.
 1. Introduza o URI de redirecionamento da aplicação,
 
    * Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, `http://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação cliente Web.
-   * Para aplicações públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico da sua aplicação, por exemplo: `https://MyFirstApp`.
+   * Para aplicações públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico da `https://MyFirstApp`sua aplicação, por exemplo: .
 1. Selecione **Guardar**.
 
 Para escolher entre URIs de redirecionamento sugerido para clientes públicos, siga estes passos:
 
 1. A partir da página de **visão geral** da aplicação, selecione **Autenticação**.
-1. Localizar **URIs de redirecionamento sugeridos para clientes públicos (mobile, desktop)** . Pode ser necessário selecionar **a Switch para a experiência antiga.**
+1. Localizar **URIs de redirecionamento sugeridos para clientes públicos (mobile, desktop)**. Pode ser necessário selecionar **a Switch para a experiência antiga.**
 1. Selecione um ou mais URIs redirecionados para a sua aplicação. Também pode introduzir um URI de redirecionamento personalizado. Se não sabe o que usar, consulte a documentação da biblioteca.
 1. Selecione **Guardar**.
 
@@ -91,7 +91,7 @@ Se configurar os tipos de conta suportados quando registou a aplicação, só po
 * Altera os tipos de conta de **AzureADMyOrg** ou **AzureADMultipleOrgs** para **AzureADandPersonalMicrosoftAccount,** ou o contrário, ou o contrário, ou
 * Muda os tipos de conta de **AzureADMyOrg** para **AzureADMultipleOrgs,** ou o contrário.
 
-Para alterar os tipos de conta suportados para um registo de aplicações existente, atualize a chave `signInAudience`. Para mais informações, consulte [Configurar o manifesto de aplicação](reference-app-manifest.md#configure-the-app-manifest).
+Para alterar os tipos de conta suportados para `signInAudience` um registo de aplicações existente, atualize a chave. Para mais informações, consulte [Configurar o manifesto de aplicação](reference-app-manifest.md#configure-the-app-manifest).
 
 ## <a name="configure-platform-settings-for-your-application"></a>Configure as definições da plataforma para a sua aplicação
 
@@ -110,10 +110,10 @@ Para configurar as definições de aplicação com base na plataforma ou no disp
    | **Web**              | Insira o **Redirect URI** para a sua candidatura. |
    | **iOS / macOS**              | Introduza o id do **pacote**da aplicação , que pode encontrar no XCode em Info.plist ou 'Build Settings'. Adicionar o ID do pacote cria automaticamente um URI redirecionado para a aplicação. |
    | **Android**          | Forneça o **nome pacote**da aplicação , que pode encontrar no ficheiro AndroidManifest.xml.<br/>Gerar e introduzir o **hash Signature**. Adicionar o hash de assinatura cria automaticamente um URI redirecionado para a aplicação.  |
-   | **Aplicações móveis e de desktop**  | Opcional. Selecione um dos **URIs de redirecionamento sugerido** recomendado se estiver a construir aplicações para desktop e dispositivos.<br/>Opcional. Introduza um **URI de redirecionamento personalizado,** que é usado como local onde o Azure AD irá redirecionar os utilizadores em resposta aos pedidos de autenticação. Por exemplo, para aplicações .NET Core onde deseja interação, use `https://localhost`. |
+   | **Aplicações móveis e de desktop**  | Opcional. Selecione um dos **URIs de redirecionamento sugerido** recomendado se estiver a construir aplicações para desktop e dispositivos.<br/>Opcional. Introduza um **URI de redirecionamento personalizado,** que é usado como local onde o Azure AD irá redirecionar os utilizadores em resposta aos pedidos de autenticação. Por exemplo, para aplicações .NET Core `https://localhost`onde deseja interação, utilize. |
 
    > [!IMPORTANT]
-   > Para aplicações móveis que não estejam a utilizar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não utilizem um corretor, tem de configurar os URIs de redirecionamento para estas aplicações em **dispositivos Desktop +** .
+   > Para aplicações móveis que não estejam a utilizar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não utilizem um corretor, tem de configurar os URIs de redirecionamento para estas aplicações em **dispositivos Desktop +**.
 
 Dependendo da plataforma que escolheu, pode haver configurações adicionais que possa configurar. Para aplicações **Web,** pode:
 
@@ -127,14 +127,14 @@ Dependendo da plataforma que escolheu, pode haver configurações adicionais que
 
 Para adicionar uma credencial à sua aplicação web, adicione um certificado ou crie um segredo de cliente. Para adicionar um certificado:
 
-1. Na página **'Overview'** da aplicação, selecione a secção **Certificados e Segredos.**
+1. Na página **'Overview'** da aplicação, selecione a secção **de Certificados & segredos.**
 1. Selecione **Carregar o certificado**.
 1. Selecione o ficheiro que pretende carregar. Tem de ser do tipo .cer, .pem ou .crt.
 1. Selecione **Adicionar**.
 
 Para adicionar um segredo de cliente:
 
-1. Na página **'Overview'** da aplicação, selecione a secção **Certificados e Segredos.**
+1. Na página **'Overview'** da aplicação, selecione a secção **de Certificados & segredos.**
 1. Selecione **Novo segredo do cliente**.
 1. Adicione uma descrição do segredo do cliente.
 1. Selecione uma duração.

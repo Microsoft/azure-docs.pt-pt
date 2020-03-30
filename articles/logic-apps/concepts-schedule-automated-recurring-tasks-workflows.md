@@ -7,13 +7,13 @@ ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270566"
 ---
-# <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas automatizadas recorrentes, processos e fluxos de trabalho com aplicações lógicas azure
+# <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps
 
 As Aplicações Lógicas ajudam-no a criar e executar tarefas e processos recorrentes automatizados numa programação. Ao criar um fluxo de trabalho de aplicação lógica que começa com um gatilho de recorrência incorporado ou gatilho de janela deslizante, que são gatilhos tipo Agenda, pode executar tarefas imediatamente, num momento posterior, ou num intervalo recorrente. Pode ligar para serviços dentro e fora do Azure, como pontos finais HTTP ou HTTPS, enviar mensagens para serviços Azure como Azure Storage e Azure Service Bus, ou enviar ficheiros para uma partilha de ficheiros. Com o gatilho recorrência, também pode configurar horários complexos e recorrências avançadas para executar tarefas. Para saber mais sobre os gatilhos e ações da Agenda incorporada, consulte os [gatilhos da Agenda](#schedule-triggers) e [as ações de Agenda](#schedule-actions). 
 
@@ -104,10 +104,10 @@ Eis o que esta recorrência parece:
 
 | Hora de início | Primeira corrida | Tempos de execução futuros |
 |------------|----------------|------------------|
-| 2017-09-**07** às 14:00 | 2017-09-**09** às 14:00 | 2017-09-**11** às 14:00 </br>2017-09-**13** às 14:00 </br>2017-09-**15** às 14:00 </br>E assim por diante... |
+| 2017-09-**07** às 14:00 | 2017-09-**09** às 14:00 | 2017-09-**11** às 14:00 </br>2017-09-**13** às 14:00 </br>2017-09-**15** às 14:00 </br>e assim por diante... |
 ||||
 
-Portanto, não importa o quão longe no passado especifique a hora de início, por exemplo, 2017-09-**05** às 14:00 ou 2017-09-01 às 14:00, a sua primeira corrida usa sempre a próxima hora de início.
+Portanto, não importa o quão longe no passado especifique a hora de início, por exemplo, 2017-09-**05** às 14:00 ou 2017-09-01 às 14:00, a sua primeira corrida usa sempre a próxima hora de início.**01**
 
 Para o gatilho da Janela Deslizante, o motor Logic Apps calcula os tempos de funcionamento com base no tempo de início, honra os tempos de funcionamento passados, utiliza o tempo de início para a primeira execução e calcula as futuras corridas com base no tempo de início.
 
@@ -115,10 +115,10 @@ Eis o que esta recorrência parece:
 
 | Hora de início | Primeira corrida | Tempos de execução futuros |
 |------------|----------------|------------------|
-| 2017-09-**07** às 14:00 | 2017-09-**07** às 14:00 | 2017-09-**09** às 14:00 </br>2017-09-**11** às 14:00 </br>2017-09-**13** às 14:00 </br>2017-09-**15** às 14:00 </br>E assim por diante... |
+| 2017-09-**07** às 14:00 | 2017-09-**07** às 14:00 | 2017-09-**09** às 14:00 </br>2017-09-**11** às 14:00 </br>2017-09-**13** às 14:00 </br>2017-09-**15** às 14:00 </br>e assim por diante... |
 ||||
 
-Portanto, não importa o quão longe no passado especifique a hora de início, por exemplo, 2017-09-**05** às 14:00 ou 2017-09-01 às 14:00, a sua primeira execução usa sempre a hora de início especificada.
+Portanto, não importa o quão longe no passado especifique a hora de início, por exemplo, 2017-09-**05** às 14:00 ou 2017-09-01 às 14:00, a sua primeira execução usa sempre a hora de início especificada.**01**
 
 <a name="example-recurrences"></a>
 
@@ -126,29 +126,29 @@ Portanto, não importa o quão longe no passado especifique a hora de início, p
 
 Aqui estão várias recorrências de exemplo que pode configurar para os gatilhos que suportam as opções:
 
-| Acionador | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | Nestes minutos | Nota |
+| Acionador | Recorrência | Intervalo | Frequência | Hora de início | On these days (Nestes dias) | At these hours (A estas horas) | At these minutes (A estes minutos) | Nota |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
-| Recorrência, <br>Janela Deslizante | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | {nenhum} | {unavailable} | {nenhum} | {nenhum} | Este calendário começa imediatamente e calcula as futuras recorrências com base no último tempo de execução. |
-| Recorrência, <br>Janela Deslizante | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *inícioData* T*startTime*Z | {unavailable} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, e depois calcula futuras recorrências com base no último tempo de execução. |
-| Recorrência, <br>Janela Deslizante | Correr a cada hora, na hora (com data e hora de início) | 1 | Hora | *inícioData* Thh:00:00Z | {unavailable} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As recorrências futuras funcionam a cada hora na marca de minutos "00", que é calculada a partir da hora de início. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
-| Recorrência, <br>Janela Deslizante | Correr a cada hora, todos os dias (sem data e hora de início) | 1 | Hora | {nenhum} | {unavailable} | {nenhum} | {nenhum} | Este calendário começa imediatamente e calcula futuras recorrências com base no último tempo de execução. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
-| Recorrência, <br>Janela Deslizante | Correr a cada hora, todos os dias (com data e hora de início) | 1 | Hora | *inícioData* T*startTime*Z | {unavailable} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, e depois calcula futuras recorrências com base no último tempo de execução. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
-| Recorrência, <br>Janela Deslizante | Correr a cada 15 minutos depois da hora, a cada hora (com data de início e hora) | 1 | Hora | *inícioData* T00:15:00Z | {unavailable} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As recorrências futuras correm na marca de minutos "15", que é calculada a partir da hora de início, assim às 00:15, 1:15 da manhã, 2:15 da manhã, e assim por diante. |
-| Recorrência | Correr a cada 15 minutos depois da hora, a cada hora (sem data e hora de início) | 1 | Dia | {nenhum} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Este horário decorre às 00:15, 1:15 da manhã, 2:15 da manhã, e assim por diante. Além disso, este horário equivale a uma frequência de "Hora" e a uma hora de início com minutos "15". |
-| Recorrência | Corra a cada 15 minutos com as marcas de minutos especificadas (sem data e hora de início). | 1 | Dia | {nenhum} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário só começa na próxima marca de 15 minutos. |
-| Recorrência | Corra diariamente às 8:00 *mais* a marca de minutos de quando você guarda a sua app lógica | 1 | Dia | {nenhum} | {unavailable} | 8 | {nenhum} | Sem data e hora de início, este horário é executado com base no tempo em que guarda a aplicação lógica (operação PUT). |
-| Recorrência | Correr diariamente às 8:00 am (com data de início e hora) | 1 | Dia | *inícioData* T08:00:00 | {unavailable} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As ocorrências futuras decorrem diariamente às 8:00 da manhã. | 
-| Recorrência | Correr diariamente às 8:30 am (sem data e hora de início) | 1 | Dia | {nenhum} | {unavailable} | 8 | 30 | Este horário é às 8:30 todos os dias. |
-| Recorrência | Corra diariamente às 8:30 e às 16:30 | 1 | Dia | {nenhum} | {unavailable} | 8, 16 | 30 | |
-| Recorrência | Corra diariamente às 8:30, 8:45, 16:30 e 16:45 | 1 | Dia | {nenhum} | {unavailable} | 8, 16 | 30, 45 | |
+| Recorrência, <br>Janela Deslizante | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | {nenhum} | {Indisponível} | {nenhum} | {nenhum} | Este calendário começa imediatamente e calcula as futuras recorrências com base no último tempo de execução. |
+| Recorrência, <br>Janela Deslizante | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *inícioData* T*startTime*Z | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, e depois calcula futuras recorrências com base no último tempo de execução. |
+| Recorrência, <br>Janela Deslizante | Correr a cada hora, na hora (com data e hora de início) | 1 | Hora | *inícioData* Thh:00:00Z | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As recorrências futuras funcionam a cada hora na marca de minutos "00", que é calculada a partir da hora de início. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
+| Recorrência, <br>Janela Deslizante | Correr a cada hora, todos os dias (sem data e hora de início) | 1 | Hora | {nenhum} | {Indisponível} | {nenhum} | {nenhum} | Este calendário começa imediatamente e calcula futuras recorrências com base no último tempo de execução. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
+| Recorrência, <br>Janela Deslizante | Correr a cada hora, todos os dias (com data e hora de início) | 1 | Hora | *inícioData* T*startTime*Z | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, e depois calcula futuras recorrências com base no último tempo de execução. <p>Se a frequência for "Semana" ou "Mês", este horário funciona, respectivamente, apenas um dia por semana ou um dia por mês. |
+| Recorrência, <br>Janela Deslizante | Correr a cada 15 minutos depois da hora, a cada hora (com data de início e hora) | 1 | Hora | *inícioData* T00:15:00Z | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As recorrências futuras correm na marca de minutos "15", que é calculada a partir da hora de início, assim às 00:15, 1:15 da manhã, 2:15 da manhã, e assim por diante. |
+| Recorrência | Correr a cada 15 minutos depois da hora, a cada hora (sem data e hora de início) | 1 | Dia | {nenhum} | {Indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Este horário decorre às 00:15, 1:15 da manhã, 2:15 da manhã, e assim por diante. Além disso, este horário equivale a uma frequência de "Hora" e a uma hora de início com minutos "15". |
+| Recorrência | Corra a cada 15 minutos com as marcas de minutos especificadas (sem data e hora de início). | 1 | Dia | {nenhum} | {Indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário só começa na próxima marca de 15 minutos. |
+| Recorrência | Corra diariamente às 8:00 *mais* a marca de minutos de quando você guarda a sua app lógica | 1 | Dia | {nenhum} | {Indisponível} | 8 | {nenhum} | Sem data e hora de início, este horário é executado com base no tempo em que guarda a aplicação lógica (operação PUT). |
+| Recorrência | Correr diariamente às 8:00 am (com data de início e hora) | 1 | Dia | *inícioData* T08:00:00 | {Indisponível} | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas. As ocorrências futuras decorrem diariamente às 8:00 da manhã. | 
+| Recorrência | Correr diariamente às 8:30 am (sem data e hora de início) | 1 | Dia | {nenhum} | {Indisponível} | 8 | 30 | Este horário é às 8:30 todos os dias. |
+| Recorrência | Corra diariamente às 8:30 e às 16:30 | 1 | Dia | {nenhum} | {Indisponível} | 8, 16 | 30 | |
+| Recorrência | Corra diariamente às 8:30, 8:45, 16:30 e 16:45 | 1 | Dia | {nenhum} | {Indisponível} | 8, 16 | 30, 45 | |
 | Recorrência | Corra todos os sábados às 17:00 (sem data e hora de início) | 1 | Week (Semana) | {nenhum} | "Sábado" | 17 | 00 | Este horário decorre todos os sábados às 17:00. |
 | Recorrência | Corra todos os sábados às 17:00 (com data e hora de início) | 1 | Week (Semana) | *inícioData* T17:00:00 | "Sábado" | {nenhum} | {nenhum} | Este horário não começa *mais cedo* do que a data e hora de início especificadas, neste caso, 9 de setembro de 2017 às 17:00. As futuras recorrências decorrem todos os sábados às 17:00. |
 | Recorrência | Corra todas as terças-feiras, quintas-feiras às 17:00 *mais* a marca de minutos de quando você guarda a sua app lógica| 1 | Week (Semana) | {nenhum} | "Terça-feira", "Quinta-feira" | 17 | {nenhum} | |
 | Recorrência | Correr a cada hora durante o horário de trabalho | 1 | Week (Semana) | {nenhum} | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que deseja. | Selecione os minutos da hora que desejar. | Por exemplo, se o seu horário de trabalho for das 8:00 às 17:00, então selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o seu horário de trabalho for das 8:30 às 17:30, selecione as horas anteriores do dia mais "30" como minutos da hora. |
 | Recorrência | Correr uma vez todos os dias nos fins de semana | 1 | Week (Semana) | {nenhum} | "Sábado", "Domingo" | Selecione as horas do dia que deseja. | Selecione quaisquer minutos da hora conforme apropriado. | Este horário decorre todos os sábados e domingos na programação especificada. |
 | Recorrência | Correr a cada 15 minutos quinzenalmente às segundas-feiras apenas | 2 | Week (Semana) | {nenhum} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário decorre todas as segundas-feiras a cada marca de 15 minutos. |
-| Recorrência | Correr todos os meses | 1 | Mês | *inícioData* T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | Este horário não começa *mais cedo* do que a data e hora de início especificadas e calcula futuras recorrências na data e hora de início. Se não especificar a data e a hora de início, este horário utiliza a data e hora da criação. |
-| Recorrência | Correr a cada hora por um dia por mês | 1 | Mês | {ver nota} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {ver nota} | Se não especificar a data e a hora de início, este horário utiliza a data e hora da criação. Para controlar as atas para o horário de recorrência, especifique as atas da hora, um tempo de início ou utilize o tempo de criação. Por exemplo, se a hora de início ou a hora de criação for em 8:25 am, este horário decorre às 8:25, 9:25 da manhã, 10:25 da manhã, e assim por diante. |
+| Recorrência | Correr todos os meses | 1 | Mês | *inícioData* T*startTime*Z | {Indisponível} | {Indisponível} | {Indisponível} | Este horário não começa *mais cedo* do que a data e hora de início especificadas e calcula futuras recorrências na data e hora de início. Se não especificar a data e a hora de início, este horário utiliza a data e hora da criação. |
+| Recorrência | Correr a cada hora por um dia por mês | 1 | Mês | {ver nota} | {Indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {ver nota} | Se não especificar a data e a hora de início, este horário utiliza a data e hora da criação. Para controlar as atas para o horário de recorrência, especifique as atas da hora, um tempo de início ou utilize o tempo de criação. Por exemplo, se a hora de início ou a hora de criação for em 8:25 am, este horário decorre às 8:25, 9:25 da manhã, 10:25 da manhã, e assim por diante. |
 |||||||||
 
 <a name="run-once"></a>

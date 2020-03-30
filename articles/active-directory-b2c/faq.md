@@ -11,10 +11,10 @@ ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264404"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
@@ -27,7 +27,7 @@ Existem duas razões comuns para que a extensão da AD Azure não esteja a funci
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar as funcionalidades Azure AD B2C no meu inquilino Azure AD existente?
 
-Azure AD e Azure AD B2C são ofertas separadas de produtos e não podem coexistir no mesmo inquilino. Um inquilino da AD Azure representa uma organização. Um inquilino Azure AD B2C representa uma coleção de identidades a serem usadas com aplicações partidárias dependentes. Ao adicionar **o novo fornecedor OpenID Connect** ao abrigo do **Azure AD B2C > Fornecedores** de identidade ou com políticas personalizadas, o Azure AD B2C pode federar a Azure AD permitindo a autenticação de colaboradores numa organização.
+Azure AD e Azure AD B2C são ofertas separadas de produtos e não podem coexistir no mesmo inquilino. Um inquilino da AD Azure representa uma organização. Um inquilino Azure AD B2C representa uma coleção de identidades a serem usadas com aplicações partidárias dependentes. Ao adicionar **o novo fornecedor OpenID Connect** ao abrigo do **Azure AD B2C > Fornecedores** de identidade ou com políticas personalizadas, o Azure AD B2C pode federar-se para a Azure AD permitindo a autenticação de colaboradores numa organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar o Azure AD B2C para fornecer login social (Facebook e Google+) no Office 365?
 
@@ -35,9 +35,9 @@ O Azure AD B2C não pode ser utilizado para autenticar utilizadores para o Micro
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>O que são contas locais em Azure AD B2C? Como são diferentes do trabalho ou das contas escolares em Azure AD?
 
-Num inquilino da AD Azure, os utilizadores que pertencem ao inquilino sessão com um endereço de e-mail do formulário `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no domínio `<...>.onmicrosoft.com` do arrendatário ou inicial. Este tipo de conta é uma conta de trabalho ou escola.
+Num inquilino da AD Azure, os utilizadores que pertencem ao inquilino `<xyz>@<tenant domain>`sessão com um endereço de e-mail do formulário. Este `<tenant domain>` é um dos domínios verificados no `<...>.onmicrosoft.com` inquilino ou no domínio inicial. Este tipo de conta é uma conta de trabalho ou escola.
 
-Num inquilino Azure AD B2C, a maioria das aplicações quer que o utilizador assine qualquer endereço de e-mail arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.comou jim@live.com). Este tipo de conta é uma conta local. Também apoiamos nomes de utilizadores arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Pode escolher um destes dois tipos de conta locais ao configurar fornecedores de identidade para O Azure AD B2C no portal Azure. No seu inquilino Azure AD B2C, selecione **fornecedores**de identidade, selecione **conta Local**e, em seguida, selecione **username**.
+Num inquilino Azure AD B2C, a maioria das aplicações quer que o joe@comcast.netutilizador bob@gmail.com sarah@contoso.comassine jim@live.comqualquer endereço de e-mail arbitrário (por exemplo, , , ou ). Este tipo de conta é uma conta local. Também apoiamos nomes de utilizadores arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Pode escolher um destes dois tipos de conta locais ao configurar fornecedores de identidade para O Azure AD B2C no portal Azure. No seu inquilino Azure AD B2C, selecione **fornecedores**de identidade, selecione **conta Local**e, em seguida, selecione **username**.
 
 As contas de utilizador para aplicações podem ser criadas através de um fluxo de utilizador de inscrição, de inscrição ou de entrada de utilizador, do Microsoft Graph API ou do portal Azure.
 
@@ -77,7 +77,7 @@ Pode utilizar a funcionalidade de branding da [empresa](../active-directory/fund
 A assinatura de e-mail contém o nome do inquilino Azure AD B2C que forneceu quando criou pela primeira vez o inquilino Azure AD B2C. Pode alterar o nome utilizando estas instruções:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) como Administrador Global.
-1. Abra a lâmina **do Diretório Ativo Azure.**
+1. Abra o painel **Azure Active Directory**.
 1. Clique no separador **Propriedades.**
 1. Mude o campo **nome.**
 1. Clique em **Guardar** no início da página.
@@ -128,13 +128,13 @@ Sim, ver [personalização linguística.](user-flow-language-customization.md) F
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar os meus urLs nas minhas páginas de inscrição e inscrição que são servidas pelo Azure AD B2C? Por exemplo, posso mudar o URL de contoso.b2clogin.com para login.contoso.com?
 
-Atualmente não é possível. Esta característica está no nosso roteiro. Verificar o seu domínio no separador **Domínios** no portal Azure não cumpre este objetivo. No entanto, com b2clogin.com, oferecemos um [domínio neutro de nível superior](b2clogin.md), e assim a aparência externa pode ser implementada sem a menção da Microsoft.
+Atualmente não. Esta característica está no nosso roteiro. Verificar o seu domínio no separador **Domínios** no portal Azure não cumpre este objetivo. No entanto, com b2clogin.com, oferecemos um [domínio neutro de nível superior](b2clogin.md), e assim a aparência externa pode ser implementada sem a menção da Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como posso apagar o meu inquilino Azure AD B2C?
 
 Siga estes passos para eliminar o seu inquilino Azure AD B2C.
 
-Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
 
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
@@ -146,13 +146,13 @@ Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiên
 1. Selecione **Azure Ative Directory** no menu à esquerda.
 1. Em **Gerir**, selecione **Utilizadores**.
 1. Selecione cada utilizador por sua vez (exclua o utilizador do Administrador de *Subscrição* que está atualmente inscrito na medida em que). **Selecione Excluir** na parte inferior da página e selecione **SIM** quando solicitado.
-1. Em **'Gerir',** selecione registos de **aplicações** (ou registos de **aplicações (Legacy)** ).
+1. Em **'Gerir',** selecione registos de **aplicações** (ou registos de **aplicações (Legacy)**).
 1. Selecione **Ver todas as aplicações**
 1. Selecione a aplicação denominada **b2c-extensions-app**, **selecione Delete**, e, em seguida, selecione **Sim** quando solicitado.
 1. Em **'Gerir',** selecione **as definições do utilizador**.
 1. Se estiver presente, sob **as ligações da conta LinkedIn,** selecione **Não,** então selecione **Guardar**.
 1. Under **Manage**, selecione **Properties**
-1. Sob **gestão de acesso para recursos Azure,** selecione **Sim**, e, em seguida, selecione **Save**.
+1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Assine pelo portal Azure e depois volte a entrar para refrescar o seu acesso.
 1. Selecione **Azure Ative Directory** no menu à esquerda.
 1. Na página **'Visão Geral',** selecione **Excluir o diretório**. Siga as instruções no ecrã para completar o processo.
@@ -172,7 +172,7 @@ Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiên
 1. Em **'Gerir',** selecione **as definições do utilizador**.
 1. Se estiver presente, sob **as ligações da conta LinkedIn,** selecione **Não,** então selecione **Guardar**.
 1. Under **Manage**, selecione **Properties**
-1. Sob **gestão de acesso para recursos Azure,** selecione **Sim**, e, em seguida, selecione **Save**.
+1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Assine pelo portal Azure e depois volte a entrar para refrescar o seu acesso.
 1. Selecione **Azure Ative Directory** no menu à esquerda.
 1. Na página **'Visão Geral',** selecione **Excluir o diretório**. Siga as instruções no ecrã para completar o processo.

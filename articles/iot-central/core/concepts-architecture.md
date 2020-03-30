@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271645"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
@@ -34,7 +34,7 @@ No Azure IoT Central, os dados que um dispositivo pode trocar com a sua aplicaç
 
 Para saber mais sobre como os dispositivos se ligam à sua aplicação Central Azure IoT, consulte a [conectividade do Dispositivo](concepts-get-connected.md).
 
-## <a name="azure-iot-edge-devices"></a>Dispositivos do IoT Edge do Azure
+## <a name="azure-iot-edge-devices"></a>Dispositivos Azure IoT Edge
 
 Além de dispositivos criados com os [SDKs Azure IoT,](https://github.com/Azure/azure-iot-sdks)também pode ligar [os dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a uma aplicação IoT Central. O IoT Edge permite-lhe executar a inteligência em nuvem e a lógica personalizada diretamente em dispositivos IoT geridos pela IoT Central. O tempo de execução do IoT Edge permite::
 
@@ -142,7 +142,7 @@ Num modelo de dispositivo de aplicação IoT Central contém:
 
 Uma aplicação pode ter um ou mais dispositivos simulados e reais baseados em cada modelo de dispositivo.
 
-## <a name="data-export"></a>Exportação de dados
+## <a name="data-export"></a>Exportar dados
 
 Numa aplicação Azure IoT Central, pode [exportar continuamente os seus dados](howto-export-data.md) para os seus próprios Hubs de Eventos Azure e para as instâncias do Azure Service Bus. Também pode exportar periodicamente os seus dados para a sua conta de armazenamento Azure Blob. A IoT Central pode exportar medições, dispositivos e modelos de dispositivos.
 

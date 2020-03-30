@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266991"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
@@ -61,7 +61,7 @@ Este cenário é semelhante à análise rápida do desempenho, mas permite captu
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Que tipo de informação é recolhida pela PerfInsights
 
-São recolhidas informações sobre a máquina virtual Linux, sistema operativo, dispositivos de blocos, consumidores de alto recurso, configuração e vários registos. Aqui estão mais detalhes:
+São recolhidas informações sobre a máquina virtual Linux, sistema operativo, dispositivos de blocos, consumidores de alto recurso, configuração e vários registos. Veja a seguir mais detalhes:
 
 - Sistema operativo
   - Distribuição e versão linux
@@ -69,7 +69,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Informações sobre o condutor
 
 - Hardware
-  - Dispositivos PCI [`*`]
+  - Dispositivos PCI`*`[ ]
 
 - Processos e memória
   - Lista de processos (nome de tarefa, memória utilizada, ficheiros abertos)
@@ -83,7 +83,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Mesa de encaminhamento de rede
   - Portas abertas e estatuto
 
-- Armazenamento
+- Storage
   - Lista de dispositivos de bloco
   - Lista de partições
   - Lista de pontos de montagem
@@ -103,7 +103,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/azure/[pasta de extensão]/\*registar\*
+  - /var/log/azure/[pasta de\*extensão]/ registo\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -112,7 +112,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
 - [Metadados de instância de máquina seletiva azul](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] A informação do IPc ainda não foi recolhida nas distribuições de Debian e SLES
+>[`*`] As informações do IPC ainda não são recolhidas nas distribuições de Debian e SLES
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Execute o Linux PerfInsights no seu VM
 
@@ -127,16 +127,16 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor Oracle Linux        | 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 imagem de mercado)|
-    | CentOS                     | 6.5 [`*`], 7.6                                    |
+    | Servidor Oracle Linux        | 6.10`*`[ ], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 imagem de mercado)|
+    | CentOS                     | 6.5`*`[ ], 7.6                                    |
     | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
     | Debian                     | 8, 9, 10 [`*`]                                    |
-    | SLES                       | 12 SP4 [`*`]                                      |
+    | SLES                       | 12 SP4`*`[ ]                                      |
     |                            |                                                   |
 
 >[!Note]
->[`*`] Consulte a secção [de problemas conhecidos](#known-issues)
+>[`*`] Por favor, consulte a secção [de questões conhecidas](#known-issues)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
@@ -173,7 +173,7 @@ Para executar a ferramenta PerfInsights, siga estes passos:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Navegue para a pasta que contém `perfinsights.py` ficheiro e, em seguida, faça `perfinsights.py` para visualizar os parâmetros de linha de comando disponíveis.
+2. Navegue para a `perfinsights.py` pasta que `perfinsights.py` contém ficheiro e, em seguida, corra para ver os parâmetros de linha de comando disponíveis.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -209,7 +209,7 @@ Quando o executo estiver concluído, um novo ficheiro de alcatrão aparece na me
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnóstico
 
-Dentro do ficheiro **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz,** pode encontrar um relatório HTML que detalha as conclusões da PerfInsights. Para rever o relatório, expanda o **ficheiro PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** e, em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz,** pode encontrar um relatório HTML que detalha as conclusões da PerfInsights. Para rever o relatório, expanda o ficheiro **\_PerformanceDiagnostics\_yyyy-MM-dd hh-mm-ss-fff.tar.gz** e, em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 ### <a name="overview-tab"></a>Separador de visão geral
 
@@ -254,4 +254,4 @@ A imagem que se segue mostra uma mensagem semelhante à que poderá receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar sessão, encontrará uma caixa de diálogo para fazer o upload do **Ficheiro PerformanceDiagnostics\_yyyy-MM-dd\_ficheiro hh-mm-ss-fff.tar.gz** que foi recolhido pela PerfInsights.
+Depois de iniciar sessão, encontrará uma caixa de diálogo para fazer o upload do ficheiro **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** que foi recolhido pela PerfInsights.

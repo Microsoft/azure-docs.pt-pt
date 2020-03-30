@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258190"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
@@ -37,17 +37,17 @@ Utilize os seguintes links para baixar o Service Fabric Explorer como uma aplica
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Running Service Fabric Explorer do cluster
 
-O Service Fabric Explorer também está hospedado num ponto final de gestão http do cluster service Fabric. Para lançar o SFX num navegador web, navegue para o ponto final de gestão http do cluster a partir de qualquer navegador - por exemplo, https:\//clusterFQDN:19080.
+O Service Fabric Explorer também está hospedado num ponto final de gestão http do cluster service Fabric. Para lançar o SFX num navegador web, navegue para o ponto final de\/gestão http do cluster a partir de qualquer navegador - por exemplo https: /clusterFQDN:19080.
 
-Para a configuração da estação de trabalho do desenvolvedor, pode lançar o Service Fabric Explorer no seu cluster local navegando até https://localhost:19080/Explorer. Veja este artigo para preparar o seu ambiente de [desenvolvimento.](service-fabric-get-started.md)
+Para a configuração da estação de trabalho do desenvolvedor, https://localhost:19080/Explorerpode lançar o Service Fabric Explorer no seu cluster local navegando até . Veja este artigo para preparar o seu ambiente de [desenvolvimento.](service-fabric-get-started.md)
 
 > [!NOTE]
 > Se o seu cluster for protegido por um certificado auto-assinado, receberá uma mensagem de erro do navegador "Este site não é seguro". Você pode simplesmente proceder através da maioria dos navegadores web modernos, substituindo o aviso. Num ambiente de produção, o seu cluster deve ser protegido com o nome comum e um certificado emitido pela autoridade do certificado. 
 >
 >
 
-## <a name="connect-to-a-service-fabric-cluster"></a>Ligar a um cluster de tecido de serviço
-Para ligar a um cluster de tecido de serviço, necessita do ponto final de gestão de clusters (FQDN/IP) e da porta final de gestão HTTP (19080 por padrão). Por exemplo, https\://mysfcluster.westus.cloudapp.azure.com:19080. Utilize a caixa de verificação "Connect to localhost" para se ligar a um cluster local na sua estação de trabalho.
+## <a name="connect-to-a-service-fabric-cluster"></a>Ligar a um cluster do Service Fabric
+Para ligar a um cluster de tecido de serviço, necessita do ponto final de gestão de clusters (FQDN/IP) e da porta final de gestão HTTP (19080 por padrão). Por exemplo\:https //mysfcluster.westus.cloudapp.azure.com:19080. Utilize a caixa de verificação "Connect to localhost" para se ligar a um cluster local na sua estação de trabalho.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 Pode controlar o acesso do cliente ao seu cluster de Tecido de Serviço, quer com certificados, quer utilizando o Azure Ative Directory (AAD).
@@ -83,7 +83,7 @@ A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pod
 ## <a name="actions"></a>Ações
 O Service Fabric Explorer oferece uma forma rápida de invocar ações em nós, aplicações e serviços dentro do seu cluster.
 
-Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação a partir da árvore à esquerda e, em seguida, escolha **ações** > **Eliminar aplicação**.
+Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação a partir da árvore à esquerda e, em seguida, escolha **Ações** > **Apagar Aplicação**.
 
 ![Apagar uma aplicação no Service Fabric Explorer][sfx-delete-application]
 

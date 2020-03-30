@@ -9,13 +9,13 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272334"
 ---
-# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar consultas de Hiv Apache em Azure HDInsight
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight (Otimizar as consultas do Apache Hive no Azure HDInsight)
 
 No Azure HDInsight, existem vários tipos de cluster e tecnologias que podem executar consultas apache hive. Quando criar o seu cluster HDInsight, escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho das suas necessidades de carga de trabalho.
 
@@ -27,7 +27,7 @@ Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para o dese
 
 O aumento do número de nós de trabalhador num cluster HDInsight permite que o trabalho aproveite mais mapeadores e redutores a serem executados em paralelo. Existem duas formas de aumentar a escala no HDInsight:
 
-* No momento em que cria um cluster, pode especificar o número de nós dos trabalhadores utilizando o portal Azure, O PowerShell ou interface de linha de comando.  Para obter mais informações, veja [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters do HDInsight). A seguinte imagem mostra a configuração do nó do trabalhador no portal Azure:
+* No momento em que cria um cluster, pode especificar o número de nós dos trabalhadores utilizando o portal Azure, O PowerShell ou interface de linha de comando.  Para obter mais informações, veja [Create HDInsight clusters (Criar clusters do HDInsight)](hdinsight-hadoop-provision-linux-clusters.md). A seguinte imagem mostra a configuração do nó do trabalhador no portal Azure:
   
     ![Nódosos de tamanho de cluster do portal Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 

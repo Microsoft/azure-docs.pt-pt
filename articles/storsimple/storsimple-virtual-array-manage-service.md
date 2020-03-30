@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267459"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implemente o serviço StorSimple Device Manager para StorSimple Virtual Array
@@ -73,7 +73,7 @@ Efetue os seguintes passos para eliminar um serviço.
 1. Vá para **Todos os recursos**. Procure o seu serviço StorSimple Device Manager. Selecione o serviço que pretende eliminar.
    
     ![Selecione o serviço para eliminar](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Vá ao seu painel de assistência para garantir que não há dispositivos ligados ao serviço. Se não houver dispositivos registados neste serviço, também verá uma mensagem de banner no sentido. Clique em **Eliminar**.
+2. Vá ao seu painel de assistência para garantir que não há dispositivos ligados ao serviço. Se não houver dispositivos registados neste serviço, também verá uma mensagem de banner no sentido. Clique em **Apagar**.
    
     ![Eliminar o serviço](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
@@ -94,7 +94,7 @@ Depois de ter criado com sucesso um serviço, terá de registar o seu dispositiv
 Execute os seguintes passos para obter a chave de registo de serviço.
 
 #### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registo de serviço
-1. Na lâmina **StorSimple Device Manager,** vá à **Management &gt;** **Keys**.
+1. Na lâmina **StorSimple Device Manager,** vá para **as Teclas**de **Gestão &gt; ** .
    
    ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na lâmina **Keys,** aparece uma chave de registo de serviço. Copie a chave de registo utilizando o ícone da cópia. 
@@ -107,7 +107,7 @@ Terá de regenerar uma chave de registo de serviço se for obrigado a realizar a
 Execute os seguintes passos para regenerar uma chave de registo de serviço.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registo de serviço
-1. Na lâmina **StorSimple Device Manager,** vá à **Management &gt;** **Keys**.
+1. Na lâmina **StorSimple Device Manager,** vá para **as Teclas**de **Gestão &gt; ** .
    
    ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na lâmina **keys,** clique em **Regenerar**.

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259282"
 ---
-# <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Compre um nome de domínio personalizado para o Azure App Service
+# <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
 
 Os domínios do Serviço de Aplicações são domínios de alto nível que são geridos diretamente no Azure. Facilitam a gestão de domínios personalizados para o [Azure App Service.](overview.md) Este tutorial mostra-lhe como comprar um domínio de Serviço de Aplicações e atribuir nomes de DNS ao Serviço de Aplicações Azure.
 
@@ -45,7 +45,7 @@ Será apresentada a página de gestão da aplicação do Serviço de Aplicaçõe
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
-No painel de navegação esquerdo da página da aplicação, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)** .
+No painel de navegação esquerdo da página da aplicação, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)**.
 
 ![Menu de aumento vertical](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -91,12 +91,12 @@ Na página **de domínios Personalizados,** clique em **Comprar Domínio**.
 
 ### <a name="configure-the-domain-purchase"></a>Configure a compra de domínio
 
-Na página de Domínio do Serviço de **Aplicações,** na caixa **de pesquisa de domínio,** escreva o nome de domínio que pretende comprar e digite `Enter`. Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que pretende comprar.
+Na página de Domínio do Serviço de **Aplicações,** na caixa de `Enter`pesquisa de **domínio,** escreva o nome de domínio que pretende comprar e digitar . Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que pretende comprar.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
-> Os [seguintes domínios de alto nível](https://wikipedia.org/wiki/Top-level_domain) são suportados por domínios do Serviço de Aplicações: _com,_ _net_, _co.uk_, _org_, nl , _in,_ _biz,_ _org.uk_, e _co.in_.
+> Os [seguintes domínios de alto nível](https://wikipedia.org/wiki/Top-level_domain) são suportados por domínios do Serviço de Aplicações: _com,_ _net_, _co.uk_, _org_, nl , _in,_ _biz,_ _org.uk_, e _co.in_. _in_
 >
 >
 
@@ -108,8 +108,8 @@ Em seguida, selecione as opções desejadas para o seu domínio. Consulte a tabe
 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
-|Proteção da privacidade | Ativar | Opte pela "Proteção da Privacidade", que está incluída no preço de compra _gratuitamente._ Alguns domínios de alto nível são geridos por registradores que não suportam a proteção da privacidade, e estão listados na página de **proteção da Privacidade.** |
-| Atribuir nomes de anfitriões padrão | **www** e **\@** | Selecione as encadernações de nome de anfitrião desejadas, se desejar. Quando a operação de compra de domínio estiver concluída, a sua aplicação pode ser acedida nos nomes de anfitriões selecionados. Se a aplicação estiver por trás do [Azure Traffic Manager,](https://azure.microsoft.com/services/traffic-manager/)não vê a opção de atribuir o domínio raiz (@), porque o Gestor de Tráfego não suporta registos A. Pode efazer alterações nas atribuições de nome de anfitrião após a compra do domínio estar concluída. |
+|Proteção de privacidade | Ativar | Opte pela "Proteção da Privacidade", que está incluída no preço de compra _gratuitamente._ Alguns domínios de alto nível são geridos por registradores que não suportam a proteção da privacidade, e estão listados na página de **proteção da Privacidade.** |
+| Atribuir nomes de anfitriões padrão | **www** e**\@** | Selecione as encadernações de nome de anfitrião desejadas, se desejar. Quando a operação de compra de domínio estiver concluída, a sua aplicação pode ser acedida nos nomes de anfitriões selecionados. Se a aplicação estiver por trás do [Azure Traffic Manager,](https://azure.microsoft.com/services/traffic-manager/)não vê a opção de atribuir o domínio raiz (@), porque o Gestor de Tráfego não suporta registos A. Pode efazer alterações nas atribuições de nome de anfitrião após a compra do domínio estar concluída. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar termos e comprar
 
@@ -140,7 +140,7 @@ Também vê os nomes de anfitriões selecionados na página de **domínios Perso
 > Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligado a um certificado SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a ligação SSL, consulte [Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
 >
 
-Para testar os nomes de anfitriões, navegue para os nomes de anfitriões listados no navegador. No exemplo da imagem anterior, tente navegar para _kontoso.net_ e _www\.kontoso.net._
+Para testar os nomes de anfitriões, navegue para os nomes de anfitriões listados no navegador. No exemplo da imagem anterior, tente navegar para _kontoso.net_ e _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Atribuir nomes de anfitriões para app
 
@@ -235,7 +235,7 @@ Em Azure, os registos DNS para um Domínio de Serviço de Aplicações são geri
 
 ### <a name="open-app-service-domain"></a>Domínio de serviço de aplicativo aberto
 
-No portal Azure, a partir do menu esquerdo, selecione **Todos os serviços** > Domínios de Serviço de **Aplicações.**
+No portal Azure, a partir do menu esquerdo, selecione **Todos os domínios** > de serviço de aplicação de todos os**serviços.**
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ Depois de adquirir o Domínio do Serviço de Aplicações, tem cinco dias para c
 
 ### <a name="open-app-service-domain"></a>Domínio de serviço de aplicativo aberto
 
-No portal Azure, a partir do menu esquerdo, selecione **Todos os serviços** > Domínios de Serviço de **Aplicações.**
+No portal Azure, a partir do menu esquerdo, selecione **Todos os domínios** > de serviço de aplicação de todos os**serviços.**
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -269,7 +269,7 @@ No menu esquerdo do domínio, selecione **ligações hostname**. As encadernaç�
 
 Não é possível eliminar o Domínio do Serviço de Aplicações até que todas as ligações de nome de anfitrião sejam eliminadas.
 
-Elimine cada encadernação de nome de anfitrião selecionando **...**  > **Apagar**. Depois de todas as ligações serem eliminadas, selecione **Guardar**.
+Elimine cada encadernação de nome de anfitrião **selecionando...**  >  **Apagar**. Depois de todas as ligações serem eliminadas, selecione **Guardar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
@@ -287,4 +287,4 @@ Após a operação estar concluída, o domínio é liberado a partir da sua subs
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Direcionar o URL predefinido para um diretório personalizado
 
-Por predefinição, o Serviço de Aplicações direciona os pedidos Web para o diretório de raiz do código da sua aplicação. Para direcioná-los para um subdiretório, como `public`, consulte [o Direct predefinido URL para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
+Por predefinição, o Serviço de Aplicações direciona os pedidos Web para o diretório de raiz do código da sua aplicação. Para direcioná-los para `public`um subdiretório, como, consulte o [Direct predefinição URL para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).

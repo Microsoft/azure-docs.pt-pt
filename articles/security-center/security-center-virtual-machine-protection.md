@@ -1,6 +1,6 @@
 ---
 title: Proteja as suas máquinas e aplicações
-description: Este documento aborda recomendações no Centro de segurança que o ajudam a proteger as suas máquinas virtuais e computadores e suas aplicações web e ambientes de serviço de aplicações.
+description: Este documento aborda recomendações no Security Center que o ajudam a proteger as suas máquinas virtuais e computadores e as suas aplicações web e ambientes de Serviço de Aplicações.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
 ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282643"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja as suas máquinas e aplicações
@@ -30,15 +30,15 @@ Para obter uma lista completa das recomendações que poderá ver nesta página,
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Veja a segurança dos seus recursos computacionais e apps
 
-[painel do Centro de Segurança ![](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png)](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png#lightbox)
+[![Dashboard Centro de Segurança](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png)](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png#lightbox)
 
-Para ver o estado dos recursos da sua computação e aplicações, a partir do painel esquerdo no Centro de Segurança, **selecione Compute & apps**. Estão disponíveis os seguintes separadores:
+Para ver o estado dos recursos da sua computação e aplicações, a partir do painel esquerdo no Security Center, **selecione Compute & apps**. Estão disponíveis os seguintes separadores:
 
 * **Resumo**: lista as recomendações para todos os recursos de computação e aplicações, bem como o seu estado de segurança atual 
 
 * [**VMs e Servidores**](#vms-and-computers): lista as recomendações para os seus VMs, computadores e estado de segurança atual de cada
 
-* [**Conjuntos de escala VM:** ](#vmscale-sets)lista as recomendações para os seus conjuntos de escala, 
+* [**Conjuntos de escala VM:**](#vmscale-sets)lista as recomendações para os seus conjuntos de escala, 
 
 * [**Serviços em nuvem**](#cloud-services): lista as recomendações para as suas funções web e trabalhadores monitorizadas pelo Security Center
 
@@ -54,7 +54,7 @@ Cada separador tem várias secções, e em cada secção, pode perfurar para ver
 
 Em cada separador, você também verá recomendações para os recursos relevantes no seu ambiente monitorizado. A primeira coluna enumera a recomendação, a segunda mostra o número total de recursos afetados, e a terceira mostra a gravidade da questão.
 
-Cada recomendação tem um conjunto de ações que pode realizar depois de a selecionar. Por exemplo, se selecionar atualizações do **sistema Missing,** o número de VMs e computadores que faltam patches, e a gravidade da atualização em falta aparece.
+Cada recomendação tem um conjunto de ações que pode executar depois de selecioná-la. Por exemplo, se selecionar atualizações do **sistema Missing,** o número de VMs e computadores que faltam patches, e a gravidade da atualização em falta aparece.
 
 > [!NOTE]
 > As recomendações de segurança são as mesmas que estão na página de **Recomendações,** mas aqui são filtradas para o tipo de recurso específico que selecionou. Para obter mais informações sobre como resolver recomendações, consulte [a implementação de recomendações](security-center-recommendations.md)de segurança no Centro de Segurança Azure.
@@ -63,28 +63,28 @@ Cada recomendação tem um conjunto de ações que pode realizar depois de a sel
 
 
 
-### <a name="vms-and-computers"></a>VMs e Servidores
+### <a name="vms-and-servers"></a><a name="vms-and-computers"></a>VMs e Servidores
 A secção vMs e computadores dá-lhe uma visão geral de todas as recomendações de segurança para os seus VMs e computadores. Estão incluídos quatro tipos de máquinas:
 
 ![Computador não pertencente ao Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Computador não Azure.
 
-![VM do Azure Resource Manager](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) VM do Azure Resource Manager.
+![VM do Gestor de Recursos Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) VM do Gestor de Recursos Azure.
 
-![VM clássica do Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) VM clássica do Azure.
+![VM clássico azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure Classic VM.
 
-![VMs identificadas a partir da área de trabalho](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs que só são identificadas a partir da área de trabalho que faz parte da subscrição vista. Isto inclui VMs de outras subscrições que reportam ao espaço de trabalho nesta subscrição, e VMs que foram instalados com o Agente Direto do Gestor de Operações, e não têm identificação de recursos.
+![VMs identificados a partir do espaço de trabalho](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs que só são identificadas a partir da área de trabalho que faz parte da subscrição vista. Isto inclui VMs de outras subscrições que reportam ao espaço de trabalho nesta subscrição, e VMs que foram instalados com o Agente Direto do Gestor de Operações, e não têm identificação de recursos.
 
-O ícone apresentado em cada recomendação ajuda-o a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Também pode utilizar os filtros para pesquisar a lista por **tipo de Recurso** e por **Severity**.
+O ícone que aparece sob cada recomendação ajuda-o a identificar rapidamente o VM e o computador que precisa de atenção, e o tipo de recomendação. Também pode utilizar os filtros para pesquisar a lista por **tipo de Recurso** e por **Severity**.
 
 Para aprofundar as recomendações de segurança de cada VM, clique no VM.
-Aqui verá os detalhes de segurança para o computador ou VM. No fundo, pode ver a ação recomendada e a gravidade de cada edição.
+Aqui você vê os detalhes de segurança para o VM ou computador. No fundo, pode ver a ação recomendada e a gravidade de cada edição.
 
-[Serviços ![Cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
-
-
+[![Serviços em nuvem](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 
-### <a name="vmscale-sets"></a>Conjuntos de escala de máquina virtual
+
+
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Conjuntos de escala de máquina virtual
 O Security Center descobre automaticamente se tem conjuntos de escala e recomenda que instale o Microsoft Monitoring Agent nos mesmos.
 
 Para instalar o Agente de Monitorização da Microsoft: 
@@ -110,7 +110,7 @@ Se pretender definir todos os conjuntos de escala existentes para instalar o Mic
 
 
 
-### <a name="cloud-services"></a>Serviços em nuvem
+### <a name="cloud-services"></a><a name="cloud-services"></a>Serviços cloud
 Para os serviços na nuvem, é criada uma recomendação quando a versão do sistema operativo está desatualizada.
 
 ![Serviços em nuvem](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
@@ -122,12 +122,12 @@ Num cenário em que tenha uma recomendação, siga os passos na recomendação d
 
 
 
-### <a name="app-services"></a>Serviços de aplicações
+### <a name="app-services"></a><a name="app-services"></a>Serviços de aplicações
 Para visualizar as informações do Serviço de Aplicações, deve estar no nível de preços Standard do Security Center e ativar o Serviço de Aplicações na sua subscrição. Para obter instruções sobre a ativação desta funcionalidade, consulte [O Serviço de Aplicações Protect com o Azure Security Center](security-center-app-services.md).
 
 No âmbito dos **serviços de Aplicação,** encontra uma lista dos ambientes de serviço da sua App e o resumo de saúde com base na avaliação realizada pelo Security Center.
 
-![Serviços aplicacionais](./media/security-center-virtual-machine-recommendations/app-services.png)
+![Serviços de aplicações](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 Existem três tipos de serviços de aplicação apresentados:
 
@@ -149,15 +149,15 @@ Se selecionar uma aplicação web, abre-se uma vista sumária com três separado
 
 Selecione uma recomendação para ver uma descrição da recomendação e uma lista de recursos não saudáveis, recursos saudáveis e recursos não digitalizados.
 
-   - A coluna **de avaliações aprovada** mostra uma lista de avaliações aprovadas. Gravidade dessas avaliações é sempre verde.
+   - A coluna **de avaliações aprovada** mostra uma lista de avaliações aprovadas. A gravidade destas avaliações é sempre verde.
 
-   - Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação, uma lista de recursos de mau e bom estado de funcionamento e uma lista de recursos não verificados. Há uma guia para os recursos de mau estado de funcionamento, mas essa lista está sempre vazia, uma vez que a avaliação passado.
-
-
+   - Selecione uma avaliação aprovada da lista para uma descrição da avaliação, uma lista de recursos não saudáveis e saudáveis, e uma lista de recursos não digitalizados. Há uma conta para recursos pouco saudáveis, mas essa lista está sempre vazia desde que a avaliação foi aprovada.
 
 
 
-### <a name="containers"></a>Contentores
+
+
+### <a name="containers"></a><a name="containers"></a>Contentores
 
 Ao abrir o separador **Contentores,** dependendo do seu ambiente, poderá ver qualquer um dos três tipos de recursos:
 
@@ -173,7 +173,7 @@ Os benefícios do pacote de registo de contentores Azure são explicados [aqui](
 
 Os benefícios do pacote de serviços kubernetes são explicados [aqui](azure-kubernetes-service-integration.md)
 
-[separador de recipientes ![](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
+[![Separador de recipientes](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
 Para ver as recomendações de um recurso específico na lista, clique nesse recurso.
 
@@ -202,6 +202,6 @@ O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe v
 Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte os seguintes artigos:
 
 * [Lista completa de referência das recomendações de segurança do Azure Security Center](recommendations-reference.md)
-* [Monitor identity and access in Azure Security Center](security-center-identity-access.md) (Monitorizar a identidade e o acesso no Centro de Segurança do Azure)
+* [Monitorizar a identidade e o acesso no Centro de Segurança do Azure](security-center-identity-access.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 * [Proteger o seu serviço Azure SQL no Azure Security Center](security-center-sql-service-recommendations.md)

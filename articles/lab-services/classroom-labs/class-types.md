@@ -1,5 +1,5 @@
 ---
-title: Exemplo de tipos de classe em Serviços de Laboratório Azure  Microsoft Docs
+title: Exemplo de tipos de classe em Serviços de Laboratório Azure [ Microsoft Docs
 description: Fornece alguns tipos de aulas para as quais pode configurar laboratórios usando serviços de laboratório azure.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79296732"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe - Serviços de Laboratório Azure
@@ -62,10 +62,10 @@ Você pode criar um laboratório em Azure Lab Services para ensinar uma aula de 
 Para obter informações detalhadas sobre como configurar este tipo de laboratório, consulte [A criação de um laboratório para ensinar o desenvolvimento de aplicações móveis com o Android Studio](class-type-mobile-dev-android-studio.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 
 - [Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando serviços de laboratório azure](class-type-deep-learning-natural-processing.md)
-- [Shell scripting em Linux](class-type-shell-scripting-linux.md)
-- [Hacking ético](class-type-ethical-hacking.md)
+- [Script de Shell no Linux](class-type-shell-scripting-linux.md)
+- [Acesso ilícito ético](class-type-ethical-hacking.md)

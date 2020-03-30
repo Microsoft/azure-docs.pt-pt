@@ -18,13 +18,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253770"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas utilizadas para o Azure AD Connect
 
@@ -46,7 +46,7 @@ Além destas três contas utilizadas para executar o Azure AD Connect, também n
 
 - **Conta De Administrador Global Azure AD**: usada para criar a conta de Conector Azure AD e configurar a AD Azure.
 
-- **Conta SQL SA (opcional)** : utilizada para criar a base de dados ADSync ao utilizar a versão completa do Servidor SQL.  Este Servidor SQL pode ser local ou remoto para a instalação Azure AD Connect.  Esta conta pode ser a mesma conta que o Administrador da Empresa.  O fornecimento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador Azure AD Connect com direitos de proprietário de base de dados.  Para obter informações sobre este ponto consulte [Instalar o Azure AD Connect utilizando permissões de administrador delegados SQL](how-to-connect-install-sql-delegation.md)
+- **Conta SQL SA (opcional)**: utilizada para criar a base de dados ADSync ao utilizar a versão completa do Servidor SQL.  Este Servidor SQL pode ser local ou remoto para a instalação Azure AD Connect.  Esta conta pode ser a mesma conta que o Administrador da Empresa.  O fornecimento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador Azure AD Connect com direitos de proprietário de base de dados.  Para obter informações sobre este ponto consulte [Instalar o Azure AD Connect utilizando permissões de administrador delegados SQL](how-to-connect-install-sql-delegation.md)
 
 
 >[!IMPORTANT]
@@ -54,7 +54,7 @@ Além destas três contas utilizadas para executar o Azure AD Connect, também n
 
 > [!NOTE]
 > É suportado para gerir as contas administrativas utilizadas no Azure AD Connect a partir de uma Floresta Administrativa da ESAE (também conhecido como "Floresta Vermelha").
-> As florestas administrativas dedicadas permitem que as organizações acolham contas administrativas, estações de trabalho e grupos num ambiente que tenha controlos de segurança mais fortes do que o ambiente de produção.
+> As florestas administrativas dedicadas permitem que as organizações alojem contas administrativas, estações de trabalho e grupos num ambiente com controlos de segurança mais fortes do que o ambiente de produção.
 > Para saber mais sobre florestas administrativas dedicadas, consulte a Abordagem de [Design Florestal Administrativo da ESAE.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 
 > [!NOTE]
@@ -165,20 +165,20 @@ Quando atualizas de uma versão do Azure AD Connect para um novo lançamento, pr
 | Utilizador executando o assistente de instalação |Se utilizar um servidor SQL completo: DBO (ou similar) da base de dados do motor sincronizado |Faça alterações no nível da base de dados, tais como atualizar tabelas com novas colunas. |
 
 ## <a name="more-about-the-created-accounts"></a>Mais sobre as contas criadas
-### <a name="ad-ds-connector-account"></a>Conta de Conector AD DS
-Se utilizar configurações expressas, então é criada uma conta no Diretório Ativo que é usada para sincronização. A conta criada está localizada no domínio da raiz florestal no contentor utilizadores e tem o seu nome pré-fixado com **MSOL_** . A conta é criada com uma senha complexa e longa que não expira. Se tiver uma política de senha no seu domínio, certifique-se de que senhas longas e complexas serão permitidas para esta conta.
+### <a name="ad-ds-connector-account"></a>Conta do Conector do AD DS
+Se utilizar configurações expressas, então é criada uma conta no Diretório Ativo que é usada para sincronização. A conta criada está localizada no domínio da raiz florestal no contentor utilizadores e tem o seu nome pré-fixado com **MSOL_**. A conta é criada com uma senha complexa e longa que não expira. Se tiver uma política de senha no seu domínio, certifique-se de que senhas longas e complexas serão permitidas para esta conta.
 
 ![Conta AD](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
 Se utilizar configurações personalizadas, é responsável por criar a conta antes de iniciar a instalação.  Consulte Criar a conta de Conector AD DS.
 
-### <a name="adsync-service-account"></a>Conta de serviço ADSync
+### <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O serviço de sincronização pode ser executado sob contas diferentes. Pode ser executado sob uma Conta de **Serviço Virtual** (VSA), uma Conta de Serviço Gerida **pelo Grupo** (gMSA/sMSA) ou uma conta de utilizador regular. As opções suportadas foram alteradas com o lançamento de abril de 2017 do Connect quando fizer uma nova instalação. Se atualizar a partir de um lançamento anterior do Azure AD Connect, estas opções adicionais não estão disponíveis.
 
 | Tipo de conta | Opção de instalação | Descrição |
 | --- | --- | --- |
 | [Conta de Serviço Virtual](#virtual-service-account) | Expresso e personalizado, abril de 2017 e mais tarde | Esta é a opção utilizada para todas as instalações expressas, com exceção das instalações de um controlador de domínio. Para personalizado, é a opção padrão a menos que outra opção seja usada. |
-| [Conta de Serviço Gerida pelo Grupo](#group-managed-service-account) | Personalizado, abril de 2017 e mais tarde | Se utilizar um servidor SQL remoto, recomendamos que utilize uma conta de serviço gerida pelo grupo. |
+| [Conta de Serviço Gerida de Grupo](#group-managed-service-account) | Personalizado, abril de 2017 e mais tarde | Se utilizar um servidor SQL remoto, recomendamos que utilize uma conta de serviço gerida pelo grupo. |
 | [Conta de utilizador](#user-account) | Expresso e personalizado, abril de 2017 e mais tarde | Uma conta de utilizador pré-fixada com AAD_ só é criada durante a instalação quando instalada no Windows Server 2008 e quando instalada num Controlador de Domínio. |
 | [Conta de utilizador](#user-account) | Expresso e personalizado, março de 2017 e mais cedo | Uma conta local pré-fixada com AAD_ é criada durante a instalação. Ao utilizar uma instalação personalizada, outra conta pode ser especificada. |
 
@@ -189,7 +189,7 @@ Se utilizar o Connect com uma construção a partir de março de 2017 ou mais ce
 
 Esta é uma tabela das opções padrão, recomendadas e suportadas para a conta de serviço sincronizado.
 
-Lenda:
+Legenda:
 
 - **O negrito** indica a opção por defeito e, na maioria dos casos, a opção recomendada.
 - *Itálico* indica a opção recomendada quando não é a opção por defeito.
@@ -200,11 +200,11 @@ Lenda:
 - sMSA - [conta de serviço gerido autónomo](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - conta de [serviço gerido](https://technet.microsoft.com/library/hh831782.aspx) pelo grupo
 
-| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
+| | LocalDB</br>Express | LocalDB/LocalsQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónoma/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina unida ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA,gMSA | **gMSA**</br>Conta de domínio |
-| **Controlador de Domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
+| **máquina unida ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |
+| **Controlador de Domínio** | **Conta do domínio** | *gMSA*</br>**Conta do domínio**</br>sMSA| *gMSA*</br>**Conta do domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual
 Uma conta de serviço virtual é um tipo especial de conta que não tem senha e é gerida pelo Windows.
@@ -219,7 +219,7 @@ Esta funcionalidade requer o Windows Server 2008 R2 ou mais tarde. Se instalar o
 Se utilizar um servidor SQL remoto, recomendamos a utilização de uma conta de **serviço gerida**por grupo . Para obter mais informações sobre como preparar o seu Diretório Ativo para a conta de Serviço Gerido pelo Grupo, consulte a visão geral das [Contas de Serviço geridas](https://technet.microsoft.com/library/hh831782.aspx)pelo grupo .
 
 Para utilizar esta opção, na página de [componentes necessários,](how-to-connect-install-custom.md#install-required-components) selecione **Utilize uma conta de serviço existente**, e selecione Conta de Serviço **Gerida**.  
-![](./media/reference-connect-accounts-permissions/serviceaccount.png) VSA  
+![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
 Também é suportado a utilização de uma conta de [serviço gerida autónoma.](https://technet.microsoft.com/library/dd548356.aspx) No entanto, estas só podem ser utilizadas na máquina local e não há qualquer benefício em utilizá-las sobre a conta de serviço virtual predefinida.
 
 Esta funcionalidade requer o Windows Server 2012 ou mais tarde. Se necessitar de utilizar um sistema operativo mais antigo e utilizar O SQL remoto, então deve utilizar uma conta de [utilizador](#user-account).
@@ -239,7 +239,7 @@ Se utilizar um Servidor SQL completo, então a conta de serviço é o DBO da bas
 
 A conta também é concedida permissões a ficheiros, chaves de registo e outros objetos relacionados com o Motor Sync.
 
-### <a name="azure-ad-connector-account"></a>Conta de Conector Azure AD
+### <a name="azure-ad-connector-account"></a>Conta do Conector do Azure AD
 É criada uma conta em Azure AD para uso do serviço de sincronização. Esta conta pode ser identificada pelo seu nome de exibição.
 
 ![Conta AD](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
@@ -248,9 +248,9 @@ O nome do servidor em que a conta é utilizada pode ser identificado na segunda 
 
 A conta é criada com uma senha complexa e longa que não expira. É-lhe concedido um papel especial Contas de Sincronização de **Directórioque** que tem apenas permissões para executar tarefas de sincronização de diretórios. Esta função especial incorporada não pode ser concedida fora do assistente Azure AD Connect. O portal Azure mostra esta conta com a função **Utilizador.**
 
-Existe um limite de 20 contas de serviço sincronizado em Azure AD. Para obter a lista das contas de serviço azure existentes no seu Azure AD, faça o seguinte Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Existe um limite de 20 contas de serviço sincronizado em Azure AD. Para obter a lista das contas de serviço azure existentes no seu Azure AD, faça o seguinte Cmdlet Azure AD PowerShell:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Para remover as contas de serviço Azure AD não utilizadas, execute o seguinte cmdlet Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Para remover as contas de serviço Azure AD não utilizadas, execute o seguinte cmdlet Azure AD PowerShell:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
 >Antes de poder utilizar os comandos powerShell acima, terá de instalar o [PowerShell de Diretório Ativo Azure para módulo graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e ligar-se à sua instância de Azure AD utilizando [o Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
@@ -266,7 +266,7 @@ Caso não tenha lido a documentação sobre integração das suas identidades no
 |Instalar utilizando as definições rápidas | [Instalação rápida do Azure AD Connect](how-to-connect-install-express.md)|
 |Instalar utilizando as definições personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Após a instalação | [Verifique a instalação e atribua licenças](how-to-connect-post-installation.md)|
+|Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

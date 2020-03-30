@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271723"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas
@@ -33,7 +33,7 @@ Utilize os passos seguintes:
 
 Aqui estão as duas formas de definir um limite agrícola:
 
-1. **Marca no mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites, ![Project Farm Bate](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marcar os limites exatos.
+1. **Marca no mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os ![limites,](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) project Farm Beats e marcar os limites exatos.
 
     ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

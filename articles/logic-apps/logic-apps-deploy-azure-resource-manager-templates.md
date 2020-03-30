@@ -7,20 +7,20 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
 ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270449"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos de Gestor de Recursos Azure para aplicações lógicas azure
 
 Depois de criar um modelo de Gestor de Recursos Azure para a sua aplicação lógica, pode implementar o seu modelo desta forma:
 
-* [Portal do Azure](#portal)
+* [Portal Azure](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
-* [CLI do Azure](#cli)
+* [Azure CLI](#cli)
 * [API REST API, gestor de recursos azure](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure DevOps](#azure-pipelines)
 
@@ -30,7 +30,7 @@ Depois de criar um modelo de Gestor de Recursos Azure para a sua aplicação ló
 
 Para implementar automaticamente um modelo de aplicação lógica para o Azure, pode escolher o seguinte **botão Deploy para Azure,** que o inscreve no portal Azure e o solicita informações sobre a sua aplicação lógica. Em seguida, pode efetuar quaisquer alterações necessárias ao modelo ou parâmetros da aplicação lógica.
 
-[![Implementar no Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Desdobre para Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Por exemplo, é solicitado para obter as seguintes informações depois de iniciar sessão no portal Azure:
 
@@ -41,7 +41,7 @@ Por exemplo, é solicitado para obter as seguintes informações depois de inici
 * Um uri de teste
 * Aceitação dos termos e condições especificados
 
-Para mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [Visão geral: Implementação automatizada para aplicações lógicas com modelos de Gestor de Recursos Azure](logic-apps-azure-resource-manager-templates-overview.md)
 * [Implementar recursos com modelos de Gestor de Recursos Azure e o portal Azure](../azure-resource-manager/templates/deploy-portal.md)
@@ -62,9 +62,9 @@ Para implantar num grupo específico de *recursos Azure,* utilize o seguinte com
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 
 <a name="cli"></a>
@@ -77,9 +77,9 @@ Para implantar num grupo específico de *recursos Azure,* utilize o seguinte com
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
-* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
+* [Implementar recursos com modelos do Resource Manager e do CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -112,11 +112,11 @@ Aqui estão os passos gerais de alto nível para a utilização de gasodutos Azu
 
 1. Adicione referências ao modelo de aplicação lógica e aos ficheiros de parâmetros de modelo.
 
-1. Continue a criar passos no processo de liberação para qualquer outro ambiente, teste automatizado ou aprovadores conforme necessário.
+1. Continue a construir etapas no processo de libertação para qualquer outro ambiente, teste automatizado ou aprovadores, conforme necessário.
 
 <a name="authorize-oauth-connections"></a>
 
-## <a name="authorize-oauth-connections"></a>Autorizar ligações de OAuth
+## <a name="authorize-oauth-connections"></a>Autorizar ligações OAuth
 
 Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-scenarios.md). Aqui estão as formas de autorizar as ligações OAuth:
 

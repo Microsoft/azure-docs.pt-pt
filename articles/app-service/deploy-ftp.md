@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266016"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implemente a sua aplicação para o Serviço de Aplicações Azure utilizando FTP/S
@@ -29,7 +29,7 @@ O ponto final ftp/S para a sua aplicação já está ativo. Nenhuma configuraç�
 
     ![Selecione a sua aplicação.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selecione **Centro de Implantação** > **painel**de instrumentos de > **FTP** .
+3. Selecione **central** > de implantação**FTP** > **Dashboard**.
 
     ![Painel de instrumentos FTP aberto](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -69,7 +69,7 @@ Recomenda-se que utilize credenciais de **aplicação** para implementar na sua 
 
 Para uma maior segurança, deve permitir ftp apenas sobre SSL. Também pode desativar tanto o FTP como o FTPS se não utilizar a implantação ftp.
 
-Na página de recursos da sua aplicação no [portal Azure,](https://portal.azure.com)selecione **Configuração** > **configurações gerais** da navegação esquerda.
+Na página de recursos da sua aplicação no [portal Azure,](https://portal.azure.com)selecione**configurações gerais** de **configuração** > a partir da navegação à esquerda.
 
 Para desativar o FTP não encriptado, selecione **FTPS apenas** no **estado FTP**. Para desativar totalmente o FTP e o FTPS, selecione **Desativado**. Quando terminar, clique em **Guardar**. Se utilizar **apenas ftps,** deve impor TLS 1.2 ou superior, navegando para a lâmina de **definições TLS/SSL** da sua aplicação web. Os TLS 1.0 e 1.1 não são suportados apenas com **FTPS**.
 
@@ -99,7 +99,7 @@ Um problema de aplicação em tempo de execução normalmente resulta no conjunt
 
 Para determinar um problema de implantação ou tempo de execução, consulte problemas de [implantação vs. tempo](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues)de execução .
 
-### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Não posso publicar o meu código. Como posso resolver o problema?
+### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I'm not able to FTP and publish my code. Como posso resolver o problema?
 Verifique se inseriu o nome de anfitrião e [as credenciais corretas.](#open-ftp-dashboard) Verifique também se as seguintes portas FTP na sua máquina não estão bloqueadas por uma firewall:
 
 - Porta de ligação de controlo de FTP: 21

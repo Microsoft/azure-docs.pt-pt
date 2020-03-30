@@ -7,10 +7,10 @@ ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8caf502db91ab09eea48fc8a902dacf6bf40f24c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278639"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
@@ -75,53 +75,53 @@ Um Operador de Automação é capaz de criar e gerir empregos, e ler nomes e pro
 |---------|---------|
 |Microsoft.Authorization/*/read|Leia a autorização.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Leia os Recursos Operários do Livro Híbrido.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista de trabalhos do livro de corridas.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Retome um trabalho que seja pausado.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancele um trabalho em andamento.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia as Correntes de Emprego e saída.|
-|Microsoft.Automation/automationAccounts/jobs/output/read|Obter a saída de um emprego.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa um trabalho em andamento.|
-|Microsoft.Automation/automationAccounts/jobs/write|Criar empregos.|
-|Microsoft.Automation/automationAccounts/jobSchedules/read|Arranja um horário de trabalho da Automação Azure.|
-|Microsoft.Automation/automationAccounts/jobSchedules/write|Crie um horário de trabalho da Automação Azure.|
+|Microsoft.Automação/automatizaçãoContas/empregos/leitura|Lista de trabalhos do livro de corridas.|
+|Microsoft.Automação/automatizaçãoContas/empregos/currículo/ação|Retome um trabalho que seja pausado.|
+|Microsoft.Automação/automatizaçãoContas/empregos/stop/action|Cancele um trabalho em andamento.|
+|Microsoft.Automação/automatizaçãoContas/empregos/streams/read|Leia as Correntes de Emprego e saída.|
+|Microsoft.Automação/automatizaçãoContas/empregos/saída/leitura|Obter a saída de um emprego.|
+|Microsoft.Automação/automatizaçãoContas/empregos/suspensão/ação|Pausa um trabalho em andamento.|
+|Microsoft.Automação/automatizaçãoContas/empregos/escrita|Criar empregos.|
+|Microsoft.Automação/automatizaçãoContas/jobAgendas/read|Arranja um horário de trabalho da Automação Azure.|
+|Microsoft.Automação/automatizaçãoContas/jobAgendas/write|Crie um horário de trabalho da Automação Azure.|
 |Microsoft.Automation/automationAccounts/linkedWorkspace/read|Obtenha o espaço de trabalho ligado à conta de Automação.|
 |Microsoft.Automation/automationAccounts/read|Arranja uma conta azure Automation.|
-|Microsoft.Automation/automationAccounts/runbooks/read|Arranja um livro de execução da Automação Azure.|
-|Microsoft.Automation/automationAccounts/schedules/read|Obtenha um ativo de programação de Automação Azure.|
-|Microsoft.Automation/automationAccounts/schedules/write|Criar ou atualizar um ativo de programação da Automação Azure.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Ler papéis e atribuições de papéis.         |
-|Microsoft.Resources/deployments/*      |Criar e gerir as implementações de grupos de recursos.         |
+|Microsoft.Automação/automatizaçãoContas/livros de execução/leitura|Arranja um livro de execução da Automação Azure.|
+|Microsoft.Automação/automatizaçãoContas/horários/leitura|Obtenha um ativo de programação de Automação Azure.|
+|Microsoft.Automação/automatizaçãoContas/horários/escrita|Criar ou atualizar um ativo de programação da Automação Azure.|
+|Microsoft.Recursos/subscrições/recursosGroups/read      |Ler papéis e atribuições de papéis.         |
+|Microsoft.Recursos/implementações/*      |Criar e gerir as implementações de grupos de recursos.         |
 |Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
 |Microsoft.Support/* |Crie e gereos bilhetes de apoio.|
 
 ### <a name="automation-job-operator"></a>Operador de trabalho de automação
 
-Uma função de Operador de Trabalho automational é concedida no âmbito da conta Automation. Isto permite ao operador permissões para criar e gerir postos de trabalho para todos os livros de execução na conta. O quadro seguinte mostra as permissões concedidas para o papel:
+Uma função de Operador de Trabalho automational é concedida no âmbito da conta Automation.Isto permite ao operador permissões para criar e gerir postos de trabalho para todos os livros de execução na conta. O quadro seguinte mostra as permissões concedidas para o papel:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Leia a autorização.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista de trabalhos do livro de corridas.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Retome um trabalho que seja pausado.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancele um trabalho em andamento.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia as Correntes de Emprego e saída.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausa um trabalho em andamento.|
-|Microsoft.Automation/automationAccounts/jobs/write|Criar empregos.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |  Ler papéis e atribuições de papéis.       |
-|Microsoft.Resources/deployments/*      |Criar e gerir as implementações de grupos de recursos.         |
+|Microsoft.Automação/automatizaçãoContas/empregos/leitura|Lista de trabalhos do livro de corridas.|
+|Microsoft.Automação/automatizaçãoContas/empregos/currículo/ação|Retome um trabalho que seja pausado.|
+|Microsoft.Automação/automatizaçãoContas/empregos/stop/action|Cancele um trabalho em andamento.|
+|Microsoft.Automação/automatizaçãoContas/empregos/streams/read|Leia as Correntes de Emprego e saída.|
+|Microsoft.Automação/automatizaçãoContas/empregos/suspensão/ação|Pausa um trabalho em andamento.|
+|Microsoft.Automação/automatizaçãoContas/empregos/escrita|Criar empregos.|
+|Microsoft.Recursos/subscrições/recursosGroups/read      |  Ler papéis e atribuições de papéis.       |
+|Microsoft.Recursos/implementações/*      |Criar e gerir as implementações de grupos de recursos.         |
 |Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
 |Microsoft.Support/* |Crie e gereos bilhetes de apoio.|
 
 ### <a name="automation-runbook-operator"></a>Operador de livro de automação
 
-Uma função de Operador de Resta de Automação é concedida no âmbito do Livro de Execução. Um Operador de Livro de Automação pode ver o nome e propriedades do livro de execução.  Esta função aliada à função "Automation Job Operator" permite ao operador também criar e gerir postos de trabalho para o livro de execução. O quadro seguinte mostra as permissões concedidas para o papel:
+Uma função de Operador de Resta de Automação é concedida no âmbito do Livro de Execução. Um Operador de Livro de Automação pode ver o nome e propriedades do livro de execução.Esta função aliada à função "Automation Job Operator" permite ao operador também criar e gerir postos de trabalho para o livro de execução. O quadro seguinte mostra as permissões concedidas para o papel:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/runbooks/read     | Lista os livros de execução.        |
+|Microsoft.Automação/automatizaçãoContas/livros de execução/leitura     | Lista os livros de execução.        |
 |Microsoft.Authorization/*/read      | Leia a autorização.        |
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Ler papéis e atribuições de papéis.         |
-|Microsoft.Resources/deployments/*      | Criar e gerir as implementações de grupos de recursos.         |
+|Microsoft.Recursos/subscrições/recursosGroups/read      |Ler papéis e atribuições de papéis.         |
+|Microsoft.Recursos/implementações/*      | Criar e gerir as implementações de grupos de recursos.         |
 |Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
 |Microsoft.Support/*      | Crie e gereos bilhetes de apoio.        |
 
@@ -137,11 +137,11 @@ Um Colaborador de Log Analytics pode ler todos os dados de monitorização e edi
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lista as chaves clássicas da conta de armazenamento.|
 |Microsoft.Compute/virtualMachines/extensions/*|Crie e gerencie extensões clássicas de máquinavirtual.|
 |Microsoft.Insights/alertRules/*|Leia/escreva/apague as regras de alerta.|
-|Microsoft.Insights/diagnosticSettings/*|Ler/escrever/eliminar as definições de diagnóstico.|
+|Microsoft.Insights/diagnósticoDefinições/*|Ler/escrever/eliminar as definições de diagnóstico.|
 |Microsoft.OperationalInsights/*|Gerencie os registos do Monitor Azure.|
 |Microsoft.OperationsManagement/*|Gerir soluções em espaços de trabalho.|
-|Microsoft.Resources/deployments/*|Criar e gerir as implementações de grupos de recursos.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Criar e gerir as implementações de grupos de recursos.|
+|Microsoft.Recursos/implementações/*|Criar e gerir as implementações de grupos de recursos.|
+|Microsoft.Recursos/subscrições/grupos de recursos/implementações/*|Criar e gerir as implementações de grupos de recursos.|
 |Microsoft.Storage/storageAccounts/listKeys/action|Lista de chaves da conta de armazenamento.|
 |Microsoft.Support/*|Crie e gereos bilhetes de apoio.|
 
@@ -152,7 +152,7 @@ Um Leitor de Log Analytics pode visualizar e pesquisar todos os dados de monitor
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |*/ler|Leia os recursos de todos os tipos, exceto segredos.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerencie consultas em registos do Monitor Azure.|
+|Microsoft.OperationalInsights/workspaces/analytics/consulta/ação|Gerencie consultas em registos do Monitor Azure.|
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquisar dados de registo do Monitor Azure.|
 |Microsoft.Support/*|Crie e gereos bilhetes de apoio.|
 |**Não Ações**| |
@@ -165,12 +165,12 @@ Um Colaborador de Monitorização pode ler todos os dados de monitorização e d
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |*/ler|Leia os recursos de todos os tipos, exceto segredos.|
-|Microsoft.AlertsManagement/alerts/*|Gerir alertas.|
-|Microsoft.AlertsManagement/alertsSummary/*|Gerencie o painel de alerta.|
+|Microsoft.AlertsGe/alertas/*|Gerir alertas.|
+|Microsoft.AlertsManagement/alertsSSummary/*|Gerencie o painel de alerta.|
 |Microsoft.Insights/AlertRules/*|Gerir as regras de alerta.|
-|Microsoft.Insights/components/*|Gerir componentes de Insights de Aplicação.|
+|Microsoft.Insights/componentes/*|Gerir componentes de Insights de Aplicação.|
 |Microsoft.Insights/DiagnosticSettings/*|Gerir as definições de diagnóstico.|
-|Microsoft.Insights/eventtypes/*|Lista de eventos de Registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável tanto ao acesso programático como ao portal ao Registo de Atividades.|
+|Microsoft.Insights/tipos de eventos/*|Lista de eventos de Registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável tanto ao acesso programático como ao portal ao Registo de Atividades.|
 |Microsoft.Insights/LogDefinitions/*|Esta permissão é necessária para os utilizadores que necessitem de acesso a Registos de Atividade através do portal. Lista as categorias de registo no Registo de Atividades.|
 |Microsoft.Insights/MetricDefinitions/*|Ler definições métricas (lista dos tipos métricos disponíveis para um recurso).|
 |Microsoft.Insights/Metrics/*|Leia as métricas para um recurso.|
@@ -182,7 +182,7 @@ Um Colaborador de Monitorização pode ler todos os dados de monitorização e d
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lista as chaves para um espaço de trabalho de Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gerencie as configurações de informação de armazenamento de registos do Azure Monitor.|
 |Microsoft.Support/*|Crie e gereos bilhetes de apoio.|
-|Microsoft.WorkloadMonitor/workloads/*|Gerir cargas de trabalho.|
+|Microsoft.WorkloadMonitor/cargas de trabalho/*|Gerir cargas de trabalho.|
 
 ### <a name="monitoring-reader"></a>Leitor de Monitorização
 
@@ -212,8 +212,8 @@ As tabelas que se seguem mostram as permissões mínimas necessárias para o emb
 
 |**Ação**  |**Permissão**  |**Âmbito mínimo**  |
 |---------|---------|---------|
-|Escreva nova implantação      | Microsoft.Resources/deployments/*          |Subscrição          |
-|Escreva um novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscrição          |
+|Escreva nova implantação      | Microsoft.Recursos/implementações/*          |Subscrição          |
+|Escreva um novo grupo de recursos      | Microsoft.Recursos/subscrições/recursosGroups/write        | Subscrição          |
 |Criar novo espaço de trabalho padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
 |Criar nova Conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
 |Link espaço de trabalho e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabalho</br>Conta de automatização
@@ -234,8 +234,8 @@ As tabelas que se seguem mostram as permissões mínimas necessárias para o emb
 
 |**Ação**  |**Permissão** |**Âmbito mínimo**  |
 |---------|---------|---------|
-|Criar uma nova implementação     | Microsoft.Resources/deployments/*        | Subscrição         |
-|Criar um novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscrição        |
+|Criar uma nova implementação     | Microsoft.Recursos/implementações/*        | Subscrição         |
+|Criar um novo grupo de recursos     | Microsoft.Recursos/subscrições/recursosGroups/write         | Subscrição        |
 |AutomationOnboarding blade - Criar novo espaço de trabalho     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
 |AutomationOnboarding blade - ler espaço de trabalho ligado     | Microsoft.Automation/automationAccounts/read        | Conta de automatização       |
 |AutomationOnboarding blade - solução de leitura     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
@@ -257,11 +257,11 @@ A gestão de atualizações chega a vários serviços para prestar o seu serviç
 |**Recurso**  |**Função**  |**Âmbito**  |
 |---------|---------|---------|
 |Conta de automatização     | Contribuidor do Log Analytics       | Conta de automatização        |
-|Conta de automatização    | Colaborador de Máquina Virtual        | Grupo de Recursos para a conta        |
+|Conta de automatização    | Contribuidor de Máquina Virtual        | Grupo de Recursos para a conta        |
 |Área de trabalho do Log Analytics     | Contribuidor do Log Analytics| Área de trabalho do Log Analytics        |
 |Área de trabalho do Log Analytics |Leitor do Log Analytics| Subscrição|
 |Solução     |Contribuidor do Log Analytics         | Solução|
-|Máquina Virtual     | Colaborador de Máquina Virtual        | Máquina Virtual        |
+|Máquina Virtual     | Contribuidor de Máquina Virtual        | Máquina Virtual        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configure rBAC para a sua conta de Automação
 
@@ -271,7 +271,7 @@ A secção seguinte mostra como configurar o RBAC na sua conta Automation atrav�
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra a sua conta de Automatização a partir da página Contas de Automatização.
 2. Clique no controlo de **acesso (IAM)** no canto superior esquerdo para abrir a página de controlo de acesso (IAM). Pode utilizar esta página para adicionar novos utilizadores, grupos e aplicações para gerir a sua conta De automação e visualizar as funções existentes que são configuráveis para a conta Automation.
-3. Clique no separador de **atribuições de role.**
+3. Clique no separador **Atribuições de funções**.
 
    ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
@@ -289,7 +289,7 @@ A secção seguinte mostra como configurar o RBAC na sua conta Automation atrav�
 
    ![Listar utilizadores](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   Também pode atribuir uma função ao utilizador a partir da página 'Funções'.
+   Também pode atribuir uma função ao utilizador a partir da página Funções.
 4. Clique em **Funções** a partir da página de controlo de acesso (IAM) para abrir a página Funções. Pode ver o nome do papel e o número de utilizadores e grupos atribuídos a esse papel.
 
     ![Atribuir função a partir da página Utilizadores](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)

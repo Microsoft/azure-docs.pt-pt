@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277027"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
@@ -17,7 +17,7 @@ Pode utilizar funções Azure para implementar o seu código continuamente utili
 
 A implantação contínua é uma boa opção para projetos onde integra contribuições múltiplas e frequentes. Quando utiliza uma implementação contínua, mantém uma única fonte de verdade para o seu código, o que permite às equipas colaborarem facilmente. Pode configurar a implantação contínua nas Funções Azure a partir dos seguintes locais do código fonte:
 
-* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
+* [Repositórios do Azure](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
@@ -32,11 +32,11 @@ Para que a implementação contínua seja bem sucedida, a sua estrutura de diret
 >[!NOTE]  
 > A implementação contínua ainda não é suportada para aplicações Linux em execução de um plano de consumo. 
 
-## <a name="credentials"></a>Configurar a implantação contínua
+## <a name="set-up-continuous-deployment"></a><a name="credentials"></a>Set up continuous deployment (Configurar a implementação contínua)
 
 Para configurar a implementação contínua para uma aplicação de função existente, complete estes passos. Os passos demonstram a integração com um repositório GitHub, mas passos semelhantes aplicam-se para O Repos Azure ou outros repositórios de código fonte.
 
-1. Na sua aplicação de funções no [portal Azure,](https://portal.azure.com)selecione **funcionalidades de plataforma** > Centro de **Implantação**.
+1. Na sua aplicação de funções no [portal Azure,](https://portal.azure.com)selecione **Plataforma possui** > Centro de**Implantação**.
 
     ![Centro de Implantação Aberto](./media/functions-continuous-deployment/platform-features.png)
 
@@ -53,7 +53,7 @@ Para configurar a implementação contínua para uma aplicação de função exi
 4. Selecione um dos seguintes fornecedores de construção:
 
     * **Serviço de Aplicações Serviço de construção serviço**: Melhor quando não precisa de uma construção ou se precisa de uma construção genérica.
-    * **Gasodutos Azure (Pré-visualização)** : Melhor quando precisa de mais controlo sobre a construção. Este fornecedor encontra-se atualmente em pré-visualização.
+    * **Gasodutos Azure (Pré-visualização)**: Melhor quando precisa de mais controlo sobre a construção. Este fornecedor encontra-se atualmente em pré-visualização.
 
     ![Selecione um fornecedor de construção](./media/functions-continuous-deployment/build.png)
 

@@ -4,10 +4,10 @@ description: Como descrever os recursos de ponto final num manifesto de serviço
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282162"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
@@ -47,7 +47,7 @@ Se houver vários pacotes de código num único pacote de serviço, então o pac
 Consulte a [Configuração de Serviços Fiáveis e abastados](service-fabric-reliable-services-configuration.md) para ler mais sobre pontos finais de referência do ficheiro de definições do pacote de config (definições.xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificar um ponto final http para o seu serviço
-O seguinte manifesto de serviço define um recurso de ponto final do TCP e dois recursos de ponto final HTTP no elemento&gt; recursos &lt;.
+O seguinte manifesto de serviço define um recurso de ponto &lt;final&gt; do TCP e dois recursos de ponto final HTTP no elemento Recursos.
 
 Os pontos finais http são automaticamente ACL'd by Service Fabric.
 
@@ -96,7 +96,7 @@ Os pontos finais http são automaticamente ACL'd by Service Fabric.
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exemplo: especificar um ponto final HTTPS para o seu serviço
-O protocolo HTTPS fornece a autenticação do servidor e também é utilizado para encriptar a comunicação cliente-servidor. Para ativar https no seu serviço De Serviço Fabric, especifique o protocolo nos *Recursos -> Endpoints -> Secção de Ponto final* do manifesto de serviço, como mostrado anteriormente para o ponto final *ServiceEndpoint3*.
+O protocolo HTTPS fornece a autenticação do servidor e também é utilizado para encriptar a comunicação cliente-servidor. Para ativar https no seu serviço De Serviço Fabric, especifique o protocolo nos *Recursos -> Pontos Finais ->* secção Endpoint do manifesto de serviço, como mostrado anteriormente para o ponto final de *serviçoEndpoint3*.
 
 > [!NOTE]
 > O protocolo de um serviço não pode ser alterado durante a atualização da aplicação. Se for alterada durante a atualização, é uma mudança de rutura.

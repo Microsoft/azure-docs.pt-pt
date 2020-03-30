@@ -6,17 +6,17 @@ ms.subservice: update-management
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279029"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configure as definições de atualização do Windows para gestão de atualizações
 
 A Azure Update Management conta com o [cliente do Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) para descarregar e instalar atualizações do Windows. Existem definições específicas que são utilizadas pelo cliente da Atualização do Windows ao ligar-se aos Serviços de Atualização do Servidor do Windows (WSUS) ou ao Windows Update. Muitas destas configurações podem ser geridas com:
 
-- Editor de Política do Grupo Local
+- Editor de Políticas de Grupo Local
 - Política de Grupo
 - PowerShell
 - Edição direta do Registo

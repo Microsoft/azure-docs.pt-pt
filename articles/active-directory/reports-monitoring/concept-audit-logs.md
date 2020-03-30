@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253237"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
@@ -56,7 +56,7 @@ Um registo de auditoria tem uma vista de lista predefinida que mostra:
 - a categoria e o nome da atividade (*o que*) 
 - o estado da atividade (sucesso ou insucesso)
 - o destino
-- o iniciador /ator (que) de uma atividade
+- o iniciador / ator (quem) de uma atividade
 
 ![Registos de auditoria](./media/concept-audit-logs/listview.png "Registos de auditoria")
 
@@ -119,22 +119,22 @@ O filtro **categoria** permite selecionar um dos seguintes filtros:
 - Contacto
 - Dispositivo
 - DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
-- GroupManagement
+- Gestão de Diretório
+- Gestão de Direitos
+- Gestão de Grupos
 - KerberosDomínio
 - Gestão de Chaves
 - Etiqueta
 - Outros
 - Política permissão
 - Política
-- ResourceManagement
-- RoleManagement
+- Gestão de Recursos
+- Gestão de Funções
 - Gestão de Utilizadores
 
 O filtro **De Atividade** baseia-se na categoria e na seleção do tipo de recursos de atividade que faz. Pode selecionar uma atividade específica que queira ver ou selecionar todas. 
 
-Pode obter a lista de todas as Atividades de Auditoria utilizando o Gráfico API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Pode obter a lista de todas as Atividades de Auditoria utilizando a API do gráfico:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 O filtro **Status** permite filtrar com base no estado de uma operação de auditoria. O estatuto pode ser um dos seguintes:
 
@@ -164,7 +164,7 @@ Também pode optar por descarregar os dados filtrados, até 250.000 registos, se
 Para além do **Azure Active Directory**, o portal do Azure proporciona-lhe dois pontos de entrada adicionais para dados de auditoria:
 
 - Utilizadores e grupos
-- Aplicações empresariais
+- Aplicações Empresariais
 
 ### <a name="users-and-groups-audit-logs"></a>Registos de auditoria de utilizadores e grupos
 
@@ -216,6 +216,6 @@ Também pode aceder aos registos de atividade do Office 365 programáticamente u
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Referência de atividade de auditoria da AD Azure](reference-audit-activities.md)
+- [Referência da atividade de auditoria do Azure AD](reference-audit-activities.md)
 - [Azure AD reporta referência de retenção](reference-reports-data-retention.md)
 - [Referência de latenciências de registo azure ad](reference-reports-latencies.md)

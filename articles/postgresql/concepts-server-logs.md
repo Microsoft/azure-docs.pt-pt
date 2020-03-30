@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280498"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -20,7 +20,7 @@ A exploração madeireira de auditoria é disponibilizada através de uma extens
 
 
 ## <a name="configure-logging"></a>Configurar a exploração madeireira 
-Pode configurar o registo padrão do Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada base de dados Azure para servidor PostgreSQL, `log_checkpoints` e `log_connections` estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de exploração madeireira: 
+Pode configurar o registo padrão do Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada base de dados Azure `log_checkpoints` para `log_connections` servidor PostgreSQL, e estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de exploração madeireira: 
 
 ![Base de Dados Azure para PostgreSQL - Parâmetros de exploração](./media/concepts-server-logs/log-parameters.png)
 
@@ -40,11 +40,11 @@ O formato de registo predefinido na Base de Dados Azure para PostgreSQL é .log.
 
 A Base de Dados Azure para PostgreSQL fornece um local de armazenamento de curto prazo para os ficheiros .log. Um novo ficheiro começa a cada 1 hora ou 100 MB, o que vier primeiro. Os registos são anexados ao ficheiro atual, uma vez que são emitidos a partir de Postgres.  
 
-Pode definir o período de retenção para este armazenamento de registo de curto prazo utilizando o parâmetro `log_retention_period`. O valor predefinido é de três dias; o valor máximo é de sete dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
+Pode definir o período de retenção para `log_retention_period` este armazenamento de registo de curto prazo utilizando o parâmetro. O valor predefinido é de três dias; o valor máximo é de sete dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
 
 Para a retenção a mais longo prazo de registos e análise de registo, pode descarregar os ficheiros .log e movê-los para um serviço de terceiros. Pode descarregar os ficheiros através do [portal Azure,](howto-configure-server-logs-in-portal.md) [Azure CLI](howto-configure-server-logs-using-cli.md). Em alternativa, pode configurar as definições de diagnóstico do Monitor Azure que emitem automaticamente os seus registos (em formato JSON) para locais de longo prazo. Saiba mais sobre esta opção na secção abaixo. 
 
-Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` desligado. Recomenda-se desligar a geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Monitor Azure. Esta configuração reduzirá o impacto de desempenho de uma exploração extraloga adicional.
+Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` para OFF. Recomenda-se desligar a geração de ficheiros .log se estiver a utilizar as definições de diagnóstico do Monitor Azure. Esta configuração reduzirá o impacto de desempenho de uma exploração extraloga adicional.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos Postgres em formato JSON para registos de monitorização azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
@@ -99,10 +99,10 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | TenantId | Sua identificação do inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
-| Tipo | Tipo de tronco. Sempre `AzureDiagnostics` |
+| Tipo | Tipo de tronco. Sempre`AzureDiagnostics` |
 | SubscriptionId | GUID para a subscrição a que o servidor pertence |
 | ResourceGroup | Nome do grupo de recursos a que o servidor pertence |
-| ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Recurso URI |
 | Recurso | Nome do servidor |
@@ -112,12 +112,12 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | Mensagem | Mensagem de registo primário | 
 | Domain | Versão do servidor, exemplo: postgres-10 |
 | Detalhe | Mensagem de registo secundária (se aplicável) |
-| Nome da coluna | Nome da coluna (se aplicável) |
+| ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |
-| LogicalServerName | Nome do servidor | 
+| Nome lógico do servidor | Nome do servidor | 
 | _ResourceId | Recurso URI |
-| Prefix | Prefixo da linha de log |
+| Prefixo | Prefixo da linha de log |
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298755"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas de Hiv Apache com Apache Hadoop em HDInsight usando REST
@@ -27,11 +27,11 @@ Aprenda a usar a WebHCat REST API para executar consultas apache hive com Apache
 
 * Um cliente rest. Este documento utiliza [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e [Curl](https://curl.haxx.se/) on [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Se utilizar o Bash, também vai precisar de jq, um processador JSON de linha de comando.  Veja [https://stedolan.github.io/jq/. ](https://stedolan.github.io/jq/)
+* Se utilizar o Bash, também vai precisar de jq, um processador JSON de linha de comando.  Vê. [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
 
 ## <a name="base-uri-for-rest-api"></a>Base URI para Descanso API
 
-O identificador de recursos uniformes base (URI) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, onde `CLUSTERNAME` é o nome do seu cluster.  Os nomes de cluster em URIs são **sensíveis a casos.**  Embora o nome do cluster na parte de domínio totalmente qualificado (FQDN) do URI (`CLUSTERNAME.azurehdinsight.net`) seja insensível a casos, outras ocorrências no URI são sensíveis a casos.
+O identificador de recursos uniformes base (URI) para `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`a `CLUSTERNAME` API REST no HDInsight é, onde está o nome do seu cluster.  Os nomes de cluster em URIs são **sensíveis a casos.**  Enquanto o nome do cluster na parte de domínio totalmente`CLUSTERNAME.azurehdinsight.net`qualificado (FQDN) do URI () é insensível a casos, outras ocorrências no URI são sensíveis a casos.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -42,7 +42,7 @@ Ao utilizar cURL ou qualquer outra comunicação REST com o WebHCat, deve autent
 Preserve as suas credenciais para evitar reinseri-las para cada exemplo.  O nome do cluster será preservado num passo separado.
 
 **A. Bash**  
-Edite o script abaixo substituindo `PASSWORD` pela sua senha real.  Em seguida, entre no comando.
+Edite o script `PASSWORD` abaixo substituindo pela sua senha real.  Em seguida, entre no comando.
 
 ```bash
 export password='PASSWORD'
@@ -58,7 +58,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 O invólucro real do nome do cluster pode ser diferente do que se espera, dependendo de como o cluster foi criado.  Os passos aqui mostrarão o invólucro real, e depois armazená-lo-ão numa variável para todos os exemplos posteriores.
 
-Edite os scripts abaixo para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, entre no comando. (O nome do cluster para o FQDN não é sensível a casos.)
+Edite os scripts `CLUSTERNAME` abaixo para substituir pelo nome do cluster. Em seguida, entre no comando. (O nome do cluster para o FQDN não é sensível a casos.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -98,10 +98,10 @@ $clusterName
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * `-u` - O nome de utilizador e a palavra-passe utilizados para autenticar o pedido.
-    * `-G` - Indica que este pedido é uma operação GET.
+    * `-u`- O nome de utilizador e a palavra-passe utilizados para autenticar o pedido.
+    * `-G`- Indica que este pedido é uma operação GET.
 
-1. O início da URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, é o mesmo para todos os pedidos. O caminho, `/status`, indica que o pedido é devolver um estado de WebHCat (também conhecido como Templeton) para o servidor. Também pode solicitar a versão da Colmeia utilizando o seguinte comando:
+1. O início da `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`URL, é o mesmo para todos os pedidos. O caminho, `/status`indica que o pedido é devolver um estado de WebHCat (também conhecido como Templeton) para o servidor. Também pode solicitar a versão da Colmeia utilizando o seguinte comando:
 
     ```bash
     curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
@@ -140,26 +140,26 @@ $clusterName
 
     Este pedido utiliza o método POST, que envia dados como parte do pedido à API REST. Os seguintes valores de dados são enviados com o pedido:
 
-     * `user.name` - O utilizador que está a comandar o comando.
-     * `execute` - As declarações da HiveQL para executar.
-     * `statusdir` - O diretório a que o estatuto para este trabalho está escrito.
+     * `user.name`- O utilizador que está a comandar o comando.
+     * `execute`- As declarações da HiveQL para executar.
+     * `statusdir`- O diretório a que o estatuto para este trabalho está escrito.
 
    Estas declarações realizam as seguintes ações:
 
-   * `DROP TABLE` - Se a mesa já existir, é apagada.
-   * `CREATE EXTERNAL TABLE` - Cria uma nova tabela 'externa' na Colmeia. As tabelas externas armazenam apenas a definição de mesa na Colmeia. Os dados são deixados no local original.
+   * `DROP TABLE`- Se a mesa já existe, é apagada.
+   * `CREATE EXTERNAL TABLE`- Cria uma nova tabela 'externa' na Colmeia. As tabelas externas armazenam apenas a definição de mesa na Colmeia. Os dados são deixados no local original.
 
      > [!NOTE]  
      > As tabelas externas devem ser utilizadas quando se espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo automatizado de upload de dados ou outra operação MapReduce.
      >
      > Deixar cair uma tabela externa **não** elimina os dados, apenas a definição de tabela.
 
-   * `ROW FORMAT` - Como os dados são formatados. Os campos em cada tronco são separados por um espaço.
-   * `STORED AS TEXTFILE LOCATION` - Onde os dados são armazenados (o exemplo/diretório de dados) e que são armazenados como texto.
-   * `SELECT` - Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
+   * `ROW FORMAT`- Como os dados são formatados. Os campos em cada tronco são separados por um espaço.
+   * `STORED AS TEXTFILE LOCATION`- Quando os dados forem armazenados (o exemplo/diretório de dados) e que são armazenados como texto.
+   * `SELECT`- Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
 
      > [!NOTE]  
-     > Note que os espaços entre as declarações da HiveQL são substituídos pelo `+` carácter quando utilizados com Curl. Os valores citados que contenham um espaço, como o delimitador, não devem ser substituídos por `+`.
+     > Note que os espaços entre as declarações da HiveQL são substituídos pelo `+` personagem quando utilizados com Curl. Os valores citados que contenham um espaço, como `+`o delimitador, não devem ser substituídos por .
 
       Este comando devolve uma identificação de trabalho que pode ser usada para verificar o estado do trabalho.
 
@@ -183,11 +183,11 @@ $clusterName
 
     Se o trabalho tiver terminado, o Estado será **bem sucedido.**
 
-1. Uma vez que o estado do trabalho tenha mudado para **SUCCEED,** você pode recuperar os resultados do trabalho a partir do armazenamento Azure Blob. O parâmetro `statusdir` passado com a consulta contém a localização do ficheiro de saída; neste caso, `/example/rest`. Este endereço armazena a saída no diretório `example/curl` nos clusters de armazenamento predefinido.
+1. Uma vez que o estado do trabalho tenha mudado para **SUCCEED,** você pode recuperar os resultados do trabalho a partir do armazenamento Azure Blob. O `statusdir` parâmetro passado com a consulta contém a localização do ficheiro de saída; neste caso, `/example/rest`. Este endereço armazena `example/curl` a saída no diretório no armazenamento predefinido dos clusters.
 
     Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI com armazenamento Azure, consulte o [Use Azure CLI com](https://docs.microsoft.com/azure/storage/storage-azure-cli) o documento de armazenamento Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre outras formas de trabalhar com Hadoop no HDInsight:
 

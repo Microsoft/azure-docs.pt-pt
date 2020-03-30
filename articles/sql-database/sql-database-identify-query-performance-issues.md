@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: e155321c2727bf4ee871ef7be7b61b6a523ec1fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256136"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamentos de desempenho de consulta na Base de Dados Azure SQL
@@ -57,7 +57,7 @@ Um plano sub-ideal gerado pelo SQL Query Optimizer pode ser a causa de um desemp
 
 As seguintes secções discutem como resolver consultas com plano de execução de consulta subideal.
 
-### <a name="ParamSniffing"></a>Consultas que têm problemas com plano sensível de parâmetros (PSP)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Consultas que têm problemas com plano sensível de parâmetros (PSP)
 
 Um problema de plano sensível parametro (PSP) acontece quando o optimizador de consultas gera um plano de execução de consulta que é ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano cached não é então ideal para valores de parâmetros que são usados em consecutivas execuções. Planos que não são ideais podem então causar problemas de desempenho de consulta e degradar a carga de trabalho geral.
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre o cheiro dos parâmetros e o processamento d
 
 Várias sobras podem atenuar problemas da PSP. Cada suposições tem trocas e inconvenientes associados:
 
-- Utilize a dica de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) em cada execução de consulta. Esta suposição de suposição comercializa o tempo de compilação e o aumento da CPU para uma melhor qualidade do plano. A opção `RECOMPILE` muitas vezes não é possível para cargas de trabalho que requerem uma alta entrada.
+- Utilize a dica de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) em cada execução de consulta. Esta suposição de suposição comercializa o tempo de compilação e o aumento da CPU para uma melhor qualidade do plano. A `RECOMPILE` opção muitas vezes não é possível para cargas de trabalho que requerem uma alta entrada.
 - Use a [opção (OTIMIZE FOR...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) dica para sobrepor o valor real do parâmetro com um valor de parâmetro típico que produz um plano que é bom o suficiente para a maioria das possibilidades de valor do parâmetro. Esta opção requer uma boa compreensão dos valores ideais dos parâmetros e das características do plano associados.
 - Use a dica de [opção (OTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para sobrepor ao valor real do parâmetro e, em vez disso, use a média do vetor de densidade. Também pode fazê-lo capturando os valores dos parâmetros de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para esta correção, a densidade média deve ser *suficientemente boa.*
 - Desative o snifador do parâmetro utilizando a sugestão [de consulta DISABLE_PARAMETER_SNIFFING.](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)
@@ -92,7 +92,7 @@ FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-Neste exemplo, `t1.c1` leva `@p1`, mas `t2.c2` continua a tomar o GUID como literal. Neste caso, se alterar o valor para `c2`, a consulta é tratada como uma consulta diferente, e uma nova compilação acontecerá. Para reduzir as compilações neste exemplo, também parametria o GUID.
+Neste exemplo, `t1.c1` `@p1`toma, `t2.c2` mas continua a tomar o GUID como literal. Neste caso, se alterar o `c2`valor para , a consulta é tratada como uma consulta diferente, e uma nova compilação acontecerá. Para reduzir as compilações neste exemplo, também parametria o GUID.
 
 A seguinte consulta mostra a contagem de consultas por hash consulta para determinar se uma consulta é adequadamente parametrizada:
 
@@ -190,7 +190,7 @@ Depois de ter eliminado um plano sub-óptimo e problemas *relacionados com* a es
   Uma consulta pode manter o bloqueio em objetos na base de dados enquanto outros tentam aceder aos mesmos objetos. Pode identificar consultas de bloqueio utilizando [DMVs](sql-database-monitoring-with-dmvs.md#monitoring-blocked-queries) ou [Insights Inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md#locking).
 - **Problemas de IO**
 
-  As consultas podem estar à espera que as páginas sejam escritas nos dados ou ficheiros de registo. Neste caso, verifique as estatísticas de `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`ou `PAGEIOLATCH_*` de espera no DMV. Consulte a utilização de DMVs para identificar problemas de [desempenho da IO](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues).
+  As consultas podem estar à espera que as páginas sejam escritas nos dados ou ficheiros de registo. Neste caso, verifique `INSTANCE_LOG_RATE_GOVERNOR` `WRITE_LOG`as `PAGEIOLATCH_*` estatísticas de , ou aguardar no DMV. Consulte a utilização de DMVs para identificar problemas de [desempenho da IO](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues).
 - **Problemas tempDB**
 
   Se a carga de trabalho utilizar tabelas temporárias ou houver derrames tempDB nos planos, as consultas podem ter um problema com a entrada tempDB. Consulte o uso de DMVs para [identificar problemas tempDB](sql-database-monitoring-with-dmvs.md#identify-tempdb-performance-issues).

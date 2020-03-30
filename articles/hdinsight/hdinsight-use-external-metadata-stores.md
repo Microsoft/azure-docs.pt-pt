@@ -9,13 +9,13 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: edb2d256d3e5d98c52dbdff1162e0e030ebe2be3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272165"
 ---
-# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utilize lojas de metadados externos no Azure HDInsight
+# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
 O HDInsight permite-lhe controlar os seus dados e metadados através da implementação de soluções de metadados chave e bases de dados de gestão para lojas de dados externas. Esta funcionalidade encontra-se atualmente disponível para [metastore Apache Hive,](#custom-metastore) [metastore Apache Oozie](#apache-oozie-metastore) e base de [dados Apache Ambari.](#custom-ambari-db)
 
@@ -73,7 +73,7 @@ Pode ativar esta opção no portal Azure clicando na **firewall do servidor set*
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecione uma metaloja personalizada durante a criação de cluster
 
-Pode indicar o seu cluster para uma base de dados Azure SQL previamente criada durante a criação do cluster, ou pode configurar a Base de Dados SQL após a criação do cluster. Esta opção é especificada com as definições de **Armazenamento > Metastore** ao mesmo tempo que cria um novo aglomerado Hadoop, Spark ou Hive interativo do portal Azure.
+Pode indicar o seu cluster para uma base de dados Azure SQL previamente criada durante a criação do cluster, ou pode configurar a Base de Dados SQL após a criação do cluster. Esta opção é especificada com as **configurações de Armazenamento > Metastore,** ao mesmo tempo que cria um novo aglomerado Hadoop, Spark ou Hive interativo do portal Azure.
 
 ![HDInsight Hive Metadate Store Portal Azure](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 
@@ -101,7 +101,7 @@ Aqui estão algumas boas práticas gerais da metastore Da Hive HDInsight:
 
 ## <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 
-Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere os empregos de Hadoop.  Oozie apoia os empregos de Hadoop para Apache MapReduce, Pig, Hive, entre outros.  A Oozie usa uma metaloja para armazenar detalhes sobre fluxos de trabalho atuais e concluídos. Para aumentar o desempenho ao utilizar o Oozie, pode utilizar a Base de Dados Azure SQL como uma metaloja personalizada. A metaloja também pode fornecer acesso aos dados de trabalho da Oozie depois de eliminar o seu cluster.
+O Apache Oozie é um sistema de coordenação de fluxos de trabalho que gere as tarefas do Hadoop.  Oozie apoia os empregos de Hadoop para Apache MapReduce, Pig, Hive, entre outros.  A Oozie usa uma metaloja para armazenar detalhes sobre fluxos de trabalho atuais e concluídos. Para aumentar o desempenho ao utilizar o Oozie, pode utilizar a Base de Dados Azure SQL como uma metaloja personalizada. A metaloja também pode fornecer acesso aos dados de trabalho da Oozie depois de eliminar o seu cluster.
 
 Para obter instruções sobre a criação de uma metaloja Oozie com base de dados Azure SQL, consulte [Use Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
 

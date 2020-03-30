@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281239"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mova dados do PostgreSQL utilizando a Azure Data Factory
@@ -67,7 +67,7 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas de uma loja de dados PostgreSQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado postgreSQL.
 
 | Propriedade | Descrição | Necessário |
@@ -79,10 +79,10 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | authenticationType |Tipo de autenticação utilizada para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Basic ou Windows. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados PostgreSQL no local. |Sim |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados PostgreSQL no local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção TypeProperties para conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados PostgreSQL) tem as seguintes propriedades:
 
@@ -91,7 +91,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 | tableName |Nome da tabela na instância de Base de Dados PostgreSQL a que o serviço ligado se refere. O nome da tabela é sensível a casos. |Não (se for especificada **a consulta** do **RelationalSource)** |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -102,7 +102,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui PostgreSQL), as segui
 | consulta |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se o nome do **conjunto** de **dados** for especificado) |
 
 > [!NOTE]
-> O schema e os nomes das mesas são sensíveis aos casos. Encerre-os em `""` (orçamentos duplos) na consulta.
+> O schema e os nomes das mesas são sensíveis aos casos. Encerre-os `""` em (orçamentos duplos) na consulta.
 
 **Exemplo:**
 
@@ -162,7 +162,7 @@ Como primeiro passo, criar a porta de entrada de gestão de dados. As instruçõ
 
 A amostra pressupõe que criou uma tabela "MyTable" no PostgreSQL e contém uma coluna chamada "timestamp" para dados da série time.
 
-A definição `"external": true` informa o serviço data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A `"external": true` definição informa o serviço Data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -302,48 +302,48 @@ Conforme referido nas [atividades](data-factory-data-movement-activities.md) de 
 
 Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo PostgreSQL para o tipo .NET.
 
-| Tipo de base de dados PostgreSQL | Aliases de PostgresSQL | Tipo de quadro .NET |
+| Tipo de base de dados PostgreSQL | Pseudónimos PostgresSQL | Tipo de quadro .NET |
 | --- | --- | --- |
 | abstime | |Datetime |
 | bigint |int8 |Int64 |
-| bigserial |serial8 |Int64 |
+| bigserial |série8 |Int64 |
 | bit [n)] | |Byte[], String |
 | bit variando [ (n) ] |varbit |Byte[], String |
 | boolean |bool |Booleano |
 | caixa | |Byte[], String |
 | bytea | |Byte[], String |
-| carácter [n)] |char [n)] |String |
-| caracteres variando [(n)] |varchar [n)] |String |
-| cid | |String |
-| cidr | |String |
-| Círculo | |Byte[], String |
+| carácter [n)] |char [n)] |Cadeia |
+| caracteres variando [(n)] |varchar [n)] |Cadeia |
+| cid | |Cadeia |
+| cidr | |Cadeia |
+| círculo | |Byte[], String |
 | date | |Datetime |
-| daterange | |String |
-| dupla precisão |flutuante8 |Valor de duplo |
+| datarange | |Cadeia |
+| dupla precisão |flutuante8 |Double |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| intarry | |Cadeia |
+| int4range | |Cadeia |
+| int8range | |Cadeia |
 | número inteiro |int, int4 |Int32 |
 | intervalo [campos] [(p)] | |Timespan |
-| json | |String |
+| json | |Cadeia |
 | jsonb | |Byte[] |
 | linha | |Byte[], String |
 | LSEG | |Byte[], String |
 | macaddr | |Byte[], String |
-| money | |decimal |
-| numérico [(p, s)] |decimal [(p, s)] |decimal |
-| numrange | |String |
+| dinheiro | |Decimal |
+| numérico [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange | |Cadeia |
 | oid | |Int32 |
-| caminho | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
-| registo | |Byte[], String |
-| Polígono | |Byte[], String |
+| ponto | |Byte[], String |
+| polígono | |Byte[], String |
 | real |flutuante4 |Único |
 | smallint |int2 |Int16 |
-| pequena série |serial2 |Int16 |
-| série |serial4 |Int32 |
-| texto | |String |
+| pequena série |série2 |Int16 |
+| série |série4 |Int32 |
+| texto | |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

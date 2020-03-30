@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257813"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para o Ative Directory e o DNS
 
 Aplicações empresariais como SharePoint, Dynamics AX e SAP dependem do Ative Directory e de uma infraestrutura DNS para funcionar corretamente. Ao configurar a recuperação de desastres para aplicações, muitas vezes precisa de recuperar o Ative Directory e o DNS antes de recuperar outros componentes da aplicação, para garantir a correta funcionalidade da aplicação.
 
-Você pode usar [a Recuperação do Site](site-recovery-overview.md) para criar um plano de recuperação de desastres para O Diretório Ativo. Quando ocorre uma perturbação, pode iniciar uma falha. Pode ter diretório ativo em funcionamento em alguns minutos. Se implementou o Ative Directory para várias aplicações no seu site principal, por exemplo, para o SharePoint e sAP, poderá querer falhar sobre o site completo. Pode primeiro falhar sobre o Ative Directory utilizando a Recuperação do Site. Em seguida, falhe sobre as outras aplicações, utilizando planos de recuperação específicos da aplicação.
+Você pode usar [a Recuperação do Site](site-recovery-overview.md) para criar um plano de recuperação de desastres para O Diretório Ativo. Quando ocorre uma perturbação, pode iniciar uma falha. Pode ter o Active Directory a funcionar em apenas alguns minutos. Se implementou o Ative Directory para várias aplicações no seu site principal, por exemplo, para o SharePoint e sAP, poderá querer falhar sobre o site completo. Pode primeiro falhar sobre o Ative Directory utilizando a Recuperação do Site. Em seguida, falhe sobre as outras aplicações, utilizando planos de recuperação específicos da aplicação.
 
 Este artigo explica como criar uma solução de recuperação de desastres para o Ative Directory. Inclui pré-requisitos e instruções de failover. Deve estar familiarizado com o Diretório Ativo e a Recuperação do Site antes de começar.
 

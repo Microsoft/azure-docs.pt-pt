@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299619"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Windows
@@ -105,10 +105,10 @@ Existem requisitos de comprimento de senha variados, dependendo da ferramenta qu
  - PowerShell - entre 8 - 123 caracteres
  - CLI - entre 12 - 123
 
-* Ter caracteres mais baixos
-* Ter caracteres superiores
-* Tenha um dígito
-* Tenha um caráter especial (regex match [\W_])
+* Ter carateres em minúscula
+* Ter carateres em maiúscula
+* Ter um dígito
+* Ter um caráter especial (Expressão regular [\W_])
 
 As seguintes palavras-passe não são permitidas:
 
@@ -116,7 +116,7 @@ As seguintes palavras-passe não são permitidas:
     <tr>
         <td>abc@123</td>
         <td>Iloveyou!</td>
-        <td>P@$$w0rd</td>
+        <td>P@$$w0</td>
         <td>P@ssw0rd</td>
         <td>P@ssword123</td>
     </tr>
@@ -125,6 +125,6 @@ As seguintes palavras-passe não são permitidas:
         <td>pass@word1</td>
         <td>Senha!</td>
         <td>Senha1</td>
-        <td>Password22</td>
+        <td>Senha22</td>
     </tr>
 </table>

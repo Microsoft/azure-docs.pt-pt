@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267186"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux em Azure com vários cartões de interface de rede
@@ -25,7 +25,7 @@ Instale o mais recente [Azure CLI](/cli/azure/install-az-cli2) e inicie sessão 
 
 Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *mystorageaccount,* e *myVM*.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -79,9 +79,9 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Crie um VM e prenda os NICs
-Quando criar o VM, especifique os NICs que criou com `--nics`. Também precisa de ter cuidado quando selecionar o tamanho VM. Existem limites para o número total de NICs que pode adicionar a um VM. Leia mais sobre [tamanhos de VM Linux](sizes.md).
+Quando criar o VM, especifique `--nics`os NICs com os quais criou . Também precisa de ter cuidado quando selecionar o tamanho VM. Existem limites para o número total de NICs que pode adicionar a um VM. Leia mais sobre [tamanhos de VM Linux](sizes.md).
 
-Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*:
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria um VM chamado *myVM:*
 
 ```azurecli
 az vm create \
@@ -169,7 +169,7 @@ Os modelos do Gestor de Recursos Azure utilizam ficheiros JSON declarativos para
 
 Leia mais sobre [a criação de várias instâncias usando *cópia*](../../resource-group-create-multiple.md). 
 
-Também pode utilizar uma `copyIndex()` para anexar um número a um nome de recurso, o que lhe permite criar `myNic1`, `myNic2`, etc. O seguinte mostra um exemplo de apreço ao valor do índice:
+Também pode usar `copyIndex()` um para anexar um número a um `myNic1`nome `myNic2`de recurso, que lhe permite criar, etc. O seguinte mostra um exemplo de apreço ao valor do índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -222,7 +222,7 @@ Para enviar de ou para uma interface de rede secundária, tem de adicionar manua
 
 Ao adicionar a rota ao sistema operativo, o endereço gateway é *.1* para qualquer sub-rede em que a interface de rede esteja. Por exemplo, se a interface de rede for atribuída ao endereço *10.0.2.4,* o portal que especifica para a rota é *10.0.2.1*. Pode definir uma rede específica para o destino da rota, ou especificar um destino de *0.0.0.0,* se quiser que todo o tráfego para a interface passe pelo gateway especificado. A porta de entrada para cada subnet é gerida pela rede virtual.
 
-Depois de ter adicionado a rota para uma interface secundária, verifique se a rota está na sua tabela de rotas com `route -n`. A saída de exemplo que se segue é para a tabela de rotas que tem as duas interfaces de rede adicionadas ao VM neste artigo:
+Depois de ter adicionado a rota para uma interface secundária, verifique `route -n`se a rota está na sua tabela de rotas com . A saída de exemplo que se segue é para a tabela de rotas que tem as duas interfaces de rede adicionadas ao VM neste artigo:
 
 ```bash
 Kernel IP routing table

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277781"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a fiabilidade das Funções Azure
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das Funções do Azure
 
 Este artigo fornece orientações para melhorar o desempenho e a fiabilidade das suas aplicações de função [sem servidores.](https://azure.microsoft.com/solutions/serverless/)  
 
@@ -44,7 +44,7 @@ Os centros de eventos são úteis para apoiar comunicações de alto volume.
 
 ### <a name="write-functions-to-be-stateless"></a>Escrever funções para ser apátrida 
 
-As funções devem ser apátridas e idempotentes, se possível. Associe todas as informações de estado necessárias com os seus dados. Por exemplo, uma ordem que está a ser processada teria provavelmente um membro `state` associado. Uma função poderia processar uma ordem baseada nesse estado enquanto a função em si permanece apátrida. 
+As funções devem ser apátridas e idempotentes, se possível. Associe todas as informações de estado necessárias com os seus dados. Por exemplo, uma ordem que está a `state` ser processada teria provavelmente um membro associado. Uma função poderia processar uma ordem baseada nesse estado enquanto a função em si permanece apátrida. 
 
 Funções idempotentes são especialmente recomendadas com gatilhos temporizadores. Por exemplo, se tiver algo que deve funcionar uma vez por dia, escreva-o para que possa funcionar a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não há trabalho para um dia em particular. Além disso, se uma corrida anterior não tiver terminado, a próxima corrida deve retomar onde ficou parada.
 
@@ -92,7 +92,7 @@ Não utilize a verbosa login no código de produção, o que tem um impacto nega
 
 A programação assíncrona é uma melhor prática recomendada, especialmente quando se estão envolvidas operações de bloqueio de E/S.
 
-Em C#, evite sempre fazer referência ao `Result` imóvel ou chamar `Wait` método numa `Task` instância. Esta abordagem pode levar à exaustão dos fios.
+Em C#, evite `Result` sempre fazer `Wait` referência `Task` sintetizador a propriedade ou chamar método numa instância. Esta abordagem pode levar à exaustão dos fios.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -104,21 +104,21 @@ O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções cr
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receba mensagens em lote sempre que possível
 
-Alguns gatilhos como o Event Hub permitem receber um lote de mensagens numa única invocação.  As mensagens de lotação têm um desempenho muito melhor.  Pode configurar o tamanho máximo do lote no ficheiro `host.json` conforme detalhado na documentação de [referência host.json](functions-host-json.md)
+Alguns gatilhos como o Event Hub permitem receber um lote de mensagens numa única invocação.  As mensagens de lotação têm um desempenho muito melhor.  Pode configurar o tamanho máximo `host.json` do lote no ficheiro conforme detalhado na documentação de [referência host.json](functions-host-json.md)
 
-Para C# funções, pode alterar o tipo para uma matriz fortemente dactilografada.  Por exemplo, em vez de `EventData sensorEvent` a assinatura do método poderia ser `EventData[] sensorEvent`.  Para outras línguas, você precisará definir explicitamente a propriedade cardinalidade na sua `function.json` para `many` de modo a permitir o lote [como mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para funções C#, pode alterar o tipo para uma matriz fortemente dactilografada.  Por exemplo, `EventData sensorEvent` em vez da `EventData[] sensorEvent`assinatura do método poderia ser .  Para outras línguas, você precisará definir explicitamente `function.json` a `many` propriedade cardinalidade na sua para permitir o lote [como mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configure comportamentos de hospedeiro para lidar melhor com a conmoeda
 
-O ficheiro `host.json` na aplicação de função permite configurar o tempo de execução do hospedeiro e desencadear comportamentos.  Além de comportamentos de lotação, você pode gerir a concurrency para uma série de gatilhos. Muitas vezes, ajustar os valores nestas opções pode ajudar cada instância a escalar adequadamente para as exigências das funções invocadas.
+O `host.json` ficheiro na aplicação de funções permite configurar o tempo de execução do hospedeiro e desencadear comportamentos.  Além de comportamentos de lotação, você pode gerir a concurrency para uma série de gatilhos. Muitas vezes, ajustar os valores nestas opções pode ajudar cada instância a escalar adequadamente para as exigências das funções invocadas.
 
-As definições no ficheiro host.json aplicam-se em todas as funções dentro da app, numa *única instância* da função. Por exemplo, se tivesse uma aplicação de função com duas funções HTTP e [pedidos de`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) definidos para 25, um pedido para qualquer um dos gatilhos HTTP contaria para os 25 pedidos simultâneos partilhados.  Quando essa aplicação de funções é dimensionada para 10 instâncias, as duas funções permitem efetivamente 250 pedidos simultâneos (10 instâncias * 25 pedidos simultâneos por exemplo). 
+As definições no ficheiro host.json aplicam-se em todas as funções dentro da app, numa *única instância* da função. Por exemplo, se tivesse uma aplicação de [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) função com duas funções http e pedidos definidos para 25, um pedido para qualquer um dos gatilhos HTTP contaria para os 25 pedidos simultâneos partilhados.  Quando essa aplicação de funções é dimensionada para 10 instâncias, as duas funções permitem efetivamente 250 pedidos simultâneos (10 instâncias * 25 pedidos simultâneos por exemplo). 
 
 Outras opções de configuração do anfitrião encontram-se no artigo de [configuração host.json](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte os seguintes recursos:
+Para obter mais informações, consulte os seguintes recursos:
 
 * [Como gerir ligações em Funções Azure](manage-connections.md)
 * [Boas práticas do Serviço de Aplicações Azure](../app-service/app-service-best-practices.md)

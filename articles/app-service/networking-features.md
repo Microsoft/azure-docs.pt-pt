@@ -4,15 +4,15 @@ description: Conheça as funcionalidades da rede no Serviço de Aplicações Azu
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: bc3d35830d833c0223a400140c53e583d2f6ed37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475430"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de rede de serviços de aplicação
 
@@ -38,15 +38,14 @@ Para qualquer caso de utilização, pode haver algumas formas de resolver o prob
  
 | Casos de utilização de entrada | Funcionalidade |
 |---------------------|-------------------|
-| Suporte as necessidades SSL baseadas em IP para a sua aplicação | Endereço atribuído à aplicação |
-| Endereço de entrada não partilhado e dedicado para a sua aplicação | Endereço atribuído à aplicação |
+| Suporte as necessidades SSL baseadas em IP para a sua aplicação | endereço atribuído app |
+| Endereço de entrada não partilhado e dedicado para a sua aplicação | endereço atribuído app |
 | Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos | Restrições de acesso |
-| Expor a minha aplicação em IPs privados no meu VNet | ILB ASE </br> Gateway de Aplicação com pontos finais de serviço |
-| Restringir o acesso à minha app a partir de recursos num VNet | Pontos Finais de Serviço </br> ILB ASE |
-| Exponha a minha aplicação num IP privado no meu VNet | ILB ASE </br> IP privado para entrada em um Gateway de aplicação com pontos finais de serviço |
+| Restringir o acesso à minha app a partir de recursos num VNet | Pontos Finais de Serviço </br> ILB ASE </br> Ponto final privado (Pré-visualização) |
+| Exponha a minha aplicação num IP privado no meu VNet | ILB ASE </br> IP privado para entrada em um Gateway de aplicação com pontos finais de serviço </br> Ponto final de serviço (Pré-visualização) |
 | Proteja a minha aplicação com um WAF | Gateway de aplicação + ILB ASE </br> Gateway de Aplicação com pontos finais de serviço </br> Porta da frente azure com restrições de acesso |
 | Carregar o tráfego de equilíbrio para as minhas apps em diferentes regiões | Porta da frente azure com restrições de acesso | 
-| Tráfego de equilíbrio de carga na mesma região | [Gateway de aplicação com pontos finais de serviço][appgwserviceendpoints] | 
+| Tráfego de equilíbrio de carga na mesma região | [Gateway de Aplicação com pontos finais de serviço][appgwserviceendpoints] | 
 
 Os seguintes casos de utilização sugerem como utilizar funcionalidades de rede do Serviço de Aplicações para resolver as necessidades de acesso de saída para a sua aplicação. 
 
@@ -111,6 +110,11 @@ Os pontos finais do serviço permitem bloquear o acesso **à entrada** da sua ap
 ![pontos finais de serviço com gateway de aplicação](media/networking-features/service-endpoints-appgw.png)
 
 Pode saber mais sobre configurar pontos finais de serviço com a sua aplicação no tutorial sobre restrições de acesso ao [fim do serviço de configuração][serviceendpoints]
+
+### <a name="private-endpoint-preview"></a>Ponto final privado (Pré-visualização)
+
+Private Endpoint é uma interface de rede que o conecta de forma privada e segura à sua Web App por Azure Private Link. O Private Endpoint utiliza um endereço IP privado do seu VNet, efetivamente trazendo a Aplicação Web para o seu VNet. Esta funcionalidade **destina-se** apenas aos fluxos de entrada para a sua Web App.
+[Utilização de pontos finais privados para aplicação web azure (pré-visualização)][privateendpoints]
  
 ### <a name="hybrid-connections"></a>Ligações Híbridas
 
@@ -227,3 +231,4 @@ Pode ter várias aplicações front-end a utilizar a mesma aplicação API utili
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
 [appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

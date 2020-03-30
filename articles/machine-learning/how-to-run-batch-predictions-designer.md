@@ -1,5 +1,5 @@
 ---
-title: Executar previsões de lote utilizando o designer de machine learning Azure (pré-visualização)
+title: Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar um modelo e instale um pipeline de previsão de lote utilizando o designer. Implemente o gasoduto como um serviço web parametrizado, que pode ser acionado a partir de qualquer biblioteca HTTP.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920693"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477226"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar previsões de lote utilizando o designer de machine learning Azure (pré-visualização)
+# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste artigo, aprende-se a usar o designer para criar um pipeline de previsão de lote. A previsão do lote permite-lhe pontuar continuamente grandes conjuntos de dados a pedido usando um serviço web que pode ser desencadeado a partir de qualquer biblioteca HTTP.
@@ -43,13 +43,13 @@ O seu gasoduto de treino deve ser executado pelo menos uma vez para poder criar 
 
 1. Selecione o gasoduto de treino que treina o modelo que pretende utilizar para fazer a previsão.
 
-1. **Corre** o oleoduto.
+1. **Submeta** o oleoduto.
 
-    ![Executar o pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Submeter o gasoduto](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Agora que o gasoduto de treino foi executado, pode criar um oleoduto de inferência de lote.
 
-1. Ao lado de **Run**, selecione o novo dropdown Criar o gasoduto de **inferência**.
+1. Ao lado de **Submeter,** selecione o novo dropdown Criar o gasoduto de **inferência**.
 
 1. Selecione o gasoduto de **inferência**do lote .
 
@@ -83,7 +83,7 @@ Agora estás pronto para lançar o oleoduto de inferência. Isto irá implantar 
 
 1. Selecione **Publicar**.
 
-![Publicar um pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
+![Publicar um oleoduto](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
 
 ## <a name="consume-an-endpoint"></a>Consumir um ponto final
@@ -110,13 +110,13 @@ Nesta secção, irá configurar uma execução manual de gasodutos e alterar o p
 
     A página de detalhes do pipeline mostra-lhe um histórico detalhado de execução e informações de cordas de ligação para o seu pipeline. 
     
-1. Selecione **Executar** para criar uma execução manual do gasoduto.
+1. Selecione **Submeter** para criar uma execução manual do gasoduto.
 
     ![Detalhes do gasoduto](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Mude o parâmetro para utilizar um conjunto de dados diferente.
     
-1. Selecione **Executar** para executar o gasoduto.
+1. Selecione **Submeter** para executar o gasoduto.
 
 ### <a name="use-the-rest-endpoint"></a>Use o ponto final REST
 
@@ -145,3 +145,4 @@ Também pode definir um novo pipeline predefinido no separador **de gasodutos Pu
 ## <a name="next-steps"></a>Passos seguintes
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.
+''

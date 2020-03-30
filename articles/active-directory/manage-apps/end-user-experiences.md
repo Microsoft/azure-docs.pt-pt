@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266627"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Diretório Ativo do Azure
@@ -32,7 +32,7 @@ Qual o(s) método que escolhe s implementar na sua organização é a sua discri
 
 ## <a name="azure-ad-access-panel"></a>Painel de acesso Azure AD
 
-O Painel de Acesso da https://myapps.microsoft.com é um portal baseado na web que permite a um utilizador final com uma conta organizacional no Azure Ative Directory visualizar e lançar aplicações às quais foi concedido acesso pelo administrador da AD Azure. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar capacidades de gestão de grupos de self-service através do Painel de Acesso.
+O Painel https://myapps.microsoft.com de Acesso é um portal baseado na web que permite a um utilizador final com uma conta organizacional no Azure Ative Directory visualizar e lançar aplicações às quais foi concedido acesso pelo administrador da AD Azure. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar capacidades de gestão de grupos de self-service através do Painel de Acesso.
 
 ![Screenshot mostra o portal do Painel de Acesso AD Azure](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
@@ -44,7 +44,7 @@ Para obter mais informações sobre o painel de acesso da AD Azure, consulte a [
 
 ## <a name="office-365-application-launcher"></a>Lançador de aplicações office 365
 
-Para as organizações que implementaram o Office 365, as aplicações atribuídas aos utilizadores através do Azure AD também estarão presentes no portal do Office 365 em [https://portal.office.com/myapps. ](https://portal.office.com/myapps) Isto torna mais fácil e conveniente para os utilizadores de uma organização lançar as suas apps sem ter de usar um segundo portal, sendo a solução de lançamento recomendada para as organizações que utilizam o Office 365.
+Para as organizações que implementaram o Office 365, as aplicações atribuídas aos utilizadores através [https://portal.office.com/myapps](https://portal.office.com/myapps)do Azure AD também estarão presentes no portal do Office 365 em . Isto torna mais fácil e conveniente para os utilizadores de uma organização lançar as suas apps sem ter de usar um segundo portal, sendo a solução de lançamento recomendada para as organizações que utilizam o Office 365.
 
 ![Screenshot mostra o portal Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -60,7 +60,7 @@ A maioria das aplicações federadas que suportam saml 2.0, WS-Federation ou Ope
 
 A Azure AD também suporta links de inscrição simples diretos para aplicações individuais que suportam o único sign-on baseado em palavra-passe, o único signo ligado e qualquer forma de inscrição única federada.
 
-Estes links são URLs especificamente concebidos que enviam um utilizador através do processo de iniciação de acesso a Anúncio sem exigir que o utilizador os lance a partir do painel de acesso Azure AD ou do Office 365. Estes **URLs** de acesso ao Utilizador podem ser encontrados sob as propriedades das aplicações empresariais disponíveis. No portal Azure, selecione **aplicações**de > De **Diretório Ativo azure.** Selecione a aplicação e, em seguida, selecione **Propriedades**.
+Estes links são URLs especificamente concebidos que enviam um utilizador através do processo de iniciação de acesso a Anúncio sem exigir que o utilizador os lance a partir do painel de acesso Azure AD ou do Office 365. Estes **URLs** de acesso ao Utilizador podem ser encontrados sob as propriedades das aplicações empresariais disponíveis. No portal Azure, selecione **aplicações Azure Ative Directory** > **Enterprise.** Selecione a aplicação e, em seguida, selecione **Propriedades**.
 
 ![Exemplo do URL de acesso ao utilizador nas propriedades do Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

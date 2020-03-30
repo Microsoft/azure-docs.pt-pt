@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260998"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
@@ -38,7 +38,7 @@ Ao utilizar o protocolo AMQP, que é o protocolo exclusivo para o cliente .NET S
 
 Um remetente pode colocar várias mensagens no fio em rápida sucessão sem ter que esperar que cada mensagem seja reconhecida, como seria o caso do protocolo SBMP ou com HTTP 1.1. Estas operações de envio assíncronas completam-se à medida que as respetivas mensagens são aceites e armazenadas, em entidades divididas ou quando enviam operações a diferentes entidades sobrepostas. As conclusões também podem ocorrer fora da ordem de envio original.
 
-A estratégia para lidar com o resultado das operações de envio pode ter um impacto de desempenho imediato e significativo para a sua aplicação. Os exemplos desta secção são C# escritos e aplicados de forma equivalente para a Java Futures.
+A estratégia para lidar com o resultado das operações de envio pode ter um impacto de desempenho imediato e significativo para a sua aplicação. Os exemplos nesta secção são escritos em C# e aplicam-se equivalentemente para java futures.
 
 Se a aplicação produzir explosões de mensagens, ilustradas aqui com um loop simples, e se aguardasse a conclusão de cada operação de envio antes de enviar a próxima mensagem, formas de API sincronizadas ou assíncronas, enviando 10 mensagens apenas após 10 sequencial de ida e volta completa para liquidação.
 
@@ -65,9 +65,9 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-É importante notar que todos os modelos de programação assíncronos utilizam alguma forma de fila de trabalho escondida baseada na memória que mantém as operações pendentes. Quando [sendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) ()C#ou **Enviar** (Java) regressar, a tarefa de envio é em fila na fila de trabalho, mas o gesto de protocolo só começa quando é a vez da tarefa ser executada. Para um código que tende a empurrar explosões de mensagens e onde a fiabilidade é uma preocupação, há que ter cuidado para que não muitas mensagens sejam colocadas "em fuga" de uma só vez, porque todas as mensagens enviadas retiram a memória até que tenham sido factualmente colocadas no fio.
+É importante notar que todos os modelos de programação assíncronos utilizam alguma forma de fila de trabalho escondida baseada na memória que mantém as operações pendentes. Quando [sendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) ou **Enviar** (Java) regressarem, a tarefa de envio é em fila nessa fila de trabalho, mas o gesto de protocolo só começa quando é a vez da tarefa ser executada. Para um código que tende a empurrar explosões de mensagens e onde a fiabilidade é uma preocupação, há que ter cuidado para que não muitas mensagens sejam colocadas "em fuga" de uma só vez, porque todas as mensagens enviadas retiram a memória até que tenham sido factualmente colocadas no fio.
 
-Os semáforos, como mostram os seguintes códigos, C#são objetos de sincronização que permitem tal estrangulamento ao nível da aplicação quando necessário. Este uso de um semáforo permite que, no máximo, 10 mensagens estejam em voo ao mesmo tempo. Um dos 10 cadeados de semáforo disponíveis é tomado antes do envio e é libertado à medida que o envio completa. O 11º passe através do loop aguarda até que pelo menos um dos envios anteriores esteja concluído, e depois disponibiliza o seu cadeado:
+Os semáforos, como mostram os seguintes códigos em C#, são objetos de sincronização que permitem tal estrangulamento ao nível da aplicação quando necessário. Este uso de um semáforo permite que, no máximo, 10 mensagens estejam em voo ao mesmo tempo. Um dos 10 cadeados de semáforo disponíveis é tomado antes do envio e é libertado à medida que o envio completa. O 11º passe através do loop aguarda até que pelo menos um dos envios anteriores esteja concluído, e depois disponibiliza o seu cadeado:
 
 ```csharp
 var semaphore = new SemaphoreSlim(10);
@@ -139,5 +139,5 @@ O mecanismo típico de identificação de entregas de mensagens duplicadas é ve
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

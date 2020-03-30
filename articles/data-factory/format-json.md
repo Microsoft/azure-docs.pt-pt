@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260647"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
@@ -22,17 +22,17 @@ Siga este artigo quando pretender **analisar os ficheiros JSON ou escrever os da
 
 O formato JSON é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados JSON.
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
-| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
+| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
 | encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM001140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859", "ISO-8859", "ISO-8859-5", "ISO-8859" -6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
-| compressãoCodec | O codec de compressão utilizado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. <br>Nota atualmente A atividade da Cópia não suporta "snappy" e "lz4".<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para uma loja de dados de sumidouro baseada em ficheiros, os ficheiros serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
-| compressionLevel | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve estar concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Optimal**: O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| compressãoCodec | O codec de compressão utilizado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. <br>Nota atualmente A atividade da Cópia não suporta "snappy" & "lz4".<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: . | Não       |
+| compressãoN | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo de conjunto de dados JSON no Armazenamento de Blob Azure:
 
@@ -65,24 +65,24 @@ Para obter uma lista completa de secções e imóveis disponíveis para definir 
 
 ### <a name="json-as-source"></a>JSON como fonte
 
-As seguintes propriedades são suportadas na atividade de cópia ***\*secção\*fonte.***
+As seguintes propriedades são suportadas na secção de *** \*origem\* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
+| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
 
 ### <a name="json-as-sink"></a>JSON como pia
 
-As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** secção.
+As seguintes propriedades são suportadas na secção de *** \*sumidouro\* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSink**. | Sim      |
-| formatSettings | Um grupo de propriedades. Consulte a tabela de definições de **escrita JSON** abaixo. | Não       |
-| storeSettings | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
+| formatoDefinições | Um grupo de propriedades. Consulte a tabela de definições de **escrita JSON** abaixo. | Não       |
+| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
 
-Definições de **escrita JSON** suportadas em `formatSettings`:
+Definições de **escrita JSON** suportadas em: `formatSettings`
 
 | Propriedade      | Descrição                                                  | Necessário                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
@@ -255,7 +255,7 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 
 A utilização de um conjunto de dados JSON como fonte no fluxo de dados permite-lhe definir cinco definições adicionais. Estas definições podem ser encontradas sob o acordeão de **definições JSON** no separador **Opções de Origem.**  
 
-![Definições JSON](media/data-flow/json-settings.png "Definições JSON")
+![Definições JSON](media/data-flow/json-settings.png "Definições de JSON")
 
 #### <a name="default"></a>Predefinição
 
@@ -298,7 +298,7 @@ Se os **nomes de colunas não citados** forem selecionados, os fluxos de dados d
 
 #### <a name="has-comments"></a>Tem comentários
 
-Select **Tem comentários** se os dados jSON têm comentários c ou C++ estilo.
+Select **Tem comentários** se os dados JSON têm comentários de estilo C ou C++.
 
 ``` json
 { "json": /** comment **/ "record 1" }
@@ -328,7 +328,7 @@ Selecione **Single quoted** se as pestanas são usadas para escapar de caractere
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da atividade de cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Mapeando o fluxo de dados](concepts-data-flow-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 - [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)

@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298619"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de identidade de diretório ativo azure e operações de gestão de acesso
@@ -201,6 +201,6 @@ Há cinco aspetos para uma infraestrutura de identidade segura. Esta lista irá 
 - Agilize a gestão de licenças e atribuição de apps.
 - Automatizar o fornecimento de utilizadores a apps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Inicie-se com os controlos e ações de [gestão da autenticação.](active-directory-ops-guide-auth.md)

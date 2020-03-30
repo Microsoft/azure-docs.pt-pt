@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: victorh
 ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264781"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regras do Azure Firewall
@@ -47,7 +47,7 @@ A ligação ao google.com é permitida devido a uma regra de rede correspondente
 - Ação: Permitir
 
 
-|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir web     |TCP|Endereço IP|*|Endereço IP|*|80,443
 
@@ -55,7 +55,7 @@ A ligação ao google.com é permitida devido a uma regra de rede correspondente
 
 - Ação: Negar
 
-|nome  |Tipo de fonte  |Origem  |Protocolo:Porto|FQDNs alvo|
+|nome  |Tipo de origem  |Origem  |Protocolo:Porto|FQDNs alvo|
 |---------|---------|---------|---------|----------|----------|
 |Deny-google     |Endereço IP|*|http:80,https:443|google.com
 
@@ -73,7 +73,7 @@ O tráfego ssh é negado porque uma prioridade mais alta A recolha de regras da 
 - Prioridade: 200
 - Ação: Permitir
 
-|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -83,7 +83,7 @@ O tráfego ssh é negado porque uma prioridade mais alta A recolha de regras da 
 - Prioridade: 100
 - Ação: Negar
 
-|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Deny-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -95,6 +95,6 @@ As ligações SSH são negadas porque uma maior prioridade de recolha de regras 
 
 Se alterar uma regra para negar o tráfego anteriormente permitido, quaisquer sessões relevantes são retiradas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md).

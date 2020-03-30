@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257683"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questões gerais sobre recuperação do site azure
@@ -28,7 +28,7 @@ A Recuperação do Site contribui para a sua estratégia de continuidade de neg�
 
 Não, este é um cenário não apoiado.
 
-## <a name="service-providers"></a>Prestadores de serviços
+## <a name="service-providers"></a>Fornecedores de serviços
 
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Sou um prestador de serviços. A Recuperação do Site funciona para modelos de infraestruturas dedicados e partilhados?
 Sim, a Recuperação de Sites suporta os modelos de infraestrutura partilhados e dedicados.

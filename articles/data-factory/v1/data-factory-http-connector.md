@@ -12,10 +12,10 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260426"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mova dados de uma fonte HTTP utilizando a Azure Data Factory
@@ -46,18 +46,18 @@ Pode criar um pipeline que tenha uma atividade de cópia para mover dados de uma
 
 - Também pode utilizar as seguintes ferramentas para criar um pipeline: o **Estúdio Visual,** **O Azure PowerShell,** um **modelo de Gestor de Recursos Azure,** o **.NET API,** ou o **REST API**. Para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia, consulte o [tutorial copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma fonte http para o armazenamento de Blob Azure, consulte [os exemplos jSON](#json-examples).
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 A tabela seguinte descreve elementos JSON específicos do serviço ligado http:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo | A propriedade **tipo** deve ser definida para **Http**. | Sim |
-| URL | O URL base para o servidor web. | Sim |
+| url | O URL base para o servidor web. | Sim |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows**e **ClientCertificate.** <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
-| enableServerCertificateValidation | Especifica se permite a validação do certificado SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, detetete isto como **falso**. | Não<br /> (o padrão é **verdadeiro)** |
-| gatewayName | O nome da instância Gateway de Gestão de Dados para utilizar para ligar a uma fonte http no local. | Sim, se estiver a copiar dados de uma fonte http no local |
-| encryptedCredential | A credencial encriptada para aceder ao ponto final http. O valor é autogerado quando configura as informações de autenticação no assistente copiar ou utilizando a caixa de diálogo **ClickOnce.** | Não<br /> (aplicar apenas quando copiar dados de um servidor HTTP no local) |
+| permitirServerCertificateValidação | Especifica se permite a validação do certificado SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, detetete isto como **falso**. | Não<br /> (o padrão é **verdadeiro)** |
+| nome gateway | O nome da instância Gateway de Gestão de Dados para utilizar para ligar a uma fonte http no local. | Sim, se estiver a copiar dados de uma fonte http no local |
+| credenta encriptado | A credencial encriptada para aceder ao ponto final http. O valor é autogerado quando configura as informações de autenticação no assistente copiar ou utilizando a caixa de diálogo **ClickOnce.** | Não<br /> (aplicar apenas quando copiar dados de um servidor HTTP no local) |
 
 Para mais detalhes sobre a definição de credenciais para uma fonte de dados do conector HTTP no local, consulte [mover dados entre fontes no local e a nuvem utilizando](data-factory-move-data-between-onprem-and-cloud.md)o Portal de Gestão de Dados .
 
@@ -65,7 +65,7 @@ Para mais detalhes sobre a definição de credenciais para uma fonte de dados do
 
 Definir **autenticaçãoTipo** para **básico,** **digesto,** ou **Windows**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, deteteas as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | userName | O nome do utilizador a utilizar para aceder ao ponto final http. | Sim |
 | palavra-passe | A palavra-passe para o utilizador (nome de**utilizador).** | Sim |
@@ -93,7 +93,7 @@ Definir **autenticaçãoTipo** para **básico,** **digesto,** ou **Windows**. Pa
 
 Para utilizar a autenticação básica, detete **teaautenticaçãoType** para **O ClienteCertificate**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, deteteas as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo codificado base64 de dados binários do ficheiro PFX. | Especificar **incorporadaCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado na loja cert da sua máquina de gateway. Aplicar apenas quando copiar dados de uma fonte http no local. | Especificar **incorporadaCertData** ou **certThumbprint** |
@@ -102,8 +102,8 @@ Para utilizar a autenticação básica, detete **teaautenticaçãoType** para **
 Se utilizar **certThumbprint** para autenticação e o certificado estiver instalado na loja pessoal do computador local, conceda permissões de leitura para o serviço gateway:
 
 1. Abra a Consola de Gestão da Microsoft (MMC). Adicione o snap-in dos **Certificados** que visa o **Computador Local**.
-2. Expandir **Certificados** > **Pessoais**e, em seguida, selecionar **Certificados**.
-3. Clique no certificado da loja pessoal e, em seguida, selecione **Todas as Tarefas** >**Gerir Chaves Privadas**.
+2. Expandir **Certificados** > **Pessoais,** e, em seguida, selecionar **Certificados**.
+3. Clique no certificado da loja pessoal e, em seguida, selecione **Todas as Tarefas** >Gerir**Chaves Privadas**.
 3. No separador **Segurança,** adicione a conta de utilizador sob a qual está a funcionar o Serviço de Hospedaria gateway de gestão de dados, com acesso lido ao certificado.  
 
 **Exemplo: Utilização de um certificado de cliente**
@@ -149,7 +149,7 @@ Este serviço ligado liga a sua fábrica de dados a um servidor web HTTP no loca
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Algumas secções de um conjunto de dados Ficheiro JSON, tais como estrutura, disponibilidade e política, são semelhantes para todos os tipos de conjuntos de dados (Base de Dados Azure SQL, armazenamento Azure Blob, armazenamento de mesa Azure).
 
@@ -157,15 +157,15 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção **TypeProperties** fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para um conjunto de dados do tipo **Http** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** do conjunto de dados deve ser definido para **Http**. | Sim |
-| relativeUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. <br><br> Para construir um URL dinâmico, pode utilizar funções de Fábrica de [Dados e variáveis do sistema](data-factory-functions-variables.md). Exemplo: **relativaUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Não |
+| parenteUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. <br><br> Para construir um URL dinâmico, pode utilizar funções de Fábrica de [Dados e variáveis do sistema](data-factory-functions-variables.md). Exemplo: **relativaUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
 | solicitarMétodo | O método HTTP. Os valores permitidos são **GET** e **POST**. | Não <br />(predefinido é **GET)** |
-| additionalHeaders | Cabeçalhos adicionais de pedido HTTP. | Não |
+| cabeçalhos adicionais | Cabeçalhos adicionais de pedido HTTP. | Não |
 | requestBody | O corpo para o pedido http. | Não |
-| format | Se pretender *recuperar os dados de um ponto final http como está* sem os analisar, ignore a definição do **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de **formato: TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Para mais informações, consulte [o formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Tipos suportados: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Se pretender *recuperar os dados de um ponto final http como está* sem os analisar, ignore a definição do **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de **formato: TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Para mais informações, consulte [o formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Tipos suportados: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 **Exemplo: Utilizando o método GET (padrão)**
 
@@ -210,7 +210,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade copy
+## <a name="copy-activity-properties"></a>Propriedades de Copy Activity
 
 Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
@@ -220,11 +220,11 @@ As propriedades disponíveis na secção **tipoPropriedades** da atividade varia
 
 Atualmente, quando a fonte na Atividade de Cópia é do tipo **HttpSource,** são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | O prazo (o valor **TimeSpan)** para o pedido http para obter uma resposta. É o tempo livre para obter uma resposta, não o tempo para ler dados de resposta. | Não<br />(valor predefinido: **00:01:40**) |
 
-## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiros e compressão suportados
+## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 
 Consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md) para mais informações.
 

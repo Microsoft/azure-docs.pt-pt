@@ -4,13 +4,13 @@ description: Impedir que os utilizadores atualizem ou abatam recursos críticos 
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274011"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueie recursos para evitar alterações inesperadas
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
 Como administrador, pode precisar de bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos importantes. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **apagar** e **ler apenas** respectivamente.
 
@@ -21,13 +21,13 @@ Como administrador, pode precisar de bloquear uma subscrição, um grupo de recu
 
 Quando se aplica um cadeado no âmbito dos pais, todos os recursos nesse âmbito herdam o mesmo cadeado. Até os recursos que adicionas mais tarde herdam o cadeado do progenitor. O bloqueio mais restritivo da herança tem precedência.
 
-Ao contrário do controlo de acesso baseado em funções, utiliza bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para aprender a definir permissões para utilizadores e funções, consulte [o Controlo de Acesso baseado em Papel Azure](../../role-based-access-control/role-assignments-portal.md).
+Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestão de bloqueios para aplicar uma restrição a todos os utilizadores e a todas as funções. Para aprender a definir permissões para utilizadores e funções, consulte [o Controlo de Acesso baseado em Papel Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Os bloqueios do Gestor de Recursos aplicam-se apenas às operações que ocorrem no plano de gestão, que consiste em operações enviadas para `https://management.azure.com`. As fechaduras não restringem o desempenho dos recursos. As alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio De Leitura Apenas numa Base de Dados SQL impede-o de apagar ou modificar a base de dados. Não o impede de criar, atualizar ou eliminar dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
+Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no painel de gestão, o que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a forma como os recursos desempenham as suas próprias funções. As alterações dos recursos são restritas, mas as operações dos recursos não o são. Por exemplo, um bloqueio De Leitura Apenas numa Base de Dados SQL impede-o de apagar ou modificar a base de dados. Não impede a criação, atualização ou eliminação dos dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
 Aplicar **a ReadOnly** pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso realmente requerem ações bloqueadas pelo bloqueio. O bloqueio **ReadOnly** pode ser aplicado ao recurso ou ao grupo de recursos que contém o recurso. Alguns exemplos comuns das operações que são bloqueadas por um bloqueio **ReadOnly** são:
 
-* Um bloqueio **de leitura Apenas** numa conta de armazenamento impede todos os utilizadores de listar as chaves. A operação de chaves da lista é manuseada através de um pedido post porque as chaves devolvidas estão disponíveis para operações de escrita.
+* Um bloqueio **de leitura Apenas** numa conta de armazenamento impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
 
 * Um bloqueio **De LeituraOnly** num recurso do Serviço de Aplicações impede o Visual Studio Server Explorer de apresentar ficheiros para o recurso, porque essa interação requer acesso por escrito.
 
@@ -35,7 +35,7 @@ Aplicar **a ReadOnly** pode levar a resultados inesperados porque algumas opera�
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou apagar fechaduras
 
-Para criar ou eliminar fechaduras de gestão, deve ter acesso a ações `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
+Para criar ou eliminar fechaduras de `Microsoft.Authorization/*` `Microsoft.Authorization/locks/*` gestão, deve ter acesso ou ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="managed-applications-and-locks"></a>Aplicações e fechaduras geridas
 
@@ -71,13 +71,13 @@ Ao utilizar um modelo de Gestor de Recursos para implementar um bloqueio, utiliz
 
 Ao aplicar um bloqueio a um **recurso,** utilize os seguintes formatos:
 
-* nome - `{resourceName}/Microsoft.Authorization/{lockName}`
-* tipo - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* nome -`{resourceName}/Microsoft.Authorization/{lockName}`
+* tipo -`{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Ao aplicar um bloqueio a um grupo de **recursos** ou **subscrição,** utilize os seguintes formatos:
 
-* nome - `{lockName}`
-* tipo - `Microsoft.Authorization/locks`
+* nome -`{lockName}`
+* tipo -`Microsoft.Authorization/locks`
 
 O exemplo seguinte mostra um modelo que cria um plano de serviço de aplicações, um web site e um bloqueio no site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/fechaduras**. O nome do cadeado é criado concatenando o nome do recurso com **/Microsoft.Authorization/** e o nome do cadeado.
 

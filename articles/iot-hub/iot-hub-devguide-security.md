@@ -1,5 +1,5 @@
 ---
-title: Compreender a segurança do Hub Azure IoT  Microsoft Docs
+title: Compreender a segurança do Hub Azure IoT [ Microsoft Docs
 description: Guia de desenvolvedores - como controlar o acesso ao IoT Hub para aplicações de dispositivos e aplicações de back-end. Inclui informações sobre fichas de segurança e suporte para certificados X.509.
 author: wesmc7777
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272061"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
@@ -42,7 +42,7 @@ Pode conceder [permissões](#iot-hub-permissions) das seguintes formas:
   | iothubowner | Toda a permissão |
   | serviço | **Permissões ServiceConnect** |
   | dispositivo | **Permissões de DeviceConnect** |
-  | registryRead | **RegistoDepermissões** |
+  | registoLer | **RegistoDepermissões** |
   | registryReadWrite | **RegistoLeia** e **RegistryWrite** permissões |
 
 * **Credenciais de segurança por dispositivo**. Cada IoT Hub contém um registo de [identidade](iot-hub-devguide-identity-registry.md) Para cada dispositivo neste registo de identidade, pode configurar credenciais de segurança que concedem permissões **deviceConnect** scopeed aos pontos finais do dispositivo correspondentes.
@@ -59,7 +59,7 @@ Por exemplo, numa solução típica de IoT:
 
 ## <a name="authentication"></a>Autenticação
 
-O Azure IoT Hub concede acesso a pontos finais, verificando um símbolo contra as políticas de acesso partilhado e credenciais de segurança do registo de identidade.
+o Hub IoT do Azure concede acesso a pontos finais ao verificar um token nas políticas de acesso partilhado e credenciais de segurança de registo de identidades.
 
 Credenciais de segurança, como chaves simétricas, nunca são enviadas por cima do fio.
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre como construir e usar fichas de segurança, 
 
 Cada protocolo suportado, como MQTT, AMQP e HTTPS, transporta fichas de diferentes formas.
 
-Ao utilizar o MQTT, o pacote CONNECT tem o dispositivoId como O Id cliente, `{iothubhostname}/{deviceId}` no campo Username e um token SAS no campo Password. `{iothubhostname}` deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
+Ao utilizar o MQTT, o pacote CONNECT tem `{iothubhostname}/{deviceId}` o dispositivoId como O Id cliente, no campo Username e um token SAS no campo Password. `{iothubhostname}`deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
 
 Ao utilizar [AMQP,](https://www.amqp.org/)o IoT Hub suporta [a SASL PLAIN](https://tools.ietf.org/html/rfc4616) e a [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
@@ -80,8 +80,8 @@ Se utilizar a segurança baseada em sinistros AMQP, a norma especifica como tran
 
 Para a SASL PLAIN, o nome de **utilizador** pode ser:
 
-* `{policyName}@sas.root.{iothubName}` se usar fichas de nível ioT.
-* `{deviceId}@sas.{iothubname}` se utilizar fichas com mira de dispositivo.
+* `{policyName}@sas.root.{iothubName}`se usar fichas de nível ioT.
+* `{deviceId}@sas.{iothubname}`se utilizar fichas com mira de dispositivo.
 
 Em ambos os casos, o campo de palavra-passe contém o símbolo, conforme descrito em fichas de [segurança do IoT Hub](iot-hub-devguide-security.md#security-tokens).
 
@@ -89,7 +89,7 @@ HTTPS implementa autenticação incluindo um token válido no cabeçalho do pedi
 
 #### <a name="example"></a>Exemplo
 
-Nome de utilizador (O DispositivoId é sensível a casos): `iothubname.azure-devices.net/DeviceId`
+Nome de utilizador (O DispositivoId é sensível a casos):`iothubname.azure-devices.net/DeviceId`
 
 Palavra-passe (Pode gerar um token SAS com a ferramenta exploradora do [dispositivo,](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) o comando de extensão CLI [az iot hub generate-sas-token,](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)ou as [Ferramentas Azure IoT para código](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)de estúdio visual ):
 
@@ -108,7 +108,7 @@ Ao utilizar o SASL PLAIN com amQP, um cliente que se liga a um hub IoT pode usar
 
 ## <a name="scope-iot-hub-level-credentials"></a>Credenciais de nível de hub de âmbito IoT
 
-Você pode consultar políticas de segurança de nível IoT criando tokens com um uri de recursos restritos. Por exemplo, o ponto final para enviar mensagens dispositivo-nuvem a partir de um dispositivo é **/dispositivos/{deviceId}/messages/events**. Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um símbolo cujo recurso URI é **/dispositivos/{deviceId}** . Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo de dispositivoId**.
+Você pode consultar políticas de segurança de nível IoT criando tokens com um uri de recursos restritos. Por exemplo, o ponto final para enviar mensagens dispositivo-nuvem a partir de um dispositivo é **/dispositivos/{deviceId}/messages/events**. Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um símbolo cujo recurso URI é **/dispositivos/{deviceId}**. Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo de dispositivoId**.
 
 Este mecanismo é semelhante à política de editores do [Event Hubs,](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)e permite-lhe implementar métodos de autenticação personalizados.
 
@@ -136,15 +136,15 @@ Aqui estão os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {signature} |Uma cadeia de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificada a partir do base64 e utilizada como chave para executar o cálculo HMAC-SHA256. |
+| {assinatura} |Uma cadeia de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificada a partir do base64 e utilizada como chave para executar o cálculo HMAC-SHA256. |
 | {resourceURI} |Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este símbolo, começando com o nome anfitrião do hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
 | {expiração} |UTF8 cordas para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
-| {URL-encoded-resourceURI} |Codificação de URL em maiúscula do recurso minúsculo URI |
+| {URL-codificado-recursosURI} |Codificação de URL em maiúscula do recurso minúsculo URI |
 | {policyName} |O nome da política de acesso partilhado a que se refere este símbolo. Ausente se o símbolo se referir às credenciais de registo do dispositivo. |
 
-**Nota no prefixo:** O prefixo URI é calculado por segmento e não por carácter. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
+**Nota no prefixo:** O prefixo URI é calculado por segmento e não por carácter. Por `/a/b` exemplo, é `/a/b/c` um prefixo para, mas não para `/a/bc`.
 
-O seguinte snippet Node.js mostra uma função chamada **generateSasToken** que calcula o símbolo das inputs `resourceUri, signingKey, policyName, expiresInMins`. As secções seguintes detalham como inicializar as diferentes inputs para os diferentes casos de utilização de símbolos.
+O seguinte snippet Node.js mostra uma função chamada **generateSasToken** que `resourceUri, signingKey, policyName, expiresInMins`calcula o símbolo das inputs . As secções seguintes detalham como inicializar as diferentes inputs para os diferentes casos de utilização de símbolos.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -200,7 +200,7 @@ Seguem-se as instruções de instalação dos pré-requisitos.
 [!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 
-A funcionalidade C# para gerar um símbolo de segurança é:
+A funcionalidade em C# para gerar um token de segurança é:
 
 ```csharp
 using System;
@@ -240,7 +240,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 Existem duas formas de obter permissões **DeviceConnect** com tokens de segurança: utilize uma [chave de dispositivo simétrico a partir do registo de identidade,](#use-a-symmetric-key-in-the-identity-registry)ou utilize uma chave de [acesso partilhada](#use-a-shared-access-policy).
 
-Lembre-se que todas as funcionalidades acessíveis a partir de dispositivos são expostas por design em pontos finais com prefixo `/devices/{deviceId}`.
+Lembre-se que todas as funcionalidades acessíveis a partir `/devices/{deviceId}`de dispositivos são expostas por design em pontos finais com prefixo .
 
 > [!IMPORTANT]
 > A única forma de o IoT Hub autenticar um dispositivo específico é usar a chave simétrica de identidade do dispositivo. Nos casos em que uma política de acesso partilhado é utilizada para aceder à funcionalidade do dispositivo, a solução deve considerar o componente que emite o token de segurança como um subcomponente de confiança.
@@ -254,12 +254,12 @@ Os pontos finais virados para o dispositivo são (independentemente do protocolo
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Use uma chave simétrica no registo de identidade
 
-Ao utilizar a chave simétrica da identidade do dispositivo para gerar um símbolo, o elemento policyName (`skn`) do símbolo é omitido.
+Ao utilizar a chave simétrica da identidade do dispositivo para`skn`gerar um símbolo, o elemento policyName () do símbolo é omitido.
 
 Por exemplo, um símbolo criado para aceder a todas as funcionalidades do dispositivo deve ter os seguintes parâmetros:
 
 * recurso URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* chave de assinatura: qualquer chave simétrica para a identidade `{device id}`,
+* chave de assinatura: qualquer chave `{device id}` simétrica para a identidade,
 * sem nome político,
 * qualquer tempo de validade.
 
@@ -281,7 +281,7 @@ O resultado, que dá acesso a todas as funcionalidades do dispositivo1, seria:
 
 ### <a name="use-a-shared-access-policy"></a>Use uma política de acesso partilhado
 
-Quando se cria um símbolo de uma política de acesso partilhado, define o campo `skn` para o nome da política. Esta política deve conceder a permissão **DeviceConnect.**
+Quando criar um símbolo de uma política `skn` de acesso partilhado, coloque o campo no nome da política. Esta política deve conceder a permissão **DeviceConnect.**
 
 Os dois principais cenários para a utilização de políticas de acesso partilhado para aceder à funcionalidade do dispositivo são:
 
@@ -293,8 +293,8 @@ Uma vez que a política de acesso partilhado pode potencialmente conceder acesso
 Como exemplo, um serviço simbólico utilizando a política de acesso partilhado pré-criada chamada **dispositivo** criaria um símbolo com os seguintes parâmetros:
 
 * recurso URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* chave de assinatura: uma das chaves da política `device`,
-* nome da política: `device`,
+* chave de assinatura: uma `device` das chaves da apólice,
+* nome da `device`política: ,
 * qualquer tempo de validade.
 
 Um exemplo que utilize a função nó.js anterior seria:
@@ -311,7 +311,7 @@ O resultado, que dá acesso a todas as funcionalidades do dispositivo1, seria:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
-Um gateway protocolário poderia usar o mesmo símbolo para todos os dispositivos simplesmente configurando o recurso URI para `myhub.azure-devices.net/devices`.
+Um gateway protocolário poderia usar o mesmo símbolo para `myhub.azure-devices.net/devices`todos os dispositivos simplesmente definindo o recurso URI para .
 
 ### <a name="use-security-tokens-from-service-components"></a>Utilize fichas de segurança dos componentes de serviço
 
@@ -329,8 +329,8 @@ Aqui estão as funções de serviço expostas nos pontos finais:
 Como exemplo, um serviço gerador utilizando a política de acesso partilhado pré-criada chamada **registryRead** criaria um símbolo com os seguintes parâmetros:
 
 * recurso URI: `{IoT hub name}.azure-devices.net/devices`,
-* chave de assinatura: uma das chaves da política `registryRead`,
-* nome da política: `registryRead`,
+* chave de assinatura: uma `registryRead` das chaves da apólice,
+* nome da `registryRead`política: ,
 * qualquer tempo de validade.
 
 ```javascript
@@ -363,15 +363,15 @@ Para obter mais informações sobre a autenticação utilizando a autoridade do 
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registe um certificado X.509 para um dispositivo
 
-O [Serviço Azure IoT C# SDK para](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) suportes (versão 1.0.8+) suporta o registo de um dispositivo que utiliza um certificado X.509 para autenticação. Outras APIs, tais como a importação/exportação de dispositivos, também suportam certificados X.509.
+O [Serviço Azure IoT SDK para C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (versão 1.0.8+) suporta o registo de um dispositivo que utiliza um certificado X.509 para autenticação. Outras APIs, tais como a importação/exportação de dispositivos, também suportam certificados X.509.
 
 Também pode utilizar o comando de extensão CLI [az iot hub de identidade](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) do dispositivo para configurar certificados X.509 para dispositivos.
 
-### <a name="c-support"></a>C apoio\#
+### <a name="c-support"></a>Apoio\# C
 
 A classe **RegistryManager** fornece uma forma programática de registar um dispositivo. Em particular, os métodos **AddDeviceAsync** e **UpdateDeviceAsync** permitem-lhe registar e atualizar um dispositivo no registo de identidade IoT Hub. Estes dois métodos tomam uma instância **de dispositivo** como entrada. A classe **Dispositivo** inclui uma propriedade **de Autenticação** que lhe permite especificar impressões de polegares de certificado primário e secundário X.509. A impressão digital representa um hash SHA256 do certificado X.509 (armazenado com codificação binária de DER). Tem a opção de especificar uma impressão digital primária ou uma impressão de polegar secundária ou ambas. As impressões digitais primárias e secundárias são suportadas para lidar com cenários de capotamento de certificados.
 
-Aqui está uma amostra C\# código snippet para registar um dispositivo usando uma impressão digital do certificado X.509:
+Aqui está uma\# amostra c código snippet para registar um dispositivo usando uma impressão digital do certificado X.509:
 
 ```csharp
 var device = new Device(deviceId)
@@ -392,7 +392,7 @@ await registryManager.AddDeviceAsync(device);
 
 O [dispositivo Azure IoT SDK para .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (versão 1.0.11+) suporta a utilização de certificados X.509.
 
-### <a name="c-support"></a>C apoio\#
+### <a name="c-support"></a>Apoio\# C
 
 A classe **DeviceAuthenticationWithX509Certificate** suporta a criação de instâncias **DeviceClient** utilizando um certificado X.509. O certificado X.509 deve estar no formato PFX (também chamado PKCS #12) que inclui a chave privada.
 
@@ -418,7 +418,7 @@ Aqui estão os principais passos do padrão de serviço simbólico:
 
 2. Quando um dispositivo/módulo precisa de aceder ao seu hub IoT, solicita um sinal assinado do seu serviço de fichas. O dispositivo pode autenticar com o seu sistema de registo/autenticação de identidade personalizado para determinar a identidade do dispositivo/módulo que o serviço token utiliza para criar o símbolo.
 
-3. O serviço simbólico devolve um símbolo. O símbolo é criado utilizando `/devices/{deviceId}` ou `/devices/{deviceId}/module/{moduleId}` como `resourceURI`, com `deviceId` como o dispositivo sendo autenticado ou `moduleId` como o módulo sendo autenticado. O serviço simbólico usa a política de acesso partilhado para construir o símbolo.
+3. O serviço simbólico devolve um símbolo. O símbolo é criado `/devices/{deviceId}` `/devices/{deviceId}/module/{moduleId}` utilizando `resourceURI`ou `deviceId` as, com a `moduleId` autenticação do dispositivo ou como o módulo a ser autenticado. O serviço simbólico usa a política de acesso partilhado para construir o símbolo.
 
 4. O dispositivo/módulo utiliza o símbolo diretamente com o hub IoT.
 
@@ -474,6 +474,6 @@ Agora que aprendeu a controlar o acesso ioT Hub, pode estar interessado nos segu
 
 Se quiser experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais IoT Hub:
 
-* [Introdução ao Hub IoT do Azure](quickstart-send-telemetry-node.md)
+* [Começar com o Azure IoT Hub](quickstart-send-telemetry-node.md)
 * [Como enviar mensagens cloud-to-device com IoT Hub](iot-hub-csharp-csharp-c2d.md)
 * [Como processar mensagens ioT Hub-to-cloud](tutorial-routing.md)

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297089"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (Pré-visualização)
@@ -55,8 +55,8 @@ Existem dois tipos de ingestão de streaming suportados:
 
 |   |Hub de Eventos  |Ingestão Personalizada  |
 |---------|---------|---------|
-|Atraso de dados entre o início da ingestão e os dados disponíveis para consulta   |    atraso mais longo     |   atraso mais curto      |
-|Despesas gerais de desenvolvimento    |   configuração rápida e fácil, sem despesas de desenvolvimento    |   altas despesas de desenvolvimento para aplicação para lidar com erros e garantir a consistência dos dados     |
+|Atraso de dados entre o início da ingestão e os dados disponíveis para consulta   |    Atraso mais longo     |   Atraso mais curto      |
+|Despesas gerais de desenvolvimento    |   Configuração rápida e fácil, sem despesas gerais de desenvolvimento    |   Despesas gerais de desenvolvimento elevadopara aplicação para lidar com erros e garantir a consistência dos dados     |
 
 ## <a name="disable-streaming-ingestion-on-your-cluster"></a>Desative a ingestão de streaming no seu cluster
 
@@ -79,6 +79,6 @@ Existem dois tipos de ingestão de streaming suportados:
 * Permitir o streaming de ingestão num cluster, mesmo quando os dados não são ingeridos através do streaming, utiliza parte do disco SSD local das máquinas de cluster para streaming de dados de ingestão e reduz o armazenamento disponível para cache quente.
 * [As etiquetas](/azure/kusto/management/extents-overview#extent-tagging) de extensão não podem ser definidas nos dados de ingestão de streaming.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Dados de consulta no Explorador de Dados do Azure](web-query-data.md)

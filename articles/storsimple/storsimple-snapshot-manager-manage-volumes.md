@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254654"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use o StorSimple Snapshot Manager para visualizar e gerir volumes
@@ -149,7 +149,7 @@ Antes de começar:
 8. Clique no nome do grupo de volume.
    
    * Para iniciar um trabalho de backup interativo (a pedido), clique em **Take Backup**. 
-   * Para agendar uma cópia de segurança automática, clique em **Criar Política de Backup**. Na página **Geral,** selecione um grupo de volume da lista. Na página **Agenda,** insira os detalhes da programação. Quando terminar, clique **em OK**. 
+   * Para agendar uma cópia de segurança automática, clique em **Criar Política de Backup**. Na página **Geral,** selecione um grupo de volume da lista. Na página **Agenda,** insira os detalhes da programação. Quando concluir o procedimento, clique em **OK**. 
 9. Para confirmar que o trabalho de backup começou, expanda o nó **Jobs** no painel **Scope** e, em seguida, clique no nó **de Corrida.** A lista de postos de trabalho atualmente em funcionamento aparece no painel **de resultados.** 
 
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configure e volte a fazer um volume espelhado dinâmico
@@ -183,7 +183,7 @@ A Disk Management é uma utilidade do sistema para gerir discos rígidos e os vo
 6. Na página De atribuição de **carta ou caminho,** aceite as predefinições e, em seguida, clique em **Seguinte**. 
 7. Na página volume de **formato,** na caixa tamanho da **unidade de atribuição,** selecione **64K**. Selecione a caixa de verificação de **formato rápido** e, em seguida, clique em **Next**. 
 8. Na página De completar a nova página **de Volume Espelhado,** reveja as suas definições e, em seguida, clique em **Terminar**. 
-9. Uma mensagem parece indicar que o disco básico será convertido num disco dinâmico. Clique em **Sim**.
+9. Uma mensagem parece indicar que o disco básico será convertido num disco dinâmico. Clique **sim**.
    
     ![Mensagem dinâmica de conversão de disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 10. Na Gestão do Disco, verifique se o Disco 1 e o Disco 2 são mostrados como volumes espelhados dinâmicos. (A**dinâmica** deve aparecer na coluna de estado, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado.) 
@@ -202,7 +202,7 @@ Utilize o seguinte procedimento para configurar um volume espelhado dinâmico e,
 6. Clique no nome do grupo de volume. 
    
    * Para iniciar um trabalho de backup interativo (a pedido), clique em **Take Backup**. 
-   * Para agendar uma cópia de segurança automática, clique em **Criar Política de Backup**. Na página **Geral,** selecione o grupo de volume da lista. Na página **Agenda,** insira os detalhes da programação. Quando terminar, clique **em OK**. 
+   * Para agendar uma cópia de segurança automática, clique em **Criar Política de Backup**. Na página **Geral,** selecione o grupo de volume da lista. Na página **Agenda,** insira os detalhes da programação. Quando concluir o procedimento, clique em **OK**. 
 7. Podes monitorizar o trabalho de reserva à medida que corre. No painel **Scope,** expanda o nó **Jobs** e, em seguida, clique em **Running**, Os detalhes do trabalho aparecem no painel **de resultados.** Quando o trabalho de reserva estiver terminado, os detalhes são transferidos para a lista de trabalho das **últimas 24** horas. 
 
 ## <a name="next-steps"></a>Passos seguintes

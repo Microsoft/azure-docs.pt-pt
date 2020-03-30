@@ -1,5 +1,5 @@
 ---
-title: Compreenda os pontos finais do Hub Azure IoT  Microsoft Docs
+title: Compreenda os pontos finais do Hub Azure IoT [ Microsoft Docs
 description: Guia de desenvolvimento - informações de referência sobre pontos finais virados para dispositivos IoT Hub e virados para o serviço.
 author: robinsh
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284645"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais do Hub IoT
@@ -21,7 +21,7 @@ ms.locfileid: "79284645"
 
 ## <a name="iot-hub-names"></a>Nomes do Hub IoT
 
-Você pode encontrar o nome de anfitrião do hub IoT que acolhe seus pontos finais no portal na página de **visão geral** do seu hub. Por padrão, o nome DNS de um hub IoT parece: `{your iot hub name}.azure-devices.net`.
+Você pode encontrar o nome de anfitrião do hub IoT que acolhe seus pontos finais no portal na página de **visão geral** do seu hub. Por padrão, o nome DNS de um `{your iot hub name}.azure-devices.net`hub IoT parece: .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos finais do IoT Hub incorporado
 
@@ -39,7 +39,7 @@ A lista seguinte descreve os pontos finais:
 
 * **Gestão de empregos.** Cada hub IoT expõe um conjunto de ponto final HTTPS REST virado para o serviço para consulta e gestão de [empregos](iot-hub-devguide-jobs.md).
 
-* **Pontos finais**do dispositivo . Para cada dispositivo no registo de identidade, o IoT Hub expõe um conjunto de pontos finais:
+* **Pontos finais**do dispositivo . para cada dispositivo no registo de identidades, o Hub IoT expõe um conjunto de pontos finais –
 
   * *Envie mensagens de dispositivo-nuvem*. Um dispositivo utiliza este ponto final para [enviar mensagens dispositivo-cloud](iot-hub-devguide-messages-d2c.md).
 
@@ -76,7 +76,7 @@ Pode ligar os serviços Azure existentes na sua subscrição ao seu hub IoT para
 O IoT Hub suporta atualmente os seguintes serviços Azure como pontos finais adicionais:
 
 * Recipientes de armazenamento Azure
-* Hubs de Eventos
+* Event Hubs
 * Filas de Service Bus
 * Tópicos de Service Bus
 
@@ -86,7 +86,7 @@ Você pode usar o REST API [Get Endpoint Health](https://docs.microsoft.com/rest
 
 |Estado de Funcionamento|Descrição|
 |---|---|
-|healthy|O ponto final é aceitar mensagens como esperado.|
+|saudável|O ponto final é aceitar mensagens como esperado.|
 |insalubre|O ponto final não é aceitar mensagens como esperado e o IoT Hub está a tentar enviar dados para este ponto final. O estado de um ponto final pouco saudável será atualizado para saudável quando o IoT Hub estabelecer um estado de saúde eventualmente consistente.|
 |desconhecido|O IoT Hub não estabeleceu uma ligação com o ponto final. Não foram entregues ou rejeitados mensagens deste ponto final.|
 |mortos|O ponto final não é aceitar mensagens, depois de o IoT Hub ter retentado enviar mensagens para o período de novo julgamento.|

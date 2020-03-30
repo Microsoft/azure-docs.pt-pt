@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282578"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança nos clusters Linux
@@ -25,7 +25,7 @@ Se instalar o seu certificado a partir do Cofre de Chaves Azure utilizando um mo
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados referenciados no manifesto de candidatura
 
-Os certificados especificados no manifesto de candidatura, por exemplo, através dos elementos [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) ou [**EndpointCertificate,** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) devem estar presentes no diretório */var/lib/sfcerts.* Os elementos utilizados para especificar certificados no manifesto de candidatura não têm um atributo de caminho, pelo que os certificados devem estar presentes no diretório predefinido. Estes elementos têm um atributo opcional **X509StoreName.** O padrão é "My", que aponta para o diretório */var/lib/sfcerts* nos nós linux. Qualquer outro valor é indefinido num cluster Linux. Recomendamos que omita o atributo **X509StoreName** para aplicações que funcionam em clusters Linux. 
+Os certificados especificados no manifesto de candidatura, por exemplo, através dos elementos [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) ou [**EndpointCertificate,**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) devem estar presentes no diretório */var/lib/sfcerts.* Os elementos utilizados para especificar certificados no manifesto de candidatura não têm um atributo de caminho, pelo que os certificados devem estar presentes no diretório predefinido. Estes elementos têm um atributo opcional **X509StoreName.** O padrão é "My", que aponta para o diretório */var/lib/sfcerts* nos nós linux. Qualquer outro valor é indefinido num cluster Linux. Recomendamos que omita o atributo **X509StoreName** para aplicações que funcionam em clusters Linux. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certificados referenciados no pacote de configuração (Definições.xml)
 
@@ -33,7 +33,7 @@ Para alguns serviços, pode configurar certificados X.509 no [ConfigPackage](./s
 
 ### <a name="using-x509-securitycredentialstype"></a>Utilização de Credenciais de Segurança X509
 
-WIth os SDKs .NET ou Java, pode especificar **X509** para o Tipo de **Credenciais**de Segurança . Isto corresponde ao tipo `X509Credentials`[(.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) `SecurityCredentials`[(.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java).](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)
+WIth os SDKs .NET ou Java, pode especificar **X509** para o Tipo de **Credenciais**de Segurança . Isto corresponde ao `X509Credentials` tipo[(.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/ `SecurityCredentials` [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials))[(.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 A referência **X509** localiza o certificado numa loja de certificados. O XML seguinte mostra os parâmetros utilizados para especificar a localização do certificado:
 
@@ -43,7 +43,7 @@ A referência **X509** localiza o certificado numa loja de certificados. O XML s
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Para um serviço em execução no Linux, **LocalMachine**/**Os meus** pontos para a localização padrão dos certificados, o diretório */var/lib/sfcerts.* Para o Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** estão indefinidas. 
+Para um serviço em execução no Linux, **LocalMachine**/**Os meus** pontos apontam para a localização padrão dos certificados, o diretório */var/lib/sfcerts.* Para o Linux, quaisquer outras combinações de **CertificateStoreLocation** e **CertificateStoreName** estão indefinidas. 
 
 Especifique sempre **a LocalMachine** para o parâmetro **CertificateStoreLocation.** Não há necessidade de especificar o parâmetro **CertificateStoreName** porque não se aplica a "My". Com referência **X509,** os ficheiros de certificado devem estar localizados no diretório */var/lib/sfcerts* no nó do cluster.  
 
@@ -64,7 +64,7 @@ O XML seguinte mostra uma secção **TransportSettings** com base neste estilo:
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Utilização X509_2 Credenciais de segurançaType
 
-Com o Java SDK, pode especificar **X509_2** para o Tipo de **Credenciais**de Segurança . Isto corresponde ao tipo `X509Credentials2`[(Java)](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)tipo `SecurityCredentials`[(Java).](https://docs.microsoft.com/java/api/system.fabric.securitycredentials) 
+Com o Java SDK, pode especificar **X509_2** para o Tipo de **Credenciais**de Segurança . Isto corresponde ao `X509Credentials2` tipo[de](https://docs.microsoft.com/java/api/system.fabric.x509credentials2) `SecurityCredentials` Java ([Java).](https://docs.microsoft.com/java/api/system.fabric.securitycredentials) 
 
 Com uma **referência X509_2,** especifice um parâmetro de percurso, para que possa localizar o certificado num diretório diferente do */var/lib/sfcerts*.  O XML seguinte mostra os parâmetros utilizados para especificar a localização do certificado: 
 

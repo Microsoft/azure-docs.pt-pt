@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280056"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Troubleshoot uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
 Este tutorial mostra como usar as ferramentas do Estúdio Visual para ajudar a desinpurar uma aplicação no [App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)executando remotamente o [modo de depuração](https://docs.microsoft.com/visualstudio/debugger/) ou visualizando registos de aplicações e registos de servidores web.
 
-Irá aprender a:
+Irá aprender:
 
 * Quais as funções de gestão de aplicações disponíveis no Estúdio Visual.
 * Como utilizar a vista remota do Estúdio Visual para fazer mudanças rápidas numa aplicação remota.
@@ -28,16 +28,16 @@ Irá aprender a:
 
 Se tiver o Visual Studio Ultimate, também pode utilizar o [IntelliTrace](/visualstudio/debugger/intellitrace) para depurar. O IntelliTrace não está coberto neste tutorial.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a><a name="prerequisites"></a>Pré-requisitos
 Este tutorial trabalha com o ambiente de desenvolvimento, o projeto web e a app App Service que criou na [Create uma aplicação ASP.NET no Azure App Service.](app-service-web-get-started-dotnet-framework.md) Para as secções WebJobs, você precisará da aplicação que você cria em [Get Started com o Azure WebJobs SDK][GetStartedWJ].
 
-As amostras de código mostradas C# neste tutorial são para uma aplicação web MVC, mas os procedimentos de resolução de problemas são os mesmos para aplicações de Formas Visuais básicas e Web.
+As amostras de código mostradas neste tutorial são para uma aplicação web C# MVC, mas os procedimentos de resolução de problemas são os mesmos para aplicações De Base Visual e Formulários Web.
 
 O tutorial assume que está a usar o Visual Studio 2019. 
 
 A função de registos de streaming funciona apenas para aplicações que visam o .NET Framework 4 ou posterior.
 
-## <a name="sitemanagement"></a>Configuração e gestão de aplicativos
+## <a name="app-configuration-and-management"></a><a name="sitemanagement"></a>Configuração e gestão de aplicativos
 O Visual Studio fornece acesso a um subconjunto das funções de gestão de aplicações e definições de configuração disponíveis no [portal Azure](https://go.microsoft.com/fwlink/?LinkId=529715). Nesta secção, verá o que está disponível utilizando o **Server Explorer**. Para ver as mais recentes funcionalidades de integração do Azure, experimente também o **Cloud Explorer.** Pode abrir ambas as janelas do menu **'Ver'.**
 
 1. Se ainda não tiver assinado no Azure no Estúdio Visual, clique no **Azure** e selecione Connect to **Microsoft Azure Subscription** in **Server Explorer**.
@@ -65,8 +65,8 @@ O Visual Studio fornece acesso a um subconjunto das funções de gestão de apli
 
     Se quiser realizar uma tarefa de gestão de aplicações que não possa ser feita nesta janela, clique **em Open in Management Portal** para abrir uma janela de navegador para o portal Azure.
 
-## <a name="remoteview"></a>Aceder a ficheiros de aplicativos no Server Explorer
-Normalmente, você implementa um projeto web com a bandeira `customErrors` no ficheiro Web.config definido para `On` ou `RemoteOnly`, o que significa que você não recebe uma mensagem de erro útil quando algo corre mal. Para muitos erros, tudo o que obtém é uma página como uma das seguintes:
+## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>Aceder a ficheiros de aplicativos no Server Explorer
+Normalmente, você implementa `customErrors` um projeto web com a `On` bandeira `RemoteOnly`no ficheiro Web.config definido para ou , o que significa que você não recebe uma mensagem de erro útil quando algo corre mal. Para muitos erros, tudo o que obtém é uma página como uma das seguintes:
 
 **Erro do servidor na aplicação '/':**
 
@@ -90,7 +90,7 @@ Frequentemente, a forma mais fácil de encontrar a causa do erro é ativar mensa
     ![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
     O Visual Studio abre o ficheiro Web.config a partir da aplicação remota e mostra [Remote] ao lado do nome do ficheiro na barra de título.
-3. Adicione a seguinte linha ao elemento `system.web`:
+3. Adicione a seguinte `system.web` linha ao elemento:
 
     `<customErrors mode="Off"></customErrors>`
 
@@ -103,7 +103,7 @@ Frequentemente, a forma mais fácil de encontrar a causa do erro é ativar mensa
 
 Editar o ficheiro Web.config é apenas um exemplo de cenários em que a capacidade de ler e editar ficheiros na aplicação do Serviço de Aplicações facilita a resolução de problemas.
 
-## <a name="remotedebug"></a>Aplicativos de depuração remoto
+## <a name="remote-debugging-apps"></a><a name="remotedebug"></a>Aplicativos de depuração remoto
 Se a mensagem de erro detalhada não fornecer informações suficientes e não conseguir recriar o erro localmente, outra forma de resolver problemas é correr remotamente no modo de depuração. Pode definir pontos de rutura, manipular a memória diretamente, passar pelo código e até alterar o código.
 
 A depuração remota não funciona nas edições express do Visual Studio.
@@ -114,7 +114,7 @@ Esta secção mostra como depurar remotamente o projeto que cria na [Create a AS
 
 1. *Controladores abertos\HomeController.cs*.
 
-1. Elimine o método `About()` e insira o seguinte código no seu lugar.
+1. Elimine `About()` o método e insira o seguinte código no seu lugar.
 
     ```csharp
     public ActionResult About()
@@ -125,7 +125,7 @@ Esta secção mostra como depurar remotamente o projeto que cria na [Create a AS
     }
     ```
 
-1. [Coloque um ponto de rutura](https://docs.microsoft.com/visualstudio/debugger/) na linha `ViewBag.Message`.
+1. [Coloque um ponto](https://docs.microsoft.com/visualstudio/debugger/) `ViewBag.Message` de rutura na linha.
 
 1. No **Solution Explorer,** clique no projeto e clique em **Publicar**.
 
@@ -147,17 +147,17 @@ Esta secção mostra como depurar remotamente o projeto que cria na [Create a AS
     > Se tiver algum problema em iniciar o desordeiro, tente fazê-lo utilizando o **Cloud Explorer** em vez do **Server Explorer**.
     >
 
-1. Clique no menu.
+1. Clique **About** no menu.
 
     O Visual Studio para no ponto de rutura, e o código está a funcionar em Azure, não no computador local.
 
-1. Pairar sobre a variável `currentTime` para ver o valor do tempo.
+1. Pairar sobre `currentTime` a variável para ver o valor do tempo.
 
     ![Ver variável no modo de depuração em funcionamento em Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
     O tempo que vê é o tempo do servidor Azure, que pode estar num fuso horário diferente do seu computador local.
 
-1. Introduza um novo valor para a variável `currentTime`, como "Agora a correr em Azure".
+1. Introduza um novo `currentTime` valor para a variável, como "Agora a correr em Azure".
 
 1. Pressione F5 para continuar a correr.
 
@@ -165,7 +165,7 @@ Esta secção mostra como depurar remotamente o projeto que cria na [Create a AS
 
      ![Sobre página com novo valor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a>WebJobs de depuração remoto
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>WebJobs de depuração remoto
 Esta secção mostra como depurar remotamente o projeto e a aplicação que cria no [Get Started com o Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 As funcionalidades apresentadas nesta secção estão disponíveis apenas no Visual Studio 2013 com o Update 4 ou mais tarde.
@@ -176,7 +176,7 @@ A depuração remota só funciona com WebJobs contínuos. WebJobs programado e a
 
 2. No projeto ContosoAdsWebJob, abra *Functions.cs.*
 
-3. [Detete um ponto de rutura](https://docs.microsoft.com/visualstudio/debugger/) na primeira declaração no método `GnerateThumbnail`.
+3. [Detete um ponto de](https://docs.microsoft.com/visualstudio/debugger/) `GnerateThumbnail` rutura na primeira declaração do método.
 
     ![Definir ponto de rutura](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -188,7 +188,7 @@ A depuração remota só funciona com WebJobs contínuos. WebJobs programado e a
 
     O Visual Studio implementa os projetos web e WebJob, e o seu navegador abre-se para o URL Azure da sua aplicação.
 
-7. No **Server Explorer,** expanda **o Azure > App Service > o seu grupo de recursos > a sua app > WebJobs > Continuous,** e depois clique à direita **ContosoAdsWebJob**.
+7. No **Server Explorer,** expanda **o Azure > App Service > o seu grupo de recursos > a sua aplicação > WebJobs > Continuous**, e, em seguida, clique no clique direito **ContosoAdsWebJob**.
 
 8. Clique **em prender debugger**.
 
@@ -200,13 +200,13 @@ A depuração remota só funciona com WebJobs contínuos. WebJobs programado e a
 
     A criação de um anúncio faz com que seja criada uma mensagem de fila, que é captada pelo WebJob e processada. Quando o WebJobs SDK chama a função para processar a mensagem de fila, o código atinge o seu ponto de rutura.
 
-10. Quando o debugger quebra no seu ponto de rutura, você pode examinar e alterar valores variáveis enquanto o programa está executando a nuvem. Na ilustração seguinte, o debugger mostra o conteúdo do objeto blobInfo que foi passado para o método `GenerateThumbnail`.
+10. Quando o debugger quebra no seu ponto de rutura, você pode examinar e alterar valores variáveis enquanto o programa está executando a nuvem. Na seguinte ilustração, o debugger mostra o conteúdo do objeto `GenerateThumbnail` blobInfo que foi passado para o método.
 
      ![objeto blobInfo em debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/blobinfo.png)
 
 11. Pressione F5 para continuar a correr.
 
-     O método `GenerateThumbnail` termina criando a miniatura.
+     O `GenerateThumbnail` método termina criando a miniatura.
 
 12. No navegador, refresque a página Do Índice e veja a miniatura.
 
@@ -218,7 +218,7 @@ A depuração remota só funciona com WebJobs contínuos. WebJobs programado e a
 
      ![Clique em ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-     O Dashboard mostra que a função `GenerateThumbnail` executada recentemente.
+     O Dashboard mostra `GenerateThumbnail` que a função foi executada recentemente.
 
      (Da próxima vez que clicar no **View Dashboard,** não tem de iniciar sessão e o navegador vai diretamente para a página do seu WebJob.)
 
@@ -228,12 +228,12 @@ A depuração remota só funciona com WebJobs contínuos. WebJobs programado e a
 
 Se a sua função [escreveu registos,](https://github.com/Azure/azure-webjobs-sdk/wiki)pode clicar em **ToggleOutput** para os ver.
 
-## <a name="notes-about-remote-debugging"></a>Notas sobre depuração remota
+## <a name="notes-about-remote-debugging"></a>Notes about remote debugging (Notas sobre a depuração remota)
 
 * Não é aconselhável funcionar em modo de depuração em produção. Se a sua aplicação de produção não for dimensionada para várias instâncias do servidor, a depuração impede que o servidor web responda a outros pedidos. Se tiver várias instâncias de servidor web, quando se liga ao desbugger, obtém uma instância aleatória, e não tem como garantir que os pedidos de navegador subsequentes vão para a mesma instância. Além disso, normalmente não implementa uma construção de depuração para a produção, e otimizações de compiladores para construções de lançamento podem tornar impossível mostrar o que está a acontecer linha a linha no seu código fonte. Para problemas de resolução de problemas de produção, o seu melhor recurso é o rastreio de aplicações e registos de servidores web.
 * Evite longas paragens nos pontos de rutura quando depurar remotamente. O Azure trata um processo que é interrompido por mais de alguns minutos como um processo sem resposta, e desliga-o.
 * Enquanto está a depurar, o servidor está a enviar dados para o Visual Studio, o que pode afetar as cargas de largura de banda. Para obter informações sobre as tarifas de largura de banda, consulte [o Preço Do Azure](https://azure.microsoft.com/pricing/calculator/).
-* Certifique-se de que o atributo `debug` do elemento `compilation` no ficheiro *Web.config* está definido como verdadeiro. É definido para verdade por padrão quando publica uma configuração de construção de depuração.
+* Certifique-se `debug` de que `compilation` o atributo do elemento no ficheiro *Web.config* está definido como verdadeiro. É definido para verdade por padrão quando publica uma configuração de construção de depuração.
 
     ```xml
     <system.web>
@@ -245,7 +245,7 @@ Se a sua função [escreveu registos,](https://github.com/Azure/azure-webjobs-sd
 * Um temporizador começa no servidor quando ativa a função de depuração remota e, após 48 horas, a funcionalidade é desligada automaticamente. Este limite de 48 horas é feito por razões de segurança e desempenho. Pode facilmente voltar a ligar a funcionalidade quantas vezes quiser. Recomendamos deixá-lo desativado quando não estiver a depurar ativamente.
 * Pode ligar manualmente o debugger a qualquer processo, não apenas o processo da aplicação (w3wp.exe). Para obter mais informações sobre como usar o modo dedepura no Estúdio Visual, consulte [Debugging no Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
-## <a name="logsoverview"></a>Visão geral dos registos de diagnóstico
+## <a name="diagnostic-logs-overview"></a><a name="logsoverview"></a>Visão geral dos registos de diagnóstico
 Uma aplicação ASP.NET que funciona numa aplicação do App Service pode criar os seguintes tipos de registos:
 
 * **Registos de rastreio de aplicação**<br/>
@@ -261,7 +261,7 @@ O registo afeta o desempenho da aplicação, pelo que o Azure lhe dá a capacida
 
 Os registos são escritos para ficheiros numa pasta *LogFiles* no sistema de ficheiros da sua aplicação e são acessíveis via FTP. Os registos e registos de aplicações do servidor web também podem ser escritos numa conta de Armazenamento Azure. Pode reter um maior volume de registos numa conta de armazenamento do que é possível no sistema de ficheiros. Está limitado a um máximo de 100 megabytes de registos quando utiliza o sistema de ficheiros. (Os registos do sistema de ficheiros são apenas para retenção a curto prazo. O Azure elimina ficheiros de registo antigos para dar espaço aos novos após o limite.)  
 
-## <a name="apptracelogs"></a>Criar e ver registos de rastreios de aplicações
+## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Criar e ver registos de rastreios de aplicações
 Nesta secção, você faz as seguintes tarefas:
 
 * Adicione declarações de rastreio ao projeto web que criou em [Get started com Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md).
@@ -271,7 +271,7 @@ Nesta secção, você faz as seguintes tarefas:
 Para obter informações sobre como criar registos de aplicações no WebJobs, consulte como trabalhar com o armazenamento de [fila Azure utilizando o WebJobs SDK - Como escrever registos](https://github.com/Azure/azure-webjobs-sdk/wiki). As seguintes instruções para visualizar registos e controlar a forma como são armazenados em Azure aplicam-se também aos registos de aplicações criados pela WebJobs.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Adicione declarações de rastreio à aplicação
-1. Controladores *abertos\HomeController.cs*, e substitua os métodos `Index`, `About`e `Contact` com o seguinte código, a fim de adicionar declarações `Trace` e uma declaração `using` para `System.Diagnostics`:
+1. Controladores *abertos\HomeController.cs*, `Index` `About`e `Contact` substitua os métodos e `Trace` métodos `using` com `System.Diagnostics`o seguinte código, a fim de adicionar declarações e uma declaração para:
 
     ```csharp
     public ActionResult Index()
@@ -302,17 +302,17 @@ Para obter informações sobre como criar registos de aplicações no WebJobs, c
     }        
     ```
 
-1. Adicione uma declaração `using System.Diagnostics;` ao topo do ficheiro.
+1. Adicione `using System.Diagnostics;` uma declaração ao topo do ficheiro.
 
 ### <a name="view-the-tracing-output-locally"></a>Veja a saída de rastreio localmente
 1. Pressione F5 para executar a aplicação em modo dedepura.
 
-    O ouvinte de rastreio predefinido escreve todos os vestígios para a janela **de saída,** juntamente com outra saída de Debug. A ilustração seguinte mostra a saída a partir das declarações de vestígios que adicionou ao método `Index`.
+    O ouvinte de rastreio predefinido escreve todos os vestígios para a janela **de saída,** juntamente com outra saída de Debug. A ilustração seguinte mostra a saída a `Index` partir das declarações de vestígios que adicionou ao método.
 
     ![Rastreio na janela de Debug](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     Os seguintes passos mostram como visualizar a saída de vestígios numa página web, sem compilar em modo dedepura.
-1. Abra o ficheiro Web.config da aplicação (o que está localizado na pasta do projeto) e adicione um elemento `<system.diagnostics>` na extremidade do ficheiro pouco antes do elemento `</configuration>` de fecho:
+1. Abra o ficheiro Web.config da aplicação (o que `<system.diagnostics>` está localizado na pasta do `</configuration>` projeto) e adicione um elemento na extremidade do ficheiro pouco antes do elemento de fecho:
 
     ``` xml
     <system.diagnostics>
@@ -329,28 +329,28 @@ Para obter informações sobre como criar registos de aplicações no WebJobs, c
     </system.diagnostics>
     ```
 
-O `WebPageTraceListener` permite-lhe visualizar a saída de vestígios navegando para `/trace.axd`.
-1. Adicione um <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de traço</a> sob `<system.web>` no ficheiro Web.config, como o seguinte exemplo:
+O `WebPageTraceListener` permite-lhe visualizar a `/trace.axd`saída de vestígios navegando para .
+1. Adicione um elemento `<system.web>` de <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">traço</a> no ficheiro Web.config, como o seguinte exemplo:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
     ```
 
 1. Prima CTRL+F5 para executar a aplicação.
-1. Na barra de endereços da janela do navegador, adicione *trace.axd* ao URL e, em seguida, prima Enter (o URL é semelhante a `http://localhost:53370/trace.axd`).
+1. Na barra de endereços da janela do navegador, adicione *trace.axd* ao URL `http://localhost:53370/trace.axd`e, em seguida, prima Enter (o URL é semelhante a ).
 1. Na página 'Rastreio de **Aplicação',** clique em **Ver Detalhes** na primeira linha (não na linha BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-    A página **Dedados** de Pedidos aparece e na secção **Informação** de Rastreio vê a saída a partir das declarações de vestígios que adicionou ao método `Index`.
+    A página **Dedados** de Pedido aparece e na secção **Informação** de Rastreio `Index` vê a saída a partir das declarações de vestígios que adicionou ao método.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-    Por predefinição, `trace.axd` só está disponível localmente. Se quiser disponibilizá-lo a partir de uma aplicação remota, pode adicionar `localOnly="false"` ao elemento `trace` no ficheiro *Web.config,* como mostra o seguinte exemplo:
+    Por padrão, `trace.axd` só está disponível localmente. Se quiser disponibilizá-lo a partir de `localOnly="false"` uma `trace` aplicação remota, pode adicionar ao elemento no ficheiro *Web.config,* como mostra o seguinte exemplo:
 
         <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-    No entanto, permitir `trace.axd` numa aplicação de produção não é recomendado por razões de segurança. Nas seguintes secções, verá uma forma mais fácil de ler registos de rastreio numa aplicação do App Service.
+    No entanto, a habilitação `trace.axd` numa aplicação de produção não é recomendada por razões de segurança. Nas seguintes secções, verá uma forma mais fácil de ler registos de rastreio numa aplicação do App Service.
 
 ### <a name="view-the-tracing-output-in-azure"></a>Veja a saída de rastreio em Azure
 1. No **Solution Explorer,** clique no projeto web e clique em **Publicar**.
@@ -366,7 +366,7 @@ O `WebPageTraceListener` permite-lhe visualizar a saída de vestígios navegando
     ![Ver Registos de Streaming no menu de contexto](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 4. Na janela do navegador que mostra a página inicial da sua aplicação, clique em **Contato**.
 
-    Dentro de alguns segundos, a saída do traço de nível de erro que adicionou ao método `Contact` aparece na janela **de saída.**
+    Dentro de alguns segundos, a saída do `Contact` traço de nível de erro que adicionou ao método aparece na janela **de saída.**
 
     ![Traço de erro na janela de saída](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -405,7 +405,7 @@ Estes desempenham as seguintes funções:
 
 Se introduzir uma cadeia de pesquisa ou expressão regular, o Visual Studio filtra o registo de informações no cliente. Isto significa que pode introduzir os critérios após a visualização dos registos na janela **Saída** e pode alterar os critérios de filtragem sem ter de regenerar os registos.
 
-## <a name="webserverlogs"></a>Ver registos de servidores web
+## <a name="view-web-server-logs"></a><a name="webserverlogs"></a>Ver registos de servidores web
 Os registos do servidor web registam todas as atividades do HTTP para a aplicação. Para vê-los na janela **Output,** deve ative-os para a aplicação e diga ao Visual Studio que pretende monitorizá-los.
 
 1. No separador de configuração da **aplicação Web Azure** que abriu do **Server Explorer,** altere o Registo do Servidor Web para **On**e, em seguida, clique em **Guardar**.
@@ -427,7 +427,7 @@ Por predefinição, quando ativa os registos do servidor web utilizando o Visual
 
 Se utilizar o portal para permitir o registo do servidor web numa conta de armazenamento Azure e, em seguida, desativar o registo no Estúdio Visual, quando reativa o registo no Estúdio Visual, as definições da sua conta de armazenamento são restauradas.
 
-## <a name="detailederrorlogs"></a>Ver registos de mensagens de erro detalhados
+## <a name="view-detailed-error-message-logs"></a><a name="detailederrorlogs"></a>Ver registos de mensagens de erro detalhados
 Os registos de erros detalhados fornecem algumas informações adicionais sobre pedidos http que resultam em códigos de resposta a erros (400 ou mais). Para vê-los na janela **Output,** tem de os ativar para a aplicação e dizer ao Visual Studio que pretende monitorizá-los.
 
 1. No separador de configuração da **aplicação Web Azure** que abriu do **Server Explorer,** altere **as mensagens de erro detalhadas** para **on**e, em seguida, clique em **Guardar**.
@@ -440,7 +440,7 @@ Os registos de erros detalhados fornecem algumas informações adicionais sobre 
 
     ![Monitorize todos os registos](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
-4. Na barra de endereços da janela do navegador, adicione um carácter extra ao URL para causar um erro 404 (por exemplo, `http://localhost:53370/Home/Contactx`) e prima Enter.
+4. Na barra de endereços da janela do navegador, adicione um carácter extra ao `http://localhost:53370/Home/Contactx`URL para causar um erro 404 (por exemplo, e prima Enter.
 
     Após vários segundos, o registo de erros detalhado aparece na janela de **saída** do Estúdio Visual.
 
@@ -450,7 +450,7 @@ Os registos de erros detalhados fornecem algumas informações adicionais sobre 
 
     ![Registo de erro detalhado - janela do navegador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="downloadlogs"></a>Descarregue registos do sistema de ficheiros
+## <a name="download-file-system-logs"></a><a name="downloadlogs"></a>Descarregue registos do sistema de ficheiros
 Quaisquer registos que possa monitorizar na janela **Saída** também podem ser descarregados como um ficheiro *.zip.*
 
 1. Na janela **Saída,** clique em **Download Streaming Logs**.
@@ -549,7 +549,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
  -->
-## <a name="failedrequestlogs"></a>Ver registos de rastreio de pedidos falhados
+## <a name="view-failed-request-tracing-logs"></a><a name="failedrequestlogs"></a>Ver registos de rastreio de pedidos falhados
 Os registos de rastreio de pedidos falhados são úteis quando precisa de compreender os detalhes de como o IIS está a lidar com um pedido http, em cenários como reescrita de URL ou problemas de autenticação.
 
 As aplicações do Serviço de Aplicações utilizam a mesma funcionalidade de rastreio de rastreio de pedidos falhado que foi disponibilizada com o IIS 7.0 e posteriormente. No entanto, não tem acesso às definições do IIS que configuram quais os erros que são registados. Quando ativa o rastreio de pedidos falhado, todos os erros são capturados.
@@ -599,7 +599,7 @@ Pode visualizar registos de rastreio de pedidos falhados num navegador diretamen
 
     ![Falha no rastreio de pedidos no navegador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>Passos seguintes
+## <a name="next-steps"></a><a name="nextsteps"></a>Próximos Passos
 Já viu como o Visual Studio facilita a visualização de registos criados por uma aplicação de Serviço de Aplicações. As seguintes secções fornecem ligações a mais recursos sobre temas relacionados:
 
 * Resolução de problemas do Serviço de Aplicações
@@ -620,7 +620,7 @@ Para obter mais informações sobre aplicações de resolução de problemas no 
 Para ajudar com uma questão específica de resolução de problemas, inicie um fio num dos seguintes fóruns:
 
 * [O fórum Azure no local ASP.NET.](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)
-* [O fórum Azure sobre a Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [O fórum Azure no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com.](https://www.stackoverflow.com)
 
 ### <a name="debugging-in-visual-studio"></a>Depuração em Estúdio Visual
@@ -669,7 +669,7 @@ Não existem introduções completas e atualizadas para ASP.NET rastreio dispon�
 
 Para a exploração por erros, uma alternativa à escrita do seu próprio código de rastreio é utilizar uma estrutura de registo de código aberto, como [elmah](https://nuget.org/packages/elmah/). Para mais informações, consulte as [publicações de Scott Hanselman sobre a ELMAH.](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)
 
-Além disso, não precisa de utilizar ASP.NET ou `System.Diagnostics` rastreio para obter registos de streaming do Azure. O serviço de streaming de ficheiros de streaming da aplicação App Service transmite qualquer *.txt*, *.html*, ou *.log* file que encontre na pasta *LogFiles.* Por isso, poderá criar o seu próprio sistema de registo que escreve para o sistema de ficheiros da aplicação, e o seu ficheiro é automaticamente transmitido e descarregado. Tudo o que tem de fazer é escrever código de aplicação que cria ficheiros na pasta *d:\home\logfiles.*
+Além disso, não precisa de `System.Diagnostics` usar ASP.NET ou rastrear para obter registos de streaming do Azure. O serviço de streaming de ficheiros de streaming da aplicação App Service transmite qualquer *.txt*, *.html*, ou *.log* file que encontre na pasta *LogFiles.* Por isso, poderá criar o seu próprio sistema de registo que escreve para o sistema de ficheiros da aplicação, e o seu ficheiro é automaticamente transmitido e descarregado. Tudo o que tem de fazer é escrever código de aplicação que cria ficheiros na pasta *d:\home\logfiles.*
 
 ### <a name="analyzing-web-server-logs"></a>Analisar registos de servidores web
 Para obter mais informações sobre a análise de registos de servidores web, consulte os seguintes recursos:

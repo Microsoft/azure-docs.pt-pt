@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269487"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>VMs migratórios para VMs Azure habilitados com encriptação do lado do servidor e chaves geridas pelo cliente
@@ -51,8 +51,8 @@ A experiência do portal Server Migration simplifica a preparação da infraestr
 ### <a name="identifying-replication-infrastructure-components"></a>Identificação de componentes de infraestrutura de replicação
 
 1. No portal Azure, vá na página dos grupos de recursos e selecione o grupo de recursos em que foi criado o projeto Azure Migrate.
-2. Selecione **Implementações** do menu esquerdo e procure um nome de implementação começando com a cadeia *"Microsoft.MigrateV2.VMwareV2EnableMigrate"* . Você verá uma lista de modelos de Gestor de Recursos criados pela experiência do portal para configurar replicação para VMs neste projeto. Vamos descarregar um desses modelos e usá-lo como base para preparar o modelo para replicação com CMK.
-3. Para baixar o modelo, selecione qualquer implementação que corresponda ao padrão de cordas no passo anterior > selecione **Modelo** a partir do menu esquerdo > Clique **em baixar** a partir do menu superior. Guarde o ficheiro template.json localmente. Vai editar este ficheiro de modelo no último passo.
+2. Selecione **Implementações** do menu esquerdo e procure um nome de implementação começando com a cadeia *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. Você verá uma lista de modelos de Gestor de Recursos criados pela experiência do portal para configurar replicação para VMs neste projeto. Vamos descarregar um desses modelos e usá-lo como base para preparar o modelo para replicação com CMK.
+3. Para baixar o modelo, selecione qualquer implementação que corresponda ao padrão de cordas no passo anterior > selecione **Modelo** do menu esquerdo > Clique **no Download** a partir do menu superior. Guarde o ficheiro template.json localmente. Vai editar este ficheiro de modelo no último passo.
 
 ## <a name="create-a-disk-encryption-set"></a>Criar um conjunto de encriptação de disco
 

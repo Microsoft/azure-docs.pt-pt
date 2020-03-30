@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281200"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mova dados da Teradata utilizando a Azure Data Factory
@@ -58,7 +58,7 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades jSON que são usadas para definir entidades data Factory específicas de uma loja de dados Teradata:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Teradata.
 
 | Propriedade | Descrição | Necessário |
@@ -68,15 +68,15 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | authenticationType |Tipo de autenticação utilizada para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Basic ou Windows. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados teradata no local. |Sim |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados teradata no local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. Atualmente, não existem propriedades tipo suportadas para o conjunto de dados Teradata.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -284,45 +284,45 @@ Ao mover dados para a Teradata, os seguintes mapeamentos são utilizados do tipo
 
 | Tipo de base de dados teradata | Tipo de quadro .NET |
 | --- | --- |
-| char |String |
-| Clob |String |
-| Graphic |String |
-| VarChar |String |
-| Vargraphic |String |
+| Char |Cadeia |
+| Estação Clob |Cadeia |
+| Gráfico |Cadeia |
+| Rio Varchar |Cadeia |
+| Vargraphic |Cadeia |
 | Blobs |Byte[] |
 | Byte |Byte[] |
-| VarByte |Byte[] |
+| Rio VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| decimal |decimal |
-| Valor de duplo |Valor de duplo |
+| Decimal |Decimal |
+| Double |Double |
 | Número inteiro |Int32 |
-| Number |Valor de duplo |
+| Número |Double |
 | SmallInt |Int16 |
-| Data |DateTime |
+| Date |DateTime |
 | Hora |TimeSpan |
-| Time With Time Zone |String |
+| Tempo com fuso horário |Cadeia |
 | Carimbo de data/hora |DateTime |
-| Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Interval Month |String |
-| Período (data) |String |
-| Período (Hora) |String |
-| Period(Time With Time Zone) |String |
-| Período (Carimbo de tempo) |String |
-| Period(Timestamp With Time Zone) |String |
-| Xml |String |
+| Carimbo de tempo com fuso horário |DataTimeOffset |
+| Dia do Intervalo |TimeSpan |
+| Intervalo dia a hora |TimeSpan |
+| Intervalo dia a minuto |TimeSpan |
+| Dia de intervalo para segundo |TimeSpan |
+| Hora de Intervalo |TimeSpan |
+| Hora de intervalo ao minuto |TimeSpan |
+| Hora de intervalo para segunda |TimeSpan |
+| Minuto de intervalo |TimeSpan |
+| Intervalo minuto para segundo |TimeSpan |
+| Intervalo Segundo |TimeSpan |
+| Ano de Intervalo |Cadeia |
+| Intervalo de ano para mês |Cadeia |
+| Mês de Intervalo |Cadeia |
+| Período (data) |Cadeia |
+| Período (Hora) |Cadeia |
+| Período (hora com fuso horário) |Cadeia |
+| Período (Carimbo de tempo) |Cadeia |
+| Período (carimbo de tempo com fuso horário) |Cadeia |
+| Xml |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

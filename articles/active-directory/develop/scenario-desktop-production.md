@@ -17,10 +17,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c8a9cf0c05d8af14d52bb1efb536dc8bbe7db84d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262571"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicação de desktop que chama APIs web: Mover-se para a produção
@@ -36,14 +36,14 @@ Nos diferentes fluxos, aprendeste a lidar com os erros dos fluxos silenciosos, c
 > [!NOTE]
 > Obter o consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure Ative Directory (Azure AD) B2C. O Azure AD B2C suporta apenas o consentimento do administrador, não o consentimento do utilizador.
 
-Não é possível obter um símbolo para vários recursos ao mesmo tempo com a plataforma de identidade da Microsoft (v2.0) endpoint. O parâmetro `scopes` pode conter miras para apenas um recurso. Pode garantir que o utilizador consente com vários recursos utilizando o parâmetro `extraScopesToConsent`.
+Não é possível obter um símbolo para vários recursos ao mesmo tempo com a plataforma de identidade da Microsoft (v2.0) endpoint. O `scopes` parâmetro pode conter possibilidades para apenas um único recurso. Pode garantir que o utilizador consente com vários recursos utilizando o `extraScopesToConsent` parâmetro.
 
 Por exemplo, pode ter dois recursos que têm dois âmbitos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi` com os âmbitos `customer.read` e `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` com os âmbitos `vendor.read` e `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`com os `customer.read` âmbitos e`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`com os `vendor.read` âmbitos e`vendor.write`
 
-Neste exemplo, utilize o modificador `.WithAdditionalPromptToConsent` que tenha o parâmetro `extraScopesToConsent`.
+Neste exemplo, utilize `.WithAdditionalPromptToConsent` o modificador `extraScopesToConsent` que tem o parâmetro.
 
 Por exemplo:
 
@@ -100,7 +100,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Esta chamada dá-lhe um sinal de acesso para a primeira API web.
 
-Quando precisar de ligar para a segunda API web, ligue para a API `AcquireTokenSilent`.
+Quando precisar de ligar para a segunda `AcquireTokenSilent` API web, ligue para a API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
@@ -110,6 +110,6 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Para os utilizadores de conta pessoal da Microsoft, repedir o consentimento em cada chamada de cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade do cliente nativo é inerentemente insegura, o que é contrário à identidade de aplicação de cliente confidencial. As aplicações confidenciais do cliente trocam um segredo com a plataforma Microsoft Identity para provar a sua identidade. A plataforma de identidade da Microsoft optou por mitigar esta insegurança para os serviços de consumo, solicitando ao utilizador o consentimento sempre que a aplicação for autorizada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]

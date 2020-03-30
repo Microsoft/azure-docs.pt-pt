@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265730"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
@@ -47,13 +47,13 @@ O seguinte walkthrough fornece instruções passo a passo para criar uma ativida
 * Transferir e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Pré-requisitos do Lote Azure
-No walkthrough, executa as suas atividades personalizadas .NET usando o Lote Azure como recurso de computação. O **Azure Batch** é um serviço de plataforma que serve para executar aplicações de computação de alto desempenho (HPC) e paralelas em larga escala de forma eficaz na cloud. O Azure Batch programa um trabalho intensivo para funcionar numa coleção gerida **de máquinas virtuais,** e pode automaticamente dimensionar os recursos computacionais para atender às necessidades dos seus trabalhos. Consulte o artigo básico do [Azure Batch][batch-technical-overview] para uma visão detalhada do serviço De lote de Azure.
+No walkthrough, executa as suas atividades personalizadas .NET usando o Lote Azure como recurso de computação. **O Azure Batch** é um serviço de plataforma para executar aplicações de computação paralela e de alto desempenho (HPC) de forma eficiente na nuvem. O Azure Batch programa um trabalho intensivo para funcionar numa coleção gerida **de máquinas virtuais,** e pode automaticamente dimensionar os recursos computacionais para atender às necessidades dos seus trabalhos. Consulte o artigo básico do [Azure Batch][batch-technical-overview] para uma visão detalhada do serviço De lote de Azure.
 
 Para o tutorial, crie uma conta Azure Batch com um conjunto de VMs. Eis os passos:
 
 1. Crie uma **conta Azure Batch** utilizando o [portal Azure](https://portal.azure.com). Consulte criar e gerir um artigo de [conta Azure Batch][batch-create-account] para obter instruções.
 2. Anote o nome da conta Do Lote Azure, chave de conta, URI e nome da piscina. Precisa deles para criar um serviço ligado ao Lote Azure.
-    1. Na página inicial da conta Azure Batch, vê um **URL** no seguinte formato: `https://myaccount.westus.batch.azure.com`. Neste exemplo, **myaccount** é o nome da conta Azure Batch. Uri que utiliza na definição de serviço vinculado é o URL sem o nome da conta. Por exemplo: `https://<region>.batch.azure.com`.
+    1. Na página inicial da conta Azure **URL** Batch, vê-se `https://myaccount.westus.batch.azure.com`um URL no seguinte formato: . Neste exemplo, **myaccount** é o nome da conta Azure Batch. Uri que utiliza na definição de serviço vinculado é o URL sem o nome da conta. Por exemplo: `https://<region>.batch.azure.com`.
     2. Clique em **Teclas** no menu esquerdo e copie a **CHAVE DE ACESSO PRIMÁRIO**.
     3. Para utilizar uma piscina existente, clique em **Pools** no menu e anote a **identificação** da piscina. Se você não tem uma piscina existente, mude para o próximo passo.
 2. Crie uma **piscina azure batch**.
@@ -70,7 +70,7 @@ Para o tutorial, crie uma conta Azure Batch com um conjunto de VMs. Eis os passo
    5. Clique em **OK** para criar o conjunto.
    6. Anote a **identificação** da piscina.
 
-### <a name="high-level-steps"></a>Passos de alto nível
+### <a name="high-level-steps"></a>Passos gerais
 Aqui estão os dois passos de alto nível que executa como parte desta passagem:
 
 1. Crie uma atividade personalizada que contenha uma simples tecnologia de transformação/processamento de dados.
@@ -99,10 +99,10 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
 ### <a name="procedure"></a>Procedimento
 1. Crie um projeto **.NET Class Library.**
    <ol type="a">
-     <li>Launch Visual Studio.</li>
+     <li>Inicie o Visual Studio.</li>
      <li>Clique em <b>Ficheiro</b>, aponte para <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
-     <li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste walkthrough, você C#usa, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.</li>
-     <li>Selecione Biblioteca de <b>Classes</b> a partir da lista de tipos de projeto à direita. Em Estúdio Visual, escolha <b>Biblioteca de Classes (.QUADRO NET)</b> </li>
+     <li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste walkthrough, você usa C#, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.</li>
+     <li>Selecione Biblioteca de <b>Classes</b> a partir da lista de tipos de projeto à direita. Em Estúdio Visual, escolha <b>Biblioteca de Classe (.QUADRO NET)</b> </li>
      <li>Introduza <b>MyDotNetActivity</b> para o <b>nome</b>.</li>
      <li>Selecione <b>C:\ADFGetStarted</b> para a <b>localização</b>.</li>
      <li>Clique em <b>OK</b> para criar o projeto.</li>
@@ -372,7 +372,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
     > Deset 4.5.2 versão de .NET Framework como o quadro-alvo do seu projeto: clique no direito do projeto e clique em **Propriedades** para definir o quadro-alvo. Data Factory não suporta atividades personalizadas compiladas contra versões .NET Framework superiores a 4.5.2.
 
 11. Lance **o Windows Explorer**e navegue para a pasta de lançamento de **bin\debug** ou **bin\,** dependendo do tipo de construção.
-12. Crie um ficheiro zip **MyDotNetActivity.zip** que contenha todos os binários na pasta do projeto \<\>pasta \bin\Debug. Inclua o ficheiro **MyDotNetActivity.pdb** para que obtenha detalhes adicionais, como o número de linha no código fonte que causou o problema se houve uma falha.
+12. Crie um ficheiro zip **MyDotNetActivity.zip** que \<contenha\>todos os binários na pasta do projeto \bin\Debug pasta. Inclua o ficheiro **MyDotNetActivity.pdb** para que obtenha detalhes adicionais, como o número de linha no código fonte que causou o problema se houve uma falha.
 
     > [!IMPORTANT]
     > Todos os ficheiros no ficheiro zip da atividade personalizada têm de estar no **nível superior** sem subpastas.
@@ -440,7 +440,7 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
 2. Clique em **Nova loja** de dados na barra de comandoe escolha o **armazenamento Azure**. Deverá ver o script JSON para criar um serviço ligado do Storage do Azure no editor.
 
     ![Nova loja de dados - Armazenamento Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Substitua `<accountname>` pelo nome da sua conta de armazenamento Azure e `<accountkey>` por chave de acesso da conta de armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
+3. Substitua-o `<accountname>` pelo nome da `<accountkey>` sua conta de armazenamento Azure e pela chave de acesso da conta de armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
 
     ![Azure Storage gostava de serviço](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implementar** na barra de comandos para implementar o serviço ligado.
@@ -451,7 +451,7 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
     ![Novo cálculo - Lote Azure](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Faça as seguintes alterações no script JSON:
 
-   1. Especifique o nome da conta Do Lote Azure para a propriedade **accountName.** O **URL** da lâmina de **conta Do Lote Azure** encontra-se no seguinte formato: `http://accountname.region.batch.azure.com`. Para a propriedade **batchUri** no JSON, você precisa remover `accountname.` do URL e usar o `accountname` para a propriedade JSON `accountName`.
+   1. Especifique o nome da conta Do Lote Azure para a propriedade **accountName.** O **URL** da lâmina de conta Do Lote `http://accountname.region.batch.azure.com` **Azure** encontra-se no seguinte formato: . Para a propriedade **batchUri** no JSON, `accountname.` você precisa remover `accountname` do `accountName` URL e usar o para a propriedade JSON.
    2. Especifique a chave da conta Do Lote Azure para a propriedade **accessKey.**
    3. Especifique o nome da piscina que criou como parte dos pré-requisitos para a propriedade **PoolName.** Você também pode especificar a identificação da piscina em vez do nome da piscina.
    4. Especifique o lote azure URI para a propriedade **batchUri.** Exemplo: `https://westus.batch.azure.com`.
@@ -504,7 +504,7 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
     }
     ```
 
-   Cria-se um oleoduto mais tarde nesta passagem com a hora de início: 2016-11-16T00:00:00Z e hora final: 2016-11-16T05:00:00Z. Está programado para produzir dados de hora a hora, pelo queexistem cinco fatias de entrada/saída (entre 00:00:00 -> 05:00:00).
+   Cria-se um oleoduto mais tarde nesta passagem com a hora de início: 2016-11-16T00:00:00Z e hora final: 2016-11-16T05:00:00Z. Está programado para produzir dados por hora, pelo que existem **00**cinco fatias de entrada/saída (entre 00:00:00 -> 05:00:00). **05**
 
    A **frequência** e **intervalo** para o conjunto de dados de entrada está definido para **Hora** e **1**, o que significa que a fatia de entrada está disponível de hora em hora. Nesta amostra, é o mesmo ficheiro (file.txt) na intputfolder.
 
@@ -549,11 +549,11 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
 
    | Fatia | Hora de início | Ficheiro de saída |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
-   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
-   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
-   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
-   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
+   | 1 |2016-11-16t00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16t01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16t02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16t03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16t04:00:00 |2016-11-16-04.txt |
 
     Lembre-se que todos os ficheiros de uma pasta de entrada fazem parte de uma fatia com os tempos de início acima mencionados. Quando esta fatia é processada, a atividade personalizada digitaliza cada ficheiro e produz uma linha no ficheiro de saída com o número de ocorrências de termo de pesquisa ("Microsoft"). Se houver três ficheiros na pasta de entrada, existem três linhas no ficheiro de saída para cada fatia horária: 2016-11-16-00.txt, 2016-11-16:01:00:txt, etc.
 3. Para implementar o **Conjunto de Dados de Saída,** clique em **implementar** na barra de comando.
@@ -663,13 +663,13 @@ O serviço Data Factory cria um trabalho em Azure Batch com o nome: **adf-poolna
 
 ![Azure Data Factory - Trabalhos em lotes](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-Uma tarefa é criada para cada execução de atividade de uma fatia. Se houver cinco fatias prontas a serem processadas, são criadas cinco tarefas neste trabalho. Se houver vários nós computacionais na piscina do Lote, duas ou mais fatias podem ser executadas em paralelo. Se as tarefas máximas por nó computacional estiverem definidas para > 1, também pode ter mais de uma fatia em execução no mesmo cálculo.
+Uma tarefa é criada para cada execução de atividade de uma fatia. Se houver cinco fatias prontas a serem processadas, são criadas cinco tarefas neste trabalho. Se houver vários nós computacionais na piscina do Lote, duas ou mais fatias podem ser executadas em paralelo. Se as tarefas máximas por nó de cálculo estiverem definidas para > 1, também pode ter mais de uma fatia em execução no mesmo cálculo.
 
 ![Azure Data Factory - Tarefas de trabalho em lote](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
 O diagrama que se segue ilustra a relação entre as tarefas azure Data Factory e Batch.
 
-![Fábrica de Dados e Lote](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+![Lote de & da fábrica de dados](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 ## <a name="troubleshoot-failures"></a>Falhas de resolução de problemas
 A resolução de problemas consiste em algumas técnicas básicas:
@@ -712,7 +712,7 @@ A resolução de problemas consiste em algumas técnicas básicas:
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Crie o projeto. Eliminar O conjunto de armazenamento da versão > 4.3.0 da pasta bin\Debug. Crie um ficheiro zip com binários e o ficheiro PDB. Substitua o antigo ficheiro zip por este no recipiente de blob (recipiente de atividade saem). Reexecutar as fatias que falharam (fatia de clique direito e clique em Executar).
+    Crie o projeto. Delete Azure.Armazenamento de conjunto de versão > 4.3.0 da pasta bin\Debug. Crie um ficheiro zip com binários e o ficheiro PDB. Substitua o antigo ficheiro zip por este no recipiente de blob (recipiente de atividade saem). Reexecutar as fatias que falharam (fatia de clique direito e clique em Executar).
 8. A atividade personalizada não utiliza o ficheiro **app.config** do seu pacote. Portanto, se o seu código ler quaisquer cordas de ligação do ficheiro de configuração, não funciona no tempo de execução. A melhor prática ao utilizar o Lote Azure é guardar quaisquer segredos num **Azure KeyVault,** utilizar um diretor de serviço baseado em certificados para proteger o cofre de **chaves**e distribuir o certificado para a piscina do Lote Azure. A atividade personalizada de .NET pode, então, aceder aos segredos do Cofre de Chaves durante o tempo de execução. Esta solução é uma solução genérica e pode escalar para qualquer tipo de segredo, não apenas corda de ligação.
 
    Existe uma suverização mais fácil (mas não é uma boa prática): pode criar um serviço ligado ao **Azure SQL com** definições de cordas de ligação, criar um conjunto de dados que utilize o serviço ligado e acorrentar o conjunto de dados como um conjunto de dados de entrada manequim para a atividade personalizada .NET. Em seguida, pode aceder à cadeia de ligação do serviço ligado no código de atividade personalizado.
@@ -1023,7 +1023,7 @@ A [Azure Data Factory -](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvi
 ## <a name="sample-custom-activities-on-github"></a>Amostra de atividades personalizadas no GitHub
 | Sample | O que a atividade personalizada faz |
 | --- | --- |
-| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Descarrega dados de um HTTP Endpoint para C# o Armazenamento De Blob Azure utilizando atividade supor a atividade personalizada na Fábrica de Dados. |
+| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Descarrega dados de um HTTP Endpoint para O Armazenamento De Blob Azure usando a atividade personalizada de C# na Fábrica de Dados. |
 | [Amostra de análise de sentimento do Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo de estúdio Azure Machine Learning e faz análise de sentimentos, pontuação, previsão etc. |
 | [Executar o Script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invoca o script R executando RScript.exe no seu cluster HDInsight que já tem R Instalado nele. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Utiliza diferentes versões de montagem das utilizadas pelo lançador data Factory |

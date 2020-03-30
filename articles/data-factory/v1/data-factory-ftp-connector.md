@@ -13,10 +13,10 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281408"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mova dados de um servidor FTP utilizando a Azure Data Factory
@@ -59,21 +59,21 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas ao FTP.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte descreve elementos JSON específicos de um serviço ligado ao FTP.
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
 | tipo |Derete isto para ftpServer. |Sim |&nbsp; |
-| host |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
+| anfitrião |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básico, Anónimo |
 | o nome de utilizador |Especifique o utilizador que tem acesso ao servidor FTP. |Não |&nbsp; |
 | palavra-passe |Especifique a palavra-passe para o utilizador (nome de utilizador). |Não |&nbsp; |
-| encryptedCredential |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
-| gatewayName |Especifique o nome da porta de entrada no Portal de Gestão de Dados para ligar a um servidor FTP no local. |Não |&nbsp; |
+| credenta encriptado |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
+| nome gateway |Especifique o nome da porta de entrada no Portal de Gestão de Dados para ligar a um servidor FTP no local. |Não |&nbsp; |
 | porta |Especifique a porta em que o servidor FTP está a ouvir. |Não |21 |
 | enableSsl |Especifique se utilizar ftp sobre um canal SSL/TLS. |Não |true |
-| enableServerCertificateValidation |Especifique se ativa a validação do certificado SSL do servidor quando estiver a utilizar ftp através do canal SSL/TLS. |Não |true |
+| permitirServerCertificateValidação |Especifique se ativa a validação do certificado SSL do servidor quando estiver a utilizar ftp através do canal SSL/TLS. |Não |true |
 
 >[!NOTE]
 >O conector FTP suporta aceder ao servidor FTP sem encriptação ou encriptação explícita SSL/TLS; não suporta encriptação implícita sSL/TLS.
@@ -147,7 +147,7 @@ A tabela seguinte descreve elementos JSON específicos de um serviço ligado ao 
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Criar conjuntos](data-factory-create-datasets.md)de dados . Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. Fornece informações específicas ao tipo de conjunto de dados. A secção **TypeProperties** para um conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
@@ -155,11 +155,11 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Subpate para a pasta. Use o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte as definições de serviço ligados à amostra e definições de conjunto de dados, por exemplo.<br/><br/>Pode combinar esta propriedade com **partiçãoBy** para ter caminhos de pastas baseados no início da fatia e data de fim. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na **pastaPath**, em vez de todos os ficheiros.<br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com hadoop Sistema de Ficheiros Distribuídos (HDFS). |Não |
+| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Dados.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na **pastaPath**, em vez de todos os ficheiros.<br/><br/>Os valores `*` permitidos são: (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplo 1:`"fileFilter": "*.log"`<br/>Exemplo 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com hadoop Sistema de Ficheiros Distribuídos (HDFS). |Não |
 | divididoBy |Usado para especificar uma **pasta dinâmicaPath** e **fileName** para dados da série de tempo. Por exemplo, pode especificar uma **pastaPath** que é parametrizada para cada hora de dados. |Não |
-| format | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como estão entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate,** e os níveis suportados são **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como estão entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate,** e os níveis suportados são **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useBinaryTransfer |Especifique se utiliza o modo de transferência binário. Os valores são verdadeiros para o modo binário (este é o valor padrão) e falso para ASCII. Esta propriedade só pode ser utilizada quando o tipo de serviço associado é de tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -205,7 +205,7 @@ Na atividade de cópia, quando a fonte é do tipo **FileSystemSource,** a seguin
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursive |Indica se os dados são lidos recursivamente a partir das subpastas, ou apenas a partir da pasta especificada. |Verdade, Falso (padrão) |Não |
+| recursivo |Indica se os dados são lidos recursivamente a partir das subpastas, ou apenas a partir da pasta especificada. |Verdade, Falso (padrão) |Não |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo jSON: Copiar dados do servidor FTP para O Blob Azure
 Esta amostra mostra como copiar dados de um servidor FTP para o armazenamento de Azure Blob. No entanto, os dados podem ser copiados diretamente para qualquer um dos lavatórios indicados nas [lojas e formatos de dados suportados,](data-factory-data-movement-activities.md#supported-data-stores-and-formats)utilizando a atividade de cópia na Data Factory.
@@ -259,7 +259,7 @@ Consulte a secção de [serviço ligada ftp](#linked-service-properties) para ob
 ```
 ### <a name="ftp-input-dataset"></a>Conjunto de dados de entrada ftp
 
-Este conjunto de dados refere-se à pasta FTP `mysharedfolder` e `test.csv`de ficheiros . O oleoduto copia o ficheiro para o destino.
+Este conjunto de dados refere-se à pasta `mysharedfolder` FTP e ao ficheiro `test.csv`. O oleoduto copia o ficheiro para o destino.
 
 A definição **externa** a **verdadeira** informa o serviço Data Factory de que o conjunto de dados é externo à fábrica de dados, e não é produzido por uma atividade na fábrica de dados.
 

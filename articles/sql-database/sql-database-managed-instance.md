@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
 ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268785"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a base de dados Azure SQL gerida?
@@ -46,7 +46,7 @@ O exemplo gerido combina as melhores funcionalidades disponíveis tanto na Base 
 | --- | --- |
 |Sem compra e gestão de hardware <br>Sem despesas gerais de gestão para gerir infraestruturas subjacentes <br>Fornecimento rápido e escala de serviço <br>Patching automatizado e atualização de versão <br>Integração com outros serviços de dados paaS |99,99% de uptime SLA  <br>Construído em [alta disponibilidade](sql-database-high-availability.md) <br>Dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de backup configurável do cliente <br>[Backups iniciados](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) pelo utilizador <br>[Capacidade de restauro](sql-database-recovery-using-backups.md#point-in-time-restore) da base de dados de ponto no tempo |
 |**Segurança e conformidade** | **Gestão**|
-|Ambiente isolado[(integração VNet,](sql-database-managed-instance-connectivity-architecture.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação Azure AD,](sql-database-aad-authentication.md)suporte único de sinalização <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Diretores de servidores Azure AD (logins)</a>  <br>Adere às normas de conformidade iguais às bases de dados Azure SQL <br>[Auditoria SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |API gestor de recursos azure para automatizar prestação e escalação de serviços <br>Funcionalidade do portal Azure para fornecimento e escalagem de serviços manuais <br>Serviço de Migração de Dados
+|Ambiente isolado[(integração VNet,](sql-database-managed-instance-connectivity-architecture.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação Azure AD,](sql-database-aad-authentication.md)suporte único de sinalização <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Diretores de servidores Azure AD (logins)</a>  <br>Adere às normas de conformidade iguais às bases de dados Azure SQL <br>[Auditoria SQL](sql-database-managed-instance-auditing.md) <br>[Proteção Avançada Contra Ameaças](sql-database-managed-instance-threat-detection.md) |API gestor de recursos azure para automatizar prestação e escalação de serviços <br>Funcionalidade do portal Azure para fornecimento e escalagem de serviços manuais <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
 > A Base de Dados Azure SQL (todas as opções de implementação), foi certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde pode encontrar a lista mais atual das certificações de conformidade da Base de Dados SQL.
@@ -81,7 +81,7 @@ No modelo vCore, pode escolher entre gerações de hardware.
 
 Encontre mais informações sobre a diferença entre gerações de hardware nos [limites de recursos geridos](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)por exemplo .
 
-## <a name="managed-instance-service-tiers"></a>Níveis de serviço de instância geridos
+## <a name="managed-instance-service-tiers"></a>Escalões de serviço da Instância gerida
 
 A instância gerida está disponível em dois níveis de serviço:
 
@@ -146,11 +146,11 @@ O quadro seguinte resume as operações e as durações globais típicas:
 
 |Categoria  |Operação  |Segmento de longo prazo  |Duração estimada  |
 |---------|---------|---------|---------|
-|**Implementação** |Primeira instância numa sub-rede vazia|Criação de cluster virtual|90% das operações terminam em 4 horas|
+|**Implantação** |Primeira instância numa sub-rede vazia|Criação de cluster virtual|90% das operações terminam em 4 horas|
 |Implementação |Primeira instância de outra geração de hardware numa subnet não vazia (por exemplo, primeira instância de Gen 5 numa subnet com instâncias gen 4)|Criação de cluster virtual*|90% das operações terminam em 4 horas|
 |Implementação |Criação em primeira instância de 4 vCores, numa subnet vazia ou não vazia|Criação de cluster virtual**|90% das operações terminam em 4 horas|
 |Implementação |Criação subsequente de instâncias dentro da sub-rede não vazia (2º, 3º, etc. instância)|Redimensionamento de cluster virtual|90% das operações terminam em 2,5 horas|
-|**Atualizar** |Mudança de propriedade por exemplo (senha de administração, login AAD, bandeira de benefício híbrido Azure)|N/D|Até 1 minuto|
+|**Atualização** |Mudança de propriedade por exemplo (senha de administração, login AAD, bandeira de benefício híbrido Azure)|N/D|Até 1 minuto|
 |Atualizar |Por exemplo, a escala de armazenamento para cima/para baixo (nível de serviço de propósito geral)|Anexar ficheiros de base de dados|90% das operações terminam em 5 minutos|
 |Atualizar |Por exemplo, o armazenamento de armazenamento para cima/para baixo (nível de serviço Business Critical)|- Redimensionamento de cluster virtual<br>- Sempre em sementeação de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para sementes todas as bases de dados (220 GB/hora)|
 |Atualizar |Por exemplo, a computação (vCores) a escalonar para cima e para baixo (Propósito Geral)|- Redimensionamento de cluster virtual<br>- Anexação de ficheiros de base de dados|90% das operações terminam em 2,5 horas|
@@ -161,11 +161,11 @@ O quadro seguinte resume as operações e as durações globais típicas:
 |**Eliminação**|Eliminação da instância|Cópia de segurança da cauda de log para todas as bases de dados|90% de operações terminam em até 1 minuto.<br>Nota: se a última instância na sub-rede for eliminada, esta operação irá agendar a eliminação do cluster virtual após 12 horas***|
 |Eliminação|Eliminação virtual do cluster (como operação iniciada pelo utilizador)|Eliminação de cluster virtual|90% das operações terminam em até 1,5 horas|
 
-\* cluster virtual é construído por geração de hardware.
+\*O cluster virtual é construído por geração de hardware.
 
-\*\* A opção de implementação de 4 vCores foi lançada em junho de 2019 e requer uma nova versão de cluster virtual. Se tiver tido casos na subnet-alvo que foram todos criados antes de 12 de junho, um novo cluster virtual será implantado automaticamente para acolher 4 instâncias vCore.
+\*\*A opção de implementação de 4 vCores foi lançada em junho de 2019 e requer uma nova versão de cluster virtual. Se tiver tido casos na subnet-alvo que foram todos criados antes de 12 de junho, um novo cluster virtual será implantado automaticamente para acolher 4 instâncias vCore.
 
-\*\*\* 12 horas é a configuração atual, mas isso pode mudar no futuro, por isso não tomes uma dependência dura dela. Se precisar de eliminar um cluster virtual mais cedo (para libertar a sub-rede, por exemplo), consulte Apagar uma sub-rede depois de eliminar uma instância gerida pela Base de [Dados Azure SQL](sql-database-managed-instance-delete-virtual-cluster.md).
+\*\*\*12 horas é a configuração atual, mas isso pode mudar no futuro, por isso não tomes uma dependência dura dela. Se precisar de eliminar um cluster virtual mais cedo (para libertar a sub-rede, por exemplo), consulte Apagar uma sub-rede depois de eliminar uma instância gerida pela Base de [Dados Azure SQL](sql-database-managed-instance-delete-virtual-cluster.md).
 
 ### <a name="instance-availability-during-management"></a>Disponibilidade de exemplo durante a gestão
 
@@ -303,7 +303,7 @@ O diagrama seguinte descreve a compatibilidade da área da superfície em caso g
 A opção de implementação de instância gerida beneficia de estar sempre atualizado na nuvem, o que significa que algumas funcionalidades no SQL Server no local podem ser obsoletas, aposentadas ou ter alternativas. Há casos específicos em que as ferramentas precisam reconhecer que uma determinada funcionalidade funciona de uma forma ligeiramente diferente ou que o serviço está a funcionar num ambiente que não controla totalmente:
 
 - A alta disponibilidade é incorporada e pré-configurada utilizando tecnologia semelhante a [Grupos De Disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
-- Backups automáticos e ponto no tempo restaurar. O cliente pode iniciar `copy-only` backups que não interferem com a cadeia de backup automática.
+- Backups automáticos e ponto no tempo restaurar. O cliente `copy-only` pode iniciar cópias de segurança que não interfiram com a cadeia de backup automática.
 - A instância gerida não permite especificar caminhos físicos completos, pelo que todos os cenários correspondentes têm de ser suportados de forma diferente: RESTAURAR DB não suporta COM MOVIMENTO, CREATE DB não permite caminhos físicos, INSERT A granel funciona apenas com Blobs Azure, etc.
 - A instância gerida suporta a [autenticação Azure AD](sql-database-aad-authentication.md) como alternativa à autenticação do Windows.
 - A instância gerida gere automaticamente o grupo de ficheiros XTP e os ficheiros para bases de dados que contenham objetos OLTP in-memory
@@ -325,7 +325,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact 
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é o mesmo que na Base de Dados SQL. Isto **não** indica a versão 12 do motor SQL (SQL Server 2014). A instância gerida executa sempre a mais recente versão estável do motor SQL, que é igual ou superior à versão RTM mais recente disponível do SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é o mesmo que na Base de Dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica de forma única um caso gerido.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`.database.windows.net, onde `<instanceName>` é nome fornecido pelo cliente, enquanto `<dnsPrefix>` é autogerada parte do nome que garante a singularidade do nome DNS global ("wcus17662feb998", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa`<instanceName>`no seguinte formato: . `<dnsPrefix>`.database.windows.net, `<instanceName>` onde é o nome `<dnsPrefix>` fornecido pelo cliente, enquanto é autogerada parte do nome que garante a singularidade do nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,13 +11,13 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255304"
 ---
-# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestão da Concurrency no Armazenamento Microsoft Azure
+# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
 
 As aplicações modernas baseadas na Internet normalmente têm vários utilizadores visualizando e atualizando dados simultaneamente. Isto requer que os desenvolvedores de aplicações pensem cuidadosamente sobre como fornecer uma experiência previsível aos seus utilizadores finais, especialmente para cenários em que vários utilizadores possam atualizar os mesmos dados. Existem três principais estratégias de conmoedação de dados que os desenvolvedores normalmente consideram:  
 
@@ -39,7 +39,7 @@ Pode optar por utilizar modelos de conmoeda otimistas ou pessimistas para gerir 
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Conmoeda otimista para bolhas e contentores
 
-O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (marca de entidade) que é definido dentro do protocolo HTTP. Um utilizador que efetua uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição for satisfeita – neste caso, a condição é um cabeçalho "If-Match", que requer o Serviço de Armazenamento t o garantir que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
+O serviço de armazenamento atribui um identificador a todos os objetos armazenados. Este identificador é atualizado sempre que uma operação de atualização é realizada num objeto. O identificador é devolvido ao cliente como parte de uma resposta HTTP GET utilizando o cabeçalho ETag (marca de entidade) que é definido dentro do protocolo HTTP. Um utilizador que efetua uma atualização sobre tal objeto pode enviar o ETag original juntamente com um cabeçalho condicional para garantir que uma atualização só ocorrerá se uma determinada condição for satisfeita – neste caso, a condição é um cabeçalho "If-Match", que requer o Serviço de Armazenamento para garantir que o valor do ETag especificado no pedido de atualização é o mesmo que o armazenado no Serviço de Armazenamento.  
 
 O esboço deste processo é o seguinte:  
 
@@ -49,7 +49,7 @@ O esboço deste processo é o seguinte:
 4. Se o valor atual do ETag da bolha for uma versão diferente do ETag no cabeçalho condicional **If-Match** no pedido, o serviço devolve um erro de 412 ao cliente. Isto indica ao cliente que outro processo atualizou a bolha desde que o cliente a recuperou.
 5. Se o valor atual do ETag da bolha for a mesma versão do ETag no cabeçalho condicional **If-Match** no pedido, o serviço realiza a operação solicitada e atualiza o valor atual do ETag da bolha para mostrar que criou uma nova versão.  
 
-O C# seguinte corte (utilizando a Biblioteca de Armazenamento de Clientes 4.2.0) mostra um simples exemplo de como construir uma Condição de **Acesso If-Match** com base no valor ETag que é acedido a partir das propriedades de uma bolha que foi previamente recuperada ou inserida. Em seguida, utiliza o objeto **AccessCondition** quando atualiza a bolha: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** ao pedido. Se outro processo tiver atualizado a bolha, o serviço Blob devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada). Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+O seguinte snippet C# (utilizando a Biblioteca de Armazenamento de Clientes 4.2.0) mostra um simples exemplo de como construir uma Condição de **Acesso If-Match** com base no valor ETag que é acedido a partir das propriedades de uma bolha que foi previamente recuperada ou inserida. Em seguida, utiliza o objeto **AccessCondition** quando atualiza a bolha: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** ao pedido. Se outro processo tiver atualizado a bolha, o serviço Blob devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada). Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -90,13 +90,13 @@ O quadro seguinte resume as operações de contentores que aceitam cabeçalhos c
 
 | Operação | Valor de Retorna do Recipiente ETag | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
-| Criar contentor |Sim |Não |
+| Criar recipiente |Sim |Não |
 | Obter propriedades de contentores |Sim |Não |
 | Obter Metadados de Contentores |Sim |Não |
 | Definir metadados de contentores |Sim |Sim |
 | Obter contentor ACL |Sim |Não |
 | Set Container ACL |Sim |Sim (*) |
-| Eliminar contentor |Não |Sim |
+| Eliminar Contentor |Não |Sim |
 | Contentor de arrendamento |Sim |Sim |
 | Lista blobs |Não |Não |
 
@@ -108,13 +108,13 @@ O quadro seguinte resume as operações blob que aceitam cabeçalhos condicionai
 |:--- |:--- |:--- |
 | Coloque Blob |Sim |Sim |
 | Obter Blob |Sim |Sim |
-| Obter Propriedades Blob |Sim |Sim |
+| Get Blob Properties (Obter Propriedades do Blob) |Sim |Sim |
 | Definir propriedades blob |Sim |Sim |
 | Obter Metadados Blob |Sim |Sim |
 | Definir Metadados Blob |Sim |Sim |
 | Arrendamento Blob (*) |Sim |Sim |
-| Snapshot Blob |Sim |Sim |
-| Copiar Blob |Sim |Sim (para fonte e bolha de destino) |
+| Blob de Instantâneo |Sim |Sim |
+| Copy Blob |Sim |Sim (para fonte e bolha de destino) |
 | Abortar copy blob |Não |Não |
 | Eliminar Blob |Não |Sim |
 | Bloquear |Não |Não |
@@ -131,7 +131,7 @@ Para bloquear uma bolha para uso exclusivo, pode adquirir um contrato de [arrend
 
 Os arrendamentos permitem apoiar diferentes estratégias de sincronização, incluindo escrita exclusiva/leitura partilhada, escrita exclusiva/leitura exclusiva e escrita partilhada /leitura exclusiva. Quando existe um contrato de arrendamento, o serviço de armazenamento impõe escritas exclusivas (put, set e delete operations) no entanto, garantir a exclusividade para as operações de leitura requer que o desenvolvedor garanta que todas as aplicações de clientes utilizem um ID de locação e que apenas um cliente de cada vez tem um identificação válida do arrendamento. Leia as operações que não incluem um resultado de ID de locação em leituras partilhadas.  
 
-O C# seguinte corte mostra um exemplo de adquirir um contrato de arrendamento exclusivo por 30 segundos numa bolha, atualizar o conteúdo da bolha e, em seguida, libertar o arrendamento. Se já existe um contrato de arrendamento válido na bolha quando tenta adquirir um novo contrato de arrendamento, o serviço Blob devolve um resultado de situação de conflito "HTTP (409)." O seguinte snippet utiliza um objeto **AccessCondition** para encapsular as informações de locação quando faz um pedido para atualizar a bolha no serviço de armazenamento.  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O seguinte C# snippet mostra um exemplo de adquirir um contrato de arrendamento exclusivo por 30 segundos numa bolha, atualizar o conteúdo da bolha e, em seguida, libertar o arrendamento. Se já existe um contrato de arrendamento válido na bolha quando tenta adquirir um novo contrato de arrendamento, o serviço Blob devolve um resultado de situação de conflito "HTTP (409)." O seguinte snippet utiliza um objeto **AccessCondition** para encapsular as informações de locação quando faz um pedido para atualizar a bolha no serviço de armazenamento.  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -166,7 +166,7 @@ As seguintes operações blob podem usar locações para gerir a moeda pessimist
 
 * Coloque Blob
 * Obter Blob
-* Obter Propriedades Blob
+* Get Blob Properties (Obter Propriedades do Blob)
 * Definir propriedades blob
 * Obter Metadados Blob
 * Definir Metadados Blob
@@ -179,7 +179,7 @@ As seguintes operações blob podem usar locações para gerir a moeda pessimist
 * Snapshot Blob - locação opcional se existe um contrato de arrendamento
 * Copy Blob - locação de identidade necessária se existir um contrato de arrendamento na bolha de destino
 * Abortcopy Blob - locação de identidade necessária se existir um arrendamento infinito na bolha de destino
-* Arrendamento Blob  
+* Lease Blob (Blob de Concessão)  
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Conmoeda pessimista para contentores
 
@@ -187,7 +187,7 @@ As locações em contentores permitem que as mesmas estratégias de sincronizaç
 
 As seguintes operações de contentores podem utilizar locações para gerir a moeda pessimista:  
 
-* Eliminar contentor
+* Eliminar Contentor
 * Obter propriedades de contentores
 * Obter Metadados de Contentores
 * Definir metadados de contentores
@@ -197,9 +197,9 @@ As seguintes operações de contentores podem utilizar locações para gerir a m
 
 Para obter mais informações, consulte:  
 
-* [Especificação de cabeçalhos condicionais para operações de serviço blob](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Specifying Conditional Headers for Blob Service Operations (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Contentor de arrendamento](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Arrendamento Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) (Blob de Concessão)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Gestão da moeda no armazenamento de mesa
 
@@ -215,7 +215,7 @@ Para utilizar a conmoeda otimista e verificar se outro processo modificou uma en
 
 Note que, ao contrário do serviço Blob, o serviço de mesa requer que o cliente inclua um cabeçalho **If-Match** em pedidos de atualização. No entanto, é possível forçar uma atualização incondicional (último escritor ganha estratégia) e contornar as verificações de condivisões se o cliente definir o cabeçalho **If-Match** para o personagem wildcard (*) no pedido.  
 
-O C# seguinte snippet mostra uma entidade cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e porque a amostra utiliza a mesma instância de objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo que o serviço verificar se há violações de moedas. Se outro processo tiver atualizado a entidade no armazenamento de mesa, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O seguinte C# snippet mostra uma entidade cliente que foi previamente criada ou recuperada tendo o seu endereço de e-mail atualizado. A operação inicial de inserção ou recuperação armazena o valor ETag no objeto do cliente, e porque a amostra utiliza a mesma instância de objeto quando executa a operação de substituição, envia automaticamente o valor ETag de volta para o serviço de mesa, permitindo que o serviço verificar se há violações de moedas. Se outro processo tiver atualizado a entidade no armazenamento de mesa, o serviço devolve uma mensagem de estado HTTP 412 (Pré-condição Falhada).  Pode descarregar a amostra completa aqui: [Gerir a Concurrency utilizando o Armazenamento Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -268,7 +268,7 @@ O serviço de fila não tem suporte para uma conmoeda otimista ou pessimista e, 
 
 Para obter mais informações, consulte:  
 
-* [Serviço de Fila REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [API REST de Serviço de Filas](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Obter Mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-azure-files"></a>Gestão de moedas em Ficheiros Azure

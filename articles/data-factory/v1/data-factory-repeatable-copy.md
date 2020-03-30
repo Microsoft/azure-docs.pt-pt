@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281148"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetível na Fábrica de Dados Azure
@@ -35,7 +35,7 @@ Normalmente, ao ler em lojas relacionais, pretende ler apenas os dados correspon
     "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
-Esta consulta lê os dados que se insere na faixa de duração da fatia (WindowStart -> WindowEnd) da tabela MyTable. A reexecução desta fatia também garantirá sempre que os mesmos dados são lidos. 
+Esta consulta lê os dados que se inserem na faixa de duração da fatia (WindowStart -> WindowEnd) da tabela MyTable. A reexecução desta fatia também garantirá sempre que os mesmos dados são lidos. 
 
 Noutros casos, poderá querer ler toda a tabela e definir o sqlReaderQuery da seguinte forma:
 
@@ -151,5 +151,5 @@ Semelhante ao mecanismo 1, a Copy Activity limpa automaticamente os dados da fat
 Reveja os seguintes artigos de conector que para exemplos completos da JSON: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Armazém de dados Azure SQL](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282266"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
@@ -23,11 +23,11 @@ Exemplos de ferramentas e tecnologias que ajudam na recolha e/ou visualização 
 ## <a name="events"></a>Eventos
 | Nome do evento | ID do Evento | Nível | Descrição do evento |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Informativo |Emitido quando a tarefa runasync do serviço é iniciada |
-| StatefulRunAsyncCancellation |2 |Informativo |Emitido quando a tarefa runasync do serviço é cancelada |
+| Invocação StatefulRunAsyncIn |1 |Informativo |Emitido quando a tarefa runasync do serviço é iniciada |
+| StatefulRunAsyncCancelamento |2 |Informativo |Emitido quando a tarefa runasync do serviço é cancelada |
 | StatefulRunAsyncCompletion |3 |Informativo |Emitido quando a tarefa runasync do serviço está terminada |
-| StatefulRunAsyncSlowCancellation |4 |Aviso |Emitida quando a tarefa runasync do serviço demora muito tempo a concluir o cancelamento |
-| StatefulRunAsyncFailure |5 |Erro |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
+| StatefulRunAsyncSlowCancelamento |4 |Aviso |Emitida quando a tarefa runasync do serviço demora muito tempo a concluir o cancelamento |
+| Falha de StatefulRunAsync |5 |Erro |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
 
 ## <a name="interpret-events"></a>Interpretar eventos
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion e StatefulRunAsyncEventos Eventos são úteis para o escritor de serviço supor o ciclo de vida de um serviço, bem como o tempo para quando um serviço começa, cancela ou termina. Esta informação pode ser útil para depurar questões de serviço ou compreender o ciclo de vida do serviço.
@@ -56,26 +56,26 @@ A aplicação [Do Windows Performance Monitor,](https://technet.microsoft.com/li
 Um cluster que tenha um grande número de serviços fiáveis ou divisórias de serviço fiáveis terá um grande número de casos de contra-ocorrências de replicadores transacionais. Este é também o caso dos contadores de desempenho da TStore, mas também é multiplicado pelo número de Dicionários Fiáveis e Filas Fiáveis utilizadas. Os nomes de contadores de desempenho podem ajudar na identificação da [partição](service-fabric-concepts-partitioning.md)específica, réplica do serviço e fornecedor estatal no caso da TStore, a que a contra-instância de desempenho está associada.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Categoria replicador de transação de tecido de serviço
-Para a categoria `Service Fabric Transactional Replicator`, os nomes de contra-instância estão no seguinte formato:
+Para a `Service Fabric Transactional Replicator`categoria, os nomes de contra-instância estão no seguinte formato:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através [de`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionId* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através do [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
 
 *ServiceFabricReplicaId* é o ID associado a uma determinada réplica de um serviço fiável. O ID da réplica está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outras contra-instâncias de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e o seu papel em serviços fiáveis podem ser encontrados [aqui.](service-fabric-concepts-replica-lifecycle.md)
 
-O seguinte nome de contra-instância é típico de um contador na categoria `Service Fabric Transactional Replicator`:
+O seguinte nome de contra-instância `Service Fabric Transactional Replicator` é típico de um contador na categoria:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
 
-No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cordas do ID de partição de tecido de serviço, e `131652217797162571` é a réplica ID.
+No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` está a representação de cordas `131652217797162571` do ID de partição de tecido de serviço, e é a réplica ID.
 
 #### <a name="service-fabric-tstore-category"></a>Categoria TStore de Tecido de Serviço
-Para a categoria `Service Fabric TStore`, os nomes de contra-instância estão no seguinte formato:
+Para a `Service Fabric TStore`categoria, os nomes de contra-instância estão no seguinte formato:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através [de`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionId* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através do [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
 
 *ServiceFabricReplicaId* é o ID associado a uma determinada réplica de um serviço fiável. O ID da réplica está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outras contra-instâncias de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e o seu papel em serviços fiáveis podem ser encontrados [aqui.](service-fabric-concepts-replica-lifecycle.md)
 
@@ -85,15 +85,15 @@ Para a categoria `Service Fabric TStore`, os nomes de contra-instância estão n
 
 *StateProviderName* é o nome associado a um fornecedor estatal dentro de um serviço fiável. O nome do fornecedor estatal está incluído no nome de exemplo de contra-desempenho para os utilizadores identificarem facilmente o estado que fornece.
 
-O seguinte nome de contra-instância é típico de um contador na categoria `Service Fabric TStore`:
+O seguinte nome de contra-instância `Service Fabric TStore` é típico de um contador na categoria:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cadeia supor o ID de divisória de tecido de serviço, `131652217797162571` é a réplica ID, `142652217797162571` é o ID do fornecedor do Estado, e `1337` é o diferenciador de contrainstância de desempenho. `urn:MyReliableDictionary/dataStore` é o nome do provedor do Estado que armazena dados para a recolha denominada `urn:MyReliableDictionary`.
+No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cordas `131652217797162571` do ID `142652217797162571` de partição de `1337` tecido de serviço, é a réplica ID, é o ID do fornecedor do estado, e é o diferenciador de contrainstância de desempenho. `urn:MyReliableDictionary/dataStore`é o nome do provedor do Estado `urn:MyReliableDictionary`que armazena dados para a recolha denominada .
 
 ### <a name="transactional-replicator-performance-counters"></a>Contadores de desempenho do replicador transacional
 
-O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na categoria `Service Fabric Transactional Replicator`
+O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric Transactional Replicator` categoria
 
  Nome do contador | Descrição |
 | --- | --- |
@@ -106,11 +106,11 @@ O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na categ
 
 ### <a name="tstore-performance-counters"></a>Contadores de desempenho da TStore
 
-O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na categoria `Service Fabric TStore`
+O tempo de execução dos Serviços Fiáveis emite os seguintes eventos na `Service Fabric TStore` categoria
 
  Nome do contador | Descrição |
 | --- | --- |
-| Número de itens | O número de artigos na loja.|
+| Contagem do artigo | O número de artigos na loja.|
 | Tamanho do Disco | O tamanho total do disco, em bytes, de ficheiros de controlo para a loja.|
 | Ficheiro de verificação Write Bytes/seg | O número de bytes escritos por segundo para o mais recente ficheiro de controlo.|
 | Copy Disk Transfer Bytes/seg | O número de bytes de disco lidos (na réplica primária) ou escritos (numa réplica secundária) por segundo durante uma cópia da loja.|

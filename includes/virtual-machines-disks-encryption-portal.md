@@ -9,13 +9,13 @@ ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299524"
 ---
-### <a name="portal"></a>vários inquilinos
+### <a name="portal"></a>Portal
 
 A configuração de chaves geridas pelo cliente para os seus discos exigirá que crie recursos numa determinada encomenda, caso o esteja a fazer pela primeira vez. Primeiro, terás de criar e montar um Cofre de Chave Azure.
 
@@ -49,13 +49,13 @@ A configuração de chaves geridas pelo cliente para os seus discos exigirá que
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuração do seu conjunto de encriptação de disco
 
-Para criar e configurar conjuntos de encriptação de disco, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. Se estiver nas regiões do Governo Microsoft Azure, deve utilizar este link: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). A criação de conjuntos de encriptação de disco ainda não está disponível no portal global Azure.
+Para criar e configurar conjuntos de encriptação de https://aka.ms/diskencryptionsetsdisco, deve utilizar o seguinte link: . Se estiver nas regiões do Governo Microsoft Azure, [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)deve utilizar este link em vez disso: . A criação de conjuntos de encriptação de disco ainda não está disponível no portal global Azure.
 
 1. Abra o link de encriptação do disco adequado para a sua região:
 
-    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Regiões do Governo de Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Selecione **+Adicionar**.
 
@@ -84,9 +84,9 @@ O processo de implementação de VM é semelhante ao processo de implementação
 
 1. Abra o link de encriptação do disco adequado para a sua região:
 
-    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Regiões do Governo de Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
 
 1. Procure **por Máquinas Virtuais** e selecione **+ Adicione** para criar um VM.
 1. No separador **Basic,** selecione a mesma região que o seu conjunto de encriptação de disco e o Cofre chave Azure.
@@ -102,16 +102,16 @@ O processo de implementação de VM é semelhante ao processo de implementação
 
 #### <a name="enable-on-an-existing-disk"></a>Ativar num disco existente
 
-Para gerir e configurar a encriptação do disco nos seus discos existentes, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. Ativar as chaves geridas pelo cliente nos discos existentes ainda não está disponível no portal Azure global.
+Para gerir e configurar a encriptação do disco nos seus https://aka.ms/diskencryptionsetsdiscos existentes, deve utilizar o seguinte link: . Ativar as chaves geridas pelo cliente nos discos existentes ainda não está disponível no portal Azure global.
 
 > [!CAUTION]
 > Permitir a encriptação do disco em quaisquer discos ligados a um VM exigirá que pare o VM.
 
 1. Abra o link de encriptação do disco adequado para a sua região:
 
-    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Regiões do Governo de Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Navegue para um VM que esteja na mesma região que um dos seus conjuntos de encriptação de discos.
 1. Abra o VM e selecione **Stop**.

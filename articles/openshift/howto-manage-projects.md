@@ -1,5 +1,5 @@
 ---
-title: Gerir recursos no Azure Red Hat OpenShift  Microsoft Docs
+title: Gerir recursos no Azure Red Hat OpenShift [ Microsoft Docs
 description: Gerir projetos, modelos, fluxos de imagem num cluster OpenShift do Chapéu Vermelho Azure
 services: openshift
 keywords: chapéu vermelho projetos abertos pede auto-provisioner
@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139118"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, fluxos de imagem num cluster OpenShift do Chapéu Vermelho Azure 
@@ -21,7 +21,7 @@ Numa Plataforma de Contentores OpenShift, os projetos são usados para agrupar e
 
 ## <a name="self-provisioning-projects"></a>Projetos de autoprovisionamento
 
-Pode permitir que os desenvolvedores criem os seus próprios projetos. Um ponto final da API é responsável por fornecer um projeto de acordo com um modelo chamado pedido de projeto. A consola web e o comando `oc new-project` usam este ponto final quando um desenvolvedor cria um novo projeto.
+Pode permitir que os desenvolvedores criem os seus próprios projetos. Um ponto final da API é responsável por fornecer um projeto de acordo com um modelo chamado pedido de projeto. A consola web `oc new-project` e o comando usam este ponto final quando um desenvolvedor cria um novo projeto.
 
 Quando um pedido de projeto é submetido, a API substitui os seguintes parâmetros no modelo:
 
@@ -37,7 +37,7 @@ O acesso à API é concedido a programadores com o papel de cluster auto-provisi
 
 ## <a name="modify-the-template-for-a-new-project"></a>Modificar o modelo para um novo projeto 
 
-1. Faça login como utilizador com privilégios `customer-admin`.
+1. Faça login como `customer-admin` utilizador com privilégios.
 
 2. Editar o modelo de pedido de projeto padrão.
 
@@ -45,7 +45,7 @@ O acesso à API é concedido a programadores com o papel de cluster auto-provisi
    oc edit template project-request -n openshift
    ```
 
-3. Remova o modelo de projeto predefinido do processo de atualização Do Hat OpenShift (ARO) do Azure Red Hat, adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
+3. Remova o modelo de projeto predefinido do processo de atualização Do Hat OpenShift (ARO) do Azure Red Hat, adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -61,7 +61,7 @@ O acesso à API é concedido a programadores com o papel de cluster auto-provisi
 
 Pode evitar que um grupo de utilizadores autenticado se auto-aprovisione novos projetos.
 
-1. Faça login como utilizador com privilégios `customer-admin`.
+1. Faça login como `customer-admin` utilizador com privilégios.
 
 2. Editar o papel de cluster auto-provisionadores vinculativo.
 
@@ -79,7 +79,7 @@ Pode evitar que um grupo de utilizadores autenticado se auto-aprovisione novos p
    ...
    ```
 
-4. Alterar a função de cluster vinculada para evitar que `system:authenticated:oauth` criem projetos:
+4. Alterar a função `system:authenticated:oauth` de cluster vinculada para evitar a criação de projetos:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -101,10 +101,10 @@ Pode evitar que um grupo de utilizadores autenticado se auto-aprovisione novos p
 
 ## <a name="manage-default-templates-and-imagestreams"></a>Gerir modelos padrão e imagensStreams
 
-No Azure Red Hat OpenShift, pode desativar atualizações para quaisquer modelos padrão e fluxos de imagem dentro `openshift` espaço de nome.
-Para desativar atualizações para todos os `Templates` e `ImageStreams` em `openshift` espaço de nome:
+No Azure Red Hat OpenShift, pode desativar atualizações para `openshift` quaisquer modelos padrão e fluxos de imagem dentro do espaço de nome.
+Para desativar `Templates` as `ImageStreams` `openshift` atualizações para TODOS e no espaço de nome:
 
-1. Faça login como utilizador com privilégios `customer-admin`.
+1. Faça login como `customer-admin` utilizador com privilégios.
 
 2. Editar `openshift` espaço de nome:
 
@@ -112,7 +112,7 @@ Para desativar atualizações para todos os `Templates` e `ImageStreams` em `ope
    oc edit namespace openshift
    ```
 
-3. Remova `openshift` espaço de nome do processo de atualização ARO adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
+3. Remova `openshift` o espaço de nome do processo de atualização ARO adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,9 +122,9 @@ Para desativar atualizações para todos os `Templates` e `ImageStreams` em `ope
    ...
    ```
 
-   Qualquer objeto individual no espaço de nome `openshift` pode ser removido do processo de atualização adicionando-lhe anotação `openshift.io/reconcile-protect: "true"`.
+   Qualquer objeto individual `openshift` no espaço de nome pode ser removido `openshift.io/reconcile-protect: "true"` do processo de atualização adicionando-lhe anotação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]

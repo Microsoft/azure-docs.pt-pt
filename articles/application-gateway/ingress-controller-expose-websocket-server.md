@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297837"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Expor um servidor WebSocket ao Gateway de Aplicações
@@ -75,7 +75,7 @@ spec:
               servicePort: 80
 ```
 
-Dado que todos os pré-requisitos estão cumpridos, e você tem um Gateway de aplicação controlado por um Kubernetes Ingress no seu AKS, a implementação acima resultaria num servidor WebSockets exposto na porta 80 do IP público do seu Gateway de aplicação e no domínio `ws.contoso.com`.
+Dado que todos os pré-requisitos estão cumpridos, e você tem um Gateway de aplicação controlado por um Kubernetes Ingress no seu AKS, `ws.contoso.com` a implementação acima resultaria num servidor WebSockets exposto na porta 80 do IP público do seu Gateway de aplicação e no domínio.
 
 O seguinte comando cURL testaria a implementação do servidor WebSocket:
 ```sh
@@ -91,7 +91,7 @@ curl -i -N -H "Connection: Upgrade" \
 ## <a name="websocket-health-probes"></a>Sondas de saúde WebSocket
 
 Se a sua implementação não definir explicitamente as sondas de saúde, o Application Gateway tentaria um HTTP GET no seu ponto final do servidor WebSocket.
-Dependendo da implementação do servidor[(aqui está um que amamos](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)), podem ser necessários cabeçalhos específicos do WebSocket (`Sec-Websocket-Version` por exemplo).
-Uma vez que o Gateway da aplicação não adiciona cabeçalhos WebSocket, a resposta da sonda de saúde do Gateway de aplicação do seu servidor WebSocket será provavelmente `400 Bad Request`.
-Como resultado, o Application Gateway marcará as suas cápsulas como pouco saudáveis, o que acabará por resultar numa `502 Bad Gateway` para os consumidores do servidor WebSocket.
-Para evitar isto, poderá ser necessário adicionar um manipulador HTTP GET para uma verificação de saúde ao seu servidor (`/health` por exemplo, que devolve `200 OK`).
+Dependendo da implementação do servidor[(aqui está um que amamos](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)), podem ser necessários cabeçalhos específicos do WebSocket (por`Sec-Websocket-Version` exemplo).
+Uma vez que o Gateway da aplicação não adiciona cabeçalhos WebSocket, a `400 Bad Request`resposta da sonda de saúde do Gateway de aplicação do seu servidor WebSocket será muito provável .
+Como resultado, o Application Gateway marcará as suas cápsulas `502 Bad Gateway` como pouco saudáveis, o que acabará por resultar num para os consumidores do servidor WebSocket.
+Para evitar isto, poderá ser necessário adicionar um manipulador HTTP`/health` GET para `200 OK`uma verificação de saúde ao seu servidor (por exemplo, que retorna).

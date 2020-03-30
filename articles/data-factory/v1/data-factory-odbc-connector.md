@@ -13,10 +13,10 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281395"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mova dados das lojas de dados da ODBC utilizando a Fábrica de Dados Azure
@@ -61,18 +61,18 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades data Factory específicas para a loja de dados ODBC:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à ODBC.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesOdbc** |Sim |
-| connectionString |A parte credencial de não acesso da cadeia de ligação e uma credencial encriptada opcional. Consulte exemplos nas seguintes secções. <br/><br/>Pode especificar a cadeia de ligação com padrões como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utilizar o sistema DSN (Data Source Name) que configura na máquina de porta de entrada com `"DSN=<name of the DSN>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade). |Sim |
+| conexãoString |A parte credencial de não acesso da cadeia de ligação e uma credencial encriptada opcional. Consulte exemplos nas seguintes secções. <br/><br/>Pode especificar a cadeia de `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`ligação com padrões como , ou utilizar o sistema `"DSN=<name of the DSN>;"` DSN (Data Source Name) com o qual configura na máquina de gateway (ainda precisa especificar a parte credencial no serviço ligado em conformidade). |Sim |
 | credencial |A parte credencial de acesso da cadeia de ligação especificada no formato de valor de propriedade específico do condutor. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
 | authenticationType |Tipo de autenticação utilizada para se ligar à loja de dados ODBC. Os valores possíveis são: Anónimos e Básicos. |Sim |
 | userName |Especifique o nome de utilizador se estiver a utilizar a autenticação Básica. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador que especificou para o nome de utilizador. |Não |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à loja de dados ODBC. |Sim |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à loja de dados ODBC. |Sim |
 
 ### <a name="using-basic-authentication"></a>Utilização da autenticação básica
 
@@ -131,8 +131,8 @@ Pode encriptar as credenciais utilizando o [Novo AzDataFactoryEncryptValue](http
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **RelationalTable** (que inclui dataset ODBC) tem as seguintes propriedades
 
@@ -141,7 +141,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | tableName |Nome da tabela na loja de dados ODBC. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na secção **tipoPropriedades** da atividade por outro lado variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -187,7 +187,7 @@ Como primeiro passo, criar a porta de entrada de gestão de dados. As instruçõ
 }
 ```
 
-**Serviço ligado do Armazenamento do Azure**
+**Serviço ligado do Storage do Azure**
 
 ```json
 {
@@ -354,7 +354,7 @@ Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetível de fontes relacionais
 Ao copiar dados de lojas de dados relacionais, tenha em mente a repetível para evitar resultados não intencionais. Na Azure Data Factory, pode reproduzir uma fatia manualmente. Também pode configurar a política de retry para um conjunto de dados para que uma fatia seja reexecutada quando ocorre uma falha. Quando uma fatia é reexecutada de qualquer forma, você precisa ter certeza de que os mesmos dados são lidos, não importa quantas vezes uma fatia é executada. Ver [Leitura repetível a partir de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="troubleshoot-connectivity-issues"></a>Problemas de conectividade
+## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
 Para resolver problemas de ligação, utilize o separador **de diagnóstico** do Gestor de Configuração gateway de **gestão**de dados .
 
 1. Lance **Gestor de configuração**de gateway de gestão de dados. Pode executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) pesquisa por **Gateway** para encontrar um link para a aplicação Gateway de Gestão de Dados do **Microsoft,** como mostrado na imagem seguinte.
@@ -362,7 +362,7 @@ Para resolver problemas de ligação, utilize o separador **de diagnóstico** do
     ![Gateway de pesquisa](./media/data-factory-odbc-connector/search-gateway.png)
 2. Mude para o separador **Diagnósticos.**
 
-    ![Diagnósticos gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+    ![Diagnóstico do gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Selecione o **tipo** de loja de dados (serviço ligado).
 4. Especifique **a autenticação** e introduza **credenciais** (ou) introduza a cadeia de **ligação** que é utilizada para se ligar ao armazenamento de dados.
 5. Clique na **ligação test** para testar a ligação à loja de dados.

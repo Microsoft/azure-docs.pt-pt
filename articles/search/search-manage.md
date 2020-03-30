@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282929"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para pesquisa cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
-> * [> python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) 
+> * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 A Azure Cognitive Search é um serviço de pesquisa totalmente gerido e baseado na nuvem usado para construir uma rica experiência de pesquisa em aplicações personalizadas. Este artigo cobre as tarefas de administração de serviços que pode executar no [portal Azure](https://portal.azure.com) para um serviço de pesquisa que já disponibilizou. A administração de serviços é leve por design, limitada às seguintes tarefas:
 

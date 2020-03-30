@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: victorh
 ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279991"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades de Gateway de Aplicação Azure
@@ -26,16 +26,16 @@ O Gateway de Aplicação inclui as seguintes funcionalidades:
 - [Autoscalcificação](#autoscaling)
 - [Redundância da zona](#zone-redundancy)
 - [VIP estático](#static-vip)
-- [Firewall de aplicação web](#web-application-firewall)
-- [Controlador de Ingress para AKS](#ingress-controller-for-aks)
+- [Firewall de Aplicação Web](#web-application-firewall)
+- [Controlador de Entrada para AKS](#ingress-controller-for-aks)
 - [Encaminhamento baseado em URL](#url-based-routing)
-- [Hospedagem de vários sites](#multiple-site-hosting)
+- [Alojamento de vários sites](#multiple-site-hosting)
 - [Redirecionamento](#redirection)
 - [Afinidade da sessão](#session-affinity)
-- [Websocket e tráfego HTTP/2](#websocket-and-http2-traffic)
-- [Drenagem de ligações](#connection-draining)
-- [Páginas de erro personalizadas](#custom-error-pages)
-- [Reescrever cabeçalhos HTTP](#rewrite-http-headers)
+- [Tráfego de Websocket e HTTP/2](#websocket-and-http2-traffic)
+- [Drenagem de ligação](#connection-draining)
+- [Páginas de erros personalizadas](#custom-error-pages)
+- [Rescrever cabeçalhos HTTP](#rewrite-http-headers)
 - [Dimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Cessação da camada de tomadas seguras (SSL/TLS)
@@ -125,7 +125,7 @@ A drenagem de ligação ajuda a conseguir uma remoção correta de membros do co
 
 Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#connection-draining)de aplicação .
 
-## <a name="custom-error-pages"></a>Páginas de erro personalizadas
+## <a name="custom-error-pages"></a>Páginas de erros personalizadas
 
 O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em vez de apresentar as páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache para problemas do lado do servidor Redis
+title: Resolver problemas do lado do servidor da Cache do Azure para Redis
 description: Aprenda a resolver problemas comuns do lado do servidor com o Azure Cache para Redis, tais como pressão de memória, CPU alta, comandos de longa duração ou limitações de largura de banda.
 author: yegu-ms
 ms.author: yegu
@@ -7,13 +7,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277937"
 ---
-# <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Troubleshoot Azure Cache para problemas do lado do servidor Redis
+# <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Resolver problemas do lado do servidor da Cache do Azure para Redis
 
 Esta secção discute problemas de resolução de problemas que ocorrem devido a uma condição num Azure Cache para Redis ou nas máquinas virtuais que o hospedam.
 
@@ -55,7 +55,7 @@ Existem várias alterações que pode fazer para mitigar a alta carga do servido
 - [Crie alertas](cache-how-to-monitor.md#alerts) sobre métricas como CPU ou carga do servidor para ser notificado precocemente sobre potenciais impactos.
 - [Escala](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de CPU.
 
-## <a name="long-running-commands"></a>Comandos de longa duração
+## <a name="long-running-commands"></a>Comandos de execução longa
 
 Alguns comandos Redis são mais caros de executar do que outros. A [documentação dos redis](https://redis.io/commands) mostra a complexidade do tempo de cada comando. Como o processamento de comando redis é de roscar, um comando que leva tempo a executar bloqueará todos os outros que o perseguem. Deve rever os comandos que está a emitir para o seu servidor Redis para compreender os seus impactos de desempenho. Por exemplo, o comando [KEYS](https://redis.io/commands/keys) é frequentemente usado sem saber que é uma operação O(N). Pode evitar chaves utilizando o [SCAN](https://redis.io/commands/scan) para reduzir os picos de CPU.
 

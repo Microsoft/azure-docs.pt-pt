@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
 ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299333"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Ativar a sintonização automática para monitorizar consultas e melhorar o desempenho da carga de trabalho
@@ -45,7 +45,7 @@ A nível do servidor pode optar por herdar a configuração de afinação autom�
 
 Para permitir a sintonização automática no **servidor**lógico da Base de Dados Azure SQL, navegue para o servidor no portal Azure e, em seguida, selecione **a sintonização automática** no menu.
 
-![Servidor](./media/sql-database-automatic-tuning-enable/server.png)
+![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Por favor, note que **DROP_INDEX** opção neste momento não é compatível com aplicações que usam comutação de divisórias e dicas de índice e não deve ser ativada nestes casos. A queda de índices não utilizados não é suportada para os níveis de serviço Premium e Business Critical.
@@ -73,13 +73,13 @@ Para permitir a sintonização automática numa única base de **dados,** navegu
 
 As definições de afinação automática individual podem ser configuradas separadamente para cada base de dados. Pode configurar manualmente uma opção de afinação automática individual, ou especificar que uma opção herda as suas definições a partir do servidor.
 
-![Base de dados](./media/sql-database-automatic-tuning-enable/database.png)
+![Base de Dados](./media/sql-database-automatic-tuning-enable/database.png)
 
 Por favor, note que DROP_INDEX opção neste momento não é compatível com aplicações que usam comutação de divisórias e dicas de índice e não deve ser ativada nestes casos.
 
 Depois de ter selecionado a configuração desejada, clique em **Aplicar**.
 
-### <a name="rest-api"></a>API do REST
+### <a name="rest-api"></a>API de descanso
 
 Saiba mais sobre a utilização da API REST para permitir a sintonização automática numa única base de dados, consulte a Atualização automática de [afinação automática da Base de Dados SQL e os métodos GET HTTP](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
@@ -121,7 +121,7 @@ Para utilizar a afinação automática, a permissão mínima necessária para co
 
 Consulte o guia de notificações de [e-mail de afinação automática.](sql-database-automatic-tuning-email-notifications.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia o artigo de [afinação automática](sql-database-automatic-tuning.md) para saber mais sobre a finação automática e como pode ajudá-lo a melhorar o seu desempenho.
 * Consulte [as recomendações](sql-database-advisor.md) de Desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.

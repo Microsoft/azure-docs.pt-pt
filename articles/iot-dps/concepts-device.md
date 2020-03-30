@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285165"
 ---
-# <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo de provisionamento de dispositivos de hub iot
+# <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub Device Provisioning Service device concepts (Conceitos de dispositivo do Serviço Aprovisionamento de Dispositivos no Hub IoT)
 
 O Serviço de Provisionamento de Dispositivos IoT Hub é um serviço de ajuda para o IoT Hub que utiliza para configurar o fornecimento de dispositivos de toque zero a um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável.
 
@@ -49,7 +49,7 @@ O ID de registo é utilizado para identificar de forma única um dispositivo no 
 * No caso da TPM, o ID de registo é fornecido pelo próprio TPM.
 * No caso do atestado baseado em X.509, o ID de registo é fornecido como nome de assunto do certificado.
 
-## <a name="device-id"></a>ID do Dispositivo
+## <a name="device-id"></a>ID do dispositivo
 
 O ID do dispositivo é o ID tal como aparece no IoT Hub. O ID do dispositivo pretendido pode ser definido na entrada de inscrição, mas não é necessário ser definido. A definição do ID do dispositivo desejado só é suportada em matrículas individuais. Se não for especificado o ID do dispositivo desejado na lista de inscrições, o ID de registo é utilizado como ID do dispositivo ao registar o dispositivo. Saiba mais sobre [iDs de dispositivo no IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 

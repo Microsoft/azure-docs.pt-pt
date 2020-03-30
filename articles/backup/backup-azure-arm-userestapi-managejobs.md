@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273530"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Rastrear backup e restaurar postos de trabalho usando a API REST
@@ -41,7 +41,7 @@ O trabalho de backup Azure VM é identificado por campo "jobId" e pode ser rastr
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O `{jobName}` é "jobId" mencionado acima. A resposta é sempre de 200 OK com o campo "status" indicando o estado atual do trabalho. Uma vez "Concluído" ou "CompletedWithWarnings", a secção 'ExtendedInfo' revela mais detalhes sobre o trabalho.
+O `{jobName}` "jobId" mencionado acima. A resposta é sempre de 200 OK com o campo "status" indicando o estado atual do trabalho. Uma vez "Concluído" ou "CompletedWithWarnings", a secção 'ExtendedInfo' revela mais detalhes sobre o trabalho.
 
 ### <a name="response"></a>Resposta
 

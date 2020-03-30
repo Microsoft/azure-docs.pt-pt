@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275727"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agente de Insights de Aplicação (anteriormente chamado Monitor de Estado v2): Instruções detalhadas
@@ -50,7 +50,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para powerShell
 
-Audite a sua instância de PowerShell executando o comando `$PSVersionTable`.
+Audite a sua instância `$PSVersionTable` de PowerShell executando o comando.
 Este comando produz a seguinte saída:
 
 
@@ -112,10 +112,10 @@ Estes passos prepararão o seu servidor para descarregar módulos da PowerShell 
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    Pode confirmar esta alteração e auditar todos os PSRepositórios executando o comando `Get-PSRepository`.
+    Pode confirmar esta alteração e auditar todos os `Get-PSRepository` PSRepositórios executando o comando.
 
 4. Instale a versão mais recente do PowerShellGet.
-    - Descrição: Este módulo contém a ferramenta utilizada para obter outros módulos da PowerShell Gallery. Versão 1.0.0.1 naves com Windows 10 e Windows Server. A versão 1.6.0 ou superior é necessária. Para determinar qual a versão instalada, execute o comando `Get-Command -Module PowerShellGet`.
+    - Descrição: Este módulo contém a ferramenta utilizada para obter outros módulos da PowerShell Gallery. Versão 1.0.0.1 naves com Windows 10 e Windows Server. A versão 1.6.0 ou superior é necessária. Para determinar qual a versão `Get-Command -Module PowerShellGet` instalada, execute o comando.
     - Referência: [Instalação powerShellGet](/powershell/scripting/gallery/installing-psget).
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parâmetros opcionais:
@@ -202,14 +202,14 @@ Se estiver a instalar o módulo em qualquer outro diretório, importe manualment
 1. Altere a extensão para ".zip" e extraia o conteúdo da embalagem no diretório de instalação pretendido.
 2. Encontre o caminho de arquivo de Az.ApplicationMonitor.psd1.
 3. Executar powerShell como Administrador com uma política de execução elevada.
-4. Carregue o módulo utilizando o comando `Import-Module Az.ApplicationMonitor.psd1`.
+4. Carregue o módulo `Import-Module Az.ApplicationMonitor.psd1` utilizando o comando.
     
 
 ## <a name="route-traffic-through-a-proxy"></a>Tráfego de rota através de um proxy
 
 Quando monitorizar um computador na sua intranet privada, terá de encaminhar o tráfego HTTP através de um proxy.
 
-O PowerShell ordena descarregar e instalar o Az.ApplicationMonitor a partir da PowerShell Gallery suporta um parâmetro `-Proxy`.
+O PowerShell ordena descarregar e instalar o Az.ApplicationMonitor `-Proxy` a partir da PowerShell Gallery suportaum parâmetro.
 Reveja as instruções anteriores quando escrever os scripts de instalação.
 
 O SDK de Insights de Aplicação terá de enviar a telemetria da sua aplicação para a Microsoft. Recomendamos que configure as definições de proxy para a sua aplicação no seu ficheiro web.config. Para mais informações, consulte [Application Insights FAQ: Proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
@@ -217,7 +217,7 @@ O SDK de Insights de Aplicação terá de enviar a telemetria da sua aplicação
 
 ## <a name="enable-monitoring"></a>Ativar monitorização
 
-Utilize o comando `Enable-ApplicationInsightsMonitoring` para ativar a monitorização.
+Utilize `Enable-ApplicationInsightsMonitoring` o comando para ativar a monitorização.
 
 Consulte a [referência da API](status-monitor-v2-api-enable-monitoring.md) para obter uma descrição detalhada de como utilizar este cmdlet.
 
@@ -234,7 +234,7 @@ Consulte a [referência da API](status-monitor-v2-api-enable-monitoring.md) para
 
  Adicionar mais telemetria:
 
-- [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+- [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 - [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
 - [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
 

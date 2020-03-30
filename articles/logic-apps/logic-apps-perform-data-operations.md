@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283943"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realizar operações de dados em Aplicações Lógicas Azure
@@ -90,9 +90,9 @@ Para experimentar um exemplo, siga estes passos utilizando o Logic App Designer.
 
      ![Selecione "Novo passo" para a ação "Compor"](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza `compose` como filtro. Da lista de ações, selecione a ação **Compor.**
+1. Em **'Escolha uma ação**' `compose` na caixa de pesquisa, introduza como filtro. Da lista de ações, selecione a ação **Compor.**
 
    ![Selecione ação "Compor"](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -148,9 +148,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![Selecione "Novo passo" para a ação "Criar tabela CSV"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza `create csv table` como filtro. Na lista de ações, selecione a ação de **mesa Create CSV.**
+1. Em **'Escolha uma ação**' `create csv table` na caixa de pesquisa, introduza como filtro. Na lista de ações, selecione a ação de **mesa Create CSV.**
 
    ![Selecione ação "Criar tabela CSV"](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -179,7 +179,7 @@ Por predefinição, a propriedade **Colunas** é definida para criar automaticam
 
 1. Na propriedade **Value,** especifique o valor personalizado a utilizar.
 
-Para devolver valores da matriz, pode utilizar a [função`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) com a ação de **mesa Create CSV.** Num ciclo `For_each`, pode utilizar a [função`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
+Para devolver valores da matriz, pode utilizar a [ `item()` função](../logic-apps/workflow-definition-language-functions-reference.md#item) com a ação de **mesa Create CSV.** Num `For_each` loop, pode utilizar a [ `items()` função](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Por exemplo, suponha que quer colunas de mesa que tenham apenas os valores de propriedade e não os nomes de propriedade de uma matriz. Para devolver apenas estes valores, siga estes passos para trabalhar na vista do designer ou na vista de código. Aqui está o resultado que este exemplo retorna:
 
@@ -219,11 +219,11 @@ Na ação, mantenha a coluna **header** vazia. Em cada linha da coluna **Valor,*
 
 #### <a name="work-in-code-view"></a>Trabalhar em vista de código
 
-Na definição JSON da ação, dentro da matriz de `columns`, definiu a propriedade `header` numa corda vazia. Para cada `value` propriedade, dereference cada propriedade de matriz que você deseja.
+Na definição JSON da ação, dentro `columns` `header` da matriz, definiu a propriedade numa corda vazia. Para `value` cada propriedade, dereference cada propriedade de matriz que você deseja.
 
 1. Na barra de ferramentas de design, selecione **vista código**.
 
-1. No editor de códigos, na matriz de `columns` da ação, adicione a propriedade vazia `header` e esta expressão `value` para cada coluna de valores matrizes que deseja:
+1. No editor de código, na `columns` matriz da `header` ação, `value` adicione a propriedade vazia e esta expressão para cada coluna de valores de matriz que você deseja:
 
    ```json
    {
@@ -299,9 +299,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![Selecione "Novo passo" para a ação "Criar tabela HTML"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza `create html table` como filtro. Na lista de ações, selecione a ação de **tabela Create HTML.**
+1. Em **'Escolha uma ação**' `create html table` na caixa de pesquisa, introduza como filtro. Na lista de ações, selecione a ação de **tabela Create HTML.**
 
    ![Selecione ação "Criar tabela HTML"](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -330,7 +330,7 @@ Por predefinição, a propriedade **Colunas** é definida para criar automaticam
 
 1. Na propriedade **Value,** especifique o valor personalizado a utilizar.
 
-Para devolver valores da matriz, pode utilizar a [função`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) com a ação da **tabela Create HTML.** Num ciclo `For_each`, pode utilizar a [função`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
+Para devolver valores da matriz, pode utilizar a [ `item()` função](../logic-apps/workflow-definition-language-functions-reference.md#item) com a ação da **tabela Create HTML.** Num `For_each` loop, pode utilizar a [ `items()` função](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Por exemplo, suponha que quer colunas de mesa que tenham apenas os valores de propriedade e não os nomes de propriedade de uma matriz. Para devolver apenas estes valores, siga estes passos para trabalhar na vista do designer ou na vista de código. Aqui está o resultado que este exemplo retorna:
 
@@ -370,11 +370,11 @@ Na ação, mantenha a coluna **header** vazia. Em cada linha da coluna **Valor,*
 
 #### <a name="work-in-code-view"></a>Trabalhar em vista de código
 
-Na definição JSON da ação, dentro da matriz de `columns`, definiu a propriedade `header` numa corda vazia. Para cada `value` propriedade, dereference cada propriedade de matriz que você deseja.
+Na definição JSON da ação, dentro `columns` `header` da matriz, definiu a propriedade numa corda vazia. Para `value` cada propriedade, dereference cada propriedade de matriz que você deseja.
 
 1. Na barra de ferramentas de design, selecione **vista código**.
 
-1. No editor de códigos, na matriz de `columns` da ação, adicione a propriedade vazia `header` e esta expressão `value` para cada coluna de valores matrizes que deseja:
+1. No editor de código, na `columns` matriz da `header` ação, `value` adicione a propriedade vazia e esta expressão para cada coluna de valores de matriz que você deseja:
 
    ```json
    {
@@ -464,9 +464,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![Selecione "Novo passo" para a ação "Filter array"](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza `filter array` como filtro. Na lista de ações, selecione a ação de **matriz filter.**
+1. Na caixa de `filter array` pesquisa, introduza como filtro. Na lista de ações, selecione a ação de **matriz filter.**
 
    ![Selecione a ação "Filter array"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -478,7 +478,7 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
 1. Para a condição, especifique os itens de matriz para comparar, selecione o operador de comparação e especifique o valor de comparação.
 
-   Este exemplo utiliza a função `item()` para aceder a cada item da matriz enquanto a ação da **matriz filter** procura itens de matriz cujo valor é maior do que um:
+   Este exemplo `item()` utiliza a função de acesso a cada item da matriz enquanto a ação da **matriz filter** procura itens de matriz cujo valor é maior do que um:
 
    ![Exemplo final para a ação "Filter array"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
@@ -526,9 +526,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![SSelect "Novo passo" para a ação "Juntar"](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza `join` como filtro. Da lista de ações, selecione esta ação: **Junte-se**
+1. Na caixa de `join` pesquisa, introduza como filtro. Da lista de ações, selecione esta ação: **Junte-se**
 
    ![Selecione ação "Juntar"](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
@@ -586,9 +586,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![Selecione "Novo passo" para a ação "Parse JSON"](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza `parse json` como filtro. Na lista de ações, selecione a ação **Parse JSON.**
+1. Na caixa de `parse json` pesquisa, introduza como filtro. Na lista de ações, selecione a ação **Parse JSON.**
 
    ![Selecione ação "Parse JSON"](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -647,7 +647,7 @@ Para criar uma matriz que tenha objetos JSON construídos a partir de valores nu
 > [!NOTE]
 > Para que as ações utilizem a saída da matriz a partir da ação **Select,** ou essas ações devem aceitar as matrizes como entrada, ou poderá ter de transformar a matriz de saída em outro formato compatível. 
 
-Se preferir trabalhar no editor de visualização de códigos, pode copiar o exemplo **Selecionar** e Inicializar definições de ação variável deste artigo para a definição subjacente de fluxo de trabalho da sua própria aplicação lógica: Exemplos de código de [operação de dados - Selecione](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Se preferir trabalhar no editor de visualização de códigos, pode copiar o exemplo **Selecionar** e Inicializar definições de ação variável deste artigo para a definição subjacente de fluxo de trabalho da sua própria aplicação lógica: Exemplos de código de [operação de dados - Selecione](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) **Initialize variable** 
 
 1. No [portal Azure](https://portal.azure.com) ou No Estúdio Visual, abra a sua aplicação lógica no Logic App Designer.
 
@@ -661,9 +661,9 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
      ![Selecione "Novo passo" para a ação "Select"](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * Para adicionar uma ação entre passos, mova o rato sobre a seta de ligação para que o sinal plus **(+** ) apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
+   * Para adicionar uma ação entre passos, mova o rato sobre**+** a seta de ligação para que o sinal de adição () apareça. Selecione o sinal de mais e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de pesquisa, introduza `select` como filtro. Na lista de ações, selecione a ação **Select.**
+1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de `select` pesquisa, introduza como filtro. Na lista de ações, selecione a ação **Select.**
 
    ![Selecione a ação "Selecione"](./media/logic-apps-perform-data-operations/select-select-action.png)
 
@@ -675,7 +675,7 @@ Se preferir trabalhar no editor de visualização de códigos, pode copiar o exe
 
 1. Na coluna da caixa do **Mapa,** forneça o nome de propriedade que pretende atribuir a cada valor na matriz de origem. Na coluna da direita, especifique uma expressão que represente o valor que pretende atribuir à propriedade.
 
-   Este exemplo especifica "Product_ID" como o nome da propriedade para atribuir cada valor na matriz inteiro, utilizando a função `item()` numa expressão que aceda a cada item da matriz. 
+   Este exemplo especifica "Product_ID" como o nome da propriedade para atribuir cada `item()` valor na matriz inteiro, utilizando a função numa expressão que aceda a cada item da matriz. 
 
    ![Especificar propriedade e valores de objetoJSON para criar matriz](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
@@ -697,7 +697,7 @@ Para confirmar se a ação **Select** cria os resultados esperados, envie uma no
 
    `@actionBody('Select')`
 
-   Este exemplo utiliza o Office 365 Outlook Enviar uma ação por **e-mail** e inclui as saídas da expressão `@actionBody('Select')` no corpo do e-mail:
+   Este exemplo utiliza o Office 365 Outlook Enviar uma `@actionBody('Select')` ação por **e-mail** e inclui as saídas da expressão no corpo do e-mail:
 
    ![Saídas de ação da ação "Select"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

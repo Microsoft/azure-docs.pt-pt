@@ -1,5 +1,5 @@
 ---
-title: Gerir servidores registados com O Sincronizado de Ficheiros Azure  Microsoft Docs
+title: Gerir servidores registados com O Sincronizado de Ficheiros Azure [ Microsoft Docs
 description: Saiba como registar e desregistar um Servidor do Windows com um Serviço de Sincronização de Sincronização de Sincronização de Ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255096"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com O Sincronizado de Ficheiros Azure
@@ -35,7 +35,7 @@ Para registar um servidor com um Serviço de Sincronização de Armazenamento, t
 * Certifique-se de que o módulo PowerShell Azure está instalado no seu servidor. Se o seu servidor for membro de um Cluster Failover, cada nó do cluster necessitará do módulo Az. Mais detalhes sobre como instalar o módulo Az podem ser encontrados no [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Recomendamos a utilização da versão mais recente do módulo Az PowerShell para registar/desmarcar um servidor. Se o pacote Az tiver sido previamente instalado neste servidor (e a versão PowerShell neste servidor for de 5.* ou superior), pode utilizar o `Update-Module` cmdlet para atualizar este pacote. 
+    > Recomendamos a utilização da versão mais recente do módulo Az PowerShell para registar/desmarcar um servidor. Se o pacote Az tiver sido previamente instalado neste servidor (e a versão PowerShell neste `Update-Module` servidor for de 5.* ou superior), pode utilizar o cmdlet para atualizar este pacote. 
 * Se utilizar um servidor proxy de rede no seu ambiente, configure as definições de proxy no seu servidor para que o agente de sincronização utilize.
     1. Determine o seu endereço IP proxy e o número da porta
     2. Editar estes dois ficheiros:
@@ -117,7 +117,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  
-> Se o volume local que acolhe o ponto final do servidor não tiver espaço livre suficiente para recolher todos os dados hierárquicos, o `Invoke-StorageSyncFileRecall` cmdlet falhará.  
+> Se o volume local que acolhe o ponto final do servidor não `Invoke-StorageSyncFileRecall` tiver espaço livre suficiente para recolher todos os dados hierárquicos, o cmdlet falhará.  
 
 #### <a name="remove-the-server-from-all-sync-groups"></a>Remova o servidor de todos os grupos de sincronização
 Antes de desregistar o servidor no Serviço de Sincronização de Armazenamento, todos os pontos finais do servidor nesse servidor devem ser removidos. Isto pode ser feito através do portal Azure:

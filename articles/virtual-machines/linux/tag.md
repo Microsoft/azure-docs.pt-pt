@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616281"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual Linux em Azure
@@ -36,7 +36,7 @@ Pode visualizar todas as propriedades para uma determinada Máquina Virtual, inc
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Para adicionar uma nova etiqueta VM através do ClI Azure, pode utilizar o comando `azure vm update` juntamente com o parâmetro de etiqueta **-set**:
+Para adicionar uma nova etiqueta VM através do ClI Azure, pode utilizar o `azure vm update` comando juntamente com o parâmetro de etiqueta **-set**:
 
 ```azurecli
 az vm update \
@@ -45,7 +45,7 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-Para remover as etiquetas, pode utilizar o parâmetro **-remover** o comando `azure vm update`.
+Para remover as etiquetas, pode utilizar o `azure vm update` parâmetro **-remover** o comando.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1

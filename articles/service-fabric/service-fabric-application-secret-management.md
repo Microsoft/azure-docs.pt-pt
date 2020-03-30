@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259061"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir segredos encriptados em aplicações de Tecido de Serviço
@@ -28,7 +28,7 @@ A criação de um certificado de encriptação e a sua utilização para encript
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Especificar segredos encriptados numa aplicação
 O passo anterior descreve como encriptar um segredo com um certificado e produzir uma cadeia codificada base-64 para ser usada numa aplicação. Esta cadeia codificada base-64 pode ser especificada como [um parâmetro][parameters-link] encriptado nas Definições.xml de um serviço ou como uma [variável ambiente][environment-variables-link] encriptada no ServiceManifest.xml de um serviço.
 
-Especifique um [parâmetro][parameters-link] encriptado no ficheiro de configuração Definições.xml do seu serviço com o conjunto de atributo `IsEncrypted` para `true`:
+Especifique um [parâmetro][parameters-link] encriptado no ficheiro de configuração Definições.xml do seu serviço com o conjunto de `IsEncrypted` atributos para: `true`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -38,7 +38,7 @@ Especifique um [parâmetro][parameters-link] encriptado no ficheiro de configura
   </Section>
 </Settings>
 ```
-Especifique uma [variável ambiente][environment-variables-link] encriptada no ficheiro ServiceManifest.xml do seu serviço com o conjunto de atributo `Type` para `Encrypted`:
+Especifique uma [variável ambiente][environment-variables-link] encriptada no ficheiro `Type` ServiceManifest.xml do seu serviço com o conjunto de atributos para: `Encrypted`
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -62,7 +62,7 @@ Os segredos também devem ser incluídos na sua aplicação Service Fabric, espe
 Idealmente, a implantação para diferentes ambientes deve ser o mais automatizada possível. Isto pode ser realizado executando encriptação secreta em um ambiente de construção e fornecendo os segredos encriptados como parâmetros ao criar instâncias de aplicação.
 
 #### <a name="use-overridable-parameters-in-settingsxml"></a>Utilize parâmetros muito ridíveis em Definições.xml
-O ficheiro de configuração Definições.xml permite parâmetros sobre-verriáveis que podem ser fornecidos no momento da criação da aplicação. Utilize o atributo `MustOverride` em vez de fornecer um valor para um parâmetro:
+O ficheiro de configuração Definições.xml permite parâmetros sobre-verriáveis que podem ser fornecidos no momento da criação da aplicação. Utilize `MustOverride` o atributo em vez de fornecer um valor para um parâmetro:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -94,15 +94,15 @@ Para sobrepor os valores em Definições.xml, declare um parâmetro de sobreposi
   </ServiceManifestImport>
  ```
 
-Agora o valor pode ser especificado como parâmetro de *aplicação* ao criar uma instância da aplicação. A criação de uma instância de aplicação C#pode ser escrita usando powerShell, ou escrita em, para uma fácil integração num processo de construção.
+Agora o valor pode ser especificado como parâmetro de *aplicação* ao criar uma instância da aplicação. A criação de uma instância de aplicação pode ser escrita usando powerShell, ou escrita em C#, para uma fácil integração num processo de construção.
 
-Utilizando o PowerShell, o parâmetro é fornecido ao comando `New-ServiceFabricApplication` como [uma tabela de hash:](https://technet.microsoft.com/library/ee692803.aspx)
+Utilizando o PowerShell, o parâmetro `New-ServiceFabricApplication` é fornecido ao comando como uma tabela de [hash:](https://technet.microsoft.com/library/ee692803.aspx)
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Utilização, C#os parâmetros de aplicação são especificados num `ApplicationDescription` como `NameValueCollection`:
+Utilizando C#, os parâmetros de `ApplicationDescription` aplicação são especificados em um `NameValueCollection`como:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();

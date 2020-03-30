@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272269"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeie uma rede virtual para o Azure HDInsight
@@ -26,7 +26,7 @@ A utilização de uma Rede Virtual Azure permite os seguintes cenários:
 * Acedendo diretamente aos serviços Apache Hadoop que não estão disponíveis publicamente através da internet. Por exemplo, Apache Kafka APIs ou a Apache HBase Java API.
 
 > [!IMPORTANT]
-> A criação de um cluster HDInsight num VNET criará vários recursos de networking, tais como NICs e equilibradores de carga. Não elimine estes recursos de rede, pois são necessários para que o seu cluster funcione corretamente com o VNET.
+> A criação de um cluster HDInsight num VNET criará vários recursos de networking, tais como NICs e equilibradores de carga. Não **not** elimine estes recursos de rede, pois são necessários para que o seu cluster funcione corretamente com o VNET.
 >
 > Depois de 28 de fevereiro de 2019, os recursos de networking (tais como NICs, LBs, etc) para novos clusters HDInsight criados num VNET serão aprovisionados no mesmo grupo de recursos de cluster HDInsight. Anteriormente, estes recursos eram provisionados no grupo de recursos VNET. Não há alteração nos atuais clusters de execução e nos clusters criados sem um VNET.
 
@@ -46,7 +46,7 @@ Seguem-se as perguntas que deve responder ao planear instalar o HDInsight numa r
 
     O HDInsight deve ter uma comunicação sem restrições com endereços IP específicos no centro de dados Azure. Existem também várias portas que devem ser permitidas através de firewalls para comunicação do cliente. Para mais informações, consulte a secção de tráfego da [rede de controlo.](#networktraffic)
 
-## <a id="existingvnet"></a>Adicione hDInsight a uma rede virtual existente
+## <a name="add-hdinsight-to-an-existing-virtual-network"></a><a id="existingvnet"></a>Adicione hDInsight a uma rede virtual existente
 
 Utilize os passos nesta secção para descobrir como adicionar um novo HDInsight a uma rede virtual Azure existente.
 
@@ -110,7 +110,7 @@ Utilize os passos nesta secção para descobrir como adicionar um novo HDInsight
    > [!IMPORTANT]  
    > Adicionar o HDInsight a uma rede virtual é um passo de configuração opcional. Certifique-se de selecionar a rede virtual ao configurar o cluster.
 
-## <a id="multinet"></a>Ligação de várias redes
+## <a name="connecting-multiple-networks"></a><a id="multinet"></a>Ligação de várias redes
 
 O maior desafio com uma configuração multi-rede é a resolução de nomes entre as redes.
 
@@ -136,7 +136,7 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
 2. Configure a rede virtual para utilizar o servidor DNS personalizado.
 
-3. Encontre o sufixo DNS atribuído ao Azure para a sua rede virtual. Este valor é semelhante ao `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Para obter informações sobre a descoberta do sufixo DNS, consulte a secção [Exemplo: DNS personalizada.](hdinsight-create-virtual-network.md#example-dns)
+3. Encontre o sufixo DNS atribuído ao Azure para a sua rede virtual. Este valor é `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`semelhante a . Para obter informações sobre a descoberta do sufixo DNS, consulte a secção [Exemplo: DNS personalizada.](hdinsight-create-virtual-network.md#example-dns)
 
 4. Configure o encaminhamento entre os servidores DNS. A configuração depende do tipo de rede remota.
 
@@ -168,7 +168,7 @@ Para mais informações, consulte o documento de Resolução de [Nomes para VMs 
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Ligue-se diretamente aos serviços Apache Hadoop
 
-Pode ligar-se ao aglomerado em `https://CLUSTERNAME.azurehdinsight.net`. Este endereço utiliza um IP público, que pode não ser acessível se tiver usado NSGs para restringir o tráfego de entrada a partir da internet. Além disso, quando implanta o cluster num VNet, pode aceder-lhe utilizando o ponto final privado `https://CLUSTERNAME-int.azurehdinsight.net`. Este ponto final resolve um IP privado dentro do VNet para acesso ao cluster.
+Pode ligar-se ao `https://CLUSTERNAME.azurehdinsight.net`cluster em . Este endereço utiliza um IP público, que pode não ser acessível se tiver usado NSGs para restringir o tráfego de entrada a partir da internet. Além disso, quando implanta o cluster num VNet, `https://CLUSTERNAME-int.azurehdinsight.net`pode aceder-lhe utilizando o ponto final privado . Este ponto final resolve um IP privado dentro do VNet para acesso ao cluster.
 
 Para ligar ao Apache Ambari e outras páginas web através da rede virtual, utilize os seguintes passos:
 
@@ -194,14 +194,14 @@ Para ligar ao Apache Ambari e outras páginas web através da rede virtual, util
     az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Na lista de nós devolvidos, encontre o FQDN para os nós da cabeça e use os FQDNs para ligar a Ambari e outros serviços web. Por exemplo, use `http://<headnode-fqdn>:8080` para aceder a Ambari.
+    Na lista de nós devolvidos, encontre o FQDN para os nós da cabeça e use os FQDNs para ligar a Ambari e outros serviços web. Por exemplo, `http://<headnode-fqdn>:8080` use para aceder a Ambari.
 
     > [!IMPORTANT]  
     > Alguns serviços hospedados nos nóóis de cabeça só estão ativos num nó de cada vez. Se tentar aceder a um serviço num nó de cabeça e devolver um erro de 404, mude para o outro nó da cabeça.
 
 2. Para determinar o nó e a porta em que um serviço está disponível, consulte as [Portas utilizadas pelos serviços Hadoop no documento HDInsight.](./hdinsight-hadoop-port-settings-for-services.md)
 
-## <a id="networktraffic"></a>Controlar o tráfego da rede
+## <a name="controlling-network-traffic"></a><a id="networktraffic"></a>Controlar o tráfego da rede
 
 ### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Técnicas para controlar o tráfego de entrada e saída para os clusters HDInsight
 
@@ -237,11 +237,11 @@ Para obter mais informações sobre o controlo do tráfego de saída dos cluster
 
 A escavação forçada é uma configuração de encaminhamento definida pelo utilizador onde todo o tráfego de uma subnet é forçado a uma rede ou localização específica, como a sua rede no local. O HDInsight __não__ suporta a escavação forçada do tráfego para as redes no local.
 
-## <a id="hdinsight-ip"></a>Endereços IP necessários
+## <a name="required-ip-addresses"></a><a id="hdinsight-ip"></a>Endereços IP necessários
 
 Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador para controlar o tráfego, consulte os endereços IP de [gestão HDInsight](hdinsight-management-ip-addresses.md).
 
-## <a id="hdinsight-ports"></a>Portas necessárias
+## <a name="required-ports"></a><a id="hdinsight-ports"></a>Portas necessárias
 
 Se planeia utilizar uma **firewall** e aceder ao cluster de fora em certas portas, poderá ter de permitir o tráfego nas portas necessárias para o seu cenário. Por predefinição, não é necessária uma lista especial de portas, desde que o tráfego de gestão azul explicado na secção anterior seja autorizado a atingir o cluster na porta 443.
 
@@ -255,7 +255,7 @@ Quando se cria um cluster HDInsight, é criado um equilibrador de carga também.
 
 ## <a name="transport-layer-security"></a>Segurança da camada de transporte
 
-As ligações ao cluster através do ponto final do cluster público `https://<clustername>.azurehdinsight.net` são proxid através de nós de gateway cluster. Estas ligações são protegidas usando um protocolo chamado TLS. A aplicação de versões mais elevadas de TLS nos gateways melhora a segurança destas ligações. Para obter mais informações sobre o porquê de utilizar versões mais recentes de TLS, consulte [A resolução do Problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+As ligações ao cluster através `https://<clustername>.azurehdinsight.net` do ponto final do cluster público são proxidas através de nós de gateway cluster. Estas ligações são protegidas usando um protocolo chamado TLS. A aplicação de versões mais elevadas de TLS nos gateways melhora a segurança destas ligações. Para obter mais informações sobre o porquê de utilizar versões mais recentes de TLS, consulte [A resolução do Problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 Por padrão, os clusters Azure HDInsight aceitam ligações TLS 1.2 em pontos finais HTTPS públicos, bem como versões mais antigas para retrocompatibilidade. Pode controlar a versão TLS mínima suportada nos nós de gateway durante a criação do cluster utilizando o portal Azure, ou um modelo de gestor de recursos. Para o portal, selecione a versão TLS do separador **de rede Security +** durante a criação do cluster. Para um modelo de gestor de recursos no momento de implantação, utilize a propriedade **minSupportedTlsVersion.** Para um modelo de amostra, consulte o [modelo mínimo TLS 1.2 Quickstart HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Este imóvel suporta três valores: "1.0", "1.1" e "1.2", que correspondem a TLS 1.0+, TLS 1.1+ e TLS 1.2+, respectivamente.
 

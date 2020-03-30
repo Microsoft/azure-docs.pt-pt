@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271970"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções de Erro outOfMemoryError para Apache Spark em Azure HDInsight
@@ -54,7 +54,7 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Causa
 
-A causa mais provável desta exceção é que não suficiente memória de heap é alocada para as máquinas de virtuais de Java (JVMs). Estes JVMs são lançados como executores ou condutores como parte da aplicação Apache Spark.
+A causa mais provável desta exceção é que a memória não suficiente da pilha é atribuída às máquinas virtuais java (JVMs). Estes JVMs são lançados como executores ou condutores como parte da aplicação Apache Spark.
 
 ### <a name="resolution"></a>Resolução
 
@@ -116,13 +116,13 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>Resolução
 
-Pode aumentar a memória do Spark History Server editando a propriedade `SPARK_DAEMON_MEMORY` na configuração Spark e reiniciando todos os serviços.
+Pode aumentar a memória do Spark `SPARK_DAEMON_MEMORY` History Server editando a propriedade na configuração Spark e reiniciando todos os serviços.
 
 Pode fazê-lo a partir do UI do navegador Ambari selecionando a secção Spark2/Config/Advanced spark2-env.
 
 ![Secção avançada de faíscas 2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-Adicione a seguinte propriedade para alterar a memória do Spark History Server de 1g a 4g: `SPARK_DAEMON_MEMORY=4g`.
+Adicione a seguinte propriedade para alterar a memória do `SPARK_DAEMON_MEMORY=4g`Spark History Server de 1g a 4g: .
 
 ![Propriedade de faísca](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread` destaca o OS não pode atribuir mais fios nativos a JVMs. Confirmou-se que esta Exceção é causada pela violação do limite de contagem de fios por processo.
+`java.lang.OutOfMemoryError: unable to create new native thread`destaca-se que o OS não pode atribuir mais fios nativos a JVMs. Confirmou-se que esta Exceção é causada pela violação do limite de contagem de fios por processo.
 
 Quando o Livy Server termina inesperadamente, todas as ligações aos Clusters de Faíscas também são terminadas, o que significa que todos os empregos e dados relacionados serão perdidos. No mecanismo de recuperação da sessão HDP 2.6 foi introduzido, a Livy armazena os detalhes da sessão em Zookeeper para ser recuperado após o servidor livy estar de volta.
 
@@ -239,11 +239,11 @@ Elimine todas as entradas utilizando passos descritos abaixo.
 1. Aguarde que o comando acima esteja completo e o cursor devolva o pedido e, em seguida, reinicie o serviço Livy de Ambari, o que deve ter sucesso.
 
 > [!NOTE]
-> `DELETE` a sessão de livy uma vez concluída a sua execução. As sessões de lote livy não serão eliminadas automaticamente assim que a aplicação de faíscas estiver concluída, que é por design. Uma sessão livy é uma entidade criada por um pedido post contra o servidor Livy Rest. É necessária uma chamada `DELETE` para eliminar essa entidade. Ou devemos esperar que o GC entre em vigor.
+> `DELETE`a sessão de livy uma vez que é concluída a sua execução. As sessões de lote livy não serão eliminadas automaticamente assim que a aplicação de faíscas estiver concluída, que é por design. Uma sessão livy é uma entidade criada por um pedido post contra o servidor Livy Rest. É `DELETE` necessária uma chamada para apagar essa entidade. Ou devemos esperar que o GC entre em vigor.
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

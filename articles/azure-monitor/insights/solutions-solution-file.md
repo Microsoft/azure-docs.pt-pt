@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275181"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criação de um ficheiro de solução de gestão em Azure (Pré-visualização)
@@ -25,8 +25,8 @@ As soluções de gestão em Azure são implementadas como modelos de [Gestor de 
 
 Pode utilizar qualquer editor de texto para trabalhar com ficheiros de soluções, mas recomendamos alavancar as funcionalidades fornecidas no Visual Studio ou visual Studio Code, conforme descrito nos seguintes artigos.
 
-- [Criação e implantação de grupos de recursos Azure através do Estúdio Visual](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
-- [Trabalhar com modelos de gestor de recursos Azure no código do estúdio visual](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Criar e implementar grupos de recursos do Azure através do Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Trabalhar com Modelos do Azure Resource Manager no Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -80,10 +80,10 @@ A tabela seguinte enumera os parâmetros padrão para todas as soluções de ges
 |:--- |:--- |:--- |
 | accountName |string |Nome da conta Azure Automation. |
 | preçosTier |string |Nível de preços tanto do espaço de trabalho log analytics como da conta Azure Automation. |
-| regionId |string |Região da conta De Automação Azure. |
-| solutionName |string |Nome da solução.  Se estiver a implementar a sua solução através de modelos Quickstart, então deve definir o nome da solução como parâmetro para que possa definir uma cadeia, em vez disso, exigindo que o utilizador especifique um. |
+| regiãoId |string |Região da conta De Automação Azure. |
+| nome da solução |string |Nome da solução.  Se estiver a implementar a sua solução através de modelos Quickstart, então deve definir o nome da solução como parâmetro para que possa definir uma cadeia, em vez disso, exigindo que o utilizador especifique um. |
 | workspaceName |string |Log Analytics nome do espaço de trabalho. |
-| workspaceRegionId |string |Região do espaço de trabalho Log Analytics. |
+| espaço de trabalhoRegionId |string |Região do espaço de trabalho Log Analytics. |
 
 
 Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu ficheiro de solução.  
@@ -122,7 +122,7 @@ Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu fich
     }
 
 
-Refere-se aos valores dos parâmetros noutros elementos da solução com os parâmetros de sintaxe **('nome parâmetro')** .  Por exemplo, para aceder ao nome do espaço de trabalho, utilizaria **parâmetros ('workspaceName')**
+Refere-se aos valores dos parâmetros noutros elementos da solução com os parâmetros de sintaxe **('nome parâmetro')**.  Por exemplo, para aceder ao nome do espaço de trabalho, utilizaria **parâmetros ('workspaceName')**
 
 ## <a name="variables"></a>Variáveis
 [As variáveis](../../azure-resource-manager/templates/template-syntax.md#variables) são valores que utilizará no resto da solução de gestão.  Estes valores não estão expostos ao utilizador que instala a solução.  Destinam-se a fornecer ao autor um único local onde possam gerir valores que possam ser usados várias vezes ao longo da solução. Deve colocar quaisquer valores específicos da sua solução em variáveis em vez de codificar duramente no elemento **de recursos.**  Isto torna o código mais legível e permite-lhe alterar facilmente estes valores em versões posteriores.
@@ -137,7 +137,7 @@ Segue-se um exemplo de um elemento variável com **parâmetros** típicos utiliz
         "AutomationApiVersion": "2015-10-31"
     },
 
-Refere-se a valores variáveis através da solução com as **variáveis sintaxe ('nome variável')** .  Por exemplo, para aceder à variável Nome da Solução, utilizaria **variáveis ('Nome da solução')** .
+Refere-se a valores variáveis através da solução com as **variáveis sintaxe ('nome variável')**.  Por exemplo, para aceder à variável Nome da Solução, utilizaria **variáveis ('Nome da solução')**.
 
 Também pode definir variáveis complexas que múltiplos conjuntos de valores.  Estes são particularmente úteis em soluções de gestão onde você está definindo múltiplas propriedades para diferentes tipos de recursos.  Por exemplo, poderia reestruturar as variáveis de solução acima apresentadas para o seguinte.
 
@@ -160,7 +160,7 @@ Neste caso, refere-se a valores variáveis através da solução com as **variá
 ### <a name="dependencies"></a>Dependências
 O elemento **dependsOn** especifica uma [dependência](../../azure-resource-manager/templates/define-resource-dependency.md) de outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as suas dependências tenham sido criadas.  Por exemplo, a sua solução pode iniciar um livro de [execução](solutions-resources-automation.md#runbooks) quando é instalado usando um recurso de [trabalho](solutions-resources-automation.md#automation-jobs).  O recurso de trabalho dependeria do recurso do livro de recorridos para garantir que o livro de execução é criado antes da criação do trabalho.
 
-### <a name="log-analytics-workspace-and-automation-account"></a>Área de trabalho do log Analytics e a conta de automatização
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics workspace e conta de Automação
 As soluções de gestão requerem um espaço de [trabalho log Analytics](../../azure-monitor/platform/manage-access.md) para conter vistas e uma conta de [Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter livros de execução e recursos relacionados.  Estes devem estar disponíveis antes da criação dos recursos da solução e não devem ser definidos na própria solução.  O utilizador irá especificar um espaço de [trabalho e uma conta](solutions.md#log-analytics-workspace-and-automation-account) quando implementar a sua solução, mas como autor deve considerar os seguintes pontos.
 
 
@@ -206,9 +206,9 @@ O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os r
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID do espaço de trabalho Log Analytics sob a forma *\<Grupo de Recursos ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>* . |
-| referencedResources |Lista de recursos na solução que não deve ser removida quando a solução é removida. |
-| containedResources |Lista de recursos na solução que deve ser removida quando a solução for removida. |
+| espaço de trabalhoResourceId |ID do espaço de trabalho Log Analytics no formulário * \<Id>/fornecedores do\<Grupo\>de Recursos/Microsoft.OperationalInsights/workspace/ Workspace Name*. |
+| recursos referenciados |Lista de recursos na solução que não deve ser removida quando a solução é removida. |
+| recursos contidos |Lista de recursos na solução que deve ser removida quando a solução for removida. |
 
 O exemplo acima é para uma solução com um livro de execução, um horário e vista.  O calendário e o rinque são *referenciados* no elemento **de propriedades** para que não sejam removidos quando a solução é removida.  A vista está *contida* para que seja removida quando a solução for removida.
 
@@ -218,7 +218,7 @@ A entidade do **plano** do recurso de solução tem os imóveis na tabela seguin
 | Propriedade | Descrição |
 |:--- |:--- |
 | nome |Nome da solução. |
-| version |Versão da solução determinada pelo autor. |
+| versão |Versão da solução determinada pelo autor. |
 | produto |Corda única para identificar a solução. |
 | publicador |Editor da solução. |
 

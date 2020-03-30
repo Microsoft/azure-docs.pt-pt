@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282981"
 ---
-# <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço na Pesquisa Cognitiva Azure
+# <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices e outros objetos dependem se [você fornecer camadas](search-create-service-portal.md) de preços otimizados Azure em **Free**, **Basic**, **Standard**ou **Storage Optimized** pricing.
 
@@ -46,12 +46,12 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 ## <a name="index-limits"></a>Limites de índice
 
-| Recurso | Gratuito | &nbsp;<sup>básico 1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | ERROS DE L2 |
+| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |10 |10 |
 | Máximo de campos simples por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Campos de recolha complexos máximos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
-| Elementos máximos em todas as coleções complexas por documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Elementos máximos em todas&nbsp;as coleções complexas por documento<sup>2</sup> |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |
 | Profundidade máxima dos campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
 | Sugestões [máximas](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Perfis [máximos de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
@@ -59,7 +59,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 <sup>1</sup> Os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) nos índices. O nível básico é o único SKU com um limite inferior de 100 campos por índice.
 
-<sup>2</sup> Ter um número muito grande de elementos em coleções complexas por documento causa atualmente uma elevada utilização de armazenamento. Este é um problema conhecido. Entretanto, um limite de 3000 é um limite superior seguro para todos os níveis de serviço. Este limite só é aplicado para operações de indexação que utilizam a versão API mais antiga e geralmente disponível (GA) que suporta campos de tipo complexos (`2019-05-06`) em diante. Para não quebrar clientes que possam estar a usar versões API de pré-visualização anteriores (que suportam campos de tipo complexos), não vamos impor este limite para operações de indexação que utilizam estas versões API de pré-visualização. Note que as versões API de pré-visualização não são para ser usadas para cenários de produção e recomendamos vivamente que os clientes se mudem para a versão mais recente da API.
+<sup>2</sup> Ter um número muito grande de elementos em coleções complexas por documento causa atualmente uma elevada utilização de armazenamento. Este é um problema conhecido. Entretanto, um limite de 3000 é um limite superior seguro para todos os níveis de serviço. Este limite só é aplicado para operações de indexação que utilizam a versão API`2019-05-06`mais antiga (GA) que suporta campos de tipo complexos ( ) em diante. Para não quebrar clientes que possam estar a usar versões API de pré-visualização anteriores (que suportam campos de tipo complexos), não vamos impor este limite para operações de indexação que utilizam estas versões API de pré-visualização. Note que as versões API de pré-visualização não são para ser usadas para cenários de produção e recomendamos vivamente que os clientes se mudem para a versão mais recente da API.
 
 <a name="document-limits"></a>
 
@@ -67,7 +67,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 A partir de outubro de 2018, já não existem limites de documentos para qualquer novo serviço criado em qualquer nível de faturação (Básico, S1, S2, S3, S3 HD) em qualquer região. Embora a maioria das regiões tenha contagens de documentos ilimitadas desde novembro/dezembro de 2017, houve algumas regiões que continuaram a impor limites de documentos após essa data. Dependendo de quando e onde criou um serviço de pesquisa, poderá estar a executar um serviço que ainda está sujeito a limites de documentos.
 
-Para determinar se o seu serviço tem limites de documentos, utilize a API de Estatísticas do [Serviço GET REST API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Os limites dos documentos refletem-se na resposta, com `null` a indicar em nenhum limite.
+Para determinar se o seu serviço tem limites de documentos, utilize a API de Estatísticas do [Serviço GET REST API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Os limites do documento refletem-se na resposta, sem `null` indicar limites.
 
 > [!NOTE]
 > Apesar de não existirem limites de documentos específicos sku, cada índice ainda está sujeito a um limite máximo de segurança para garantir a estabilidade do serviço. Este limite vem de Lucene. Todos os documentos de Pesquisa Cognitiva Azure são indexados internamente como um ou mais documentos Lucene. O número de documentos Lucene por documento de pesquisa depende do número total de elementos em campos de recolha complexos. Cada elemento é indexado como um documento lucene separado. Por exemplo, um documento com 3 elementos num campo de recolha complexo, será indexado como 4 documentos Lucene - 1 para o próprio documento e 3 para os elementos. O número máximo de documentos lucene é de aproximadamente 25 mil milhões por índice.
@@ -84,9 +84,9 @@ Se o portal indicar um limite de documento, o seu serviço foi criado antes do f
 
 Para os serviços sujeitos a limites de documentos, aplicam-se os seguintes limites máximos:
 
-|  Gratuito | Básica | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratuito | Básico | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;milhões |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
+|  10,000 |1&nbsp;milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
 
 Se o seu serviço tiver limites que o estão a bloquear, crie um novo serviço e, em seguida, republique todos os conteúdos para esse serviço. Não existe nenhum mecanismo para refornecer o seu serviço para um novo hardware nos bastidores.
 
@@ -107,7 +107,7 @@ Para manter o tamanho do documento baixo, lembre-se de excluir dados não consul
 Existem tempos máximos de funcionamento para proporcionar equilíbrio e estabilidade ao serviço como um todo, mas conjuntos de dados maiores podem precisar de mais tempo de indexação do que o máximo permite. Se um trabalho de indexação não puder ser concluído dentro do tempo máximo permitido, tente executá-lo num horário. O programador mantém o registo do estado de indexação. Se um trabalho de indexação programado for interrompido por qualquer motivo, o indexante pode retomar onde ficou parado pela última vez na próxima execução programada.
 
 
-| Recurso | &nbsp;livre <sup>1</sup> | &nbsp;<sup>básico 2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |ERROS DE L2 |
+| Recurso | Grátis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/D |10 |10 |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
@@ -115,9 +115,9 @@ Existem tempos máximos de funcionamento para proporcionar equilíbrio e estabil
 | Carga máxima de indexação por invocação |10.000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/D |Sem limite |Sem limite |
 | Horário mínimo | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
 | Tempo máximo de funcionamento <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
-| Tempo máximo de funcionamento para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
+| Tempo máximo de funcionamento para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |Duas horas |Duas horas |Duas horas |Duas horas |N/D  |Duas horas |Duas horas |
 | Indexante blob: tamanho máximo da bolha, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indexador blob: caracteres máximos de conteúdo extraído de uma bolha |32,000 |64,000 |4&nbsp;milhões |8&nbsp;milhões |16 milhões&nbsp; |N/D |4&nbsp;milhões |4&nbsp;milhões |
+| Indexador blob: caracteres máximos de conteúdo extraído de uma bolha |32,000 |64,000 |4&nbsp;milhões |8&nbsp;milhões |16&nbsp;milhões |N/D |4&nbsp;milhões |4&nbsp;milhões |
 
 <sup>1</sup> Os serviços gratuitos têm o tempo máximo de execução do indexante de 3 minutos para fontes blob e 1 minuto para todas as outras fontes de dados. Para a indexação da IA que entra nos Serviços Cognitivos, os serviços gratuitos estão limitados a 20 transações gratuitas por dia, onde uma transação é definida como um documento que passa com sucesso através do pipeline de enriquecimento.
 
@@ -130,16 +130,16 @@ Existem tempos máximos de funcionamento para proporcionar equilíbrio e estabil
 <sup>5</sup> As cargas de trabalho cognitivas de pesquisa e a análise de imagem na indexação do blob Azure têm tempos de funcionamento mais curtos do que a indexação regular de texto. A análise da imagem e o processamento de linguagem natural são computacionalmente intensivos e consomem quantidades desproporcionadas de poder de processamento disponível. O tempo de funcionamento foi reduzido para dar a outros empregos na fila uma oportunidade de correr.  
 
 > [!NOTE]
-> Tal como indicado nos limites do [Índice,](#index-limits)os indexadores também aplicarão o limite superior de 3000 elementos em todas as coleções complexas por documento, a começar pela mais recente versão ga API que suporta tipos complexos (`2019-05-06`) em diante. Isto significa que se criou o seu indexante com uma versão API anterior, não estará sujeito a este limite. Para preservar a máxima compatibilidade, um indexante que foi criado com uma versão API anterior e depois atualizado com uma versão API `2019-05-06` ou posterior, continuará a ser **excluído** dos limites. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como indicado anteriormente) e recomendamos vivamente a criação de quaisquer novos indexers com a mais recente versão ga API.
+> Tal como indicado nos limites do [Índice,](#index-limits)os indexadores também aplicarão o limite superior de 3000 elementos em todas`2019-05-06`as coleções complexas por documento, a começar pela mais recente versão ga API que suporta tipos complexos ( ) em diante. Isto significa que se criou o seu indexante com uma versão API anterior, não estará sujeito a este limite. Para preservar a máxima compatibilidade, um indexante que foi criado com uma versão Anterior `2019-05-06` da API e depois atualizado com uma versão API ou posteriormente, continuará a ser **excluído** dos limites. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como indicado anteriormente) e recomendamos vivamente a criação de quaisquer novos indexers com a mais recente versão ga API.
 
 ## <a name="synonym-limits"></a>Limites do sinónimo
 
 O número máximo de mapas sinónimo permitidos varia em linha com o nível de preços. Cada regra pode ter até 20 expansões, onde uma expansão é um termo equivalente. Por exemplo, dado "gato", associação com "gatinho", "felino" e "felis" (o género dos gatos) contaria como 3 expansões.
 
-| Recurso | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | ERROS DE L2 |
+| Recurso | Gratuito | Básico | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mapas de sinónimo máximo |3 |3|5 |10 |20 |20 | 10 | 10 |
-| Número máximo de regras por mapa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
+| Número máximo de regras por mapa |5000 |20 000|20 000 |20 000 |20 000 |20 000 | 20 000 | 20 000  |
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 
@@ -151,7 +151,7 @@ Para os níveis Otimizados de Armazenamento, deve esperar uma entrada de consult
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 
-Um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) que faz chamadas para um recurso De SMS Analytics para reconhecimento de [entidades,](cognitive-search-skill-entity-recognition.md)extração de [frases-chave,](cognitive-search-skill-keyphrases.md) [análise de sentimentos,](cognitive-search-skill-sentiment.md) [deteção de linguagem,](cognitive-search-skill-language-detection.md)e [deteção de PII](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um recorde deve ser de 50.000 caracteres medido [si ](https://docs.microsoft.com/dotnet/api/system.string.length)`String.Length`. Se precisar de separar os seus dados antes de enviá-los para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+Um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) que faz chamadas para um recurso De SMS Analytics para reconhecimento de [entidades,](cognitive-search-skill-entity-recognition.md)extração de [frases-chave,](cognitive-search-skill-keyphrases.md) [análise de sentimentos,](cognitive-search-skill-sentiment.md) [deteção de linguagem,](cognitive-search-skill-language-detection.md)e [deteção de PII](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um disco deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caracteres medido por . Se precisar de separar os seus dados antes de enviá-los para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de estrangulamento
 

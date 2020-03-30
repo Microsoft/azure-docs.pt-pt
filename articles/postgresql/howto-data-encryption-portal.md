@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: fe4c69787b606c601d2dc8b31cadc6dcf57458da
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297072"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Encriptação de dados para base de dados Azure para servidor Single PostgreSQL utilizando o portal Azure
@@ -41,7 +41,7 @@ Aprenda a usar o portal Azure para configurar e gerir a encriptação de dados p
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Detete as permissões certas para operações-chave
 
-1. No Cofre chave, selecione **as políticas** de acesso > adicionar a política de **acesso**.
+1. No Cofre de Chaves, selecione **Políticas** > de acesso**Adicionar Política de Acesso**.
 
    ![Screenshot do cofre chave, com políticas de acesso e política de acesso adicionado em destaque](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -69,7 +69,7 @@ Aprenda a usar o portal Azure para configurar e gerir a encriptação de dados p
 
 Depois de a Base de Dados Azure para o servidor Single PostgreSQL ser encriptada com a chave gerida por um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é encriptada. Pode fazer esta nova cópia através de uma operação local ou geo-restauro, ou através de uma operação de réplica (local/região transversal). Assim, para um servidor PostgreSQL encriptado, pode utilizar os seguintes passos para criar um servidor restaurado encriptado.
 
-1. No seu servidor, selecione **Visão geral** > **Restaurar**.
+1. No seu servidor, selecione **Overview** > **Restore**.
 
    ![Screenshot da Base de Dados Azure para PostgreSQL, com visão geral e restauro em destaque](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ Depois de a Base de Dados Azure para o servidor Single PostgreSQL ser encriptada
 
    ![Screenshot da Base de Dados Azure para PostgreSQL, com estatuto inacessível em destaque](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Para tornar o servidor acessível, revalidar a chave no servidor restaurado. Selecione a **encriptação de dados** > **chave Revalidar**.
+3. Para tornar o servidor acessível, revalidar a chave no servidor restaurado. Selecione**a chave revalidação** **de encriptação** > de dados .
 
    > [!NOTE]
    > A primeira tentativa de revalidação falhará, porque o diretor de serviço do novo servidor precisa de ter acesso ao cofre chave. Para gerar o diretor de serviço, selecione a **tecla Revalidação,** que mostrará um erro mas gera o diretor de serviço. Posteriormente, consulte [estes passos](#set-the-right-permissions-for-key-operations) mais cedo neste artigo.
@@ -107,7 +107,7 @@ Este modelo de Gestor de Recursos Azure cria uma Base de Dados Azure para o serv
 ### <a name="for-an-existing-server"></a>Para um servidor existente
 Além disso, pode utilizar modelos do Gestor de Recursos Do Azure para ativar a encriptação de dados na base de dados azure existente para servidores Single PostgreSQL.
 
-* Passe o URI da chave Azure Key Vault que copiou anteriormente sob a propriedade `keyVaultKeyUri` no objeto de propriedades.
+* Passe o URI da chave Azure Key Vault que `keyVaultKeyUri` copiou anteriormente sob a propriedade no objeto de propriedades.
 
 * Utilize a *pré-visualização 2020-01-01* como versão API.
 
@@ -218,6 +218,6 @@ Além disso, pode utilizar modelos do Gestor de Recursos Do Azure para ativar a 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  Para saber mais sobre encriptação de dados, consulte a Base de [Dados Azure para encriptação de dados do servidor single PostgreSQL com a chave gerida pelo cliente](concepts-data-encryption-postgresql.md).

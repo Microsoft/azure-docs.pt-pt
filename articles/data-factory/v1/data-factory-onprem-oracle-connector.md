@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265860"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para a Oracle no local utilizando a Azure Data Factory
@@ -54,7 +54,7 @@ O portal é necessário mesmo que o Oráculo esteja hospedado numa infraestrutur
 
 Este conector Oracle suporta duas versões de condutores:
 
-- **Controlador da Microsoft para o Oracle (recomendado)** : A partir da versão Gateway de Gestão de Dados 2.7, um controlador da Microsoft para a Oracle é automaticamente instalado com o gateway. Não é necessário instalar ou atualizar o controlador para estabelecer conectividade com a Oracle. Também pode experimentar um melhor desempenho de cópia utilizando este controlador. Estas versões das bases de dados oracle são suportadas:
+- **Controlador da Microsoft para o Oracle (recomendado)**: A partir da versão Gateway de Gestão de Dados 2.7, um controlador da Microsoft para a Oracle é automaticamente instalado com o gateway. Não é necessário instalar ou atualizar o controlador para estabelecer conectividade com a Oracle. Também pode experimentar um melhor desempenho de cópia utilizando este controlador. Estas versões das bases de dados oracle são suportadas:
   - Oráculo 12c R1 (12.1)
   - Oráculo 11g R1, R2 (11.1, 11.2)
   - Oráculo 10g R1, R2 (10.1, 10.2)
@@ -95,7 +95,7 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades jSON que utiliza para definir entidades da Fábrica de Dados.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 A tabela seguinte descreve elementos JSON específicos do serviço ligado ao Oráculo:
 
@@ -103,13 +103,13 @@ A tabela seguinte descreve elementos JSON específicos do serviço ligado ao Or�
 | --- | --- | --- |
 | tipo |A propriedade **tipo** deve ser definida para **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual o controlador a utilizar para copiar dados de ou para uma base de dados da Oracle. Os valores permitidos são **Microsoft** e **ODP** (predefinição). Consulte a [versão suportada e a instalação](#supported-versions-and-installation) para obter detalhes do condutor. | Não |
-| connectionString | Especifique as informações necessárias para se ligar à base de dados oracle, por exemplo, para a **propriedade de ligaçãoString.** | Sim |
-| gatewayName | O nome do portal que é usado para ligar ao servidor Oracle no local. |Sim |
+| conexãoString | Especifique as informações necessárias para se ligar à base de dados oracle, por exemplo, para a **propriedade de ligaçãoString.** | Sim |
+| nome gateway | O nome do portal que é usado para ligar ao servidor Oracle no local. |Sim |
 
 **Exemplo: Utilização do controlador da Microsoft**
 
 > [!TIP]
-> Se vir um erro que diga "ORA-01025: Parâmetro UPI fora de alcance" e o seu Oracle é a versão 8i, adicione `WireProtocolMode=1` à sua cadeia de ligação e tente novamente:
+> Se vir um erro que diz "ORA-01025: Parâmetro UPI fora de alcance" e o seu Oracle é a versão 8i, adicione `WireProtocolMode=1` à sua cadeia de ligação e tente novamente:
 
 ```json
 {
@@ -142,7 +142,7 @@ Para saber sobre os formatos permitidos, consulte o fornecedor de [dados oracle 
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Criar conjuntos](data-factory-create-datasets.md)de dados .
 
@@ -154,7 +154,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | --- | --- | --- |
 | tableName |O nome da tabela na base de dados oracle a que o serviço ligado se refere. |Não (se o **oracleReaderQuery** ou **OracleSource** forespecificado) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade copy
+## <a name="copy-activity-properties"></a>Propriedades de Copy Activity
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir [atividades, consulte Criar oleodutos.](data-factory-create-pipelines.md)
 
@@ -171,18 +171,18 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource,** as seguintes
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Use a consulta personalizada para ler dados. |Uma corda de consulta SQL. Por exemplo, "selecione \* do **MyTable".** <br/><br/>Se não especificado, esta declaração sQL é executada: "selecione \* do **MyTable"** |Não<br />(se for especificado **o nome** do conjunto de **dados)** |
+| oracleReaderQuery |Use a consulta personalizada para ler dados. |Uma corda de consulta SQL. Por exemplo, \* "selecione a partir do **MyTable".** <br/><br/>Se não especificado, esta declaração SQL \* é executada: "selecione a partir do **MyTable"** |Não<br />(se for especificado **o nome** do conjunto de **dados)** |
 
-### <a name="oraclesink"></a>OracleSink
+### <a name="oraclesink"></a>Oráculo
 
 **A OracleSink** suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para a operação de inserção do lote esteja concluído antes de sair. |**tempospan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
-| writeBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
-| sqlWriterCleanupScript |Especifica uma consulta para a Atividade de Cópia executar de modo a que os dados de uma fatia específica sejam limpos. |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifica o nome da coluna para a Atividade de Cópia para preencher com um identificador de fatias autogerada. O valor da **fatiaIdentifierColumnName** é utilizado para limpar dados de uma fatia específica quando reexecutado. |O nome da coluna de uma coluna que tem tipo de dados de **binário(32)** . |Não |
+| escreverBatchTimeout |O tempo de espera para a operação de inserção do lote esteja concluído antes de sair. |**tempospan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
+| escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
+| sqlWriterCleanupScript |Especifica uma consulta para a Atividade de Cópia executar de modo a que os dados de uma fatia específica sejam limpos. |Uma declaração de consulta. |Não |
+| sliceIdentifierColumnName |Especifica o nome da coluna para a Atividade de Cópia para preencher com um identificador de fatias autogerada. O valor da **fatiaIdentifierColumnName** é utilizado para limpar dados de uma fatia específica quando reexecutado. |O nome da coluna de uma coluna que tem tipo de dados de **binário(32)**. |Não |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos jSON para copiar dados de e para a base de dados Oracle
 
@@ -323,7 +323,7 @@ Os dados são escritos para uma nova bolha a cada hora **(frequência:** **hora,
 }
 ```
 
-**Pipeline com atividade de cópia**
+**Pipeline com uma atividade de cópia**
 
 O pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída e programado para ser executado de hora a hora. Na definição JSON do gasoduto, o tipo de **origem** é definido para **OracleSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL que especifica utilizando a propriedade **oracleReaderQuery** seleciona os dados na última hora para copiar.
 
@@ -499,7 +499,7 @@ A amostra pressupõe que criou uma tabela chamada **MyTable** in Oracle. Crie a 
 }
 ```
 
-**Pipeline com atividade de cópia**
+**Pipeline com uma atividade de cópia**
 
 O pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída e programado para funcionar a cada hora. Na definição JSON do gasoduto, o tipo de **origem** é definido para **BlobSource** e o tipo **de pia** está definido para **OracleSink**.
 
@@ -567,10 +567,10 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 
 * Se não tiver instalado o Fornecedor .NET para a Oracle, [instale-o](https://www.oracle.com/technetwork/topics/dotnet/downloads/)e, em seguida, tente novamente o cenário.
 * Se vir a mensagem de erro mesmo depois de instalar o fornecedor, complete os seguintes passos:
-    1. Abra o ficheiro config da máquina para .NET 2.0 a partir da pasta <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Pesquisa por **Oracle Data Provider para .NET**. Deverá ser possível encontrar uma entrada, como mostra a seguinte amostra no **sistema.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copie esta entrada para o ficheiro machine.config na seguinte pasta .NET 4.0: <system disk\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, mude a versão para 4.xxx.x.x.
-* Instalação <ODP.NET Caminho instalado\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll na cache de montagem global (GAC) executando **gacutil /i [caminho do fornecedor]** .
+    1. Abra o ficheiro config da máquina para .NET\>2.0 a partir do disco de <sistema da pasta :\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Pesquisa por **Oracle Data Provider para .NET**. Deverá ser possível encontrar uma entrada, como mostrado na seguinte amostra no **sistema.data** > **DbProviderFactories:**`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Copie esta entrada para o ficheiro machine.config na seguinte pasta\>.NET 4.0: <disco de sistema :\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, mude a versão para 4.xxx.x.x.
+* Instale <ODP.NET\>Caminho Instalado \11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll na cache de montagem global (GAC) executando **gacutil /i [caminho do fornecedor]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: Formatação de data/hora
 
@@ -598,27 +598,27 @@ Quando transfere dados da Oracle, os seguintes mapeamentos são utilizados do ti
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(apenas suportado em versões Oracle 10g e posteriores quando utilizar um controlador da Microsoft) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |Cadeia |
+| CLOB |Cadeia |
 | DATA |DateTime |
-| FLOAT |Decimal, String (se precisão > 28) |
-| INTEGER |Decimal, String (se precisão > 28) |
+| BOIA |Decimal, Corda (se precisão > 28) |
+| INTEGER |Decimal, Corda (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DE INTERVALO PARA SEGUNDO |TimeSpan |
-| LONG |String |
+| Longo |Cadeia |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
-| NUMBER |Decimal, String (se precisão > 28) |
-| NVARCHAR2 |String |
-| RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| NCHAR |Cadeia |
+| NCLOB |Cadeia |
+| NÚMERO |Decimal, Corda (se precisão > 28) |
+| NVARCHAR2 |Cadeia |
+| CRU |Byte[] |
+| ROWID |Cadeia |
+| CARIMBO TEMPORAL |DateTime |
+| CARIMBO DE TEMPO COM FUSO HORÁRIO LOCAL |DateTime |
+| CARIMBO DE TEMPO COM FUSO HORÁRIO |DateTime |
+| INTEIRO NÃO ASSINADO |Número |
+| VARCHAR2 |Cadeia |
+| XML |Cadeia |
 
 > [!NOTE]
 > Os tipos de dados **INTERVAL ANO A MÊS** e INTERVAL DAY TO **SECOND** não são suportados quando se utiliza um controlador da Microsoft.

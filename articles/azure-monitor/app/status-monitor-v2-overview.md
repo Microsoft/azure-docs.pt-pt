@@ -1,15 +1,15 @@
 ---
-title: Visão geral do Agente de Insights de Aplicação Azure  Microsoft Docs
+title: Visão geral do Agente de Insights de Aplicação Azure [ Microsoft Docs
 description: Uma visão geral do Agente de Insights de Aplicação. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275714"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
@@ -26,7 +26,7 @@ A telemetria é enviada para o portal Azure, onde pode [monitorizar](https://doc
 
 ## <a name="powershell-gallery"></a>Galeria do PowerShell
 
-O Agente insights de aplicação está localizado aqui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+O Agente insights de https://www.powershellgallery.com/packages/Az.ApplicationMonitoraplicação está localizado aqui: .
 
 ![Galeria do PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -45,7 +45,7 @@ O Agente insights de aplicação está localizado aqui: https://www.powershellga
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 - [Resolução de problemas](status-monitor-v2-troubleshoot.md)
 - [Problemas conhecidos](status-monitor-v2-troubleshoot.md#known-issues)
 
@@ -54,7 +54,7 @@ O Agente insights de aplicação está localizado aqui: https://www.powershellga
 
 - O Agente de Insights de Aplicação suporta instalações por procuração?
 
-  *Sim, é*um pouco. Existem várias formas de descarregar o Agente de Insights de Aplicações. Se o seu computador tiver acesso à Internet, pode embarcar na PowerShell Gallery utilizando `-Proxy` parâmetros.
+  *Sim, é*um pouco. Existem várias formas de descarregar o Agente de Insights de Aplicações. Se o seu computador tiver acesso à Internet, pode `-Proxy` embarcar na PowerShell Gallery utilizando parâmetros.
 Também pode descarregar manualmente o módulo e instalá-lo no computador ou utilizá-lo diretamente.
 Cada uma destas opções é descrita nas [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 
@@ -72,7 +72,7 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ver a telemetria:
 
@@ -83,7 +83,7 @@ Ver a telemetria:
 
 Adicionar mais telemetria:
 
-* [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+* [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 * [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
 * [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
 

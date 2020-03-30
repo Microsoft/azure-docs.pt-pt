@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278041"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o agrupamento Redis para um Premium Azure Cache para Redis
@@ -98,7 +98,7 @@ A lista que se segue contém respostas a perguntas comumente feitas sobre o agru
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Como as chaves são distribuídas num aglomerado?
 De acordo com a documentação do modelo de distribuição Redis [Keys:](https://redis.io/topics/cluster-spec#keys-distribution-model) O espaço-chave é dividido em 16384 slots. Cada chave é hashed e atribuída a uma destas ranhuras, que são distribuídas pelos nós do cluster. Pode configurar qual a parte da chave é hashed para garantir que várias teclas estão localizadas no mesmo fragmento usando hash tags.
 
-* Chaves com uma etiqueta de hash - se alguma parte da chave estiver fechada em `{` e `}`- apenas essa parte da chave é hashed para efeitos de determinação da ranhura de hash de uma chave. Por exemplo, as seguintes 3 teclas estariam localizadas no mesmo fragmento: `{key}1`, `{key}2`e `{key}3`, uma vez que apenas a parte `key` do nome é hashed. Para obter uma lista completa das especificações de hash tag de chaves, consulte [as etiquetas](https://redis.io/topics/cluster-spec#keys-hash-tags)de hash Keys .
+* Chaves com uma etiqueta de hash - se `{` alguma `}`parte da chave estiver fechada e , apenas essa parte da chave é hashed para efeitos de determinação da ranhura hash de uma chave. Por exemplo, as seguintes 3 teclas estariam `{key}1` `{key}2`localizadas `{key}3` no `key` mesmo fragmento: , e uma vez que apenas a parte do nome é hashed. Para obter uma lista completa das especificações de hash tag de chaves, consulte [as etiquetas](https://redis.io/topics/cluster-spec#keys-hash-tags)de hash Keys .
 * Chaves sem hash tag - todo o nome chave é usado para hashing. Isto resulta numa distribuição estatisticamente uniforme nos fragmentos da cache.
 
 Para melhor desempenho e entrada, recomendamos distribuir as teclas uniformemente. Se estiver a utilizar chaves com uma etiqueta de hash, é da responsabilidade da aplicação garantir que as chaves são distribuídas uniformemente.
@@ -123,7 +123,7 @@ O protocolo de clustering Redis exige que cada cliente se conectem diretamente a
 Pode ligar-se à sua cache utilizando os [mesmos pontos finais,](cache-configure.md#properties) [portas](cache-configure.md#properties)e [chaves](cache-configure.md#access-keys) que utiliza quando se liga a uma cache que não tenha agrupada ativada. Redis gere o agrupamento na parte de trás para que não tenha que geri-lo do seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Posso ligar-me diretamente aos fragmentos individuais da minha cache?
-O protocolo de agrupamento requer que o cliente faça as ligações corretas. Então o cliente deve fazer isto corretamente por si. Com isto dito, cada fragmento consiste num par de cache primário/réplica, coletivamente conhecido como um caso de cache. Pode ligar-se a estas instâncias de cache utilizando a utilidade redis-cli no ramo [instável](https://redis.io/download) do repositório Redis no GitHub. Esta versão implementa suporte básico quando iniciado com o interruptor `-c`. Para mais informações, consulte [Brincar com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) no [https://redis.io](https://redis.io) no tutorial do [cluster Redis.](https://redis.io/topics/cluster-tutorial)
+O protocolo de agrupamento requer que o cliente faça as ligações corretas. Então o cliente deve fazer isto corretamente por si. Com isto dito, cada fragmento consiste num par de cache primário/réplica, coletivamente conhecido como um caso de cache. Pode ligar-se a estas instâncias de cache utilizando a utilidade redis-cli no ramo [instável](https://redis.io/download) do repositório Redis no GitHub. Esta versão implementa suporte básico `-c` quando iniciado com a switch. Para mais informações, consulte [https://redis.io](https://redis.io) Brincar com o [cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) no tutorial do cluster [Redis](https://redis.io/topics/cluster-tutorial).
 
 Para não-ssl, utilize os seguintes comandos.
 
@@ -133,7 +133,7 @@ Para não-ssl, utilize os seguintes comandos.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-Para ssl, substitua `1300N` por `1500N`.
+Para ssl, `1300N` `1500N`substitua-o por .
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Posso configurar o agrupamento para uma cache previamente criada?
 Sim. Primeiro certifique-se de que a sua cache é premium, escalando se não for. Em seguida, você deve ser capaz de ver as opções de configuração do cluster, incluindo uma opção para ativar o cluster. Pode alterar o tamanho do cluster após a criação da cache, ou depois de ter ativado o agrupamento pela primeira vez.

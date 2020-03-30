@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282253"
 ---
-# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligue-se a um serviço seguro com o proxy inverso
+# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
 
 Este artigo explica como estabelecer uma ligação segura entre o proxy e os serviços invertidos, permitindo assim o fim do canal seguro. Para saber mais sobre procuração inversa, consulte [Procuração Reversa no Tecido de Serviço Azure](service-fabric-reverseproxy.md)
 
@@ -35,7 +35,7 @@ A secção seguinte mostra detalhes de configuração para cada uma destas opç�
 ### <a name="service-certificate-validation-options"></a>Opções de validação de certificadode serviço 
 
 - **Nenhum**: Procuração inversa ignora a verificação do certificado de serviço à procura e estabelece a ligação segura. Este é o comportamento padrão.
-Especifique a Política de **Validação** de Certificados de Aplicação com valor **Nenhum** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+Especifique a Política de **Validação** de Certificados de Aplicação com valor **Nenhum** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -55,7 +55,7 @@ Especifique a Política de **Validação** de Certificados de Aplicação com va
    }
    ```
 
-- **ServiçoCommonNameAndIssuer**: Proxy invertido verifica o certificado apresentado pelo serviço com base no nome comum do certificado e na impressão digital do emitente imediato: Especifique a Política de Validação de Certificados de **Aplicação** com o serviço de **valorCommonNameAndIssuer** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+- **ServiçoCommonNameAndIssuer**: Proxy invertido verifica o certificado apresentado pelo serviço com base no nome comum do certificado e na impressão digital do emitente imediato: Especifique a Política de Validação de Certificados de **Aplicação** com o serviço de **valorCommonNameAndIssuer** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -102,7 +102,7 @@ Especifique a Política de **Validação** de Certificados de Aplicação com va
    }
    ```
 
-- **ServiceCertificateThumbprints**: O proxy inverso verificará o certificado de serviço com base na sua impressão digital. Pode optar por seguir esta rota quando os serviços estiverem configurados com certificados auto-assinados: Especifique a Política de Validação de Certificados de **Aplicação** com fichas de valor **ServiceCertificateThumbprints** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+- **ServiceCertificateThumbprints**: O proxy inverso verificará o certificado de serviço com base na sua impressão digital. Pode optar por seguir esta rota quando os serviços estiverem configurados com certificados auto-assinados: Especifique a Política de Validação de Certificados de **Aplicação** com fichas de valor **ServiceCertificateThumbprints** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -148,7 +148,7 @@ Especifique a Política de **Validação** de Certificados de Aplicação com va
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de seleção de pontos finais quando os serviços expõem pontos finais seguros e não seguros
 O tecido de serviço suporta configurar vários pontos finais para um serviço. Para mais informações, consulte [Especificar recursos num manifesto](service-fabric-service-manifest-resources.md)de serviço .
 
-O proxy inverso seleciona um dos pontos finais para encaminhar o pedido com base no parâmetro de consulta **ListenerName** no [serviço URI](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Se o parâmetro **ListenerName** não for especificado, o proxy inverso pode escolher qualquer ponto final da lista de pontos finais. Dependendo dos pontos finais configurados para o serviço, o ponto final selecionado pode ser um ponto final HTTP ou HTTPS. Pode haver cenários ou requisitos em que pretenda que o representante inverso funcione num "modo de segurança"; isto é, não quer que o representante inverso seguro reencaminha os pedidos para pontos finais não seguros. Para definir o proxy inverso para o modo de segurança, especifique a entrada de configuração **SecureOnlyMode** com valor **verdadeiro** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)   
+O proxy inverso seleciona um dos pontos finais para encaminhar o pedido com base no parâmetro de consulta **ListenerName** no [serviço URI](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Se o parâmetro **ListenerName** não for especificado, o proxy inverso pode escolher qualquer ponto final da lista de pontos finais. Dependendo dos pontos finais configurados para o serviço, o ponto final selecionado pode ser um ponto final HTTP ou HTTPS. Pode haver cenários ou requisitos em que pretenda que o representante inverso funcione num "modo de segurança"; isto é, não quer que o representante inverso seguro reencaminha os pedidos para pontos finais não seguros. Para definir o proxy inverso para o modo de segurança, especifique a entrada de configuração **SecureOnlyMode** com valor **verdadeiro** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)   
 
 ```json
 {
@@ -173,7 +173,7 @@ O proxy inverso seleciona um dos pontos finais para encaminhar o pedido com base
 > Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **ListenerName** correspondente a um ponto final HTTP (não garantido), o proxy inverso falha o pedido com um código de estado HTTP 404 (não encontrado).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configuração da autenticação do certificado de cliente através do proxy inverso
-A rescisão do SSL ocorre no proxy inverso e todos os dados do certificado de cliente são perdidos. Para que os serviços realizem a autenticação do certificado de cliente, especifique a definição **de ForwardClientCertificate** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+A rescisão do SSL ocorre no proxy inverso e todos os dados do certificado de cliente são perdidos. Para que os serviços realizem a autenticação do certificado de cliente, especifique a definição **de ForwardClientCertificate** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
 1. Quando o **ForwardClientCertificate** estiver definido como **falso,** o proxy inverso não solicitará o certificado de cliente durante o seu aperto de mão SSL com o cliente.
 Este é o comportamento padrão.

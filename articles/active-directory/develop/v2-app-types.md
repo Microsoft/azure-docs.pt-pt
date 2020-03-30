@@ -1,5 +1,5 @@
 ---
-title: Tipos de aplicações para plataforma de identidade Microsoft  Azure
+title: Tipos de aplicações para plataforma de identidade Microsoft [ Azure
 description: Os tipos de apps e cenários suportados pela plataforma de identidade da Microsoft (v2.0) ponto final.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262532"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicação para plataforma de identidade Microsoft
@@ -123,7 +123,7 @@ Neste fluxo, a aplicação recebe um código de autorização a partir do ponto 
 
 As aplicações que têm processos de longa duração ou que operam sem interação com um utilizador também precisam de uma forma de aceder a recursos seguros, como as APIs web. Estas aplicações podem autenticar e obter fichas utilizando a identidade da aplicação, em vez da identidade delegada de um utilizador, com o fluxo de credenciais de cliente OAuth 2.0. Pode provar a identidade da aplicação usando um segredo ou certificado do cliente. Para mais informações, consulte a [aplicação de consola .NET Core Daemon utilizando](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)a plataforma de identidade da Microsoft .
 
-Neste fluxo, a aplicação interage diretamente com o ponto final `/token` para obter acesso:
+Neste fluxo, a aplicação interage `/token` diretamente com o ponto final para obter acesso:
 
 ![Mostra o fluxo de autenticação da aplicação daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 

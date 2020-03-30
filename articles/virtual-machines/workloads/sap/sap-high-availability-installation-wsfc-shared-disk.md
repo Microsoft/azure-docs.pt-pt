@@ -1,5 +1,5 @@
 ---
-title: Instale o SAP NetWeaver HA num cluster de falhas do Windows e disco partilhado para uma instância SAP ASCS/SCS em Azure  Microsoft Docs
+title: Instale o SAP NetWeaver HA num cluster de falhas do Windows e disco partilhado para uma instância SAP ASCS/SCS em Azure [ Microsoft Docs
 description: Saiba como instalar o SAP NetWeaver HA num cluster de falhas do Windows e num disco partilhado para uma instância SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279835"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instale o SAP NetWeaver HA num cluster de falhas do Windows e disco partilhado para uma instância SAP ASCS/SCS em Azure
@@ -165,7 +165,7 @@ Não existem considerações especiais quando diferentes serviços DBMS interage
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instale o SAP com uma instância ASCS/SCS de alta disponibilidade
+## <a name="install-sap-with-a-high-availability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instale o SAP com uma instância ASCS/SCS de alta disponibilidade
 
 > [!IMPORTANT]
 > Certifique-se de que não coloca o ficheiro da página em volumes espelhados sIOS DataKeeper. DataKeeper não suporta volumes espelhados. Pode deixar o ficheiro de página na unidade temporária D de uma máquina virtual Azure, que é a falha. Se ainda não estiver lá, mova o ficheiro da página do Windows para conduzir D da sua máquina virtual Azure.
@@ -180,12 +180,12 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve estas
 * Adicione uma porta de sonda.
 * Abra a porta de sonda de firewall do Windows.
 
-### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Criar um nome de anfitrião virtual para a instância SAP ASCS/SCS agrupada
+### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Criar um nome de anfitrião virtual para a instância SAP ASCS/SCS agrupada
 
 1. No gestor do DNS do Windows, crie uma entrada DNS para o nome de anfitrião virtual da instância ASCS/SCS.
 
    > [!IMPORTANT]
-   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que atribuiu ao Azure Load Balancer (\<SID\>-lb-ascs).  
+   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo\<que\>o endereço IP que atribuiu ao Azure Load Balancer (SID-lb-ascs).  
    >
    >
 
@@ -195,13 +195,13 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve estas
 
    _**Figura 1:** Definir a entrada DNS para o nome virtual do cluster SAP ASCS/SCS e endereço TCP/IP_
 
-2. Para definir o endereço IP atribuído ao nome de anfitrião virtual, selecione **DNS Manager** > **Domínio**.
+2. Para definir o endereço IP atribuído ao nome de anfitrião virtual, selecione **DNS Manager** > **Domain**.
 
    ![Figura 2: Novo nome virtual e endereço TCP/IP para configuração do cluster SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
    _**Figura 2:** Novo nome virtual e endereço TCP/IP para configuração de cluster SAP ASCS/SCS_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Instale o primeiro nó de cluster SAP
+### <a name="install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Instale o primeiro nó de cluster SAP
 
 1. Execute a primeira opção do nó de cluster no nó de cluster A. Por exemplo, no pr1-ascs-0*host.
 2. Para manter as portas padrão para o equilibrador de carga interna Azure, selecione:
@@ -219,9 +219,9 @@ As próximas tarefas não são descritas na documentação padrão de instalaç�
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modificar o perfil SAP da instância ASCS/SCS
+### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modificar o perfil SAP da instância ASCS/SCS
 
-Primeiro, adicione um novo parâmetro de perfil. O parâmetro de perfil impede que as ligações entre os processos de trabalho do SAP e o servidor de fila de enfila fechem quando estão inativas durante demasiado tempo. Mencionamos o cenário problemático em Adicionar entradas de [registo em ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa secção, introduzimos também duas alterações a alguns parâmetros básicos de ligação TCP/IP. Num segundo passo, é necessário definir o servidor de fila para enviar um sinal `keep_alive` para que as ligações não atinjam o limiar de marcha lenta do equilíbrio interno do Azure.
+Primeiro, adicione um novo parâmetro de perfil. O parâmetro de perfil impede que as ligações entre os processos de trabalho do SAP e o servidor de fila de enfila fechem quando estão inativas durante demasiado tempo. Mencionamos o cenário problemático em Adicionar entradas de [registo em ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa secção, introduzimos também duas alterações a alguns parâmetros básicos de ligação TCP/IP. Num segundo passo, é necessário definir o servidor `keep_alive` de fila para enviar um sinal para que as ligações não atinjam o limiar de marcha lenta do equilíbrio interno do Azure.
 
 Para modificar o perfil SAP da instância ASCS/SCS:
 
@@ -240,7 +240,7 @@ Para modificar o perfil SAP da instância ASCS/SCS:
 
 2. Para aplicar as alterações, reinicie a instância SAP ASCS/SCS.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Adicione uma porta de sonda
+### <a name="add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Adicione uma porta de sonda
 
 Utilize a funcionalidade de sonda interna do equilibrante de carga para que toda a configuração do cluster funcione com o Azure Load Balancer. O equilibrador de carga interna Azure geralmente distribui a carga de trabalho de entrada igualmente entre as máquinas virtuais participantes.
 
@@ -267,7 +267,7 @@ Para adicionar uma porta de sonda:
 
    O número da porta é definido nos modelos sAP Azure Resource Manager. Pode atribuir o número de porta no PowerShell.
 
-   Para definir um novo valor ProbePort para o SAP \<sid\> recurso de cluster IP, execute o seguinte script PowerShell para atualizar as variáveis PowerShell para o seu ambiente:
+   Para definir um novo valor ProbePort para o recurso de cluster IP SAP \<SID,\> execute o seguinte script PowerShell para atualizar as variáveis PowerShell para o seu ambiente:
 
    ```powershell
    $SAPSID = "PR1"      # SAP <SID>
@@ -325,7 +325,7 @@ Para adicionar uma porta de sonda:
    }
    ```
 
-   Depois de colocar online o sap \<SID\> cluster, verifique se o **ProbePort** está definido para o novo valor.
+   Depois de colocar \<online\> a função de cluster SAP SID, verifique se o **ProbePort** está definido para o novo valor.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -340,7 +340,7 @@ Para adicionar uma porta de sonda:
 
    _**Figura 4:** Sondar a porta do cluster depois de definir o novo valor_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Abra a porta de sonda de firewall windows
+### <a name="open-the-windows-firewall-probe-port"></a><a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Abra a porta de sonda de firewall windows
 
 Abra uma porta de sonda de firewall Windows em ambos os nós do cluster. Utilize o seguinte script para abrir uma porta de sonda de firewall Windows. Atualize as variáveis PowerShell para o seu ambiente.
 
@@ -350,17 +350,17 @@ Abra uma porta de sonda de firewall Windows em ambos os nós do cluster. Utilize
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**A ProbePort** está definida para **62000**. Agora, você pode aceder à partilha de ficheiros \\\ascsha-clsap\sapmnt de outros anfitriões, como de ascsha-dbas.
+**A ProbePort** está definida para **62000**. Agora, você pode aceder \\à partilha de ficheiros \ascsha-clsap\sapmnt de outros anfitriões, como de ascsha-dbas.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instale a instância da base de dados
+## <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instale a instância da base de dados
 
 Para instalar a instância de base de dados, siga o processo descrito na documentação de instalação SAP.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Instale o segundo nó de cluster
+## <a name="install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Instale o segundo nó de cluster
 
 Para instalar o segundo cluster, siga os passos descritos no guia de instalação SAP.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Alterar o tipo de início da instância de serviço SAP ERS Windows
+## <a name="change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Alterar o tipo de início da instância de serviço SAP ERS Windows
 
 Altere o tipo de início do serviço SAP ERS Windows para **Automático (Arranque Atrasado)** em ambos os nós do cluster.
 
@@ -368,29 +368,29 @@ Altere o tipo de início do serviço SAP ERS Windows para **Automático (Arranqu
 
 _**Figura 5:** Alterar o tipo de serviço para a instância SAP ERS para atraso automático_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Instalar o Servidor de Aplicações Primárias SAP
+## <a name="install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Instalar o Servidor de Aplicações Primárias SAP
 
-Instale a instância do Servidor de Aplicações Primárias (PAS) \<SID\>-di-0 na máquina virtual que designou para acolher o PAS. Não há dependências do Azure. Não existem configurações específicas do DataKeeper.
+Instale a instância \<do Servidor\>de Aplicações Primárias (PAS) SID -di-0 na máquina virtual que designou para acolher o PAS. Não há dependências do Azure. Não existem configurações específicas do DataKeeper.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalar o Servidor de Aplicações Adicionais SAP
+## <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalar o Servidor de Aplicações Adicionais SAP
 
-Instale um Servidor de Aplicações Adicional SAP (AAS) em todas as máquinas virtuais que designou para hospedar uma instância do Servidor de Aplicações SAP. Por exemplo, em \<\>SID -di-1 para \<SID\>-di-&lt;n&gt;.
+Instale um Servidor de Aplicações Adicional SAP (AAS) em todas as máquinas virtuais que designou para hospedar uma instância do Servidor de Aplicações SAP. Por exemplo, \<\>em SID -di-1&lt;para&gt; \<SID\>-di-n .
 
 > [!NOTE]
 > Isto termina a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, proceda com os testes de failover.
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Teste a falha da instância SAP ASCS/SCS e a replicação do SIOS
+## <a name="test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Teste a falha da instância SAP ASCS/SCS e a replicação do SIOS
 É fácil testar e monitorizar uma falha de falha na instância SAP ASCS/SCS e replicação do disco SIOS utilizando o Failover Cluster Manager e a ferramenta de gestão e configuração do DataKeeper sIOS.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>A instância SAP ASCS/SCS está a funcionar no nó de cluster A
+### <a name="sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>A instância SAP ASCS/SCS está a funcionar no nó de cluster A
 
 O grupo de cluster SAP PR1 está a funcionar no nó de cluster A. Por exemplo, em pr1-ascs-0. Atribuir a unidade de disco partilhada S, que faz parte do grupo de cluster SAP PR1, ao nó de cluster A. A instância ASCS/SCS também utiliza a unidade de disco S. 
 
-![Figura 6: Failover Cluster Manager: O Grupo de cluster sAP \<SID\> está a funcionar no nó de cluster A][sap-ha-guide-figure-5000]
+![Figura 6: Failover Cluster Manager: O grupo de cluster SAP \<SID\> está em execução no nó de cluster A][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Failover Cluster Manager: O Grupo de cluster sAP \<SID\> está a funcionar no nó de cluster A_
+_**Figura 6:** Failover Cluster Manager: \<O\> grupo de cluster SAP SID está em execução no nó de cluster A_
 
 Na ferramenta SIOS DataKeeper Management and Configuration, pode ver que os dados do disco partilhado são sincronizados replicados desde a unidade de volume de origem S no nó de cluster A até à unidade de volume alvo S no nó de cluster B. Por exemplo, é replicado de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
@@ -398,10 +398,10 @@ Na ferramenta SIOS DataKeeper Management and Configuration, pode ver que os dado
 
 _**Figura 7:** No SIOS DataKeeper, replicar o volume local do nó de cluster A ao nó de cluster B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Falha do nó A ao nó B
+### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Falha do nó A ao nó B
 
-1. Escolha uma destas opções para iniciar uma falha do SAP \<SID\> cluster do cluster A ao nó de cluster B:
-   - Failover Cluster Manager  
+1. Escolha uma destas opções para iniciar \<uma\> falha do cluster SAP SID do nó de cluster A ao nó de cluster B:
+   - Gestor de Cluster failover  
    - Failover Cluster PowerShell
 
    ```powershell
@@ -411,15 +411,15 @@ _**Figura 7:** No SIOS DataKeeper, replicar o volume local do nó de cluster A a
    Move-ClusterGroup -Name $SAPClusterGroup
 
    ```
-2. Reinicie o nó de cluster A dentro do sistema operativo windows convidado. Isto inicia uma falha automática do SAP \<SID\> grupo de agrupamento do nó A ao nó B.  
-3. Reinicie o nó de cluster A do portal Azure. Isto inicia uma falha automática do SAP \<SID\> grupo de agrupamento do nó A ao nó B.  
-4. Reinicie o nó de cluster A utilizando o Azure PowerShell. Isto inicia uma falha automática do SAP \<SID\> grupo de agrupamento do nó A ao nó B.
+2. Reinicie o nó de cluster A dentro do sistema operativo windows convidado. Isto inicia uma falha automática do \<\> grupo de cluster SAP SID do nó A ao nó B.  
+3. Reinicie o nó de cluster A do portal Azure. Isto inicia uma falha automática do \<\> grupo de cluster SAP SID do nó A ao nó B.  
+4. Reinicie o nó de cluster A utilizando o Azure PowerShell. Isto inicia uma falha automática do \<\> grupo de cluster SAP SID do nó A ao nó B.
 
-   Após a falha, o Grupo de cluster sap \<SID\> está a funcionar no nó B do cluster. Por exemplo, está a funcionar em pr1-ascs-1.
+   Após a falha, \<o\> grupo de cluster SAP SID está funcionando no nó de cluster B. Por exemplo, está a funcionar em pr1-ascs-1.
 
-   ![Figura 8: Em Failover Cluster Manager, o Grupo de cluster sAP \<SID\> está a funcionar no nó b cluster][sap-ha-guide-figure-5002]
+   ![Figura 8: Em Failover Cluster \<Manager, o grupo de cluster SAP SID\> está em execução no nó de cluster B][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: No Failover Cluster Manager, o Grupo de cluster sAP \<SID\> está a funcionar no nó b do cluster_
+   _**Figura 8**: No Failover Cluster \<\> Manager, o grupo de cluster SAP SID está em execução no nó de cluster B_
 
    O disco partilhado está agora montado no nó de cluster B. SIOS DataKeeper está a replicar dados da unidade de volume de origem S no nó de cluster B para o volume de destino S no nó de cluster A. Por exemplo, está a replicar-se de pr1-ascs-1 [10.0.0.41] para pr1-ascs-0 [10.0.0.40].
 

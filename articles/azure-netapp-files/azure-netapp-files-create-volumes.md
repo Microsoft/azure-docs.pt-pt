@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274089"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
@@ -29,7 +29,7 @@ Os ficheiros Azure NetApp suportam os volumes NFS (NFSv3 e NFSv4.1) e SMBv3. O c
 Tem de ter um conjunto de capacidade já configurado.   
 [Criar uma piscina de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  
-[Delege uma subnet para ficheiros Azure NetApp](azure-netapp-files-delegate-subnet.md)
+[Delegar uma sub-rede para os Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
 ## <a name="considerations"></a>Considerações 
 
@@ -65,7 +65,7 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
 
         Um nome de volume deve ser único dentro de cada piscina de capacidade. Deve ter pelo menos três caracteres de comprimento. Podes usar qualquer personagem alfanumérico.   
 
-        Não pode usar `default` como nome de volume.
+        Não pode `default` usar como nome de volume.
 
     * **Piscina de capacidade**  
         Especifique o conjunto de capacidades onde pretende que o volume seja criado.
@@ -112,8 +112,8 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* [Configure o domínio padrão NFSv4.1 para ficheiros Azure NetApp](azure-netapp-files-configure-nfsv41-domain.md)
-* [Monte ou desmonte um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
+* [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume NFS](azure-netapp-files-configure-export-policy.md)
-* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Limites de recurso para os Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Conheça a integração de redes virtuais para serviços Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
