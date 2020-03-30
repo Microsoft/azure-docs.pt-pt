@@ -8,13 +8,13 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270254"
 ---
-# <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Estúdio Visual
+# <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
 Embora possa criar, editar, gerir e implementar aplicações lógicas no [portal Azure,](https://portal.azure.com)também pode utilizar o Visual Studio quando pretende adicionar as suas aplicações lógicas ao controlo de fontes, publicar diferentes versões e criar modelos de [Gestor de Recursos Azure](../azure-resource-manager/management/overview.md) para vários ambientes de implementação. Com o Visual Studio Cloud Explorer, pode encontrar e gerir as suas aplicações lógicas juntamente com outros recursos Do Azure. Por exemplo, pode abrir, descarregar, editar, executar, ver o histórico de executar, desativar e ativar aplicações lógicas que já estão implantadas no portal Azure. Se é novo a trabalhar com apps Azure Logic no Estúdio Visual, aprenda [a criar aplicações lógicas com o Visual Studio.](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 
@@ -43,11 +43,11 @@ Embora possa criar, editar, gerir e implementar aplicações lógicas no [portal
 
   * As mais recentes ferramentas de aplicações da Azure Logic apps para a extensão do Estúdio Visual para a versão que deseja:
 
-    * [Estúdio Visual 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+    * [Estúdio Visual 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * [Estúdio Visual 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
     Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
@@ -75,7 +75,7 @@ No Visual Studio, pode encontrar todas as aplicações lógicas que estão assoc
 
 <a name="open-designer"></a>
 
-## <a name="open-in-visual-studio"></a>Aberto no Estúdio Visual
+## <a name="open-in-visual-studio"></a>Abrir no Visual Studio
 
 No Visual Studio, pode abrir aplicações lógicas anteriormente criadas e implementadas diretamente através do portal Azure ou como projetos do Grupo de Recursos Azure com o Visual Studio.
 
@@ -113,7 +113,7 @@ Você pode baixar aplicações lógicas do [portal Azure](https://portal.azure.c
 
 1. Quando for solicitado para uma localização, navegue para esse local e guarde o modelo de Gestor de Recursos para a definição de aplicação lógica no formato de ficheiro JSON (.json).
 
-   A definição de aplicação lógica aparece na subsecção `resources` dentro do modelo de Gestor de Recursos. Agora pode editar a definição de aplicações lógicas e o modelo de Gestor de Recursos com O Estúdio Visual. Também pode adicionar o modelo como um projeto do [Grupo de Recursos Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) a uma solução de Estúdio Visual. Conheça os [projetos do Grupo de Recursos Azure para aplicações lógicas no Estúdio Visual.](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+   A definição de aplicação lógica aparece na `resources` subsecção dentro do modelo de Gestor de Recursos. Agora pode editar a definição de aplicações lógicas e o modelo de Gestor de Recursos com O Estúdio Visual. Também pode adicionar o modelo como um projeto do [Grupo de Recursos Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) a uma solução de Estúdio Visual. Conheça os [projetos do Grupo de Recursos Azure para aplicações lógicas no Estúdio Visual.](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 
 <a name="link-integration-account"></a>
 
@@ -123,7 +123,7 @@ Para construir aplicativos lógicos para cenários de integração empresarial (
 
 1. No Estúdio Visual, abra o projeto do Grupo de Recursos Azure que contém a sua aplicação lógica.
 
-1. No Solution Explorer, abra o menu de atalho do ficheiro **<logic-app>.json** e selecione **Open With Logic App Designer**. (Teclado: CTRL + L)
+1. No Solution Explorer, abra o menu de atalho do ficheiro **>.json** de nome lógico<e selecione **Open With Logic App Designer**. (Teclado: CTRL + L)
 
    ![Arquivo .json da app de lógica aberta com Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -158,7 +158,7 @@ Para alterar o tipo ou localização da sua aplicação lógica, tem de abrir o 
 
 1. No Estúdio Visual, abra o projeto do Grupo de Recursos Azure que contém a sua aplicação lógica.
 
-1. No Solution Explorer, abra o menu de atalho do `<logic-app-name>.json` e selecione **Open With Logic App Designer**. (Teclado: CTRL + L)
+1. No Solution Explorer, `<logic-app-name>.json` abra o menu de atalho do ficheiro e selecione **Open With Logic App Designer**. (Teclado: CTRL + L)
 
    ![Arquivo .json da app de lógica aberta com Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -167,7 +167,7 @@ Para alterar o tipo ou localização da sua aplicação lógica, tem de abrir o 
 
 1. Certifique-se de que o Designer de Aplicações Lógicas tem foco selecionando o separador ou superfície do designer para que a janela Properties mostre as propriedades **do Tipo** de Localização e **Localização** escolha para a sua aplicação lógica. O tipo de localização do projeto está definido para **a Região** ou para o Ambiente de Serviço de **Integração.**
 
-   ![Janela de propriedades - "Escolha O Tipo de Localização" e propriedades "Localização"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+   ![Janela de propriedades - "Escolha Tipo de Localização" & propriedades "Localização"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
    > [!TIP]
    > Se a janela Propriedades ainda não estiver aberta, a partir do menu **'Ver',** selecione **Janela de Propriedades**. (Teclado: Prima F4)
@@ -206,13 +206,13 @@ Se editar a sua aplicação lógica no portal Azure e pretender manter essas alt
 
 ![Atualizar app lógica com atualizações](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
-## <a name="publish-logic-app-updates"></a>Publicar atualizações de aplicações lógicas
+## <a name="publish-logic-app-updates"></a>Publicar atualizações de aplicação lógica
 
 Quando estiver pronto para implementar as atualizações da sua aplicação lógica do Visual Studio para o Azure, na barra de ferramentas Logic App Designer, **selecione Publish**.
 
 ![Publicar app lógica atualizada para portal Azure](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
-## <a name="manually-run-your-logic-app"></a>Executar manualmente a sua aplicação lógica
+## <a name="manually-run-your-logic-app"></a>Executar manualmente a aplicação lógica
 
 Pode acionar manualmente uma aplicação lógica implantada em Azure a partir do Visual Studio. Na barra de ferramentas Logic App Designer, selecione **'Executar Gatilho**' .
 
@@ -237,7 +237,7 @@ Para verificar o estado e diagnosticar problemas com aplicações lógicas, pode
 
    ![Ver inputs e saídas para cada passo](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
-## <a name="disable-or-enable-logic-app"></a>Desativar ou ativar app lógica
+## <a name="disable-or-enable-logic-app"></a>Desativar ou ativar aplicação lógica
 
 Sem apagar a sua aplicação lógica, pode impedir que o gatilho dispare da próxima vez que a condição do gatilho for satisfeita. Desativar a sua aplicação lógica impede que o motor Logic Apps crie e execute futuras instâncias de fluxo de trabalho para a sua aplicação lógica. No Cloud Explorer, abra o menu de atalho da sua aplicação lógica e selecione **Disable**.
 

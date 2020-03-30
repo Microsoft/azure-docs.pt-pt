@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261167"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização Azure AD Connect: Faça uma alteração na configuração padrão
@@ -29,7 +29,7 @@ O objetivo deste artigo é acompanhá-lo sobre como fazer alterações na config
 
 ## <a name="synchronization-rules-editor"></a>Editor de Regras de Sincronização
 O Editor de Regras de Sincronização é usado para ver e alterar a configuração padrão. Pode encontrá-lo no menu **Iniciar** sob o grupo **Azure AD Connect.**  
-![Iniciar o menu com](./media/how-to-connect-sync-change-the-configuration/startmenu2.png) de Editor de Regras de Sincronização
+![Iniciar menu com Editor de Regras de Sincronização](./media/how-to-connect-sync-change-the-configuration/startmenu2.png)
 
 Quando abres o editor, vês as regras fora da caixa.
 
@@ -48,14 +48,14 @@ Na parte inferior estão botões para agir com uma regra de sincronização sele
 As alterações mais comuns são os fluxos de atributos. Os dados do seu diretório de origem podem não ser os mesmos que em Azure AD. No exemplo desta secção, certifique-se de que o nome dado de um utilizador está sempre em *caso adequado*.
 
 ### <a name="disable-the-scheduler"></a>Desativar o programador
-O [programador](how-to-connect-sync-feature-scheduler.md) funciona a cada 30 minutos por defeito. Certifique-se de que não começa enquanto estiver a fazer alterações e a resolver problemas com as suas novas regras. Para desativar temporariamente o programador, inicie a PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+O [programador](how-to-connect-sync-feature-scheduler.md) funciona a cada 30 minutos por defeito. Certifique-se de que não começa enquanto estiver a fazer alterações e a resolver problemas com as suas novas regras. Para desativar temporariamente o programador, inicie a PowerShell e corra `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 ![Desativar o programador](./media/how-to-connect-sync-change-the-configuration/schedulerdisable.png)  
 
 ### <a name="create-the-rule"></a>Criar a regra
 1. Clique **Em adicionar nova regra**.
 2. Na página **Descrição,** insira o seguinte:  
-   ![](./media/how-to-connect-sync-change-the-configuration/description2.png) de filtragem da regra de entrada  
+   ![Filtragem da regra de entrada](./media/how-to-connect-sync-change-the-configuration/description2.png)  
    * **Nome**: Dar à regra um nome descritivo.
    * **Descrição**: Dê alguns esclarecimentos para que outra pessoa possa entender para que é a regra.
    * **Sistema Ligado**: Este é o sistema em que o objeto pode ser encontrado. Neste caso, selecione **Ative Directory Connector**.
@@ -64,11 +64,11 @@ O [programador](how-to-connect-sync-feature-scheduler.md) funciona a cada 30 min
    * **Precedência**: Fornecer um valor único no sistema. Um valor numérico mais baixo indica maior precedência.
    * **Etiqueta**: Deixe isto vazio. Apenas as regras fora da caixa da Microsoft devem ter esta caixa povoada com um valor.
 3. Na página do **filtro Scoping,** introduza **o nome dado ISNOTNULL**.  
-   ![regras de deteção de regras de entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
+   ![Filtro de deteção de regras de entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta secção é utilizada para definir a que objetos a regra deve aplicar- se. Se ficar vazio, a regra aplicar-se-ia a todos os objetos do utilizador. No entanto, isso incluiria salas de conferências, contas de serviço e outros objetos de utilizador não-pessoas.
 4. Na página de **regras de Join,** deixe o campo vazio.
-5. Na página **Transformações,** altere **o FlowType** para **a Expressão**. Para **atribuir o alvo,** selecione **nome dado**. E para **Fonte,** insira **PCase([nome dado])** .
-   ![transformações de regras de entrada](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
+5. Na página **Transformações,** altere **o FlowType** para **a Expressão**. Para **atribuir o alvo,** selecione **nome dado**. E para **Fonte,** insira **PCase([nome dado])**.
+   ![Transformações de regras de entrada](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    O motor de sincronização é sensível a casos tanto para o nome da função como para o nome do atributo. Se escrever algo errado, verá um aviso quando adiciona a regra. Podes salvar e continuar, mas tens de reabrir e corrigir a regra.
 6. Clique em **Adicionar** para salvar a regra.
 
@@ -87,7 +87,7 @@ Abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Os passos n
    1. Selecione **Conectores** na parte superior. Identifique o conector que alterou na secção anterior (neste caso, Ative Directory Domain Services) e selecione-o. 
    2. Para **ações,** selecione **Executar**.
    3. Selecione **Full Synchronization**e, em seguida, selecione **OK**.
-   ![](./media/how-to-connect-sync-change-the-configuration/fullsync.png) de sincronização completa  
+   ![Sincronização completa](./media/how-to-connect-sync-change-the-configuration/fullsync.png)  
    Os objetos são agora atualizados no metaverso. Verifique as suas alterações olhando para o objeto no metaverso.
 
 **Pré-visualização e sincronização completa num único objeto**  
@@ -96,7 +96,7 @@ Abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Os passos n
    2. Selecione **Search Connector Space**. 
    3. Utilize o **Scope** para encontrar um objeto que deseja utilizar para testar a mudança. Selecione o objeto e clique em **Visualizar**. 
    4. No novo ecrã, selecione **'Pré-visualização'.**  
-   ![Comprometer](./media/how-to-connect-sync-change-the-configuration/commitpreview.png) de pré-visualização  
+   ![Comprometer pré-visualização](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
    A mudança está agora comprometida com o metaverso.
 
 **Veja o objeto no metaverso**  
@@ -107,7 +107,7 @@ Abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Os passos n
 ![Pesquisa de metaversos](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Ativar o programador
-Se tudo estiver como esperado, pode voltar a ativar o programador. Da PowerShell, corra `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+Se tudo estiver como esperado, pode voltar a ativar o programador. Da PowerShell, `Set-ADSyncScheduler -SyncCycleEnabled $true`corra.
 
 ## <a name="other-common-attribute-flow-changes"></a>Outras alterações comuns do fluxo de atributos
 A secção anterior descrevia como fazer alterações num fluxo de atributos. Nesta secção, são dados alguns exemplos adicionais. Os passos para como criar a regra de sincronização são abreviados, mas você pode encontrar os passos completos na secção anterior.
@@ -123,11 +123,11 @@ Para criar uma regra com outros fluxos de atributos, faça o seguinte:
 1. Abra o Editor de Regras de **Sincronização** do menu **Iniciar.**
 2. Com a **Entrada** ainda selecionada para a esquerda, clique no novo botão de **regra Adicionar.**
 3. Dê à regra um nome e uma descrição. Selecione a instância de Diretório Ativo no local e os tipos de objetos relevantes. No **Tipo de Link,** selecione **Juntar**. Para **Precedência,** escolha um número que não seja utilizado por outra regra. As regras fora da caixa começam com 100, pelo que o valor 50 pode ser usado neste exemplo.
-  fluxo de atributo de ![2](./media/how-to-connect-sync-change-the-configuration/attributeflowjp2.png)
+  ![Fluxo de atributo 2](./media/how-to-connect-sync-change-the-configuration/attributeflowjp2.png)
 4. Deixe **o filtro de deteção** vazio. (Isto é, deve aplicar-se a todos os objetos de utilizador na floresta.)
 5. Deixe **as regras de adesão** vazias. (Isto é, deixe a regra fora da caixa lidar com qualquer junta.)
 6. Em **Transformações,** crie os seguintes fluxos:  
-  fluxo de atributo ![3](./media/how-to-connect-sync-change-the-configuration/attributeflowjp3.png)
+  ![Fluxo de atributo 3](./media/how-to-connect-sync-change-the-configuration/attributeflowjp3.png)
 7. Clique em **Adicionar** para salvar a regra.
 8. Vá ao Gestor de Serviços de **Sincronização.** Nos **Conectores,** selecione o conector onde adicionou a regra. Selecione **Executar**, e, em seguida, selecione **Full Synchronization**. Uma sincronização completa recalcula todos os objetos utilizando as regras atuais.
 
@@ -144,7 +144,7 @@ O atributo do userPrincipalName no Ative Directory nem sempre é conhecido pelos
 Por exemplo, a empresa Contoso tem dois diretórios Azure AD, um para produção e outro para testes. Eles querem que os utilizadores no seu inquilino de teste utilizem outro sufixo no ID de inscrição:  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
-Nesta expressão, pegue tudo à esquerda do primeiro @-sign (Palavra) e concatena com uma corda fixa.
+Nesta expressão, pegue tudo à @-sign esquerda da primeira (Palavra) e concatena com uma corda fixa.
 
 ### <a name="convert-a-multi-value-attribute-to-single-value"></a>Converter um atributo de vários valores para um valor único
 Alguns atributos no Diretório Ativo são multivalorizados no esquema, embora pareçam de valor único em Utilizadores e Computadores de Diretório Ativo. Um exemplo é o atributo de descrição:  
@@ -165,10 +165,10 @@ Neste cenário de Fabrikam, percebemos que alguns dos atributos que sincronizamo
 1. Crie uma nova regra de sincronização de entrada e povoe a descrição.
   ![Descrições](./media/how-to-connect-sync-change-the-configuration/syncruledescription.png)
 2. Criar fluxos de atributos com **Expressão** para **FlowType** e com **AuthoritativeNull** for **Source**. O **Autor** literal Null indica que o valor deve estar vazio no metaverso, mesmo que uma regra de sincronização de menor precedência tente povoar o valor.
-  Transformação ![para atributos de extensão](./media/how-to-connect-sync-change-the-configuration/syncruletransformations.png)
+  ![Transformação para atributos de extensão](./media/how-to-connect-sync-change-the-configuration/syncruletransformations.png)
 3. Salve a regra da sincronização. Inicie o **Serviço de Sincronização,** encontre o conector, selecione **Executar,** e, em seguida, selecione **Full Synchronization**. Este passo recalcula todos os fluxos de atributos.
 4. Verifique se as alterações previstas estão prestes a ser exportadas através da pesquisa no Espaço do Conector.
-  ![encenação apagar](./media/how-to-connect-sync-change-the-configuration/deletetobeexported.png)
+  ![Eliminação encenada](./media/how-to-connect-sync-change-the-configuration/deletetobeexported.png)
 
 ## <a name="create-rules-with-powershell"></a>Criar regras com a PowerShell
 Usar a regra de sincronização o editor funciona bem quando só tem algumas alterações a fazer. Se precisar de fazer muitas alterações, o PowerShell pode ser uma opção melhor. Algumas funcionalidades avançadas só estão disponíveis com o PowerShell.
@@ -182,7 +182,7 @@ As regras de sincronização fora da caixa começam com um valor de precedência
 Pode instruir o motor de sincronização que pretende inserir regras adicionais antes das regras fora da caixa. Para obter este comportamento, siga estes passos:
 
 1. Marque a primeira regra de sincronização fora da caixa **(In from AD-User Join)** no editor de regras de sincronização e selecione **Export**. Copie o valor do identificador SR.  
-![PowerShell antes de mudar](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
+![PowerShell antes da mudança](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. Crie a nova regra de sincronização. Pode usar o editor de regras de sincronização para criá-lo. Exporte a regra para um guião powerShell.
 3. Na propriedade **PrecedênciaS Antes,** insira o valor do Identificador a partir da regra fora da caixa. Definir a **Precedência** para **0**. Certifique-se de que o atributo identificador é único e que não está a reutilizar um GUID de outra regra. Certifique-se também de que a propriedade **ImmutableTag** não está definida. Esta propriedade deve ser definida apenas para uma regra fora da caixa.
 4. Guarde o script PowerShell e execute-o. O resultado é que a sua regra personalizada é atribuída ao valor de precedência de 100 e todas as outras regras fora da caixa são incrementadas.  
@@ -208,7 +208,7 @@ Antes de permitir a sincronização do atributo UserType, deve primeiro decidir 
 
     Se escolher esta abordagem, deve certificar-se de que o atributo designado é preenchido com o valor correto para todos os objetos de utilizador existentes no diretório ativo no local que são sincronizados com a AD Azure antes de permitir a sincronização do atributo UserType .
 
-- Em alternativa, pode obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como **Guest** se o seu atributo de utilizador adprincipalname no local terminar com parte de domínio <em>@partners.fabrikam123.org</em>. 
+- Em alternativa, pode obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como **Guest** se o seu atributo de utilizador <em>@partners.fabrikam123.org</em>adprincipalname no local terminar com a parte de domínio . 
 
     Como mencionado anteriormente, o Azure AD Connect não permite que o atributo userType sobre os utilizadores ad ad existentes seja alterado pelo Azure AD Connect. Por isso, deve garantir que a lógica que decidiu é consistente com a forma como o atributo userType já está configurado para todos os utilizadores de Anúncios Azure existentes no seu inquilino.
 
@@ -230,7 +230,7 @@ Para evitar a exportação de alterações não intencionais para a AD Azure, ce
 
  1. Inicie uma sessão powerShell no servidor Azure AD Connect.
  2. Desative a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- 3. Abra o Gestor de Serviços de Sincronização **indo iniciar** > **Serviço de Sincronização.**
+ 3. Abra o Gestor de Serviços de Sincronização **indo** > iniciar o Serviço de**Sincronização.**
  4. Vá ao separador **Operações** e confirme que não há nenhuma operação com um estado em *curso*.
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Passo 2: Adicione o atributo de origem ao esquema de conector AD no local
@@ -241,7 +241,7 @@ Nem todos os atributos Da AD Azure são importados para o espaço de conector AD
  3. Na caixa de diálogo pop-up, aceda ao separador **Select Atributos.**
  4. Certifique-se de que o atributo de origem é verificado na lista de atributos.
  5. Clique **em OK** para guardar.
-![Adicionar atributo de origem ao conector ad-in-local schema](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
+![Adicionar atributo de origem ao esquema de conector AD no local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
 ### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Passo 3: Adicione o UserType ao esquema do conector Azure AD
 Por predefinição, o atributo userType não é importado para o Espaço de Ligação AD Azure. Para adicionar o atributo userType à lista de atributos importados:
@@ -257,7 +257,7 @@ Por predefinição, o atributo userType não é importado para o Espaço de Liga
 ### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Passo 4: Criar uma regra de sincronização de entrada para fluir o valor do atributo a partir do diretório ativo no local
 A regra de sincronização de entrada permite que o valor do atributo flua do atributo de origem do Diretório Ativo no local para o metaverso:
 
-1. Abra o Editor de Regras de Sincronização **indo iniciar** > Editor de Regras de **Sincronização.**
+1. Abra o Editor de Regras de Sincronização indo para **iniciar** > o Editor de Regras de**Sincronização.**
 2. Desloque o filtro de procura **Direção** para estar **a caminho**de entrada .
 3. Clique no novo botão de **regra Adicionar** para criar uma nova regra de entrada.
 4. Sob o separador **Descrição,** forneça a seguinte configuração:
@@ -269,14 +269,14 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
-    | Tipo de ligação | **Associar** |  |
+    | Tipo de ligação | **Aderir** |  |
     | Precedência | *Escolha um número entre 1-99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao separador **de filtro Scoping** e adicione um único grupo de filtros de **deteção** com a seguinte cláusula:
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | adminDescription | NÃO COMEÇAR COM | \_ de utilização |
+    | adminDescription | NÃO COMEÇAR COM | Utilizador\_ |
 
     O filtro de deteção determina a que se aplica a DA no local esta regra de sincronização de entrada. Neste exemplo, utilizamos o mesmo filtro de digitalização utilizado na regra de sincronização fora da caixa Do *Utilizador Comum,* que impede que a regra de sincronização seja aplicada aos objetos do Utilizador criados através da funcionalidade de ressurgimento do Utilizador AD Azure. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
 
@@ -284,13 +284,13 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Direct | Tipo de utilizador | extensãoAtribuir1 | Sem controlo | Atualizar |
+    | Direct | UserType | extensãoAtribuir1 | Desselecionado | Atualizar |
 
-    Noutro exemplo, pretende obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como Guest se o seu atributo de adia no local termina com parte de domínio <em>@partners.fabrikam123.org</em>. Pode implementar uma expressão como esta:
+    Noutro exemplo, pretende obter o valor para o atributo userType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como Guest se o seu atributo de utilizador <em>@partners.fabrikam123.org</em>adprincipalname no local terminar com a parte de domínio . Pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Expressão | Tipo de utilizador | IIF (IsPresent([userprincipalname]), IIF(CBool(LCase([userprincipalName])"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o UtilizadorType")) | Sem controlo | Atualizar |
+    | Expressão | UserType | IIF (IsPresent([userprincipalname]), IIF(CBool(LCase([userprincipalName])"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar o utilizador")) | Desselecionado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -311,15 +311,15 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
-    | Tipo de ligação | **Associar** ||
+    | Tipo de ligação | **Aderir** ||
     | Precedência | *Escolha um número entre 1-99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao separador **de filtro Scoping** e adicione um único grupo de filtros de **deteção** com duas cláusulas:
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | Utilizador |
-    | cloudMastered | NOTEQUAL | Verdadeiro |
+    | fonteObjectType | IGUAL | Utilizador |
+    | cloudMastered | NÃO IGUAL | Verdadeiro |
 
     O filtro de deteção determina a que objetos Da AD Azure esta regra de sincronização de saída é aplicada. Neste exemplo, utilizamos o mesmo filtro de digitalização da regra de sincronização out *to AD – Identidade* do Utilizador fora da caixa. Impede que a regra de sincronização seja aplicada a objetos do Utilizador que não sejam sincronizados a partir do Diretório Ativo no local. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
 
@@ -327,7 +327,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
-    | Direct | Tipo de utilizador | Tipo de utilizador | Sem controlo | Atualizar |
+    | Direct | UserType | UserType | Desselecionado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de saída.
 
@@ -389,7 +389,7 @@ Pode utilizar os seguintes passos para verificar as alterações durante a execu
 Reativar o programador de sincronização incorporado:
 
 1. Inicie uma sessão powerShell.
-2. Reativar a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+2. Reativar a sincronização programada executando `Set-ADSyncScheduler -SyncCycleEnabled $true`o cmdlet .
 
 
 ## <a name="next-steps"></a>Passos seguintes

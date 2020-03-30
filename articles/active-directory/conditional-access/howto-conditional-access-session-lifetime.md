@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263286"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configure gestão de sessão de autenticação com Acesso Condicional
@@ -48,7 +48,7 @@ A definição de frequência sessão funciona com aplicações que implementaram
 - Exchange Online
 - SharePoint e OneDrive
 - Clientes web de equipas
-- Dinâmica CRM Online
+- Dynamics CRM Online
 - Portal do Azure
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de inscrição do utilizador e identidades do dispositivo
@@ -90,7 +90,7 @@ O Acesso Condicional é uma capacidade Azure AD Premium e requer uma licença pr
    > [!NOTE]
    > Recomenda-se definir a mesma frequência de autenticação para as principais aplicações do Microsoft Office, como o Exchange Online e o SharePoint Online, para uma melhor experiência do utilizador.
 
-1. Vá aos **controlos** de acesso > **Sessão** e clique **na frequência de iniciar sessão**
+1. Vá à**Sessão** de **Controlos** > de Acesso e clique **na frequência de iniciar sessão**
 1. Insira o valor exigido de dias e horas na primeira caixa de texto
 1. Selecione um valor de **Horas** ou **Dias** a partir do dropdown
 1. Salve a sua política
@@ -109,7 +109,7 @@ Se configurar diferentes frequências de acesso para diferentes aplicações web
    > [!NOTE]
    > Por favor, note que este controlo requer escolher "Todas as Aplicações cloud" como condição. A persistência da sessão de navegador é controlada por token de autenticação. Todos os separadores de uma sessão de navegador partilham um único token de sessão e, portanto, todos eles devem partilhar o estado de persistência.
 
-1. Vá aos **Controlos** de Acesso > **Sessão** e clique na **sessão persistente do navegador**
+1. Vá à**Sessão** de **Controlos** > de Acesso e clique na **sessão persistente do navegador**
 1. Selecione um valor a partir de dropdown
 1. Salvar-lhe a política
 
@@ -124,7 +124,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 ![Acesso Condicional O que se a ferramenta resultar](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
-## <a name="policy-deployment"></a>Implementação de política
+## <a name="policy-deployment"></a>Implementação da Política
 
 Para garantir que a sua política funcione como esperado, a melhor prática recomendada é testá-la antes de a lançar em produção. Idealmente, use um inquilino de teste para verificar se a sua nova política funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas de acesso condicional no Diretório Ativo Azure.](best-practices.md)
 

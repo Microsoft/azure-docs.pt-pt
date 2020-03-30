@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257059"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para a replicação de VMware para azure
@@ -31,7 +31,7 @@ O artigo assume que já tem:
 
 1. Em **Cofres dos Serviços de Recuperação**, selecione o nome do cofre. Neste cenário, estamos a utilizar **ContosoVMVault**.
 2. Em **Introdução**, selecione Site Recovery. Em seguida, selecione **Preparar Infraestrutura**.
-3. Em **Objetivo de proteção** > **Onde estão localizadas as máquinas virtuais**, selecione **No local**.
+3. No **objetivo** > de Proteção Onde**estão as suas máquinas localizadas,** selecione **On-instalações**.
 4. Em **Para onde pretende replicar as máquinas**, selecione **Para o Azure**.
 5. Em **As suas máquinas estão virtualizadas**, selecione **Sim, com o VMware vSphere Hypervisor**. Em seguida, selecione **OK**.
 
@@ -84,5 +84,5 @@ Excluir as seguintes pastas do software Antivírus
 7. Diretório de instalação de servidor de processo equilibrado do site Azure, exemplo: C:\Ficheiros do programa (x86)\Microsoft Azure Recovery Site
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Configurar o seu ambiente alvo](./vmware-azure-set-up-target.md) 

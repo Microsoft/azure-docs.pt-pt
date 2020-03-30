@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214496"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar registos do Monitor Azure com uma aplicação SQL Database SaaS multitenant
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Instale e configure os registos do Monitor Azure.
 > * Utilize registos do Monitor Azure para monitorizar piscinas e bases de dados.
 
-Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
+Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 * A aplicação de bases de dados SaaS de bilhetes Wingtip SaaS por inquilino está implementada. Para implantar em menos de cinco minutos, consulte Implementar e explorar a aplicação de bases de [dados SaaS de bilhetes de dados SaaS](saas-dbpertenant-get-started-deploy.md).
 * O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -47,7 +47,7 @@ As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Crie dados de diagnóstico de desempenho simulando uma carga de trabalho nos seus inquilinos 
 
-1. No PowerShell ISE, aberto *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha este guião aberto porque talvez queira executar vários dos cenários de geração de carga durante este tutorial.
+1. No PowerShell ISE, abra *.. WingtipTicketsSaaS-MultiTenantDb-master\\Learning\\Modules Performance\\Monitoring and Management Demo-PerformanceMonitoringAndManagement.ps1 . \\* Mantenha este guião aberto porque talvez queira executar vários dos cenários de geração de carga durante este tutorial.
 1. Se ainda não o fez, proíbe um lote de inquilinos para tornar o contexto de monitorização mais interessante. Este processo leva alguns minutos.
 
    a. Definir **$DemoScenario = 1**, _Provisionia um lote de inquilinos._
@@ -56,7 +56,7 @@ As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log
 
 1. Agora ligue o gerador de carga para executar uma carga simulada em todos os inquilinos.
 
-    a. Definir **$DemoScenario = 2**, Gere uma carga de intensidade normal _(aproximadamente 30 DTU)_ .
+    a. Definir **$DemoScenario = 2**, Gere uma carga de intensidade normal _(aproximadamente 30 DTU)_.
 
     b. Para executar o guião, prima F5.
 
@@ -68,7 +68,7 @@ Os scripts de base de dados multiarrendatários SaaS e código de fonte de aplic
 
 O Monitor Azure é um serviço separado que deve ser configurado. Os registos do Azure Monitor recolhem dados de registo, telemetria e métricas num espaço de trabalho do Log Analytics. Tal como outros recursos em Azure, deve ser criado um espaço de trabalho log Analytics. O espaço de trabalho não precisa de ser criado no mesmo grupo de recursos que as aplicações que monitoriza. Fazê-lo muitas vezes faz mais sentido. Para a aplicação Wingtip Tickets, utilize um único grupo de recursos para garantir que o espaço de trabalho seja eliminado com a aplicação.
 
-1. No PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+1. No PowerShell ISE, abra *.. WingtipTicketsSaaS-MultiTenantDb-master\\Learning\\Modules Performance\\Monitoring\\and Management Log Analytics Demo-LogAnalytics.ps1 . \\*
 1. Para executar o guião, prima F5.
 
 Agora pode abrir os registos do Monitor Azure no portal Azure. Leva alguns minutos para recolher telemetria no espaço de trabalho log Analytics e torná-lo visível. Quanto mais tempo deixar o sistema recolher dados de diagnóstico, mais interessante é a experiência. 
@@ -78,11 +78,11 @@ Agora pode abrir os registos do Monitor Azure no portal Azure. Leva alguns minut
 
 Neste exercício, abra o espaço de trabalho log analytics no portal Azure para olhar para a telemetria recolhida para as bases de dados e piscinas.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir o espaço de trabalho do Log Analytics. Em seguida, procure o Log Analytics.
+1. Navegue pelo [portal Azure.](https://portal.azure.com) Selecione **todos os serviços** para abrir o espaço de trabalho do Log Analytics. Em seguida, procure o Log Analytics.
 
    ![Espaço de trabalho open Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione o espaço de trabalho denominado _wtploganalytics-&lt;utilizador&gt;_ .
+1. Selecione o espaço de trabalho denominado _wtploganalytics-&lt;utilizador&gt;_.
 
 1. Selecione **Visão Geral** para abrir a solução de análise de registo no portal Azure.
 
@@ -93,7 +93,7 @@ Neste exercício, abra o espaço de trabalho log analytics no portal Azure para 
 
 1. Selecione o azulejo **Azure SQL Analytics** para abri-lo.
 
-    ![Mosaico da descrição geral](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Azulejo de visão geral](media/saas-dbpertenant-log-analytics/overview.png)
 
 1. As vistas da solução percorrem lateralmente, com a sua própria barra de pergaminho interior na parte inferior. Refresque a página, se necessário.
 
@@ -152,4 +152,4 @@ Experimente o tutorial de análise do [Inquilino.](saas-dbpertenant-log-analytic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais que se baseiam na implementação inicial de aplicações de bases de dados SaaS de bilhetes de base de dados SaaS por inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Registos do Azure Monitor](../azure-monitor/insights/azure-sql.md)
+* [Registos do Monitor Azure](../azure-monitor/insights/azure-sql.md)

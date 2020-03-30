@@ -1,5 +1,5 @@
 ---
-title: Adicione/remova um ponto final do servidor De sincronização de ficheiros Azure  Microsoft Docs
+title: Adicione/remova um ponto final do servidor De sincronização de ficheiros Azure [ Microsoft Docs
 description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255109"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicione/remova um ponto final do servidor De sincronização de ficheiros Azure
@@ -56,12 +56,12 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 ```
 Especificar `-Order CloudTieringPolicy` recordará primeiro os ficheiros mais recentemente modificados.
 Outros parâmetros opcionais mas úteis a considerar são:
-* `-ThreadCount` determina quantos ficheiros podem ser recolhidos em paralelo.
-* `-PerFileRetryCount`determina com que frequência será tentada uma retirada de um ficheiro que está atualmente bloqueado.
+* `-ThreadCount`determina quantos ficheiros podem ser recolhidos em paralelo.
+* `-PerFileRetryCount`determina com que frequência uma retirada será tentada de um ficheiro que está atualmente bloqueado.
 * `-PerFileRetryDelaySeconds`determina o tempo em segundos entre a tentativa de relembrar as tentativas e deve ser sempre utilizado em combinação com o parâmetro anterior.
 
 > [!Note]  
-> Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recordar todos os dados hierárquicos, o `Invoke-StorageSyncFileRecall` cmdlet falha.  
+> Se o volume local que hospeda o servidor não tiver espaço `Invoke-StorageSyncFileRecall` livre suficiente para recordar todos os dados hierárquicos, o cmdlet falha.  
 
 Para remover o ponto final do servidor:
 

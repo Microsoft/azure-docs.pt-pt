@@ -1,5 +1,5 @@
 ---
-title: Criar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
+title: Criar & eliminar uma identidade gerida atribuída pelo utilizador usando o Gestor de Recursos Azure
 description: Instruções passo a passo sobre como criar e eliminar identidades geridas atribuídas pelo utilizador utilizando o Gestor de Recursos Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253380"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
@@ -36,7 +36,7 @@ Não é possível listar e eliminar uma identidade gerida atribuída pelo utiliz
   ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não está familiarizado com as identidades geridas para os recursos do Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de que revê a [diferença entre uma identidade gerida atribuída](overview.md#how-does-the-managed-identities-for-azure-resources-work)** ao sistema e atribuída ao utilizador.
-- Se ainda não tem uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="template-creation-and-editing"></a>Criação e edição de modelos
 
@@ -51,7 +51,7 @@ Tal como acontece com o portal Azure e a escrita, os modelos do Gestor de Recurs
 
 Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição de função de [Colaborador de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
 
-Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte modelo. Substitua o valor `<USER ASSIGNED IDENTITY NAME>` por valores próprios:
+Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte modelo. Substitua `<USER ASSIGNED IDENTITY NAME>` o valor por valores próprios:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -83,7 +83,7 @@ Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte mo
   }
 }
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM Azure utilizando um modelo de Gestor de Recursos Azure, [configurar identidades geridas para recursos Azure num VM Azure utilizando um modelo](qs-configure-template-windows-vm.md).
 

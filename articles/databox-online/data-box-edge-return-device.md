@@ -1,5 +1,5 @@
 ---
-title: Devolva ou substitua o seu dispositivo Azure Data Box Edge  Microsoft Docs
+title: Devolva ou substitua o seu dispositivo Azure Data Box Edge [ Microsoft Docs
 description: Descreve como devolver ou substituir o dispositivo Azure Data Box Edge.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/26/2020
 ms.author: alkohli
 ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651105"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Devolver ou substituir o seu dispositivo De caixa de dados Azure Edge
@@ -36,7 +36,7 @@ Antes de redefinir, crie uma cópia dos dados locais no dispositivo, se necessá
 
 Para redefinir o seu dispositivo utilizando a UI web local, tome os seguintes passos.
 
-1. Na Web UI local, vá para **manutenção > Reset do dispositivo**.
+1. Na web local UI, vá ao **reset de Manutenção > Dispositivo**.
 2. Selecione **o dispositivo reset**.
 
     ![Repor dispositivo](media/data-box-edge-return-device/device-reset-1.png)
@@ -47,7 +47,7 @@ Para redefinir o seu dispositivo utilizando a UI web local, tome os seguintes pa
 
 O reset apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados no seu dispositivo, este processo demora cerca de 30 a 40 minutos.
 
-Em alternativa, ligue-se à interface PowerShell do dispositivo e utilize o `Reset-HcsAppliance` cmdlet para apagar os dados dos discos de dados. Para mais informações, consulte [Redefinir o seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Em alternativa, ligue-se à interface PowerShell `Reset-HcsAppliance` do dispositivo e utilize o cmdlet para apagar os dados dos discos de dados. Para mais informações, consulte [Redefinir o seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - Se estiver a trocar ou a atualizar para um novo dispositivo, recomendamos que reponha o seu dispositivo apenas depois de ter recebido o novo dispositivo.
@@ -67,7 +67,7 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 
 ## <a name="schedule-a-pickup"></a>Agende uma recolha
 
-1. Encerre o dispositivo. Na Web UI local, vá a Definições de **Manutenção > Power**.
+1. Encerre o dispositivo. Na web local UI, vá para **as definições**de Manutenção > Energia .
 2. Selecione **Desligar**. Quando solicitado para confirmação, clique **em Sim** para continuar. Para mais informações, consulte [Gerir o poder](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Desligue os cabos de alimentação e retire todos os cabos de rede do dispositivo.
 4. Prepare o pacote de envio utilizando a sua própria caixa ou a caixa vazia que recebeu do Azure. Coloque o dispositivo e os cabos de alimentação que foram enviados com o dispositivo na caixa.

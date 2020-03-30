@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657168"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral da segurança das Máquinas Virtuais Azure
@@ -79,7 +79,7 @@ A Key Vault oferece a opção de armazenar as suas chaves em módulos de seguran
 
 Saiba mais:
 
-* [O que é o Cofre chave Azure?](/azure/key-vault/key-vault-overview)
+* [O que é o cofre de chave do Azure?](/azure/key-vault/key-vault-overview)
 * [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Encriptação de disco de máquina virtual
@@ -91,7 +91,7 @@ A solução está integrada com o Azure Key Vault para ajudá-lo a controlar e g
 Saiba mais:
 
 * [Encriptação de disco azure para VMs IaaS](/azure/security/azure-security-disk-encryption-overview)
-* [Quickstart: Criptografe um VM Windows IaaS com PowerShell Azure](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Início Rápido: Encriptar uma VM IaaS do Windows com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Backup de máquina virtual
 
@@ -99,7 +99,7 @@ O Azure Backup é uma solução escalável que ajuda a proteger os dados da sua 
 
 Saiba mais:
 
-* [O que é o Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
+* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
 * [FaQ do serviço de backup Azure](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -116,8 +116,8 @@ Recuperação do site:
 
 Saiba mais:
 
-* [O que é a Recuperação do Site Azure?](/azure/site-recovery/site-recovery-overview)
-* [Como funciona a recuperação do site Azure?](/azure/site-recovery/site-recovery-components)
+* [O que é o Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
+* [Como funciona o Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
 * [Que cargas de trabalho estão protegidas pela Recuperação do Site Azure?](/azure/site-recovery/site-recovery-workload)
 
 ## <a name="virtual-networking"></a>Redes virtuais
@@ -129,12 +129,12 @@ Uma rede virtual Azure é uma construção lógica construída em cima do tecido
 Saiba mais:
 
 * [Visão geral da segurança da rede Azure](network-overview.md)
-* [Descrição Geral da Rede Virtual](/azure/virtual-network/virtual-networks-overview)
+* [Visão geral da Rede Virtual](/azure/virtual-network/virtual-networks-overview)
 * [Recursos de networking e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gestão e relatório de políticas de segurança
 
-O Centro de Segurança Azure ajuda-o a prevenir, detetar e responder a ameaças. O Centro de Segurança dá-lhe maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece monitorização integrada de segurança e gestão de políticas em todas as suas subscrições do Azure. Ajuda a detetar ameaças que de outra forma podem passar despercebidas e trabalha com um vasto ecossistema de soluções de segurança.
+O Centro de Segurança do Azure ajuda-o a evitar, detetar e responder a ameaças. O Centro de Segurança dá-lhe maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece monitorização integrada de segurança e gestão de políticas em todas as suas subscrições do Azure. Ajuda a detetar ameaças que de outra forma podem passar despercebidas e trabalha com um vasto ecossistema de soluções de segurança.
 
 O Security Center ajuda-o a otimizar e monitorizar a segurança das suas máquinas virtuais:
 
@@ -160,7 +160,7 @@ Saiba mais:
 
 Embora a computação confidencial não seja tecnicamente parte da segurança virtual das máquinas, o tema da segurança das máquinas virtuais pertence ao tema de nível mais elevado de segurança "computacional". A computação confidencial pertence à categoria de segurança "computacional".
 
-A computação confidencial garante que quando os dados estão "claros", o que é necessário para um tratamento eficiente, os dados são protegidos dentro de um https://en.wikipedia.org/wiki/Trusted_execution_environment de Ambiente de Execução Fidedigna (TEE - também conhecido como enclave), um exemplo que é mostrado na figura abaixo.  
+A computação confidencial garante que quando os dados estão "claros", o que é necessário https://en.wikipedia.org/wiki/Trusted_execution_environment para um tratamento eficiente, os dados são protegidos dentro de um Ambiente de Execução Fidedigno (TEE - também conhecido como enclave), um exemplo que é mostrado na figura abaixo.  
 
 Os TEEs garantem que não há forma de visualizar os dados ou as operações no interior do exterior, mesmo com um desordeiro. Garantem mesmo que só é permitido o código autorizado aceder aos dados. Se o código for alterado ou adulterado, as operações são negadas e o ambiente desativado. O TEE impõe estas proteções ao longo da execução do código no seu interior.
 

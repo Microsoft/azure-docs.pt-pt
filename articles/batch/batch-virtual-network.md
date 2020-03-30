@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247751"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Crie uma piscina de Lote Azure numa rede virtual
@@ -58,7 +58,7 @@ Para garantir que os seus nós de computação de piscina Azure Batch funcionam 
 
 * O serviço Batch precisa de comunicar com os nossos nódos de cálculo de piscina para tarefas de agendamento. Para ativar esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço 'Lote' na região onde existe a sua conta Batch. Para saber como obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md)
 
-* Certifique-se de que o tráfego de saída para o Armazenamento Azure (especificamente, URLs do formulário `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`e `<account>.blob.core.windows.net`) não está bloqueado através do seu aparelho de rede no local.
+* Certifique-se de que o tráfego de saída para `<account>.table.core.windows.net`o `<account>.queue.core.windows.net`Armazenamento `<account>.blob.core.windows.net`Azure (especificamente, URLs do formulário , e ) não está bloqueado através do seu aparelho de rede no local.
 
 Quando adicionar uma rota definida pelo utilizador, defina a rota para cada prefixo de endereço IP do Lote e coloque o **tipo de lúpulo seguinte** na **Internet**. Veja o seguinte exemplo:
 

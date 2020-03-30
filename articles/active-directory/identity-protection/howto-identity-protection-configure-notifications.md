@@ -11,11 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d770336099611d69fa9e44d04fff4dd37696707
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120123"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações de Proteção de Identidade do Diretório Ativo Azure
@@ -26,9 +26,6 @@ A Azure AD Identity Protection envia dois tipos de e-mails de notificação auto
 - E-mail semanal de digestão
 
 Este artigo fornece-lhe uma visão geral de ambos os e-mails de notificação.
-
->[!NOTE]
->As notificações por e-mail estão disponíveis apenas na nuvem pública e não estão atualmente disponíveis na nuvem do Governo dos EUA.
 
 ## <a name="users-at-risk-detected-email"></a>Utilizadores em risco detetados e-mails
 
@@ -46,7 +43,7 @@ Como administrador, pode definir:
 - **Os destinatários deste e-mail** - Por padrão, os destinatários incluem todos os Administradores Globais. Os Administradores Globais também podem adicionar outros Administradores Globais, Administradores de Segurança, Leitores de Segurança como destinatários.
    - Opcionalmente pode **Adicionar e-mails adicionais para receber notificações** de alerta esta funcionalidade é uma pré-visualização e os utilizadores definidos devem ter as permissões adequadas para visualizar os relatórios ligados no portal Azure.
 
-Configure os utilizadores em e-mail de risco no **portal Azure** no âmbito do **Diretório Ativo do Azure** > **Segurança** > **Proteção de Identidade** > Utilizadores **em alertas de risco detetados.**
+Configure os utilizadores em e-mail de risco no **portal Azure** sob o **azure Ative Directory** > **Security Identity** > **Protection** > **Users em alertas detetados**em risco.
 
 ## <a name="weekly-digest-email"></a>E-mail semanal de digestão
 
@@ -66,8 +63,8 @@ Por padrão, os destinatários incluem todos os Administradores Globais. Os Admi
 
 Como administrador, pode trocar de envio de um e-mail semanal de digestão dentro ou fora e escolher os utilizadores designados para receber o e-mail.
 
-Configure o e-mail semanal de digestão no **portal Azure** sob o **Diretório Ativo do Azure** > **Segurança** > **Proteção de Identidade** > **Digesto Semanal.**
+Configure o e-mail semanal de digestão no **portal Azure** sob o **azure Ative Directory** > **Security Identity** > **Protection** > **Weekly**digest .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)

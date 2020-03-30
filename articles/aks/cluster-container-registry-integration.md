@@ -6,13 +6,13 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: f83faf05eb7099557d5b653e0b24591062c44d11
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368456"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticação com Registo de Contentores Azure do Serviço Azure Kubernetes
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Azure Container Registry a partir do Azure Kubernetes Service
 
 Quando estiver a utilizar o Registo de Contentores Azure (ACR) com o Serviço Azure Kubernetes (AKS), é necessário estabelecer um mecanismo de autenticação. Este artigo fornece exemplos para configurar a autenticação entre estes dois serviços Azure.
 

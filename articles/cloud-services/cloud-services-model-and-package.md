@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247491"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo do Serviço cloud e como o embala?
-Um serviço na nuvem é criado a partir de três componentes, a definição de serviço *(.csdef)* , o config de serviço *(.cscfg)* e um pacote de serviço *(.cspkg)* . Tanto os **ficheiros ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como é configurado; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **ServiceDefinition.csdef** e, entre outras coisas, contém todas as dependências binárias necessárias. O Azure cria um serviço na nuvem tanto do **ServicePackage.cspkg** como do **ServiceConfig.cscfg**.
+Um serviço na nuvem é criado a partir de três componentes, a definição de serviço *(.csdef)*, o config de serviço *(.cscfg)* e um pacote de serviço *(.cspkg)*. Tanto os **ficheiros ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como é configurado; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **ServiceDefinition.csdef** e, entre outras coisas, contém todas as dependências binárias necessárias. O Azure cria um serviço na nuvem tanto do **ServicePackage.cspkg** como do **ServiceConfig.cscfg**.
 
 Uma vez que o serviço de nuvem esteja em funcionamento em Azure, pode reconfigurá-lo através do ficheiro **ServiceConfig.cscfg,** mas não pode alterar a definição.
 
@@ -136,11 +136,11 @@ O ficheiro de configuração do serviço não está embalado com a aplicação, 
 
 Pode consultar o [Schema](/previous-versions/azure/reference/ee758710(v=azure.100)) de Configuração de Serviço para melhor compreender o esquema XML utilizado aqui, no entanto, aqui está uma explicação rápida dos elementos:
 
-**Instâncias**  
+**de Instâncias**  
 Configura o número de instâncias de execução para o papel. Para evitar que o seu serviço na nuvem se torne potencialmente indisponível durante as atualizações, recomenda-se que implemente mais de uma instância das suas funções viradas para a Web. Ao implementar mais de um caso, está a aderindo às diretrizes do Acordo de Nível de Serviço de [Computação Azure (SLA),](https://azure.microsoft.com/support/legal/sla/)que garante 99,95% de conectividade externa para funções viradas para a Internet quando duas ou mais instâncias de função são implementadas para um serviço.
 
 **ConfiguraçõesDefinições**  
-Refigura as definições para as instâncias de execução para um papel. O nome dos elementos `<Setting>` deve coincidir com as definições de definição no ficheiro de definição de serviço.
+Refigura as definições para as instâncias de execução para um papel. O nome `<Setting>` dos elementos deve coincidir com as definições de definição no ficheiro de definição de serviço.
 
 **Certificados**  
 Refigura os certificados utilizados pelo serviço. O exemplo de código anterior mostra como definir o certificado para o módulo RemoteAccess. O valor do atributo de *impressão digital* deve ser definido para a impressão digital do certificado a utilizar.
@@ -221,7 +221,7 @@ A [Biblioteca De Runtime Azure](/previous-versions/azure/reference/mt419365(v=az
 
 Para implementar uma aplicação como serviço na nuvem em Azure, deve primeiro embalar a aplicação no formato apropriado. Pode utilizar a ferramenta de linha de comando **CSPack** (instalada com o [Azure SDK)](https://azure.microsoft.com/downloads/)para criar o ficheiro de pacote como alternativa ao Estúdio Visual.
 
-**O CSPack** utiliza o conteúdo do ficheiro de definição de serviço e do ficheiro de configuração do serviço para definir o conteúdo da embalagem. **O CSPack** gera um ficheiro de pacote de aplicação (.cspkg) que pode enviar para o Azure utilizando o [portal Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por predefinição, o pacote chama-se `[ServiceDefinitionFileName].cspkg`, mas pode especificar um nome diferente utilizando a opção `/out` do **CSPack**.
+**O CSPack** utiliza o conteúdo do ficheiro de definição de serviço e do ficheiro de configuração do serviço para definir o conteúdo da embalagem. **O CSPack** gera um ficheiro de pacote de aplicação (.cspkg) que pode enviar para o Azure utilizando o [portal Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por predefinição, `[ServiceDefinitionFileName].cspkg`o pacote é nomeado , mas `/out` pode especificar um nome diferente utilizando a opção de **CSPack**.
 
 **CSPack** está localizado em  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
@@ -264,16 +264,16 @@ Quando as variáveis forem definidas da seguinte forma:
 
 | Variável | Valor |
 | --- | --- |
-| \[de\] Nome de Diretório |O subdiretório no âmbito do diretório do projeto raiz que contém o ficheiro .csdef do projeto Azure. |
-| \[\] de Definição de Serviços |O nome do ficheiro de definição de serviço. Por predefinição, este ficheiro chama-se ServiceDefinition.csdef. |
-| \[OutputFileName\] |O nome do ficheiro de pacote gerado. Normalmente, isto está definido para o nome da aplicação. Se não for especificado o nome de ficheiro, o pacote de aplicação é criado como \[Nome de aplicação\].cspkg. |
+| \[Nome do Diretório\] |O subdiretório no âmbito do diretório do projeto raiz que contém o ficheiro .csdef do projeto Azure. |
+| \[Definição de Serviços\] |O nome do ficheiro de definição de serviço. Por predefinição, este ficheiro chama-se ServiceDefinition.csdef. |
+| \[Nome de Ficheiro de Saída\] |O nome do ficheiro de pacote gerado. Normalmente, isto está definido para o nome da aplicação. Se não for especificado o nome de \[ficheiro, o pacote de aplicação é criado como Nome de Aplicação\].cspkg. |
 | \[RoleName\] |O nome do papel definido no ficheiro de definição de serviço. |
 | \[RoleBinariesDirectory] |A localização dos ficheiros binários para o papel. |
-| \[\] VirtualPath |Os diretórios físicos de cada caminho virtual definidos na secção Sites da definição de serviço. |
-| \[\] PhysicalPath |Os diretórios físicos dos conteúdos para cada percurso virtual definidos no nó do site da definição de serviço. |
-| \[RoleAssemblyName\] |O nome do ficheiro binário para o papel. |
+| \[Caminho Virtual\] |Os diretórios físicos de cada caminho virtual definidos na secção Sites da definição de serviço. |
+| \[CaminhoFísico\] |Os diretórios físicos dos conteúdos para cada percurso virtual definidos no nó do site da definição de serviço. |
+| \[Nome de montagem de papéis\] |O nome do ficheiro binário para o papel. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Estou a criar um pacote de serviço sinuoso e quero...
 
 * [Configurar o ambiente de trabalho remoto para uma instância de serviço na nuvem][remotedesktop]

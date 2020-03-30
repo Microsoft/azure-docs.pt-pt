@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 12a77c4c21a26f1ec52bb3ffdc312df56d3c4537
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249974"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrar recursos IaaS do clássico para o Gestor de Recursos Azure usando powerShell
@@ -60,7 +60,7 @@ Para instruções de instalação, consulte [Como instalar e configurar o Azure 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Passo 3: Certifique-se de que é administrador para a subscrição
 Para realizar esta migração, deve ser adicionado como coadministrador para a subscrição no [portal Azure](https://portal.azure.com).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. No menu **Hub,** **selecione Subscrição**. Se não o vir, selecione **Todos os serviços.**
 3. Encontre a entrada de subscrição apropriada e, em seguida, olhe para o campo **MY ROLE.** Para um coadministrador, o valor deve ser _administração da Conta_.
 
@@ -104,7 +104,7 @@ Espere cinco minutos para a inscrição terminar. Verifique o estado da aprovaç
     Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Certifique-se de que o Estado de Registo está `Registered` antes de prosseguir.
+Certifique-se de `Registered` que o Estado de Registo está antes de prosseguir.
 
 Antes de mudar para o modelo de implementação clássico, certifique-se de que tem vCPUs de máquina virtual do Azure Resource Manager na região Azure da sua atual implantação ou rede virtual. Pode utilizar o seguinte comando PowerShell para verificar o número atual de vCPUs que tem no Gestor de Recursos Azure. Para saber mais sobre as quotas vCPU, consulte [Limits e o Gestor de Recursos Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)
 
@@ -201,7 +201,7 @@ Prepare as máquinas virtuais no serviço de nuvem para migração. Tem duas op�
         -VirtualNetworkName $vnetName -SubnetName $subnetName
     ```
 
-Após a operação Prepare ter sucesso com qualquer uma das opções anteriores, questione o estado de migração dos VMs. Certifique-se de que estão no estado `Prepared`.
+Após a operação Prepare ter sucesso com qualquer uma das opções anteriores, questione o estado de migração dos VMs. Certifique-se de que `Prepared` estão no estado.
 
 Este exemplo define o nome VM para **myVM**. Substitua o nome de exemplo pelo seu próprio nome VM.
 
@@ -231,7 +231,7 @@ Para migrar máquinas virtuais numa rede virtual, migra-se a rede virtual. As m�
 <br>
 
 > [!NOTE]
-> O nome da rede virtual pode ser diferente do que é mostrado no novo portal. O novo portal Azure apresenta o nome como `[vnet-name]`, mas o nome real da rede virtual é de tipo `Group [resource-group-name] [vnet-name]`. Antes de iniciar a migração, procure o nome da rede virtual real usando o comando `Get-AzureVnetSite | Select -Property Name` ou veja-o no antigo portal Azure. 
+> O nome da rede virtual pode ser diferente do que é mostrado no novo portal. O novo portal Azure `[vnet-name]`exibe o nome como, mas `Group [resource-group-name] [vnet-name]`o nome real da rede virtual é de tipo. Antes de iniciar a migração, procure o nome `Get-AzureVnetSite | Select -Property Name` da rede virtual real usando o comando ou veja-o no antigo portal Azure. 
 
 Este exemplo define o nome da rede virtual para **myVnet**. Substitua o nome da rede virtual de exemplo pelo seu.
 

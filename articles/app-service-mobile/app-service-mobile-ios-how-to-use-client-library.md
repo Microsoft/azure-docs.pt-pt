@@ -7,10 +7,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1bf8f8e198f6c4a4a0af308262cd830685698a80
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249350"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes iOS para aplicações móveis Azure
@@ -18,7 +18,7 @@ ms.locfileid: "79249350"
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia ensina-o a realizar cenários comuns utilizando as mais recentes [Aplicações Móveis Azure iOS SDK][1]. Se você é novo em Aplicativos Móveis Azure, primeiro complete [Aplicativos móveis Azure Arranque rápido] para criar um backend, criar uma tabela e baixar um projeto de iOS Xcode pré-construído. Neste guia, focamo-nos no iOS SDK do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o backend, consulte o Server SDK HOWTOs.
+Este guia ensina-o a realizar cenários comuns utilizando as mais recentes [Aplicações Móveis Azure iOS SDK][1]. Se você é novo em Aplicativos Móveis Azure, primeiro complete [as aplicações móveis Azure Quick Start] para criar um backend, criar uma tabela e baixar um projeto de iOS Xcode pré-construído. Neste guia, focamo-nos no iOS SDK do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o backend, consulte o Server SDK HOWTOs.
 
 ## <a name="reference-documentation"></a>Documentação de referência
 
@@ -31,13 +31,13 @@ O iOS SDK apoia projetos Objective-C, swift 2.2 e swift 2.3 projetos para as ver
 A autenticação "server-flow" utiliza um WebView para o UI apresentado.  Se o dispositivo não conseguir apresentar um WebView UI, então é necessário outro método de autenticação que esteja fora do âmbito do produto.  
 Este SDK não é, portanto, adequado para dispositivos do tipo Watch ou similarmente restritos.
 
-## <a name="Setup"></a>Configuração e Pré-requisitos
+## <a name="setup-and-prerequisites"></a><a name="Setup"></a>Configuração e Pré-requisitos
 
-Este guia assume que criou um backend com uma mesa. Este guia assume que a mesa tem o mesmo esquema que as mesas nesses tutoriais. Este guia também assume que no seu código, você refere `MicrosoftAzureMobile.framework` e importa `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
+Este guia assume que criou um backend com uma mesa. Este guia assume que a mesa tem o mesmo esquema que as mesas nesses tutoriais. Este guia também assume que no `MicrosoftAzureMobile.framework` seu `MicrosoftAzureMobile/MicrosoftAzureMobile.h`código, você refere e importa.
 
-## <a name="create-client"></a>Como: Criar cliente
+## <a name="how-to-create-client"></a><a name="create-client"></a>Como: Criar cliente
 
-Para aceder a um backend de aplicações móveis Azure no seu projeto, crie uma `MSClient`. Substitua `AppUrl` com o URL da aplicação. Pode deixar `gatewayURLString` e `applicationKey` vazio. Se configurar uma porta de entrada para autenticação, preencha `gatewayURLString` com o URL do portal.
+Para aceder a um backend de aplicações `MSClient`móveis Azure no seu projeto, crie um . Substitua-a `AppUrl` com o URL da aplicação. Pode sair `gatewayURLString` `applicationKey` e ficar vazio. Se configurar uma porta de `gatewayURLString` entrada para autenticação, preencha com o URL do portal.
 
 **Objetivo C:**
 
@@ -51,7 +51,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>Como: Criar Referência de Tabela
+## <a name="how-to-create-table-reference"></a><a name="table-reference"></a>Como: Criar Referência de Tabela
 
 Para atualizar ou aceder a dados, crie uma referência para a tabela de back-end. Substitua `TodoItem` pelo nome da sua tabela
 
@@ -67,9 +67,9 @@ MSTable *table = [client tableWithName:@"TodoItem"];
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>Como: Dados de Consulta
+## <a name="how-to-query-data"></a><a name="querying"></a>Como: Dados de Consulta
 
-Para criar uma consulta de base de dados, questione o `MSTable` objeto. A seguinte consulta recebe todos os itens em `TodoItem` e regista o texto de cada item.
+Para criar uma consulta de `MSTable` base de dados, questione o objeto. A seguinte consulta recebe todos os `TodoItem` itens e regista o texto de cada item.
 
 **Objetivo C:**
 
@@ -99,11 +99,11 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>Como: Filtrar dados devolvidos
+## <a name="how-to-filter-returned-data"></a><a name="filtering"></a>Como: Filtrar dados devolvidos
 
 Para filtrar os resultados, existem muitas opções disponíveis.
 
-Para filtrar utilizando um predicado, utilize uma `NSPredicate` e `readWithPredicate`. Os filtros seguintes devolveram dados para encontrar apenas itens Todo incompletos.
+Para filtrar utilizando um predicado, utilize um `NSPredicate` e `readWithPredicate`. Os filtros seguintes devolveram dados para encontrar apenas itens Todo incompletos.
 
 **Objetivo C:**
 
@@ -139,9 +139,9 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>Como: Utilizar o MSQuery
+## <a name="how-to-use-msquery"></a><a name="query-object"></a>Como: Utilizar o MSQuery
 
-Para realizar uma consulta complexa (incluindo triagem e pagagem), crie um `MSQuery` objeto, diretamente ou utilizando um predicado:
+Para realizar uma consulta complexa (incluindo triagem `MSQuery` e pagagem), crie um objeto, diretamente ou utilizando um predicado:
 
 **Objetivo C:**
 
@@ -157,7 +157,7 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` permite controlar vários comportamentos de consulta.
+`MSQuery`Permite controlar vários comportamentos de consulta.
 
 * Especificar ordem dos resultados
 * Limite quais os campos a devolver
@@ -166,11 +166,11 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * Especifique parâmetros de cadeia de consulta personalizadas a pedido
 * Aplicar funções adicionais
 
-Execute uma consulta `MSQuery` chamando `readWithCompletion` sobre o objeto.
+Execute `MSQuery` uma consulta `readWithCompletion` chamando o objeto.
 
-## <a name="sorting"></a>Como: Ordenar dados com MSQuery
+## <a name="how-to-sort-data-with-msquery"></a><a name="sorting"></a>Como: Ordenar dados com MSQuery
 
-Para classificar os resultados, vamos olhar para um exemplo. Para ordenar por campo "texto" ascendente, em seguida, por "completo" descendente, invoque `MSQuery` assim:
+Para classificar os resultados, vamos olhar para um exemplo. Para ordenar por campo "texto" ascendente, em seguida, por "completo" descendente, invocar `MSQuery` assim:
 
 **Objetivo C:**
 
@@ -204,7 +204,7 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>Como: Limitar campos e expandir parâmetros de cordas de consulta com MSQuery
+## <a name="how-to-limit-fields-and-expand-query-string-parameters-with-msquery"></a><a name="selecting"></a><a name="parameters"></a>Como: Limitar campos e expandir parâmetros de cordas de consulta com MSQuery
 
 Para limitar os campos a serem devolvidos numa consulta, especifique os nomes dos campos na propriedade **selectFields.** Este exemplo devolve apenas o texto e os campos concluídos:
 
@@ -220,7 +220,7 @@ query.selectFields = @[@"text", @"complete"];
 query.selectFields = ["text", "complete"]
 ```
 
-Para incluir parâmetros de cadeia de consulta adicionais no pedido do servidor (por exemplo, porque um script personalizado do lado do servidor os utiliza), povoe `query.parameters` assim:
+Para incluir parâmetros de cadeia de consulta adicionais no pedido do servidor (por exemplo, porque um script personalizado do lado do servidor os utiliza), povoe `query.parameters` como assim:
 
 **Objetivo C:**
 
@@ -237,9 +237,9 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>Como configurar o tamanho da página
+## <a name="how-to-configure-page-size"></a><a name="paging"></a>Como configurar o tamanho da página
 
-Com as Aplicações Móveis Azure, o tamanho da página controla o número de registos que são puxados de cada vez a partir das tabelas de backend. Uma chamada para `pull` dados iria então reunir dados, com base no tamanho desta página, até que não haja mais registos para puxar.
+Com as Aplicações Móveis Azure, o tamanho da página controla o número de registos que são puxados de cada vez a partir das tabelas de backend. Uma chamada `pull` para os dados iria então reunir dados, com base no tamanho desta página, até que não haja mais registos para puxar.
 
 É possível configurar um tamanho de página usando **MSPullSettings** como mostrado abaixo. O tamanho da página padrão é de 50, e o exemplo abaixo muda-o para 3.
 
@@ -274,13 +274,13 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>Como: Inserir Dados
+## <a name="how-to-insert-data"></a><a name="inserting"></a>Como: Inserir Dados
 
-Para inserir uma nova linha de mesa, crie um `NSDictionary` e invoque `table insert`. Se o [Schema Dinâmico] estiver ativado, o backend móvel do Azure App Service gera automaticamente novas colunas com base no `NSDictionary`.
+Para inserir uma nova linha `NSDictionary` de `table insert`mesa, crie um e invoque . Se o [Dynamic Schema] estiver ativado, o backend móvel do Azure `NSDictionary`App Service gera automaticamente novas colunas com base no .
 
-Se `id` não for fornecida, o backend gera automaticamente um novo ID único. Forneça o seu próprio `id` para usar endereços de e-mail, nomes de utilizador ou os seus próprios valores personalizados como ID. Fornecer o seu próprio ID pode facilitar a adesão e lógica de base de dados orientada para o negócio.
+Se `id` não for fornecido, o backend gera automaticamente um novo ID único. Forneça o `id` seu próprio para utilizar endereços de e-mail, nomes de utilizador ou os seus próprios valores personalizados como ID. Fornecer o seu próprio ID pode facilitar a adesão e lógica de base de dados orientada para o negócio.
 
-O `result` contém o novo item que foi inserido. Dependendo da lógica do servidor, pode ter dados adicionais ou modificados em comparação com o que foi passado para o servidor.
+O `result` novo item que foi inserido. Dependendo da lógica do servidor, pode ter dados adicionais ou modificados em comparação com o que foi passado para o servidor.
 
 **Objetivo C:**
 
@@ -308,9 +308,9 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>Como: Modificar Dados
+## <a name="how-to-modify-data"></a><a name="modifying"></a>Como: Modificar Dados
 
-Para atualizar uma linha existente, modifique um item e ligue `update`:
+Para atualizar uma linha existente, modifique `update`um item e ligue:
 
 **Objetivo C:**
 
@@ -367,9 +367,9 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }
 ```
 
-No mínimo, o atributo `id` deve ser definido ao fazer atualizações.
+No mínimo, `id` o atributo deve ser definido ao fazer atualizações.
 
-## <a name="deleting"></a>Como: Eliminar Dados
+## <a name="how-to-delete-data"></a><a name="deleting"></a>Como: Eliminar Dados
 
 Para apagar um item, invoque `delete` com o item:
 
@@ -423,13 +423,13 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 }
 ```
 
-No mínimo, o atributo `id` deve ser definido ao efazer as exclusões.
+No mínimo, `id` o atributo deve ser definido ao fazer apaga-se.
 
-## <a name="customapi"></a>Como: Chamar API personalizado
+## <a name="how-to-call-custom-api"></a><a name="customapi"></a>Como: Chamar API personalizado
 
 Com uma API personalizada, pode expor qualquer funcionalidade de backend. Não tem de mapear uma operação à mesa. Não só ganha sondar mais sobre as mensagens, como pode até ler/definir cabeçalhos e alterar o formato do corpo de resposta.
 
-Para chamar uma API personalizada, ligue para `MSClient.invokeAPI`. O conteúdo de pedido e resposta é tratado como JSON. Para utilizar outros tipos de meios, [utilize a outra sobrecarga de `invokeAPI`][5].  Para fazer um pedido de `GET` em vez de um pedido de `POST`, defina `HTTPMethod` de parâmetros para `"GET"` e parâmetro `body` para `nil` (uma vez que os pedidos do GET não têm corpos de mensagens.) Se a sua API personalizada suportar outros verbos HTTP, mude `HTTPMethod` adequadamente.
+Para chamar uma API `MSClient.invokeAPI`personalizada, ligue. O conteúdo de pedido e resposta é tratado como JSON. Para utilizar outros tipos de mídia, [utilize a outra sobrecarga de `invokeAPI` ][5].  Para fazer `GET` um pedido `POST` em vez `HTTPMethod` de `"GET"` um `body` pedido, defina o parâmetro para e parâmetro para `nil` (uma vez que os pedidos get não têm corpos de mensagem.) Se a sua API personalizada suportar outros `HTTPMethod` verbos HTTP, mude adequadamente.
 
 **Objetivo C:**
 
@@ -466,7 +466,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Como: Registar modelos de empurrar para enviar notificações cross-platform
+## <a name="how-to-register-push-templates-to-send-cross-platform-notifications"></a><a name="templates"></a>Como: Registar modelos de empurrar para enviar notificações cross-platform
 
 Para registar modelos, passe modelos com o seu **cliente.push registerDeviceToken** método na sua aplicação de cliente.
 
@@ -506,11 +506,11 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Todas as etiquetas são retiradas do pedido de segurança.  Para adicionar etiquetas a instalações ou modelos dentro das instalações, consulte [Trabalhar com o servidor de backend .NET SDK para aplicações móveis Azure][4].  Para enviar notificações utilizando estes modelos registados, trabalhe com APIs de Centros de [Notificação][3].
 
-## <a name="errors"></a>Como: Lidar com erros
+## <a name="how-to-handle-errors"></a><a name="errors"></a>Como: Lidar com erros
 
-Quando chama um backend móvel do Azure App Service, o bloco de conclusão contém um parâmetro `NSError`. Quando ocorre um erro, este parâmetro não é nulo. No seu código, deve verificar este parâmetro e lidar com o erro conforme necessário, conforme demonstrado nos fragmentos de código anteriores.
+Quando chama um backend móvel do Azure App `NSError` Service, o bloco de conclusão contém um parâmetro. Quando ocorre um erro, este parâmetro não é nulo. No seu código, deve verificar este parâmetro e lidar com o erro conforme necessário, conforme demonstrado nos fragmentos de código anteriores.
 
-O ficheiro [`<WindowsAzureMobileServices/MSError.h>`][6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey`e `MSErrorServerItemKey`. Para obter mais dados relacionados com o erro:
+O [`<WindowsAzureMobileServices/MSError.h>`][6] ficheiro define as `MSErrorResponseKey` `MSErrorRequestKey`constantes, e `MSErrorServerItemKey`. Para obter mais dados relacionados com o erro:
 
 **Objetivo C:**
 
@@ -538,11 +538,11 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Como: Autenticar utilizadores com a Biblioteca de Autenticação do Diretório Ativo
+## <a name="how-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Como: Autenticar utilizadores com a Biblioteca de Autenticação do Diretório Ativo
 
-Pode utilizar a Biblioteca de Autenticação de Diretórios Ativos (ADAL) para inscrever os utilizadores na sua aplicação utilizando o Diretório Ativo do Azure. A autenticação do fluxo de clientes utilizando um fornecedor de identidade SDK é preferível a utilizar o método `loginWithProvider:completion:`.  A autenticação do fluxo do cliente proporciona uma sensação UX mais nativa e permite uma personalização adicional.
+Pode utilizar a Biblioteca de Autenticação de Diretórios Ativos (ADAL) para inscrever os utilizadores na sua aplicação utilizando o Diretório Ativo do Azure. A autenticação do fluxo do cliente utilizando um `loginWithProvider:completion:` fornecedor de identidade SDK é preferível a utilizar o método.  A autenticação do fluxo do cliente proporciona uma sensação UX mais nativa e permite uma personalização adicional.
 
-1. Configure o seu backend de aplicação móvel para iniciar sessão aAD seguindo o Serviço de Aplicações para tutorial de [login de Diretório Ativo.][7] Certifique-se de completar o passo opcional de registar uma aplicação de cliente nativo. Para o iOS, recomendamos que o URI redirecionário seja do formulário `<app-scheme>://<bundle-id>`. Para mais informações, consulte o quickstart da [ADAL iOS][8].
+1. Configure o seu backend de aplicação móvel para iniciar sessão aAD seguindo o Serviço de Aplicações para tutorial de [login de Diretório Ativo.][7] Certifique-se de completar o passo opcional de registar uma aplicação de cliente nativo. Para o iOS, recomendamos que o `<app-scheme>://<bundle-id>`URI redirecionário seja do formulário . Para mais informações, consulte o quickstart da [ADAL iOS][8].
 2. Instale o ADAL utilizando cocoapods. Edite o seu Podfile para incluir a seguinte definição, substituindo o **SEU PROJETO** pelo nome do seu projeto Xcode:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -553,13 +553,13 @@ Pode utilizar a Biblioteca de Autenticação de Diretórios Ativos (ADAL) para i
 
         pod 'ADALiOS'
 
-3. Utilizando o Terminal, execute `pod install` a partir do diretório que contenha o seu projeto e, em seguida, abra o espaço de trabalho gerado xcode (não o projeto).
+3. Utilizando o Terminal, corra `pod install` a partir do diretório que contenha o seu projeto e abra o espaço de trabalho gerado pela Xcode (não o projeto).
 4. Adicione o seguinte código à sua aplicação, de acordo com o idioma que está a utilizar. Em cada uma, faça estas substituições:
 
-   * Substitua o **INSERT-AUTHORITY-HERE** pelo nome do inquilino em que aprovisionou a sua candidatura. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado a partir do separador Domínio no seu Diretório Ativo Azure no [Portal do Azure].
+   * Substitua o **INSERT-AUTHORITY-HERE** pelo nome do inquilino em que aprovisionou a sua candidatura. O formato https://login.microsoftonline.com/contoso.onmicrosoft.comdeve ser. Este valor pode ser copiado a partir do separador Domínio no seu Diretório Ativo Azure no [portal Azure].
    * Substitua o **INSERT-RESOURCE-ID-AQUI** pelo ID do cliente para o seu backend de aplicação móvel. Pode obter o ID do cliente a partir do separador **Advanced** em Definições de **Diretório Ativo Azure** no portal.
    * Substitua o **INSERT-CLIENT-ID-HERE** pelo ID do cliente copiado da aplicação do cliente nativo.
-   * Substitua **o INSERT-REDIRECT-URI-HERE** pelo ponto final do seu site */.auth/login/done,* utilizando o esquema HTTPS. Este valor deve ser semelhante ao *https://contoso.azurewebsites.net/.auth/login/done* .
+   * Substitua **o INSERT-REDIRECT-URI-HERE** pelo ponto final do seu site */.auth/login/done,* utilizando o esquema HTTPS. Este valor deve *https://contoso.azurewebsites.net/.auth/login/done*ser semelhante a .
 
 **Objetivo C:**
 
@@ -625,9 +625,9 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>Como: Autenticar utilizadores com o Facebook SDK para iOS
+## <a name="how-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Como: Autenticar utilizadores com o Facebook SDK para iOS
 
-Pode utilizar o SDK do Facebook para o iOS para iniciar a contratação de utilizadores na sua aplicação através do Facebook.  A utilização de uma autenticação de fluxo de cliente é preferível à utilização do método `loginWithProvider:completion:`.  A autenticação do fluxo do cliente proporciona uma sensação UX mais nativa e permite uma personalização adicional.
+Pode utilizar o SDK do Facebook para o iOS para iniciar a contratação de utilizadores na sua aplicação através do Facebook.  A utilização de uma autenticação `loginWithProvider:completion:` de fluxo de cliente é preferível à utilização do método.  A autenticação do fluxo do cliente proporciona uma sensação UX mais nativa e permite uma personalização adicional.
 
 1. Configure o seu backend de aplicação móvel para o facebook de login, seguindo o [Serviço de Aplicações para][9] o tutorial de login do Facebook.
 2. Instale o Facebook SDK para iOS seguindo o [Facebook SDK para iOS - Iniciar][10] a documentação. Em vez de criar uma aplicação, pode adicionar a plataforma iOS ao seu registo existente.
@@ -649,7 +649,7 @@ Pode utilizar o SDK do Facebook para o iOS para iniciar a contratação de utili
         return handled
     }
     ```
-4. Além de adicionar `FBSDKCoreKit.framework` ao seu projeto, adicione também uma referência a `FBSDKLoginKit.framework` da mesma forma.
+4. Além de `FBSDKCoreKit.framework` adicionar ao seu projeto, `FBSDKLoginKit.framework` adicione também uma referência da mesma forma.
 5. Adicione o seguinte código à sua aplicação, de acordo com o idioma que está a utilizar.
 
     **Objetivo C:**
@@ -704,15 +704,15 @@ Pode utilizar o SDK do Facebook para o iOS para iniciar a contratação de utili
     }
     ```
 
-## <a name="twitter-fabric"></a>Como: Autenticar utilizadores com Tecido Twitter para iOS
+## <a name="how-to-authenticate-users-with-twitter-fabric-for-ios"></a><a name="twitter-fabric"></a>Como: Autenticar utilizadores com Tecido Twitter para iOS
 
-Pode utilizar o Fabric para o iOS para contratar utilizadores na sua aplicação através do Twitter. A autenticação do Fluxo do Cliente é preferível à utilização do método `loginWithProvider:completion:`, uma vez que proporciona uma sensação UX mais nativa e permite uma personalização adicional.
+Pode utilizar o Fabric para o iOS para contratar utilizadores na sua aplicação através do Twitter. A autenticação do Fluxo do `loginWithProvider:completion:` Cliente é preferível à utilização do método, uma vez que proporciona uma sensação UX mais nativa e permite uma personalização adicional.
 
 1. Configure o seu backend de aplicação móvel para o twitter de início de sessão, seguindo o [Serviço de Aplicações para](../app-service/configure-authentication-provider-twitter.md) o tutorial de login do Twitter.
-2. Adicione tecido ao seu projeto seguindo o [Tecido para iOS - Começar] documentação e configurando o TwitterKit.
+2. Adicione tecido ao seu projeto seguindo o [Tecido para iOS - Começar a] documentação e configurando o TwitterKit.
 
    > [!NOTE]
-   > Por padrão, a Fabric cria uma aplicação no Twitter para si. Pode evitar criar uma aplicação registando a Chave do Consumidor e a Segredo do Consumidor que criou anteriormente utilizando os seguintes códigos.    Em alternativa, pode substituir os valores da Chave do Consumidor e do Segredo do Consumidor que fornece ao Serviço de Aplicações com os valores que vê no [Painel de Instrumentos de Tecido]de Tecido . Se escolher esta opção, certifique-se de que define o URL de chamada para um valor de espaço reservado, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > Por padrão, a Fabric cria uma aplicação no Twitter para si. Pode evitar criar uma aplicação registando a Chave do Consumidor e a Segredo do Consumidor que criou anteriormente utilizando os seguintes códigos.    Em alternativa, pode substituir os valores da Chave do Consumidor e do Segredo do Consumidor que fornece ao Serviço de Aplicações com os valores que vê no [Painel de Instrumentos]de Tecido . Se escolher esta opção, certifique-se de que define o `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`URL de chamada para um valor de espaço reservado, como .
 
     Se optar por utilizar os segredos que criou anteriormente, adicione o seguinte código ao seu Delegado de Aplicações:
 
@@ -786,13 +786,13 @@ Pode utilizar o Fabric para o iOS para contratar utilizadores na sua aplicação
     }
     ```
 
-## <a name="google-sdk"></a>Como: Autenticar utilizadores com o Google Sign-In SDK para iOS
+## <a name="how-to-authenticate-users-with-the-google-sign-in-sdk-for-ios"></a><a name="google-sdk"></a>Como: Autenticar utilizadores com o Google Sign-In SDK para iOS
 
 Pode utilizar o SDK de entrada no Google para o iOS para iniciar sessão de utilizadores na sua aplicação através de uma conta Google.  A Google anunciou recentemente alterações às suas políticas de segurança OAuth.  Estas mudanças de política exigirão a utilização do Google SDK no futuro.
 
 1. Configure o seu backend de aplicação móvel para o google sign-in, seguindo o [Serviço de Aplicações para](../app-service/configure-authentication-provider-google.md) o tutorial de login do Google.
 2. Instale o Google SDK para iOS seguindo o [Google Sign-In para iOS - Comece a integrar documentação.](https://developers.google.com/identity/sign-in/ios/start-integrating) Pode saltar a secção "Autenticar com um Servidor de Backend".
-3. Adicione o seguinte ao método `signIn:didSignInForUser:withError:` do seu delegado, de acordo com o idioma que está a usar.
+3. Adicione o seguinte ao `signIn:didSignInForUser:withError:` método do seu delegado, de acordo com o idioma que está a usar.
 
     **Objetivo C:**
     ```objc
@@ -815,7 +815,7 @@ Pode utilizar o SDK de entrada no Google para o iOS para iniciar sessão de util
     }
     ```
 
-4. Certifique-se de que também adiciona o seguinte ao `application:didFinishLaunchingWithOptions:` no seu delegado de aplicações, substituindo "SERVER_CLIENT_ID" pelo mesmo ID que usou para configurar o Serviço de Aplicações no passo 1.
+4. Certifique-se de que `application:didFinishLaunchingWithOptions:` também adiciona o seguinte no seu delegado de aplicações, substituindo "SERVER_CLIENT_ID" pelo mesmo ID que usou para configurar o Serviço de Aplicações no passo 1.
 
     **Objetivo C:**
 
@@ -829,7 +829,7 @@ Pode utilizar o SDK de entrada no Google para o iOS para iniciar sessão de util
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
     ```
 
-5. Adicione o seguinte código à sua aplicação num UIViewController que implementa o protocolo `GIDSignInUIDelegate`, de acordo com o idioma que está a usar.  Está assinado antes de ser inscrito novamente, e embora não precise de introduzir as suas credenciais novamente, vê um diálogo de consentimento.  Basta chamar este método quando a ficha da sessão expirar.
+5. Adicione o seguinte código à sua aplicação num `GIDSignInUIDelegate` UIViewController que implementa o protocolo, de acordo com o idioma que está a usar.  Está assinado antes de ser inscrito novamente, e embora não precise de introduzir as suas credenciais novamente, vê um diálogo de consentimento.  Basta chamar este método quando a ficha da sessão expirar.
 
    **Objetivo C:**
 
@@ -892,7 +892,7 @@ Pode utilizar o SDK de entrada no Google para o iOS para iniciar sessão de util
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx

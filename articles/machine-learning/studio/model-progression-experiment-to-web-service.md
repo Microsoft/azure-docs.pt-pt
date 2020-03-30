@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: e6a8fe7771776a92b3c28a188bc352e3bb105313
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217925"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web
@@ -34,7 +34,7 @@ Uma vez satisfeito com a sua experiência, pode implementá-lo como um ***servi�
 Neste artigo, damos uma visão geral da mecânica de como o seu modelo de Machine Learning evolui de uma experiência de desenvolvimento para um serviço Web operacionalizado.
 
 > [!NOTE]
-> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo está focado na forma como utiliza o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web clássico preditivo com R, consulte o blog Build [& Deploy Web Apps Predictive Utilizando o Estúdio RStudio e Azure Machine Learning.](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)
+> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo está focado na forma como utiliza o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web clássico preditivo com R, consulte o post de blog [Build & implementar aplicações web preditivas utilizando o estúdio RStudio e Azure Machine Learning.](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)
 >
 >
 
@@ -69,7 +69,7 @@ Neste processo de conversão, a experiência de treino não é descartada. Quand
 >
 
 ### <a name="the-web-service"></a>O serviço web
-Assim que estiver satisfeito com a sua experiência preditiva, pode implementar o seu serviço como um serviço Web Clássico ou um novo serviço Web baseado no Azure Resource Manager. Para operacionalizar o seu modelo implantando-o como um serviço Web clássico de *aprendizagem automática,* clique em **implementar o Serviço Web** e selecione Deploy Web Service **[Classic]** . Para implementar como *novo serviço Web de aprendizagem automática,* clique em implementar o Serviço **Web** e selecione implementar o Serviço **Web [Novo]** . Os utilizadores podem agora enviar dados para o seu modelo utilizando o serviço Web REST API e receber de volta os resultados. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).
+Assim que estiver satisfeito com a sua experiência preditiva, pode implementar o seu serviço como um serviço Web Clássico ou um novo serviço Web baseado no Azure Resource Manager. Para operacionalizar o seu modelo implantando-o como um serviço Web clássico de *aprendizagem automática,* clique em **implementar o Serviço Web** e selecione Deploy Web Service **[Classic]**. Para implementar como *novo serviço Web de aprendizagem automática,* clique em implementar o Serviço **Web** e selecione implementar o Serviço **Web [Novo]**. Os utilizadores podem agora enviar dados para o seu modelo utilizando o serviço Web REST API e receber de volta os resultados. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>O caso não típico: criar um serviço Web não preditivo
 Se a sua experiência não treina um modelo de análise preditiva, então não precisa de criar uma experiência de treino e uma experiência de pontuação - há apenas uma experiência, e pode implantá-lo como um serviço Web. O Machine Learning Studio (clássico) deteta se a sua experiência contém um modelo preditivo analisando os módulos que utilizou.
@@ -97,7 +97,7 @@ Aqui está um exemplo: Suponha que a sua experiência preditiva devolve toda a l
 
 Se quiser manter o seu modelo de aprendizagem automática, mas gostaria de retreiná-lo com novos dados, tem duas opções:
 
-1. **Retreine o modelo enquanto o serviço Web está em execução** - Se quiser retreinar o seu modelo enquanto o serviço Web preditivo está em execução, pode fazê-lo fazendo algumas modificações na experiência de treino para torná-lo uma experiência de ***reconversão***, então pode implantá-lo como um serviço web de ***reconversão.*** Para obter instruções sobre como fazê-lo, consulte os [modelos Retrain Machine Learning programáticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
+1. **Retreine o modelo enquanto o serviço Web está em execução** - Se quiser retreinar o seu modelo enquanto o serviço Web preditivo está em execução, pode fazê-lo fazendo algumas modificações na experiência de treino para torná-lo uma experiência de ***reconversão***, então pode implantá-lo como um serviço web de ** *reconversão.* ** Para obter instruções sobre como fazê-lo, consulte os [modelos Retrain Machine Learning programáticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Volte à experiência de treino original e use diferentes dados** de treino para desenvolver o seu modelo - A sua experiência preditiva está ligada ao serviço Web, mas a experiência de treino não está diretamente ligada desta forma. Se modificar a experiência de treino original e clicar em Configurar o **Serviço Web,** criará uma *nova* experiência preditiva que, quando implementada, criará um *novo* serviço Web. Não atualiza apenas o serviço web original.
 
    Se precisar modificar a experiência de treino, abra-a e clique em **Guardar Como** para fazer uma cópia. Isto deixará intacto a experiência de treino original, experiência preditiva e serviço Web. Agora pode criar um novo serviço Web com as suas alterações. Uma vez implementado o novo serviço Web, pode então decidir se deve parar o serviço Web anterior ou mantê-lo a funcionar ao lado do novo.

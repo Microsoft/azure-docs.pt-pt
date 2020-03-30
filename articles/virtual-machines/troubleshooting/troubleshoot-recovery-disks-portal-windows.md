@@ -1,5 +1,5 @@
 ---
-title: Utilize um VM de resolução de problemas do Windows no portal Azure  Microsoft Docs
+title: Utilize um VM de resolução de problemas do Windows no portal Azure [ Microsoft Docs
 description: Saiba como resolver problemas com problemas com a máquina virtual do Windows em Azure, ligando o disco OS a um VM de recuperação utilizando o portal Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
 ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250000"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Problemas de resolução de um VM windows anexando o disco OS a um VM de recuperação utilizando o portal Azure
@@ -41,7 +41,7 @@ Um instantâneo é uma cópia completa e apenas de leitura de um disco rígido v
 
 1. Vá ao [portal Azure.](https://portal.azure.com) Selecione **as máquinas Virtuais** a partir da barra lateral e, em seguida, selecione o VM que tem problemas.
 1. No painel esquerdo, selecione **Discos**e, em seguida, selecione o nome do disco OS.
-    ![Imagem sobre o nome do](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png) do disco osso
+    ![Imagem sobre o nome do disco OS](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. Na página **de visão geral** do disco OS e, em seguida, selecione Criar **instantâneo**.
 1. Crie uma imagem no mesmo local que o disco DES.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
 ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258060"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastres de Hiper-V V no local para Azure
@@ -102,7 +102,7 @@ Multi-caminho (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4
 --- | --- | ---
 VMDK | ND | ND
 VHD/VHDX | Sim | Sim
-Geração 2 VM | Sim | Sim
+VM de 2ª Geração | Sim | Sim
 EFI/UEFI<br></br>O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS. O VM deve estar a executar o Windows Server 2012 e mais tarde apenas. O disco OS deve ter até cinco divisórias ou menos e o tamanho do disco OS deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster partilhado | Não | Não
 Disco encriptado | Não | Não
@@ -125,10 +125,10 @@ Multi-caminho (MPIO) | Sim | Sim
 --- | --- | ---
 Armazenamento localmente redundante | Sim | Sim
 Armazenamento georredundante | Sim | Sim
-Armazenamento geo-redundante de acesso de leitura | Sim | Sim
+Armazenamento georredundante com acesso de leitura | Sim | Sim
 Armazenamento fresco | Não | Não
 Armazenamento quente| Não | Não
-Blobs de bloco | Não | Não
+Blobs de blocos | Não | Não
 Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas por falhas nos discos geridos)| Sim (via PowerShell Az 3.3.0 módulo em diante) | Sim (via PowerShell Az 3.3.0 módulo em diante)
 Armazenamento Premium | Sim | Sim
@@ -145,7 +145,7 @@ Conjuntos de disponibilidade | Sim | Sim
 HUB | Sim | Sim  
 Managed disks | Sim, para o fracasso.<br/><br/> O recuo dos discos geridos não é suportado. | Sim, para o fracasso.<br/><br/> O recuo dos discos geridos não é suportado.
 
-## <a name="azure-vm-requirements"></a>Requisitos de VM Azure
+## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
 As VMs no local que replica para o Azure devem satisfazer os requisitos de VM Azure resumidos nesta tabela.
 
@@ -156,14 +156,14 @@ Arquitetura do sistema operativo convidado | 32-bit (Windows Server 2008)/64-bit
 Tamanho do disco do sistema operativo | Até 2.048 GB para os VMs da geração 1.<br/><br/> Até 300 GB para as VMs da geração 2.  | A verificação dos pré-requisitos falha se não for suportada.
 Contagem de discos do sistema operativo | 1 | A verificação dos pré-requisitos falha se não for suportada.
 Contagem de discos de dados | 16 ou menos  | A verificação dos pré-requisitos falha se não for suportada.
-Tamanho VHD do disco de dados | Até 4.095 GB | A verificação dos pré-requisitos falha se não for suportada.
-Adaptadores de rede | São suportados vários adaptadores |
-VHD Partilhado | Não suportado | A verificação dos pré-requisitos falha se não for suportada.
-Disco fc | Não suportado | A verificação dos pré-requisitos falha se não for suportada.
+Tamanho do VHD do disco de dados | Até 4.095 GB | A verificação dos pré-requisitos falha se não for suportada.
+Placas de rede | São suportados vários adaptadores |
+VHD partilhado | Não suportado | A verificação dos pré-requisitos falha se não for suportada.
+Disco FC | Não suportado | A verificação dos pré-requisitos falha se não for suportada.
 Formato de disco rígido | VHD <br/><br/> VHDX | A Recuperação do Site converte automaticamente vHDX em VHD quando falha no Azure. Quando não volta ao local, as máquinas virtuais continuam a utilizar o formato VHDX.
 BitLocker | Não suportado | O BitLocker deve ser desativado antes de ativar a replicação de um VM.
 o nome da VM | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades vM em Recuperação do Site.
-Tipo VM | Geração 1<br/><br/> Geração 2-Windows | São suportados vMs de geração 2 com um tipo de base de disco oso (que inclui um ou dois volumes de dados formados como VHDX) e menos de 300 GB de espaço em disco.<br></br>Os VMs da Linux Generation 2 não são apoiados. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+Tipo de VM | Geração 1<br/><br/> Geração 2-Windows | São suportados vMs de geração 2 com um tipo de base de disco oso (que inclui um ou dois volumes de dados formados como VHDX) e menos de 300 GB de espaço em disco.<br></br>Os VMs da Linux Generation 2 não são apoiados. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Ações de cofre de serviços de recuperação
 

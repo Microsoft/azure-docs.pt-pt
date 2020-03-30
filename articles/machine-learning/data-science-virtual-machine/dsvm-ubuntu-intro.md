@@ -9,10 +9,10 @@ ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
 ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241641"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
@@ -24,7 +24,7 @@ Levanta-te e a correr com a Ubuntu 18.04 Data Science Virtual Machine.
 Para criar uma Ubuntu 18.04 Data Science Virtual Machine, você deve ter uma subscrição Azure. [Experimente Azure de graça.](https://azure.com/free)
 Por favor, note que as contas gratuitas do Azure não suportam a gpu ativada pela máquina virtual SKUs.
 
-## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a sua máquina de Virtual de ciência de dados para Linux
+## <a name="create-your-data-science-virtual-machine-for-linux"></a>Crie a sua máquina virtual de ciência de dados para Linux
 
 Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência de Dados Ubuntu 18.04:
 
@@ -59,17 +59,17 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
     
    1. Selecione **Rever + criar**.
    1. **Review+criar**
-      * Certifique-se de que todas as informações que introduziu estão corretas. 
+      * Verifique se todas as informações que inseriu estão corretas. 
       * Selecione **Criar**.
     
-    O aprovisionamento, deve demorar cerca de 5 minutos. O estado está exposto no portal Azure.
+    O fornecimento deve demorar cerca de 5 minutos. O estado está exposto no portal Azure.
 
 ## <a name="how-to-access-the-ubuntu-data-science-virtual-machine"></a>Como aceder à Máquina Virtual de Ciência de Dados ubuntu
 
 Você pode aceder ao Ubuntu DSVM de uma de três maneiras:
 
   * SSH para sessões de terminal
-  * X2Go para sessões de gráficos
+  * X2Go para sessões gráficas
   * JupyterHub e JupyterLab para blocos de notas do Jupyter
 
 Também pode anexar uma Máquina Virtual de Ciência de Dados aos Cadernos Azure para executar cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos Azure.](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)
@@ -79,18 +79,18 @@ Também pode anexar uma Máquina Virtual de Ciência de Dados aos Cadernos Azure
 Após a criação do VM, se foi configurado com acesso SSH, pode iniciar sessão utilizando o SSH. Utilize as credenciais de conta que criou na secção **Basics** do passo 3 para a interface da concha de texto. No Windows, pode descarregar uma ferramenta de cliente SSH como [a PuTTY](https://www.putty.org). Se preferir um ambiente de trabalho gráfico (X Window System), pode utilizar o reencaminhado X11 para o PuTTY.
 
 > [!NOTE]
-> O cliente de X2Go executada melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
+> O cliente X2Go teve um desempenho melhor do que o X11 reencaminhamento em testes. Recomendamos a utilização do cliente X2Go para uma interface gráfica de ambiente de trabalho.
 
 ### <a name="x2go"></a>X2Go
 
-O Linux VM já está aprovisionado com o X2Go Server e pronto para aceitar ligações ao cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, execute o seguinte procedimento no cliente:
+O Linux VM já está aprovisionado com o X2Go Server e pronto para aceitar ligações ao cliente. Para ligar ao ambiente de trabalho gráfico Linux VM, complete o seguinte procedimento no seu cliente:
 
 1. Descarregue e instale o cliente X2Go para a sua plataforma cliente a partir de [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Tome nota do endereço IP público da máquina virtual, que pode encontrar no portal Azure abrindo a máquina virtual que acabou de criar.
 
    ![Endereço IP da máquina Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-1. Gereo cliente X2Go. Se a janela "New Session" não aparecer automaticamente, vá à Sessão -> New Session.
+1. Gereo cliente X2Go. Se a janela "New Session" não aparecer automaticamente, vá à Sessão -> Nova Sessão.
 
 1. Na janela de configuração resultante, introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
@@ -115,9 +115,9 @@ O Linux VM já está aprovisionado com o X2Go Server e pronto para aceitar liga�
 O Ubuntu DSVM gere o [JupyterHub,](https://github.com/jupyterhub/jupyterhub)um servidor Jupyter multisuser. Para se ligar, tome os seguintes passos:
 
    1. Tome nota do endereço IP público para o seu VM, procurando e selecionando o seu VM no portal Azure.
-      ![](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png) de endereço IP da máquina Ubuntu
+      ![Endereço IP da máquina Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-   1. A partir da sua máquina local, abra um navegador web e navegue para https:\//your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anteriormente.
+   1. A partir da sua máquina local, abra\/um navegador web e navegue para https: /your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anteriormente.
    1. O seu navegador provavelmente impedirá que abra a página diretamente, informando-lhe que existe um erro de certificado. O DSVM está a fornecer segurança através de um certificado auto-assinado. A maioria dos navegadores permitirá clicar depois deste aviso. Muitos navegadores continuarão a fornecer algum tipo de aviso visual sobre o certificado durante toda a sua sessão Web.
    1. Introduza o nome de utilizador e a palavra-passe que usou para criar o VM e faça o seu insto. 
 
@@ -125,9 +125,9 @@ O Ubuntu DSVM gere o [JupyterHub,](https://github.com/jupyterhub/jupyterhub)um s
 
    1. Navegue nos muitos cadernos de amostras disponíveis.
 
-JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "o seu nome de utilizador" pelo nome de utilizador que escolheu ao configurar o VM. Mais uma vez, poderá ser inicialmente impedido de aceder ao site devido a um erro de certificado.
+O JupyterLab, a próxima geração de cadernos Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "your-username" pelo nome de utilizador que escolheu ao configurar o VM. Mais uma vez, poderá ser inicialmente impedido de aceder ao site devido a um erro de certificado.
 
-Pode definir o JupyterLab como o servidor de portátil predefinido adicionando esta linha a `/etc/jupyterhub/jupyterhub_config.py`:
+Pode definir o JupyterLab como o servidor `/etc/jupyterhub/jupyterhub_config.py`de portátil predefinido adicionando esta linha a:
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -135,10 +135,10 @@ c.Spawner.default_url = '/lab'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Eis como pode continuar a sua aprendizagem e a exploração:
+Eis como pode continuar a sua aprendizagem e exploração:
 
 * A ciência dos dados na Máquina Virtual da Ciência dos Dados para a passagem do [Linux](linux-dsvm-walkthrough.md) mostra-lhe como fazer várias tarefas comuns de ciência de dados com o Linux DSVM aqui provisionado. 
-* Explore as várias ferramentas de ciência de dados no DSVM experimentando as ferramentas descritas neste artigo. Também pode executá`dsvm-more-info` na concha dentro da máquina virtual para uma introdução básica e ponteiros para mais informações sobre as ferramentas instaladas no VM.  
+* Explore as várias ferramentas de ciência de dados no DSVM experimentando as ferramentas descritas neste artigo. Também pode `dsvm-more-info` correr na concha dentro da máquina virtual para uma introdução básica e ponteiros para mais informações sobre as ferramentas instaladas no VM.  
 * Aprenda a construir soluções analíticas de ponta a ponta de forma sistemática utilizando o Processo de Ciência de Dados da [Equipa](https://aka.ms/tdsp).
 * Visite a [Galeria Azure AI](https://gallery.azure.ai/) para obter amostras de machine learning e análise de dados que utilizam os serviços azure AI.
 * Consulte a [documentação](./reference-ubuntu-vm.md) de referência adequada para esta máquina virtual.

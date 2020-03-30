@@ -1,6 +1,6 @@
 ---
-title: Economize custos
-description: Saiba como comprar a capacidade reservada do banco de dados SQL do Azure para economizar em seus custos de computação.
+title: Poupar custos
+description: Saiba como comprar a Base de Dados Azure SQL reservada para economizar nos custos da sua computação.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,56 +12,56 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
 ms.openlocfilehash: 0713e1ed98cc87b95cad1f84672148cd062e0b58
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979980"
 ---
-# <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Economize custos para recursos de computação do banco de dados SQL com capacidade reservada do banco de dados SQL
+# <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Poupe custos para recursos de computação de base de dados SQL com capacidade reservada à Base de Dados Azure SQL
 
-Economize dinheiro com o banco de dados SQL do Azure confirmando uma reserva de recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada do banco de dados SQL do Azure, você faz um compromisso com o uso do banco de dados SQL por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para adquirir a capacidade reservada do banco de dados SQL, você precisa especificar a região do Azure, o tipo de implantação, o nível de desempenho e o termo.
+Poupe dinheiro com a Base de Dados Azure SQL comprometendo-se a uma reserva de recursos computacionais em comparação com os preços de pagamento. Com a capacidade reservada à Base de Dados Azure SQL, compromete-se a utilizar a Base de Dados SQL por um período de um ou três anos para obter um desconto significativo nos custos da computação. Para adquirir a capacidade reservada à Base de Dados SQL, é necessário especificar a região azure, o tipo de implantação, o nível de desempenho e o termo.
 
 
-Você não precisa atribuir a reserva a instâncias específicas do banco de dados SQL (bancos de dados individuais, pools elásticos ou instâncias gerenciadas). As instâncias de banco de dados SQL correspondentes, que já estão em execução ou que foram implantadas recentemente, obterão automaticamente o benefício. Ao comprar uma reserva, você está comprometido com o uso dos custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação do banco de dados SQL que corresponderem aos atributos de reserva não serão mais cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados à instância do banco de dados SQL. No final do prazo de reserva, o benefício de cobrança expira e os bancos de dados SQL são cobrados com o preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Não necessita de atribuir a reserva a instâncias específicas da Base de Dados SQL (bases de dados individuais, piscinas elásticas ou instâncias geridas). As instâncias de Base de Dados SQL correspondentes, que já estão em execução ou as que estão recentemente implantadas, receberão automaticamente o benefício. Ao adquirir uma reserva, compromete-se a utilizar os custos da computação por um período de um ou três anos. Assim que comprar uma reserva, as taxas de computação da Base de Dados SQL que correspondem aos atributos de reserva já não são cobradas às taxas de pagamento. Uma reserva não cobre software, networking ou custos de armazenamento associados à instância de Base de Dados SQL. No final do prazo de reserva, o benefício de faturação expira e as Bases de Dados SQL são faturadas ao preço de pagamento. As reservas não renovam automaticamente. Para obter informações sobre preços, consulte a oferta de capacidade reservada à [Base de Dados SQL.](https://azure.microsoft.com/pricing/details/sql-database/managed/)
 
-Você pode comprar a capacidade reservada do banco de dados SQL do Azure no [portal do Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada do banco de dados SQL:
+Pode comprar a capacidade reservada à Azure SQL Database no [portal Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a sql base de dados capacidade reservada:
 
-- Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
-- Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deverá ser um administrador de EA na assinatura.
-- Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem adquirir a capacidade reservada do banco de dados SQL.
+- Você deve estar no papel de proprietário para pelo menos uma Empresa ou subscrição individual com taxas pay-as-you-go.
+- Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com). Ou, se essa definição for desativada, deve ser um Administrador EA na subscrição.
+- Para o programa Cloud Solution Provider (CSP), apenas os agentes de administração ou agentes de vendas podem adquirir a capacidade reservada à Base de Dados SQL.
 
-Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [entender o uso de reserva do Azure para sua assinatura pré-paga](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Os detalhes sobre como os clientes empresariais e os clientes Pay-As-You-Go são cobrados para compras de reservas, consulte o uso da [reserva Azure para](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) a sua inscrição na Enterprise e compreenda o uso da reserva Azure para a sua [subscrição Pay-As-You-Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
-## <a name="determine-the-right-sql-size-before-purchase"></a>Determinar o tamanho do SQL correto antes da compra
+## <a name="determine-the-right-sql-size-before-purchase"></a>Determine o tamanho SQL certo antes da compra
 
-O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos bancos de dados individuais existentes ou em breve para serem implantados, pools elásticos ou instâncias gerenciadas em uma região específica e usando o mesmo nível de desempenho e geração de hardware.
+O tamanho da reserva deve basear-se na quantidade total de cálculo utilizado pelas bases de dados únicas existentes ou em breve implantadas, piscinas elásticas ou instâncias geridas numa região específica e utilizando o mesmo nível de desempenho e geração de hardware.
 
-Por exemplo, suponhamos que você esteja executando uma finalidade geral, Gen5 – 16 pool elástico do vCore e dois bancos de dados de negócios de Gen5 – 4. Além disso, vamos pretender que você planeje implantar no próximo mês uma finalidade geral adicional, Gen5 – 16 pool elástico do vCore e uma empresa crítica, Gen5 – pool elástico vCore de 32. Além disso, vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 32 (2x16), reserva de 1 ano para o único banco de dados/pool elástico de uso geral-Gen5 e uma reserva de 40 (2x4 + 32) de 1 ano para o banco de dados/pool elástico comercial crítico-Gen5.
+Por exemplo, suponhamos que você está executando um propósito geral, Gen5 – 16 vCore eelástico e dois negócios críticos, Gen5 – 4 vCore bases de dados únicas. Além disso, supõe-se que planeia implementar dentro do próximo mês um propósito geral adicional, Gen5 – 16 vCore e elástico, e um negócio crítico, Gen5 – 32 vCore elástico. Além disso, suponhamos que saiba que vai precisar destes recursos por pelo menos 1 ano. Neste caso, deve adquirir uma reserva de 32 (2x16) vCores, 1 ano de reserva para uma única base de dados/elástico - Gen5 e uma reserva de 40 (2x4 + 32) vCore 1 ano para uma única base de dados/negócio de piscina elástica crítica - Gen5.
 
-## <a name="buy-sql-database-reserved-capacity"></a>Comprar capacidade reservada do banco de dados SQL
+## <a name="buy-sql-database-reserved-capacity"></a>Comprar capacidade de reserva da Base de Dados SQL do Azure
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços** > **Reservas**.
-3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados SQL** para comprar uma nova reserva para o banco de dados SQL.
-4. Preencha os campos obrigatórios. Bancos de dados individuais novos ou existentes, pools elásticos ou instâncias gerenciadas que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de suas instâncias do banco de dados SQL que obtém o desconto depende do escopo e da quantidade selecionada.
-    ![captura de tela antes de enviar a compra de capacidade reservada do banco de dados SQL](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+2. Selecione todas as reservas **de serviços** > **Reservations**.
+3. Selecione **Adicionar** e, em seguida, no painel de reservas de compra, selecione Base de **Dados SQL** para comprar uma nova reserva para base de dados SQL.
+4. Preencha os campos necessários. Existindo ou novas bases de dados individuais, piscinas elásticas ou instâncias geridas que correspondam aos atributos que seleciona se qualificar para obter o desconto de capacidade reservado. O número real das instâncias da sua Base de Dados SQL que obtêm o desconto depende do âmbito e quantidade selecionados.
+    ![Screenshot antes de submeter a Base de Dados SQL reservada compra de capacidade](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-A tabela a seguir descreve os campos obrigatórios.
+A tabela seguinte descreve os campos necessários.
 
 | Campo      | Descrição|
 |------------|--------------|
-|Subscrição|A assinatura usada para pagar a reserva de capacidade reservada do banco de dados SQL. O método de pagamento na assinatura é cobrado pelos custos iniciais para a reserva de capacidade reservada do banco de dados SQL. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
-|Âmbito       |O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <br/><br/>**Compartilhado**, o desconto de reserva vCore é aplicado às instâncias do banco de dados SQL em execução em qualquer assinatura em seu contexto de cobrança. Para clientes corporativos, o escopo compartilhado é o registro e inclui todas as assinaturas dentro do registro. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.<br/><br/>**Assinatura única**, o desconto de reserva vCore é aplicado às instâncias do banco de dados SQL nesta assinatura. <br/><br/>**Um grupo de recursos único**, o desconto de reserva é aplicado às instâncias do banco de dados SQL na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.|
-|Região      |A região do Azure que é coberta pela reserva de capacidade reservada do banco de dados SQL.|
-|Tipo de implantação|O tipo de recurso SQL para o qual você deseja comprar a reserva.|
-|Escalão de Desempenho|A camada de serviço para as instâncias do banco de dados SQL.
-|Duração        |Um ano ou três anos.|
-|Quantidade    |A quantidade de recursos de computação que está sendo adquirida na reserva de capacidade reservada do banco de dados SQL. A quantidade é um número de vCores na região do Azure e no nível de desempenho selecionados que estão sendo reservados e receberão o desconto de cobrança. Por exemplo, se você estiver executando ou planejando executar instâncias do banco de dados SQL com a capacidade de computação total de Gen5 16 vCores na região leste dos EUA, você deverá especificar Quantity como 16 para maximizar o benefício de todas as instâncias. |
+|Subscrição|A subscrição utilizada para pagar a Reserva de Capacidade reservada à Base de Dados SQL. O método de pagamento da subscrição é cobrado os custos iniciais da reserva de capacidade reservada à Base de Dados SQL. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços de pagamento, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|
+|Âmbito       |O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <br/><br/>**Partilhado,** o desconto de reserva vCore é aplicado às instâncias da Base de Dados SQL que executam quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.<br/><br/>**Subscrição única,** o desconto de reserva vCore é aplicado às instâncias da Base de Dados SQL nesta subscrição. <br/><br/>**Grupo de recursos únicos**, o desconto de reserva é aplicado às instâncias da Base de Dados SQL na subscrição selecionada e no grupo de recursos selecionados dentro dessa subscrição.|
+|Região      |A região azure que está coberta pela Base de Dados SQL reservou reserva de capacidade.|
+|Tipo de implantação|O tipo de recurso SQL para o que pretende comprar a reserva.|
+|Nível de Desempenho|O nível de serviço para as instâncias de Base de Dados SQL.
+|Termo        |Um ano ou três anos.|
+|Quantidade    |A quantidade de recursos computacionais que estão a ser adquiridos dentro da Base de Dados SQL reservada reserva de capacidade. A quantidade é uma série de vCores na região azure selecionada e nível de desempenho que estão sendo reservados e receberão o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar casos de Base de Dados SQL com a capacidade total computacional de Gen5 16 vCores na região leste dos EUA, então especificaria a quantidade como 16 para maximizar o benefício para todos os casos. |
 
-1. Examine o custo da reserva de capacidade reservada do banco de dados SQL na seção de **custos** .
+1. Reveja o custo da Base de Dados SQL reservada reserva de capacidade na secção **Custos.**
 1. Selecione **Comprar**.
-1. Selecione **exibir esta reserva** para ver o status de sua compra.
+1. Selecione **Ver esta Reserva** para ver o estado da sua compra.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
@@ -69,26 +69,26 @@ Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 
-a flexibilidade do tamanho vCore ajuda você a escalar ou reduzir verticalmente dentro de um nível de desempenho e região, sem perder o benefício de capacidade reservada. A capacidade reservada do banco de dados SQL também oferece a você a flexibilidade de mover temporariamente seus bancos de dados ativos entre pools e bancos de dados individuais como parte de suas operações normais (na mesma região e nível de desempenho) sem perder a capacidade reservada contam. Ao manter um buffer não aplicado em sua reserva, você pode gerenciar efetivamente os picos de desempenho sem exceder seu orçamento.
+a flexibilidade do tamanho vCore ajuda-o a escalar para cima ou para baixo dentro de um nível de desempenho e região, sem perder o benefício de capacidade reservado. A capacidade reservada à Base de Dados SQL também lhe proporciona a flexibilidade para mover temporariamente as suas bases de dados quentes entre piscinas e bases de dados individuais como parte das suas operações normais (dentro da mesma região e nível de desempenho) sem perder a capacidade reservada benefício. Ao manter um tampão não aplicado na sua reserva, pode gerir eficazmente os picos de desempenho sem exceder o seu orçamento.
 
 ## <a name="limitation"></a>Limitação
 
-Não é possível reservar bancos de dados SQL baseados em DTU (Basic, Standard ou Premium).
+Não é possível reservar bases de dados SQL baseadas em DTU (básicas, standard ou premium).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O desconto de reserva vCore é aplicado automaticamente ao número de instâncias do banco de dados SQL que correspondem ao escopo e aos atributos de reserva de capacidade reservada do banco de dados SQL. Você pode atualizar o escopo da reserva de capacidade reservada do banco de dados SQL por meio de [portal do Azure](https://portal.azure.com), PowerShell, CLI ou por meio da API.
+O desconto de reserva vCore é aplicado automaticamente ao número de instâncias de Base de Dados SQL que correspondem ao âmbito e atributos reservados à Reserva de Capacidade sQL. Pode atualizar o âmbito da Reserva de Capacidade reservada da Base de Dados SQL através do [portal Azure,](https://portal.azure.com)PowerShell, CLI ou através da API.
 
-Para saber como gerenciar a reserva de capacidade reservada do banco de dados SQL, consulte [gerenciar capacidade reservada do banco de dados SQL](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+Para saber como gerir a reserva de capacidade reservada à Base de Dados SQL, consulte a capacidade reservada à Base de [Dados SQL](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Gerir o Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [O que são Reservas Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Gerir Reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Compreender o desconto das Reservas do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

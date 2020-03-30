@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253549"
 ---
-# <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Sincronização de hash de palavra-passe de resolução de problemas com sincronização azure AD Connect
+# <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas da sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 
 Este tópico fornece passos para como resolver problemas com sincronização de hash password. Se as palavras-passe não estiverem sincronizadas como esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.
 
@@ -60,7 +60,7 @@ Para resolver problemas em que não há palavras-passe sincronizadas:
 
 1. Abra uma nova sessão do Windows PowerShell no seu servidor Azure AD Connect com a opção **Executar como Administrador.**
 
-2. Executar `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+2. Correr `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`ou.
 
 3. Inicie o assistente Azure AD Connect.
 
@@ -143,7 +143,7 @@ Para resolver problemas para um objeto específico do utilizador:
 
 1. Abra uma nova sessão do Windows PowerShell no seu servidor Azure AD Connect com a opção **Executar como Administrador.**
 
-2. Executar `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+2. Correr `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`ou.
 
 3. Inicie o assistente Azure AD Connect.
 
@@ -193,7 +193,7 @@ Por padrão, o Azure AD Connect armazena os resultados das tentativas de sincron
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Nenhuma palavra-passe é sincronizada: resolução de problemas usando o cmdlet de diagnóstico
 
-Pode utilizar o `Invoke-ADSyncDiagnostics` cmdlet para descobrir por que razão não há palavras-passe sincronizadas.
+Pode utilizar `Invoke-ADSyncDiagnostics` o cmdlet para perceber porque é que não há palavras-passe sincronizadas.
 
 > [!NOTE]
 > O `Invoke-ADSyncDiagnostics` cmdlet está disponível apenas para a versão 1.1.524.0 do Azure AD Connect.
@@ -204,7 +204,7 @@ Para resolver problemas em que não há palavras-passe sincronizadas:
 
 1. Abra uma nova sessão do Windows PowerShell no seu servidor Azure AD Connect com a opção **Executar como Administrador.**
 
-2. Executar `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+2. Correr `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`ou.
 
 3. Execute `Import-Module ADSyncDiagnostics`.
 
@@ -214,7 +214,7 @@ Para resolver problemas em que não há palavras-passe sincronizadas:
 
 ## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Um dos objetos não é sincronizar palavras-passe: resolução de problemas utilizando o cmdlet de diagnóstico
 
-Pode utilizar o `Invoke-ADSyncDiagnostics` cmdlet para determinar porque é que um objeto não está a sincronizar palavras-passe.
+Pode utilizar `Invoke-ADSyncDiagnostics` o cmdlet para determinar porque é que um objeto não está a sincronizar palavras-passe.
 
 > [!NOTE]
 > O `Invoke-ADSyncDiagnostics` cmdlet está disponível apenas para a versão 1.1.524.0 do Azure AD Connect.
@@ -225,7 +225,7 @@ Para resolver problemas em que não há palavras-passe sincronizadas para um uti
 
 1. Abra uma nova sessão do Windows PowerShell no seu servidor Azure AD Connect com a opção **Executar como Administrador.**
 
-2. Executar `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+2. Correr `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`ou.
 
 3. Execute `Import-Module ADSyncDiagnostics`.
 
@@ -354,11 +354,11 @@ A coluna de estado pode ter os seguintes valores:
 | Estado | Descrição |
 | --- | --- |
 | Êxito |A palavra-passe foi sincronizada com sucesso. |
-| FilteredByTarget |A palavra-passe é definida para **o Utilizador deve alterar a palavra-passe no próximo início de sessão**. A palavra-passe não foi sincronizada. |
+| FiltradoByTarget |A palavra-passe é definida para **o Utilizador deve alterar a palavra-passe no próximo início de sessão**. A palavra-passe não foi sincronizada. |
 | NoTargetConnection |Nenhum objeto no metaverso ou no espaço do conector Azure AD. |
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço do conector Ative Diretório no local. |
 | TargetNotExportedToDirectory |O objeto no espaço do conector Azure AD ainda não foi exportado. |
-| MigratedCheckDetailsForMoreInfo |A entrada de registo foi criada antes da construção 1.0.9125.0 e é mostrada no seu estado legado. |
+| Detalhes migradosForMoreInfo |A entrada de registo foi criada antes da construção 1.0.9125.0 e é mostrada no seu estado legado. |
 | Erro |O serviço devolveu um erro desconhecido. |
 | Desconhecido |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
 | Atribuído desaparecido |Não estão disponíveis atributos específicos (por exemplo, hash Kerberos) exigidos pelos Serviços de Domínio Da Azure AD. |

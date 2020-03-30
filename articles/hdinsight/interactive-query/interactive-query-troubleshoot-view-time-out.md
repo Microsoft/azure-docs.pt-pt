@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: f00f70e674ac0b83b737d6b2a4bf9d20400736fc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672026"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Cenário: Apache Hive Ver horários ao obter um resultado de consulta em Azure HDInsight
@@ -33,7 +33,7 @@ O valor de tempo de tempo padrão da Hive View pode não ser adequado para a con
 
 ## <a name="resolution"></a>Resolução
 
-Aumente os intervalos apache Ambari Hive View definindo as seguintes propriedades em `/etc/ambari-server/conf/ambari.properties`.
+Aumente os intervalos apache Ambari Hive View, `/etc/ambari-server/conf/ambari.properties`definindo as seguintes propriedades em .
 
 ```
 views.ambari.request.read.timeout.millis=300000
@@ -41,7 +41,7 @@ views.request.read.timeout.millis=300000
 views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 ```
 
-O valor do `HIVE_VIEW_INSTANCE_NAME` está disponível no final do URL da Vista da Colmeia.
+O valor `HIVE_VIEW_INSTANCE_NAME` está disponível no final do URL da Vista da Colmeia.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: a7bb74c09b45429a160a3ec481c23073575cfe3c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251716"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados da MongoDB utilizando a Azure Data Factory
@@ -42,16 +42,16 @@ Especificamente, este conector MongoDB suporta **versões até 3.4**.
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector MongoDB.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 As seguintes propriedades são suportadas para o serviço ligado ao MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo |A propriedade tipo deve ser definida para: **MongoDbV2** |Sim |
-| connectionString |Especifique a cadeia de ligação MongoDB, por exemplo, `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte o [manual mongoDB sobre](https://docs.mongodb.com/manual/reference/connection-string/) a cadeia de ligação para obter mais detalhes. <br/><br /> Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração   `password`da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| conexãoString |Especifique a cadeia de ligação MongoDB, por exemplo. `mongodb://[username:password@]host[:port][/[database][?options]]` Consulte o [manual mongoDB sobre](https://docs.mongodb.com/manual/reference/connection-string/) a cadeia de ligação para obter mais detalhes. <br/><br /> Também pode colocar uma palavra-passe no `password` Cofre de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | base de dados | Nome da base de dados a que pretende aceder. | Sim |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 **Exemplo:**
 
@@ -72,14 +72,14 @@ As seguintes propriedades são suportadas para o serviço ligado ao MongoDB:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados.](concepts-datasets-linked-services.md) As seguintes propriedades são suportadas para dataset MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MongoDbV2Collection** | Sim |
-| collectionName |Nome da coleção na base de dados mongoDB. |Sim |
+| coleçãoNome |Nome da coleção na base de dados mongoDB. |Sim |
 
 **Exemplo:**
 
@@ -111,7 +111,7 @@ As seguintes propriedades são suportadas na secção de **origem** da atividade
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbV2Source** | Sim |
-| filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita este parâmetro ou passe um documento vazio ({}). | Não |
+| filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita{}este parâmetro ou passe um documento vazio ( ). | Não |
 | cursorMethods.project | Especifica os campos para devolver nos documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
 | cursorMethods.limit | Especifica o número máximo de documentos que o servidor devolve. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |

@@ -1,5 +1,5 @@
 ---
-title: Integrar o Monitor Azure para o Mapa de VMs com o Gestor de Operações  Microsoft Docs
+title: Integrar o Monitor Azure para o Mapa de VMs com o Gestor de Operações [ Microsoft Docs
 description: O Monitor Azure para VMs descobre automaticamente componentes de aplicações nos sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo discute a utilização da funcionalidade Map para criar automaticamente diagramas de aplicações distribuídos no Gestor de Operações.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
 ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663458"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar o Gestor de Operações do Centro de Sistemacom o Monitor Azure para a funcionalidade do Mapa de VMs
@@ -106,7 +106,7 @@ A pasta do Mapa de Serviço tem quatro nódosos:
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou eliminar o espaço de trabalho
 
-Pode editar ou eliminar o espaço de trabalho configurado através do painel de visão geral do mapa de **serviços** (Painel de**Administração** > Suite de Gestão de **Operações** > Mapa de **Serviço).**
+Pode editar ou eliminar o espaço de trabalho configurado através do painel de visão geral do mapa de **serviços** ( painel de**administração** > Mapa de > **Serviço**sinuoso de Gestão de **Operações).**
 
 >[!NOTE]
 >[A Operations Management Suite foi uma coleção de serviços](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluía o Log Analytics, que agora faz parte do [Azure Monitor.](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)

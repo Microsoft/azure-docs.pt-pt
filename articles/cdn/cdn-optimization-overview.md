@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252119"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimize Azure CDN para o tipo de entrega de conteúdo
@@ -45,7 +45,7 @@ Este artigo fornece uma visão geral de várias funcionalidades de otimização 
 
 * [Entrega geral da web.](#general-web-delivery) Esta otimização também é usada para streaming de mídia e grande download de ficheiros.
 
-* [Aceleração de site dinâmico](#dynamic-site-acceleration) 
+* [Aceleração dinâmica do site](#dynamic-site-acceleration) 
 
 
 **O Azure CDN Standard dos** perfis da Akamai suporta as seguintes otimizações:
@@ -58,7 +58,7 @@ Este artigo fornece uma visão geral de várias funcionalidades de otimização 
 
 * [Grande download de ficheiros](#large-file-download)
 
-* [Aceleração de site dinâmico](#dynamic-site-acceleration) 
+* [Aceleração dinâmica do site](#dynamic-site-acceleration) 
 
 A Microsoft recomenda que teste variações de desempenho entre diferentes fornecedores para selecionar o fornecedor ideal para a sua entrega.
 

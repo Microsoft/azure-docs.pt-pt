@@ -9,10 +9,10 @@ ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135909"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar recipientes blob com .NET
@@ -30,15 +30,15 @@ As sobrecargas para estes métodos fornecem opções adicionais para gerir a for
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerir quantos resultados são devolvidos
 
-Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, forneça um valor não zero para o parâmetro `maxresults` ao ligar para um dos métodos **Segmentados listContainer.**
+Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, `maxresults` forneça um valor não zero para o parâmetro ao ligar para um dos métodos **Segmentados listContainer.**
 
-Se a sua conta de armazenamento contiver mais de 5000 contentores, ou se tiver especificado um valor para `maxresults` de modo a que a operação de cotação deredere um subconjunto de contentores na conta de armazenamento, então o Armazenamento Azure devolve um símbolo de *continuação* com a lista de contentores. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
+Se a sua conta de armazenamento contiver mais de 5000 `maxresults` contentores, ou se tiver especificado um valor para tal que a operação de cotação derede retorne um subconjunto de contentores na conta de armazenamento, então o Armazenamento Azure devolve um símbolo de *continuação* com a lista de contentores. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
 
 No seu código, verifique o valor do símbolo de continuação para determinar se é nulo. Quando o sinal de continuação é nulo, então o conjunto de resultados está completo. Se o token de continuação não for nulo, ligue novamente para **listContainersSegmented** ou **ListContainersSegmentedAsync,** passando no token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
 ### <a name="filter-results-with-a-prefix"></a>Resultados do filtro com prefixo
 
-Para filtrar a lista de recipientes, especifique uma corda para o parâmetro `prefix`. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas os contentores cujos nomes começam com esse prefixo.
+Para filtrar a lista de recipientes, especifique uma corda para o `prefix` parâmetro. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas os contentores cujos nomes começam com esse prefixo.
 
 ### <a name="return-metadata"></a>Devolver metadados
 

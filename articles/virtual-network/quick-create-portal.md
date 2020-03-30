@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240073"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
@@ -28,11 +28,11 @@ Neste arranque rápido, aprende-se a criar uma rede virtual utilizando o portal 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. A partir do menu do portal Azure, selecione **Criar um recurso**. A partir do Mercado Azure, selecione **Networking** > **Rede Virtual.**
+1. A partir do menu do portal Azure, selecione **Criar um recurso**. A partir do Mercado Azure, selecione > **rede virtual** **em rede.**
 
 1. Na **Create rede virtual,** introduza ou selecione esta informação:
 
@@ -41,7 +41,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **Criar novo,** introduza *o meu Grupo de Recursos*e, em seguida, selecione **OK**. |
     | Nome | Introduza *a minha Rede Virtual*. |
-    | Localização | Selecione **E.U.A. Leste**.|
+    | Localização | Selecione **East US**.|
 
 1. Selecione **Seguinte: Endereços IP,** e para o espaço de **endereçoI4,** introduza *10.1.0.0/16*.
 
@@ -59,7 +59,7 @@ Crie duas VMs na rede virtual:
 
 1. A partir do menu do portal Azure, selecione **Criar um recurso**.
 
-1. A partir do Azure Marketplace, **selecione Compute** > **Windows Server 2019 Datacenter**. Selecione **Criar**.
+1. A partir do Mercado Azure, selecione **Compute** > **Windows Server 2019 Datacenter**. Selecione **Criar**.
 
 1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -70,19 +70,19 @@ Crie duas VMs na rede virtual:
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior. |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira *myVm1*. |
-    | Região | Selecione **E.U.A. Leste**. |
+    | Região | Selecione **East US**. |
     | Opções de disponibilidade | Padrão para nenhum despedimento de **infraestrutura necessário**. |
     | Imagem | Padrão para **Windows Server 2019 Datacenter**. |
     | Tamanho | Predefinição do **Standard DS1 v2**. |
     | **Conta de administrador** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar palavra-passe | Reintroduza a senha. |
-    | **Regras portuárias de entrada** |  |
+    | Confirmar Palavra-passe | Reintroduza a senha. |
+    | **Regras da porta de entrada** |  |
     | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
-    | Selecione portas de entrada | Insira *HTTP (80)* e *RDP (3389)* . |
+    | Selecione portas de entrada | Insira *HTTP (80)* e *RDP (3389)*. |
     | **Poupe dinheiro** |  |
-    | Já tem licença do Windows? | Padrão para **Nº**. |
+    | Já tem uma licença do Windows? | Padrão para **Nº**. |
 
 1. Selecione **Seguinte: Discos**.
 
@@ -93,7 +93,7 @@ Crie duas VMs na rede virtual:
     | Definição | Valor |
     | ------- | ----- |
     | Rede virtual | Padrão para **a minha Rede Virtual**. |
-    | Subrede | Predefinição para **myVirtualSubnet (10.1.0.0/24)** . |
+    | Subrede | Predefinição para **myVirtualSubnet (10.1.0.0/24)**. |
     | IP público | Padrão para **(novo) myVm-ip**. |
     | Grupo de segurança da rede NIC | Padrão para **Básico**. |
     | Portos de entrada pública | Predefinição para **permitir portas selecionadas**. |
@@ -108,9 +108,9 @@ Crie duas VMs na rede virtual:
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Insira a *conta myvmstorage.* Se este nome for tomado, crie um nome único.|
-    | Tipo de conta | Padrão de **armazenamento (finalidade geral v1)** . |
+    | Tipo de conta | Padrão de **armazenamento (finalidade geral v1)**. |
     | Desempenho | Padrão para **Standard**. |
-    | Replicação | Padrão para **armazenamento localmente redundante (LRS)** . |
+    | Replicação | Padrão para **armazenamento localmente redundante (LRS)**. |
 
 1. Selecione **OK,** em seguida, selecione **Rever + criar**. É levado para o **Review + criar** página onde o Azure valida a sua configuração.
 
@@ -144,7 +144,7 @@ Depois de criar o *myVm1,* ligue-se à internet.
 1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
     > [!NOTE]
-    > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+    > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -171,7 +171,7 @@ Depois de criar o *myVm1,* ligue-se à internet.
     Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-    O `ping` falha, porque `ping` utiliza o Protocolo de Mensagem de Controlo de Internet (ICMP). Por padrão, o ICMP não é permitido através da firewall do Windows.
+    Falha, `ping` porque `ping` utiliza o Protocolo de Mensagem de Controlo de Internet (ICMP). Por padrão, o ICMP não é permitido através da firewall do Windows.
 
 1. Para permitir que *o myVm2* ping *myVm1* em um passo posterior, insira este comando:
 

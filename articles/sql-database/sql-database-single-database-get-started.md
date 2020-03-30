@@ -12,10 +12,10 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 03/10/2020
 ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240521"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL
@@ -75,7 +75,7 @@ Para eliminar o **myResourceGroup** e todos os seus recursos utilizando o portal
 1. Na página do grupo de recursos, **selecione Eliminar o grupo de recursos**.
 1. Em **Sescreva o nome do grupo de recursos,** introduza *o myResourceGroup,* e, em seguida, selecione **Eliminar**.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para eliminar o grupo de recursos e todos os seus recursos, execute o seguinte comando Azure CLI, utilizando o nome do seu grupo de recursos:
 
@@ -92,7 +92,7 @@ Remove-AzResourceGroup -Name <your resource group>
 ```
 
 ---
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Conecte e consulta](sql-database-connect-query.md) a sua base de dados utilizando diferentes ferramentas e idiomas:
 > [!div class="nextstepaction"]

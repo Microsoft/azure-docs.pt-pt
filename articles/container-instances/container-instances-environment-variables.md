@@ -4,15 +4,15 @@ description: Saiba como definir variáveis ambientais nos recipientes que execut
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247231"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis ambientais em instâncias de contentores
 
-A definição de variáveis ambientais nos casos do seu recipiente permite-lhe fornecer uma configuração dinâmica da aplicação ou script executada pelo recipiente. Isto é semelhante ao argumento `--env` linha de comando para `docker run`. 
+Definir variáveis de ambiente nas suas instâncias de contentor permite-lhe oferecer configuração dinâmica da aplicação ou do script executado pelo contentor. Isto é semelhante `--env` ao argumento `docker run`da linha de comando para . 
 
 Para definir variáveis ambientais num recipiente, especifique-as quando criar uma instância de contentores. Este artigo mostra exemplos de definição de variáveis ambientais quando se inicia um contentor com o [Azure CLI,](#azure-cli-example) [Azure PowerShell](#azure-powershell-example)e o [portal Azure](#azure-portal-example). 
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Para modificar a saída, inicie um segundo recipiente com o argumento `--environment-variables` adicionado, especificando valores para as variáveis *NumWords* e *MinLength.* (Este exemplo assume que está a executar o CLI numa concha bash ou azure Cloud Shell. Se utilizar o Pedido de Comando do Windows, especifique as variáveis com orçamentos duplos, como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Para modificar a saída, inicie `--environment-variables` um segundo recipiente com o argumento adicionado, especificando valores para as variáveis *NumWords* e *MinLength.* (Este exemplo assume que está a executar o CLI numa concha bash ou azure Cloud Shell. Se utilizar o Pedido de Comando do Windows, especifique as variáveis com duas cotações, tais como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -83,7 +83,7 @@ A saída dos recipientes mostra como modificou o comportamento do segundo conten
 
 ## <a name="azure-powershell-example"></a>Exemplo azure PowerShell
 
-Definir variáveis ambientais no PowerShell é semelhante ao CLI, mas utiliza o argumento `-EnvironmentVariable` linha de comando.
+Definir variáveis ambientais no PowerShell é semelhante `-EnvironmentVariable` ao CLI, mas utiliza o argumento da linha de comando.
 
 Em primeiro lugar, lance o recipiente [aci-wordcount][aci-wordcount] na sua configuração padrão com este comando [New-AzContainerGroup:][new-Azcontainergroup]
 
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Agora execute o seguinte comando [do New-AzContainerGroup.][new-Azcontainergroup] Este especifica as variáveis ambientais *NumWords* e *MinLength* após a povoação de uma variável matriz, `envVars`:
+Agora execute o seguinte comando [do New-AzContainerGroup.][new-Azcontainergroup] Este especifica as variáveis ambientais *NumWords* e *MinLength* `envVars`após a população de uma variável matriz, :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -144,7 +144,7 @@ Azure:\
 Para definir variáveis ambientais quando iniciar um recipiente no portal Azure, especifique-as na página **Avançada** quando criar o recipiente.
 
 1. Na página **Avançada,** delineie a **política de Reiniciar** para O *Fracasso*
-2. Nas **variáveis Ambiente,** insira `NumWords` com um valor de `5` para a primeira variável, e introduza `MinLength` com um valor de `8` para a segunda variável. 
+2. Em **variáveis ambientais,** `NumWords` entre `5` com um valor `MinLength` para a `8` primeira variável, e entre com um valor para a segunda variável. 
 1. Selecione **Review + crie** para verificar e, em seguida, implante o recipiente.
 
 ![Página do portal mostrando variável ambiente Ativar botões e caixas de texto][portal-env-vars-01]
@@ -159,11 +159,11 @@ Os objetos com valores seguros destinam-se a guardar informações sensíveis, c
 
 Variáveis ambientais com valores seguros não são visíveis nas propriedades do seu recipiente - os seus valores só podem ser acedidos a partir do interior do recipiente. Por exemplo, as propriedades do contentor vistas no portal Azure ou no Azure CLI exibem apenas o nome de uma variável segura, e não o seu valor.
 
-Detete uma variável ambiente segura especificando a propriedade `secureValue` em vez da `value` regular para o tipo da variável. As duas variáveis definidas no Seguinte YAML demonstram os dois tipos variáveis.
+Desestabeleça uma variável `secureValue` ambiente segura especificando a propriedade em vez do regular `value` para o tipo da variável. As duas variáveis definidas no Seguinte YAML demonstram os dois tipos variáveis.
 
 ### <a name="yaml-deployment"></a>Implantação yAML
 
-Crie um ficheiro `secure-env.yaml` com o seguinte corte.
+Crie `secure-env.yaml` um ficheiro com o seguinte corte.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -229,14 +229,14 @@ Com o comando executivo do [contentor az,][az-container-exec] que permite execut
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Uma vez aberta uma concha interativa dentro do recipiente, pode aceder ao valor da variável `SECRET`:
+Uma vez aberta uma concha interativa dentro do `SECRET` recipiente, pode aceder ao valor da variável:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
 my-secret-value
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como o processamento de lotes um grande conjunto de dados com vários contentores, podem beneficiar de variáveis ambientais personalizadas no tempo de execução. Para obter mais informações sobre a execução de contentores baseados em [tarefas, consulte executar tarefas contentorizadas com políticas](container-instances-restart-policy.md)de reinício .
 

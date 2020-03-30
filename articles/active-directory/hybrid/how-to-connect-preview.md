@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261284"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre funcionalidades na pré-visualização
@@ -35,7 +35,7 @@ Um grupo do Office 365 está representado como um grupo de distribuição no ad 
 
 **Notas durante a pré-visualização**
 
-* O atributo do livro de endereços não está atualmente povoado na pré-visualização. Sem este atributo, o grupo não é visível na GAL. A maneira mais fácil de povoar este atributo é utilizar o cmdlet Exchange PowerShell `update-recipient`.
+* O atributo do livro de endereços não está atualmente povoado na pré-visualização. Sem este atributo, o grupo não é visível na GAL. A maneira mais fácil de povoar este atributo `update-recipient`é usar o cmdlet Exchange PowerShell .
 * Apenas as florestas com o esquema de troca são alvos válidos para grupos. Se não foi detetada nenhuma Troca, então a redação em grupo não é possível de ativar.
 * Apenas os destacamentos de organização de intercâmbio uniflorestal são atualmente apoiados. Se você tem mais do que uma organização exchange no local, então você precisa de uma solução GALSync no local para que estes grupos apareçam nas suas outras florestas.
 * A funcionalidade de redação do Grupo não trata de grupos de segurança ou de grupos de distribuição.

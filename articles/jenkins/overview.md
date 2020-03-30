@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, overview
 ms.topic: overview
 ms.date: 10/23/2019
 ms.openlocfilehash: a9297ebc116d75cfe1d4f37d4e9ada7d5198beae
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77620173"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
@@ -22,7 +22,7 @@ Este artigo é uma introdução à utilização do Azure com Jenkins, pormenoriz
 Aloje o Jenkins no Azure para centralizar a automatização de compilações e dimensionar a sua implementação à medida que as necessidades dos seus projetos de software aumentam. Pode implementar o Jenkins no Azure com:
  
 - [O modelo de solução do Jenkins](install-jenkins-solution-template.md) no Azure Marketplace.
-- [Máquinas virtuais do Azure](/azure/virtual-machines/linux/overview). Veja o nosso [tutorial](tutorial-jenkins-github-docker-cicd.md) sobre como criar uma instância do Jenkins numa VM.
+- [Máquinas virtuais azure.](/azure/virtual-machines/linux/overview) Veja o nosso [tutorial](tutorial-jenkins-github-docker-cicd.md) sobre como criar uma instância do Jenkins numa VM.
 - Num cluster do Kubernetes em execução no [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough); veja as [instruções](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Monitorize e gerea a sua implantação Azure Jenkins utilizando [registos do Monitor Azure](/azure/log-analytics/log-analytics-overview) e o [Azure CLI](/cli/azure).

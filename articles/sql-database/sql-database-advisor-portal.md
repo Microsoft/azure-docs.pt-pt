@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214167"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -28,8 +28,8 @@ Para visualizar e aplicar recomendações de desempenho, precisa das permissões
 
 Utilize os seguintes passos para encontrar recomendações de desempenho no portal Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Vá a **Todos os serviços** > bases de **dados SQL**e selecione a sua base de dados.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Vá a todas as bases de**dados SQL**de todos **os serviços** > e selecione a sua base de dados.
 3. Navegue para **a recomendação de desempenho** para visualizar as recomendações disponíveis para a base de dados selecionada.
 
 Recomendações de desempenho são apresentadas no quadro semelhante à que se apresenta na figura seguinte:
@@ -40,9 +40,9 @@ As recomendações são ordenadas pelo seu impacto potencial no desempenho nas s
 
 | Impacto | Descrição |
 |:--- |:--- |
-| High |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
+| Alta |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
 | Médio |As recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
-| Low |As recomendações de baixo impacto devem proporcionar um melhor desempenho do que sem, mas as melhorias podem não ser significativas. |
+| Baixa |As recomendações de baixo impacto devem proporcionar um melhor desempenho do que sem, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
 > A Base de Dados Azure SQL precisa de monitorizar as atividades pelo menos durante um dia, a fim de identificar algumas recomendações. A Base de Dados Azure SQL pode facilmente otimizar para padrões de consulta consistentes do que para explosões aleatórias de atividade. Se as recomendações não estiverem atualmente disponíveis, a página de **recomendação** de Desempenho fornece uma mensagem explicando porquê.
@@ -128,7 +128,7 @@ Aplicar uma recomendação pode não acontecer instantaneamente. O portal fornec
 
 | Estado | Descrição |
 |:--- |:--- |
-| Pending |Aplicar o comando de recomendação foi recebido e está agendado para a execução. |
+| Pendente |Aplicar o comando de recomendação foi recebido e está agendado para a execução. |
 | Execução |A recomendação está a ser aplicada. |
 | Validação |A recomendação foi aplicada com sucesso e o serviço está a medir os benefícios. |
 | Êxito |A recomendação foi aplicada com sucesso e os benefícios foram medidos. |
@@ -159,7 +159,7 @@ Depois de implementadas com sucesso as recomendações (atualmente, operações 
 
 A Base de Dados Azure SQL fornece recomendações para melhorar o desempenho da base de dados SQL. Ao fornecer scripts T-SQL, obtém assistência na otimização da sua base de dados e, em última análise, melhorando o desempenho da consulta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o desempenho. As cargas de trabalho na base de dados são dinâmicas e mudam continuamente. A Base de Dados Azure SQL continua a monitorizar e a fornecer recomendações que podem potencialmente melhorar o desempenho da sua base de dados.
 
@@ -170,5 +170,5 @@ Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
-* [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
+* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controlo de acesso baseado em funções](../role-based-access-control/overview.md)

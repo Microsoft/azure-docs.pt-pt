@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos media azure on-demand codificadores  Microsoft Docs
+title: Visão geral dos media azure on-demand codificadores [ Microsoft Docs
 description: A Azure Media Services oferece múltiplas opções para a codificação de meios na nuvem. Este artigo dá uma visão geral dos codificadores de meios de comunicação azure on-demand.
 services: media-services
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251105"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de meios de comunicação azure on-demand 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A Azure Media Services oferece múltiplas opções para a codificação de meios na nuvem.
 
@@ -32,7 +32,7 @@ Os codecs são o software que implementa os algoritmos de compressão/descompres
 
 A Media Services fornece uma embalagem dinâmica que lhe permite entregar o seu conteúdo codificado bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar a embalar estes formatos de streaming.
 
-Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. A faturação para pontos finais de streaming ocorre sempre que o ponto final está em estado de **Corrida.**
+Quando a sua conta De serviços de media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. A faturação para pontos finais de streaming ocorre sempre que o ponto final está em estado de **Corrida.**
 
 A Media Services apoia os seguintes codificadores a pedido que são descritos neste artigo:
 

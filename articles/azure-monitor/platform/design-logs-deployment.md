@@ -1,5 +1,5 @@
 ---
-title: Conceber a sua implementação de Registos de Monitores Azure  Microsoft Docs
+title: Conceber a sua implementação de Registos de Monitores Azure [ Microsoft Docs
 description: Este artigo descreve as considerações e recomendações para os clientes que se preparam para implantar um espaço de trabalho no Monitor Azure.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248830"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conceber a sua implementação de Registos de Monitores Azure
@@ -114,7 +114,7 @@ O *modo de controlo de acesso* é uma definição em cada espaço de trabalho qu
 
     Esta é a definição padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Utilize permissões**de recursos ou espaço de trabalho : Este modo de controlo permite rBAC granular. Os utilizadores podem ter acesso apenas a dados associados aos recursos que possam visualizar atribuindo a permissão `read` Azure. 
+* **Utilize permissões**de recursos ou espaço de trabalho : Este modo de controlo permite rBAC granular. Os utilizadores podem ter acesso apenas a dados associados `read` aos recursos que possam visualizar atribuindo permissão ao Azure. 
 
     Quando um utilizador acede ao espaço de trabalho no modo de contexto espaço de trabalho, aplicam-se permissões no espaço de trabalho. Quando um utilizador acede ao espaço de trabalho no modo de contexto de recursos, apenas são verificadas permissões de recursos e as permissões do espaço de trabalho são ignoradas. Ative o RBAC para um utilizador, removendo-os das permissões do espaço de trabalho e permitindo que as suas permissões de recursos sejam reconhecidas.
 
@@ -163,6 +163,6 @@ Ao planear a sua migração para este modelo, considere o seguinte:
 * Remova a permissão das equipas de aplicação para ler e consultar o espaço de trabalho.
 * Ative e configure quaisquer soluções de monitorização, insights como o Monitor Azure para contentores e/ou Monitor Azure para VMs, a sua conta de Automação ou soluções de gestão como A Gestão de Atualizações, Start/Stop VMs, etc., que foram implantados no espaço de trabalho original.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para implementar as permissões e controlos de segurança recomendados neste guia, [reveja a gestão do acesso aos registos](manage-access.md).

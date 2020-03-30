@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254355"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
@@ -27,8 +27,8 @@ Este artigo discute os dois tipos de políticas de acesso de pré-visualização
 
 ## <a name="sign-in-to-time-series-insights"></a>Inscreva-se na Time Series Insights
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Localize o seu ambiente time series Insights. Introduza `Time Series` na caixa **de pesquisa.** Selecione **Ambiente de Série seletiva** nos resultados da pesquisa.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Localize o seu ambiente time series Insights. Insira `Time Series` na caixa **de pesquisa.** Selecione **Ambiente de Série seletiva** nos resultados da pesquisa.
 1. Selecione o seu ambiente do Time Series Insights na lista.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados
@@ -41,7 +41,7 @@ Siga estes passos para conceder acesso aos dados para um utilizador principal.
 
 1. Escolha **Selecionar o utilizador**. Procure o nome do utilizador ou endereço de e-mail para localizar o utilizador que pretende adicionar. **Selecione Selecione** para confirmar a seleção.
 
-    [![Se um utilizador adicionar](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
+    [![Selecione um utilizador para adicionar](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
 
 1. Escolha **selecione a função**. Escolha a função de acesso adequada para o utilizador:
 
@@ -55,21 +55,21 @@ Siga estes passos para conceder acesso aos dados para um utilizador principal.
 
 1. Selecione **OK** na página **'Função de Utilizador Select'.**
 
-    [![Selecione OK na página de funções do utilizador selecionado](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
+    [![Selecione OK na página Defunte função do utilizador](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
 
 1. Confirme que a página Políticas de Acesso a **Dados** lista os utilizadores e as funções para cada utilizador.
 
-    [![Verificar os utilizadores e funções corretos](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
+    [![Verifique os utilizadores e funções corretos](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornecer acesso a hóspedes de outro inquilino da AD Azure
 
-O papel `Guest` não é um papel de gestão. É um termo usado para uma conta que é convidada de um inquilino para outro. Depois de a conta de hóspedes ser convidada para o diretório do inquilino, pode ter o mesmo controlo de acesso aplicado a ela como qualquer outra conta. Pode conceder acesso à gestão a um Time Series Insights Environment utilizando a lâmina de Controlo de Acesso (IAM). Ou pode conceder acesso aos dados do ambiente através da lâmina Data Access Policies. Para obter mais informações sobre o acesso dos hóspedes do Azure Ative Directory (Azure AD), leia [add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+O `Guest` papel não é um papel de gestão. É um termo usado para uma conta que é convidada de um inquilino para outro. Depois de a conta de hóspedes ser convidada para o diretório do inquilino, pode ter o mesmo controlo de acesso aplicado a ela como qualquer outra conta. Pode conceder acesso à gestão a um Time Series Insights Environment utilizando a lâmina de Controlo de Acesso (IAM). Ou pode conceder acesso aos dados do ambiente através da lâmina Data Access Policies. Para obter mais informações sobre o acesso dos hóspedes do Azure Ative Directory (Azure AD), leia [add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Siga estes passos para dar acesso ao hóspede a um ambiente Time Series Insights a um utilizador da AD Azure de outro inquilino.
 
 1. Selecione Políticas de Acesso a **Dados**e, em seguida, selecione **+ Convidar**.
 
-    [![Selecione Polícias de Acesso a Dados, em seguida+ Convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
+    [![Selecione Data Access Polices, em seguida+ Convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
 1. Insira o endereço de e-mail para o utilizador que pretende convidar. Este endereço de e-mail deve ser associado à Azure AD. Você pode opcionalmente incluir uma mensagem pessoal com o convite.
 
@@ -91,21 +91,21 @@ Siga estes passos para dar acesso ao hóspede a um ambiente Time Series Insights
 
    Selecione **OK** para confirmar a escolha do papel.
 
-    [![Confirmar a escolha do papel](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
+    [![Confirme a escolha do papel](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
 
 1. Selecione **OK** na página **'Função de Utilizador Select'.**
 
 1. Confirme que a página Políticas de Acesso a **Dados** lista o utilizador convidado e as funções para cada utilizador convidado.
 
-    [![Verificar se os utilizadores e as funções estão corretamente atribuídos](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
+    [![Verifique se os utilizadores e as funções estão corretamente atribuídos](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
 1. Agora, o utilizador convidado receberá um e-mail de convite no endereço de e-mail acima especificado. O utilizador convidado irá selecionar **Get Started** para confirmar a sua aceitação e ligação ao Azure Cloud.
 
-    [![Convidado seleciona Get Started to Accept](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
+    [![Selecionados para hóspedes Começaram a aceitar](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
 1. Depois de selecionar **Get Started,** o utilizador convidado será apresentado com uma caixa de permissões associada à organização do administrador. Ao conceder permissão selecionando **Aceitar,** serão assinados.
 
-    [![Hóspede analisa permissões e aceita](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
+    [![Os hóspedes analisam permissões e aceitam](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
 1. O administrador [partilha o URL ambiental](time-series-insights-parameterized-urls.md) com o seu convidado.
 
@@ -115,14 +115,14 @@ Siga estes passos para dar acesso ao hóspede a um ambiente Time Series Insights
 
 1. O inquilino do administrador será apresentado ao utilizador convidado depois de selecionar o seu ícone de perfil no canto superior direito do explorador da Série Time.
 
-    [![seleção do Avatar na insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
+    [![Seleção de avatar no insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
 
     Depois de o utilizador convidado selecionar o inquilino do administrador, eles terão a capacidade de selecionar o ambiente de Insights da Série De Tempo partilhado. 
     
     Eles agora têm todas as capacidades associadas ao papel que lhes forneceu no **passo 5**.
 
-    [![utilizador convidado seleciona o seu inquilino Azure de drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
+    [![O utilizador convidado seleciona o seu inquilino Azure a partir do drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

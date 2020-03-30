@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: cafb0a7e2bf0fbce82448236a2da98079144121e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250143"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o servidor de backend .NET SDK para aplicações móveis Azure
@@ -28,8 +28,8 @@ Este tópico mostra-lhe como utilizar o Servidor de backend .NET SDK nos cenári
 ## <a name="reference-documentation"></a>Documentação de referência
 A documentação de referência para o servidor SDK está localizada aqui: [Azure Mobile Apps .NET Reference][1].
 
-## <a name="create-app"></a>Como: Criar um backend de uma aplicação móvel .NET
-Se estiver a iniciar um novo projeto, pode criar uma aplicação de Serviço de Aplicações utilizando o [Portal do Azure] ou o Visual Studio. Pode executar a aplicação do Serviço de Aplicações localmente ou publicar o projeto na sua aplicação móvel app Service baseada na nuvem.
+## <a name="how-to-create-a-net-mobile-app-backend"></a><a name="create-app"></a>Como: Criar um backend de uma aplicação móvel .NET
+Se estiver a iniciar um novo projeto, pode criar uma aplicação de Serviço de Aplicações utilizando o [portal Azure] ou o Visual Studio. Pode executar a aplicação do Serviço de Aplicações localmente ou publicar o projeto na sua aplicação móvel app Service baseada na nuvem.
 
 Se estiver a adicionar capacidades móveis a um projeto existente, consulte o Download e inicialize a secção [SDK.](#install-sdk)
 
@@ -38,15 +38,15 @@ Para criar um backend móvel do App Service, siga o [tutorial Quickstart][3] ou 
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-De volta à lâmina *Get started,* sob **C#** Criar uma Tabela **API,** escolha como a sua língua **backend**. Clique em **Download,** extraia os ficheiros do projeto comprimido para o seu computador local e abra a solução no Estúdio Visual.
+De volta à lâmina *Get started,* sob **Criar uma Tabela API,** escolha **C#** como a sua **língua backend**. Clique em **Download,** extraia os ficheiros do projeto comprimido para o seu computador local e abra a solução no Estúdio Visual.
 
 ### <a name="create-a-net-backend-using-visual-studio-2017"></a>Crie um backend .NET usando o Visual Studio 2017
 
 Instale a carga de trabalho azure através do Instalador de Estúdios Visuais para publicar no projeto De Aplicações Móveis Azure do Visual Studio. Depois de ter instalado o SDK, crie uma aplicação ASP.NET utilizando os seguintes passos:
 
-1. Abra o diálogo **new project** (de **File** > **New** > **Project...** ).
-2. Expandir  **C# visual** e selecionar **Web**.
-3. Selecione **ASP.NET Aplicação Web (.QUADRO NET)** .
+1. Abra o diálogo **new project** (do **File** > **New** > **Project...**).
+2. Expandir **Visual C#** e selecionar **Web**.
+3. Selecione **ASP.NET Aplicação Web (.QUADRO NET)**.
 4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Selecione **Aplicação Móvel Azure** da lista de modelos.
 6. Clique em **OK** para criar a solução.
@@ -57,26 +57,26 @@ Instale a carga de trabalho azure através do Instalador de Estúdios Visuais pa
 
 Instale o [Azure SDK para .NET][4] (versão 2.9.0 ou posterior) para criar um projeto de Aplicações Móveis Azure no Estúdio Visual. Depois de ter instalado o SDK, crie uma aplicação ASP.NET utilizando os seguintes passos:
 
-1. Abra o diálogo **new project** (de **File** > **New** > **Project...** ).
-2. Expandir **modelos** > **visual, C#** e selecionar **Web**.
+1. Abra o diálogo **new project** (do **File** > **New** > **Project...**).
+2. Expandir **modelos** > **visuais C#** e selecionar **Web**.
 3. Selecione **Aplicação Web ASP.NET**.
 4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Em *ASP.NET modelos 4.5.2,* selecione **Azure Mobile App**. Consulte **o Host na nuvem** para criar um backend móvel na nuvem para onde pode publicar este projeto.
 6. Clique em **OK**.
 
-## <a name="install-sdk"></a>Como: Baixar e inicializar o SDK
+## <a name="how-to-download-and-initialize-the-sdk"></a><a name="install-sdk"></a>Como: Baixar e inicializar o SDK
 O SDK está disponível em [NuGet.org]. Este pacote inclui a funcionalidade base necessária para começar a usar o SDK. Para inicializar o SDK, é necessário realizar ações no objeto **HttpConfiguration.**
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 Para instalar o SDK, clique no direito do projeto do servidor no Estúdio Visual, selecione **Gerir pacotes NuGet,** procurar o pacote [Microsoft.Azure.Mobile.Server] e, em seguida, clique em **Instalar**.
 
-### <a name="server-project-setup"></a>Inicializar o projeto do servidor
-Um projeto de servidor de backend .NET é inicializado semelhante a outros projetos de ASP.NET, incluindo uma classe de startup oWIN. Certifique-se de que fez referência ao pacote NuGet `Microsoft.Owin.Host.SystemWeb`. Para adicionar esta aula no Visual Studio, clique no seu projeto de servidor e selecione **Adicionar** >
-**Novo Item,** em seguida, **web** > **classe De** Arranque Geral > **OWIN**.  Uma classe é gerada com o seguinte atributo:
+### <a name="initialize-the-server-project"></a><a name="server-project-setup"></a>Inicializar o projeto do servidor
+Um projeto de servidor de backend .NET é inicializado semelhante a outros projetos de ASP.NET, incluindo uma classe de startup oWIN. Certifique-se de que fez `Microsoft.Owin.Host.SystemWeb`referência ao pacote NuGet . Para adicionar esta aula no Visual Studio, clique no projeto do seu servidor e selecione **Adicionar** >
+**Novo Item,** em seguida, classe **Web** > **General** > **OWIN Startup**.  Uma classe é gerada com o seguinte atributo:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-No método `Configuration()` da sua classe de startupo OWIN, utilize um objeto **HttpConfiguration** para configurar o ambiente de Aplicações Móveis Azure.
+No `Configuration()` método da sua classe de startupo OWIN, utilize um objeto **HttpConfiguration** para configurar o ambiente de Aplicações Móveis Azure.
 O exemplo seguinte inicializa o projeto do servidor sem funcionalidades adicionais:
 
     // in OWIN startup class
@@ -91,13 +91,13 @@ O exemplo seguinte inicializa o projeto do servidor sem funcionalidades adiciona
         app.UseWebApi(config);
     }
 
-Para ativar as funcionalidades individuais, deve ligar para métodos de extensão no objeto **MobileAppConfiguration** antes de ligar **para O ApplyTo**. Por exemplo, o seguinte código adiciona as rotas predefinidas a todos os controladores API que tenham o atributo `[MobileAppController]` durante a inicialização:
+Para ativar as funcionalidades individuais, deve ligar para métodos de extensão no objeto **MobileAppConfiguration** antes de ligar **para O ApplyTo**. Por exemplo, o seguinte código adiciona as rotas predefinidas `[MobileAppController]` a todos os controladores API que tenham o atributo durante a inicialização:
 
     new MobileAppConfiguration()
         .MapApiControllers()
         .ApplyTo(config);
 
-O servidor começa rapidamente a partir do portal Azure chama **De utilizaçãoDefaultConfigura()** . Isto equivale à seguinte configuração:
+O servidor começa rapidamente a partir do portal Azure chama **De utilizaçãoDefaultConfigura()**. Isto equivale à seguinte configuração:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -113,12 +113,12 @@ O servidor começa rapidamente a partir do portal Azure chama **De utilizaçãoD
 
 Os métodos de extensão utilizados são:
 
-* `AddMobileAppHomeController()` fornece a página inicial de Aplicações Móveis Azure padrão.
-* `MapApiControllers()` fornece capacidades aPI personalizadas para controladores WebAPI decorados com o atributo `[MobileAppController]`.
-* `AddTables()` fornece um mapeamento dos pontos finais `/tables` aos controladores de mesa.
-* `AddTablesWithEntityFramework()` é uma mão curta para mapear os pontos finais `/tables` utilizando controladores baseados em Quadro de Entidades.
-* `AddPushNotifications()` fornece um método simples de registo de dispositivos para Centros de Notificação.
-* `MapLegacyCrossDomainController()` fornece cabeçalhos CORS padrão para o desenvolvimento local.
+* `AddMobileAppHomeController()`fornece a página inicial de Aplicações Móveis Azure padrão.
+* `MapApiControllers()`fornece capacidades aPI personalizadas para controladores WebAPI decorados com o `[MobileAppController]` atributo.
+* `AddTables()`fornece um mapeamento `/tables` dos pontos finais para controladores de mesa.
+* `AddTablesWithEntityFramework()`é uma mão curta `/tables` para mapear os pontos finais usando controladores baseados em Quadro de Entidades.
+* `AddPushNotifications()`fornece um método simples de registo de dispositivos para centros de notificação.
+* `MapLegacyCrossDomainController()`fornece cabeçalhos CORS padrão para o desenvolvimento local.
 
 ### <a name="sdk-extensions"></a>Extensões SDK
 Os seguintes pacotes de extensão baseados em NuGet fornecem várias funcionalidades móveis que podem ser usadas pela sua aplicação. Ativa as extensões durante a inicialização utilizando o objeto **MobileAppConfiguration.**
@@ -128,16 +128,16 @@ Os seguintes pacotes de extensão baseados em NuGet fornecem várias funcionalid
 * [Microsoft.Azure.Mobile.Server.As tabelas](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) incluem aulas para trabalhar com dados e configurar o pipeline de dados. Adicione à configuração chamando o método de extensão **AddTables.**
 * [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite que o Quadro de Entidades aceda a dados na Base de Dados SQL. Adicione à configuração chamando o método de extensão **AddTablesWithEntityFramework.**
 * [Microsoft.Azure.Mobile.Server.Authentication] ativa a autenticação e configura o middleware OWIN usado para validar fichas. Adicione à configuração chamando o **AddAppServiceAuthentication** e **iAppBuilder**. Métodos de extensão de extensão **useAppServiceAuthentication.**
-* [Microsoft.Azure.Mobile.Server.Notificações] permite notificações push e define um ponto final de registo push. Adicione à configuração ligando para o método de extensão **AddPushNotifications.**
+* [Microsoft.Azure.Mobile.Server.Notifications] permite notificações push e define um ponto final de registo push. Adicione à configuração ligando para o método de extensão **AddPushNotifications.**
 * [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Cria um controlador que serve dados para navegadores web legados a partir da sua Aplicação Móvel. Adicione à configuração chamando o método de extensão **MapLegacyCrossDomainController.**
 * [Microsoft.Azure.Mobile.Server.Login] fornece o método AppServiceLoginHandler.CreateToken() que é um método estático utilizado durante cenários de autenticação personalizada.
 
-## <a name="publish-server-project"></a>Como: Publicar o projeto do servidor
+## <a name="how-to-publish-the-server-project"></a><a name="publish-server-project"></a>Como: Publicar o projeto do servidor
 Esta secção mostra-lhe como publicar o seu projeto de backend .NET do Visual Studio. Também pode implementar o seu projeto backend usando [Git](../app-service/deploy-local-git.md) ou qualquer outro método disponível lá.
 
 1. No Estúdio Visual, reconstrói o projeto para restaurar os pacotes NuGet.
 2. No Solution Explorer, clique no projeto, clique em **Publicar**. A primeira vez que publicar, precisa definir um perfil editorial. Quando já tem um perfil definido, pode selecioná-lo e clicar em **Publicar**.
-3. Se for solicitado a selecionar um alvo de publicação, clique no **Microsoft Azure App Service** > **Seguinte**, então (se necessário) iniciar sessão com as suas credenciais Azure.
+3. Se for solicitado a selecionar um alvo de publicação, clique no **Microsoft Azure App Service** > **Next**, então (se necessário) iniciar sessão com as suas credenciais Azure.
    O Visual Studio descarrega e armazena de forma segura as suas definições de publicação diretamente do Azure.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
@@ -152,14 +152,14 @@ Esta secção mostra-lhe como publicar o seu projeto de backend .NET do Visual S
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a>Como: Definir um controlador de mesa
+## <a name="how-to-define-a-table-controller"></a><a name="define-table-controller"></a>Como: Definir um controlador de mesa
 Defina um Controlador de Mesa para expor uma tabela SQL a clientes móveis.  Configurar um controlador de mesa requer três passos:
 
 1. Crie uma classe de Objeto de Transferência de Dados (DTO).
 2. Configure uma referência de tabela na classe Mobile DbContext.
 3. Crie um controlador de mesa.
 
-Um objeto de transferência de dados C# (DTO) é um objeto simples que herda de `EntityData`.  Por exemplo:
+Um objeto de transferência de dados (DTO) é `EntityData`um objeto C# simples que herda de .  Por exemplo:
 
     public class TodoItem : EntityData
     {
@@ -167,7 +167,7 @@ Um objeto de transferência de dados C# (DTO) é um objeto simples que herda de 
         public bool Complete {get; set;}
     }
 
-O DTO é utilizado para definir a tabela dentro da base de dados SQL.  Para criar a entrada na base de dados, adicione uma propriedade `DbSet<>` ao DbContext que está a utilizar.  No modelo de projeto padrão para aplicações móveis Azure, o DbContext chama-se `Models\MobileServiceContext.cs`:
+O DTO é utilizado para definir a tabela dentro da base de dados SQL.  Para criar a entrada `DbSet<>` na base de dados, adicione uma propriedade ao DbContext que está a utilizar.  No modelo de projeto padrão para aplicações móveis Azure, o DbContext é chamado: `Models\MobileServiceContext.cs`
 
     public class MobileServiceContext : DbContext
     {
@@ -190,7 +190,7 @@ O DTO é utilizado para definir a tabela dentro da base de dados SQL.  Para cria
 
 Se tiver o SDK Azure instalado, pode agora criar um controlador de tabela de modelos da seguinte forma:
 
-1. Clique à direita na pasta controladore **selecione Adicionar** > **Controlador...** .
+1. Clique à direita na pasta controladore selecione **Adicionar** > **controlador...**.
 2. Selecione a opção de controlador de tabela de **aplicações móveis Azure** e, em seguida, clique em **Adicionar**.
 3. No diálogo do **Controlador adicionar:**
    * Na **classe Modelo,** selecione o seu novo DTO.
@@ -200,18 +200,18 @@ Se tiver o SDK Azure instalado, pode agora criar um controlador de tabela de mod
 
 O projeto do servidor quickstart contém um exemplo para um **simples TodoItemController**.
 
-### <a name="adjust-pagesize"></a>Como: Ajustar o tamanho da tabela de paging
-Por padrão, as Aplicações Móveis Azure devolvem 50 registos por pedido.  A Paging garante que o cliente não amarrou o seu fio UI nem o servidor por muito tempo, garantindo uma boa experiência do utilizador. Para alterar o tamanho da tabela, aumente o lado do servidor "tamanho de consulta permitido" e o tamanho da página do lado do cliente O lado do servidor "tamanho de consulta permitida" é ajustado utilizando o `EnableQuery` atributo:
+### <a name="how-to-adjust-the-table-paging-size"></a><a name="adjust-pagesize"></a>Como: Ajustar o tamanho da tabela de paging
+Por padrão, as Aplicações Móveis Azure devolvem 50 registos por pedido.  A Paging garante que o cliente não amarrou o seu fio UI nem o servidor por muito tempo, garantindo uma boa experiência do utilizador. Para alterar o tamanho da tabela, aumente o lado do servidor "tamanho de consulta permitido" e o tamanho `EnableQuery` da página do lado do cliente O lado do servidor "tamanho de consulta permitida" é ajustado usando o atributo:
 
     [EnableQuery(PageSize = 500)]
 
 Certifique-se de que o PageSize é o mesmo ou maior do que o tamanho solicitado pelo cliente.  Consulte a documentação específica do cliente HOWTO para obter detalhes sobre a alteração do tamanho da página do cliente.
 
 ## <a name="how-to-define-a-custom-api-controller"></a>Como: Definir um controlador API personalizado
-O controlador API personalizado fornece a funcionalidade mais básica para o seu backend de Aplicação Móvel expondo um ponto final. Pode registar um controlador API específico para dispositivos móveis utilizando o atributo [MobileAppController]. O atributo `MobileAppController` regista a rota, configura o serializador De Aplicações Móveis JSON e liga [a verificação da versão do cliente.](app-service-mobile-client-and-server-versioning.md)
+O controlador API personalizado fornece a funcionalidade mais básica para o seu backend de Aplicação Móvel expondo um ponto final. Pode registar um controlador API específico para dispositivos móveis utilizando o atributo [MobileAppController]. O `MobileAppController` atributo regista a rota, configura o serializador De Aplicações Móveis JSON e liga [a verificação da versão do cliente.](app-service-mobile-client-and-server-versioning.md)
 
-1. No Estúdio Visual, clique na pasta controladora da direita e, em seguida, clique em **Adicionar** **controlador** > , selecione **Controlador Web API 2&mdash;Vazio** e clique em **Adicionar**.
-2. Forneça um **nome**controlador , como `CustomController`, e clique em **Adicionar**.
+1. No Estúdio Visual, clique na pasta controladora da direita, em seguida, clique em **Adicionar** > **Controlador**, selecione **Controlador&mdash;Web API 2 Empty** e clique em **Adicionar**.
+2. Forneça um **nome**controlador `CustomController`, como, como, e clique em **Adicionar**.
 3. No novo ficheiro da classe controladora, adicione o seguinte comunicado:
 
         using Microsoft.Azure.Mobile.Server.Config;
@@ -228,7 +228,7 @@ O controlador API personalizado fornece a funcionalidade mais básica para o seu
             .MapApiControllers()
             .ApplyTo(config);
 
-Também pode utilizar o método de extensão `UseDefaultConfiguration()` em vez de `MapApiControllers()`. Qualquer controlador que não tenha **mobileAppControllerAttribute** aplicado ainda pode ser acedido pelos clientes, mas pode não ser corretamente consumido pelos clientes que usam qualquer cliente de Aplicação Móvel SDK.
+Também pode utilizar `UseDefaultConfiguration()` o método `MapApiControllers()`de extensão em vez de . Qualquer controlador que não tenha **mobileAppControllerAttribute** aplicado ainda pode ser acedido pelos clientes, mas pode não ser corretamente consumido pelos clientes que usam qualquer cliente de Aplicação Móvel SDK.
 
 ## <a name="how-to-work-with-authentication"></a>Como: Trabalhar com autenticação
 As Aplicações Móveis Azure utilizam a autenticação /autorização do serviço de aplicação para garantir o seu backend móvel.  Esta secção mostra-lhe como executar as seguintes tarefas relacionadas com a autenticação no seu projeto de servidor de backend .NET:
@@ -238,29 +238,29 @@ As Aplicações Móveis Azure utilizam a autenticação /autorização do servi�
 * [Como: Recuperar informações autenticadas do utilizador](#user-info)
 * [Como: Restringir o acesso de dados a utilizadores autorizados](#authorize)
 
-### <a name="add-auth"></a>Como: Adicionar autenticação a um projeto de servidor
+### <a name="how-to-add-authentication-to-a-server-project"></a><a name="add-auth"></a>Como: Adicionar autenticação a um projeto de servidor
 Pode adicionar autenticação ao seu projeto de servidor, alargando o objeto **MobileAppConfiguration** e configurando o middleware OWIN. Quando instalar o pacote [Microsoft.Azure.Mobile.Server.Quickstart] e ligar para o método de extensão **UseDefaultConfiguration,** pode saltar para o passo 3.
 
-1. No Estúdio Visual, instale o pacote [Microsoft.Azure.mobile.Server.Authentication]
+1. No Estúdio Visual, instale o pacote [Microsoft.Azure.Mobile.Server.Server.Authentication.]
 2. No ficheiro Startup.cs projeto, adicione a seguinte linha de código no início do método de **Configuração:**
 
         app.UseAppServiceAuthentication(config);
 
     Este componente de middleware OWIN valida tokens emitidos pelo gateway do Serviço de Aplicações associado.
-3. Adicione o atributo `[Authorize]` a qualquer controlador ou método que exija autenticação.
+3. Adicione `[Authorize]` o atributo a qualquer controlador ou método que exija autenticação.
 
 Para saber como autenticar clientes no backend das suas Aplicações Móveis, consulte [Adicionar autenticação à sua aplicação](app-service-mobile-ios-get-started-users.md).
 
-### <a name="custom-auth"></a>Como: Utilizar a autenticação personalizada para a sua aplicação
+### <a name="how-to-use-custom-authentication-for-your-application"></a><a name="custom-auth"></a>Como: Utilizar a autenticação personalizada para a sua aplicação
 > [!IMPORTANT]
 > Para permitir a autenticação personalizada, tem primeiro de ativar a Autenticação do Serviço de Aplicações sem selecionar um fornecedor para o seu Serviço de Aplicações no portal Azure. Isto permitirá que a variável ambiente WEBSITE_AUTH_SIGNING_KEY quando alojada.
 > 
 > 
-> Se não pretender utilizar um dos fornecedores de autenticação/autorização do serviço app, pode implementar o seu próprio sistema de login. Instale o pacote [Microsoft.Azure.Mobile.Server.Login] para ajudar na geração token de autenticação.  Forneça o seu próprio código para validar as credenciais do utilizador. Por exemplo, pode verificar palavras-passe salgadas e hashed numa base de dados. No exemplo abaixo, o método `isValidAssertion()` (definido noutros locais) é responsável por estes controlos.
+> Se não pretender utilizar um dos fornecedores de autenticação/autorização do serviço app, pode implementar o seu próprio sistema de login. Instale o pacote [Microsoft.Azure.Mobile.Server.Login] para ajudar na geração token de autenticação.  Forneça o seu próprio código para validar as credenciais do utilizador. Por exemplo, pode verificar palavras-passe salgadas e hashed numa base de dados. No exemplo abaixo, `isValidAssertion()` o método (definido noutros locais) é responsável por estes controlos.
 
-A autenticação personalizada é exposta através da criação de um ApiController e expondo `register` e `login` ações. O cliente deve utilizar um UI personalizado para recolher a informação do utilizador.  A informação é então submetida à API com uma chamada http post padrão. Uma vez que o servidor valida a afirmação, um token é emitido usando o método `AppServiceLoginHandler.CreateToken()`.  O ApiController **não deve** utilizar o atributo `[MobileAppController]`.
+A autenticação personalizada é exposta através da `register` criação de um ApiController e expondo e `login` ações. O cliente deve utilizar um UI personalizado para recolher a informação do utilizador.  A informação é então submetida à API com uma chamada http post padrão. Uma vez que o servidor valida a afirmação, um token é emitido usando o `AppServiceLoginHandler.CreateToken()` método.  O ApiController **não** `[MobileAppController]` deve utilizar o atributo.
 
-Um exemplo `login` ação:
+Um `login` exemplo de ação:
 
         public IHttpActionResult Post([FromBody] JObject assertion)
         {
@@ -292,20 +292,20 @@ No exemplo anterior, LoginResult e LoginResultUser são objetos serlizáveis exp
             }
         }
 
-O método `AppServiceLoginHandler.CreateToken()` inclui um *público* e um parâmetro *emitentes.* Ambos os parâmetros estão definidos para o URL da sua raiz de aplicação, utilizando o esquema HTTPS. Da mesma forma, deve definir *o segredoChave* para ser o valor da chave de assinatura da sua aplicação. Não distribua a chave de assinatura num cliente, pois pode ser utilizada para cunhar chaves e personificar os utilizadores. Pode obter a chave de assinatura enquanto está hospedado no Serviço de Aplicações, referindo-se ao *site\_AUTH\_assinar\_* variável de ambiente KEY. Se necessário num contexto de depuração local, siga as instruções na [depuração local com](#local-debug) secção de autenticação para recuperar a chave e armazená-la como uma definição de aplicação.
+O `AppServiceLoginHandler.CreateToken()` método inclui um *público* e um parâmetro *emitentes.* Ambos os parâmetros estão definidos para o URL da sua raiz de aplicação, utilizando o esquema HTTPS. Da mesma forma, deve definir *o segredoChave* para ser o valor da chave de assinatura da sua aplicação. Não distribua a chave de assinatura num cliente, pois pode ser utilizada para cunhar chaves e personificar os utilizadores. Pode obter a chave de assinatura enquanto está hospedado no Serviço de Aplicações, referindo-se à variável de ambiente KEY de *\_ASSINATURA\_DO SITE AUTH.\_* Se necessário num contexto de depuração local, siga as instruções na [depuração local com](#local-debug) secção de autenticação para recuperar a chave e armazená-la como uma definição de aplicação.
 
 O token emitido também pode incluir outros pedidos e uma data de validade.  Minimamente, o símbolo emitido deve incluir uma alegação **(sub).**
 
-Pode suportar o método `loginAsync()` cliente padrão sobrecarregando a rota de autenticação.  Se o cliente ligar `client.loginAsync('custom');` para fazer login, a sua rota deve ser `/.auth/login/custom`.  Pode definir a rota para o controlador de autenticação personalizado utilizando `MapHttpRoute()`:
+Pode suportar o `loginAsync()` método padrão do cliente sobrecarregando a rota de autenticação.  Se o `client.loginAsync('custom');` cliente ligar para fazer `/.auth/login/custom`login, a sua rota deve ser .  Pode definir a rota para o `MapHttpRoute()`controlador de autenticação personalizado utilizando:
 
     config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "CustomAuth" });
 
 > [!TIP]
-> A utilização da abordagem `loginAsync()` garante que o símbolo de autenticação está ligado a todas as chamadas subsequentes ao serviço.
+> A `loginAsync()` utilização da abordagem garante que o símbolo de autenticação está ligado a todas as chamadas subsequentes ao serviço.
 >
 >
 
-### <a name="user-info"></a>Como: Recuperar informações autenticadas do utilizador
+### <a name="how-to-retrieve-authenticated-user-information"></a><a name="user-info"></a>Como: Recuperar informações autenticadas do utilizador
 Quando um utilizador é autenticado pelo App Service, pode aceder ao ID do utilizador e outras informações no seu código de backend .NET. As informações do utilizador podem ser utilizadas para tomar decisões de autorização no backend. O seguinte código obtém o ID do utilizador associado a um pedido:
 
     // Get the SID of the current user.
@@ -340,9 +340,9 @@ O código seguinte chama o método de extensão **GetAppServiceIdentityAsync** p
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-Adicione uma declaração de utilização para `System.Security.Principal` fornecer o método de extensão **GetAppServiceIdentityAsync.**
+Adicione uma declaração `System.Security.Principal` de utilização para fornecer o método de extensão **GetAppServiceIdentityAsync.**
 
-### <a name="authorize"></a>Como: Restringir o acesso de dados a utilizadores autorizados
+### <a name="how-to-restrict-data-access-for-authorized-users"></a><a name="authorize"></a>Como: Restringir o acesso de dados a utilizadores autorizados
 Na secção anterior, mostrámos como recuperar a identificação do utilizador de um utilizador autenticado. Pode restringir o acesso a dados e outros recursos com base neste valor. Por exemplo, adicionar uma coluna userId às tabelas e filtrar os resultados da consulta pelo ID do utilizador é uma forma simples de limitar os dados devolvidos apenas aos utilizadores autorizados. O código seguinte devolve linhas de dados apenas quando o SID corresponde ao valor na coluna UserId na tabela TodoItem:
 
     // Get the SID of the current user.
@@ -352,13 +352,13 @@ Na secção anterior, mostrámos como recuperar a identificação do utilizador 
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
-O método `Query()` devolve uma `IQueryable` que pode ser manipulada pelo LINQ para lidar com a filtragem.
+O `Query()` método `IQueryable` devolve um que pode ser manipulado pelo LINQ para lidar com a filtragem.
 
 ## <a name="how-to-add-push-notifications-to-a-server-project"></a>Como: Adicionar notificações push a um projeto de servidor
 Adicione notificações push ao seu projeto de servidor, alargando o objeto **de Configuração MobileApp** e criando um cliente de Centros de Notificação.
 
-1. No Estúdio Visual, clique no projeto do servidor e clique em **Gerir pacotes NuGet,** procure `Microsoft.Azure.Mobile.Server.Notifications`, em seguida, clique em **Instalar**.
-2. Repita este passo para instalar o pacote `Microsoft.Azure.NotificationHubs`, que inclui a biblioteca de clientes do Notification Hubs.
+1. No Estúdio Visual, clique no projeto do servidor e clique `Microsoft.Azure.Mobile.Server.Notifications`em Gerir **pacotes NuGet,** procure, em seguida, clique em **Instalar**.
+2. Repita este passo `Microsoft.Azure.NotificationHubs` para instalar o pacote, que inclui a biblioteca de clientes do Notification Hubs.
 3. Em App_Start/Startup.MobileApp.cs e adicione uma chamada ao método de extensão **AddPushNotifications** durante a inicialização:
 
         new MobileAppConfiguration()
@@ -381,9 +381,9 @@ Adicione notificações push ao seu projeto de servidor, alargando o objeto **de
         NotificationHubClient hub = NotificationHubClient
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-Pode agora utilizar o cliente Do Centro de Notificação para enviar notificações push para dispositivos registados. Para mais informações, consulte [Adicionar notificações push à sua aplicação](app-service-mobile-ios-get-started-push.md). Para saber mais sobre centros de notificação, consulte a visão geral dos Centros de [Notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
+Pode agora utilizar o cliente Do Centro de Notificação para enviar notificações push para dispositivos registados. Para obter mais informações, veja o artigo [Adicionar notificações push à sua aplicação](app-service-mobile-ios-get-started-push.md). Para saber mais sobre centros de notificação, consulte a visão geral dos Centros de [Notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-## <a name="tags"></a>Como: Ativar o impulso direcionado utilizando tags
+## <a name="how-to-enable-targeted-push-using-tags"></a><a name="tags"></a>Como: Ativar o impulso direcionado utilizando tags
 O Notification Hubs permite-lhe enviar notificações específicas para registos específicos utilizando tags. Várias tags são criadas automaticamente:
 
 * O ID de instalação identifica um dispositivo específico.
@@ -405,7 +405,7 @@ Quaisquer etiquetas fornecidas pelo cliente durante o registo de notificação p
 
 Consulte [as etiquetas de notificação push adicionadas][5] pelo Cliente nas Aplicações móveis do Serviço de Aplicação, a amostra de arranque rápido, por exemplo.
 
-## <a name="push-user"></a>Como: Enviar notificações push a um utilizador autenticado
+## <a name="how-to-send-push-notifications-to-an-authenticated-user"></a><a name="push-user"></a>Como: Enviar notificações push a um utilizador autenticado
 Quando um utilizador autenticado se regista para notificações push, uma etiqueta de identificação do utilizador é automaticamente adicionada ao registo. Ao utilizar esta etiqueta, pode enviar notificações push para todos os dispositivos registados por essa pessoa. O seguinte código obtém o SID do utilizador que faz o pedido e envia uma notificação de push modelo para cada registo do dispositivo para essa pessoa:
 
     // Get the current user SID and create a tag for the current user.
@@ -444,12 +444,12 @@ Para permitir diagnósticos e escrever para os registos:
 4. Republique o seu projeto de servidor e aceda ao backend da Aplicação Móvel para executar o código com a exploração madeireira.
 5. Faça o download e avalie os registos, conforme descrito nos [ficheiros](../app-service/troubleshoot-diagnostic-logs.md#access-log-files)de registo do Access .
 
-### <a name="local-debug"></a>Depuração local com autenticação
+### <a name="local-debugging-with-authentication"></a><a name="local-debug"></a>Depuração local com autenticação
 Pode executar a sua aplicação localmente para testar alterações antes de publicá-las na nuvem. Para a maioria dos backends da Azure Mobile Apps, prima *F5* enquanto está no Estúdio Visual. No entanto, existem algumas considerações adicionais ao utilizar a autenticação.
 
 Deve ter uma aplicação móvel baseada na nuvem com autenticação/autorização do serviço app configurado, e o seu cliente deve ter o ponto final da nuvem especificado como anfitrião de login alternativo. Consulte a documentação da sua plataforma cliente para obter os passos específicos necessários.
 
-Certifique-se de que o seu backend móvel tem [microsoft.Azure.Mobile.Server.Authentication] instalado. Em seguida, na aula de startup oWIN da sua aplicação, adicione o seguinte, depois de `MobileAppConfiguration` ter sido aplicado ao seu `HttpConfiguration`:
+Certifique-se de que o seu backend móvel tem [microsoft.Azure.Mobile.Server.Authentication] instalado. Em seguida, na classe de startupo OWIN `MobileAppConfiguration` da sua aplicação, adicione o seguinte, depois de aplicado ao seu: `HttpConfiguration`
 
         app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
         {
@@ -462,10 +462,10 @@ Certifique-se de que o seu backend móvel tem [microsoft.Azure.Mobile.Server.Aut
 No exemplo anterior, deve configurar as definições de aplicação *authAudience* e *authIssuer* dentro do seu ficheiro Web.config para cada um ser o URL da sua raiz de aplicação, utilizando o esquema HTTPS. Da mesma forma, deve definir a *uthSigningKey* como o valor da chave de assinatura da sua aplicação.
 Para obter a chave de assinatura:
 
-1. Navegue para a sua app dentro do [Portal do Azure]
+1. Navegue para a sua app dentro do [portal Azure]
 2. Clique **em Ferramentas,** **Kudu,** **Go**.
 3. No site da Gestão Kudu, clique em **Ambiente.**
-4. Encontre o valor do *website\_AUTH\_assinar\_CHAVE*.
+4. Encontre o valor para *o SITE\_AUTH\_SIGNING\_KEY*.
 
 Utilize a chave de sinalização para o parâmetro *authSigningKey* no seu config de aplicação local.  O seu backend móvel está agora equipado para validar tokens ao correr localmente, que o cliente obtém o símbolo do ponto final baseado em nuvem.
 
@@ -475,7 +475,7 @@ Utilize a chave de sinalização para o parâmetro *authSigningKey* no seu confi
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Portal do Azure]: https://portal.azure.com
+[Portal Azure]: https://portal.azure.com
 [NuGet.org]: https://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

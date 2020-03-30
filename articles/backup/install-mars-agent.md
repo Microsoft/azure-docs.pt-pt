@@ -4,10 +4,10 @@ description: Saiba como instalar o agente do Microsoft Azure Recovery Services (
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247764"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente MARS de backup Azure
@@ -64,7 +64,7 @@ Para modificar o tipo de replicação de armazenamento:
 
 Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem os seguintes URLs e endereços IP:
 
-* URLs
+*  URLs
   * `www\.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
@@ -114,7 +114,7 @@ Se já instalou o agente em nenhuma máquina, certifique-se de que está a execu
     ![Abra o objetivo de reserva](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
 1. Em que está a funcionar a sua carga **de** **trabalho?** Selecione esta opção mesmo que pretenda instalar o agente MARS num VM Azure.
-1. Em que é que pretende fazer **o backup?** Também pode selecionar **system state**. Muitas outras opções estão disponíveis, mas estas opções só são suportadas se estiver a executar um servidor de backup secundário. Selecione **Preparar infraestrutura**.
+1. Em que é que pretende fazer **Files and folders** **o backup?** Também pode selecionar **system state**. Muitas outras opções estão disponíveis, mas estas opções só são suportadas se estiver a executar um servidor de backup secundário. Selecione **Preparar infraestrutura**.
 
     ![Configure ficheiros e pastas](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
@@ -148,7 +148,7 @@ Se já instalou o agente em nenhuma máquina, certifique-se de que está a execu
 
 1. Para **a instalação,** reveja os pré-requisitos e selecione **Instalar**.
 1. Depois de instalado o agente, selecione **Proceder à inscrição**.
-1. No **Register Server Wizard** > **Identificação do Cofre,** navegue e selecione o ficheiro de credenciais que descarregou. Em seguida, selecione **Seguinte**.
+1. No **Register Server Wizard** > **Vault Identification,** navegue e selecione o ficheiro de credenciais que descarregou. Em seguida, selecione **Seguinte**.
 
     ![Adicione credenciais de cofre utilizando o Assistente do Servidor de Registo](./media/backup-configure-vault/register1.png)
 

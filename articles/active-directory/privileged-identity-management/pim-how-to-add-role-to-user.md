@@ -14,10 +14,10 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253276"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de AD Azure na Gestão de Identidade Privilegiada
@@ -113,11 +113,11 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. **Selecione uma função,** selecione uma função que pretende gerir e, em seguida, selecione **Selecione**.
 
-    ![Selecione um papel](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Selecionar uma função](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Selecione **os membros,** selecione os utilizadores que pretende atribuir à função e, em seguida, selecione **Selecione**.
 
-    ![Selecione um papel](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecionar uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Em **Adicionar membros geridos,** selecione **OK** para adicionar o utilizador à função.
 
@@ -129,7 +129,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. Agora que o utilizador é elegível para o papel, informe-os de que podem ativá-lo de acordo com as instruções em Ativar as [minhas funções de AD Azure na Gestão de Identidade Privilegiada.](pim-how-to-activate-role.md)
 
-    Os administradores elegíveis são convidados a registar-se para a Autenticação Multi-Factor (MFA) do Azure durante a ativação. Se um utilizador não puder registar-se para o MFA, ou estiver a utilizar uma conta Microsoft (como @outlook.com), tem de os tornar permanentes em todas as suas funções.
+    Os administradores elegíveis são convidados a registar-se para a Autenticação Multi-Factor (MFA) do Azure durante a ativação. Se um utilizador não puder registar-se para o @outlook.comMFA, ou estiver a utilizar uma conta Microsoft (como), é necessário torná-los permanentes em todas as suas funções.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de funções permanente
 
@@ -191,7 +191,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
 1. Escolha a sua subscrição.
 
-1. Escolha **Controlo de acesso (IAM)** .
+1. Escolha **Controlo de acesso (IAM)**.
 
 1. Escolha **atribuições** de role para ver a lista atual de atribuições de papéis no âmbito da subscrição.
 
@@ -215,7 +215,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
  ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure Azure AD dispor de definições de funções na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595761"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para o tráfego de egress no Serviço Azure Kubernetes (AKS)
@@ -21,17 +21,17 @@ Este artigo mostra-lhe como criar e usar um endereço IP público estático para
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
-## <a name="egress-traffic-overview"></a>Visão geral do tráfego de saída
+## <a name="egress-traffic-overview"></a>Visão geral do tráfego de Egress
 
-O tráfego de saída de um cluster AKS segue [as convenções do Azure Load Balancer.][outbound-connections] Antes de ser criado o primeiro serviço Kubernetes de tipo `LoadBalancer`, os nós de agente num cluster AKS não fazem parte de qualquer piscina azure Load Balancer. Nesta configuração, os nós não têm endereço IP público de nível de instância. O Azure traduz o fluxo de saída para um endereço IP de origem pública que não é configurável ou determinista.
+O tráfego de saída de um cluster AKS segue [as convenções do Azure Load Balancer.][outbound-connections] Antes de o primeiro serviço `LoadBalancer` de tipo Kubernetes ser criado, os nós de agente num cluster AKS não fazem parte de qualquer piscina azure Load Balancer. Nesta configuração, os nós não têm endereço IP público de nível de instância. O Azure traduz o fluxo de saída para um endereço IP de origem pública que não é configurável ou determinista.
 
-Uma vez criado um serviço kubernetes de tipo `LoadBalancer`, os nós de agente são adicionados a uma piscina Azure Load Balancer. Para o fluxo de saída, o Azure traduz-o para o primeiro endereço IP público configurado no equilibrador de carga. Este endereço IP público é válido para a vida útil desse recurso. Se eliminar o serviço Kubernetes LoadBalancer, o balancedor de carga associado e o endereço IP também são eliminados. Se pretender atribuir um endereço IP específico ou reter um endereço IP para serviços Kubernetes reimplantados, pode criar e utilizar um endereço IP público estático.
+Uma vez criado um serviço `LoadBalancer` kubernetes do tipo, os nós de agente são adicionados a uma piscina Azure Load Balancer. Para o fluxo de saída, o Azure traduz-o para o primeiro endereço IP público configurado no equilibrador de carga. Este endereço IP público é válido para a vida útil desse recurso. Se eliminar o serviço Kubernetes LoadBalancer, o balancedor de carga associado e o endereço IP também são eliminados. Se pretender atribuir um endereço IP específico ou reter um endereço IP para serviços Kubernetes reimplantados, pode criar e utilizar um endereço IP público estático.
 
 ## <a name="create-a-static-public-ip"></a>Criar um IP público estático
 
-Obtenha o nome do grupo de recursos com o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta `--query nodeResourceGroup`. O exemplo seguinte obtém o grupo de recursos do nó para o nome de cluster AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Obtenha o nome do grupo de recursos com `--query nodeResourceGroup` o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta. O exemplo seguinte obtém o grupo de recursos do nó para o nome de cluster AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -72,7 +72,7 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-with-the-static-ip"></a>Criar um serviço com o IP estático
 
-Para criar um serviço com o endereço IP público estático, adicione o `loadBalancerIP` imóvel e o valor do endereço IP público estático ao manifesto YAML. Crie um ficheiro chamado `egress-service.yaml` e copie no seguinte YAML. Forneça o seu próprio endereço IP público criado no passo anterior.
+Para criar um serviço com o endereço `loadBalancerIP` IP público estático, adicione o imóvel e o valor do endereço IP público estático ao manifesto YAML. Crie um `egress-service.yaml` ficheiro nomeado e copie no seguinte YAML. Forneça o seu próprio endereço IP público criado no passo anterior.
 
 ```yaml
 apiVersion: v1
@@ -86,7 +86,7 @@ spec:
   - port: 80
 ```
 
-Crie o serviço e a implantação com o comando `kubectl apply`.
+Crie o serviço `kubectl apply` e a implantação com o comando.
 
 ```console
 kubectl apply -f egress-service.yaml
@@ -96,7 +96,7 @@ Este serviço configura um novo IP frontend no Azure Load Balancer. Se não tive
 
 ## <a name="verify-egress-address"></a>Verifique o endereço de saída
 
-Para verificar se o endereço IP público estático está a ser utilizado, pode utilizar o serviço de reparação dNS, como `checkip.dyndns.org`.
+Para verificar se o endereço IP público estático está a ser `checkip.dyndns.org`utilizado, pode utilizar o serviço de reparação dNS, tais como .
 
 Iniciar e fixar a uma cápsula *básica de Debian:*
 
@@ -104,7 +104,7 @@ Iniciar e fixar a uma cápsula *básica de Debian:*
 kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
-Para aceder a um web site a partir do contentor, utilize `apt-get` para instalar `curl` no recipiente.
+Para aceder a um web site `apt-get` a `curl` partir do recipiente, utilize para instalar no recipiente.
 
 ```console
 apt-get update && apt-get install curl -y

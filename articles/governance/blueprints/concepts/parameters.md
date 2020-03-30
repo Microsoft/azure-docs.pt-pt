@@ -4,10 +4,10 @@ description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los p
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264716"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de plantas dinâmicas através de parâmetros
@@ -131,11 +131,11 @@ O exemplo da API REST seguinte cria um artefacto de atribuição de funções na
   }
   ```
 
-Neste exemplo, a propriedade **principalIds** utiliza o parâmetro de nível de planta dos **proprietários** utilizando um valor de `[parameters('owners')]`. A colocação de um parâmetro num artefacto utilizando um parâmetro de nível de planta continua a ser um exemplo de um **parâmetro estático**. O parâmetro de nível de planta não pode ser definido durante a atribuição da planta e será o mesmo valor em cada atribuição.
+Neste exemplo, a propriedade **principalIds** utiliza o parâmetro de `[parameters('owners')]`nível de planta dos **proprietários** utilizando um valor de . A colocação de um parâmetro num artefacto utilizando um parâmetro de nível de planta continua a ser um exemplo de um **parâmetro estático**. O parâmetro de nível de planta não pode ser definido durante a atribuição da planta e será o mesmo valor em cada atribuição.
 
 ##### <a name="artifact-level-parameter"></a>Parâmetro de nível de artefacto
 
-A criação de **parâmetros estáticos** num artefacto é semelhante, mas tem um valor reto em vez de usar a função `parameters()`. O exemplo seguinte cria dois parâmetros estáticos, **tagName** e **tagValue**. O valor em cada um é fornecido diretamente e não utiliza uma chamada de função.
+A criação de **parâmetros estáticos** num artefacto é `parameters()` semelhante, mas tem um valor reto em vez de usar a função. O exemplo seguinte cria dois parâmetros estáticos, **tagName** e **tagValue**. O valor em cada um é fornecido diretamente e não utiliza uma chamada de função.
 
 - URI da API REST
 
@@ -181,7 +181,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definição de parâmetros dinâmicos da Rest API
 
-A definição de **parâmetros dinâmicos** durante a atribuição é feita através da introdução direta do valor. Em vez de utilizar uma função, como [parâmetros,](../reference/blueprint-functions.md#parameters)o valor fornecido é uma corda adequada. Os artefactos para um grupo de recursos são definidos com um "nome de modelo", **nome,** e propriedades de **localização.** Todos os outros parâmetros para artefactoincluído são definidos em **parâmetros** com um **nome\<\>** e par de chaves de **valor.** Se a planta estiver configurada para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
+A definição de **parâmetros dinâmicos** durante a atribuição é feita através da introdução direta do valor. Em vez de utilizar uma função, como [parâmetros,](../reference/blueprint-functions.md#parameters)o valor fornecido é uma corda adequada. Os artefactos para um grupo de recursos são definidos com um "nome de modelo", **nome,** e propriedades de **localização.** Todos os outros parâmetros para artefactoincluído são definidos em **parâmetros** com um ** \<\> nome** e par de chaves de **valor.** Se a planta estiver configurada para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 
@@ -235,7 +235,7 @@ A definição de **parâmetros dinâmicos** durante a atribuição é feita atra
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a lista de [funções](../reference/blueprint-functions.md)de plantas .
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
+- Conheça o ciclo de vida da [planta.](lifecycle.md)
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243656"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dados distribuídos na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
@@ -51,7 +51,7 @@ Um bom candidato para mesas locais seriam pequenas mesas administrativas que nã
 
 A secção anterior descrevia como as mesas distribuídas são armazenadas como fragmentos em nódosos operários. Esta secção discute mais detalhes técnicos.
 
-A tabela de metadados `pg_dist_shard` no coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha combina com um id de fragmento com uma gama de inteiros num espaço de hash (shardminvalue, shardmaxvalue).
+A `pg_dist_shard` tabela de metadados do coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha combina com um id de fragmento com uma gama de inteiros num espaço de hash (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se o nó coordenador quiser determinar qual o fragmento que detém uma fileira de `github_events`, tem o valor da coluna de distribuição na linha. Em seguida, o nó verifica qual o fragmento\'gama contém o valor hashed. As gamas são definidas de modo que a imagem da função hash é a sua união desarticulada.
+Se o nó coordenador quiser determinar qual o `github_events`fragmento que detém uma fileira, tem o valor da coluna de distribuição na linha. Em seguida, o nó\'verifica qual a gama de fragmentos contém o valor hashed. As gamas são definidas de modo que a imagem da função hash é a sua união desarticulada.
 
 ### <a name="shard-placements"></a>Colocações de fragmentos
 
-Suponha que o fragmento 102027 esteja associado à fila em questão. A fila é lida ou escrita numa mesa chamada `github_events_102027` num dos trabalhadores. Que trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o trabalhador é conhecido como a colocação do fragmento.
+Suponha que o fragmento 102027 esteja associado à fila em questão. A fila é lida ou escrita `github_events_102027` numa mesa chamada num dos trabalhadores. Que trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o trabalhador é conhecido como a colocação do fragmento.
 
-O nó coordenador reescreve consultas em fragmentos que se referem às tabelas específicas como `github_events_102027` e executa esses fragmentos nos trabalhadores apropriados. Aqui está um exemplo de uma consulta nos bastidores para encontrar o nó segurando o shard ID 102027.
+O nó coordenador reescreve consultas em fragmentos que se `github_events_102027` referem às tabelas específicas como e executa esses fragmentos nos trabalhadores apropriados. Aqui está um exemplo de uma consulta nos bastidores para encontrar o nó segurando o shard ID 102027.
 
 ```sql
 SELECT

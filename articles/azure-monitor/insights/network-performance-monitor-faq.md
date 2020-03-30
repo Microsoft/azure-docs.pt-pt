@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096223"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de Monitor de Desempenho de Rede FAQ
@@ -58,7 +58,7 @@ Para o nó apoiar a monitorização utilizando o protocolo TCP:
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Como posso alterar a porta TCP que está a ser utilizada pela NPM para monitorização?
-Pode alterar a porta TCP utilizada pela NPM para monitorização, executando o script [EnableRules.ps1.](https://aka.ms/npmpowershellscript) Precisa de introduzir o número da porta que pretende utilizar como parâmetro. Por exemplo, para ativar o TCP na porta 8060, executar `EnableRules.ps1 8060`. Certifique-se de que utiliza a mesma porta TCP em todos os nós utilizados para monitorização.
+Pode alterar a porta TCP utilizada pela NPM para monitorização, executando o script [EnableRules.ps1.](https://aka.ms/npmpowershellscript) Precisa de introduzir o número da porta que pretende utilizar como parâmetro. Por exemplo, para ativar o TCP `EnableRules.ps1 8060`na porta 8060, executar . Certifique-se de que utiliza a mesma porta TCP em todos os nós utilizados para monitorização.
 
 O script configura apenas o Windows Firewall localmente. Se tiver regras de firewall de rede ou network security group (NSG), certifique-se de que permitem o tráfego destinado à porta TCP utilizada pela NPM.
 
@@ -66,7 +66,7 @@ O script configura apenas o Windows Firewall localmente. Se tiver regras de fire
 Deve utilizar pelo menos um agente para cada sub-rede que queira monitorizar.
 
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual é o número máximo de agentes que posso usar ou vejo erro ".... atingiu o seu limite de configuração"?
-O NPM limita o número de IPs a 5000 IPs por espaço de trabalho. Se um nó tiver endereços IPv4 e IPv6, isto contará como 2 IPs para esse nó. Assim, este limite de 5000 IPs decidiria o limite máximo do número de agentes. Pode eliminar os agentes inativos do separador Nósem NPM >> Configure. O NPM também mantém a história de todos os IPs que alguma vez foram atribuídos ao VM que acolhe o agente e cada um é contado como IP separado contribuindo para esse limite superior de 5000 IPs. Para libertar os IPs para o seu espaço de trabalho, pode utilizar a página Nós para eliminar os IPs que não estão a ser utilizados.
+O NPM limita o número de IPs a 5000 IPs por espaço de trabalho. Se um nó tiver endereços IPv4 e IPv6, isto contará como 2 IPs para esse nó. Assim, este limite de 5000 IPs decidiria o limite máximo do número de agentes. Pode eliminar os agentes inativos do separador Nós em NPM >> Configure. O NPM também mantém a história de todos os IPs que alguma vez foram atribuídos ao VM que acolhe o agente e cada um é contado como IP separado contribuindo para esse limite superior de 5000 IPs. Para libertar os IPs para o seu espaço de trabalho, pode utilizar a página Nós para eliminar os IPs que não estão a ser utilizados.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -208,12 +208,12 @@ Por exemplo: Lúpulo - A,B,C. AvgHopLatency - 10,15,20. Isto significa fonte par
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>A solução mostra perda de 100% mas há conectividade entre a fonte e o destino
 Isto pode acontecer se a firewall do hospedeiro ou a firewall intermédia (firewall de rede ou Azure NSG) estiver bloqueando a comunicação entre o agente de origem e o destino sobre a porta que está sendo usada para monitorização por NPM (por padrão a porta é 8084, a menos que o cliente mudou isto).
 
-* Para verificar se a firewall do hospedeiro não está a bloquear a comunicação sobre a porta requerida, veja o estado de saúde dos nós de origem e destino a partir da seguinte vista: Network Performance Monitor -> Configuração -> Nós. 
+* Para verificar se a firewall do hospedeiro não está a bloquear a comunicação sobre a porta necessária, veja o estado de saúde dos nós de origem e destino a partir da seguinte vista: Monitor de Desempenho da Rede -> Configuração -> Nós. 
   Se não forem saudáveis, veja as instruções e tome medidas corretivas. Se os nós estiverem saudáveis, mova-se para o passo b. abaixo.
 * Para verificar se uma firewall de rede intermédia ou o Azure NSG não está a bloquear a comunicação na porta requerida, utilize o utilitário PsPing de terceiros utilizando as instruções abaixo:
   * utilitário de psping está disponível para download [aqui](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Corra seguindo o comando do nó de origem.
-    * psping -n 15 \<nó de destino IPAddress\>:portNumber Por padrão NPM utiliza porta 8084. Caso tenha alterado explicitamente isto utilizando o script EnableRules.ps1, introduza o número de porta personalizado que está a utilizar). Este é um ping da máquina Azure para o local
+    * psping -n \<15 nó\>de destino IPAddress :portNumber Por padrão NPM utiliza porta 8084. Caso tenha alterado explicitamente isto utilizando o script EnableRules.ps1, introduza o número de porta personalizado que está a utilizar). Este é um ping da máquina Azure para o local
 * Verifique se os pings são bem sucedidos. Caso contrário, indica que uma firewall de rede intermédia ou o AZURE NSG está a bloquear o tráfego nesta porta.
 * Agora, corra o comando do nó de destino para fonte do nó IP.
 
@@ -257,7 +257,7 @@ Isto pode acontecer se um ou mais for verdade:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Na capacidade do Monitor de Conectividade de Serviço, o tempo de resposta ao serviço é NA, mas a perda de rede, bem como a latência são válidas
 Isto pode acontecer se o serviço alvo não for uma aplicação web, mas o teste estiver configurado como um teste Web. Editar a configuração do teste e escolher o tipo de teste como Rede em vez de Web.
 
-## <a name="miscellaneous"></a>Diverso
+## <a name="miscellaneous"></a>Diversos
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Existe um impacto no desempenho no nó que está a ser utilizado para a monitorização?
 O processo NPM está configurado para parar se utilizar mais de 5% dos recursos cpu hospedeiros. Isto é para garantir que pode continuar a usar os nós para as suas cargas de trabalho habituais sem afetar o desempenho.
@@ -266,7 +266,7 @@ O processo NPM está configurado para parar se utilizar mais de 5% dos recursos 
 O NPM apenas cria uma regra local do Windows Firewall nos nós em que o script EnableRules.ps1 Powershell é executado para permitir que os agentes criem ligações TCP entre si na porta especificada. A solução não modifica nenhuma firewall de rede ou regras do Network Security Group (NSG).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Como posso verificar a saúde dos nós que estão a ser usados para monitorização?
-Pode ver o estado de saúde dos nós que estão a ser utilizados para monitorização a partir da seguinte vista: Network Performance Monitor -> Configuração -> Nós. Se um nó não for saudável, pode ver os detalhes do erro e tomar as medidas sugeridas.
+Pode visualizar o estado de saúde dos nódos os que estão a ser utilizados para monitorização a partir da seguinte vista: Monitor de Desempenho da Rede -> Configuração -> Nódosos. Se um nó não for saudável, pode ver os detalhes do erro e tomar as medidas sugeridas.
 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>A NPM pode reportar números de latência em microsegundos?
 NPM ronda os números de latência na UI e em milissegundos. Os mesmos dados são armazenados numa granularidade mais elevada (por vezes até quatro casas decimais).

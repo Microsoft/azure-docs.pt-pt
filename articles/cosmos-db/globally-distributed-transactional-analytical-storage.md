@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623387"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento transacional e analítico distribuído globalmente para contentores Azure Cosmos
@@ -35,7 +35,7 @@ O motor de armazenamento transacional é apoiado por SSDs locais, enquanto o arm
 |Localidade de armazenamento |   Armazenamento replicado apoiado por SSDs locais/intra-cluster. |  Armazenamento replicado apoiado por SSDs remotos/off-cluster baratos.       |
 |Durabilidade  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
 |APIs que acedem aos dados  |   SQL, MongoDB, Cassandra, Gremlin, Mesas e Etc.       | Apache Spark         |
-|Retenção (Tempo de viver ou TTL)   |  Orientado pela política, configurado no contentor Azure Cosmos utilizando a propriedade `DefaultTimeToLive`.       |   Orientado pela política, configurado no contentor Azure Cosmos utilizando a propriedade `ColumnStoreTimeToLive`.      |
+|Retenção (Tempo de viver ou TTL)   |  Orientado pela política, configurado no contentor Azure Cosmos utilizando a `DefaultTimeToLive` propriedade.       |   Orientado pela política, configurado no contentor Azure Cosmos utilizando a `ColumnStoreTimeToLive` propriedade.      |
 |Preço por GB    |   Ver a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Ver a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 |Preço das transações de armazenamento    |  Ver a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Ver a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 

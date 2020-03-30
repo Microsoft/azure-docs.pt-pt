@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135926"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gerir propriedades de contentores e metadados com .NET
@@ -30,7 +30,7 @@ Recuperar valores de propriedade e metadados para um recurso de armazenamento Bl
 > [!IMPORTANT]
 > Se verificar que os valores de propriedade ou metadados de um recurso de armazenamento não foram povoados, verifique se o seu código chama o método **FetchAttributes** ou **FetchASAsync.**
 
-Os pares de nome/valor de metadados são cabeçalhos HTTP válidos, pelo que devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem C# ser nomes de cabeçalho http válidos e identificadores válidos, podem conter apenas caracteres ASCII, e devem ser tratados como insensíveis a casos. Os valores dos metadados que contenham caracteres não ASCII devem ser codificados pelo Base64 ou codificados por URL.
+Os pares de nome/valor de metadados são cabeçalhos HTTP válidos, pelo que devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem ser nomes de cabeçalho http válidos e identificadores C# válidos, podem conter apenas caracteres ASCII, e devem ser tratados como insensíveis a casos. Os valores dos metadados que contenham caracteres não ASCII devem ser codificados pelo Base64 ou codificados por URL.
 
 ## <a name="retrieve-container-properties"></a>Recuperar propriedades de contentores
 
@@ -70,7 +70,7 @@ Pode especificar metadados como um ou mais pares de valor de nome num recurso bl
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-O nome dos seus metadados deve estar C# em conformidade com as convenções de nomeação dos identificadores. Os nomes dos metadados preservam o caso com o qual foram criados, mas são insensíveis aos casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados com o mesmo nome forem submetidos para um recurso, o armazenamento blob devolve o código de erro HTTP 400 (Pedido Mau).
+O nome dos seus metadados deve estar em conformidade com as convenções de nomeação para identificadores C#. Os nomes dos metadados preservam o caso com o qual foram criados, mas são insensíveis aos casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados com o mesmo nome forem submetidos para um recurso, o armazenamento blob devolve o código de erro HTTP 400 (Pedido Mau).
 
 O exemplo de código que se segue define metadados num recipiente. Um valor é definido usando o método **Add** da coleção. O outro valor é definido utilizando a sintaxe implícita da chave/valor. Ambos são válidos.
 

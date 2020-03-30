@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588557"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar dados da Proteção de Informação do Azure
 
 > [!IMPORTANT]
 > O conector de dados azure Information Protection em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Pode transmitir informações de registo a partir da Proteção de [Informação do Azure](https://azure.microsoft.com/services/information-protection/) para o Azure Sentinel configurando o conector de dados de proteção de informação Azure. A Azure Information Protection ajuda-o a controlar e a proteger os seus dados sensíveis, quer sejam armazenados na nuvem ou no local.
 
@@ -57,7 +57,7 @@ No entanto, se o registo de informações do Azure Protection for para um espaç
 
 Utilize as seguintes instruções se não tiver configurado um espaço de trabalho de Log Analytics para a Proteção de Informação Do Azure, ou se tiver de alterar o espaço de trabalho que armazena a informação de registo de informação do Azure.
 
-1. No Azure Sentinel, selecione **conectores**de dados, e, em seguida, **Azure Information Protection (Pré-visualização)** .
+1. No Azure Sentinel, selecione **conectores**de dados, e, em seguida, **Azure Information Protection (Pré-visualização)**.
 
 2. Selecione página do **conector Aberto**.
 

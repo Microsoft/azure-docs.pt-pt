@@ -15,17 +15,17 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240045"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no portal do Azure
 
 As máquinas virtuais do Azure (VMs) podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar VMs e os respetivos recursos associados. Este quickstart mostra-lhe como usar o portal Azure para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2019. Para ver a VM em ação, estabeleça o RDP para a VM e instale o servidor Web IIS.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -69,7 +69,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual. Estas
 
 2. Abra o ficheiro RDP transferido e clique em **Ligar** quando lhe for pedido. 
 
-3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva o nome de utilizador como **localhost**\\*nome de utilizador*, introduza a palavra-passe que criou para a máquina virtual e clique em **OK**.
+3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de utilizador como nome de*utilizador* **local,**\\introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
 
 4. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para criar a ligação.
 
@@ -81,7 +81,7 @@ Para ver a VM em ação, instale o servidor Web do IIS. Abra uma janela do Power
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Quando terminar, feche a ligação RDP para a VM.
+Quando terminar, feche a ligação RDP à VM.
 
 
 ## <a name="view-the-iis-welcome-page"></a>Ver a página de boas-vindas do IIS
@@ -98,7 +98,7 @@ Selecione o grupo de recursos para a máquina virtual e, em seguida, selecione *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
+Neste início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquinas virtuais do Windows do Azure](./tutorial-manage-vm.md)

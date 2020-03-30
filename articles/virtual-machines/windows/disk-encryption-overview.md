@@ -8,23 +8,23 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266783"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação de disco azure para VMs do Windows 
 
-A Encriptação do Disco Azure ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. Utiliza a funcionalidade [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) do Windows para fornecer encriptação de volume para o OS e discos de dados de máquinas virtuais Azure (VMs), e está integrado com o [Azure Key Vault](../../key-vault/index.yml) para o ajudar a controlar e gerir as chaves e segredos de encriptação do disco. 
+A Azure Disk Encryption ajuda a proteger e a salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Utiliza a funcionalidade [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) do Windows para fornecer encriptação de volume para o OS e discos de dados de máquinas virtuais Azure (VMs), e está integrado com o [Azure Key Vault](../../key-vault/index.yml) para o ajudar a controlar e gerir as chaves e segredos de encriptação do disco. 
 
-Se utilizar o Centro de [Segurança Azure,](../../security-center/index.yml)é alertado se tiver VMs que não estejam encriptados. Os alertas mostram como de gravidade alta e a recomendação é de encriptar estas VMs.
+Se utilizar o Centro de [Segurança Azure,](../../security-center/index.yml)é alertado se tiver VMs que não estejam encriptados. Os alertas mostram como Alta Severidade e a recomendação é encriptar estes VMs.
 
-![Alerta de encriptação de disco do Centro de segurança do Azure](../media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Alerta de encriptação do disco do Azure Security Center](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - Se já utilizou anteriormente a Encriptação do Disco Azure com a AD Azure para encriptar um VM, tem de continuar a utilizar esta opção para encriptar o seu VM. Consulte a Encriptação do [Disco Azure com AD Azure (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
-> - Algumas recomendações podem aumentar de dados, a rede ou a utilização de recursos de computação, resultando em custos adicionais de licença ou subscrição. Tem de ter uma subscrição do Azure Active Directory válida para criar recursos no Azure nas regiões suportadas.
+> - Certas recomendações podem aumentar a utilização de dados, rede ou computação de recursos, resultando em custos adicionais de licença ou subscrição. Deve ter uma subscrição azure ativa válida para criar recursos em Azure nas regiões apoiadas.
 
 Pode aprender os fundamentos da encriptação do Disco Azure para windows em poucos minutos com o [Create e encriptar um VM Windows com quickstart Azure CLI](disk-encryption-cli-quickstart.md) ou o [Create e encriptar um VM Windows com quickstart Azure Powershell](disk-encryption-powershell-quickstart.md).
 
@@ -49,17 +49,17 @@ A Encriptação azure Disk também está disponível para VMs com armazenamento 
 
 ## <a name="networking-requirements"></a>Requisitos de networking
 Para ativar a encriptação do disco Azure, os VMs devem satisfazer os seguintes requisitos de configuração do ponto final da rede:
-  - Para obter um sinal para ligar ao seu cofre chave, o Windows VM deve ser capaz de ligar a um ponto final do Diretório Ativo Azure, \[login.microsoftonline.com\].
+  - Para obter um sinal para ligar ao seu cofre chave, o Windows VM deve ser \[\]capaz de ligar a um ponto final do Diretório Ativo Azure, login.microsoftonline.com .
   - Para escrever as chaves de encriptação do seu cofre de chaves, o Windows VM deve ser capaz de se ligar ao ponto final do cofre chave.
   - O Windows VM deve ser capaz de se ligar a um ponto final de armazenamento Azure que acolhe o repositório de extensão Azure e uma conta de armazenamento Azure que acolhe os ficheiros VHD.
-  -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Se a sua política de segurança limitar o acesso dos VMs Azure à Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/key-vault-access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>Requisitos de Política de Grupo
 
-A encriptação do disco Azure utiliza o protetor de teclas externo BitLocker para VMs do Windows. Para VMs associados ao domínio, não enviar por push as políticas de grupo que impõem protetores TPM. Para obter informações sobre a política do grupo para "Permitir bitLocker sem um TPM compatível", consulte [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+A encriptação do disco Azure utiliza o protetor de teclas externo BitLocker para VMs do Windows. Para os VMs de domínio, não empurre nenhuma política de grupo que aplique protetores TPM. Para obter informações sobre a política do grupo para "Permitir bitLocker sem um TPM compatível", consulte [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-A política bitLocker no domínio aderiu a máquinas virtuais com a política de grupo personalizado deve incluir a seguinte definição: [Configure o armazenamento do utilizador de informações de recuperação BitLocker -> Permitir a chave de recuperação de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). A encriptação do disco Azure falhará quando as definições de política de grupo personalizadas para o BitLocker forem incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.
+A política bitLocker no domínio aderiu a máquinas virtuais com a política de grupo personalizado deve incluir a seguinte definição: [Configure o armazenamento do utilizador de informações de recuperação BitLocker - > Permitir a chave de recuperação de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). A encriptação do disco Azure falhará quando as definições de política de grupo personalizadas para o BitLocker forem incompatíveis. Nas máquinas que não tinham a definição correta da política, apliquem a nova política, forcem a nova política a atualizar (gpupdate.exe/force) e, em seguida, o reinício pode ser necessário.
 
 A encriptação do disco azure falhará se a política do grupo de nível de domínio bloquear o algoritmo AES-CBC, que é usado pelo BitLocker.
 
@@ -74,10 +74,10 @@ A tabela que se segue define alguns dos termos comuns utilizados na documentaç�
 
 | Terminologia | Definição |
 | --- | --- |
-| Azure Key Vault | Key Vault é um serviço de gestão chave criptográfica que tem com base no Federal Information Processing Standards (FIPS) módulos de segurança de hardware validado. Estas normas ajudam a salvaguardar as chaves criptográficas e segredos sensíveis. Para mais informações, consulte a documentação do [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/) e [criar e configurar um cofre chave para encriptação](disk-encryption-key-vault.md)de disco azure . |
+| Azure Key Vault | Key Vault é um serviço de gestão criptográfico e chave que é baseado em módulos de segurança de hardware validados (FIPS) federal Information Processing Standards (FIPS). Estes padrões ajudam a salvaguardar as suas chaves criptográficas e segredos sensíveis. Para mais informações, consulte a documentação do [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/) e [criar e configurar um cofre chave para encriptação](disk-encryption-key-vault.md)de disco azure . |
 | CLI do Azure | [O Azure CLI](/cli/azure/install-azure-cli) está otimizado para gerir e administrar recursos Azure a partir da linha de comando.|
 | BitLocker |[O BitLocker](https://technet.microsoft.com/library/hh831713.aspx) é uma tecnologia de encriptação de volume do Windows reconhecida pela indústria que é usada para permitir a encriptação do disco nos VMs do Windows. |
-| Chave de encriptação (KEK) | A chave assimétrica (RSA 2048) que pode usar para proteger ou embrulhar o segredo. Pode fornecer um módulo de segurança de hardware (HSM)-chave ou chave protegida por software protegidos. Para mais informações, consulte a documentação do [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/) e [criar e configurar um cofre chave para encriptação](disk-encryption-key-vault.md)de disco azure . |
+| Chave de encriptação (KEK) | A chave assimétrica (RSA 2048) que pode usar para proteger ou embrulhar o segredo. Pode fornecer uma chave protegida por hardware (HSM) ou uma chave protegida por software. Para mais informações, consulte a documentação do [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/) e [criar e configurar um cofre chave para encriptação](disk-encryption-key-vault.md)de disco azure . |
 | Cmdlets do PowerShell | Para mais informações, consulte [os cmdlets Azure PowerShell](/powershell/azure/overview). |
 
 

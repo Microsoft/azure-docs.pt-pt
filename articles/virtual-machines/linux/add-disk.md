@@ -9,10 +9,10 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250416"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como anexar um disco persistente ao seu VM para que possa
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Fixe um novo disco a um VM
 
-Se pretender adicionar um novo disco de dados vazio no seu VM, utilize o comando de fixação do [disco az vm](/cli/azure/vm/disk?view=azure-cli-latest) com o parâmetro `--new`. Se o seu VM estiver numa Zona de Disponibilidade, o disco é automaticamente criado na mesma zona que o VM. Para mais informações, consulte [a visão geral das Zonas de Disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* que tem 50 Gb de tamanho:
+Se pretender adicionar um novo disco de dados vazio no seu VM, utilize `--new` o comando de fixação do [disco az vm](/cli/azure/vm/disk?view=azure-cli-latest) com o parâmetro. Se o seu VM estiver numa Zona de Disponibilidade, o disco é automaticamente criado na mesma zona que o VM. Para mais informações, consulte [a visão geral das Zonas de Disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* que tem 50 Gb de tamanho:
 
 ```azurecli
 az vm disk attach \
@@ -50,7 +50,7 @@ Para a partilha, formato e montagem do seu novo disco para que o seu VM Linux po
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
+Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
 
 ```bash
 dmesg | grep SCSI
@@ -69,13 +69,13 @@ O resultado é semelhante ao seguinte exemplo:
 > [!NOTE]
 > Recomenda-se que utilize as versões mais recentes do disco ou da parte que estão disponíveis para a sua distro.
 
-Aqui, *sdc* é o disco que queremos. Partição do disco com `parted`, se o tamanho do disco for de 2 tebibytes (TiB) ou maior, então deve utilizar a partição de GPT, se estiver abaixo de 2TiB, então pode utilizar divisórias MBR ou GPT. Se estiver a utilizar divisórias MBR, pode utilizar `fdisk`. Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo inicia o processo `fdisk` em */dev/sdc:*
+Aqui, *sdc* é o disco que queremos. Partição `parted`do disco com , se o tamanho do disco for de 2 tebibytes (TiB) ou maior, então deve utilizar a partição GPT, se estiver abaixo de 2TiB, então pode utilizar divisórias MBR ou GPT. Se estiver a utilizar divisórias `fdisk`MBR, pode utilizar . Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo `fdisk` inicia o processo em */dev/sdc:*
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o resto dos valores predefinidos. A saída será semelhante ao seguinte exemplo:
+Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também `p` escolhemos uma partição primária e aceitamos o resto dos valores predefinidos. O resultado vai ser semelhante ao exemplo seguinte:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -97,7 +97,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Imprima a tabela de divisórias digitando `p` e, em seguida, use `w` para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
+Imprima a tabela `p` de `w` partição digitando e, em seguida, use para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -123,7 +123,7 @@ Utilize o comando abaixo para atualizar o núcleo:
 partprobe 
 ```
 
-Escreva um sistema de ficheiros para a partição com o comando `mkfs`. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
+Escreva um sistema de ficheiros `mkfs` para a partição com o comando. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -154,7 +154,7 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Agora, crie um diretório para montar o sistema de ficheiros usando `mkdir`. O exemplo seguinte cria um diretório no */datadrive:*
+Agora, crie um diretório para `mkdir`montar o sistema de ficheiros usando . O exemplo seguinte cria um diretório no */datadrive:*
 
 ```bash
 sudo mkdir /datadrive
@@ -166,7 +166,7 @@ Utilize `mount` para, em seguida, montar o sistema de ficheiros. O exemplo segui
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade é montada automaticamente após uma reinicialização, deve ser adicionada ao ficheiro */etc/fstab.* Recomenda-se também que o UUID (Universalunique IDentifier) seja utilizado em */etc/fstab* para se referir à unidade em vez de apenas o nome do dispositivo (como, */dev/sdc1*). Se o SISTEMA detetar um erro de disco durante a bota, a utilização do UUID evita que o disco incorreto seja montado num determinado local. Os restantes discos de dados seriam então atribuídos aos mesmos IDs do dispositivo. Para encontrar o UUID da nova unidade, use o utilitário `blkid`:
+Para garantir que a unidade é montada automaticamente após uma reinicialização, deve ser adicionada ao ficheiro */etc/fstab.* Recomenda-se também que o UUID (Universalunique IDentifier) seja utilizado em */etc/fstab* para se referir à unidade em vez de apenas o nome do dispositivo (como, */dev/sdc1*). Se o SO detetar um erro do disco durante o arranque, ao utilizar o UUID evitará que o disco incorreto seja montado numa determinada localização. Os restantes discos de dados serão, em seguida, atribuídos aos mesmos IDs de dispositivos. Para localizar o UUID da nova unidade, utilize o utilitário `blkid`:
 
 ```bash
 sudo blkid
@@ -181,7 +181,7 @@ A saída é semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> A edição inadequada do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
+> A edição inadequada do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
 
 Em seguida, abra o ficheiro */etc/fstab* num editor de texto da seguinte forma:
 
@@ -207,12 +207,12 @@ Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não
 
 Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-* Utilize a opção de montagem `discard` em */etc/fstab,* por exemplo:
+* Utilize `discard` a opção montagem em */etc/fstab,* por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
+* Em alguns `discard` casos, a opção pode ter implicações no desempenho. Em alternativa, pode `fstrim` executar o comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
 
     **Ubuntu**
 

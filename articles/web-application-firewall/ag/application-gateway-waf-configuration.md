@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526795"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web Application Firewall solicitam limites de tamanho e listas de exclusão
@@ -26,7 +26,7 @@ As listas de exclusão waf permitem-lhe omitir certos atributos de pedido de uma
 
 Os seguintes atributos podem ser adicionados às listas de exclusão pelo nome. Os valores do campo escolhido não são avaliados em relação às regras da WAF, mas os seus nomes ainda são (ver Exemplo 1 abaixo, o valor do cabeçalho user-agent é excluído da avaliação waf). As listas de exclusão removem a inspeção do valor do campo.
 
-* Cabeçalhos de Pedido
+* Cabeçalhos dos Pedidos
 * Solicitar Cookies
 * O nome do atributo de pedido (args) pode ser adicionado como elemento de exclusão, tais como:
 
@@ -82,7 +82,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Portanto, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado para o WAF, não avaliará a **cadeia fdafdasfda,** mas ainda avaliará o nome do parâmetro **user%281%29**. 
+Portanto, se `http://www.contoso.com/?user%281%29=fdafdasfda` o URL for passado para o WAF, não avaliará a **cadeia fdafdasfda,** mas ainda avaliará o nome do parâmetro **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>LIMITES de tamanho de pedido waf
 

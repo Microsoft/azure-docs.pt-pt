@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619878"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
@@ -168,9 +168,9 @@ São necessários tokens de acesso para utilizar as APIs do Indexer de Vídeo pa
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Qual é a diferença entre o token de acesso à conta, o token de acesso ao utilizador e o token de acesso ao vídeo?
 
-* Nível de conta – fichas de acesso ao nível da conta permitem-lhe realizar operações ao nível da conta ou ao nível de vídeo. Por exemplo, faça upload de um vídeo, liste todos os vídeos, obtenha informações de vídeo.
+* Nível de conta – os tokens de acesso de nível de conta permitem realizar operações ao nível de conta ou de vídeo. Por exemplo, faça upload de um vídeo, liste todos os vídeos, obtenha informações de vídeo.
 * Nível de utilizador - fichas de acesso ao nível do utilizador permitem-lhe realizar operações ao nível do utilizador. Permitem, por exemplo, obter contas associadas.
-* Nível de vídeo – fichas de acesso ao nível de vídeo permitem-lhe realizar operações num vídeo específico. Permitem, por exemplo, obter informações de vídeo, transferir legendas, obter widgets, etc.
+* Nível de vídeo – os tokens de acesso de nível de vídeo permitem realizar operações num vídeo específico. Permitem, por exemplo, obter informações de vídeo, transferir legendas, obter widgets, etc.
 
 ### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>Quantas vezes preciso de um novo sinal de acesso? Quando é que os tokens de acesso expiram?
 
@@ -192,4 +192,4 @@ Sim, o Video Indexer oferece um teste gratuito que oferece serviço completo e f
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](video-indexer-overview.md)
+[Descrição Geral](video-indexer-overview.md)

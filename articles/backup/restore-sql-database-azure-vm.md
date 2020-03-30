@@ -4,10 +4,10 @@ description: Este artigo descreve como restaurar as bases de dados do SQL Server
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252457"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar as bases de dados do Servidor SQL em VMs Azure
@@ -76,7 +76,7 @@ Restaurar da seguinte forma:
     > Se a base de dados selecionada pertencer a um grupo de disponibilidade Always On, o SQL Server não permite que a base de dados seja substituída. Apenas está disponível **a Localização Alternativa.**
     >
    - **Restaurar como ficheiros**: Em vez de restaurar como base de dados, restaure os ficheiros de backup que podem ser recuperados como base de dados mais tarde em qualquer máquina onde os ficheiros estejam presentes usando o Estúdio de Gestão de Servidores SQL.
-     ![restaurar o menu de configuração](./media/backup-azure-sql-database/restore-configuration.png)
+     ![Restaurar o menu de configuração](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
 
@@ -99,7 +99,7 @@ Restaurar da seguinte forma:
 
     ![Selecione Sobreescrever DB](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-2. No **ponto de restauração Selecione** **Registos (Ponto no Tempo)** para [restaurar a um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione **Full & Diferencial** para restaurar um ponto de [recuperação específico](#restore-to-a-specific-restore-point).
+2. No **ponto de restauração Selecione** **Registos (Ponto no Tempo)** para [restaurar a um ponto específico no tempo](#restore-to-a-specific-point-in-time). Ou selecione **Full & Diferencial** para restaurar a um [ponto de recuperação específico](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
     > A restauração pontual está disponível apenas para cópias de segurança de registo para bases de dados que se encontram em modo de recuperação completa e a granel.
@@ -114,11 +114,11 @@ Para restaurar os dados de backup como ficheiros .bak em vez de uma base de dado
 
     >Para restaurar os ficheiros de backup da base de dados de uma Partilha de Ficheiros Azure montada no VM registado no alvo, certifique-se de que o NT AUTHORITY\SYSTEM tem acesso à parte do ficheiro. Pode executar os passos abaixo indicados para conceder as permissões de leitura/escrita à AFS montada no VM:
     >
-    >- Executar `PsExec -s cmd` para entrar na concha NT AUTHORITY\SYSTEM
+    >- Corra `PsExec -s cmd` para entrar na concha NT AUTHORITY\SYSTEM
     >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verifique o acesso com `dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Inicie um restauro como ficheiros do Cofre de Reserva para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
-    Você pode baixar Psexec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+    >   - Verificar o acesso com`dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >- Inicie um restauro como ficheiros `\\<storageacct>.file.core.windows.net\<filesharename>` do Cofre de Reserva para como o caminho<BR>
+    Você pode baixar Psexec via<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. Selecione **OK**.
 

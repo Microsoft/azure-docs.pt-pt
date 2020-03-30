@@ -10,10 +10,10 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252665"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendar um runbook na Automatização do Azure
@@ -29,7 +29,7 @@ Os cmdlets na tabela seguinte são usados para criar e gerir horários com a Pow
 
 | Cmdlets | Descrição |
 |:--- |:--- |
-| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Obtém uma agenda. |
+| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera um horário. |
 | [Programa de Automação New-AzureRm](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Cria um novo horário. |
 | [Remover-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Remove um horário. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Define as propriedades para um horário existente. |
@@ -37,7 +37,7 @@ Os cmdlets na tabela seguinte são usados para criar e gerir horários com a Pow
 | [Registo-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associa um livro com um horário. |
 | [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissocia um livro de um horário. |
 
-## <a name="creating-a-schedule"></a>Criar uma agenda
+## <a name="creating-a-schedule"></a>Criar um horário
 
 Pode criar uma nova programação para livros de execução no portal Azure ou com powerShell.
 
@@ -120,13 +120,13 @@ Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbo
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para ligar um horário a um livro de corridas com o portal Azure
 
 1. No portal Azure, a partir da sua conta de automação, selecione **Runbooks** sob a secção **Automation** process o lado esquerdo.
-2. Clique no nome do livro de execução para agendar.
+2. Clique no nome do runbook a agendar.
 3. Se o livro de execução não estiver atualmente ligado a um horário, então é-lhe oferecida a opção de criar um novo horário ou link para um horário existente.
 4. Se o livro de execução tiver parâmetros, pode selecionar a opção Modificar as definições de **execução (Predefinido:Azure)** e o painel **de parâmetros** é apresentado onde pode introduzir a informação.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para ligar um horário a um livro de corridas com a PowerShell
 
-Pode utilizar o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros. Para obter mais informações sobre a especificação dos valores dos parâmetros, consulte [Iniciar um Livro de Execução em Automação Azure](../automation-starting-a-runbook.md).
+Pode utilizar o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros . Para obter mais informações sobre a especificação dos valores dos parâmetros, consulte [Iniciar um Livro de Execução em Automação Azure](../automation-starting-a-runbook.md).
 Os comandos de amostra seguem mostrar como ligar um horário a um livro de execução utilizando um cmdlet do Gestor de Recursos Azure com parâmetros.
 
 ```azurepowershell-interactive
@@ -173,7 +173,7 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar com livros de corridas na Azure Automation, veja [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md)
 

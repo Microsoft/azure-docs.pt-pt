@@ -15,15 +15,15 @@ ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246360"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o portal Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando o portal Azure.
 
 Se precisar de atribuir funções de administrador no Diretório Ativo do Azure, consulte [o View e atribua funções de administrador no Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
@@ -31,7 +31,7 @@ Se precisar de atribuir funções de administrador no Diretório Ativo do Azure,
 
 Para adicionar ou remover atribuições de funções, deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como Administrador de [Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 
 ## <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
@@ -53,7 +53,7 @@ Para ser o mais eficaz com a lâmina de controlo de acesso (IAM), ajuda se conse
 
     Quando se refere ao conjunto de recursos a que o acesso se aplica. Onde pode ser um grupo de gestão, subscrição, grupo de recursos ou um único recurso, como uma conta de armazenamento. Isto chama-se *âmbito.*
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de funções
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
 No Azure RBAC, para dar acesso a um recurso Azure, você adiciona uma atribuição de papel. Siga estes passos para atribuir um papel.
 
@@ -61,19 +61,19 @@ No Azure RBAC, para dar acesso a um recurso Azure, você adiciona uma atribuiç�
 
 1. Clique no recurso específico para esse âmbito.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador de **atribuições de Role** para visualizar as atribuições de funções neste âmbito.
 
     ![Separador de controlo de acesso (IAM) e role assignments](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique em **Adicionar** > **Adicionar a atribuição de funções**.
+1. Clique em **adicionar** > **atribuição de funções**.
 
    Se não tiver permissão para atribuir funções, a opção de atribuição de funções Add será desativada.
 
    ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
-    Abre-se o painel de atribuição de funções Add.
+    O painel Adicionar atribuição de função é aberto.
 
    ![Adicionar painel de atribuição de papéis](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -95,19 +95,19 @@ Para fazer de um utilizador um administrador de uma subscrição Azure, atribua-
 
 1. Clique na subscrição na qual pretende conceder acesso.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **de atribuições de Role** para visualizar as atribuições de funções para esta subscrição.
 
     ![Separador de controlo de acesso (IAM) e role assignments](./media/role-assignments-portal/role-assignments.png)
 
-1. Clique em **Adicionar** > **Adicionar a atribuição de funções**.
+1. Clique em **adicionar** > **atribuição de funções**.
 
    Se não tiver permissão para atribuir funções, a opção de atribuição de funções Add será desativada.
 
    ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
-    Abre-se o painel de atribuição de funções Add.
+    O painel Adicionar atribuição de função é aberto.
 
    ![Adicionar painel de atribuição de papéis](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -137,7 +137,7 @@ No Azure RBAC, para remover o acesso a partir de um recurso Azure, remove-se uma
 
 1. Na mensagem de atribuição de funções de remoção que aparece, clique **em Sim**.
 
-    Se vir uma mensagem de que as atribuições de papéis herdadas não podem ser removidas, está a tentar remover uma atribuição de funções no âmbito da criança. Deve abrir o controlo de acesso (IAM) no âmbito onde o papel foi atribuído e tentar novamente. Uma forma rápida de abrir o controlo de acesso (IAM) no âmbito correto é olhar para a coluna **Scope** e clicar no link ao lado **(Herdado)** .
+    Se vir uma mensagem de que as atribuições de papéis herdadas não podem ser removidas, está a tentar remover uma atribuição de funções no âmbito da criança. Deve abrir o controlo de acesso (IAM) no âmbito onde o papel foi atribuído e tentar novamente. Uma forma rápida de abrir o controlo de acesso (IAM) no âmbito correto é olhar para a coluna **Scope** e clicar no link ao lado **(Herdado)**.
 
    ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
@@ -146,4 +146,4 @@ No Azure RBAC, para remover o acesso a partir de um recurso Azure, remove-se uma
 - [Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-list-portal.md)
 - [Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](quickstart-assign-role-user-portal.md)
 - [RBAC de resolução de problemas para recursos Azure](troubleshooting.md)
-- [Organize your resources with Azure management groups](../governance/management-groups/overview.md) (Organizar os recursos com os grupos de gestão do Azure)
+- [Organize os seus recursos com grupos de gestão Azure](../governance/management-groups/overview.md)

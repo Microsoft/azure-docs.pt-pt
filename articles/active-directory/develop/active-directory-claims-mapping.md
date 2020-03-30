@@ -14,10 +14,10 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263195"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Pré-visualização)
@@ -59,7 +59,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | access_token |
 | account_type |
 | acr |
-| actor |
+| ator |
 | actortoken |
 | aio |
 | altsecid |
@@ -71,7 +71,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | aperitivo |
 | appid |
 | appidacr |
-| assertion |
+| afirmação |
 | at_hash |
 | aud |
 | auth_data |
@@ -88,11 +88,11 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | cloud_instance_name |
 | cnf |
 | code |
-| controls |
+| controlos |
 | credential_keys |
 | cSr |
 | csr_type |
-| deviceid |
+| dispositivo |
 | dns_names |
 | domain_dns_name |
 | domain_netbios_name |
@@ -103,9 +103,9 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | exp |
 | expires_on |
 | grant_type |
-| graph |
+| gráfico |
 | group_sids |
-| groups |
+| grupos |
 | grupos hasgroups |
 | hash_alg |
 | home_oid |
@@ -122,7 +122,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | in_corp |
 | instância |
 | ipaddr |
-| isbrowserhostedapp |
+| isbrowserhostapp |
 | iss |
 | jwk |
 | key_id |
@@ -156,13 +156,13 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
-| roles |
-| âmbito |
+| recurso |
+| papel |
+| funções |
+| scope |
 | scp |
 | sid |
-| signature |
+| assinatura |
 | signin_state |
 | src1 |
 | src2 |
@@ -171,13 +171,13 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | tenant_display_name |
 | tenant_region_scope |
 | thumbnail_photo |
-| tid |
+| maré |
 | tokenAutologonEnabled |
 | trustfordelegação |
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| o nome de utilizador |
 | uti |
 | ver |
 | verified_primary_email |
@@ -286,22 +286,22 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 
 | Origem | ID | Descrição |
 |-----|-----|-----|
-| Utilizador | Apelido | Nome da Família |
-| Utilizador | givenName | Nome Próprio |
-| Utilizador | DisplayName | Nome a Apresentar |
+| Utilizador | surname | Nome de família |
+| Utilizador | givenname | Nome Próprio |
+| Utilizador | nome de exibição | Nome a Apresentar |
 | Utilizador | objectide | ObjectID |
-| Utilizador | mail | Endereço de E-mail |
-| Utilizador | userprincipalname | Nome Principal de utilizador |
-| Utilizador | Departamento|Departamento|
+| Utilizador | correio | Endereço de E-mail |
+| Utilizador | nome principal de utilizador | Nome Principal de Utilizador |
+| Utilizador | departamento|Departamento|
 | Utilizador | onpremisessamaccountname | No local, nome da conta SAM |
 | Utilizador | netbiosname| Nome NetBios |
-| Utilizador | dnsdomainname | Nome de domínio DNS |
+| Utilizador | nome dnsdomain | Nome de Domínio DNS |
 | Utilizador | identificador de segurança no local | Identificador de segurança no local |
-| Utilizador | nome da empresa| Nome da organização |
-| Utilizador | endereço de rua | Morada |
-| Utilizador | código postal | Código postal |
+| Utilizador | nome da empresa| Nome da Organização |
+| Utilizador | endereço de rua | Rua |
+| Utilizador | código postal | Código Postal |
 | Utilizador | preferredlanguange | Língua Preferida |
-| Utilizador | onpremisesuserprincipalname | On-premiseUPN |
+| Utilizador | onpremiseuserprincipalname | On-premiseUPN |
 | Utilizador | apelido de correio | Apelido de Correio |
 | Utilizador | extensãoatribuído1 | Atributo de extensão 1 |
 | Utilizador | extensãoatribuído2 | Atributo de extensão 2 |
@@ -319,13 +319,13 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 | Utilizador | extensãoatribuído14 | Atributo de extensão 14 |
 | Utilizador | extensãoatribuído15 | Atributo de extensão 15 |
 | Utilizador | outro correio | Outros Correios |
-| Utilizador | país | Country |
-| Utilizador | city | City |
+| Utilizador | país | País |
+| Utilizador | city | Localidade |
 | Utilizador | state | Estado |
 | Utilizador | título de emprego | Cargo |
-| Utilizador | employeeid | ID do empregado |
+| Utilizador | funcionário | ID de Empregado |
 | Utilizador | facsimilephonenumber | Número de telefone facsímile |
-| aplicação, recurso, público | DisplayName | Nome a Apresentar |
+| aplicação, recurso, público | nome de exibição | Nome a Apresentar |
 | aplicação, recurso, público | objeto | ObjectID |
 | aplicação, recurso, público | etiquetas | Etiqueta principal de serviço |
 | Empresa | país inquilino | País do arrendatário |
@@ -360,8 +360,8 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 
 |Método de Transformação|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:"foo@bar.com" , string2:"sandbox", separador:"." resulta em saídaClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: correio:"foo@bar.com" resulta em saídaClaim:"foo". Se não houver \@ sinal, então a cadeia de entrada original é devolvida como está.|
+|Associar|string1, string2, separador|saídaReclamada|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:"foo@bar.com" string2:"sandbox", separador:"." resultafoo@bar.com.sandboxem saídaClaim:"|
+|ExtractmailPrefix|correio|saídaReclamada|Extrai a parte local de um endereço de e-mail. Por exemplo: correio:"foo@bar.com" "resulta em saídaClaim:"foo". Se \@ não houver sinal, então a cadeia de entrada original é devolvida como está.|
 
 **Créditos de entrada:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -386,10 +386,10 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 
 |Origem|ID|Descrição|
 |-----|-----|-----|
-| Utilizador | mail|Endereço de E-mail|
-| Utilizador | userprincipalname|Nome Principal de utilizador|
+| Utilizador | correio|Endereço de E-mail|
+| Utilizador | nome principal de utilizador|Nome Principal de Utilizador|
 | Utilizador | onpremisessamaccountname|Nas instalações do nome da conta Sam|
-| Utilizador | employeeid|ID do empregado|
+| Utilizador | funcionário|ID de Empregado|
 | Utilizador | extensãoatribuído1 | Atributo de extensão 1 |
 | Utilizador | extensãoatribuído2 | Atributo de extensão 2 |
 | Utilizador | extensãoatribui3 | Atributo de extensão 3 |
@@ -410,14 +410,14 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 
 | Método de Transformação | Restrições |
 | ----- | ----- |
-| ExtractMailPrefix | Nenhum |
+| ExtractmailPrefix | Nenhuma |
 | Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao principal objeto do serviço para que uma política de mapeamento de sinistros entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por intervenientes maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao principal objeto do serviço para que uma política de mapeamento de sinistros entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por intervenientes maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o `new-azureadapplicationkeycredential` cmdlet Azure PowerShell para criar uma credencial de chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólica, através da aplicação `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
+As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólicas, anexando-se `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}

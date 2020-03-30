@@ -1,20 +1,20 @@
 ---
 title: Mover recursos para um novo grupo de subscrição ou recursos
-description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
+description: Utilize o Gestor de Recursos Azure para transferir recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248856"
 ---
-# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
+# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Move resources to a new resource group or subscription (Mover recursos para um grupo de recursos ou uma subscrição nova)
 
 Este artigo mostra-lhe como mover os recursos do Azure para outra subscrição do Azure ou outro grupo de recursos sob a mesma subscrição. Para mover recursos, pode utilizar o portal do Azure, o Azure PowerShell, a CLI do Azure ou a API REST.
 
-Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. Escrever e eliminar operações os grupos de recursos não é permitido enquanto a migração for concluída. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um servidor de SQL e a respetiva base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados experiências sem períodos de indisponibilidade. Pode ainda ler e escrever na base de dados. O cadeado pode durar um máximo de quatro horas, mas a maioria dos movimentos completam-se em muito menos tempo.
+Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. As operações de escrita e exclusão são bloqueadas nos grupos de recursos até que o movimento esteja concluído. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um Servidor SQL e a sua base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados não experimenta tempo de inatividade. Ainda pode ler e escrever para a base de dados. O cadeado pode durar um máximo de quatro horas, mas a maioria dos movimentos completam-se em muito menos tempo.
 
 Mover um recurso apenas o move para um grupo de recursos ou uma subscrição novos. Não altera a localização do recurso.
 
@@ -35,9 +35,9 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
 1. As assinaturas de origem e destino devem estar ativas. Se tiver dificuldade em permitir uma conta que tenha sido desativada, [crie um pedido](../../azure-portal/supportability/how-to-create-azure-support-request.md)de apoio Azure . Selecione **Gestão de Assinatura** para o tipo de problema.
 
-1. As assinaturas de origem e destino devem existir dentro do mesmo [inquilino azure Ative Directory.](../../active-directory/develop/quickstart-create-new-tenant.md) Para verificar-se de que ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou a CLI do Azure.
+1. As assinaturas de origem e destino devem existir dentro do mesmo [inquilino azure Ative Directory.](../../active-directory/develop/quickstart-create-new-tenant.md) Para verificar se ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou o Azure CLI.
 
-   Para o Azure PowerShell, utilize:
+   Para a Azure PowerShell, utilize:
 
    ```azurepowershell-interactive
    (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
@@ -51,14 +51,14 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    az account show --subscription <your-destination-subscription> --query tenantId
    ```
 
-   Se os IDs de inquilino para as subscrições de origem e de destino não são da mesma, utilize os seguintes métodos para reconciliar os IDs de inquilino:
+   Se as iDs de inquilino para as assinaturas de origem e destino não forem as mesmas, utilize os seguintes métodos para conciliar as iDs dos inquilinos:
 
    * [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md)
    * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Caso contrário, recebe um erro indicando que a **subscrição não está registada para um tipo**de recurso . Pode ver este erro ao mover um recurso para uma nova subscrição, mas essa subscrição nunca foi utilizada com esse tipo de recursos.
 
-   Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:
+   Para a PowerShell, utilize os seguintes comandos para obter o estado de registo:
 
    ```azurepowershell-interactive
    Set-AzContext -Subscription <destination-subscription-name-or-id>
@@ -71,7 +71,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
    ```
 
-   Para a CLI do Azure, utilize os seguintes comandos para obter o estado do registo:
+   Para o Azure CLI, utilize os seguintes comandos para obter o estado de registo:
 
    ```azurecli-interactive
    az account set -s <destination-subscription-name-or-id>
@@ -84,12 +84,12 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    az provider register --namespace Microsoft.Batch
    ```
 
-1. A conta de mover os recursos tem de ter, pelo menos, as seguintes permissões:
+1. A conta que movimenta os recursos deve ter, pelo menos, as seguintes permissões:
 
    * **Microsoft.Recursos/subscrições/recursosGroups/moveResources/action** on the source resource group.
    * **Microsoft.Recursos/subscrições/recursosGroups/write** no grupo de recursos de destino.
 
-1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para uma lista de limites e como solicitar um aumento, consulte [os limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição para a qual está a mover os recursos. Se mover os recursos significa que a subscrição excederá os seus limites, terá de rever se pode solicitar um aumento da quota. Para uma lista de limites e como solicitar um aumento, consulte [os limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 1. **Para uma mudança através das assinaturas, o recurso e os seus recursos dependentes devem estar localizados no mesmo grupo de recursos e devem ser movidos em conjunto.** Por exemplo, um VM com discos geridos exigiria que o VM e os discos geridos fossem movidos em conjunto, juntamente com outros recursos dependentes.
 
@@ -97,7 +97,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
    Para mais informações, consulte Cenário para se deslocar através de [subscrições](#scenario-for-move-across-subscriptions).
 
-## <a name="scenario-for-move-across-subscriptions"></a>Cenário para mover-se através de subscrições
+## <a name="scenario-for-move-across-subscriptions"></a>Cenário para mover entre subscrições
 
 Mover recursos de uma subscrição para outra é um processo em três etapas:
 
@@ -109,16 +109,16 @@ Para fins de ilustração, temos apenas um recurso dependente.
 * Passo 2: Mover o recurso e os recursos dependentes da subscrição de origem para a subscrição-alvo.
 * Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da subscrição-alvo. 
 
-## <a name="validate-move"></a>Validar a movimentação
+## <a name="validate-move"></a>Validar movimento
 
-A [operação de movimento validado](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimento sem realmente mover os recursos. Utilize esta operação para verificar se o movimento terá sucesso. A validação é automaticamente chamada quando envia um pedido de mudança. Utilize esta operação apenas quando necessitar de determinar os resultados. Para executar esta operação, precisa de:
+A [operação de movimento validado](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimento sem realmente mover os recursos. Utilize esta operação para verificar se o movimento terá sucesso. A validação é automaticamente chamada quando envia um pedido de mudança. Utilize esta operação apenas quando necessitar de determinar os resultados. Para executar esta operação, precisa do:
 
 * nome do grupo de recursos de origem
-* ID de recurso do grupo de recursos de destino
-* ID de recurso de cada recurso para mover
+* identificação de recursos do grupo de recursos-alvo
+* identificação de recursos de cada recurso para mover
 * o [sinal de acesso](/rest/api/azure/#acquire-an-access-token) para a sua conta
 
-Envie o pedido seguinte:
+Envie o seguinte pedido:
 
 ```HTTP
 POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2019-05-10
@@ -135,7 +135,7 @@ Com um corpo de pedido:
 }
 ```
 
-Se o pedido está formatado corretamente, a operação retornar:
+Se o pedido for forjado corretamente, a operação devolve:
 
 ```HTTP
 Response Code: 202
@@ -147,16 +147,16 @@ retry-after: 15
 ...
 ```
 
-O código de 202 estado indica foi aceite o pedido de validação, mas ele ainda não ainda por determinar se a operação de movimentação terá êxito. O valor `location` contém um URL que utiliza para verificar o estado da operação de longa duração.  
+O código de estado de 202 indica que o pedido de validação foi aceite, mas ainda não determinou se a operação de mudança será bem sucedida. O `location` valor contém um URL que utiliza para verificar o estado da operação de longa duração.  
 
-Para verificar o estado, envie o pedido seguinte:
+Para verificar o estado, envie o seguinte pedido:
 
 ```HTTP
 GET <location-url>
 Authorization: Bearer <access-token>
 ```
 
-Enquanto a operação ainda está em execução, continua a receber o código de 202 estado. Aguarde o número de segundos indicado si no valor `retry-after` antes de tentar novamente. Se a operação de movimentação for validado com êxito, receberá o código de 204 estado. Se a validação de movimentação falhar, recebe uma mensagem de erro, tal como:
+Enquanto a operação ainda estiver em curso, continua a receber o código de estado de 202. Aguarde o número `retry-after` de segundos indicado si no valor antes de tentar novamente. Se a operação de movimento validar com sucesso, receberá o código de estado 204. Se a validação do movimento falhar, recebe uma mensagem de erro, como:
 
 ```json
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
@@ -168,19 +168,19 @@ Para movimentar recursos, selecione o grupo de recursos com esses recursos e, em
 
 ![mover recursos](./media/move-resource-group-and-subscription/select-move.png)
 
-Selecione se estiver a mover os recursos para um novo grupo de recursos ou uma nova subscrição.
+Selecione se está a mover os recursos para um novo grupo de recursos ou para uma nova subscrição.
 
-Selecione os recursos necessários para mover e o grupo de recursos de destino. Reconheça que precisa atualizar scripts para estes recursos e selecione **OK**. Se o ícone de edição de subscrição que selecionou no passo anterior, também tem de selecionar a subscrição de destino.
+Selecione os recursos para mover e o grupo de recursos de destino. Reconheça que precisa atualizar scripts para estes recursos e selecione **OK**. Se selecionou o ícone de subscrição de edição no passo anterior, também deve selecionar a subscrição de destino.
 
-![Selecionar destino](./media/move-resource-group-and-subscription/select-destination.png)
+![destino selecionado](./media/move-resource-group-and-subscription/select-destination.png)
 
 Em **Notificações,** vê que a operação de movimento está a decorrer.
 
-![Mostrar o estado de movimentação](./media/move-resource-group-and-subscription/show-status.png)
+![mostrar estatuto de movimento](./media/move-resource-group-and-subscription/show-status.png)
 
-Quando tiver concluído, foi notificado do resultado.
+Quando estiver concluído, é notificado do resultado.
 
-![Mostrar o resultado de movimentação](./media/move-resource-group-and-subscription/show-result.png)
+![mostrar resultado movimento](./media/move-resource-group-and-subscription/show-result.png)
 
 Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
@@ -194,13 +194,13 @@ $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Para passar para uma nova subscrição, inclua um valor para o parâmetro `DestinationSubscriptionId`.
+Para passar para uma nova subscrição, inclua um valor para o `DestinationSubscriptionId` parâmetro.
 
 Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-Para mover os recursos existentes para outro grupo de recursos ou subscrição, use o comando de movimento de [recursos az.](/cli/azure/resource?view=azure-cli-latest#az-resource-move) Forneça os IDs dos recursos para mover dos recursos. O exemplo que se segue mostra como transferir vários recursos para um novo grupo de recursos. No parâmetro `--ids`, forneça uma lista separada do espaço dos IDs de recursos para se mover.
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, use o comando de movimento de [recursos az.](/cli/azure/resource?view=azure-cli-latest#az-resource-move) Forneça as iDs de recursos dos recursos para se mover. O exemplo que se segue mostra como transferir vários recursos para um novo grupo de recursos. No `--ids` parâmetro, forneça uma lista separada do espaço dos IDs de recursos para se mover.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -208,7 +208,7 @@ plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/s
 az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
-Para passar para uma nova subscrição, forneça o parâmetro `--destination-subscription-id`.
+Para passar para uma nova `--destination-subscription-id` subscrição, forneça o parâmetro.
 
 Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
@@ -220,7 +220,7 @@ Para mover os recursos existentes para outro grupo de recursos ou subscrição, 
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
-No corpo do pedido, especifique o grupo de recursos de destino e os recursos para mover.
+No organismo de pedido, especifica o grupo de recursos-alvo e os recursos para se movimentar.
 
 ```json
 {
@@ -264,11 +264,11 @@ Por exemplo, mover uma máquina virtual pode exigir a deslocação de sete tipos
    * discos
 * Microsoft.Network
   * networkInterfaces
-  * publicIPAddresses
+  * endereços públicosIPAddresss
   * networkSecurityGroups
   * redes virtuais
 * Microsoft.Storage
-  * storageAccounts
+  * armazenamentoContas
 
 Outro exemplo comum passa pela mudança de uma rede virtual. Pode ter de movimentar vários outros recursos associados a essa rede virtual. O pedido de mudança poderia exigir a deslocação de endereços IP públicos, tabelas de rotas, gateways de rede virtuais, grupos de segurança de rede, entre outros.
 

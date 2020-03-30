@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77466914"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementar matriz virtual StorSimple para programa de fornecedor de soluções em nuvem
@@ -81,7 +81,7 @@ Em alguns casos, pode ter um cliente existente, e precisa adicionar uma subscri�
 
      ![Painel de instrumentos no Centro de Parceiros](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. No painel esquerdo, clique em **Clientes.** Encontre ou navegue para o cliente a que pretende adicionar uma subscrição. Clique no ícone de ![Expandir](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) ícone para expandir a linha para o nome da empresa para o seu cliente. Nos detalhes, clique em **Adicionar subscrições**.
+2. No painel esquerdo, clique em **Clientes.** Encontre ou navegue para o cliente a que pretende adicionar uma subscrição. Clique ![no ícone](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) de ícone de verificação Expandir para expandir a linha para o nome da empresa para o seu cliente. Nos detalhes, clique em **Adicionar subscrições**.
 
     ![Clientes](./media/storsimple-partner-csp-deploy/image10.png)
 
@@ -89,7 +89,7 @@ Em alguns casos, pode ter um cliente existente, e precisa adicionar uma subscri�
 
     ![Adicionar nova subscrição](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de criada uma nova subscrição, clique **em <-- Clientes** no painel esquerdo para voltar à página **clientes.** Procure o cliente por quem acabou de criar uma subscrição. Clique no **nome da Empresa** para aprofundar os detalhes.
+6. Depois de criada uma nova subscrição, clique **em<-- Clientes** no painel esquerdo para voltar à página **clientes.** Procure o cliente por quem acabou de criar uma subscrição. Clique no **nome da Empresa** para aprofundar os detalhes.
 
     ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
 

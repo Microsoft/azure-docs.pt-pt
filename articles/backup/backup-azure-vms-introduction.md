@@ -3,12 +3,12 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço de backup Azure apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297362"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415973"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
@@ -20,14 +20,14 @@ Como parte do processo de backup, é tirada uma [imagem instantânea](#snapshot-
 
 A Azure Backup também tem ofertas especializadas para cargas de trabalho de base de dados como [o SQL Server](backup-azure-sql-database.md) e [o SAP HANA](sap-hana-db-about.md) que estão conscientes da carga de trabalho, oferecem RPO de 15 minutos (objetivo de ponto de recuperação), e permitem a cópia de segurança e restauro de bases de dados individuais.
 
-## <a name="backup-process"></a>Processo de backup
+## <a name="backup-process"></a>Processo de cópia de segurança
 
 Eis como o Azure Backup completa um backup para VMs Azure:
 
 1. Para VMs Azure selecionados para backup, o Azure Backup inicia um trabalho de backup de acordo com o horário de backup que especifica.
 1. Durante a primeira cópia de segurança, é instalada uma extensão de reserva no VM se o VM estiver em funcionamento.
-    - Para VMs windows, a extensão _VMSnapshot_ está instalada.
-    - Para Os VMs Linux, a extensão _VMSnapshotLinux_ está instalada.
+    - Para VMs windows, a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) está instalada.
+    - Para Os VMs Linux, a [extensão VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) está instalada.
 1. Para os VMs do Windows que estão em execução, as coordenadas de backup com o Windows Volume Shadow Copy Service (VSS) para tirar uma imagem consistente com aplicações do VM.
     - Por padrão, a Backup recebe cópias de segurança VSS completas.
     - Se o Backup não consegue tirar uma fotografia consistente com a aplicação, então é preciso uma imagem consistente com ficheiros do armazenamento subjacente (porque não ocorre nenhuma aplicação enquanto o VM é parado).
@@ -37,7 +37,7 @@ Eis como o Azure Backup completa um backup para VMs Azure:
     - Para cada disco que está a ser apoiado, o Azure Backup lê os blocos no disco e identifica e transfere apenas os blocos de dados que mudaram (o delta) desde a cópia de segurança anterior.
     - Os dados instantâneos podem não ser imediatamente copiados para o cofre. Pode levar algumas horas em horas de pico. O tempo total de backup para um VM será inferior a 24 horas para as políticas diárias de backup.
 1. As alterações feitas num VM do Windows após a disponibilizada do Azure são ativadas:
-    - Microsoft C++ Visual 2013 Redistribuível (x64) - 12.0.40660 está instalado no VM
+    - Microsoft Visual C++ 2013 Redistribuível (x64) - 12.0.40660 está instalado no VM
     - Tipo de arranque do serviço De Cópia de Sombra de Volume (VSS) alterado para automático a partir de manual
     - Serviço IaaSVmProvider Windows é adicionado
 
@@ -51,7 +51,7 @@ Quando faz backup de VMs Azure com Backup Azure, os VMs são encriptados em repo
 
 **Encriptação** | **Detalhes** | **Suporte**
 --- | --- | ---
-**Encriptação do disco azure** | A encriptação do disco azure encripta os sistemas operativos e de dados para VMs Azure.<br/><br/> A encriptação do disco azure integra-se com as chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre chave como segredos. A encriptação do disco azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). | O Azure Backup suporta backup de VMs Azure geridos e não geridos encriptados apenas com BEKs, ou com BEKs juntamente com KEKs.<br/><br/> Tanto os BEKs como os KEKs estão apoiados e encriptados.<br/><br/> Como keKs e BEKs estão apoiados, os utilizadores com as permissões necessárias podem restaurar chaves e segredos de volta ao cofre chave, se necessário. Estes utilizadores também podem recuperar o VM encriptado.<br/><br/> Chaves e segredos encriptados não podem ser lidos por utilizadores não autorizados ou pelo Azure.
+**Azure Disk Encryption** | A encriptação do disco azure encripta os sistemas operativos e de dados para VMs Azure.<br/><br/> A encriptação do disco azure integra-se com as chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre chave como segredos. A encriptação do disco azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). | O Azure Backup suporta backup de VMs Azure geridos e não geridos encriptados apenas com BEKs, ou com BEKs juntamente com KEKs.<br/><br/> Tanto os BEKs como os KEKs estão apoiados e encriptados.<br/><br/> Como keKs e BEKs estão apoiados, os utilizadores com as permissões necessárias podem restaurar chaves e segredos de volta ao cofre chave, se necessário. Estes utilizadores também podem recuperar o VM encriptado.<br/><br/> Chaves e segredos encriptados não podem ser lidos por utilizadores não autorizados ou pelo Azure.
 **SSE** | Com a SSE, o Azure Storage fornece encriptação em repouso, encriptando automaticamente os dados antes de os armazenar. O Azure Storage também desencripta dados antes de os recuperar. | O Azure Backup utiliza a SSE para encriptação em repouso de VMs Azure.
 
 Para VMs Azure geridos e não geridos, o Backup suporta ambos os VMs encriptados apenas com BEKs ou VMs encriptados com BEKs juntamente com KEKs.
@@ -60,7 +60,7 @@ Os BEKs (segredos) e KEKs (chaves) estão encriptados. Só podem ser lidos e usa
 
 Os BEKs também estão apoiados. Assim, se os BEKs estiverem perdidos, os utilizadores autorizados podem restaurar os BEKs no cofre da chave e recuperar os VMs encriptados. Apenas os utilizadores com o nível de permissões necessários podem fazer o backup e restaurar VMs encriptados ou chaves e segredos.
 
-## <a name="snapshot-creation"></a>Criação de instantâneos
+## <a name="snapshot-creation"></a>Criação instantânea
 
 O Azure Backup tira fotografias de acordo com o horário de reserva.
 
@@ -90,7 +90,7 @@ A tabela a seguir explica os diferentes tipos de consistência instantânea:
 **Agendamento** |  Para reduzir o tráfego de backup, faça backup de Diferentes VMs em diferentes horas do dia e certifique-se de que os tempos não se sobrepõem. O apoio às VMs ao mesmo tempo causa engarrafamentos.
 **Preparação de backups** | Tenha em mente o tempo necessário para preparar o reforço. O tempo de preparação inclui instalar ou atualizar a extensão de reserva e desencadear uma imagem instantânea de acordo com o calendário de cópia de segurança.
 **Transferência de dados** | Considere o tempo necessário para o Azure Backup identificar as alterações incrementais da cópia de segurança anterior.<br/><br/> Numa cópia de segurança incremental, a Azure Backup determina as alterações calculando a verificação do bloco. Se um bloco for alterado, está marcado para ser transferido para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a transferir. Depois de avaliar todos os blocos alterados, o Azure Backup transfere as alterações para o cofre.<br/><br/> Pode haver um intervalo entre tirar a foto e copiá-la para o cofre.<br/><br/> Em horas de pico, pode levar até oito horas para que os backups sejam processados. O tempo de reserva para um VM será inferior a 24 horas para o backup diário.
-**Backup inicial** | Embora o tempo total de backup para backups incrementais seja inferior a 24 horas, isso pode não ser o caso para a primeira cópia de segurança. O tempo necessário para a cópia de segurança inicial dependerá do tamanho dos dados e quando a cópia de segurança for processada.
+**Cópia de segurança inicial** | Embora o tempo total de backup para backups incrementais seja inferior a 24 horas, isso pode não ser o caso para a primeira cópia de segurança. O tempo necessário para a cópia de segurança inicial dependerá do tamanho dos dados e quando a cópia de segurança for processada.
 **Restaurar a fila** | Os processos de backup azure restauram os empregos de várias contas de armazenamento ao mesmo tempo, e coloca pedidos de restauro numa fila.
 **Restaurar a cópia** | Durante o processo de restauro, os dados são copiados do cofre para a conta de armazenamento.<br/><br/> O tempo total de restauro depende das operações de I/S por segundo (IOPS) e da entrada da conta de armazenamento.<br/><br/> Para reduzir o tempo de cópia, selecione uma conta de armazenamento que não esteja carregada com outras aplicações escreve e lê.
 
@@ -135,6 +135,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real do VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Este tamanho de instância protegida (47 GB) torna-se a base para a fatura mensal. À medida que a quantidade de dados no VM aumenta, o tamanho da instância protegida utilizado para alterações de faturação corresponde.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, [preparem-se para o reforço Azure VM.](backup-azure-arm-vms-prepare.md)

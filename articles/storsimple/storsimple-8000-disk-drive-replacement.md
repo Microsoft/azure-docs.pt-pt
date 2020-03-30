@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267914"
 ---
-# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substitua uma unidade de disco no seu dispositivo da série StorSimple 8000
+# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco no seu dispositivo da série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 Este tutorial explica como pode remover e substituir uma unidade de disco rígido avariada ou falhada num dispositivo Microsoft Azure StorSimple. Para substituir uma unidade de disco, é necessário:
@@ -73,7 +73,7 @@ O seu dispositivo StorSimple suporta uma configuração de espaços de armazenam
 As unidades podem ser removidas e substituídas enquanto o sistema estiver a funcionar.
 
 #### <a name="to-remove-a-drive"></a>Para remover uma unidade
-1. Para identificar o disco falhado, no portal Azure, vá ao seu dispositivo **Definições > Saúde**de Hardware . Como um disco pode falhar no recinto primário e/ou num recinto EBOD (se estiver a utilizar um modelo 8600), veja o estado dos discos sob **componentes partilhados** e sob **componentes partilhados da EBOD**. Um disco falhado em qualquer um dos recintos será mostrado com um estado vermelho.
+1. Para identificar o disco falhado, no portal Azure, vá ao seu dispositivo **Definições > saúde de Hardware**. Como um disco pode falhar no recinto primário e/ou num recinto EBOD (se estiver a utilizar um modelo 8600), veja o estado dos discos sob **componentes partilhados** e sob **componentes partilhados da EBOD**. Um disco falhado em qualquer um dos recintos será mostrado com um estado vermelho.
 2. Localize os discos na frente do recinto primário ou no recinto EBOD. 
 3. Se o disco estiver desbloqueado, proceda ao próximo passo. Se o disco estiver bloqueado, desbloqueie-o seguindo o procedimento em [desativar a fechadura anti-tamper](#disengage-the-antitamper-lock).
 4. Pressione o trinco preto no módulo do porta-baga e puxe o cabo do porta-baga para fora e para longe da frente do chassis.
@@ -103,7 +103,7 @@ Depois de uma unidade ter falhado no seu dispositivo StorSimple e o tiver removi
     **Figura 6**  Deslizando o porta-unidade para dentro do chassis
 3. Com o porta-malas inserido, feche o cabo do porta-unidades enquanto continua a empurrar o porta-unidade para dentro do chassis, até que o cabo do acionador encaixe numa posição bloqueada.
 4. Utilize a chave de bloqueio fornecida pela Microsoft (chave de fendas Torx à prova de erros) para fixar a pega do porta-aviões no lugar, rodando o parafuso de bloqueio um quarto no sentido dos ponteiros do relógio.
-5. Verifique se a substituição foi bem sucedida e que a unidade está operacional. Aceda ao portal Azure e navegue para **as definições do Dispositivo** > saúde de **hardware.** Em **componentes partilhados** ou **componentes partilhados EBOD,** o estado de unidade deve ser verde, indicando que é saudável.
+5. Verifique se a substituição foi bem sucedida e que a unidade está operacional. Aceda ao portal Azure e navegue para a**saúde**do **hardware configurado** > pelo Dispositivo. Em **componentes partilhados** ou **componentes partilhados EBOD,** o estado de unidade deve ser verde, indicando que é saudável.
 
    
    > [!NOTE]

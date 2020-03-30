@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605454"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
@@ -35,7 +35,7 @@ Para fazer uma alteração na edição do SQL Server, precisa do seguinte:
 
 - Uma [subscrição Azure.](https://azure.microsoft.com/free/)
 - Um VM de [servidor SQL no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado com o fornecedor de recursos [SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Configurar meios com a **edição desejada** do SQL Server. Os clientes que possuem [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem Software Assurance podem utilizar os suportes de configuração a partir de uma imagem VM Do Servidor Azure Marketplace SQL que tem a sua edição desejada (tipicamente localizada em `C:\SQLServerFull`). 
+- Configurar meios com a **edição desejada** do SQL Server. Os clientes que possuem [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem Software Assurance podem utilizar os suportes de configuração a partir de uma `C:\SQLServerFull`imagem VM Do Servidor Azure Marketplace SQL que tem a sua edição desejada (tipicamente localizada). 
 
 
 ## <a name="upgrade-an-edition"></a>Atualizar uma edição
@@ -75,9 +75,9 @@ Depois da edição do SQL Server ser desvalorizada, modifique a propriedade da e
 
 ## <a name="change-edition-in-portal"></a>Alterar edição no portal 
 
-Depois de ter mudado a edição do SQL Server utilizando os meios de instalação e ter registado o seu VM SQL Server com o fornecedor de [recursos SQL VM,](virtual-machines-windows-sql-register-with-resource-provider.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para isso, siga estes passos: 
+Depois de ter mudado a edição do SQL Server utilizando os meios de instalação e ter registado o seu VM SQL Server com o fornecedor de [recursos SQL VM,](virtual-machines-windows-sql-register-with-resource-provider.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para o fazer, siga estes passos: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 1. Vá ao seu recurso virtual SQL Server. 
 1. Em **definições,** **selecione Configurar**. Em seguida, selecione a sua edição desejada do SQL Server a partir da lista de lançamentos em **Edição**. 
 

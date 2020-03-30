@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240997"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
@@ -29,11 +29,11 @@ Para concluir este início rápido, certifique-se de que tem:
 - [Estúdio Visual 2019)](https://www.visualstudio.com/vs) ou mais tarde.
 - [SDK .NET Standard](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os recursos são implementados e geridos num grupo de recursos. Para criar um grupo de recursos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Na navegação à esquerda, clique em **Grupos de recursos**. Em seguida, clique em **Adicionar**.
 
    ![Grupos de recursos - Botão Adicionar](./media/event-hubs-quickstart-portal/resource-groups1.png)
@@ -51,7 +51,7 @@ Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os rec
 Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusivo, referenciado pelo respetivo nome de domínio completamente qualificado, no qual cria um ou mais hubs de eventos. Para criar um espaço de nomes no seu grupo de recursos com o portal, faça as ações seguintes:
 
 1. No portal do Azure, clique em **Criar um recurso** na parte superior esquerda do ecrã.
-2. Selecione **todos os serviços** no menu esquerdo e selecione **star (`*`)** ao lado dos Centros de **Eventos** na categoria **Analytics.** Confirme que **o Event Hubs** é adicionado aos **FAVORITES** no menu de navegação esquerdo. 
+2. Selecione **todos os serviços** no menu esquerdo e selecione **star ()`*`** ao lado de Event **Hubs** na categoria **Analytics.** Confirme que **o Event Hubs** é adicionado aos **FAVORITES** no menu de navegação esquerdo. 
     
    ![Pesquisa de Centros de Eventos](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Selecione Centros de **Eventos** em **FAVORITOS** no menu de navegação esquerdo e selecione **Adicionar** na barra de ferramentas.
@@ -60,7 +60,7 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
 4. Na página Criar espaço de **nome,** tome os seguintes passos:
     1. Insira um **nome** para o espaço de nome. O sistema verifica imediatamente a disponibilidade do nome.
     2. Escolha o **nível de preços** (Básico ou Standard).
-    3. Note que a opção **Enable Kafka** está ativada automaticamente. Os Hubs de eventos do Azure fornece um ponto de extremidade do Kafka. Este ponto final permite que o seu espaço de nome Sem Nome Do Evento Para entender de forma nativa o protocolo de mensagens [Apache Kafka](https://kafka.apache.org/intro) e APIs. Com esta capacidade, pode comunicar com os hubs de eventos, tal como faria com tópicos do Kafka sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. O Event Hubs suporta as [versões Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais tarde.
+    3. Note que a opção **Enable Kafka** está ativada automaticamente. O Azure Event Hubs fornece-lhe um ponto final de Kafka. Este ponto final permite que o seu espaço de nome Sem Nome Do Evento Para entender de forma nativa o protocolo de mensagens [Apache Kafka](https://kafka.apache.org/intro) e APIs. Com esta capacidade, pode comunicar com os seus centros de eventos como faria com os tópicos kafka sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Event Hubs suporta as [versões Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais tarde.
     4. Selecione a **subscrição** na qual pretende criar o espaço de nome.
     5. Selecione um grupo de **recursos** existente ou crie um novo grupo de recursos. 
     4. Selecione um **local** para o espaço de nome.
@@ -97,11 +97,11 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
-- [python](get-started-python-send-v2.md)
+- [Pitão](get-started-python-send-v2.md)
 - [JavaScript](get-started-java-send-v2.md)
-- [Go](event-hubs-go-get-started-send.md)
+- [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)
-- [Tempestade Apache (receber apenas)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (apenas receber)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

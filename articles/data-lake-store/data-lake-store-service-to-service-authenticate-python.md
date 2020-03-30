@@ -1,5 +1,5 @@
 ---
-title: 'Autenticação serviço-a-serviço: Python com Azure Data Lake Storage Gen1 usando o Diretório Ativo Azure  ) Microsoft Docs'
+title: 'Autenticação serviço-a-serviço: Python com Azure Data Lake Storage Gen1 usando o Diretório Ativo Azure [ ) Microsoft Docs'
 description: Saiba como obter a autenticação de serviço-a-serviço com o Azure Data Lake Storage Gen1 usando o Azure Ative Directory usando python
 services: data-lake-store
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260296"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação serviço-a-serviço com Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Com a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 >  
 
@@ -32,9 +32,9 @@ Neste artigo, você aprende sobre como usar o Python SDK para fazer a autentica�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Python**. Pode transferir o Python [aqui](https://www.python.org/downloads/). Este artigo utiliza a versão Python 3.6.2.
+* **Python.** Pode transferir o Python [aqui](https://www.python.org/downloads/). Este artigo utiliza a versão Python 3.6.2.
 
-* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar uma aplicação de Diretório Ativo Azure .** Deve ter concluído os passos de [autenticação serviço-a-serviço com data Lake Storage Gen1 utilizando o Diretório Ativo Azure](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
@@ -43,8 +43,8 @@ Neste artigo, você aprende sobre como usar o Python SDK para fazer a autentica�
 Para trabalhar com data Lake Storage Gen1 usando Python, você precisa instalar três módulos.
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory, etc.
-* O módulo `azure-mgmt-datalake-store`, que inclui as operações de gestão de conta Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte o módulo de gestão do módulo de armazenamento de dados [do Lago Azur1.](/python/api/azure-mgmt-datalake-store/)
-* O módulo `azure-datalake-store`, que inclui as operações do sistema de ficheiros Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte a referência do módulo de ficheiros da [loja azure-datalake](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* O `azure-mgmt-datalake-store` módulo, que inclui as operações de gestão de conta Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte o módulo de gestão do módulo de armazenamento de dados [do Lago Azur1.](/python/api/azure-mgmt-datalake-store/)
+* O `azure-datalake-store` módulo, que inclui as operações do sistema de ficheiros Data Lake Storage Gen1. Para obter mais informações sobre este módulo, consulte a referência do módulo de ficheiros da [loja azure-datalake](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Utilize os comandos seguintes para instalar os módulos.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar um fundo florestal nos Serviços de Domínio Da AD Azure  Microsoft Docs
+title: Tutorial - Criar um fundo florestal nos Serviços de Domínio Da AD Azure [ Microsoft Docs
 description: Aprenda a criar uma floresta de saída única para um domínio AD DS no local no portal Azure para serviços de domínio azure AD
 services: active-directory-ds
 author: iainfoulds
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77612513"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services (pré-visualização)
@@ -94,7 +94,7 @@ Para configurar a confiança de entrada no domínio AD DS no local, complete os 
 1. Opte por criar a confiança **apenas**para este domínio . No passo seguinte, cria-se a confiança no portal Azure para o domínio gerido pela Azure AD DS.
 1. Opte por utilizar a autenticação em **toda a Floresta**e, em seguida, insira e confirme uma senha de confiança. Esta mesma senha também é inserida no portal Azure na secção seguinte.
 1. Pise nas próximas janelas com opções predefinidas, em seguida, escolha a opção para **Não, não confirme a confiança de saída**.
-1. Selecione **Concluir**
+1. Selecione **Terminar**
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar confiança florestal de saída em Azure AD DS
 
@@ -131,20 +131,20 @@ Deve ter a máquina virtual do Windows Server unida ao domínio de recursos Azur
     > [!NOTE]
     > Para ligar de forma segura aos seus VMs unidos aos Serviços de Domínio Azure AD, pode utilizar o Serviço de [Hospedagem Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) em regiões azure apoiadas.
 
-1. Abra um pedido de comando e utilize o comando `whoami` para mostrar o nome distinto do utilizador atualmente autenticado:
+1. Abra um pedido de `whoami` comando e utilize o comando para mostrar o nome distinto do utilizador autenticado atualmente:
 
     ```console
     whoami /fqdn
     ```
 
-1. Utilize o comando `runas` para autenticar como utilizador a partir do domínio no local. No comando seguinte, substitua `userUpn@trusteddomain.com` com a UPN de um utilizador do domínio de confiança no local. O comando solicita-lhe a palavra-passe do utilizador:
+1. Utilize `runas` o comando para autenticar como utilizador a partir do domínio no local. No comando seguinte, `userUpn@trusteddomain.com` substitua-a pela UPN de um utilizador do domínio de confiança no local. O comando solicita-lhe a palavra-passe do utilizador:
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
     ```
 
-1. Se a autenticação for bem sucedida, abre-se um novo pedido de comando. O título do novo pedido de comando inclui `running as userUpn@trusteddomain.com`.
-1. Utilize `whoami /fqdn` no novo pedido de comando para visualizar o nome distinto do utilizador autenticado do Diretório Ativo no local.
+1. Se a autenticação for bem sucedida, abre-se um novo pedido de comando. O título do novo `running as userUpn@trusteddomain.com`pedido de comando inclui .
+1. Utilizar `whoami /fqdn` no novo pedido de comando para visualizar o nome distinto do utilizador autenticado do Diretório Ativo no local.
 
 ### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Recursos de acesso na floresta de recursos Da DS Azure utilizando utilizadores no local
 
@@ -164,7 +164,7 @@ Utilizando o VM do Windows Server, aderido à floresta de recursos Azure AD DS, 
 
 #### <a name="create-a-security-group-and-add-members"></a>Criar um grupo de segurança e adicionar membros
 
-1. Aberto **Utilizadores e Computadores de Diretório Ativo.**
+1. Abra **Utilizadores e Computadores do Active Directory**.
 1. Selecione o nome de domínio, escolha **Novo**, e, em seguida, selecione **Unidade Organizacional**.
 1. Na caixa de nomes, digite *Objetos Locais*e, em seguida, selecione **OK**.
 1. Selecione e clique à direita **LocaiS Objetos** no painel de navegação. Selecione **Novo** e, em seguida, **Grupo**.
@@ -194,7 +194,7 @@ Utilizando o VM do Windows Server, aderido à floresta de recursos Azure AD DS, 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validar a autenticação transversal a um recurso
 
 1. Assine num computador Windows ligado ao seu Diretório Ativo no local utilizando uma conta de utilizador a partir do seu Diretório Ativo no local.
-1. Utilizando o **Windows Explorer,** ligue-se à parte que criou utilizando o nome de anfitrião totalmente qualificado e a parte como `\\fs1.aaddscontoso.com\CrossforestShare`.
+1. Utilizando o **Windows Explorer,** ligue-se à parte que criou `\\fs1.aaddscontoso.com\CrossforestShare`utilizando o nome de anfitrião totalmente qualificado e a parte, como .
 1. Para validar a permissão de escrita, selecione à direita na pasta, escolha **Novo,** e selecione **Documento de Texto**. Utilize o nome predefinido **Novo Documento de Texto**.
 
     Se as permissões de escrita forem corretamente definidas, é criado um novo documento de texto. Os seguintes passos abrirão, editarão e eliminarão o ficheiro conforme apropriado.
@@ -212,7 +212,7 @@ Neste tutorial, ficou a saber como:
 > * Criar um fundo florestal de saída unidirecional em Azure AD DS
 > * Testar e validar a relação fidedigna para autenticação e acesso a recursos
 
-Para obter informações mais conceptuais sobre tipos de florestas [][concepts-trust] em Azure AD DS, veja [O que são as florestas][concepts-forest] de recursos?
+Para obter informações mais conceptuais sobre tipos de florestas [How do forest trusts work in Azure AD DS?][concepts-trust] em Azure AD DS, veja [O que são as florestas][concepts-forest] de recursos?
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

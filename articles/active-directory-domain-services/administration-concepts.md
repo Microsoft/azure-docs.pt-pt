@@ -1,5 +1,5 @@
 ---
-title: Conceitos de gestão para serviços de domínio azure AD  Microsoft Docs
+title: Conceitos de gestão para serviços de domínio azure AD [ Microsoft Docs
 description: Saiba como administrar um domínio gerido pelo Azure Ative Directory Domain Services e o comportamento das contas de utilizador e palavras-passe
 services: active-directory-ds
 author: iainfoulds
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264235"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gestão para contas de utilizador, senhas e administração em Serviços de Domínio de Diretório Ativo Azure
@@ -72,7 +72,7 @@ Por padrão, um domínio gerido por Azure AD DS é criado como uma floresta *de 
 
 Numa floresta de *recursos* Azure AD DS, os utilizadores autenticam sobre uma *confiança* florestal de sentido único a partir do seu DS A.DS no local. Com esta abordagem, os objetos de utilizador e os hashes de senha não são sincronizados com O DS Azure. Os objetos e credenciais do utilizador só existem no DS AD no local. Esta abordagem permite que as empresas acolhem recursos e plataformas de aplicação em Azure que dependem da autenticação clássica como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos. As florestas de recursos Azure AD DS estão atualmente em pré-visualização.
 
-Para obter mais informações sobre tipos florestais em Azure AD DS, veja [O que são as florestas][concepts-forest] de recursos? [][concepts-trust]
+Para obter mais informações sobre tipos florestais em Azure AD DS, veja [O que são as florestas][concepts-forest] de recursos? [How do forest trusts work in Azure AD DS?][concepts-trust]
 
 ## <a name="azure-ad-ds-skus"></a>Azure AD DS SKUs
 

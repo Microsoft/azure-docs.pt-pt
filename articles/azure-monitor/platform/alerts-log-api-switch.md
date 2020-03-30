@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249441"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Alternar a preferência da API para alertas de registo
@@ -45,12 +45,12 @@ Os impactos da mudança de preferência para a API agendada são compilados abai
 
 - Todas as interações efetuadas para gerir alertas de registo através de interfaces programáticas devem agora ser feitas usando regras [programadas.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) Para mais informações, consulte, [a utilização da amostra através do Modelo](alerts-log.md#managing-log-alerts-using-azure-resource-template) de Recurso Azure e a [utilização da amostra através do PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Qualquer nova regra de alerta de log criada no portal Azure, será criada usando apenas regras [programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) E permitirá que os utilizadores utilizem a [funcionalidade adicional da nova API](#benefits-of-switching-to-new-azure-api) via portal Azure
-- A gravidade das regras de alerta de registo passará de: *Crítico, Aviso e Informação,* para *valores de gravidade de 0, 1 e 2*. Juntamente com a opção de criar/atualizar regras de alerta com a severidade 3 e 4 também.
+- A gravidade das regras de alerta de registo passará de: *Critical, Warning & Informational,* para *valores de gravidade de 0, 1 & 2*. Juntamente com a opção de criar/atualizar regras de alerta com a severidade 3 e 4 também.
 
 O processo de mudança de regras de alerta do [legado Log Analytics Alert API](api-alerts.md) não envolve alterar de forma alguma a sua definição de alerta, consulta ou configuração. As suas regras de alerta e monitorização não são afetadas e os alertas não param ou serão parados, durante ou após o interruptor. As únicas alterações são:
 
 - Uma alteração na preferência da API e acesso às suas regras através de uma nova API.
-- Um recurso de regra de alerta modificado URI contendo os IDs utilizados no [legado Log Analytics Alert API](api-alerts.md) em vez do nome da regra de alerta nesta estrutura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. O nome do visor da regra de alerta permanecerá inalterado.
+- Um recurso de regra de alerta modificado URI contendo os IDs utilizados no legado `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`Log Analytics Alert [API](api-alerts.md) em vez do nome da regra de alerta nesta estrutura . O nome do visor da regra de alerta permanecerá inalterado.
 
 Qualquer cliente que deseje mudar voluntariamente para as novas [Regras agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear a utilização do [legado Log Analytics Alert API;](api-alerts.md) pode fazê-lo executando uma chamada PUT na API abaixo para mudar todas as regras de alerta associadas ao espaço de trabalho específico log Analytics.
 

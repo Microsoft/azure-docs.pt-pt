@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250676"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual da Dependência do Monitor Azure para Windows
 
-O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para windows é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Do VM Azure para windows.
+A funcionalidade Azure Monitor for VMs Map obtém os seus dados do agente microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para windows é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Do VM Azure para windows.
 
 ## <a name="operating-system"></a>Sistema operativo
 
@@ -69,7 +69,7 @@ O seguinte JSON mostra o esquema para a extensão do agente de dependência Azur
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="property-values"></a>Valores patrimoniais
 
 | Nome | Valor/Exemplo |
 | ---- | ---- |
@@ -84,7 +84,7 @@ Pode implementar as extensões Azure VM com modelos de Gestor de Recursos Azure.
 
 O JSON para uma extensão virtual da máquina pode ser aninhado dentro do recurso virtual da máquina. Ou, pode colocá-lo no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/templates/child-resource-name-type.md)
 
-O exemplo que se segue pressupõe que a extensão do agente dependency está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
+O exemplo que se segue pressupõe que a extensão do agente dependency está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, `"resources": []` o JSON é colocado no objeto da máquina virtual.
 
 
 ```json
@@ -127,7 +127,7 @@ Quando coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="powershell-deployment"></a>Implementação powerShell
 
-Pode utilizar o comando `Set-AzVMExtension` para implantar a extensão virtual do agente dependency para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa mesa de hash PowerShell.
+Pode utilizar `Set-AzVMExtension` o comando para implantar a extensão virtual da máquina do agente dependency a uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa mesa de hash PowerShell.
 
 ```powershell
 
@@ -140,9 +140,9 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o módulo PowerShell Azure:
 

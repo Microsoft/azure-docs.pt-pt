@@ -1,6 +1,6 @@
 ---
-title: Use o Estúdio Visual C# com .NET e para consultar
-description: Use o Visual C# Studio para criar uma aplicação que se conecta a uma Base de Dados Azure SQL e a questiona com declarações da Transact-SQL.
+title: Use o Estúdio Visual com .NET e C# para consulta
+description: Use o Visual Studio para criar uma aplicação C# que se conecta a uma Base de Dados Azure SQL e a questiona com declarações transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/31/2019
 ms.openlocfilehash: 75f84f87fc59a870a0c88fd24cb1b1b8894b3e2a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79209580"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Quickstart: Use .NET e C# no Visual Studio para ligar e consultar uma base de dados Azure SQL
 
-Este quickstart mostra como usar o C# [.NET Framework](https://www.microsoft.com/net/) e o código no Visual Studio para consultar uma base de dados Azure SQL com declarações Transact-SQL.
+Este quickstart mostra como usar o [.NET Framework](https://www.microsoft.com/net/) e o código C# no Visual Studio para consultar uma base de dados Azure SQL com declarações Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Para concluir este guia de início rápido, necessita de:
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 
@@ -58,11 +58,11 @@ Obtenha as informações de ligação que precisa para ligar à base de dados Az
 
 1. No Estúdio Visual, selecione **File** > **New** > **Project**. 
    
-1. No diálogo **New Project,** selecione **Visual C#** , e, em seguida, selecione **Console App (.NET Framework)** .
+1. No diálogo **New Project,** selecione **Visual C#**, e, em seguida, selecione **Console App (.NET Framework)**.
    
 1. Introduza *sqltest* para o nome do projeto e, em seguida, selecione **OK**. O novo projeto é criado. 
    
-1. Selecione **Project** > **Gerir pacotes NuGet**. 
+1. Selecione **Project** > **Manage NuGet Packages**. 
    
 1. No **NuGet Package Manager,** selecione o separador **Browse** e, em seguida, procure e selecione **System.Data.SqlClient**.
    
@@ -72,7 +72,7 @@ Obtenha as informações de ligação que precisa para ligar à base de dados Az
    
 1. Quando a instalação estiver concluída, pode fechar o **NuGet Package Manager**. 
    
-1. No editor de código, substitua o **conteúdo Program.cs** pelo seguinte código. Substitua os seus valores por `<server>`, `<username>`, `<password>`e `<database>`.
+1. No editor de código, substitua o **conteúdo Program.cs** pelo seguinte código. Substitua os `<server>` `<username>`seus `<password>`valores por, e `<database>`.
    
    >[!IMPORTANT]
    >O código neste exemplo utiliza os dados adventureWorksLT da amostra, que pode escolher como fonte ao criar a sua base de dados. Se a sua base de dados tiver dados diferentes, utilize as tabelas da sua própria base de dados na consulta SELECT. 
@@ -133,7 +133,7 @@ Obtenha as informações de ligação que precisa para ligar à base de dados Az
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Para executar a aplicação, selecione **Debug** > **Iniciar depuração,** ou selecione **Iniciar** na barra de ferramentas ou prima **F5**.
+1. Para executar a aplicação, selecione **Debug** > **Start Debugging,** ou selecione **Iniciar** na barra de ferramentas ou prima **F5**.
 1. Verifique se as 20 melhores linhas de categoria/produto da sua base de dados são devolvidas e, em seguida, feche a janela da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes

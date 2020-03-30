@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/09/2020
 ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255993"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos de compra vCore e DTU
@@ -138,10 +138,10 @@ Para determinar a percentagem média de utilização dTU/eDTU em relação ao li
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Os valores de entrada para esta fórmula podem ser obtidos a partir de [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), e [dMVs sys.elastic_pool_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) Por outras palavras, para determinar a percentagem de utilização da DTU/eDTU em relação ao limite DTU/eDTU de uma base de dados ou de um pool elástico, escolha o maior valor percentual do seguinte: `avg_cpu_percent`, `avg_data_io_percent`e `avg_log_write_percent` num dado momento.
+Os valores de entrada para esta fórmula podem ser obtidos a partir de [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), e [dMVs sys.elastic_pool_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) Por outras palavras, para determinar a percentagem de utilização dTU/eDTU em relação ao limite DTU/eDTU `avg_cpu_percent` `avg_data_io_percent`de `avg_log_write_percent` uma base de dados ou de um pool elástico, escolha o maior valor percentual do seguinte: , e num dado momento.
 
 > [!NOTE]
-> O limite dTU de uma base de dados é determinado pela CPU, lê-se, escreve e memória disponível na base de dados. No entanto, uma vez que o motor de base de dados Do SQL Server normalmente utiliza toda a memória disponível para a sua cache de dados para melhorar o desempenho, o valor `avg_memory_usage_percent` geralmente será perto de 100% independentemente da carga atual da base de dados. Portanto, embora a memória influencie indiretamente o limite de DTU, não é utilizada na fórmula de utilização do DTU.
+> O limite dTU de uma base de dados é determinado pela CPU, lê-se, escreve e memória disponível na base de dados. No entanto, uma vez que o motor de base de dados Do `avg_memory_usage_percent` SQL Server normalmente utiliza toda a memória disponível para a sua cache de dados para melhorar o desempenho, o valor geralmente estará perto de 100% independentemente da carga atual da base de dados. Portanto, embora a memória influencie indiretamente o limite de DTU, não é utilizada na fórmula de utilização do DTU.
 >
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que beneficiam de um conjunto elástico de recursos
@@ -172,7 +172,7 @@ Não. Não precisas de desligar a aplicação. Os novos níveis de serviço ofer
 
 Sim, pode facilmente converter a sua base de dados em qualquer objetivo de desempenho suportado utilizando o portal Azure, PowerShell, o Azure CLI, T-SQL ou o REST API. Ver [Gerir bases de dados individuais](sql-database-single-database-scale.md) e gerir [piscinas elásticas](sql-database-elastic-pool.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 - Para obter mais informações sobre o modelo de compra baseado em DTU, consulte o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).

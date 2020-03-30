@@ -1,14 +1,14 @@
 ---
-title: Descoberta, avaliação e análise de dependência FAQ
+title: Perguntas sobre descoberta, avaliação e análise de dependência em Azure Migrate
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460811"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -52,7 +52,7 @@ Do mesmo modo, o dimensionamento do disco depende de critérios de dimensionamen
 
 Sim, o histórico de desempenho e a utilização afetam o dimensionamento em Azure Migrate.
 
-### <a name="performance-history"></a>História do desempenho
+### <a name="performance-history"></a>Histórico de desempenho
 
 Apenas para dimensionamento baseado no desempenho, a Azure Migrate recolhe o histórico de desempenho das máquinas no local e, em seguida, usa-a para recomendar o tamanho VM e o tipo de disco em Azure:
 
@@ -88,14 +88,14 @@ As diferenças entre a visualização sem agente e a visualização baseada em a
 
 **Requisito** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
-Suporte | Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#agentless-dependency-visualization) os sistemas operativos suportados. | Na disponibilidade geral (GA).
+Suporte | Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os sistemas operativos suportados. | Na disponibilidade geral (GA).
 Agente | Não é necessário instalar agentes em máquinas que queira sondar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows), e o [agente dependency](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
-Pré-requisitos | [Reveja](concepts-dependency-visualization.md#agentless-visualization) os pré-requisitos e os requisitos de implantação. | [Reveja](concepts-dependency-visualization.md#agent-based-visualization) os pré-requisitos e os requisitos de implantação.
-Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-visualization).
+Pré-requisitos | [Reveja](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Reveja](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
+Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização da dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
 Como funciona | Captura dados de ligação TCP em máquinas habilitadas para visualização da dependência. Após a descoberta, reúne dados em intervalos de cinco minutos. | Os agentes do Mapa de Serviço instalados numa máquina recolhem dados sobre os processos de TCP e ligações de entrada/saída para cada processo.
 Dados | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome, processo, nome de servidor de máquina de destino, e porta. | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome, processo, nome de servidor de máquina de destino, e porta.<br/><br/> O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
 Visualização | O mapa de dependência de um único servidor pode ser visto durante uma hora a 30 dias. | Mapa de dependência de um único servidor.<br/><br/> O mapa só pode ser visto ao longo de uma hora.<br/><br/> Mapa de dependência de um grupo de servidores.<br/><br/> Adicione e remova os servidores num grupo a partir da vista do mapa.
-Exportação de dados | Atualmente não pode ser descarregado em formato tabular. | Os dados podem ser consultados com log Analytics.
+Exportar dados | Atualmente não pode ser descarregado em formato tabular. | Os dados podem ser consultados com log Analytics.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>Pago pela visualização da dependência?
 
@@ -106,7 +106,7 @@ Não. Saiba mais sobre os preços do [Azure Migrate.](https://azure.microsoft.co
 Para utilizar a visualização da dependência baseada no agente, descarregue e instale agentes em cada máquina no local que pretende avaliar:
 
 - [Agente de Monitorização da Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)
-- [Agente de dependência](../azure-monitor/platform/agents-overview.md#dependency-agent)
+- [Agente de Dependência](../azure-monitor/platform/agents-overview.md#dependency-agent)
 - Se tiver máquinas que não tenham conectividade com a Internet, descarregue e instale o gateway Log Analytics.
 
 Só precisa destes agentes se usar visualização de dependência baseada em agentes.
@@ -115,7 +115,7 @@ Só precisa destes agentes se usar visualização de dependência baseada em age
 
 Sim, para visualização da dependência baseada em agentes, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para visualização de dependência. 
 
-## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização da dependência?
+## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
 
 Não, o relatório de visualização da dependência na visualização baseada em agentes não pode ser exportado. No entanto, o Azure Migrate utiliza o Mapa de Serviço, e pode utilizar o Mapa de [Serviço REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para recuperar as dependências em formato JSON.
 
@@ -142,6 +142,6 @@ Para visualização sem agente, pode ver o mapa de dependência de um único ser
 
 Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de grupos que tenham até 10 VMs. Se você tem um grupo que tem mais de 10 VMs, recomendamos que divida o grupo em grupos menores, e depois visualize as dependências.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

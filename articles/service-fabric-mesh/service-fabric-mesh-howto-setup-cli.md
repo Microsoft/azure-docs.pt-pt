@@ -6,10 +6,10 @@ ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259191"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
@@ -21,14 +21,14 @@ Existem três tipos de CLI que podem ser usados e são resumidos na tabela abaix
 |---|---|---|
 | malha az | Malha de tecido de serviço azure | O CLI primário que lhe permite implementar as suas aplicações e gerir recursos contra o ambiente de malha de tecido de serviço Azure. 
 | sfctl | Aglomerados locais | Serviço Tecido CLI que permite a implantação e teste de recursos de Tecido de Serviço contra clusters locais.  
-| Maven CLI | Clusters locais e malha de tecido de serviço azure | Um invólucro em torno de `az mesh` e `sfctl` que permite aos desenvolvedores de Java usar uma experiência familiar de linha de comando para experiência de desenvolvimento local e Azure.  
+| Maven CLI | Aglomerados locais & malha de tecido de serviço Azure | Um invólucro `az mesh` ao `sfctl` redor e que permite que os desenvolvedores de Java utilizem uma experiência familiar de linha de comando para experiência de desenvolvimento local e Azure.  
 
 Para a pré-visualização, a CLI do Azure Service Fabric Mesh é escrita como uma extensão da CLI do Azure. Pode instalá-la no Azure Cloud Shell ou numa instalação local da CLI do Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Instale o CLI de malha de tecido de serviço Azure
-1. Tem de instalar a versão Azure CLI 2.0.67 ou posterior. Executar `az --version` para localizar a versão. Para instalar ou atualizar para a versão mais recente do CLI, consulte [Instalar o Azure CLI][azure-cli-install].
+1. Tem de instalar a versão Azure CLI 2.0.67 ou posterior. Executar `az --version` para localizar a versão. Para instalar ou atualizar para a versão mais recente da CLI, veja [Instalar a CLI do Azure][azure-cli-install].
 
 2. Instale o módulo de extensão CLI de malha de tecido de tecido de serviço Azure utilizando o seguinte comando. 
 
@@ -82,7 +82,7 @@ Para utilizar o plugin Maven na sua aplicação Maven Java, adicione o seguinte 
 
 Leia a secção de [referência maven CLI](service-fabric-mesh-reference-maven.md) para saber sobre o uso detalhado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode também configurar o seu [ambiente de desenvolvimento no Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 

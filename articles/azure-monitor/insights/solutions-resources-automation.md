@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663067"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionar recursos da Automação Azure a uma solução de gestão (Pré-visualização)
@@ -70,11 +70,11 @@ As propriedades para livros de execução são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbookType |Especifica os tipos do livro de execução. <br><br> Script - PowerShell script <br>PowerShell - Fluxo de trabalho PowerShell <br> GraphPowerShell - Livro de execução de scripts Graphical PowerShell <br> GraphPowerShellWorkflow - Fluxo de fluxo de fluxo de fluxo de fluxo de fluxo de powershell gráfico |
+| livro de corridasType |Especifica os tipos do livro de execução. <br><br> Script - PowerShell script <br>PowerShell - Fluxo de trabalho PowerShell <br> GraphPowerShell - Livro de execução de scripts Graphical PowerShell <br> GraphPowerShellWorkflow - Fluxo de fluxo de fluxo de fluxo de fluxo de fluxo de powershell gráfico |
 | logProgress |Especifica se os [registos](../../automation/automation-runbook-output-and-messages.md) de progresso devem ser gerados para o livro de execução. |
 | logVerbose |Especifica se [os registos verbosos](../../automation/automation-runbook-output-and-messages.md) devem ser gerados para o livro de execução. |
 | descrição |Descrição opcional para o livro de execução. |
-| publishContentLink |Especifica o conteúdo do livro de execução. <br><br>uri - Uri ao conteúdo do livro de corridas.  Este será um ficheiro .ps1 para os livros powerShell e Script, e um ficheiro de rumbook gráfico exportado para um livro de execução de gráficos.  <br> versão - Versão do livro de execução para o seu próprio tracking. |
+| publicarContentLink |Especifica o conteúdo do livro de execução. <br><br>uri - Uri ao conteúdo do livro de corridas.  Este será um ficheiro .ps1 para os livros powerShell e Script, e um ficheiro de rumbook gráfico exportado para um livro de execução de gráficos.  <br> versão - Versão do livro de execução para o seu próprio tracking. |
 
 
 ## <a name="automation-jobs"></a>Trabalhos de automação
@@ -138,7 +138,7 @@ As propriedades dos recursos certificados são descritas na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | base64Valor |Valor base 64 para o certificado. |
-| thumbprint |Impressão digital para o certificado. |
+| impressão de polegar |Impressão digital para o certificado. |
 
 
 
@@ -195,7 +195,7 @@ As propriedades para recursos de horário são descritas na tabela seguinte.
 | descrição |Descrição opcional para o horário. |
 | startTime |Especifica a hora de início de um horário como um objeto DateTime. Uma corda pode ser fornecida se puder ser convertida para um DataTime válido. |
 | isEnabled |Especifica se o horário está ativado. |
-| intervalo |O tipo de intervalo para o horário.<br><br>dia<br>hora |
+| intervalo |O tipo de intervalo para o horário.<br><br>day<br>hour |
 | frequência |Frequência que o horário deve disparar em número de dias ou horas. |
 
 Os horários devem ter um início com um valor superior ao atual.  Não pode fornecer este valor com uma variável, uma vez que não teria como saber quando vai ser instalado.
@@ -235,8 +235,8 @@ As propriedades para horários de trabalho são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| schedule name |Entidade **de nome** único com o nome da programação. |
-| runbook name  |Entidade **de nome** único com o nome do livro de execução.  |
+| nome de agenda |Entidade **de nome** único com o nome da programação. |
+| nome do livro de corridas  |Entidade **de nome** único com o nome do livro de execução.  |
 
 
 
@@ -270,13 +270,13 @@ As propriedades para recursos variáveis são descritas na tabela seguinte.
 > [!NOTE]
 > A propriedade **tipo** atualmente não tem qualquer efeito sobre a variável que está sendo criada.  O tipo de dados para a variável será determinado pelo valor.  
 
-Se definir o valor inicial da variável, deve ser configurado como o tipo de dados correto.  A tabela que se segue fornece os diferentes tipos de dados admissíveis e a sua sintaxe.  Note que os valores em JSON devem ser sempre incluídos em citações com quaisquer caracteres especiais dentro das cotações.  Por exemplo, um valor de cadeia seria especificado por citações em torno da cadeia (utilizando o carácter de fuga (\\) enquanto um valor numérico seria especificado com um conjunto de citações.
+Se definir o valor inicial da variável, deve ser configurado como o tipo de dados correto.  A tabela que se segue fornece os diferentes tipos de dados admissíveis e a sua sintaxe.  Note que os valores em JSON devem ser sempre incluídos em citações com quaisquer caracteres especiais dentro das cotações.  Por exemplo, um valor de cadeia seria especificado por citações\\em torno da cadeia (utilizando o carácter de fuga ()) enquanto um valor numérico seria especificado com um conjunto de citações.
 
 | Tipo de dados | Descrição | Exemplo | Resolve-se |
 |:--|:--|:--|:--|
-| string   | Valor de encerramento em cotações duplas.  | "\"Hello world\"" | "Olá mundo" |
+| string   | Valor de encerramento em cotações duplas.  | "\"Olá\"mundo" | "Olá mundo" |
 | numeric  | Valor numérico com cotações individuais.| "64" | 64 |
-| boolean  | **verdadeiro** ou **falso** em aspas.  Note que este valor deve ser minúsculo. | "verdadeiro" | true |
+| boolean  | **verdadeiro** ou **falso** em aspas.  Note que este valor deve ser minúsculo. | "Verdadeiro" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma determinada data.<br>Exemplo: data de validade "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Data(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
@@ -318,7 +318,7 @@ Se atualizar uma solução de gestão que inclui um livro de execução que util
 ## <a name="sample"></a>Sample
 Segue-se uma amostra de uma solução que inclui os seguintes recursos:
 
-- Livro de corridas.  Este é um livro de amostras armazenado num repositório público do GitHub.
+- Runbook.  Este é um livro de amostras armazenado num repositório público do GitHub.
 - Trabalho de automação que inicia o livro de execução quando a solução é instalada.
 - Horário e horário de trabalho para iniciar o livro de corridas em intervalos regulares.
 - Um certificado.

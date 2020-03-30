@@ -4,10 +4,10 @@ description: Este artigo descreve tarefas comuns para gerir e monitorizar as aç
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247660"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerir cópias de segurança de partilha de ficheiros do Azure
@@ -85,7 +85,7 @@ Para parar a proteção de uma partilha de ficheiros do Azure:
 
    ![Itens de backup](./media/manage-afs-backup/backup-items.png)
 
-1. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)** . Aparece a lista de **itens de backup (Ficheiros Azure).**
+1. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)**. Aparece a lista de **itens de backup (Ficheiros Azure).**
 
    ![Selecione Armazenamento Azure (Ficheiros Azure)](./media/manage-afs-backup/azure-storage-azure-files.png)
 
@@ -109,7 +109,7 @@ Retomar a proteção da partilha de ficheiros Azure:
 
    ![Itens de backup para currículo](./media/manage-afs-backup/backup-items-resume.png)
 
-1. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)** . Aparece a lista de **itens de backup (Ficheiros Azure).**
+1. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)**. Aparece a lista de **itens de backup (Ficheiros Azure).**
 
    ![Lista de Armazenamento Azure (Ficheiros Azure)](./media/manage-afs-backup/azure-storage-azure-files.png)
 

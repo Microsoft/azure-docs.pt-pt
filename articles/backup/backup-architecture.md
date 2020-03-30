@@ -1,13 +1,13 @@
 ---
-title: Visão geral da arquitetura
+title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273621"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup Azure
@@ -44,11 +44,11 @@ Os cofres dos Serviços de Recuperação têm as seguintes funcionalidades:
 - Você pode monitorizar itens de reserva em um cofre, incluindo VMs Azure e máquinas no local.
 - Você pode gerir o acesso ao cofre com o controlo de acesso baseado em funções Azure [(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - Especifica como os dados no cofre são replicados para redundância:
-  - **Armazenamento redundante localmente (LRS)** : Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados para uma unidade de escala de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Armazenamento geo-redundante (GRS)** : Para proteger contra interrupções em toda a região, pode utilizar GRS. GrS replica os seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Armazenamento redundante localmente (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados para uma unidade de escala de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GrS replica os seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Por padrão, os cofres dos Serviços de Recuperação utilizam GRS.
 
-## <a name="backup-agents"></a>Agentes de reserva
+## <a name="backup-agents"></a>Agentes do Azure Backup
 
 A Azure Backup fornece diferentes agentes de backup, dependendo do tipo de máquina que está a ser apoiada:
 
@@ -57,13 +57,13 @@ A Azure Backup fornece diferentes agentes de backup, dependendo do tipo de máqu
 **Agente MARS** | <ul><li>Funciona em máquinas individuais no local do Windows Server para fazer o back-up de ficheiros, pastas e o estado do sistema.</li> <li>Funciona em VMs Azure para fazer o back-up de ficheiros, pastas e estado do sistema.</li> <li>Funciona em servidores DPM/MABS para fazer o backup do disco de armazenamento local DPM/MABS para o Azure.</li></ul>
 **Extensão Azure VM** | Corre em VMs Azure para os apoiar num cofre.
 
-## <a name="backup-types"></a>Tipos de backup
+## <a name="backup-types"></a>Tipos de cópia de segurança
 
 A tabela a seguir explica os diferentes tipos de backups e quando são usados:
 
 **Tipo de cópia de segurança** | **Detalhes** | **Utilização**
 --- | --- | ---
-**Cheio** | Uma cópia de segurança completa contém toda a fonte de dados. Requer mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado para cópia de segurança inicial.
+**Completa** | Uma cópia de segurança completa contém toda a fonte de dados. Requer mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado para cópia de segurança inicial.
 **Diferencial** |  Um backup diferencial armazena os blocos que mudaram desde a cópia de segurança inicial. Usa uma menor quantidade de rede e armazenamento, e não guarda cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre cópias de segurança posteriores são transferidos e armazenados. | Não usado pela Azure Backup.
 **Incremental** | Uma cópia de segurança incremental armazena apenas os blocos de dados que mudaram desde a cópia de segurança anterior. Alta eficiência de armazenamento e rede. <br/><br/> Com reforçoincremental, não há necessidade de complementar com cópias de segurança completas. | Usado por DPM/MABS para backups de disco, e usado em todas as cópias de segurança para Azure. Não utilizado para cópia de segurança do SQL Server.
 
@@ -73,8 +73,8 @@ A tabela que se segue explica os diferentes tipos de backups utilizados para as 
 
 **Tipo de cópia de segurança** | **Detalhes** | **Utilização**
 --- | --- | ---
-**Backup completo** | Uma base de dados completa reserva toda a base de dados. Contém todos os dados numa base de dados específica ou num conjunto de ficheiros ou ficheiros. Uma cópia de segurança completa também contém registos suficientes para recuperar esses dados. | No máximo, podes ativar um reforço completo por dia.<br/><br/> Pode optar por fazer um backup completo num intervalo diário ou semanal.
-**Backup diferencial** | Uma cópia de segurança diferencial baseia-se na cópia de segurança de dados completos mais recentes e anteriores.<br/><br/> Captura apenas os dados que mudaram desde a cópia de segurança total. |  No máximo, pode desencadear uma cópia de segurança diferencial por dia.<br/><br/> Não se pode configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
+**Cópia de segurança completa** | Uma base de dados completa reserva toda a base de dados. Contém todos os dados numa base de dados específica ou num conjunto de ficheiros ou ficheiros. Uma cópia de segurança completa também contém registos suficientes para recuperar esses dados. | No máximo, podes ativar um reforço completo por dia.<br/><br/> Pode optar por fazer um backup completo num intervalo diário ou semanal.
+**Cópia de segurança diferencial** | Uma cópia de segurança diferencial baseia-se na cópia de segurança de dados completos mais recentes e anteriores.<br/><br/> Captura apenas os dados que mudaram desde a cópia de segurança total. |  No máximo, pode desencadear uma cópia de segurança diferencial por dia.<br/><br/> Não se pode configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
 **Cópia de segurança do registo de transações** | Uma cópia de segurança permite a restauração pontual até um segundo específico. | No máximo, pode configurar cópias de registo transacional a cada 15 minutos.
 
 ### <a name="comparison-of-backup-types"></a>Comparação de tipos de backup
@@ -210,7 +210,7 @@ Quando restaurar Os VMs com discos geridos, pode restaurar um VM completo com di
 - Durante o processo de restauro, o Azure trata dos discos geridos. Se estiver a usar a opção de conta de armazenamento, gere a conta de armazenamento criada durante o processo de restauro.
 - Se restaurar um VM gerido encriptado, certifique-se de que as chaves e segredos do VM existem no cofre da chave antes de iniciar o processo de restauro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a matriz de suporte para [aprender sobre funcionalidades suportadas e limitações para cenários](backup-support-matrix.md)de backup .
 - Configurar cópias de segurança para um destes cenários:

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137874"
 ---
 # <a name="create-an-account-sas-with-net"></a>Criar uma conta SAS com .NET
@@ -23,7 +23,7 @@ ms.locfileid: "79137874"
 
 Este artigo mostra como usar a chave da conta de armazenamento para criar uma conta SAS com a [biblioteca de clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="create-an-account-sas"></a>Criar uma conta SAS
+## <a name="create-an-account-sas"></a>Create an account SAS (Criar uma SAS de conta)
 
 Para criar uma conta SAS para um recipiente, ligue para o método [CloudStorageAccount.GetSharedAccessSignature.](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature)
 

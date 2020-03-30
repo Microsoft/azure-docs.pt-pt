@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249051"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comuns
@@ -31,7 +31,7 @@ Isto significa que pode potencialmente ter menos integrações, tornando o proce
 
 O esquema de alerta comum manifestar-se-á principalmente nas suas notificações de alerta. As melhorias que verá estão listadas abaixo:
 
-| Ação | Aprimoramentos|
+| Ação | Melhoramentos |
 |:---|:---|
 | SMS | Um modelo sMS consistente para todos os tipos de alerta. |
 | Email | Um modelo de e-mail consistente e detalhado, permitindo-lhe diagnosticar facilmente problemas num ápice. Incrustadas ligações profundas à instância de alerta no portal e ao recurso afetado garantem que pode entrar rapidamente no processo de reparação. |

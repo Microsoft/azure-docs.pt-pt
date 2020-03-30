@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254992"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
@@ -70,7 +70,7 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 #### <a name="to-manage-your-support-requests"></a>Para gerir os seus pedidos de apoio
 
-1. Para chegar à página de ajuda e suporte, navegue para **Navegar > Ajuda + suporte**.
+1. Para chegar à página de ajuda e suporte, navegue para **navegar > ajuda + suporte**.
 
     ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
@@ -96,14 +96,14 @@ Execute os seguintes passos para iniciar uma sessão de apoio:
 4. No momento, digite a seguinte palavra-passe:
    
     `Password1`
-5. Na linha de comandos, escreva o seguinte comando:
+5. No momento, digite o seguinte comando:
    
     `Enable-HcsSupportAccess`
 6. Será-lhe apresentada uma corda encriptada. Copie esta cadeia num editor de texto como o Notepad.
 7. Guarde esta corda e envie-a numa mensagem de e-mail para o Microsoft Support.
 
 > [!IMPORTANT]
-> Pode desativar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desativar o acesso ao suporte 8 horas após o início da sessão. É uma boa prática alterar as credenciais do seu dispositivo StorSimple depois de ter dado início a uma sessão de suporte.
+> Pode desativar o `Disable-HcsSupportAccess`acesso ao suporte funcionando . O dispositivo StorSimple também tentará desativar o acesso ao suporte 8 horas após o início da sessão. É uma boa prática alterar as credenciais do seu dispositivo StorSimple depois de ter dado início a uma sessão de suporte.
 
 
 ## <a name="next-steps"></a>Passos seguintes

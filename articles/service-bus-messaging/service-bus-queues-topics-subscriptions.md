@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 3dc78a22e0e596d812d90fec63475a0b21e9164f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259516"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
@@ -73,8 +73,8 @@ Para obter mais informações sobre possíveis valores de filtro, consulte a doc
 
 Para mais informações e exemplos de utilização de mensagens Service Bus, consulte os seguintes tópicos avançados:
 
-* [Descrição geral das mensagens do Service Bus](service-bus-messaging-overview.md)
-* [Quickstart: Enviar e receber mensagens utilizando o portal Azure e .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Atualizar o inventário utilizando o portal Azure e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
+* [Início Rápido: Enviar e receber mensagens com o portal do Azure e o .NET](service-bus-quickstart-portal.md)
+* [Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

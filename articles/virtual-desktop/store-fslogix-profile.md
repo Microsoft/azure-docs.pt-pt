@@ -9,10 +9,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127529"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
@@ -25,9 +25,9 @@ As tabelas seguintes comparam as soluções de armazenamento Que o Armazenamento
 
 ## <a name="azure-platform-details"></a>Detalhes da plataforma Azure
 
-|Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Espaços de Armazenamento Direto|
+|Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Direto de Espaços de Armazenamento|
 |--------|-----------|------------------|---------------------|
-|Caso de utilização|Fins gerais|Ultra desempenho ou migração do NetApp no local|Plataforma cruzada|
+|Caso de utilização|Fins gerais|Ultra desempenho ou migração do NetApp no local|Várias plataformas|
 |Serviço de plataforma|Sim, solução azure-nativa|Sim, solução azure-nativa|Não, auto-gerido|
 |Disponibilidade regional|Todas as regiões|[Regiões selecionadas](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
 |Redundância|Localmente redundante/zona redundante/geo-redundante|Localmente redundante|Localmente redundante/zona redundante/geo-redundante|
@@ -38,9 +38,9 @@ As tabelas seguintes comparam as soluções de armazenamento Que o Armazenamento
 
 ## <a name="azure-management-details"></a>Detalhes da gestão do Azure
 
-|Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Espaços de Armazenamento Direto|
+|Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Direto de Espaços de Armazenamento|
 |--------|-----------|------------------|---------------------|
-|Access|Nuvem, no local e híbrido (sincronização de ficheiros Azure)|Nuvem, no local (via ExpressRoute)|Nuvem, no local|
+|Acesso|Nuvem, no local e híbrido (sincronização de ficheiros Azure)|Nuvem, no local (via ExpressRoute)|Nuvem, no local|
 |Cópia de segurança|Integração de instantâneos de backup Azure|Fotos de ficheiros Azure NetApp|Integração de instantâneos de backup Azure|
 |Segurança e conformidade|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integração do Azure Active Directory|[Serviços de Domínio de Diretório Ativo Nativo e Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Serviços de Domínio de Diretório Ativo Azure e Diretório Ativo Nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Apenas suporte a Serviços de Domínio de Diretório Ativo Nativo ou Azure|

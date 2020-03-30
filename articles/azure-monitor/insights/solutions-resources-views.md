@@ -1,5 +1,5 @@
 ---
-title: Pontos de vista em soluções de gestão  Microsoft Docs
+title: Pontos de vista em soluções de gestão [ Microsoft Docs
 description: 'As soluções de gestão normalmente incluem uma ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma visão criada pelo View Designer e incluí-la numa solução de gestão. '
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663050"
 ---
 # <a name="views-in-management-solutions-preview"></a>Pontos de vista em soluções de gestão (Pré-visualização)
@@ -89,8 +89,8 @@ Todos os recursos do Log Analytics definidos num modelo de Gestor de Recursos t�
 | Versão workspace | Versão API | Consulta |
 |:---|:---|:---|
 | v1 (legado)   | Antevisão 2015-11-01 | Formato legado.<br> Exemplo: Type=EventLevelName = Erro  |
-| v2 (atualizado) | Antevisão 2015-11-01 | Formato legado.  Convertido em formato atualizado na instalação.<br> Exemplo: Type=EventLevelName = Erro<br>Convertido para: &#124; Evento onde EventLevelName == "Error"  |
-| v2 (atualizado) | Antevisão 2017-03-03 | Formato de upgrade. <br>Exemplo: &#124; Evento onde eventlevelName == "Error"  |
+| v2 (atualizado) | Antevisão 2015-11-01 | Formato legado.  Convertido em formato atualizado na instalação.<br> Exemplo: Type=EventLevelName = Erro<br>Convertido para: Evento &#124; onde EventLevelName == "Error"  |
+| v2 (atualizado) | Antevisão 2017-03-03 | Formato de upgrade. <br>Exemplo: Evento &#124; onde EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Adicione os detalhes da vista

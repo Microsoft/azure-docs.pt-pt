@@ -9,23 +9,23 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79199723"
 ---
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
 Se tiver desativado a opção "Requer Autorização do Cliente" ao criar o Reencaminhamento, pode enviar os pedidos para o URL de Ligações Híbridas com qualquer browser. Para aceder a pontos finais protegidos, tem de criar e transmitir um token no cabeçalho `ServiceBusAuthorization`, mostrado aqui.
 
-No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framework)** .
+No Visual Studio, crie um novo projeto de **Aplicação de Consola (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Adicionar o pacote NuGet de Reencaminhamento
 
 1. Clique com o botão direito do rato no projeto recém-criado e, em seguida, selecione **Gerir Pacotes NuGet**.
 2. Selecione a opção **Incluir pré-lançamento**. 
-3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Reencaminhamento do Microsoft Azure**.
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Microsoft Azure Relay**.
 4. Para a versão, selecione **2.0.0-preview1-20180523**. 
 5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213951"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos alargados na Base de Dados SQL
@@ -58,7 +58,7 @@ Tópicos relacionados fornecem duas amostras de código:
 
 - [Código-alvo do tampão de anel para eventos alargados na Base de Dados SQL](sql-database-xevent-code-ring-buffer.md)
     - Curto simples script Transact-SQL.
-    - Salientamos no tópico da amostra de código que, quando terminar com um alvo do Tampão anel, deve libertar os seus recursos executando uma declaração de `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` de alteração. Mais tarde, pode adicionar outra instância de Buffer de Anel por `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+    - Salientamos no tópico da amostra de código que, quando terminar com um alvo do Tampão anel, deve libertar os seus recursos executando uma `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` declaração de alteração. Mais tarde pode adicionar outra `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`instância de Buffer de Anel por .
 
 
 - [Código-alvo do Ficheiro de Eventos para eventos alargados na Base de Dados SQL](sql-database-xevent-code-event-file.md)
@@ -89,7 +89,7 @@ A funcionalidade de eventos alargados é suportada por várias vistas de [catál
 | **sys.database_event_session_targets** |Devolve uma linha para cada alvo do evento para uma sessão de evento. |
 | **sys.database_event_sessions** |Devolve uma linha para cada sessão de eventos na base de dados da Base de Dados SQL. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *\_.server* em vez de *.database\_* . O padrão de nome é como **sys.server_event_%.**
+No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server\_ * em vez de *.database\_*. O padrão de nome é como **sys.server_event_%.**
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Novas visões dinâmicas de gestão [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -103,7 +103,7 @@ A Base de Dados Azure SQL tem pontos de vista dinâmicos de [gestão (DMVs)](htt
 | **sys.dm_xe_database_session_targets** |Devolve informações sobre os alvos da sessão. |
 | **sys.dm_xe_database_sessions** |Devolve uma linha para cada sessão de eventos que é remepto à base de dados atual. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes são nomeadas sem a parte de base de *dados\_* do nome, tais como:
+No Microsoft SQL Server, as vistas * \_* de catálogo semelhantes são nomeadas sem a parte de base de dados do nome, tais como:
 
 - **sys.dm_xe_sessions,** em vez de nome<br/>**sys.dm_xe_database_sessions.**
 
@@ -142,7 +142,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Alvos para as sessões de eventos da Base de Dados SQL
 
@@ -180,7 +180,7 @@ Há cenários em que o uso intensivo de eventos prolongados pode acumular memór
 Se receber uma mensagem de erro que diga que o máximo de memória foi aplicado, algumas ações corretivas que pode tomar são:
 
 - Executar menos sessões de eventos simultâneos.
-- Através das suas declarações **CREATE** e **ALTER** para sessões de eventos, reduza a quantidade de memória que especifica na cláusula **MAX\_MEMORY.**
+- Através das suas declarações **CREATE** e **ALTER** para sessões de eventos, reduza a quantidade de memória que especifica na cláusula **MEMÓRIA MAX.\_**
 
 ### <a name="network-latency"></a>Latência de rede
 

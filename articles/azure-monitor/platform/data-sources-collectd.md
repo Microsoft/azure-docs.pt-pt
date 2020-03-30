@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670615"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados de agentes do Linux recolhidos no Monitor Azure
@@ -45,12 +45,12 @@ Além disso, se utilizar uma versão de collectd antes de 5.5, utilize a seguint
        </URL>
     </Plugin>
 
-A configuração CollectD utiliza o plugin padrão`write_http` para enviar dados métricos de desempenho sobre a porta 26000 para o agente Log Analytics para o Linux. 
+A configuração CollectD`write_http` utiliza o plugin predefinido para enviar dados métricos de desempenho sobre a porta 26000 para o agente Log Analytics para o Linux. 
 
 > [!NOTE]
 > Esta porta pode ser configurada para uma porta definida sob medida, se necessário.
 
-O agente Log Analytics para o Linux também ouve na porta 26000 para métricas Colecionadas e depois converte-as para métricas de esquema sinuoso do Monitor Azure. Segue-se o agente Log Analytics para a configuração do Linux `collectd.conf`.
+O agente Log Analytics para o Linux também ouve na porta 26000 para métricas Colecionadas e depois converte-as para métricas de esquema sinuoso do Monitor Azure. Segue-se o agente Log Analytics `collectd.conf`para a configuração do Linux .
 
     <source>
       type http
@@ -79,7 +79,7 @@ Seguem-se passos básicos para configurar a recolha de dados recolhidos no Monit
 
 ### <a name="configure-collectd-to-forward-data"></a>Configure o CollectD para transmitir dados 
 
-1. Para encaminhar os dados recolhidos para o agente Log Analytics para o Linux, `oms.conf` precisa de ser adicionado ao diretório de configuração do CollectD. O destino deste ficheiro depende do distro linux da sua máquina.
+1. Para encaminhar os dados recolhidos para `oms.conf` o agente Log Analytics para o Linux, é necessário adicionar ao diretório de configuração do CollectD. O destino deste ficheiro depende do distro linux da sua máquina.
 
     Se o seu diretório de config Collectd estiver localizado em /etc/collectd.d/:
 
@@ -90,7 +90,7 @@ Seguem-se passos básicos para configurar a recolha de dados recolhidos no Monit
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >Para versões CollectD antes de 5.5 terá de modificar as etiquetas em `oms.conf` como mostrado acima.
+    >Para versões CollectD antes de 5.5 terá `oms.conf` de modificar as etiquetas como mostrado acima.
     >
 
 2. Copiar colecionado.conf para o diretório de configuração omsagent do espaço de trabalho pretendido.
@@ -108,12 +108,12 @@ Para manter um modelo familiar entre as métricas de infraestrutura já recolhid
 | Campo métrico colecionado | Campo Azure Monitor |
 |:--|:--|
 | `host` | Computador |
-| `plugin` | Nenhum |
-| `plugin_instance` | Nome da instância<br>Se **plugin_instance** for *nulo,* então O Nome do Exemplo=" *_Total*" |
-| `type` | Nome de objeto |
+| `plugin` | Nenhuma |
+| `plugin_instance` | Nome da instância<br>Se **plugin_instance** for *nulo,* então O Nome do Exemplo="*_Total*" |
+| `type` | ObjectName |
 | `type_instance` | Contranome<br>Se **type_instance** for *nulo,* então contranome=**em branco** |
 | `dsnames[]` | Contranome |
-| `dstypes` | Nenhum |
+| `dstypes` | Nenhuma |
 | `values[]` | ContraValor |
 
 ## <a name="next-steps"></a>Passos seguintes

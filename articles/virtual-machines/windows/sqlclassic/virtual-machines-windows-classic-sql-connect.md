@@ -1,5 +1,5 @@
 ---
-title: Ligue-se a uma máquina virtual do Servidor SQL no Azure (Clássico)  Clássico)  Microsoft Docs
+title: Ligue-se a uma máquina virtual do Servidor SQL no Azure (Clássico) [ Clássico) [ Microsoft Docs
 description: Aprenda a ligar-se ao SQL Server em execução numa máquina virtual em Azure. Este tópico usa o modelo de implantação clássico. Os cenários diferem consoante a configuração de rede e a localização do cliente.
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249714"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligue-se a uma máquina virtual do Servidor SQL no Azure (Implantação Clássica)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
-> * [Clássico](../classic/sql-connect.md)
+> * [Clássica](../classic/sql-connect.md)
 > 
 > 
 
@@ -58,7 +58,7 @@ Neste cenário, pode ligar-se utilizando o **Nome** VM (também mostrado como No
 ### <a name="connect-to-sql-server-over-the-internet"></a>Ligue-se ao SQL Server através da Internet
 Se pretender ligar-se ao seu motor de base de dados SQL Server a partir da Internet, tem de criar um ponto final de máquina virtual para a comunicação tCP de entrada. Este passo de configuração do Azure direciona o tráfego da porta TCP recebido para uma porta TCP a que a máquina virtual tenha acesso.
 
-Para ligar através da internet, deve utilizar o nome DNS do VM e o número de porta de ponto final VM (configurado mais tarde neste artigo). Para encontrar o Nome DNS, navegue para o portal Azure e selecione **máquinas Virtuais (clássicas)** . Em seguida, selecione a sua máquina virtual. O **nome DNS** é mostrado na secção **Visão Geral.**
+Para ligar através da internet, deve utilizar o nome DNS do VM e o número de porta de ponto final VM (configurado mais tarde neste artigo). Para encontrar o Nome DNS, navegue para o portal Azure e selecione **máquinas Virtuais (clássicas)**. Em seguida, selecione a sua máquina virtual. O **nome DNS** é mostrado na secção **Visão Geral.**
 
 Por exemplo, considere uma máquina virtual clássica chamada **mysqlvm** com um Nome DNS de **mysqlvm7777.cloudapp.net** e um ponto final VM de **57500**. Assumindo uma conectividade devidamente configurada, a seguinte cadeia de ligação poderia ser usada para aceder à máquina virtual a partir de qualquer lugar da internet:
 
@@ -85,13 +85,13 @@ Os seguintes passos demonstram como se conectar à instância do Servidor SQL at
 
 Antes de poder ligar-se à instância do Servidor SQL a partir de outro VM ou da internet, deve completar as seguintes tarefas descritas nas secções que se seguem:
 
-* [Criar um ponto final de TCP para a máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
+* [Criar um ponto final TCP para a máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Abrir portas TCP na firewall do Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [Configure o Servidor SQL para ouvir o protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-* [Configure o Servidor SQL para autenticação de modo misto](#configure-sql-server-for-mixed-mode-authentication)
-* [Criar logins de autenticação do Servidor SQL](#create-sql-server-authentication-logins)
-* [Determine o nome DNS da máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
-* [Ligue-se ao Motor base de dados a partir de outro computador](#connect-to-the-database-engine-from-another-computer)
+* [Configurar o SQL Server para escutar o protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [Configurar o SQL Server para autenticação em modo misto](#configure-sql-server-for-mixed-mode-authentication)
+* [Criar inícios de sessão de autenticação do SQL Server](#create-sql-server-authentication-logins)
+* [Determinar o nome DNS da máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
+* [Ligar ao Motor da Base de Dados a partir de outro computador](#connect-to-the-database-engine-from-another-computer)
 
 O caminho de ligação é resumido pelo seguinte diagrama:
 

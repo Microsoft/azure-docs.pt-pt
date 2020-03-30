@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670037"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
@@ -23,7 +23,7 @@ Existem três tipos de testes de disponibilidade:
 
 * [Teste de ping do URL](#create-a-url-ping-test): um teste simples que pode criar no Portal do Azure.
 * [Teste web em várias etapas](availability-multistep.md): Uma gravação de uma sequência de pedidos web, que pode ser reproduzido de volta para testar cenários mais complexos. Os testes web em várias etapas são criados na Visual Studio Enterprise e enviados para o portal para execução.
-* [Testes personalizados](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)de disponibilidade de faixas : Se decidir criar uma aplicação personalizada para executar testes de disponibilidade, o método `TrackAvailability()` pode ser usado para enviar os resultados para Insights de Aplicação.
+* [Testes personalizados](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)de disponibilidade de faixas : Se decidir criar `TrackAvailability()` uma aplicação personalizada para executar testes de disponibilidade, o método pode ser usado para enviar os resultados para Insights de Aplicação.
 
 **Pode criar até 100 testes de disponibilidade por recurso Application Insights.**
 
@@ -31,7 +31,7 @@ Existem três tipos de testes de disponibilidade:
 
 Para criar um teste de disponibilidade, primeiro é necessário criar um recurso Application Insights. Se já criou um recurso, dirija-se à secção seguinte para [criar um teste URL Ping](#create-a-url-ping-test).
 
-A partir do portal Azure, selecione **Criar um recurso** > **Ferramentas de Desenvolvimento** > Insights de **Aplicação** e criar um recurso de Insights de [Aplicação.](create-new-resource.md)
+A partir do portal Azure, selecione **Criar um recurso** > **developer Tools** > **Application Insights** e criar um recurso De insights de [aplicação](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Criar um teste de ping do URL
 
@@ -45,7 +45,7 @@ Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibil
 
 |Definição| Explicação
 |----|----|----|
-|**URL** |  O URL pode ser qualquer página web que queira testar, mas deve ser visível a partir da internet pública. O URL pode incluir uma cadeia de consulta. Desta forma, pode, por exemplo, testar um pouco a base de dados. Se o URL remeter para um redirecionamento, iremos segui-lo até dez redirecionamentos.|
+|**URL** |  O URL pode ser qualquer página Web que pretender testar, mas tem de estar visível a partir da Internet pública. O URL pode incluir uma cadeia de consulta. Desta forma, pode, por exemplo, testar um pouco a base de dados. Se o URL remeter para um redirecionamento, iremos segui-lo até dez redirecionamentos.|
 |**Pedidos dependentes da Parse**| O teste solicita imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página web em teste. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se algum destes recursos não puder ser descarregado com sucesso dentro do prazo para todo o teste. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado. Permitir esta opção resulta numa verificação mais rigorosa. O teste pode falhar em casos que podem não ser percetíveis ao navegar manualmente no site.
 |**Ativar repetições**|quando o teste falha, é novamente experimentado após um curto intervalo. Uma falha só é comunicada após três tentativas falhadas sucessivas. Os testes subsequentes são realizados à frequência habitual de teste. A repetição encontra-se temporariamente suspensa até ao próximo êxito. Esta regra é aplicada de forma independente em cada localização de teste. **Recomendamos esta opção.** Em média, cerca de 80% das falhas desaparecem aquando da repetição.|
 |**Frequência de teste**| Define a frequência com que o teste é executado a partir de cada local de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.|
@@ -69,8 +69,8 @@ Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibil
 |Definição| Explicação
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas quase em tempo real. Configurar este tipo de alerta é feito após a criação do seu teste de disponibilidade.  |
-|**Clássico** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
-|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o limiar de **localização de alerta** = número de **locais de teste - 2, com um mínimo de cinco locais de teste.**|
+|**Clássica** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
+|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o número **de pontos-limite** = de localização de localização**de pontos de ensaio - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="see-your-availability-test-results"></a>Ver os resultados do teste de disponibilidade
 
@@ -86,7 +86,7 @@ A visão de dispersão mostra amostras dos resultados dos testes que têm detalh
 
 Selecione um teste ou uma localização específica ou reduza o período de tempo para ver mais resultados relativos ao período de tempo relevante. Utilize o Explorador de Pesquisa para ver resultados de todas as execuções ou utilize consultas do Analytics para executar relatórios personalizados nestes dados.
 
-## <a name="inspect-and-edit-tests"></a>Inspecionar e editar testes
+## <a name="inspect-and-edit-tests"></a> Inspecionar e editar testes
 
 Para editar, desativar temporariamente ou apagar um teste clique nas elipses ao lado de um nome de teste. Pode levar até 20 minutos para que as alterações de configuração se propaguem a todos os agentes de teste após a alteração.
 
@@ -130,6 +130,6 @@ Artigo dedicado à resolução de [problemas.](troubleshoot-availability.md)
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de Disponibilidade](availability-alerts.md)
-* [Testes web em várias etapas](availability-multistep.md)
+* [Testes Web com vários passos](availability-multistep.md)
 
 

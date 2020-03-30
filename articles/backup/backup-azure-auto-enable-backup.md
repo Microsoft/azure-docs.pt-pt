@@ -4,10 +4,10 @@ description: Um artigo que descreve como usar a Política Azure para ativar auto
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77584273"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
@@ -35,14 +35,14 @@ Para atribuir a apólice ao âmbito necessário, siga os passos abaixo:
 1. Inscreva-se no Portal Azure e navegue para o Painel **político.**
 2. Selecione **Definições** no menu esquerdo para obter uma lista de todas as políticas incorporadas em todos os Recursos Azure.
 3. Filtre a lista para **Categoria=Cópia de Segurança**. Verá a lista filtrada para uma única política chamada "Configure backup em VMs de um local para um Cofre Central existente no mesmo local".
-![Policy Dashboard](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
+![Painel de Política](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
 4. Clique no nome da apólice. Será redirecionado para a definição detalhada desta política.
-![definição de definição de lâmina](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+![Lâmina de Definição de Política](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
 5. Clique no botão **Atribuir** na parte superior da lâmina. Isto redireciona-o para a lâmina política de **atribuição.**
 6. Em **Basics,** clique nos três pontos junto ao campo **Scope.** Isto abre uma lâmina de contexto certa onde pode selecionar a subscrição para a política a aplicar. Também pode selecionar opcionalmente um grupo de recursos, para que a política seja aplicada apenas a VMs num determinado grupo de recursos.
-![Princípios](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png) básicos de atribuição de políticas
+![Fundamentos de Atribuição de Políticas](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
 7. No separador **Parâmetros,** escolha um local a partir da queda e selecione a política de abóbada e de backup a que os VMs no âmbito devem ser associados.
-![parâmetros de atribuição de políticas](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
+![Parâmetros de atribuição de políticas](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
 8. Certifique-se de que o **Efeito** está definido para implementar IfNotExists.
 9. Navegue para **Rever+criar** e clique **em Criar**.
 

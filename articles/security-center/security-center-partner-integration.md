@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
 ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245385"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
@@ -30,7 +30,7 @@ Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de
 O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. As vantagens incluem:
 
 - **Implementação simplificada**: o Centro de Segurança oferece aprovisionamento integrado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidade, o Security Center pode fornecer o agente nas suas máquinas virtuais. Para aparelhos de firewall, o Security Center pode cuidar de grande parte da configuração de rede necessária.
-- **Deteções integradas**: os eventos de segurança das soluções de parceiros são automaticamente recolhidos, agregados e apresentados como parte dos alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
+- **Deteções integradas**: Os eventos de segurança a partir de soluções parceiras são automaticamente recolhidos, agregados e apresentados como parte de alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
 - **Gestão e monitorização do estado de funcionamento unificadas**: os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções de parceiros rapidamente. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
 
 Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidade por [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Microsoft Application Gateway Web application firewall.
@@ -47,7 +47,7 @@ As soluções de segurança do Azure implementadas a partir do Centro de Seguran
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerir soluções de segurança do Azure integradas e outras origens de dados
 
-1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
 
@@ -143,9 +143,9 @@ Aqui estão algumas consultas Splunk que pode usar para retirar dados de alerta:
 
 | **Descrição da Consulta** | **Consulta** |
 |----|----|
-| Todos os Alertas| index=principal Microsoft.Segurança/localizações/alertas|
-| Resumir a contagem de operações pelo seu nome| index=main sourcetype="amal:security" \| operação da tabelaNome \| estatísticas contam por operaçãoNome|
-| Obter informações de Alertas: Tempo, Nome, Estado, ID e Subscrição | index=main Microsoft.Security/locations/alerts \| tabela \_tempo, properties.eventName, State, properties.operationId, am_subscriptionId |
+| All Alerts| index=principal Microsoft.Segurança/localizações/alertas|
+| Resumir a contagem de operações pelo seu nome| index=fonte principal="amal:security" \| operação \| de tabelaAs estatísticas nome contam por operaçãoNome|
+| Obter informações de Alertas: Tempo, Nome, Estado, ID e Subscrição | index=main \| Microsoft.Security/locations/alerts \_table time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Passos seguintes

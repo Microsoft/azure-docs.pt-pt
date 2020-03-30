@@ -4,10 +4,10 @@ description: Descreve como autenticar o acesso do cliente a um cluster de Tecido
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258580"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
@@ -20,7 +20,7 @@ Quando um cliente se conecta a um nó de cluster de tecido de serviço, o client
 
 Existem algumas formas diferentes de se ligar a um cluster seguro usando o ClI de tecido de serviço (sfctl). Quando utilizar um certificado de cliente para autenticação, os detalhes do certificado têm de coincidir com um certificado implementado nos nós do cluster. Se o seu certificado tiver Autoridades de Certificado (AEm), precisa de especificar adicionalmente os AEm fidedignos.
 
-Pode ligar-se a um cluster utilizando o comando `sfctl cluster select`.
+Pode ligar-se a `sfctl cluster select` um cluster utilizando o comando.
 
 Os certificados de cliente podem ser especificados em duas formas diferentes, seja como um par cert e chave, ou como um único ficheiro PFX. Para ficheiros PEM protegidos por palavra-passe, será solicitado automaticamente a introduzir a palavra-passe. Se obteve o certificado de cliente como ficheiro PFX, converta primeiro o ficheiro PFX num ficheiro PEM utilizando o seguinte comando. 
 
@@ -30,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Se o seu ficheiro .pfx não estiver protegido por palavra-passe, utilize passe -passina: para o último parâmetro.
 
-Para especificar o certificado de cliente como ficheiro pem, especifique o caminho do ficheiro no argumento `--pem`. Por exemplo:
+Para especificar o certificado de cliente como ficheiro pem, especifique o caminho do ficheiro no `--pem` argumento. Por exemplo:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -38,22 +38,22 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 Os ficheiros pem protegidos por palavra-passe serão solicitados para a palavra-passe antes de executar qualquer comando.
 
-Para especificar um par de chaves, utilize os argumentos `--cert` e `--key` para especificar os caminhos dos ficheiros para cada ficheiro respetivo.
+Para especificar um par de `--cert` chaves, o par de chaves utilize os e `--key` os argumentos para especificar os caminhos dos ficheiros em cada ficheiro respetivo.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Por vezes, os certificados utilizados para garantir o teste ou os clusters de dev falham na validação do certificado. Para contornar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo:
+Por vezes, os certificados utilizados para garantir o teste ou os clusters de dev falham na validação do certificado. Para contornar a verificação do certificado, especifique a opção. `--no-verify` Por exemplo:
 
 > [!WARNING]
-> Não utilize a opção `no-verify` ao ligar-se aos clusters de tecido de serviço de produção.
+> Não utilize `no-verify` a opção ao ligar-se aos clusters de tecido de serviço de produção.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Além disso, pode especificar caminhos para diretórios de certificados ca confiáveis, ou certs individuais. Para especificar estes caminhos, use o argumento `--ca`. Por exemplo:
+Além disso, pode especificar caminhos para diretórios de certificados ca confiáveis, ou certs individuais. Para especificar estes caminhos, use o `--ca` argumento. Por exemplo:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -378,7 +378,7 @@ Pelo menos dois certificados devem ser utilizados para a segurança do cluster, 
 
 * No Mac: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado na sua Keychain.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Processo de upgrade do Cluster de Tecidode Serviço e expectativas de si](service-fabric-cluster-upgrade.md)
 * [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md)

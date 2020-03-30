@@ -9,39 +9,39 @@ ms.date: 03/11/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117136"
 ---
-| Recurso | Básica | Standard | Premium |
+| Recurso | Básico | Standard | Premium |
 |---|---|---|---|
 | Armazenamento<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Tamanho máximo da camada de imagem | 200 GiB | 200 GiB | 200 GiB |
-| ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3000 | 10,000 |
-| WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2000 |
-| Transferir largura de banda em MBps<sup>2</sup> | 30 | 60 | 100 |
-| Carregar largura de banda em MBps<sup>2</sup> | 10 | 20 | 50 |
+| ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3.000 | 10,000 |
+| WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
+| Baixar largura de banda MBps<sup>2</sup> | 30 | 60 | 100 |
+| Carregar largura de banda MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Georreplicação | N/D | N/D | [Suportado][geo-replication] |
-| Confiança de conteúdo | N/D | N/D | [Suportado][content-trust] |
-| Acesso à rede virtual | N/D | N/D | [Pré-visualização][vnet] |
-| Integração de ligações privadas | N/D | N/D | [Pré-visualização][plink] |
-| Chaves geridas pelo cliente | N/D | N/D | [Pré-visualização][cmk] |
-| Permissões no âmbito do repositório | N/D | N/D | [Pré-visualização][token]|
-| &bull; Tokens | N/D | N/D | 20 000 |
-| &bull; Mapas de âmbito | N/D | N/D | 20 000 |
-| &bull; Repositórios por mapa de âmbito | N/D | N/D | 500 |
+| Georreplicação | N/D | N/D | [Apoiado][geo-replication] |
+| Confiança de conteúdo | N/D | N/D | [Apoiado][content-trust] |
+| Acesso à rede virtual | N/D | N/D | [previsualizar][vnet] |
+| Integração de ligações privadas | N/D | N/D | [previsualizar][plink] |
+| Chaves geridas pelo cliente | N/D | N/D | [previsualizar][cmk] |
+| Permissões com âmbito de repositório | N/D | N/D | [previsualizar][token]|
+| &bull;Fichas | N/D | N/D | 20 000 |
+| &bull;Mapas de âmbito | N/D | N/D | 20 000 |
+| &bull;Repositórios por mapa de âmbito | N/D | N/D | 500 |
 
 
-<sup>1</sup>Os limites de armazenamento especificados são a quantidade de armazenamento *incluída* para cada escalão. É-lhe cobrada uma tarifa diária adicional por GiB relativamente ao armazenamento de imagens acima destes limites. Para obter informações sobre as tarifas, veja os [preços do Azure Container Registry][pricing].
+<sup>1</sup> Os limites de armazenamento especificados são a quantidade de armazenamento *incluído* para cada nível. É-lhe cobrada uma taxa diária adicional por GiB para armazenamento de imagem acima destes limites. Para obter informações sobre tarifas, consulte os preços do Registo de [Contentores de Azure][pricing].
 
-<sup>2</sup>*ReadOps*, *WriteOps* e *Largura de banda* são estimativas mínimas. O Azure Container Registry visa melhorar o desempenho à medida das necessidades da utilização.
+<sup>2</sup>*ReadOps*, *WriteOps*e *Largura de Banda* são estimativas mínimas. O Registo de Contentores Azure esforça-se por melhorar o desempenho conforme o uso requer.
 
-<sup>3</sup>O comando [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) traduz para várias operações de leitura com base no número de camadas existentes na imagem, para além de fazer a obtenção do manifesto.
+<sup>3</sup> Um [puxão de estiva traduz-se](https://docs.docker.com/registry/spec/api/#pulling-an-image) em múltiplas operações de leitura baseadas no número de camadas na imagem, mais a recuperação manifesta.
 
-<sup>4</sup>O comando [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) traduz para várias operações de escrita com base no número de camadas que têm de ser emitidas. `docker push` inclui *ReadOps* para obter um manifesto de uma imagem existente.
+<sup>4</sup> Um [impulso de estivador](https://docs.docker.com/registry/spec/api/#pushing-an-image) traduz-se em múltiplas operações de escrita, com base no número de camadas que devem ser empurradas. A `docker push` inclui *ReadOps* para recuperar um manifesto para uma imagem existente.
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

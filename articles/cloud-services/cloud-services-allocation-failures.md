@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247543"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
@@ -47,7 +47,7 @@ Pode ver a seguinte mensagem de erro:
 Aqui estão os cenários comuns de atribuição que fazem com que um pedido de atribuição seja fixado a um único cluster.
 
 * Implantação para A Ranhura de Encenação - Se um serviço de nuvem tiver uma implantação em qualquer uma das ranhuras, então todo o serviço de nuvem está preso a um cluster específico.  Isto significa que, se já existir uma implementação no bloco de produção, só será possível alocar uma implementação de teste nova no mesmo cluster que o bloco de produção. Se o cluster estiver perto da capacidade, o pedido pode falhar.
-* Escalagem - Adicionar novos casos a um serviço de nuvem existente deve ser atribuído no mesmo cluster.  Regra geral, é possível alocar pequenos pedidos de dimensionamento, mas nem sempre. Se o cluster estiver perto da capacidade, o pedido pode falhar.
+* Dimensionamento - A adição de novas instâncias a um serviço cloud existente tem de realizar a alocação no mesmo cluster.  Regra geral, é possível alocar pequenos pedidos de dimensionamento, mas nem sempre. Se o cluster estiver perto da capacidade, o pedido pode falhar.
 * Affinity Group - Uma nova implantação para um serviço de nuvem vazia pode ser atribuída pelo tecido em qualquer cluster daquela região, a menos que o serviço de nuvem esteja preso a um grupo de afinidade. As implantações para o mesmo grupo de afinidade serão tentadas no mesmo aglomerado. Se o cluster estiver perto da capacidade, o pedido pode falhar.
 * Affinity Group vNet - Redes Virtuais Mais Antigas estavam ligadas a grupos de afinidade em vez de regiões, e os serviços em nuvem nestas Redes Virtuais seriam fixados ao cluster do grupo de afinidade. As implantações para este tipo de rede virtual serão tentadas no cluster fixado. Se o cluster estiver perto da capacidade, o pedido pode falhar.
 

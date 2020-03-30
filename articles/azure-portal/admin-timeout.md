@@ -1,5 +1,5 @@
 ---
-title: Definir tempo limite de inatividade ao nível do diretório para os utilizadores do portal Azure  Microsoft Docs
+title: Definir tempo limite de inatividade ao nível do diretório para os utilizadores do portal Azure [ Microsoft Docs
 description: Os administradores podem impor o tempo máximo de inatividade antes de uma sessão ser assinada. A política de tempo limite de inatividade é definida ao nível do diretório.
 services: azure-portal
 keywords: configurações, intervalo
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096604"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade ao nível do diretório
@@ -24,7 +24,7 @@ A definição de tempo limite de inatividade ajuda a proteger os seus recursos d
 
 Se é administrador global e pretende impor um intervalo de tempo inativo para todos os utilizadores do portal Azure, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Definições** a partir do cabeçalho de página global.
 3. Selecione o intervalo de tempo de nível de **diretório configurar**o texto de link .
 
@@ -48,6 +48,6 @@ A definição entra em vigor para novas sessões. Não se aplica imediatamente a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Detete as suas preferências do portal Azure](set-preferences.md)
+* [Definir as preferências do portal do Azure](set-preferences.md)
 * [Exportar ou elimine as definições de utilizador](azure-portal-export-delete-settings.md)
 * [Ativar o alto contraste ou a alteração de tema](azure-portal-change-theme-high-contrast.md)

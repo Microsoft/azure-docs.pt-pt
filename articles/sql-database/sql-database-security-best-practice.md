@@ -1,5 +1,5 @@
 ---
-title: Livro de jogadas para abordar requisitos comuns de segurança  Microsoft Docs
+title: Livro de jogadas para abordar requisitos comuns de segurança [ Microsoft Docs
 titleSuffix: Azure SQL Database
 description: Este artigo fornece requisitos de segurança comuns e boas práticas na Base de Dados Azure SQL.
 ms.service: sql-database
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
 ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77506221"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL
@@ -46,7 +46,7 @@ Os públicos pretendidos para este guia são os clientes que enfrentam questões
 - Agentes de Privacidade
 - Engenheiros de Segurança
 
-### <a id="using"></a>Usando este guia
+### <a name="using-this-guide"></a><a id="using"></a>Usando este guia
 
 Este documento destina-se a ser um companheiro da nossa documentação de segurança da Base de [Dados Azure SQL](sql-database-security-overview.md) existente.
 
@@ -110,7 +110,7 @@ A gestão central da identidade oferece os seguintes benefícios:
 > - As permissões RBAC concedidas em Azure não se aplicam às permissões Do BD Do Azure. Tais permissões devem ser criadas/mapeadas manualmente em SQL DB utilizando permissões SQL existentes.
 > - No lado do cliente, a autenticação Azure AD necessita de acesso à internet ou via User Defined Route (UDR) a um VNet.
 > - O token de acesso Azure AD está em cache do lado do cliente e a sua vida depende da configuração do símbolo. Ver o artigo, [Token Lifetimes Configurable em Azure Ative Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
-> - Para obter orientações sobre problemas de resolução de problemas Em questões de autenticação adtiva do Azure AD, consulte o seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+> - Para obter orientações sobre problemas de resolução de problemas em questões de autenticação adtiva do Azure AD, consulte o seguinte blog:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
 
@@ -254,8 +254,8 @@ As seguintes boas práticas são opcionais, mas resultarão numa melhor gestão 
 
 - Crie e use papéis personalizados com as permissões exatas necessárias. Funções típicas que são usadas na prática: 
   - Implantação de segurança 
-  - Admistrador 
-  - Desenvolvedor 
+  - Administrador 
+  - Programador 
   - Pessoal de apoio 
   - Auditor 
   - Processos automatizados 
@@ -265,7 +265,7 @@ As seguintes boas práticas são opcionais, mas resultarão numa melhor gestão 
 
 - Lembre-se de que as permissões no Motor de Base de Dados do Servidor SQL podem ser aplicadas nos seguintes âmbitos. Quanto menor for o âmbito, menor é o impacto das permissões concedidas: 
   - Servidor de base de dados Azure SQL (funções especiais na base de dados principal) 
-  - Base de dados 
+  - Base de Dados 
   - Esquema
       - É uma boa prática usar esquema para conceder permissões dentro de uma base de dados. (ver também: [Schema-design para SQL Server: recomendações para o design schema com segurança em mente)](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/)
   - Objeto (tabela, vista, procedimento, etc.) 
@@ -309,7 +309,7 @@ A Separação de Deveres, também denominada Segregação de Deveres descreve a 
 
 **Boas práticas:**
 
-- Certifique-se de que são utilizadas diferentes contas para ambientes de desenvolvimento/teste e produção. Contas diferentes ajudam a cumprir a separação dos sistemas de teste e produção.
+- Certifique-se de que são utilizadas diferentes contas para ambientes de desenvolvimento/teste e produção. Contas diferentes ajudam a cumprir a separação dos sistemas de produção de teste &.
 
 - Abster-se de atribuir permissões a utilizadores individuais. Utilize as funções (bases de dados ou funções do servidor) de forma consistente. Ter papéis ajuda muito na comunicação e na resolução de permissões.
 
@@ -389,7 +389,7 @@ A proteção de dados é um conjunto de capacidades para salvaguardar informaç�
 
 Protege os seus dados enquanto os dados se movem entre o seu cliente e o servidor. Consulte a [Segurança da Rede](#network-security).
 
-### <a name="encrypt-data-at-rest"></a>Criptografe dados em repouso
+### <a name="encrypt-data-at-rest"></a>Encriptar dados inativos
 
 > Mencionado em: OSA Practice #6, ISO Control Family: Cryptography
 
@@ -641,7 +641,7 @@ A proteção avançada de ameaças permite detetar e responder a potenciais amea
 
 **Boas práticas:**
 
-- Configure [a Segurança Avançada de Dados (ADS)](sql-database-advanced-data-security.md#getting-started-with-ads) para a Base de Dados Azure SQL para um servidor de base de dados SQL específico ou uma instância gerida. Também pode configurar ADS para todos os servidores de Base de Dados SQL e instâncias geridas numa subscrição, mudando para o nível Padrão do [Azure Security Center](../security-center/security-center-pricing.md). 
+- Configure a [Segurança Avançada de Dados (ADS)](sql-database-advanced-data-security.md#getting-started-with-ads) para a Base de Dados Azure SQL para um servidor de base de dados SQL específico ou uma instância gerida. Também pode configurar ADS para todos os servidores de Base de Dados SQL e instâncias geridas numa subscrição, mudando para o nível Padrão do [Azure Security Center](../security-center/security-center-pricing.md). 
 
 - Para uma experiência de investigação completa, é recomendado permitir a Auditoria da Base de [Dados SQL](sql-database-auditing.md). Com a auditoria, pode rastrear eventos de base de dados e escrevê-los num registo de auditoria numa conta de Armazenamento Azure ou no espaço de trabalho azure Log Analytics. 
 
@@ -707,7 +707,7 @@ Melhorar proativamente a sua segurança na base de dados, descobrindo e remedian
 
 **Outros recursos:**
 
-- [Avaliação da vulnerabilidade sQL](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) 
+- [Avaliação de Vulnerabilidades do SQL](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) 
 - [O serviço de Avaliação de VulnerabilidadeS SQL ajuda-o a identificar vulnerabilidades na base de dados](sql-vulnerability-assessment.md)
 
 ### <a name="identify-and-tag-sensitive-data"></a>Identificar e etiquetar dados sensíveis 
@@ -719,7 +719,7 @@ Descubra colunas que possam conter dados sensíveis. O que é considerado dados 
 - Utilize a [SQL Data Discovery and Classification](sql-database-data-discovery-and-classification.md) para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. 
   - Veja as recomendações de classificação que são criadas pela descoberta automatizada no painel de deteção e classificação de dados SQL. Aceite as classificações relevantes, de modo a que os seus dados sensíveis sejam persistentemente marcados com etiquetas de classificação. 
   - Adicione manualmente classificações para quaisquer campos de dados sensíveis adicionais que não tenham sido descobertos pelo mecanismo automatizado. 
-- Para mais informações, consulte [SQL Data Discovery & Classification](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
+- Para mais informações, consulte [a SQL Data Discovery & Classification](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 **Boas práticas:**
 
@@ -779,7 +779,7 @@ Hoje, a Azure SQL Database oferece as seguintes técnicas para atenuar ameaças 
 
 ## <a name="security-aspects-of-business-continuity-and-availability"></a>Aspetos de segurança da continuidade e disponibilidade do negócio
 
-A maioria das normas de segurança aborda maçada de dados em termos de continuidade operacional, conseguida através da implementação de capacidades de despedimento e falha para evitar pontos únicos de falha. Para cenários de desastres, é uma prática comum manter cópias de segurança de Ficheiros de Dados e Registos. A secção seguinte fornece uma visão geral de alto nível das capacidades incorporadas em Azure. Também fornece opções adicionais que podem ser configuradas para atender às necessidades específicas: 
+A maioria das normas de segurança aborda maçada de dados em termos de continuidade operacional, conseguida através da implementação de capacidades de despedimento e falha para evitar pontos únicos de falha. Para cenários de desastres, é uma prática comum manter cópias de segurança de Ficheiros de Dados e Registos.A secção seguinte fornece uma visão geral de alto nível das capacidades incorporadas em Azure. Também fornece opções adicionais que podem ser configuradas para atender às necessidades específicas: 
 
 - Azure oferece alta disponibilidade incorporada: Alta disponibilidade e Base de [Dados Azure SQL](sql-database-high-availability.md) 
 
@@ -790,6 +790,6 @@ A maioria das normas de segurança aborda maçada de dados em termos de continui
 
 - Funcionalidades adicionais de continuidade do negócio, tais como grupos de falha automática em diferentes geos do Azure, podem ser configuradas como descrito aqui: [Visão geral da continuidade do negócio com base de dados Azure SQL](sql-database-business-continuity.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](sql-database-security-overview.md)

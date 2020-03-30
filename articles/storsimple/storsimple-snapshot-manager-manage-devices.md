@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254693"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
 ## <a name="overview"></a>Descrição geral
 Pode utilizar nódosos no painel StorSimple Snapshot Manager **Scope** para verificar os dados do dispositivo StorSimple importados e atualizar dispositivos de armazenamento conectados. Além disso, ao clicar no nó dos **Dispositivos,** pode ver uma lista de dispositivos conectados e informações de estado correspondentes no painel **de resultados.**
 
-![Dispositivos conectados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
+![Dispositivos ligados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
 **Figura 1: Dispositivo conectado storSimple Snapshot Manager** 
 
@@ -166,7 +166,7 @@ Tem de introduzir uma palavra-passe para autenticar um dispositivo StorSimple co
 
 #### <a name="to-change-the-expired-password"></a>Para alterar a senha expirada
 1. No portal clássico azure, inicie o serviço StorSimple Manager.
-2. Clique em **Dispositivos** > **Configurar** para o dispositivo.
+2. Clique em**Configurar** **dispositivos** > para o dispositivo.
 3. Desloque-se até à secção StorSimple Snapshot Manager. Introduza uma palavra-passe com 14-15 caracteres. Certifique-se de que a palavra-passe contém uma mistura de caracteres maiúsculos, minúsculos, numéricos e especiais.
 4. Reintroduza a senha para confirmá-la.
 5. Clique em **Guardar** na parte inferior da página.
@@ -190,7 +190,7 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo de esp
 
 1. Pare o Serviço de Gestão Microsoft StorSimple:
    
-   1. Iniciar o Gerente do Servidor.
+   1. Inicie o Gestor de Servidores.
    2. No Dashboard do Gestor de Servidores, no menu **Ferramentas,** selecione **Serviços**.
    3. Na janela **Serviços,** selecione o Serviço de **Gestão Microsoft StorSimple**.
    4. No painel certo, no **microsoft StorSimple Management Service,** clique em **Parar o serviço**.

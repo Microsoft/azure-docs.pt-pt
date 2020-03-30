@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667793"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alerta de log no Monitor Azure
@@ -25,7 +25,7 @@ Por exemplo, a seguinte consulta é consultada para a tabela _SecurityEvent_ e p
 SecurityEvent | where EventID == 4624 
 ```
 
-Consultas que começam com `search` ou `union` permitem pesquisar várias colunas numa mesa ou mesmo em várias tabelas. Os seguintes exemplos mostram múltiplos métodos para pesquisar o termo _Memória:_
+Consultas que começam `search` `union` com ou permitem pesquisar através de várias colunas numa mesa ou mesmo em várias tabelas. Os seguintes exemplos mostram múltiplos métodos para pesquisar o termo _Memória:_
 
 ```Kusto
 search "Memory"
@@ -35,12 +35,12 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Embora `search` e `union` sejam úteis durante a exploração de dados, pesquisando termos em todo o modelo de dados, eles são menos eficientes do que usar uma tabela, uma vez que devem digitalizar em várias tabelas. Uma vez que as consultas nas regras de alerta são executadas em intervalos regulares, isto pode resultar em excesso de excesso de latência ao alerta. Devido a esta sobrecarga, as consultas para regras de alerta de log em Azure devem sempre começar com uma tabela para definir um âmbito claro, o que melhora tanto o desempenho da consulta como a relevância dos resultados.
+Embora `search` `union` sejam úteis durante a exploração de dados, pesquisando termos em todo o modelo de dados, eles são menos eficientes do que usar uma tabela, uma vez que devem digitalizar em várias tabelas. Uma vez que as consultas nas regras de alerta são executadas em intervalos regulares, isto pode resultar em excesso de excesso de latência ao alerta. Devido a esta sobrecarga, as consultas para regras de alerta de log em Azure devem sempre começar com uma tabela para definir um âmbito claro, o que melhora tanto o desempenho da consulta como a relevância dos resultados.
 
 ## <a name="unsupported-queries"></a>Consultas não apoiadas
-A partir de 11 de janeiro de 2019, a criação ou modificação das regras de alerta de registo que utilizam `search`– ou `union` operadores não serão suportados no portal Azure. A utilização destes operadores numa regra de alerta devolverá uma mensagem de erro. As regras de alerta existentes e as regras de alerta criadas e editadas com a API log analytics não são afetadas por esta alteração. Deve ainda considerar alterar quaisquer regras de alerta que utilizem este tipo de consultas para melhorar a sua eficiência.  
+A partir de 11 de janeiro de 2019, `search`criando `union` ou modificando regras de alerta de registo que utilizam – ou os operadores não serão suportados no portal Azure. A utilização destes operadores numa regra de alerta devolverá uma mensagem de erro. As regras de alerta existentes e as regras de alerta criadas e editadas com a API log analytics não são afetadas por esta alteração. Deve ainda considerar alterar quaisquer regras de alerta que utilizem este tipo de consultas para melhorar a sua eficiência.  
 
-As regras de alerta de log utilizando [consultas de recursos cruzados](../log-query/cross-workspace-query.md) não são afetadas por esta alteração, uma vez que as consultas de recursos cruzados utilizam `union`, o que limita o âmbito de consulta a recursos específicos. Isto não é equivalente a `union *` que não podem ser utilizados.  O seguinte exemplo seria válido numa regra de alerta de registo:
+As regras de alerta de log utilizando [consultas de recursos cruzados](../log-query/cross-workspace-query.md) não são afetadas por esta alteração, uma vez que as consultas de recursos cruzados utilizam `union`, o que limita o âmbito de consulta a recursos específicos. Isto não é `union *` equivalente ao qual não pode ser utilizado.  O seguinte exemplo seria válido numa regra de alerta de registo:
 
 ```Kusto
 union 
@@ -53,10 +53,10 @@ workspace('Contoso-workspace1').Perf
 >[A consulta de recursos cruzados](../log-query/cross-workspace-query.md) em alertas de registo é suportada na nova [API agendadaQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor utiliza o [legado Log Analytics Alert API](api-alerts.md) para criar novas regras de alerta de log a partir do portal Azure, a menos que troque do legado Log [Alerts API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de consulta de recursos cruzados. Pode criar regras de alerta de consulta [de recursos cruzados](../log-query/cross-workspace-query.md) sem elo, utilizando o [modelo ARM para a API agendada](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , mas esta regra de alerta é controlável apesar da [API agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não do portal Azure.
 
 ## <a name="examples"></a>Exemplos
-Os exemplos seguintes incluem consultas de registo que usam `search` e `union` e fornecem passos que pode usar para modificar estas consultas para uso com regras de alerta.
+Os seguintes exemplos incluem `search` `union` consultas de registo que utilizam e fornecem passos que pode usar para modificar estas consultas para utilização com regras de alerta.
 
 ### <a name="example-1"></a>Exemplo 1
-Pretende criar uma regra de alerta de registo utilizando a seguinte consulta que recupera informações de desempenho utilizando `search`: 
+Pretende criar uma regra de alerta de registo utilizando a `search`seguinte consulta que recupera informações de desempenho utilizando: 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -86,7 +86,7 @@ Perf
 
 
 ### <a name="example-2"></a>Exemplo 2
-Pretende criar uma regra de alerta de registo utilizando a seguinte consulta que recupera informações de desempenho utilizando `search`: 
+Pretende criar uma regra de alerta de registo utilizando a `search`seguinte consulta que recupera informações de desempenho utilizando: 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -119,7 +119,7 @@ Perf
 
 ### <a name="example-3"></a>Exemplo 3
 
-Pretende criar uma regra de alerta de registo utilizando a seguinte consulta que utiliza tanto `search` como `union` para obter informações de desempenho: 
+Pretende criar uma regra de alerta de registo `search` utilizando `union` a seguinte consulta que utiliza tanto e para obter informações de desempenho: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
@@ -137,7 +137,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 
 O resultado desta consulta mostraria que todas estas propriedades vieram da mesa _Perf._ 
 
-Use agora `union` com comando `withsource` para identificar que mesa de origem contribuiu para cada linha.
+Agora `union` use `withsource` com comando para identificar que mesa de origem contribuiu cada linha.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 
@@ -161,7 +161,7 @@ Perf
 ``` 
 
 ### <a name="example-4"></a>Exemplo 4
-Pretende criar uma regra de alerta de registo utilizando a seguinte consulta que se junta aos resultados de duas consultas `search`:
+Pretende criar uma regra de alerta de registo utilizando as `search` seguintes consultas que se juntam aos resultados de duas consultas:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 

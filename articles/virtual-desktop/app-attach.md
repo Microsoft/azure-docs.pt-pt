@@ -9,17 +9,17 @@ ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128329"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
 > [!IMPORTANT]
 > A anexação da aplicação MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Este tópico irá acompanhá-lo sobre como configurar a aplicação MSIX anexar-se num ambiente de ambiente de trabalho virtual do Windows.
 
@@ -211,7 +211,7 @@ Antes de atualizar os scripts PowerShell, certifique-se de que tem o volume GUID
 
 5.  Abra um pedido de comando e entre em **mountvol**. Este comando apresentará uma lista de volumes e seus GUIDs. Copie o GUID do volume onde a letra de unidade corresponde à unidade a que montou o seu VHD no passo 2.
 
-    Por exemplo, neste exemplo, a saída para o comando mountvol, se montou o seu VHD para conduzir C, vai querer copiar o valor acima `C:\`:
+    Por exemplo, neste exemplo, a saída para o comando mountvol, se montou o seu VHD para conduzir C, vai querer copiar o valor acima: `C:\`
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -410,8 +410,8 @@ Aqui está como configurar as licenças para uso offline:
 
 1. Descarregue o pacote de aplicações, licenças e quadros necessários da Microsoft Store for Business. Precisa dos ficheiros de licença codificados e não codificados. Instruções detalhadas de descarregamento podem ser encontradas [aqui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Atualize as seguintes variáveis no script para o passo 3:
-      1. `$contentID` é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro da licença num editor de texto à sua escolha.
-      2. `$licenseBlob` é a cadeia inteira para a bolha de licença no ficheiro de licença codificada (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha. 
+      1. `$contentID`é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro da licença num editor de texto à sua escolha.
+      2. `$licenseBlob`é a cadeia inteira para a bolha de licença no ficheiro de licença codificada (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha. 
 3. Execute o seguinte script a partir de um aviso de Admin PowerShell. Um bom lugar para realizar a instalação de licença é no final do roteiro de [encenação](#stage-the-powershell-script) que também precisa ser executado a partir de um pedido de administrador.
 
 ```powershell

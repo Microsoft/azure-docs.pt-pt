@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462531"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorize pedidos de consulta em Pesquisa Cognitiva Azure
@@ -132,7 +132,7 @@ Ao ativar o registo de diagnóstico, o sistema capta pedidos de consulta na tabe
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Opcionalmente, coloque um filtro de Coluna na *Query_s* para pesquisar uma sintaxe ou corda específica. Por exemplo, pode filtrar por cima *é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Opcionalmente, coloque um filtro de Coluna na *Query_s* para pesquisar uma sintaxe ou corda específica. Por exemplo, pode filtrar *mais é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
 
    ![Cordas de consulta registadas](./media/search-monitor-usage/log-query-strings.png "Cordas de consulta registadas")
 
@@ -181,7 +181,7 @@ Ao ultrapassar os limites de uma determinada configuração de divisória de ré
 
    ![Detalhes de alerta](./media/search-monitor-usage/alert-details.png "Detalhes do alerta")
 
-Se especificou uma notificação por e-mail, receberá um e-mail do "Microsoft Azure" com uma linha de assunto "Azure: Activated Severity: 3 `<your rule name>`".
+Se especificou uma notificação por e-mail, receberá um e-mail do "Microsoft Azure" `<your rule name>`com uma linha de assunto "Azure: Activated Severity: 3".
 
 <!-- ## Report query data
 

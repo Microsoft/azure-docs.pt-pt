@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240605"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
@@ -100,8 +100,8 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Europa do Norte     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa do Norte     |    S8v2, S9v2      |    3     |
 |Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa Ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Ocidental    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Europa ocidental    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
@@ -134,7 +134,7 @@ O custo total depende de diversos fatores; por exemplo, a região escolhida, o e
 
 ## <a name="built-on-sql-server-analysis-services"></a>Baseado no SQL Server Analysis Services
 
-O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Divisórias, perspetivas, segurança ao nível da linha, relações bidireciais e traduções são apoiadas\*. Os modelos multidimensionais e powerpivot para o SharePoint *não são* suportados nos Serviços de Análise Azure.
+O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). As divisórias, as perspetivas, a segurança ao nível da\*linha, as relações bidirecionais e as traduções são apoiadas. Os modelos multidimensionais e powerpivot para o SharePoint *não são* suportados nos Serviços de Análise Azure.
 
 Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte principal do serviço Azure, as operações de atualização sem supervisão utilizando powerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os seus dados do modelo estão sempre atualizados. 
 
@@ -148,7 +148,7 @@ Os modelos em tabela no Azure Analysis Services suportam uma grande variedade de
 
 ## <a name="compatibility-level"></a>Nível de compatibilidade
 
-O nível de compatibilidade refere-se a comportamentos específicos de libertação no motor dos Serviços de Análise. Os Serviços de Análise Azure suportam modelos tabular nos níveis de compatibilidade 1200 e mais elevados. Para saber mais, consulte o nível de [compatibilidade dos modelos tabular](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
+O nível de compatibilidade refere-se a comportamentos específicos de libertação no motor dos Serviços de Análise. O Azure Analysis Services suporta modelos em tabela nos níveis de compatibilidade 1200 ou superiores. Para saber mais, consulte o nível de [compatibilidade dos modelos tabular](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>Os dados estão seguros
@@ -167,7 +167,7 @@ O [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directo
 
 ### <a name="data-security"></a>Segurança de dados
 
-O Azure Analysis Services utiliza o Armazenamento de blobs do Azure para persistir o armazenamento e os metadados das bases de dados do Analysis Services. Os ficheiros de dados no Blob são encriptados com a [Encriptação do Lado do Servidor (SSE) do Blob do Azure](../storage/common/storage-service-encryption.md). Ao utilizar o modo DirectQuery, só são armazenados os metadados. Os dados propriamente ditos são acedidos através de protocolos encriptados a partir da origem de dados no momento da consulta.
+O Azure Analysis Services utiliza o Armazenamento de blobs do Azure para persistir o armazenamento e os metadados das bases de dados do Analysis Services. Os ficheiros de dados dentro do Blob são encriptados utilizando encriptação lateral do [servidor Azure Blob (SSE)](../storage/common/storage-service-encryption.md). Ao utilizar o modo DirectQuery, só são armazenados os metadados. Os dados propriamente ditos são acedidos através de protocolos encriptados a partir da origem de dados no momento da consulta.
 
 Pode instalar e configurar um [Gateway de dados no local](analysis-services-gateway.md) para proteger o acesso às origens de dados no local na sua organização. Os gateways fornecem acesso aos dados, tanto para o modo DirectQuery, e para o modo dentro da memória.
 
@@ -224,7 +224,7 @@ As ferramentas modernas de exploração e visualização de dados, como o Power 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registe métricas com os [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md). Monitorize e envie registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmita-os para os Hubs de [Eventos Azure,](https://azure.microsoft.com/services/event-hubs/)e exporte-os para [registos do Azure Monitor,](https://azure.microsoft.com/services/log-analytics/)um serviço do [Azure.](https://www.microsoft.com/cloud-platform/operations-management-suite) Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
+O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas](analysis-services-monitor.md)do servidor Monitor . Registe métricas com os [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md). Monitorize e envie registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmita-os para os Hubs de [Eventos Azure,](https://azure.microsoft.com/services/event-hubs/)e exporte-os para [registos do Azure Monitor,](https://azure.microsoft.com/services/log-analytics/)um serviço do [Azure.](https://www.microsoft.com/cloud-platform/operations-management-suite) Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
 
 O Azure Analysis Services também suporta a utilização de [Vistas de Gestão Dinâmica (DMVs)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Com base na sintaxe do SQL, os conjuntos de linhas de esquema de interface dos DMVs devolvem metadados e informações de monitorização sobre a instância do servidor.
 

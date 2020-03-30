@@ -9,10 +9,10 @@ ms.date: 12/18/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4a0f193437353bac1f5998b50b9d7b4d43bedefa
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128074"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
@@ -31,7 +31,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 Por predefinição, os ficheiros RDP publicados contêm as seguintes propriedades:
 
-|Propriedades de RDP | Computadores de secretária | RemoteApps |
+|Propriedades de RDP | Computadores de Secretária | Aplicações Remotas |
 |---|---| --- |
 | Modo multi-monitor | Ativado | N/D |
 | Redirecionamentos de acionamento ativados | Unidades, clipboard, impressoras, portas COM, dispositivos USB e smartcards| Unidades, clipboard e impressoras |
@@ -74,5 +74,5 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 Agora que personalizou as propriedades rdp para uma determinada piscina de anfitriões, pode iniciar sessão com um cliente do Windows Virtual Desktop para testá-las como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão usando o cliente da sua escolha:
 
-- [Conecte-se com o cliente do Windows Desktop](connect-windows-7-and-10.md)
-- [Conecte-se com o cliente web](connect-web.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Ligar com o cliente web](connect-web.md)

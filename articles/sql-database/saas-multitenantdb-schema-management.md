@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269201"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir o esquema numa aplicação SaaS que utiliza bases de dados SQL multi-inquilinos
@@ -52,7 +52,7 @@ Neste tutorial, ficará a saber como:
 - O Azure PowerShell tem de ser instalado. Para mais detalhes, consulte [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço de base de dados Azure SQL que se encontram numa pré-visualização limitada[(trabalhos de base de dados elásticos).](sql-database-elastic-database-client-library.md) Se desejar fazer este tutorial, forneça o seu ID de subscrição ao *SaaSFeedback\@microsoft.com* com o sujeito=Visualização de Empregos Elásticos. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso contacte o *SaaSFeedback\@microsoft.com* para questões ou suporte relacionados.
+> Este tutorial utiliza funcionalidades do serviço de base de dados Azure SQL que se encontram numa pré-visualização limitada[(trabalhos de base de dados elásticos).](sql-database-elastic-database-client-library.md) Se desejar fazer este tutorial, forneça o seu ID de subscrição ao *\@SaaSFeedback microsoft.com* com subject=Elastic Jobs Preview. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Esta pré-visualização é limitada, por isso contacte o *\@SaaSFeedback microsoft.com* para perguntas ou suporterelacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão de esquemas SaaS
 
@@ -64,7 +64,7 @@ O modelo de base de dados multi-inquilinos usado nesta amostra permite que uma b
 
 Existe uma nova versão de Elastic Jobs que é agora uma característica integrada da Base de Dados Azure SQL. Esta nova versão das Tarefas Elásticas está atualmente em pré-visualização limitada. A pré-visualização limitada suporta atualmente a utilização da PowerShell para criar um agente de trabalho, e a T-SQL para criar e gerir empregos.
 > [!NOTE]
-> Este tutorial utiliza funcionalidades do serviço De base de dados SQL que se encontram numa pré-visualização limitada (trabalhos de base de dados elásticos). Se desejar fazer este tutorial, forneça o seu ID de subscrição para SaaSFeedback@microsoft.com com subject=Elastic Jobs Preview. Depois de receber a confirmação de que a sua subscrição foi ativada, faça o download e instale os mais recentes trabalhos pré-lançamento. Esta pré-visualização é limitada, por isso contacte SaaSFeedback@microsoft.com para questões ou suporte relacionados.
+> Este tutorial utiliza funcionalidades do serviço de Base de Dados SQL que estão numa pré-visualização limitada (tarefas da Base de Dados Elástica). Se desejar fazer este tutorial, forneça SaaSFeedback@microsoft.com o seu ID de subscrição com subject=Elastic Jobs Preview. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento. Esta pré-visualização é SaaSFeedback@microsoft.com limitada, por isso contacte para questões relacionadas ou suporte.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenha os bilhetes De acesso saaS Multi-inquilinoCódigo fonte de aplicação e scripts
 
@@ -74,7 +74,7 @@ Os bilhetes Wingtip SaaS Scripts de base de dados multi-inquilinos e código fon
 
 Este tutorial requer que utilize o PowerShell para criar a base de dados do agente de trabalho e o agente de trabalho. Tal como a base de dados MSDB utilizada pelo Agente SQL, um agente de trabalho usa uma base de dados Azure SQL para armazenar definições de emprego, estado de trabalho e histórico. Após a criação do agente de trabalho, pode criar e monitorizar os empregos imediatamente.
 
-1. No **PowerShell ISE,** *aberto...\\Módulos de Aprendizagem\\Schema Management\\Demo-SchemaManagement.ps1*.
+1. No **PowerShell ISE,** *aberto... Módulos de Aprendizagem\\Schema Management Demo-SchemaManagement.ps1 .\\ \\*
 2. Prima **F5** para executar o script.
 
 O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar uma base de dados nomeada _agente de trabalho_ no servidor de catálogo. O guião cria então o agente de trabalho, passando a base de dados do _agente de trabalho_ como parâmetro.
@@ -87,8 +87,8 @@ A base de dados de cada inquilino inclui um conjunto de tipos de locais na tabel
 
 Primeiro, reveja os tipos de locais incluídos em cada base de dados de inquilinos. Ligue-se a uma das bases de dados dos inquilinos no SQL Server Management Studio (SSMS) e inspecione a tabela VenueTypes.  Pode ainda consultar esta tabela no editor da Consulta no portal Azure, acedido a partir da página de base de dados.
 
-1. Abra o SSMS e ligue-se ao servidor de *inquilinos: os inquilinos1-dpt-&lt;utilizador&gt;.database.windows.net*
-1. Para confirmar que o Clube de *Motociclismo* e *Natação* **não está** atualmente incluído, navegue na base de dados *contosoconcerthall* no *inquilins1-dpt-&lt;utilizador&gt;* servidor e consultar a tabela *VenueTypes.*
+1. Abra o SSMS e ligue-se ao servidor de *inquilinos: inquilinos1-dpt-user&lt;&gt;.database.windows.net*
+1. Para confirmar que o Clube de *Motociclismo* e *Natação* **não está** atualmente incluído, navegue na base de dados *contosoconcerthall* no servidor de *&lt;utilizador&gt; dos inquilinos 1-dpt* e consulte a tabela *VenueTypes.*
 
 
 
@@ -98,19 +98,19 @@ Agora cria um trabalho para atualizar a tabela **VenueTypes** em cada base de da
 
 Para criar um novo emprego, você usa o conjunto de procedimentos armazenados pelo sistema de empregos que foram criados na base de dados de _agentes de trabalho._ Os procedimentos armazenados foram criados quando o agente de trabalho foi criado.
 
-1. No SSMS, ligue-se ao servidor de inquilinos: os inquilinos1 mt-&lt;utilizador&gt;.database.windows.net
+1. No SSMS, ligue-se ao servidor de inquilinos: inquilinos1-mt-user&lt;&gt;.database.windows.net
 
 2. Navegue na base de dados dos *inquilinos1.*
 
 3. Consulta à tabela *VenueTypes* para confirmar que o Clube de *Motociclismo* e *Natação* ainda não está na lista de resultados.
 
-4. Ligue-se ao servidor de catálogo, que é *&gt; .database.windows.net*&lt;de catálogo .
+4. Ligue-se ao servidor de catálogo, que é *o&lt;utilizador&gt;do catálogo .database.windows.net*.
 
 5. Ligue-se à base de dados do _agente de trabalho_ no servidor de catálogo.
 
-6. No SSMS, abra o *ficheiro...\\Módulos de Aprendizagem\\Schema Management\\DeployReferenceData.sql*.
+6. No SSMS, abra o *ficheiro... Módulos de Aprendizagem\\Schema Management DeployReferenceData.sql .\\ \\*
 
-7. Modifique a declaração: definir @User = &lt;utilizador&gt; e substituir o valor do Utilizador utilizado quando implementou a aplicação de base de dados multi-inquilinos SaaS Bilhetes Wingtip.
+7. Modifique a @User declaração: definir = &lt;utilizador&gt; e substituir o valor do Utilizador utilizado quando implementou a aplicação de base de dados de bilhetes De vários inquilinos SaaS.
 
 8. Prima **F5** para executar o script.
 
@@ -118,30 +118,30 @@ Para criar um novo emprego, você usa o conjunto de procedimentos armazenados pe
 
 Observe os seguintes itens no script *DeployReferenceData.sql:*
 
-- **sp\_adicionar\_alvo\_grupo** cria o nome de grupo alvo *DemoServerGroup*, e adiciona membros-alvo ao grupo.
+- **sp\_\_adicionar\_grupo alvo** cria o nome de grupo alvo *DemoServerGroup*, e adiciona membros-alvo ao grupo.
 
-- **Sp\_adicionar\_alvo\_grupo\_membro** adiciona os seguintes itens:
+- **Sp\_\_adicionar\_\_membro do grupo alvo** adiciona os seguintes itens:
     - Um tipo de membro alvo *do servidor.*
-        - Este é o servidor&gt;de  *de inquilinos 1-mt-&lt;* que contém as bases de dados dos inquilinos.
+        - Este é o servidor de *&lt;utilizador&gt; de inquilinos 1 mt* que contém as bases de dados dos inquilinos.
         - Incluindo o servidor inclui as bases de dados dos inquilinos que existem no momento em que o trabalho executa.
-    - Um tipo de membro-alvo de base de *dados* para a base de dados do modelo *(basetenantdb)* que reside no servidor&gt; do *utilizador de catálogo-mt-&lt;,*
+    - Um tipo de membro-alvo de base de *dados* para a base de dados do modelo *(basetenantdb)* que reside no servidor de *utilizador&lt;&gt; de catálogo-mt,,*
     - Um tipo de membro alvo de base de *dados* para incluir a base de dados de *adhocreporting* que é usada num tutorial posterior.
 
-- **sp\_adicionar\_trabalho** cria um trabalho chamado *Implantação*de Dados de Referência .
+- **sp\_\_adicionar trabalho** cria um trabalho chamado *Implantação*de Dados de Referência .
 
-- **sp\_adicionar\_passo** de trabalho cria o passo de trabalho contendo texto de comando T-SQL para atualizar a tabela de referência, VenueTypes.
+- **sp\_\_adicionar jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar a tabela de referência, VenueTypes.
 
 - As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Utilize estas consultas para rever o valor de estado na coluna do ciclo de **vida** para determinar quando o trabalho está terminado. O trabalho atualiza a base de dados dos inquilinos e atualiza as duas bases de dados adicionais que contêm a tabela de referência.
 
-No SSMS, navegue na base de dados de inquilinos do *utilizador&lt;inquilinos 1 mt-&gt;* servidor. Consulta à mesa *VenueTypes* para confirmar que o Clube de *Motociclismo* e *Natação* está agora adicionado à mesa. A contagem total de tipos de locais deveria ter aumentado em dois.
+No SSMS, navegue na base de dados dos inquilinos no servidor de *&lt;&gt; utilizadores de inquilinos1 mt.* Consulta à mesa *VenueTypes* para confirmar que o Clube de *Motociclismo* e *Natação* está agora adicionado à mesa. A contagem total de tipos de locais deveria ter aumentado em dois.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar uma tarefa para gerir o índice de tabela de referência
 
 Este exercício cria um trabalho para reconstruir o índice na chave primária da tabela de referência em todas as bases de dados dos inquilinos. Uma reconstrução de índice é uma operação típica de gestão da base de dados que um administrador pode executar depois de carregar uma grande quantidade de carga de dados, para melhorar o desempenho.
 
-1. No SSMS, ligue-se à base de dados de _agentes de trabalho_ no servidor&lt;user&gt; *.database.windows.net.*
+1. No SSMS, ligue-se à base de dados de _agentes de trabalho_ no servidor de *catálogo-mt-utilizador&lt;&gt;.database.windows.net.*
 
-2. Em SSMS, *aberto... módulos de aprendizagem\\\\Schema Management\\OnlineReindex.sql*.
+2. No SSMS, *aberto... Módulos de Aprendizagem\\Schema Management OnlineReindex.sql .\\ \\*
 
 3. Prima **F5** para executar o script.
 
@@ -149,9 +149,9 @@ Este exercício cria um trabalho para reconstruir o índice na chave primária d
 
 Observe os seguintes itens no script *OnlineReindex.sql:*
 
-* **sp\_adicionar\_emprego** cria um novo emprego chamado Online *Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*.
+* **sp\_\_add job** cria um novo trabalho chamado *Reindex Online\_\_\_\_PK VenueTyp 265E44FD4C885*.
 
-* **sp\_adicionar\_passo** de trabalho cria o passo de trabalho contendo texto de comando T-SQL para atualizar o índice.
+* **sp\_\_adicionar jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar o índice.
 
 * As restantes opiniões no script monitor execução de trabalho. Utilize estas consultas para rever o valor de estado na coluna do ciclo de **vida** para determinar quando o trabalho terminou com sucesso em todos os membros do grupo alvo.
 
@@ -162,7 +162,7 @@ Observe os seguintes itens no script *OnlineReindex.sql:*
 -->
 * [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](elastic-jobs-overview.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

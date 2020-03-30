@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658276"
 ---
 # <a name="interactive-workbooks"></a>Livros Interativos
@@ -40,12 +40,12 @@ Por exemplo, um utilizador pode ter uma grelha que mostra uma lista de pedidos e
     | summarize AllRequests = count(), FailedRequests = countif(success == false) by Request = name
     | order by AllRequests desc    
     ```
-5. `Run query` ver os resultados
+5. `Run query`para ver os resultados
 6. Clique no ícone _Definições Avançadas_ no rodapé da consulta (o ícone parece uma engrenagem). Isto abre o painel de configurações avançadas 
-7. Verifique a definição: `When an item is selected, export a parameter`
-    1. Campo para exportar: `Request`
-    2. Nome do parâmetro: `SelectedRequest`
-    3. Valor predefinido: `All requests`
+7. Verifique a definição:`When an item is selected, export a parameter`
+    1. Campo de exportação:`Request`
+    2. Nome do parâmetro:`SelectedRequest`
+    3. Valor por defeito:`All requests`
     
     ![Imagem mostrando o editor avançado com configurações para campos de exportação como parâmetros](./media/workbooks-interactive/advanced-settings.png)
 
@@ -57,8 +57,8 @@ Por exemplo, um utilizador pode ter uma grelha que mostra uma lista de pedidos e
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-11. `Run query` ver os resultados.
-12. Alterar _a Visualização_ para `Area chart`
+11. `Run query`para ver os resultados.
+12. Alterar _visualização_ para`Area chart`
 12. Clique numa linha na primeira grelha. Note como o gráfico de área abaixo filtra o pedido selecionado.
 
 O relatório resultante parece-se com este no modo de edição:
@@ -70,12 +70,12 @@ A imagem abaixo mostra um relatório interativo mais elaborado no modo de leitur
 ![Imagem mostrando a criação uma experiência interativa usando cliques de linha de grelha](./media/workbooks-interactive/grid-click-read-mode.png)
 
 ### <a name="exporting-the-contents-of-an-entire-row"></a>Exportação do conteúdo de uma linha inteira
-Por vezes, é desejável exportar todo o conteúdo da linha selecionada em vez de apenas uma coluna específica. Nesses casos, deixe a propriedade `Field to export` desmontada no passo 7.1 acima. Os livros de relojoaria exportarão todo o conteúdo da linha como um json para o parâmetro. 
+Por vezes, é desejável exportar todo o conteúdo da linha selecionada em vez de apenas uma coluna específica. Nesses casos, `Field to export` deixe a propriedade desmontada no passo 7.1 acima. Os livros de relojoaria exportarão todo o conteúdo da linha como um json para o parâmetro. 
 
-No controlo KQL de referência, utilize a função `todynamic` para analisar o json e aceder às colunas individuais.
+No controlo KQL de `todynamic` referência, utilize a função para analisar o json e aceder às colunas individuais.
 
  ## <a name="grid-cell-clicks"></a>Cliques de células de grelha
-Os livros permitem que os autores adicionem interatividade através de um tipo especial de renderizador de coluna de grelha chamado `link renderer`. Um renderizador de ligação converte uma célula da grelha numa hiperligação com base no conteúdo da célula. Os livros de trabalho suportam muitos tipos de renderizadores de ligação - incluindo aqueles que permitem abrir lâminas de visão geral de recursos, espectadores de sacos de propriedade, pesquisa de App Insights, uso, rastreio de transações, etc.
+Os livros permitem que os autores adicionem interatividade `link renderer`através de um tipo especial de renderizador de coluna de grelha chamado a . Um renderizador de ligação converte uma célula da grelha numa hiperligação com base no conteúdo da célula. Os livros de trabalho suportam muitos tipos de renderizadores de ligação - incluindo aqueles que permitem abrir lâminas de visão geral de recursos, espectadores de sacos de propriedade, pesquisa de App Insights, uso, rastreio de transações, etc.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Configuração da interatividade utilizando cliques de células de grelha
 1. Mude o livro para o modo de edição clicando no item da barra de ferramentas _Editar._
@@ -87,14 +87,14 @@ Os livros permitem que os autores adicionem interatividade através de um tipo e
     | summarize Count = count(), Sample = any(pack_all()) by Request = name
     | order by Count desc
     ```
-5. `Run query` ver os resultados
+5. `Run query`para ver os resultados
 6. Clique em _Definições_ de Coluna para abrir o painel de definições.
 7. Na secção _Colunas,_ coloque:
-    1. _Amostra_ - Renderizador de coluna: `Link`, Vista para abrir: `Cell Details`, Etiqueta de Ligação: `Sample`
-    2. _Contagem_ - Renderizador de coluna: `Bar`, Paleta de cores: `Blue`, Valor mínimo: `0`
-    3. _Pedido_ - Renderizador de Coluna: `Automatic`
+    1. _Amostra_ - Renderizador `Link`de coluna: `Cell Details`, Vista para abrir: , Etiqueta de Ligação:`Sample`
+    2. _Contagem_ - Renderizador `Bar`de coluna: , Paleta de cores: `Blue`, Valor mínimo:`0`
+    3. _Pedido_ - Renderizador de Colunas:`Automatic`
     4. Clique em _Guardar e Fechar_ para aplicar alterações
-8. Clique num dos links `Sample` da grelha. Isto abre um painel de propriedades com os detalhes de um pedido amostrado.
+8. Clique num dos `Sample` links da grelha. Isto abre um painel de propriedades com os detalhes de um pedido amostrado.
 
     ![Imagem mostrando a criação uma experiência interativa usando cliques de células de grelha](./media/workbooks-interactive/grid-cell-click-create.png)
 
@@ -116,27 +116,27 @@ Os livros permitem que os autores adicionem interatividade através de um tipo e
 O livro de trabalho permite que os utilizadores façam com que certos controlos apareçam ou desapareçam com base nos valores dos parâmetros. Isto permite que os autores tenham relatórios diferentes com base na entrada do utilizador ou estado de telemetria. Um exemplo é mostrar aos consumidores apenas um resumo quando as coisas estão boas, mas mostram todos os detalhes quando algo está errado.
 
 ### <a name="setting-up-interactivity-using-conditional-visibility"></a>Criação de interatividade utilizando visibilidade condicional
-1. Siga os passos na secção `Setting up interactivity on grid row click` para configurar dois controlos interativos.
+1. Siga os passos na `Setting up interactivity on grid row click` secção para configurar dois controlos interativos.
 2. Adicione um novo parâmetro na parte superior:
-    1. Nome: `ShowDetails`
-    2. Tipo de parâmetro: `Drop down`
-    3. Obrigatório: `checked`
-    4. Obtenha dados de: `JSON`
-    5. Entrada JSON: `["Yes", "No"]`
+    1. Nome:`ShowDetails`
+    2. Tipo de parâmetro:`Drop down`
+    3. Necessário:`checked`
+    4. Obtenha dados de:`JSON`
+    5. Entrada JSON:`["Yes", "No"]`
     6. Poupe para cometer alterações.
-3. Definir valor de parâmetro para `Yes`
+3. Definir valor de parâmetro para`Yes`
 4. No controlo de consulta com o gráfico de área, clique no ícone _Definições Avançadas_ (ícone de engrenagem)
-5. Verifique a definição `Make this item conditionally visible`
-    1. Este item é visível se `ShowDetails` valor do parâmetro `equals` `Yes`
+5. Verifique a definição`Make this item conditionally visible`
+    1. Este item é `ShowDetails` visível `equals` se o valor do parâmetro`Yes`
 6. Clique em _Edição Feita_ para cometer alterações.
 7. Clique em _Editar feito_ na barra de ferramentas do livro para introduzir o modo de leitura.
-8. Mude o valor do parâmetro `ShowDetails` para `No`. Note que o gráfico abaixo desaparece.
+8. Mude o valor `ShowDetails` do `No`parâmetro para . Note que o gráfico abaixo desaparece.
 
-A imagem abaixo mostra o caso visível onde `ShowDetails` é `Yes`
+A imagem abaixo mostra `ShowDetails` o caso visível onde está`Yes`
 
 ![Imagem mostrando a visibilidade condicional onde o gráfico é visível](./media/workbooks-interactive/conditional-visibility.png)
 
-A imagem abaixo mostra o caso escondido onde `ShowDetails` é `No`
+A imagem abaixo mostra `ShowDetails` o caso escondido onde está`No`
 
 ![Imagem mostrando a visibilidade condicional onde o gráfico está escondido](./media/workbooks-interactive/conditional-invisible.png)
 

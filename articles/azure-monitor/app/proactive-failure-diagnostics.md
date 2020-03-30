@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
 ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671754"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de Falha
@@ -34,7 +34,7 @@ Os detalhes do alerta dirão:
 Os [alertas métricos comuns](../../azure-monitor/app/alerts.md) dizem-lhe que pode haver um problema. Mas a Deteção Inteligente inicia o trabalho de diagnóstico para si, realizando muito a análise que teria de fazer a si mesma. Obtém-se os resultados cuidadosamente embalados, ajudando-o a chegar rapidamente à raiz do problema.
 
 ## <a name="how-it-works"></a>Como funciona
-A Smart Detection monitoriza os dados recebidos da sua aplicação e, em particular, as taxas de falha. Esta regra conta o número de pedidos para os quais a propriedade `Successful request` é falsa, e o número de pedidos de dependência para os quais a propriedade `Successful call` é falsa. Para pedidos, por padrão, `Successful request == (resultCode < 400)` (a menos que tenha escrito código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou gerar as suas próprias chamadas [TrackRequest).](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 
+A Smart Detection monitoriza os dados recebidos da sua aplicação e, em particular, as taxas de falha. Esta regra conta o número de `Successful request` pedidos para os quais o imóvel `Successful call` é falso, e o número de pedidos de dependência para os quais a propriedade é falsa. Para pedidos, por `Successful request == (resultCode < 400)` padrão, (a menos que tenha escrito código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou gerar as suas próprias chamadas [TrackRequest).](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 
 
 O desempenho da sua aplicação tem um padrão típico de comportamento. Alguns pedidos ou chamadas de dependência serão mais propensos ao fracasso do que outros; e a taxa de insucesso global pode subir à medida que a carga aumenta. A Smart Detection usa machine learning para encontrar estas anomalias.
 
@@ -360,4 +360,4 @@ Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplica
 As deteções inteligentes são automáticas. Mas talvez queira criar mais alguns alertas?
 
 * [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
-* [Disponibilidade de testes web](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

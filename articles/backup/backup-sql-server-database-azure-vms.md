@@ -5,10 +5,10 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273335"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
@@ -27,7 +27,7 @@ Neste artigo, aprenderá a:
 
 >[!NOTE]
 >**A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure** já está disponível na pré-visualização.<br>
->Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com
+>Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +115,7 @@ Evite utilizar os seguintes elementos em nomes de bases de dados:
 O aliasing está disponível para caracteres não suportados, mas recomendamos evitá-los. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
 >[!NOTE]
->A operação **de proteção configurada** para bases de dados com caracteres especiais como "+" ou "&" em seu nome não é suportada. Pode alterar o nome da base de dados ou ativar a **Proteção Automática,** que pode proteger com sucesso estas bases de dados.
+>A operação **de proteção de configuração** para bases de dados com caracteres especiais como "+" ou "&" em seu nome não é suportada. Pode alterar o nome da base de dados ou ativar a **Proteção Automática,** que pode proteger com sucesso estas bases de dados.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -135,7 +135,7 @@ Como descobrir bases de dados em execução num VM:
 
     ![Selecione SQL Server em Azure VM para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. No **Backup Goal** > Discover **DBs em VMs**, selecione **Start Discovery** para procurar VMs desprotegidos na subscrição. Esta pesquisa pode demorar algum tempo, dependendo do número de VMs desprotegidos na subscrição.
+5. Em **Backup Goal** > **Discover DBs em VMs**, selecione **Start Discovery** para procurar VMs desprotegidos na subscrição. Esta pesquisa pode demorar algum tempo, dependendo do número de VMs desprotegidos na subscrição.
 
    * VMs desprotegidos devem aparecer na lista após descoberta, listadas pelo nome e pelo grupo de recursos.
    * Se um VM não está listado como espera, veja se já está num cofre.
@@ -143,7 +143,7 @@ Como descobrir bases de dados em execução num VM:
 
      ![Backup está pendente durante pesquisa de DBs em VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
-6. Na lista VM, selecione o VM que executa a base de dados do SQL Server > **Discover DBs**.
+6. Na lista VM, selecione o VM que executa a base de dados do Servidor SQL > **Discover DBs**.
 
 7. Rastrear a descoberta da base de dados em **Notificações.** O tempo necessário para esta ação depende do número de bases de dados vm. Quando as bases de dados selecionadas são descobertas, aparece uma mensagem de sucesso.
 
@@ -162,7 +162,7 @@ Como descobrir bases de dados em execução num VM:
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança  
 
-1. No **Objetivo de Backup** > Passo **2: Configurar a cópia de segurança,** selecione **Configurar cópia de segurança**.
+1. No Passo de **Objetivo** > de Backup**2: Configurar a cópia de segurança,** selecione **Configurar cópia de segurança**.
 
    ![Selecione Configurar cópia de segurança](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -214,7 +214,7 @@ Uma política de reserva define quando os backups são tomados e quanto tempo s�
 
 Para criar uma política de backup:
 
-1. No cofre, selecione **as políticas** de backup > **Adicionar**.
+1. No cofre, selecione **Políticas** > de Backup**Adicionar**.
 2. Em **Adicionar**, selecione **SQL Server em VM Azure** para definir o tipo de política.
 
    ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
@@ -242,8 +242,8 @@ Para criar uma política de backup:
 6. No menu de **política Full Backup,** selecione **OK** para aceitar as definições.
 7. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**.
 
-   definições de intervalo de intervalo de retenção de ![](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+   ![Definições de](./media/backup-azure-sql-database/retention-range-interval.png)
+   ![intervalo de intervalo de retenção Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
 8. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção.
 
@@ -258,7 +258,7 @@ Para criar uma política de backup:
 
     ![Editar a política de backup de registo](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. No menu de **política de backup,** escolha se permite ou não ativar a Compressão de **Backup SQL.** Esta opção é desativada por defeito. Se ativado, o SQL Server enviará um fluxo de reserva comprimido para o VDI.  Por favor, note que a Backup Azure substitui os incumprimentos de nível de instância com a cláusula COMPRESSION/NO_COMPRESSION dependendo do valor deste controlo.
+13. No menu de **política de backup,** escolha se permite ou não ativar a Compressão de **Backup SQL.** Esta opção está desativada por predefinição. Se ativado, o SQL Server enviará um fluxo de reserva comprimido para o VDI.  Por favor, note que a Backup Azure substitui os incumprimentos de nível de instância com a cláusula COMPRESSION/NO_COMPRESSION dependendo do valor deste controlo.
 
 14. Depois de completar as edimas para a política de backup, selecione **OK**.
 
@@ -286,7 +286,7 @@ Se precisar de desativar a proteção automática, selecione o nome da instânci
 
 ![Desativar a proteção automática neste caso](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 

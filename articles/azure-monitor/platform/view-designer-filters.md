@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
 ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658579"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Monitor Azure
@@ -21,7 +21,7 @@ Clique na faixa de hora da data no topo de uma vista para abrir a gota para baix
 
 ![Exemplo de filtro](media/view-designer-filters/filters-example-time.png)
 
-Clique na **+** para adicionar um filtro utilizando filtros personalizados que estão definidos para a vista. Selecione um valor para o filtro a partir do dropdown ou escreva num valor. Continue a adicionar filtros clicando na **+** . 
+Clique **+** no filtro para adicionar um filtro utilizando filtros personalizados que estão definidos para a vista. Selecione um valor para o filtro a partir do dropdown ou escreva num valor. Continue a adicionar filtros **+** clicando no . 
 
 
 ![Exemplo de filtro](media/view-designer-filters/filters-example-custom.png)
@@ -33,7 +33,7 @@ Se remover todos os valores para um filtro, então esse filtro deixará de ser a
 
 Crie um filtro a partir do separador **Filtros** ao [editar uma vista](view-designer.md).  O filtro é global para a vista e aplica-se a todas as partes da vista.  
 
-![Filtrar definições](media/view-designer-filters/filters-settings.png)
+![Definições de filtro](media/view-designer-filters/filters-settings.png)
 
 A tabela seguinte descreve as definições para um filtro.
 
@@ -49,10 +49,10 @@ A tabela seguinte inclui alguns exemplos de filtros comuns.
 
 | Nome do Campo | Consulta de Valores | Etiqueta |
 |:--|:--|:--|
-| Computador   | Batimento &#124; cardíaco &#124; distinto tipo de computador por computador asc | Computadores |
-| EventLevelName | Event &#124; distinct EventLevelName | Gravidade |
-| Nível de Gravidade | Syslog &#124; nível de gravidade distinto | Gravidade |
-| SvcChangeType | ConfiguraçãoAlter &#124; o svcChangeType distinto | ChangeType |
+| Computador   | Batimento cardíaco &#124; &#124; de computador distinto saem por computador asc | Computadores |
+| Nome de nível de evento | Evento &#124; nome distinto do EventLevelName | Gravidade |
+| Nível de gravidade | Syslog &#124; nível distinto de Gravidade | Gravidade |
+| SvcChangeType | ConfiguraçãoMudar &#124; svcChangeType distinto | Tipo de mudança |
 
 
 ## <a name="modify-view-queries"></a>Modificar consultas de visualização

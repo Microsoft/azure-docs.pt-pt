@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248986"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Monitor Azure
@@ -76,12 +76,12 @@ A operação POST contém a seguinte carga útil e esquema JSON para todos os al
 | ID |S | |Cada regra de alerta tem uma identificação única. |
 | nome |S | |O nome do alerta. |
 | descrição |S | |Uma descrição do alerta. |
-| conditionType |S |Métrica, Evento |São apoiados dois tipos de alertas: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos baseiam-se num evento no registo de atividade. Use este valor para verificar se o alerta é baseado numa métrica ou num evento. |
-| condition |S | |Os campos específicos para verificar com base no valor do tipo de **condição.** |
-| metricName |Para alertas métricos | |O nome da métrica que define o que a regra monitoriza. |
+| condiçãoTipo |S |Métrica, Evento |São apoiados dois tipos de alertas: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos baseiam-se num evento no registo de atividade. Use este valor para verificar se o alerta é baseado numa métrica ou num evento. |
+| condição |S | |Os campos específicos para verificar com base no valor do tipo de **condição.** |
+| nome métrico |Para alertas métricos | |O nome da métrica que define o que a regra monitoriza. |
 | metricUnit |Para alertas métricos |Bytes, BytesPerSecond, Count, CountPerSecond, Por cento, Segundo |A unidade permitida na métrica. Ver [valores permitidos.](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx) |
 | métricaValor |Para alertas métricos | |O valor real da métrica que causou o alerta. |
-| threshold |Para alertas métricos | |O valor-limiar a que o alerta é ativado. |
+| limiar |Para alertas métricos | |O valor-limiar a que o alerta é ativado. |
 | janelaTamanho |Para alertas métricos | |O período de tempo que é usado para monitorizar a atividade de alerta com base no limiar. O valor deve ser entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas métricos |Média, último, máximo, mínimo, nenhum, total |Como os dados recolhidos devem ser combinados ao longo do tempo. O valor padrão é Médio. Ver [valores permitidos.](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx) |
 | operador |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |

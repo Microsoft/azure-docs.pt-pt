@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250754"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Encerrar notificação para casos de conjunto de máquinas virtuais Azure
@@ -31,7 +31,7 @@ Os seguintes passos permitem a notificação de fim quando criar um novo conjunt
 1. Vá ao separador **Gestão.** 
 1. Localize a secção de rescisão de **Instância.**
 1. Por **exemplo, notificação**de rescisão , selecione **On**.
-1. Para o atraso de **rescisão (minutos)** , der por acaso o tempo de predefinição pretendido.
+1. Para o atraso de **rescisão (minutos)**, der por acaso o tempo de predefinição pretendido.
 1. Quando terminar de criar o novo conjunto de escala, selecione **Review + crie** o botão. 
 
 > [!NOTE]
@@ -135,7 +135,7 @@ Os Eventos Agendados são desativados para o seu conjunto de escala se as instâ
 Para VNET ativado VMs, o Serviço de Metadados está disponível a partir de um IP estático não resaída, 169.254.169.254.
 
 O ponto final completo para a versão mais recente dos Eventos Agendados é:
-> "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="query-response"></a>Resposta de consulta
 Uma resposta contém uma série de eventos programados. Uma matriz vazia significa que não há eventos agendados.
@@ -192,7 +192,7 @@ Se tiver um erro 'BadRequest' com uma mensagem de erro indicando "Não consegui 
 
 ### <a name="failure-to-get-terminate-events"></a>Falha em obter eventos de rescisão
 Se não está a receber eventos **de Terminação** através de Eventos Agendados, verifique a versão API utilizada para obter os eventos. É necessário um serviço de metadados Aversão API **2019-01-01** ou superior é necessário para eventos Desativados.
->"http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+>'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Terminar evento com incorreto não antes do tempo  
 Depois de ativar *o siteEventsProfile* no modelo de conjunto de escala e definir o *não BeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.

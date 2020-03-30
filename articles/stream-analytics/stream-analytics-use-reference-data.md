@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
 ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267290"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
@@ -28,17 +28,17 @@ Os dados de referência são modelados como uma sequência de bolhas (definidas 
 
 Para configurar os seus dados de referência, primeiro é necessário criar uma entrada que seja de dados de **referência**do tipo . O quadro abaixo explica cada imóvel que terá de fornecer ao mesmo tempo que cria a entrada de dados de referência com a sua descrição:
 
-|**Nome da propriedade**  |**Descrição**  |
+|**Nome da Propriedade**  |**Descrição**  |
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será usado na consulta de trabalho para fazer referência a esta entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão as suas bolhas. Se estiver na mesma subscrição que o seu Stream Analytics Job, pode selecioná-lo a partir da queda.   |
-|Chave da Conta de Armazenamento   | A chave secreta associada à conta de armazenamento. Isto é automaticamente povoado se a conta de armazenamento estiver na mesma subscrição que o seu trabalho stream analytics.   |
-|Contentor de armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
+|Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isto é automaticamente povoado se a conta de armazenamento estiver na mesma subscrição que o seu trabalho stream analytics.   |
+|Recipiente de armazenamento   | Os contentores fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando enviar uma bolha para o serviço Blob, deve especificar um recipiente para essa bolha.   |
 |Padrão do Caminho   | O caminho utilizado para localizar as suas bolhas dentro do recipiente especificado. Dentro do caminho, pode optar por especificar uma ou mais instâncias das seguintes 2 variáveis:<BR>{date}, {time}<BR>Exemplo 1: produtos/{date}/{time}/product-list.csv<BR>Exemplo 2: produtos/{date}/product-list.csv<BR>Exemplo 3: lista de produtos.csv<BR><br> Se a bolha não existir no caminho especificado, o trabalho de Stream Analytics aguarda indefinidamente que a bolha fique disponível.   |
 |Formato de data [opcional]   | Se tiver usado {date} dentro do Padrão de Percurso que especificou, então pode selecionar o formato de data no qual as suas bolhas são organizadas a partir da queda dos formatos suportados.<BR>Exemplo: YYYY/MM/DD, MM/DD/YYYY, etc.   |
 |Formato de Tempo [opcional]   | Se tiver usado {time} dentro do Padrão do Caminho que especificou, então pode selecionar o formato de tempo em que as suas bolhas são organizadas a partir da queda dos formatos suportados.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de Serialização de Eventos   | Para garantir que as suas consultas funcionam da forma que espera, o Stream Analytics precisa de saber qual o formato de serialização que está a usar para os fluxos de dados que chegam. Para dados de referência, os formatos suportados são CSV e JSON.  |
-|Codificação   | UTF-8 é o único formato de codificação suportado neste momento.  |
+|Codificação   | O UTF-8 é o único formato de codificação suportado neste momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estáticos
 
@@ -46,18 +46,18 @@ Se não se esperar que os seus dados de referência se alterem, o suporte para d
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Gerar dados de referência num horário
 
-Se os seus dados de referência forem um conjunto de dados em mudança lenta, o suporte para dados de referência refrescantes está ativado especificando um padrão de caminho na configuração de entrada utilizando as fichas de substituição {date} e {time} . O Stream Analytics capta as definições de dados de referência atualizadas com base neste padrão de percurso. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data de **"YYYY-MM-DD"** e um formato de tempo de **"HH-mm"** instrui o Stream Analytics a captar a bolha atualizada `sample/2015-04-16/17-30/products.csv` às 17:30 do dia 16 de abril de 2015.
+Se os seus dados de referência forem um conjunto de dados em mudança lenta, o suporte para dados de referência refrescantes está ativado especificando um padrão de caminho na configuração de entrada utilizando as fichas de substituição {date} e {time} . O Stream Analytics capta as definições de dados de referência atualizadas com base neste padrão de percurso. Por exemplo, um `sample/{date}/{time}/products.csv` padrão de com um formato de data de **"YYYY-MM-DD"** e um formato de `sample/2015-04-16/17-30/products.csv` tempo de **"HH-mm"** instrui o Stream Analytics a pegar na bolha atualizada às 17:30 do dia 16 de abril de 2015.
 
 O Azure Stream Analytics procura automaticamente bolhas de dados de referência renovadas num intervalo de um minuto. Se uma bolha com carimbo de tempo 10:30:00 é carregada com um pequeno atraso (por exemplo, 10:30:30), você vai notar um pequeno atraso no trabalho de Stream Analytics referindo esta bolha. Para evitar tais cenários, recomenda-se o upload da bolha mais cedo do que o tempo de eficácia do alvo (10:30:00 neste exemplo) para permitir que o trabalho do Stream Analytics seja suficiente para descobrir e carregar na memória e realizar operações. 
 
 > [!NOTE]
-> Atualmente, os trabalhos da Stream Analytics procuram a atualização da bolha apenas quando o tempo da máquina avança para o tempo codificado no nome blob. Por exemplo, o trabalho procurará `sample/2015-04-16/17-30/products.csv` o mais rapidamente possível, mas não antes das 17:30 do dia 16 de abril de 2015. *Nunca* procurará uma bolha com um tempo codificado mais cedo do que a última que foi descoberta.
+> Atualmente, os trabalhos da Stream Analytics procuram a atualização da bolha apenas quando o tempo da máquina avança para o tempo codificado no nome blob. Por exemplo, o trabalho `sample/2015-04-16/17-30/products.csv` procurará o mais rapidamente possível, mas não antes das 17:30 do dia 16 de abril de 2015, fuso horário UTC. *Nunca* procurará uma bolha com um tempo codificado mais cedo do que a última que foi descoberta.
 > 
-> Por exemplo, uma vez que o trabalho encontre a bolha `sample/2015-04-16/17-30/products.csv`, ignorará quaisquer ficheiros com uma data codificada antes das 17:30 de 16 de abril de 2015, pelo que se um `sample/2015-04-16/17-25/products.csv` bolha chegar tarde for criado no mesmo recipiente o trabalho não o utilizará.
+> Por exemplo, uma vez que `sample/2015-04-16/17-30/products.csv` o trabalho encontre a bolha, ignorará quaisquer ficheiros com uma data codificada antes das 17:30 de 16 de abril de 2015, pelo que se for criada uma `sample/2015-04-16/17-25/products.csv` bolha tardia no mesmo recipiente, o trabalho não a utilizará.
 > 
-> Da mesma forma, se `sample/2015-04-16/17-30/products.csv` só for produzido às 22:03 de 16 de abril de 2015, mas não houver uma bolha com data anterior no contentor, o trabalho utilizará este ficheiro a partir das 22:03 de 16 de abril de 2015 e utilizará os dados de referência anteriores até lá.
+> Da mesma `sample/2015-04-16/17-30/products.csv` forma, se for produzido apenas às 22:03 de 16 de abril de 2015, mas não houver uma bolha com data anterior no contentor, o trabalho utilizará este ficheiro a partir das 22:03 de 16 de abril de 2015 e utilizará os dados de referência anteriores até lá.
 > 
-> Uma exceção a isto é quando o trabalho precisa de reprocessar os dados no tempo ou quando o trabalho é iniciado. Na hora de início, o trabalho procura a mais recente bolha produzida antes do início do trabalho especificado. Isto é feito para garantir que existe um conjunto de dados de referência **não vazio** quando o trabalho começa. Se não for possível encontrar um, o trabalho apresenta o seguinte diagnóstico: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Uma exceção a isto é quando o trabalho precisa de reprocessar os dados no tempo ou quando o trabalho é iniciado. Na hora de início, o trabalho procura a mais recente bolha produzida antes do início do trabalho especificado. Isto é feito para garantir que existe um conjunto de dados de referência **não vazio** quando o trabalho começa. Se não for possível encontrar um, `Initializing input without a valid reference data blob for UTC time <start time>`o trabalho apresenta o seguinte diagnóstico: .
 
 A [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser usada para orquestrar a tarefa de criar as bolhas atualizadas exigidas pelo Stream Analytics para atualizar definições de dados de referência. Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Data Factory suporta [a ligação a um grande número de lojas de dados baseadas em nuvem e no local](../data-factory/copy-activity-overview.md) e movendo dados facilmente num horário regular que especifica. Para mais informações e orientações passo a passo sobre como configurar um pipeline data factory para gerar dados de referência para o Stream Analytics que atualiza sobre um horário pré-definido, confira esta [amostra GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
@@ -87,7 +87,7 @@ Para configurar os dados de referência da Base de Dados SQL, primeiro é necess
 
 Pode utilizar o Caso gerido pela Base de [Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como entrada de dados de referência. Tem de configurar o ponto final público na Instância gerida pela Base de [Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, configurar manualmente as seguintes definições no Azure Stream Analytics. A máquina virtual Azure que executa o SQL Server com uma base de dados anexada também é suportada configurando manualmente as definições abaixo.
 
-|**Nome da propriedade**|**Descrição**  |
+|**Nome da Propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a esta entrada.|
 |Subscrição|Escolher a sua subscrição|
@@ -110,11 +110,11 @@ O Stream Analytics suporta dados de referência com o **tamanho máximo de 300 M
 
 O aumento do número de Unidades de Streaming de um trabalho para além de 6 não aumenta a dimensão máxima suportada dos dados de referência.
 
-Suporte para compressão não está disponível para os dados de referência. 
+O suporte à compressão não está disponível para dados de referência. 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um trabalho de Stream Analytics utilizando o portal Azure](stream-analytics-quick-create-portal.md)
+> [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

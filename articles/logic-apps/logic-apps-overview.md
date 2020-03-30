@@ -8,10 +8,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
 ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241669"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral - O que é Azure Logic Apps?
@@ -77,11 +77,11 @@ Comece por algo pequeno com os seus sistemas e serviços atuais, e aumente progr
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Funções do Azure](../azure-functions/functions-overview.md)
-  * [Gestão de API do Azure](../api-management/api-management-key-concepts.md)
+  * [API Management do Azure](../api-management/api-management-key-concepts.md)
 
 * Processar [mensagens XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
 
-* Processar [ficheiros simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+* Processar [ficheiros planos](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
 
 * Trocar mensagens com protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) e [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
 

@@ -6,10 +6,10 @@ ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259204"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar o ambiente de desenvolvimento Windows para compilar aplicações do Service Fabric Mesh
@@ -44,7 +44,7 @@ Se já tem o Docker instalado, certifique-se de que tem a versão mais recente. 
 
 #### <a name="install-docker-on-windows-10"></a>Instale docker no Windows 10
 
-Descarregue e instale a versão mais recente da [Docker Community Edition para windows][download-docker] para suportar as aplicações de Tecido de Serviço contentorizadas utilizadas pela Malha de Tecido de Serviço.
+Transfira e instale a versão mais recente do [Docker Community Edition para Windows][download-docker] para suportar as aplicações do Service Fabric em contentores utilizadas pelo Service Fabric Mesh.
 
 Durante a instalação, selecione **Utilizar contentores do Windows em vez de contentores do Linux** quando lhe for pedido.
 
@@ -52,7 +52,7 @@ Se o Hyper-V não estiver ativado na sua máquina, o instalador do Docker oferec
 
 #### <a name="install-docker-on-windows-server-2016"></a>Instale o Docker no Windows Server 2016
 
-Se não tiver a função do Hyper-V ativada, abra o PowerShell como administrador e execute o seguinte comando para ativar o Hyper-V e, em seguida, reinicie o computador. Para mais informações, consulte [docker Enterprise Edition para Windows Server][download-docker-server].
+Se não tiver a função do Hyper-V ativada, abra o PowerShell como administrador e execute o seguinte comando para ativar o Hyper-V e, em seguida, reinicie o computador. Para obter mais informações, veja [Docker Enterprise Edition para Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
@@ -72,8 +72,8 @@ Install-WindowsFeature Containers
 
 Instale o runtime, o SDK e as ferramentas do Service Fabric Mesh pela ordem seguinte.
 
-1. Instale o [SDK][download-sdkmesh] de malha de tecido de serviço utilizando o Instalador da Plataforma Web. Também será instalado o SDK e o runtime do Microsoft Azure Service Fabric.
-2. Instale a extensão de malha de tecido de tecido de [estúdio visual (pré-visualização)][download-tools] do Visual Studio Marketplace.
+1. Instale o [SDK do Service Fabric Mesh][download-sdkmesh] através do Instalador de Plataforma Web. Também será instalado o SDK e o runtime do Microsoft Azure Service Fabric.
+2. Instale a [extensão Ferramentas do Service Fabric Mesh para Visual Studio (pré-visualização)][download-tools] a partir do Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Compilar um cluster
 
@@ -109,7 +109,7 @@ Depois de instalar o tempo de funcionamento, SDKs, ferramentas do Estúdio Visua
 
 Está agora pronto para criar aplicações do Service Fabric Mesh!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o tutorial [Criar uma aplicação do Azure Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md).
 

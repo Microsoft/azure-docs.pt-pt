@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
 ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254368"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de Tráfego frequentemente perguntas (FAQ)
@@ -135,7 +135,7 @@ Sim, apenas a versão API 2017-03-01 e mais recente suporta o tipo de encaminham
 ### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quais são os casos de utilização em que o encaminhamento de sub-rede é útil?
 
 O encaminhamento de sub-redes permite-lhe diferenciar a experiência que oferece para conjuntos específicos de utilizadores identificados pela fonte IP dos seus pedidos de DNS endereço IP. Um exemplo seria mostrar diferentes conteúdos se os utilizadores estiverem a ligar-se a um website a partir do seu QG corporativo. Outro seria restringir os utilizadores de certos ISPs a apenas aceder a pontos finais que suportam apenas ligações IPv4 se esses ISPs tiverem um desempenho sub-par quando o IPv6 for utilizado.
-Outra razão para usar o método de encaminhamento subnet é em conjunto com outros perfis num conjunto de perfis aninhado. Por exemplo, se quiser utilizar o método de encaminhamento geográfico para geo-esgrima dos seus utilizadores, mas para um ISP específico, você quer fazer um método de encaminhamento diferente, você pode ter um método de encaminhamento de perfil com subnet de perfil como o perfil principal e sobrepor que ISP para usar um profissional específico para crianças arquivar e ter o perfil geographic padrão para todos os outros.
+Outra razão para usar o método de encaminhamento subnet é em conjunto com outros perfis num conjunto de perfis aninhado. Por exemplo, se quiser utilizar o método de encaminhamento geográfico para geo-esgrima dos seus utilizadores, mas para um ISP específico você quer fazer um método de encaminhamento diferente, você pode ter um método de encaminhamento de perfil com subnet de perfil como o perfil principal e sobrepor que ISP para usar uma criança específica perfil e têm o perfil geographic padrão para todos os outros.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Como é que o Gestor de Tráfego conhece o endereço IP do utilizador final?
 
@@ -390,7 +390,7 @@ Para perfis com qualquer método de encaminhamento que não seja o MultiValue:
 |AAAA |    AAAA / CNAME |    Ponto final do alvo|
 |AAAA |    A |    NODATA |
 |CNAME |    CNAME |    Ponto final do alvo|
-|CNAME     |A / AAAA |    NODATA |
+|CNAME     |A / AAAAA |    NODATA |
 |
 
 Para perfis com método de encaminhamento definido para MultiValue:

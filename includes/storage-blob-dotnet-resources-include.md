@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8ca4b1ce6e0470476e9f16ed338b8707d3faf90f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128522"
 ---
 ## <a name="resources-for-development-with-net"></a>Recursos para desenvolvimento com .NET
@@ -25,7 +25,7 @@ Os links abaixo fornecem recursos úteis para os desenvolvedores que usam a bibl
 - [Código fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Common)
 - [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 
-### <a name="blob-storage-apis"></a>APIs de armazenamento de BLOBs
+### <a name="blob-storage-apis"></a>APIs de armazenamento de blob
 
 - [Documentação de referência da API](/dotnet/api/overview/azure/storage)
 - [Código fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)

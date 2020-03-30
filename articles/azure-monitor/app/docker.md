@@ -1,13 +1,13 @@
 ---
-title: Monitor Docker aplicações em Insights de Aplicação Azure  Microsoft Docs
+title: Monitor Docker aplicações em Insights de Aplicação Azure [ Microsoft Docs
 description: Contadores, eventos e exceções do Docker perf podem ser exibidos em Application Insights, juntamente com a telemetria das aplicações contentorizadas.
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669612"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitor Docker aplicações em Insights de Aplicação (Depreciado)
@@ -53,8 +53,8 @@ Agora que tem um lugar para exibir a telemetria, pode configurar a aplicação c
 
 Apenas uma imagem de Application Insights é necessária por anfitrião Docker. Se a sua aplicação for implantada em vários anfitriões do Docker, repita o comando em cada hospedeiro.
 
-## <a name="update-your-app"></a>Atualize a sua aplicação
-Se a sua aplicação for instrumentada com o SDK de Insights de [Aplicação para Java,](../../azure-monitor/app/java-get-started.md)adicione a seguinte linha no ficheiro ApplicationInsights.xml no seu projeto, sob o elemento `<TelemetryInitializers>`:
+## <a name="update-your-app"></a>Atualizar a sua aplicação
+Se a sua aplicação for instrumentada com o [SDK](../../azure-monitor/app/java-get-started.md)de Insights de Aplicação para `<TelemetryInitializers>` Java, adicione a seguinte linha no ficheiro ApplicationInsights.xml no seu projeto, sob o elemento:
 
 ```xml
 
@@ -71,17 +71,17 @@ Clique no azulejo do Docker.
 Em breve verá os dados que chegam da aplicação Docker, especialmente se tiver outros contentores a funcionar no seu motor Docker.
 
 ### <a name="docker-container-events"></a>Eventos de contentores docker
-![Exemplo](./media/docker/13.png)
+![exemplo](./media/docker/13.png)
 
 Para investigar eventos individuais, clique em [Procurar](../../azure-monitor/app/diagnostic-search.md). Procure e filtre para encontrar os eventos que deseja. Clique em qualquer evento para obter mais detalhes.
 
 ### <a name="exceptions-by-container-name"></a>Exceções por nome de contentor
-![Exemplo](./media/docker/14.png)
+![exemplo](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Contexto docker adicionado à telemetria de aplicativos
 A telemetria de pedidos enviada da aplicação instrumentada com AI SDK, é enriquecida com informações de contexto do Docker.
 
-## <a name="q--a"></a>Q e A
+## <a name="q--a"></a>Perguntas e Respostas
 *O que é que os Insights de Aplicação me dão que não posso obter do Docker?*
 
 * Desagregação detalhada dos contadores de desempenho por recipiente e imagem.
@@ -99,5 +99,5 @@ A telemetria de pedidos enviada da aplicação instrumentada com AI SDK, é enri
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Insights de aplicação para Java](../../azure-monitor/app/java-get-started.md)
-* [Insights de aplicação para Nó.js](../../azure-monitor/app/nodejs.md)
+* [Application Insights para o Node.js](../../azure-monitor/app/nodejs.md)
 * [Insights de aplicação para ASP.NET](../../azure-monitor/app/asp-net.md)

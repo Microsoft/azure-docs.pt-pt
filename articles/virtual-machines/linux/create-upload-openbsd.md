@@ -1,17 +1,17 @@
 ---
 title: Criar e carregar uma imagem OpenBSD
 description: Aprenda a criar e carregar um disco rígido virtual (VHD) que contém o sistema operativo OpenBSD para criar uma máquina virtual Azure através do Azure CLI
-author: thomas1206
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: huishao
-ms.openlocfilehash: d4ecc539d71933c4aecc9124b903c57cb72838de
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066747"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Crie e carregue uma imagem de disco OpenBSD para o Azure
 Este artigo mostra-lhe como criar e carregar um disco rígido virtual (VHD) que contém o sistema operativo OpenBSD. Depois de o carregar, pode usá-lo como imagem própria para criar uma máquina virtual (VM) em Azure através do Azure CLI.
@@ -47,7 +47,7 @@ No VM onde instalou o sistema operativo OpenBSD 6.1, que adicionou suporte Hyper
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Por predefinição, o utilizador `root` é desativado em máquinas virtuais em Azure. Os utilizadores podem executar comandos com privilégios elevados utilizando o comando `doas` no OpenBSD VM. Doas é ativado por defeito. Para mais informações, consulte [doas.conf](https://man.openbsd.org/doas.conf.5). 
+4. Por predefinição, o `root` utilizador é desativado em máquinas virtuais em Azure. Os utilizadores podem executar comandos com `doas` privilégios elevados utilizando o comando em VM OpenBSD. Doas é ativado por defeito. Para mais informações, consulte [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Instale e configure os pré-requisitos para o Agente Azure da seguinte forma:
 
@@ -94,7 +94,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Criar recursos de armazenamento e upload
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -140,7 +140,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Crie VM a partir do seu VHD
-Pode criar um VM com um [script de amostra](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com a criação de [az vm](/cli/azure/vm). Para especificar o VHD OpenBSD que carregou, utilize o parâmetro de `--image` da seguinte forma:
+Pode criar um VM com um [script de amostra](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com a criação de [az vm](/cli/azure/vm). Para especificar o VHD OpenBSD que `--image` carregou, utilize o parâmetro da seguinte forma:
 
 ```azurecli
 az vm create \

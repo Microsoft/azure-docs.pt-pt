@@ -1,6 +1,6 @@
 ---
 title: Esquema de evento sinuoso do evento Azure Event Grid
-description: Descreve as propriedades e esquemas que estão presentes para todos os eventos. Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e num objeto de dados necessário.
+description: Descreve as propriedades e esquemas que estão presentes para todos os eventos.Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e num objeto de dados necessário.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244839"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de evento sinuoso do evento Azure Event Grid
 
-Este artigo descreve as propriedades e esquemas que estão presentes para todos os eventos. Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e num objeto de dados necessário. As propriedades são comuns a todos os eventos de qualquer editor. O objeto de dados tem propriedades específicas para cada editor. Para tópicos do sistema, estas propriedades são específicas para o fornecedor de recursos, como o Azure Storage ou o Azure Event Hubs.
+Este artigo descreve as propriedades e esquemas que estão presentes para todos os eventos.Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e num objeto de dados necessário. As propriedades são comuns a todos os eventos de qualquer editor. O objeto de dados tem propriedades específicas para cada editor. Para tópicos do sistema, estas propriedades são específicas para o fornecedor de recursos, como o Azure Storage ou o Azure Event Hubs.
 
 Fontes do evento enviam eventos para a Azure Event Grid numa matriz, que pode ter vários objetos de eventos. Ao publicar eventos para um tópico de grelha de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização). Se um evento ou a matriz for maior do que os limites de tamanho, receberá a resposta **413 Payload Too Large**.
 
@@ -85,33 +85,33 @@ Todos os eventos têm os mesmos dados de alto nível:
 
 | Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | -------- | ----------- |
-| tópico | string | Não, mas se incluído, deve corresponder exatamente ao tópico da Grelha de Eventos Azure Resource Manager ID. Caso não seja incluído, a Grelha de Eventos irá carimbar no evento. | Caminho de recursos completos para a fonte do evento. Este campo não é reelegível. A Grelha de Eventos fornece este valor. |
-| subject | string | Sim | Caminho definido pela editora para o assunto do evento. |
-| eventType | string | Sim | Um dos tipos de eventos registados para esta fonte do evento. |
-| eventoTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| tópico | string | Não, mas se incluído, deve corresponder exatamente ao tópico da Grelha de Eventos Azure Resource Manager ID. Caso não seja incluído, a Grelha de Eventos irá carimbar no evento. | Caminho de recursos completos para a fonte do evento. Este campo não é reelegível. O Event Grid fornece este valor. |
+| Assunto | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Sim | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Sim | Identificador único para o evento. |
 | data | objeto | Não | Dados do evento específicos do fornecedor de recursos. |
-| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão esquema do objeto de dados. A editora define a versão do esquema. |
-| metadataVersion | string | Não é necessário, mas se incluído, deve coincidir com o Schema da Grelha de Eventos `metadataVersion` exatamente (atualmente, apenas `1`). Caso não seja incluído, a Grelha de Eventos irá carimbar no evento. | A versão de esquema dos metadados do evento. A Grelha de Eventos define o esquema das propriedades de alto nível. A Grelha de Eventos fornece este valor. |
+| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | Não é necessário, mas se incluído, deve coincidir `metadataVersion` exatamente com `1`o Event Grid Schema (atualmente, apenas). Caso não seja incluído, a Grelha de Eventos irá carimbar no evento. | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades do objeto de dados, consulte a fonte do evento:
 
 * [Assinaturas Azure (operações de gestão)](event-schema-subscriptions.md)
-* [Container Registry](event-schema-container-registry.md)
+* [Registo de Contentores](event-schema-container-registry.md)
 * [Armazenamento de blobs](event-schema-blob-storage.md)
-* [Hubs de Eventos](event-schema-event-hubs.md)
-* [Hub IoT](event-schema-iot-hub.md)
-* [Serviços de Multimédia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Hubs de eventos](event-schema-event-hubs.md)
+* [IoT Hub](event-schema-iot-hub.md)
+* [Serviços de Media](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gestão)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
-* [Sinal de Azure](event-schema-azure-signalr.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 * [Azure Machine Learning](event-schema-machine-learning.md)
 
 Para tópicos personalizados, a editora de eventos determina o objeto de dados. Os dados de alto nível devem ter os mesmos campos que os eventos definidos por recursos padrão.
 
-Ao publicar eventos para tópicos personalizados, crie temas para os seus eventos que facilitem aos assinantes saber se estão interessados no evento. Os assinantes usam o sujeito para filtrar e route events. Considere providenciar o caminho para onde o evento aconteceu, para que os assinantes possam filtrar por segmentos desse caminho. O caminho permite aos assinantes filtrar eventos de forma estreita ou ampla. Por exemplo, se fornecer um caminho de três segmentos como `/A/B/C` no assunto, os assinantes podem filtrar pelo primeiro segmento `/A` para obter um vasto conjunto de eventos. Esses subscritores recebem eventos com temas como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto mais restrito de eventos.
+Ao publicar eventos para tópicos personalizados, crie temas para os seus eventos que facilitem aos assinantes saber se estão interessados no evento. Os assinantes usam o sujeito para filtrar e route events. Considere providenciar o caminho para onde o evento aconteceu, para que os assinantes possam filtrar por segmentos desse caminho. O caminho permite aos assinantes filtrar eventos de forma estreita ou ampla. Por exemplo, se fornecer um `/A/B/C` caminho de três segmentos como no `/A` assunto, os assinantes podem filtrar pelo primeiro segmento para obter um vasto conjunto de eventos. Esses assinantes recebem eventos `/A/B/C` `/A/D/E`com temas como ou . Outros subscritores podem `/A/B` filtrar para obter um conjunto mais restrito de eventos.
 
-Às vezes, o seu assunto precisa de mais detalhes sobre o que aconteceu. Por exemplo, o editor de Contas de **Armazenamento** fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um ficheiro é adicionado a um recipiente. Um assinante poderia filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um assinante também pode filtrar ou fazer a rota pelo sufixo `.txt` trabalhar apenas com ficheiros de texto.
+Às vezes, o seu assunto precisa de mais detalhes sobre o que aconteceu. Por exemplo, o editor de Contas `/blobServices/default/containers/<container-name>/blobs/<file>` de **Armazenamento** fornece o assunto quando um ficheiro é adicionado a um recipiente. Um assinante poderia filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um assinante também pode filtrar ou `.txt` fazer a rota pelo sufixo para trabalhar apenas com ficheiros de texto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

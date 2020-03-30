@@ -1,5 +1,5 @@
 ---
-title: Consulta entre recursos com o Monitor Azure  Monitor De Adc) Microsoft Docs
+title: Consulta entre recursos com o Monitor Azure [ Monitor De Adc) Microsoft Docs
 description: Este artigo descreve como pode consultar recursos de vários espaços de trabalho e app App Insights na sua subscrição.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
 ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249610"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realizar consultas de registo de recursos cruzados no Monitor Azure  
@@ -27,7 +27,7 @@ Agora pode consultar não só vários espaços de trabalho do Log Analytics, mas
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consulta em espaços de trabalho log Analytics e a partir de Insights de Aplicação
-Para fazer referência a outro espaço de trabalho na sua consulta, utilize o identificador espaço de [*trabalho*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) e, para uma aplicação da Application Insights, utilize o identificador da [*aplicação.* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)  
+Para fazer referência a outro espaço de trabalho na sua consulta, utilize o identificador espaço de [*trabalho*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) e, para uma aplicação da Application Insights, utilize o identificador da [*aplicação.*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)  
 
 ### <a name="identifying-workspace-resources"></a>Identificação de recursos espaciais de trabalho
 Os exemplos seguintes demonstram consultas em espaços de trabalho da Log Analytics para devolver contagens resumidas de registos da tabela Update num espaço de trabalho chamado *contosoretail-it*. 
@@ -103,7 +103,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando consulta de recursos cruzados para vários recursos
 Ao utilizar consultas de recursos cruzados para correlacionar dados de vários espaços de trabalho do Log Analytics e recursos de Aplicação Insights, a consulta pode tornar-se complexa e difícil de manter. Deve aproveitar funções em consultas de [registo do Monitor Azure](functions.md) para separar a lógica de consulta da deteção dos recursos de consulta, o que simplifica a estrutura de consulta. O exemplo que se segue demonstra como pode monitorizar vários recursos do Application Insights e visualizar a contagem de pedidos falhados pelo nome da aplicação. 
 
-Criar uma consulta como a seguinte que referencia o âmbito dos recursos da Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome da aplicação que enviou o registo. [Guarde a consulta em função](functions.md#create-a-function) com as aplicações do _pseudónimoSS ._
+Criar uma consulta como a seguinte que referencia o âmbito dos recursos da Application Insights. O `withsource= SourceApp` comando adiciona uma coluna que designa o nome da aplicação que enviou o registo. [Guarde a consulta em função](functions.md#create-a-function) com as aplicações do _pseudónimoSS ._
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources

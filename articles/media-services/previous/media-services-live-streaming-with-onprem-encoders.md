@@ -1,5 +1,5 @@
 ---
-title: Stream live with in-premirs that create multibitrate streams - Azure  Microsoft Docs
+title: Stream live with in-premirs that create multibitrate streams - Azure [ Microsoft Docs
 description: Este tópico descreve como configurar um canal que recebe um live stream multibitrate a partir de um codificador no local.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251040"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem fluxo ao vivo multibitado a partir de codificadores no local
@@ -51,7 +51,7 @@ O diagrama seguinte representa um fluxo de trabalho em transmissão ao vivo que 
 
 ![Fluxo de trabalho em direto][live-overview]
 
-## <a id="scenario"></a>Cenário comum de streaming em direto
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de streaming em direto
 Os seguintes passos descrevem tarefas envolvidas na criação de aplicações comuns de streaming.
 
 1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador ao vivo no local que tenha um fluxo de RTMP multibitável ou MP4 fragmentado (Smooth Streaming) como saída. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).
@@ -83,9 +83,9 @@ Os seguintes passos descrevem tarefas envolvidas na criação de aplicações co
 
 10. Eliminar o programa (e excluir opcionalmente o ativo).     
 
-## <a id="channel"></a>Descrição de um canal e dos seus componentes conexos
-### <a id="channel_input"></a>Configurações de entrada de canal (ingestão)
-#### <a id="ingest_protocols"></a>Protocolo de streaming ingest
+## <a name="description-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descrição de um canal e dos seus componentes conexos
+### <a name="channel-input-ingest-configurations"></a><a id="channel_input"></a>Configurações de entrada de canal (ingestão)
+#### <a name="ingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocolo de streaming ingest
 A Media Services apoia a ingestão de feeds ao vivo utilizando mp4 fragmentados multibitados e RTMP multibitados como protocolos de streaming. Quando o protocolo de streaming de intenção RTMP é selecionado, são criados dois pontos finais de ingerir (entrada) para o canal:
 
 * **URL primário**: Especifica o URL totalmente qualificado do ponto final primário de ingestão RTMP do canal.
@@ -114,7 +114,7 @@ Pode obter os URLs ingerir quando criar o canal. Para obter estes URLs, o canal 
 
 Tem a opção de ingerir um fluxo ao vivo de MP4 fragmentado (Smooth Streaming) sobre uma ligação SSL. Para ingerir sobre o SSL, certifique-se de atualizar o URL ingerir para HTTPS. Atualmente, não pode ingerir RTMP sobre a SSL.
 
-#### <a id="keyframe_interval"></a>Intervalo do quadro de chaves
+#### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo do quadro de chaves
 Quando se está a utilizar um codificador ao vivo no local para gerar fluxo multibitado, o intervalo do quadro-chave especifica a duração do grupo de imagens (GOP) como utilizado por esse codificador externo. Depois de o canal receber este fluxo de entrada, pode entregar o seu live stream às aplicações de reprodução do cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming over HTTP (DASH) e HTTP Live Streaming (HLS). Quando se está a fazer streaming ao vivo, o HLS é sempre embalado dinamicamente. Por padrão, os Serviços de Media calculam automaticamente a relação de embalagem do segmento HLS (fragmentos por segmento) com base no intervalo do quadro-chave que é recebido do codificador ao vivo.
 
 O quadro seguinte mostra como a duração do segmento é calculada:
@@ -173,7 +173,7 @@ Para eliminar o conteúdo arquivado, pare e elimine o programa e, em seguida, el
 
 Mesmo depois de parar e apagar o programa, os utilizadores podem transmitir o seu conteúdo arquivado como um vídeo a pedido, até eliminar o ativo. Se pretender reter o conteúdo arquivado, mas não o tiver disponível para streaming, elimine o localizador de streaming.
 
-## <a id="states"></a>Estados do canal e faturação
+## <a name="channel-states-and-billing"></a><a id="states"></a>Estados do canal e faturação
 Os valores possíveis para o estado atual de um canal incluem:
 
 * **Stop**: Este é o estado inicial do canal após a sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas o streaming não é permitido.
@@ -187,11 +187,11 @@ A tabela que se segue mostra como os estados do canal mapeiam para o modo de fat
 | Estado do canal | Indicadores do Portal UI | Faturado? |
 | --- | --- | --- |
 | **Início** |**Início** |Não (estado transitório) |
-| **Correndo** |**Pronto** (sem programas de execução)<p><p>ou<p>**Streaming** (pelo menos um programa de execução) |Sim |
-| **Parar** |**Parar** |Não (estado transitório) |
-| **Parado** |**Parado** |Não |
+| **A executar** |**Pronto** (sem programas de execução)<p><p>ou<p>**Streaming** (pelo menos um programa de execução) |Sim |
+| **A parar** |**A parar** |Não (estado transitório) |
+| **Parada** |**Parada** |Não |
 
-## <a id="cc_and_ads"></a>Legendagem fechada e inserção de anúncios
+## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendagem fechada e inserção de anúncios
 A tabela seguinte demonstra normas suportadas para legendagem fechada e inserção de anúncios.
 
 | Standard | Notas |
@@ -200,7 +200,7 @@ A tabela seguinte demonstra normas suportadas para legendagem fechada e inserç�
 | TTML dentro de .ismt (faixas de texto de streaming suave) |A embalagem dinâmica dos Media Services permite aos seus clientes transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas dentro de .ismt (faixas de texto de streaming suave), pode entregar o stream apenas a clientes De Streaming Suave. |
 | SCTE-35 |O SCTE-35 é um sistema de sinalização digital que é usado para evitar a inserção publicitária. Os recetores a jusante utilizam o sinal para encaixar a publicidade no fluxo durante o tempo atribuído. O SCTE-35 deve ser enviado como uma faixa escassa no fluxo de entrada.<p><p>Atualmente, o único formato de fluxo de entrada suportado que transporta sinais de anúncio é mp4 fragmentado (Smooth Streaming). O único formato de saída suportado é também o Smooth Streaming. |
 
-## <a id="considerations"></a>Considerações
+## <a name="considerations"></a><a id="considerations"></a>Considerações
 Quando se está a usar um codificador ao vivo no local para enviar um fluxo multibitado para um canal, aplicam-se os seguintes constrangimentos:
 
 * Certifique-se de que tem conectividade gratuita com a Internet para enviar dados para os pontos ingerir.

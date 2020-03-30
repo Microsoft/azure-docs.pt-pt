@@ -1,6 +1,6 @@
 ---
-title: Saída do Azure Stream Analytics ao Azure Cosmos DB
-description: Este artigo descreve como utilizar o Azure Stream Analytics para guardar a saída para o Azure Cosmos DB para a saída JSON, para o arquivo de dados e consultas de baixa latência nos dados não estruturados de JSON.
+title: Saída de Azure Stream Analytics para Azure Cosmos DB
+description: Este artigo descreve como usar o Azure Stream Analytics para economizar saída para o Azure Cosmos DB para a saída jSON, para arquivamento de dados e consultas de baixa latência em dados JSON não estruturados.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254446"
 ---
-# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics ao Azure Cosmos DB  
-O Azure Stream Analytics pode visar [o Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída jSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas das melhores práticas para implementar esta configuração.
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída de Azure Stream Analytics para Azure Cosmos DB  
+O Azure Stream Analytics pode visar [o Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída jSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para implementar esta configuração.
 
 Se não está familiarizado com o Azure Cosmos DB, consulte a [documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para começar. 
 
 > [!Note]
 > Neste momento, o Stream Analytics suporta a ligação ao Azure Cosmos DB apenas através da *API SQL*.
-> Outras APIs do Azure Cosmos DB ainda não são suportados. Se apontar o Stream Analytics para as contas DO BD da Azure Cosmos criadas com outras APIs, os dados podem não estar devidamente armazenados. 
+> Outras APIs DB da Azure Cosmos ainda não são apoiadas. Se apontar o Stream Analytics para as contas DO BD da Azure Cosmos criadas com outras APIs, os dados podem não estar devidamente armazenados. 
 
 ## <a name="basics-of-azure-cosmos-db-as-an-output-target"></a>Básicos de Azure Cosmos DB como alvo de saída
 A saída do Azure Cosmos DB no Stream Analytics permite escrever os resultados do processamento de fluxo à medida que a JSON produz nos seus recipientes Azure Cosmos DB. 
@@ -37,13 +37,13 @@ As secções seguintes detalham algumas das opções de contentores para o Azure
 ## <a name="tuning-consistency-availability-and-latency"></a>Consistência de afinação, disponibilidade e latência
 Para corresponder aos seus requisitos de aplicação, o Azure Cosmos DB permite-lhe afinar a base de dados e os contentores e fazer trocas entre consistência, disponibilidade, latência e saída. 
 
-Dependendo do que níveis de consistência de leitura suas necessidades de cenário em relação a ler e escrever a latência, que pode escolher um nível de consistência na sua conta de base de dados. Pode melhorar a entrada através da escala das Unidades de Pedido (RUs) no recipiente. 
+Dependendo dos níveis de consistência de leitura que o seu cenário necessita contra a leitura e a latência, pode escolher um nível de consistência na sua conta de base de dados. Pode melhorar a entrada através da escala das Unidades de Pedido (RUs) no recipiente. 
 
 Também por padrão, o Azure Cosmos DB permite indexação sincronizada em cada operação CRUD ao seu recipiente. Esta é outra opção útil para controlar o desempenho de escrita/leitura em Azure Cosmos DB. 
 
 Para mais informações, reveja o artigo Alterar a sua base de dados e consultar os níveis de [consistência.](../cosmos-db/consistency-levels.md)
 
-## <a name="upserts-from-stream-analytics"></a>Upserts do Stream Analytics
+## <a name="upserts-from-stream-analytics"></a>Upserts de Stream Analytics
 A integração do Stream Analytics com o Azure Cosmos DB permite-lhe inserir ou atualizar registos no seu recipiente com base numa dada coluna **de ID de documento.** Isto também é chamado *de upsert*.
 
 Stream Analytics usa uma abordagem otimista de upsert. As atualizações só acontecem quando uma inserção falha com um conflito de identificação de documentos. 
@@ -112,8 +112,8 @@ A utilização do Azure Cosmos DB como uma saída no Stream Analytics gera o seg
 |ID da Conta      | O nome ou ponto final URI da conta Azure Cosmos DB.|
 |Chave de conta     | A chave de acesso partilhado para a conta Azure Cosmos DB.|
 |Base de Dados        | O nome da base de dados Azure Cosmos DB.|
-|Nome do contentor | O nome do recipiente, como `MyContainer`. Um contentor chamado `MyContainer` deve existir.  |
-|ID do documento     | Opcional. O nome da coluna em eventos de saída utilizado como a chave exclusiva no qual inserção ou atualização de operações devem basear-se. Se o deixar vazio, todos os eventos serão inseridos, sem opção de atualização.|
+|Nome do contentor | O nome do `MyContainer`recipiente, como . Um contentor `MyContainer` chamado deve existir.  |
+|Id documento     | Opcional. O nome da coluna em eventos de saída utilizados como chave única na qual devem ser baseadas as operações de inserção ou atualização. Se o deixar vazio, todos os eventos serão inseridos, sem opção de atualização.|
 
 Depois de configurar a saída Do Azure Cosmos DB, pode usá-la na consulta como alvo de uma [declaração EM](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Quando se está a usar uma saída De DB Azure Cosmos dessa forma, uma chave de [partição tem de ser definida explicitamente.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks) 
 

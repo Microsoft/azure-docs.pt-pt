@@ -1,5 +1,5 @@
 ---
-title: Criar e utilizar políticas de password sintetizar em Serviços de Domínio Azure AD  Microsoft Docs
+title: Criar e utilizar políticas de password sintetizar em Serviços de Domínio Azure AD [ Microsoft Docs
 description: Saiba como e porquê usar políticas de senha de grão fino para proteger e controlar as palavras-passe da conta num domínio gerido pelo Azure AD DS.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613192"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de passwords e contas em domínios geridos
@@ -94,7 +94,7 @@ Para criar uma política de senha personalizada, utilize as Ferramentas Administ
 
     ![Criar uma política de senha no Centro Administrativo de Diretório Ativo](./media/password-policy/create-password-policy-adac.png)
 
-1. No painel **Tarefas** à direita, selecione **Definições de Nova > Password**.
+1. No painel **'Tarefas'** à direita, selecione **Definições de palavra-passe de nova >**.
 1. No diálogo **'Definições de Definições de Escolha',** introduza um nome para a apólice, como *MyCustomFGPP*.
 1. Quando existem várias políticas de senha, a política com a maior precedência, ou prioridade, é aplicada a um utilizador. Quanto menor o número, maior a prioridade. A política de senha padrão tem uma prioridade de *200*.
 

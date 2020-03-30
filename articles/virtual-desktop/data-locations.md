@@ -9,10 +9,10 @@ ms.date: 09/27/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5f48586f38c310c77c61f470d3e2fbc819c33f71
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128051"
 ---
 # <a name="data-locations-for-windows-virtual-desktop"></a>Localizações de dados para Windows Virtual Desktop

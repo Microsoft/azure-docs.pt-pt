@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250078"
 ---
-# <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir a interface de rede para o Azure Windows VM 
+# <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como repor a interface de rede da VM do Windows no Azure 
 
 Este artigo mostra como redefinir a interface de rede para o Azure Windows VM para resolver problemas quando não é possível ligar-se à Microsoft Azure Windows Virtual Machine (VM) depois:
 
@@ -28,11 +28,11 @@ Este artigo mostra como redefinir a interface de rede para o Azure Windows VM pa
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## <a name="reset-network-interface"></a>Repor a interface de rede
+## <a name="reset-network-interface"></a>Redefinir interface de rede
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Para VMs implantados no modelo de grupo de recursos
 
-1.  Aceda ao [Portal do Azure](https://ms.portal.azure.com).
+1.  Vá ao [portal Azure.](https://ms.portal.azure.com)
 2.  Selecione a Máquina Virtual afetada.
 3.  Selecione **Networking** e, em seguida, selecione a interface de rede do VM.
 
@@ -78,8 +78,8 @@ Para redefinir a interface da rede, siga estes passos:
 
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
-1.  Aceda ao [Portal do Azure]( https://ms.portal.azure.com).
-2.  Selecione **Máquinas Virtuais (Clássica)** .
+1.  Vá ao [portal Azure.]( https://ms.portal.azure.com)
+2.  Selecione **Máquinas Virtuais (Clássica)**.
 3.  Selecione a Máquina Virtual afetada.
 4.  Selecione **endereços IP**.
 5.  Se a **atribuição de IP privada** não for **estática,** mude-a para **Estática**.
@@ -116,7 +116,7 @@ Para redefinir a interface da rede, siga estes passos:
 ## <a name="delete-the-unavailable-nics"></a>Eliminar os NICs indisponíveis
 Depois de poder fazer um ambiente de trabalho remoto à máquina, tem de eliminar os NICs antigos para evitar o problema potencial:
 
-1.  Gestor de dispositivos abertos.
+1.  Abra o Gestor de Dispositivos.
 2.  Selecione **Ver** > **Mostrar dispositivos ocultos**.
 3.  Selecione **Adaptadores de Rede**. 
 4.  Verifique se os adaptadores nomeados como "Adaptador de Rede Hiper-V da Microsoft".

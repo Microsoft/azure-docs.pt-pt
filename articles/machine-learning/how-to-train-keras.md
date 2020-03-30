@@ -12,10 +12,10 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269968"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Treine e registe um modelo de classificação Keras com Azure Machine Learning
@@ -36,13 +36,13 @@ Execute este código em qualquer um destes ambientes:
 - Instância computacional Azure Machine Learning - sem downloads ou instalação necessária
 
      - Complete o [Tutorial: Ambiente de configuração e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de portátil dedicado pré-carregado com o SDK e o repositório de amostras.
-    - Na pasta de amostras no servidor de cadernos, encontre um caderno completo e expandido navegando para este diretório: **como usar-azureml > treino-com-deep-learning > pasta de metrímetro-metímetro-tune-deploy-with-keras.**
+    - Na pasta de amostras no servidor de cadernos, encontre um caderno completo e expandido navegando para este diretório: **como usar-azureml > treino-com-aprendizagem profunda > pasta de metímetro-hiperparametro-implantada-com-keras.**
 
  - O seu próprio servidor jupyter Notebook
 
     - [Instale o SDK de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - Criar um ficheiro de [configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
-    - [Descarregue os ficheiros](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) de script da amostra `mnist-keras.py` e `utils.py`
+    - [Descarregue os ficheiros](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` de script da amostra e`utils.py`
 
     Também pode encontrar uma versão completa do [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) deste guia na página de amostras gitHub. O caderno inclui secções expandidas que cobrem a finação inteligente do hiperparâmetro, a implementação do modelo e widgets de caderno.
 
@@ -65,9 +65,9 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um objeto [`workspace`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)
+O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Proporciona-lhe um lugar centralizado para trabalhar com todos os artefactos que cria. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objeto.
 
-Crie um objeto espaço de trabalho a partir do ficheiro `config.json` criado na [secção pré-requisitos](#prerequisites).
+Crie um objeto `config.json` espaço de trabalho a partir do ficheiro criado na [secção pré-requisitos](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -84,7 +84,7 @@ exp = Experiment(workspace=ws, name='keras-mnist')
 <a name="data-upload"></a>
 ### <a name="create-a-file-dataset"></a>Criar um conjunto de dados de ficheiros
 
-Um `FileDataset` objeto refere um ou vários ficheiros na sua loja de dados do espaço de trabalho ou urls públicos. Os ficheiros podem ser de qualquer formato, e a classe fornece-lhe a capacidade de descarregar ou montar os ficheiros para a sua computação. Ao criar um `FileDataset`, cria-se uma referência à localização da fonte de dados. Se aplicar quaisquer transformações no conjunto de dados, também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido nenhum custo extra de armazenamento. Consulte o guia como [orientar](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) o pacote `Dataset` para obter mais informações.
+Um `FileDataset` objeto faz referência a um ou vários ficheiros na sua loja de dados do espaço de trabalho ou urls públicos. Os ficheiros podem ser de qualquer formato, e a classe fornece-lhe a capacidade de descarregar ou montar os ficheiros para a sua computação. Ao criar `FileDataset`um, cria-se uma referência à localização da fonte de dados. Se aplicar quaisquer transformações no conjunto de dados, também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido nenhum custo extra de armazenamento. Consulte o guia [como](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) `Dataset` orientar o pacote para mais informações.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -98,7 +98,7 @@ web_paths = [
 dataset = Dataset.File.from_files(path=web_paths)
 ```
 
-Utilize o método `register()` para registar o conjunto de dados no seu espaço de trabalho para que possam ser partilhados com outros, reutilizados em várias experiências, e referidos pelo nome no seu script de treino.
+Utilize `register()` o método para registar o conjunto de dados no seu espaço de trabalho para que possam ser partilhados com outros, reutilizados em várias experiências, e referidos pelo nome no seu script de treino.
 
 ```python
 dataset = dataset.register(workspace=ws,
@@ -107,7 +107,7 @@ dataset = dataset.register(workspace=ws,
                            create_new_version=True)
 ```
 
-## <a name="create-a-compute-target"></a>Criar um destino de computação
+## <a name="create-a-compute-target"></a>Criar um alvo de computação
 
 Crie um alvo de cálculo para o seu trabalho tensorFlow para continuar. Neste exemplo, crie um cluster de computação azure machine learning ativado por GPU.
 
@@ -131,9 +131,9 @@ Para obter mais informações sobre os alvos da computação, consulte o [que é
 
 ## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Crie um estimador TensorFlow e importe Keras
 
-O [estimador TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornece uma forma simples de lançar trabalhos de formação TensorFlow no alvo da computação. Uma vez que keras corre em cima do TensorFlow, você pode usar o estimador TensorFlow e importar a biblioteca Keras usando o argumento `pip_packages`.
+O [estimador TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornece uma forma simples de lançar trabalhos de formação TensorFlow no alvo da computação. Uma vez que keras corre em cima do TensorFlow, você pode usar o `pip_packages` estimador TensorFlow e importar a biblioteca Keras usando o argumento.
 
-Primeiro obtenha os dados da loja de dados do espaço de trabalho usando a classe `Dataset`.
+Primeiro obtenha os dados da loja `Dataset` de dados do espaço de trabalho usando a classe.
 
 ```python
 dataset = Dataset.get_by_name(ws, 'mnist dataset')
@@ -142,7 +142,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-O estimador TensorFlow é implementado através da classe [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) genérica, que pode ser usada para suportar qualquer enquadramento. Além disso, crie um dicionário `script_params` que contenha as definições do hiperparâmetro DNN. Para obter mais informações sobre modelos de formação utilizando o estimador genérico, consulte modelos de [comboio com Machine Learning Azure utilizando estimador](how-to-train-ml-models.md)
+O estimador TensorFlow é implementado [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) através da classe genérica, que pode ser usada para suportar qualquer enquadramento. Além disso, crie um dicionário `script_params` que contenha as definições do hiperparâmetro DNN. Para obter mais informações sobre modelos de formação utilizando o estimador genérico, consulte modelos de [comboio com Machine Learning Azure utilizando estimador](how-to-train-ml-models.md)
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -182,7 +182,7 @@ run.wait_for_completion(show_output=True)
 
 - **Pós-Processamento**: A pasta ./saídas do executo é copiada para o histórico de execução.
 
-## <a name="register-the-model"></a>Registe o modelo
+## <a name="register-the-model"></a>Registar o modelo
 
 Depois de ter treinado o modelo DNN, pode registá-lo no seu espaço de trabalho. O registo do modelo permite-lhe armazenar e verver os seus modelos no seu espaço de trabalho para simplificar a [gestão e implementação](concept-model-management-and-deployment.md)de modelos.
 
@@ -193,7 +193,7 @@ model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/mod
 > [!TIP]
 > O modelo que acabou de registar é implementado da mesma forma que qualquer outro modelo registado no Azure Machine Learning, independentemente do estimador utilizado para treinar. O modo de implementação contém uma secção sobre modelos de registo, mas pode saltar diretamente para [criar um alvo de computação](how-to-deploy-and-where.md#choose-a-compute-target) para implementação, uma vez que já tem um modelo registado.
 
-Também pode descarregar uma cópia local do modelo. Isto pode ser útil para fazer trabalhos adicionais de validação de modelos localmente. No roteiro de treino, `mnist-keras.py`, um objeto de poupança TensorFlow persiste o modelo para uma pasta local (local para o alvo da computação). Pode utilizar o objeto Executar para descarregar uma cópia da datastore.
+Também pode descarregar uma cópia local do modelo. Isto pode ser útil para fazer trabalhos adicionais de validação de modelos localmente. No script de `mnist-keras.py`treino, um objeto de poupança TensorFlow persiste o modelo para uma pasta local (local para o alvo da computação). Pode utilizar o objeto Executar para descarregar uma cópia da datastore.
 
 ```Python
 # Create a model folder in the current directory
@@ -213,6 +213,6 @@ Neste artigo, treinou e registou um modelo Keras no Azure Machine Learning. Para
 > [!div class="nextstepaction"]
 > [Como e onde implementar modelos](how-to-deploy-and-where.md)
 * [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
-* [Hiperparâmetros de melodia](how-to-tune-hyperparameters.md)
+* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)
 * [Arquitetura de referência para formação distribuída de aprendizagem profunda em Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

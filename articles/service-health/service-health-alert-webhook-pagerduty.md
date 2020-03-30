@@ -4,10 +4,10 @@ description: Obtenha notificações personalizadas sobre eventos de saúde de se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654074"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envie alertas de saúde de serviço Azure com PagerDuty usando webhooks
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
     a. **Tipo de integração**: Microsoft Azure
 
-    b. **Nome de Integração**: \<Nome\>
+    b. **Nome de integração**: \<Nome\>
 
     ![As "Definições de Integração" no PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -80,7 +80,7 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
     BODY        <service health payload>
     ```
-1. Deve receber um `202 Accepted` com uma mensagem que contenha o seu "ID do evento".
+1. Deve receber `202 Accepted` um com uma mensagem contendo o seu "ID do evento".
 
 1. Vá ao [PagerDuty](https://www.pagerduty.com/) para confirmar que a sua integração foi criada com sucesso.
 

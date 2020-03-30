@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a24a557cb436f18252abd88a4c82f15004f4390
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522055"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454538"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizar o fornecimento e o desprovisionamento de utilizadores a aplicações com o Diretório Ativo da Azure
 
@@ -59,7 +59,7 @@ O fornecimento de utilizadores da AD Azure pode ajudar a enfrentar estes desafio
 
 A Azure AD dispõe de suporte pré-integrado para muitas aplicações populares do SaaS e sistemas de recursos humanos, e suporte genérico para apps que implementam partes específicas da [norma SCIM 2.0.](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)
 
-* **Aplicações pré-integradas (apps galeria SaaS)** . Pode encontrar todas as aplicações para as quais a Azure AD suporta um conector de provisionamento pré-integrado na [lista de tutoriais de aplicações para o fornecimento](../saas-apps/tutorial-list.md)de utilizadores. As aplicações pré-integradas listadas na galeria utilizam geralmente APIs de gestão de utilizadores baseados no SCIM 2.0 para o fornecimento. 
+* **Aplicações pré-integradas (apps galeria SaaS)**. Pode encontrar todas as aplicações para as quais a Azure AD suporta um conector de provisionamento pré-integrado na [lista de tutoriais de aplicações para o fornecimento](../saas-apps/tutorial-list.md)de utilizadores. As aplicações pré-integradas listadas na galeria utilizam geralmente APIs de gestão de utilizadores baseados no SCIM 2.0 para o fornecimento. 
 
    ![Logotipo da Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
@@ -73,7 +73,7 @@ Para ajudar a automatizar o fornecimento e o deprovisionamento, as aplicações 
 
 Para responder a estes desafios, a especificação SCIM fornece um esquema comum de utilizador para ajudar os utilizadores a moverem-se para dentro, para fora e em torno de apps. O SCIM está a tornar-se a norma de facto para o provisionamento e, quando utilizado em conjunto com normas da federação como a SAML ou a OpenID Connect, fornece aos administradores uma solução baseada em normas de ponta a ponta para a gestão do acesso.
 
-Para obter orientações pormenorizadas sobre a utilização do SCIM para automatizar o fornecimento e o deprovisionamento de utilizadores e grupos a uma aplicação, consulte [construir um ponto final sCIM e configurar o fornecimento](use-scim-to-provision-users-and-groups.md)de utilizadores.
+Para obter orientações pormenorizadas sobre o desenvolvimento de um ponto final do SCIM para automatizar o fornecimento e o deprovisionamento de utilizadores e grupos a uma aplicação, consulte [construir um ponto final do SCIM e configurar o fornecimento](use-scim-to-provision-users-and-groups.md)de utilizadores. Para aplicações pré-integradas na galeria (Slack, Azure Databricks, Snowflake, etc.), pode ignorar a documentação do desenvolvedor e utilizar os tutoriais [aqui](../saas-apps/tutorial-list.md)fornecidos .
 
 ## <a name="manual-vs-automatic-provisioning"></a>Aprovisionamento manual vs. automático
 

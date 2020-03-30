@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250403"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou VHD
+# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>How to create an image of a virtual machine or VHD (Como criar uma imagem a partir de uma máquina virtual ou de um VHD).
 
 Para criar várias cópias de uma máquina virtual (VM) para utilização em Azure, capture uma imagem do VM ou do VHD osS. Para criar uma imagem para implementação, terá de remover informações pessoais da conta. Nos seguintes passos, você desprovisiona um VM existente, desaloca-lo e criar uma imagem. Pode utilizar esta imagem para criar VMs em qualquer grupo de recursos dentro da sua subscrição.
 
@@ -33,7 +33,7 @@ Para uma versão simplificada deste artigo, e para testar, avaliar ou aprender s
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Passo 1: Desprovisionamento do VM
-Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize o comando `waagent` com o parâmetro `-deprovision+user` na sua fonte Linux VM. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
+Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize `waagent` o comando `-deprovision+user` com o parâmetro na sua fonte Linux VM. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
 
 1. Ligue-se ao seu VM Linux com um cliente SSH.
 2. Na janela SSH, insira o seguinte comando:
@@ -42,9 +42,9 @@ Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar fichei
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Só executa este comando num VM que vai capturar como imagem. Este comando não garante que a imagem seja desmarcada de todas as informações sensíveis ou seja adequada para redistribuição. O parâmetro `+user` também remove a última conta de utilizador provisionada. Para manter as credenciais de conta de utilizador no VM, utilize apenas `-deprovision`.
+   > Só executa este comando num VM que vai capturar como imagem. Este comando não garante que a imagem seja desmarcada de todas as informações sensíveis ou seja adequada para redistribuição. O `+user` parâmetro também remove a última conta de utilizador provisionada. Para manter as credenciais de conta `-deprovision`de utilizador no VM, utilize apenas .
  
-3. Insira **y** para continuar. Pode adicionar o parâmetro `-force` para evitar este passo de confirmação.
+3. Insira **y** para continuar. Pode adicionar `-force` o parâmetro para evitar este passo de confirmação.
 4. Depois de o comando estar concluído, introduza a **saída** para fechar o cliente SSH.  O VM ainda estará a funcionar neste momento.
 
 ## <a name="step-2-create-vm-image"></a>Passo 2: Criar imagem VM
@@ -81,7 +81,7 @@ Utilize o AZURE CLI para marcar o VM como generalizado e capturar a imagem. Nos 
    > [!NOTE]
    > A imagem é criada no mesmo grupo de recursos que a sua fonte VM. Pode criar VMs em qualquer grupo de recursos dentro da sua subscrição a partir desta imagem. Do ponto de vista da gestão, poderá querer criar um grupo de recursos específico sintetizada para os seus recursos e imagens VM.
    >
-   > Se você gostaria de armazenar sua imagem em armazenamento resiliente de zona, você precisa criá-la em uma região que suporta zonas de [disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro `--zone-resilient true`.
+   > Se você gostaria de armazenar sua imagem em armazenamento resiliente de zona, você precisa criá-la em uma região que suporta zonas de [disponibilidade](../../availability-zones/az-overview.md) e incluir o `--zone-resilient true` parâmetro.
    
 Este comando devolve a JSON que descreve a imagem VM. Guarde esta saída para referência posterior.
 
@@ -130,7 +130,7 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode criar vários VMs a partir da sua imagem VM fonte. Para fazer alterações na sua imagem: 
 
 - Crie um VM a partir da sua imagem.

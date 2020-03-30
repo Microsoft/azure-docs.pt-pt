@@ -4,10 +4,10 @@ description: Automatizar a configuração do Azure Diagnostics para canalizar da
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669808"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Usando a PowerShell para configurar insights de aplicação para serviços de nuvem azure
@@ -35,7 +35,7 @@ Se a aplicação Web estiver no Azure e criar os seus recursos através de um mo
      } 
 
 * `nameOfAIAppResource` – um nome para o recurso do Application Insights
-* `myWebAppName` - a identificação da aplicação web
+* `myWebAppName`- a identificação da aplicação web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Ativar a extensão de diagnóstico como parte da implementação de um Serviço Cloud
 O cmdlet `New-AzureDeployment` tem um parâmetro `ExtensionConfiguration`, que assume uma matriz de configurações de diagnóstico. Estas configurações podem ser criadas com o cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Por exemplo:
@@ -126,7 +126,7 @@ Para remover a extensão de diagnóstico de cada função individual:
 
 
 ## <a name="see-also"></a>Consulte também
-* [Monitor Azure Cloud Services apps with Application Insights (Monitorizar aplicações Serviços Cloud do Azure com o Application Insights)](../../azure-monitor/app/cloudservices.md)
-* [Send Azure Diagnostics to Application Insights (Enviar o Diagnóstico do Azure para o Application Insights)](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Automate configuring alerts (Automatizar alertas de configuração)](powershell-alerts.md)
+* [Monitorizar aplicações Cloud Services do Azure com o Application Insights](../../azure-monitor/app/cloudservices.md)
+* [Enviar o Diagnóstico do Azure ao Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+* [Automatizar alertas de configuração](powershell-alerts.md)
 

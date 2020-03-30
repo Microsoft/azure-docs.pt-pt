@@ -4,17 +4,17 @@ description: Comece a monitorizar uma nova aplicação com uma nova chave de ins
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671448"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorize um site do SharePoint com o Application Insights
 O Azure Application Insights monitoriza a disponibilidade, o desempenho e a utilização das suas aplicações. Aqui, irá aprender a configurá-lo para um site do SharePoint.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
-No [Portal do Azure](https://portal.azure.com), crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicação.
+No [Portal do Azure](https://portal.azure.com), crie um recurso do Application Insights novo. Escolha ASP.NET como o tipo de aplicação.
 
 ![Clicar em Propriedades, selecionar a chave e premir Ctrl+C](./media/sharepoint/001.png)
 
@@ -39,7 +39,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Insira o script pouco antes da etiqueta &lt;/cabeça&gt; de cada página que quiser seguir. Se o seu site tiver uma página principal, pode colocar o script lá. Por exemplo, num projeto de MVC do ASP.NET, colocaria em View\Shared\_Layout.cshtml
+Insira o &lt;script&gt; pouco antes da etiqueta /cabeça de cada página que quiser seguir. Se o seu site tiver uma página principal, pode colocar o script lá. Por exemplo, num projeto de MVC do ASP.NET, colocaria em View\Shared\_Layout.cshtml
 
 O script contém a chave de instrumentação que direciona a telemetria para o recurso do Application Insights.
 

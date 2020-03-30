@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082885"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
@@ -95,7 +95,7 @@ Em alguns casos, a lentidão pode ocorrer devido ao baixo espaço do disco no cl
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Reveja a saída e verifique se existem ficheiros grandes na pasta `mnt` ou outras pastas. Tipicamente, as pastas `usercache`, e `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) contêm ficheiros grandes.
+1. Reveja a saída e verifique se existem `mnt` ficheiros grandes na pasta ou noutras pastas. Tipicamente, `usercache`as `appcache` pastas , e (mnt/resource/hadoop/fio/local/usercache/hive/appcache/) contêm ficheiros grandes.
 
 1. Se houver ficheiros grandes, ou um trabalho atual está a causar o crescimento do ficheiro ou um trabalho anterior falhado pode ter contribuído para esta questão. Para verificar se este comportamento é causado por um trabalho atual, executar o seguinte comando:
 
@@ -109,7 +109,7 @@ Em alguns casos, a lentidão pode ocorrer devido ao baixo espaço do disco no cl
     yarn application -kill -applicationId <application_id>
     ```
 
-    Substitua `application_id` com o ID da aplicação. Se não forem indicados empregos específicos, vá para o próximo passo.
+    Substitua-a `application_id` com o ID da aplicação. Se não forem indicados empregos específicos, vá para o próximo passo.
 
 1. Depois de o comando acima estar concluído, ou se não forem indicados trabalhos específicos, elimine os ficheiros grandes que identificou com um comando que se assemelhe ao seguinte:
 

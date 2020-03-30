@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
 ms.openlocfilehash: 66676c90e73d1886c86d8afda8cbbecce239a005
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259529"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Boas práticas para os desenvolvedores de aplicações gerirem recursos no Serviço Azure Kubernetes (AKS)
 
 À medida que desenvolve e executa aplicações no Serviço Azure Kubernetes (AKS), existem algumas áreas-chave a considerar. A forma como gere as implementações da sua aplicação pode ter um impacto negativo na experiência de utilizador final dos serviços que fornece. Para ajudá-lo a ter sucesso, tenha em mente algumas boas práticas que pode seguir à medida que desenvolve e executa aplicações em AKS.
 
-Este artigo de boas práticas foca-se em como executar o seu cluster e cargas de trabalho do ponto de vista do desenvolvedor de aplicações. Para obter informações sobre as melhores práticas administrativas, consulte [as melhores práticas do operador do Cluster para o isolamento e gestão de recursos no Serviço Azure Kubernetes (AKS)][operator-best-practices-isolation]. Neste artigo, vai aprender:
+Este artigo de boas práticas foca-se em como executar o seu cluster e cargas de trabalho do ponto de vista do desenvolvedor de aplicações. Para obter informações sobre as melhores práticas administrativas, consulte [as melhores práticas do operador do Cluster para o isolamento e gestão de recursos no Serviço Azure Kubernetes (AKS)][operator-best-practices-isolation]. Neste artigo, aprende-se:
 
 > [!div class="checklist"]
 > * Quais são os pedidos e limites de recursos da cápsula
 > * Formas de desenvolver e implementar aplicações com Dev Spaces e Visual Studio Code
-> * Como utilizar a ferramenta `kube-advisor` para verificar se há problemas com implementações
+> * Como utilizar `kube-advisor` a ferramenta para verificar se há problemas com implementações
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definir pedidos e limites de recursos da cápsula
 
@@ -93,21 +93,21 @@ A [extensão do Código do Estúdio Visual para Kubernetes][vscode-kubernetes] a
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Verifique regularmente se há problemas de candidatura com kube-advisor
 
-**Orientação** de boas práticas - Executar regularmente a versão mais recente de `kube-advisor` ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster AKS existente, faça `kube-advisor` primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
+**Orientação** de boas práticas - `kube-advisor` Executar regularmente a versão mais recente da ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster `kube-advisor` AKS existente, corra primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
 
 A ferramenta [kube-advisor][kube-advisor] é um projeto de código aberto AKS associado que digitaliza um cluster Kubernetes e reporta sobre questões que encontra. Uma verificação útil é identificar cápsulas que não têm pedidos de recursos e limites no lugar.
 
 A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites em falta em PodSpecs para aplicações Windows, bem como aplicações Linux, mas a própria ferramenta de kube-advisor deve ser agendada num casulo Linux. Você pode agendar uma cápsula para correr em uma piscina de nó com um SISTEMA específico usando um [seletor][k8s-node-selector] de nó na configuração do casulo.
 
-Num cluster AKS que acolhe muitas equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, executa regularmente `kube-advisor` nos seus clusters AKS.
+Num cluster AKS que acolhe muitas equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, `kube-advisor` corra regularmente nos seus clusters AKS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo de boas práticas focou-se em como executar o seu cluster e cargas de trabalho do ponto de vista do operador de cluster. Para obter informações sobre as melhores práticas administrativas, consulte [as melhores práticas do operador do Cluster para o isolamento e gestão de recursos no Serviço Azure Kubernetes (AKS)][operator-best-practices-isolation].
 
 Para implementar algumas destas melhores práticas, consulte os seguintes artigos:
 
-* [Desenvolver com Espaços Dev][dev-spaces]
+* [Desenvolver com os Espaços de Programador][dev-spaces]
 * [Verifique se há problemas com kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->

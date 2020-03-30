@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209453"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilize o registo de diagnósticos de diagnóstico de desempenho da Base de Dados Smart Insights Azure SQL
@@ -80,11 +80,11 @@ Dependendo do problema de desempenho detetado, os detalhes obtidos no ficheiro d
 | Atingir limites de recursos | <li>Recursos afetados</li><li>Hashes de consulta</li><li>Percentagem de consumo de recursos</li> |
 | Aumento da carga de trabalho | <li>Número de consultas cuja execução aumentou</li><li>Consultas de consultas com maior contribuição para o aumento da carga de trabalho</li> |
 | Pressão da Memória | <li>Escriturário de memória</li> |
-| Bloqueio | <li>Hashes de consulta afetada</li><li>Bloqueio de hashes de consulta</li> |
+| Bloquear | <li>Hashes de consulta afetada</li><li>Bloqueio de hashes de consulta</li> |
 | MAXDOP aumentado | <li>Hashes de consulta</li><li>Tempos de espera CXP</li><li>Tempos de espera</li> |
 | Contenção pagelatch | <li>Hashes de consultas de consulta causando contenção</li> |
 | Índice em falta | <li>Hashes de consulta</li> |
-| Nova Consulta | <li>Hash de consulta das novas consultas</li> |
+| New Query | <li>Hash de consulta das novas consultas</li> |
 | Estatística de espera incomum | <li>Tipos de espera incomuns</li><li>Hashes de consulta</li><li>Tempos de espera de consulta</li> |
 | Contenção TempDB | <li>Hashes de consultas de consulta causando contenção</li><li>Atribuição de consulta à base de dados geral pagelatch tempo de espera [%]</li> |
 | Escassez de DTU da piscina elástica | <li>Conjunto elástico</li><li>Base de dados de topo consumista dTU</li><li>Por cento da piscina DTU usada pelo consumidor de topo</li> |

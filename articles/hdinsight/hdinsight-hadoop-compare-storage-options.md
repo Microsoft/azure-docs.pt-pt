@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79095542"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare opções de armazenamento para uso com clusters Azure HDInsight
@@ -28,10 +28,10 @@ A tabela que se segue resume os serviços de Armazenamento Azure que são suport
 
 | Serviço de armazenamento | Tipo de conta | Tipo de espaço de nome | Serviços suportados | Níveis de desempenho suportados | Níveis de acesso suportados | Versão HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
-|Armazenamento do Azure Data Lake Ger2| V2 de uso geral | Hierárquico (sistema de ficheiros) | Blobs | Standard | Hot, Cool, Archive | 3.6 + | Todos exceto o Spark 2.1 e 2.2|
-|Storage do Azure| V2 de uso geral | Object | Blobs | Standard | Hot, Cool, Archive | 3.6 + | Todos |
-|Storage do Azure| V1 de uso geral | Object | Blobs | Standard | N/D | Todos | Todos |
-|Storage do Azure| Armazenamento Blob** | Object | Bloco Blob | Standard | Hot, Cool, Archive | Todos | Todos |
+|Armazenamento do Azure Data Lake Ger2| V2 de uso geral | Hierárquico (sistema de ficheiros) | Blobs | Standard | Hot, Cool, Archive | 3.6+ | Todos exceto o Spark 2.1 e 2.2|
+|Storage do Azure| V2 de uso geral | Objeto | Blobs | Standard | Hot, Cool, Archive | 3.6+ | Todos |
+|Storage do Azure| V1 de uso geral | Objeto | Blobs | Standard | N/D | Todos | Todos |
+|Storage do Azure| Armazenamento Blob** | Objeto | Bloco Blob | Standard | Hot, Cool, Archive | Todos | Todos |
 |Armazenamento do Azure Data Lake Ger1| N/D | Hierárquico (sistema de ficheiros) | N/D | N/D | N/D | 3.6 Apenas | Todos, exceto HBase |
 
 **Para os clusters HDInsight, apenas as contas de armazenamento secundárias podem ser do tipo BlobStorage e Page Blob não é uma opção de armazenamento suportada.
@@ -44,16 +44,16 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 
 | Versão HDInsight | Armazenamento Primário | Armazenamento Secundário | Suportado |
 |---|---|---|---|
-| 3.6 e 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
-| 3.6 e 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger2 | Não |
-| 3.6 e 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
-| 3.6 e 4.0 | Data Lake Storage Gen2* | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
-| 3.6 e 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
+| 3,6 & 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
+| 3,6 & 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger2 | Não |
+| 3,6 & 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
+| 3,6 & 4.0 | Data Lake Storage Gen2* | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
+| 3,6 & 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger1 | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
-| 4.0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
-| 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger1 | Não |
+| 4,0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
+| 4,0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger1 | Não |
 
 *=Esta pode ser uma ou múltiplas contas de Data Lake Storage Gen2, desde que todas estejam configuradas para usar a mesma identidade gerida para acesso ao cluster.
 
@@ -102,13 +102,13 @@ O Azure Data Lake Storage Gen2 utiliza um novo esquema URI para aceder a ficheir
 
 O regime URI proporciona acesso encriptado a SSL.
 
-`<FILE_SYSTEM_NAME>` identifica o caminho do sistema de ficheiros Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>`identifica o caminho do sistema de ficheiros Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>` identifica o nome da conta Azure Storage. É necessário um nome de domínio completamente qualificado (FQDN).
+`<ACCOUNT_NAME>`identifica o nome da conta Azure Storage. É necessário um nome de domínio completamente qualificado (FQDN).
 
-`<PATH>` é o nome do ficheiro ou do diretório HDFS.
+`<PATH>`é o nome do caminho do ficheiro ou diretório HDFS.
 
-Se não forem especificados valores para `<FILE_SYSTEM_NAME>` e `<ACCOUNT_NAME>`, o sistema de ficheiros predefinido é utilizado. Para os ficheiros do sistema de ficheiros predefinidos, utilize um caminho relativo ou um caminho absoluto. Por exemplo, o ficheiro `hadoop-mapreduce-examples.jar` que vem com clusters HDInsight pode ser referido utilizando um dos seguintes caminhos:
+Se os `<FILE_SYSTEM_NAME>` `<ACCOUNT_NAME>` valores for e não forem especificados, o sistema de ficheiros predefinido é utilizado. Para os ficheiros do sistema de ficheiros predefinidos, utilize um caminho relativo ou um caminho absoluto. Por exemplo, `hadoop-mapreduce-examples.jar` o ficheiro que vem com clusters HDInsight pode ser referido utilizando um dos seguintes caminhos:
 
 ```
 abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -116,7 +116,7 @@ abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduc
 ```
 
 > [!Note]
-> O nome do ficheiro é `hadoop-examples.jar` nas versões HDInsight 2.1 e 1.6. Quando estiver a trabalhar com ficheiros fora do HDInsight, verá que a maioria dos utilitários não reconhece o formato ABFS, mas espera um formato de caminho básico, como `example/jars/hadoop-mapreduce-examples.jar`.
+> O nome `hadoop-examples.jar` do ficheiro está nas versões HDInsight 2.1 e 1.6. Quando estiver a trabalhar com ficheiros fora do HDInsight, verá que a maioria dos utilitários não reconhece `example/jars/hadoop-mapreduce-examples.jar`o formato ABFS, mas espera um formato de caminho básico, como .
 
 Para mais informações, consulte [Use o Azure Data Lake Storage Gen2 URI](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 
@@ -157,9 +157,9 @@ As contas do Storage definidas durante o processo de criação e as respetivas c
 
 Vários trabalhos webHCat, incluindo Apache Hive, MapReduce, Apache Hadoop streaming, e Apache Pig, podem levar consigo uma descrição de contas de armazenamento e metadados. (Isto é atualmente verdade para o Porco com contas de armazenamento, mas não para metadados.) Para mais informações, consulte [Utilizar um cluster HDInsight com contas de armazenamento alternativas e metalojas](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Os blobs podem ser utilizados para dados estruturados e não estruturados. Os recipientes blob armazenam dados como par de chaves/valor e não têm hierarquia de direção. No entanto, o nome-chave pode incluir um personagem de corte (/ ) para fazer parecer que um ficheiro está armazenado dentro de uma estrutura de diretório. Por exemplo, a chave de uma bolha pode ser `input/log1.txt`. Não existe um diretório `input` real, mas por causa do personagem slash no nome chave, a chave parece um caminho de arquivo.
+Os blobs podem ser utilizados para dados estruturados e não estruturados. Os recipientes blob armazenam dados como par de chaves/valor e não têm hierarquia de direção. No entanto, o nome-chave pode incluir um personagem de corte (/ ) para fazer parecer que um ficheiro está armazenado dentro de uma estrutura de diretório. Por exemplo, a chave de `input/log1.txt`uma bolha pode ser. Não `input` existe um diretório real, mas por causa do personagem slash no nome chave, a chave parece um caminho de arquivo.
 
-### <a id="benefits"></a>Vantagens do Armazenamento do Azure
+### <a name="benefits-of-azure-storage"></a><a id="benefits"></a>Vantagens do Armazenamento do Azure
 Os clusters computacionais e os recursos de armazenamento que não estão colocalizados têm custos de desempenho implícitos. Estes custos são atenuados pela forma como os clusters de cálculo são criados perto dos recursos da conta de armazenamento dentro da região de Azure. Nesta região, os nós de computação podem aceder eficientemente aos dados sobre a rede de alta velocidade dentro do Armazenamento Azure.
 
 Ao armazenar os dados no Armazenamento Azure em vez de HDFS, obtém vários benefícios:
@@ -177,7 +177,7 @@ Ao armazenar os dados no Armazenamento Azure em vez de HDFS, obtém vários bene
 Certos trabalhos e pacotes MapReduce podem criar resultados intermédios que não gostaria de armazenar no Armazenamento Azure. Nesse caso, pode optar por armazenar os dados no HDFS local. O HDInsight utiliza o DFS para vários destes resultados intermédios em empregos da Colmeia e outros processos.
 
 > [!NOTE]  
-> A maioria dos comandos HDFS (por exemplo, `ls`, `copyFromLocal`e `mkdir`) funcionam como esperado no Armazenamento Azure. Apenas os comandos específicos da implementação nativa do HDFS (que é referido como DFS), como `fschk` e `dfsadmin`, mostram comportamentos diferentes no Armazenamento Azure.
+> A maioria dos comandos HDFS (por exemplo, `ls`e `copyFromLocal` `mkdir`) funcionam como esperado no Armazenamento Azure. Apenas os comandos específicos da implementação nativa do HDFS (que é referido como DFS), tais como `fschk` e `dfsadmin`, mostram diferentes comportamentos no Armazenamento Azure.
 
 ## <a name="overview-of-azure-data-lake-storage-gen1"></a>Visão geral do Armazenamento de Lagos De Dados Azure Gen1
 
@@ -215,7 +215,7 @@ Data Lake Storage Gen1 pode armazenar quaisquer dados no seu formato nativo, com
 
 Recipientes Gen1 de armazenamento de data Lake para dados são essencialmente pastas e ficheiros. Opera os dados armazenados utilizando SDKs, o portal Azure e o Azure PowerShell. Desde que coloque os seus dados na loja utilizando estas interfaces e os recipientes apropriados, pode armazenar qualquer tipo de dados. Data Lake Storage Gen1 não realiza qualquer tratamento especial de dados com base no tipo de dados que armazena.
 
-## <a name="DataLakeStoreSecurity"></a>Segurança de dados em Data Lake Storage Gen1
+## <a name="data-security-in-data-lake-storage-gen1"></a><a name="DataLakeStoreSecurity"></a>Segurança de dados em Data Lake Storage Gen1
 Data Lake Storage Gen1 utiliza o Diretório Ativo Azure para autenticação e utiliza listas de controlo de acesso (ACLs) para gerir o acesso aos seus dados.
 
 | **Funcionalidade** | **Descrição** |

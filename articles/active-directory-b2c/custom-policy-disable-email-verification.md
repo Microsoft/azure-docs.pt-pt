@@ -12,10 +12,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136147"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Desative a verificação de e-mail durante a inscrição do cliente usando uma política personalizada no Diretório Ativo Azure B2C
@@ -24,15 +24,15 @@ ms.locfileid: "79136147"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada de trabalho para inscrição e inscrição com contas sociais e locais.
+Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para inscrição e inscrição com contas sociais e locais.
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Adicione os metadados ao perfil técnico autoafirmado
 
-O perfil técnico **LocalAccountSignUpWithLogonEmail** é um [autoafirmado](self-asserted-technical-profile.md), que é invocado durante o fluxo de inscrição. Para desativar a verificação de e-mail, detete te metadados `EnforceEmailVerification` como falsos. Anular os perfis técnicos LocalAccountSignUpWithLogonEmail no ficheiro de extensão. 
+O perfil técnico **LocalAccountSignUpWithLogonEmail** é um [autoafirmado](self-asserted-technical-profile.md), que é invocado durante o fluxo de inscrição. Para desativar a `EnforceEmailVerification` verificação de e-mail, detete temetaos como falsos. Anular os perfis técnicos LocalAccountSignUpWithLogonEmail no ficheiro de extensão. 
 
-1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
-1. Encontre o elemento `ClaimsProviders`. Se o elemento não existir, adicione-o.
-1. Adicione o seguinte fornecedor de reclamações ao elemento `ClaimsProviders`:
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Encontre `ClaimsProviders` o elemento. Se o elemento não existir, adicione-o.
+1. Adicione o seguinte fornecedor `ClaimsProviders` de reclamações ao elemento:
 
 ```XML
 <ClaimsProvider>
@@ -58,6 +58,6 @@ O perfil técnico **LocalAccountSignUpWithLogonEmail** é um [autoafirmado](self
 3. Deverá poder inscrever-se através de um endereço de e-mail sem a validação.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [perfil técnico autoafirmado](self-asserted-technical-profile.md) na referência iEF.

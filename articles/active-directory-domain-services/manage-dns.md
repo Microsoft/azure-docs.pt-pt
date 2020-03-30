@@ -1,5 +1,5 @@
 ---
-title: Gerir o DNS para serviços de domínio azure ad  Microsoft Docs
+title: Gerir o DNS para serviços de domínio azure ad [ Microsoft Docs
 description: Aprenda a instalar as Ferramentas de Servidor DNS para gerir o DNS para um domínio gerido pelo Azure Ative Directory Domain Services.
 author: iainfoulds
 manager: daveba
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 2694a5f250b746748a1b42ac4d211aa28ef1ebad
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613686"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrar dNS num domínio gerido pelos Serviços de Domínio Azure AD

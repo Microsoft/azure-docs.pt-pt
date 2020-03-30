@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com cordas em consultas de registo do Monitor Azure  Microsoft Docs
+title: Trabalhar com cordas em consultas de registo do Monitor Azure [ Microsoft Docs
 description: Este artigo fornece um tutorial para a utilização do Azure Monitor Log Analytics no portal Azure para consultar e analisar dados de registo no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670156"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com a JSON e as estruturas de dados em consultas de registo do Monitor Azure
@@ -68,7 +68,7 @@ print hosts_object
 
 
 ### <a name="arraylength"></a>arraylength
-Utilize `arraylength` para contar o número de elementos numa matriz:
+Utilizar `arraylength` para contar o número de elementos numa matriz:
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -126,10 +126,10 @@ print hosts_object
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar consultas de registo no Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
 - [Escrita de consulta avançada](advanced-query-writing.md)
-- [Junta-se](joins.md)
+- [Associações](joins.md)
 - [Gráficos](charts.md)

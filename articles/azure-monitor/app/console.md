@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
 ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655434"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET
@@ -18,12 +18,12 @@ ms.locfileid: "77655434"
 Precisa de uma subscrição com o [Microsoft Azure.](https://azure.com) Faça sessão com uma conta Microsoft, que poderá ter para Windows, Xbox Live ou outros serviços na nuvem da Microsoft. A sua equipa pode ter uma subscrição organizacional do Azure: peça ao proprietário que o adicione usando a sua conta Microsoft.
 
 > [!NOTE]
-> Existe uma nova aplicação Insights SDK chamada [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que pode ser usada para ativar insights de aplicação para quaisquer aplicações de consola. Recomenda-se utilizar este pacote e instruções associadas a partir [daqui](../../azure-monitor/app/worker-service.md). Este pacote destina-se [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), podendo, portanto, ser utilizado em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
+> Existe uma nova aplicação Insights SDK chamada [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que pode ser usada para ativar insights de aplicação para quaisquer aplicações de consola. Recomenda-se utilizar este pacote e instruções associadas a partir [daqui](../../azure-monitor/app/worker-service.md). Este pacote [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)visa , e por conseguinte pode ser utilizado em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
 
 * No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md). Para o tipo de aplicação, escolha **General**.
-* Faça uma cópia da Chave de Instrumentação. Encontre a chave no desfecho essencial do novo recurso que criou.
+* Faça uma cópia da Chave de Instrumentação. Encontre a chave **Essentials** no desfecho essencial do novo recurso que criou.
 * Instale o mais recente pacote [Microsoft.ApplicationInsights.](https://www.nuget.org/packages/Microsoft.ApplicationInsights)
 * Desloque a chave de instrumentação no seu código antes de rastrear qualquer telemetria (ou detetetete APPINSIGHTS_INSTRUMENTATIONKEY variável ambiente). Depois disso, você deve ser capaz de rastrear manualmente a telemetria e vê-la no portal Azure
 
@@ -36,19 +36,19 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> A telemetria não é enviada instantaneamente. Os itens de telemetria são lotados e enviados pelo ApplicationInsights SDK. Nas aplicações Consola, que saem logo após chamar em `Track()` métodos, a telemetria só pode ser enviada a menos que `Flush()` e `Sleep` seja feito antes da saída da aplicação, como mostrado em [pleno exemplo](#full-example) mais tarde neste artigo.
+> A telemetria não é enviada instantaneamente. Os itens de telemetria são lotados e enviados pelo ApplicationInsights SDK. Nas aplicações Consola, que `Track()` saem logo após os `Flush()` métodos de chamada, a telemetria não pode ser enviada a menos que seja feita e `Sleep` seja feita antes da saída da aplicação, como mostrado em pleno [exemplo](#full-example) mais tarde neste artigo.
 
 
 * Instale a versão mais recente do pacote [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) - rastreia automaticamente HTTP, SQL ou algumas outras chamadas de dependência externa.
 
-Pode inicializar e configurar insights de aplicação a partir do código ou utilizar `ApplicationInsights.config` ficheiro. Certifique-se de que a inicialização ocorra o mais cedo possível. 
+Pode inicializar e configurar insights de `ApplicationInsights.config` aplicação a partir do código ou utilizar o ficheiro. Certifique-se de que a inicialização ocorra o mais cedo possível. 
 
 > [!NOTE]
 > As instruções referindo-se a **ApplicationInsights.config** são apenas aplicáveis a aplicações que estejam direcionadas para o .NET Framework, e não se aplicam às aplicações .NET Core.
 
 ### <a name="using-config-file"></a>Usando o arquivo config
 
-Por padrão, o Application Insights SDK procura `ApplicationInsights.config` ficheiro no diretório de trabalho quando `TelemetryConfiguration` está a ser criado
+Por padrão, application Insights SDK procura `ApplicationInsights.config` ficheiro `TelemetryConfiguration` no diretório de trabalho quando está sendo criado
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present
@@ -98,7 +98,7 @@ Pode obter um exemplo completo do ficheiro config instalando a versão mais rece
 > [!NOTE]
 > O ficheiro de leitura de config não é suportado no .NET Core. Você pode considerar usar [Application Insights SDK para ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
-* Durante o arranque da aplicação, criar e configurar `DependencyTrackingTelemetryModule` instância - deve ser singleton e deve ser preservada para o tempo de vida útil da aplicação.
+* Durante a criação de `DependencyTrackingTelemetryModule` aplicações e configuração da instância - deve ser singleton e deve ser preservada para o tempo de vida útil da aplicação.
 
 ```csharp
 var module = new DependencyTrackingTelemetryModule();
@@ -125,7 +125,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se criou uma configuração com um `TelemetryConfiguration()` construor simples, precisa de ativar o suporte de correlação adicionalmente. **Não é necessário** se ler a configuração a partir de ficheiros, `TelemetryConfiguration.CreateDefault()` ou `TelemetryConfiguration.Active`usados .
+Se criou uma `TelemetryConfiguration()` configuração com um construtor simples, precisa de ativar o suporte de correlação adicionalmente. **Não é necessário** se ler a `TelemetryConfiguration.CreateDefault()` configuração a partir de ficheiro, utilizado ou `TelemetryConfiguration.Active`.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667708"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta de log
@@ -49,7 +49,7 @@ Os webhooks incluem um URL e uma carga de carga forrinada em JSON que os dados e
 | *Intervalo de pesquisa* |#searchinterval |Janela de tempo para a regra de alerta, com o formato HH:mm:ss. |
 | *Hora de início do intervalo de pesquisa* |#searchintervalstarttimeutc |Hora de início da consulta na UTC, com o formato mm/dd/yyyy HH:mm:ss AM/PM. 
 | *Pesquisação* |#searchquery |Consulta de pesquisa de registo utilizada pela regra do alerta. |
-| *Resultados da pesquisa* |"IncludeSearchResults": true|Registos devolvidos pela consulta como uma tabela JSON, limitado aos primeiros 1.000 registos, se "IncludeSearchResults": verdadeiro é adicionado numa definição de webhook jSON personalizada como uma propriedade de alto nível. |
+| *Resultados da pesquisa* |"Incluir Resultados de Pesquisa": verdadeiro|Registos devolvidos pela consulta como uma tabela JSON, limitado aos primeiros 1.000 registos, se "IncludeSearchResults": verdadeiro é adicionado numa definição de webhook jSON personalizada como uma propriedade de alto nível. |
 | *Tipo de alerta*| #alerttype | O tipo de regra de alerta de registo configurado como [medição métrica](alerts-unified-log.md#metric-measurement-alert-rules) ou [número de resultados](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID do seu espaço de trabalho Log Analytics. |
 | *ID de aplicação* |#applicationid |ID da sua aplicação Application Insights. |

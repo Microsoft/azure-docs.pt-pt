@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252548"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
@@ -51,7 +51,7 @@ Verifique se tem quota suficiente para os seguintes componentes Azure. Se necess
 
 |Componente do Azure|Quota|
 |----------|-----------|
-|Máquinas virtuais|3 ou mais E32s_v3 (um por nó de cluster) |
+|Virtual Machines|3 ou mais E32s_v3 (um por nó de cluster) |
 |Armazenamento SSD Premium|200 GB de espaço para SO e 1 a 4 TB de espaço na cache por nó |
 |Conta de armazenamento (opcional) |v2|
 |Armazenamento de back-end de dados de dados (opcional) |Um novo recipiente LRS Blob |
@@ -68,7 +68,7 @@ Este passo só tem de ser feito uma vez por subscrição.
 
 Para aceitar os termos do software com antecedência:
 
-1. Abra uma casca de nuvem no portal Azure ou navegando para <https://shell.azure.com>. Inscreva-se com o seu ID de subscrição.
+1. Abra uma casca de nuvem no portal <https://shell.azure.com>Azure ou navegando para . Inscreva-se com o seu ID de subscrição.
 
    ```azurecli
     az login
@@ -98,7 +98,7 @@ Crie o ponto final do serviço de armazenamento a partir do portal Azure.
 1. Selecione a rede virtual para o seu cluster.
 1. Clique em **pontos finais** do Serviço a partir do menu esquerdo.
 1. Clique em **Adicionar** no topo.
-1. Escolha o serviço ``Microsoft.Storage``.
+1. Escolha o ``Microsoft.Storage``serviço .
 1. Selecione a sub-rede do cluster.
 1. Na parte inferior, clique em **Adicionar**.
 

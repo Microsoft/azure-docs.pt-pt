@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: c372a0a09fd3143f570aa4b316c9191e617c69e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675446"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de proxy Node.js (pré-visualização)
@@ -24,7 +24,7 @@ Neste arranque rápido, ativa o tráfego secure Shell (SSH) e Remote Desktop Pro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do [Enable SSH e RDP sobre os fluxos de dispositivos IoT Hub utilizando uma aplicação](./quickstart-device-streams-proxy-c.md) de procuração C ou [ativar o SSH e o RDP sobre os fluxos de dispositivos IoT Hub utilizando uma C# aplicação proxy](./quickstart-device-streams-proxy-csharp.md).
+* Conclusão do [Enable SSH e RDP sobre os fluxos de dispositivos IoT Hub utilizando uma aplicação](./quickstart-device-streams-proxy-c.md) de procuração C ou [ativar o SSH e o RDP sobre os fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md).
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
@@ -62,7 +62,7 @@ az extension add --name azure-iot
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -104,7 +104,7 @@ Nesta secção, estabelece-se um fluxo de ponta a ponta para o túnel de tráfeg
 Como mencionado anteriormente, o IoT Hub Node.js SDK suporta fluxos de dispositivos apenas no lado do serviço. Para a aplicação local do dispositivo, utilize uma aplicação proxy do dispositivo que esteja disponível num dos seguintes arranques rápidos:
 
    * [Ativar sSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C](./quickstart-device-streams-proxy-c.md)
-   * [Ativar sSH e RDP sobre fluxos de C# dispositivos IoT Hub utilizando uma aplicação proxy](./quickstart-device-streams-proxy-csharp.md) 
+   * [Ativar sSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md) 
 
 Antes de passar para o próximo passo, certifique-se de que a aplicação de procuração local do dispositivo está em execução. Para uma visão geral da configuração, consulte a [Amostra de Procuração Local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
@@ -130,7 +130,7 @@ Com a aplicação de procuração local do dispositivo em execução, execute a 
 
    Altere o espaço reservado ServiceConnectionString para combinar com a sua cadeia de ligação de serviço e **o MyDevice** para combinar com o ID do seu dispositivo se tiver dado um nome diferente ao seu.
 
-1. Navegue para o diretório `Quickstarts/device-streams-service` na sua pasta de projeto sem fecho. Utilize o seguinte código para executar a aplicação de procuração local de serviço:
+1. Navegue `Quickstarts/device-streams-service` para o diretório na sua pasta de projeto sem fecho. Utilize o seguinte código para executar a aplicação de procuração local de serviço:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -145,7 +145,7 @@ Com a aplicação de procuração local do dispositivo em execução, execute a 
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH para o seu dispositivo através de fluxos de dispositivos
 
-Em Linux, execute o SSH utilizando `ssh $USER@localhost -p 2222` num terminal. No Windows, utilize o seu cliente SSH favorito (por exemplo, PuTTY).
+Em Linux, executar SSH utilizando `ssh $USER@localhost -p 2222` um terminal. No Windows, utilize o seu cliente SSH favorito (por exemplo, PuTTY).
 
 Saída de consola no serviço local após a sessão SSH ser estabelecida (a aplicação de procuração local de serviço ouve na porta 2222):
 

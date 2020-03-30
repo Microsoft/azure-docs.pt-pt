@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257176"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Voltar a proteger do Azure para o local
@@ -55,7 +55,7 @@ Ative a replicação. Pode reproteger VMs específicos, ou um plano de recupera�
 
 Permitir a reproteção da seguinte forma:
 
-1. Selecione **Vault** > **itens replicados**. Clique na máquina virtual que falhou e, em seguida, selecione **Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, selecione **Re-Protect**.
+1. Selecione**itens replicados** **do cofre** > . Clique na máquina virtual que falhou e, em seguida, selecione **Re-Protect**. Ou, a partir dos botões de comando, selecione a máquina e, em seguida, selecione **Re-Protect**.
 2. Verifique se a direção de proteção **Azure to On-Local** foi selecionada.
 3. No **Master Target Server** e no Servidor de **Processos,** selecione o servidor de alvo principal no local e o servidor de processos.  
 4. Para **datastore,** selecione a loja de dados para a qual pretende recuperar os discos no local. Esta opção é utilizada quando a máquina virtual no local é eliminada e é necessário criar novos discos. Esta opção é ignorada se os discos já existirem. Ainda precisa especificar um valor.

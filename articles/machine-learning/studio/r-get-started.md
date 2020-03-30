@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218002"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Começar com a linguagem de programação R no Azure Machine Learning Studio (clássico)
@@ -37,7 +37,7 @@ Os dados da série time são dados em que os valores têm um índice de tempo. O
 
 Neste guia vamos trabalhar com a produção de lacticínios da Califórnia e os dados de preços. Estes dados incluem informações mensais sobre a produção de vários produtos lácteos e o preço da gordura leiteira, uma mercadoria de referência.
 
-Os dados utilizados neste artigo, juntamente com scripts R, podem ser descarregados a partir de [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Os dados do ficheiro `cadairydata.csv` foram originalmente sintetizados a partir de informações disponíveis pela Universidade de Wisconsin em [https://dairymarkets.com](https://dairymarkets.com).
+Os dados utilizados neste artigo, juntamente com scripts R, podem ser descarregados a partir de [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Os dados `cadairydata.csv` do ficheiro foram originalmente sintetizados a [https://dairymarkets.com](https://dairymarkets.com)partir de informações disponíveis na Universidade de Wisconsin em .
 
 ### <a name="organization"></a>Organização
 
@@ -49,7 +49,7 @@ Vamos progredir através de vários passos à medida que aprender a criar, testa
 * Com os nossos dados preparados, vamos realizar uma análise das correlações entre várias variáveis no nosso conjunto de dados.
 * Por último, criaremos um modelo sazonal de previsão de séries temporais para a produção de leite.
 
-## <a id="mlstudio"></a>Interaja com a linguagem R no Machine Learning Studio (clássico)
+## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interaja com a linguagem R no Machine Learning Studio (clássico)
 
 Esta secção leva-o através de alguns fundamentos de interação com a linguagem de programação R no ambiente do Machine Learning Studio (clássico). A linguagem R fornece uma ferramenta poderosa para criar módulos de análise e manipulação de dados personalizados dentro do ambiente Azure Machine Learning Studio (clássico).
 
@@ -133,15 +133,15 @@ Se não entende a última linha deste código no momento, leia. No resto deste a
 
 RStudio é um IDE amplamente utilizado para R. Vou usar o RStudio para editar, testar e depurar parte do código R utilizado neste guia. Uma vez testado e pronto o código R, pode simplesmente cortar e colar do editor do RStudio para um módulo de Script De Aprendizagem Automática (clássico) [Executar R][execute-r-script] Script.  
 
-Se não tiver a linguagem de programação R instalada na sua máquina de ambiente de trabalho, recomendo que o faça agora. Os downloads gratuitos de linguagem R de código aberto estão disponíveis na Rede De Arquivo R (CRAN) em [https://www.r-project.org/](https://www.r-project.org/). Existem downloads disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de descarregamento. Além disso, cran contém uma riqueza de pacotes úteis de análise e manipulação de dados.
+Se não tiver a linguagem de programação R instalada na sua máquina de ambiente de trabalho, recomendo que o faça agora. Downloads gratuitos de linguagem R de código aberto estão [https://www.r-project.org/](https://www.r-project.org/)disponíveis na Rede De Arquivo R Abrangente (CRAN) em . Existem downloads disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de descarregamento. Além disso, cran contém uma riqueza de pacotes úteis de análise e manipulação de dados.
 
-Se é novo no RStudio, deve descarregar e instalar a versão para desktop. Pode encontrar os downloads do RStudio para Windows, Mac OS e Linux/UNIX em http://www.rstudio.com/products/RStudio/. Siga as instruções fornecidas para instalar o RStudio na sua máquina de ambiente de trabalho.  
+Se é novo no RStudio, deve descarregar e instalar a versão para desktop. Pode encontrar os downloads do RStudio para Windows, Mac http://www.rstudio.com/products/RStudio/OS e Linux/UNIX em . Siga as instruções fornecidas para instalar o RStudio na sua máquina de ambiente de trabalho.  
 
 Uma introdução tutorial ao RStudio está disponível na [Utilização do RStudio IDE.](https://support.rstudio.com/hc/sections/200107586-Using-RStudio)
 
 Eu forneço algumas informações adicionais sobre a utilização do RStudio em [guia para a documentação](#appendixa) do RStudio abaixo.  
 
-## <a id="scriptmodule"></a>Obtenha dados dentro e fora do módulo execute R Script
+## <a name="get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtenha dados dentro e fora do módulo execute R Script
 
 Nesta secção discutiremos como obtém dados dentro e fora do módulo [Execute R Script.][execute-r-script] Vamos rever como lidar com vários tipos de dados lidos dentro e fora do módulo [Execute R Script.][execute-r-script]
 
@@ -149,7 +149,7 @@ O código completo para esta secção está em [MachineLearningSamples-Notebooks
 
 ### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Carregue e verifique os dados no Estúdio de Aprendizagem automática (clássico)
 
-#### <a id="loading"></a>Carregar o conjunto de dados
+#### <a name="load-the-dataset"></a><a id="loading"></a>Carregar o conjunto de dados
 
 Começaremos por carregar o ficheiro **csdairydata.csv** no Azure Machine Learning Studio (clássico).
 
@@ -189,7 +189,7 @@ Vamos ver os dados que carregamos na nossa experiência. Na experiência, seleci
 
 Neste ponto de vista, vemos muita informação útil. Podemos ver as primeiras linhas desse conjunto de dados. Se selecionarmos uma coluna, a secção estatísticas mostra mais informações sobre a coluna. Por exemplo, a linha Feature Type mostra-nos quais os tipos de dados Azure Machine Learning Studio (clássico) atribuídos à coluna. Ter um aspeto rápido como este é um bom cheque de sanidade antes de começarmos a fazer qualquer trabalho sério.
 
-### <a name="first-r-script"></a>Primeiro script de R
+### <a name="first-r-script"></a>Primeiro script R
 
 Vamos criar um simples primeiro guião R para experimentar dentro do Azure Machine Learning Studio (clássico). Criei e testei o seguinte guião no RStudio.  
 
@@ -226,7 +226,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> O Azure Machine Learning Studio (clássico) trata os ficheiros no fecho como se estivessem no src/diretório, pelo que tem de prepor os nomes dos seus ficheiros com este nome de diretório. Por exemplo, se o fecho contiver os ficheiros `yourfile.R` e `yourData.rdata` na raiz do fecho, abordará estes como `src/yourfile.R` e `src/yourData.rdata` ao utilizar `source` e `load`.
+> O Azure Machine Learning Studio (clássico) trata os ficheiros no fecho como se estivessem no src/diretório, pelo que tem de prepor os nomes dos seus ficheiros com este nome de diretório. Por exemplo, se o `yourfile.R` fecho `yourData.rdata` contiver os ficheiros e na `src/yourfile.R` `src/yourData.rdata` raiz `source` do `load`fecho, abordaria estes como e quando estiver a utilizar e .
 
 Já discutimos o carregamento de conjuntos de dados em [Carregar o conjunto de dados](#loading). Depois de ter criado e testado o script R mostrado na secção anterior, faça o seguinte:
 
@@ -253,7 +253,7 @@ Já discutimos o carregamento de conjuntos de dados em [Carregar o conjunto de d
 
 1. Ligue a saída do ícone de **dados zip** à entrada do **Script Bundle** do módulo Execute [R Script.][execute-r-script]
 
-1. Digite a função `source()` com o nome do ficheiro postal na janela de código para o módulo [Execute R Script.][execute-r-script] No meu caso, escrevi `source("src/simpleplot.R")`.  
+1. Digite `source()` a função com o nome do ficheiro postal na janela de código para o módulo [Execute R Script.][execute-r-script] No meu caso, `source("src/simpleplot.R")`escrevi.  
 
 1. Certifique-se de que seleciona **Guardar**.
 
@@ -265,7 +265,7 @@ Uma vez concluídos estes passos, o módulo [Execute R Script][execute-r-script]
 
 #### <a name="dataset1"></a>Dataset1
 
-Pode passar uma tabela retangular de dados para o seu código R utilizando a entrada Dataset1. No nosso roteiro simples, a função `maml.mapInputPort(1)` lê os dados da porta 1. Estes dados são então atribuídos a um nome variável dataframe no seu código. No nosso simples guião, a primeira linha de código executa a atribuição.
+Pode passar uma tabela retangular de dados para o seu código R utilizando a entrada Dataset1. No nosso simples `maml.mapInputPort(1)` script a função lê os dados da porta 1. Estes dados são então atribuídos a um nome variável dataframe no seu código. No nosso simples guião, a primeira linha de código executa a atribuição.
 
 ```R
 cadairydata <- maml.mapInputPort(1)
@@ -313,13 +313,13 @@ Estes resultados são principalmente como esperado, com 228 observações e 9 co
 
 #### <a name="dataset2"></a>Dataset2
 
-O comportamento da entrada Dataset2 é idêntico ao do Dataset1. Utilizando esta entrada pode passar uma segunda tabela retangular de dados no seu código R. A função `maml.mapInputPort(2)`, com o argumento 2, é usada para passar estes dados.  
+O comportamento da entrada Dataset2 é idêntico ao do Dataset1. Utilizando esta entrada pode passar uma segunda tabela retangular de dados no seu código R. A `maml.mapInputPort(2)`função , com o argumento 2, é usada para passar estes dados.  
 
 ### <a name="execute-r-script-outputs"></a>Executar saídas de script R
 
 #### <a name="output-a-dataframe"></a>Produção de um quadro de dados
 
-Pode ser de saída do conteúdo de um quadro de dados R como uma tabela retangular através da porta De dados de resultados utilizando a função `maml.mapOutputPort()`. No nosso simples guião R este é realizado pela seguinte linha.
+Pode ser saída do conteúdo de um quadro de dados R como uma `maml.mapOutputPort()` tabela retangular através da porta De dados de resultados utilizando a função. No nosso simples guião R este é realizado pela seguinte linha.
 
 ```
 maml.mapOutputPort('cadairydata')
@@ -349,7 +349,7 @@ Percorrendo para baixo vemos a saída gráfica do nosso script R na Figura 8.
 
 *Figura 8. Saída gráfica da porta do dispositivo R.*  
 
-## <a id="filtering"></a>Filtragem e transformação de dados
+## <a name="data-filtering-and-transformation"></a><a id="filtering"></a>Filtragem e transformação de dados
 
 Nesta secção, realizaremos algumas operações básicas de filtragem e transformação de dados nos dados dos lacticínios da Califórnia. No final desta secção teremos dados num formato adequado para a construção de um modelo analítico.  
 
@@ -367,7 +367,7 @@ Quando os dados tabular são lidos em R a partir de uma fonte externa, é sempre
 
 Felizmente, é fácil converter um tipo para outro, desde que o mapeamento seja possível. Por exemplo, não se pode converter 'Nevada' num valor numérico, mas pode convertê-lo num fator (variável categórica). Como outro exemplo, pode converter um numérico 1 num éum num personagem '1' ou um fator.  
 
-A sintaxe para qualquer uma destas conversões é simples: `as.datatype()`. Estas funções de conversão de tipos incluem as seguintes funções.
+A sintaxe para qualquer uma `as.datatype()`destas conversões é simples: . Estas funções de conversão de tipos incluem as seguintes funções.
 
 * `as.numeric()`
 * `as.character()`
@@ -470,7 +470,7 @@ Os quadros de dados R suportam poderosas capacidades de filtragem. Os conjuntos 
 Há um pouco de filtragem que devemos fazer no nosso conjunto de dados. Se olhar para as colunas no quadro de dados cadairydata, verá duas colunas desnecessárias. A primeira coluna tem apenas um número de linha, o que não é muito útil. A segunda coluna, Ano.Mês, contém informações redundantes. Podemos facilmente excluir estas colunas utilizando o seguinte código R.
 
 > [!NOTE]
-> A partir de agora, nesta secção, vou mostrar-lhe o código adicional que estou adicionando no módulo [Execute R Script.][execute-r-script] Vou adicionar cada nova linha **antes** da função `str()`. Uso esta função para verificar os meus resultados no Azure Machine Learning Studio (clássico).
+> A partir de agora, nesta secção, vou mostrar-lhe o código adicional que estou adicionando no módulo [Execute R Script.][execute-r-script] Vou adicionar cada **before** nova `str()` linha antes da função. Uso esta função para verificar os meus resultados no Azure Machine Learning Studio (clássico).
 
 Adiciono a seguinte linha ao meu código R no módulo [Execute R Script.][execute-r-script]
 
@@ -511,7 +511,7 @@ Boas notícias! Temos os resultados esperados.
 
 Para criar modelos de séries temporais será conveniente ter uma coluna que contenha os meses desde o início da série de horários. Criaremos uma nova coluna "Mês.Conde".
 
-Para ajudar a organizar o código, criaremos a nossa primeira função simples, `num.month()`. Aplicaremos então esta função para criar uma nova coluna no quadro de dados. O novo código é o seguinte.
+Para ajudar a organizar o código, `num.month()`criaremos a nossa primeira função simples, . Aplicaremos então esta função para criar uma nova coluna no quadro de dados. O novo código é o seguinte.
 
 ```R
 ## Create a new column with the month count
@@ -567,7 +567,7 @@ Se olharmos para os valores nos resumos do nosso dataframe, deve ver algo estran
 
 Para o nosso modelo de previsão utilizamos um modelo multiplicador para a tendência e ajuste sazonal destes dados. Uma transformação de registo permite-nos usar um modelo linear, simplificando este processo. Podemos aplicar a transformação do registo na mesma função em que o multiplicador é aplicado.
 
-No seguinte código, defino uma nova função, `log.transform()`, e aplico-a às linhas que contêm os valores numéricos. A função R `Map()` é utilizada para aplicar a função `log.transform()` às colunas selecionadas do quadro de dados. `Map()` é semelhante a `apply()` mas permite mais de uma lista de argumentos para a função. Note que uma lista de multiplicadores fornece o segundo argumento à função `log.transform()`. A função `na.omit()` é usada como um pouco de limpeza para garantir que não temos valores em falta ou indefinidos no quadro de dados.
+No seguinte código, defino uma `log.transform()`nova função, e aplico-a às linhas que contêm os valores numéricos. A `Map()` função R é `log.transform()` utilizada para aplicar a função às colunas selecionadas do quadro de dados. `Map()`é semelhante, `apply()` mas permite mais de uma lista de argumentos para a função. Note que uma lista de multiplicadores fornece `log.transform()` o segundo argumento à função. A `na.omit()` função é usada como um pouco de limpeza para garantir que não temos valores em falta ou indefinidos no quadro de dados.
 
 ```R
 log.transform <- function(invec, multiplier = 1) {
@@ -602,7 +602,7 @@ cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
 cadairydata <- na.omit(cadairydata)  
 ```
 
-Há muita coisa a acontecer na função `log.transform()`. A maior parte deste código está a verificar potenciais problemas com os argumentos ou a lidar com exceções, que ainda podem surgir durante os cálculos. Apenas algumas linhas deste código realmente fazem os cálculos.
+Há um pouco acontecendo `log.transform()` na função. A maior parte deste código está a verificar potenciais problemas com os argumentos ou a lidar com exceções, que ainda podem surgir durante os cálculos. Apenas algumas linhas deste código realmente fazem os cálculos.
 
 O objetivo da programação defensiva é evitar o insucesso de uma única função que impeça o processamento de continuar. Uma falha abrupta de uma análise de longa duração pode ser bastante frustrante para os utilizadores. Para evitar esta situação, devem ser escolhidos valores de devolução por defeito que limitarão os danos ao processamento a jusante. Também é produzida uma mensagem para alertar os utilizadores de que algo correu mal.
 
@@ -610,8 +610,8 @@ Se não estiver habituado à programação defensiva em R, todo este código pod
 
 1. Um vetor de quatro mensagens é definido. Estas mensagens são usadas para comunicar informações sobre alguns dos possíveis erros e exceções que podem ocorrer com este código.
 2. Devolvo um valor de NA para cada caso. Há muitas outras possibilidades que podem ter menos efeitos colaterais. Eu poderia devolver um vetor de zeros, ou o vetor de entrada original, por exemplo.
-3. São efetuados controlos sobre os argumentos da função. Em cada caso, se for detetado um erro, um valor predefinido é devolvido e uma mensagem é produzida pela função `warning()`. Estou a usar `warning()` em vez de `stop()`, uma vez que esta acabará com a execução, exatamente o que estou a tentar evitar. Note-se que escrevi este código num estilo processual, pois neste caso uma abordagem funcional parecia complexa e obscura.
-4. Os cálculos de registo são embrulhados em `tryCatch()` para que as exceções não causem uma paragem abrupta no processamento. Sem `tryCatch()` maioria dos erros levantados pelas funções R resultam num sinal de stop, o que faz isso mesmo.
+3. São efetuados controlos sobre os argumentos da função. Em cada caso, se for detetado um erro, devolve-se um `warning()` valor predefinido e uma mensagem é produzida pela função. Estou a `warning()` usar `stop()` e não como este último irá terminar a execução, exatamente o que estou a tentar evitar. Note-se que escrevi este código num estilo processual, pois neste caso uma abordagem funcional parecia complexa e obscura.
+4. Os cálculos de registo `tryCatch()` são embrulhados para que as exceções não causem uma paragem abrupta no processamento. Sem `tryCatch()` a maioria dos erros levantados pelas funções R resulta num sinal de stop, o que faz isso mesmo.
 
 Execute este código R na sua experiência e veja a saída impressa no ficheiro output.log. Verá agora os valores transformados das quatro colunas no registo, como mostra a Figura 13.
 
@@ -645,7 +645,7 @@ Vemos que os valores foram transformados. A produção de leite ultrapassa agora
 
 Neste momento os nossos dados estão limpos e estamos prontos para alguma modelação. Olhando para o resumo de visualização para a saída do Resultado Dataset do nosso módulo [Execute R Script,][execute-r-script] verá que a coluna 'Mês' é 'Categórica' com 12 valores únicos, mais uma vez, tal como queríamos.
 
-## <a id="timeseries"></a>Objetos da série de tempo e análise de correlação
+## <a name="time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Objetos da série de tempo e análise de correlação
 
 Nesta secção vamos explorar alguns objetos básicos da série r e analisar as correlações entre algumas das variáveis. O nosso objetivo é obter um quadro de dados contendo a informação de correlação em pares em vários lags.
 
@@ -744,7 +744,7 @@ Podemos ver pelo resumo que a nova coluna é, de facto, de classe POSIXct.
 
 ### <a name="exploring-and-transforming-the-data"></a>Explorar e transformar os dados
 
-Vamos explorar algumas das variáveis neste conjunto de dados. Uma matriz de enredo disperso é uma boa maneira de produzir um olhar rápido. Estou a substituir a função `str()` no código R anterior pela seguinte linha.
+Vamos explorar algumas das variáveis neste conjunto de dados. Uma matriz de enredo disperso é uma boa maneira de produzir um olhar rápido. Estou a substituir `str()` a função no código R anterior pela seguinte linha.
 
 ```R
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
@@ -760,9 +760,9 @@ Há uma estrutura estranha nas relações entre estas variáveis. Talvez isto de
 
 ### <a name="correlation-analysis"></a>Análise de correlação
 
-Para realizar a análise da correlação, precisamos tanto de destendência e padronização das variáveis. Poderíamos simplesmente usar a função R `scale()`, que tanto centros como escala variáveis. Esta função pode muito bem correr mais rápido. No entanto, quero mostrar-lhe um exemplo de programação defensiva em R.
+Para realizar a análise da correlação, precisamos tanto de destendência e padronização das variáveis. Poderíamos simplesmente usar `scale()` a função R, que tanto centros como escala variáveis. Esta função pode muito bem correr mais rápido. No entanto, quero mostrar-lhe um exemplo de programação defensiva em R.
 
-A função `ts.detrend()` mostrada abaixo executa ambas as operações. As duas linhas seguintes de código destendência os dados e, em seguida, padronizar os valores.
+A `ts.detrend()` função abaixo apresentada executa ambas as operações. As duas linhas seguintes de código destendência os dados e, em seguida, padronizar os valores.
 
 ```R
 ts.detrend <- function(ts, Time, min.length = 3){
@@ -809,13 +809,13 @@ df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 ```
 
-Há muita coisa a acontecer na função `ts.detrend()`. A maior parte deste código está a verificar potenciais problemas com os argumentos ou a lidar com exceções, que ainda podem surgir durante os cálculos. Apenas algumas linhas deste código realmente fazem os cálculos.
+Há um pouco acontecendo `ts.detrend()` na função. A maior parte deste código está a verificar potenciais problemas com os argumentos ou a lidar com exceções, que ainda podem surgir durante os cálculos. Apenas algumas linhas deste código realmente fazem os cálculos.
 
-Já discutimos um exemplo de programação defensiva em transformações de valor. Ambos os blocos de cálculo estão embrulhados em `tryCatch()`. Para alguns erros faz sentido devolver o vetor de entrada original, e em outros casos, eu retome um vetor de zeros.  
+Já discutimos um exemplo de programação defensiva em transformações de valor. Ambos os blocos de `tryCatch()`cálculo estão embrulhados em . Para alguns erros faz sentido devolver o vetor de entrada original, e em outros casos, eu retome um vetor de zeros.  
 
 Note que a regressão linear usada para destendência é uma regressão da série temporal. A variável do preditor é um objeto de série de tempo.  
 
-Uma vez definida`ts.detrend()`, aplicamo-la às variáveis de interesse no nosso dataframe. Temos de coagir a lista resultante criada por `lapply()` ao dataframe utilizando `as.data.frame()`. Devido a aspetos defensivos de `ts.detrend()`, o não processamento de uma das variáveis não impedirá o processamento correto das outras.  
+Uma `ts.detrend()` vez definido, aplicamo-lo às variáveis de interesse no nosso dataframe. Temos de coagir a `lapply()` lista resultante criada `as.data.frame()`para o datadatado através da utilização . Devido a aspetos `ts.detrend()`defensivos de, o não processamento de uma das variáveis não impedirá o processamento correto das outras.  
 
 A linha final de código cria uma conspiração de dispersão em pares. Após a execução do código R, os resultados do lote de dispersão são mostrados na Figura 17.
 
@@ -933,8 +933,8 @@ outframe
 A primeira linha de código é um pouco complicada, e alguma explicação pode ajudá-lo a compreendê-lo. Trabalhando de dentro para fora temos o seguinte:
 
 1. O **[[** operador com o argumento **' 1**' seleciona o vetor de correlações nos lags do primeiro elemento da lista de objetos do CCF.
-2. A função `do.call()` aplica a função `rbind()` sobre os elementos da lista de retornos por `lapply()`.
-3. A função `data.frame()` coagia o resultado produzido por `do.call()` a um dataframe.
+2. A `do.call()` função `rbind()` aplica a função sobre os `lapply()`elementos da lista que volta por .
+3. A `data.frame()` função coagia `do.call()` o resultado produzido por um quadro de dados.
 
 Note que os nomes das linhas estão numa coluna do quadro de dados. Ao fazê-lo, preserva os nomes das linhas quando são saídas do [Script Executar R][execute-r-script].
 
@@ -944,7 +944,7 @@ Executar o código produz a saída mostrada na Figura 19 quando **visualizar** a
 
 *Figura 19. Resultados da análise da correlação.*
 
-## <a id="seasonalforecasting"></a>Exemplo da série temporal: previsão sazonal
+## <a name="time-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemplo da série temporal: previsão sazonal
 
 Os nossos dados estão agora numa forma adequada para análise, e determinámos que não há correlações significativas entre as variáveis. Vamos seguir em frente e criar um modelo de previsão de séries temporais. Utilizando este modelo, vamos prever a produção de leite da Califórnia para os 12 meses de 2013.
 
@@ -1003,7 +1003,7 @@ Com este resultado, estamos prontos para iniciar a nossa análise.
 
 ### <a name="create-a-training-dataset"></a>Criar um conjunto de dados de formação
 
-Com o dataframe construído, precisamos criar um conjunto de dados de treino. Estes dados incluirão todas as observações, exceto as últimas 12, do ano de 2013, que é o nosso conjunto de dados de teste. O código seguinte subpõe o quadro de dados e cria parcelas da produção de lacticínios e variáveis de preços. Em seguida, crio parcelas das quatro variáveis de produção e preço. Uma função anónima é usada para definir alguns aumentos para enredo, e depois iterar sobre a lista dos outros dois argumentos com `Map()`. Se está supor que um "for loop" teria funcionado bem aqui, tem razão. Mas, como r é uma linguagem funcional, estou a mostrar-lhe uma abordagem funcional.
+Com o dataframe construído, precisamos criar um conjunto de dados de treino. Estes dados incluirão todas as observações, exceto as últimas 12, do ano de 2013, que é o nosso conjunto de dados de teste. O código seguinte subpõe o quadro de dados e cria parcelas da produção de lacticínios e variáveis de preços. Em seguida, crio parcelas das quatro variáveis de produção e preço. Uma função anónima é usada para definir alguns aumentos para enredo, e `Map()`depois iterar sobre a lista dos outros dois argumentos com . Se está supor que um "for loop" teria funcionado bem aqui, tem razão. Mas, como r é uma linguagem funcional, estou a mostrar-lhe uma abordagem funcional.
 
 ```R
 cadairytrain <- cadairydata[1:216, ]
@@ -1034,7 +1034,7 @@ Tendo criado um objeto de série de tempo e tendo olhado para os dados, vamos co
 
 Dada a pequena escala dos dados, construirei o modelo para a tendência no RStudio e depois cortarei e colarei o modelo resultante no Azure Machine Learning Studio (clássico). O RStudio proporciona um ambiente interativo para este tipo de análise interativa.
 
-Como primeira tentativa, tentarei uma regressão polinomial com poderes até 3. Existe o perigo real de se adaptar excessivamente a este tipo de modelos. Portanto, o melhor é evitar termos de alta ordem. A função `I()` inibe a interpretação do conteúdo (interpreta o conteúdo 'como está') e permite-lhe escrever uma função literalmente interpretada numa equação de regressão.
+Como primeira tentativa, tentarei uma regressão polinomial com poderes até 3. Existe o perigo real de se adaptar excessivamente a este tipo de modelos. Portanto, o melhor é evitar termos de alta ordem. A `I()` função inibe a interpretação do conteúdo (interpreta o conteúdo 'como está') e permite-lhe escrever uma função literalmente interpretada numa equação de regressão.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cadairytrain)
@@ -1065,7 +1065,7 @@ Isto gera o seguinte.
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-A partir dos valores P (`Pr(>|t|)`) nesta saída, podemos ver que o termo quadrado pode não ser significativo. Vou usar a função `update()` para modificar este modelo, deixando cair o termo quadrado.
+A partir`Pr(>|t|)`dos valores P () nesta saída, podemos ver que o termo quadrado pode não ser significativo. Vou usar `update()` a função para modificar este modelo, deixando cair o termo quadrado.
 
 ```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
@@ -1115,7 +1115,7 @@ Parece que o modelo de tendência se encaixa bastante bem nos dados. Além disso
 
 Com um modelo de tendência na mão, precisamos de continuar e incluir os efeitos sazonais. Usaremos o mês do ano como uma variável manequim no modelo linear para capturar o efeito mensal. Note que quando introduz variáveis de fator num modelo, a interceção não deve ser calculada. Se não o fizer, a fórmula está sobreespecificada e R deixará cair um dos fatores desejados, mas manterá o termo de interceção.
 
-Como temos um modelo de tendência satisfatório, podemos usar a função `update()` para adicionar os novos termos ao modelo existente. O -1 na fórmula de atualização deixa cair o termo de interceção. Continuando no RStudio por enquanto:
+Uma vez que temos um modelo `update()` de tendência satisfatório, podemos usar a função para adicionar os novos termos ao modelo existente. O -1 na fórmula de atualização deixa cair o termo de interceção. Continuando no RStudio por enquanto:
 
 ```R
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1195,9 +1195,9 @@ O enredo residual é mostrado na Figura 25.
 
 Estes residuais parecem razoáveis. Não existe uma estrutura específica, exceto o efeito da recessão de 2008-2009, que o nosso modelo não representa particularmente bem.
 
-O enredo mostrado na Figura 25 é útil para detetar quaisquer padrões dependentes do tempo nos residuais. A abordagem explícita da computação e da conspiração dos residuais que usei coloca os residuais em ordem temporal no enredo. Se, por outro lado, tivesse tramado `milk.lm$residuals`, o enredo não teria sido ordenado.
+O enredo mostrado na Figura 25 é útil para detetar quaisquer padrões dependentes do tempo nos residuais. A abordagem explícita da computação e da conspiração dos residuais que usei coloca os residuais em ordem temporal no enredo. Se, por outro lado, eu `milk.lm$residuals`tivesse traçado, o enredo não teria sido em ordem.
 
-Também pode usar `plot.lm()` para produzir uma série de parcelas de diagnóstico.
+Também pode `plot.lm()` usar para produzir uma série de parcelas de diagnóstico.
 
 ```R
 ## Show the diagnostic plots for the model
@@ -1270,7 +1270,7 @@ predict2  <- predict(milk.lm2, cadairydata)
 }
 ```
 
-Tal como na função `log.transform()` que discutimos na secção "Transformações de Valor", há bastante controlo de erros e código de recuperação de exceção nesta função. Os princípios utilizados são os mesmos. O trabalho é feito em dois lugares envoltos em `tryCatch()`. Primeiro, as séries de tempo são exponenciadas, uma vez que temos vindo a trabalhar com os registos dos valores. Em segundo lugar, o erro rMS real é calculado.  
+Tal como `log.transform()` acontece com a função que discutimos na secção "Transformações de Valor", há bastante controlo de erros e código de recuperação de exceção nesta função. Os princípios utilizados são os mesmos. O trabalho é feito em `tryCatch()`dois lugares envoltos em. Primeiro, as séries de tempo são exponenciadas, uma vez que temos vindo a trabalhar com os registos dos valores. Em segundo lugar, o erro rMS real é calculado.  
 
 Equipado com uma função para medir o erro rMS, vamos construir e obter um quadro de dados contendo os erros de RMS. Incluiremos termos apenas para o modelo de tendência e para o modelo completo com fatores sazonais. O seguinte código faz o trabalho utilizando os dois modelos lineares que construímos.
 
@@ -1302,7 +1302,7 @@ A execução deste código produz a saída mostrada na Figura 27 na porta de sa�
 
 Destes resultados, vemos que adicionar os fatores sazonais ao modelo reduz significativamente o erro de RMS. Não muito surpreendentemente, o erro de RMS para os dados de treino é um pouco menos do que para a previsão.
 
-## <a id="appendixa"></a>Guia para documentação rstudio
+## <a name="guide-to-rstudio-documentation"></a><a id="appendixa"></a>Guia para documentação rstudio
 
 O RStudio está muito bem documentado. Aqui estão alguns links para as secções-chave da documentação rStudio para começar.
 
@@ -1310,7 +1310,7 @@ O RStudio está muito bem documentado. Aqui estão alguns links para as secçõe
 * **Editar e executar código R** - O RStudio fornece um ambiente integrado para a edição e execução do código R. Consulte [o Código de Edição e Execução](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) para obter mais detalhes.
 * **Debugging** - RStudio inclui poderosas capacidades de depuração. Consulte [debugging com RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) para obter mais informações sobre estas funcionalidades. Para obter informações sobre funcionalidades de resolução de problemas de breakpoint, consulte [Breakpoint Troubleshooting](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a id="appendixb"></a>Continuar a ler
+## <a name="further-reading"></a><a id="appendixb"></a>Mais recursos
 
 Este tutorial de programação R cobre o básico do que precisa para usar a linguagem R com o Azure Machine Learning Studio (clássico). Se não estiver familiarizado com R, estão disponíveis duas apresentações no CRAN:
 
@@ -1323,7 +1323,7 @@ Há muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que
 * **R Livro de receitas** de Paul Teetor fornece uma abordagem de problema e solução para a utilização de R.  
 * **R in Action** de Robert Kabacoff é outro livro introdutório útil. O [site quick R](https://www.statmethods.net/) companheiro é um recurso útil.
 * **R Inferno** de Patrick Burns é um livro surpreendentemente humorístico que lida com uma série de tópicos complicados e difíceis que podem ser encontrados na programação em R. O livro está disponível gratuitamente no [R Inferno.](https://www.burns-stat.com/documents/books/the-r-inferno/)
-* Se quiser mergulhar profundamente em tópicos avançados em R, veja o livro **Advanced R** de Hadley Wickham. A versão online deste livro está disponível gratuitamente em [http://adv-r.had.co.nz/. ](http://adv-r.had.co.nz/)
+* Se quiser mergulhar profundamente em tópicos avançados em R, veja o livro **Advanced R** de Hadley Wickham. A versão online deste livro está [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/)disponível gratuitamente em .
 
 Um catálogo de pacotes de séries de tempo R pode ser encontrado na Visão de Tarefa cran: Análise de [séries de tempo](https://cran.r-project.org/web/views/TimeSeries.html). Para obter informações sobre pacotes específicos de objetos de série de tempo, deve consultar a documentação para esse pacote.
 

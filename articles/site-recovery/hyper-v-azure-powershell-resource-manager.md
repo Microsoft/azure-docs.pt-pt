@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257995"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para VMs hiper-V utilizando o PowerShell e o Azure Resource Manager
@@ -44,8 +44,8 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passo 1: Inscreva-se na sua conta Azure
 
-1. Abra uma consola PowerShell e execute este comando para iniciar sessão na sua conta Azure. O cmdlet traz uma página web que lhe pede credenciais de conta: `Connect-AzAccount`.
-   - Alternadamente, pode incluir as credenciais da sua conta como parâmetro no `Connect-AzAccount` cmdlet, utilizando o parâmetro **credencial.**
+1. Abra uma consola PowerShell e execute este comando para iniciar sessão na sua conta Azure. O cmdlet traz uma página web que lhe `Connect-AzAccount`pede credenciais de conta: .
+   - Alternadamente, pode incluir as credenciais da `Connect-AzAccount` sua conta como parâmetro no cmdlet, utilizando o parâmetro **credencial.**
    - Se você é um parceiro csp trabalhando em nome de um inquilino, especifique o cliente como inquilino, usando o seu nome de domínio primário inquilino ou inquilino. Por exemplo: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associe a subscrição que pretende utilizar com a conta, uma vez que uma conta pode ter várias subscrições:
 
@@ -73,20 +73,20 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 ## <a name="step-2-set-up-the-vault"></a>Passo 2: Montar o cofre
 
-1. Crie um grupo de recursos do Gestor de Recursos Azure para criar o cofre, ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte forma. A variável `$ResourceGroupName` contém o nome do grupo de recursos que pretende criar, e a variável $Geo contém a região de Azure para criar o grupo de recursos (por exemplo, "Brasil Sul").
+1. Crie um grupo de recursos do Gestor de Recursos Azure para criar o cofre, ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte forma. A `$ResourceGroupName` variável contém o nome do grupo de recursos que pretende criar, e a variável $Geo contém a região de Azure para criar o grupo de recursos (por exemplo, "Brasil Sul").
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
    ```
 
-1. Para obter uma lista de grupos de recursos na sua subscrição, execute o `Get-AzResourceGroup` cmdlet.
+1. Para obter uma lista de grupos `Get-AzResourceGroup` de recursos na sua subscrição, execute o cmdlet.
 1. Crie um novo cofre dos Serviços de Recuperação Azure da seguinte forma:
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
    ```
 
-Pode recuperar uma lista de cofres existentes com o `Get-AzRecoveryServicesVault` cmdlet.
+Pode recuperar uma lista de cofres `Get-AzRecoveryServicesVault` existentes com o cmdlet.
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Passo 3: Definir o contexto do cofre dos Serviços de Recuperação
 
@@ -106,7 +106,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
    ```
 
 1. Este cmdlet inicia um trabalho de Recuperação do Site para criar o site, e devolve um objeto de trabalho de Recuperação do Site. Aguarde que o trabalho esteja concluído e verifique se o trabalho foi concluído com sucesso.
-1. Utilize o `Get-AzRecoveryServicesAsrJob` cmdlet para recuperar o objeto de trabalho e verifique o estado atual do trabalho.
+1. Utilize `Get-AzRecoveryServicesAsrJob` o cmdlet para recuperar o objeto de trabalho e verifique o estado atual do trabalho.
 1. Gere e descarregue uma chave de registo para o site, da seguinte forma:
 
    ```azurepowershell
@@ -240,9 +240,9 @@ Antes de começar, a conta de armazenamento especificada deve estar na mesma reg
 > Se desejar replicar discos geridos pela CMK em Azure, faça os seguintes passos utilizando a Az PowerShell 3.3.0 em diante:
 >
 > 1. Ativar a falha nos discos geridos atualizando propriedades VM
-> 1. Utilize o `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet para obter o ID do disco para cada disco do item protegido
-> 1. Crie um objeto dicionário usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet para conter o mapeamento do ID do disco para o conjunto de encriptação do disco. Estes conjuntos de encriptação de discos devem ser pré-criados por si na região alvo.
-> 1. Atualize as propriedades VM utilizando `Set-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet, passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetSetMap.**
+> 1. Utilize `Get-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet para obter o ID do disco para cada disco do item protegido
+> 1. Crie um objeto `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` de dicionário usando cmdlet para conter o mapeamento do ID do disco para o conjunto de encriptação do disco. Estes conjuntos de encriptação de discos devem ser pré-criados por si na região alvo.
+> 1. Atualize as propriedades `Set-AzRecoveryServicesAsrReplicationProtectedItem` VM utilizando cmdlet, passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetSetMap.**
 
 ## <a name="step-8-run-a-test-failover"></a>Passo 8: Executar um teste failover
 

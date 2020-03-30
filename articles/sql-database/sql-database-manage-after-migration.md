@@ -12,10 +12,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256188"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na nuvem – Gerir as suas bases de dados individuais e reunidas na Base de Dados Azure SQL
@@ -66,7 +66,7 @@ Não se criam backups no Azure SQL DB e isso é porque não é preciso. A Base d
 
 |Camada de serviços|Período de retenção em dias|
 |---|:---:|
-|Básica|7|
+|Básico|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -91,7 +91,7 @@ Para saber mais sobre a recuperação de desastres, consulte: [Azure SQL Db Disa
 
 A Base de Dados SQL leva a Segurança e a Privacidade muito a sério. A segurança dentro da Base de Dados SQL está disponível ao nível da base de dados e ao nível da plataforma e é melhor compreendida quando categorizada em várias camadas. Em cada camada você pode controlar e fornecer a segurança ideal para a sua aplicação. As camadas são:
 
-- Identidade e autenticação[(autenticação SQL e autenticação Azure Ative Directory [AAD]).](sql-database-manage-logins.md)
+- Autenticação & identidade[(autenticação SQL e autenticação Azure Ative Directory [AAD]).](sql-database-manage-logins.md)
 - Atividade de monitorização[(Auditoria](sql-database-auditing.md) e [deteção de ameaças).](sql-database-threat-detection.md)
 - Proteger dados reais[(Encriptação de Dados Transparentes [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e [Sempre Encriptado [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlar o acesso a dados sensíveis e privilegiados[(segurança de nível de linha](/sql/relational-databases/security/row-level-security) e [máscara de dados dinâmicos).](/sql/relational-databases/security/dynamic-data-masking)
@@ -102,8 +102,8 @@ A Base de Dados SQL leva a Segurança e a Privacidade muito a sério. A seguran�
 
 Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 
-- [Autenticação de diretório ativo Azure](sql-database-aad-authentication.md)
-- [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
+- [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 A autenticação tradicional das janelas não é suportada. Azure Ative Directory (AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Acesso único de acesso de sign-on (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços azure para uma autenticação mais simples. O AAD suporta [o MFA (Multi Fator Authentication)](sql-database-ssms-mfa-authentication.md) e com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) a AAD pode ser integrada com o Diretório Ativo do Servidor do Windows. A autenticação SQL funciona exatamente como tem usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados de um determinado servidor de Base de Dados SQL. Isto também permite que a Base de Dados SQL e o SQL Data Warehouse ofereçam contas de autenticação multifactor e de utilizadores de hóspedes dentro de um domínio DaD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
 
@@ -138,7 +138,7 @@ Por predefinição, a sua base de dados SQL está configurada para "Permitir que
 
 Os pontos finais de serviço (SE) permitem-lhe expor os seus recursos Azure críticos apenas à sua própria rede virtual privada em Azure. Ao fazê-lo, elimina essencialmente o acesso público aos seus recursos. O tráfego entre a sua rede virtual para o Azure permanece na rede de espinha dorsal Azure. Sem se tem um túnel forçado. A sua rede virtual obriga o tráfego de internet à sua organização e ao tráfego do Serviço Azure a percorrer a mesma rota. Com os Pontos Finais de Serviço, pode otimizar isto uma vez que os pacotes fluem diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure.
 
-![Pontos finais de serviço de VNet](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
+![VNet service endpoints (Pontos finais de serviço de VNet)](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>IPs Reservados
 
@@ -168,13 +168,13 @@ A encriptação fornece um mecanismo forte para proteger e proteger os seus dado
 Na Base de Dados SQL, por padrão, os seus dados em repouso nos dados e ficheiros de registo no subsistema de armazenamento são completamente e sempre encriptados através de [Encriptação transparente de dados [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). As suas cópias de segurança também estão encriptadas. Com o TDE não são necessárias alterações no lado da sua aplicação que esteja a aceder a estes dados. A encriptação e a desencriptação acontecem de forma transparente; daí o nome.
 Para proteger os seus dados sensíveis a bordo e em repouso, a Base de Dados SQL fornece uma funcionalidade chamada [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE é uma forma de encriptação do lado do cliente que encripta colunas sensíveis na sua base de dados (por isso estão em cifra para administradores de bases de dados e utilizadores não autorizados). O servidor recebe os dados encriptados para começar. A chave para Sempre Encriptado também é armazenada no lado do cliente, pelo que apenas os clientes autorizados podem desencriptar as colunas sensíveis. O servidor e os administradores de dados não conseguem ver os dados sensíveis uma vez que as chaves de encriptação são armazenadas no cliente. A E encripta colunas sensíveis na tabela de ponta a ponta, desde clientes não autorizados até ao disco físico. A AE suporta comparações de igualdade hoje em dia, para que os DBAs possam continuar a consultar colunas encriptadas como parte dos seus comandos SQL. Sempre Encriptado pode ser usado com uma variedade de opções de loja chave, tais como [Cofre chave Azure,](sql-database-always-encrypted-azure-key-vault.md)loja de certificados Windows e módulos de segurança de hardware locais.
 
-|**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
+|**Características**|**Always Encrypted**|**Encriptação de dados transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de descanso|
 |**Servidor de base de dados pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações na aplicação necessárias para usar a funcionalidade**|Mínimo|Muito Mínimo|
-|**Granularidade de encriptação**|Nível de coluna|Nível de base de dados|
+|**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|
 ||||
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Como posso limitar o acesso a dados sensíveis na minha base de dados
@@ -196,7 +196,7 @@ Existe uma hierarquia de duas teclas no TDE – os dados em cada base de dados d
 - Automaticamente pela plataforma - Base de Dados SQL.
 - Ou usando o [Cofre chave Azure](sql-database-always-encrypted-azure-key-vault.md) como loja chave.
 
-Por padrão, a chave principal para encriptação de dados transparente é gerida pelo serviço Debase de dados SQL por conveniência. Se a sua organização quiser controlar a chave principal, existe uma opção de usar o Cofre chave Azure](sql-database-sempre encriptado-azure-key-vault.md) como a loja-chave. Ao utilizar o Cofre de Chaves Azure, a sua organização assume o controlo sobre o fornecimento de chaves, rotação e controlos de permissão. [Rotação ou troca do tipo de chave master TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) é rápido, uma vez que apenas encripta o DEK. Para organizações com separação de funções entre segurança e gestão de dados, um administrador de segurança poderia fornecer o material-chave para a chave principal do TDE no Cofre de Chaves Azure e fornecer uma chave Azure Key Vault identificador para o administrador de base de dados para usar para encriptação em repouso num servidor. O Key Vault foi concebido de tal forma que a Microsoft não vê nem extrai chaves de encriptação. Também obtém uma gestão centralizada das chaves para a sua organização.
+Por padrão, a chave principal para encriptação de dados transparente é gerida pelo serviço Debase de dados SQL por conveniência. Se a sua organização quiser controlar a chave principal, existe uma opção de usar o Cofre chave Azure[sql-database-sempre encriptado-azure-key-vault.md) como a loja-chave. Ao utilizar o Cofre de Chaves Azure, a sua organização assume o controlo sobre o fornecimento de chaves, rotação e controlos de permissão. [Rotação ou troca do tipo de chave master TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) é rápido, uma vez que apenas encripta o DEK. Para organizações com separação de funções entre segurança e gestão de dados, um administrador de segurança poderia fornecer o material-chave para a chave principal do TDE no Cofre de Chaves Azure e fornecer uma chave Azure Key Vault identificador para o administrador de base de dados para usar para encriptação em repouso num servidor. O Key Vault foi concebido de tal forma que a Microsoft não vê nem extrai chaves de encriptação. Também obtém uma gestão centralizada das chaves para a sua organização.
 
 #### <a name="always-encrypted"></a>Sempre Encriptado
 
@@ -222,7 +222,7 @@ A Rota Expressa também permite que você rebente até 2x o limite de largura de
 
 - [Introdução na Rota Expresso](../expressroute/expressroute-introduction.md)
 - [Pré-requisitos](../expressroute/expressroute-prerequisites.md)
-- [Fluxos de Trabalho](../expressroute/expressroute-workflows.md)
+- [Fluxos de trabalho](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>A Base de Dados SQL está em conformidade com quaisquer requisitos regulamentares, e como é que isso ajuda com a conformidade da minha própria organização.
 
@@ -270,7 +270,7 @@ O portal Azure mostra a utilização de uma base de dados selecionando a base de
 
 A partir deste gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recurso com um e-mail, escrever para um ponto final HTTPS/HTTP ou realizar uma ação. Para mais informações, consulte [Criar alertas](sql-database-insights-alerts-portal.md).
 
-#### <a name="dynamic-management-views"></a>Pontos de vista de gestão dinâmica
+#### <a name="dynamic-management-views"></a>Vistas de Gestão Dinâmica
 
 Pode consultar a visão dinâmica de gestão do [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para devolver o histórico de estatísticas de consumo de recursos a partir da última hora e a visão do catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para devolver a história nos últimos 14 dias.
 
@@ -302,7 +302,7 @@ A Base de Dados SQL oferece vários níveis de serviço Básico, Standard e Prem
 
 |**Camada de serviços**|**Cenários de caso de uso comum**|
 |---|---|
-|**Básica**|Aplicações com um punhado de utilizadores e uma base de dados que não tem alta conmoedação, escala e requisitos de desempenho. |
+|**Básico**|Aplicações com um punhado de utilizadores e uma base de dados que não tem alta conmoedação, escala e requisitos de desempenho. |
 |**Standard**|Aplicações com uma conmoeda, escala e requisitos de desempenho consideráveis, juntamente com exigências de IO baixas a médias. |
 |**Premium**|Aplicações com muitos utilizadores simultâneos, alta CPU/memória e elevadas exigências da IO. Aplicações sensíveis à alta condivisa, alta suver e latência podem alavancar o nível Premium. |
 |||
@@ -334,6 +334,6 @@ Tem várias formas de o conseguir:
 - **[Data Sync](sql-database-sync-data.md)** – Esta funcionalidade ajuda-o a sincronizar os dados bidireccionalmente entre várias bases de dados do SQL Server no local e a Base de Dados SQL. Para sincronizar com as bases de dados do SQL Server no local, é necessário instalar e configurar o agente de sincronização num computador local e abrir a porta TCP de saída 1433.
 - **[Replicação de Transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com a replicação de transações pode sincronizar os seus dados desde as instalações até ao Azure SQL DB, sendo o in-local o editor e o Azure SQL DB a ser o assinante. Por enquanto, só esta configuração é apoiada. Para obter mais informações sobre como migrar os seus dados do local para o Azure SQL com o mínimo de tempo de inatividade, consulte: Utilize a Replicação de [Transações](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a [Base de Dados SQL](sql-database-technical-overview.md).

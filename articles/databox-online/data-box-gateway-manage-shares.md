@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265444"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as partilhas do Azure Data Box Gateway 
@@ -72,7 +72,7 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
     ![Selecionar partilha](media/data-box-gateway-manage-shares/delete-1.png)
 
-2. Clique em **Eliminar**. 
+2. Clique em **Apagar**. 
 
     ![Clicar em eliminar](media/data-box-gateway-manage-shares/delete-2.png)
 
@@ -134,6 +134,6 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 > Apenas terá de efetuar este procedimento uma vez para uma conta de armazenamento fornecida. Não precisa de repetir esta ação para todas as partilhas associadas à mesma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir utilizadores através do portal do Azure](data-box-gateway-manage-users.md).

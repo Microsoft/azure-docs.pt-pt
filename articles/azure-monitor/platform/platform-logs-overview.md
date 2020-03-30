@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos registos da plataforma Azure  Microsoft Docs
+title: Visão geral dos registos da plataforma Azure [ Microsoft Docs
 description: Visão geral dos registos no Monitor Azure que fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure.
 author: bwren
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659325"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Visão geral dos registos da plataforma Azure
@@ -23,8 +23,8 @@ A tabela seguinte lista os registos específicos da plataforma que estão dispon
 | Registar | Camada | Descrição |
 |:---|:---|:---|
 | Registos do recurso | Recursos do Azure | Forneça informações sobre as operações que foram realizadas dentro de um recurso Azure (o avião de *dados),* por exemplo, obter um segredo de um Cofre chave ou fazer um pedido para uma base de dados. O conteúdo dos registos de recursos varia pelo tipo de serviço e recursos Azure.<br><br>*Os registos de recursos foram anteriormente referidos como registos de diagnóstico.*  |
-| Registo de atividades | Subscrição do Azure | Fornece informações sobre as operações em cada recurso Azure na subscrição a partir do exterior ( o plano de*gestão*), além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o _quê,_ _quem, quem, e_ _quando_ para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Também é possível compreender o estado da operação e outras propriedades relevantes.  Existe um único registo de Atividade para cada subscrição do Azure. |
-| Registos de Diretório Ativo Azure | Inquilino Azure |  Contém o histórico de atividade sessão e rasto de auditoria das alterações efetuadas no Diretório Ativo Azure para um determinado inquilino. Veja o que são relatórios do [Azure Ative Directory para](../../active-directory/reports-monitoring/overview-reports.md) uma descrição completa dos Registos de Diretórios Ativos do Azure.   |
+| Registo de atividades | Subscrição do Azure | Fornece informações sobre as operações em cada recurso Azure na subscrição a partir do exterior ( o plano de*gestão*), além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o _quê,_ _quem, quem, e_ _quando_ para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Também pode compreender o estado da operação e outras propriedades relevantes.  Existe um único registo de Atividade para cada subscrição do Azure. |
+| Registos de Diretório Ativo Azure | Inquilino do Azure |  Contém o histórico de atividade sessão e rasto de auditoria das alterações efetuadas no Diretório Ativo Azure para um determinado inquilino. Veja o que são relatórios do [Azure Ative Directory para](../../active-directory/reports-monitoring/overview-reports.md) uma descrição completa dos Registos de Diretórios Ativos do Azure.   |
 
 > [!NOTE]
 > O Registo de Atividades do Azure destina-se principalmente a atividades que ocorrem no Gestor de Recursos Azure. Não rastreia os recursos utilizando o modelo Classic/RDFE. Alguns tipos de recursos clássicos têm um fornecedor de recursos proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se interagir com um tipo de recurso Clássico através do Gestor de Recursos Azure utilizando estes fornecedores de recursos proxy, as operações aparecem no Registo de Atividades. Se interagir com um tipo de recurso Clássico fora dos proxies do Gestor de Recursos Azure, as suas ações só são registadas no Registo de Operação. O Registo de Operação pode ser navegado numa secção separada do portal.

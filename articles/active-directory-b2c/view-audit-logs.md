@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264222"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acesso a registos de auditoria Azure AD B2C
@@ -35,7 +35,7 @@ A categoria **B2C** nos registos de auditoria contém os seguintes tipos de ativ
 |Tipo de atividade |Descrição  |
 |---------|---------|
 |Autorização |Atividades relativas à autorização de um utilizador para aceder aos recursos B2C (por exemplo, um administrador que aceda a uma lista de políticas B2C).         |
-|Active |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
+|Diretório |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
 |Aplicação | Criar, ler, atualizar e eliminar operações (CRUD) em aplicações B2C. |
 |Chave |Operações CRUD em chaves armazenadas num recipiente chave B2C. |
 |Recurso |Operações crud em recursos B2C. Por exemplo, políticas e fornecedores de identidade.
@@ -51,21 +51,21 @@ Esta imagem de exemplo do portal Azure mostra os dados capturados quando um util
 
 O painel de detalhes da atividade contém as seguintes informações relevantes:
 
-|Secção|Campo|Descrição|
+|Section|Campo|Descrição|
 |-------|-----|-----------|
 | Atividade | Nome | Que atividade teve lugar. Por exemplo, *emitir um id_token à aplicação*, que conclui o insessão do utilizador real. |
-| Iniciado por (Ator) | Objectide | O ID do **objeto** da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
+| Iniciado por (Ator) | ObjectId | O ID do **objeto** da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
 | Iniciado por (Ator) | Spn | O ID de **aplicação** da aplicação B2C a que o utilizador está a iniciar sessão. |
-| Alvo(s) | Objectide | O ID do **objeto** do utilizador que está a iniciar sessão. |
+| Destino(s) | ObjectId | O ID do **objeto** do utilizador que está a iniciar sessão. |
 | Detalhes Adicionais | TenantId | A **identificação** do inquilino do inquilino Azure AD B2C. |
 | Detalhes Adicionais | PolicyId | O ID de **política** do fluxo de utilizador (política) que está a ser utilizado para iniciar sessão do utilizador. |
-| Detalhes Adicionais | ApplicationId | O ID de **aplicação** da aplicação B2C a que o utilizador está a iniciar sessão. |
+| Detalhes Adicionais | ApplicationID | O ID de **aplicação** da aplicação B2C a que o utilizador está a iniciar sessão. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Ver registos de auditoria no portal Azure
 
 O portal Azure dá acesso aos eventos de registo de auditoria no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Mude para o diretório que contém o seu inquilino Azure AD B2C e, em seguida, navegue até **Azure AD B2C**.
 1. No âmbito **das Atividades** no menu esquerdo, selecione **registos de auditoria.**
 
@@ -90,7 +90,7 @@ Os registos de auditoria são publicados no mesmo oleoduto que outras atividades
 
 Para permitir o acesso baseado em scripts ou aplicações à AD Azure reportando API, você precisa de uma aplicação registrada no seu inquilino Azure AD B2C com as seguintes permissões API. Pode ativar estas permissões num registo de candidatura existente dentro do seu inquilino B2C, ou criar uma nova especificamente para utilização com automatização de registos de auditoria.
 
-* Microsoft Graph > Application permissions > AuditLog > AuditLog.Read.All
+* Microsoft Graph > Application autoriza > AuditLog > AuditLog.Read.All
 
 Siga os passos do seguinte artigo para registar um pedido com as permissões necessárias:
 
@@ -100,7 +100,7 @@ Depois de ter registado uma aplicação com as permissões apropriadas, consulte
 
 ### <a name="access-the-api"></a>Acesso à API
 
-Para baixar os eventos de registo de auditoria Azure AD B2C através da API, filtre os registos na categoria `B2C`. Para filtrar por categoria, utilize o parâmetro de cadeia de consulta `filter` quando ligar para o ponto final da API de reporte de API.
+Para baixar os eventos de registo de auditoria Azure AD `B2C` B2C através da API, filtre os registos da categoria. Para filtrar por `filter` categoria, utilize o parâmetro de corda de consulta quando ligar para o ponto final de API de reporte de API.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -221,6 +221,6 @@ Aqui está a representação da JSON do evento de atividade de exemplo mostrado 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode automatizar outras tarefas de administração, por exemplo, gerir contas de [utilizadores Do Azure AD B2C com](manage-user-accounts-graph-api.md)o Microsoft Graph .

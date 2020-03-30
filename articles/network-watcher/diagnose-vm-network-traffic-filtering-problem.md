@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Diagnosticar um problema de filtro de tráfego de rede VM - Portal Azure'
 titleSuffix: Azure Network Watcher
-description: Neste guia de início rápido, saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao utilizar a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
+description: Neste início rápido, vai aprender a diagnosticar um problema de filtro de tráfego de rede numa máquina virtual com a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -18,17 +18,17 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241599"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
 
-Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Determine a causa de uma falha de comunicação e como pode resolvê-la.
+Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -36,9 +36,9 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. **Selecione Compute**, e, em seguida, selecione **O Datacenter do Windows Server 2016** ou uma versão do **Ubuntu Server**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
 
     |Definição|Valor|
     |---|---|
@@ -47,7 +47,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Localização| Selecione **E.U.A. Leste**.|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -66,13 +66,13 @@ Se já tiver um observador de rede ativado em pelo menos uma região, avance par
 
     ![Ativar o Observador de Rede](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Selecione **Ativar Observador de Rede**.
+3. Selecione **Ativar o Observador de Rede**.
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
-Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais.
+Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego.
 
-1. No portal, selecione **Todos os serviços**. Na caixa *de filtro* **de todos os serviços,** introduza o Observador da *Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços, ** *Filtro*, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
 2. Selecione **Verificação do fluxo de IP**, em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme apresentado na imagem que se segue:
 
@@ -81,7 +81,7 @@ Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, 
     | Grupo de recursos    | Selecionar myResourceGroup                                                                            |
     | Máquina virtual   | Selecionar myVm                                                                                       |
     | Interface de rede | myvm – O nome da interface de rede que o portal criou quando criou a VM é diferente. |
-    | Protocol          | TCP                                                                                               |
+    | Protocolo          | TCP                                                                                               |
     | Direção         | Saída                                                                                          |
     | Endereço IP local  | 10.0.0.4                                                                                          |
     | Porta local      | 60000                                                                                                |
@@ -118,11 +118,11 @@ As verificações neste guia de início rápido testaram a configuração do Azu
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 

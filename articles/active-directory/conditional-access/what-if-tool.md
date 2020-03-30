@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77620690"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolução de problemas utilizando a ferramenta What If no Acesso Condicional
@@ -48,7 +48,7 @@ Pode encontrar a ferramenta **What If** na página Acesso Condicional **[- Polí
 
 Para iniciar a ferramenta, na barra de ferramentas no topo da lista de políticas, clique em **What If**.
 
-![What If](./media/what-if-tool/01.png)
+![Hipótese](./media/what-if-tool/01.png)
 
 Antes de poder fazer uma avaliação, tem de configurar as definições.
 
@@ -56,7 +56,7 @@ Antes de poder fazer uma avaliação, tem de configurar as definições.
 
 Esta secção fornece-lhe informações sobre as definições de simulação executadas.
 
-![What If](./media/what-if-tool/02.png)
+![Hipótese](./media/what-if-tool/02.png)
 
 ### <a name="user"></a>Utilizador
 
@@ -72,12 +72,12 @@ O endereço IP é um único endereço IPv4 para imitar a condição de [localiza
 
 ### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Esta definição imita a condição das plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a todas as **plataformas (incluindo não suportadas)** . 
+Esta definição imita a condição das plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a todas as **plataformas (incluindo não suportadas)**. 
 
-### <a name="client-apps"></a>Aplicativos para clientes
+### <a name="client-apps"></a>Aplicações do cliente
 
 Esta definição imita a condição das [aplicações do cliente.](concept-conditional-access-conditions.md#client-apps-preview)
-Por padrão, esta definição causa uma avaliação de todas as políticas que têm aplicações **browser** ou mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)** . Pode reduzir esta definição selecionando:
+Por padrão, esta definição causa uma avaliação de todas as políticas que têm aplicações **browser** ou mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)**. Pode reduzir esta definição selecionando:
 
 - **Browser** para avaliar todas as políticas tendo pelo menos **o Navegador** selecionado. 
 - **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas com pelo menos **aplicações móveis e clientes de desktop selecionados.** 
@@ -90,7 +90,7 @@ Esta definição imita a [condição de risco de inscrição](concept-conditiona
 
 Inicia-se uma avaliação clicando no **What If**. O resultado da avaliação fornece-lhe um relatório que consiste em: 
 
-![What If](./media/what-if-tool/03.png)
+![Hipótese](./media/what-if-tool/03.png)
 
 - Um indicador se existem políticas clássicas no seu ambiente
 - Políticas que se aplicam ao seu utilizador

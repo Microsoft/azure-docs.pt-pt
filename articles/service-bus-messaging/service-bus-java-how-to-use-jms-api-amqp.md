@@ -1,5 +1,5 @@
 ---
-title: Utilize AMQP com java message service API & Azure Service Bus
+title: Use AMQP com Java Message Service API & Azure Service Bus
 description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Protocolo avançado de Fila de Mensagens (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -15,10 +15,10 @@ ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371266"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Utilize o Java Message Service (JMS) com o Azure Service Bus e o AMQP 1.0
@@ -29,7 +29,7 @@ O Protocolo de Fila de Mensagens Avançadas (AMQP) 1.0 é um protocolo de mensag
 Suporte para AMQP 1.0 em Ônibus de serviço Azure significa que você pode usar as funcionalidades de mensagens intermediadas de fila e subscrição de uma série de plataformas usando um protocolo binário eficiente. Além disso, pode construir aplicações compostas por componentes construídos utilizando uma mistura de línguas, quadros e sistemas operativos.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Service Bus
-Este guia assume que já tem um espaço de nome service Bus contendo uma fila chamada `basicqueue`. Se não o fizer, pode criar o espaço de [nome e a fila](service-bus-create-namespace-portal.md) utilizando o portal [Azure](https://portal.azure.com). Para obter mais informações sobre como criar espaços de nome sinuosos e filas de ônibus de serviço, consulte [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md).
+Este guia assume que já tem um espaço de `basicqueue`nome service Bus contendo uma fila chamada . Se não o fizer, pode criar o espaço de [nome e a fila](service-bus-create-namespace-portal.md) utilizando o portal [Azure](https://portal.azure.com). Para obter mais informações sobre como criar espaços de nome sinuosos e filas de ônibus de serviço, consulte [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Filas e tópicos divididos também suportam amqp. Para mais informações, consulte as entidades de [mensagens divididas](service-bus-partitioning.md) e o [suporte amqP 1.0 para filas e tópicos divididos](service-bus-partitioned-queues-and-topics-amqp-overview.md)do Bus de Serviço.
@@ -37,12 +37,12 @@ Este guia assume que já tem um espaço de nome service Bus contendo uma fila ch
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Descarregar a biblioteca de clientes AMQP 1.0 JMS
-Para obter informações sobre onde descarregar a versão mais recente da biblioteca de clientes Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Para obter informações sobre onde descarregar a versão mais recente da biblioteca cliente Apache [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)Qpid JMS AMQP 1.0, visite .
 
 Deve adicionar os seguintes quatro ficheiros JAR do arquivo de distribuição Apache Qpid JMS AMQP 1.0 ao Java CLASSPATH ao construir e executar aplicações JMS com Bus de Serviço:
 
-* geronimo-jms\_1,1\_spec-1.0.jar
-* qpid-jms-client-[version].jar
+* geronimo-jms\_1.1\_spec-1.0.jar
+* qpid-jms-cliente-[versão].jar
 
 > [!NOTE]
 > Os nomes e versões jMS JAR podem ter mudado. Para mais detalhes, consulte [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
@@ -364,15 +364,15 @@ Além disso, o Azure Service Bus divide o plano de controlo do plano de dados e,
 
 | Método não suportado          | Substituir                                                                             |
 |-----------------------------|------------------------------------------------------------------------------------------|
-| createDurableSubscriber     | criar uma subscrição tópico poroting o seletor de mensagens                                 |
-| createDurableConsumer       | criar uma subscrição tópico poroting o seletor de mensagens                                 |
-| createSharedConsumer        | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
-| createSharedDurableConsumer | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
-| createTemporaryTopic        | criar um tópico através da gestão API/ferramentas/portal com *autoDeleteOnIdle* definido para um período de expiração |
-| createTopic                 | criar um tópico através da gestão API/ferramentas/portal                                           |
-| Cancelar a subscrição                 | eliminar a gestão de tópicos API/ferramentas/portal                                             |
-| createBrowser               | Sem apoio. Utilize a funcionalidade Peek() da API do autocarro de serviço                         |
-| createQueue                 | criar uma fila através da gestão API/ferramentas/portal                                           | 
+| criarO Assinante Durável     | criar uma subscrição tópico poroting o seletor de mensagens                                 |
+| criarDurableConsumidor       | criar uma subscrição tópico poroting o seletor de mensagens                                 |
+| criarSharedConsumer        | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
+| criarSharedDurableConsumer | Os tópicos de ônibus de serviço são sempre compartilháveis, ver acima                                       |
+| criarTópico temporário        | criar um tópico através da gestão API/ferramentas/portal com *autoDeleteOnIdle* definido para um período de expiração |
+| criarTópico                 | criar um tópico através da gestão API/ferramentas/portal                                           |
+| cancelar a subscrição                 | eliminar a gestão de tópicos API/ferramentas/portal                                             |
+| criar Browser               | sem apoio. Utilize a funcionalidade Peek() da API do autocarro de serviço                         |
+| criar Fila                 | criar uma fila através da gestão API/ferramentas/portal                                           | 
 | criar Fila Temporária        | criar uma fila através da gestão API/tools/portal com *autoDeleteOnIdle* definido para um período de expiração |
 | receberNoWait               | utilizar o método de receção() fornecido pelo Service Bus SDK e especificar um intervalo de tempo muito baixo ou nulo |
 
@@ -385,6 +385,6 @@ Também pode utilizar o Service Bus AMQP 1.0 de outras línguas, incluindo .NET,
 * [Suporte AMQP 1.0 em Ônibus de Serviço Azure](service-bus-amqp-overview.md)
 * [Como utilizar a AMQP 1.0 com o Bus de Serviço .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Guia de desenvolvedor amqp 1.0 do ônibus de serviço](service-bus-amqp-dotnet.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de Programadores do Java](https://azure.microsoft.com/develop/java/)
 

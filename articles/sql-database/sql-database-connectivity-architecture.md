@@ -13,13 +13,13 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256422"
 ---
-# <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade Azure SQL
+# <a name="azure-sql-connectivity-architecture"></a>Arquitetura de Conectividade do SQL do Azure
 > [!NOTE]
 > Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
@@ -50,19 +50,19 @@ A Base de Dados Azure SQL suporta as seguintes três opções para a definição
 
 - **Procuração:** Neste modo, todas as ligações são proxidas através dos gateways da Base de Dados Azure SQL, levando a um aumento da latência e à redução da potência. Para que as ligações utilizem este modo, os clientes precisam de permitir a comunicação de saída do cliente para os endereços IP da Base de Dados Azure SQL na porta 1433.
 
-- **Padrão:** Esta é a política de ligação em vigor em todos os servidores após a criação, a menos que altere explicitamente a política de ligação para `Proxy` ou `Redirect`. A política predefinida é`Redirect` para todas as ligações de clientes originárias do Azure (por exemplo, a partir de uma Máquina Virtual Azure) e `Proxy`para todas as ligações de clientes originárias do exterior (por exemplo, ligações da sua estação de trabalho local).
+- **Padrão:** Esta é a política de ligação em vigor em todos os `Proxy` servidores após a criação, a menos que altere explicitamente a política de ligação para qualquer um ou `Redirect`. A política`Redirect` padrão é para todas as ligações de clientes originárias do Azure (por exemplo, a partir de uma Máquina Virtual Azure) e `Proxy`para todas as ligações de clientes originárias do exterior (por exemplo, ligações da sua estação de trabalho local).
 
- Recomendamos vivamente a política de ligação `Redirect` sobre a política de ligação `Proxy` para a latência mais baixa e o maior resultado. No entanto, terá de cumprir os requisitos adicionais para permitir o tráfego de rede, tal como acima descrito. Se o cliente for uma Máquina Virtual Azure, pode fazê-lo utilizando grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Se o cliente estiver a ligar-se a partir de uma estação de trabalho no local, então poderá ter de trabalhar com o administrador da rede para permitir o tráfego de rede através da sua firewall corporativa.
+ Recomendamos vivamente a `Redirect` `Proxy` política de ligação sobre a política de ligação para a latência mais baixa e o maior resultado. No entanto, terá de cumprir os requisitos adicionais para permitir o tráfego de rede, tal como acima descrito. Se o cliente for uma Máquina Virtual Azure, pode fazê-lo utilizando grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Se o cliente estiver a ligar-se a partir de uma estação de trabalho no local, então poderá ter de trabalhar com o administrador da rede para permitir o tráfego de rede através da sua firewall corporativa.
 
 ## <a name="connectivity-from-within-azure"></a>Conectividade a partir de Azure
 
-Se estiver a ligar-se a partir do Azure, as suas ligações têm uma política de ligação de `Redirect` por defeito. Uma política de `Redirect` significa que, após a sessão do TCP ser estabelecida na base de dados Azure SQL, a sessão de cliente é então redirecionada para o cluster de base de dados certo com uma alteração para o IP virtual de destino da porta de entrada de base de dados Azure SQL para a do cluster. Posteriormente, todos os pacotes subsequentes fluem diretamente para o cluster, contornando o portal de bases de dados Azure SQL. O diagrama que se segue ilustra este fluxo de tráfego.
+Se estiver a ligar-se a partir do Azure, as suas ligações têm uma política de ligação por `Redirect` defeito. Uma política `Redirect` de meios que, após a sessão do TCP, é estabelecida na base de dados Azure SQL, a sessão do cliente é então redirecionada para o cluster de base de dados certo com uma alteração para o IP virtual de destino da porta de entrada de base de dados Azure SQL para a do cluster. Posteriormente, todos os pacotes subsequentes fluem diretamente para o cluster, contornando o portal de bases de dados Azure SQL. O diagrama que se segue ilustra este fluxo de tráfego.
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Conectividade de fora de Azure
 
-Se estiver a ligar-se do exterior do Azure, as suas ligações têm uma política de ligação de `Proxy` por defeito. Uma política de `Proxy` significa que a sessão de TCP é estabelecida através do portal de bases de dados Azure SQL e todos os pacotes subsequentes fluem através do portal. O diagrama que se segue ilustra este fluxo de tráfego.
+Se estiver a ligar-se do exterior do Azure, as suas ligações têm uma política de ligação por `Proxy` defeito. Uma política `Proxy` de meios que a sessão de TCP é estabelecida através do portal de bases de dados Azure SQL e todos os pacotes subsequentes fluem através do portal. O diagrama que se segue ilustra este fluxo de tráfego.
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
@@ -72,7 +72,7 @@ Se estiver a ligar-se do exterior do Azure, as suas ligações têm uma polític
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP do gateway da Base de Dados SQL do Azure
 
-A tabela abaixo lista os endereços IP de Gateways por região. Para se ligar a uma Base de Dados Azure SQL, é necessário permitir o tráfego de rede para e de **todos os** Gateways para a região.
+A tabela abaixo lista os endereços IP de Gateways por região. Para ligar a uma Base de Dados Azure SQL, é necessário permitir que o tráfego de rede & de **todos os** Gateways para a região.
 
 Os pormenores de como o tráfego deve ser migrado para novas Gateways em regiões específicas estão no seguinte artigo: Migração de tráfego de base de [dados Azure SQL para gateways mais recentes](sql-database-gateway-migration.md)
 
@@ -87,9 +87,9 @@ Os pormenores de como o tráfego deve ser migrado para novas Gateways em regiõe
 | Canadá Central       | 40.85.224.249      |
 | Leste do Canadá          | 40.86.226.166      |
 | E.U.A. Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
-| China Leste           | 139.219.130.35     |
+| Leste da China           | 139.219.130.35     |
 | China Leste 2         | 40.73.82.1         |
-| China Norte          | 139.219.15.17      |
+| Norte da China          | 139.219.15.17      |
 | China Norte 2        | 40.73.50.0         |
 | Ásia Leste            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
@@ -117,7 +117,7 @@ Os pormenores de como o tráfego deve ser migrado para novas Gateways em regiõe
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | E.U.A. Centro-Oeste      | 13.78.145.25       |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | E.U.A.Oeste 2            | 13.66.226.202      |
 |                      |                    |

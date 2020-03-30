@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262805"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização de cache simbólica em MSAL.NET
@@ -39,14 +39,14 @@ Lembre-se, a serialização personalizada não está disponível em plataformas 
 As seguintes classes e interfaces são utilizadas na cacheização simbólica:
 
 - `ITokenCache`, que define eventos para subscrever pedidos de serialização de cache simbólicos, bem como métodos para serializar ou desserializar a cache em vários formatos (ADAL v3.0, MSAL 2.x e MSAL 3.x = ADAL v5.0).
-- `TokenCacheCallback` é uma chamada passada para os eventos para que possa lidar com a serialização. Serão chamados com argumentos de `TokenCacheNotificationArgs`.
-- `TokenCacheNotificationArgs` apenas fornece a `ClientId` da aplicação e uma referência ao utilizador para o qual o símbolo está disponível.
+- `TokenCacheCallback`é um callback passado para os eventos para que você possa lidar com a serialização. Serão chamados com argumentos `TokenCacheNotificationArgs`de tipo.
+- `TokenCacheNotificationArgs`apenas fornece `ClientId` a aplicação e uma referência ao utilizador para o qual o símbolo está disponível.
 
   ![Diagrama de classe](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET cria caches simbólicos para si e fornece-lhe a cache `IToken` quando chama as propriedades de `UserTokenCache` e `AppTokenCache` de uma aplicação. Não é suposto implementares a interface sozinho. A sua responsabilidade, quando implementa uma cacheização personalizada, é:
-> - Reaja a `BeforeAccess` e `AfterAccess` "eventos" (ou seus sabores Assync). O delegado `BeforeAccess` é responsável por desserializar a cache, enquanto o `AfterAccess` é responsável pela serialização da cache.
+> MSAL.NET cria caches simbólicos para si `IToken` e fornece-lhe a `UserTokenCache` `AppTokenCache` cache quando chama de uma aplicação e propriedades. Não é suposto implementares a interface sozinho. A sua responsabilidade, quando implementa uma cacheização personalizada, é:
+> - Reagir `BeforeAccess` e `AfterAccess` "eventos" (ou seus sabores Async). O `BeforeAccess` delegado é responsável por desserializar `AfterAccess` a cache, enquanto que o responsável pela serialização da cache.
 > - Parte destes eventos armazenam ou carregam bolhas, que são transmitidas através do argumento do evento para qualquer armazenamento que você quiser.
 
 As estratégias são diferentes dependendo se estiver a escrever uma serialização de cache simbólica para uma [aplicação de cliente público](msal-client-applications.md) (desktop), ou uma [aplicação confidencial do cliente](msal-client-applications.md)) (aplicação web/web API, app daemon).
@@ -64,7 +64,7 @@ A personalização da serialização da cache simbólica para partilhar o estado
 
 Abaixo está um exemplo de uma implementação ingénua de serialização personalizada de um cache simbólico para aplicações de ambiente de trabalho. Aqui, o cache token do utilizador é um ficheiro na mesma pasta que a aplicação.
 
-Depois de construir a aplicação, permite a serialização chamando o método `TokenCacheHelper.EnableSerialization()` e passando a aplicação `UserTokenCache`.
+Depois de construir a aplicação, permite `TokenCacheHelper.EnableSerialization()` a serialização `UserTokenCache`ligando para o método e passando a aplicação .
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -72,7 +72,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-A classe `TokenCacheHelper` ajudante é definida como:
+A `TokenCacheHelper` classe de ajudante é definida como:
 
 ```csharp
 static class TokenCacheHelper

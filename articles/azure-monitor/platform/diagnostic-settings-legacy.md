@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
 ms.openlocfilehash: 6d4c724c7cfb4c1779f0fc6592a7e61e060755b9
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096906"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Atualização à recolha e exportação de registos da Atividade Azure
@@ -42,7 +42,7 @@ As seguintes colunas foram removidas. A substituição destas colunas está num 
 
 | Coluna removida | Coluna de substituição |
 |:---|:---|
-| ActivityStatus    | ActivityStatusValue    |
+| Estatuto de Atividade    | ActivityStatusValue    |
 | Subestatuto de atividade | ActivitySubstatusValue |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | Valor do Fornecedor de Recursos  |

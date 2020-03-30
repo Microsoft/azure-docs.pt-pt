@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660245"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa em registos do Monitor Azure
@@ -29,7 +29,7 @@ search "error"
 Embora sejam fáceis de usar, consultas desmeparadas como a que se apresentam acima não são eficientes e são suscetíveis de devolver muitos resultados irrelevantes. Uma prática melhor seria procurar na tabela relevante, ou mesmo numa coluna específica.
 
 ### <a name="table-scoping"></a>Scoping de mesa
-Para pesquisar um termo numa tabela específica, adicione `in (table-name)` logo após o operador de **pesquisa:**
+Para pesquisar um termo numa `in (table-name)` tabela específica, adicione logo após o operador de **pesquisa:**
 
 ```Kusto
 search in (Event) "error"
@@ -51,10 +51,10 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se utilizar `==` em vez de `:`, os resultados incluem registos em que a coluna *Fonte* tem o valor exato de "erro", e neste caso exato. A utilização de ':' incluirá registos em que a *Fonte* tem valores como "error code 404" ou "Error".
+> Se utilizar `==` em `:`vez de , os resultados incluirão registos em que a coluna *Fonte* tem o valor exato de "erro", e neste caso exato. A utilização de ':' incluirá registos em que a *Fonte* tem valores como "error code 404" ou "Error".
 
 ## <a name="case-sensitivity"></a>Sensibilidade ao caso
-Por predefinição, a pesquisa a prazo é insensível a casos, pelo que pesquisar "DNS" pode produzir resultados como "DNS", "DNS" ou "Dns". Para tornar o caso de pesquisa sensível, utilize a opção `kind`:
+Por predefinição, a pesquisa a prazo é insensível a casos, pelo que pesquisar "DNS" pode produzir resultados como "DNS", "DNS" ou "Dns". Para tornar o caso de `kind` pesquisa sensível, utilize a opção:
 
 ```Kusto
 search kind=case_sensitive in (Event) "DNS"
@@ -89,10 +89,10 @@ search in (Event) "corp*.com"
 | take 100
 ```
 
-Você também pode colocar tudo em uma mesa usando apenas um wild card: `search in (Event) *`, mas isso seria o mesmo que escrever apenas `Event`.
+Você também pode colocar tudo em uma mesa `search in (Event) *`usando apenas um wild `Event`card: , mas isso seria o mesmo que escrever apenas .
 
 > [!TIP]
-> Embora possa usar `search *` para obter todas as colunas de cada tabela, recomenda-se que consulte sempre as suas consultas para tabelas específicas. Consultas desmeparadas podem demorar algum tempo a ser completadas e podem devolver demasiados resultados.
+> Embora possa `search *` usar para obter todas as colunas de cada tabela, recomenda-se que consulte sempre as suas consultas para tabelas específicas. Consultas desmeparadas podem demorar algum tempo a ser completadas e podem devolver demasiados resultados.
 
 ## <a name="add-and--or-to-search-queries"></a>Adicionar *e* / *ou* pesquisar consultas
 Utilizar **e** procurar registos que contenham vários termos:

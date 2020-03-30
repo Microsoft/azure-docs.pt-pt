@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: ff102ebe50dd4d2169090718ced9e550701b1b09
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259412"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrante de carga interna com o Serviço Azure Kubernetes (AKS)
@@ -22,13 +22,13 @@ Para restringir o acesso às suas aplicações no Serviço Azure Kubernetes (AKS
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 O principal do serviço de cluster AKS precisa de permissão para gerir os recursos da rede se utilizar uma subnet ou grupo de recursos existente. Em geral, atribuir o papel de colaborador da *Rede* ao seu principal de serviço sobre os recursos delegados. Para obter mais informações sobre permissões, consulte o [acesso do Delegado AKS a outros recursos Do Azure.][aks-sp]
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
-Para criar um equilibrante interno de carga, crie um manifesto de serviço denominado `internal-lb.yaml` com o tipo de serviço *LoadBalancer* e a anotação *interna do equilíbrio-carga azul,* como mostra o seguinte exemplo:
+Para criar um equilibrante interno de `internal-lb.yaml` carga, crie um manifesto de serviço nomeado com o tipo de serviço *LoadBalancer* e a anotação *interna de equilíbrio-carga azul,* como mostra o seguinte exemplo:
 
 ```yaml
 apiVersion: v1
@@ -53,7 +53,7 @@ kubectl apply -f internal-lb.yaml
 
 Um equilibrista de carga Azure é criado no grupo de recursos do nó e ligado à mesma rede virtual que o cluster AKS.
 
-Quando visualiza os dados do serviço, o endereço IP do equilibrista interno de carga é mostrado na coluna *EXTERNAL-IP.* Neste contexto, a *External* está relacionada com a interface externa do equilibrista de carga, não que receba um endereço IP público e externo. Pode levar um minuto ou dois para que o endereço IP mude de *\<pendente\>* para um endereço IP interno real, como se pode ver no seguinte exemplo:
+Quando visualiza os dados do serviço, o endereço IP do equilibrista interno de carga é mostrado na coluna *EXTERNAL-IP.* Neste contexto, a *External* está relacionada com a interface externa do equilibrista de carga, não que receba um endereço IP público e externo. Pode levar um minuto ou dois para * \<que\> * o endereço IP mude de pendente para um endereço IP interno real, como se pode ver no seguinte exemplo:
 
 ```
 $ kubectl get service internal-app
@@ -105,7 +105,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Poderá ter de conceder ao diretor de serviço si o cluster AKS, a função de *Colaborador de Rede* para o grupo de recursos onde os seus recursos de rede virtual Azure são implantados. Veja o diretor de serviço com [o show az aks][az-aks-show], como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para criar uma atribuição de funções, use a atribuição de [funções az criar][az-role-assignment-create] comando.
+> Poderá ter de conceder ao diretor de serviço si o cluster AKS, a função de *Colaborador de Rede* para o grupo de recursos onde os seus recursos de rede virtual Azure são implantados. Veja o diretor de serviço com [az aks show][az-aks-show], como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para criar uma atribuição de funções, use a atribuição de [funções az criar][az-role-assignment-create] comando.
 
 ## <a name="specify-a-different-subnet"></a>Especificar uma sub-rede diferente
 
@@ -131,9 +131,9 @@ spec:
 
 Quando todos os serviços que utilizam o equilibrista interno de carga são eliminados, o próprio equilibrador de carga é também eliminado.
 
-Também pode eliminar diretamente um serviço como qualquer recurso kubernetes, como `kubectl delete service internal-app`, que também elimina o equilibrador de carga Azure subjacente.
+Também pode eliminar diretamente um serviço como qualquer recurso `kubectl delete service internal-app`kubernetes, como, como, que também elimina o equilibrador de carga Azure subjacente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os serviços da Kubernetes na documentação dos [serviços da Kubernetes.][kubernetes-services]
 

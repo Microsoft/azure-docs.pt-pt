@@ -16,10 +16,10 @@ ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: a08a071466f4f10c1364cefdda7c9c136e1e1ef5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79137993"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos de ônibus de serviço e subscrições com Java
@@ -47,9 +47,9 @@ Também precisa adicionar os seguintes JARs ao Caminho de Construção de Java:
 
 - gson-2.6.2.jar
 - commons-cli-1.4.jar
-- proton-j-0.21.0.jar
+- protão-j-0.21.0.jar
 
-Adicione uma classe com um método **Principal** e, em seguida, adicione as seguintes declarações `import` no topo do ficheiro Java:
+Adicione uma classe **Main** com um método Principal `import` e, em seguida, adicione as seguintes declarações no topo do ficheiro Java:
 
 ```java
 import com.google.gson.reflect.TypeToken;
@@ -69,8 +69,8 @@ import org.apache.commons.cli.DefaultParser;
 Atualize o método **principal** para criar um objeto **TopicClient** e invoque um método de ajuda que envia assincronicamente mensagens de amostra para o tópico do Ônibus de Serviço.
 
 > [!NOTE] 
-> - Substitua `<NameOfServiceBusNamespace>` com o nome do seu espaço de nome service Bus. 
-> - Substitua `<AccessKey>` com a chave de acesso para o seu espaço de nome.
+> - Substitua `<NameOfServiceBusNamespace>` pelo nome do espaço de nomes do Service Bus. 
+> - Substitua-a `<AccessKey>` pela chave de acesso para o seu espaço de nome.
 
 ```java
 public class MyServiceBusTopicClient {

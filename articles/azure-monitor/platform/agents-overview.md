@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249090"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
@@ -32,7 +32,7 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 | | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|
 | Ambientes apoiados | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
-| Requisitos do agente  | Nenhum | Nenhum | Requer o agente Log Analytics |
+| Requisitos do agente  | Nenhuma | Nenhuma | Requer o agente Log Analytics |
 | Dados recolhidos | Registos de Eventos<br>Eventos ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>registos de aplicativos .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agente | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
 | Dados enviados para | Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
 
@@ -42,7 +42,7 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 | | Diagnóstico<br>extensão (LAD) | Telegrafo<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
 | Ambientes apoiados | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
-| Requisitos do agente  | Nenhum | Nenhum | Nenhum | Requer o agente Log Analytics |
+| Requisitos do agente  | Nenhuma | Nenhuma | Nenhuma | Requer o agente Log Analytics |
 | Dados recolhidos | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
 | Dados enviados para | Storage do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
 

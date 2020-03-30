@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 2192260c3106a6b8d3d3ffd0e063ee945734f308
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79136317"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Linux
@@ -31,7 +31,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando Maven na Cloud Shell pronta para criar uma nova aplicação chamada `helloworld`:
+Execute o seguinte comando Maven na Cloud Shell `helloworld`pronta para criar uma nova aplicação chamada :
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
@@ -93,11 +93,11 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > Neste artigo, estamos a trabalhar apenas com aplicações Java em pacotes de ficheiros WAR. O plug-in também suporta aplicações Web JAR, visite [Implementar um ficheiro JAR do Java SE no Serviço de Aplicações no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentar.
 
-Navegue para `pom.xml` novamente para ver a configuração do plugin ser atualizada, pode modificar outras configurações para o Serviço de Aplicações diretamente no seu ficheiro pom, se necessário, algumas comuns estão listadas abaixo:
+Navegue `pom.xml` novamente para ver que a configuração do plugin está atualizada, pode modificar outras configurações para o Serviço de Aplicações diretamente no seu ficheiro pom, se necessário, algumas comuns estão listadas abaixo:
 
  Propriedade | Necessário | Descrição | Versão
 ---|---|---|---
-`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores suportados são: `v1`, `v2`. | 1.5.2
+`<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores `v1`suportados são: . `v2` | 1.5.2
 `<resourceGroup>` | true | Grupo de Recursos Azure para a sua Web App. | 0.1.0+
 `<appName>` | true | O nome da sua Aplicação Web. | 0.1.0+
 `<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor padrão é **a Europa Ocidental.** Todas as regiões válidas da secção [Regiões Apoiadas.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
@@ -150,7 +150,7 @@ Este comando pode demorar alguns minutos a ser executado.
 > [Configure java app](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [CI/CD com Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+> [CI/CD com o Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 
 > [!div class="nextstepaction"]
 > [Outros Azure para Java Developers Resources](/java/azure/)

@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 58ccd63e16382aca8e16eb67efba951a055eb254
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217827"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guia de resolução de problemas: Criar e ligar-se a um estúdio de aprendizagem automática Azure (clássico) espaço de trabalho
@@ -26,7 +26,7 @@ Este guia fornece soluções para alguns desafios frequentemente encontrados qua
 ## <a name="workspace-owner"></a>Proprietário do espaço de trabalho
 Para abrir um espaço de trabalho no Machine Learning Studio (clássico), tem de ser inscrito na Conta Microsoft que usou para criar o espaço de trabalho, ou precisa de receber um convite do proprietário para se juntar ao espaço de trabalho. A partir do portal Azure pode gerir o espaço de trabalho, que inclui a capacidade de configurar o acesso.
 
-Para obter mais informações sobre a gestão de um espaço de trabalho, consulte [Gerir um estúdio de aprendizagem automática Azure (clássico)].
+Para obter mais informações sobre a gestão de um espaço de trabalho, consulte [Manage a Azure Machine Learning Studio (clássico) workspace].
 
 [Gerir um estúdio de aprendizagem automática Azure (clássico)]: manage-workspace.md
 
@@ -46,7 +46,7 @@ Depois de criado o novo espaço de trabalho do Machine Learning Studio (clássic
 
 1. Se utilizar o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **opções**de Internet .  
 
-   ![Opções de Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
+   ![Opções da Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
 
 2. Sob o separador **Geral,** clique em **Apagar...**
 

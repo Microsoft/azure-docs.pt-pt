@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 02/03/2020
 ms.openlocfilehash: cf239cbf69f3816e5ec03e07e2bd5fe370308f22
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272841"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Configurações do Pacote de Segurança Empresarial com Serviços de Domínio de Diretório Ativo Azure em HDInsight
@@ -24,7 +24,7 @@ Neste artigo, aprende-se a configurar um cluster HDInsight com ESP utilizando os
 > [!NOTE]  
 > O ESP está geralmente disponível em HDInsight 3.6 e 4.0 para estes tipos de cluster: Apache Spark, Interactive, Hadoop e HBase. EsP para o tipo de cluster Apache Kafka está em pré-visualização apenas com o melhor apoio de esforço. Os clusters esp criados antes da data esp GA (1 de outubro de 2018) não são suportados.
 
-## <a name="enable-azure-ad-ds"></a>Ativar AD DS Azure
+## <a name="enable-azure-ad-ds"></a>Ativar o Azure AD DS
 
 > [!NOTE]  
 > Apenas os administradores de inquilinos têm os privilégios de permitir a Azure AD DS. Se o armazenamento do cluster for Azure Data Lake Storage Gen1 ou Gen2, deve desativar a autenticação multi-factor Azure apenas para os utilizadores que precisarem de aceder ao cluster utilizando a autenticação básica de Kerberos. 
@@ -43,7 +43,7 @@ Pode optar por sincronizar apenas os grupos que precisam de acesso aos clusters 
 
 Quando estiver a permitir um LDAP seguro, coloque o nome de domínio no nome do assunto e o nome alternativo do sujeito no certificado. Por exemplo, se o seu nome de domínio for *contoso100.onmicrosoft.com,* certifique-se de que o nome exato existe no nome do seu certificado e no nome alternativo do sujeito. Para obter mais informações, consulte [Configure secure LDAP para um domínio gerido por DS Azure AD](../../active-directory-domain-services/tutorial-configure-ldaps.md). 
 
-O exemplo seguinte cria um certificado auto-assinado. O nome de domínio *contoso100.onmicrosoft.com* está em ambos os `Subject` (nome do assunto) e `DnsName` (nome alternativo do sujeito).
+O exemplo seguinte cria um certificado auto-assinado. O nome *de* domínio `Subject` contoso100.onmicrosoft.com está `DnsName` em ambos (nome de assunto) e (nome alternativo do sujeito).
 
 ```powershell
 $lifetime=Get-Date
@@ -92,7 +92,7 @@ Altere a configuração dos servidores DNS na rede virtual Azure AD DS para util
 
 É mais fácil colocar tanto a instância Azure AD DS como o cluster HDInsight na mesma rede virtual Azure. Se planeia utilizar diferentes redes virtuais, deve analisar essas redes virtuais para que o controlador de domínio seja visível para VMs HDInsight. Para mais informações, consulte o peering da [rede Virtual.](../../virtual-network/virtual-network-peering-overview.md) 
 
-Depois de as redes virtuais serem espartadas, configure a rede virtual HDInsight para utilizar um servidor DNS personalizado e introduza os IPs privados Azure ADDS como os endereços do servidor DNS. Quando ambas as redes virtuais utilizam os mesmos servidores DNS, o seu nome de domínio personalizado irá resolver-se no IP certo e será acessível a partir do HDInsight. Por exemplo, se o seu nome de domínio for `contoso.com`, então depois deste passo, `ping contoso.com` deve resolver para o IP AD DS Azure direito.
+Depois de as redes virtuais serem espartadas, configure a rede virtual HDInsight para utilizar um servidor DNS personalizado e introduza os IPs privados Azure ADDS como os endereços do servidor DNS. Quando ambas as redes virtuais utilizam os mesmos servidores DNS, o seu nome de domínio personalizado irá resolver-se no IP certo e será acessível a partir do HDInsight. Por exemplo, se o `contoso.com`seu nome de `ping contoso.com` domínio for , então após este passo, deve ser resolvido para o IP AD DS Azure direito.
 
 ![Configurar servidores DNS personalizados para uma rede virtual peered](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -123,7 +123,7 @@ Quando criar um cluster HDInsight com ESP, deve fornecer os seguintes parâmetro
 
 - **Grupos**de acesso ao cluster : Os grupos de segurança cujos utilizadores deseja sincronizar e ter acesso ao cluster devem estar disponíveis no Azure AD DS. Um exemplo é o grupo HiveUsers. Para mais informações, consulte [Criar um grupo e adicionar membros no Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **URL LDAPS**: Um exemplo é `ldaps://contoso.com:636`.
+- **URL LDAPS**: `ldaps://contoso.com:636`Um exemplo é .
 
 A identidade gerida que criou pode ser escolhida a partir da lista de abandono de **identidade gerida pelo Utilizador** quando estiver a criar um novo cluster.
 

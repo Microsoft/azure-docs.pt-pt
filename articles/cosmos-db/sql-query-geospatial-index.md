@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137908"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais indexados com Azure Cosmos DB
 
 Desenhamos o motor de base de dados da Azure Cosmos DB para ser verdadeiramente agnóstico e fornecer suporte de primeira classe para a JSON. O motor de base de dados otimizado de escrita da Azure Cosmos DB compreende de forma nativa os dados espaciais representados na norma GeoJSON.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D e depois dividida progressivamente em células usando um **quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de enchimento espacial **Hilbert,** que preserva a localidade dos pontos. Além disso, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation**, isto é, todas as células que se cruzam com um local são identificadas e armazenadas como chaves no índice Azure Cosmos DB. No momento da consulta, argumentos como pontos e polígonos são também presentes para extrair os intervalos de ID de célula relevantes, em seguida, usados para recuperar dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D e depois dividida progressivamente em células usando um **quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de enchimento espacial **Hilbert,** que preserva a localidade dos pontos. Além disso, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation**, isto é, todas as células que se cruzam com um local são identificadas e armazenadas como chaves no índice Azure Cosmos DB. Na altura da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de identificação celular relevantes, e ntão usadas para recolher dados do índice.
 
 Se especificar uma política de indexação que inclui o índice espacial para /* (todos os caminhos), então todos os dados encontrados dentro do recipiente estão indexados para consultas espaciais eficientes.
 
@@ -28,13 +28,13 @@ Se especificar uma política de indexação que inclui o índice espacial para /
 
 ## <a name="modifying-geospatial-data-type"></a>Modificação do tipo de dados geoespaciais
 
-No seu recipiente, o `geospatialConfig` especifica como os dados geoespaciais serão indexados. Deve especificar um `geospatialConfig` por recipiente: geografia ou geometria. Se não for especificado, o `geospatialConfig` será indefinido com o tipo de dados de geografia. Quando modificar o `geospatialConfig`, todos os dados geoespaciais existentes no recipiente serão reindexados.
+No seu recipiente, os `geospatialConfig` especificações de como os dados geoespaciais serão indexados. Deve especificar `geospatialConfig` um por recipiente: geografia ou geometria. Se não especificado, o `geospatialConfig` padrão de erro ao tipo de dados de geografia. Quando modificar `geospatialConfig`os , todos os dados geoespaciais existentes no recipiente serão reindexados.
 
 > [!NOTE]
 > A Tualmente, a Azure Cosmos DB suporta modificações no geoespacialConfig no .NET SDK apenas nas versões 3.6 ou superior.
 >
 
-Aqui está um exemplo para modificar o tipo de dados geoespaciais para `geometry`, definindo a propriedade `geospatialConfig` e adicionando uma **Caixa de limitadora:**
+Aqui está um exemplo para modificar o `geometry` tipo `geospatialConfig` de dados geoespaciais para configurar a propriedade e adicionar uma **Caixa de delimitação:**
 
 ```csharp
     //Retrieve the container's details
@@ -95,13 +95,13 @@ O seguinte snippet JSON mostra uma política de indexação com indexação espa
 ```
 
 > [!NOTE]
-> Se a localização do valor GeoJSON dentro do documento é um formato incorreto ou é inválido, em seguida, este será não obter indexado para consultas espaciais. Pode validar valores de localização usando ST_ISVALID e ST_ISVALIDDETAILED.
+> Se a localização O valor GeoJSON dentro do documento estiver mal formado ou inválido, então não será indexado para consulta espacial. Pode validar os valores de localização usando ST_ISVALID e ST_ISVALIDDETAILED.
 
 Também pode [modificar a política de indexação](how-to-manage-indexing-policy.md) utilizando o Azure CLI, PowerShell ou qualquer SDK.
 
 ## <a name="geometry-data-indexing-examples"></a>Exemplos de indexação de dados de geometria
 
-Com o tipo de dados de **geometria,** semelhante ao tipo de dados de geografia, deve especificar caminhos e tipos relevantes para indexar. Além disso, deve também especificar uma `boundingBox` dentro da política de indexação para indicar que a área desejada deve ser indexada para esse caminho específico. Cada caminho geoespacial requer o seu próprio`boundingBox`.
+Com o tipo de dados de **geometria,** semelhante ao tipo de dados de geografia, deve especificar caminhos e tipos relevantes para indexar. Além disso, deve `boundingBox` também especificar um dentro da política de indexação para indicar que a área desejada deve ser indexada para esse caminho específico. Cada caminho geoespacial requer`boundingBox`o seu próprio.
 
 A caixa de delimitação é constituída pelas seguintes propriedades:
 
@@ -114,7 +114,7 @@ Uma caixa de delimitação é necessária porque os dados geométricos ocupam um
 
 Deve criar uma caixa de delimitação que contenha todos (ou a maioria) dos seus dados. Apenas as operações calculadas nos objetos que estão inteiramente dentro da caixa de delimitação poderão utilizar o índice espacial. Não deve tornar a caixa de delimitação significativamente maior do que o necessário, pois isso terá um impacto negativo no desempenho da consulta.
 
-Aqui está uma política de indexação de exemplo que indexa dados de **geometria** com **geoespacialConfig** definido para `geometry`:
+Aqui está uma política de indexação de exemplo que indexa dados de **geometria** com **geoespacialConfig** definido para: `geometry`
 
 ```json
  {
@@ -153,11 +153,11 @@ Aqui está uma política de indexação de exemplo que indexa dados de **geometr
 A política de indexação acima tem uma **Caixa limitada** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contentor com a política de indexação acima indexará todos os Pontos, Polígonos, MultiPolygons e LineStrings que estão inteiramente dentro desta região.
 
 > [!NOTE]
-> Se tentar adicionar uma política de indexação com uma **Caixa de limitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **geoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma **Caixa de delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
+> Se tentar adicionar uma política de indexação com uma `geography` Caixa de **limitação** a um recipiente com tipo de dados, falhará. Deve modificar o **geoespacialConfig** do `geometry` recipiente para ser antes de adicionar uma **Caixa de delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como começar com o suporte geoespacial no Azure Cosmos DB, em seguida, pode:
+Agora que aprendeu a começar com apoio geoespacial em Azure Cosmos DB, a seguir pode:
 
 * Saiba mais sobre [a consulta de DB Azure Cosmos](sql-query-getting-started.md)
 * Saiba mais sobre [consulta de dados espaciais com Azure Cosmos DB](sql-query-geospatial-query.md)

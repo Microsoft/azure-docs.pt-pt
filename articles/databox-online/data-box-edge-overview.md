@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Microsoft Azure Stack Edge  Microsoft Docs
+title: Visão geral do Microsoft Azure Stack Edge [ Microsoft Docs
 description: Descreve o Azure Stack Edge, uma solução de armazenamento que utiliza um dispositivo físico para transferência baseada em rede para o Azure.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: f463e8883efd5e2dfc4d7fff80912c193665b850
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78399798"
 ---
 # <a name="what-is-azure-stack-edge"></a>O que é o Azure Stack Edge?
@@ -54,7 +54,7 @@ O Azure Stack Edge tem as seguintes capacidades:
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
 |Encriptação    | Suporte de BitLocker para encriptar localmente os dados e proteger a transferência de dados para a cloud através de *https*.|
 |Estrangulamento da largura de banda| Acelerador para limitar o uso da largura de banda durante as horas de ponta.|
-|ExpressRoute | Segurança adicional através da ExpressRoute. Utilize a configuração de observação onde o tráfego de dispositivos locais para os pontos finais de armazenamento em nuvem viaja sobre a Rota Expresso. Para mais informações, consulte a [visão geral do ExpressRoute.](../expressroute/expressroute-introduction.md)
+|ExpressRoute | Segurança adicional através da ExpressRoute. Utilize a configuração de observação onde o tráfego de dispositivos locais para os pontos finais de armazenamento em nuvem viaja sobre a Rota Expresso. Para obter mais informações, veja [Descrição geral do ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="components"></a>Componentes
 

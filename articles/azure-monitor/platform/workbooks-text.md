@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658054"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto do livro
@@ -27,10 +27,10 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `SlowRequestThreshold`
-    2. Tipo de parâmetro: `Text`
-    3. Obrigatório: `checked`
-    4. Obtenha valor predefinido a partir de consulta: `unchecked`
+    1. Nome do parâmetro:`SlowRequestThreshold`
+    2. Tipo de parâmetro:`Text`
+    3. Necessário:`checked`
+    4. Obtenha valor predefinido a partir de consulta:`unchecked`
 5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
     ![Imagem mostrando a criação de um parâmetro de texto](./media/workbooks-text/text-create.png)
@@ -40,7 +40,7 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
 ![Imagem mostrando um parâmetro de texto no modo de leitura](./media/workbooks-text/text-readmode.png)
 
 ## <a name="referencing-a-text-parameter"></a>Referenciando um parâmetro de texto
-1. Adicione um controlo de consulta ao livro, selecionando o link `Add query` azul e selecione um recurso Desinformação de Aplicação.
+1. Adicione um controlo de consulta ao livro, `Add query` selecionando o link azul e selecione um recurso Desinformação de Aplicação.
 2. Na caixa KQL, adicione este corte:
     ```kusto
     requests
@@ -65,10 +65,10 @@ Uma utilização comum das caixas de texto é como variáveis internas utilizada
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `SlowRequestThreshold`
-    2. Tipo de parâmetro: `Text`
-    3. Obrigatório: `checked`
-    4. Obtenha valor predefinido a partir de consulta: `checked`
+    1. Nome do parâmetro:`SlowRequestThreshold`
+    2. Tipo de parâmetro:`Text`
+    3. Necessário:`checked`
+    4. Obtenha valor predefinido a partir de consulta:`checked`
 5. Na caixa KQL, adicione este corte:
     ```kusto
     requests

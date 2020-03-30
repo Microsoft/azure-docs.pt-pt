@@ -15,13 +15,13 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250195"
 ---
-# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
+# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
 
 Antes de fazer o upload de uma máquina virtual do Windows (VM) de instalações para O Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta tanto os VMs de geração 1 como de geração 2 que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o VHD é de 1.023 GB. 
 
@@ -45,7 +45,7 @@ Para dirigir o comando SFC:
 1. Abra um aviso CMD elevado como Administrador.
 1. Digite `sfc /scannow` e selecione **Enter**.
 
-    ![Verificador de ficheiros do sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
+    ![ Verificador de Ficheiros do Sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
 
 
 Depois de concluída a digitalização do SFC, tente instalar as Atualizações do Windows e reiniciar o computador.
@@ -68,11 +68,11 @@ Se precisar de converter o seu disco virtual para o formato necessário para o A
 Depois de converter o disco, crie um VM que utilize o disco. Inicie e inicie o vM para terminar de prepará-lo para o upload.
 
 ### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Use o Gestor De Hiper-V para converter o disco 
-1. Abra o Hyper-V Manager e selecione o seu computador local à esquerda. No menu acima da lista de computadores, selecione **Action** > **Editar Disco**.
+1. Abra o Hyper-V Manager e selecione o seu computador local à esquerda. No menu acima da lista de computadores, selecione **Action** > **Edit Disk**.
 2. Na página Localizar discos **rígidos virtuais,** selecione o disco virtual.
-3. Na página **Escolha ação,** selecione **Converter** > **Seguinte**.
-4. Se precisar converter a partir de VHDX, selecione **VHD** > **Seguinte**.
-5. Se precisar converter-se a partir de um disco em expansão dinâmica, selecione **tamanho fixo** > **Seguinte**.
+3. Na página **Escolha Ação,** selecione **Converter** > **Seguinte**.
+4. Se precisar converter a partir de VHDX, selecione **VHD** > **Next**.
+5. Se precisar converter-se a partir de um disco em expansão dinâmica, selecione **Tamanho** > Fixo**Seguinte**.
 6. Localize e selecione um caminho para salvar o novo ficheiro VHD para.
 7. Selecione **Concluir**.
 
@@ -88,12 +88,12 @@ O comando de exemplo seguinte converte o disco de VHDX para VHD. O comando tamb�
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
-Neste comando, substitua o valor por `-Path` pelo caminho para o disco rígido virtual que pretende converter. Substitua o valor por `-DestinationPath` com o novo caminho e nome do disco convertido.
+Neste comando, substitua `-Path` o valor pelo caminho para o disco rígido virtual que pretende converter. Substitua o `-DestinationPath` valor pelo novo caminho e nome do disco convertido.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Converter a partir do formato de disco VMware VMDK
 Se tiver uma imagem VM do Windows no formato de [ficheiro VMDK,](https://en.wikipedia.org/wiki/VMDK)utilize o [Conversor](https://www.microsoft.com/download/details.aspx?id=42497) de Máquina Virtual da Microsoft para convertê-la em formato VHD. Para mais informações, consulte [Como converter um VMware VMDK em Hyper-VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
-## <a name="set-windows-configurations-for-azure"></a>Definir configurações do Windows para Azure
+## <a name="set-windows-configurations-for-azure"></a>Set Windows configurations for Azure (Definir configurações do Windows para o Azure)
 
 > [!NOTE]
 > A plataforma Azure monta um ficheiro ISO para o DVD-ROM quando um VM windows é criado a partir de uma imagem generalizada.
@@ -103,8 +103,8 @@ No VM que planeia enviar para O Azure, execute os seguintes comandos a partir de
 
 1. Retire qualquer rota estática persistente na tabela de encaminhamento:
    
-   * Para ver a mesa de rota, corra `route print` no pedido de comando.
-   * Verifique as secções `Persistence Routes`. Se houver uma rota persistente, use o comando `route delete` para removê-lo.
+   * Para ver a mesa `route print` de rota, corra no pedido de comando.
+   * Verifique `Persistence Routes` as secções. Se houver uma rota persistente, `route delete` use o comando para removê-lo.
 2. Remova o proxy WinHTTP:
    
     ```PowerShell
@@ -120,7 +120,7 @@ No VM que planeia enviar para O Azure, execute os seguintes comandos a partir de
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. Desloque a política san do disco para [`Onlineall`: ](https://technet.microsoft.com/library/gg252636.aspx)
+3. Desloque a [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)política san do disco para:
    
     ```PowerShell
     diskpart 
@@ -132,7 +132,7 @@ No VM que planeia enviar para O Azure, execute os seguintes comandos a partir de
     exit   
     ```
 
-4. Detete o tempo de tempo universal coordenado (UTC) para windows. Deteto também o tipo de arranque do serviço de tempo Windows (`w32time`) para `Automatic`:
+4. Detete o tempo de tempo universal coordenado (UTC) para windows. Também detete o tipo de`w32time`arranque `Automatic`do serviço de tempo Windows para:
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
@@ -144,7 +144,7 @@ No VM que planeia enviar para O Azure, execute os seguintes comandos a partir de
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. Certifique-se de que as variáveis ambientais `TEMP` e `TMP` estão definidas para os seus valores predefinidos:
+6. Certifique-se de `TEMP` que `TMP` as variáveis ambientais e stão definidas para os seus valores predefinidos:
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
@@ -152,7 +152,7 @@ No VM que planeia enviar para O Azure, execute os seguintes comandos a partir de
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
     ```
 
-## <a name="check-the-windows-services"></a>Consulte os serviços windows
+## <a name="check-the-windows-services"></a>Check the Windows services (Verificar os serviços Windows)
 Certifique-se de que cada um dos seguintes serviços Windows está definido para os valores predefinidos do Windows. Estes serviços são o mínimo que deve ser criado para garantir a conectividade VM. Para redefinir as definições de arranque, execute os seguintes comandos:
    
 ```PowerShell
@@ -172,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 Certifique-se de que as seguintes definições estão corretamente configuradas para acesso remoto:
 
 >[!NOTE] 
->Pode receber uma mensagem de erro quando executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Pode ignorar esta mensagem com segurança. Significa apenas que o domínio não está a empurrar essa configuração através de um Objeto de Política de Grupo.
+>Pode receber uma mensagem de `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`erro quando executar . Pode ignorar esta mensagem. Significa apenas que o domínio não está a empurrar essa configuração através de um Objeto de Política de Grupo.
 
 1. O Protocolo de Ambiente de Trabalho Remoto (RDP) está ativado:
    
@@ -241,7 +241,7 @@ Certifique-se de que as seguintes definições estão corretamente configuradas 
     | Política do grupo NLA                         | Definições\Modelos Administrativos\Componentes\Serviços de ambiente de trabalho remoto\Remote Desktop Session Host\Security                                                    | Exigir a autenticação do utilizador para acesso remoto utilizando o NLA |
     | Definições de manter-se vivas                      | Configuração do computador\Policies\Windows Settings\Modelos Administrativos\Componentes do Windows\Serviços remotos de ambiente de trabalho\Remote Desktop Session Host\Connections | Configure intervalo de ligação keep-alive                                                 |
     | Reconectar as definições                       | Configuração do computador\Policies\Windows Settings\Modelos Administrativos\Componentes do Windows\Serviços remotos de ambiente de trabalho\Remote Desktop Session Host\Connections | Reconectar automaticamente                                                                   |
-    | Número limitado de definições de ligação | Configuração do computador\Policies\Windows Settings\Modelos Administrativos\Componentes do Windows\Serviços remotos de ambiente de trabalho\Remote Desktop Session Host\Connections | Limitar o número de ligações                                                              |
+    | Número limitado de definições de ligação | Configuração do computador\Policies\Windows Settings\Modelos Administrativos\Componentes do Windows\Serviços remotos de ambiente de trabalho\Remote Desktop Session Host\Connections | Número limite de ligações                                                              |
 
 ## <a name="configure-windows-firewall-rules"></a>Configure as regras do Windows Firewall
 1. Ligue o Windows Firewall nos três perfis (domínio, standard e público):
@@ -337,7 +337,7 @@ Certifique-se de que o VM é saudável, seguro e rdp acessível:
     ```
     Se o repositório for corrompido, consulte [o WMI: Corrupção repositória ou não](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-5. Certifique-se de que nenhuma outra aplicação está a utilizar a porta 3389. Esta porta é utilizada para o serviço RDP em Azure. Para ver quais as portas utilizadas no VM, corra `netstat -anob`:
+5. Certifique-se de que nenhuma outra aplicação está a utilizar a porta 3389. Esta porta é utilizada para o serviço RDP em Azure. Para ver quais as portas utilizadas `netstat -anob`no VM, corra:
 
     ```PowerShell
     netstat -anob
@@ -368,9 +368,9 @@ Certifique-se de que o VM é saudável, seguro e rdp acessível:
 
    - Administradores
 
-   - Operadores de backup
+   - Operadores de Cópia de Segurança
 
-   - Todos
+   - Todos os utilizadores
 
    - Utilizadores
 
@@ -385,7 +385,7 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se tal não 
 
 | Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Armazenamento                 | discos.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Storage                 | discos.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -404,13 +404,13 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se tal não 
 |                         | mrxsmb10.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.22108 - KB4022724                  | 6.3.9600.18603 - KB4022726         | 10.0.14393.479 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | mrxsmb20.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.21548 - KB4022724                  | 6.3.9600.18586 - KB4022726         | 10.0.14393.953 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | mrxsmb.sys     | 6.1.7601.23816 - KB4022722                | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726         | 10.0.14393.953 - KB4022715                              | 10.0.15063.0               | -                                               | -                                               |
-|                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
+|                         | tcpip.sys      | 6.1.7601.23761 - KB40227222                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726         | 10.0.14393.251 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.138             | -                                               | -                                               |
 | Principal                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
 | Serviços de Ambiente de Trabalho Remoto | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
-|                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
+|                         | termodd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -424,7 +424,7 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se tal não 
 > [!NOTE]
 > Para evitar um reboot acidental durante o fornecimento de VM, recomendamos que todas as instalações do Windows Update estejam concluídas e que não estejam pendentes atualizações. Uma das formas de o fazer é instalar todas as possíveis atualizações do Windows e reiniciar uma vez antes de executar o comando Sysprep.
 
-### Determine quando usar sysprep<a id="step23"></a>    
+### <a name="determine-when-to-use-sysprep"></a>Determine quando usar sysprep<a id="step23"></a>    
 
 Ferramenta de Preparação do Sistema (Sysprep) é um processo que pode ser executado para redefinir uma instalação do Windows. A Sysprep proporciona uma experiência "fora da caixa", removendo todos os dados pessoais e repondo vários componentes. 
 
@@ -432,7 +432,7 @@ Você normalmente executa Sysprep para criar um modelo a partir do qual você po
 
 Se quiser criar apenas um VM a partir de um disco, não tem de usar sysprep. Em vez disso, pode criar o VM a partir de uma *imagem especializada.* Para obter informações sobre como criar um VM a partir de um disco especializado, consulte:
 
-- [Criar um VM a partir de um disco especializado](create-vm-specialized.md)
+- [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
 - [Criar um VM a partir de um disco VHD especializado](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Se quiser criar uma imagem generalizada, tem de executar o Sysprep. Para mais informações, consulte [Como utilizar o Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
@@ -442,7 +442,7 @@ Nem todas as funções ou aplicações instaladas num computador baseado no Wind
 ### <a name="generalize-a-vhd"></a>Generalizar um VHD
 
 >[!NOTE]
-> Depois de correr `sysprep.exe` nos seguintes passos, desligue o VM. Não volte a ligá-lo até criar uma imagem dele em Azure.
+> Depois de `sysprep.exe` correr nos seguintes passos, desligue o VM. Não volte a ligá-lo até criar uma imagem dele em Azure.
 
 1. Inscreva-se no VM do Windows.
 1. Executar **o Comando Prompt** como administrador. 
@@ -458,7 +458,7 @@ Agora o VHD está pronto para ser carregado. Para obter mais informações sobre
 
 
 >[!NOTE]
-> Um ficheiro personalizado *unattend.xml* não é suportado. Embora suportemos a propriedade `additionalUnattendContent`, que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [adicionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para mais informações, consulte [o exemplo de UnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Um ficheiro personalizado *unattend.xml* não é suportado. Apesar de `additionalUnattendContent` apoiarmos a propriedade, que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell-no](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [adicionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para mais informações, consulte [o exemplo de UnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-the-recommended-configurations"></a>Complete as configurações recomendadas

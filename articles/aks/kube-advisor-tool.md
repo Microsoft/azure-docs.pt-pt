@@ -7,13 +7,13 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 29ea7dba1df8bc7c68e3d17563a51b784ce4a561
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595438"
 ---
-# <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as melhores práticas da Kubernetes no seu cluster
+# <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de melhores práticas do Kubernetes no seu cluster
 
 Existem várias boas práticas que deve seguir nas suas implementações kubernetes para garantir o melhor desempenho e resiliência para as suas aplicações. Pode utilizar a ferramenta kube-advisor para procurar implementações que não seguem essas sugestões.
 
@@ -58,7 +58,7 @@ Por predefinição, não são definidos pedidos ou limites nas especificações 
 
 ## <a name="cleaning-up"></a>Limpeza
 
-Se o seu cluster tiver RBAC ativado, pode limpar o `ClusterRoleBinding` depois de ter executado a ferramenta utilizando o seguinte comando:
+Se o seu cluster tiver RBAC ativado, pode limpar a `ClusterRoleBinding` ferramenta depois de executar a ferramenta utilizando o seguinte comando:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

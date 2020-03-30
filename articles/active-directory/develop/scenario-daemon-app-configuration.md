@@ -16,10 +16,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: fc441ef64f98ace04b7b847c03d575215656f9db
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77611830"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
@@ -42,7 +42,7 @@ As aplicações da Daemon usam permissões de pedido em vez de permissões deleg
 
 Assim, a autoridade especificada na configuração da aplicação deve ser arrendada (especificando um ID de inquilino ou um nome de domínio associado à sua organização).
 
-Se você é um ISV e quer fornecer uma ferramenta multiarrendatária, você pode usar `organizations`. Mas lembre-se que também terá de explicar aos seus clientes como conceder o consentimento da administração. Para mais detalhes, consulte [Pedir consentimento para um inquilino inteiro.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) Além disso, existe atualmente uma limitação na MSAL: `organizations` só é permitida quando as credenciais do cliente são um segredo de aplicação (não um certificado).
+Se você é um ISV e quer fornecer uma `organizations`ferramenta multiarrendatária, você pode usar . Mas lembre-se que também terá de explicar aos seus clientes como conceder o consentimento da administração. Para mais detalhes, consulte [Pedir consentimento para um inquilino inteiro.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) Além disso, existe atualmente uma limitação na MSAL: `organizations` só é permitida quando as credenciais do cliente são um segredo de aplicação (não um certificado).
 
 ## <a name="configure-and-instantiate-the-application"></a>Configure e instanteamente a aplicação
 
@@ -73,9 +73,9 @@ O ficheiro de configuração define:
 }
 ```
 
-Fornece um `ClientSecret` ou um `CertificateName`. Estas configurações são exclusivas.
+Fornece-se `ClientSecret` um `CertificateName`ou um. Estas configurações são exclusivas.
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Quando se constrói um cliente confidencial com segredos de cliente, o ficheiro config de [parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) na amostra [de daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
@@ -126,7 +126,7 @@ Consulte o pacote MSAL no seu código de aplicação.
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 Adicione o pacote [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet à sua aplicação.
-Em MSAL.NET, a aplicação cliente confidencial é representada pela interface `IConfidentialClientApplication`.
+Em MSAL.NET, a aplicação cliente `IConfidentialClientApplication` confidencial é representada pela interface.
 Utilize o espaço de nome MSAL.NET no código fonte.
 
 ```csharp
@@ -134,7 +134,7 @@ using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```python
 import msal
@@ -167,7 +167,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -210,7 +210,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .Build();
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -271,7 +271,7 @@ MSAL.NET tem dois métodos para fornecer afirmações assinadas à aplicação c
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Quando utilizar `WithClientAssertion`, precisa de fornecer um JWT assinado. Este cenário avançado é detalhado nas [afirmações do Cliente.](msal-net-client-assertions.md)
+Quando `WithClientAssertion`utilizar, precisa fornecer um JWT assinado. Este cenário avançado é detalhado nas [afirmações do Cliente.](msal-net-client-assertions.md)
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -295,9 +295,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Mais uma vez, para mais detalhes, consulte [as afirmações do Cliente.](msal-net-client-assertions.md)
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-Na MSAL Python, pode fornecer reclamações de clientes utilizando as reclamações que serão assinadas por esta `ConfidentialClientApplication`chave privada.
+Na MSAL Python, pode fornecer reclamações de clientes utilizando `ConfidentialClientApplication`as reclamações que serão assinadas por esta chave privada.
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -336,7 +336,7 @@ ConfidentialClientApplication cca =
 > [!div class="nextstepaction"]
 > [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 > [!div class="nextstepaction"]
 > [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)

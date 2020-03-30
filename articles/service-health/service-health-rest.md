@@ -1,13 +1,13 @@
 ---
-title: Obtenha eventos de saúde de recursos Azure usando a API REST  Microsoft Docs
+title: Obtenha eventos de saúde de recursos Azure usando a API REST [ Microsoft Docs
 description: Utilize as APIs Azure REST para obter os eventos de saúde para os seus recursos Azure.
 ms.topic: conceptual
 ms.date: 06/06/2017
 ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654006"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtenha saúde de recursos usando a API REST 
@@ -18,7 +18,7 @@ Documentação completa de referência e amostras adicionais para a API REST est
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido `GET` HTTP para listar os eventos de saúde para a sua subscrição durante o intervalo de tempo entre `2018-05-16` e `2018-06-20`.
+Utilize o `GET` seguinte pedido http para listar os eventos `2018-05-16` `2018-06-20`de saúde para a sua subscrição durante o intervalo de tempo entre e .
 
 ```http
 https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
@@ -30,15 +30,15 @@ Os seguintes cabeçalhos são obrigatórios:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como um `Bearer`token de acesso [ ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Tipo de conteúdo:*|Necessário. Definido como `application/json`.|  
+|*Authorization:*|Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
-### <a name="uri-parameters"></a>Parâmetros do URI
+### <a name="uri-parameters"></a>Parâmetros URI
 
 | Nome | Descrição |
 | :--- | :---------- |
 | subscriptionId | O ID de subscrição que identifica uma assinatura Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições.](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) |
-| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange `2015-04-01`de versão api, incluído sem elásga.  |
+| api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a `2015-04-01`versão api, incluída no URL acima.  |
 | $filter | A opção de filtragem para reduzir o conjunto de resultados devolvidos. Os padrões admissíveis para este parâmetro estão disponíveis [na referência para a operação Registos de Atividade](/rest/api/monitor/activitylogs/list#uri-parameters). O exemplo mostrado captura todos os eventos num intervalo de tempo entre 2018-05-16 e 2018-06-20 |
 | &nbsp; | &nbsp; |
 
@@ -48,7 +48,7 @@ Não é necessário nenhum corpo de pedido para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-O código de estado 200 é devolvido com uma lista de valores de eventos de saúde correspondentes ao parâmetro do filtro, juntamente com um `nextlink` URI para recuperar a próxima página dos resultados.
+O código de estado 200 é devolvido com uma lista de `nextlink` valores de eventos de saúde correspondentes ao parâmetro do filtro, juntamente com um URI para recuperar a próxima página dos resultados.
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

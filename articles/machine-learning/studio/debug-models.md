@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2017
 ms.openlocfilehash: 910e788830ec55b610a9234a8c8ac75dda1ea189
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218092"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Desmarque o seu modelo no Azure Machine Learning Studio (clássico)
@@ -29,7 +29,7 @@ Ao executar um modelo, pode encontrar os seguintes erros:
 Este artigo explica potenciais causas para estes erros.
 
 
-## <a name="train-model-module-produces-an-error"></a>Módulo do modelo de formação produz um erro
+## <a name="train-model-module-produces-an-error"></a>O Módulo modelo do comboio produz um erro
 
 ![image1](./media/debug-models/train_model-1.png)
 
@@ -40,34 +40,34 @@ O Módulo [modelo do comboio][train-model] espera duas inputs:
 
 Este módulo pode produzir um erro nos seguintes casos:
 
-1. A coluna de etiqueta foi incorretamente especificada. Isto pode acontecer se a mais de uma coluna está selecionada como a etiqueta ou um índice de coluna incorretos é selecionado. Por exemplo, o segundo caso aplicar-se-ia se um índice de coluna sacar 30 é utilizado com um conjunto de dados de entrada que tem apenas 25 colunas.
+1. A coluna etiquetada é especificada incorretamente. Isto pode acontecer se for selecionada mais de uma coluna à medida que o Rótulo ou um índice de coluna incorreto for selecionado. Por exemplo, o segundo caso aplicar-se-ia se um índice de coluna sacar 30 é utilizado com um conjunto de dados de entrada que tem apenas 25 colunas.
 
-2. O conjunto de dados não contém quaisquer colunas de funcionalidades. Por exemplo, se o conjunto de dados de entrada tem apenas uma coluna, o que é marcada como a coluna de etiqueta, não haveria nenhum recurso para a criação do modelo. Neste caso, o módulo [Modelo de Comboio][train-model] produz um erro.
+2. O conjunto de dados não contém quaisquer colunas de Recurso. Por exemplo, se o conjunto de dados de entrada tiver apenas uma coluna, que está marcada como a coluna Label, não existiria nenhuma característica para construir o modelo. Neste caso, o módulo [Modelo de Comboio][train-model] produz um erro.
 
-3. Do dataset de entrada (funcionalidades ou etiqueta) contém infinito como um valor.
+3. O conjunto de dados de entrada (Funcionalidades ou Etiqueta) contém o Infinito como um valor.
 
-## <a name="score-model-module-produces-incorrect-results"></a>Módulo do modelo de pontuação produz resultados incorretos
+## <a name="score-model-module-produces-incorrect-results"></a>O Módulo de Modelo de Pontuação produz resultados incorretos
 
 ![image2](./media/debug-models/train_test-2.png)
 
-Numa experiência típica de treino/teste para aprendizagem supervisionada, o módulo [Split Data][split] divide o conjunto de dados original em duas partes: uma parte é usada para treinar o modelo e uma parte é usada para obter o desempenho do modelo treinado. O modelo preparado, em seguida, é utilizado para classificar os dados de teste, após o qual os resultados são avaliados para determinar a precisão do modelo.
+Numa experiência típica de treino/teste para aprendizagem supervisionada, o módulo [Split Data][split] divide o conjunto de dados original em duas partes: uma parte é usada para treinar o modelo e uma parte é usada para obter o desempenho do modelo treinado. O modelo treinado é então utilizado para marcar os dados do teste, após o qual os resultados são avaliados para determinar a precisão do modelo.
 
 O módulo ['Modelo de Pontuação'][score-model] requer duas entradas:
 
 1. Uma saída de modelo treinada a partir do módulo [Modelo de Comboio.][train-model]
-2. Um conjunto de dados classificação diferente do conjunto de dados usado para treinar o modelo.
+2. Um conjunto de dados de pontuação diferente do conjunto de dados utilizado para treinar o modelo.
 
 É possível que, mesmo que a experiência tenha sucesso, o módulo [Score Model][score-model] produz resultados incorretos. Vários cenários podem fazer com que esta questão aconteça:
 
-1. Se o rótulo especificado for categórico e for treinado um modelo de regressão nos dados, uma saída incorreta seria produzida pelo módulo ['Modelo de Pontuação'.][score-model] Isso é porque regressão requer uma variável de resposta contínuas. Neste caso, seria mais adequado utilizar um modelo de classificação. 
+1. Se o rótulo especificado for categórico e for treinado um modelo de regressão nos dados, uma saída incorreta seria produzida pelo módulo ['Modelo de Pontuação'.][score-model] Isto porque a regressão requer uma variável de resposta contínua. Neste caso, seria mais adequado utilizar um modelo de classificação. 
 
-2. Da mesma forma, se é preparado um modelo de classificação num conjunto de dados ter números de pontos de vírgula flutuante na coluna de etiqueta, poderá produzir resultados indesejáveis. Isto porque a classificação requer uma variável de resposta discreta que só permite valores que variam sobre um conjunto finito, e pequeno, conjunto de classes.
+2. Da mesma forma, se um modelo de classificação for treinado num conjunto de dados com números de pontos flutuantes na coluna Label, pode produzir resultados indesejáveis. Isto porque a classificação requer uma variável de resposta discreta que só permite valores que variam sobre um conjunto finito, e pequeno, conjunto de classes.
 
 3. Se o conjunto de dados de pontuação não contiver todas as funcionalidades utilizadas para treinar o modelo, o [Modelo de Pontuação][score-model] produz um erro.
 
 4. Se uma linha no conjunto de dados de pontuação contiver um valor em falta ou um valor infinito para qualquer uma das suas funcionalidades, o [Modelo de Pontuação][score-model] não produz qualquer saída correspondente a essa linha.
 
-5. O [Modelo de Pontuação][score-model] pode produzir saídas idênticas para todas as linhas no conjunto de dados de pontuação. Isto pode ocorrer, por exemplo, quando tentar classificação com florestas de decisão, se o número mínimo de exemplos por nó de folha é escolhido para ser mais do que o número de exemplos de treinamento disponíveis.
+5. O [Modelo de Pontuação][score-model] pode produzir saídas idênticas para todas as linhas no conjunto de dados de pontuação. Isto pode ocorrer, por exemplo, quando se tenta classificar utilizando as Florestas de Decisão se o número mínimo de amostras por nó de folha for escolhido para ser superior ao número de exemplos de formação disponíveis.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

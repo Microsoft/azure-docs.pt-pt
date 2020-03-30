@@ -7,10 +7,10 @@ ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249519"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
@@ -109,7 +109,7 @@ Você pode ter um número limitado de ações de Aplicações Lógicas em um Gru
 ### <a name="secure-webhook"></a>Webhook seguro
 A ação Webhook dos Grupos de Ação permite-lhe tirar partido do Diretório Ativo Azure para garantir a ligação entre o seu grupo de ação e a sua Web API protegida (ponto final do webhook). O fluxo de trabalho global para tirar partido desta funcionalidade é descrito abaixo. Para uma visão geral das aplicações e principais de serviços da Azure AD, consulte a visão geral da [plataforma de identidade da Microsoft (v2.0).](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
-1. Crie uma aplicação AD Azure para a sua API web protegida. Veja https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+1. Crie uma aplicação AD Azure para a sua API web protegida. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure a sua API protegida para ser chamada por uma aplicação daemon.
     
 1. Ative os Grupos de Ação a utilizar em a sua Aplicação AD Azure.

@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 05f0a81a738688df15ea9060071d9e266b54b7d2
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136660"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Converter configurações em recursos compostos
@@ -55,7 +55,7 @@ A mais recente atualização do projeto também publicou livros de [execução](
 
 Para experimentar a automatização da criação de recursos compósitos para a DSC, visite a [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/microsoft/compositeresource).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos dSC](/powershell/scripting/dsc/resources/resources)

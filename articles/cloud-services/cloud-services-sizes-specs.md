@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de máquinavirtual para serviços Azure Cloud  Microsoft Docs
+title: Tamanhos de máquinavirtual para serviços Azure Cloud [ Microsoft Docs
 description: Lista os diferentes tamanhos de máquinavirtual (e IDs) para funções web de serviço em nuvem Azure e funções de trabalhador.
 services: cloud-services
 documentationcenter: ''
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247478"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos para serviços em nuvem
@@ -42,7 +42,7 @@ As considerações seguintes podem ajudar a decidir um tamanho:
 * A sua subscrição também pode limitar o número de núcleos que pode implementar em determinadas famílias de tamanhos. Para aumentar uma quota, contacte o Suporte do Azure.
 
 ## <a name="performance-considerations"></a>Considerações de desempenho
-Criámos o conceito da Unidade de Computação Azure (ACU) para fornecer uma forma de comparar o desempenho da computação (CPU) através do Azure SKUs e identificar quais os SKU mais propensos a satisfazer as suas necessidades de desempenho.  A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenho{1}{2}padrão.
+Criámos o conceito da Unidade de Computação Azure (ACU) para fornecer uma forma de comparar o desempenho da computação (CPU) através do Azure SKUs e identificar quais os SKU mais propensos a satisfazer as suas necessidades de desempenho.  A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenhopadrão.
 
 > [!IMPORTANT]
 > A ACU é apenas uma orientação. Os resultados da sua carga de trabalho podem variar.
@@ -97,7 +97,7 @@ Para obter informações e considerações sobre a utilização destes tamanhos,
 | A10             |8          | 56           | 1817                 | 2 / alto |
 | A11             |16         | 112          | 1817                 | 4 / muito alto |
 
-\*capaz de RDMA
+\*RDMA capaz
 
 ## <a name="av2-series"></a>Série Av2
 
@@ -184,7 +184,7 @@ Além do poder de CPU substancial, a série H oferece diversas opções para fun
 | Standard_H16r*  | 16        | 112          | 2000                 | 8 / muito alto |
 | Standard_H16mr* | 16        | 224          | 2000                 | 8 / muito alto |
 
-\*capaz de RDMA
+\*RDMA capaz
 
 ## <a name="configure-sizes-for-cloud-services"></a>Configurar tamanhos para serviços de nuvem
 Pode especificar o tamanho da Máquina Virtual de uma instância de função como parte do modelo de serviço descrito pelo ficheiro de [definição](cloud-services-model-and-package.md#csdef)de serviço . O tamanho da função determina o número de núcleos de CPU, a capacidade de memória e o tamanho do sistema de ficheiros local que é atribuído a uma instância de execução. Escolha o tamanho da função com base no requisito de recursos da sua aplicação.

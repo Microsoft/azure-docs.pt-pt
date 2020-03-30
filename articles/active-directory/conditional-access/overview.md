@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240913"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
@@ -59,14 +59,14 @@ Os sinais comuns que o Acesso Condicional pode ter em conta na tomada de uma dec
 
 ## <a name="common-decisions"></a>Decisões comuns
 
-- Acesso ao bloco
+- Bloquear acesso
    - Decisão mais restritiva
 - Conceder acesso
    - Decisão menos restritiva, pode ainda exigir uma ou mais das seguintes opções:
       - Exigir autenticação de vários fatores
       - Exigir que o dispositivo seja marcado como conforme
       - Exigir dispositivo ad ad hybrid Azure
-      - Requer aplicação aprovada do cliente
+      - Exigir aplicação de cliente aprovada
       - Exigir política de proteção de aplicativos (pré-visualização)
 
 ## <a name="commonly-applied-policies"></a>Políticas geralmente aplicadas

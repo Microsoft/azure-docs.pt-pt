@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 6513cfc5432e969fc53aa72b075af194a064d178
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244371"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para as lojas de dados da ODBC utilizando a Azure Data Factory
@@ -30,7 +30,7 @@ Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure 
 Este conector ODBC é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
 Pode copiar dados da fonte da ODBC para qualquer loja de dados de sink suportado, ou copiar de qualquer loja de dados de origem suportada para a pia ODBC. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -49,14 +49,14 @@ Para utilizar este conector ODBC, é necessário:
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector ODBC.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 As seguintes propriedades são suportadas para o serviço ligado à ODBC:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Odbc** | Sim |
-| connectionString | A corda de ligação excluindo a parte credencial. Pode especificar a cadeia de ligação com padrões como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de funcionação de integração com `"DSN=<name of the DSN on IR machine>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br>Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração   `password`da cadeia de ligação. Consulte [as credenciais da Loja em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
+| conexãoString | A corda de ligação excluindo a parte credencial. Pode especificar a cadeia de `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`ligação com padrões como , ou utilizar o sistema DSN (Data Source Name) com o qual configura na máquina de tempo de funcionação de integração `"DSN=<name of the DSN on IR machine>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br>Também pode colocar uma palavra-passe no `password` Cofre de Chaves Azure e retirar a configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre](store-credentials-in-key-vault.md) de Chaves Azure com mais detalhes.| Sim |
 | authenticationType | Tipo de autenticação utilizada para se ligar à loja de dados ODBC.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Sim |
 | userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | Não |
 | palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
@@ -110,7 +110,7 @@ As seguintes propriedades são suportadas para o serviço ligado à ODBC:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados da ODBC.
 
@@ -140,7 +140,7 @@ Para copiar dados de/para a loja de dados compatíveis com o ODBC, são suportad
 }
 ```
 
-Se estiver a utilizar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver `RelationalTable` a utilizar o conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -153,7 +153,7 @@ Para copiar dados da loja de dados compatíveis com a ODBC, as seguintes proprie
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **OdbcSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -187,7 +187,7 @@ Para copiar dados da loja de dados compatíveis com a ODBC, as seguintes proprie
 ]
 ```
 
-Se estava a usar `RelationalSource` fonte dactilografada, ainda é suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver `RelationalSource` a usar a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
 
 ### <a name="odbc-as-sink"></a>ODBC como pia
 
@@ -196,8 +196,8 @@ Para copiar dados para uma loja de dados compatível com o ODBC, delineie o tipo
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do sumidouro da atividade de cópia deve ser definida para: **OdbcSink** | Sim |
-| writeBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair.<br/>Os valores permitidos são: timepan. Exemplo: "00: 30:00" (30 minutos). |Não |
-| writeBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (padrão é 0 - auto detetado) |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (padrão é 0 - auto detetado) |
 | preCopyScript |Especifique uma consulta SQL para a Atividade de Cópia executar antes de escrever dados na loja de dados em cada execução. Pode usar esta propriedade para limpar os dados pré-carregados. |Não |
 
 > [!NOTE]
@@ -278,7 +278,7 @@ Leia o artigo desde o início para uma visão geral detalhada da utilização de
 Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 
-## <a name="troubleshoot-connectivity-issues"></a>Problemas de conectividade
+## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
 
 Para resolver problemas de ligação, utilize o separador **de diagnóstico** do Gestor de Configuração do Tempo de **Integração**.
 

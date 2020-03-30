@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247296"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorize, receba e envie eventos com Hubs de Eventos Azure e Aplicações Lógicas Azure
 
-Este artigo mostra como pode monitorizar e gerir eventos enviados para [o Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de dentro de uma aplicação lógica com o conector Azure Event Hubs. Dessa forma, criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para verificação, envio e receção de eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte o [conector Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/)</a>.
+Este artigo mostra como pode monitorizar e gerir eventos enviados para [o Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de dentro de uma aplicação lógica com o conector Azure Event Hubs. Dessa forma, criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para verificação, envio e receção de eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a referência</a>do [conector Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Se você é novo em aplicações lógicas, reveja [o que são As Aplicações L�
 
 Para garantir que a sua aplicação lógica pode aceder ao seu Hub de Eventos, verifique as suas permissões e obtenha a cadeia de ligação para o seu espaço de nome Sem Evento.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Vá ao espaço de *nome*do Seu Event Hubs, não a um Hub de Eventos específico. 
 
@@ -50,7 +50,7 @@ Para garantir que a sua aplicação lógica pode aceder ao seu Hub de Eventos, v
       ![Copy Event Hubs nomespace string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nome sem nome do Event Hubs ou a um centro de eventos específico, certifique-se de que a cadeia de ligação não tem o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma "entidade" específica do Event Hub e não é a corda correta para usar com a sua aplicação lógica.
+      > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nome sem `EntityPath`  nome do Event Hubs ou a um centro de eventos específico, certifique-se de que a cadeia de ligação não tem o parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma "entidade" específica do Event Hub e não é a corda correta para usar com a sua aplicação lógica.
 
 1. Agora continue com [adicionar um gatilho de Hubs](#add-trigger) de eventoou adicionar uma ação de [Hubs](#add-action)de Evento .
 
@@ -117,7 +117,7 @@ Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.
 1. Sob o gatilho ou ação, escolha **novo passo**.
 
    Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. 
-   Escolha o sinal plus **(+)** que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal**+** de mais () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, introduza "centros de eventos" como filtro.
 Da lista de ações, selecione esta ação: **Enviar evento - Hubs de Eventos**
@@ -154,8 +154,8 @@ Da lista de ações, selecione esta ação: **Enviar evento - Hubs de Eventos**
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome a criar para a sua ligação |
-   | **Espaço de nome de Hubs de Eventos** | Sim | <espaço *de nome de centros de eventos*> | Selecione o espaço de nome seletiva do Event Hubs que pretende utilizar. |
+   | **Nome de ligação** | Sim | <*nome de ligação*> | O nome a criar para a sua ligação |
+   | **Espaço de nome de Hubs de Eventos** | Sim | <*espaço de nome saquede evento-hubs*> | Selecione o espaço de nome seletiva do Event Hubs que pretende utilizar. |
    |||||  
 
    Por exemplo:

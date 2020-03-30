@@ -4,10 +4,10 @@ description: Mostra como os tipos de recursos lidam com a eliminação completa 
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664411"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminação dos recursos do Azure para implementações completas de modos
@@ -178,7 +178,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | DomainServices | Sim |
+> | Serviços de Domínio | Sim |
 > | Serviços de Domínio / oucontentor | Não |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
@@ -219,7 +219,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | actionRules | Sim |
+> | açãoRegras | Sim |
 > | alerts | Não |
 > | alertasList | Não |
 > | alertasMetaData | Não |
@@ -244,7 +244,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | relatórioFeedback | Não |
 > | serviço | Sim |
-> | validateServiceName | Não |
+> | validanome ServiceName | Não |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -282,13 +282,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | permissões | Não |
 > | políticasAtribuis | Não |
 > | definições políticas | Não |
-> | policySetDefinitions | Não |
-> | providerOperations | Não |
+> | definições políticasSetDefinições | Não |
+> | fornecedorOperações | Não |
 > | roleAssignments | Não |
 > | roleAssignmentsUsageMetrics | Não |
-> | roleDefinitions | Não |
+> | definições de papel | Não |
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft.Automação
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -311,7 +311,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | configuraçãoLojas | Sim |
 > | configuraçãoStores / eventoSRedesFiltros | Não |
 
-## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
+## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Genebra
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -356,14 +356,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | batchAccounts | Sim |
+> | lotContas | Sim |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | Contas de Faturação | Não |
+> | contas de faturação | Não |
 > | contas/acordos | Não |
 > | billingAccounts / billingPermissions | Não |
 > | contas de faturação / billingPerfis | Não |
@@ -437,10 +437,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | billingRoleAssignments | Não |
 > | billingRoleDefinis | Não |
 > | criar BillingRoleAssignment | Não |
-> | Departamentos | Não |
-> | enrollmentAccounts | Não |
+> | departamentos | Não |
+> | inscriçõesContas | Não |
 > | faturas | Não |
-> | Transferências | Não |
+> | transferências | Não |
 > | transferências / aceitarTransferência | Não |
 > | transferências /declínioTransferência | Não |
 > | transferências / operaçãoStatus | Não |
@@ -453,7 +453,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | mapApis | Sim |
-> | updateCommunicationPreference | Não |
+> | atualizarCommunicationPreference | Não |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -482,10 +482,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | botServices | Sim |
+> | botServiços | Sim |
 > | botServices / canais | Não |
 > | botServiços / conexões | Não |
-> | Idiomas | Não |
+> | linguagens | Não |
 > | modelos | Não |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -495,7 +495,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | Redis | Sim |
 
-## <a name="microsoftcapacity"></a>Microsoft.Capacity
+## <a name="microsoftcapacity"></a>Microsoft.Capacidade
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -506,7 +506,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | calcularPreço | Não |
 > | calcularComprarPreço | Não |
 > | catálogos | Não |
-> | commercialReservationOrders | Não |
+> | ordens comerciais Reservas | Não |
 > | troca | Não |
 > | placeBuyOrder | Não |
 > | reservasOrdens | Não |
@@ -519,8 +519,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | reservasOrdens / troca | Não |
 > | reservas | Não |
 > | recursosFornecedores | Não |
-> | recursos | Não |
-> | validateReservationOrder | Não |
+> | resources | Não |
+> | validarAOrdem de Reserva | Não |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -530,7 +530,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | CdnWebApplicationFirewallManagedRuleSets | Não |
 > | CdnWebApplicationFirewallPolicies | Sim |
 > | talhenos | Não |
-> | profiles | Sim |
+> | perfis | Sim |
 > | perfis / pontos finais | Sim |
 > | perfis / pontos finais / domínios personalizados | Não |
 > | perfis / pontos finais / origens | Não |
@@ -543,7 +543,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | certificadoSOrdens | Sim |
 > | certificadoS / certificados | Não |
-> | validateCertificateRegistrationInformation | Não |
+> | validaçãoInformação de Registode Certificados | Não |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -551,7 +551,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | capacidades | Não |
-> | domainNames | Sim |
+> | domínioNomes | Sim |
 > | domínioNomes / capacidades | Não |
 > | domínioNames / InternalLoadBalancers | Não |
 > | domínioNomes / serviçoCertificados | Não |
@@ -559,12 +559,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | domínioNomes / slots / funções | Não |
 > | domínioNomes / slots / funções / definições métricas | Não |
 > | domínioNomes / slots / papéis / métricas | Não |
-> | moveSubscriptionResources | Não |
-> | operatingSystemFamilies | Não |
-> | operatingSystems | Não |
+> | moverRecursos de Subscrição | Não |
+> | operativoSystemFamílias | Não |
+> | sistemas operativos | Não |
 > | quotas | Não |
 > | recursosTipos | Não |
-> | validateSubscriptionMoveAvailability | Não |
+> | validaçãoSubscriÇãoMoveDisponibilidade | Não |
 > | máquinas virtuais | Sim |
 > | virtualMáquinas / diagnósticoDefinições | Não |
 > | virtualMáquinas / definições métricas | Não |
@@ -588,7 +588,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | gatewayDispositivos suportados | Não |
 > | networkSecurityGroups | Sim |
 > | quotas | Não |
-> | reservedIps | Sim |
+> | reservadoIps | Sim |
 > | redes virtuais | Sim |
 > | virtualNetworks / remoteVirtualNetworkPeeringProxies | Não |
 > | redes virtuais / virtualNetworkPeerings | Não |
@@ -605,7 +605,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | osPlatformImages | Não |
 > | publicImages | Não |
 > | quotas | Não |
-> | storageAccounts | Sim |
+> | armazenamentoContas | Sim |
 > | armazenamentoContas / blobServices | Não |
 > | armazenamentoContas / ficheirosServiços | Não |
 > | armazenamentoContas / definições métricas | Não |
@@ -619,7 +619,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | armazenamentoContas / vmImages | Não |
 > | vmImages | Não |
 
-## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+## <a name="microsoftcognitiveservices"></a>Microsoft.Serviços Cognitivos
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -632,7 +632,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | RateCard | Não |
-> | UsageAggregates | Não |
+> | Agregados de Utilização | Não |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -651,22 +651,22 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | grupos de anfitriões / anfitriões | Sim |
 > | imagens | Sim |
 > | proximidadeGrupoS | Sim |
-> | restorePointCollections | Sim |
+> | restaurarPointCollections | Sim |
 > | restaurarPointCollections / restaurarPontos | Não |
-> | sharedVMImages | Sim |
+> | partilhou VMImages | Sim |
 > | vMImages /versões partilhadas | Não |
 > | instantâneos | Sim |
 > | máquinas virtuais | Sim |
 > | virtualMáquinas / extensões | Sim |
 > | virtualMáquinas / definições métricas | Não |
-> | virtualMachineScaleSets | Sim |
+> | conjuntos virtualMachineScaleSets | Sim |
 > | virtualMachineScaleSets / extensões | Não |
 > | virtualMachineScaleSets / NetworkInterfaces | Não |
 > | virtualMachineScaleSets / publicIPAddresses | Não |
 > | virtualMachineScaleSets / virtualMachines | Não |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | Não |
 
-## <a name="microsoftconsumption"></a>Microsoft.Consumption
+## <a name="microsoftconsumption"></a>Microsoft.Consumo
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -680,13 +680,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | eventos | Não |
 > | Previsões | Não |
 > | lotes | Não |
-> | Marketplaces | Não |
-> | Tabelas de preços | Não |
+> | Mercados | Não |
+> | Folhas de preços | Não |
 > | produtos | Não |
-> | ReservationDetails | Não |
-> | ReservationRecommendations | Não |
+> | Detalhes da reserva | Não |
+> | Recomendações de Reservas | Não |
 > | ReservasResumos | Não |
-> | ReservationTransactions | Não |
+> | ReservasTransacções | Não |
 > | Etiquetas | Não |
 > | inquilinos | Não |
 > | Termos | Não |
@@ -698,7 +698,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | grupos de contentores | Sim |
-> | serviceAssociationLinks | Não |
+> | serviçoAssociações | Não |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -741,7 +741,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | containerServices | Sim |
+> | serviços de contentores | Sim |
 > | clusters geridos | Sim |
 > | openShiftManagedClusters | Sim |
 
@@ -805,7 +805,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | Empregos | Sim |
+> | empregos | Sim |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -819,7 +819,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | espaços de trabalho | Sim |
+> | áreas de trabalho | Sim |
 > | espaços de trabalho / dbWorkspaces | Não |
 > | espaços de trabalho / armazenamentoEncriptação | Não |
 > | espaços de trabalho / virtualNetworkPeerings | Não |
@@ -943,7 +943,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | servidores / topQueryStatistics | Não |
 > | servidores / virtualNetworkRules | Não |
 > | servidores / estatísticas de espera | Não |
-> | serversv2 | Sim |
+> | servidorsv2 | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -970,9 +970,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | hostpools / anfitriões de sessões | Não |
 > | hostpools / sessões de sessões / usersessions | Não |
 > | hostpools / usersessions | Não |
-> | espaços de trabalho | Sim |
+> | áreas de trabalho | Sim |
 
-## <a name="microsoftdevices"></a>Microsoft.Devices
+## <a name="microsoftdevices"></a>Microsoft.Dispositivos
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -983,7 +983,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | IotHubs | Sim |
 > | IotHubs / eventoSGridFilters | Não |
 > | IotHubs / definições de segurança | Não |
-> | serviços de provisionamento | Sim |
+> | Serviços de Provisionamento | Sim |
 > | utilizações | Não |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
@@ -1017,8 +1017,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | databaseAccountNames | Não |
-> | databaseAccounts | Sim |
+> | base de dadosNomes de contas | Não |
+> | bases de dadosContas | Sim |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -1027,9 +1027,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | domínios | Sim |
 > | domínios / domainOwnershipIdentifiers | Não |
-> | generateSsoRequest | Não |
+> | geraSsoRequest | Não |
 > | topLevelDomains | Não |
-> | validateDomainRegistrationInformation | Não |
+> | validarInformações deRegistodeDomínio | Não |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
@@ -1055,7 +1055,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | domínios | Sim |
 > | domínios / tópicos | Não |
 > | eventoSSubscrições | Não |
-> | extensionTopics | Não |
+> | extensõesTópicos | Não |
 > | partnerNamespaces | Sim |
 > | partnerNamespaces / eventoChannels | Não |
 > | parceiroSRegistrations | Sim |
@@ -1064,7 +1064,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | sistemaTópicos | Sim |
 > | sistemaTópicos / eventosSubscrições | Não |
 > | tópicos | Sim |
-> | topicTypes | Não |
+> | tópicoTipos | Não |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -1085,17 +1085,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | características | Não |
-> | Fornecedores | Não |
+> | funcionalidades | Não |
+> | fornecedores | Não |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | inscrever | Não |
+> | inscrever-se | Não |
 > | galeriaitas | Não |
-> | generateartifactaccessuri | Não |
+> | gerarartifactaccessuri | Não |
 > | myareas | Não |
 > | myares / áreas | Não |
 > | myares / áreas / áreas | Não |
@@ -1103,10 +1103,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | myareas / áreas / galleryitems | Não |
 > | myareas / galleryitems | Não |
 > | registar | Não |
-> | recursos | Não |
+> | resources | Não |
 > | recuperrecursoside | Não |
 
-## <a name="microsoftgenomics"></a>Microsoft.Genomics
+## <a name="microsoftgenomics"></a>Microsoft.Genómica
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -1184,7 +1184,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | Empregos | Sim |
+> | empregos | Sim |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -1192,7 +1192,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | diagnósticoDefinições | Não |
-> | diagnosticSettingsCategories | Não |
+> | diagnósticoDefiniçõesCategorias | Não |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -1214,7 +1214,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | deletedVaults | Não |
+> | apagouOsCofres | Não |
 > | hsmPools | Sim |
 > | cofres | Sim |
 > | cofres / accessPolicies | Não |
@@ -1269,7 +1269,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | espaços de trabalho | Sim |
+> | áreas de trabalho | Sim |
 > | espaços de trabalho / computação | Não |
 > | espaços de trabalho / eventoSGridFilters | Não |
 
@@ -1278,8 +1278,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | identidades | Não |
-> | userAssignedIdentities | Sim |
+> | Identidades | Não |
+> | userAssignedIdentidades | Sim |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1295,10 +1295,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | getEntities | Não |
+> | obter Entidades | Não |
 > | grupos de gestão | Não |
 > | grupos de gestão / configurações | Não |
-> | recursos | Não |
+> | resources | Não |
 > | startTenantBackfill | Não |
 > | inquilinoBackfillStatus | Não |
 
@@ -1335,8 +1335,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | classicDevServices | Sim |
-> | updateCommunicationPreference | Não |
+> | clássicoDevServices | Sim |
+> | atualizarCommunicationPreference | Não |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
@@ -1419,13 +1419,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | applicationGateways | Sim |
+> | aplicaçõesGateways | Sim |
 > | aplicaçãoGatewayWebApplicationFirewallPolicies | Sim |
-> | applicationSecurityGroups | Sim |
+> | aplicaçõesGrupos de Segurança | Sim |
 > | azureFirewallFqdnTags | Não |
 > | azureFirewalls | Sim |
 > | bastionHosts | Sim |
-> | bgpServiceCommunities | Não |
+> | bgpServiceComunidades | Não |
 > | conexões | Sim |
 > | ddosCustomPolicies | Sim |
 > | ddosProtectionPlans | Sim |
@@ -1452,12 +1452,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | portas da frente | Sim |
 > | frontdoorWebApplicationFirewallManagedRuleSets | Não |
 > | frontdoorWebApplicationFirewallPolicies | Sim |
-> | getDnsResourceReference | Não |
-> | internalNotify | Não |
+> | obterDnsResourceReference | Não |
+> | internalNotifica | Não |
 > | loadBalancers | Sim |
-> | localNetworkGateways | Sim |
+> | networkgateways locais | Sim |
 > | natGateways | Sim |
-> | networkIntentPolicies | Sim |
+> | políticas de intenções de rede | Sim |
 > | networkInterfaces | Sim |
 > | perfis de rede | Sim |
 > | networkSecurityGroups | Sim |
@@ -1480,12 +1480,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | privateDnsZones / virtualNetworkLinks | Sim |
 > | privateEndpoints | Sim |
 > | privateLinkServices | Sim |
-> | publicIPAddresses | Sim |
-> | publicIPPrefixes | Sim |
-> | routeFilters | Sim |
+> | endereços públicosIPAddresss | Sim |
+> | publicipPrefixes | Sim |
+> | rotaFiltros | Sim |
 > | routeTables | Sim |
 > | serviceEndpointPolicies | Sim |
-> | trafficManagerGeographicHierarchies | Não |
+> | tráfegoManagerGeographicHierarchies | Não |
 > | perfis de gestor de tráfego | Sim |
 > | perfis de gestor de tráfego / heatMaps | Não |
 > | tráfegoManagerUserMetricsKeys | Não |
@@ -1530,8 +1530,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | aglomerados | Sim |
 > | linkTargets | Não |
-> | storageInsightConfigs | Não |
-> | espaços de trabalho | Sim |
+> | armazenamentoInsightConfigs | Não |
+> | áreas de trabalho | Sim |
 > | espaços de trabalho / dadosExportações | Não |
 > | espaços de trabalho / dataFontes | Não |
 > | espaços de trabalho / serviços ligados | Não |
@@ -1579,7 +1579,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | consolas | Não |
+> | Consolas do | Não |
 > | dashboards | Sim |
 > | userSettings | Não |
 
@@ -1630,7 +1630,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | accounts | Não |
-> | Coleções | Sim |
+> | coleções | Sim |
 > | coleções/aplicações | Não |
 > | coleções /diretores de segurança | Não |
 > | modeloImages | Não |
@@ -1640,12 +1640,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | consultas de | Sim |
+> | consultas | Sim |
 > | recursosChangeDetails | Não |
 > | recursosAlterações | Não |
-> | recursos | Não |
+> | resources | Não |
 > | recursosHistória | Não |
-> | subscriptionsStatus | Não |
+> | subscriçõesStatus | Não |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
@@ -1653,15 +1653,15 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | disponibilidadeStatuses | Não |
-> | childAvailabilityStatuses | Não |
+> | criançaDisponibilidadeStatuses | Não |
 > | recursos infantis | Não |
 > | questões emergentes | Não |
 > | eventos | Não |
-> | impactedResources | Não |
+> | recursos impactados | Não |
 > | do IdP | Não |
 > | notificações | Não |
 
-## <a name="microsoftresources"></a>Microsoft.Resources
+## <a name="microsoftresources"></a>Microsoft.Recursos
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -1671,8 +1671,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | implementaçãoScripts | Sim |
 > | implementaçãoScripts / registos | Não |
 > | ligações | Não |
-> | notifyResourceJobs | Não |
-> | Fornecedores | Não |
+> | notificarResourceJobs | Não |
+> | fornecedores | Não |
 > | recursosGrupos | Não |
 > | assinaturas | Não |
 > | inquilinos | Não |
@@ -1690,8 +1690,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | resourceHealthMetadata | Não |
-> | searchServices | Sim |
+> | recursosHealthMetadata | Não |
+> | serviços de pesquisa | Sim |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -1711,7 +1711,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Conformidades | Não |
 > | dataCollectionAgents | Não |
 > | dispositivoGrupos de Segurança | Não |
-> | discoveredSecuritySolutions | Não |
+> | descobertaSSegurançaS | Não |
 > | externalSecuritySolutions | Não |
 > | Políticas de Proteção de Informação | Não |
 > | iotSecuritySolutions | Sim |
@@ -1725,8 +1725,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | regulamentareComplianceStandards | Não |
 > | regulamentareComplianceStandards / regulatoryComplianceControls | Não |
 > | regulamentareComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | Não |
-> | securityContacts | Não |
-> | securitySolutions | Não |
+> | segurançaContactos | Não |
+> | segurançaSoluções | Não |
 > | securitySolutionsReferenceData | Não |
 > | segurançaEstatutos | Não |
 > | segurançaStatusesResumos | Não |
@@ -1735,7 +1735,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | subAvaliações | Não |
 > | tarefas | Não |
 > | topologies | Não |
-> | workspaceSettings | Não |
+> | workspaceDefinições | Não |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
@@ -1743,7 +1743,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | diagnósticoDefinições | Não |
-> | diagnosticSettingsCategories | Não |
+> | diagnósticoDefiniçõesCategorias | Não |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
@@ -1753,13 +1753,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | agregações | Não |
 > | alertaRegras | Não |
 > | modelos de regras de alerta | Não |
-> | Marcadores | Não |
+> | marcadores | Não |
 > | casos | Não |
 > | dataCotes | Não |
 > | dataConnectorsCheckRequisitos | Não |
 > | entidades | Não |
 > | entidadeQueries | Não |
-> | Incidentes | Não |
+> | incidentes | Não |
 > | officeConsents | Não |
 > | settings | Não |
 
@@ -1779,7 +1779,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | espaços de nome / tópicos / regras de autorização | Não |
 > | espaços de nome / tópicos / subscrições | Não |
 > | espaços de nome / tópicos / subscrições / regras | Não |
-> | premiumMessagingRegions | Não |
+> | premiumMensagens de mensagens | Não |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
@@ -1818,7 +1818,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | providerRegistrations | Não |
+> | fornecedorRegistos | Não |
 > | fornecedorRegistrations / recursosTypeRegistrations | Não |
 > | lançamentos | Sim |
 
@@ -1844,7 +1844,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | híbridoUseBenefits | Não |
 
-## <a name="microsoftsolutions"></a>Microsoft.Solutions
+## <a name="microsoftsolutions"></a>Microsoft.Soluções
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -1866,7 +1866,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | managedInstances | Sim |
+> | casos geridos | Sim |
 > | managedCasos / bases de dados | Sim |
 > | managedCasos / bases de dados / backupShortTermRetentionPolicies | Não |
 > | managedCasos / bases de dados / schemas / tabelas / colunas / sensibilidadeEtiquetas | Não |
@@ -1902,7 +1902,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | storageAccounts | Sim |
+> | armazenamentoContas | Sim |
 > | armazenamentoContas / blobServices | Não |
 > | armazenamentoContas / ficheirosServiços | Não |
 > | armazenamentoContas / filaServiços | Não |
@@ -1932,7 +1932,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | storageSyncServices | Sim |
+> | armazenamentoSyncServices | Sim |
 > | storageSyncServices / RegisteredServers | Não |
 > | armazenamentoSyncServices / syncGroups | Não |
 > | armazenamentoSyncServices / syncGroups / cloudEndpoints | Não |
@@ -1944,7 +1944,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | storageSyncServices | Sim |
+> | armazenamentoSyncServices | Sim |
 > | storageSyncServices / RegisteredServers | Não |
 > | armazenamentoSyncServices / syncGroups | Não |
 > | armazenamentoSyncServices / syncGroups / cloudEndpoints | Não |
@@ -1956,7 +1956,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | storageSyncServices | Sim |
+> | armazenamentoSyncServices | Sim |
 > | storageSyncServices / RegisteredServers | Não |
 > | armazenamentoSyncServices / syncGroups | Não |
 > | armazenamentoSyncServices / syncGroups / cloudEndpoints | Não |
@@ -1977,17 +1977,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | streamingjobs | Sim |
 
-## <a name="microsoftsubscription"></a>Microsoft.Subscription
+## <a name="microsoftsubscription"></a>Microsoft.Subscrição
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | Cancelar | Não |
-> | CreateSubscription | Não |
-> | permitir | Não |
-> | renome | Não |
+> | cancelar | Não |
+> | Criar Subscrição | Não |
+> | ativar | Não |
+> | mudar o nome | Não |
 > | Definições de Assinaturas | Não |
-> | SubscriptionOperations | Não |
+> | Operações de Subscrição | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2025,7 +2025,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | apiManagementAccounts | Não |
+> | apiGeGeAccounts | Não |
 > | apiGeGeAccounts / apiAcls | Não |
 > | apiGeGeAccounts / apis | Não |
 > | apiGeGeAccounts / apis / apiAcls | Não |
@@ -2037,19 +2037,19 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | apiGeGeContas / conexões | Não |
 > | contadores de faturação | Não |
 > | certificados | Sim |
-> | connectionGateways | Sim |
+> | conexãoGateways | Sim |
 > | conexões | Sim |
 > | customApis | Sim |
-> | deletedSites | Não |
+> | sites eliminados | Não |
 > | hospedagemAmbientes | Sim |
 > | hospedagemAmbientes / eventoSGridFilters | Não |
 > | hospedagemAmbientes / multiRolePools | Não |
 > | hospedagemAmbientes / trabalhadorEsPools | Não |
-> | publishingUsers | Não |
+> | publicarUtilizadores | Não |
 > | recomendações | Não |
-> | resourceHealthMetadata | Não |
+> | recursosHealthMetadata | Não |
 > | tempos de execução | Não |
-> | serverFarms | Sim |
+> | servidorFarms | Sim |
 > | servidorFarms / eventoSGridFilters | Não |
 > | sites | Sim |
 > | sites/config  | Não |
@@ -2064,7 +2064,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | sourceControls | Não |
 > | sites estáticas | Sim |
 > | validar | Não |
-> | verifyHostingEnvironmentVnet | Não |
+> | verificarHostingEnvironmentVnet | Não |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 
@@ -2072,7 +2072,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | diagnósticoDefinições | Não |
-> | diagnosticSettingsCategories | Não |
+> | diagnósticoDefiniçõesCategorias | Não |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
@@ -2088,10 +2088,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | componentes | Não |
 > | componentesSSumário | Não |
-> | monitorInstances | Não |
+> | monitorInstâncias | Não |
 > | monitorInstancesSummary | Não |
 > | monitores | Não |
-> | notificationSettings | Não |
+> | notificaçãoDefinições | Não |
 
 ## <a name="next-steps"></a>Passos seguintes
 

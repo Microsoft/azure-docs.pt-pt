@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258684"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
@@ -113,7 +113,7 @@ O certificado deve satisfazer os seguintes requisitos:
 
 Algumas outras coisas a considerar:
 
-* O campo **Assunto** pode ter vários valores. Cada valor é pré-fixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum);* por exemplo, **CN = www\.contoso.com**.
+* O campo **Assunto** pode ter vários valores. Cada valor é pré-fixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum);* por exemplo, **CN\.= www contoso.com**.
 * O campo **do Assunto** pode estar em branco.
 * Se o campo de **nome** alternativo sujeito opcional for povoado, deve ter o nome comum do certificado e uma entrada por SAN. Estes são inseridos como valores **de nome DNS.** Para aprender a gerar certificados que tenham SANs, consulte [como adicionar um Nome Alternativo sujeito a um certificado LDAP seguro](https://support.microsoft.com/kb/931351).
 * O valor do campo **de finalidades previstas** do certificado deve incluir um valor adequado, como **a autenticação** do servidor ou **a autenticação do cliente.**
@@ -139,7 +139,7 @@ Por padrão, o certificado de cluster tem privilégios de cliente administrativo
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
-* [Criar um cluster usando o portal Azure](service-fabric-cluster-creation-via-portal.md)
+* [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

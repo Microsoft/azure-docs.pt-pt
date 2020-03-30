@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.openlocfilehash: f6dbdb54c1c5a5d477c3ccb988963758faab83b0
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79140019"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utilize base de dados de seguidores para anexar bases de dados no Azure Data Explorer
@@ -28,7 +28,7 @@ Anexar uma base de dados a um cluster diferente utilizando a capacidade de segui
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+1. Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 1. [Crie cluster e DB](/azure/data-explorer/create-cluster-database-portal) para o líder e seguidor.
 1. [Ingerir dados](/azure/data-explorer/ingest-sample-data) para a base de dados líder utilizando um dos vários métodos discutidos na visão geral da [ingestão](/azure/data-explorer/ingest-data-overview).
 
@@ -36,7 +36,7 @@ Anexar uma base de dados a um cluster diferente utilizando a capacidade de segui
 
 Existem vários métodos que pode utilizar para anexar uma base de dados. Neste artigo, discutimos a anexação de uma base de dados utilizando C# ou um modelo de Gestor de Recursos Azure. Para anexar uma base de dados, deve ter permissões no cluster de líderes e no agrupamento de seguidores. Para obter mais informações sobre permissões, consulte [permissões de gestão](#manage-permissions).
 
-### <a name="attach-a-database-using-c"></a>Anexar uma base de dados utilizandoC#
+### <a name="attach-a-database-using-c"></a>Anexar uma base de dados utilizando C #
 
 #### <a name="needed-nugets"></a>Nugets necessários
 
@@ -207,7 +207,7 @@ Pode implantar o modelo do Gestor de Recursos Azure [utilizando o portal Azure](
 |Nome de configurações de bases de dados anexadas    |    O nome do objeto de configurações de bases de dados anexado. O nome pode ser qualquer corda que seja única no nível do cluster.     |
 |Nome da Base de Dados     |      O nome da base de dados a seguir. Se quiser seguir todas as bases de dados do líder, use '*'.   |
 |ID de recurso de cluster líder    |   A identificação de recursos do cluster líder.      |
-|Tipo de modificação de principais predefinidos    |   O tipo de modificação do principal padrão. Pode ser `Union`, `Replace` ou `None`. Para obter mais informações sobre o tipo de modificação principal predefinido, consulte o comando de controlo do tipo de [modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
+|Tipo de modificação de principais predefinidos    |   O tipo de modificação do principal padrão. Pode `Union` `Replace` ser, `None`ou . Para obter mais informações sobre o tipo de modificação principal predefinido, consulte o comando de controlo do tipo de [modificação principal](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
 |Localização   |   A localização de todos os recursos. O líder e o seguidor devem estar no mesmo local.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Verifique se a base de dados foi ligada com sucesso
@@ -219,14 +219,14 @@ Para verificar se a base de dados foi ligada com sucesso, encontre as bases de d
 
     ![Base de dados de seguidores de leitura](media/follower/read-only-follower-database.png)
 
-Alternativamente:
+Em alternativa:
 
 1. Navegue para o cluster líder e selecione **Bases de Dados**
 2. Verifique se as bases de dados relevantes estão marcadas como **partilhadas com outros** > **Sim**
 
     ![Ler e escrever bases de dados anexas](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Desmontar a base de dados do seguidor utilizandoC# 
+## <a name="detach-the-follower-database-using-c"></a>Desmontar a base de dados do seguidor utilizando C # 
 
 ### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desmontar a base de dados de seguidores anexado do cluster de seguidores
 
@@ -364,7 +364,7 @@ Ao anexar uma base de dados, especifique o tipo de modificação dos **"principa
 |---------|---------|
 |**União**     |   Os diretores de base de dados anexados incluirão sempre os diretores originais da base de dados, além de novos diretores adicionais adicionados à base de dados dos seguidores.      |
 |**Substituir**   |    Nenhuma herança de diretores da base de dados original. Devem ser criados novos diretores para a base de dados anexada.     |
-|**Nenhuma.**   |   Os diretores de base de dados anexados incluem apenas os diretores da base de dados original sem diretores adicionais.      |
+|**Nenhum**   |   Os diretores de base de dados anexados incluem apenas os diretores da base de dados original sem diretores adicionais.      |
 
 Para obter mais informações sobre a utilização de comandos de controlo para configurar os diretores autorizados, consulte [comandos de controlo para gerir um cluster](/azure/kusto/management/cluster-follower)de seguidores .
 
@@ -385,6 +385,6 @@ O administrador de base de dados do seguidor pode modificar a política de [cach
 * Não é possível eliminar um cluster que tenha uma base de dados anexada a um cluster diferente antes de o desmontar.
 * Não é possível parar um cluster que tenha anexado o acompanhamento ou a base de dados de líderes. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a configuração do cluster do seguidor, consulte [comandos de controlo para gerir um cluster de seguidores](/azure/kusto/management/cluster-follower).

@@ -13,10 +13,10 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79209585"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Quickstart: Use o editor de consulta do portal Azure para consultar uma base de dados SQL
@@ -44,7 +44,7 @@ Se tiver um dos seguintes erros no editor de consulta: As definições de *rede 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) e selecione a base de dados SQL que pretende consultar.
 
-2. No menu de base de **dados SQL,** selecione **Query editor (pré-visualização)** .
+2. No menu de base de **dados SQL,** selecione **Query editor (pré-visualização)**.
 
     ![encontrar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
@@ -62,13 +62,13 @@ Apesar de ter assinado no portal, ainda precisa de fornecer credenciais para ace
 2. Selecione **OK**.
 
 
-### <a name="connect-using-azure-active-directory"></a>Ligar com o Azure Active Directory
+### <a name="connect-using-azure-active-directory"></a>Conecte-se usando o Diretório Ativo Azure
 
 Configurar um administrador azure Ative Directory (Azure AD) permite-lhe utilizar uma única identidade para iniciar sessão no portal Azure e na sua base de dados SQL. Para se ligar à sua base de dados utilizando o Azure AD, siga os passos abaixo para configurar um administrador Azure AD para o seu servidor SQL.
 
 > [!NOTE]
-> * As contas de e-mail (por exemplo, outlook.com, gmail.com, yahoo.com, e assim por diante) ainda não são suportadas como administradores da Azure AD. Confirme que escolhe um utilizador criado nativamente no Azure AD, ou federado no Azure AD.
-> * Sessão de administrador do Azure AD não funciona com contas que têm a autenticação de 2 fatores ativada.
+> * As contas de e-mail (por exemplo, outlook.com, gmail.com, yahoo.com, e assim por diante) ainda não são suportadas como administradores da Azure AD. Certifique-se de escolher um utilizador criado de forma nativa no Azure AD, ou federado no Azure AD.
+> * O aviso de entrada da Administração Da Azure AD não funciona com contas que tenham autenticação de 2 fatores ativada.
 
 #### <a name="set-an-active-directory-admin-for-the-database-server"></a>Detete um administrador de Diretório Ativo para o servidor de base de dados
 
@@ -88,7 +88,7 @@ Configurar um administrador azure Ative Directory (Azure AD) permite-lhe utiliza
 
 6. No menu do **servidor SQL,** selecione bases de **dados SQL**e, em seguida, selecione a sua base de dados SQL.
 
-7. No menu de base de **dados SQL,** selecione **Query editor (pré-visualização)** . Na página **de Login,** sob a etiqueta de **autenticação Ative Directy,** aparece uma mensagem a dizer que foi contratada se for administrador ad. Em seguida, selecione o **Botão Continue\<** *seu utilizador ou grupo ID>* botão. Se a página indicar que não conseguiu iniciar sessão, poderá ter de refrescar a página.
+7. No menu de base de **dados SQL,** selecione **Query editor (pré-visualização)**. Na página **de Login,** sob a etiqueta de **autenticação Ative Directy,** aparece uma mensagem a dizer que foi contratada se for administrador ad. Em seguida, selecione o **Botão Continue como** * \<utilizador ou grupo ID>.* Se a página indicar que não conseguiu iniciar sessão, poderá ter de refrescar a página.
 
 ## <a name="query-a-sql-database"></a>Consulta de uma base de dados SQL
 
@@ -113,9 +113,9 @@ As seguintes consultas de exemplo devem ser executadas com sucesso contra a base
 
 ### <a name="run-an-insert-query"></a>Executar uma consulta INSERT
 
-Executar a seguinte declaração [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL para adicionar um novo produto na tabela `SalesLT.Product`.
+Executar a seguinte declaração [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL para `SalesLT.Product` adicionar um novo produto na tabela.
 
-1. Substitua a consulta anterior este.
+1. Substitua a consulta anterior por esta.
 
     ```sql
     INSERT INTO [SalesLT].[Product]
@@ -138,14 +138,14 @@ Executar a seguinte declaração [INSERT](/sql/t-sql/statements/insert-transact-
    ```
 
 
-2. Selecione **Executar** para inserir uma nova linha na tabela `Product`. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
+2. Selecione **Executar** para inserir `Product` uma nova linha na tabela. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
 
 
 ### <a name="run-an-update-query"></a>Executar uma consulta de atualização
 
 Execute a seguinte declaração de [Atualização](/sql/t-sql/queries/update-transact-sql/) T-SQL para modificar o seu novo produto.
 
-1. Substitua a consulta anterior este.
+1. Substitua a consulta anterior por esta.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -153,25 +153,25 @@ Execute a seguinte declaração de [Atualização](/sql/t-sql/queries/update-tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Executar** para atualizar a linha especificada na tabela `Product`. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
+2. Selecione **Executar** para atualizar `Product` a linha especificada na tabela. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
 
 ### <a name="run-a-delete-query"></a>Executar uma consulta DELETE
 
 Executar a seguinte declaração [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL para remover o seu novo produto.
 
-1. Substitua a consulta anterior este:
+1. Substitua a consulta anterior por esta:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Executar** para eliminar a linha especificada na tabela `Product`. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
+2. Selecione **Executar** para eliminar `Product` a linha especificada na tabela. O painel de **mensagens** mostra que a **consulta foi bem sucedida: Linhas afetadas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considerações de editor de consulta
 
-Existem alguns aspetos a saber ao trabalhar com o editor de consultas.
+Há algumas coisas para saber quando trabalhar com o editor de consulta.
 
 * O editor de consulta usa as portas 443 e 1443 para comunicar. Certifique-se de que ativou o tráfego HTTPS de saída nestes portos. Também terá de adicionar o seu endereço IP de saída às regras de firewall permitidas pelo servidor para aceder às suas bases de dados e armazéns de dados.
 
@@ -179,11 +179,11 @@ Existem alguns aspetos a saber ao trabalhar com o editor de consultas.
 
 * Pressionar **f5** refresca a página do editor de consulta e qualquer consulta em que está a ser trabalhado está perdida.
 
-* O editor de consulta não suporta a ligação à base de dados `master`.
+* O editor de consulta não suporta `master` a ligação à base de dados.
 
-* Há um tempo limite de 5 minutos para execução da consulta.
+* Há um intervalo de 5 minutos para a execução da consulta.
 
-* O editor de consultas suporta apenas a projeção cilíndrica para tipos de dados de geografia.
+* O editor de consulta apenas suporta a projeção cilíndrica para tipos de dados de geografia.
 
 * Não há suporte para o IntelliSense para tabelas e vistas de base de dados, mas o editor suporta automaticamente os nomes que já foram dactilografados.
 

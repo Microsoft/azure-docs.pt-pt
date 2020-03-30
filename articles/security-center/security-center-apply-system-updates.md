@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604552"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema no Centro de Segurança Azure
-O Azure Security Center monitoriza diariamente as máquinas virtuais Windows e Linux (VMs) e computadores para as atualizações do sistema operativo em falta. O Security Center recupera uma lista de segurança disponível e atualizações críticas a partir de Windows Update ou Windows Server Update Services (WSUS), dependendo do serviço configurado num computador Windows. O Security Center também verifica as últimas atualizações nos sistemas Linux. Se o seu VM ou computador não tiver uma atualização do sistema, o Security Center recomendará que aplique atualizações do sistema.
+O Centro de Segurança do Azure monitoriza diariamente as máquinas virtuais (VMs) Windows e Linux e os computadores quanto a atualizações do sistema operativo em falta. O Centro de Segurança obtém uma lista das atualizações críticas e de segurança disponíveis a partir do Windows Update ou dos Windows Server Update Services (WSUS), dependendo do serviço que está configurado no computador Windows. O Centro de Segurança também verifica se existem atualizações mais recentes em sistemas Linux. Se uma atualização do sistema estiver em falta na VM ou no computador, o Centro de Segurança recomendará que aplique as atualizações do sistema.
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 Aplicar atualizações do sistema é apresentado como uma recomendação no Centro de Segurança. Se o seu VM ou computador estiver a faltar uma atualização do sistema, esta recomendação será apresentada de acordo com **recomendações** e no âmbito **da Compute**.  A seleção da recomendação abre o painel de atualizações do **sistema Apply.**
@@ -44,19 +44,19 @@ Neste exemplo, usaremos a **Compute**.
 
    A parte inferior do painel de instrumentos lista todas as atualizações em falta nos seus VMs e computadores e a gravidade da atualização em falta.  A lista inclui:
 
-    - NOME: Nome da atualização em falta.
-    - Não. DE VMs & COMPUTADORES: Número total de VMs e computadores que estão a faltar nesta atualização.
-    - ESTADO: O estado atual da recomendação:
+    - NOME: o nome da atualização em falta.
+    - N.º DE VMs & COMPUTADORES: Número total de VMs e computadores que estão a perder esta atualização.
+    - ESTADO: o estado atual da recomendação:
 
       - Aberto: A recomendação ainda não foi abordada.
-      - Em curso: A recomendação está atualmente a ser aplicada a esses recursos, e não é necessária qualquer ação por si.
-      - Resolução: A recomendação já estava terminada. (Quando o problema for resolvido, a entrada fica a cinzento).
+      - Em curso: a recomendação está a ser aplicada a esses recursos e não tem de tomar qualquer medida.
+      - Resolvido: a recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
 
-    - Gravidade: Descreve a gravidade dessa recomendação em particular:
+    - GRAVIDADE: descreve a gravidade dessa recomendação específica:
 
-      - Alta: Existe uma vulnerabilidade com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e requer atenção.
-      - Médio: São necessários passos não críticos ou adicionais para completar um processo ou eliminar uma vulnerabilidade.
-      - Baixo: Uma vulnerabilidade deve ser abordada, mas não requer atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
+      - Elevada: existe uma vulnerabilidade num recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
+      - Média: são precisos passos não críticos ou adicionais para concluir um processo ou eliminar uma vulnerabilidade.
+      - Baixa: uma vulnerabilidade deve ser tratada, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
 
 3. Selecione uma atualização em falta na lista para visualizar detalhes.
 
@@ -76,7 +76,7 @@ Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações](security-center-recommendations.md) de segurança no Azure Security Center -- Saiba como as recomendações ajudam a proteger os seus recursos Azure.
 * [Monitorização](security-center-monitoring.md) de saúde de segurança no Centro de Segurança Azure.- Aprenda a monitorizar a saúde dos seus recursos Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
+* [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure -- Aprenda a gerir e responder a alertas de segurança.
 * [Monitorização de soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts de blog sobre segurança e conformidade do Azure.
 

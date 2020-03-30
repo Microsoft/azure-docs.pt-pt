@@ -1,5 +1,5 @@
 ---
-title: Modelos de produto em Gestão API Azure  Microsoft Docs
+title: Modelos de produto em Gestão API Azure [ Microsoft Docs
 description: Saiba como personalizar o conteúdo das páginas do produto no portal de desenvolvimento de gestão da API Azure.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243929"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto na Gestão aPI Azure
@@ -37,7 +37,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a>Lista de produtos  
+##  <a name="product-list"></a><a name="ProductList"></a>Lista de produtos  
  O modelo **da lista** de produtos permite-lhe personalizar o corpo da página da lista de produtos no portal do desenvolvedor.  
   
  ![Lista de produtos](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -71,7 +71,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O modelo `Product list` pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
+ O `Product list` modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
@@ -123,7 +123,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```  
   
-##  <a name="Product"></a>Produto  
+##  <a name="product"></a><a name="Product"></a>Produto  
  O modelo de **Produto** permite-lhe personalizar o corpo da página do produto no portal do desenvolvedor.  
   
  ![Página de produto do portal do desenvolvedor](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -198,7 +198,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O modelo `Product list` pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
+ O `Product list` modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
   
 -   [botão de assinatura](api-management-page-controls.md#subscribe-button)  
   
@@ -207,16 +207,16 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
-|IsDeveloperSubscribed|valor booleano|Se o utilizador atual está subscrito a este produto.|  
-|Estado de Assinaturas|number|O estado da assinatura. Os estados possíveis são:<br /><br /> -   `0 - suspended` – a subscrição está bloqueada e o assinante não pode ligar para quaisquer APIs do produto.<br />-   `1 - active` – a subscrição está ativa.<br />-   `2 - expired` – a subscrição atingiu a data de validade e foi desativada.<br />-   `3 - submitted` – o pedido de subscrição foi feito pelo programador, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected` – o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled` – a subscrição foi cancelada pelo programador ou administrador.|  
-|Limites|matriz|Esta propriedade é depreciada e não deve ser usada.|  
-|DelegatedSubscriptionEnabled|valor booleano|Se a [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta subscrição.|  
-|DelegatedSubscriptionUrl|Cadeia de caracteres|Se a delegação estiver ativada, o URL de subscrição delegado.|  
-|IsAgreed|valor booleano|Se o produto tiver termos, se o utilizador atual concordou com os termos.|  
+|IsDeveloperSubscribed|boolean|Se o utilizador atual está subscrito a este produto.|  
+|Estado de Assinaturas|número|O estado da assinatura. Os estados possíveis são:<br /><br /> -   `0 - suspended`– a subscrição está bloqueada e o assinante não pode ligar para nenhuma APIs do produto.<br />-   `1 - active`– a subscrição está ativa.<br />-   `2 - expired`– a subscrição atingiu a data de validade e foi desativada.<br />-   `3 - submitted`– o pedido de subscrição foi feito pelo programador, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled`– a subscrição foi cancelada pelo programador ou administrador.|  
+|Limites|array|Esta propriedade é depreciada e não deve ser usada.|  
+|Subscrição Delegada|boolean|Se a [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta subscrição.|  
+|Url de Subscrição Delegado|string|Se a delegação estiver ativada, o URL de subscrição delegado.|  
+|IsAconcordou|boolean|Se o produto tiver termos, se o utilizador atual concordou com os termos.|  
 |Subscrições|Recolha de entidades [sumárias de subscrição.](api-management-template-data-model-reference.md#SubscriptionSummary)|As assinaturas do produto.|  
 |Apis|Coleção de entidades [DaPi.](api-management-template-data-model-reference.md#API)|As APIs neste produto.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|valor booleano|Se o utilizador atual é elegível para subscrever este produto no que diz respeito ao limite de subscrição.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|valor booleano|Se o utilizador atual é elegível para subscrever este produto no que diz respeito a múltiplas subscrições que estão ou não a ser permitidas.|  
+|Não pode adicionarporque subscriçãoNumberLimitReached|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito ao limite de subscrição.|  
+|Não pode adicionar porque subscrições múltiplasNão permitidas|boolean|Se o utilizador atual é elegível para subscrever este produto no que diz respeito a múltiplas subscrições que estão ou não a ser permitidas.|  
   
 ### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
@@ -262,5 +262,5 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670564"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Colete contadores de desempenho para aplicações Linux no Azure Monitor 
@@ -28,7 +28,7 @@ O fornecedor mySQL OMI requer um utilizador MySQL reconfigurado e instalou bibli
 
 Durante a instalação do agente Log Analytics para o Linux, o fornecedor MySQL OMI irá digitalizar os ficheiros de configuração MySQL my.cnf (localizações predefinidas) para endereço de ligação e porta e definir parcialmente o ficheiro de autenticação MySQL OMI.
 
-O ficheiro de autenticação MySQL é armazenado em `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+O ficheiro de autenticação MySQL está armazenado em `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
 ### <a name="authentication-file-format"></a>Formato de ficheiro de autenticação
@@ -49,7 +49,7 @@ As entradas no ficheiro de autenticação são descritas na tabela a seguir.
 | Palavra-passe codificada base64| Palavra-passe do utilizador de monitorização MySQL codificado na Base64. |
 | Atualização automática| Especifica se deve rescanar para alterações no ficheiro my.cnf e substituir o ficheiro de autenticação MySQL OMI quando o Fornecedor OMI MySQL for atualizado. |
 
-### <a name="default-instance"></a>Exemplo padrão
+### <a name="default-instance"></a>Instância predefinida
 O ficheiro de autenticação MySQL OMI pode definir uma instância padrão e um número de porta para facilitar a gestão de várias instâncias MySQL num hospedeiro Linux.  A instância predefinida é denotada por um caso com a porta 0. Todas as instâncias adicionais herdarão propriedades definidas a partir da instância padrão, a menos que especifiquem valores diferentes. Por exemplo, se for adicionada a audição da mesql na porta '3308', o endereço de ligação, o nome de utilizador e a senha codificada base64 serão utilizados para tentar monitorizar a audição da instância no 3308. Se a instância no 3308 estiver ligada a outro endereço e utilizar o mesmo nome de utilizador MySQL e par de palavras-passe apenas o endereço de ligação é necessário, e as outras propriedades serão herdadas.
 
 A tabela seguinte tem definições de exemplo 
@@ -75,7 +75,7 @@ A tabela seguinte fornece detalhes sobre a sintaxe para a utilização de mycimp
 | auto-actualização *falso ou verdadeiro* | mycimprovauth autoupdate falso | Define se o ficheiro de autenticação será ou não atualizado automaticamente no reinício ou atualização. |
 | senha de nome de utilizador de *endereço de ligação* padrão | mycimprovauth padrão 127.0.0.1 raiz pwd | Define a instância predefinida no ficheiro de autenticação MySQL OMI.<br>O campo de palavra-passe deve ser introduzido em texto simples - a palavra-passe no ficheiro de autenticação MySQL OMI será codificada pela Base 64. |
 | eliminar *o padrão ou port_num* | mycimprovauth 3308 | Elimina a instância especificada por padrão ou por número de porta. |
-| ajuda | mycimprov ajuda | Imprime uma lista de comandos a utilizar. |
+| Ajuda | mycimprov ajuda | Imprime uma lista de comandos a utilizar. |
 | imprimir | impressão mycimprov | Imprime um ficheiro de autenticação OMI MySQL fácil de ler. |
 | atualizar port_num *palavra-passe de nome de utilizador de endereço de ligação* | mycimprov update 3307 127.0.0.1 root pwd | Atualiza a instância especificada ou adiciona a instância se não existir. |
 
@@ -109,7 +109,7 @@ Estes privilégios podem ser concedidos executando os seguintes comandos de subv
 
 Assim que configurar o agente Log Analytics para o Linux enviar dados para o Monitor Azure, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento em fontes de dados de [desempenho do Windows e do Linux no Monitor De](data-sources-performance-counters.md) desempenho do Azure com os contadores na tabela seguinte.
 
-| Nome do Objeto | Contra nome |
+| Nome do objeto | Contra nome |
 |:--|:--|
 | Base de Dados MySQL | Espaço disco em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -145,7 +145,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Assim que configurar o agente Log Analytics para o Linux enviar dados para o Monitor Azure, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento em fontes de dados de [desempenho do Windows e do Linux no Monitor De](data-sources-performance-counters.md) desempenho do Azure com os contadores na tabela seguinte.
 
-| Nome do Objeto | Contra nome |
+| Nome do objeto | Contra nome |
 |:--|:--|
 | Apache HTTP Server | Trabalhadores Ocupados |
 | Apache HTTP Server | Trabalhadores ociosos |

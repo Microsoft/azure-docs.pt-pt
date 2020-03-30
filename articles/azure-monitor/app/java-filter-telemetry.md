@@ -4,10 +4,10 @@ description: Reduza o tráfego de telemetria filtrando os eventos que não preci
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659922"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
@@ -27,7 +27,7 @@ Os filtros fora da caixa incluem:
 
 ## <a name="setting-filters"></a>Definição de filtros
 
-Em ApplicationInsights.xml, adicione uma secção `TelemetryProcessors` como este exemplo:
+Em ApplicationInsights.xml, `TelemetryProcessors` adicione uma secção como este exemplo:
 
 
 ```XML
@@ -93,7 +93,7 @@ Em ApplicationInsights.xml, adicione uma secção `TelemetryProcessors` como est
            </Processor>
 ```
 
-* `NotNeeded` - Lista separada da vírposta de nomes métricos personalizados.
+* `NotNeeded`- Lista separada da vírposta de nomes métricos personalizados.
 
 
 ### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de vista de página
@@ -107,9 +107,9 @@ Em ApplicationInsights.xml, adicione uma secção `TelemetryProcessors` como est
            </Processor>
 ```
 
-* `DurationThresholdInMS` - A duração refere-se ao tempo que se passa para carregar a página. Se isto for definido, as páginas que carregaram mais rápido do que desta vez não são reportadas.
-* `NotNeededNames` - Lista separada da vírposta de nomes de páginas.
-* `NotNeededUrls` - Lista separada da vírposta de fragmentos de URL. Por exemplo, `"home"` filtra todas as páginas que têm "casa" no URL.
+* `DurationThresholdInMS`- A duração refere-se ao tempo de carga da página. Se isto for definido, as páginas que carregaram mais rápido do que desta vez não são reportadas.
+* `NotNeededNames`- Lista separada de nomes de páginas.
+* `NotNeededUrls`- Lista separada da vírposta de fragmentos de URL. Por exemplo, `"home"` filtra todas as páginas que têm "casa" no URL.
 
 
 ### <a name="request-telemetry-filter"></a>Solicitar filtro de telemetria
@@ -148,7 +148,7 @@ Filtrar a telemetria para fontes sintéticas específicas:
            </Processor>
 ```
 
-* `NotNeeded` - Lista separada da vírposta de nomes de origem sintética.
+* `NotNeeded`- Lista separada da vírposta de nomes de origem sintética.
 
 ### <a name="telemetry-event-filter"></a>Filtro de evento de telemetria
 
@@ -163,7 +163,7 @@ Filtra eventos personalizados (registados utilizando [trackEvent()](../../azure-
 ```
 
 
-* `NotNeededNames` - Lista separada da Vírposta de nomes de eventos.
+* `NotNeededNames`- Lista separada de nomes de eventos.
 
 
 ### <a name="trace-telemetry-filter"></a>Trace Telemettry filtro
@@ -177,7 +177,7 @@ Filtra os vestígios de registo (registados utilizando [trackTrace()](../../azur
            </Processor>
 ```
 
-* `FromSeverityLevel` valores válidos são:
+* `FromSeverityLevel`os valores válidos são:
   *  OFF - Filtrar todos os vestígios
   *  TRACE - Sem filtragem. igual ao nível de traço
   *  INFO - Filtrar o nível TRACE
@@ -190,7 +190,7 @@ Filtra os vestígios de registo (registados utilizando [trackTrace()](../../azur
 
 ### <a name="1-code-your-filter"></a>1. Código o seu filtro
 
-No seu código, crie uma classe que implemente `TelemetryProcessor`:
+No seu código, crie `TelemetryProcessor`uma classe que implemente:
 
 ```Java
 
@@ -257,7 +257,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Terá de criar os seus próprios parâmetros de filtro em `application.properties` e alavancar a estrutura de configuração externa da Spring Boot para passar esses parâmetros no seu filtro personalizado. 
+Terá de criar os seus próprios parâmetros de filtro `application.properties` e alavancar a estrutura de configuração externa da Spring Boot para passar esses parâmetros no seu filtro personalizado. 
 
 
 ## <a name="troubleshooting"></a>Resolução de problemas

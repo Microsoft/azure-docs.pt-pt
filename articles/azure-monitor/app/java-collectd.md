@@ -4,10 +4,10 @@ description: Monitorização alargada do desempenho da aplicação do seu websit
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660738"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>colecionado: Métricas de desempenho do Linux em Insights de Aplicação
@@ -29,8 +29,8 @@ Nas suas máquinas de servidorLinux:
 
 1. Instale a versão 5.4.0 [ou](https://collectd.org/) posterior.
 2. Descarregue o [plugin de escritor colecionado Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Repare maqueo o número da versão.
-3. Copie o plugin JAR para `/usr/share/collectd/java`.
-4. Editar `/etc/collectd/collectd.conf`:
+3. Copie o PLUGIN JAR em `/usr/share/collectd/java`.
+4. Editar: `/etc/collectd/collectd.conf`
    * Certifique-se de que [o plugin Java](https://collectd.org/wiki/index.php/Plugin:Java) está ativado.
    * Atualize o JVMArg para o caminho java.class.para incluir o seguinte JAR. Atualize o número da versão para corresponder ao que descarregou:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
@@ -96,17 +96,17 @@ Para excluir dados de plugins ou fontes de dados específicas:
 
 | Diretiva | Efeito |
 | --- | --- |
-| `Exclude disk` |Excluir todos os dados recolhidos pelo plugin `disk` |
-| `Exclude disk:read,write` |Excluir as fontes chamadas `read` e `write` do plugin `disk`. |
+| `Exclude disk` |Excluir todos os `disk` dados recolhidos pelo plugin |
+| `Exclude disk:read,write` |Excluir as `read` fontes nomeadas e `write` do `disk` plugin. |
 
 Diretivas separadas com uma nova linha.
 
 ## <a name="problems"></a>Problemas?
 *Não vejo dados no portal.*
 
-* Procura [][diagnostic] aberta para ver se os eventos brutos chegaram. Às vezes demoram mais tempo a aparecer no explorador de métricas.
+* Procura [Search][diagnostic] aberta para ver se os eventos brutos chegaram. Às vezes demoram mais tempo a aparecer no explorador de métricas.
 * Você pode precisar [definir exceções](../../azure-monitor/app/ip-addresses.md) de firewall para dados de saída
-* Ative o rastreio no plugin Application Insights. Adicione esta linha dentro `<Plugin ApplicationInsightsWriter>`:
+* Ative o rastreio no plugin Application Insights. Adicione esta `<Plugin ApplicationInsightsWriter>`linha dentro:
   * `SDKLogger true`
 * Abra um terminal e comece a ser recolhido em modo verboso, para ver quaisquer problemas que esteja a reportar:
   * `sudo collectd -f`

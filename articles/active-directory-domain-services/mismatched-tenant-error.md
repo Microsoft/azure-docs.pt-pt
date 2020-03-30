@@ -1,5 +1,5 @@
 ---
-title: Corrigir erros de diretório desajustados nos Serviços de Domínio da AD do Azure  Microsoft Docs
+title: Corrigir erros de diretório desajustados nos Serviços de Domínio da AD do Azure [ Microsoft Docs
 description: Saiba o que significa um erro de diretório desajustado e como resolvê-lo nos Serviços de Domínio Da AD azure
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
 ms.openlocfilehash: 76dc964b7fe7f5e8acfcfb03b2e89bebb2caa176
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613382"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelos serviços de domínio da Azure AD existentes

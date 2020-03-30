@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126567"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Boas práticas para funcionalidades básicas de programadores no Serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ Este artigo de boas práticas centra-se nas funcionalidades básicas de agendame
 > [!div class="checklist"]
 > * Utilize quotas de recursos para fornecer uma quantidade fixa de recursos a equipas ou cargas de trabalho
 > * Limite o impacto da manutenção programada utilizando orçamentos de disrupção da cápsula
-> * Verifique se faltam pedidos e limites de recursos de casulo utilizando a ferramenta `kube-advisor`
+> * Verifique se faltam pedidos e limites `kube-advisor` de recursos de casulo usando a ferramenta
 
 ## <a name="enforce-resource-quotas"></a>Impor quotas de recursos
 
@@ -119,19 +119,19 @@ Para obter mais informações sobre a utilização de orçamentos de disrupção
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verifique regularmente se há problemas de cluster com kube-advisor
 
-**Orientação** de boas práticas - Executar regularmente a versão mais recente de `kube-advisor` ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster AKS existente, faça `kube-advisor` primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
+**Orientação** de boas práticas - `kube-advisor` Executar regularmente a versão mais recente da ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster `kube-advisor` AKS existente, corra primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
 
 A ferramenta [kube-advisor][kube-advisor] é um projeto de código aberto AKS associado que digitaliza um cluster Kubernetes e reporta sobre questões que encontra. Uma verificação útil é identificar cápsulas que não têm pedidos de recursos e limites no lugar.
 
 A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites em falta em PodSpecs para aplicações Windows, bem como aplicações Linux, mas a própria ferramenta de kube-advisor deve ser agendada num casulo Linux. Você pode agendar uma cápsula para correr em uma piscina de nó com um SISTEMA específico usando um [seletor][k8s-node-selector] de nó na configuração do casulo.
 
-Num cluster AKS que acolhe várias equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, execute regularmente `kube-advisor` nos seus clusters AKS, especialmente se não atribuir quotas de recursos a espaços de nome.
+Num cluster AKS que acolhe várias equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, `kube-advisor` execute regularmente nos seus clusters AKS, especialmente se não atribuir quotas de recursos a espaços de nome.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se nas funcionalidades básicas do programador kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes boas práticas:
 
-* [Multi-arrendamento e isolamento de clusters][aks-best-practices-cluster-isolation]
+* [Isolamento multi-inquilinos e de clusters][aks-best-practices-cluster-isolation]
 * [Funcionalidades avançadas do programador kubernetes][aks-best-practices-advanced-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 

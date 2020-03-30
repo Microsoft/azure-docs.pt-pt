@@ -4,10 +4,10 @@ description: Entenda como o serviço Azure Resource Graph permite uma consulta c
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240059"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
@@ -22,8 +22,8 @@ O Azure Resource Graph é um serviço no Azure que é projetado para alargar a G
 Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
-> O Azure Resource Graph alimenta a barra de pesquisa do portal Azure, a nova experiência de navegação "Todos os recursos", e a história da [Mudança](../policy/how-to/determine-non-compliance.md#change-history-preview) da Política Azure
-> _difusão visual._ É projetado para ajudar os clientes a gerir ambientes em larga escala.
+> O Azure Resource Graph alimenta a barra de pesquisa do portal Azure, a nova experiência de navegação "Todos os recursos" e a
+> _difusão visual_da história da [Azure](../policy/how-to/determine-non-compliance.md#change-history-preview)Policy. É projetado para ajudar os clientes a gerir ambientes em larga escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -44,7 +44,7 @@ Quando um recurso Azure é atualizado, o Resource Graph é notificado pelo Gesto
 O Resource Graph atualiza então a sua base de dados. O Resource Graph também faz uma _varredura completa_regular. Esta digitalização garante que os dados do Graph de Recursos estão atuais se houver notificações perdidas ou quando um recurso é atualizado fora do Gestor de Recursos.
 
 > [!NOTE]
-> O Resource Graph utiliza uma `GET` para a mais recente API não pré-visualização de cada fornecedor de recursos para recolher propriedades e valores. Como resultado, o imóvel esperado pode não estar disponível. Em alguns casos, a versão API utilizada foi ultrapassada para fornecer propriedades mais atuais ou amplamente utilizadas nos resultados. Consulte a [versão Show API para cada](./samples/advanced.md#apiversion) amostra do tipo de recurso para obter uma lista completa no seu ambiente.
+> O Resource `GET` Graph utiliza uma API não pré-visualização mais recente de cada fornecedor de recursos para recolher propriedades e valores. Como resultado, o imóvel esperado pode não estar disponível. Em alguns casos, a versão API utilizada foi ultrapassada para fornecer propriedades mais atuais ou amplamente utilizadas nos resultados. Consulte a [versão Show API para cada](./samples/advanced.md#apiversion) amostra do tipo de recurso para obter uma lista completa no seu ambiente.
 
 ## <a name="the-query-language"></a>Linguagem de consulta
 
@@ -62,7 +62,7 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 > [!NOTE]
 > O Resource Graph utiliza as assinaturas disponíveis para um diretor durante o login. Para ver os recursos de uma nova subscrição adicionadas durante uma sessão ativa, o diretor deve refrescar o contexto. Esta ação ocorre automaticamente ao iniciar sessão e voltar a entrar.
 
-O Azure CLI e o Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar a Rest API diretamente, a lista de subscrição é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando se chama [Grupos](/rest/api/resources/resourcegroups/list) de Recursos - Lista \- obtém grupos de recursos a que acede sem qualquer indicação de que o resultado pode ser parcial.
+O Azure CLI e o Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar a Rest API diretamente, a lista de subscrição é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando se chama [Grupos](/rest/api/resources/resourcegroups/list) \- de Recursos - Lista a que obtém grupos de recursos a que acede sem qualquer indicação de que o resultado pode ser parcial.
 Se não houver subscrições na lista de subscrição a que o utilizador tenha direitos adequados, a resposta é um _403_ (Proibido).
 
 ## <a name="throttling"></a>Limitação
@@ -72,8 +72,8 @@ Forneça o seu caso de negócio e selecione a caixa de verificação 'Microsoft 
 
 O gráfico de recursos acelera as consultas ao nível do utilizador. A resposta do serviço contém os seguintes cabeçalhos HTTP:
 
-- `x-ms-user-quota-remaining` (int): A restante quota de recursos para o utilizador. Este valor mapeia para consulta conta.
-- `x-ms-user-quota-resets-after` (hh:mm:s): A duração do tempo até que o consumo de quota de um utilizador seja reposto
+- `x-ms-user-quota-remaining`(int): A restante quota de recursos para o utilizador. Este valor mapeia para consulta conta.
+- `x-ms-user-quota-resets-after`(hh:mm:s): A duração do tempo até que o consumo de quota de um utilizador seja reposto
 
 Para mais informações, consulte [Orientação para pedidos acelerados](./concepts/guidance-for-throttled-requests.md).
 
@@ -84,10 +84,10 @@ O Azure Resource Graph Explorer, parte do portal Azure, permite a execução de 
 O Resource Graph suporta o Azure CLI, Azure PowerShell, Azure SDK para .NET, e muito mais. A consulta é estruturada da mesma forma para cada língua. Saiba como ativar o Graph de Recursos com:
 
 - [Portal Azure e Explorador de Gráficos de Recursos](first-query-portal.md) 
-- [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Execute a sua primeira consulta utilizando o [portal Azure.](first-query-portal.md)
 - Execute a sua primeira consulta com [o Azure CLI.](first-query-azurecli.md)

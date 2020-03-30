@@ -4,16 +4,16 @@ description: Aprenda a configurar um cluster de tecido de serviço seguro em Azu
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258801"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure utilizando o portal Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portal Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -42,7 +42,7 @@ Para cumprir estes fins, o certificado deve satisfazer os seguintes requisitos:
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
-* O nome do **certificado deve coincidir com o domínio** utilizado para aceder ao cluster Service Fabric. Isto é necessário para fornecer SSL para os pontos finais de gestão HTTPS do cluster e Service Fabric Explorer. Não é possível obter um certificado SSL de uma autoridade de certificados (CA) para o domínio `.cloudapp.azure.com`. Adquira um nome de domínio personalizado para o seu cluster. Quando solicitar um certificado a partir de um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para o seu cluster.
+* O nome do **certificado deve coincidir com o domínio** utilizado para aceder ao cluster Service Fabric. Isto é necessário para fornecer SSL para os pontos finais de gestão HTTPS do cluster e Service Fabric Explorer. Não é possível obter um certificado SSL de `.cloudapp.azure.com` uma autoridade de certificados (CA) para o domínio. Adquira um nome de domínio personalizado para o seu cluster. Quando solicitar um certificado a partir de um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para o seu cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticação do cliente
 Certificados adicionais de cliente autenticam administradores para tarefas de gestão de clusters. O Serviço Fabric tem dois níveis de acesso: **administração** e **utilizador apenas de leitura.** No mínimo, deve ser utilizado um único certificado de acesso administrativo. Para um acesso adicional ao nível do utilizador, deve ser fornecido um certificado separado. Para obter mais informações sobre as funções de acesso, consulte [o controlo de acesso baseado em papéis para os clientes do Service Fabric][service-fabric-cluster-security-roles].
@@ -68,7 +68,7 @@ Criar um cluster de produção para atender às necessidades da sua aplicação 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Pesquisa do recurso cluster Service Fabric
 
-Inicie sessão no [portal do Azure][azure-portal].
+Inicie sessão no [Portal do Azure][azure-portal].
 Clique **em Criar um recurso** para adicionar um novo modelo de recursos. Procure o modelo de Cluster de Tecido de Serviço no **Mercado** em **Tudo**.
 Selecione **Cluster de Tecido de Serviço** da lista.
 

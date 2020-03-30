@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243877"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para App Service Environment for PowerApps com Azure ExpressRoute
@@ -87,7 +87,7 @@ Esta secção mostra um exemplo de configuração UDR para o Ambiente de Serviç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o Azure PowerShell na [página Descarregamentos do Azure][AzureDownloads]. Escolha um download com data de junho de 2015 ou posterior. Sob **as ferramentas da linha de comando** > Windows **PowerShell,** selecione **Instalar** para instalar os mais recentes cmdlets PowerShell.
+* Instale o Azure PowerShell na [página Descarregamentos do Azure][AzureDownloads]. Escolha um download com data de junho de 2015 ou posterior. Sob **as ferramentas** > de linha de comando**Windows PowerShell,** selecione **Instalar** para instalar os mais recentes cmdlets PowerShell.
 
 * Crie uma subnet única para uso exclusivo pelo App Service Environment. A sub-rede única garante que os UDRs aplicados à subrede abrem tráfego de saída apenas para o Ambiente de Serviço de Aplicações.
 

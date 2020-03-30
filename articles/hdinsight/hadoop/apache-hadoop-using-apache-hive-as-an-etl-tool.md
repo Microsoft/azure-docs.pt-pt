@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623124"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Use a colmeia Apache como uma ferramenta de extrato, transformação e carga (ETL)
@@ -51,7 +51,7 @@ Os passos típicos para usar a Colmeia para executar o ETL são os seguintes:
 5. Transforme os dados e carregue-os no destino.  Existem várias formas de usar a Colmeia durante a transformação e carregamento:
 
     * Consulta e prepare dados usando a Hive e guarde-os como CSV no Armazenamento do Lago De Dados Azure ou no armazenamento de blob Azure.  Em seguida, utilize uma ferramenta como o SQL Server Integration Services (SSIS) para adquirir esses CSVs e carregar os dados numa base de dados relacional de destino, como o SQL Server.
-    * Consultar os dados diretamente C# do Excel ou utilizando o condutor hive ODBC.
+    * Consultar os dados diretamente do Excel ou C# utilizando o condutor hive ODBC.
     * Utilize [o Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) para ler os ficheiros CSV planos preparados e carregá-los na base de dados relacional do destino.
 
 ## <a name="data-sources"></a>Origens de dados

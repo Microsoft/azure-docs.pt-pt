@@ -4,10 +4,10 @@ description: Opções de autenticação para um registo privado de contentores A
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247049"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um registo de contentores Azure
@@ -22,12 +22,12 @@ A tabela que se segue lista os métodos de autenticação disponíveis e os cen�
 
 | Método                               | Como autenticar                                           | Cenários                                                            | RBAC                             | Limitações                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
-| [Identidade de anúncio individual](#individual-login-with-azure-ad)                | `az acr login` em  Azure CLI                            | Push/pull interativo por desenvolvedores, testadores                                    | Sim                              | O token ad deve ser renovado a cada 3 horas     |
-| [  principal de serviço de ad](#service-principal)                 | `docker login`<br/><br/>`az acr login` em Azure CLI<br/><br/> Definições de login de registo em APIs ou ferramentas<br/><br/> [Kubernetes puxam](container-registry-auth-kubernetes.md)     secretos                                       | Impulso não acompanhado do oleoduto CI/CD<br/><br/> Puxão não acompanhado para serviços azure ou externos  | Sim                              | A caducidade da senha do SP é de 1 ano       |                                                           
-| [Integrar com a AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Anexar o registo quando o cluster AKS foi criado ou atualizado  | Puxe sem vigilância para o cluster AKS                                                  | Não, só puxar o acesso             | Disponível apenas com cluster AKS            |
-| [Identidade gerida para os recursos do Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` em Azure CLI                                       | Impulso não acompanhado do oleoduto Azure CI/CD<br/><br/> Puxão sem supervisão para os serviços do Azure<br/><br/>   | Sim                              | Utilizar apenas a partir de serviços Azure que [suportam identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [  de utilizador de administrador](#admin-account)                           | `docker login`                                          | Push/pull interativo por desenvolvedor ou tester individual                           | Não, puxe sempre e empurre o acesso  | Conta única por registo, não recomendada para vários utilizadores         |
-| Acesso com [âmbito de repositório](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` em Azure CLI   | Push/pull interativo para repositório por desenvolvedor ou tester individual<br/><br/> Empurre/puxe sem supervisão para o repositório por sistema individual ou dispositivo externo                  | Sim                              | Não está atualmente integrado com identidade ad  |
+| [Identidade AD individual](#individual-login-with-azure-ad)                | `az acr login` em Azure CLI                             | Push/pull interativo por desenvolvedores, testadores                                    | Sim                              | O token ad deve ser renovado a cada 3 horas     |
+| [Diretor de serviço aD](#service-principal)                  | `docker login`<br/><br/>`az acr login`em Azure CLI<br/><br/> Definições de login de registo em APIs ou ferramentas<br/><br/> [Kubernetes puxam segredo](container-registry-auth-kubernetes.md)                                           | Impulso não acompanhado do oleoduto CI/CD<br/><br/> Puxão não acompanhado para serviços azure ou externos  | Sim                              | A caducidade da senha do SP é de 1 ano       |                                                           
+| [Integrar com aks](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Anexar o registo quando o cluster AKS foi criado ou atualizado  | Puxe sem vigilância para o cluster AKS                                                  | Não, só puxar o acesso             | Disponível apenas com cluster AKS            |
+| [Identidade gerida para recursos Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` em Azure CLI                                       | Impulso não acompanhado do oleoduto Azure CI/CD<br/><br/> Puxão sem supervisão para os serviços do Azure<br/><br/>   | Sim                              | Utilizar apenas a partir de serviços Azure que [suportam identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Utilizador de administrador](#admin-account)                            | `docker login`                                          | Push/pull interativo por desenvolvedor ou tester individual                           | Não, puxe sempre e empurre o acesso  | Conta única por registo, não recomendada para vários utilizadores         |
+| [Ficha de acesso com âmbito de repositório](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login`em Azure CLI   | Push/pull interativo para repositório por desenvolvedor ou tester individual<br/><br/> Empurre/puxe sem supervisão para o repositório por sistema individual ou dispositivo externo                  | Sim                              | Não está atualmente integrado com identidade ad  |
 
 ## <a name="individual-login-with-azure-ad"></a>Login individual com Azure AD
 
@@ -37,17 +37,17 @@ Ao trabalhar diretamente com o seu registo, como puxar imagens e empurrar imagen
 az acr login --name <acrName>
 ```
 
-Quando inicia sessão com `az acr login`, o CLI utiliza o token criado quando executou o [login az](/cli/azure/reference-index#az-login) para autenticar perfeitamente a sua sessão com o seu registo. Para completar o fluxo de autenticação, o Docker deve ser instalado e em funcionamento no seu ambiente. `az acr login` usa o cliente Docker para definir um token de Diretório Ativo Azure no ficheiro `docker.config`. Uma vez registado desta forma, as suas credenciais são em cache, e os comandos subsequentes `docker` na sua sessão não requerem um nome de utilizador ou senha.
+Quando faz login com `az acr login`, o CLI utiliza o token criado quando executou o [login az](/cli/azure/reference-index#az-login) para autenticar perfeitamente a sua sessão com o seu registo. Para completar o fluxo de autenticação, o Docker deve ser instalado e em funcionamento no seu ambiente. `az acr login`usa o cliente Docker para definir um token `docker.config` de Diretório Ativo Azure no ficheiro. Uma vez registado desta forma, as suas credenciais `docker` estão em cache, e os comandos subsequentes na sua sessão não requerem um nome de utilizador ou senha.
 
 > [!TIP]
-> Use também `az acr login` para autenticar uma identidade individual quando quiser empurrar ou puxar artefactos que não sejam imagens do Docker para o seu registo, como [artefactos OCI](container-registry-oci-artifacts.md).  
+> Use `az acr login` também para autenticar uma identidade individual quando pretende empurrar ou puxar artefactos para além das imagens do Docker para o seu registo, como [artefactos OCI](container-registry-oci-artifacts.md).  
 
 
-Para acesso ao registo, o símbolo utilizado pelo `az acr login` é válido por **3 horas,** pelo que recomendamos que faça sempre login no registo antes de executar um comando `docker`. Se o seu símbolo expirar, pode refreá-lo usando o comando `az acr login` novamente para se reatentir. 
+Para acesso ao registo, o `az acr login` token utilizado é válido por **3 horas,** pelo que recomendamos que faça sempre login no registo antes de executar um `docker` comando. Se o seu símbolo expirar, pode refreá-lo usando o `az acr login` comando novamente para reautenticar. 
 
-A utilização de `az acr login` com identidades Azure proporciona [acesso baseado em papéis.](../role-based-access-control/role-assignments-portal.md) Para alguns cenários, pode querer iniciar sessão num registo com a sua própria identidade individual em Azure AD. Para cenários de cross-service ou para lidar com as necessidades de um grupo de trabalho ou de um fluxo de trabalho de desenvolvimento onde não quer gerir o acesso individual, também pode iniciar sessão com uma [identidade gerida para os recursos Azure.](container-registry-authentication-managed-identity.md)
+A `az acr login` utilização com identidades Azure proporciona [acesso baseado em papéis.](../role-based-access-control/role-assignments-portal.md) Para alguns cenários, pode querer iniciar sessão num registo com a sua própria identidade individual em Azure AD. Para cenários de cross-service ou para lidar com as necessidades de um grupo de trabalho ou de um fluxo de trabalho de desenvolvimento onde não quer gerir o acesso individual, também pode iniciar sessão com uma [identidade gerida para os recursos Azure.](container-registry-authentication-managed-identity.md)
 
-## <a name="service-principal"></a>Diretor de serviço
+## <a name="service-principal"></a>Service principal (Principal de serviço)
 
 Se atribuir um diretor de [serviço](../active-directory/develop/app-objects-and-service-principals.md) ao seu registo, a sua aplicação ou serviço poderá utilizá-lo para autenticação sem cabeça. Os diretores de serviço permitem [o acesso baseado em papéis](../role-based-access-control/role-assignments-portal.md) a um registo, e você pode atribuir vários diretores de serviço a um registo. Vários diretores de serviço permitem definir diferentes acessos para diferentes aplicações.
 
@@ -71,7 +71,7 @@ Cada registo de contentores inclui uma conta de utilizador de administração, q
 > A conta de administração destina-se a um único utilizador a aceder ao registo, principalmente para efeitos de teste. Não recomendamos a partilha das credenciais de conta de administração entre vários utilizadores. Todos os utilizadores autenticados com a conta de administração aparecem como um único utilizador com push e puxam o acesso ao registo. Alterar ou desativar esta conta desativa o acesso ao registo de todos os utilizadores que utilizam as suas credenciais. A identidade individual é recomendada para utilizadores e diretores de serviço para cenários sem cabeça.
 >
 
-A conta de administração é fornecida com duas palavras-passe, ambas podem ser regeneradas. Duas palavras-passe permitem manter a ligação ao registo utilizando uma palavra-passe enquanto regenera a outra. Se a conta de administração estiver ativada, pode passar o nome de utilizador e qualquer palavra-passe para o comando `docker login` quando solicitado para autenticação básica no registo. Por exemplo:
+A conta de administração é fornecida com duas palavras-passe, ambas podem ser regeneradas. Duas palavras-passe permitem manter a ligação ao registo utilizando uma palavra-passe enquanto regenera a outra. Se a conta de administração estiver ativada, pode passar `docker login` o nome de utilizador e qualquer palavra-passe para o comando quando solicitada para autenticação básica no registo. Por exemplo:
 
 ```
 docker login myregistry.azurecr.io 
@@ -79,7 +79,7 @@ docker login myregistry.azurecr.io
 
 Para obter as melhores práticas para gerir as credenciais de login, consulte a referência do comando de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/)
 
-Para ativar o utilizador administrativo de um registo existente, pode utilizar o parâmetro `--admin-enabled` do comando de [atualização az acr](/cli/azure/acr?view=azure-cli-latest#az-acr-update) no Azure CLI:
+Para ativar o utilizador administrativo para um registo existente, pode utilizar o `--admin-enabled` parâmetro do comando de [atualização az acr](/cli/azure/acr?view=azure-cli-latest#az-acr-update) no Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

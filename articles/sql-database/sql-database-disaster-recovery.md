@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256383"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma Base de Dados SQL Azure ou falhar a um secundário
@@ -89,7 +89,7 @@ Se o tempo de inatividade da sua aplicação não resultar em responsabilidade c
 
 Se estiver a utilizar geo-restauro para recuperar de uma paragem, deve certificar-se de que a conectividade com as novas bases de dados está corretamente configurada para que a função de aplicação normal possa ser retomada. Esta é uma lista de tarefas para preparar a sua produção de base de dados recuperada.
 
-### <a name="update-connection-strings"></a>Atualizar cadeias de ligação
+### <a name="update-connection-strings"></a>Atualizar cordas de ligação
 
 Como a sua base de dados recuperada reside num servidor diferente, precisa de atualizar a cadeia de ligação da sua aplicação para apontar para esse servidor.
 

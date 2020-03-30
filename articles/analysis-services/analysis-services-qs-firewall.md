@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure Azure Analysis Services firewall  Microsoft Docs
+title: Quickstart - Configure Azure Analysis Services firewall [ Microsoft Docs
 description: Este quickstart ajuda-o a configurar uma firewall para um servidor de Serviços de Análise Azure utilizando o portal Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79205164"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar a firewall do servidor – Portal
@@ -32,7 +32,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 ## <a name="configure-a-firewall"></a>Configurar uma firewall
 
 1. Clique no servidor para abrir a página Descrição geral. 
-2. Em **DEFINIÇÕES** > **Firewall** > **Ativar firewall**, clique em **Ativar**.
+2. Em **DEFINIÇÕES** > **Firewall** > **Ativar firewall**, clique em **.**
 3. Para permitir o acesso do DirectQuery a partir do serviço Power BI, em **Permitir acesso a partir do Power BI**, clique em **Ativar**.  
 4. (Opcional) Especifique um ou mais intervalos de endereços IP. Introduza um nome, um endereço IP de início e de fim para cada intervalo. O nome da regra da firewall deve ser limitado a 128 caracteres e só pode conter caracteres maiúsculos, caracteres minúsculos, números, sublinhado e hífen. Espaços brancos e outros personagens especiais não são permitidos.
 5. Clique em **Guardar**.

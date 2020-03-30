@@ -1,7 +1,7 @@
 ---
-title: PowerShell para alias DNS
-description: Os cmdlets do PowerShell, como New-AzSqlServerDNSAlias, permitem que você redirecione novas conexões de cliente para um servidor de banco de dados SQL do Azure diferente, sem precisar tocar em nenhuma configuração de cliente.
-keywords: banco de dados SQL DNS
+title: PowerShell para pseudónimos dNS
+description: Os cmdlets PowerShell, tais como New-AzSqlServerDNSAlias, permitem redirecionar novas ligações de clientes para um servidor de base de dados Azure SQL diferente, sem ter de tocar em nenhuma configuração do cliente.
+keywords: dns sql base de dados
 ms.custom: seo-lt-2019
 services: sql-database
 ms.service: sql-database
@@ -13,52 +13,52 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 9232a99ddd29201e6743c09455d79e9ba22b3b9c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74420400"
 ---
-# <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell para alias DNS para o banco de dados SQL do Azure
+# <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell para DNS Alias para Base de Dados SQL Azure
 
-Este artigo fornece um script do PowerShell que demonstra como você pode gerenciar um alias DNS para o banco de dados SQL do Azure.
+Este artigo fornece um script PowerShell que demonstra como pode gerir um pseudónimo DNS para a Base de Dados Azure SQL.
 
 > [!NOTE]
-> Este artigo foi atualizado para usar o módulo Azure PowerShell AZ ou CLI do Azure. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020.
+> Este artigo foi atualizado para utilizar o módulo Azure PowerShell Az ou o Azure CLI. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020.
 >
-> Para saber mais sobre o módulo AZ e a compatibilidade do AzureRM, consulte [apresentando o módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az). Para obter instruções de instalação, consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps) ou [instalar CLI do Azure](/cli/azure/install-azure-cli).
+> Para saber mais sobre o módulo Az e compatibilidade AzureRM, consulte [a introdução do módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Para instruções de instalação, consulte [Instalar a PowerShell Azure](/powershell/azure/install-az-ps) ou [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="dns-alias-in-connection-string"></a>Alias de DNS na cadeia de conexão
+## <a name="dns-alias-in-connection-string"></a>Pseudónimo dNS na cadeia de ligação
 
-Para conectar um determinado servidor de banco de dados SQL do Azure, um cliente como o SQL Server Management Studio (SSMS) pode fornecer o nome do alias DNS em vez do nome do servidor verdadeiro. No exemplo de cadeia de caracteres de servidor a seguir, o alias *any-Unique-alias-name* substitui o primeiro nó delimitado por ponto na cadeia de caracteres do servidor de quatro nós:
+Para ligar um determinado servidor de base de dados Azure SQL, um cliente como o SQL Server Management Studio (SSMS) pode fornecer o nome do pseudónimo DNS em vez do verdadeiro nome do servidor. Na seguinte cadeia de servidores exemplo, o pseudónimo *de qualquer nome único-pseudónimo* substitui o primeiro nó delimitado ponto na cadeia do servidor de quatro nós:
 
    `<yourServer>.database.windows.net`
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você quiser executar o script de demonstração do PowerShell fornecido neste artigo, os seguintes pré-requisitos se aplicarão:
+Se pretender executar o script de demonstração PowerShell dado neste artigo, aplicam-se os seguintes pré-requisitos:
 
-- Uma assinatura e conta do Azure, para avaliação gratuita, consulte [avaliações do Azure](https://azure.microsoft.com/free/)
-- Dois servidores de banco de dados SQL do Azure
+- Uma subscrição e conta Azure, para teste gratuito, ver [testes de Azure](https://azure.microsoft.com/free/)
+- Dois servidores de base de dados Azure SQL
 
 ## <a name="example"></a>Exemplo
 
-O exemplo de código a seguir começa atribuindo valores literais a várias variáveis.
+O seguinte exemplo de código começa por atribuir valores literais a várias variáveis.
 
-Para executar o código, edite os valores de espaço reservado para corresponder aos valores reais em seu sistema.
+Para executar o código, edite os valores do espaço reservado para combinar com valores reais no seu sistema.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets usados são os seguintes:
+As cmdlets utilizadas são as seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases atribuídos ao servidor de banco de BD SQL 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias do servidor de banco de dados 2, usando o nome do alias.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um pseudónimo DNS no sistema de serviço de base de dados Azure SQL. O pseudónimo refere-se ao servidor de base de dados 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e enumere todos os pseudónimos atribuídos ao servidor SQL DB 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor a que o pseudónimo está configurado para se referir, do servidor 1 ao servidor 2.
+- [Remover-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o pseudónimo do servidor de base de dados 2, utilizando o nome do pseudónimo.
 
 Para instalar ou atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
-Use `Get-Module -ListAvailable Az` no *powershell\_ISE. exe*para localizar a versão.
+Use `Get-Module -ListAvailable Az` em *powershell\_ise.exe,* para encontrar a versão.
 
 ```powershell
 $subscriptionName = '<subscriptionName>';
@@ -93,16 +93,16 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
     -Name $sqlServerDnsAliasName;
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Os comandos usados são os seguintes:
+Os comandos utilizados são os seguintes:
 
-- [AZ SQL Server DNS-Create alias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados 1.
-- [AZ SQL Server DNS-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases atribuídos ao servidor de banco de BD SQL 1.
-- [AZ SQL Server DNS-alias Set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 para o servidor 2.
-- [AZ SQL Server DNS-alias Delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o alias do servidor de banco de dados 2, usando o nome do alias.
+- [az sql server dns-alias criar](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um pseudónimo DNS no sistema de serviço de base de dados Azure SQL. O pseudónimo refere-se ao servidor de base de dados 1.
+- [az sql server dns-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e enumere todos os pseudónimos atribuídos ao servidor SQL DB 1.
+- [az sql server dns-alias definido](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor a que o pseudónimo está configurado para se referir, do servidor 1 ao servidor 2.
+- [az sql server dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o pseudónimo do servidor de base de dados 2, utilizando o nome do pseudónimo.
 
-Para instalar ou atualizar, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli).
+Para instalar ou atualizar, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 $subscriptionName = '<subscriptionName>';
@@ -141,4 +141,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma explicação completa do recurso de alias de DNS para o banco de dados SQL, consulte [alias DNS para o banco de dados SQL do Azure](dns-alias-overview.md).
+Para obter uma explicação completa da funcionalidade de pseudónimo DNS para base de dados SQL, consulte o pseudónimo DNS para a base de [dados Azure SQL](dns-alias-overview.md).

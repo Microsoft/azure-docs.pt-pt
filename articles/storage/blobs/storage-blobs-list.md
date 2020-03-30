@@ -9,10 +9,10 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137925"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
@@ -39,15 +39,15 @@ As sobrecargas para estes métodos fornecem opções adicionais para gerir a for
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerir quantos resultados são devolvidos
 
-Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, forneça um valor não zero para o parâmetro `maxresults` ao ligar para um dos **métodos ListBlobs.**
+Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, `maxresults` forneça um valor não zero para o parâmetro ao ligar para um dos **métodos ListBlobs.**
 
-Se uma operação de listagem devolver mais de 5000 blobs, ou se tiver especificado um valor para `maxresults` de modo a que a operação de cotação derede um subconjunto de contentores na conta de armazenamento, então o Armazenamento Azure devolve um sinal de *continuação* com a lista de bolhas. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
+Se uma operação de listagem devolver mais de 5000 blobs, ou se tiver especificado um valor para `maxresults` tal que a operação de cotação deredere um subconjunto de contentores na conta de armazenamento, então o Azure Storage devolve um sinal de *continuação* com a lista de bolhas. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
 
 No seu código, verifique o valor do símbolo de continuação para determinar se é nulo. Quando o sinal de continuação é nulo, então o conjunto de resultados está completo. Se o sinal de continuação não for nulo, volte a ligar para a operação de listagem, passando no sinal de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
 ### <a name="filter-results-with-a-prefix"></a>Resultados do filtro com prefixo
 
-Para filtrar a lista de recipientes, especifique uma corda para o parâmetro `prefix`. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas as bolhas cujos nomes começam com esse prefixo.
+Para filtrar a lista de recipientes, especifique uma corda para o `prefix` parâmetro. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas as bolhas cujos nomes começam com esse prefixo.
 
 ### <a name="return-metadata"></a>Devolver metadados
 
@@ -126,7 +126,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 Quando você chama uma operação de listagem hierárquica, o Armazenamento Azure devolve os diretórios virtuais e as bolhas no primeiro nível da hierarquia. A propriedade [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual está definida para que você possa passar o prefixo em uma chamada recursiva para recuperar o próximo diretório.
 
-Para enumerar as bolhas hierárquicas, defina o parâmetro `useFlatBlobListing` do método de listagem para **falso**.
+Para enumerar as bolhas hierárquicas, defina o `useFlatBlobListing` parâmetro do método de listagem para **falso**.
 
 O exemplo seguinte lista as bolhas no recipiente especificado utilizando uma listagem plana, com um tamanho de segmento opcional especificado, e escreve o nome blob para a janela da consola.
 

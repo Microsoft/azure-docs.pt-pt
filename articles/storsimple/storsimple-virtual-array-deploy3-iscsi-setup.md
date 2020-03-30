@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254498"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implemente o StorSimple Virtual Array – Configurado como servidor iSCSI via portal Azure
@@ -81,7 +81,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 6. Na página de definições do **Dispositivo:**
    
    1. Atribuir um **nome** único ao seu dispositivo. Este nome pode ser de 1-15 caracteres e pode conter letras, números e hífenes.
-   2. Clique no ícone do **servidor iSCSI** ![ícone do servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) para o **tipo** de dispositivo que está a criar. Um servidor iSCSI permitir-lhe-á fornecer armazenamento de blocos.
+   2. Clique](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) no ícone do servidor ![ **iSCSI** iSCSI para o **tipo** de dispositivo que está a criar. Um servidor iSCSI permitir-lhe-á fornecer armazenamento de blocos.
    3. Especifique se pretende que este dispositivo seja unido ao domínio. Se o seu dispositivo for um servidor iSCSI, então a adesão ao domínio é opcional. Se decidir não juntar o seu servidor iSCSI a um domínio, clique em **Aplicar,** aguarde que as definições sejam aplicadas e, em seguida, salte para o passo seguinte.
       
        Se quiser juntar o dispositivo a um domínio. Introduza um **nome de domínio**e, em seguida, clique em **Aplicar**.
@@ -94,13 +94,13 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
       
        ![credenciais](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Clique em **Aplicar**. Isto aplicará e validará as definições do dispositivo.
-7. (Opcionalmente) configure o seu servidor de procuração web. Embora a configuração de procuração web seja opcional, esteja ciente de que se utilizar um proxy web, só pode configurá-lo aqui.
+7. (Opcionalmente) configure o seu servidor de procuração web. Apesar de a configuração do proxy Web ser opcional, tenha em atenção que se utilizar um proxy Web, só pode configurá-lo aqui.
    
     ![configurar procuração web](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
     Na página de **procuração da Web:**
    
-   1. Forneça o URL de **procuração web** neste formato: *http:\//endereço IP de anfitrião* ou *número de porta FQDN:.* Note que os URLs HTTPS não são suportados.
+   1. Forneça o URL de **procuração web** neste formato: *http:\//endereço ip de anfitrião* ou *número de porta FQDN:.* Note que os URLs HTTPS não são suportados.
    2. Especificar **autenticação** como **Básico** ou **Nenhum**.
    3. Se estiver a utilizar a autenticação, também terá de fornecer um nome de **utilizador** e **palavra-passe.**
    4. Clique em **Aplicar**. Isto validará e aplicará as definições configuradas de procuração web.
@@ -133,7 +133,7 @@ Execute os seguintes passos no portal Azure para completar a configuração do d
 
 #### <a name="to-configure-the-device-as-iscsi-server"></a>Para configurar o dispositivo como servidor iSCSI
 
-1. Vá ao seu serviço StorSimple Device Manager e depois vá para **Management > Devices**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
+1. Vá ao seu serviço StorSimple Device Manager e depois vá para **a Management > Devices**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
    
     ![Configure o dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. Clique no dispositivo e verá uma mensagem de banner indicando que o dispositivo está pronto para configurar.

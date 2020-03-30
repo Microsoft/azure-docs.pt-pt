@@ -12,10 +12,10 @@ ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255954"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Sintonize aplicações e bases de dados para o desempenho na Base de Dados Azure SQL
@@ -206,11 +206,11 @@ Cada parte deste exemplo tenta executar uma declaração de inserção parametri
 
 Como executámos o procedimento utilizando o valor 1, o plano resultante foi ideal para o valor 1, mas foi sub-ideal para todos os outros valores da tabela. O resultado provavelmente não é o que você gostaria se escolhesse cada plano aleatoriamente, porque o plano funciona mais lentamente e usa mais recursos.
 
-Se fizer o teste com `SET STATISTICS IO` definido para `ON`, o trabalho de digitalização lógica neste exemplo é feito nos bastidores. Pode ver que existem 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio é para voltar apenas uma linha):
+Se fizer o `SET STATISTICS IO` teste `ON`com o set para , o trabalho de digitalização lógica neste exemplo é feito nos bastidores. Pode ver que existem 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio é para voltar apenas uma linha):
 
 ![Afinação de consultas usando uma varredura lógica](./media/sql-database-performance-guidance/query_tuning_2.png)
 
-A segunda parte do exemplo usa uma sugestão de consulta para dizer ao optimizador para usar um valor específico durante o processo de compilação. Neste caso, obriga o processador de consulta a ignorar o valor que é passado como parâmetro, e em vez de assumir `UNKNOWN`. Isto refere-se a um valor que tem a frequência média na tabela (ignorando o enviesamento). O plano resultante é um plano baseado em procura que é mais rápido e utiliza menos recursos, em média, do que o plano na parte 1 deste exemplo:
+A segunda parte do exemplo usa uma sugestão de consulta para dizer ao optimizador para usar um valor específico durante o processo de compilação. Neste caso, obriga o processador de consulta a ignorar o valor que é `UNKNOWN`passado como parâmetro, e em vez de assumir . Isto refere-se a um valor que tem a frequência média na tabela (ignorando o enviesamento). O plano resultante é um plano baseado em procura que é mais rápido e utiliza menos recursos, em média, do que o plano na parte 1 deste exemplo:
 
 ![Afinação de consulta usando uma dica de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
 
@@ -263,7 +263,7 @@ Algumas aplicações são intensivas. Por vezes, pode reduzir a carga total de I
 
 Algumas aplicações de base de dados têm cargas de trabalho pesadas. As camadas de cache podem reduzir a carga na base de dados e podem potencialmente reduzir o tamanho da computação necessária para suportar uma base de dados utilizando a Base de Dados Azure SQL. Com [o Azure Cache for Redis](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho pesada, pode ler os dados uma vez (ou talvez uma vez por máquina de nível de aplicação, dependendo da configuração), e depois armazenar esses dados fora da sua base de dados SQL. Esta é uma forma de reduzir a carga de base de dados (CPU e ler IO), mas há um efeito na consistência transacional porque os dados que estão a ser lidos a partir da cache podem estar dessincronizados com os dados na base de dados. Embora em muitas aplicações algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Deve compreender completamente quaisquer requisitos de aplicação antes de implementar uma estratégia de cache de nível de aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre os níveis de serviço baseados em DTU, consulte [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
 - Para obter mais informações sobre os níveis de serviço baseados em vCore, consulte o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).

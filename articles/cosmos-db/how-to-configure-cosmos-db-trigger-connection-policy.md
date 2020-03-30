@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604960"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Como configurar a política de ligação utilizada pelo gatilho das Funções Azure para cosmos DB
@@ -23,7 +23,7 @@ Existem dois modos de ligação - modo direto e modo Gateway. Para saber mais so
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>Alterar o modo de ligação e o protocolo
 
-Existem duas definições de configuração chave disponíveis para configurar a política de ligação ao cliente – o modo de **ligação** e o protocolo de **ligação**. Pode alterar o modo de ligação padrão e o protocolo utilizado pelo gatilho funções Azure para cosmos DB e todas as [ligações Azure Cosmos DB).](../azure-functions/functions-bindings-cosmosdb-v2-output.md) Para alterar as definições predefinidas, é necessário localizar o ficheiro `host.json` no seu projeto de Funções Azure ou na App funções do Azure e adicionar a seguinte [definição extra:](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)
+Existem duas definições de configuração chave disponíveis para configurar a política de ligação ao cliente – o modo de **ligação** e o protocolo de **ligação**. Pode alterar o modo de ligação padrão e o protocolo utilizado pelo gatilho funções Azure para cosmos DB e todas as [ligações Azure Cosmos DB).](../azure-functions/functions-bindings-cosmosdb-v2-output.md) Para alterar as definições predefinidas, é necessário localizar o `host.json` ficheiro no projeto funções do Azure ou na App de Funções Azure e adicionar a seguinte [definição extra:](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)
 
 ```js
 {
@@ -34,9 +34,9 @@ Existem duas definições de configuração chave disponíveis para configurar a
 }
 ```
 
-Sempre que `connectionMode` deve ter o modo de ligação desejado (Direto ou Gateway) e `protocol` o protocolo de ligação pretendido (TCP ou Https). 
+Onde `connectionMode` deve ter o modo de ligação `protocol` desejado (Direto ou Gateway) e o protocolo de ligação desejado (Tcp ou Https). 
 
-Se o seu projeto Funções Azure estiver a trabalhar com o tempo de funcionamento das Funções Azure V1, a configuração tem uma ligeira diferença de nome, deve utilizar `documentDB` em vez de `cosmosDB`:
+Se o seu projeto Funções Azure estiver a trabalhar com o tempo de funcionamento `documentDB` das `cosmosDB`Funções Azure V1, a configuração tem uma ligeira diferença de nome, deve utilizar em vez de:
 
 ```js
 {
@@ -54,4 +54,4 @@ Se o seu projeto Funções Azure estiver a trabalhar com o tempo de funcionament
 
 * [Limites de ligação nas funções do Azure](../azure-functions/manage-connections.md#connection-limit)
 * [Dicas de desempenho do Azure Cosmos DB](./performance-tips.md)
-* [Exemplos de código](https://github.com/ealsur/serverless-recipes/tree/master/connectionmode)
+* [Amostras de código](https://github.com/ealsur/serverless-recipes/tree/master/connectionmode)

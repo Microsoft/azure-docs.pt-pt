@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264001"
 ---
-# <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine as más palavras-passe na sua organização
+# <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminate bad passwords in your organization (Eliminar palavras-passe más na sua organização)
 
 Os líderes do setor dizem-lhe para não usar a mesma senha em vários lugares, para torná-la complexa, e para não torná-la simples como "Password123". Como podem as organizações garantir que os seus utilizadores estão a seguir orientações de boas práticas? Como podem certificar-se de que os utilizadores não estão a usar senhas fracas ou mesmo variações em palavras-passe fracas?
 
@@ -61,7 +61,7 @@ Por exemplo: considere um cliente chamado "Contoso", que tem sede em Londres, e 
 - "ContosoWidget"
 - "! Contoso"
 - "LondonHQ"
-- ...etcetera
+- ... etcetera
 
 Em vez disso, é muito mais eficiente e seguro bloquear apenas os termos-chave da base:
 
@@ -109,9 +109,9 @@ A normalização tem duas partes.  Primeiro, todas as letras maiúsculas são al
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| "\@"  | 'A' |
+| '\@'  | 'A' |
 
-Exemplo: suponha que a palavra-passe "em branco" é proibida e que um utilizador tente alterar a sua palavra-passe para "Bl@nK". Embora "Bl@nk" não seja especificamente proibido, o processo de normalização converte esta palavra-passe em "blank", que é uma senha proibida.
+Exemplo: suponha que a palavra-passe "em branco" éBl@nKproibida e que um utilizador tente alterar a sua palavra-passe para " . ApesarBl@nkde " não ser especificamente proibido, o processo de normalização converte esta palavra-passe em "blank", que é uma senha proibida.
 
 ### <a name="step-2-check-if-password-is-considered-banned"></a>Passo 2: Verifique se a palavra-passe é considerada proibida
 
@@ -147,7 +147,7 @@ Após a normalização, esta palavra-passe torna-se "contosoblank12". O processo
 
 [contoso] + [blank] + [1] + [2] = 4 pontos Uma vez que esta senha está abaixo de cinco (5) pontos, será rejeitada.
 
-Exemplo: um utilizador muda a sua palavra-passe para "ContoS0Bl@nkf9!".
+Exemplo: um utilizador mudaContoS0Bl@nkf9a sua palavra-passe para " !".
 
 Após a normalização, esta palavra-passe torna-se "contosoblankf9!". O processo de correspondência conclui que esta palavra-passe contém duas senhas proibidas: contoso e em branco. Esta palavra-passe é então dada uma pontuação:
 

@@ -9,10 +9,10 @@ ms.date: 11/09/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9d07ba42e83d9eec071ab047e9e1e92bac1f1411
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127481"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Resolução de problemas da ferramenta de gestão do Windows Virtual Desktop
@@ -35,7 +35,7 @@ Isto geralmente significa uma das duas coisas seguintes:
 Para corrigir isto:
 
 1. Certifique-se de que o utilizador que criou para o Nome Principal do Utilizador do Diretório Ativo Azure tem o nível de subscrição "Contributor".
-2. Inscreva-se em <portal.azure.com> com a conta UPN para verificar as definições da conta e certificar-se de que a autenticação de vários fatores não está em vigor. Se estiver ligado, desligue.
+2. Inscreva-se na <portal.azure.com> com a conta UPN para verificar as definições da conta e certificar-se de que a autenticação de vários fatores não está aser edal. Se estiver ligado, desligue.
 3. Visite a página de Consentimento virtual do Windows e certifique-se de que as aplicações do servidor e do cliente têm consentimento.
 4. Reveja o tutorial de [ferramentas de gestão](manage-resources-using-ui.md) se o problema continuar e recolocar a ferramenta.
 

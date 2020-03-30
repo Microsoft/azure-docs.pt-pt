@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: df27a77c202951a6c789703f12712e75bd8b5906
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77656992"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização às Âncoras Espaciais Azure
@@ -45,7 +45,7 @@ São disponibilizadas duas chaves, ambas simultaneamente válidas para acesso à
 
 O SDK tem suporte incorporado para autenticação com chaves de conta; basta definir a propriedade AccountKey no seu objeto cloudSession.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -69,14 +69,14 @@ _cloudSession!.configuration.accountKey = "MyAccountKey"
 mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
 ```
 
-# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -107,7 +107,7 @@ Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordag
         1.  Navegue para o seu recurso Spatial Anchors no portal Azure
         2.  Mude para o separador controlo de **acesso (IAM)**
         3.  Atribuição **de papel de Hit Add**
-            1.  [Selecione um papel](#role-based-access-control)
+            1.  [Selecionar uma função](#role-based-access-control)
             2.  No campo **Select,** introduza o nome do(s) utilizador(s), grupo ou aplicação a que pretende atribuir acesso.
             3.  Prima **Guardar**.
 2. No seu código:
@@ -120,7 +120,7 @@ Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordag
 
 Com isso, a sua aplicação deverá poder obter a partir da MSAL um token Azure AD; pode definir o token Azure AD como a **autenticaçãoToken** no seu objeto config de sessão em nuvem.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
@@ -144,14 +144,14 @@ _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
 mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -180,13 +180,13 @@ O token de acesso Azure AD é recuperado utilizando a [biblioteca MSAL](../../ac
         1.  Navegue para o seu recurso Spatial Anchors no portal Azure
         2.  Mude para o separador controlo de **acesso (IAM)**
         3.  Atribuição **de papel de Hit Add**
-        1.  [Selecione um papel](#role-based-access-control)
+        1.  [Selecionar uma função](#role-based-access-control)
         2.  No campo **selecionado,** insira o nome das aplicações que criou e a que pretende atribuir acesso. Se pretender que os utilizadores da sua aplicação tenham diferentes funções em relação à conta Spatial Anchors, deverá registar várias aplicações em AD Azure e atribuir a cada uma uma função separada. Em seguida, implemente a sua lógica de autorização para usar o papel certo para os seus utilizadores.
     3.  Prima **Guardar**.
 2.  No seu código (nota: pode utilizar a amostra de serviço incluída no GitHub):
     1.  Certifique-se de utilizar o ID da aplicação, o segredo da aplicação e redirecionar Uri da sua própria aplicação Azure AD como id do cliente, secret, e redirectUri parâmetros em ADAL
     2.  Defina o ID do inquilino para o seu próprio Id de inquilino AAAzure ADD no parâmetro de autoridade em ADAL
-    3.  No seu pedido simbólico, detete o **recurso** para "https://sts.mixedreality.azure.com"
+    3.  No seu pedido simbólico, desloque o **recurso** para "https://sts.mixedreality.azure.com
 
 Com isso, o seu serviço de backend pode recuperar um símbolo da AD Azure. Pode então trocá-lo por um sinal de MR que voltará ao cliente. A utilização de um token Azure AD para recuperar um token MR é feita através de uma chamada REST. Aqui está uma chamada de amostra:
 
@@ -205,13 +205,13 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Onde o cabeçalho de autorização for formatado da seguinte forma: `Bearer <accoundId>:<accountKey>`
+Quando o cabeçalho de autorização for formatado da seguinte forma:`Bearer <accoundId>:<accountKey>`
 
 E a resposta contém o símbolo do MR em texto simples.
 
 O sinal do Sr. é devolvido ao cliente. A sua aplicação de cliente pode então defini-la como o seu símbolo de acesso na config da sessão de nuvem.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
@@ -235,14 +235,14 @@ _cloudSession!.configuration.accessToken = "MyAccessToken"
 mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
 ```
 
-# <a name="c-ndk"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
 configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-# <a name="c-winrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -279,7 +279,7 @@ Crie a sua primeira aplicação com âncoras espaciais Azure.
 > [Android](../quickstarts/get-started-android.md)
 
 > [!div class="nextstepaction"]
-> [Hololens](../quickstarts/get-started-hololens.md)
+> [HoloLens](../quickstarts/get-started-hololens.md)
 
 > [!div class="nextstepaction"]
 > [Xamarin (Android)](../quickstarts/get-started-xamarin-android.md)

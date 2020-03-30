@@ -7,18 +7,18 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671618"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Aplicações de tecido de serviço Azure ao vivo de perfil com Insights de Aplicação
 
 Também pode implementar o Perfil de Insights de Aplicação nestes serviços:
-* [App Service do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Configurar a definição de implantação do ambiente
 
@@ -26,11 +26,11 @@ O Perfil de Insights de Aplicação está incluído na Azure Diagnostics. Pode i
 
 Para configurar o seu ambiente, tome as seguintes ações:
 
-1. O profiler suporta .NET Framework e .Net Core. Se estiver a utilizar a .NET Framework, certifique-se de que está a utilizar [a .NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente para confirmar que o Sistema operativo está `Windows Server 2012 R2` ou mais tarde. O Profiler suporta .NET Core 2.1 e aplicações mais recentes.
+1. O profiler suporta .NET Framework e .Net Core. Se estiver a utilizar a .NET Framework, certifique-se de que está a utilizar [a .NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente para confirmar que o `Windows Server 2012 R2` Sistema operativo implantado é ou mais tarde. O Profiler suporta .NET Core 2.1 e aplicações mais recentes.
 
 1. Procure a extensão de [Diagnóstico Sinuoso Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no ficheiro do modelo de implementação.
 
-1. Adicione a seguinte secção `SinksConfig` como elemento de `WadCfg`. Substitua o valor `ApplicationInsightsProfiler` propriedade pela sua própria chave de instrumentação Application Insights:  
+1. Adicione a `SinksConfig` seguinte secção como `WadCfg`elemento infantil de . Substitua `ApplicationInsightsProfiler` o valor patrimonial pela sua própria chave de instrumentação Application Insights:  
 
       ```json
       "SinksConfig": {

@@ -1,14 +1,14 @@
 ---
-title: Mapa de candidaturas em Insights de Aplicação Azure  Microsoft Docs
+title: Mapa de candidaturas em Insights de Aplicação Azure [ Microsoft Docs
 description: Monitorize topoologias de aplicações complexas com o mapa de aplicações
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666280"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas da triagem
@@ -67,7 +67,7 @@ Selecione **ir a detalhes** para explorar a experiência de transação de ponta
 
 ### <a name="view-logs-analytics"></a>Ver Registos (Analytics)
 
-Para consultar e investigar mais aprofundadamente os dados das suas aplicações, clique **na visualização em Registos (Analytics)** .
+Para consultar e investigar mais aprofundadamente os dados das suas aplicações, clique **na visualização em Registos (Analytics)**.
 
 ![Screenshot da vista no botão de análise](media/app-map/view-logs.png)
 
@@ -138,11 +138,11 @@ Um método alternativo para ASP.NET aplicações Web é instantaneamente o inici
 ```
 
 > [!NOTE]
-> Adicionar inicializador utilizando `ApplicationInsights.config` ou utilizar `TelemetryConfiguration.Active` não é válido para aplicações ASP.NET Core. 
+> Adicionar inicializador `ApplicationInsights.config` utilizando `TelemetryConfiguration.Active` ou utilizar não é válido para aplicações ASP.NET Core. 
 
 **ASP.NET Aplicações Core: Carregar inicializador para a Configuração telemetria**
 
-Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) a adição de um novo `TelemetryInitializer` é feita adicionando-a ao recipiente de Injeção de Dependência, como mostrado abaixo. Isto é feito em `ConfigureServices` método da sua aula de `Startup.cs`.
+Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) a adição de uma nova `TelemetryInitializer` é feita adicionando-a ao recipiente de injeção de dependência, como mostrado abaixo. Isto é `ConfigureServices` feito no `Startup.cs` método da sua classe.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -176,7 +176,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
-Começando com insights de aplicação Java SDK 2.5.0, pode especificar o nome da função cloud adicionando `<RoleName>` ao seu ficheiro `ApplicationInsights.xml`, por exemplo.
+Começando com insights de aplicação Java SDK 2.5.0, `<RoleName>` pode `ApplicationInsights.xml` especificar o nome da função cloud adicionando ao seu ficheiro, por exemplo.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -210,7 +210,7 @@ Quanto à forma de pensar sobre o nome do **papel na nuvem,** pode ser útil olh
 
 ![Screenshot do mapa da aplicação](media/app-map/cloud-rolename.png)
 
-No Mapa de Aplicações acima de cada um dos nomes em caixas verdes estão valores de nome em nuvem para diferentes aspetos desta aplicação distribuída em particular. Assim, para esta aplicação as suas funções consistem em: `Authentication`, `acmefrontend`, `Inventory Management`, um `Payment Processing Worker Role`. 
+No Mapa de Aplicações acima de cada um dos nomes em caixas verdes estão valores de nome em nuvem para diferentes aspetos desta aplicação distribuída em particular. Assim, para esta aplicação `Authentication`as `acmefrontend` `Inventory Management`suas `Payment Processing Worker Role`funções consistem em: , , a . 
 
 No caso desta aplicação, cada um desses nomes de papéis na nuvem também representa um recurso exclusivo de Application Insights com as suas próprias chaves de instrumentação. Uma vez que o proprietário desta aplicação tem acesso a cada um desses quatro recursos de Aplicação Insights, o Mapa de Aplicações é capaz de coser um mapa das relações subjacentes.
 
@@ -244,7 +244,7 @@ Se está com dificuldades em pôr o Mapa de Aplicações a funcionar como espera
 
 2. Atualize todos os componentes para a versão Mais recente do SDK.
 
-3. Se estiver a utilizar funções C#Azure com , atualize para [funções V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se estiver a utilizar funções Azure com C#, atualize para [as funções V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Confirme que o nome da [função cloud](#set-cloud-role-name) está corretamente configurado.
 

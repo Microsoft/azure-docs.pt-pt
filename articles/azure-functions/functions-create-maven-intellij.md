@@ -7,15 +7,15 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136855"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Crie a sua primeira função Azure com Java e IntelliJ
 
-Este artigo mostra-lhe:
+Este artigo apresenta o seguinte:
 - Como criar um projeto de função [sem servidores](https://azure.microsoft.com/overview/serverless-computing/) com IntelliJ IDEA e Apache Maven
 - Passos para testar e depurar a função no ambiente de desenvolvimento integrado (IDE) no seu próprio computador
 - Instruções para a implementação do projeto de função para funções azure
@@ -31,7 +31,7 @@ Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte softwa
 - [Kit de Desenvolvimento Java](https://www.azul.com/downloads/zulu/) (JDK), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Versões Comunitárias ou Ultimate com Maven
-- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > A variável ambiente JAVA_HOME deve ser definida para a localização de instalação do JDK para completar as etapas deste artigo.
@@ -46,8 +46,8 @@ Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte softwa
 1. Na janela **Add Archetype,** complete os campos da seguinte forma:
     - _GroupId_: com.microsoft.azure
     - _ArtefactoId_: azure-functions-archetype
-    - _Versão_: Verifique e utilize a versão mais recente [do repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Criar um projeto Maven a partir do arquétipo no IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Versão_: Verifique e utilize a versão mais recente [do repositório](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![central Criar um projeto Maven a partir do arquétipo em IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selecione **OK**, e, em seguida, selecione **Next**.
 1. Insira os seus dados para o projeto atual e selecione **Terminar**.
 
@@ -61,8 +61,8 @@ A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _
 1. A importação muda manualmente ou permite a [importação de automóveis.](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html)
 1. Abra a barra de **ferramentas maven Projects.**
 1. Expandir o Ciclo de **Vida,** e depois abrir **o pacote.** A solução é construída e embalada num diretório alvo recém-criado.
-1. Expandir **os Plugins** > **funções azure** e **funções azure abertas:executar** para iniciar o tempo de funcionamento local das Funções Azure.  
-  ![barra de ferramentas Maven para](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png) de Funções Azure  
+1. Expandir > **as funções de** **plugins**em azul e **funções azure abertas:executar** para iniciar o tempo de funcionamento local das Funções Azure.  
+  ![Barra de ferramentas Maven para funções azure](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Feche a caixa de diálogo de execução quando terminar de testar a sua função. Apenas um hospedeiro de funções pode estar ativo e a funcionar localmente de cada vez.
 
@@ -79,7 +79,7 @@ A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _
 1. No menu **Executar,** selecione **Configurações de Edição**.
 1. **Selecione (+)** para adicionar um **Controlo Remoto**.
 1. Complete os campos _nome_ e _definições_ e, em seguida, selecione **OK** para salvar a configuração.
-1. Depois da configuração, selecione **Debug < Nome de Configuração Remota >** ou prima Shift+F9 no teclado para começar a depurar.
+1. Depois da configuração, selecione Debug < Nome de **Configuração Remota >** ou prima Shift+F9 no teclado para começar a depurar.
 
 1. Quando terminar, pare o desbugger e o processo de execução. Apenas um hospedeiro de funções pode estar ativo e a funcionar localmente de cada vez.
 
@@ -91,7 +91,7 @@ A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _
    az login
    ```
 
-1. Implemente o seu código numa nova função utilizando o alvo `azure-functions:deploy` Maven. Também pode selecionar as **funções azure:implementar** a opção na janela Maven Projects.
+1. Implemente o seu código numa `azure-functions:deploy` nova função utilizando o alvo Maven. Também pode selecionar as **funções azure:implementar** a opção na janela Maven Projects.
 
    ```
    mvn azure-functions:deploy
@@ -107,7 +107,7 @@ A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _
    [INFO] ------------------------------------------------------------------------
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione funções adicionais com diferentes gatilhos ao seu projeto utilizando o `azure-functions:add` alvo Maven.

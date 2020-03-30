@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670105"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnose com latência de 1 segundo
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnosticar com latência de 1 segundo
 
 Sondar o coração pulsante da sua aplicação web ao vivo e em produção utilizando live metrics stream from [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecione métricas e contadores de desempenho para assistir em tempo real, sem qualquer perturbação no seu serviço. Inspecione os vestígios da pilha a partir de pedidos e exceções falhados da amostra. Juntamente com [profiler,](../../azure-monitor/app/profiler.md) [snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para o seu web site ao vivo.
 
@@ -25,7 +25,7 @@ Com live Metrics Stream, você pode:
 * Monitorize qualquer contador de desempenho do Windows ao vivo.
 * Identifique facilmente um servidor que esteja com problemas e filtre todos os feeds KPI/live para apenas esse servidor.
 
-[![vídeo live metrics stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Vídeo live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 As Métricas Ao Vivo são atualmente suportadas para aplicações ASP.NET, ASP.NET Core, Azure Functions, Java e Node.js.
 
@@ -81,7 +81,7 @@ Tal como acontece com as métricas, pode especificar quaisquer critérios arbitr
 
 ![Feed personalizado ao vivo](./media/live-stream/live-stream-events.png)
 
-Nota: Atualmente, para critérios baseados em mensagens exceção, utilize a mensagem de exceção ultraperiférica. No exemplo anterior, filtrar a exceção benigna com mensagem de exceção interior (segue o delimitador "<-"" delimitador) "O cliente desligado". utilizar uma mensagem que não contenha critérios de "conteúdo de pedido de leitura de erros".
+Nota: Atualmente, para critérios baseados em mensagens exceção, utilize a mensagem de exceção ultraperiférica. No exemplo anterior, filtrar a exceção benigna com mensagem de exceção interior (segue o delimitador "<--") "O cliente desligado". utilizar uma mensagem que não contenha critérios de "conteúdo de pedido de leitura de erros".
 
 Consulte os detalhes de um item no feed ao vivo clicando nele. Pode interromper o feed clicando em **Pausa** ou simplesmente deslocando-se para baixo, ou clicando num item. O feed ao vivo será retomado depois de rolar de volta para o topo, ou clicando no balcão dos itens recolhidos durante a sua pausa.
 
@@ -147,11 +147,11 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
-### <a name="azure-function-apps"></a>Aplicativos de função Azure
+### <a name="azure-function-apps"></a>Aplicações de Funções do Azure
 
 Para aplicações de função Azure (v2), a fixação do canal com uma chave API pode ser realizada com uma variável ambiental.
 
-Crie uma chave API a partir do seu recurso Desinformação de Aplicação e vá para **as Definições** de Aplicação para a sua App de Funções. **Selecione adicionar nova definição** e introduza um nome de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` e um valor que corresponda à sua chave API.
+Crie uma chave API a partir do seu recurso Desinformação de Aplicação e vá para **as Definições** de Aplicação para a sua App de Funções. **Selecione adicionar nova definição** e introduzir um nome `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` e um valor que corresponda à sua chave API.
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (requer insights de aplicação ASP.NET Core SDK 2.3.0 ou superior)
 
@@ -190,13 +190,13 @@ No entanto, se reconhecer e confiar em todos os servidores conectados, pode expe
 
 As métricas básicas incluem pedido, dependência e taxa de exceção. As métricas de desempenho (contadores de desempenho) incluem memória e CPU. A telemetria da amostra mostra um fluxo de informações detalhadas para pedidos e dependências falhados, exceções, eventos e vestígios.
 
- \* o suporte perfCounters varia ligeiramente entre versões de .NET Core que não visam o .NET Framework:
+ \*O suporte perfCounters varia ligeiramente entre versões de .NET Core que não visam o .NET Framework:
 
 - As métricas PerfCounters são suportadas quando estão a funcionar no Serviço de Aplicações Azure para Windows. (AspNetCore SDK Versão 2.4.1 ou superior)
 - Os PerfCounters são suportados quando a aplicação está a funcionar em quaisquer máquinas Windows (VM ou Cloud Service ou On-prem etc.) (AspNetCore SDK Versão 2.7.1 ou superior), mas para aplicações direcionadas para .NET Core 2.0 ou superior.
 - Os PerfCounters são suportados quando a aplicação está em execução EM QUALQUER LUGAR (Linux, Windows, serviço de aplicações para Linux, contentores, etc.) na mais recente versão beta (i.e. AspNetCore SDK Versão 2.8.0-beta1 ou superior), mas para aplicações direcionadas para .NET Core 2.0 ou superior.
 
-Por padrão, as Métricas Ao Vivo são desativadas no Nó.js SDK. Para ativar as Métricas ao Vivo, adicione `setSendLiveMetrics(true)` aos seus métodos de [configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que rubrica o SDK.
+Por padrão, as Métricas Ao Vivo são desativadas no Nó.js SDK. Para ativar métricas `setSendLiveMetrics(true)` ao vivo, adicione aos seus métodos de [configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que rubrica o SDK.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -206,4 +206,4 @@ Não existem dados? Se a sua aplicação estiver numa rede protegida: Live Metri
 * [Monitorização do uso com Insights de Aplicação](../../azure-monitor/app/usage-overview.md)
 * [Usando pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Gerador de perfis](../../azure-monitor/app/profiler.md)
-* [Debugger instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)

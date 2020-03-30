@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251157"
 ---
 # <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET 
@@ -41,7 +41,7 @@ Os ativos encriptados têm de ser associados aos **ContentKey.** Este artigo des
 > 
 > 
 
-## <a name="contentkeytype"></a>ContentKeyType
+## <a name="contentkeytype"></a>Tipo de chave de conteúdo
 Um dos valores que deve definir quando criar uma chave de conteúdo é o tipo de chave de conteúdo. Escolha entre um dos seguintes valores. 
 
 ```csharp
@@ -70,7 +70,7 @@ Um dos valores que deve definir quando criar uma chave de conteúdo é o tipo de
     }
 ```
 
-## <a id="envelope_contentkey"></a>Criar tipo de envelope ContentKey
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar tipo de envelope ContentKey
 O seguinte código snippet cria uma chave de conteúdo do tipo de encriptação do envelope. Em seguida, associa a chave ao ativo especificado.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Criar tipo comum ContentKey
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>Criar tipo comum ContentKey
 O seguinte código snippet cria uma chave de conteúdo do tipo de encriptação comum. Em seguida, associa a chave ao ativo especificado.
 
 ```csharp

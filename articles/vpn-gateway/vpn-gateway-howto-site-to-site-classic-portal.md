@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244449"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
@@ -20,7 +20,7 @@ ms.locfileid: "79244449"
 Este artigo mostra-lhe como utilizar o portal do Azure para criar uma ligação de gateway de VPN de Site para Site a partir da sua rede no local para a VNet. Os passos neste artigo aplicam-se ao modelo de implementação clássico e não se aplicam ao modelo atual de implementação, Gestor de Recursos. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Portal Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -31,7 +31,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -41,25 +41,25 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes. Ao criar esta configuração, tem de especificar prefixos de intervalo de endereços IP que o Azure irá encaminhar para a sua localização no local. Nenhuma das sub-redes da rede local pode sobrepor as sub-redes de rede virtual a que pretende ligar.
 * É necessário o PowerShell para especificar a chave partilhada e criar a ligação de gateway VPN. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="values"></a>Valores de configuração de exemplo para este exercício
+### <a name="sample-configuration-values-for-this-exercise"></a><a name="values"></a>Valores de configuração de exemplo para este exercício
 
 Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo.
 
-* **Nome da VNet:** TestVNet1
+* **Nome VNet:** TestVNet1
 * **Espaço de Endereços:** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (opcional para este exercício)
-* **Sub-redes:**
+* **Subredes:**
   * Front-End: 10.11.0.0/24
   * Back-End: 10.12.0.0/24 (opcional para este exercício)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Grupo de Recursos:** TestRG1
-* **Localização:** E.U.A. Leste
+* **Localização:** Leste dos EUA
 * **Servidor DNS:** 10.11.0.3 (opcional para este exercício)
 * **Nome do site local:** Site2
 * **Espaço de endereços de cliente:** o espaço de endereços que se encontra no seu site no local.
 
-## <a name="CreatVNet"></a>1. Criar uma rede virtual
+## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Criar uma rede virtual
 
 Quando cria uma rede virtual para utilizar numa ligação de S2S, tem de certificar-se de que os espaços de endereços que especificar não se sobrepõem a nenhum dos espaços de endereços do cliente para os sites locais aos quais pretende ligar. Se tiver sub-redes sobrepostas, a ligação não funcionará corretamente.
 
@@ -70,18 +70,18 @@ Quando cria uma rede virtual para utilizar numa ligação de S2S, tem de certifi
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 
 1. Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em * *+Criar um recurso*. No campo **Procurar no Marketplace**, escreva "Rede Virtual". Localize a **Rede Virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
+2. Clique em **+Criar um recurso*. No campo **Procurar no Marketplace**, escreva "Rede Virtual". Localize a **Rede Virtual** a partir da lista devolvida e clique para abrir a página **da Rede Virtual.**
 3. clique **(mude para Clássico)** e, em seguida, clique em **Criar**.
-4. Na página **Criar rede virtual (clássica)** , configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Depois de criar o VNet, pode voltar e adicionar subredes adicionais e espaços de endereço.
+4. Na página **Criar rede virtual (clássica)**, configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Depois de criar o VNet, pode voltar e adicionar subredes adicionais e espaços de endereço.
 
-   ![Criar página de rede virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Página Criar rede virtual")
+   ![Página Criar rede virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Página Criar rede virtual")
 5. Verifique se a **Subscrição** está correta. Pode utilizar o menu pendente para mudar de subscrição.
-6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente ou crie um novo grupo ao escrever um nome para o mesmo. Para obter mais informações sobre os grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
+6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente ou crie um novo grupo ao escrever um nome para o mesmo. Para obter mais informações sobre os grupos de recursos, visite [Descrição geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 7. Em seguida, selecione as definições **Localização** para a sua VNet. A localização determina onde é que os recursos que implementar nesta VNet vão residir.
 8. Clique em **Criar** para criar a VNet.
 9. Depois de clicar em "Criar", é apresentado um mosaico no dashboard que reflete o progresso da sua VNet. O mosaico muda enquanto a VNet está a ser criada.
 
-## <a name="additionaladdress"></a>2. Adicione espaço adicional de endereço
+## <a name="2-add-additional-address-space"></a><a name="additionaladdress"></a>2. Adicione espaço adicional de endereço
 
 Depois de criar a rede virtual, pode adicionar espaço de endereços adicional. A adição de espaço de endereços adicional não é uma parte obrigatória de uma configuração de S2S, mas se precisar de vários espaços de endereços, utilize os seguintes passos:
 
@@ -89,7 +89,7 @@ Depois de criar a rede virtual, pode adicionar espaço de endereços adicional. 
 2. Na página da sua rede virtual, na secção **Definições**, clique em **Espaço de endereços**.
 3. Na página Espaço de endereços, clique em **+Adicionar** e introduza o espaço de endereços adicional.
 
-## <a name="dns"></a>3. Especificar um servidor DNS
+## <a name="3-specify-a-dns-server"></a><a name="dns"></a>3. Especificar um servidor DNS
 
 As definições de DNS não são uma parte obrigatória de uma configuração de S2S, mas o DNS é necessário se quiser resolução de nomes. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS que especificar deve ser um servidor DNS que possa resolver os nomes dos recursos a que se está a ligar. Nas definições de exemplo, utilizámos um endereço IP privado. O endereço IP que utilizamos provavelmente não é o endereço IP do seu servidor DNS. Certifique-se de que utiliza os seus próprios valores.
 
@@ -100,7 +100,7 @@ Depois de criar a rede virtual, pode adicionar o endereço IP de um servidor DNS
 3. Adicione um servidor DNS.
 4. Para guardar as suas definições, clique em **Guardar** no início da página.
 
-## <a name="localsite"></a>4. Configure o local
+## <a name="4-configure-the-local-site"></a><a name="localsite"></a>4. Configure o local
 
 O site local refere-se, normalmente, à sua localização no local. Contém o endereço IP do dispositivo VPN para o qual irá criar uma ligação e os intervalos de endereços IP que serão encaminhados através do gateway de VPN para o dispositivo VPN.
 
@@ -116,7 +116,7 @@ O site local refere-se, normalmente, à sua localização no local. Contém o en
 
 Clique **em OK** para fechar a página do site local. Não clique em OK para fechar a nova página de **ligação VPN**.
 
-## <a name="gatewaysubnet"></a>5. Configure a sub-rede gateway
+## <a name="5-configure-the-gateway-subnet"></a><a name="gatewaysubnet"></a>5. Configure a sub-rede gateway
 
 Tem de criar uma sub-rede de gateway para o gateway de VPN. A sub-rede do gateway contém os endereços IP que os serviços do gateway de VPN utilizam.
 
@@ -132,7 +132,7 @@ Tem de criar uma sub-rede de gateway para o gateway de VPN. A sub-rede do gatewa
 
    ![Adicionar subnet gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Adicionar subnet gateway")
 
-## <a name="sku"></a>6. Especificar o tipo SKU e VPN
+## <a name="6-specify-the-sku-and-vpn-type"></a><a name="sku"></a>6. Especificar o tipo SKU e VPN
 
 1. Selecione o **Tamanho** do gateway. Este é o SKU de gateway que utiliza para criar o gateway de rede virtual. Os gateways de VPN clássicos utilizam os SKUs de gateway antigo (legados). Para obter mais informações sobre os SKU de gateway legados, veja [Trabalhar com SKUs de gateway de rede virtual (antigos)](vpn-gateway-about-skus-legacy.md).
 
@@ -141,7 +141,7 @@ Tem de criar uma sub-rede de gateway para o gateway de VPN. A sub-rede do gatewa
 3. Clique em **OK** para guardar as definições.
 4. Na página **new VPN Connection,** **clique** ok na parte inferior da página para começar a implementar o gateway da rede virtual. Dependendo do SKU que selecionar, a criação de um gateway de rede virtual pode demorar até 45 minutos.
 
-## <a name="vpndevice"></a>7. Configure o seu dispositivo VPN
+## <a name="7-configure-your-vpn-device"></a><a name="vpndevice"></a>7. Configure o seu dispositivo VPN
 
 As ligações de Site a Site para uma rede no local requerem um dispositivo VPN. Neste passo, configure o seu dispositivo VPN. Quando configurar o dispositivo VPN, irá precisar do seguinte:
 
@@ -150,7 +150,7 @@ As ligações de Site a Site para uma rede no local requerem um dispositivo VPN.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Criar a ligação
+## <a name="8-create-the-connection"></a><a name="CreateConnection"></a>8. Criar a ligação
 Neste passo, vai definir a chave partilhada e criar a ligação. A chave que definir tem de ser a mesma chave que foi utilizada na configuração do seu dispositivo VPN.
 
 > [!NOTE]
@@ -201,21 +201,21 @@ Quando cria um VNet clássico no portal (sem usar powerShell), o Azure adiciona 
    ```
    Quando a ligação é criada, o resultado é: **Estado: Com êxito**.
 
-## <a name="verify"></a>9. Verificar a sua ligação
+## <a name="9-verify-your-connection"></a><a name="verify"></a>9. Verificar a sua ligação
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 Se estiver a ter problemas em ligar, veja a secção **Resolver problemas** do índice no painel esquerdo.
 
-## <a name="reset"></a>Como repor um gateway de VPN
+## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Como repor um gateway de VPN
 
 Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vários locais num ou mais túneis de rede de VPNs. Nesta situação, os dispositivos VPN no local estão todos a funcionar corretamente, mas não podem estabelecer túneis IPsec com os gateways de VPN do Azure. Para obter os passos, veja [Reset a VPN gateway](vpn-gateway-resetgw-classic.md#resetclassic) (Repor um gateway de VPN).
 
-## <a name="changesku"></a>Como alterar um SKU de gateway
+## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Como alterar um SKU de gateway
 
 Para obter os passos para alterar um SKU de gateway, veja [Redimensionar um SKU de gateway](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
-* Para obter informações sobre o Túnel Forçado, veja [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md) (Sobre o Túnel Forçado).
+* Para obter informações sobre o Túnel Forçado, veja [Acerca do Túnel Forçado](vpn-gateway-about-forced-tunneling.md).

@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668711"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Ligue os computadores Linux ao Monitor Azure
@@ -29,7 +29,7 @@ Para compreender a configuração suportada, consulte [sistemas operativos Linux
 
 ## <a name="agent-install-package"></a>Pacote de instalação de agente
 
-O agente Log Analytics para o Linux é composto por vários pacotes. O ficheiro de libertação contém os seguintes pacotes, que estão disponíveis executando o pacote de conchas com o parâmetro `--extract`:
+O agente Log Analytics para o Linux é composto por vários pacotes. O ficheiro de libertação contém os seguintes pacotes, `--extract` que estão disponíveis executando o pacote de conchas com o parâmetro:
 
 **Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
@@ -45,11 +45,11 @@ estivador-cimprov | 1.0.0 | Fornecedor de Docker para OMI. Só instalado se o Do
 
 Após a instalação do agente Log Analytics para pacotes Linux, aplicam-se as seguintes alterações adicionais de configuração em todo o sistema. Estes artefactos são removidos quando a embalagem omsagent é desinstalada.
 
-* Um utilizador não privilegiado chamado: `omsagent` é criado. O daemon passa por baixo desta credencial. 
-* Um ficheiro *sudoers inclui* o arquivo é criado em `/etc/sudoers.d/omsagent`. Isto autoriza `omsagent` reiniciar os daemons syslog e omsagent. Se o sudo *incluir* diretivas não forem suportadas na versão instalada do sudo, estas entradas serão escritas para `/etc/sudoers`.
+* Um utilizador não privilegiado `omsagent` chamado: é criado. O daemon passa por baixo desta credencial. 
+* Um sudoers *inclui* ficheiro `/etc/sudoers.d/omsagent`é criado em . Isto autoriza `omsagent` a reiniciar os daemons syslog e omsagent. Se o sudo *incluir* diretivas não forem suportadas na versão instalada `/etc/sudoers`do sudo, estas entradas serão escritas para .
 * A configuração do sislog é modificada para encaminhar um subconjunto de eventos para o agente. Para mais informações, consulte a recolha de dados do [Configure Syslog](data-sources-syslog.md).
 
-Num computador Linux monitorizado, o agente está listado como `omsagent`. `omsconfig` é o agente Log Analytics para o agente de configuração Linux que procura uma nova configuração lateral do portal a cada 5 minutos. A configuração nova e atualizada é aplicada aos ficheiros de configuração do agente localizados em `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+Num computador Linux monitorizado, o `omsagent`agente está listado como . `omsconfig`é o agente Log Analytics para o agente de configuração Linux que procura uma nova configuração lateral do portal a cada 5 minutos. A configuração nova e atualizada é aplicada `/etc/opt/microsoft/omsagent/conf/omsagent.conf`aos ficheiros de configuração do agente localizados em .
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 
@@ -69,7 +69,7 @@ Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave
 
 5. O valor à direita de **ID da Área de Trabalho** e **Chave Primária**. Copie e cole ambos no seu editor favorito.
 
-## <a name="install-the-agent-manually"></a>Instale o agente manualmente
+## <a name="install-the-agent-manually"></a>Instalar o agente manualmente
 
 O agente Log Analytics para o Linux é fornecido num pacote de scripts de concha auto-extraído e instalado. Este pacote contém pacotes Debian e RPM para cada um dos componentes do agente e pode ser instalado diretamente ou extraído para recuperar as embalagens individuais. Um pacote é fornecido para x64 e um para arquiteturas x86. 
 
@@ -78,16 +78,16 @@ O agente Log Analytics para o Linux é fornecido num pacote de scripts de concha
 
 1. [Descarregue](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) e transfira o pacote apropriado (x64 ou x86) para o seu Linux VM ou computador físico, utilizando scp/sftp.
 
-2. Instale o pacote utilizando o argumento `--install`. Para embarcar num espaço de trabalho de Log Analytics durante a instalação, forneça os parâmetros `-w <WorkspaceID>` e `-s <workspaceKey>` copiados anteriormente.
+2. Instale o pacote `--install` utilizando o argumento. Para embarcar num espaço de trabalho log `-w <WorkspaceID>` Analytics `-s <workspaceKey>` durante a instalação, forneça os e parâmetros copiados anteriormente.
 
     >[!NOTE]
-    >Você precisa usar o argumento `--upgrade` se quaisquer pacotes dependentes como omi, scx, omsconfig ou suas versões mais antigas forem instalados, como seria o caso se o agente do Gestor de Operações do Centro de Sistema para o Linux já estiver instalado. 
+    >Você precisa usar `--upgrade` o argumento se quaisquer pacotes dependentes como omi, scx, omsconfig ou suas versões mais antigas forem instalados, como seria o caso se o agente do Gestor de Operações do Centro de Sistema para o Linux já estiver instalado. 
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. Para configurar o agente Linux para instalar e ligar a um espaço de trabalho log Analytics através de um gateway Log Analytics, execute o seguinte comando fornecendo os parâmetros de proxy, workspace id e space space. Esta configuração pode ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]`. A propriedade *proxyhost* aceita um nome de domínio totalmente qualificado ou endereço IP do servidor de gateway Log Analytics.  
+3. Para configurar o agente Linux para instalar e ligar a um espaço de trabalho log Analytics através de um gateway Log Analytics, execute o seguinte comando fornecendo os parâmetros de proxy, workspace id e space space. Esta configuração pode ser especificada `-p [protocol://][user:password@]proxyhost[:port]`na linha de comando, incluindo . A propriedade *proxyhost* aceita um nome de domínio totalmente qualificado ou endereço IP do servidor de gateway Log Analytics.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -121,7 +121,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 Os seguintes passos configuram a configuração do agente para log analytics em nuvem Azure e Azure Government usando o script de invólucro para computadores Linux que pode comunicar diretamente ou através de um servidor proxy para descarregar o agente hospedado no GitHub e instalar o agente.  
 
-Se o seu computador Linux precisar de comunicar através de um servidor proxy para Registar Analytics, esta configuração pode ser especificada na linha de comando, incluindo `-p [protocol://][user:password@]proxyhost[:port]`. A propriedade *protocolar* aceita `http` ou `https`, e a propriedade *proxyhost* aceita um nome de domínio ou endereço IP totalmente qualificado do servidor proxy. 
+Se o seu computador Linux precisar de comunicar através de um servidor proxy para `-p [protocol://][user:password@]proxyhost[:port]`Registar Analytics, esta configuração pode ser especificada na linha de comando, incluindo . A propriedade *protocolar* aceita `http` ou, `https`e a propriedade *proxyhost* aceita um nome de domínio totalmente qualificado ou endereço IP do servidor proxy. 
 
 Por exemplo: `https://proxy01.contoso.com:30443`
 
@@ -133,7 +133,7 @@ Se for necessária autenticação em qualquer dos casos, tem de especificar o no
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    O seguinte comando inclui o parâmetro de procuração `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando `-p` inclui o parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +145,7 @@ Se for necessária autenticação em qualquer dos casos, tem de especificar o no
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    O seguinte comando inclui o parâmetro de procuração `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando `-p` inclui o parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -158,7 +158,7 @@ Se for necessária autenticação em qualquer dos casos, tem de especificar o no
 
 ## <a name="upgrade-from-a-previous-release"></a>Upgrade de um lançamento anterior
 
-A atualização de uma versão anterior, a começar pela versão 1.0.0-47, é suportada em cada versão. Execute a instalação com o parâmetro `--upgrade` para atualizar todos os componentes do agente para a versão mais recente.
+A atualização de uma versão anterior, a começar pela versão 1.0.0-47, é suportada em cada versão. Execute a instalação com o `--upgrade` parâmetro para atualizar todos os componentes do agente para a versão mais recente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

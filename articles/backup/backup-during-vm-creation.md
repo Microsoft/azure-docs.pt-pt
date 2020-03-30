@@ -4,10 +4,10 @@ description: Descreve como ativar a cópia de segurança quando cria um VM Azure
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247855"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
@@ -50,19 +50,19 @@ Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure](https://p
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup Azure para Máquinas Virtuais
 
-O serviço de backup cria um grupo de recursos separado (RG), diferente do grupo de recursos do VM para armazenar a coleção de pontos de restauro (RPC). O RPC abriga os pontos de recuperação instantâneas de VMs geridos. O formato de nomeação padrão do grupo de recursos criado pelo serviço de backup é: `AzureBackupRG_<Geo>_<number>`. Por exemplo: *AzureBackupRG_northeurope_1*. Agora pode personalizar o nome do grupo Resource criado pela Azure Backup.
+O serviço de backup cria um grupo de recursos separado (RG), diferente do grupo de recursos do VM para armazenar a coleção de pontos de restauro (RPC). O RPC abriga os pontos de recuperação instantâneas de VMs geridos. O formato de nomeação predefinido do `AzureBackupRG_<Geo>_<number>`grupo de recursos criado pelo serviço de backup é: . Por exemplo: *AzureBackupRG_northeurope_1*. Agora pode personalizar o nome do grupo Resource criado pela Azure Backup.
 
-Pontos a serem observados:
+Pontos a notar:
 
 1. Pode utilizar o nome padrão do RG ou editá-lo de acordo com os requisitos da sua empresa.
-2. Você fornece o padrão de nome RG como entrada durante a criação de política de backup VM. O nome RG deve ser do seguinte formato: `<alpha-numeric string>* n <alpha-numeric string>`. 'n' é substituído por um inteiro (a partir de 1) e é utilizado para escalonar se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs hoje.
-              ![Escolha o nome ao criar](./media/backup-during-vm-creation/create-policy.png) política
+2. Você fornece o padrão de nome RG como entrada durante a criação de política de backup VM. O nome RG deve ser `<alpha-numeric string>* n <alpha-numeric string>`do seguinte formato: . 'n' é substituído por um inteiro (a partir de 1) e é utilizado para escalonar se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs hoje.
+              ![Escolha o nome ao criar a política](./media/backup-during-vm-creation/create-policy.png)
 3. O padrão deve seguir as regras de nomeação RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido do nome RG.
     1. Os nomes de grupos de recursos apenas permitem caracteres alfanuméricos, períodos, sublinhados, hífenes e parênteses. Não podem terminar num período.
     2. Os nomes de grupos de recursos podem conter até 74 caracteres, incluindo o nome do RG e o sufixo.
-4. A primeira `<alpha-numeric-string>` é obrigatória, enquanto a segunda após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.
+4. O `<alpha-numeric-string>` primeiro é obrigatório, enquanto o segundo após 'n' é opcional. Isto só se aplica se der um nome personalizado. Se não introduzir nada em nenhuma das caixas de texto, o nome predefinido é utilizado.
 5. Pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, novos RPs serão criados no novo RG. No entanto, os antigos RPs continuarão a residir no antigo RG e não serão movidos, uma vez que a RP Collection não suporta o movimento de recursos. Eventualmente, os RPs receberão lixo recolhido à medida que os pontos expirarem.
-![Mudar de nome ao modificar](./media/backup-during-vm-creation/modify-policy.png) políticas
+![Alterar nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
 6. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço de backup.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Inicie uma cópia de segurança depois de criar o VM

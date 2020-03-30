@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: curtand
 ms.openlocfilehash: 5949f04ecc28a88e340a9c2de530031793f193a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253250"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Altere o seu método de verificação de dois fatores e as definições
@@ -44,7 +44,7 @@ Pode seguir este link para a página adicional de [verificação](https://accoun
 
 Também pode chegar à página adicional de **verificação** de segurança seguindo estes passos:
 
-1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Inscreva-se [https://myapps.microsoft.com](https://myapps.microsoft.com)em .
 
 1. Selecione o nome da sua conta no direito superior e, em seguida, selecione **o perfil**.
 
@@ -86,7 +86,7 @@ Pode adicionar novos números de telefone, ou atualizar os números existentes, 
 
 ### <a name="to-change-your-phone-numbers"></a>Para alterar os seus números de telefone
 
-1. A partir da secção como pretende **responder?**
+1. A partir da secção como pretende **Additional security verification** **responder?** **Authentication phone** **Office phone**
 
 1. Selecione a caixa ao lado da opção de telefone de **autenticação alternativa** e, em seguida, digite um número de telefone secundário onde possa receber mensagens de texto ou chamadas telefónicas se não conseguir aceder ao seu dispositivo principal.
 
@@ -98,7 +98,7 @@ Pode configurar o seu trabalho ou conta escolar na aplicação Microsoft Authent
 
 Se já configurar o seu trabalho ou conta escolar na aplicação Microsoft Authenticator, não precisa de o fazer novamente.
 
-1. A partir da secção Como gostaria de **responder?**
+1. A partir da secção Como gostaria **Additional security verification** de **responder?** **Set up Authenticator app**
 
     ![Configurar o seu trabalho ou conta escolar na aplicação Microsoft Authenticator](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
@@ -114,7 +114,7 @@ Pode eliminar a sua conta da aplicação Microsoft Authenticator e pode eliminar
 
 ### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Para eliminar o seu dispositivo do seu trabalho ou conta escolar
 
-1. A partir da secção Como gostaria de **responder?**
+1. A partir da secção Como gostaria **Additional security verification** de **responder?** **Set up Authenticator app**
 
 1. Selecione **Guardar**.
 

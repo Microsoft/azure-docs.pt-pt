@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254771"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilize o serviço StorSimple Device Manager para gerir volumes (Atualizar 3 ou mais tarde)
@@ -112,7 +112,7 @@ Criou [um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-v
       
        Se aprovisionar um volume localmente afixado de 8,5 TB (tamanho máximo admissível) no dispositivo 8100, terá esgotado todo o espaço local disponível no dispositivo. Não pode criar nenhum volume escalonado a partir desse ponto, uma vez que não há espaço local no dispositivo para alojar o conjunto de trabalho do volume escalonado. Os volumes em camadas existentes também afetam o espaço disponível. Por exemplo, se tiver um dispositivo 8100 que já tem volumes em camadas de, aproximadamente, 106 TB, está disponível apenas um espaço de 4 TB para volumes afixados localmente.
 
-    6. No campo **Anfitriões ligados**, clique na seta. Na lâmina **de anfitriões Conectados,** escolha um ACR existente ou adicione um novo ACR. Se escolher um novo ACR, em seguida, forneça um **Nome** para o seu ACR, forneça o **nome iSCSI Qualificado** (IQN) do seu anfitrião windows. Se não tiver o IQN, vá obter o IQN de um anfitrião do Windows Server. Clique em **Criar**. É criado um volume com as definições especificadas.
+    6. No campo **Anfitriões ligados**, clique na seta. Na lâmina **de anfitriões Conectados,** escolha um ACR existente ou adicione um novo ACR. Se escolher um novo ACR, em seguida, forneça um **Nome** para o seu ACR, forneça o **nome iSCSI Qualificado** (IQN) do seu anfitrião windows. Se não tiver o IQN, veja Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server). Clique em **Criar**. É criado um volume com as definições especificadas.
 
         ![Clique em Criar](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -131,7 +131,7 @@ Modifique um volume quando precisa expandi-lo ou alterar os anfitriões que aced
 
 #### <a name="to-modify-a-volume"></a>Para modificar um volume
 
-1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições e Volumes**.
+1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições > Volumes**.
 
     ![Ir para a lâmina Volumes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -163,7 +163,7 @@ Modifique um volume quando precisa expandi-lo ou alterar os anfitriões que aced
 
 7. Se estiver a expandir um volume, complete os seguintes passos no seu computador anfitrião windows:
    
-   1. Ir para **Gestão de Computadores** ->**Gestão de Discos.**
+   1. Ir para**a Gestão**de Discos de **Gestão** ->de Computadores.
    2. Clique na **gestão** do disco e selecione **Rescan Disks**.
    3. Na lista de discos, selecione o volume que atualizou, clique à direita e, em seguida, **selecione Extend Volume**. O assistente de volume extensão começa. Clique em **Seguinte**.
    4. Complete o assistente, aceitando os valores predefinidos. Depois de terminado o assistente, o volume deve mostrar o tamanho aumentado.
@@ -213,7 +213,7 @@ Você pode querer mudar um volume fixado localmente para um volume hierárquico 
 
 #### <a name="to-change-the-volume-type"></a>Para alterar o tipo de volume
 
-1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições e Volumes**.
+1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições > Volumes**.
 
     ![Ir para a lâmina Volumes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -247,7 +247,7 @@ Pode ser necessário desligar um volume quando planeia modificar ou eliminar o v
 2. Desative o volume no hospedeiro primeiro. Isto elimina qualquer risco potencial de corrupção de dados no volume. Para obter passos específicos, consulte as instruções do seu sistema operativo anfitrião.
 3. Depois de o hospedeiro estar offline, desative o volume do dispositivo através da realização dos seguintes passos:
    
-    1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições e Volumes**.
+    1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições > Volumes**.
 
         ![Ir para a lâmina Volumes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -275,7 +275,7 @@ Complete os seguintes passos para eliminar um volume.
 
 #### <a name="to-delete-a-volume"></a>Para apagar um volume
 
-1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições e Volumes**.
+1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições > Volumes**.
 
     ![Ir para a lâmina Volumes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -309,7 +309,7 @@ Execute os seguintes passos para ativar ou desativar a monitorização durante u
 
 #### <a name="to-enable-or-disable-volume-monitoring"></a>Para ativar ou desativar a monitorização do volume
 
-1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições e Volumes**.
+1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique em **Definições > Volumes**.
 2. A partir da listagem tabular de volumes, selecione o volume e clique à direita para invocar o menu de contexto. Selecione **Modificar**.
 3. Na lâmina de **volume Modificar,** para **monitorizar** selecione **ativar** ou **desativar** para ativar ou desativar a monitorização.
 

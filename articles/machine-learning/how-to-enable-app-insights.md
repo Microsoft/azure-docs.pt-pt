@@ -11,10 +11,10 @@ ms.author: larryfr
 author: blackmist
 ms.date: 03/12/2020
 ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136198"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorizar e recolher dados de pontos finais do serviço web ml
@@ -22,7 +22,7 @@ ms.locfileid: "79136198"
 
 Neste artigo, aprende-se a recolher dados e monitorizar modelos implantados em pontos finais de serviço web no Serviço Azure Kubernetes (AKS) ou nas Instâncias de Contentores Azure (ACI), permitindo insights de aplicação do Azure via 
 * [Pitão de aprendizagem de máquina sdk azure](#python)
-* [Estúdio azure de machine learning](#studio) na https://ml.azure.com
+* [Estúdio azure machine learning](#studio) emhttps://ml.azure.com
 
 Além de recolher os dados e resposta de saída de um ponto final, pode monitorizar:
 
@@ -35,26 +35,26 @@ Além de recolher os dados e resposta de saída de um ponto final, pode monitori
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
+* Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
 
-* Trabalho do Azure Machine Learning, um diretório local que contém os seus scripts e o SDK do Azure Machine Learning para Python instalada. Para aprender como obter estes pré-requisitos, veja [como configurar um ambiente](how-to-configure-environment.md) de desenvolvimento
+* Um espaço de trabalho Azure Machine Learning, um diretório local que contém os seus scripts, e o Azure Machine Learning SDK para Python instalado. Para aprender como obter estes pré-requisitos, veja [como configurar um ambiente](how-to-configure-environment.md) de desenvolvimento
 
-* Um modelo de aprendizagem de máquina preparado para ser implementada para o Azure Kubernetes Service (AKS) ou instância de contentor do Azure (ACI). Se não tiver um, consulte o tutorial do modelo de [classificação](tutorial-train-models-with-aml.md) de imagem do Comboio
+* Um modelo de aprendizagem automática treinado para ser implantado no Serviço Azure Kubernetes (AKS) ou na Instância de Contentores Azure (ACI). Se não tiver um, consulte o tutorial do modelo de [classificação](tutorial-train-models-with-aml.md) de imagem do Comboio
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadados de serviço web e dados de resposta
 
 >[!Important]
 > Azure Application Insights apenas regista cargas até 64kb. Se este limite for atingido, apenas as saídas mais recentes do modelo são registadas. 
 
-Os metadados e a resposta ao serviço - correspondente aos metadados do serviço web e às previsões do modelo - estão registados nos vestígios de Insights de Aplicação Azure sob a mensagem `"model_data_collection"`. Pode consultar diretamente os Insights de Aplicação Azure para aceder a estes dados, ou criar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma maior retenção ou processamento posterior. Os dados do modelo podem então ser utilizados no Azure Machine Learning para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
+Os metadados e a resposta ao serviço - correspondente aos metadados do serviço web e às previsões do `"model_data_collection"`modelo - estão registados nos vestígios de Insights de Aplicação Azure sob a mensagem . Pode consultar diretamente os Insights de Aplicação Azure para aceder a estes dados, ou criar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma maior retenção ou processamento posterior. Os dados do modelo podem então ser utilizados no Azure Machine Learning para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
 
 <a name="python"></a>
 
 ## <a name="use-python-sdk-to-configure"></a>Use Python SDK para configurar 
 
-### <a name="update-a-deployed-service"></a>Atualizar um serviço implementado
+### <a name="update-a-deployed-service"></a>Atualizar um serviço implantado
 
-1. Identifica o serviço na sua área de trabalho. O valor para `ws` é o nome do seu espaço de trabalho
+1. Identifique o serviço no seu espaço de trabalho. O valor `ws` para é o nome do seu espaço de trabalho
 
     ```python
     from azureml.core.webservice import Webservice
@@ -66,7 +66,7 @@ Os metadados e a resposta ao serviço - correspondente aos metadados do serviço
     aks_service.update(enable_app_insights=True)
     ```
 
-### <a name="log-custom-traces-in-your-service"></a>Rastreios personalizados no seu serviço
+### <a name="log-custom-traces-in-your-service"></a>Faça log avestígios personalizados no seu serviço
 
 Se pretender registar vestígios personalizados, siga o processo de implementação padrão de AKS ou ACI no [Como implementar e onde](how-to-deploy-and-where.md) documenta. Em seguida, utilize os seguintes passos:
 
@@ -84,7 +84,7 @@ Se pretender registar vestígios personalizados, siga o processo de implementaç
 
 3. Construa uma imagem e implemente-a em [AKS ou ACI](how-to-deploy-and-where.md).
 
-### <a name="disable-tracking-in-python"></a>Desativar o controle no Python
+### <a name="disable-tracking-in-python"></a>Rastreio de desativação em Python
 
 Para desativar os Insights de Aplicação Azure, utilize o seguinte código:
 
@@ -99,7 +99,7 @@ Para desativar os Insights de Aplicação Azure, utilize o seguinte código:
 
 Também pode ativar os Insights de Aplicação Azure do estúdio Azure Machine Learning quando estiver pronto para implementar o seu modelo com estes passos.
 
-1. Inscreva-se no seu espaço de trabalho na https://ml.azure.com/
+1. Inscreva-se no seu espaço de trabalho emhttps://ml.azure.com/
 1. Vá a **Modelos** e selecione qual modelo pretende implementar
 1. Selecione **+Implementar**
 1. Povoar a forma **do modelo De implantação**
@@ -111,7 +111,7 @@ Também pode ativar os Insights de Aplicação Azure do estúdio Azure Machine L
     ![Ativar insights de aplicativos](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## <a name="evaluate-data"></a>Avaliar dados
 Os dados do seu serviço são armazenados na sua conta Azure Application Insights, dentro do mesmo grupo de recursos que o Azure Machine Learning.
-Para vê-la:
+Para vê-lo:
 
 1. Vá ao seu espaço de trabalho Azure Machine Learning no [portal Azure](https://ms.portal.azure.com/) e clique no link Application Insights
 
@@ -119,17 +119,17 @@ Para vê-la:
 
 1. Selecione o separador **Overview** para ver um conjunto básico de métricas para o seu serviço
 
-   [visão geral ![](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Descrição geral](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. Para ver os metadados e resposta do seu serviço web, selecione a tabela **de pedidos** na secção **Registos (Analytics)** e selecione **Executar** para ver pedidos
 
-   [dados do Modelo ![](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+   [![Dados do modelo](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 
 3. Para ver os seus vestígios personalizados, selecione **Analytics**
 4. Na secção de esquemas, selecione **Traces**. Em seguida, selecione **Run** para executar a sua consulta. Os dados devem aparecer em formato de tabela e devem mapear as suas chamadas personalizadas no seu ficheiro de pontuação
 
-   [![vestígios personalizados](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Vestígios personalizados](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para saber mais sobre como usar insights de aplicação Azure, consulte [o que é a Aplicação Insights?](../azure-monitor/app/app-insights-overview.md)
 
@@ -138,14 +138,14 @@ Para saber mais sobre como usar insights de aplicação Azure, consulte [o que �
 >[!Important]
 > A Azure Application Insights apenas apoia as exportações para o armazenamento de bolhas. Os limites adicionais desta capacidade de exportação estão listados na [telemetria exportação da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Azure Application Insights para enviar mensagens para uma conta de armazenamento apoiada, onde pode ser definida uma retenção mais longa. As mensagens `"model_data_collection"` são armazenadas em formato JSON e podem ser facilmente analisadas para extrair dados do modelo. 
+Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Azure Application Insights para enviar mensagens para uma conta de armazenamento apoiada, onde pode ser definida uma retenção mais longa. As `"model_data_collection"` mensagens são armazenadas em formato JSON e podem ser facilmente analisadas para extrair dados do modelo. 
 
 A Azure Data Factory, os Pipelines Azure ML ou outras ferramentas de processamento de dados podem ser utilizadas para transformar os dados conforme necessário. Quando tiver transformado os dados, pode então registá-lo no espaço de trabalho azure machine learning como um conjunto de dados. Para tal, consulte [como criar e registar conjuntos](how-to-create-register-datasets.md)de dados .
 
    [![Exportação Contínua](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
 
 
-## <a name="example-notebook"></a>Bloco de notas de exemplo
+## <a name="example-notebook"></a>Por exemplo, caderno
 
 O bloco de notas [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) demonstra conceitos neste artigo. 
  

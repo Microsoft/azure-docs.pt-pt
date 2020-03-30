@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218085"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem automática Python no Estúdio de Aprendizagem automática Azure (clássico)
@@ -27,7 +27,7 @@ Este artigo descreve como pode utilizar o módulo Execute Python Script para uti
 
 ## <a name="using-the-execute-python-script-module"></a>Utilizando o módulo de script de execução python
 
-A interface primária para Python em Estúdio (clássico) é através do módulo [Execute Python Script.][execute-python-script] Aceita até três inputs e produz até duas saídas, semelhantes ao módulo [Execute R Script.][execute-r-script] O código Python é introduzido na caixa de parâmetros através de uma função de ponto de entrada especialmente denominada chamada `azureml_main`.
+A interface primária para Python em Estúdio (clássico) é através do módulo [Execute Python Script.][execute-python-script] Aceita até três inputs e produz até duas saídas, semelhantes ao módulo [Execute R Script.][execute-r-script] O código Python é introduzido na caixa de parâmetros `azureml_main`através de uma função de ponto de entrada especialmente denominada .
 
 ![Execute módulo de script python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -35,7 +35,7 @@ A interface primária para Python em Estúdio (clássico) é através do módulo
 
 ### <a name="input-parameters"></a>Parâmetros de entrada
 
-As inputs do módulo Python são expostas como Pandas DataFrames. A função `azureml_main` aceita até dois Dados De Dados pandas opcionais como parâmetros.
+As inputs do módulo Python são expostas como Pandas DataFrames. A `azureml_main` função aceita até dois Pandas DataFrames opcionais como parâmetros.
 
 O mapeamento entre as portas de entrada e os parâmetros de função é posicional:
 
@@ -43,13 +43,13 @@ O mapeamento entre as portas de entrada e os parâmetros de função é posicion
 - A segunda entrada (se ligada) é mapeada para o segundo parâmetro da função.
 - A terceira entrada é utilizada para [importar módulos Python adicionais.](#import-modules)
 
-Semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da função `azureml_main` são mostradas abaixo.
+Semântica mais detalhada de como as portas de entrada `azureml_main` são mapeadas para os parâmetros da função são mostradas abaixo.
 
 ![Tabela de configurações da porta de entrada e assinatura Python resultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>Valores de retorno de saída
 
-A função `azureml_main` deve devolver um único DataFrame pandas embalado numa [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma matriz de tuple, lista ou numpy. O primeiro elemento desta sequência é devolvido à primeira porta de saída do módulo. A segunda porta de saída do módulo é utilizada para [visualizações](#visualizations) e não requer um valor de retorno. Este esquema é mostrado abaixo.
+A `azureml_main` função deve devolver um único DataFrame pandas embalado numa [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma matriz de tuple, lista ou numpy. O primeiro elemento desta sequência é devolvido à primeira porta de saída do módulo. A segunda porta de saída do módulo é utilizada para [visualizações](#visualizations) e não requer um valor de retorno. Este esquema é mostrado abaixo.
 
 ![Mapear portas de entrada para parâmetros e devolver valor à porta de saída](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -62,16 +62,16 @@ Os conjuntos de dados do estúdio não são os mesmos que os Dados panda. Como r
 | Cordas e numéricos| Traduzido como é |
 | Pandas 'NA' | Traduzido como 'Valor em falta' |
 | Vetores de índice | Sem apoio* |
-| Nomes de colunas sem cordas | Ligue `str` sobre nomes de colunas |
+| Nomes de colunas sem cordas | Chamada `str` sobre nomes de colunas |
 | Nomes de colunas duplicadas | Adicione sufixo numérico: (1), (2), (3) e assim por diante.
 
-*Todos os quadros de dados de *entrada na função Python têm sempre um índice numérico de 64 bits de 0 ao número de linhas menos 1*
+**Todos os quadros de dados de entrada na função Python têm sempre um índice numérico de 64 bits de 0 ao número de linhas menos 1*
 
-## <a id="import-modules"></a>Importar módulos de script python existentes
+## <a name="importing-existing-python-script-modules"></a><a id="import-modules"></a>Importar módulos de script python existentes
 
 O backend usado para executar Python é baseado em [Anaconda,](https://www.anaconda.com/distribution/)uma distribuição científica de Python amplamente utilizada. Vem com cerca de 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. O Studio (clássico) não suporta atualmente a utilização de sistemas de gestão de pacotes como o Pip ou a Conda para instalar e gerir bibliotecas externas.  Se encontrar a necessidade de incorporar bibliotecas adicionais, utilize o seguinte cenário como guia.
 
-Um caso comum de uso é incorporar scripts Python existentes em experiências studio (clássicas). O módulo [Execute Python Script][execute-python-script] aceita um ficheiro zip contendo módulos Python na terceira porta de entrada. O ficheiro é desapertado pelo quadro de execução em tempo de execução e os conteúdos são adicionados ao caminho da biblioteca do intérprete Python. A função `azureml_main` ponto de entrada pode então importar estes módulos diretamente. 
+Um caso comum de uso é incorporar scripts Python existentes em experiências studio (clássicas). O módulo [Execute Python Script][execute-python-script] aceita um ficheiro zip contendo módulos Python na terceira porta de entrada. O ficheiro é desapertado pelo quadro de execução em tempo de execução e os conteúdos são adicionados ao caminho da biblioteca do intérprete Python. A `azureml_main` função do ponto de entrada pode então importar estes módulos diretamente. 
 
 Como exemplo, considere o ficheiro Hello.py contendo uma função simples "Olá, Mundo".
 
@@ -87,7 +87,7 @@ Faça upload do ficheiro zip como um conjunto de dados para studio (clássico). 
 
 ![Código Python definido pelo utilizador carregado como um ficheiro zip](./media/execute-python-scripts/figure6b.png)
 
-A saída do módulo mostra que o ficheiro zip foi desembalado e que a função `print_hello` foi executada.
+A saída do módulo mostra que o ficheiro zip `print_hello` foi desembalado e que a função foi executada.
 
 ![Saída do módulo mostrando função definida pelo utilizador](./media/execute-python-scripts/figure7.png)
 
@@ -97,7 +97,7 @@ Pode aceder aos dados armazenados numa conta de Armazenamento Azure Blob utiliza
 
 1. Descarregue o [pacote de armazenamento Azure Blob para Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) localmente.
 1. Faça upload do ficheiro zip para o seu Studio (clássico) espaço de trabalho como conjunto de dados.
-1. Crie o seu objeto BlobService com `protocol='http'`
+1. Crie o seu objeto BlobService com`protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService
@@ -124,7 +124,7 @@ Um serviço web criado a partir desta experiência todaria as seguintes ações:
 1. Envie a expressão Python ao intérprete Python
 1. Devolve uma tabela contendo tanto a expressão como o resultado avaliado.
 
-## <a id="visualizations"></a>Trabalhar com visualizações
+## <a name="working-with-visualizations"></a><a id="visualizations"></a>Trabalhar com visualizações
 
 Os enredos criados usando o MatplotLib podem ser devolvidos pelo [Script Execute Python][execute-python-script]. No entanto, os enredos não são automaticamente redirecionados para imagens como são quando se utiliza R. Por isso, o utilizador deve guardar explicitamente quaisquer parcelas para ficheiros PNG.
 

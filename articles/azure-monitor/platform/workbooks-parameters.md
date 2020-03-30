@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658222"
 ---
 # <a name="workbook-parameters"></a>Parâmetros do livro
@@ -38,10 +38,10 @@ Estes valores de parâmetros podem ser referenciados noutras partes dos livros, 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `TimeRange` (note que os nomes dos  *__parâmetros__ **não podem** incluir espaços ou caracteres especiais)*
-    2. Nome do ecrã: `Time Range` *(no entanto, __os nomes__ de exibição podem incluir espaços, caracteres especiais, emojis, etc.)*
-    2. Tipo de parâmetro: `Time range picker`
-    3. Obrigatório: `checked`
+    1. Nome do `TimeRange` parâmetro: (note que os nomes dos * __parâmetros__ **não podem** incluir espaços ou caracteres especiais)*
+    2. Nome do `Time Range`ecrã: *(no entanto, __os nomes__ de exibição podem incluir espaços, caracteres especiais, emojis, etc.)*  
+    2. Tipo de parâmetro:`Time range picker`
+    3. Necessário:`checked`
     4. Intervalos de tempo disponíveis: Última hora, Últimas 12 horas, Últimas 24 horas, Últimas 48 horas, Últimos 3 dias, Últimos 7 dias e Permitir a seleção de horários personalizados
 5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
@@ -54,7 +54,7 @@ Estes valores de parâmetros podem ser referenciados noutras partes dos livros, 
 ## <a name="referencing-a-parameter"></a>Referenciando um parâmetro
 ### <a name="via-bindings"></a>Via Encadernações
 1. Adicione um controlo de consulta ao livro e selecione um recurso Application Insights.
-2. Abra a tabela de _tempo_ e selecione a opção `Time Range` da secção Parâmetros na parte inferior.
+2. Abra a _hora_ de cair `Time Range` e selecione a opção a partir da secção Parâmetros na parte inferior.
 3. Isto liga o parâmetro de intervalo de tempo à faixa de tempo do gráfico. O intervalo de tempo da consulta da amostra é agora de 24 horas.
 4. Corra para ver os resultados
 
@@ -62,22 +62,22 @@ Estes valores de parâmetros podem ser referenciados noutras partes dos livros, 
 
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controlo de consulta ao livro e selecione um recurso Application Insights.
-2. No KQL, introduza um filtro de alcance de tempo utilizando o parâmetro: `| where timestamp {TimeRange}`
-3. Isto expande-se no tempo de avaliação de consulta para `| where timestamp > ago(1d)`, que é o valor de tempo do parâmetro.
+2. No KQL, introduza um filtro de alcance de tempo utilizando o parâmetro:`| where timestamp {TimeRange}`
+3. Isto expande-se no `| where timestamp > ago(1d)`tempo de avaliação da consulta para, que é o valor de intervalo de tempo do parâmetro.
 4. Corra para ver os resultados
 
     ![Imagem mostrando um intervalo de tempo referenciado em KQL](./media/workbooks-parameters/time-in-code.png)
 
 ### <a name="in-text"></a>Em Texto 
 1. Adicione um controlo de texto ao livro.
-2. Na marcação, entre `The chosen time range is {TimeRange:label}`
+2. Na marcação, entrar`The chosen time range is {TimeRange:label}`
 3. Escolha _edição feita_
 4. O controlo de texto mostrará texto: O intervalo de _tempo escolhido é de 24 horas_
 
 ## <a name="parameter-options"></a>Opções de parâmetros
-A secção _Em Texto_ utilizou o `label` do parâmetro em vez do seu valor. Os parâmetros expõem várias dessas opções dependendo do seu tipo - por exemplo, os apanhadores de intervalo de tempo permitem valor, etiqueta, consulta, início, fim e grão.
+A secção _Em_ `label` Texto utilizou o parâmetro em vez do seu valor. Os parâmetros expõem várias dessas opções dependendo do seu tipo - por exemplo, os apanhadores de intervalo de tempo permitem valor, etiqueta, consulta, início, fim e grão.
 
-Utilize a secção `Previews` da vidraça _do parâmetro_ editar para ver as opções de expansão para o seu parâmetro:
+Utilize `Previews` a secção do painel _de parâmetros_ editar para ver as opções de expansão para o seu parâmetro:
 
 ![Imagem mostrando uma gama de tempo paralímlo opções](./media/workbooks-parameters/time-previews.png)
 

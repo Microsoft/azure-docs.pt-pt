@@ -17,10 +17,10 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244761"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP privado estático usando powerShell
@@ -33,7 +33,7 @@ Pode criar uma máquina virtual (VM) com um endereço IP privado estático. Atri
 
 Pode completar os seguintes passos do seu computador local ou utilizando a Casca de Nuvem Azure. Para utilizar o computador local, certifique-se de que tem o [Azure PowerShell instalado](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Para utilizar a Casca de Nuvem Azure, selecione **Experimente no** canto superior direito de qualquer caixa de comando que se siga. A Cloud Shell assina-te em Azure.
 
-1. Se utilizar a Casca de Nuvem, salte para o passo 2. Abra uma sessão de comando e assine em Azure com `Connect-AzAccount`.
+1. Se utilizar a Casca de Nuvem, salte para o passo 2. Abra uma sessão de comando `Connect-AzAccount`e assine em Azure com .
 2. Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) O exemplo seguinte cria um grupo de recursos na região de East US Azure:
 
    ```azurepowershell-interactive

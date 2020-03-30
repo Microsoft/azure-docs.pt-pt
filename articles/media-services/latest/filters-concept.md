@@ -1,6 +1,6 @@
 ---
 title: Definição de filtros nos Serviços De Mídia Azure
-description: Este tópico descreve como criar filtros para que o cliente possa utilizar secções específicas do fluxo de um fluxo. Serviços de multimédia cria os manifestos dinâmicos para alcançar este seletiva de transmissão em fluxo.
+description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. A Media Services cria manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251469"
 ---
 # <a name="filters"></a>Filtros
@@ -50,10 +50,10 @@ Utiliza as seguintes propriedades para descrever os filtros.
 |Nome|Descrição|
 |---|---|
 |primeira Qualidade|A primeira bitrate de qualidade do filtro.|
-|presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar pontos de início/fim manifestos, comprimento da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
+|apresentaçãoTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar pontos de início/fim manifestos, comprimento da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
 |faixas|As condições de seleção dos trilhos. Para mais informações, consulte [faixas](#tracks)|
 
-### <a name="presentationtimerange"></a>presentationTimeRange
+### <a name="presentationtimerange"></a>apresentaçãoTimeRange
 
 Utilize esta propriedade com filtros de **ativos.** Não é aconselhável definir a propriedade com **filtros**de conta .
 
@@ -66,7 +66,7 @@ Utilize esta propriedade com filtros de **ativos.** Não é aconselhável defini
 |**inícioTimestamp**|Aplica-se a Vídeo a Pedido (VoD) ou Live Streaming.<br/>Este é um longo valor que representa um ponto de partida absoluto do fluxo. O valor é arredondado para o próximo início do GOP mais próximo. A unidade é o calendário, por isso um carimbo inicial de 150000000seria por 15 segundos.<br/>Utilize o carimbo de tempo de partida e o carimbo final Timetime para aparar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, o startTimestamp=40000000e e o endTimestamp=1000000000 utilizando a escala de tempo padrão gerarão uma lista de reprodução que contenha fragmentos entre 4 segundos e 10 segundos da apresentação do VoD. Se um fragmento se situar na fronteira, todo o fragmento será incluído no manifesto.|
 |**escala de tempo**|Aplica-se a todos os selos e durações de um intervalo de tempo de apresentação, especificado como o número de incrementos num segundo.<br/>O padrão é de 10000000 - dez milhões de incrementos num segundo, onde cada incremento teria 100 nanosegundos de comprimento.<br/>Por exemplo, se quiser definir um carimbo de tempo de partida em 30 segundos, utilizará um valor de 300000000 quando utilizar o calendário predefinido.|
 
-### <a name="tracks"></a>faixas
+### <a name="tracks"></a>Faixas
 
 Especifica uma lista de condições de propriedade de filtragem (FilterTrackPropertyConditions) com base na qual as faixas do seu fluxo (Live Streaming ou Video on Demand) devem ser incluídas num manifesto criado dinamicamente. Os filtros são combinados utilizando uma operação lógica **e** **or.**
 
@@ -76,7 +76,7 @@ As condições de propriedade da via filtram descrevem tipos de faixas, valores 
 |---|---|
 |**Bitrate**|Utilize a bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da pista para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores do FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
-|**Language** (Idioma)|Utilize a linguagem da pista para filtrar.<br/><br/>O valor é a etiqueta de uma língua que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
+|**Língua**|Utilize a linguagem da pista para filtrar.<br/><br/>O valor é a etiqueta de uma língua que pretende incluir, conforme especificado no RFC 5646. Por exemplo, "en".|
 |**Nome**|Utilize o nome da pista para filtrar.|
 |**Tipo**|Utilize o tipo de via para filtrar.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "texto".|
 
@@ -154,7 +154,7 @@ Não é aconselhável atualizar a definição de filtros associados a um localiz
 
 Se a definição de filtro tiver de ser alterada, considere criar um novo filtro e adicioná-lo ao URL do Localizador de **Streaming** ou publicar um novo Localizador de **Streaming** que referencia o filtro diretamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos mostram como criar filtros programáticamente.  
 

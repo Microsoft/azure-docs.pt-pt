@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
 ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670139"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de log Analytics para registos do Monitor Azure
@@ -21,7 +21,7 @@ No Registo de Pesquisa, é apresentada uma lista de filtros à medida que os res
 
 ![Filtro de pesquisa de registo](media/log-search-transition/filter-log-search.png)
 
-Nos registos do Monitor Azure, selecione *Filter (pré-visualização)* para visualizar filtros. Clique no ícone do filtro para exibir filtros de adição. Selecione um filtro e clique **em Aplicar e executar** para executar a consulta com o filtro selecionado.
+Nos registos do Monitor Azure, selecione *Filter (pré-visualização)* para visualizar filtros. Clique no ícone do filtro para exibir filtros de adição. Selecione um filtro e clique **Em aplicar & Executar** para executar a consulta com o filtro selecionado.
 
 ![Filtro de logs](media/log-search-transition/filter-logs.png)
 
@@ -53,7 +53,7 @@ Em 'Pesquisa de Registos', pode clicar numa linha numa consulta resumida para la
 
 ![Perfuração de pesquisa de log](media/log-search-transition/drilldown-search.png)
 
-Nos registos do Monitor Azure, tem de modificar a consulta para devolver estes registos. Expanda uma das linhas nos resultados e clique na **+** ao lado do valor para adicioná-lo à consulta. Em seguida, comentar o **comando resumir** e executar a consulta novamente.
+Nos registos do Monitor Azure, tem de modificar a consulta para devolver estes registos. Expanda uma das linhas nos resultados e clique na **+** próxima ao valor para adicioná-la à consulta. Em seguida, comentar o **comando resumir** e executar a consulta novamente.
 
 ![Perfuração de logs do Monitor Azure](media/log-search-transition/drilldown-logs.png)
 
@@ -64,7 +64,7 @@ Em 'Pesquisa de Registos', pode iniciar um livro de [execução](take-action.md)
 
 Nos registos do Monitor Azure, [crie um alerta a partir da consulta de registo](../platform/alerts-log.md). Configure um grupo de ação com uma ou mais ações que irão funcionar em resposta ao alerta.
 
-![Grupo de ação](media/log-search-transition/action-group.png)
+![Grupo de ações](media/log-search-transition/action-group.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,25 +7,25 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658631"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor ver conversões de azulejos designer
 O designer de [visualização](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar vistas personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e cronologias. Estão a ser gradualmente eliminados e substituídos por livros de trabalho que fornecem funcionalidades adicionais. Este artigo fornece detalhes para converter diferentes azulejos em livros de trabalho.
 
-## <a name="donut--list-tile"></a>Donut e azulejo sintetizar
+## <a name="donut--list-tile"></a>Donut & azulejo da lista
 
 ![Lista de Donut](media/view-designer-conversion-tiles/donut-list.png)
 
-A recriação do azulejo donut e lista nos livros de trabalho envolve duas visualizações separadas. Para a porção de donuts existem duas opções.
+Recriar o azulejo de donut & lista em livros de trabalho envolve duas visualizações separadas. Para a porção de donuts existem duas opções.
 Para ambos começam por selecionar **Adicionar consulta** e colar a consulta original do designer de visualização para a célula.
 
-**Opção 1:** Selecione **Pie Chart** do dropdown de **visualização:** menu de visualização de gráficos de ![Pie](media/view-designer-conversion-tiles/pie-chart.png)
+**Opção 1:** Selecione **Pie Chart** do ![dropdown de **visualização:** menu de visualização de gráficos de torta](media/view-designer-conversion-tiles/pie-chart.png)
 
-**Opção 2:** Selecione **set por consulta** a partir do dropdown de **visualização** e adicione `| render piechart` à consulta:
+**Opção 2:** Selecione **set por consulta** a partir da queda de **visualização** e adicione `| render piechart` à consulta:
 
  ![Menu de Visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -48,11 +48,11 @@ search *
 
 Para criar uma lista e permitir faíscas, consulte o artigo sobre [tarefas comuns.](view-designer-conversion-tasks.md)
 
-Segue-se um exemplo de como o azulejo donut & list pode ser reinterpretado em livros de trabalho:
+Segue-se um exemplo de como o azulejo da lista de & de donuts pode ser reinterpretado em livros de trabalho:
 
 ![Livros de lista de donuts](media/view-designer-conversion-tiles/donut-workbooks.png)
 
-## <a name="line-chart--list-tile"></a>Gráfico de linha e azulejo de lista
+## <a name="line-chart--list-tile"></a>Linha gráfico & azulejo da lista
 ![Lista de gráficos de linha](media/view-designer-conversion-tiles/line-list.png) 
 
 Para recriar a porção de gráfico de linha atualizar a consulta da seguinte forma:
@@ -75,7 +75,7 @@ Existem duas opções para visualizar o gráfico de linha
  
  ![Menu de gráfico de linha](media/view-designer-conversion-tiles/line-visualization.png)
 
-**Opção 2:** Selecione **set por consulta** a partir do dropdown de **visualização** e adicione `| render linechart` à consulta:
+**Opção 2:** Selecione **set por consulta** a partir da queda de **visualização** e adicione `| render linechart` à consulta:
 
  ![Menu de Visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -89,11 +89,11 @@ search *
 
 Para criar uma lista e permitir faíscas, consulte o artigo sobre [tarefas comuns.](view-designer-conversion-tasks.md)
 
-Segue-se um exemplo de como o gráfico de linha e o azulejo da lista podem ser reinterpretados em livros de trabalho:
+Segue-se um exemplo de como o gráfico de linha & azulejo seleto pode ser reinterpretado em livros de trabalho:
 
 ![Livros de lista de gráficos de linha](media/view-designer-conversion-tiles/line-workbooks.png)
 
-## <a name="number--list-tile"></a>Número e azulejo de lista
+## <a name="number--list-tile"></a>Número & azulejo da lista
 
  ![Lista de azulejos](media/view-designer-conversion-tiles/tile-list-example.png)
 
@@ -113,7 +113,7 @@ search *
 ```
 
 Mude a descida da visualização para **Azulejos** e, em seguida, selecione **Definições de azulejos**.
- ![](media/view-designer-conversion-tiles/tile-visualization.png) de visualização de azulejos
+ ![Visualização de azulejos](media/view-designer-conversion-tiles/tile-visualization.png)
 
 Deixe a secção **Título** em branco e selecione **Esquerda**. Alterar o valor da **coluna utilização:** para **contar,** e column **renderer** para **grande número:**
 
@@ -122,7 +122,7 @@ Deixe a secção **Título** em branco e selecione **Esquerda**. Alterar o valor
  
 Para criar uma lista e permitir faíscas, consulte o artigo sobre [tarefas comuns.](view-designer-conversion-tasks.md)
 
-Segue-se um exemplo de como o número e lista de azulejos pode ser reinterpretado em livros de trabalho:
+Segue-se um exemplo de como o número & azulejo da lista pode ser reinterpretado nos livros de trabalho:
 
 ![Lista de Números Livros](media/view-designer-conversion-tiles/number-workbooks.png)
 
@@ -146,16 +146,16 @@ search *
 
 Existem duas opções para visualizar a consulta como um gráfico de barras:
 
-**Opção 1:** Selecione gráfico de **barras** a partir do dropdown de **visualização:** ![visualização de Barchart](media/view-designer-conversion-tiles/bar-visualization.png)
+**Opção 1:** Selecione gráfico de **barras** ![do dropdown de **visualização:** visualização de Barchart](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**Opção 2:** Selecione **set por consulta** a partir do dropdown de **visualização** e adicione `| render barchart` à consulta:
+**Opção 2:** Selecione **set por consulta** a partir da queda de **visualização** e adicione `| render barchart` à consulta:
 
  ![Menu de visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
  
 Para criar uma lista e permitir faíscas, consulte o artigo sobre [tarefas comuns.](view-designer-conversion-tasks.md)
 
-Segue-se um exemplo de como a linha do tempo e a lista de azulejos podem ser reinterpretadas em livros de trabalho:
+Segue-se um exemplo de como a linha temporal & azulejo seleto pode ser reinterpretada em livros de trabalho:
 
 ![Lista de CronologiaS Livros](media/view-designer-conversion-tiles/time-workbooks.png)
 

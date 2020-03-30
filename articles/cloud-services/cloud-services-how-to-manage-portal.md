@@ -1,5 +1,5 @@
 ---
-title: Tarefas comuns de gestão do serviço na nuvem  Microsoft Docs
+title: Tarefas comuns de gestão do serviço na nuvem [ Microsoft Docs
 description: Saiba como gerir os Serviços cloud no portal Azure. Estes exemplos utilizam o portal Azure.
 services: cloud-services
 documentationcenter: ''
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247530"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerir serviços de cloud no portal Azure

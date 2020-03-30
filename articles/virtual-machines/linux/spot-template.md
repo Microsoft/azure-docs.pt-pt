@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082800"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implementar VMs spot usando um modelo de Gestor de Recursos
@@ -27,17 +27,17 @@ A utilização de [VMs spot](spot-vms.md) permite-lhe tirar partido da nossa cap
 
 Os preços dos VMs spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços vm para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Tem opção de definir um preço máximo que está disposto a pagar, por hora, para o VM. O preço máximo de um Spot VM pode ser fixado em dólares americanos (USD), utilizando até 5 lugares decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo a `-1`, o VM não será despejado com base no preço. O preço do VM será o preço atual para o Spot ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
+Tem opção de definir um preço máximo que está disposto a pagar, por hora, para o VM. O preço máximo de um Spot VM pode ser fixado em dólares americanos (USD), utilizando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o Spot ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
 
 > [!IMPORTANT]
 > Os casos de spot estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 >
 
 ## <a name="use-a-template"></a>Utilizar um modelo
 
-Para implementações de modelos spot, use`"apiVersion": "2019-03-01"` ou posteriormente. Adicione as propriedades `priority`, `evictionPolicy` e `billingProfile` no seu modelo:
+Para implementações de`"apiVersion": "2019-03-01"` modelos spot, utilize ou mais tarde. Adicione `priority`as `evictionPolicy` `billingProfile` propriedades e propriedades no seu modelo:
 
 ```json
 "priority": "Spot",
@@ -47,7 +47,7 @@ Para implementações de modelos spot, use`"apiVersion": "2019-03-01"` ou poster
 }
 ```
 
-Aqui está um modelo de amostra com as propriedades adicionadas para um Spot VM. Substitua os nomes de recursos por si próprio e `<password>` por uma palavra-passe para a conta de administrador local no VM.
+Aqui está um modelo de amostra com as propriedades adicionadas para um Spot VM. Substitua os nomes `<password>` de recursos pelos seus e por uma palavra-passe para a conta de administrador local no VM.
 
 ```json
 {

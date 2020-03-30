@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658035"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizações do livro Azure Monitor
@@ -52,7 +52,7 @@ Livros de trabalho suportam gráficos de suporte tanto para registos como para f
 2. Utilize o link **adicionar** consulta para adicionar um controlo de consulta de registo ao livro de trabalho.
 3. Selecione o tipo de consulta como **Log**, tipo de recurso (por exemplo, Insights de Aplicação) e os recursos a atingir.
 4. Utilize o editor da Consulta para introduzir o [KQL](https://docs.microsoft.com/azure/kusto/query/) para a sua análise (por exemplo, tendência de pedidos).
-5. Delineie a visualização para uma das: **Área,** **Bar,** **Bar (categórica)** , **Linha,** **Tarte, Dispersão,** ou **Tempo**.
+5. Delineie a visualização para uma das: **Área,** **Bar,** **Bar (categórica)**, **Linha,** **Tarte, Dispersão,** ou **Tempo**. **Scatter**
 6. Definir outros parâmetros se necessário - como intervalo de tempo, visualização, tamanho, paleta de cores e lenda.
 
 ![Screenshot do gráfico de registo no modo de edição](./media/workbooks-visualizations/log-chart.png)
@@ -69,7 +69,7 @@ Livros de trabalho suportam gráficos de suporte tanto para registos como para f
 | `Size` | O tamanho vertical do controlo | Pequeno, médio, grande ou cheio |
 | `Color palette` | A paleta de cores para usar na tabela. Ignorado em modo multimétrico ou segmentado. | Azul, verde, vermelho, etc. |
 | `Legend` | A função de agregação para usar para a lenda | Soma ou Média de valores ou Max, Min, Primeiro, Último valor |
-| `Query` | Qualquer consulta KQL que retorne os dados no formato esperado pela visualização do gráfico | _solicita \| make-series Pedidos = contagem() padrão = 0 no carimbo de tempo de há pouco(1d) até agora() passo 1h_ |
+| `Query` | Qualquer consulta KQL que retorne os dados no formato esperado pela visualização do gráfico | _solicita \| ções de série Pedidos = contagem() padrão = 0 no carimbo de tempo de há pouco(1d) até agora() passo 1h_ |
 
 ### <a name="adding-a-metric-chart"></a>Adicionar um gráfico métrico
 
@@ -87,13 +87,13 @@ Livros de trabalho suportam gráficos de suporte tanto para registos como para f
 | `Resource Type` | O tipo de recurso para o alvo | Armazenamento ou Máquina Virtual. |
 | `Resources` | Um conjunto de recursos para obter o valor das métricas de | MyStorage1 |
 | `Namespace` | O espaço de nome com a métrica | Armazenamento > Blob |
-| `Metric` | A métrica para visualizar | Armazenamento > Blob > Transações |
+| `Metric` | A métrica para visualizar | Armazenamento > Transações de > Blob |
 | `Aggregation` | A função de agregação para aplicar à métrica | Soma, Conde, Média, etc. |
 | `Time Range` | A janela do tempo para ver a métrica em | Última hora, últimas 24 horas, etc. |
 | `Visualization` | A visualização a utilizar | Área, Bar, Linha, Dispersão, Grelha |
 | `Split By` | Opcionalmente dividir a métrica em uma dimensão | Transações por tipo Geo |
 | `Size` | O tamanho vertical do controlo | Pequeno, médio ou grande |
-| `Color palette` | A paleta de cores para usar na tabela. Ignorado se o parâmetro `Split by` for usado | Azul, verde, vermelho, etc. |
+| `Color palette` | A paleta de cores para usar na tabela. Ignorado se `Split by` o parâmetro for usado | Azul, verde, vermelho, etc. |
 
 ## <a name="grids"></a>Grelhas
 
@@ -114,7 +114,7 @@ O exemplo abaixo mostra uma grelha que combina ícones, mapas de calor e barras 
 
 ![Screenshot da consulta de grelha baseada em tronco](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Azulejos
+## <a name="tiles"></a>Mosaicos
 
 Os azulejos são uma forma muito útil de apresentar dados sumários nos livros. A imagem abaixo mostra um caso de uso comum de azulejos - resumo do nível da aplicação em cima de uma grelha detalhada.
 
@@ -137,9 +137,9 @@ Suporte de azulejos de livro mostrando um título, legenda, texto grande, ícone
 6. Detete a visualização para **azulejos**
 7. Clique no botão Definições de **Azulejos** para abrir o painel de definições
 8. Em **Campos de Azulejos,** conjunto:
-    * Denominação: `name`
-    * Esquerda: `Requests`, Renderizador: `Big Number`, Paleta de Cores: `Green to Red`, Valor do Mina: `0`
-    * Fundo: `appName`
+    * Título:`name`
+    * Esquerda: `Requests`, Renderizador: `Big Number`, `Green to Red`Paleta de Cores: , Valor min:`0`
+    * Fundo:`appName`
 9. Clique no botão **Guardar e Fechar** na parte inferior do painel.
 
 ![Screenshot da vista sumária de azulejos](./media/workbooks-visualizations/tile-settings.png)
@@ -174,15 +174,15 @@ O exemplo abaixo mostra as métricas de saúde dos recipientes (tamanho do conju
 5. Definir a visualização para **Grid**
 6. Clique no botão **Definições** da Coluna para abrir o painel de definições
 7. Na secção **Árvore/Grupo Por Definições** na parte inferior, coloque:
-    * Tipo de árvore: `Parent/Child`
-    * Id Field: `Id`
-    * Campo de Identificação dos Pais: `ParentId`
-    * Mostre o expansor em: `Name`
-    * Expandir o nível superior da árvore: `checked`
+    * Tipo de árvore:`Parent/Child`
+    * Id Field:`Id`
+    * Campo Id dos pais:`ParentId`
+    * Mostre ao expansor em:`Name`
+    * Expandir o nível superior da árvore:`checked`
 8. Na secção _Colunas_ na parte superior, coloque:
-    * _ID_ - Column Renderer: `Hidden`
-    * _Id dos pais_ - Column Renderer: `Hidden`
-    * _Pedidos_ - Renderizador de coluna: `Bar`, Cor: `Blue`, Valor Mínimo: `0`
+    * _ID_ - Column Renderer:`Hidden`
+    * _Id dos pais_ - Renderizador de colunas:`Hidden`
+    * _Pedidos_ - Renderizador `Bar`de Coluna: , Cor: `Blue`, Valor Mínimo:`0`
 9. Clique no botão _Guardar e Fechar_ na parte inferior do painel.    
 
 ![Screenshot da vista sumária de azulejos](./media/workbooks-visualizations/tree-settings.png)
@@ -243,9 +243,9 @@ O gráfico abaixo mostra dados que fluem dentro/para fora de um computador atrav
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. Em _Definições de formato_ de nó na parte superior, definido:
-    * _Conteúdo superior_- Coluna de utilização: `Name`, Renderizador de coluna: `Text`
-    * _Conteúdo do Centro_- Coluna de utilização: `Calls`, Renderizador de coluna: `Big Number`, Paleta de Cores: `None`
-    * _Conteúdo inferior_- Coluna de utilização: `Kind`, Renderizador de coluna: `Text`
+    * _Conteúdo superior_- `Name`Coluna de utilização: , Renderizador de colunas:`Text`
+    * _Conteúdo do Centro_ `Calls`- Coluna de `Big Number`Utilização: , Renderizador de colunas: , Paleta de Cores:`None`
+    * _Conteúdo inferior_- `Kind`Coluna de utilização: , Renderizador de colunas:`Text`
 10. Clique no botão _Guardar e Fechar_ na parte inferior do painel.
 
 ![Screenshot da vista sumária de azulejos](./media/workbooks-visualizations/graph-settings.png)

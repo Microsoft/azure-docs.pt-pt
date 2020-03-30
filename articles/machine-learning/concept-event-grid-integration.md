@@ -10,10 +10,10 @@ ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
 ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139050"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Consumir eventos de aprendizagem automática azure (pré-visualização)
@@ -70,7 +70,7 @@ A Azure Event Grid também suporta uma filtragem avançada com base no esquema d
 
 Algumas filtrações avançadas de amostra saem:
 
-* Para `Microsoft.MachineLearningServices.ModelRegistered` evento, para filtrar o valor de etiqueta do modelo:
+* Para `Microsoft.MachineLearningServices.ModelRegistered` o evento, para filtrar o valor de etiqueta do modelo:
 
     ```
     --advanced-filter data.ModelTags.key1 StringIn ('value1')

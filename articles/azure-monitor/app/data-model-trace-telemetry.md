@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671958"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de vestígios: Modelo de dados de Insights de Aplicação
 
-A telemetria de vestígios (em Insights de [Aplicação)](../../azure-monitor/app/app-insights-overview.md)representa `printf` declarações de traços de estilo que são pesquisadas por texto. `Log4Net`, `NLog`, e outras entradas de ficheiros de registo baseadas em texto são traduzidas em casos deste tipo. O traço não tem medidas como uma extensibility.
+A telemetria de vestígios `printf` (em Insights de [Aplicação)](../../azure-monitor/app/app-insights-overview.md)representa declarações de traços de estilo que são pesquisadas por texto. `Log4Net`, `NLog`e outras entradas de ficheiros de registo baseadas em texto são traduzidas em casos deste tipo. O traço não tem medidas como uma extensibility.
 
 ## <a name="message"></a>Mensagem
 
@@ -23,7 +23,7 @@ Comprimento máximo: 32768 caracteres
 
 ## <a name="severity-level"></a>Nível de gravidade
 
-Nível de gravidade do traço. O valor pode ser `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
+Nível de gravidade do traço. O valor `Verbose` `Information`pode `Warning` `Error`ser, . . . `Critical`
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 

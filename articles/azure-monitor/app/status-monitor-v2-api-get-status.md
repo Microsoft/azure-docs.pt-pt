@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671261"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Agente de Insights de Aplicação API: Get-ApplicationInsightsMonitoringStatus
@@ -29,7 +29,7 @@ Este cmdlet irá reportar informações e informações sobre os ficheiros-chave
 
 ### <a name="example-application-status"></a>Exemplo: Estado da aplicação
 
-Executar o comando `Get-ApplicationInsightsMonitoringStatus` para visualizar o estado de monitorização dos web sites.
+Executar o `Get-ApplicationInsightsMonitoringStatus` comando para visualizar o estado de monitorização dos web sites.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -75,7 +75,7 @@ Neste exemplo;
 
 ### <a name="example-powershell-module-information"></a>Exemplo: Informação do módulo PowerShell
 
-Executar o comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` para mostrar informações sobre o módulo atual:
+Executar o `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando para mostrar informações sobre o módulo atual:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -131,7 +131,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Pode inspecionar o processo no computador instrumentado para ver se todos os DLLs estão carregados. Se a monitorização estiver a funcionar, devem ser carregados pelo menos 12 DLLs.
 
-Executar o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Executar o `Get-ApplicationInsightsMonitoringStatus -InspectProcess`comando:
 
 
 ```
@@ -175,24 +175,24 @@ Também pode rever qual a Chave de Instrumentação que foi correspondida ao seu
 
 
 ### <a name="-powershellmodule"></a>-PowerShellModule
-**Opcional**. Utilize este interruptor para relatar os números de versão e os caminhos dos DLLs necessários para a monitorização.
+**Opcional.** Utilize este interruptor para relatar os números de versão e os caminhos dos DLLs necessários para a monitorização.
 Utilize esta opção se precisar de identificar a versão de qualquer DLL, incluindo o SDK de Insights de Aplicação.
 
-### <a name="-inspectprocess"></a>-InspectProcess
+### <a name="-inspectprocess"></a>-Inspeção Processo
 
-**Opcional**. Utilize este interruptor para informar se o IIS está a funcionar.
+**Opcional.** Utilize este interruptor para informar se o IIS está a funcionar.
 Também irá descarregar ferramentas externas para determinar se os DLLs necessários são carregados no tempo de funcionação do IIS.
 
 
 Se este processo falhar por qualquer motivo, pode executar estes comandos manualmente:
 - iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp  findstr /I "InstrumentationEngine AI. ApplicationInsights"
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp ] findstr /I "InstrumentationEngine AI. ApplicationInsights"
 - [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp / findstr /I "InstrumentationEngine AI ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**Opcional**. Utilizado apenas com o InspectProcess. Utilize este interruptor para ignorar a solicitação do utilizador que aparece antes de serem descarregadas ferramentas adicionais.
+**Opcional.** Utilizado apenas com o InspectProcess. Utilize este interruptor para ignorar a solicitação do utilizador que aparece antes de serem descarregadas ferramentas adicionais.
 
 
 ## <a name="next-steps"></a>Passos seguintes

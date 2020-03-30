@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270527"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Amostras de código de operação de dados para aplicações lógicas do Azure
 
 Aqui estão as amostras de código para as definições de ação de operação de dados no artigo, [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). Pode utilizar estas amostras para quando quiser experimentar os exemplos com a definição subjacente de fluxo de trabalho da sua própria aplicação lógica, subscrição Azure e ligações API. Basta copiar e colar estas definições de ação no editor de visão de código para a definição de fluxo de trabalho da sua aplicação lógica e, em seguida, modificar as definições para o seu fluxo de trabalho específico. 
 
-Com base nos padrões de Notação de Objetos JavaScript (JSON), estas definições de ação aparecem por ordem alfabética. No entanto, no Logic App Designer, cada definição aparece na sequência correta dentro do seu fluxo de trabalho porque cada definição de ação `runAfter` propriedade especifica a ordem de execução.
+Com base nos padrões de Notação de Objetos JavaScript (JSON), estas definições de ação aparecem por ordem alfabética. No entanto, no Logic App Designer, cada definição aparece na sequência `runAfter` correta dentro do seu fluxo de trabalho porque a propriedade de cada definição de ação especifica a ordem de execução.
 
 <a name="compose-action-example"></a>
 
@@ -263,7 +263,7 @@ Para experimentar o exemplo de ação [ **Join,** ](../logic-apps/logic-apps-per
 
 <a name="parse-json-action-example"></a>
 
-## <a name="parse-json"></a>Parse JSON
+## <a name="parse-json"></a>Analisar JSON
 
 Para experimentar o exemplo de ação [ **da Parse JSON,** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)aqui estão as definições de ação que pode utilizar:
 

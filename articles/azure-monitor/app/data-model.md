@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671882"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados de telemetria Insights de aplicação
@@ -30,11 +30,11 @@ Os seguintes tipos de telemetria são utilizados para monitorizar a execução d
 
     Uma **Operação** são os fios de execução que processa um pedido. Também pode [escrever código](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) para monitorizar outros tipos de funcionamento, como um "despertar" num trabalho web ou função que processa periodicamente os dados.  Cada operação tem identificação. Este ID que pode ser usado para [agrupar](../../azure-monitor/app/correlation.md) toda a telemetria gerada enquanto a sua aplicação está processando o pedido. Cada operação tem sucesso ou falha, e tem uma duração de tempo.
 * [**Exceção**](data-model-exception-telemetry.md) - Normalmente representa uma exceção que faz com que uma operação falhe.
-* [**Dependência**](data-model-dependency-telemetry.md) - Representa uma chamada da sua app para um serviço ou armazenamento externo, como uma API REST ou SQL. Em ASP.NET, as chamadas de dependência para a SQL são definidas por `System.Data`. As chamadas para os pontos finais http são definidas por `System.Net`. 
+* [**Dependência**](data-model-dependency-telemetry.md) - Representa uma chamada da sua app para um serviço ou armazenamento externo, como uma API REST ou SQL. Em ASP.NET, as chamadas de dependência `System.Data`para sQL são definidas por . As chamadas para os `System.Net`pontos finais HTTP são definidas por . 
 
 Os Insights de Aplicação fornecem três tipos de dados adicionais para telemetria personalizada:
 
-* [Trace](data-model-trace-telemetry.md) - utilizado diretamente, ou através de um adaptador para implementar o registo de diagnósticos utilizando uma estrutura de instrumentação que lhe seja familiar, como `Log4Net` ou `System.Diagnostics`.
+* [Trace](data-model-trace-telemetry.md) - utilizado diretamente, ou através de um adaptador para implementar o registo de `Log4Net` `System.Diagnostics`diagnósticos utilizando uma estrutura de instrumentação que lhe é familiar, como ou .
 * [Evento](data-model-event-telemetry.md) - normalmente usado para capturar a interação do utilizador com o seu serviço, para analisar padrões de utilização.
 * [Métrica](data-model-metric-telemetry.md) - usada para relatar medições periódicas de escalar.
 

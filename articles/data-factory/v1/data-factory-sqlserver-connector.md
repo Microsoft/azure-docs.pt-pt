@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265769"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados de e para o SQL Server no local ou no IaaS (Azure VM) utilizando a Azure Data Factory
@@ -68,7 +68,7 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas do Servidor SQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 Cria um serviço ligado do tipo **OnPremisesSqlServer** para ligar uma base de dados do SQL Server ao local a uma fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Servidor SQL no local.
 
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Servidor SQL.
@@ -76,9 +76,9 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade do tipo deve ser definida para: **OnPremisesSqlServer**. |Sim |
-| connectionString |Especifique as informações de ligação Necessárias à base de dados do SQL Server no local utilizando a autenticação SQL ou a autenticação do Windows. |Sim |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome de domínio\\nome de utilizador**. |Não |
+| conexãoString |Especifique as informações de ligação Necessárias à base de dados do SQL Server no local utilizando a autenticação SQL ou a autenticação do Windows. |Sim |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
+| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome\\de utilizador do nome de domínio**. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 
 Pode encriptar credenciais utilizando o cmdlet **New-AzDataFactoryEncryptValue** e utilizá-las na cadeia de ligação, como mostra o seguinte exemplo (propriedade**EncryptedCredential):**
@@ -123,10 +123,10 @@ O Portal de Gestão de Dados personificará a conta de utilizador especificada p
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Nas amostras, utilizou um conjunto de dados do tipo **SqlServerTable** para representar uma tabela numa base de dados do SQL Server.
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados (SQL Server, Blob Azure, tabela Azure, etc.).
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados (SQL Server, Blob Azure, tabela Azure, etc.).
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **TypeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
 
@@ -137,7 +137,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Se estiver a mover dados de uma base de dados do SQL Server, define o tipo de origem na atividade de cópia para **SqlSource**. Da mesma forma, se estiver a mover dados para uma base de dados do SQL Server, define o tipo de pia na atividade de cópia para **SqlSink**. Esta secção fornece uma lista de propriedades suportadas por SqlSource e SqlSink.
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
 > A Copy Activity leva apenas uma entrada e produz apenas uma saída.
@@ -150,8 +150,8 @@ Quando a fonte numa atividade de cópia é do tipo **SqlSource,** as seguintes p
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. Pode fazer referência a várias tabelas da base de dados referenciada pelo conjunto de dados de entrada. Se não especificada, a declaração SQL que é executada: selecione a partir do MyTable. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado. |Nome/pares de valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. |Nome do procedimento armazenado. A última declaração sQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 
 Se o **sqlReaderQuery** for especificado para o SqlSource, a Atividade de Cópia executa esta consulta contra a fonte da Base de Dados do Servidor SQL para obter os dados.
 
@@ -167,12 +167,12 @@ Se não especificar o sqlReaderQuery ou o sqlReaderStoredProcedureName, as colun
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
-| writeBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Uma instrução de consulta. |Não |
+| escreverBatchTimeout |Aguarde o tempo para que a operação de inserção do lote esteja concluída antes de sair. |tempospan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| sqlWriterCleanupScript |Especifique a consulta para a Atividade de Cópia executar de tal forma que os dados de uma fatia específica são limpos. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Uma declaração de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a Atividade de Cópia para preencher com identificador de fatias gerado automaticamente, que é usado para limpar dados de uma fatia específica quando reexecutado. Para mais informações, consulte a secção [de cópias repetível.](#repeatable-copy) |Nome da coluna de uma coluna com tipo de dados de binário(32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se pretender fazer uma operação que só funciona uma vez e não tem nada a ver com dados de origem, por exemplo, eliminar/truncar, utilize `sqlWriterCleanupScript` propriedade. |Nome do procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado. |Nome/pares de valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem em tabela-alvo, por exemplo, fazer upserts ou transformar usando a sua própria lógica de negócio. <br/><br/>Note que este procedimento armazenado será **invocado por lote**. Se quiser fazer uma operação que só funciona uma vez e não tem nada a `sqlWriterCleanupScript` ver com dados de origem, por exemplo, eliminar/truncar, utilize a propriedade. |Nome do procedimento armazenado. |Não |
+| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado. |Nome/pares de valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 | sqlWriterTableType |Especifique o nome do tipo de tabela a utilizar no procedimento armazenado. A atividade de cópia disponibiliza os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Um nome tipo de mesa. |Não |
 
 
@@ -554,7 +554,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar e
 3. Na mesma janela, clique duplo **no TCP/IP** para lançar a janela **TCP/IP Properties.**
 4. Mude para o separador **endereços IP.** Desloque-se para baixo para ver a secção **IPAll.** Note a **porta TCP**(o predefinido é **de 1433**).
 5. Crie uma **regra para o Windows Firewall** na máquina para permitir a entrada de tráfego através desta porta.
-6. **Verifique a ligação**: Para se ligar ao Servidor SQL utilizando um nome totalmente qualificado, utilize o Estúdio de Gestão de Servidores SQL de uma máquina diferente. Por exemplo: "\<máquina\>.\<domínio\>.corp.\<empresa\>.com.1433".
+6. **Verifique a ligação**: Para se ligar ao Servidor SQL utilizando um nome totalmente qualificado, utilize o Estúdio de Gestão de Servidores SQL de uma máquina diferente. Por exemplo:\<\>" máquina . \<domínio\>\<.corp.\>empresa .com,1433."
 
    > [!IMPORTANT]
    > 
@@ -646,7 +646,7 @@ Conforme mencionado no artigo de atividades de movimento de [dados,](data-factor
 1. Converter de tipos de origem nativa para .NET tipo
 2. Converter do tipo .NET para o tipo de pia nativa
 
-Ao mover dados para e a partir do servidor SQL, os seguintes mapeamentos são utilizados do tipo SQL para o tipo .NET e vice-versa.
+Ao mover dados para & do servidor SQL, os seguintes mapeamentos são utilizados do tipo SQL para o tipo .NET e vice-versa.
 
 O mapeamento é o mesmo que o Mapeamento do Tipo de Dados do Servidor SQL para ADO.NET.
 
@@ -659,28 +659,28 @@ O mapeamento é o mesmo que o Mapeamento do Tipo de Dados do Servidor SQL para A
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Valor de duplo |
+| Datatimeoffset |DataTimeOffset |
+| Decimal |Decimal |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimal |
+| dinheiro |Decimal |
 | nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |decimal |
+| ntexto |String, Char[] |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Único |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| linhaversão |Byte[] |
+| tempo de data pequena |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Object * |
+| dinheiro pequeno |Decimal |
+| sql_variant |Objeto * |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |

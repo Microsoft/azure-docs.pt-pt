@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
 ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616471"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteja as suas aplicações web do Azure App Service e APIs
@@ -35,10 +35,10 @@ O Security Center aproveita a escala da nuvem e a visibilidade que o Azure tem c
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Permitir a monitorização e proteção do Serviço de Aplicações
 
 1. No portal Azure, escolha O Centro de Segurança.
-2. Vá a **Preços e Definições** e escolha uma subscrição.
+2. Vá às **definições de Preços &** e escolha uma subscrição.
 3. Sob **o nível**de Preços , na linha de **serviço** app, alternar o seu plano para **Ativado**.
 
-    [![ativar serviços de aplicações na sua subscrição de nível Standard](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+    [![Ativar serviços de aplicações na subscrição do standard tier](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
 
 
 >[!NOTE]

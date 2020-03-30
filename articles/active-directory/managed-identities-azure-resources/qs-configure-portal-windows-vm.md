@@ -16,10 +16,10 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75971dbd35a6b29306bc87988423ab662a343705
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266666"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em um VM usando o portal Azure
@@ -33,13 +33,13 @@ Neste artigo, aprende-se a ativar e desativar o sistema e as identidades geridas
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não está familiarizado com as identidades geridas para os recursos do Azure, consulte a [secção de visão geral.](overview.md)
-- Se ainda não tem uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
 
 Nesta secção, aprende-se a ativar e desativar a identidade gerida atribuída pelo sistema para vM utilizando o portal Azure.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Ativar a identidade gerida atribuída pelo sistema durante a criação de um VM
+### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Ativar a identidade gerida atribuída pelo sistema durante a criação de uma VM
 
 Para permitir a identidade gerida atribuída pelo sistema num VM durante a sua criação, a sua conta necessita da atribuição de função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretório da AD.
 
@@ -49,11 +49,11 @@ Para permitir a identidade gerida atribuída pelo sistema num VM durante a sua c
 
 Consulte os seguintes Quickstarts para criar um VM: 
 
-- [Criar uma máquina virtual Windows com o portal Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
-- [Crie uma máquina virtual Linux com o portal Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual do Windows com o portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
+- [Criar uma máquina virtual Linux com o portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 
-### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Ativar a identidade gerida atribuída pelo sistema num VM existente
+### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Ativar a identidade gerida atribuída pelo sistema numa VM existente
 
 Para permitir a identidade gerida atribuída pelo sistema num VM originalmente provisionado sem ele, a sua conta necessita da atribuição de função de Colaborador de [Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretório da AD.
 
@@ -89,15 +89,15 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
 
 Atualmente, o portal Azure não suporta a atribuição de uma identidade gerida atribuída ao utilizador durante a criação de um VM. Em vez disso, consulte um dos seguintes artigos de criação de VM Quickstart para primeiro criar um VM, e depois seguir para a secção seguinte para obter detalhes sobre a atribuição de uma identidade gerida atribuída pelo utilizador ao VM:
 
-- [Criar uma máquina virtual Windows com o portal Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Crie uma máquina virtual Linux com o portal Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual do Windows com o portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual Linux com o portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador a um VM existente
 
 Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções de Colaborador de [Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de [Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretório da AD.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição Azure que contém o VM.
-2. Navegue para o VM desejado e clique em **Identidade,** **Utilizador atribuído** **e,** em seguida,\+Adicionar .
+2. Navegue para o VM desejado e clique em **Identidade,** **Utilizador atribuído** ** \+e,** em seguida, Adicionar .
 
    ![Adicione a identidade gerida atribuída pelo utilizador à VM](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 

@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252262"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configure Azure Blockchain Service nódosos de transação
@@ -17,7 +17,7 @@ Os nódosos de transação são usados para enviar transações blockchain para 
 
 Para ver os detalhes do nó de transação por defeito:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Navegue para o seu membro do Serviço Azure Blockchain. Selecione **os nódosos de transação**.
 
     ![Selecione o nó de transações por defeito](./media/configure-transaction-nodes/nodes.png)
@@ -62,7 +62,7 @@ O nó de transações do Azure Blockchain Service suporta a autenticação do Az
 
 Para conceder o controlo de acesso da AD Azure ao seu ponto final:
 
-1. No portal Azure, navegue para o seu membro do Serviço Azure Blockchain e selecione Os nós de **transação > Controlo de acesso (IAM) > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add &**
+1. No portal Azure, navegue para o seu membro do Serviço Blockchain Azure e selecione os nós de transação > controlo de **acesso (IAM) > Adicionar > Adicionar a atribuição de funções**.
 1. Criar uma nova atribuição de funções para um utilizador, grupo ou diretor de serviço (funções de aplicação).
 
     ![Adicionar papel IAM](./media/configure-transaction-nodes/add-role.png)
@@ -89,7 +89,7 @@ Pode ver os detalhes básicos de autenticação de um nó de audação no portal
 
 O nome do utilizador é o nome do seu nó e não pode ser alterado.
 
-Para utilizar o URL, substitua \<palavra-passe\> com o conjunto de palavra-passe quando o nó foi provisionado. Pode atualizar a palavra-passe selecionando a **palavra-passe Reset**.
+Para utilizar o \<URL, substitua a palavra-passe\> pelo conjunto de palavra-passe quando o nó foi provisionado. Pode atualizar a palavra-passe selecionando a **palavra-passe Reset**.
 
 ### <a name="access-keys"></a>Chaves de acesso
 

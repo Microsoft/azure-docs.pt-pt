@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260348"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio
@@ -45,7 +45,7 @@ Este artigo descreve como usar o Estúdio Visual para criar contas Azure Data La
   * Visual Studio 2013
 
 * Versão 2.7.1 ou superior do **Microsoft Azure SDK para .NET**. Instale-a através do [instalador de plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
-* A conta do **Data Lake Analytics**. Para criar uma conta, consulte [Introdução ao Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md).
+* Uma conta **data lake analytics.** Para criar uma conta, consulte [Introdução ao Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Instalar as Ferramentas do Azure Data Lake para Visual Studio
 
@@ -55,7 +55,7 @@ Este tutorial exige que as Ferramentas do Data Lake para Visual Studio estejam i
 
 1. Abra o Visual Studio.
 
-1. Abra o **Server Explorer** selecionando **o 'Ver** > **Server Explorer**.
+1. Abra o **Server Explorer** selecionando o **'Explorer' do** > **Servidor**de Visualização .
 
 1. Clique no **Azure,** em seguida, selecione Connect para a **subscrição do Microsoft Azure**. **Insete o sessão na sua conta,** siga as instruções.
 

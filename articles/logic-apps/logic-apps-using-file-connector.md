@@ -9,13 +9,13 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651411"
 ---
-# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar-se a sistemas de ficheiros no local com aplicações lógicas azure
+# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com Azure Logic Apps
 
 Com as Aplicações Lógicas Azure e o conector do Sistema de Ficheiros, pode criar tarefas automatizadas e fluxos de trabalho que criam e gerem ficheiros numa partilha de ficheiros no local, por exemplo:
 
@@ -39,7 +39,7 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
 
 * Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para este exemplo, precisa de uma aplicação lógica em branco.
 
-## <a name="add-trigger"></a>Adicionar gatilho
+## <a name="add-trigger"></a>Adicionar acionador
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -67,12 +67,12 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
 
    | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome que quer para a sua ligação |
-   | **Pasta raiz** | Sim | < *> de nome de pasta-raiz* | A pasta-raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalada a porta de dados no local, ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta-raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com ficheiros. |
-   | **Tipo de autenticação** | Não | <> *do tipo auth* | O tipo de autenticação que o seu sistema de ficheiros utiliza, por exemplo, **o Windows** |
-   | **Nome de Utilizador** | Sim | <*domínio*>\\<nome de *utilizador*> | O nome de utilizador do computador onde tem o seu sistema de ficheiros |
-   | **Palavra-passe** | Sim | <*a sua palavra-passe*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
-   | **porta de entrada** | Sim | <> de nome de *porta de entrada instalado* | O nome para o seu gateway previamente instalado |
+   | **Nome de ligação** | Sim | <*nome de ligação*> | O nome que quer para a sua ligação |
+   | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta-raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalada a porta de dados no local, ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta-raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com ficheiros. |
+   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que o seu sistema de ficheiros utiliza, por exemplo, **o Windows** |
+   | **Nome de utilizador** | Sim | <*domain*>\\<*nome de utilizador* de domínio> | O nome de utilizador do computador onde tem o seu sistema de ficheiros |
+   | **Palavra-passe** | Sim | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
+   | **porta de entrada** | Sim | <*instalado-gateway-nome*> | O nome para o seu gateway previamente instalado |
    |||||
 
 1. Quando tiver terminado, escolha **Create** (Criar).

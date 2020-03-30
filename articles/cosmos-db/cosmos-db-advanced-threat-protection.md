@@ -9,10 +9,10 @@ ms.author: memildin
 author: memildin
 manager: rkarlin
 ms.openlocfilehash: bcc1c6ffe7cdec4aed325a67969235ae993a5109
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614839"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para O Cosmos Db (Pré-visualização)
@@ -40,7 +40,7 @@ Advanced Threat Protection for Azure Cosmos DB deteta atividades anómalas que i
 
 ### <a name="set-up-atp-using-the-portal"></a>Configurar ATP utilizando o portal
 
-1. Lance o portal Azure em [https://portal.azure.com. ](https://portal.azure.com/)
+1. Lance o portal [https://portal.azure.com](https://portal.azure.com/)Azure em .
 
 2. A partir da conta Azure Cosmos DB, a partir do menu **Definições,** **selecione Advanced security**.
 
@@ -49,7 +49,7 @@ Advanced Threat Protection for Azure Cosmos DB deteta atividades anómalas que i
 3. Na lâmina de configuração **de segurança avançada:**
 
     * Clique na opção **de Proteção de Ameaças Avançadas** para defini-la para **ON**.
-    * Clique em **Guardar** para salvar a nova ou atualizada política de proteção de ameaças avançadas.   
+    * Clique em **Guardar** para guardar a política do Advanced Threat Protection nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP utilizando a API REST
 
@@ -62,11 +62,11 @@ Utilize comandos Rest API para criar, atualizar ou obter a definição avançada
 
 Utilize os seguintes cmdlets PowerShell:
 
-* [Ativar proteção avançada de ameaças](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
+* [Ativar o Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [Obter Proteção Avançada de Ameaças](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Deficiente Proteção avançada de ameaças](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos de Gestor de Recursos Azure
+### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 
 Utilize um modelo de Gestor de Recursos Azure para configurar cosmos DB com proteção de ameaça avançada ativada.
 Para mais informações, consulte [Criar uma Conta CosmosDB com Proteção avançada de Ameaças.](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)

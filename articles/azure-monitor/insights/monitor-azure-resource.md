@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249272"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização de recursos Azure com o Monitor Azure
@@ -29,7 +29,7 @@ Assim que criar um recurso Azure, o Azure Monitor está ativado e começa a reco
 
 
 ## <a name="costs-associated-with-monitoring"></a>Custos associados à monitorização
-Não há qualquer custo para analisar dados de monitorização que são recolhidos por padrão. Tais atributos incluem:
+Não há qualquer custo para analisar dados de monitorização que são recolhidos por padrão. Isto inclui o seguinte:
 
 - Recolhendo métricas da plataforma e analisando-as com o explorador de métricas.
 - Recolher registo de Atividades e analisá-lo no portal Azure.
@@ -90,7 +90,7 @@ Siga o procedimento na [Definição de diagnóstico Create para recolher registo
  Pode aceder a dados de monitorização da maioria dos recursos do Azure a partir do menu do recurso no portal Azure. Isto lhe dará acesso aos dados de um único recurso utilizando ferramentas padrão do Monitor Azure. Alguns serviços Azure fornecerão diferentes opções, pelo que deverá fazer referência à documentação desse serviço para obter informações adicionais. Utilize o menu **Azure Monitor** para analisar dados de todos os recursos monitorizados. 
 
 ### <a name="overview"></a>Descrição geral
-Muitos serviços incluirão a monitorização de dados na sua página **de visão geral** como um rápido olhar para o seu funcionamento. Isto será normalmente baseado num subconjunto de métricas de plataforma armazenadas em Métricas de Monitor Azure. Outras opções de monitorização estarão normalmente disponíveis numa secção de **Monitorização** dos serviços. menu.
+Muitos serviços incluirão a monitorização de dados na sua página **de visão geral** como um rápido olhar para o seu funcionamento. Isto será normalmente baseado num subconjunto de métricas de plataforma armazenadas em Métricas de Monitor Azure. Outras opções de monitorização estarão normalmente disponíveis numa secção de **Monitorização** dos serviços. .
 
 ![Página de visão geral](media/monitor-azure-resource/overview-page.png)
 

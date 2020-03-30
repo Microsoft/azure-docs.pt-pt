@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com os livros do Monitor Azure  Microsoft docs
+title: Criar relatórios interativos com os livros do Monitor Azure [ Microsoft docs
 description: Simplificar relatórios complexos com livros pré-construídos e parametrizados personalizados
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671006"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com livros do Monitor Azure
@@ -24,7 +24,7 @@ Os livros são úteis para cenários como:
 * Partilhar os resultados de uma experiência A/B na sua aplicação com outros membros da sua equipa. Você pode explicar os objetivos para a experiência com texto, em seguida, mostrar cada métrica de uso e consulta de Analytics usada para avaliar a experiência, juntamente com chamadas claras para se cada métrica estava acima ou abaixo do alvo.
 * Relatando o impacto de uma interrupção no uso da sua app, combinando dados, explicação de texto e uma discussão sobre os próximos passos para evitar interrupções no futuro.
 
-## <a name="starting-with-a-template-or-saved-workbook"></a>Começando com um modelo ou livro guardado
+## <a name="starting-with-a-template-or-saved-workbook"></a>Começar com um modelo ou livro guardado
 
 Um livro é composto por secções compostas por gráficos, tabelas, texto e controlos de entrada independentes. Para melhor entender os livros, o melhor é abrir um. 
 
@@ -54,7 +54,7 @@ Os livros têm dois modos: **modo de edição**, e **modo de leitura**. Quando o
 
 4. Para remover uma secção permanentemente, clique no ícone **Remover.**
 
-## <a name="adding-text-and-markdown-sections"></a>Adicionar secções de texto e markdown
+## <a name="adding-text-and-markdown-sections"></a>Adicionar secções de texto e Markdown
 
 Adicionar títulos, explicações e comentários aos seus livros ajuda a transformar um conjunto de tabelas e gráficos numa narrativa. As secções de texto nos livros de livros suportam a [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) para formatação de texto, como títulos, ousados, itálicos e listas com balas.
 
@@ -70,7 +70,7 @@ As secções de consulta são altamente flexíveis e podem ser usadas para respo
 
 * Quantas exceções o seu site lançou durante o mesmo período de tempo como um declínio no uso?
 * Qual foi a distribuição dos tempos de carregamento de página para os utilizadores verem alguma página?
-* Quantos utilizadores viram alguns conjuntos de páginas no seu site, mas não algum outro conjunto de páginas? Isto pode ser útil para entender se tem grupos de utilizadores que usam diferentes subconjuntos da funcionalidade do seu site (utilize o operador `join` com o `kind=leftanti` modificador na [linguagem de consulta Kusto).](/azure/kusto/query/)
+* Quantos utilizadores viram alguns conjuntos de páginas no seu site, mas não algum outro conjunto de páginas? Isto pode ser útil para entender se tem grupos de utilizadores que usam diferentes `join` subconjuntos da funcionalidade do seu site (utilize o operador com o `kind=leftanti` modificador na linguagem de consulta [Kusto).](/azure/kusto/query/)
 
 Também não se limita apenas a consultar o contexto da aplicação de onde lançou o livro de trabalho. Pode consultar várias aplicações monitorizadas por Insights de aplicação, bem como espaços de trabalho do Log Analytics, desde que tenha permissão de acesso a esses recursos.
 
@@ -89,7 +89,7 @@ Para saber mais sobre consultas de recursos cruzados consulte a [orientação of
 
 ### <a name="advanced-analytic-query-settings"></a>Definições avançadas de consulta analítica
 
-Cada secção tem as suas próprias definições avançadas, que são acessíveis através do ícone de definições ![controlos de edição da secção Deinsights de Aplicação](./media/usage-workbooks/005-settings.png) localizado sà direita do botão **de parâmetros Add.**
+Cada secção tem as suas próprias definições ![avançadas, que são](./media/usage-workbooks/005-settings.png) acessíveis através do ícone de definições Aplicação Insights Comandos de edição de livros de trabalho localizados à direita do botão **Adicionar parâmetros.**
 
 ![Controlos de edição de livros de trabalho de Insights de aplicação](./media/usage-workbooks/0006-settings-expanded.png)
 
@@ -140,11 +140,11 @@ Aqui está um exemplo de dados de máquinas virtuais sendo puxados para um livro
 
 ![Controlos de edição de livros de trabalho de Insights de aplicação](./media/usage-workbooks/008-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Adicionando secções de parâmetros
+## <a name="adding-parameter-sections"></a>Adicionar secções de parâmetros
 
 Os parâmetros do livro permitem alterar valores no livro sem ter de editar manualmente as secções de consulta ou texto.  Isto elimina a exigência de necessidade de compreender a linguagem de consulta de análise subjacente e expande consideravelmente o público potencial de relatórios baseados em livros.
 
-Os valores dos parâmetros são substituídos em secções de consulta, texto ou outros parâmetros colocando o nome do parâmetro em aparelhos, como ``{parameterName}``.  Os nomes dos parâmetros limitam-se a regras semelhantes às dos identificadores JavaScript, basicamente caracteres alfabéticos ou sublinhados, seguidos por caracteres alfanuméricos ou sublinhados. Por exemplo, a **A1** é permitida, mas **1a** não é permitida.
+Os valores dos parâmetros são substituídos em secções de consulta, texto ou outros ``{parameterName}``parâmetros colocando o nome do parâmetro em aparelhos, como .  Os nomes dos parâmetros limitam-se a regras semelhantes às dos identificadores JavaScript, basicamente caracteres alfabéticos ou sublinhados, seguidos por caracteres alfanuméricos ou sublinhados. Por exemplo, a **A1** é permitida, mas **1a** não é permitida.
 
 Os parâmetros são lineares, partindo do topo de um livro e fluindo para passos posteriores.  Os parâmetros declarados posteriormente num livro podem sobrepor-se àqueles que foram declarados mais acima.  Isto também permite parâmetros que usam consultas para aceder aos valores a partir de parâmetros definidos mais acima.  Dentro do próprio passo de um parâmetro, os parâmetros também são lineares, da esquerda para a direita, onde os parâmetros à direita podem depender de um parâmetro declarado anteriormente nesse mesmo passo.
  
@@ -152,14 +152,14 @@ Existem quatro tipos diferentes de parâmetros que são atualmente suportados:
 
   |         |          |
    | ---------------- |:-----|
-   | **Text** (Texto)    | o utilizador irá editar uma caixa de texto, e pode facultar opcionalmente uma consulta para preencher o valor predefinido. |
-   | **Desça** | O utilizador escolherá entre um conjunto de valores. |
+   | **Texto**    | o utilizador irá editar uma caixa de texto, e pode facultar opcionalmente uma consulta para preencher o valor predefinido. |
+   | **Pendente** | O utilizador escolherá entre um conjunto de valores. |
    | **Picker de intervalo de tempo**| O utilizador escolherá entre um conjunto predefinido de valores de intervalo de tempo, ou escolherá a partir de um intervalo de tempo personalizado.|
    | **Picker de recursos** | O utilizador escolherá entre os recursos selecionados para o livro.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
-O valor que um utilizador escreve na caixa de texto é substituído diretamente na consulta, sem escapar ou citar. Se o valor que precisa é de uma corda, a consulta deve ter citações em torno do parâmetro (como **'{parâmetro}'** ).
+O valor que um utilizador escreve na caixa de texto é substituído diretamente na consulta, sem escapar ou citar. Se o valor que precisa é de uma corda, a consulta deve ter citações em torno do parâmetro (como **'{parâmetro}'**).
 
 Isto permite que o valor numa caixa de texto seja utilizado em qualquer lugar. Pode ser um nome de mesa, nome de coluna, nome de função, operador, etc.
 
@@ -228,7 +228,7 @@ O tipo de parâmetro de recolha de recursos dá-lhe a capacidade de examinar o s
 
 ![Queda do país](./media/usage-workbooks/013-resource-picker.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>Economia e partilha de livros com a sua equipa
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Guardar e partilhar livros com a equipa
 
 Os livros de trabalho são guardados dentro de um recurso Application Insights, quer na secção **My Reports** que seja privado de si ou na secção **Relatórios Partilhados** que esteja acessível a todos os que tenham acesso ao recurso Application Insights. Para ver todos os livros de reposição do recurso, clique no botão **Open** na barra de ação.
 

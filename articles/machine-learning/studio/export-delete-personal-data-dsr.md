@@ -11,19 +11,19 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
 ms.openlocfilehash: c380d10d0c68794ec3810cea25341d68bb41400d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251690"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e eliminar dados de utilizadores no produto do Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Pode eliminar ou exportar dados no produto armazenados pelo Azure Machine Learning Studio (clássico) utilizando o portal Azure, a interface Studio (clássica), powerShell e APIs REST autenticados. Este artigo mostra-lhe como. 
+Pode eliminar ou exportar dados no produto armazenados pelo Azure Machine Learning Studio (clássico) utilizando o portal Azure, a interface Studio (clássica), powerShell e APIs REST autenticados. Este artigo diz-lhe como. 
 
-Dados de telemetria podem ser acedidos através do portal de privacidade do Azure. 
+Os dados de telemetria podem ser acedidos através do portal de privacidade Azure. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -55,7 +55,7 @@ Existem três tipos de contas no Machine Learning Studio (clássico). O tipo de 
     - Pode exportar dados pessoais e de clientes através do pacote UI, REST APIs ou PowerShell
     - Pode eliminar os seus dados no portal Azure.
 
-## <a name="delete"></a>Eliminar dados do espaço de trabalho em Studio (clássico) 
+## <a name="delete-workspace-data-in-studio-classic"></a><a name="delete"></a>Eliminar dados do espaço de trabalho em Studio (clássico) 
 
 ### <a name="delete-individual-assets"></a>Eliminar ativos individuais
 
@@ -63,7 +63,7 @@ Os utilizadores podem eliminar os ativos num espaço de trabalho selecionando-os
 
 ![Eliminar ativos no Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Eliminar uma área de trabalho inteira
+### <a name="delete-an-entire-workspace"></a>Eliminar todo um espaço de trabalho
 
 Os utilizadores também podem eliminar todo o seu espaço de trabalho:
 - Espaço de trabalho pago: Apague através do portal Azure.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268967"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar sincronização de dados SQL entre a Base de Dados Azure SQL e o Servidor SQL no local
@@ -58,7 +58,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte como
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do grupo sync** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
    | **Base de Dados de Metadados de Sincronização** | Opte por criar uma base de dados (recomendada) ou utilizar uma base de dados existente.<br/><br/>Se escolher **Nova base de dados,** selecione Criar nova base de **dados.** Em seguida, na página base de **dados SQL,** nomee e configure a nova base de dados e selecione **OK**.<br/><br/>Se escolher Utilizar a base de **dados existente,** selecione a base de dados da lista. |
-   | **Sincronização Automática** | Selecione **Ligado** ou **Desligado**.<br/><br/>Se escolher **,** introduza um número e selecione **Segundos, Minutos,** **Horas**ou **Dias** na secção **De Sincronização.** |
+   | **Sincronização Automática** | Selecione **Ligado** ou **Desligado**.<br/><br/>Se escolher **,** introduza um número e selecione **Segundos, Minutos,** **Horas**ou **Dias** na secção **De Sincronização.** **Minutes** |
    | **Resolução de Conflitos** | Selecione **Hub ganhar** ou **ganhar membro.**<br/><br/>**A vitória** do hub significa que quando ocorrem conflitos, os dados na base de dados do hub sobreescrevem dados contraditórios na base de dados dos membros.<br/><br/>A vitória dos **membros** significa que quando ocorrem conflitos, os dados na base de dados dos membros sobreescrevem dados contraditórios na base de dados do hub. |
 
    > [!NOTE]
@@ -85,7 +85,7 @@ Na secção Base de **Dados dos Membros,** adicione opcionalmente uma Base de Da
   | Definição                       | Descrição |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome membro sincronizado** | Forneça um nome para o novo membro da sincronização. Este nome é distinto do próprio nome da base de dados. |
-  | **Subscrição** | Selecione a subscrição Azure associada para efeitos de faturação. |
+  | **Assinatura** | Selecione a subscrição Azure associada para efeitos de faturação. |
   | **Servidor Azure SQL** | Selecione o servidor de base de dados SQL existente. |
   | **Base de Dados SQL do Azure** | Selecione a base de dados SQL existente. |
   | **Direções de sincronização** | Selecione **Sincronização Bidirecional,** **Para o Hub,** ou **a partir do Hub**. |
@@ -130,7 +130,7 @@ Na secção base de dados dos **membros,** adicione opcionalmente um Servidor SQ
         ![Introduza as credenciais da chave do agente e do servidor](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         > [!NOTE]
-        > Se tiver um erro de firewall, crie uma regra de firewall no Azure para permitir o tráfego de entrada a partir do computador SQL Server. Pode criar a regra manualmente no portal ou no Estúdio de Gestão de Servidores SQL (SSMS). No SSMS, ligue-se à base de dados do hub em Azure, inserindo o seu nome como <hub_database_name>.database.windows.net.
+        > Se tiver um erro de firewall, crie uma regra de firewall no Azure para permitir o tráfego de entrada a partir do computador SQL Server. Pode criar a regra manualmente no portal ou no Estúdio de Gestão de Servidores SQL (SSMS). No SSMS, ligue-se à base de dados do hub no Azure, inserindo o seu nome como <hub_database_name>.windows.net.
 
     1. Selecione **Registar** para registar uma base de dados do SQL Server com o agente. A caixa de diálogo de configuração do **servidor SQL** abre-se.
 

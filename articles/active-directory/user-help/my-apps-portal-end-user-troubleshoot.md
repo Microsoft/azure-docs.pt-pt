@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: f72dd5595d67ae989cec5681d22def9a2f929adf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253159"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemas de resolução de problemas com o portal My Apps
@@ -47,13 +47,13 @@ Se tiver problemas em instalar a extensão de sessão de sinalização segura da
 
 Se está com dificuldades em assinar no portal **My Apps,** pode tentar o seguinte:
 
-- Certifique-se de que está a usar o URL certo. Deve ser https://myapps.microsoft.com ou uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
+- Certifique-se de que está a usar o URL certo. Deve ser https://myapps.microsoft.com ou uma página personalizada para https://myapps.microsoft.com/contoso.coma sua organização, como .
 
 - Certifique-se de que a sua palavra-passe está correta e não expirou. Para mais informações, consulte [Redefinir o seu trabalho ou senha escolar](active-directory-passwords-update-your-own-password.md).
 
 - Certifique-se de que a sua informação de verificação está atual e precisa. Para mais informações, consulte [o que significa autenticação multi-factor Azure para mim ou](multi-factor-authentication-end-user.md) [Alterando os seus métodos e informações](security-info-add-update-methods-overview.md)de informação de segurança.
 
-- Adicione o URL do portal **My App** às Propriedades da Internet > Segurança > Definição de **sites fidedignos.**
+- Adicione o URL do portal **My App** à configuração de sites de segurança > Segurança **> Confiança.**
 
 - Limpe a cache do seu navegador e tente voltar a fazer sessão.
 
@@ -71,7 +71,7 @@ Se estiver a receber uma mensagem **Access Denied** depois de iniciar uma aplica
 
 - Certifique-se de que instalou a extensão de [sessão de sinalização 'Secure-in' das Minhas Aplicações](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e que está a utilizar um [navegador suportado](my-apps-portal-end-user-access.md#supported-browsers).
 
-- Certifique-se de que está a usar o URL certo para a aplicação e que o URL está na sua lista de sites de propriedades da **Internet > Security > Trusted sites.**
+- Certifique-se de que está a usar o URL certo para a aplicação e que o URL está na sua lista de sites de **segurança > Segurança > Fidedignas.**
 
 - Certifique-se de que a sua palavra-passe está correta e não expirou. Para mais informações, consulte [Redefinir o seu trabalho ou senha escolar](active-directory-passwords-update-your-own-password.md).
 
@@ -81,7 +81,7 @@ Se estiver a receber uma mensagem **Access Denied** depois de iniciar uma aplica
 
 Se depois de experimentar estas coisas ainda não consegue aceder à sua aplicação, deve contactar o balcão de ajuda da sua organização para obter assistência.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de iniciar sessão no portal **My Apps,** também pode atualizar as informações sobre o seu perfil e conta, as informações do seu grupo e informações de revisão de acesso (se tiver permissão).
 

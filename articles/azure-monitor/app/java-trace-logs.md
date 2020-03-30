@@ -4,10 +4,10 @@ description: Pesquisar rastreios de Log4J ou Logback em Insights de Aplicação
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657219"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os registos de rastreio de Java em Insights de Aplicação
@@ -18,9 +18,9 @@ Se estiver a utilizar o Logback ou o Log4J (v1.2 ou v2.0) para rastreio, pode en
 
 ## <a name="using-the-application-insights-java-agent"></a>Utilização do agente Java Insights de Aplicação
 
-Por predefinição, o agente Java De insights de aplicação captura automaticamente o registo realizado a `WARN` nível e superior.
+Por predefinição, o agente Java De `WARN` insights de aplicação captura automaticamente o registo realizado ao nível e acima.
 
-Pode alterar o limiar de exploração madeireira capturado utilizando o ficheiro `AI-Agent.xml`:
+Pode alterar o limiar de exploração `AI-Agent.xml` madeireira capturado utilizando o ficheiro:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ Pode alterar o limiar de exploração madeireira capturado utilizando o ficheiro
 </ApplicationInsightsAgent>
 ```
 
-Pode desativar a captura de registo do agente Java utilizando o ficheiro `AI-Agent.xml`:
+Pode desativar a captura de `AI-Agent.xml` registo do agente Java utilizando o ficheiro:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -100,7 +100,7 @@ Em seguida, refresque as dependências do projeto, para que os binários sejam d
 ```
 
 #### <a name="if-youre-using-gradle"></a>Se estiver a utilizar Gradle...
-Se o seu projeto já estiver configurado para utilizar gradle para construir, adicione uma das seguintes linhas ao grupo `dependencies` no seu ficheiro build.gradle:
+Se o seu projeto já estiver configurado para utilizar gradle `dependencies` para construir, adicione uma das seguintes linhas ao grupo no seu ficheiro build.gradle:
 
 Em seguida, refresque as dependências do projeto, para que os binários sejam descarregados.
 
@@ -128,7 +128,7 @@ Siga as diretrizes para instalar manualmente os Insights da Aplicação Java SDK
 
 | Madeireiro | Transferência | Biblioteca |
 | --- | --- | --- |
-| Logback |[Jar de aparador de logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Logback |[Jar de aparador de logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logback |
 | Log4J v2.0 |[Jar do anador Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
 | Log4j v1.2 |[Jar do anador Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 

@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267758"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Fixe um disco de dados a um VM windows com PowerShell
@@ -49,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Utilização de discos geridos numa Zona de Disponibilidade
 
-Para criar um disco numa Zona de Disponibilidade, utilize o [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com o parâmetro `-Zone`. O exemplo seguinte cria um disco na zona *1*.
+Para criar um disco numa Zona de Disponibilidade, utilize o `-Zone` [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) com o parâmetro. O exemplo seguinte cria um disco na zona *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'

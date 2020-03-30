@@ -11,20 +11,20 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c5ce6a1c2f231d372a2a8113eb9043a236090388
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061702"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: Adicione uma base de dados única Azure SQL a um grupo de failover
 
-Configure um grupo de failover para uma base de dados única Azure SQL e teste falha utilizando o portal Azure, PowerShell ou Azure CLI.  Neste tutorial, vai aprender a:
+Um [grupo failover](sql-database-auto-failover-group.md) é uma camada de abstração declarativa que permite agrupar bases de dados geo-replicadas mulitple. Aprenda a configurar um grupo de failover para uma base de dados única Azure SQL e teste falha utilizando o portal Azure, PowerShell ou Azure CLI.  Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > - Crie uma base de dados única Azure SQL.
-> - Crie um [grupo de failover](sql-database-auto-failover-group.md) para uma única base de dados entre dois servidores SQL lógicos.
+> - Crie um grupo de failover para uma única base de dados entre dois servidores SQL lógicos.
 > - Falha no teste.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +42,7 @@ Para completar o tutorial, certifique-se de que tem os seguintes itens:
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Para completar o tutorial, certifique-se de que tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se ainda não tiver uma.
@@ -61,8 +61,8 @@ Neste passo, irá criar um grupo de [falhas](sql-database-auto-failover-group.md
 Crie o seu grupo failover e adicione-lhe a sua única base de dados utilizando o portal Azure. 
 
 1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
-1. Selecione a base de dados única criada na secção 1, como `mySampleDatabase`. 
-1. Selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
+1. Selecione a base de dados `mySampleDatabase`única criada na secção 1, como . 
+1. Os grupos failover podem ser configurados ao nível do servidor. Selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
 
    ![Servidor aberto para db simples](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
@@ -71,12 +71,12 @@ Crie o seu grupo failover e adicione-lhe a sua única base de dados utilizando o
     ![Adicione novo grupo de failover](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. Na página do **Grupo Failover,** introduza ou selecione os seguintes valores e, em seguida, selecione **Criar:**
-    - **Nome de grupo failover**: Digite um nome de grupo de failover único, como `failovergrouptutorial`. 
+    - **Nome de grupo failover**: Digite um `failovergrouptutorial`nome de grupo de failover único, como . 
     - **Servidor secundário**: Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores, selecione **Selecione**. 
-        - **Nome do servidor**: Digite um nome único para o servidor secundário, como `mysqlsecondary`. 
-        - **Login de administrador**do servidor : Tipo `azureuser`
+        - **Nome**do servidor : Digite um nome único `mysqlsecondary`para o servidor secundário, como . 
+        - **Login de administrador do servidor**: Tipo`azureuser`
         - **Palavra-passe**: Digite uma senha complexa que satisfaça os requisitos da palavra-passe.
-        - **Localização**: Escolha um local a partir da entrega, como `East US`. Esta localização não pode ser a mesma localização que o seu servidor principal.
+        - **Localização**: Escolha um local a partir `East US`da entrega, como . Esta localização não pode ser a mesma localização que o seu servidor principal.
 
     > [!NOTE]
     > As definições de login do servidor e firewall devem corresponder às do seu servidor principal. 
@@ -166,7 +166,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtém uma ou mais bases de dados SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adiciona uma ou mais bases de dados Azure SQL a um grupo de failover. |
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Crie o seu grupo de failover e adicione-lhe a sua única base de dados utilizando o AZ CLI. 
 
    > [!NOTE]
@@ -203,7 +203,7 @@ Neste passo, falhará o seu grupo de failover para o servidor secundário e, em 
 Teste failover usando o portal Azure. 
 
 1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
-1. Selecione a base de dados única criada na secção 2, como `mySampleDatbase`. 
+1. Selecione a base de dados `mySampleDatbase`única criada na secção 2, tais como . 
 1. Selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
 
    ![Servidor aberto para db simples](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
@@ -284,7 +284,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 
 
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Falha no teste utilizando o AZ CLI. 
 
 Verifique qual é o servidor secundário:
@@ -328,7 +328,7 @@ Elimine o grupo de recursos utilizando o portal Azure.
 
 1. Navegue para o seu grupo de recursos no [portal Azure.](https://portal.azure.com)
 1. **Selecione Eliminar o grupo de recursos** para eliminar todos os recursos do grupo, bem como o próprio grupo de recursos. 
-1. Digite o nome do grupo de recursos, `myResourceGroup`, na caixa de texto, e, em seguida, **selecione Eliminar** para eliminar o grupo de recursos.  
+1. Digite o nome do `myResourceGroup`grupo de recursos, na caixa de texto, e, em seguida, selecione **Eliminar** para eliminar o grupo de recursos.  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -350,7 +350,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Elimine o grupo de recursos utilizando o AZ CLI. 
 
@@ -395,7 +395,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executa uma falha de um grupo de falhas da Base de Dados Azure SQL. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to a failover group")]
 

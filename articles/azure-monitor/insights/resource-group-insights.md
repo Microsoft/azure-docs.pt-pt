@@ -8,15 +8,15 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663543"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
 
-As aplicações modernas são muitas vezes complexas e altamente distribuídas com muitas peças discretas que trabalham em conjunto para prestar um serviço. Reconhecendo esta complexidade, o Azure Monitor fornece informações de monitorização para grupos de recursos. Isto facilita a triagem e diagnóstico de quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto sobre a saúde e desempenho do grupo de recursos&mdash;e a sua aplicação&mdash;como um todo.
+As aplicações modernas são muitas vezes complexas e altamente distribuídas com muitas peças discretas que trabalham em conjunto para prestar um serviço. Reconhecendo esta complexidade, o Azure Monitor fornece informações de monitorização para grupos de recursos. Isto facilita a triagem e diagnóstico de quaisquer problemas que os seus recursos individuais encontrem, ao mesmo tempo que oferece contexto sobre a saúde e desempenho do grupo&mdash;de recursos e a sua aplicação&mdash;como um todo.
 
 ## <a name="access-insights-for-resource-groups"></a>Acesso a insights para grupos de recursos
 

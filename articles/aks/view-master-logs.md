@@ -5,13 +5,13 @@ services: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259386"
 ---
-# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó mestre kubernetes no Serviço Azure Kubernetes (AKS)
+# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
 Com o Serviço Azure Kubernetes (AKS), os principais componentes como o *kube-apiserver* e o gestor do *controlador kube* são fornecidos como um serviço gerido. Cria e gere os nós que executam o tempo de execução do *kubelet* e do contentor e implementa as suas aplicações através do servidor Kubernetes API gerido. Para ajudar a resolver problemas a sua aplicação e serviços, poderá ter de visualizar os registos gerados por estes componentes principais. Este artigo mostra-lhe como utilizar os registos do Monitor Azure para ativar e consultar os registos dos componentes principais kubernetes.
 
@@ -39,7 +39,7 @@ A imagem do portal de exemplo seguinte mostra a janela de *definições de Diagn
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agende uma cápsula de teste no cluster AKS
 
-Para gerar alguns registos, crie uma nova cápsula no seu cluster AKS. O seguinte exemplo de manifesto YAML pode ser usado para criar uma instância básica NGINX. Crie um ficheiro chamado `nginx.yaml` num editor à sua escolha e colhe o seguinte conteúdo:
+Para gerar alguns registos, crie uma nova cápsula no seu cluster AKS. O seguinte exemplo de manifesto YAML pode ser usado para criar uma instância básica NGINX. Crie um `nginx.yaml` ficheiro nomeado num editor à sua escolha e colhe o seguinte conteúdo:
 
 ```yaml
 apiVersion: v1

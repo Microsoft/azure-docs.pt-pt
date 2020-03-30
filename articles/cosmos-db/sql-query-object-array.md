@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246555"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos em Azure Cosmos DB
@@ -52,7 +52,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-## <a id="Iteration"></a>Iteração
+## <a name="iteration"></a><a id="Iteration"></a>Iteração
 
 A SQL API fornece suporte para iterar sobre matrizes JSON, com uma nova construção adicionada através da [palavra-chave IN](sql-query-keywords.md#in) na fonte FROM. No seguinte exemplo:
 
@@ -90,7 +90,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta executa a iteração sobre `children` no recipiente `Families`. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e achata os resultados numa única matriz:  
+A próxima consulta executa a iteração `children` no `Families` recipiente. A matriz de saída é diferente da consulta anterior. Este exemplo `children`divide-se e achata os resultados numa única matriz:  
 
 ```sql
     SELECT *
@@ -157,6 +157,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Junta-se](sql-query-join.md)
+- [Associações](sql-query-join.md)

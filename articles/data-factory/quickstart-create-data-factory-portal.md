@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 0afb0ddb65a4f27463e2bb5c1b9441d248c34415
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240759"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Quickstart: Criar uma fábrica de dados utilizando a UI da Fábrica de Dados Azure
@@ -38,7 +38,7 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Aceda ao [Portal do Azure](https://portal.azure.com). 
+1. Vá ao [portal Azure.](https://portal.azure.com) 
 1. A partir do menu do portal Azure, selecione **Criar um recurso**.
    
    ![Selecione Criar um recurso do menu do portal Azure](./media/doc-common-process/create-a-resource.png)
@@ -47,7 +47,7 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
  
-   O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt;oseunome&gt;ADFTutorialDataFactory**) e tente criá-la novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
+   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, ** &lt;o seu nome&gt;ADFTutorialDataFactory**) e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
 1. Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
@@ -104,7 +104,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
 
 Nas definições de serviço ligadas, especificou a conta De armazenamento azure que contém os dados de origem. Nas definições do conjunto de dados de origem, vai especificar onde é que os dados de origem residem exatamente (contentor de blobs, pasta e ficheiro). Nas definições do conjunto de dados de sink, vai especificar para onde é que os dados vão ser copiados (contentor de blobs, pasta e ficheiro). 
  
-1. Selecione o botão **+** (mais) e, em seguida, selecione **Conjunto de Dados**.
+1. Selecione o **+** botão (mais) e, em seguida, selecione **Dataset**.
 
    ![Menu para criar um conjunto de dados](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
 1. Na página **New Dataset,** selecione **Armazenamento De Blob Azure**, e, em seguida, selecione **Continuar**. 
@@ -128,7 +128,7 @@ Nas definições de serviço ligadas, especificou a conta De armazenamento azure
     ![Definir propriedades para InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
 1. Repita os passos para criar o conjunto de dados de saída:  
 
-    a. Selecione o botão **+** (mais) e, em seguida, selecione **Conjunto de Dados**.
+    a. Selecione o **+** botão (mais) e, em seguida, selecione **Dataset**.
 
     b. Na página **New Dataset,** selecione **Armazenamento De Blob Azure**, e, em seguida, selecione **Continuar**.
 
@@ -144,19 +144,19 @@ Nas definições de serviço ligadas, especificou a conta De armazenamento azure
 ## <a name="create-a-pipeline"></a>Criar um pipeline 
 Neste procedimento, vai criar e validar um pipeline com uma atividade de cópia que utiliza os conjuntos de dados de entrada e saída. A atividade de cópia copia dados do ficheiro especificado nas definições do conjunto de dados de entrada para o ficheiro especificado nas definições do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (e não o nome do ficheiro), a atividade de cópia copia todos os ficheiros na pasta de origem para o destino. 
 
-1. Selecione o botão **+** (mais) e, em seguida, selecione **Pipeline**. 
+1. Selecione o **+** botão (mais) e, em seguida, selecione **Pipeline**. 
 
 1. No separador **Geral**, especifique **CopyPipeline** no **Nome**. 
 
 1. Na caixa de ferramentas **Atividades**, expanda **Mover e Transformar**. Arraste a atividade de Dados de **Cópia** da caixa de **ferramentas De Atividades** para a superfície do designer de gasodutos. Também pode pesquisar por atividades na caixa de ferramentas **Atividades**. Especifique **CopyFromBlobToBlob** em **Nome**.
-   ![Criar uma](./media/quickstart-create-data-factory-portal/copy-activity.png) de atividade de dados de cópia
+   ![Criação de uma atividade de dados de cópia](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. Mude para o separador **Origem** nas definições da atividade de cópia e selecione **InputDataset** em **Conjunto de Dados de Origem**.
 
 1. Mude para o separador **Sink** nas definições da atividade de cópia e selecione **OutputDataset** em **Conjunto de Dados de Sink**.
 
-1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída da validação, selecione o botão **>>** (seta para a direita). 
-   ![Validar um](./media/quickstart-create-data-factory-portal/pipeline-validate.png) de gasoduto
+1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída **>>** de validação, selecione o botão (seta direita). 
+   ![Validar um oleoduto](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## <a name="debug-the-pipeline"></a>Depurar o pipeline
 Neste passo, vai depurar o pipeline antes de o implementar no Data Factory. 
@@ -173,7 +173,7 @@ Neste passo, vai depurar o pipeline antes de o implementar no Data Factory.
 Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de dados, pipelines) no Azure Data Factory. Em seguida, vai acionar manualmente uma execução de pipeline. 
 
 1. Antes de acionar um pipeline, tem de publicar entidades no Data Factory. Para publicar, selecione **Publicar tudo** no topo. 
-    ![Publicar todos os](./media/quickstart-create-data-factory-portal/publish-all.png)
+    ![Publicar tudo](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. Para acionar manualmente o gasoduto, selecione **Adicionar gatilho** na barra de ferramentas do gasoduto e, em seguida, selecione **Trigger Now**. Na página **de execução** do Pipeline, selecione **Finish**.
 

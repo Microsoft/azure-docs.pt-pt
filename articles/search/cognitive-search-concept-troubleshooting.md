@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245489"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
@@ -58,7 +58,7 @@ O campo ```enriched``` vai conter uma cadeia que é uma representação lógica 
 
 O campo enriquecido destina-se apenas a fins de depuração, para ajudá-lo a entender a forma lógica do conteúdo contra o qual as expressões estão a ser avaliadas. Não deve depender deste campo para fins de indexação.
 
-Adicione um campo ```enriched``` como parte da sua definição de índice para fins de depuração:
+Adicione ```enriched``` um campo como parte da sua definição de índice para fins de depuração:
 
 #### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json
@@ -81,7 +81,7 @@ Adicione um campo ```enriched``` como parte da sua definição de índice para f
 
 O conteúdo em falta pode ser o resultado da queda de documentos durante a indexação. Os níveis gratuitos e básicos têm limites baixos no tamanho do documento. Qualquer ficheiro que exceda o limite é retirado durante a indexação. Pode verificar se há documentos no portal Azure. No painel de serviço de pesquisa, clique duas vezes no azulejo indexers. Reveja a razão dos documentos bem sucedidos indexados. Se não for 100%, pode clicar na razão para obter mais detalhes. 
 
-Se o problema estiver relacionado com o tamanho do ficheiro, poderá ver um erro como este: "A bolha \<nome de ficheiro>" tem o tamanho de \<tamanho de ficheiro> bytes, que excede o tamanho máximo para a extração de documentos para o seu nível de serviço atual." Para obter mais informações sobre os limites dos indexantes, consulte [os limites de serviço](search-limits-quotas-capacity.md).
+Se o problema estiver relacionado com o tamanho do ficheiro, \<poderá ver um erro como \<este: "O nome de ficheiro blob>" tem o tamanho dos bytes> do tamanho de ficheiros, que excede o tamanho máximo para a extração de documentos para o seu nível de serviço atual." Para obter mais informações sobre os limites dos indexantes, consulte [os limites de serviço](search-limits-quotas-capacity.md).
 
 Uma segunda razão para o conteúdo não aparecer pode ser erros de mapeamento de entrada/saída relacionados. Por exemplo, um nome-alvo de saída é "People", mas o nome de campo de índice é "pessoas" minúsculas. O sistema poderia devolver 201 mensagens de sucesso para todo o oleoduto, pelo que se pensa que a indexação foi bem sucedida, quando na verdade um campo está vazio. 
 
@@ -94,9 +94,9 @@ O tempo máximo de execução varia por nível: vários minutos no nível Livre,
 Para os indexadores programados, a indexação retoma no horário no último bom documento conhecido. Ao utilizar um horário recorrente, o indexante pode fazer o seu caminho através do atraso de imagem ao longo de uma série de horas ou dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de horário, consulte [passo 3: Criar um indexante](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou ver [Como agendar indexadores para pesquisa cognitiva Azure](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Se um indexante for definido para um determinado horário, mas falha repetidamente no mesmo documento vezes sem conta cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que faça progressos aga em.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
+> Se um indexante for definido para um determinado horário, mas falha repetidamente no mesmo documento vezes sem conta cada vez que funciona, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que faça progressos com sucesso de novo.  Se acredita ter corrigido qualquer que seja o problema que estava a causar o facto de o indexante estar preso a um determinado ponto, pode realizar uma execução a pedido do indexante, e se isso fizer progressos com sucesso, o indexante voltará ao intervalo de horário definido novamente.
 
-Para indexação baseada em portal (como descrito no quickstart), escolher a opção indexante "executar uma vez" limita o processamento para 1 hora (`"maxRunTime": "PT1H"`). Talvez queira estender a janela de processamento para algo mais longo.
+Para indexação baseada em portal (como descrito no quickstart), escolher a opção indexante`"maxRunTime": "PT1H"`"executar uma vez" limita o processamento para 1 hora ( ). Talvez queira estender a janela de processamento para algo mais longo.
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Dica 7: Aumentar a pontuação de indexação
 

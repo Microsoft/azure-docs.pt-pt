@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367997"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualizar dados interativos de consulta Apache Hive com microsoft Power BI usando consulta direta no HDInsight
 
-Este artigo descreve como ligar o Microsoft Power BI aos clusters de consulta interativa Azure HDInsight e visualizar os dados da Apache Hive usando consulta direta. O exemplo forneceu os dados de uma tabela `hivesampletable` Hive para Power BI. A tabela `hivesampletable` Hive contém alguns dados de utilização do telemóvel. Em seguida, planeia os dados de uso num mapa mundial:
+Este artigo descreve como ligar o Microsoft Power BI aos clusters de consulta interativa Azure HDInsight e visualizar os dados da Apache Hive usando consulta direta. O exemplo forneceu os `hivesampletable` dados de uma tabela da Colmeia para o Power BI. A `hivesampletable` tabela Hive contém alguns dados de utilização do telemóvel. Em seguida, planeia os dados de uso num mapa mundial:
 
 ![HDInsight Power BI o relatório do mapa](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -27,15 +27,15 @@ Pode aproveitar o [controlador Apache Hive ODBC](../hadoop/apache-hadoop-connect
 Antes de ler este artigo, deve ter os seguintes itens:
 
 * **Cluster HDInsight**. O cluster pode ser um cluster HDInsight com Apache Hive ou um cluster de consulta interativa recém-lançado. Para criar clusters, consulte [Criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Pode descarregar uma cópia do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Pode descarregar uma cópia do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Dados de carga do HDInsight
 
-A mesa `hivesampletable` Hive vem com todos os clusters HDInsight.
+A `hivesampletable` tabela Hive vem com todos os clusters HDInsight.
 
-1. Iniciar o ambiente de trabalho power BI.
+1. Inicie o Power BI Desktop.
 
-2. Da barra de menus, navegue até ** > Obter** **dados** > **mais...** .
+2. Da barra de menus, navegue até **Home** > **Get Data** > **More...**.
 
     ![HDInsight Power BI obter dados mais](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
@@ -49,9 +49,9 @@ A mesa `hivesampletable` Hive vem com todos os clusters HDInsight.
 
     |Propriedade | Valor |
     |---|---|
-    |Servidor |Introduza o nome do cluster, por *exemplo, myiqcluster.azurehdinsight.net*.|
+    |Server |Introduza o nome do cluster, por *exemplo, myiqcluster.azurehdinsight.net*.|
     |Base de Dados |Introduza **o predefinido** para este artigo.|
-    |Modo conectividade de dados |Selecione **DirectQuery** para este artigo.|
+    |Modo de Conectividade de Dados |Selecione **DirectQuery** para este artigo.|
 
     ![Ligação interativa HDInsight Power BI DirectQuery](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 

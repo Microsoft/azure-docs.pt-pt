@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657588"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico deixou cair notificações em Centros de Notificação Azure
@@ -35,7 +35,7 @@ Num fluxo típico de notificação de envio, a mensagem é enviada do fundo da *
 
 Com os alvos estabelecidos, o Notification Hubs empurra notificações para o serviço de *notificação push* para a plataforma do dispositivo. Exemplos incluem o serviço de Notificação push apple (APNs) para iOS e macOS, e Mensagens cloud firebase (FCM) para dispositivos Android. O Notification Hubs empurra notificações divididas em vários lotes de registos. Autentica-se com o respetivo serviço de notificação push, com base nas credenciais que definiu no portal Azure, no âmbito do **Configure Notification Hub**. O serviço de notificação push reencaminha então as notificações para os *respetivos dispositivos clientes*.
 
-A última etapa da entrega de notificações é entre o serviço de notificação push da plataforma e o dispositivo. A entrega de notificação pode falhar em qualquer uma das quatro fases do processo de notificação push (cliente, back end da aplicação, Centros de Notificação e serviço de notificação push da plataforma). Para mais informações sobre a arquitetura Notification Hubs, consulte a visão geral dos Centros de [Visão geral dos Centros de Notificação]
+A última etapa da entrega de notificações é entre o serviço de notificação push da plataforma e o dispositivo. A entrega de notificação pode falhar em qualquer uma das quatro fases do processo de notificação push (cliente, back end da aplicação, Centros de Notificação e serviço de notificação push da plataforma). Para mais informações sobre a arquitetura Notification Hubs, consulte a visão geral dos Centros de [Notificação.]
 
 Pode ocorrer uma não entrega de notificações durante a fase inicial de teste/encenação. As notificações retiradas nesta fase podem indicar um problema de configuração. Se ocorrer uma falha na entrega de notificações na produção, algumas ou todas as notificações poderão ser retiradas. Neste caso, indica-se uma aplicação mais profunda ou um problema de padrões de mensagens.
 
@@ -47,7 +47,7 @@ Para enviar notificações para o respetivo serviço de notificação push, os C
 
 Deve adicionar credenciais de plataforma ao portal Azure. Se não houver notificações a chegar ao dispositivo, o primeiro passo é garantir que as credenciais corretas estão configuradas nos Centros de Notificação. As credenciais devem corresponder à aplicação criada sob uma conta de desenvolvedor específico da plataforma.
 
-Para obter instruções passo a passo para concluir este processo, consulte Iniciar com Hubs de [Começar com hubs de notificação Azure].
+Para obter instruções passo a passo para concluir este processo, consulte Iniciar com Hubs de [Notificação Azure].
 
 Aqui estão algumas configurações comuns para verificar:
 
@@ -85,7 +85,7 @@ Se utilizar tags ou tags para segmentar o seu público, é possível que quando 
 
 Reveja as suas inscrições para garantir que as etiquetas correspondem quando envia uma notificação. Em seguida, verifique o recibo de notificação apenas dos clientes que possuam esses registos.
 
-Por exemplo, suponha que todos os seus registos com Centros de Notificação utilizem a etiqueta "Política". Se enviar uma notificação com a etiqueta "Sports", a notificação não será enviada para qualquer dispositivo. Um caso complexo pode envolver expressões de etiquetas onde se registou usando "Tag A" *ou* "Tag B", mas apontou "Tag A &amp; Tag B". A secção de dicas de autodiagnóstico mais tarde no artigo mostra-lhe como rever as suas inscrições e as suas etiquetas.
+Por exemplo, suponha que todos os seus registos com Centros de Notificação utilizem a etiqueta "Política". Se enviar uma notificação com a etiqueta "Sports", a notificação não será enviada para qualquer dispositivo. Um caso complexo pode envolver expressões de etiquetas onde se registou usando "Tag A" *ou* "Tag B", mas apontou "Tag A && Tag B". A secção de dicas de autodiagnóstico mais tarde no artigo mostra-lhe como rever as suas inscrições e as suas etiquetas.
 
 ### <a name="template-issues"></a>Problemas de modelo
 
@@ -114,9 +114,9 @@ Como os serviços de notificação da plataforma são robustos, as notificaçõe
 
 Se um serviço de notificação push tentar entregar uma notificação, mas o dispositivo estiver offline, a notificação é armazenada pelo serviço de notificação push. Está guardado por um período limitado de tempo. A notificação é entregue ao dispositivo quando o dispositivo estiver disponível.
 
-Cada aplicação armazena apenas uma notificação recente. Se forem enviadas várias notificações enquanto um dispositivo estiver offline, cada nova notificação faz com que a última seja descartada. Manter apenas a mais recente notificação chama-se *acoligar-se* em APNs e *colapsar* na FCM. (A FCM usa uma chave em colapso.) Quando o dispositivo permanece offline por muito tempo, as notificações que foram armazenadas para o dispositivo são descartadas. Para mais informações, consulte a visão geral da [Visão geral das APNs] e [sobre as mensagens da FCM].
+Cada aplicação armazena apenas uma notificação recente. Se forem enviadas várias notificações enquanto um dispositivo estiver offline, cada nova notificação faz com que a última seja descartada. Manter apenas a mais recente notificação chama-se *acoligar-se* em APNs e *colapsar* na FCM. (A FCM usa uma chave em colapso.) Quando o dispositivo permanece offline por muito tempo, as notificações que foram armazenadas para o dispositivo são descartadas. Para mais informações, consulte a visão geral da [APNs] e [sobre as mensagens da FCM].
 
-Com centros de notificação, pode passar uma chave de aparação através de um cabeçalho HTTP utilizando a API de Notificação de Envio genérica. Por exemplo, para o .NET SDK, utilizar-se-ia `SendNotificationAsync`. A API de Notificação de Envio também leva cabeçalhos HTTP que são passados como é o respetivo serviço de notificação push.
+Com centros de notificação, pode passar uma chave de aparação através de um cabeçalho HTTP utilizando a API de Notificação de Envio genérica. Por exemplo, para o .NET SDK, utilizaria `SendNotificationAsync`. A API de Notificação de Envio também leva cabeçalhos HTTP que são passados como é o respetivo serviço de notificação push.
 
 ## <a name="self-diagnosis-tips"></a>Dicas de autodiagnóstico
 
@@ -197,9 +197,9 @@ Quando envia uma notificação via Notification Hubs, a notificação está inic
 
 Se a sua notificação não chegar ao dispositivo cliente, pode ter ocorrido um erro quando o Notification Hubs tentou entregá-lo ao serviço de notificação push. Por exemplo, o tamanho da carga útil pode exceder o máximo permitido pelo serviço de notificação push, ou as credenciais configuradas nos Centros de Notificação podem ser inválidas.
 
-Para obter informações sobre os erros do serviço de notificação push, pode utilizar a propriedade [EnableTestSend] Esta propriedade é ativada automaticamente quando envia mensagens de teste do portal ou cliente do Estúdio Visual. Você pode usar esta propriedade para ver informações detalhadas de depuração e também através de APIs. Atualmente, pode usá-lo no .NET SDK. Será adicionado a todos os SDKs clientes eventualmente.
+Para obter informações sobre os erros do serviço de notificação push, pode utilizar a propriedade [EnableTestSend.] Esta propriedade é ativada automaticamente quando envia mensagens de teste do portal ou cliente do Estúdio Visual. Você pode usar esta propriedade para ver informações detalhadas de depuração e também através de APIs. Atualmente, pode usá-lo no .NET SDK. Será adicionado a todos os SDKs clientes eventualmente.
 
-Para utilizar a propriedade `EnableTestSend` com a chamada REST, anexar um parâmetro de corda de consulta chamado *teste* até ao final da sua chamada de envio. Por exemplo:
+Para utilizar `EnableTestSend` a propriedade com a chamada REST, anexar um parâmetro de corda de consulta chamado *teste* até ao final da sua chamada de envio. Por exemplo:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -215,9 +215,9 @@ var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-No final da execução, `result.State` simplesmente afirma `Enqueued`. Os resultados não fornecem qualquer informação sobre o que aconteceu com a sua notificação push.
+No final da `result.State` execução, `Enqueued`simplesmente afirma. Os resultados não fornecem qualquer informação sobre o que aconteceu com a sua notificação push.
 
-Em seguida, você pode usar a propriedade `EnableTestSend` Boolean. Utilize a propriedade `EnableTestSend` enquanto inicia `NotificationHubClient` para obter um estado detalhado sobre os erros do serviço de notificação push que ocorrem quando a notificação é enviada. A chamada de envio leva tempo adicional para regressar porque primeiro precisa de Centros de Notificação para entregar a notificação ao serviço de notificação push.
+Em seguida, você `EnableTestSend` pode usar a propriedade Boolean. Utilize `EnableTestSend` a propriedade enquanto inicia `NotificationHubClient` para obter um estado detalhado sobre os erros de serviço de notificação push que ocorrem quando a notificação é enviada. A chamada de envio leva tempo adicional para regressar porque primeiro precisa de Centros de Notificação para entregar a notificação ao serviço de notificação push.
 
 ```csharp
     bool enableTestSend = true;
@@ -244,7 +244,7 @@ The Token obtained from the Token Provider is wrong
 Esta mensagem indica que as credenciais configuradas nos Centros de Notificação são inválidas ou que há um problema com os registos no centro. Elimine este registo e deixe o cliente recriar o registo antes de enviar a mensagem.
 
 > [!NOTE]
-> O uso da propriedade `EnableTestSend` é fortemente estrangulado. Utilize esta opção apenas num ambiente de desenvolvimento/teste e com um conjunto limitado de inscrições. As notificações de depuração são enviadas para apenas 10 dispositivos. Há também um limite no processamento de envios de depurados, a 10 por minuto.
+> O uso `EnableTestSend` da propriedade é fortemente estrangulado. Utilize esta opção apenas num ambiente de desenvolvimento/teste e com um conjunto limitado de inscrições. As notificações de depuração são enviadas para apenas 10 dispositivos. Há também um limite no processamento de envios de depurados, a 10 por minuto.
 
 ### <a name="review-telemetry"></a>Rever telemetria
 

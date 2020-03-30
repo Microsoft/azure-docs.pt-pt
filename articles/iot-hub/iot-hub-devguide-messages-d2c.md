@@ -1,5 +1,5 @@
 ---
-title: Compreenda o encaminhamento de mensagens Azure IoT Hub  Microsoft Docs
+title: Compreenda o encaminhamento de mensagens Azure IoT Hub [ Microsoft Docs
 description: Guia de desenvolvedores - como usar o encaminhamento de mensagens para enviar mensagens de dispositivo-nuvem. Inclui informações sobre o envio de dados de telemetria e não-telemetria.
 author: ash2017
 manager: briz
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370462"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Use o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-cloud para diferentes pontos finais
@@ -91,7 +91,7 @@ As filas de ônibus de serviço e tópicos usados como pontos finais do Hub IoT 
 > Se o seu recurso de ônibus de serviço tiver configurações de firewall que restringem a conectividade do IoT Hub, considere usar [a microsoft confiável primeira exceção de primeira parte](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponível em regiões selecionadas para centros IoT com identidade de serviço gerida).
 
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Event Hubs
 
 Além do ponto final compatível com os Hubs incorporados no evento, também pode direcionar dados para pontos finais personalizados de Hubs de Eventos tipo. 
 
@@ -120,7 +120,7 @@ Utilize os seguintes tutoriais para aprender a ler a mensagem a partir de um pon
 
 A rota de recuo envia todas as mensagens que não satisfazem as condições de consulta em nenhuma das rotas existentes para os Hubs embutidos **(mensagens/eventos),** que são compatíveis com os Hubs de [Eventos.](/azure/event-hubs/) Se o encaminhamento de mensagens estiver ligado, pode ativar a capacidade de rota de recuo. Uma vez criada uma rota, os dados param de fluir para o ponto final incorporado, a menos que seja criada uma rota para esse ponto final. Se não houver rotas para o ponto de encontro incorporado e uma rota de recuo estiver ativada, apenas mensagens que não correspondam a quaisquer condições de consulta nas rotas serão enviadas para o ponto final incorporado. Além disso, se todas as rotas existentes forem eliminadas, a rota de recuo deve ser ativada para receber todos os dados no ponto final incorporado.
 
-Pode ativar/desativar a rota de recuo no portal Azure->Lâmina de encaminhamento de mensagens. Também pode utilizar o Gestor de Recursos Azure para [fallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para utilizar um ponto final personalizado para a rota de recuo.
+Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens >portal Azure. Também pode utilizar o Gestor de Recursos Azure para [fallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para utilizar um ponto final personalizado para a rota de recuo.
 
 ## <a name="non-telemetry-events"></a>Eventos de não-telemetria
 

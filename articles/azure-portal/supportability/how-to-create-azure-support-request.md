@@ -1,5 +1,5 @@
 ---
-title: Como criar um pedido de apoio azure  Microsoft Docs
+title: Como criar um pedido de apoio azure [ Microsoft Docs
 description: Os clientes que necessitem de assistência podem utilizar o portal Azure para encontrar soluções de self-service e para criar e gerir pedidos de apoio.
 services: Azure Supportability
 author: ganganarayanan
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
 ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248492"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
@@ -25,9 +25,9 @@ O Azure permite-lhe criar e gerir pedidos de apoio, também conhecidos como bilh
 > [!NOTE]
 > O URL do portal Azure é específico da nuvem Azure onde a sua organização está implantada.
 >
->* Portal Azure para uso comercial é: [https://portal.azure.com](https://portal.azure.com)
->* Portal Azure para a Alemanha é: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Portal azure para o governo dos Estados Unidos é: [https://portal.azure.us](https://portal.azure.us)
+>* O portal Azure para uso comercial é:[https://portal.azure.com](https://portal.azure.com)
+>* Portal Azure para a Alemanha é:[https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>* Portal azure para o governo dos Estados Unidos é:[https://portal.azure.us](https://portal.azure.us)
 >
 >
 
@@ -51,7 +51,7 @@ Para iniciar um pedido de apoio de qualquer lugar do portal Azure:
 
 1. Selecione o **?** no cabeçalho global. Em seguida, selecione **Ajuda + suporte**.
 
-   ![Ajuda e Apoio](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
+   ![Ajuda e Suporte](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
 2. Selecione **Novo pedido de suporte**. Siga as instruções para nos fornecer informações sobre o seu problema. Sugerimos algumas soluções possíveis, reuniremos detalhes sobre o assunto e ajudá-lo-emos a submeter e rastrear o pedido de apoio.
 
@@ -106,7 +106,7 @@ Um agente de suporte entrará em contacto consigo utilizando o método indicado.
 
 ## <a name="all-support-requests"></a>Todos os pedidos de apoio
 
-Pode visualizar os detalhes e o estado dos pedidos de apoio **indo para Ajudar + apoiar** >  Todos os pedidos de **suporte**.
+Pode visualizar os detalhes e o estado dos pedidos de apoio **indo para Ajudar + apoiar** >  **Todos os pedidos**de suporte .
 
 ![Todos os pedidos de apoio](./media/how-to-create-azure-support-request/allrequestslower.png)
 

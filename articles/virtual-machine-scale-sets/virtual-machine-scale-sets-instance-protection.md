@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254121"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Exemplo Proteção para casos de conjunto de máquinas virtuais Azure
@@ -176,7 +176,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Sem protecçãoPolítica no modelo conjunto de escala
 A proteção por exemplo só é aplicável em instâncias definidas à escala e não no modelo de conjunto de escala.
 
@@ -188,5 +188,5 @@ Pode aplicar proteção de exemplo seleções após a criação das ocorrências
 ### <a name="not-able-to-apply-instance-protection"></a>Incapaz de aplicar proteção de instâncias
 A proteção por exemplo só é suportada com a versão API 2019-03-01 e acima. Verifique a versão API que está a ser utilizada e atualize conforme necessário. Também poderá ser necessário atualizar o seu PowerShell ou CLI para a versão mais recente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Aprenda a implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquinas virtuais.

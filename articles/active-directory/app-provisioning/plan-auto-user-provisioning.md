@@ -13,10 +13,10 @@ ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522415"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
@@ -132,7 +132,7 @@ Considere as suas necessidades organizacionais para determinar a estratégia de 
 
 Quando os projetos tecnológicos falham, é tipicamente devido a expectativas desajustadas sobre impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se](https://aka.ms/deploymentplans) de que está a envolver as partes interessadas certas e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e as suas entradas e responsabilidades do projeto.
 
-### <a name="plan-communications"></a>Plan communications
+### <a name="plan-communications"></a>Planear as comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunicar proativamente com os seus utilizadores como a sua experiência vai mudar, quando irá mudar, e como obter suporte se experimentarem problemas.
 
@@ -218,7 +218,7 @@ Considere o seguinte para reduzir as questões após a implantação:
 
 * As aplicações podem ter restrições e/ou requisitos específicos que precisam de ser cumpridos para que o fornecimento do utilizador funcione corretamente. Por exemplo, Slack trunca valores para certos atributos. Consulte [tutoriais automáticos](../saas-apps/tutorial-list.md) de fornecimento de utilizadores específicos de cada aplicação.
 
-* Confirme a consistência do esquema entre os sistemas de origem e alvo. Questões comuns incluem atributos como UPN ou correio que não corresponde. Por exemplo, a UPN em Azure AD definida como *john_smith@contoso.com* e na app, é *jsmith@contoso.com* . Para mais informações, consulte o Utilizador e o [grupo de referência do esquema](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+* Confirme a consistência do esquema entre os sistemas de origem e alvo. Questões comuns incluem atributos como UPN ou correio que não corresponde. Por exemplo, upn em Azure *john_smith@contoso.com* AD definido como *jsmith@contoso.com*e na app, é . Para mais informações, consulte o Utilizador e o [grupo de referência do esquema](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Teste de planos e segurança
 
@@ -235,7 +235,7 @@ Depois de configurar o fornecimento automático de utilizadores para a aplicaç�
 | A informação do utilizador é atualizada em Azure AD por qualquer método | Os atributos de utilizador atualizados refletem-se no sistema alvo após um ciclo incremental |
 | O utilizador está fora de alcance | O objeto do utilizador é desativado ou eliminado. <br>Nota: Este comportamento é ultrapassado para [o fornecimento](skip-out-of-scope-deletions.md)do Dia de Trabalho . |
 
-### <a name="plan-security"></a>Planear a segurança
+### <a name="plan-security"></a>Segurança do plano
 
 É comum que uma revisão de segurança seja necessária como parte de um destacamento. Se necessitar de uma revisão de segurança, consulte os muitos [whitepapers](https://www.microsoft.com/download/details.aspx?id=36391) da AD Azure que fornecem uma visão geral da identidade como serviço.
 
@@ -321,7 +321,7 @@ Consulte os seguintes links para resolver problemas quaisquer problemas que poss
 
 #### <a name="resources"></a>Recursos
 
-* [Fornecer feedback do produto](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Fornecer comentários sobre o produto](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 * [Mantenha-se atualizado sobre o que há de novo com a Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 

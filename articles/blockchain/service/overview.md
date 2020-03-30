@@ -5,10 +5,10 @@ ms.date: 03/12/2020
 ms.topic: overview
 ms.reviewer: ravastra
 ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79205077"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
@@ -23,7 +23,7 @@ O Azure Blockchain Service foi concebido para suportar vários protocolos de con
 
 Estas funcionalidades não exigem praticamente qualquer ação de administração e são todas fornecidas sem custos adicionais. Você pode focar-se no desenvolvimento de aplicações e lógica de negócio, em vez de alocar tempo e recursos para gerir máquinas virtuais e infraestruturas. Além disso, pode continuar a desenvolver a sua aplicação com as ferramentas de código aberto e plataforma da sua escolha para oferecer as suas soluções sem ter de aprender novas competências.
 
-## <a name="network-deployment-and-operations"></a>Implantação e operações de rede
+## <a name="network-deployment-and-operations"></a>Implementação e operações de rede
 
 A implementação do Serviço Azure Blockchain é feita através do portal Azure, Azure CLI, ou através do código Visual Studio utilizando a extensão Azure Blockchain. A implantação é simplificada, incluindo o fornecimento de nós de transação e validador, redes virtuais Azure para isolamento de segurança, bem como armazenamento gerido pelo serviço.  Além disso, ao implementar um novo membro blockchain, os utilizadores também criam, ou juntam-se, um consórcio.  Os consórcios permitem que várias partes em diferentes subscrições do Azure possam comunicar-se de forma segura numa blockchain partilhada.  Esta implementação simplificada reduz a implantação da rede blockchain de dias para minutos.
 
@@ -57,7 +57,7 @@ Ao implementar o seu primeiro membro blockchain, você quer se juntar ou criar u
 
 As ações de gestão do consórcio, tais como a adição e remoção de membros de um consórcio, podem ser acedidas através da PowerShell e de uma API REST. Pode gerir programáticamente um consórcio utilizando interfaces comuns em vez de modificar e submeter contratos inteligentes baseados na solidez. Para mais informações, consulte a [gestão do consórcio.](consortium.md)
 
-## <a name="develop-using-familiar-development-tools"></a>Desenvolver usando ferramentas de desenvolvimento familiares
+## <a name="develop-using-familiar-development-tools"></a>Desenvolver com ferramentas de desenvolvimento familiares
 
 Com base no livro de contabilidade quorum Ethereum de código aberto, pode desenvolver aplicações para o Azure Blockchain Service da mesma forma que você para aplicações Ethereum existentes. Trabalhando com os principais parceiros do setor, a extensão do Código visual do Kit de Desenvolvimento do Kit de Desenvolvimento de Blockchain azure permite que os desenvolvedores aproveitem ferramentas familiares como a Truffle Suite para construir contratos inteligentes. Utilizando a extensão do Kit de Desenvolvimento Azure Blockchain, os desenvolvedores podem criar, ou ligar e ao consórcio existente para que possa construir e implementar os seus contratos inteligentes todos a partir de um IDE. Utilizando a extensão do Código do Estúdio Visual Azure Blockchain, pode criar ou ligar-se a um consórcio existente para que possa construir e implementar os seus contratos inteligentes a partir de um IDE. Para mais informações, consulte o Kit de [Desenvolvimento Azure Blockchain no mercado do Código VS](https://aka.ms/vscodebcextension) e o guia de utilizador do Kit de Desenvolvimento [Azure Blockchain.](https://aka.ms/vscodebcextensionwiki)
 

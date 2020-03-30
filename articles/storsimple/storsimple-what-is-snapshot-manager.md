@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: twooley
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267420"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Uma introdução ao StorSimple Snapshot Manager
@@ -109,7 +109,7 @@ Veja a seguinte ilustração.
 ## <a name="backup-types-and-backup-policies"></a>Tipos de backup e políticas de backup
 Com o StorSimple Snapshot Manager, pode fazer o back-up de dados e armazená-lo localmente e na nuvem. Pode utilizar o StorSimple Snapshot Manager para fazer cópias de segurança imediatamente, ou pode utilizar uma política de backup para criar um calendário para a recolha automática de backups. As políticas de backup também lhe permitem especificar quantas imagens serão mantidas. 
 
-### <a name="backup-types"></a>Tipos de backup
+### <a name="backup-types"></a>Tipos de cópia de segurança
 Pode utilizar o StorSimple Snapshot Manager para criar os seguintes tipos de backups:
 
 * **Instantâneos locais** – Os instantâneos locais são cópias ponto-a-tempo de dados de volume que são armazenados no dispositivo StorSimple. Tipicamente, este tipo de backup pode ser criado e restaurado rapidamente. Pode usar uma foto local como faria com uma cópia de reserva local.
@@ -137,7 +137,7 @@ Você pode usar o StorSimple Snapshot Manager para monitorizar e gerir os próxi
 
 Para obter informações sobre a monitorização de trabalhos de backup, vá ao [StorSimple Snapshot Manager para visualizar e gerir trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a utilização do StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Baixar [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

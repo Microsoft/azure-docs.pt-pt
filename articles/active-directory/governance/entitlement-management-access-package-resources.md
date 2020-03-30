@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261895"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso na gestão de direitos da AD Azure
@@ -176,7 +176,7 @@ A Azure AD pode atribuir automaticamente aos utilizadores acesso a um site Share
 
 ## <a name="when-changes-are-applied"></a>Quando são aplicadas alterações
 
-Na gestão de direitos, a Azure AD irá processar alterações a granel para atribuição e recursos nos seus pacotes de acesso várias vezes ao dia. Assim, se fizer uma atribuição, ou alterar as funções de recursos do seu pacote de acesso, pode demorar até 24 horas para que essa alteração seja feita em Azure AD, além do tempo que leva para propagar essas alterações a outros Serviços Online da Microsoft ou aplicação SaaS conectada s. Se a sua alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos para ser aplicada em Azure AD, após o que outros componentes da AD Azure detetarão então essa alteração e atualização das aplicações SaaS. Se a sua mudança afetar milhares de objetos, a mudança demorará mais tempo. Por exemplo, se tiver um pacote de acesso com 2 aplicações e 100 atribuições de utilizador, e decidir adicionar uma função de site sharePoint ao pacote de acesso, pode haver um atraso até que todos os utilizadores façam parte dessa função do site SharePoint. Pode monitorizar o progresso através do registo de auditoria da AD Azure, do registo de provisionamento de AD Azure e dos registos de auditoria do site SharePoint.
+Na gestão de direitos, a Azure AD irá processar alterações a granel para atribuição e recursos nos seus pacotes de acesso várias vezes ao dia. Assim, se fizer uma atribuição, ou alterar as funções de recursos do seu pacote de acesso, pode demorar até 24 horas para que essa alteração seja feita em Azure AD, além do tempo que leva para propagar essas alterações a outros Serviços Online da Microsoft ou SaaS conectados aplicações. Se a sua alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos para ser aplicada em Azure AD, após o que outros componentes da AD Azure detetarão então essa alteração e atualização das aplicações SaaS. Se a sua mudança afetar milhares de objetos, a mudança demorará mais tempo. Por exemplo, se tiver um pacote de acesso com 2 aplicações e 100 atribuições de utilizador, e decidir adicionar uma função de site sharePoint ao pacote de acesso, pode haver um atraso até que todos os utilizadores façam parte dessa função do site SharePoint. Pode monitorizar o progresso através do registo de auditoria da AD Azure, do registo de provisionamento de AD Azure e dos registos de auditoria do site SharePoint.
 
 Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261661"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
@@ -36,7 +36,7 @@ A capacidade de carimbar o tempo funciona como uma autoridade neutra e de confia
 
 ## <a name="scheduled-messages"></a>Mensagens programadas
 
-Pode enviar mensagens para uma fila ou tópico para processamento atrasado; por exemplo, agendar um trabalho para se tornar disponível para processamento por um sistema em determinado momento. Esta capacidade realiza um programador de tempo distribuído fiável.
+Pode submeter mensagens para uma fila ou tópico para processamento adiado; por exemplo, para agendar uma tarefa para ficar disponível para processamento por um sistema a determinada hora. Esta capacidade realiza um programador de tempo distribuído fiável.
 
 As mensagens programadas não se materializam na fila até ao tempo definido de fila. Antes desse tempo, as mensagens programadas podem ser canceladas. O cancelamento elimina a mensagem.
 
@@ -46,10 +46,10 @@ O **Número de sequência** para uma mensagem programada só é válido enquanto
 
 Como a funcionalidade está ancorada em mensagens individuais e as mensagens só podem ser enquecidas uma vez, o Service Bus não suporta horários recorrentes para mensagens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

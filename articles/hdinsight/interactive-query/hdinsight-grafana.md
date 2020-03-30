@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082868"
 ---
-# <a name="access-grafana-in-azure-hdinsight"></a>Acesso Grafana em Azure HDInsight
+# <a name="access-grafana-in-azure-hdinsight"></a>Aceder ao Grafana no Azure HDInsight
 
 [Grafana](https://grafana.com/) é um popular, construtor de gráficos e dashboards. Grafana é rica em recursos; Não só permite que os utilizadores criem dashboards personalizáveis e partilháveis, como também oferece dashboards modelo/scripted, integração LDAP, múltiplas fontes de dados e muito mais.
 
 Atualmente, em Azure HDInsight, grafana é suportada com os tipos de cluster Spark, HBase, Kafka e Interactive Query. Não é suportado para clusters com Enterprise Security Pack habilitado.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Criar um aglomerado de Hadoop Apache
 
@@ -28,7 +28,7 @@ Consulte os [clusters De Apache Hadoop utilizando o portal Azure](../hdinsight-h
 
 ## <a name="access-the-grafana-dashboard"></a>Aceda ao painel grafana
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/grafana/` onde clusterNAME é o nome do seu cluster.
+1. A partir de um `https://CLUSTERNAME.azurehdinsight.net/grafana/` navegador web, navegue até onde clusterNAME é o nome do seu cluster.
 
 1. Introduza as credenciais de utilizador do cluster Hadoop.
 
@@ -40,7 +40,7 @@ Consulte os [clusters De Apache Hadoop utilizando o portal Azure](../hdinsight-h
 
 Se não vai continuar a utilizar esta aplicação, elimine o cluster que criou com os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Na caixa **de pesquisa** na parte superior, digite **HDInsight**.
 

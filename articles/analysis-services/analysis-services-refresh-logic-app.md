@@ -1,5 +1,5 @@
 ---
-title: Atualizar com Aplicações Lógicas para modelos de Serviços de Análise Azure  Microsoft Docs
+title: Atualizar com Aplicações Lógicas para modelos de Serviços de Análise Azure [ Microsoft Docs
 description: Este artigo descreve como codificar a atualização assíncrona para os Serviços de Análise Azure utilizando aplicações da Azure Logic.
 author: chrislound
 ms.service: analysis-services
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126992"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
@@ -65,12 +65,12 @@ Configure a atividade http da seguinte forma:
 |Propriedade  |Valor  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*a região do servidor*/servidores/ nome /modelos do servidor*aas/* o seu nome de base de*dados*/refreshes <br /> <br /> Por exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
-|**Headers** (Cabeçalhos)     |   Content-Type, application/json <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**URI**     | https://*a região do servidor*/servidores/ nome /modelos do servidor*aas/* o seu nome de base de*dados*/refreshes <br /> <br /> Por exemplo:\/https: /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
+|**Cabeçalhos**     |   Tipo de conteúdo, aplicação/json <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre a formação do organismo de pedido, consulte [atualização assíncrona com a REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Diretório Ativo OAuth         |
 |**Inquilino**     |Preencha o seu Inquilino De Diretório Ativo Azure         |
-|**Público**     |https://*.asazure.windows.net         |
+|**Audiência**     |https://*.asazure.windows.net         |
 |**ID do cliente**     |Insira o seu nome principal de serviço ClientID         |
 |**Tipo credencial**     |Segredo         |
 |**Segredo**     |Insira o seu segredo de nome principal de serviço         |
@@ -116,4 +116,4 @@ Salve a Aplicação Lógica.
 ## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

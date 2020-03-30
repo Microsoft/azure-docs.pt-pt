@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240269"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
@@ -28,7 +28,7 @@ Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para efeitos deste início rápido, tem de ter criado uma conta de armazenamento com o nome *mystorageacct123*, que utiliza para o nome do anfitrião de origem. Para obter mais informações, veja [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
+Para efeitos deste início rápido, tem de ter criado uma conta de armazenamento com o nome *mystorageacct123*, que utiliza para o nome do anfitrião de origem. Para mais informações, consulte Integrar uma conta de [armazenamento Azure com o Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
@@ -43,7 +43,7 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
    
     É apresentada a página do perfil de CDN.
 
-2. Selecione o **Ponto Final**.
+2. Selecione **Endpoint**.
    
     ![Perfil da CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
@@ -53,7 +53,7 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Nome** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_ .azureedge.net.|
+    | **Nome** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. Este nome é usado para aceder aos seus recursos em cache no _ &lt;nome&gt;final_do domínio .azureedge.net.|
     | **Tipo de origem** | Selecione **Armazenamento**. | 
     | **Nome de anfitrião da origem** | Introduza *mystorageacct123.blob.core.windows.net* no nome de anfitrião. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
     | **Caminho de origem** | Deixe em branco. |

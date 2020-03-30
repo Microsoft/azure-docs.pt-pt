@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
 ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603278"
 ---
-# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Use recomendações do Azure Security Center para aumentar a segurança
+# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Use Azure Security Center recommendations to enhance security (Utilizar as recomendações do Centro de Segurança do Azure para melhorar a segurança)
 Pode reduzir as hipóteses de um evento de segurança significativo configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pelo Azure Security Center. Este artigo mostra-lhe como usar políticas de segurança e recomendações no Centro de Segurança para ajudar a mitigar um ataque de segurança. 
 
 O Security Center realiza automaticamente exames contínuos para analisar o estado de segurança dos seus recursos Azure. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiam através do processo de configuração dos controlos de segurança necessários. O Security Center atualiza as suas recomendações dentro de 24 horas, com as seguintes exceções:
@@ -35,7 +35,7 @@ Este cenário mostra-lhe como usar o Centro de Segurança para ajudar a reduzir 
 
 Contoso emigrou recentemente alguns dos seus recursos para o Azure. Contoso quer proteger os seus recursos e reduzir a vulnerabilidade dos seus recursos na nuvem.
 
-## <a name="use-azure-security-center"></a>Use o Centro de Segurança Azure
+## <a name="use-azure-security-center"></a>Utilizar o Centro de Segurança do Azure
 David, da segurança de TI de Contoso, já escolheu embarcar no Centro de Segurança das assinaturas de Contoso para o Azure Security Center para prevenir e detetar vulnerabilidades de segurança. 
 
 O Security Center analisa automaticamente o estado de segurança dos recursos Azure de Contoso e aplica políticas de segurança padrão. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações com base nos **controlos** estabelecidos na política de segurança. 

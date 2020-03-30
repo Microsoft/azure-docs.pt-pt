@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77581723"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
@@ -51,7 +51,7 @@ Para embarcar no Azure Sentinel, primeiro precisa de [se ligar às suas fontes](
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -62,7 +62,7 @@ Para o ajudar a reduzir o ruído e minimizar o número de alertas que tem de rev
 ![Incidentes](./media/tutorial-investigate-cases/incident-severity.png)
 
 
-## <a name="security-automation--orchestration"></a>Automação e orquestração de segurança
+## <a name="security-automation--orchestration"></a>A automatização de segurança & orquestração
 
 Automatizar as suas tarefas comuns e [simplificar a orquestração de segurança com playbooks](tutorial-respond-threats-playbook.md) que se integram com os serviços Azure, bem como as suas ferramentas existentes. Construída com base na Azure Logic Apps, a solução de automação e orquestração do Azure Sentinel fornece uma arquitetura altamente extensível que permite a automação escalável à medida que novas tecnologias e ameaças emergem. Para construir playbooks com Apps Lógicas Azure, você pode escolher entre uma galeria crescente de playbooks embutidos. Estes incluem [mais de 200 conectores](https://docs.microsoft.com/azure/connectors/apis-list) para serviços como funções Azure. Os conectores permitem aplicar qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, PEDIDOS HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
 
