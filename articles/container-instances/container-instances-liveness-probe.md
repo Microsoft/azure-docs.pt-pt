@@ -4,10 +4,10 @@ description: Saiba como configurar sondas de vivacidade para reiniciar recipient
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934168"
 ---
 # <a name="configure-liveness-probes"></a>Configurar as pesquisas liveness
@@ -23,7 +23,7 @@ As instâncias de contentores Azure também suportam sondas de [prontidão,](con
 
 ## <a name="yaml-deployment"></a>Implantação yAML
 
-Crie um ficheiro `liveness-probe.yaml` com o seguinte corte. Este ficheiro define um grupo de contentores que consiste num contentor NGNIX que eventualmente se torna insalubre.
+Crie `liveness-probe.yaml` um ficheiro com o seguinte corte. Este ficheiro define um grupo de contentores que consiste num contentor NGNIX que eventualmente se torna insalubre.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,9 +63,9 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Iniciar o comando
 
-A implantação inclui uma propriedade `command` que define um comando inicial que funciona quando o contentor começa a funcionar. Esta propriedade aceita uma variedade de cordas. Este comando simula o contentor entrando num estado pouco saudável.
+A implementação `command` inclui uma propriedade que define um comando inicial que funciona quando o recipiente começa a funcionar. Esta propriedade aceita uma variedade de cordas. Este comando simula o contentor entrando num estado pouco saudável.
 
-Primeiro, começa uma sessão de bash e cria um ficheiro chamado `healthy` dentro do diretório `/tmp`. Em seguida, dorme durante 30 segundos antes de apagar o ficheiro e, em seguida, entra num sono de 10 minutos:
+Primeiro, começa uma sessão de `healthy` bash `/tmp` e cria um ficheiro chamado dentro do diretório. Em seguida, dorme durante 30 segundos antes de apagar o ficheiro e, em seguida, entra num sono de 10 minutos:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -73,21 +73,21 @@ Primeiro, começa uma sessão de bash e cria um ficheiro chamado `healthy` dentr
 
 ### <a name="liveness-command"></a>Comando de vivacidade
 
-Esta implantação define um `livenessProbe` que suporta um comando de `exec` de vivacidade que funciona como a verificação de vivacidade. Se este comando sair com um valor não nulo, o recipiente é morto e reiniciado, sinalizando que o ficheiro `healthy` não foi encontrado. Se este comando sair com sucesso com o código de saída 0, não são tomadas medidas.
+Esta implantação `livenessProbe` define um `exec` que suporta um comando de vivacidade que funciona como a verificação de vivacidade. Se este comando sair com um valor não nulo, o recipiente `healthy` é morto e reiniciado, sinalizando que o ficheiro não foi encontrado. Se este comando sair com sucesso com o código de saída 0, não são tomadas medidas.
 
-A propriedade `periodSeconds` designa o comando de vivacidade deve executar a cada 5 segundos.
+A `periodSeconds` propriedade designa o comando de vivacidade deve executar a cada 5 segundos.
 
 ## <a name="verify-liveness-output"></a>Verificar a produção de vivacidade
 
-Nos primeiros 30 segundos, o ficheiro `healthy` criado pelo comando inicial existe. Quando o comando de vivacidade verifica a existência do ficheiro `healthy`, o código de estado devolve 0, sinalizando o sucesso, pelo que não ocorre reinício.
+Nos primeiros 30 `healthy` segundos, o ficheiro criado pelo comando inicial existe. Quando o comando de `healthy` vivacidade verifica a existência do ficheiro, o código de estado devolve 0, sinalizando o sucesso, pelo que não ocorre reinício.
 
-Após 30 segundos, o comando `cat /tmp/healthy` começa a falhar, causando eventos pouco saudáveis e matanças.
+Após 30 segundos, o `cat /tmp/healthy` comando começa a falhar, causando eventos pouco saudáveis e matanças.
 
 Estes eventos podem ser vistos a partir do portal Azure ou Do CLI Azure.
 
 ![Portal evento pouco saudável][portal-unhealthy]
 
-Ao ver os eventos no portal Azure, eventos de tipo `Unhealthy` são desencadeados sobre a falha do comando de vida. O evento subsequente é de tipo `Killing`, significando a eliminação de um recipiente para que um reinício possa começar. A contagem de reinício para os incrementos do recipiente cada vez que este evento ocorre.
+Ao ver os eventos no portal `Unhealthy` Azure, eventos de tipo são desencadeados sobre a falha do comando de vida. O evento subsequente `Killing`é de tipo, significando a eliminação de um recipiente para que um reinício possa começar. A contagem de reinício para os incrementos do recipiente cada vez que este evento ocorre.
 
 Os reinícios são concluídos no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
@@ -97,7 +97,7 @@ Se a sonda de vivacidade falhar continuamente e desencadear demasiados recomeço
 
 ## <a name="liveness-probes-and-restart-policies"></a>Sondas de vivacidade e políticas de reinício
 
-As políticas de reinício sobressaem o comportamento de reinício desencadeado por sondas de vivacidade. Por exemplo, se definir uma `restartPolicy = Never` *e* uma sonda de vivacidade, o grupo de contentores não reiniciará devido a uma verificação de vivacidade falhada. Em vez disso, o grupo de contentores adere à política de reinício de `Never`do grupo de contentores.
+As políticas de reinício sobressaem o comportamento de reinício desencadeado por sondas de vivacidade. Por exemplo, se `restartPolicy = Never` definir uma sonda de vivacidade *e* uma sonda de vivacidade, o grupo de contentores não recomeçará devido a uma verificação de vivacidade falhada. Em vez disso, o grupo de contentores `Never`adere à política de reinício do grupo de contentores de .
 
 ## <a name="next-steps"></a>Passos seguintes
 

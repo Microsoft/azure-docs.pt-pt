@@ -1,40 +1,40 @@
 ---
-title: Recuperação de desastre para o compartilhamento de dados do Azure
-description: Recuperação de desastre para o compartilhamento de dados do Azure
+title: Recuperação de desastres para a Partilha de Dados do Azure
+description: Recuperação de desastres para a Partilha de Dados do Azure
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: a736e3ddfcf785f9ce27140eed58374a0732c1f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75483183"
 ---
-# <a name="disaster-recovery-for-azure-data-share"></a>Recuperação de desastre para o compartilhamento de dados do Azure
+# <a name="disaster-recovery-for-azure-data-share"></a>Recuperação de desastres para a Partilha de Dados do Azure
 
-Neste artigo, vamos examinar como configurar um ambiente de recuperação de desastre para o compartilhamento de dados do Azure. As interrupções do Azure data center são raras, mas podem durar em qualquer lugar, de alguns minutos a horas. As interrupções do Data Center podem causar interrupções em ambientes que dependem de dados sendo compartilhados pelo provedor de dados. Seguindo as etapas detalhadas neste artigo, os provedores de dados podem continuar a compartilhar dados com seus consumidores de dados no caso de uma interrupção data center para a região primária que está hospedando seu compartilhamento de dados. 
+Neste artigo, vamos descobrir como configurar um ambiente de recuperação de desastres para a Partilha de Dados do Azure. As interrupções no centro de dados azure são raras, mas podem durar entre alguns minutos e horas. As interrupções no Data Center podem causar perturbações em ambientes que dependem de dados partilhados pelo fornecedor de dados. Seguindo os passos detalhados neste artigo, os fornecedores de dados podem continuar a partilhar dados com os seus consumidores de dados em caso de interrupção do centro de dados para a região primária que acolhe a sua quota de dados. 
 
-## <a name="achieving-business-continuity-for-azure-data-share"></a>Obtendo continuidade dos negócios para o compartilhamento de dados do Azure
+## <a name="achieving-business-continuity-for-azure-data-share"></a>Alcançar a continuidade do negócio para a Azure Data Share
 
-Para ser preparado para uma interrupção de data center, o provedor de dados pode ter um ambiente de compartilhamento de dados provisionado em uma região secundária. Há medidas que podem ser tomadas, o que garantirá um failover suave caso ocorra uma interrupção data center. 
+Para estar preparado para uma interrupção do data center, o fornecedor de dados pode ter um ambiente de partilha de dados aprovisionado numa região secundária. Existem medidas que podem ser tomadas que garantirão uma falha suave no caso de ocorrer uma interrupção do centro de dados. 
 
-Os provedores de dados podem provisionar recursos de compartilhamento de dados secundários do Azure em uma região adicional. Esses recursos de compartilhamento de dados podem ser configurados para incluir conjuntos de dados que existem no ambiente primário de compartilhamento de dados. Os consumidores de dados podem ser adicionados ao compartilhamento de dados ao configurar o ambiente de DR ou adicionados em um momento posterior (ou seja, como parte das etapas de failover manual).
+Os fornecedores de dados podem fornecer recursos secundários da Partilha de Dados Azure numa região adicional. Estes recursos de Data Share podem ser configurados para incluir conjuntos de dados que existem no ambiente primário de partilha de dados. Os consumidores de dados podem ser adicionados à partilha de dados ao configurar o ambiente DR, ou adicionados num momento posterior (isto é, e.e. como parte dos passos de failover manual).
 
-Se os consumidores de dados tiverem uma assinatura de compartilhamento ativa em um ambiente secundário provisionado para fins de DR, eles poderão habilitar a agenda de instantâneo como parte de um failover. Se os consumidores de dados não quiserem assinar uma região secundária para fins de DR, eles poderão ser convidados para o compartilhamento de dados secundário em um momento posterior. 
+Se os consumidores de dados tiverem uma subscrição ativa de ações num ambiente secundário previsto para fins de DR, podem ativar o calendário instantâneo como parte de uma falha. Se os dados que os consumidores não quiserem subscrever numa região secundária para efeitos de DR, podem ser convidados para a partilha de dados secundários num momento posterior. 
 
-Os consumidores de dados podem ter uma assinatura de compartilhamento ativa que está ociosa para fins de DR ou os provedores de dados podem adicioná-los em um ponto posterior no tempo como parte dos procedimentos de failover manual. 
+Os consumidores de dados podem ter uma subscrição de ações ativas que esteja inativa para fins de DR, ou os fornecedores de dados podem adicioná-los num momento posterior como parte de procedimentos de failover manual. 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-- [Continuidade dos negócios e recuperação de desastre](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-- [Crie alta disponibilidade em sua estratégia de BCDR](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [Continuidade de Negócios e Recuperação de Desastres](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+- [Criar elevada disponibilidade na sua estratégia de BCDR](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
+Para aprender a começar a partilhar dados, continue a partilhar o seu tutorial de [dados.](share-your-data.md)
 
 
 

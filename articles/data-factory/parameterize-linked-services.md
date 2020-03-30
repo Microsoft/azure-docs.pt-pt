@@ -1,6 +1,6 @@
 ---
-title: Parametrizar serviços vinculados no Azure Data Factory
-description: Saiba como parametrizar os serviços vinculados em Azure Data Factory e passar valores dinâmicos em tempo de execução.
+title: Parametrizar serviços ligados na Fábrica de Dados azure
+description: Saiba como parametrizar serviços ligados na Azure Data Factory e passar valores dinâmicos no tempo de funcionao.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,30 +11,30 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: acc7284eb607d20ca1d62b478d802be56048bc6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440101"
 ---
-# <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
+# <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Fábrica de Dados azure
 
-Agora você pode parametrizar um serviço vinculado e passar valores dinâmicos em tempo de execução. Por exemplo, se você quiser se conectar a bancos de dados diferentes no mesmo servidor de banco de dados SQL do Azure, agora você pode parametrizar o nome do banco de dados na definição de serviço vinculado. Isso impede que você precise criar um serviço vinculado para cada banco de dados no servidor de banco de dados SQL do Azure. Você pode parametrizar outras propriedades na definição de serviço vinculado também, por exemplo, *nome de usuário.*
+Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor de base de dados Azure SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligada. Isto impede que tenha de criar um serviço ligado para cada base de dados no servidor de base de dados Azure SQL. Também pode parametificar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
 
-Você pode usar a interface do usuário do Data Factory no portal do Azure ou uma interface de programação para parametrizar os serviços vinculados.
+Pode utilizar a Data Factory UI no portal Azure ou uma interface de programação para parametrizar serviços ligados.
 
 > [!TIP]
-> Recomendamos não parametrizar senhas ou segredos. Armazene todas as cadeias de conexão em Azure Key Vault em vez disso e parametrizar o *nome do segredo*.
+> Recomendamos que não parametilize senhas ou segredos. Guarde todas as cordas de ligação no Cofre de Chaves Azure e parametilize o *Nome Secreto*.
 
-Para uma introdução e uma demonstração desse recurso de sete minutos, Assista ao vídeo a seguir:
+Para uma introdução de sete minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
-Neste momento, há suporte para a parametrização do serviço vinculado na interface do usuário do Data Factory no portal do Azure para os repositórios de dados a seguir. Para todos os outros armazenamentos de dados, você pode parametrizar o serviço vinculado selecionando o ícone de **código** na guia **conexões** e usando o editor de JSON.
+Neste momento, a parametrização de serviços ligados é suportada na Data Factory UI no portal Azure para as seguintes lojas de dados. Para todas as outras lojas de dados, pode parametrizar o serviço ligado selecionando o ícone **Código** no separador **Ligações** e utilizando o editor JSON.
 - Base de Dados SQL do Azure
-- Armazém de Dados SQL do Azure
+- Azure SQL Data Warehouse
 - SQL Server
 - Oracle
 - Cosmos DB
@@ -44,7 +44,7 @@ Neste momento, há suporte para a parametrização do serviço vinculado na inte
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
-![Adicionar conteúdo dinâmico à definição de serviço vinculado](media/parameterize-linked-services/parameterize-linked-services-image1.png)
+![Adicione conteúdo dinâmico à definição de Serviço Linked](media/parameterize-linked-services/parameterize-linked-services-image1.png)
 
 ![Criar um novo parâmetro](media/parameterize-linked-services/parameterize-linked-services-image2.png)
 

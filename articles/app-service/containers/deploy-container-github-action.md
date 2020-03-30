@@ -7,10 +7,10 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246977"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implemente um recipiente personalizado para o Serviço de Aplicações utilizando ações gitHub
@@ -21,14 +21,14 @@ ms.locfileid: "78246977"
 > A GitHub Actions está atualmente em versão beta. Primeiro deve [inscrever-se para se juntar à pré-visualização](https://github.com/features/actions) utilizando a sua conta GitHub.
 > 
 
-Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um ficheiro `/.github/workflows/` YAML (.yml) no caminho do seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
 Para um fluxo de trabalho de contentor estoque do Serviço de Aplicações Azure, o ficheiro tem três secções:
 
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo GitHub. |
-|**Construir** | 1. Instale o ambiente. <br /> 2. Construa a imagem do recipiente. |
+|**Compilação** | 1. Instale o ambiente. <br /> 2. Construa a imagem do recipiente. |
 |**Implementar** | 1. Implante a imagem do recipiente. |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
@@ -62,9 +62,9 @@ A saída é um objeto JSON com as credenciais de atribuição de funções que f
 
 O exemplo abaixo utiliza credenciais de nível de utilizador, ou assim, o Diretor de Serviço Azure para implantação. Siga os passos para configurar o segredo:
 
-1. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Secrets > Adicione um novo segredo**
+1. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**
 
-2. Colar o conteúdo do comando abaixo `az cli` como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
+2. Colar o conteúdo do `az cli` comando abaixo como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
 
     
     ```azurecli
@@ -75,7 +75,7 @@ O exemplo abaixo utiliza credenciais de nível de utilizador, ou assim, o Direto
     # Replace {subscription-id}, {resource-group} with the subscription, resource group details
     ```
 
-3. Agora, no ficheiro workflow da sua filial: `.github/workflows/workflow.yml` substituir o segredo em ação de login azure pelo seu segredo.
+3. Agora, no ficheiro workflow `.github/workflows/workflow.yml` no seu ramo: substitua o segredo em ação de login do Azure com o seu segredo.
 
 4. Da mesma forma, defina os seguintes segredos adicionais para as credenciais de registo de contentores e coloque-os em ação de login do Docker. 
 
@@ -121,7 +121,7 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Desloque para um recipiente de serviço de aplicações
 
-Para implementar a sua imagem num recipiente personalizado no Serviço de Aplicações, utilize a ação `azure/webapps-container-deploy@v1`. Esta ação tem cinco parâmetros:
+Para implementar a sua imagem num recipiente `azure/webapps-container-deploy@v1` personalizado no Serviço de Aplicações, utilize a ação. Esta ação tem cinco parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|
@@ -175,7 +175,7 @@ jobs:
 
 Pode encontrar o nosso conjunto de Ações agrupadas em diferentes repositórios no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar o GitHub para CI/CD e implementar as suas aplicações para o Azure.
 
-- [Login azure](https://github.com/Azure/login)
+- [Início de sessão no Azure](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 

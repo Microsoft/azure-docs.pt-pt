@@ -1,5 +1,5 @@
 ---
-title: Baixe os perfis VPN globais ou baseados em hub Azure Virtual WAN  Microsoft Docs
+title: Baixe os perfis VPN globais ou baseados em hub Azure Virtual WAN [ Microsoft Docs
 description: Saiba mais sobre a conectividade automática de ramo-a-filial virtual WAN, regiões disponíveis e parceiros.
 services: virtual-wan
 author: anzaman
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 1/31/2020
 ms.author: alzam
 ms.openlocfilehash: 3b7e765dbd024d46939e8989993f0c882b2a8f4b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965232"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Descarregue um perfil global ou baseado em hub para clientes VPN de utilizador
@@ -37,7 +37,7 @@ O perfil aponta para um único centro. O utilizador só pode ligar-se ao hub esp
 2. Clique no **Hub** na página 'Overview'.
 
     ![Perfil hub 1](./media/global-hub-profile/hub1.png)
-3. Clique em **VPN do utilizador (Ponto para o site)** .
+3. Clique em **VPN do utilizador (Ponto para o site)**.
 4. Clique em **baixar o perfil VPN do utilizador do Hub virtual**.
 
    ![Perfil hub 2](./media/global-hub-profile/hub2.png)

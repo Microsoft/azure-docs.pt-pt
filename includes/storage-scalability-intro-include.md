@@ -9,14 +9,14 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8c5c0c8f649e7cbab2c16688717de1aaabfb93c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75477151"
 ---
-Esta referência detalha a escalabilidade e metas de desempenho para o armazenamento do Azure. As metas de escalabilidade e desempenho listadas aqui são destinos de ponta, mas são atingíveis. Em todos os casos, a taxa de solicitação e a largura de banda obtidas pela sua conta de armazenamento dependem do tamanho dos objetos armazenados, dos padrões de acesso utilizados e do tipo de carga de trabalho que seu aplicativo executa.
+Esta referência detalha a escalabilidade e os alvos de desempenho para o Armazenamento Azure. Os objetivos de escalabilidade e desempenho aqui listados são alvos de alta qualidade, mas são alcançáveis. Em todos os casos, a taxa de pedido e largura de banda alcançada saem do tamanho dos objetos armazenados, dos padrões de acesso utilizados e do tipo de carga de trabalho que a sua aplicação realiza.
 
-Certifique-se de testar seu serviço para determinar se seu desempenho atende às suas necessidades. Se possível, evite picos repentinos na taxa de tráfego e garanta que o tráfego seja bem distribuído entre partições.
+Certifique-se de testar o seu serviço para determinar se o seu desempenho satisfaz os seus requisitos. Se possível, evite picos súbitos na taxa de tráfego e certifique-se de que o tráfego está bem distribuído através das divisórias.
 
-Quando seu aplicativo atinge o limite do que uma partição pode manipular para sua carga de trabalho, o armazenamento do Azure começa a retornar o código de erro 503 (servidor ocupado) ou as respostas de código de erro 500 (tempo limite de operação). Se ocorrerem erros 503, considere modificar seu aplicativo para usar uma política de retirada exponencial para novas tentativas. A retirada exponencial permite que a carga na partição diminua e reduza os picos de tráfego para essa partição.
+Quando a sua aplicação atinge o limite do que uma divisória pode lidar com a sua carga de trabalho, o Armazenamento Azure começa a devolver as respostas do código de erro 503 (Server Busy) ou do código de erro 500 (Tempo limite de funcionamento). Se ocorrerem 503 erros, considere modificar a sua aplicação para utilizar uma política exponencial de backoff para tentativas de repescagem. O backoff exponencial permite que a carga na divisória diminua e alivie os picos de tráfego para essa divisória.

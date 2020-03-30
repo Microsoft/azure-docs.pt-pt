@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.openlocfilehash: b358287664ac6d6a3b641e1ab63073810ceb4c40
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208617"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark"></a>Conector azure data explorer para Apache Spark
@@ -89,7 +89,7 @@ Para mais informações, consulte a [utilização do conector](https://github.co
     
 1. Instale a mais recente biblioteca de conectores spark-kusto de Maven:
     
-    Bibliotecas de importação de ![](media/spark-connector/db-libraries-view.png) ![selecione](media/spark-connector/db-dependencies.png) de spark-Kusto-Connector
+    ![Importa](media/spark-connector/db-libraries-view.png) ![bibliotecas Selecione Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
 
 1. Verifique se todas as bibliotecas necessárias estão instaladas:
 

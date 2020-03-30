@@ -1,77 +1,77 @@
 ---
-title: Implantar o cache do Azure para Redis com o Azure Resource Manager
-description: Saiba como usar um modelo de Azure Resource Manager para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
+title: Implementar cache azure para Redis com gestor de recursos Azure
+description: Aprenda a usar um modelo de Gestor de Recursos Azure para implementar um Azure Cache para recurso Redis. Os modelos são fornecidos para cenários comuns.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75412413"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um cache do Azure para Redis usando um modelo
+# <a name="create-an-azure-cache-for-redis-using-a-template"></a>Crie um Cache Azure para Redis usando um modelo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Neste tópico, você aprenderá a criar um modelo de Azure Resource Manager que implanta um cache do Azure para Redis. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+Neste tópico, você aprende a criar um modelo de Gestor de Recursos Azure que implementa um Azure Cache para Redis. A cache pode ser usada com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais os recursos são implantados e como definir parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
-Atualmente, as configurações de diagnóstico são compartilhadas para todos os caches na mesma região para uma assinatura. A atualização de um cache na região afeta todos os outros caches na região.
+Atualmente, as configurações de diagnóstico são partilhadas para todos os caches da mesma região para uma subscrição. A atualização de um cache na região afeta todos os outros caches da região.
 
-Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, consulte [tipos de recurso Microsoft. cache](/azure/templates/microsoft.cache/allversions).
+Para obter mais informações sobre a criação de modelos, consulte os modelos de gestor de [recursos do Azure.](../azure-resource-manager/templates/template-syntax.md) Para saber mais sobre a sintaxe jSON e propriedades para tipos de recursos de cache, consulte os tipos de [recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
-Para obter o modelo completo, consulte o [cache do Azure para o modelo Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+Para obter o modelo completo, consulte [Azure Cache para o modelo Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
-> Os modelos do Resource Manager para a nova [camada Premium](cache-premium-tier-intro.md) estão disponíveis. 
+> Estão disponíveis modelos de Gestor de Recursos para o novo [nível Premium.](cache-premium-tier-intro.md) 
 > 
-> * [Criar um cache do Azure Premium para Redis com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Criar um cache do Azure Premium para Redis com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Criar um cache Redis Premium implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Crie um Cache Azure Premium para Redis com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
+> * [Criar Cache Premium Azure para Redis com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Criar Cache Redis Premium implantado numa Rede Virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
-> Para verificar os modelos mais recentes, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e pesquise por `Azure Cache for Redis`.
+> Para verificar os modelos mais recentes, consulte os `Azure Cache for Redis` [modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) e procure .
 > 
 > 
 
-## <a name="what-you-will-deploy"></a>O que você vai implantar
-Neste modelo, você implantará um cache do Azure para Redis que usa uma conta de armazenamento existente para dados de diagnóstico.
+## <a name="what-you-will-deploy"></a>O que vai implementar
+Neste modelo, irá implementar um Azure Cache para Redis que utiliza uma conta de armazenamento existente para dados de diagnóstico.
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
-[![Implementar no Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Desdobre para Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parâmetros
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada parâmetros que contém todos os valores de parâmetro.
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção chamada Parâmetros que contém todos os valores dos parâmetros.
 Deverá definir um parâmetro para esses valores que variam com base no projeto ou no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados. 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### <a name="rediscachelocation"></a>redisCacheLocation
-O local do cache do Azure para Redis. Para obter o melhor desempenho, use o mesmo local que o aplicativo a ser usado com o cache.
+A localização do Azure Cache para Redis. Para um melhor desempenho, utilize o mesmo local que a aplicação para ser utilizada com a cache.
 
     "redisCacheLocation": {
       "type": "string"
     }
 
-### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-O nome da conta de armazenamento existente a ser usada para diagnóstico. 
+### <a name="existingdiagnosticsstorageaccountname"></a>existenteDiagnosticsStorageAccountName
+O nome da conta de armazenamento existente para utilizar para diagnósticos. 
 
     "existingDiagnosticsStorageAccountName": {
       "type": "string"
     }
 
 ### <a name="enablenonsslport"></a>enableNonSslPort
-Um valor booliano que indica se o acesso deve ser permitido via portas não SSL.
+Um valor booleano que indica se permite o acesso através de portas não SSL.
 
     "enableNonSslPort": {
       "type": "bool"
     }
 
-### <a name="diagnosticsstatus"></a>diagnosticsStatus
-Um valor que indica se o diagnóstico está habilitado. Use ativar ou desativar.
+### <a name="diagnosticsstatus"></a>diagnósticosEstatuto
+Um valor que indica se os diagnósticos estão ativados. Utilizar ON ou OFF.
 
     "diagnosticsStatus": {
       "type": "string",
@@ -84,7 +84,7 @@ Um valor que indica se o diagnóstico está habilitado. Use ativar ou desativar.
 
 ## <a name="resources-to-deploy"></a>Recursos a implementar
 ### <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
-Cria o cache do Azure para Redis.
+Cria o Cache Azure para Redis.
 
     {
       "apiVersion": "2015-08-01",
