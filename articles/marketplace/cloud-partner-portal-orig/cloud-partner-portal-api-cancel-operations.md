@@ -1,36 +1,35 @@
 ---
-title: Cancelar API de operação | Azure Marketplace
+title: Cancelar operação API [ Operação API] Mercado Azure
 description: Cancelar operações.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819792"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280546"
 ---
 # <a name="cancel-operation"></a>Cancelar operação 
 
-Essa API cancela uma operação atualmente em andamento na oferta. Use a [API de operações de recuperação](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` para passar para essa API. O cancelamento geralmente é uma operação síncrona. no entanto, em alguns cenários complexos, uma nova operação pode ser necessária para cancelar um existente. Nesse caso, o corpo da resposta HTTP contém o local da operação que deve ser usado para consultar o status.
+Esta API cancela uma operação em curso na oferta. Utilize as [operações de Recuperação API](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` passe para esta API. O cancelamento é geralmente uma operação sincronizada, no entanto em alguns cenários complexos uma nova operação pode ser necessária para cancelar uma existente. Neste caso, o organismo de resposta HTTP contém a localização da operação que deve ser usada para consulta do estado.
 
-Você pode fornecer uma lista separada por vírgulas de endereços de email com a solicitação e a API notificará esses endereços sobre o progresso da operação.
+Pode fornecer uma lista separada de endereços de e-mail com o pedido, e a API notificará estes endereços sobre o progresso da operação.
 
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros de URI
+<a name="uri-parameters"></a>Parâmetros URI
 --------------
 
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador de editor, por exemplo, `contoso`         |   String          |
-| OfferId      |  Identificador da oferta                                     |   String          |
-| versão da API  |  Versão atual da API                               |    Date           |
+| editorId  |  Identificador de editor, por exemplo,`contoso`         |   Cadeia          |
+| offerId      |  Identificador de oferta                                     |   Cadeia          |
+| api-version  |  Versão atual da API                               |    Date           |
 |  |  |  |
 
 
@@ -39,12 +38,12 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 
 |  **Nome**              |  **Valor**         |
 |  ---------             |  ----------        |
-|  Tipo de conteúdo          |  application/json  |
-|  Autorização         |  Portador seu TOKEN |
+|  Content-Type          |  application/json  |
+|  Autorização         |  Portador do seu token |
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
+<a name="body-example"></a>Exemplo do corpo
 ------------
 
 ### <a name="request"></a>Pedir
@@ -57,11 +56,11 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 }     
 ```
 
-### <a name="request-body-properties"></a>Propriedades do corpo da solicitação
+### <a name="request-body-properties"></a>Solicitar propriedades corporais
 
 |  **Nome**                |  **Descrição**                                               |
 |  --------                |  ---------------                                               |
-|  notificação-emails     | Lista separada por vírgulas de IDs de email a ser notificada do progresso da operação de publicação. |
+|  e-mails de notificação     | A Vírvia separou a lista de ids de e-mail para ser notificado do progresso da operação editorial. |
 |  |  |
 
 
@@ -74,17 +73,17 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 
 |  **Nome**             |    **Valor**                       |
 |  ---------            |    ----------                      |
-| Operação-localização    | URL, que pode ser consultada para determinar o status atual da operação. |
+| Localização da Operação    | URL, que pode ser consultado para determinar o estado atual da operação. |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de status de resposta
+### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Auto-completar**  |  **Descrição**                                                                       |
+| **Código**  |  **Descrição**                                                                       |
 |  ------   |  ------------------------------------------------------------------------               |
-|  200      | Okey. A solicitação foi processada com êxito e a operação foi cancelada de forma síncrona. |
-|  202      | Aceitar. A solicitação foi processada com êxito e a operação está em processo de cancelamento. O local da operação de cancelamento é retornado no cabeçalho de resposta. |
-|  400      | Solicitação incorreta/malformada. O corpo da resposta de erro pode fornecer mais informações.  |
-|  403      | Acesso proibido. O cliente não tem acesso ao namespace especificado na solicitação. |
-|  404      | Não encontrado. A entidade especificada não existe. |
+|  200      | Ok. O pedido foi processado com sucesso e a operação é cancelada sincronizadamente. |
+|  202      | Aceite. O pedido foi processado com sucesso e a operação está em vias de ser cancelada. A localização da operação de cancelamento é devolvida no cabeçalho de resposta. |
+|  400      | Pedido mau/mal formado. O corpo de resposta a erros pode fornecer mais informações.  |
+|  403      | Acesso Proibido. O cliente não tem acesso ao espaço de nome especificado no pedido. |
+|  404      | Não foi encontrado. A entidade especificada não existe. |
 |  |  |

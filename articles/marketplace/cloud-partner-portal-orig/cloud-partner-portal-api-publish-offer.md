@@ -1,35 +1,34 @@
 ---
-title: Publicar uma oferta | Azure Marketplace
+title: Publique uma oferta [ Mercado Azure
 description: API para publicar a oferta especificada.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819646"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280529"
 ---
 <a name="publish-an-offer"></a>Publicar uma oferta
 ================
 
-Inicia o processo de publicação para a oferta especificada. Essa chamada é uma operação de longa execução.
+Inicia o processo de publicação para a oferta especificada. Esta chamada é uma operação de longa duração.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros de URI
+<a name="uri-parameters"></a>Parâmetros URI
 --------------
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador de editor, por exemplo `contoso`      |   String       |
-|  OfferId       | Identificador da oferta                                 |   String       |
-|  versão da API   | Versão mais recente da API                        |   Date         |
+|  editorId   | Identificador de editor, por exemplo`contoso`      |   Cadeia       |
+|  offerId       | Identificador de oferta                                 |   Cadeia       |
+|  api-version   | Versão mais recente da API                        |   Date         |
 |  |  |
 
 
@@ -38,12 +37,12 @@ Inicia o processo de publicação para a oferta especificada. Essa chamada é um
 
 |  **Nome**        |    **Valor**          |
 |  --------        |    ---------          |
-|  Tipo de conteúdo    | `application/json`    |
+|  Content-Type    | `application/json`    |
 |  Autorização   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
+<a name="body-example"></a>Exemplo do corpo
 ------------
 
 ### <a name="request"></a>Pedir
@@ -57,11 +56,11 @@ Inicia o processo de publicação para a oferta especificada. Essa chamada é um
   }
 ```
 
-### <a name="request-body-properties"></a>Propriedades do corpo da solicitação
+### <a name="request-body-properties"></a>Solicitar propriedades corporais
 
 |  **Nome**               |   **Descrição**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
-|  notificação-emails    | Lista separada por vírgulas de endereços de email a serem notificados do progresso da operação de publicação. |
+|  e-mails de notificação    | Lista separada da Comma de endereços de e-mail a ser notificado do progresso da operação editorial. |
 |  |  |
 
 
@@ -74,16 +73,16 @@ Inicia o processo de publicação para a oferta especificada. Essa chamada é um
 
 |  **Nome**             |    **Valor**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operação-localização    | URL que pode ser consultada para determinar o status atual da operação.    |
+| Localização da Operação    | URL que pode ser consultado para determinar o estado atual da operação.    |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de status de resposta
+### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Auto-completar** |  **Descrição**                                                                                                                           |
+| **Código** |  **Descrição**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted`-a solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para acompanhar a operação que é iniciada. |
-| 400   | `Bad/Malformed request`-o corpo da resposta de erro pode fornecer mais informações.                                                               |
-| 422   | `Un-processable entity`-indica que a entidade a ser publicada falhou na validação.                                                        |
-| 404   | `Not found`-a entidade especificada pelo cliente não existe.                                                                              |
+| 202   | `Accepted`- O pedido foi aceite com sucesso. A resposta contém um local que pode ser usado para acompanhar a operação que é lançada. |
+| 400   | `Bad/Malformed request`- O organismo de resposta a erros pode fornecer mais informações.                                                               |
+| 422   | `Un-processable entity`- Indica que a entidade a publicar não foi validada.                                                        |
+| 404   | `Not found`- A entidade especificada pelo cliente não existe.                                                                              |
 |  |  |

@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655468"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um VM Linux com o agente InfluxData Telegraf
@@ -28,7 +28,7 @@ Ao utilizar o Monitor Azure, pode recolher métricas personalizadas através da 
 
 Para este tutorial, implementamos um VM Linux que executa o sistema operativo Ubuntu 16.04 LTS. O agente Telegraf é suportado para a maioria dos sistemas operativos Linux. Tanto os pacotes Debian como rPM estão disponíveis juntamente com binários Linux não embalados no portal de [descarregamento InfluxData](https://portal.influxdata.com/downloads). Consulte este guia de [instalação da Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para obter instruções e opções adicionais de instalação. 
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 Crie um novo VM Linux: 
 
@@ -46,7 +46,7 @@ Crie um novo VM Linux:
 
     ![Visão geral do agente telegráfico tamanho da máquina virtual](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Na página **Definições** da **Rede** > **Network Security Group** > **Selecione portas de entrada públicas,** selecione **HTTP** e **SSH (22)** . Deixe o resto das predefinições e selecione **OK**. 
+1. Na página **Definições** do**Grupo** > de Segurança da **Rede** > **Selecione portas de entrada públicas,** selecione **HTTP** e **SSH (22)**. Deixe o resto das predefinições e selecione **OK**. 
 
 1. Na página de resumo, selecione **Criar** para iniciar a implementação da VM. 
 
@@ -105,7 +105,7 @@ Agora, o agente recolherá métricas de cada uma das fichas de entrada especific
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Planeie as suas métricas Telegraf no portal Azure 
 
-1. Abra o [Portal do Azure](https://portal.azure.com). 
+1. Abra o [portal Azure.](https://portal.azure.com) 
 
 1. Navegue para o novo separador **Monitor.** Em seguida, selecione **Métricas**.  
 

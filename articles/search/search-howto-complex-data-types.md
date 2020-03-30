@@ -10,17 +10,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283059"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos em Pesquisa Cognitiva Azure
 
 Conjuntos de dados externos usados para povoar um índice de pesquisa cognitiva Azure podem vir em muitas formas. Às vezes incluem subestruturas hierárquicas ou aninhadas. Exemplos podem incluir vários endereços para um único cliente, múltiplas cores e tamanhos para um único SKU, vários autores de um único livro, e assim por diante. Em termos de modelação, pode ver estas estruturas referidas como tipos de dados *complexos,* *compostos,* *compósitos*ou *agregados.* O termo Pesquisa Cognitiva Azure usa para este conceito é **tipo complexo.** Na Pesquisa Cognitiva Azure, os tipos complexos são modelados usando **campos complexos.** Um campo complexo é um campo que contém crianças (sub-campos) que podem ser de qualquer tipo de dados, incluindo outros tipos complexos. Isto funciona de forma semelhante aos tipos de dados estruturados numa linguagem de programação.
 
-Campos complexos representam um único objeto no documento, ou uma série de objetos, dependendo do tipo de dados. Os campos de `Edm.ComplexType` de tipo representam objetos únicos, enquanto os campos de `Collection(Edm.ComplexType)` de tipo representam matrizes de objetos.
+Campos complexos representam um único objeto no documento, ou uma série de objetos, dependendo do tipo de dados. Os campos `Edm.ComplexType` de tipo representam objetos únicos, enquanto os campos de tipo `Collection(Edm.ComplexType)` representam matrizes de objetos.
 
 A Azure Cognitive Search apoia nativamente tipos e coleções complexos. Estes tipos permitem modelar quase qualquer estrutura JSON num índice de Pesquisa Cognitiva Azure. Em versões anteriores de APIs de pesquisa cognitiva azure, apenas conjuntos de linhas achatados poderiam ser importados. Na versão mais recente, o seu índice pode agora corresponder mais de perto aos dados de origem. Por outras palavras, se os seus dados de origem tiverem tipos complexos, o seu índice também pode ter tipos complexos.
 
@@ -33,7 +33,7 @@ Para começar, recomendamos o conjunto de [dados Hotéis,](https://github.com/Az
 
 ## <a name="example-of-a-complex-structure"></a>Exemplo de uma estrutura complexa
 
-O seguinte documento JSON é composto por campos simples e campos complexos. Campos complexos, como `Address` e `Rooms`, têm sub-campos. `Address` tem um único conjunto de valores para esses subcampos, uma vez que é um único objeto no documento. Em contraste, `Rooms` tem múltiplos conjuntos de valores para os seus sub-campos, um para cada objeto da coleção.
+O seguinte documento JSON é composto por campos simples e campos complexos. Campos complexos, `Address` `Rooms`como e, têm sub-campos. `Address`tem um único conjunto de valores para esses sub-campos, uma vez que é um único objeto no documento. Em contraste, `Rooms` tem múltiplos conjuntos de valores para os seus sub-campos, um para cada objeto na coleção.
 
 ```json
 {
@@ -64,7 +64,7 @@ O seguinte documento JSON é composto por campos simples e campos complexos. Cam
 
 Como em qualquer definição de índice, pode utilizar o portal, [REST API,](https://docs.microsoft.com/rest/api/searchservice/create-index)ou [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para criar um esquema que inclua tipos complexos. 
 
-O exemplo seguinte mostra um esquema de índice JSON com campos simples, coleções e tipos complexos. Note que dentro de um tipo complexo, cada sub-campo tem um tipo e pode ter atributos, assim como os campos de alto nível têm. O esquema corresponde aos dados de exemplo acima. `Address` é um campo complexo que não é uma coleção (um hotel tem uma morada). `Rooms` é um complexo campo de recolha (um hotel tem muitos quartos).
+O exemplo seguinte mostra um esquema de índice JSON com campos simples, coleções e tipos complexos. Note que dentro de um tipo complexo, cada sub-campo tem um tipo e pode ter atributos, assim como os campos de alto nível têm. O esquema corresponde aos dados de exemplo acima. `Address`é um campo complexo que não é uma coleção (um hotel tem uma morada). `Rooms`é um complexo campo de recolha (um hotel tem muitos quartos).
 
 ```json
 {
@@ -97,13 +97,13 @@ Todas as regras de [reindexação](search-howto-reindex.md) aplicáveis aos camp
 
 ### <a name="structural-updates-to-the-definition"></a>Atualizações estruturais da definição
 
-Pode adicionar novos sub-campos a um campo complexo a qualquer momento sem a necessidade de uma reconstrução do índice. Por exemplo, adicionar "ZipCode" a `Address` ou "Comodidades" a `Rooms` é permitido, tal como adicionar um campo de alto nível a um índice. Os documentos existentes têm um valor nulo para novos campos até que você povoe explicitamente esses campos atualizando os seus dados.
+Pode adicionar novos sub-campos a um campo complexo a qualquer momento sem a necessidade de uma reconstrução do índice. Por exemplo, `Address` `Rooms` é permitida a adição de "ZipCode" ou "Comodidades", tal como adicionar um campo de alto nível a um índice. Os documentos existentes têm um valor nulo para novos campos até que você povoe explicitamente esses campos atualizando os seus dados.
 
 Note que dentro de um tipo complexo, cada sub-campo tem um tipo e pode ter atributos, assim como os campos de alto nível fazem
 
 ### <a name="data-updates"></a>Atualizações de dados
 
-Atualizar os documentos existentes num índice com a ação `upload` funciona da mesma forma para campos complexos e simples - todos os campos são substituídos. No entanto, `merge` (ou `mergeOrUpload` quando aplicado a um documento existente) não funciona da mesma forma em todos os campos. Especificamente, `merge` não suporta a fusão de elementos dentro de uma coleção. Esta limitação existe para coleções de tipos primitivos e coleções complexas. Para atualizar uma coleção, terá de recuperar o valor total da recolha, fazer alterações e, em seguida, incluir a nova coleção no pedido de API indexado.
+Atualizar os documentos existentes `upload` num índice com a ação funciona da mesma forma para campos complexos e simples- todos os campos são substituídos. No `merge` entanto, (ou `mergeOrUpload` quando aplicado a um documento existente) não funciona da mesma forma em todos os campos. Especificamente, `merge` não suporta a fusão de elementos dentro de uma coleção. Esta limitação existe para coleções de tipos primitivos e coleções complexas. Para atualizar uma coleção, terá de recuperar o valor total da recolha, fazer alterações e, em seguida, incluir a nova coleção no pedido de API indexado.
 
 ## <a name="searching-complex-fields"></a>Procurando campos complexos
 
@@ -113,15 +113,15 @@ As consultas ficam mais matizadas quando se tem vários termos e operadores, e a
 
     search=Address/City:Portland AND Address/State:OR
 
-Consultas como esta não estão *correlacionadas* para pesquisa de texto completo, ao contrário dos filtros. Nos filtros, as consultas sobre sub-campos de uma coleção complexa estão correlacionadas utilizando variáveis de gama em [`any` ou `all`](search-query-odata-collection-operators.md). A consulta lucene acima devolve documentos que contêm "Portland, Maine" e "Portland, Oregon", juntamente com outras cidades do Oregon. Isto acontece porque cada cláusula se aplica a todos os valores do seu campo em todo o documento, pelo que não existe um conceito de "sub-documento atual". Para obter mais informações sobre este caso, consulte [a Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+Consultas como esta não estão *correlacionadas* para pesquisa de texto completo, ao contrário dos filtros. Nos filtros, as consultas sobre sub-campos de uma coleção [ `any` complexa `all` ](search-query-odata-collection-operators.md)são correlacionadas usando variáveis de gama dentro ou . A consulta lucene acima devolve documentos que contêm "Portland, Maine" e "Portland, Oregon", juntamente com outras cidades do Oregon. Isto acontece porque cada cláusula se aplica a todos os valores do seu campo em todo o documento, pelo que não existe um conceito de "sub-documento atual". Para obter mais informações sobre este caso, consulte [a Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 ## <a name="selecting-complex-fields"></a>Seleção de campos complexos
 
-O parâmetro `$select` é utilizado para escolher quais os campos devolvidos nos resultados da pesquisa. Para utilizar este parâmetro para selecionar subcampos específicos de um campo complexo, inclua o campo-mãe e o subcampo separados por um corte (`/`).
+O `$select` parâmetro é utilizado para escolher quais os campos devolvidos nos resultados da pesquisa. Para utilizar este parâmetro para selecionar subcampos específicos de um campo complexo, inclua`/`o campo-mãe e o subcampo separados por um corte ( ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-Os campos devem ser marcados como Recuperáveis no índice se os quiser nos resultados da pesquisa. Apenas os campos marcados como Recuperáveis podem ser usados numa declaração `$select`.
+Os campos devem ser marcados como Recuperáveis no índice se os quiser nos resultados da pesquisa. Só os campos marcados como `$select` Recuperáveis podem ser usados em comunicado.
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtro, faceta e ordenar campos complexos
 
@@ -129,15 +129,15 @@ A mesma [sintaxe de percurso OData](query-odata-filter-orderby-syntax.md) utiliz
 
 ### <a name="faceting-sub-fields"></a>Sub-campos de faceta
 
-Qualquer sub-campo pode ser marcado como facetable, a menos que seja de tipo `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)`.
+Qualquer sub-campo pode ser marcado como facetable a menos que seja de tipo `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)`.
 
-As contagens de documento devolvidas nos resultados da faceta são calculadas para o documento-mãe (um hotel), e não os sub-documentos numa coleção complexa (quartos). Por exemplo, suponha que um hotel tem 20 quartos de tipo "suite". Dado este parâmetro de rosto `facet=Rooms/Type`, a contagem de facetas será uma para o hotel, não 20 para os quartos.
+As contagens de documento devolvidas nos resultados da faceta são calculadas para o documento-mãe (um hotel), e não os sub-documentos numa coleção complexa (quartos). Por exemplo, suponha que um hotel tem 20 quartos de tipo "suite". Dado este parâmetro `facet=Rooms/Type`de faceta, a contagem de facetas será uma para o hotel, não 20 para os quartos.
 
 ### <a name="sorting-complex-fields"></a>Classificação de campos complexos
 
 As operações de triagem aplicam-se a documentos (Hotéis) e não a sub-documentos (Quartos). Quando se tem uma coleção de tipo complexo, como quartos, é importante perceber que não se pode classificar em quartos. Na verdade, não se pode classificar em nenhuma coleção.
 
-Ordenar operações funcionam quando os campos têm um único valor por documento, quer o campo seja um campo simples, ou um subcampo num tipo complexo. Por exemplo, `Address/City` é permitido ser classificado porque só há uma morada por hotel, por isso `$orderby=Address/City` vai separar hotéis por cidade.
+Ordenar operações funcionam quando os campos têm um único valor por documento, quer o campo seja um campo simples, ou um subcampo num tipo complexo. Por exemplo, `Address/City` é permitido ser classificado porque só há uma `$orderby=Address/City` morada por hotel, assim como a classificação de hotéis por cidade.
 
 ### <a name="filtering-on-complex-fields"></a>Filtragem em campos complexos
 
@@ -145,11 +145,11 @@ Pode referir-se a sub-campos de um campo complexo numa expressão de filtro. Bas
 
     $filter=Address/Country eq 'Canada'
 
-Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambda** com os [operadores`any` e `all`.](search-query-odata-collection-operators.md) Nesse caso, a **variável** de gama da expressão lambda é um objeto com sub-campos. Pode consultar esses subcampos com a sintaxe padrão do caminho OData. Por exemplo, o filtro seguinte devolverá todos os hotéis com pelo menos um quarto de luxo e todos os quartos para não fumadores:
+Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambda** com os [ `any` e `all` operadores.](search-query-odata-collection-operators.md) Nesse caso, a **variável** de gama da expressão lambda é um objeto com sub-campos. Pode consultar esses subcampos com a sintaxe padrão do caminho OData. Por exemplo, o filtro seguinte devolverá todos os hotéis com pelo menos um quarto de luxo e todos os quartos para não fumadores:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Tal como acontece com campos simples de alto nível, os subcampos simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido para `true` na definição de índice. Para mais informações, consulte a [referência da Create Index API](/rest/api/searchservice/create-index).
+Tal como acontece com campos simples de alto nível, os subcampos simples de campos complexos `true` só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido na definição de índice. Para mais informações, consulte a [referência da Create Index API](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Passos seguintes
 

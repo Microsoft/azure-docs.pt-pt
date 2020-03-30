@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371601"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
@@ -25,7 +25,7 @@ Visite o [Windows Virtual Desktop Tech Community](https://techcommunity.microsof
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquirir a imagem multi-sessão do Windows 10 Enterprise
 
-Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Mercado Azure, selecione **Get Started** > Microsoft **Windows 10** > e [Windows 10 Enterprise para Desktops Virtuais, Versão 1809.](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)
+Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Mercado Azure, selecione **Start Microsoft** > **Windows 10** > e [Windows 10 Enterprise para desktops virtuais, versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![Uma imagem de selecionar o Windows 10 Enterprise para ambientes de trabalho virtuais, versão 1809.](media/AzureMarketPlace.png)
 

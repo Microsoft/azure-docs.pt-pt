@@ -18,10 +18,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262454"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configure SSO no macOS e iOS
@@ -71,9 +71,9 @@ Para que a plataforma de identidade da Microsoft saiba quais as aplicações que
 
 A forma como a plataforma de identidade da Microsoft diz às aplicações que utilizam o mesmo ID de aplicação à parte é através dos seus **URIs redirecionados**. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Por exemplo:
 
-App1 Redirecionamento URI: `msauth.com.contoso.mytestapp1://auth`  
-App2 Redirecione URI: `msauth.com.contoso.mytestapp2://auth`  
-App3 Redirecione URI: `msauth.com.contoso.mytestapp3://auth`  
+App1 Redirecione URI:`msauth.com.contoso.mytestapp1://auth`  
+App2 Redirecione URI:`msauth.com.contoso.mytestapp2://auth`  
+App3 Redirecione URI:`msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > O formato de uris redirecionado deve ser compatível com o formato mSAL suporta, que está documentado nos requisitos de [formato MSAL Redirect URI](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -82,7 +82,7 @@ App3 Redirecione URI: `msauth.com.contoso.mytestapp3://auth`
 
 Consulte o artigo capacidades [adicionais](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) da Apple para permitir a partilha de porta-chaves. O que é importante é que decida o que quer que o seu porta-chaves seja chamado e adicione essa capacidade a todas as suas aplicações que estarão envolvidas no SSO.
 
-Quando tiver os direitos configurados corretamente, verá um ficheiro `entitlements.plist` no seu diretório de projeto que contém algo como este exemplo:
+Quando tiver os direitos configurados corretamente, `entitlements.plist` verá um ficheiro no seu diretório de projeto que contém algo como este exemplo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,8 +101,8 @@ Quando tiver os direitos configurados corretamente, verá um ficheiro `entitleme
 #### <a name="add-a-new-keychain-group"></a>Adicione um novo grupo de porta-chaves
 
 Adicione um novo grupo de porta-chaves ao seu projeto **Capabilities**. O grupo de porta-chaves deve ser:
-* `com.microsoft.adalcache` no iOS 
-* `com.microsoft.identity.universalstorage` no macOS.
+* `com.microsoft.adalcache`sobre o iOS 
+* `com.microsoft.identity.universalstorage`no macOS.
 
 ![exemplo de keychain](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -110,7 +110,7 @@ Para mais informações, consulte [os grupos de porta-chaves](howto-v2-keychain-
 
 ## <a name="configure-the-application-object"></a>Configure o objeto de aplicação
 
-Assim que tiver o direito do porta-chaves ativado em cada uma das suas aplicações, e estiver pronto para utilizar o SSO, configure `MSALPublicClientApplication` com o seu grupo de acesso à porta-chaves como no seguinte exemplo:
+Assim que tiver o direito do porta-chaves ativado em cada uma das suas `MSALPublicClientApplication` aplicações, e estiver pronto para utilizar o SSO, configure com o seu grupo de acesso à porta-chaves como no seguinte exemplo:
 
 Objetivo C:
 
@@ -149,7 +149,7 @@ A MSAL fornece suporte para autenticação intermediada com o Microsoft Authenti
 
 Os seguintes passos são como ativa o SSO utilizando um corretor de autenticação para a sua aplicação:
 
-1. Registe um formato Redirect URI compatível com um corretor para a aplicação na lista info.plist da sua aplicação. O formato Redirect URI compatível com o corretor é `msauth.<app.bundle.id>://auth`. Substitua '<app.bundle.id&gt'' com o id do pacote da sua aplicação. Por exemplo:
+1. Registe um formato Redirect URI compatível com um corretor para a aplicação na lista info.plist da sua aplicação. O formato Redirect URI `msauth.<app.bundle.id>://auth`compatível com o corretor é . Substitua<app.bundle.id>'' com o pacote de identificação da sua aplicação. Por exemplo:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -158,7 +158,7 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
     </array>
     ```
 
-1. Adicione os seguintes esquemas à lista info.plist da sua aplicação em `LSApplicationQueriesSchemes`:
+1. Adicione os seguintes esquemas à lista `LSApplicationQueriesSchemes`info.plist da sua aplicação em :
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -168,7 +168,7 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
     </array>
     ```
 
-1. Adicione o seguinte ao seu ficheiro `AppDelegate.m` para lidar com as chamadas:
+1. Adicione o seguinte `AppDelegate.m` ao seu ficheiro para lidar com chamadas:
 
     Objetivo C:
     
@@ -187,7 +187,7 @@ Os seguintes passos são como ativa o SSO utilizando um corretor de autenticaç�
     }
     ```
     
-Se estiver a utilizar o **Xcode 11,** deverá colocar a chamada MSAL no ficheiro `SceneDelegate`.
+Se estiver a utilizar o **Xcode 11,** deve `SceneDelegate` colocar a chamada MSAL no ficheiro.
 Se apoiar tanto o UISceneDelegate como o UIApplicationDelegate para a compatibilidade com iOS mais antigo, o backback do MSAL terá de ser colocado em ambos os ficheiros.
 
 Objetivo C:
@@ -219,6 +219,6 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação

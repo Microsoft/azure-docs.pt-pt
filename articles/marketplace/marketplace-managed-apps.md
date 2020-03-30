@@ -1,53 +1,52 @@
 ---
-title: Guia de publicação de oferta de aplicativo gerenciado por aplicativos do Azure
-description: Este artigo descreve os requisitos para publicar um aplicativo gerenciado no Marketplace
+title: Guia de publicação de oferta de aplicações geridas por aplicações do Azure
+description: Este artigo descreve os requisitos para publicar uma aplicação gerida no Mercado
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: evansma
-ms.openlocfilehash: 764212ac148b336b07d29c29a72314c5d889d47c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: 38323ecfee69460b16542a3e004513f6a7389c41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288415"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicativos do Azure: guia de publicação de oferta de aplicativo gerenciado
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações Azure: Guia de publicação de oferta de aplicação gerida
 
-Um aplicativo gerenciado é uma das principais maneiras de publicar uma solução no Marketplace. Use este guia para entender os requisitos para esta oferta. 
+Uma aplicação gerida é uma das principais formas de publicar uma solução no Mercado. Utilize este guia para compreender os requisitos desta oferta. 
 
-Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. O plano de ação que um usuário vê é "obter agora".
+Estas são ofertas de transações que são implementadas e faturadas através do Marketplace. A chamada à ação que um utilizador vê é "Get It Now".
 
-Use o tipo de oferta aplicativo do Azure: aplicativo gerenciado quando as seguintes condições forem necessárias:
-- Você implanta uma solução baseada em assinatura para seu cliente usando uma VM ou uma solução inteira baseada em IaaS.
-- Você ou seu cliente exigem que a solução seja gerenciada por um parceiro.
+Utilize a aplicação Azure: tipo de oferta de aplicações gerida quando forem necessárias as seguintes condições:
+- Implementa uma solução baseada em subscrição para o seu cliente utilizando um VM ou uma solução inteira baseada em IaaS.
+- Você ou o seu cliente exigem que a solução seja gerida por um parceiro.
 
 >[!NOTE]
->Por exemplo, um parceiro pode ser um SI ou um provedor de serviços gerenciado (MSP).  
+>Por exemplo, um parceiro pode ser um SI ou um prestador de serviços gerido (MSP).  
 
-## <a name="managed-application-offer"></a>Oferta de aplicativo gerenciado
+## <a name="managed-application-offer"></a>Oferta de Candidatura Gerida
 
 |Requisitos |Detalhes  |
 |---------|---------|
-|Implantado na assinatura do Azure de um cliente | Os aplicativos gerenciados devem ser implantados na assinatura do cliente e podem ser gerenciados por terceiros. | 
-|Cobrança e medição    |  Os recursos serão provisionados na assinatura do Azure do cliente. As máquinas virtuais PAYGO (pré-pagas) serão transacionadas com o cliente pela Microsoft, cobradas por meio da assinatura do Azure do cliente (PAYGO). <br> No caso do traga sua própria licença, enquanto a Microsoft cobrará os custos de infraestrutura incorridos na assinatura do cliente, você receberá suas tarifas de licenciamento de software diretamente para o cliente.        |
-|VHD (disco rígido virtual) compatível com o Azure    |   As VMs devem ser criadas no Windows ou no Linux.<ul> <ul> <li>Para obter mais informações sobre como criar um VHD do Linux, consulte [distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD do Windows, consulte [criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
+|Implantado para a subscrição do Azure de um cliente | As Aplicações Geridas devem ser implementadas na subscrição do cliente e podem ser geridas por terceiros. | 
+|Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. As máquinas virtuais pay-as-you-go (PAYGO) serão transacionadas com o cliente através da Microsoft, faturadas através da subscrição azure do cliente (PAYGO). <br> No caso de trazer a sua própria licença, enquanto a Microsoft irá cobrar os custos de infraestrutura incorridos na subscrição do cliente, irá transacionar as suas taxas de licenciamento de software diretamente para o cliente.        |
+|Disco rígido virtual compatível com azure (VHD)    |   Os VMs devem ser construídos em Windows ou Linux.<ul> <ul> <li>Para obter mais informações sobre a criação de um VHD Linux, consulte [as distribuições linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre a criação de um VHD windows, consulte [Criar um VHD compatível com Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
-> Os aplicativos gerenciados devem ser implantados por meio do Marketplace. Se a comunicação do cliente for uma preocupação, você deverá entrar em contato com clientes interessados depois de habilitar o compartilhamento de leads.  
+> As aplicações geridas devem ser implantáveis através do Marketplace. Se a comunicação do cliente é uma preocupação, então deve contactar os clientes interessados depois de ter ativado a partilha de chumbo.  
 
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte os [Fornecedores de Soluções cloud](./cloud-solution-providers.md) para obter mais informações sobre o marketing da sua oferta através dos canais parceiros do Microsoft CSP.
 
 ## <a name="next-steps"></a>Passos seguintes
-Se você ainda não fez isso, 
+Se ainda não o fez, 
 
-- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
+- [Registe-se](https://azuremarketplace.microsoft.com/sell) no mercado.
 
-Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
+Se está registado e está a criar uma nova oferta ou a trabalhar numa já existente,
 
-- [Entre no portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- [Inscreva-se no Portal do Parceiro cloud](https://cloudpartner.azure.com) para criar ou completar a sua oferta.

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127765"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294834"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Planeamos adicionar suporte para os seguintes OSes, por isso certifique-se de qu
 
 |SO|Licença obrigatória|
 |---|---|
-|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Negócios<br>Janelas E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Negócios<br>Janelas E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licença de Acesso ao Cliente RDS (CAL) com Garantia de Software|
 
 A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virtual Desktop:
@@ -108,7 +108,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 >Deve utilizar o caracteres wildcard (*) para URLs que envolvam tráfego de serviço. Se preferir não usar * para tráfego relacionado com agentes, eis como encontrar os URLs sem wildcards:
 >
 >1. Registe as suas máquinas virtuais na piscina de anfitriões do Windows Virtual Desktop.
->2. Abra **o espectador do Evento** e navegue para **registos do Windows** > **Aplicação** > **WVD-Agent** e procure o ID do evento 3702.
+>2. Abra **o espectador do Evento** e navegue para windows **logs** > **Application** > **WVD-Agent** e procure o Id do evento 3702.
 >3. Whitelist os URLs que encontra no âmbito do Id 3702 do Evento. Os URLs ao abrigo do Id do evento 3702 são específicos da região. Terá de repetir o processo de listagem de whitelisting com os URLs relevantes para cada região onde pretende implantar as suas máquinas virtuais.
 
 O Windows Virtual Desktop compreende os desktops e aplicações do Windows que entrega aos utilizadores e a solução de gestão, que é hospedada como um serviço no Azure pela Microsoft. Os desktops e aplicações podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gestão e dados para estes VMs residem nos Estados Unidos. Isto pode resultar na transferência de dados para os Estados Unidos.
@@ -123,11 +123,32 @@ Para um desempenho ótimo, certifique-se de que a sua rede satisfaz os seguintes
 
 Os seguintes clientes do Ambiente de Trabalho Remoto suportam o Windows Virtual Desktop:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Ambiente de trabalho do Windows](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (Pré-visualização)](connect-android.md)
+
+> [!IMPORTANT]
+> O Windows Virtual Desktop não suporta o cliente remoteApp e Desktop Connections (RADC) ou o cliente de Ligação remota de ambiente de trabalho (MSTSC).
+
+> [!IMPORTANT]
+> O Windows Virtual Desktop não suporta atualmente o cliente Remote Desktop a partir da Windows Store. O apoio a este cliente será adicionado num futuro lançamento.
+
+Os clientes do Ambiente de Trabalho Remoto devem ter acesso aos seguintes URLs:
+
+|Endereço|Porta de saída|Objetivo|Cliente(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|Porta TCP 443|Dados de resolução de problemas|Todos|
+|go.microsoft.com|Porta TCP 443|Microsoft FWLinks|Todos|
+|aka.ms|Porta TCP 443|Encurtador de URL da Microsoft|Todos|
+|docs.microsoft.com|Porta TCP 443|Documentação|Todos|
+|privacy.microsoft.com|Porta TCP 443|Declaração de privacidade|Todos|
+|query.prod.cms.rt.microsoft.com|Porta TCP 443|Atualizações de clientes|Ambiente de Trabalho do Windows|
+
+>[!IMPORTANT]
+>A abertura destes URLs é essencial para uma experiência de cliente fiável. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem aos sites e recursos dos clientes, e não incluem URLs para outros serviços como o Azure Ative Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens de Os da máquina virtual suportada
 

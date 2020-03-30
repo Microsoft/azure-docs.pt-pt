@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5345a96e333e0f75264880ee18a95c9ab8dd63c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79262259"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497530"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FaQ de gestão de dispositivos de diretório ativo Azure
 
@@ -39,8 +39,8 @@ Apenas os seguintes dispositivos estão listados nos **dispositivos USER:**
 
 **A:** No portal Azure, vá a **Todos os dispositivos.** Procure o dispositivo utilizando o ID do dispositivo. Verifique o valor sob a coluna do tipo de união. Por vezes, o dispositivo pode ser reiniciado ou reimaged. Por isso, é essencial também verificar o estado de registo do dispositivo no dispositivo:
 
-- Para dispositivos Windows 10 e Windows Server 2016 ou posteriores, execute `dsregcmd.exe /status`.
-- Para versões de baixo nível, execute `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
+- Para windows 10 e Windows Server 2016 `dsregcmd.exe /status`ou dispositivos posteriores, executar .
+- Para versões de baixo `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`nível, executar .
 
 **A:** Para obter informações sobre resolução de problemas, consulte estes artigos:
 - [Dispositivos de resolução de problemas utilizando comando dsregcmd](troubleshoot-device-dsregcmd.md)
@@ -94,13 +94,13 @@ Veja abaixo como estas ações podem ser retificadas.
       Para o Azure AD, dispositivos windows 10, tome as seguintes etapas:
 
       1. Abra o pedido de comando como administrador
-      1. Introduza `dsregcmd /forcerecovery` (Nota: Tem de ser administrador para realizar esta ação).
+      1. Insira `dsregcmd /forcerecovery` (Nota: Tem de ser administrador para realizar esta ação).
       1. Clique em "Iniciar sessão" no diálogo que se abre e continue com o sinal em processo.
       1. Assine e assine de volta no dispositivo para completar a recuperação.
 
       Para dispositivos Windows 10 registados pela Azure AD, tome as seguintes etapas:
 
-      1. Vá a **Definições** > Contas > Trabalho de **Acesso ou Escola.** 
+      1. Ir para **Configurações** > Contas Trabalho**de** > **Acesso ou Escola**. 
       1. Selecione a conta e selecione **Desligar**.
       1. Clique em "+ Connect" e registe o dispositivo novamente através do sinal em processo.
 
@@ -108,7 +108,7 @@ Veja abaixo como estas ações podem ser retificadas.
 
 ### <a name="q-why-do-i-see-duplicate-device-entries-in-the-azure-portal"></a>P: Por que vejo entradas duplicadas de dispositivos no portal Azure?
 
-**R:**
+**A:**
 
 - No caso do Windows 10 e do Windows Server 2016, as tentativas repetidas de se desintegrarem e voltarem a juntar-se ao mesmo dispositivo podem causar entradas duplicadas. 
 - Cada utilizador do Windows que utiliza **add work ou conta escolar** cria um novo registo de dispositivocom o mesmo nome de dispositivo.
@@ -128,7 +128,7 @@ Veja abaixo como estas ações podem ser retificadas.
 **A:** Demora até uma hora para que seja aplicada uma revogação a partir do momento em que o dispositivo Azure AD é marcado como desativado.
 
 >[!NOTE] 
->Para dispositivos matriculados, recomendamos que limpe o dispositivo para garantir que os utilizadores não podem aceder aos recursos. Para mais informações, consulte [o que é a inscrição do dispositivo?](/intune/deploy-use/enroll-devices-in-microsoft-intune) 
+>Para dispositivos matriculados, recomendamos que limpe o dispositivo para garantir que os utilizadores não podem aceder aos recursos. Para mais informações, consulte [o que é a inscrição do dispositivo?](/mem/intune/user-help/use-managed-devices-to-get-work-done) 
 
 ---
 
@@ -148,7 +148,7 @@ Veja abaixo como estas ações podem ser retificadas.
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: Como posso desafiliar um dispositivo Azure AD localmente no dispositivo?
 
-**A:** Para dispositivos adatos azure puros, certifique-se de que tem uma conta de administrador local offline ou crie uma. Não pode iniciar sessão com credenciais de utilizador da Azure AD. Em seguida, vá a **Definições** > **Contas** > Trabalho de **Acesso ou Escola.** Selecione a sua conta e selecione **Desligar**. Siga as instruções e forneça as credenciais do administrador local quando solicitada. Reinicie o dispositivo para terminar o processo de desafiliação.
+**A:** Para dispositivos adatos azure puros, certifique-se de que tem uma conta de administrador local offline ou crie uma. Não pode iniciar sessão com credenciais de utilizador da Azure AD. Em seguida, vá ao Trabalho de Acesso às Contas de > **Definições** > **ou à Escola.** **Settings** Selecione a sua conta e selecione **Desligar**. Siga as instruções e forneça as credenciais do administrador local quando solicitada. Reinicie o dispositivo para terminar o processo de desafiliação.
 
 ---
 
@@ -232,7 +232,7 @@ Este comportamento:
 
 ### <a name="qwhat-are-the-ms-organization-p2p-access-certificates-present-on-our-windows-10-devices"></a>P:Quais são os certificados de acesso MS-Organização-P2P-presentes nos nossos dispositivos Windows 10?
 
-**A:** Os certificados MS-Organization-P2P-Access são emitidos pela Azure AD para ambos, Azure AD juntou-se e híbrido Azure AD aderiu a dispositivos. Estes certificados são utilizados para permitir a confiança entre dispositivos no mesmo inquilino para cenários remotos de ambiente de trabalho. Um certificado é emitido para o dispositivo e outro é emitido para o utilizador. O certificado do dispositivo está presente em `Local Computer\Personal\Certificates` e é válido por um dia. Este certificado é renovado (através da emissão de um novo certificado) se o dispositivo ainda estiver ativo em Azure AD. O certificado de utilizador encontra-se presente em `Current User\Personal\Certificates` e este certificado também é válido por um dia, mas é emitido a pedido quando um utilizador tenta uma sessão remota de desktop para outro dispositivo azure AD. Não é renovado no prazo de validade. Ambos os certificados são emitidos utilizando o certificado de acesso MS-Organização-P2P-presente na `Local Computer\AAD Token Issuer\Certificates`. Este certificado é emitido pela Azure AD durante o registo do dispositivo. 
+**A:** Os certificados MS-Organization-P2P-Access são emitidos pela Azure AD para ambos, Azure AD juntou-se e híbrido Azure AD aderiu a dispositivos. Estes certificados são utilizados para permitir a confiança entre dispositivos no mesmo inquilino para cenários remotos de ambiente de trabalho. Um certificado é emitido para o dispositivo e outro é emitido para o utilizador. O certificado do `Local Computer\Personal\Certificates` dispositivo está presente e é válido por um dia. Este certificado é renovado (através da emissão de um novo certificado) se o dispositivo ainda estiver ativo em Azure AD. O certificado de `Current User\Personal\Certificates` utilizador está presente e este certificado também é válido por um dia, mas é emitido a pedido quando um utilizador tenta uma sessão remota de desktop para outro dispositivo azure AD. Não é renovado no prazo de validade. Ambos os certificados são emitidos utilizando o certificado de acesso MS-Organização-P2P-presente no `Local Computer\AAD Token Issuer\Certificates`. Este certificado é emitido pela Azure AD durante o registo do dispositivo. 
 
 ---
 
@@ -246,7 +246,7 @@ Este comportamento:
 
 ### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>P: Como posso desafiliar um dispositivo Híbrido Azure ad localmente no dispositivo?
 
-**A:** Para dispositivos híbridos Azure AD, certifique-se de desligar o registo automático. Em seguida, a tarefa programada não volta a registar o dispositivo. Em seguida, abra um pedido de comando como administrador e introduza `dsregcmd.exe /debug /leave`. Ou executar este comando como um script em vários dispositivos para não se juntar a granel.
+**A:** Para dispositivos híbridos Azure AD, certifique-se de desligar o registo automático. Em seguida, a tarefa programada não volta a registar o dispositivo. Em seguida, abra um pedido `dsregcmd.exe /debug /leave`de comando como administrador e entre . Ou executar este comando como um script em vários dispositivos para não se juntar a granel.
 
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>P: Onde posso encontrar informações de resolução de problemas para diagnosticar a AD Híbrida Azure juntar falhas?
 
@@ -285,9 +285,9 @@ A adesão da Hybrid Azure AD tem precedência sobre o estado registado pela Azur
 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>P: Como remover um estado registado em Azure AD para um dispositivo localmente?
 
-**R:** 
-- Para dispositivos registados pela AD Do Windows 10, aceda a **Definições** > **Contas** > Trabalho de **Acesso ou Escola**. Selecione a sua conta e selecione **Desligar**. O registo do dispositivo é por perfil de utilizador no Windows 10.
-- Para iOS e Android, pode utilizar as **definições** da aplicação Autenticadora Microsoft > **Registo do Dispositivo** e selecionar dispositivo **Desregistar**.
+**A:** 
+- Para dispositivos registados pela AD Do Windows 10, aceda a **Definições** > **Accounts** > de Trabalho de Acesso às Contas**ou à Escola**. Selecione a sua conta e selecione **Desligar**. O registo do dispositivo é por perfil de utilizador no Windows 10.
+- Para iOS e Android, pode utilizar o registo do**dispositivo** de **definições** > de dispositivo da aplicação Autenticadora Microsoft e selecionar o **dispositivo Desregistar**.
 - Para o macOS, pode utilizar a aplicação Microsoft Intune Company Portal para desinscrever o dispositivo da gestão e remover qualquer registo. 
 
 ---
@@ -307,8 +307,8 @@ A adesão da Hybrid Azure AD tem precedência sobre o estado registado pela Azur
 
 **A:** Tome os seguintes passos:
 
-1.  [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
-1.  [Defina uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
+1.    [Defina uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Observações:**
 

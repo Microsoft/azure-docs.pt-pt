@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299061"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utilize pontos finais privados para armazenamento azure
@@ -82,8 +82,8 @@ Para o exemplo ilustrado acima, os registos de recursos DNS para a conta de arma
 | Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | serviço de armazenamento \<\> final do serviço de armazenamento                   |
-| serviço de armazenamento \<\> final do serviço de armazenamento                   | Uma     | serviço de armazenamento \<endereço IP público\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<serviço de armazenamento ponto final público\>                   |
+| \<serviço de armazenamento ponto final público\>                   | A     | \<endereço IP público de serviço de armazenamento\>                 |
 
 Como mencionado anteriormente, pode negar ou controlar o acesso a clientes fora do VNet através do ponto final público utilizando a firewall de armazenamento.
 
@@ -92,7 +92,7 @@ Os registos de recursos dNS para StorageAccountA, quando resolvidos por um clien
 | Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Uma     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Esta abordagem permite o acesso à conta de armazenamento utilizando a mesma cadeia de **ligação** para clientes no VNet que acolhe os pontos finais privados, bem como clientes fora do VNet.
 
@@ -135,11 +135,11 @@ Os clientes em VNets com pontos finais privados existentes enfrentam constrangim
 
 Esta restrição é o resultado das alterações do DNS feitas quando a conta A2 cria um ponto final privado.
 
-### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras do Grupo de Segurança da Rede para subredes com pontos finais privados
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Network Security Group rules for subnets with private endpoints (Regras do Grupo de Segurança de Rede para sub-redes com pontos de extremidade privados)
 
 Atualmente, não é possível configurar as regras do [Network Security Group](../../virtual-network/security-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras de NSG aplicadas à subnet a loja do ponto final privado são aplicadas ao ponto final privado. Uma suposição limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas subredes de origem, embora esta abordagem possa exigir uma gestão superior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)
+- [Configure firewalls de armazenamento Azure e redes virtuais](storage-network-security.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

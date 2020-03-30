@@ -7,19 +7,19 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: rezas
-ms.openlocfilehash: 1b250bee302cb305ee613010238283ceac4014ed
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501429"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Suporte do IoT Hub para redes virtuais
 
 Este artigo introduz o padrão de conectividade VNET e elabora sobre como configurar uma experiência de conectividade privada para um hub IoT através de um Azure VNET propriedade do cliente.
 
 > [!NOTE]
-> As características do hub IoT descritas neste artigo estão atualmente disponíveis para o IoT Hub criado nas seguintes regiões: Leste dos EUA, Centro-Sul dos EUA e Oeste dos EUA 2.
+> As características do IoT Hub descritas neste artigo estão atualmente disponíveis para centros IoT [criados com identidade](#create-an-iot-hub-with-managed-service-identity) de serviço gerida nas seguintes regiões: Leste dos EUA, Centro-Sul dos EUA e Us 2 Ocidental.
 
 
 ## <a name="introduction"></a>Introdução
@@ -27,7 +27,7 @@ Este artigo introduz o padrão de conectividade VNET e elabora sobre como config
 Por padrão, os nomes de anfitriões do IoT Hub mapeiam para um ponto final público com um endereço IP publicamente repreensível através da Internet. Como mostra a ilustração abaixo, este ponto final do IoT Hub é partilhado entre os centros de propriedade de diferentes clientes e pode ser acedido por dispositivos IoT através de redes de grande área, bem como redes no local.
 
 Várias funcionalidades do IoT Hub, incluindo [o encaminhamento de mensagens,](./iot-hub-devguide-messages-d2c.md)o upload de [ficheiros,](./iot-hub-devguide-file-upload.md)e a [importação/exportação](./iot-hub-bulk-identity-mgmt.md) de dispositivos a granel requerem igualmente conectividade do IoT Hub para um recurso Azure propriedade do cliente sobre o seu ponto final público. Como ilustrado abaixo, estes caminhos de conectividade constituem coletivamente o tráfego de saída do IoT Hub para os recursos do cliente.
-![IoT Hub ponto final](./media/virtual-network-support/public-endpoint.png)
+![Ponto final do IoT Hub](./media/virtual-network-support/public-endpoint.png)
 
 
 Por várias razões, os clientes podem querer restringir a conectividade aos seus recursos Azure (incluindo o IoT Hub) através de um VNET que possuem e operam. Estas razões incluem:
@@ -54,6 +54,8 @@ Um ponto final privado é um endereço IP privado atribuído dentro de um VNET p
 ![Ponto final do IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
 Antes de prosseguir, certifique-se de que os seguintes pré-requisitos são cumpridos:
+
+* O seu hub IoT deve ser aprovisionado com identidade de [serviço gerida.](#create-an-iot-hub-with-managed-service-identity)
 
 * O seu centro ioT deve ser aprovisionado numa das [regiões apoiadas.](#regional-availability-private-endpoints)
 
@@ -83,7 +85,7 @@ Para criar um ponto final privado, siga estes passos:
     az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
     ```
 
-2. Navegue para o separador de **ligações de ponto final Privado** no seu portal IoT Hub (este separador só está disponível para em Hubs IoT nas [regiões suportadas),](#regional-availability-private-endpoints)e clique no sinal **de+** para adicionar um novo ponto final privado.
+2. Navegue para o separador de **ligações de ponto final Privado** no seu portal IoT Hub (este separador só está disponível para em Hubs IoT nas [regiões suportadas),](#regional-availability-private-endpoints)e clique no **+** sinal para adicionar um novo ponto final privado.
 
 3. Forneça a subscrição, o grupo de recursos, o nome e a região para criar o novo ponto final privado (idealmente, o ponto final privado deve ser criado na mesma região que o seu hub; consulte a secção de [disponibilidade regional](#regional-availability-private-endpoints) para mais detalhes).
 
@@ -111,7 +113,7 @@ Os pré-requisitos são os seguintes:
 
 * O seu centro ioT deve ser aprovisionado numa das [regiões apoiadas.](#regional-availability-trusted-microsoft-first-party-services)
 
-* O seu Hub IoT deve ser atribuído a uma identidade de serviço gerida no tempo de fornecimento do hub. Siga as instruções sobre como [criar um hub com identidade](#create-a-hub-with-managed-service-identity)de serviço gerida .
+* O seu Hub IoT deve ser atribuído a uma identidade de serviço gerida no tempo de fornecimento do hub. Siga as instruções sobre como [criar um hub com identidade](#create-an-iot-hub-with-managed-service-identity)de serviço gerida .
 
 
 ### <a name="regional-availability-trusted-microsoft-first-party-services"></a>Disponibilidade regional (serviços de primeira parte confiáveis da Microsoft)
@@ -130,61 +132,71 @@ A Azure confiou na exceção dos serviços de primeira parte para contornar as r
 A funcionalidade de exceção de serviços de primeira parte da Microsoft fidedigna é gratuita nos Hubs IoT nas [regiões apoiadas.](#regional-availability-trusted-microsoft-first-party-services) Os encargos com as contas de armazenamento, centros de eventos ou recursos de autocarros de serviço aplicam-se separadamente.
 
 
-### <a name="create-a-hub-with-managed-service-identity"></a>Criar um hub com identidade de serviço gerida
+### <a name="create-an-iot-hub-with-managed-service-identity"></a>Criar um hub IoT com identidade de serviço gerida
 
-Uma identidade de serviço gerida pode ser atribuída ao seu hub no tempo de fornecimento de recursos (esta funcionalidade não é atualmente suportada para centros existentes). Para o efeito, tem de utilizar o modelo de recurso ARM abaixo:
+Uma identidade de serviço gerida pode ser atribuída ao seu hub no tempo de fornecimento de recursos (esta funcionalidade não é atualmente suportada para os centros existentes), o que requer que o hub IoT utilize o TLS 1.2 como versão mínima. Para o efeito, tem de utilizar o modelo de recurso ARM abaixo:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Devices/IotHubs",
-            "apiVersion": "2020-03-01",
-            "name": "<provide-a-valid-resource-name>",
-            "location": "<any-of-supported-regions>",
-            "identity": { "type": "SystemAssigned" },
-            "properties": { "minTlsVersion": "1.2" },
-            "sku": {
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "minTlsVersion": "1.2"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "minTlsVersion": "1.2"
+              },
+              "sku": {
                 "name": "<your-hubs-SKU-name>",
                 "tier": "<your-hubs-SKU-tier>",
                 "capacity": 1
+              }
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-02-01",
-            "name": "updateIotHubWithKeyEncryptionKey",
-            "dependsOn": [ "<provide-a-valid-resource-name>" ],
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "0.9.0.0",
-                    "resources": [
-                        {
-                            "type": "Microsoft.Devices/IotHubs",
-                            "apiVersion": "2020-03-01",
-                            "name": "<provide-a-valid-resource-name>",
-                            "location": "<any-of-supported-regions>",
-                            "identity": { "type": "SystemAssigned" },
-                            "properties": { "minTlsVersion": "1.2" },
-                            "sku": {
-                                "name": "<your-hubs-SKU-name>",
-                                "tier": "<your-hubs-SKU-tier>",
-                                "capacity": 1
-                            }
-                        }
-                    ]
-                }
-            }
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
-Depois de substituir os valores pelos seus `name`de recursos , `location`, `SKU.name` e `SKU.tier`, pode utilizar o Azure CLI para implantar o recurso num grupo de recursos existente utilizando:
+Depois de substituir os `name`valores pelo seu recurso, `location` `SKU.name` e `SKU.tier`pode utilizar o Azure CLI para implantar o recurso num grupo de recursos existente utilizando:
 
 ```azurecli-interactive
 az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
@@ -201,7 +213,7 @@ Assim que o IoT Hub com uma identidade de serviço gerida for provisionada, siga
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividade egress para pontos finais da conta de armazenamento para encaminhamento
 
-O IoT Hub pode ser configurado para encaminhar mensagens para uma conta de armazenamento propriedade do cliente. Para permitir que a funcionalidade de encaminhamento aceda a uma conta de armazenamento enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-a-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder à sua conta de armazenamento.
+O IoT Hub pode ser configurado para encaminhar mensagens para uma conta de armazenamento propriedade do cliente. Para permitir que a funcionalidade de encaminhamento aceda a uma conta de armazenamento enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder à sua conta de armazenamento.
 
 1. No portal Azure, navegue para o separador de controlo de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** sob a secção de atribuição de **funções.**
 
@@ -220,7 +232,7 @@ Agora o seu ponto final de armazenamento personalizado está configurado para us
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividade egress para os pontos finais dos hubs de eventos para o encaminhamento
 
-O IoT Hub pode ser configurado para direcionar mensagens para um espaço de nome de centros de eventos do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de hubs de eventos enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-a-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder aos seus centros de eventos.
+O IoT Hub pode ser configurado para direcionar mensagens para um espaço de nome de centros de eventos do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de hubs de eventos enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder aos seus centros de eventos.
 
 1. No portal Azure, navegue para o separador de controlo de **acesso (IAM)** dos seus hubs de eventos e clique em **Adicionar** sob a secção **de atribuição de funções.**
 
@@ -239,7 +251,7 @@ Agora, o seu ponto final de evento personalizado está configurado para usar a i
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividade egress para servir pontos finais de autocarro para encaminhamento
 
-O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome de autocarro de serviço do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de ônibus de serviço enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-a-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
+O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome de autocarro de serviço do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de ônibus de serviço enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
 
 1. No portal Azure, navegue para o separador de controlo de **acesso (IAM)** do seu autocarro de serviço e clique em **Adicionar** sob a secção **de atribuição de funções.**
 
@@ -258,7 +270,7 @@ Agora, o seu ponto final de ônibus de serviço personalizado está configurado 
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade egress para contas de armazenamento para upload de ficheiros
 
-A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir que o upload do ficheiro funcione, tanto os dispositivos como o IoT Hub precisam de ter conectividade com a conta de armazenamento. Se houver restrições de firewall na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer um dos mecanismos da conta de armazenamento suportado (incluindo [pontos finais privados,](../private-link/create-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço ou [configuração de firewall direta)](../storage/common/storage-network-security.md)para obter conectividade. Da mesma forma, se houver restrições de firewall na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços confiáveis da Microsoft. Para o efeito, o seu IoT Hub deve ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-a-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder à sua conta de armazenamento.
+A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir que o upload do ficheiro funcione, tanto os dispositivos como o IoT Hub precisam de ter conectividade com a conta de armazenamento. Se houver restrições de firewall na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer um dos mecanismos da conta de armazenamento suportado (incluindo [pontos finais privados,](../private-link/create-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço ou [configuração de firewall direta)](../storage/common/storage-network-security.md)para obter conectividade. Da mesma forma, se houver restrições de firewall na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços confiáveis da Microsoft. Para o efeito, o seu IoT Hub deve ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder à sua conta de armazenamento.
 
 1. No portal Azure, navegue para o separador de controlo de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** sob a secção de atribuição de **funções.**
 
@@ -277,7 +289,7 @@ Agora, o seu ponto final de armazenamento para upload de ficheiros está configu
 
 O IoT Hub suporta a funcionalidade de informação sobre [a importação/exportação](./iot-hub-bulk-identity-mgmt.md) de dispositivos a granel de/para uma bolha de armazenamento fornecida pelo cliente. Para permitir que a função de importação/exportação a granel funcione, tanto os dispositivos como o IoT Hub precisam de ter conectividade com a conta de armazenamento.
 
-Esta funcionalidade requer conectividade do IoT Hub para a conta de armazenamento. Para aceder a um recurso de ônibus de serviço enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-a-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
+Esta funcionalidade requer conectividade do IoT Hub para a conta de armazenamento. Para aceder a um recurso de ônibus de serviço enquanto existem restrições de firewall, o seu IoT Hub precisa de ter uma identidade de serviço gerida (ver como criar um hub com identidade de [serviço gerida).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerida é aprovisionada, siga os passos abaixo para dar permissão rBAC à identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
 
 1. No portal Azure, navegue para o separador de controlo de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** sob a secção de atribuição de **funções.**
 
@@ -285,10 +297,10 @@ Esta funcionalidade requer conectividade do IoT Hub para a conta de armazenament
 
 3. Navegue para as **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção de **redes selecionadas.** De acordo com a lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento**. Clique no botão **Guardar**.
 
-Pode agora utilizar os API's Do API's Azure IoT REST para [criar postos](https://docs.microsoft.com/rest/api/iothub/jobclient/getimportexportjobs) de trabalho de importação para informações sobre a utilização da funcionalidade de importação/exportação a granel. Tenha em anote que terá de fornecer as `storageAuthenticationType="identityBased"` no seu organismo de pedido e utilizar `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` como url's de entrada e saída da sua conta de armazenamento, respectivamente.
+Pode agora utilizar os API's Do API's Azure IoT REST para [criar postos](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) de trabalho de importação para informações sobre a utilização da funcionalidade de importação/exportação a granel. Tenha em anote que `storageAuthenticationType="identityBased"` terá de fornecer `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` o corpo e utilização do seu pedido e como url's de entrada e saída da sua conta de armazenamento, respectivamente.
 
 
-O Azure IoT Hub SDK também suporta esta funcionalidade no gestor de registo do cliente de serviço. O seguinte código de snippet mostra como iniciar um C# emprego de importação ou de exportação na utilização do SDK.
+O Azure IoT Hub SDK também suporta esta funcionalidade no gestor de registo do cliente de serviço. O seguinte código de snippet mostra como iniciar um trabalho de importação ou exportação na utilização do C# SDK.
 
 ```csharp
 // Call an import job on the IoT Hub
@@ -305,26 +317,23 @@ await registryManager.ExportDevicesAsync(
 ```
 
 
-Para utilizar esta versão limitada da região dos SDKs Azure IoT com suporte VNET para C#, Java e Node.js:
+Para utilizar esta versão limitada da região dos SDKs Azure IoT com suporte de rede virtual para C#, Java e Node.js:
 
-1. Crie uma variável ambiental chamada `EnableStorageIdentity` e detetete o seu valor para `1`.
+1. Crie uma `EnableStorageIdentity` variável ambiental `1`nomeada e detetete o seu valor para .
 
-2. Descarregue o SDK:
-    - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharsdk)
-    - > [Node.js](https://aka.ms/vnetnodesdk)
+2. Baixe o SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
  
-Para python, descarregue a nossa versão limitada a partir de Github.
+Para Python, descarregue a nossa versão limitada do GitHub.
 
-1. Navegue para a página de lançamento do [Github.](https://aka.ms/vnetpythonsdk)
+1. Navegue para a página de lançamento do [GitHub](https://aka.ms/vnetpythonsdk).
 
 2. Faça o download do seguinte ficheiro, que encontrará na parte inferior da página de lançamento sob o cabeçalho nomeado **assets**.
-    > *azure_iot_hub-2.2.0.limited-py2.py3-none-any.whl*
+    > *azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl*
 
 3. Abra um terminal e navegue para a pasta com o ficheiro descarregado.
 
-4. Executar o seguinte comando para instalar o Serviço Python SDK com suporte para VNETs:
-    > pip instalar ./azure_iot_hub-2.2.0.limited-py2.py3-none-whl
+4. Executar o seguinte comando para instalar o Serviço Python SDK com suporte para redes virtuais:
+    > pip instalar ./azure_iot_hub-2.2.0_limited-py2.py3-none-any-whl
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
-ms.openlocfilehash: be6e00ba0d20d11f75954d3b9c6b056160a5016b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599005"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471256"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>Fontes para informações de engenharia de fiabilidade do site
 
@@ -23,7 +23,7 @@ Existem muitas, muitas fontes para informações de engenharia de fiabilidade do
 Aqui estão algumas boas listas de links curados para temas relacionados com SRE e SRE:
 
 * [Engenharia de Fiabilidade do Site Incrível](https://github.com/dastergon/awesome-sre)
-* [Ferramentas incríveis de engenharia de fiabilidade do site](https://github.com/squadcastHQ/awesome-sre-tools)
+* [Ferramentas incríveis de engenharia de fiabilidade do site](https://github.com/SquadcastHub/awesome-sre-tools)
 * [Os Padrões de Sistemas de Escala Scalable, Fiável e Performant](http://awesome-scalability.com)
 * [sistemas distribuídos incríveis](https://github.com/theanalyst/awesome-distributed-systems)
 * [Consenso Incrível](https://github.com/dgryski/awesome-consensus)

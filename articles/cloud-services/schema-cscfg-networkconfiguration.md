@@ -1,5 +1,6 @@
 ---
-title: Esquema NetworkConfiguration dos serviços de nuvem do Azure | Microsoft Docs
+title: Azure Cloud Services NetworkConfiguration Schema [ Microsoft Docs
+description: Conheça os elementos infantis do elemento Configuração da Rede do ficheiro de configuração do serviço, que especifica os valores da Rede Virtual e dNS.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -8,25 +9,25 @@ ms.topic: reference
 caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: cacc8b1f2909965594fdf0d841963e792acf648c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529293"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema NetworkConfiguration de configuração dos serviços de nuvem do Azure
+# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services Config NetworkConfiguration Schema
 
-O elemento `NetworkConfiguration` do arquivo de configuração de serviço especifica os valores de rede virtual e DNS. Essas configurações são opcionais para serviços de nuvem.
+O `NetworkConfiguration` elemento do ficheiro de configuração do serviço especifica os valores da Rede Virtual e dNS. Estas configurações são opcionais para serviços na nuvem.
 
-Você pode usar o seguinte recurso para saber mais sobre redes virtuais e os esquemas associados:
+Pode utilizar o seguinte recurso para saber mais sobre redes virtuais e os esquemas associados:
 
-- [Esquema de configuração do serviço de nuvem (clássico)](schema-cscfg-file.md)
-- [Esquema de definição do serviço de nuvem (clássico)](schema-csdef-file.md)
-- [Criar uma rede virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Cloud Service (clássico) Configuração Schema](schema-cscfg-file.md)
+- [Serviço de Nuvem (clássico) Definição Schema](schema-csdef-file.md)
+- [Criar uma Rede Virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 
-## <a name="networkconfiguration-element"></a>Elemento NetworkConfiguration
-O exemplo a seguir mostra o elemento `NetworkConfiguration` e seus elementos filho.
+## <a name="networkconfiguration-element"></a>Elemento de configuração de rede
+O exemplo que `NetworkConfiguration` se segue mostra o elemento e os elementos infantis.
 
 ```xml
 <ServiceConfiguration>
@@ -59,18 +60,18 @@ O exemplo a seguir mostra o elemento `NetworkConfiguration` e seus elementos fil
 </ServiceConfiguration>
 ```
 
-A tabela a seguir descreve os elementos filho do elemento `NetworkConfiguration`.
+A tabela seguinte descreve os `NetworkConfiguration` elementos infantis do elemento.
 
 | Elemento       | Descrição |
 | ------------- | ----------- |
-| AccessControl | Opcional. Especifica as regras de acesso a pontos de extremidade em um serviço de nuvem. O nome do controle de acesso é definido por uma cadeia de caracteres para `name` atributo. O elemento `AccessControl` contém um ou mais elementos `Rule`. Mais de um elemento de `AccessControl` pode ser definido.|
-| Regra | Opcional. Especifica a ação que deve ser executada para um intervalo de sub-rede especificado de endereços IP. A ordem da regra é definida por um valor de cadeia de caracteres para o atributo `order`. Quanto menor o número da regra, maior a prioridade. Por exemplo, as regras podem ser especificadas com números de ordem de 100, 200 e 300. A regra com o número de pedido de 100 tem precedência sobre a regra que tem uma ordem de 200.<br /><br /> A ação da regra é definida por uma cadeia de caracteres para o atributo `action`. Os valores possíveis são:<br /><br /> -   `permit` – especifica que somente os pacotes do intervalo de sub-rede especificado podem se comunicar com o ponto de extremidade.<br />-   `deny` – especifica que o acesso é negado aos pontos de extremidade no intervalo de sub-rede especificado.<br /><br /> O intervalo de sub-rede de endereços IP que são afetados pela regra são definidos por uma cadeia de caracteres para o atributo `remoteSubnet`. A descrição da regra é definida por uma cadeia de caracteres para o atributo `description`.|
-| Endpointacl só | Opcional. Especifica a atribuição de regras de controle de acesso a um ponto de extremidade. O nome da função que contém o ponto de extremidade é definido por uma cadeia de caracteres para o atributo `role`. O nome do ponto de extremidade é definido por uma cadeia de caracteres para o atributo `endpoint`. O nome do conjunto de regras de `AccessControl` que devem ser aplicadas ao ponto de extremidade é definido em uma cadeia de caracteres para o atributo `accessControl`. Mais de um `EndpointAcl` elementos podem ser definidos.|
-| DnsServer | Opcional. Especifica as configurações para um servidor DNS. Você pode especificar configurações para servidores DNS sem uma rede virtual. O nome do servidor DNS é definido por uma cadeia de caracteres para o atributo `name`. O endereço IP do servidor DNS é definido por uma cadeia de caracteres para o atributo `IPAddress`. O endereço IP deve ser um endereço IPv4 válido.|
-| VirtualNetworkSite | Opcional. Especifica o nome do site de rede virtual no qual você deseja implantar seu serviço de nuvem. Essa configuração não cria um site de rede virtual. Ele faz referência a um site que foi definido anteriormente no arquivo de rede para sua rede virtual. Um serviço de nuvem só pode ser um membro de uma rede virtual. Se você não especificar essa configuração, o serviço de nuvem não será implantado em uma rede virtual. O nome do site de rede virtual é definido por uma cadeia de caracteres para o atributo `name`.|
-| InstanceAddress | Opcional. Especifica a associação de uma função a uma sub-rede ou a um conjunto de sub-redes na rede virtual. Ao associar um nome de função a um endereço de instância, você pode especificar as sub-redes às quais você deseja que essa função seja associada. O `InstanceAddress` contém um elemento sub-redes. O nome da função associada à sub-rede ou sub-redes é definido por uma cadeia de caracteres para o atributo `roleName`.|
-| Subrede | Opcional. Especifica a sub-rede que corresponde ao nome da sub-rede no arquivo de configuração de rede. O nome da sub-rede é definido por uma cadeia de caracteres para o atributo `name`.|
-| Reservado | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. Você deve usar criar IP Reservado endereço para criar o endereço IP reservado. Cada implantação em um serviço de nuvem pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é definido por uma cadeia de caracteres para o atributo `name`.|
+| Controlo de Acesso | Opcional. Especifica as regras de acesso a pontos finais num serviço na nuvem. O nome de controlo de `name` acesso é definido por uma corda para atributo. O `AccessControl` elemento contém `Rule` um ou mais elementos. Mais do `AccessControl` que um elemento pode ser definido.|
+| Regra | Opcional. Especifica as medidas que devem ser tomadas para uma gama de endereços IP especificados. A ordem da regra é definida por `order` um valor de cadeia para o atributo. Quanto menor o número da regra, maior a prioridade. Por exemplo, as regras poderiam ser especificadas com números de encomendas de 100, 200 e 300. A regra com o número de encomenda de 100 prevalece sobre a regra que tem uma ordem de 200.<br /><br /> A ação para a regra é `action` definida por uma corda para o atributo. Os valores possíveis são:<br /><br /> -   `permit`– Especifica que apenas os pacotes da gama de sub-redes especificada podem comunicar com o ponto final.<br />-   `deny`– Especifica que o acesso é negado aos pontos finais na gama de sub-redes especificada.<br /><br /> A gama de sub-redes de endereços IP que são `remoteSubnet` afetados pela regra são definidas por uma cadeia para o atributo. A descrição da regra é definida `description` por uma corda para o atributo.|
+| EndpointAcl | Opcional. Especifica a atribuição das regras de controlo de acesso a um ponto final. O nome do papel que contém o ponto final `role` é definido por uma corda para o atributo. O nome do ponto final é definido `endpoint` por uma corda para o atributo. O nome do `AccessControl` conjunto de regras que devem ser aplicados ao `accessControl` ponto final são definidos numa corda para o atributo. Mais do `EndpointAcl` que um elemento pode ser definido.|
+| DnsServer | Opcional. Especifica as definições para um servidor DNS. Pode especificar definições para servidores DNS sem rede virtual. O nome do servidor DNS é definido `name` por uma corda para o atributo. O endereço IP do servidor DNS é `IPAddress` definido por uma cadeia para o atributo. O endereço IP deve ser um endereço IPv4 válido.|
+| Site virtualnetwork | Opcional. Especifica o nome do site da Rede Virtual no qual pretende implementar o seu serviço na nuvem. Esta definição não cria um Site de Rede Virtual. Refere-se a um site que já foi previamente definido no ficheiro de rede para a sua Rede Virtual. Um serviço na nuvem só pode ser membro de uma Rede Virtual. Se não especificar esta definição, o serviço de nuvem não será implantado numa Rede Virtual. O nome do site da Rede Virtual `name` é definido por uma corda para o atributo.|
+| Endereço de instância | Opcional. Especifica a associação de uma função a uma subneta ou a um conjunto de subredes na Rede Virtual. Quando associar um nome de papel a um endereço de instância, pode especificar as subredes às quais pretende que este papel seja associado. O `InstanceAddress` contém um elemento Subnets. O nome do papel que está associado à sub-rede ou sub-redes é definido por uma corda para o `roleName` atributo.|
+| Subrede | Opcional. Especifica a sub-rede que corresponde ao nome da sub-rede no ficheiro de configuração da rede. O nome da sub-rede é definido `name` por uma corda para o atributo.|
+| IP reservado | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. Tem de utilizar o Create Reserved IP Address para criar o endereço IP reservado. Cada implantação num serviço de nuvem pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é `name` definido por uma corda para o atributo.|
 
 ## <a name="see-also"></a>Veja também
-[Esquema de configuração do serviço de nuvem (clássico)](schema-cscfg-file.md)
+[Cloud Service (clássico) Configuração Schema](schema-cscfg-file.md)

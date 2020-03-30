@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 4f94ef66610b56d8843d59e5ca72a48143b742e8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 3/18/2020
+ms.openlocfilehash: 20a2066dc0228fe9c2fee09387d96bf6aafeb32f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251385"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531979"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na Base de Dados Azure para MariaDB
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar para a sua carga de trabalho. A Base de Dados Azure para MariaDB fornece várias métricas que dão uma visão do comportamento do seu servidor.
@@ -24,7 +24,7 @@ Para orientação passo a passo, consulte [como configurar alertas](howto-alert-
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para a Base de Dados Azure para MariaDB:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Por cento do CPU|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -35,7 +35,7 @@ Estas métricas estão disponíveis para a Base de Dados Azure para MariaDB:
 |serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento máximo de registo do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Conexões ativas|Contagem|O número de ligações ativas ao servidor.|
+|active_connections|Conexões Ativas|Contagem|O número de ligações ativas ao servidor.|
 |connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede Para fora através de conexões ativas.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em todas as ligações ativas.|

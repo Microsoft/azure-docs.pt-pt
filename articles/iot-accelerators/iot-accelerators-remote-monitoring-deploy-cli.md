@@ -1,5 +1,5 @@
 ---
-title: Implementar a solução de monitorização remota utilizando o CLI - Azure  Microsoft Docs
+title: Implementar a solução de monitorização remota utilizando o CLI - Azure [ Microsoft Docs
 description: Este guia de como fazer mostra como fornecer o acelerador de solução de monitorização remota utilizando o CLI.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258299"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota utilizando o CLI
 
@@ -23,7 +23,7 @@ Este guia de como fazer mostra como implementar o acelerador de solução de mon
 
 Para implementar o acelerador de soluções de monitorização remota, necessita de uma subscrição azure ativa.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Para executar o CLI, precisa de [Node.js](https://nodejs.org/) instalado na sua máquina local.
 
@@ -60,7 +60,7 @@ Para aprender a utilizar a opção de implementação local, consulte [Executar 
 
 Esta secção resume as principais diferenças entre uma implantação básica e normalizada.
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Pode fazer uma implementação básica a partir de [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou utilizando o CLI.
 
@@ -70,10 +70,10 @@ Uma implementação básica cria os seguintes serviços na sua subscrição Azur
 
 | Contagem | Recurso                       | Tipo         | Usado para |
 |-------|--------------------------------|--------------|----------|
-| 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedagem de microserviços |
+| 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Padrão D1 V2  | Hospedagem de microserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - Nível standard | Gestão e comunicação de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alertas e outros armazenamentos frios |  
-| 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento para VM e pontos de verificação de streaming |
+| 1     | [Conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento para VM e pontos de verificação de streaming |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar aplicação web frontal |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerir identidades e segurança dos utilizadores |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualização de localizações de ativos |
@@ -91,11 +91,11 @@ Uma implementação padrão cria os seguintes serviços na sua subscrição Azur
 
 | Contagem | Recurso                                     | SKU / Tamanho      | Usado para |
 |-------|----------------------------------------------|-----------------|----------|
-| 1     | [Serviço Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Utilize um serviço de orquestração de contentores Kubernetes totalmente gerido, incumprimentos a 3 agentes|
+| 1     | [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service)| Utilize um serviço de orquestração de contentores Kubernetes totalmente gerido, incumprimentos a 3 agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - Nível standard | Gestão, comando e controlo de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alertas e mensagens |
 | 5     | [Contas de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento vm, e 1 para os pontos de verificação de streaming |
-| 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação sobre SSL |
+| 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação sobre TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerir identidades e segurança dos utilizadores |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualização de localizações de ativos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitar a análise em tempo real |
@@ -103,9 +103,9 @@ Uma implementação padrão cria os seguintes serviços na sua subscrição Azur
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento de dados de mensagens e permite análise de telemetria de mergulho profundo |
 
 > [!NOTE]
-> Pode encontrar informações sobre preços para estes serviços em [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). Pode encontrar detalhes de utilização e faturação para a sua subscrição no [Portal Azure.](https://portal.azure.com/)
+> Pode encontrar informações sobre preços [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing)para estes serviços em . Pode encontrar detalhes de utilização e faturação para a sua subscrição no [Portal Azure.](https://portal.azure.com/)
 
-## <a name="deploy-the-solution-accelerator"></a>Implementar o acelerador de solução
+## <a name="deploy-the-solution-accelerator"></a>Implementar o acelerador de soluções
 
 Exemplos de implantação:
 
@@ -127,14 +127,14 @@ pcs -t remotemonitoring -s standard -r java
 
 ### <a name="pcs-command-options"></a>opções de comando pcs
 
-Quando executas o comando `pcs` para implementar uma solução, é-te pedido:
+Quando dirige `pcs` o comando para implementar uma solução, é-lhe pedido:
 
 - Um nome para a sua solução. Este nome tem de ser exclusivo.
 - A subscrição do Azure que deve utilizar.
 - Um local.
 - Credenciais para as máquinas virtuais que acolhem os microserviços. Pode usar estas credenciais para aceder às máquinas virtuais para resolução de problemas.
 
-Quando o comando `pcs` termina, exibe o URL do seu novo acelerador de soluções. O comando `pcs` também cria um ficheiro `{deployment-name}-output.json` que contém informações como o nome do Hub IoT que criou.
+Quando `pcs` o comando termina, exibe o URL do seu novo acelerador de solução. O `pcs` comando também `{deployment-name}-output.json` cria um ficheiro que contém informações como o nome do Hub IoT que criou.
 
 Para mais informações sobre os parâmetros da linha de comando, corra:
 
@@ -150,7 +150,7 @@ Neste guia de como orientar, aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar o acelerador de soluções
-> * Implementar o acelerador de solução
+> * Implementar o acelerador de soluções
 > * Inscreva-se no acelerador de soluções
 
 Agora que implementou a solução de Monitorização Remota, o próximo passo é [explorar as capacidades do painel de soluções](./quickstart-remote-monitoring-deploy.md).

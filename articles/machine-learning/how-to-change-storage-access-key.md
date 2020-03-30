@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: ab7aaeb2b28592aab38d112b02340160a6c882ee
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927513"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296922"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -93,7 +93,9 @@ Para atualizar o Azure Machine Learning para utilizar a nova tecla, utilize os s
         az login
         ```
 
-    1. Para atualizar o espaço de trabalho para utilizar a nova tecla, utilize o seguinte comando. Substitua `myworkspace` pelo seu nome de espaço de trabalho Azure Machine Learning e substitua `myresourcegroup` pelo nome do grupo de recursos Azure que contém o espaço de trabalho.
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+    1. Para atualizar o espaço de trabalho para utilizar a nova tecla, utilize o seguinte comando. Substitua-o `myworkspace` pelo seu nome de `myresourcegroup` espaço de trabalho Azure Machine Learning e substitua-o pelo nome do grupo de recursos Azure que contém o espaço de trabalho.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -123,8 +125,8 @@ Para atualizar o Azure Machine Learning para utilizar a nova tecla, utilize os s
     
     ```
 
-    Uma vez especificado `overwrite=True`, este código substitui o registo existente e atualiza-o para utilizar a nova tecla.
+    Uma `overwrite=True` vez especificado, este código substitui o registo existente e atualiza-o para utilizar a nova tecla.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o registo de lojas de dados, consulte a [referência da classe`Datastore`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
+Para obter mais informações sobre [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) o registo de lojas de dados, consulte a referência da classe.

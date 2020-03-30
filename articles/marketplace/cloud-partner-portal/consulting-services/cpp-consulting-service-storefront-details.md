@@ -1,19 +1,18 @@
 ---
 title: Insira detalhes da montra para oferta de consultoria Mercado Azure
 description: Defina os detalhes da montra numa oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.author: dsindona
+ms.openlocfilehash: 7e1989ee5fcc428bc7d29c17432ded8dab24ecee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191172"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281702"
 ---
 # <a name="storefront-details-tab"></a>Separador de detalhes da vitrine
 
@@ -31,11 +30,11 @@ Este artigo explica como introduzir os detalhes para a sua montra. O separador *
 
 A secção Detalhes da **Oferta** contém as seguintes caixas:
 
--   **Oferecer resumo\***
--   **Oferta descrição\***
+-   **Resumo da oferta\***
+-   **Descrição da oferta\***
 
 
-### <a name="offer-summary"></a>Oferecer resumo\*
+### <a name="offer-summary"></a>Resumo da oferta\*
 
 O resumo da oferta é uma breve descrição da sua oferta que aparece logo abaixo do nome da oferta. Utilize texto simples para introduzir o resumo da oferta, sem quaisquer quebras de linha. Os exemplos que se seguem são bons resumos de oferta, juntamente com os respetivos nomes de oferta.
 
@@ -65,7 +64,7 @@ O resumo da oferta é uma breve descrição da sua oferta que aparece logo abaix
 -   **Resumo da oferta**: Recolha e avaliação de requisitos para uma solução ERP concebida para empresas de serviços profissionais e empresas orientadas para projetos.
 
 
-### <a name="offer-description"></a>Oferta descrição\*
+### <a name="offer-description"></a>Descrição da oferta\*
 
 Insira a descrição da oferta de serviço de consultoria na caixa de descrição da **Oferta.** Uma boa descrição da oferta cobre detalhes exatos de como é o noivado e o final entregue ao cliente. Deve claramente ajudar o cliente a entender o que obtém. Inclua como a sua oferta se relaciona com o produto da Microsoft para o qual está a oferecer serviços de consultoria.
 
@@ -128,7 +127,7 @@ O seguinte ficheiro Markdown da amostra é para a oferta anterior:
 
 ## <a name="publisher-information"></a>Informações do Publicador
 
-**MPN ID**
+**ID do MPN**
 
 Introduza o seu ID de nove dígitos da Microsoft Partner Network (MPN). Se não tiver uma identificação mpn, pode obter uma no Microsoft Partner Center.
 
@@ -136,7 +135,7 @@ Introduza o seu ID de nove dígitos da Microsoft Partner Network (MPN). Se não 
 
 Insira o seu novo PARTNER Center ID, se tiver um.
 
-**MPN ID**
+**ID do MPN**
 
 Introduza uma chave secreta para pré-visualizar a sua oferta no AppSource antes de entrar em funcionação.
 Este identificador não é uma senha.

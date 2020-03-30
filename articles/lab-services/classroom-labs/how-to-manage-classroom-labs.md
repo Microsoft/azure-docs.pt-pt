@@ -1,5 +1,5 @@
 ---
-title: Gerir laboratórios de salas de aula em Serviços de Laboratório Azure  Microsoft Docs
+title: Gerir laboratórios de salas de aula em Serviços de Laboratório Azure [ Microsoft Docs
 description: Aprenda a criar e configurar um laboratório de sala de aula, veja todos os laboratórios de sala de aula, partilhe a ligação de registo com um utilizador de laboratório, ou apague um laboratório.
 services: lab-services
 documentationcenter: na
@@ -10,15 +10,15 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502030"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Serviços de Laboratório Azure 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -50,7 +50,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         > [!IMPORTANT]
         > Registe o nome de utilizador e a palavra-passe. Estas não serão apresentadas novamente.
-    3. Desative Utilize a **mesma palavra-passe para todas as máquinas virtuais** se quiser que os alunos desempenem as suas próprias palavras-passe. Este passo é **opcional**. 
+    3. Desative Utilize a **mesma palavra-passe para todas as máquinas virtuais** se quiser que os alunos desempenem as suas próprias palavras-passe. Este passo é **opcional.** 
 
         Um professor pode optar por usar a mesma palavra-passe para todos os VMs do laboratório, ou permitir que os alunos desembotem senhas para os seus VMs. Por predefinição, esta definição está ativada para todas as imagens Windows e Linux, com exceção do Ubuntu. Ao selecionar **Ubuntu** VM, esta definição é desativada, pelo que os alunos serão solicitados a definir uma palavra-passe quando iniciarem o seu início.  
 
@@ -121,7 +121,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 ## <a name="delete-a-classroom-lab"></a>Apagar um laboratório de sala de aula
 1. No azulejo para o laboratório, selecione três pontos (...) no canto e, em seguida, **selecione Delete**. 
 
-    ![Botão de eliminar](../media/how-to-manage-classroom-labs/delete-button.png)
+    ![Eliminar botão](../media/how-to-manage-classroom-labs/delete-button.png)
 3. Na caixa de diálogo de **laboratório Delete,** selecione **Eliminar** para continuar com a eliminação. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Mude para outro laboratório de sala de aula

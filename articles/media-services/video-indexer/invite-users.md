@@ -1,62 +1,62 @@
 ---
-title: Convidar usuários para o Video Indexer-Azure
+title: Convide os utilizadores para o Indexer de Vídeo - Azure
 titleSuffix: Azure Media Services
-description: Este artigo mostra como convidar usuários para Video Indexer.
+description: Este artigo mostra como convidar os utilizadores para o Indexer de Vídeo.
 services: media-services
 author: ReutAmior
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: c1395bc3b329630a1ecbd479d275c30c9c787bb1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839019"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499757"
 ---
-# <a name="quickstart-invite-users-to-video-indexer"></a>Início rápido: convidar usuários para Video Indexer
+# <a name="quickstart-invite-users-to-video-indexer"></a>Quickstart: Convidar utilizadores para o Indexer de Vídeo
 
-Para colaborar com seus colegas, você pode convidá-los para sua conta de Video Indexer. 
+Para colaborar com os seus colegas, pode convidá-los para a sua conta de Indexer de Vídeo. 
 
 > [!NOTE]
-> Somente o administrador da conta pode adicionar ou remover usuários.
+> Só o administrador da conta pode adicionar ou remover os utilizadores.
 
-## <a name="invite-new-users"></a>Convidar novos usuários
+## <a name="invite-new-users"></a>Convide novos utilizadores
 
-1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/). Verifique se você está conectado a uma conta de administrador.
-1. Clique no botão **convidar outros** no menu superior:
+1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/). Certifique-se de que está ligado a uma conta de administração.
+1. Clique no botão **Convidar outros** no menu superior:
 
-   ![Convidar novos usuários](./media/invite-users/invite-users.png)
+   ![Convide novos utilizadores](./media/invite-users/invite-users.png)
 
-1. Adicione os endereços de email das pessoas que você deseja adicionar à sua conta de Video Indexer:
+1. Adicione os endereços de e-mail das pessoas que pretende adicionar à sua conta de Indexer de Vídeo:
 
-    ![Convidar usuários para esta conta](./media/invite-users/invite-to-account.png)
+    ![Convide os utilizadores para esta conta](./media/invite-users/invite-to-account.png)
         
     >[!NOTE]
-    > Todos os usuários que você convidar terão permissão de leitura e gravação para todos os vídeos em sua conta.
-1. Os usuários que você convidou receberão um email com um link e poderão acessar a conta quando clicarem no link **Video indexer ingressar** :
+    > Todos os utilizadores que convidar terão lido e escrito permissão para todos os vídeos da sua conta.
+1. Os utilizadores que convidou receberão um e-mail com um link e poderão aceder à conta assim que clicarem no link **Join Video Indexer:**
 
     ![Confirmação](./media/invite-users/invite-msg.png)
 
-    O usuário deve clicar no link para ingressar a fim de obter acesso à conta. 
+    O utilizador deve clicar no link para aderir para ter acesso à conta. 
 
-## <a name="removing-existing-users"></a>Removendo usuários existentes
+## <a name="removing-existing-users"></a>Remoção de utilizadores existentes
 
-Se você quiser remover usuários que têm acesso à sua conta, clique no sinal **X** ao lado de seu nome:
+Se pretender remover os utilizadores que tenham acesso à sua conta, pode clicar no sinal **X** ao lado do seu nome:
 
 ![Remover utilizadores](./media/invite-users/remove-users.png)
 
-Os usuários não recebem uma notificação após a remoção. Depois de removidos, os usuários não estarão autorizados a fazer logon.
+Os utilizadores não recebem uma notificação após a remoção. Uma vez removidos, os utilizadores não serão autorizados a fazer login.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora você pode usar o [Video indexer site](video-indexer-view-edit.md) ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo.
+Agora pode usar o site do [Indexer](video-indexer-view-edit.md) de Vídeo ou portal de [desenvolvedor estonteante](video-indexer-use-apis.md) de vídeo para ver as informações do vídeo.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
-- [Como se inscrever e carregar seu primeiro vídeo](video-indexer-get-started.md)
-- [Começar a usar APIs](video-indexer-use-apis.md)
+- [Como se inscrever e fazer upload do seu primeiro vídeo](video-indexer-get-started.md)
+- [Comece a usar APIs](video-indexer-use-apis.md)

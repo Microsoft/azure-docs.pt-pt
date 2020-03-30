@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53bbee6dd75e045c2a7e95c88a0138c9859d12db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77205676"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80374020"
 ---
 Este artigo responde a algumas perguntas frequentes sobre discos Azure Managed Disks e Discos SSD Azure Premium.
 
@@ -54,10 +54,6 @@ Não.
 **Existem limitações de escala para os clientes que utilizam discos geridos?**
 
 Os Discos Geridos eliminam os limites associados às contas de armazenamento. No entanto, o limite máximo é de 50.000 discos geridos por região e por tipo de disco para uma subscrição.
-
-**Posso tirar uma foto incremental de um disco gerido?**
-
-Não. A capacidade de instantâneo atual faz uma cópia completa de um disco gerido.
 
 **Os VMs num conjunto de disponibilidade podem consistir numa combinação de discos geridos e não geridos?**
 
@@ -148,17 +144,18 @@ SSD premium, SSD padrão e instantâneos de suporte HDD padrão. Para estes trê
 **O que são reservas de disco Azure?**
 A reserva do disco é a opção de comprar com antecedência um ano de armazenamento de disco, reduzindo o seu custo total. Para mais detalhes sobre reservas de discos Azure, consulte o nosso artigo sobre o assunto: Entenda como o seu desconto de [reserva é aplicado ao Disco Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Que opções oferece a reserva de disco Azure?** A reserva de disco Azure oferece a opção de comprar SSDs Premium nas SKUs especificadas de P30 (1 TiB) até P80 (32 TiB) por um período de um ano. Não existe qualquer limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar com um pagamento único, adiantado ou pagamentos mensais. Não existe um custo transacional adicional aplicado aos Discos Geridos Premium SSD. 
+**Que opções oferece a reserva de disco Azure?**    
+A reserva de disco Azure oferece a opção de comprar SSDs Premium nas SKUs especificadas de P30 (1 TiB) até P80 (32 TiB) por um período de um ano. Não existe qualquer limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar com um pagamento único, adiantado ou pagamentos mensais. Não existe um custo transacional adicional aplicado aos Discos Geridos Premium SSD.    
 
 As reservas são feitas sob a forma de discos, não de capacidade. Por outras palavras, quando reserva um disco P80 (32 TiB), obtém-se um único disco P80, não pode então dividir essa reserva específica em dois discos P70 (16 TiB) mais pequenos. Pode, naturalmente, reservar quantos ou menos discos quiser, incluindo dois discos P70 (16 TiB) separados.
 
-**Como é aplicada a reserva do disco Azure?**  
-A reserva de discos segue um modelo semelhante aos casos de máquina virtual reservada (VM). A diferença é que uma reserva de disco não pode ser aplicada a diferentes SKUs, enquanto uma instância vm pode. Consulte [custos de poupança com as Instâncias VM reservadas](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) do Azure para obter mais informações sobre casos vm.    
+**Como é aplicada a reserva do disco Azure?**    
+A reserva de discos segue um modelo semelhante aos casos de máquina virtual reservada (VM). A diferença é que uma reserva de disco não pode ser aplicada a diferentes SKUs, enquanto uma instância vm pode. Consulte [custos de poupança com as Instâncias VM reservadas](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) do Azure para obter mais informações sobre casos vm.     
 
-Posso usar o meu armazenamento de dados comprado através da reserva de **discos Azure em várias regiões?**     
-A reserva de discos Azure é comprada para uma região específica e SKU (como P30 no Leste dos EUA 2), e, portanto, não pode ser usada fora destas construções. Pode sempre adquirir uma Reserva adicional de Discos Azure para as suas necessidades de armazenamento em discos noutras regiões ou SKUs. 
+**Posso usar o meu armazenamento de dados comprado através da reserva de discos Azure em várias regiões?**    
+A reserva de discos Azure é comprada para uma região específica e SKU (como P30 no Leste dos EUA 2), e, portanto, não pode ser usada fora destas construções. Pode sempre adquirir uma Reserva adicional de Discos Azure para as suas necessidades de armazenamento em discos noutras regiões ou SKUs.    
 
-O que acontece quando a minha reserva de **discos Azure expirar?**    
+**O que acontece quando a minha reserva de discos Azure expirar?**    
 Receberá notificações por e-mail 30 dias antes da expiração e novamente na data de validade. Uma vez expirada a reserva, os discos implantados continuarão a ser executados e serão cobrados com as mais recentes [tarifas de pagamento.](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ### <a name="azure-shared-disks"></a>Discos compartilhados azure
@@ -181,7 +178,7 @@ Apenas SSDs premium que sejam P15 ou discos partilhados de maior suporte.
 
 **Se eu tiver um SSD premium existente, posso ativar discos partilhados nele?**
 
-Todos os discos geridos criados com a versão API 2019-07-01 ou superior podem permitir discos partilhados. Para isso, é necessário desmontar o disco de todos os VMs a que está ligado. Em seguida, editar a propriedade `maxShares` no disco.
+Todos os discos geridos criados com a versão API 2019-07-01 ou superior podem permitir discos partilhados. Para isso, é necessário desmontar o disco de todos os VMs a que está ligado. Em seguida, `maxShares` editar a propriedade no disco.
 
 **Se já não quero usar um disco em modo partilhado, como o desativo?**
 
@@ -199,7 +196,7 @@ Não.
 
 A única opção de cache de hospedeiro suportado é "Nenhuma".
 
-## <a name="ultra-disks"></a>Discos ultra
+## <a name="ultra-disks"></a>Discos Ultra
 
 **Para que devo definir a minha entrada de disco ultra?**
 Se não tiver a certeza do que definir a sua entrada de disco, recomendamos que comece por assumir um tamanho IO de 16 KiB e ajuste o desempenho a partir daí à medida que monitoriza a sua aplicação. A fórmula é: Entrada em MBps = # de IOPS * 16 / 1000.
@@ -263,8 +260,8 @@ Sim, o Azure Backup já está disponível.
 **Como crio discos Standard SSD?**
 Pode criar discos Standard SSD utilizando modelos de Gestor de Recursos Azure, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo de Gestor de Recursos para criar discos SSD standard:
 
-* *apiVersão* para Microsoft.Compute deve ser definido como `2018-04-01` (ou mais tarde)
-* Especifique *o ManagedDisk.storageAccountType* como `StandardSSD_LRS`
+* *apiVersão* para Microsoft.Compute deve `2018-04-01` ser definido como (ou mais tarde)
+* Especificar *managedDisk.storageAccountType* como`StandardSSD_LRS`
 
 O exemplo seguinte mostra as *propriedades.storageProfile.osDisk* para um VM que utiliza discos SSD padrão:
 
@@ -442,12 +439,12 @@ O maior tamanho de página blob que o Azure suporta é 8 TiB (8.191 GiB). O tama
 
 Não precisa de atualizar as ferramentas Azure existentes para criar, anexar ou redimensionar discos maiores do que 1 TiB. Para fazer o upload do ficheiro VHD diretamente para o Azure como uma página blob ou um disco não gerido, precisa de utilizar os mais recentes conjuntos de ferramentas listados abaixo. Só apoiamos carregamentos VHD de até 8 TiB.
 
-|Ferramentas do Azure      | Versões suportadas                                |
+|Ferramentas Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versão número 4.1.0: Lançamento de junho de 2017 ou posterior|
 |Azure CLI v1     | Versão número 0.10.13: Lançamento de maio de 2017 ou posterior|
 |Azure CLI v2     | Versão número 2.0.12: Lançamento de julho de 2017 ou posterior|
-|AzCopy           | Versão número 6.1.0: Lançamento de junho de 2017 ou posterior|
+|AzCopy              | Versão número 6.1.0: Lançamento de junho de 2017 ou posterior|
 
 **Os tamanhos do disco P4 e P6 são suportados para discos não geridos ou bolhas de página?**
 
@@ -469,11 +466,11 @@ Sim.
 
 O maior tamanho do disco suportado pela Azure Backup é 32 TiB (4 TiB para discos encriptados). O maior tamanho do disco suportado pela Azure Site Recovery é 8 TiB. O suporte para os discos maiores até 32 TiB ainda não está disponível na Recuperação do Site Azure.
 
-**Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (>4 TiB) para discos Standard SSD e Standard HDD para alcançar iOPS e Largura de Banda otimizadas?**
+**Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (>4 TiB) para discos Standard SSD e Standard HDD para alcançar iOPS e largura de banda otimizadas?**
 
 Para obter a entrada de disco de tamanhos grandes de disco Standard SSD e Standard HDD (>4 TiB) para além de 500 IOPS e 60 MiB/s, recomendamos que implemente um novo VM a partir de um dos seguintes tamanhos VM para otimizar o seu desempenho: série B, série DSv2, Série DSV3, Série SV3, Série SF, série Fs, série SF2, série M, série GS, série NCv2, série NCv3 ou VMs da série Ls. A fixação de discos grandes a VMs ou VMs existentes que não estejam a utilizar os tamanhos recomendados acima pode experimentar um desempenho mais baixo.
 
-**Como posso atualizar os meus discos (>4 TiB) que foram implantados durante a pré-visualização do tamanho do disco maior, a fim de obter a maior largura de banda iOPS e banda na GA?**
+**Como posso atualizar os meus discos (>4 TiB) que foram implantados durante a pré-visualização do tamanho do disco maior, a fim de obter o iOPS mais elevado & largura de banda na GA?**
 
 Pode parar e ligar o VM a que o disco está ligado ou, desmontar e voltar a ligar o disco. Os objetivos de desempenho de tamanhos de disco maiores foram aumentados tanto para SSDs premium como SSDs padrão na GA.
 

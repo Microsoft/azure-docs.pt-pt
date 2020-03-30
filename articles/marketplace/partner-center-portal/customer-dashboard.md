@@ -1,118 +1,117 @@
 ---
-title: Painel do cliente na análise do Marketplace comercial no Partner Center
-description: Saiba como acessar informações sobre seus clientes, incluindo tendências de crescimento, usando o painel do cliente na análise do Marketplace comercial.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Painel de clientes na análise do Mercado Comercial no Partner Center
+description: Saiba como aceder a informações sobre os seus clientes, incluindo tendências de crescimento, utilizando o dashboard de clientes na análise do Mercado Comercial.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7fe56a81bc82f9d49cf9f81b30986882b6d13cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264021"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286120"
 ---
-# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Painel do cliente na análise do Marketplace comercial
+# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de clientes na análise do Mercado Comercial
 
-Este artigo fornece informações sobre o **painel do cliente** no Partner Center. Este painel exibe informações sobre seus clientes, incluindo tendências de crescimento, apresentadas em um formato gráfico e baixável.
+Este artigo fornece informações sobre o **dashboard do Cliente** no Partner Center. Este dashboard exibe informações sobre os seus clientes, incluindo tendências de crescimento, apresentadas num formato gráfico e descarregável.
 
-Para acessar o **painel do cliente**, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para aceder ao **dashboard do Cliente,** abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
 
 ## <a name="customer-dashboard"></a>Dashboard de cliente
 
-O **painel do cliente** do menu **analisar** exibe dados para clientes que adquiriram suas ofertas. Você pode exibir representações gráficas dos seguintes itens:
+O **dashboard cliente** do menu **Analyze** exibe dados para clientes que adquiriram as suas ofertas. Pode ver representações gráficas dos seguintes itens:
 
 - [Resumo do cliente](#customer-summary)
 - [Cliente por geografia](#customer-by-geography)
 - [Tendências do cliente](#customer-trends)
-- [Clientes por pedidos e uso](#customers-by-orders-and-usage)
+- [Clientes por encomendas e utilização](#customers-by-orders-and-usage)
 - [Clientes por SKUs](#customers-by-skus)
-- [Pedidos e uso por tipo de cliente](#orders-and-usage-by-customer-type)
+- [Encomendas e utilização por tipo de cliente](#orders-and-usage-by-customer-type)
 - [Tabela de detalhes do cliente](#customer-details-table)
 - [Filtros de página do cliente](#customer-page-filters)
 
 ### <a name="customer-summary"></a>Resumo do cliente
 
-A seção Resumo do cliente exibe uma contagem de todos os clientes, incluindo novo, existente e com variação, durante o intervalo de datas selecionado.
+A secção de resumo do Cliente apresenta uma contagem de todos os clientes, incluindo novos, existentes e agitados, durante a gama de datas selecionadas.
 
-- O total de clientes é definido como a contagem de todos os clientes que compraram sua oferta e têm pelo menos uma ordem que não foi cancelada.
-- O percentual de crescimento dos clientes em comparação com o mês anterior é indicado pelo número e indicador ascendente no indicador verde ou inferior em vermelho.
-- As tendências de crescimento são representadas por gráficos de barras e exibirão o valor de cada mês passando o mouse sobre as colunas do gráfico.
+- O total de clientes é definido como a contagem de todos os clientes que adquiriram a sua oferta e têm pelo menos uma encomenda que não foi cancelada.
+- A percentagem de crescimento dos clientes face ao mês anterior é indicada pelo indicador de crescimento e número e subida no indicador verde ou descendente a vermelho.
+- As tendências de crescimento são representadas por gráficos de barras e mostrarão o valor por cada mês pairando sobre as colunas do gráfico.
 
-Há três **tipos de clientes**: novo, existente e com variação.
+Existem três tipos de **clientes:** novos, existentes e agitados.
 
-- Um novo cliente adquiriu uma ou mais de suas ofertas pela primeira vez no mês selecionado.
-- Um cliente existente adquiriu uma ou mais de suas ofertas antes do mês selecionado.
-- Um cliente com rotatividade cancelou todas as ofertas adquiridas anteriormente.
+- Um novo cliente adquiriu uma ou mais das suas ofertas pela primeira vez dentro do mês selecionado.
+- Um cliente existente adquiriu uma ou mais das suas ofertas antes do mês selecionado.
+- Um cliente agitado cancelou todas as ofertas anteriormente adquiridas.
 
 ### <a name="customer-by-geography"></a>Cliente por geografia
 
-O gráfico **cliente por geografia** mostra as contagens de todos os clientes e clientes adquiridos durante o intervalo de datas selecionado e são mapeados com base no país do cliente. A cor de luz para escuro no mapa representa o valor de baixo para alto da contagem de clientes. Clique em um registro na tabela para ampliar um país.
+O gráfico **de geografia do Cliente** mostra as contagens de todos os clientes e clientes adquiridos durante a gama de datas selecionadas e são mapeados com base no País de Cliente. A luz para a cor escura no mapa representa o baixo a alto valor da contagem de clientes. Clique num disco na tabela para ampliar um país.
 
-O calor exibe a contagem de clientes e% por país do cliente. Você pode mover o mapa para exibir o local exato e aplicar zoom em um local específico. Este mapa tem uma grade suplementar que permite exibir o% dos clientes por local, bem como os clientes adicionados recentemente a esse local.
+O mapa de calor exibe a contagem do cliente e % por país cliente. Pode mover o mapa para ver a localização exata e ampliar para um local específico. Este mapa tem uma grelha suplementar que lhe permite ver a % dos clientes por localização, bem como os clientes recém-adicionados a esse local.
 
 ### <a name="customer-trends"></a>Tendências do cliente
 
-O gráfico de **tendências do cliente** exibe uma contagem de todos os clientes, incluindo novos, existentes e com variação, com uma tendência de crescimento mensal.
+O gráfico de tendências do **Cliente** apresenta uma contagem de todos os clientes, incluindo novos, existentes e agitados, com uma tendência de crescimento mensal.
 
-- O gráfico de linhas representa as porcentagens de crescimento geral do cliente.
-- A coluna mês representa a contagem de clientes empilhados por clientes novos, existentes e com rotatividade.
-- A contagem de clientes com variação é exibida na direção negativa do eixo Y.
-- Você pode selecionar itens de legenda específicos para exibir exibições mais detalhadas. Por exemplo, selecione novos clientes na legenda para exibir apenas os novos clientes.
-- Você pode usar o controle deslizante na parte superior do gráfico para rolar para a direita e para a esquerda no eixo x e concentrar-se em pontos de dados específicos para exibir mais detalhadamente.
-- Passar o mouse sobre uma coluna do gráfico exibirá detalhes somente para esse mês.
+- O gráfico de linha representa as percentagens globais de crescimento do cliente.
+- A coluna do mês representa a contagem de clientes empilhados por clientes novos, existentes e agitados.
+- A contagem de clientes agitada é exibida na direção negativa do Eixo Y.
+- Pode selecionar itens de lenda específicos para visualizações mais detalhadas. Por exemplo, selecione novos clientes da lenda para apenas apresentar novos clientes.
+- Pode utilizar o slider na parte superior da tabela para rolar para a direita e para a esquerda no eixo x e concentrar-se em pontos de dados específicos para visualizar com mais detalhes.
+- Pairar sobre uma coluna da tabela mostrará detalhes apenas para esse mês.
 
-### <a name="customers-by-orders-and-usage"></a>Clientes por pedidos e uso
+### <a name="customers-by-orders-and-usage"></a>Clientes por encomendas e utilização
 
-O gráfico de **pedidos/uso de clientes** tem três guias, "pedidos", "uso normalizado" e "uso bruto". O **principal percentual do cliente** é exibido ao longo do eixo x, conforme determinado pelo número de pedidos. O eixo y exibe a contagem de pedidos do cliente. O eixo y secundário (grafo de linha) exibe a porcentagem cumulativa do número total de pedidos. Você pode exibir detalhes passando o mouse sobre pontos ao longo do gráfico de linhas.
+Os **Clientes por encomenda/gráfico** de utilização tem três separadores, "encomendas", "utilização normalizada" e "uso bruto". O **percentil superior** do cliente é exibido ao longo do eixo x, conforme determinado pelo seu número de encomendas. O eixo y exibe a contagem de encomendas do cliente. O eixo y secundário (gráfico de linha) apresenta a percentagem acumulada do número total de encomendas. Pode exibir detalhes pairando sobre pontos ao longo da tabela de linhas.
 
-Por exemplo, consulte o gráfico abaixo para obter o uso normalizado: o percentual de 30 principais de clientes está contribuindo para 87% do uso normalizado de forma cumulativa. O percentual de 30 de clientes está contribuindo apenas 1.570.000 horas de uso.
+Como exemplo, veja o gráfico abaixo para uso normalizado: O percentil 30 mais elevado dos clientes está a contribuir para 87% do uso normalizado cumulativamente. O 30º percentil de clientes está apenas a contribuir com 1,57 milhões de horas de utilização.
 
 ### <a name="customers-by-skus"></a>Clientes por SKUs
 
-Os gráficos de **SKUs/uso dos clientes** são descritos abaixo.
+Os **gráficos de utilização dos Clientes por SKUs/utilização** são descritos abaixo.
 
-1. O quadro líder apresenta detalhes dos principais clientes 50 classificados por contagem de pedidos. Depois de selecionar um cliente, os detalhes do cliente são apresentados nas seções 2, 3 e 4 deste quadro principal.
-2. Os detalhes do perfil do cliente são exibidos nesse espaço quando os Publicadores estão conectados com uma função de proprietário. Se os Publicadores estiverem conectados com uma função de colaborador, os detalhes nesta seção não estarão disponíveis.
-3. O gráfico de rosca pedidos por SKUs exibe a divisão de pedidos comprados para SKUs. Os 5 principais SKUs com a contagem de pedidos mais alto são exibidos, enquanto o restante dos pedidos é agrupado em ' Rest todos '.
-4. O gráfico de rosca estações por SKUs exibe a divisão de estações solicitadas para SKUs. Os 5 principais SKUs com as estações mais altas são exibidos, enquanto o restante dos pedidos é agrupado em REST todos.
+1. O conselho de administração da Leader apresenta detalhes dos 50 principais clientes classificados por contagem de encomendas. Depois de selecionar um cliente, os detalhes do cliente são apresentados nas secções 2, 3 e 4 deste quadro de líderes.
+2. Os detalhes do perfil do Cliente são apresentados neste espaço quando as editoras são registadas com uma função de proprietário. Se os editores estiverem com uma função contributiva, os detalhes nesta secção não estarão disponíveis.
+3. O gráfico de donut Encomendas da SKUs exibe a desagregação das encomendas adquiridas para SKUs. Os 5 Melhores SKUs com a contagem de encomendas mais alta são apresentados, enquanto o resto das encomendas são agruparadas em 'descanse todos'.
+4. O gráfico de donut Seats by SKUs exibe a desagregação dos assentos encomendados para As SKUs. Os 5 Melhores SKUs com assentos mais altos são apresentados, enquanto o resto das encomendas são agruparadas sob repouso.
 
-### <a name="orders-and-usage-by-customer-type"></a>Pedidos e uso por tipo de cliente
+### <a name="orders-and-usage-by-customer-type"></a>Encomendas e utilização por tipo de cliente
 
-O gráfico **tipo de pedidos/uso por cliente** exibe o número de pedidos, uso normalizado e horas de uso bruto dividido entre novos clientes e clientes existentes; com base na seleção de pedidos, normalizado e uso bruto, respectivamente no gráfico.
+O gráfico de **Encomendas/utilização por tipo cliente** mostra o número de encomendas, utilização normalizada e horas de utilização brutas divididas entre novos clientes e clientes existentes; com base na seleção de encomendas, normalizadas e em uso bruto, respectivamente, no gráfico.
 
-- Um novo cliente adquiriu uma ou mais de suas ofertas ou relatou o uso pela primeira vez no mesmo mês do calendário (eixo y).
-- Um cliente existente já adquiriu uma oferta de você ou relatou uso anterior ao mês do calendário relatado (no eixo y).
+- Um novo cliente adquiriu uma ou mais das suas ofertas ou reportou uso pela primeira vez no mesmo mês civil (y-eixo).
+- Um cliente existente já adquiriu uma oferta de si ou reportou o seu uso antes do mês civil relatado (no eixo y).
 
 ### <a name="customer-details-table"></a>Tabela de detalhes do cliente
 
-A tabela **detalhes do cliente** exibe uma lista numerada dos principais clientes 1000 classificados pela data em que adquiriram primeiro uma de suas ofertas.
+A tabela de detalhes do **Cliente** apresenta uma lista numerada dos 1000 clientes classificados pela data em que adquiriram pela primeira vez uma das suas ofertas.
 
-- As informações pessoais do cliente só estarão disponíveis se o cliente tiver fornecido consentimento. Você só poderá exibir essas informações se tiver feito logon com um nível de função de proprietário de permissões. Saiba mais sobre as funções e permissões de usuário.
-- Cada coluna na grade é classificável.
-- Os dados podem ser extraídos para um arquivo TSV se a contagem dos registros for menor que 1000.
-- Se o número de registros for superior a 1000, os dados exportados serão colocados de forma assíncrona em uma página de downloads para os próximos 30 dias.
-- Os filtros podem ser aplicados à tabela para exibir apenas os dados nos quais você está interessado. Os dados podem ser filtrados por nome da empresa, ID do cliente, ID da assinatura do Marketplace, tipo de licença do Azure, data de aquisição, data de perda, email do cliente, país/estado do cliente/cidade/zip, idioma do cliente, etc.
+- As informações pessoais do cliente só estarão disponíveis se o cliente tiver fornecido o consentimento. Só pode ver esta informação se tiver iniciado sessão com um nível de permissões. Saiba mais sobre as funções e permissões do utilizador.
+- Cada coluna na grelha é ordenada.
+- Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
+- Se o número de registos for superior a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
+- Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Estado/Cidade/Zip, Idioma do Cliente, etc.
 
 ### <a name="customer-page-filters"></a>Filtros de página do cliente
 
-Os filtros de **página de clientes** são aplicados no nível de página de clientes. Você pode selecionar vários filtros para renderizar o gráfico para os critérios escolhidos para exibição e os dados que deseja ver na grade/exportação de dados de pedidos detalhados. Os filtros são aplicados nos dados extraídos para o intervalo de dados selecionado no canto superior direito da página pedidos.
+Os filtros da **página Clientes** são aplicados ao nível da página do Cliente. Pode selecionar vários filtros para tornar o gráfico pelos critérios que escolhe ver e os dados que pretende ver na grelha /exportação de dados de encomendas detalhadas. Os filtros são aplicados nos dados extraídos para a gama de dados selecionado no canto superior direito da página de encomendas.
 
 >[!NOTE]
-> Definições detalhadas para cada um dos campos na grade de clientes, filtros de página e suas seleções possíveis estão localizadas em [perguntas frequentes e terminologia para análise do Marketplace comercial](./faq-terminology.md).
+> Definições detalhadas para cada um dos campos na grelha do Cliente, filtros de página e respetivas possíveis seleções estão localizadas em [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Marketplace comercial do Partner Center, consulte [análise do Marketplace comercial no Partner Center](./analytics.md).
-- Para grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para sua oferta, consulte [painel de resumo na análise do Marketplace comercial](./summary-dashboard.md).
-- Para obter informações sobre seus pedidos em um formato gráfico e baixável, consulte [painel de pedidos na análise do Marketplace comercial](./orders-dashboard.md).
-- Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do Mercado Comercial.](./summary-dashboard.md)
+- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do Mercado Comercial](./orders-dashboard.md).
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [O Dashboard de Utilização na análise do Mercado Comercial](./usage-dashboard.md).
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e análises dashboard na análise](./ratings-reviews.md)do Mercado Comercial.
+- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.

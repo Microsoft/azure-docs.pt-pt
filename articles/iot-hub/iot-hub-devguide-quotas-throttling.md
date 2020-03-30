@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284697"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Quotas ioT hub e estrangulamento
@@ -39,13 +39,13 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 | Limitação | Grátis, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operações de registo de identidade](#identity-registry-operations-throttle) (criar, recuperar, listar, atualizar, excluir) | 1.67/seg/unidade (100/min/unidade) | 1.67/seg/unidade (100/min/unidade) | 83,33/seg/unidade (5.000/min/unidade) |
-| [Novas ligações de dispositivos](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações,_ não ao número total de ligações) | Superior a 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades S1 são 2\*12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg em todas as suas unidades. Com nove unidades S1, tem 108 novas ligações/seg (9\*12) em todas as suas unidades. | 120 novas ligações/sec/unidade | 6\.000 novas ligações/sec/unidade |
-| Envios do dispositivo para a cloud | Maior de 100 operações de envio/seg ou 12 operações de envio/sec/unidade <br/> Por exemplo, duas unidades S1 são 2\*12 = 24/seg, mas tem pelo menos 100 operações de envio/seg através das suas unidades. Com nove unidades S1, tem 108 operações de envio/seg (9\*12) através das suas unidades. | 120 enviar operações/sec/unidade | 6\.000 enviar operações/sec/unidade |
+| [Novas ligações de dispositivos](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações,_ não ao número total de ligações) | Superior a 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades\*S1 são 2 12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg em todas as suas unidades. Com nove unidades S1, tem 108 novas\*ligações/seg (9 12) em todas as suas unidades. | 120 novas ligações/sec/unidade | 6.000 novas ligações/sec/unidade |
+| Envios do dispositivo para a cloud | Maior de 100 operações de envio/seg ou 12 operações de envio/sec/unidade <br/> Por exemplo, duas unidades\*S1 são 2 12 = 24/seg, mas tem pelo menos 100 operações de envio/seg através das suas unidades. Com nove unidades S1, tem 108\*operações de envio/seg (9 12) através das suas unidades. | 120 enviar operações/sec/unidade | 6.000 enviar operações/sec/unidade |
 | Cloud-to-device envia<sup>1</sup> | 1.67 Enviar operações/seg/unidade (100 mensagens/min/unidade) | 1.67 Enviar operações/seg/unidade (100 operações de envio/min/unidade) | 83.33 Enviar operações/sec/unidade (5.000 operações de envio/min/unidade) |
 | Cloud-to-device recebe<sup>1</sup> <br/> (apenas quando o dispositivo utiliza HTTPS)| 16.67 receber operações/sec/unidade (1.000 receção de operações/min/unidade) | 16.67 receber operações/sec/unidade (1.000 receção de operações/min/unidade) | 833.33 receber operações/sec/unidade (50.000 a receber operações/min/unidade) |
 | Upload de ficheiros | 1.67 iniciações de upload de ficheiros/sec/unidade (100/min/unidade) | 1.67 iniciações de upload de ficheiros/sec/unidade (100/min/unidade) | 83.33 iniciações de upload de ficheiros/sec/unidade (5.000/min/unidade) |
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
-| Consultas | 20/min/unidade | 20/min/unidade | 1\.000/min/unidade |
+| Consultas | 20/min/unidade | 20/min/unidade | 1.000/min/unidade |
 | Twin (dispositivo e módulo) lê<sup>1</sup> | 100/seg | Superior a 100/seg ou 10/seg/unidade | 500/seg/unidade |
 | Atualizações duplas (dispositivo e módulo)<sup>1</sup> | 50/seg | Superior a 50/seg ou 5/seg/unidade | 250/seg/unidade |
 | Operações de emprego<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/seg/unidade (100/min/unidade) | 1.67/seg/unidade (100/min/unidade) | 83,33/seg/unidade (5.000/min/unidade) |
@@ -75,9 +75,9 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 
 ### <a name="traffic-shaping"></a>Formação de tráfego
 
-Para acomodar o tráfego de rutura, o IoT Hub aceita pedidos acima do acelerador por um tempo limitado. Os primeiros pedidos são processados imediatamente. No entanto, se o número de pedidos continuar a violar o acelerador, o IoT Hub começa a colocar os pedidos numa fila e processado à taxa limite. Este efeito chama-se formação de *tráfego.* Além disso, o tamanho desta fila é limitado. Se a violação do acelerador continuar, eventualmente a fila se enche, e o IoT Hub começa a rejeitar pedidos com `429 ThrottlingException`.
+Para acomodar o tráfego de rutura, o IoT Hub aceita pedidos acima do acelerador por um tempo limitado. Os primeiros pedidos são processados imediatamente. No entanto, se o número de pedidos continuar a violar o acelerador, o IoT Hub começa a colocar os pedidos numa fila e processado à taxa limite. Este efeito chama-se formação de *tráfego.* Além disso, o tamanho desta fila é limitado. Se a violação do acelerador continuar, eventualmente a fila se enche, `429 ThrottlingException`e o IoT Hub começa a rejeitar pedidos com .
 
-Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens dispositivo-cloud por segundo para o seu Hub S1 IoT (que tem um limite de 100/seg D2C envia). Durante o primeiro ou dois minutos, as mensagens são processadas imediatamente. No entanto, uma vez que o dispositivo continua a enviar mais mensagens do que o limite do acelerador, o IoT Hub começa a processar apenas 100 mensagens por segundo e coloca o resto numa fila. Começas a notar um aumento da latência. Eventualmente, começa-se a ser `429 ThrottlingException` à medida que a fila se enche, e o "número de erros de aceleração" nas [métricas do IoT Hub](iot-hub-metrics.md) começa a aumentar.
+Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens dispositivo-cloud por segundo para o seu Hub S1 IoT (que tem um limite de 100/seg D2C envia). Durante o primeiro ou dois minutos, as mensagens são processadas imediatamente. No entanto, uma vez que o dispositivo continua a enviar mais mensagens do que o limite do acelerador, o IoT Hub começa a processar apenas 100 mensagens por segundo e coloca o resto numa fila. Começas a notar um aumento da latência. Eventualmente, começa-se a ficar à medida `429 ThrottlingException` que a fila se enche, e o "número de erros de aceleração" nas [métricas do IoT Hub](iot-hub-metrics.md) começa a aumentar.
 
 ### <a name="identity-registry-operations-throttle"></a>Acelerador de operações de registo de identidade
 
@@ -96,7 +96,7 @@ O IoT Hub impõe outros limites operacionais:
 | Operação | Limite |
 | --------- | ----- |
 | Dispositivos | O número total de dispositivos mais módulos que podem ser registados num único hub IoT está limitado a 1.000.000. A única forma de aumentar este limite é contactar o [Microsoft Support](https://azure.microsoft.com/support/options/).|
-| Carrega o ficheiro | 10 uploads simultâneos de ficheiros por dispositivo. |
+| Uploads de ficheiros | 10 uploads simultâneos de ficheiros por dispositivo. |
 | Empregos<sup>1</sup> | O máximo de trabalhos simultâneos é 1 (para Free e S1), 5 (para S2) e 10 (para S3). No entanto, o número máximo de postos de trabalho de [importação/exportação](iot-hub-bulk-identity-mgmt.md) de dispositivos é de 1 para todos os níveis. <br/>O histórico de emprego supor até 30 dias. |
 | Pontos finais adicionais | Os centros SKU pagos podem ter 10 pontos finais adicionais. Os centros SKU gratuitos podem ter um ponto final adicional. |
 | Consultas de encaminhamento de mensagens | Os centros SKU pagos podem ter 100 consultas de encaminhamento. Os centros SKU gratuitos podem ter cinco consultas de encaminhamento. |
@@ -127,7 +127,7 @@ Várias unidades do IoT Hub afetam o estrangulamento como descrito anteriormente
 
 Se vir aumentos inesperados na latência de operação, contacte o Suporte da [Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão aprofundada sobre o comportamento acelerado do IoT Hub, consulte o blog post [IoT Hub a estrangular e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 

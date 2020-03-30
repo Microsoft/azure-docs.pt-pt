@@ -10,17 +10,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283007"
 ---
-# <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar os dados da Cosmos DB usando um indexante em Pesquisa Cognitiva Azure 
+# <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados do Cosmos DB com um indexador na Pesquisa Cognitiva do Azure 
 
 > [!IMPORTANT] 
 > A SQL API está geralmente disponível.
-> MongoDB API, Gremlin API e Cassandra API estão atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pode solicitar acesso às pré-visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
+> MongoDB API, Gremlin API e Cassandra API estão atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . Pode solicitar acesso às pré-visualizações preenchendo [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
 > [!WARNING]
 > Apenas coleções cosmos DB com uma [política de indexação](https://docs.microsoft.com/azure/cosmos-db/index-policy) definida para [Consistente](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) são suportadas pela Pesquisa Cognitiva Azure. A indexação das coleções com uma política de indexação preguiçosa não é recomendada e pode resultar em falta de dados. As coleções com indexação desativadas não são suportadas.
@@ -71,7 +71,7 @@ Na página fonte de **dados,** a fonte deve ser **Cosmos DB,** com as seguintes 
 
 + **O nome** é o nome do objeto de origem de dados. Uma vez criado, pode escolhê-lo para outras cargas de trabalho.
 
-+ A **conta Cosmos DB** deve ser a cadeia de ligação primária ou secundária da Cosmos DB, com uma `AccountEndpoint` e uma `AccountKey`. Para as coleções MongoDB, adicione **ApiKind=MongoDb** na extremidade da corda de ligação e separe-a da cadeia de ligação com um ponto e vírgula. Para a API Gremlin e Cassandra API, utilize as instruções para a [API REST](#cosmosdb-indexer-rest).
++ **A conta Cosmos DB** deve ser a cadeia de ligação `AccountEndpoint` primária `AccountKey`ou secundária da Cosmos DB, com um e um . Para as coleções MongoDB, adicione **ApiKind=MongoDb** na extremidade da corda de ligação e separe-a da cadeia de ligação com um ponto e vírgula. Para a API Gremlin e Cassandra API, utilize as instruções para a [API REST](#cosmosdb-indexer-rest).
 
 + **A base** de dados é uma base de dados existente da conta. 
 
@@ -128,7 +128,7 @@ Pode utilizar a API REST para indexar os dados do Azure Cosmos DB, seguindo um f
 No início deste artigo é mencionado que a indexação de indexação de [Db da Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/index-overview) e a [indexação da pesquisa cognitiva azure](search-what-is-an-index.md) são operações distintas. Para a indexação de Cosmos DB, por padrão, todos os documentos são automaticamente indexados, exceto com a API Cassandra. Se desligar a indexação automática, os documentos só podem ser acedidos através dos seus auto-links ou através de consultas utilizando o ID do documento. O índice de pesquisa cognitiva Azure requer que o indexação automática Cosmos DB seja ligado na coleção que será indexada pela Pesquisa Cognitiva Azure. Ao inscrever-se na pré-visualização do indexer Cosmos DB Cassandra API, receberão instruções sobre como configurar a indexação do Cosmos DB.
 
 > [!WARNING]
-> Azure Cosmos DB é a próxima geração da DocumentDB. Anteriormente, com a versão API **2017-11-11,** poderia utilizar a sintaxe `documentdb`. Isto significa que pode especificar o seu tipo de fonte de dados como `cosmosdb` ou `documentdb`. Começando com a versão API **2019-05-06** tanto as APIs de Pesquisa Cognitiva Azure como o Portal apenas suportam a sintaxe `cosmosdb`, conforme instruído neste artigo. Isto significa que o tipo de fonte de dados deve `cosmosdb` se quiser ligar-se a um ponto final cosmos DB.
+> Azure Cosmos DB é a próxima geração da DocumentDB. Anteriormente, com a versão API **2017-11-11,** poderia utilizar a `documentdb` sintaxe. Isto significa que pode especificar o `cosmosdb` `documentdb`seu tipo de fonte de dados como ou . Começando com a versão API **2019-05-06** tanto as APIs `cosmosdb` de Pesquisa Cognitiva Azure como o Portal apenas suportam a sintaxe, conforme instruído neste artigo. Isto significa que o `cosmosdb` tipo de fonte de dados deve, se quiser ligar-se a um ponto final do Cosmos DB.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Reunir as inputs para o pedido
 
@@ -176,8 +176,8 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 | Campo   | Descrição |
 |---------|-------------|
 | **nome** | Necessário. Escolha qualquer nome para representar o seu objeto de origem de dados. |
-|**tipo**| Necessário. Deve ser `cosmosdb`. |
-|**credenciais** | Necessário. Deve ser uma corda de ligação Cosmos DB.<br/>Para as coleções SQL, as cordas de ligação estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Para coleções MongoDB, adicione **ApiKind=MongoDb** à cadeia de ligação:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Para gráficos Gremlin e tabelas Cassandra, inscreva-se na [pré-visualização do indexante gated](https://aka.ms/azure-cognitive-search/indexer-preview) para ter acesso à pré-visualização e informações sobre como formatar as credenciais.<br/><br/>Evite os números de porta na url final. Se incluir o número de porta, a Pesquisa Cognitiva Azure não poderá indexar a sua base de dados Azure Cosmos DB.|
+|**tipo**| Necessário. Deve `cosmosdb`ser. |
+|**credenciais** | Necessário. Deve ser uma corda de ligação Cosmos DB.<br/>Para coleções SQL, as cordas de ligação estão neste formato:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Para coleções MongoDB, adicione **ApiKind=MongoDb** à cadeia de ligação:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Para gráficos Gremlin e tabelas Cassandra, inscreva-se na [pré-visualização do indexante gated](https://aka.ms/azure-cognitive-search/indexer-preview) para ter acesso à pré-visualização e informações sobre como formatar as credenciais.<br/><br/>Evite os números de porta na url final. Se incluir o número de porta, a Pesquisa Cognitiva Azure não poderá indexar a sua base de dados Azure Cosmos DB.|
 | **recipiente** | Contém os seguintes elementos: <br/>**nome**: Obrigatório. Especifique a identificação da coleção de dados a indexar.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Pesquisa Cognitiva Azure pode indexar.<br/>Para a API MongoDB, API Gremlin e Cassandra API, as consultas não são apoiadas. |
 | **dataChangeDetectionPolicy** | Recomendado. Consulte a secção [de Documentos Alterados de Indexação.](#DataChangeDetectionPolicy)|
 |**dadosDeletionDetectionPolicy** | Opcional. Consulte a secção [de Documentos Eliminados de Indexação.](#DataDeletionDetectionPolicy)|
@@ -186,7 +186,7 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 Pode especificar uma consulta SQL para aplainar propriedades ou matrizes aninhadas, projetar propriedades JSON e filtrar os dados a indexar. 
 
 > [!WARNING]
-> As consultas personalizadas não são suportadas para a **API MongoDB,** **Gremlin API,** e **Cassandra API:** `container.query` parâmetro deve ser definido para nula ou omitida. Se precisar de uma consulta personalizada, informe-nos no [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> As consultas personalizadas não são suportadas para a **API MongoDB,** **Gremlin API,** e **Cassandra API:** `container.query` o parâmetro deve ser definido para nula ou omitida. Se precisar de uma consulta personalizada, informe-nos no [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento de exemplo:
 
@@ -247,17 +247,17 @@ Consulta de achatamento de matriz:
 Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema dos documentos JSON de origem ou com a saída da sua projeção de consulta personalizada.
 
 > [!NOTE]
-> Para coleções divididas, a chave de documento padrão é a propriedade `_rid` da Azure Cosmos DB, que a Azure Cognitive Search automaticamente renomea para `rid` porque os nomes de campo não podem começar com um caráter de sublinhado. Além disso, os valores de `_rid` Da Azure Cosmos DB contêm caracteres que são inválidos em teclas de Pesquisa Cognitiva Azure. Por esta razão, os valores `_rid` são codificados pela Base64.
+> Para coleções divididas, a chave de documento padrão `_rid` é propriedade da Azure Cosmos `rid` DB, a que a Azure Cognitive Search automaticamente renomea porque os nomes de campo não podem começar com um caráter de sublinhado. Além disso, os `_rid` valores de Azure Cosmos DB contêm caracteres que são inválidos em chaves de pesquisa cognitiva Azure. Por esta razão, os `_rid` valores são codificados pela Base64.
 > 
-> Para coleções MongoDB, a Azure Cognitive Search renomea automaticamente a propriedade `_id` para `id`.  
+> Para coleções MongoDB, a Azure Cognitive `_id` Search `id`renomea automaticamente a propriedade para .  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapeamento entre tipos de dados jSON e tipos de dados de pesquisa cognitiva azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatíveis |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| Booleano |Edm.Boolean, Edm.String |
 | Números que parecem inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que parecem pontos flutuantes |Edm.Double, Edm.String |
-| String |Edm.String |
+| Cadeia |Edm.String |
 | Matrizes de tipos primitivos, por exemplo [a", "b", "c"] |Coleção (Edm.String) |
 | Cordas que parecem datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo { "type": "Ponto", "coordenadas": [longo, lat] } |Edm.GeographyPoint |
@@ -297,7 +297,7 @@ O SDK geralmente disponível tem total paridade com a API REST geralmente dispon
 
 ## <a name="indexing-changed-documents"></a>Indexação de documentos alterados
 
-O objetivo de uma política de deteção de alterações de dados é identificar eficientemente itens de dados alterados. Atualmente, a única política apoiada é a [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) utilizando a propriedade `_ts` (carimbo de tempo) fornecida pela Azure Cosmos DB, que é especificada da seguinte forma:
+O objetivo de uma política de deteção de alterações de dados é identificar eficientemente itens de dados alterados. Atualmente, a única política [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) apoiada `_ts` é a utilização da propriedade (timestamp) fornecida pela Azure Cosmos DB, que é especificada da seguinte forma:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -306,7 +306,7 @@ O objetivo de uma política de deteção de alterações de dados é identificar
 
 A utilização desta política é altamente recomendada para garantir um bom desempenho indexador. 
 
-Se estiver a usar uma consulta personalizada, certifique-se de que a propriedade `_ts` é projetada pela consulta.
+Se estiver a utilizar uma consulta personalizada, certifique-se de que a `_ts` propriedade é projetada pela consulta.
 
 <a name="IncrementalProgress"></a>
 
@@ -314,9 +314,9 @@ Se estiver a usar uma consulta personalizada, certifique-se de que a propriedade
 
 O progresso incremental durante a indexação garante que, se a execução do indexante for interrompida por falhas transitórias ou limite de tempo de execução, o indexante pode retomar onde deixou de funcionar da próxima vez que funcionar, em vez de ter de reindexar toda a coleção do zero. Isto é especialmente importante quando se indexam grandes coleções. 
 
-Para permitir o progresso incremental ao utilizar uma consulta personalizada, certifique-se de que a sua consulta encomenda os resultados pela coluna `_ts`. Isto permite a verificação periódica que a Pesquisa Cognitiva Azure utiliza para proporcionar progressos incrementais na presença de falhas.   
+Para permitir o progresso incremental ao utilizar uma consulta personalizada, `_ts` certifique-se de que a sua consulta encomenda os resultados pela coluna. Isto permite a verificação periódica que a Pesquisa Cognitiva Azure utiliza para proporcionar progressos incrementais na presença de falhas.   
 
-Em alguns casos, mesmo que a sua consulta contenha uma cláusula de `ORDER BY [collection alias]._ts`, a Pesquisa Cognitiva Azure pode não inferir que a consulta é ordenada pelo `_ts`. Pode dizer ao Azure Cognitive Search que os resultados são encomendados utilizando a propriedade de configuração `assumeOrderByHighWaterMarkColumn`. Para especificar esta dica, crie ou atualize o seu indexante da seguinte forma: 
+Em alguns casos, mesmo `ORDER BY [collection alias]._ts` que a sua consulta contenha uma cláusula, a `_ts`Pesquisa Cognitiva Azure pode não inferir que a consulta é ordenada pelo . Pode dizer ao Azure Cognitive Search que `assumeOrderByHighWaterMarkColumn` os resultados são encomendados utilizando a propriedade de configuração. Para especificar esta dica, crie ou atualize o seu indexante da seguinte forma: 
 
     {
      ... other indexer definition properties
@@ -328,7 +328,7 @@ Em alguns casos, mesmo que a sua consulta contenha uma cláusula de `ORDER BY [c
 
 ## <a name="indexing-deleted-documents"></a>Indexação de documentos eliminados
 
-Quando as linhas são eliminadas da coleção, normalmente pretende eliminar essas linhas do índice de pesquisa também. O objetivo de uma política de deteção de dados é identificar eficientemente os itens de dados eliminados. Atualmente, a única política apoiada é a política `Soft Delete` (a eliminação é marcada com uma bandeira de algum tipo), que é especificada da seguinte forma:
+Quando as linhas são eliminadas da coleção, normalmente pretende eliminar essas linhas do índice de pesquisa também. O objetivo de uma política de deteção de dados é identificar eficientemente os itens de dados eliminados. Atualmente, a única política `Soft Delete` apoiada é a política (a eliminação é marcada com uma bandeira de algum tipo), que é especificada da seguinte forma:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -336,7 +336,7 @@ Quando as linhas são eliminadas da coleção, normalmente pretende eliminar ess
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-Se estiver a utilizar uma consulta personalizada, certifique-se de que a propriedade referenciada por `softDeleteColumnName` é projetada pela consulta.
+Se estiver a utilizar uma consulta personalizada, certifique-se de que a propriedade referenciada `softDeleteColumnName` é projetada pela consulta.
 
 O exemplo seguinte cria uma fonte de dados com uma política de eliminação suave:
 
@@ -362,7 +362,7 @@ O exemplo seguinte cria uma fonte de dados com uma política de eliminação sua
         }
     }
 
-## <a name="NextSteps"></a>Passos seguintes
+## <a name="next-steps"></a><a name="NextSteps"></a>Passos seguintes
 
 Parabéns! Aprendeu a integrar o Azure Cosmos DB com a Azure Cognitive Search usando um indexador.
 

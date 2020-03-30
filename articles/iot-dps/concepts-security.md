@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271567"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de provisionamento de dispositivos IoT Hub 
@@ -40,7 +40,7 @@ O módulo de segurança de hardware, ou HSM, é usado para armazenamento seguro 
 
 Os segredos do dispositivo também podem ser armazenados em software (memória), mas é uma forma de armazenamento menos segura do que um HSM.
 
-## <a name="trusted-platform-module"></a>Módulo de Plataforma Fidedigna
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 O TPM pode consultar uma norma para armazenar chaves de forma segura utilizadas para autenticar a plataforma, ou pode consultar a interface De/S utilizada para interagir com os módulos que implementam a norma. Os TPMs podem existir como hardware discreto, hardware integrado, baseado em firmware ou baseado em software. Saiba mais sobre [TPMs e atestado TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). O Serviço de Provisionamento de Dispositivos suporta apenas o TPM 2.0.
 
@@ -97,10 +97,10 @@ Quando um dispositivo se liga ao serviço de provisionamento, o serviço prioriz
 
 Este mecanismo e a estrutura hierárquica das cadeias de certificados proporcionam uma forte flexibilidade na forma como pode controlar o acesso a dispositivos individuais, bem como a grupos de dispositivos. Por exemplo, imagine cinco dispositivos com as seguintes cadeias de certificados: 
 
-- *Dispositivo 1*: certificado de raiz -> certificado A -> certificado 1 dispositivo
-- *Dispositivo 2*: certificado de raiz -> certificado A -> certificado dispositivo 2
-- *Dispositivo 3*: certificado de raiz -> certificado A -> certificado dispositivo 3
-- *Dispositivo 4*: certificado de raiz -> certificado B -> certificado 4
-- *Dispositivo 5*: certificado de raiz -> certificado B -> certificado 5
+- *Dispositivo 1*: certificado de raiz -certificado > A -> dispositivo 1 certificado
+- *Dispositivo 2*: certificado de raiz -certificado > Certificado A -> dispositivo 2 certificado
+- *Dispositivo 3*: certificado de raiz -certificado > Certificado A -> dispositivo 3 certificado
+- *Dispositivo 4*: certificado de raiz -certificado > B -> dispositivo 4
+- *Dispositivo 5*: certificado de raiz -> certificado B -> dispositivo 5
 
 Inicialmente, pode criar uma única entrada de inscrição em grupo ativada para o certificado raiz para permitir o acesso aos cinco dispositivos. Se o certificado B ficar mais tarde comprometido, pode criar uma entrada de grupo de inscrição para o certificado B para evitar que o *Dispositivo 4* e o *Dispositivo 5* se inscrevam. Se ainda mais tarde *o Dispositivo 3* ficar comprometido, pode criar uma inscrição individual desativada para o seu certificado. Isto revoga o acesso ao *Dispositivo 3,* mas ainda permite que o *Dispositivo 1* e o *Dispositivo 2* se inscrevam.

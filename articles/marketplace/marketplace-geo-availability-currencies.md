@@ -1,25 +1,24 @@
 ---
 title: Disponibilidade geográfica e Apoio cambial Azure
 description: Disponibilidade geográfica no Azure Marketplace e AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2020
-ms.author: ellacroi
-ms.openlocfilehash: f2369388f00f6a023ac77865ab8e3540bc35de70
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.author: dsindona
+ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905682"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288432"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e apoio cambial
 
 As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografias, tal como definidas pelo endereço de faturação do cliente, e as transações podem ser concluídas em 17 moedas. A tabela abaixo lista cada localização geográfica suportada, o seu [código alfa ISO 3166 de dois dígitos,](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e a moeda atribuída.
 
-|   Nome do país/região               |   ISO-2   |   Moeda   |
+|   Nome país/região               |   ISO-2   |   Moeda   |
 |-------------------------------------|-----------|--------------|
 | Afeganistão                         | AF        | USD          |
 | Albânia                             | AL        | USD          |
@@ -31,7 +30,7 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Austrália                           | AU        | AUD          |
 | Áustria                             | AT        | EUR          |
 | Azerbaijão                          | AZ        | USD          |
-| Bahrain                             | BH        | USD          |
+| Barém                             | BH        | USD          |
 | Bangladeche                          | BD        | USD          |
 | Barbados                            | BB        | USD          |
 | Bielorrússia                             | BY        | USD          |
@@ -49,12 +48,12 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Cabo Verde                          | CV        | USD          |
 | Ilhas Caimão                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| China\**                            | CN        | N/A          |
+| China\**                            | CN        | N/D          |
 | Colômbia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Costa do Marfim (Côte d’Ivoire)                       | CI        | USD          |
-| Croácia                             | RH        | EUR          |
-| Curaçao                             | CW        | USD          |
+| Croácia                             | HR        | EUR          |
+| Curaçau                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
 | República Checa                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
@@ -90,11 +89,11 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Quénia                               | KE        | USD          |
 | Coreia (Sul)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
-| Quirguizistão                          | KG        | USD          |
+| Quirguistão                          | KG        | USD          |
 | Letónia                              | LV        | EUR          |
 | Líbano                             | LB        | USD          |
 | Líbia                               | LY        | USD          |
-| Listenstaine                       | LI        | EUR          |
+| Liechtenstein                       | LI        | EUR          |
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | RAE de Macau                           | MO        | USD          |
@@ -103,12 +102,12 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Malta                               | MT        | EUR          |
 | Maurícia                           | MU        | USD          |
 | México                              | MX        | USD          |
-| Moldova                             | MD        | USD          |
+| Moldávia                             | MD        | USD          |
 | Mónaco                              | MC        | EUR          |
 | Mongólia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marrocos                             | MA        | USD          |
-| Namíbia                             | N/D        | USD          |
+| Namíbia                             | ND        | USD          |
 | Nepal                               | NP        | USD          |
 | Países Baixos                         | NL        | EUR          |
 | Nicarágua                           | NI        | USD          |
@@ -142,10 +141,10 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Suécia                              | SE        | SEK          |
 | Suíça                         | CH        | CHF          |
 | Taiwan                              | TW        | TWD          |
-| Tajiquistão                          | TJ        | USD          |
+| Tajiquistão                          | Rio TJ        | USD          |
 | Tanzânia                            | TZ        | USD          |
 | Tailândia                            | TH        | USD          |
-| Trinidad e Tobago                 | TT        | USD          |
+| Trindade e Tobago                 | TT        | USD          |
 | Tunísia                             | TN        | USD          |
 | Turquia                              | TR        | USD          |
 | Turquemenistão                        | TM        | USD          |
@@ -157,14 +156,14 @@ As ofertas do Azure Marketplace e appSource podem ser adquiridas em 141 geografi
 | Reino Unido                      | GB        | GBP          |
 | Estados Unidos                       | EUA        | USD          |
 | Uruguai                             | UY        | USD          |
-| Usbequistão                          | UZ        | USD          |
+| Uzbequistão                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietname                             | VN        | USD          |
-| Iémen                               | SI        | USD          |
+| Iémen                               | Ye        | USD          |
 | Zâmbia                              | ZM        | USD          |
 | Zimbabué                            | ZW        | USD          |
 |   |   |   |
 
-\* Para clientes no Brasil, o Marketplace através da Cloud Solution Providers (CSP) utiliza USD.
+\*Para os clientes no Brasil, o Marketplace através da Cloud Solution Providers (CSP) utiliza USD.
 
-\** Imagens VM grátis e BYOL.
+\** Imagens VM gratuitas e BYOL apenas.

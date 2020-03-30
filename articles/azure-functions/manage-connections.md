@@ -4,10 +4,10 @@ description: Aprenda a evitar problemas de desempenho nas Funções Azure utiliz
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276455"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
@@ -16,7 +16,7 @@ As funções numa aplicação de função partilham recursos. Entre esses recurs
 
 ## <a name="connection-limit"></a>Limite de ligação
 
-O número de ligações disponíveis é limitado em parte porque uma aplicação de função funciona num ambiente de caixa de [areia.](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) Uma das restrições que a caixa de areia impõe ao seu código é um limite para o número de ligações de saída, que atualmente são 600 ligações ativas (1.200 no total) por exemplo. Quando se chega a este limite, as funções de tempo de funcionamento escrevem a seguinte mensagem aos registos: `Host thresholds exceeded: Connections`. Para mais informações, consulte os limites de [serviço functions](functions-scale.md#service-limits).
+O número de ligações disponíveis é limitado em parte porque uma aplicação de função funciona num ambiente de caixa de [areia.](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) Uma das restrições que a caixa de areia impõe ao seu código é um limite para o número de ligações de saída, que atualmente são 600 ligações ativas (1.200 no total) por exemplo. Quando se chega a este limite, as funções de tempo `Host thresholds exceeded: Connections`de funcionamento escrevem a seguinte mensagem aos registos: . Para mais informações, consulte os limites de [serviço functions](functions-scale.md#service-limits).
 
 Este limite é por exemplo. Quando o controlador de [escala adiciona instâncias](functions-scale.md#how-the-consumption-and-premium-plans-work) de aplicações de função para lidar com mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não há limite de ligação global, e você pode ter muito mais de 600 conexões ativas em todos os casos ativos.
 
@@ -37,9 +37,9 @@ Aqui ficam algumas diretrizes a seguir quando está a usar um cliente específic
 
 Esta secção demonstra as melhores práticas para criar e utilizar clientes a partir do seu código de funcionamento.
 
-### <a name="httpclient-example-c"></a>Exemplo httpClientC#()
+### <a name="httpclient-example-c"></a>Exemplo httpClient (C#)
 
-Aqui está um C# exemplo de código de função que cria uma instância estática [httpClient:](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+Aqui está um exemplo de código de função C# que cria uma instância estática [httpClient:](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 ```cs
 // Create a single, static HttpClient
@@ -52,13 +52,13 @@ public static async Task Run(string input)
 }
 ```
 
-Uma pergunta comum sobre [httpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) em .NET é "Devo dispor do meu cliente?" Em geral, elimina-se os objetos que implementam `IDisposable` quando acaba de os utilizar. Mas não se livra de um cliente estático porque ainda não acaba de usá-lo quando a função termina. Quer que o cliente estático viva durante a duração da sua candidatura.
+Uma pergunta comum sobre [httpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) em .NET é "Devo dispor do meu cliente?" Em geral, elimina-se `IDisposable` os objetos que implementam quando acabam os utilizar. Mas não se livra de um cliente estático porque ainda não acaba de usá-lo quando a função termina. Quer que o cliente estático viva durante a duração da sua candidatura.
 
 ### <a name="http-agent-examples-javascript"></a>Exemplos de agente HTTP (JavaScript)
 
-Como fornece melhores opções de gestão de ligação, você deve usar a classe [de`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) nativo em vez de métodos não nativos, como o módulo `node-fetch`. Os parâmetros de ligação são configurados através de opções na classe `http.agent`. Para obter opções detalhadas disponíveis com o agente HTTP, consulte o novo Agente,\[[opções\].](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)
+Como fornece melhores opções de gestão [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) de ligação, você deve `node-fetch` usar a classe nativa em vez de métodos não nativos, como o módulo. Os parâmetros de ligação `http.agent` são configurados através de opções na classe. Para obter opções detalhadas disponíveis com o agente HTTP, consulte [o novo Agente(\[opções).\]](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)
 
-A classe global `http.globalAgent` usada pela `http.request()` tem todos estes valores definidos para os respetivos incumprimentos. A forma recomendada de configurar os limites de ligação nas Funções é definir um número máximo a nível global. O exemplo que se segue define o número máximo de tomadas para a aplicação de funções:
+A `http.globalAgent` classe global `http.request()` utilizada por tem todos estes valores definidos para os respetivos incumprimentos. A forma recomendada de configurar os limites de ligação nas Funções é definir um número máximo a nível global. O exemplo que se segue define o número máximo de tomadas para a aplicação de funções:
 
 ```js
 http.globalAgent.maxSockets = 200;
@@ -74,7 +74,7 @@ options.agent = httpAgent;
 http.request(options, onResponseCallback);
 ```
 
-### <a name="documentclient-code-example-c"></a>Exemplo de códigoC#Do Cliente documental ()
+### <a name="documentclient-code-example-c"></a>Exemplo de código Do Cliente Document (C#)
 
 [O DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) liga-se a uma instância de Azure Cosmos DB. A documentação Azure Cosmos DB recomenda que [utilize um cliente Singleton Azure Cosmos DB durante toda a sua aplicação.](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage) O exemplo que se segue mostra um padrão para fazer isso numa função:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 3cbfee90997c6b7cd9df1ec76543d77a4402100f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2a4c63aeaa303692fa0f2d115a3df0d80cfab0b1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774525"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80235202"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início Rápido: criar uma rede virtual com a CLI do Azure
 
@@ -28,11 +28,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 do Azure CLI ou posterior. Para encontrar a sua `az --version`versão instalada, corra. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
-Para poder criar uma rede virtual, você precisa criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ az vm create \
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
-Uma vez que usou a opção `--no-wait` no passo anterior, pode ir em frente e criar o segundo VM chamado *myVm2*.
+Uma vez `--no-wait` que usou a opção no passo anterior, pode ir em frente e criar o segundo VM chamado *myVm2*.
 
 ```azurecli-interactive
 az vm create \
@@ -80,7 +80,7 @@ az vm create \
 
 A criação das VMs demora alguns minutos. Depois de o Azure criar os VMs, o Azure CLI devolve a saída desta forma:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -94,11 +94,11 @@ A criação das VMs demora alguns minutos. Depois de o Azure criar os VMs, o Azu
 }
 ```
 
-Anote o **publicIpAddress**. Você usará esse endereço para se conectar à VM da Internet na próxima etapa.
+Anote o **publicIpAddress**. Utilizará este endereço para ligar ao VM a partir da internet no próximo passo.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Neste comando, substitua `<publicIpAddress>` pelo endereço IP público do seu *myVm2* VM:
+Neste comando, `<publicIpAddress>` substitua-o pelo endereço IP público do seu *myVm2* VM:
 
 ```bash
 ssh <publicIpAddress>

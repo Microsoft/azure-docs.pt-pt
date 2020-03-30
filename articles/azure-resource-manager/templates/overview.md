@@ -1,74 +1,74 @@
 ---
-title: Visão geral de modelos
-description: Descreve os benefícios que usam modelos de Azure Resource Manager para a implantação de recursos.
+title: Descrição geral de modelos
+description: Descreve os benefícios usando modelos do Gestor de Recursos Azure para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: a4b0dff4b351098095de0b98ede21d9af8a7eef9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 03/25/2020
+ms.openlocfilehash: 4570f5471ef6baf6f3f4a920be4d93c3f5a90438
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258129"
 ---
-# <a name="azure-resource-manager-templates-overview"></a>Visão geral de modelos de Azure Resource Manager
+# <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
-Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento Agile. Essas equipes iteram rapidamente. Eles precisam implantar repetidamente suas soluções na nuvem e saber que sua infraestrutura está em um estado confiável. À medida que a infraestrutura se tornou parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipes precisam gerenciar a infraestrutura e o código do aplicativo por meio de um processo unificado.
+Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento ágeis. Estas equipas iteram rapidamente. Precisam de implantar repetidamente as suas soluções na nuvem, e sabem que as suas infraestruturas estão num estado fiável. À medida que as infraestruturas se tornaram parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipas precisam de gerir a infraestrutura e o código de aplicação através de um processo unificado.
 
-Para atender a esses desafios, você pode automatizar implantações e usar a prática da infraestrutura como código. No código, você define a infraestrutura que precisa ser implantada. O código de infraestrutura torna-se parte do seu projeto. Assim como o código do aplicativo, você armazena o código de infraestrutura em um repositório de origem e a versão. Qualquer um em sua equipe pode executar o código e implantar ambientes semelhantes.
+Para responder a estes desafios, pode automatizar implementações e usar a prática da infraestrutura como código. Em código, define-se a infraestrutura que precisa de ser implantada. O código de infraestrutura torna-se parte do seu projeto. Tal como o código de aplicação, armazena-se o código de infraestrutura num repositório de origem e versão-o. Qualquer um da sua equipa pode executar o código e implementar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para suas soluções do Azure, use Azure Resource Manager modelos. O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
+Para implementar a infraestrutura como código para as suas soluções Azure, utilize os modelos Azure Resource Manager (ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e a configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. No modelo, especifica os recursos para implantar e as propriedades para esses recursos.
 
-## <a name="why-choose-resource-manager-templates"></a>Por que escolher modelos do Resource Manager?
+## <a name="why-choose-arm-templates"></a>Por que escolher os modelos ARM?
 
-Se você estiver tentando decidir entre usar modelos do Resource Manager e uma das outras infraestruturas como serviços de código, considere as seguintes vantagens de usar modelos:
+Se estiver a tentar decidir entre usar modelos ARM e uma das outras infraestruturas como serviços de código, considere as seguintes vantagens de usar modelos:
 
-* **Sintaxe declarativa**: os modelos do Resource Manager permitem criar e implantar uma infraestrutura inteira do Azure de forma declarativa. Por exemplo, você pode implantar não apenas máquinas virtuais, mas também a infraestrutura de rede, os sistemas de armazenamento e quaisquer outros recursos que você possa precisar.
+* **Sintaxe declarativa:** Os modelos ARM permitem criar e implantar toda uma infraestrutura Azure declarativamente. Por exemplo, pode implantar não só máquinas virtuais, mas também a infraestrutura de rede, sistemas de armazenamento e quaisquer outros recursos que possa necessitar.
 
-* **Resultados repetíveis**: implante repetidamente sua infraestrutura em todo o ciclo de vida de desenvolvimento e tenha confiança de que seus recursos sejam implantados de maneira consistente. Os modelos são idempotentes, o que significa que você pode implantar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Você pode desenvolver um modelo que representa o estado desejado, em vez de desenvolver muitos modelos separados para representar atualizações.
+* **Resultados repetíveis**: Implemente repetidamente a sua infraestrutura durante todo o ciclo de vida de desenvolvimento e tenha confiança de que os seus recursos são implantados de forma consistente. Os modelos são idempotentes, o que significa que você pode implementar o mesmo modelo muitas vezes e obter os mesmos tipos de recursos no mesmo estado. Você pode desenvolver um modelo que representa o estado desejado, em vez de desenvolver muitos modelos separados para representar atualizações.
 
-* **Orquestração**: você não precisa se preocupar com as complexidades das operações de ordenação. O Resource Manager orquestra a implantação de recursos interdependentes para que eles sejam criados na ordem correta. Quando possível, o Resource Manager implanta recursos em paralelo para que suas implantações sejam concluídas mais rapidamente do que as implantações seriais. Você implanta o modelo por meio de um comando, em vez de vários comandos imperativos.
+* **Orquestração**: Não tem que se preocupar com as complexidades das operações de encomenda. O Gestor de Recursos orquestra a implantação de recursos interdependentes para que sejam criados na ordem correta. Quando possível, o Gestor de Recursos implanta recursos em paralelo para que as suas implementações terminem mais rapidamente do que as implementações em série. Você implanta o modelo através de um comando, em vez de através de múltiplos comandos imperativos.
 
-   ![Comparação de Implantação de modelo](./media/overview/template-processing.png)
+   ![Comparação de implementação de modelos](./media/overview/template-processing.png)
 
-* **Validação interna**: seu modelo é implantado somente após a aprovação da validação. O Gerenciador de recursos verifica o modelo antes de iniciar a implantação para garantir que a implantação terá sucesso. Sua implantação é menos provável de parar em um estado de meia-conclusão.
+* **Validação incorporada**: O seu modelo só é implantado após a passagem da validação. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação terá sucesso. O seu destacamento é menos provável que pare num estado semi-acabado.
 
-* **Arquivos modulares**: você pode dividir seus modelos em componentes menores e reutilizáveis e vinculá-los no momento da implantação. Você também pode aninhar um modelo dentro de outros modelos.
+* **Ficheiros modulares:** Pode quebrar os seus modelos em componentes mais pequenos e reutilizáveis e ligá-los no momento da implantação. Você também pode nidificar um modelo dentro de outro modelo.
 
-* **Criar qualquer recurso do Azure**: você pode usar imediatamente novos serviços e recursos do Azure em modelos. Assim que um provedor de recursos apresenta novos recursos, você pode implantar esses recursos por meio de modelos. Você não precisa aguardar que as ferramentas ou os módulos sejam atualizados antes de usar os novos serviços.
+* **Crie qualquer recurso Azure:** Pode utilizar imediatamente novos serviços e funcionalidades azure em modelos. Assim que um fornecedor de recursos introduzir novos recursos, pode implementar esses recursos através de modelos. Não é preciso esperar que as ferramentas ou módulos sejam atualizados antes de utilizar os novos serviços.
 
-* **Implantações controladas**: no portal do Azure, você pode examinar o histórico de implantação e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e todos os valores de saída. Outra infraestrutura como serviços de código não é rastreada por meio do Portal.
+* **Implementações rastreadas**: No portal Azure, pode rever o histórico de implementação e obter informações sobre a implementação do modelo. Pode ver o modelo que foi implantado, os valores do parâmetro passados e quaisquer valores de saída. Outras infraestruturas como serviços de código não são rastreadas através do portal.
 
-   ![Histórico de implementações](./media/overview/deployment-history.png)
+   ![Histórico de implantação](./media/overview/deployment-history.png)
 
-* **Política como código**: [Azure Policy](../../governance/policy/overview.md) é uma política como estrutura de código para automatizar a governança. Se você estiver usando políticas do Azure, a correção de política será feita em recursos sem conformidade quando implantada por meio de modelos.
+* **Política como código**: [A Política Azure](../../governance/policy/overview.md) é uma política como quadro de código para automatizar a governação. Se estiver a usar as políticas do Azure, a reparação de políticas é feita em recursos não conformes quando implementada através de modelos.
 
-* **Plantas de implantação**: você pode aproveitar os [planos gráficos](../../governance/blueprints/overview.md) fornecidos pela Microsoft para atender aos padrões normativos e de conformidade. Esses planos gráficos incluem modelos predefinidos para várias arquiteturas.
+* **Planos de implementação:** Pode aproveitar as plantas fornecidas pela Microsoft para cumprir as [normas](../../governance/blueprints/overview.md) regulamentares e de conformidade. Estas plantas incluem modelos pré-construídos para várias arquiteturas.
 
-* **Integração de CI/CD**: você pode integrar modelos em suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar seus pipelines de versão para atualizações rápidas e confiáveis de aplicativos e de infraestrutura. Usando o Azure DevOps e a tarefa de modelo do Resource Manager, você pode usar Azure Pipelines para criar e implantar continuamente projetos de modelo de Azure Resource Manager. Para saber mais, confira [projeto do vs com pipelines](add-template-to-azure-pipelines.md) e [integração contínua com o Azure pipelines](template-tutorial-use-azure-pipelines.md).
+* **Integração CI/CD:** Pode integrar modelos nas suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar os seus gasodutos de libertação para atualizações rápidas e fiáveis de aplicações e infraestruturas. Ao utilizar a tarefa de modelo Azure DevOps e Resource Manager, pode utilizar os Pipelines Azure para construir e implementar continuamente projetos de modelo sarm. Para saber mais, consulte o [projeto VS com oleodutos](add-template-to-azure-pipelines.md) e [integração contínua com os Oleodutos Azure.](template-tutorial-use-azure-pipelines.md)
 
-* **Código exportável**: você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para uma implantação específica. Visualizar o [modelo exportado](export-template-portal.md) é uma forma útil de saber mais sobre a sintaxe do modelo.
+* **Código exportável**: Pode obter um modelo para um grupo de recursos existente, exportando o estado atual do grupo de recursos, ou visualizando o modelo utilizado para uma determinada implantação. Ver o [modelo exportado](export-template-portal.md) é uma forma útil de aprender sobre a sintaxe do modelo.
 
-* **Ferramentas de criação**: você pode criar modelos com [Visual Studio Code](use-vs-code-to-create-template.md) e a extensão de ferramenta de modelo. Você Obtém o IntelliSense, o realce de sintaxe, a ajuda online e muitas outras funções de linguagem. Além do Visual Studio Code, você também pode usar o [Visual Studio](create-visual-studio-deployment-project.md).
+* **Ferramentas de autoria**: Pode autor modelos com [Código de Estúdio Visual](use-vs-code-to-create-template.md) e a extensão da ferramenta de modelo. Obtém-se intellisense, sintaxe realçando, ajuda em linha e muitas outras funções linguísticas. Além do código Visual Studio, também pode utilizar o [Visual Studio.](create-visual-studio-deployment-project.md)
 
-## <a name="template-file"></a>Arquivo de modelo
+## <a name="template-file"></a>Ficheiro de modelo
 
-Em seu modelo, você pode escrever [expressões de modelo](template-expressions.md) que estendam os recursos do JSON. Essas expressões fazem uso das [funções](template-functions.md) fornecidas pelo Resource Manager.
+Dentro do seu modelo, pode escrever [expressões](template-expressions.md) de modelo que alargam as capacidades da JSON. Estas expressões utilizam as [funções](template-functions.md) fornecidas pelo Gestor de Recursos.
 
-O modelo tem as seguintes seções:
+O modelo tem as seguintes secções:
 
-* [Parâmetros](template-parameters.md) – forneça valores durante a implantação que permitem que o mesmo modelo seja usado com ambientes diferentes.
+* [Parâmetros](template-parameters.md) - Forneça valores durante a implantação que permitam que o mesmo modelo seja utilizado com diferentes ambientes.
 
-* [Variáveis](template-variables.md) – defina valores que são reutilizados em seus modelos. Eles podem ser construídos com base em valores de parâmetro.
+* [Variáveis](template-variables.md) - Defina valores que são reutilizados nos seus modelos. Podem ser construídos a partir de valores de parâmetros.
 
-* [Funções definidas pelo usuário](template-user-defined-functions.md) – crie funções personalizadas que simplificam seu modelo.
+* [Funções definidas pelo utilizador](template-user-defined-functions.md) - Crie funções personalizadas que simplificam o seu modelo.
 
-* [Recursos](template-syntax.md#resources) -especifique os recursos a serem implantados.
+* [Recursos](template-syntax.md#resources) - Especificar os recursos a implantar.
 
-* [Saídas](template-outputs.md) – retornam valores dos recursos implantados.
+* [Saídas](template-outputs.md) - Valores de devolução dos recursos implantados.
 
-## <a name="template-deployment-process"></a>Processo de Implantação de modelo
+## <a name="template-deployment-process"></a>Processo de implementação do modelo
 
-Quando você implanta um modelo, o Resource Manager converte o modelo em operações da API REST. Por exemplo, quando o Resource Manager recebe um modelo com a seguinte definição de recursos:
+Quando implementa um modelo, o Gestor de Recursos converte o modelo em operações de API REST. Por exemplo, quando o Resource Manager recebe um modelo com a seguinte definição de recursos:
 
 ```json
 "resources": [
@@ -120,6 +120,6 @@ Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos li
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, consulte [tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](template-tutorial-create-first-template.md).
-* Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
-* Para saber mais sobre como exportar modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](quickstart-create-templates-use-the-portal.md).
+* Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implante o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
+* Para obter informações sobre as propriedades em ficheiros de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para aprender sobre modelos de exportação, consulte [Quickstart: Crie e implante modelos ARM utilizando o portal Azure](quickstart-create-templates-use-the-portal.md).

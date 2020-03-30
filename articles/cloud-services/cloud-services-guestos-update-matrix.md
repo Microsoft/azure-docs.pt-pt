@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2020
+ms.date: 3/26/2020
 ms.author: raiye
-ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f265faef4e6520f5c74fce9a13b3d81118707025
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273114"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371128"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Os do Azure Guest e matriz de compatibilidade sdk
 Fornece-lhe informações atualizadas sobre os mais recentes lançamentos do Os OS do Azure Guest para serviços em nuvem. Esta informação ajuda-o a planear o seu caminho de upgrade antes de um Sistema operativo convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Osdo do Hóspede, conforme descrito nas Definições de Atualização do Osso do [Hóspede do Azure,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -29,7 +29,7 @@ Fornece-lhe informações atualizadas sobre os mais recentes lançamentos do Os 
 
 
 > [!TIP]
->  Subscreva o [Feed RSS de atualização do OS convidado] de Atualização do Os do Hóspede para receber a notificação mais oportuna em todas as alterações do Os do Hóspede.
+>  Subscreva o [Feed RSS] de Atualização do Os do Hóspede para receber a notificação mais oportuna em todas as alterações do Os do Hóspede.
 >
 >
 
@@ -41,6 +41,9 @@ Fornece-lhe informações atualizadas sobre os mais recentes lançamentos do Os 
 Não tem a certeza de como atualizar o seu Sistema operativo convidado? Olha para [isto.][cloud updates]
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="march-5-2020"></a>**5 de março de 2020**
+O Os convidado de fevereiro foi lançado. 
 
 ###### <a name="january-24-2020"></a>**24 de janeiro de 2020**
 O Os convidado de janeiro foi lançado. 
@@ -114,12 +117,14 @@ O Os convidado de setembro foi lançado.
 >5. Mude a Família OS para 6 e construa um pacote
 >6. Implemente o pacote para Azure utilizando o portal Azure ou o Estúdio Visual
 >
+>O lançamento do Os Family 6 aplica o TLS 1.2 desativando explicitamente o TLS 1.0 e 1.1 e definindo um conjunto específico de suites de cifra. Saiba [mais.]
 
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.16_202002-01  |  5 de março de 2020  |  Posto 6.18  |  
 |  WA-GUEST-OS-6.15_202001-01  |  24 de janeiro de 2020  |  Posto 6.17  |  
-| WA-GUEST-OS-6.14_201912-01 | 8 de janeiro de 2020 | Posto 6.16 |  
+|~~WA-GUEST-OS-6.14_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
 |~~WA-GUEST-OS-6.12_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-6.11_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
@@ -146,8 +151,9 @@ O Os convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.40_202002-01  |  5 de março de 2020  |  Posto 5.42  |  
 |  WA-GUEST-OS-5.39_202001-01  |  24 de janeiro de 2020  |  Posto 5.41  |  
-| WA-GUEST-OS-5.38_201912-01 | 8 de janeiro de 2020 | Posto 5.40 |  
+|~~WA-GUEST-OS-5.38_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
 |~~WA-GUEST-OS-5.36_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-5.35_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
@@ -171,8 +177,9 @@ O Os convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.75_202002-01  |  5 de março de 2020  |  Posto 4.77  |  
 |  WA-GUEST-OS-4.74_202001-01  |  24 de janeiro de 2020  |  Posto 4.76  |  
-| WA-GUEST-OS-4.73_201912-01 | 8 de janeiro de 2020 | Posto 4.75 |  
+|~~WA-GUEST-OS-4.73_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
 |~~WA-GUEST-OS-4.71_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-4.70_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
@@ -196,8 +203,9 @@ O Os convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.82_202002-01  |  5 de março de 2020  |  Posto 3.84  |  
 |  WA-GUEST-OS-3.81_202001-01  |  24 de janeiro de 2020  |  Posto 3.83  |  
-| WA-GUEST-OS-3.80_201912-01 | 8 de janeiro de 2020 | Posto 3.82 |  
+|~~WA-GUEST-OS-3.80_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
 |~~WA-GUEST-OS-3.78_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-3.77_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
@@ -221,8 +229,9 @@ O Os convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.95_202002-01  |  5 de março de 2020  |  Posto 2.97  |  
 |  WA-GUEST-OS-2.94_202001-01  |  24 de janeiro de 2020  |  Posto 2.96  |  
-| WA-GUEST-OS-2.93_201912-01 | 8 de janeiro de 2020 | Posto 2.95 |  
+|~~WA-GUEST-OS-2.93_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
 |~~WA-GUEST-OS-2.92_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
 |~~WA-GUEST-OS-2.91_201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
@@ -242,7 +251,7 @@ O Os convidado de setembro foi lançado.
 ## <a name="msrc-patch-updates"></a>Atualizações de patch mSRC
 A lista de patches que estão incluídos com cada versão mensal do Guest OS está disponível [aqui][patches].
 
-## <a name="sdk-support"></a>Suporte SDK
+## <a name="sdk-support"></a>Suporte de SKDs
 Embora a política de [aposentadoria do SDK Azure][retire policy sdk] indique que apenas as versões acima de 2.2 são suportadas, as famílias específicas do Os OD permitem-lhe usar versões anteriores. Deve sempre utilizar o mais recente SDK suportado.
 
 | Família de osso convidado | Versões SDK compatíveis |
@@ -317,3 +326,4 @@ A política de apoio ao Os convidado e a política de aposentadoria é explicada
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[mais]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

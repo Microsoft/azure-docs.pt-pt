@@ -5,66 +5,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 03/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: 762f62fa0901672c447da42f416e5b003e7419b2
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b78d32dbb7b4e0d9a3b13ff741e6e38c12be0e62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127308"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528511"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN
 
 O ficheiro de perfil descarregado contém informações necessárias para configurar uma ligação VPN. Este artigo irá ajudá-lo a obter e entender as informações necessárias para um perfil de cliente VPN.
 
-## <a name="1-download-the-file"></a>1. Descarregue o ficheiro
-
-Executar os seguintes comandos. Copie o URL de resultados para o seu navegador para descarregar o ficheiro zip do perfil.
-
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
-
-## <a name="2-extract-the-zip-file"></a>2. Extrair o ficheiro zip
-
-Extraia o ficheiro zip. O ficheiro contém as seguintes pastas:
-
-* AzureVPN
-* Genérico
-* OpenVPN (Se ativar as definições de autenticação OpenVPN e Azure AD no gateway. Ver [Criar um inquilino](openvpn-azure-ad-tenant.md).)
-
-## <a name="3-retrieve-information"></a>3. Recuperar informações
-
-Na pasta **AzureVPN,** navegue para o ficheiro ***azurevpnconfig.xml*** e abra-o com o Bloco de Notas. Tome nota do texto entre as seguintes etiquetas.
-
-```
-<audience>          </audience>
-<issuer>            </issuer>
-<tennant>           </tennant>
-<fqdn>              </fqdn>
-<serversecret>      </serversecret>
-```
-
-## <a name="profile-details"></a>Detalhes do perfil
-
-Quando adicionar uma ligação, utilize as informações recolhidas no passo anterior para a página de detalhes do perfil. Os campos correspondem às seguintes informações:
-
-   * **Público:** Identifica o recurso recetor para o que o símbolo destina-se
-   * **Emitente:** Identifica o Serviço de Token de Segurança (STS) que emitia o símbolo, bem como o inquilino da AD Azure
-   * **Inquilino:** Contém um identificador imutável e único do inquilino do diretório que emitiu o símbolo
-   * **FQDN:** O nome de domínio totalmente qualificado (FQDN) no gateway Azure VPN
-   * **ServerSecret:** A chave pré-partilhada de gateway VPN
-
-## <a name="folder-contents"></a>Conteúdo da pasta
+[!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
 * A **pasta OpenVPN** contém o perfil *ovpn* que precisa de ser modificado para incluir a chave e o certificado. Para mais informações, consulte [os clientes Configure OpenVPN para Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Esta pasta não estará presente no ficheiro zip se a autenticação da AD Azure for selecionada no gateway VPN. Em vez disso, o azurevpnconfig.xml estará na pasta AzureVPN.
-
-* A **pasta genérica** contém o certificado de servidor público e o ficheiro VpnSettings.xml. O ficheiro VpnSettings.xml contém informações necessárias para configurar um cliente genérico.
-
-* O ficheiro zip descarregado também pode conter as pastas **WindowsAmd64** e **WindowsX86.** Estas pastas contêm o instalador para clientes SSTP e IKEv2 para clientes Windows. Precisa de direitos administrativos sobre o cliente para instalá-los.
 
 ## <a name="next-steps"></a>Passos seguintes
 

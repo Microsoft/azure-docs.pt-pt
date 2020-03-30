@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241011"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294783"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
 As máquinas virtuais do Azure (VMs) podem ser criadas através do portal do Azure. O portal Azure é uma interface de utilizador baseada no navegador para criar recursos Azure. Este quickstart mostra-lhe como usar o portal Azure para implementar uma máquina virtual Linux (VM) que executa Ubuntu 18.04 LTS. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-ssh-key-pair"></a>Criar o par de chaves SSH
 
@@ -34,13 +34,13 @@ Precisa de um par de chaves SSH para concluir este início rápido. Se já tiver
 Abra uma shell do Bash e utilize [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SSH. Se não tiver uma shell do Bash no computador local, pode utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu no topo da página, selecione o ícone `>_` para abrir cloud Shell.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. No menu no topo da página, `>_` selecione o ícone para abrir cloud shell.
 1. Certifique-se de que a CloudShell diz **"Bash"** na parte superior esquerda. Se disser PowerShell, use a gota para selecionar **Bash** e selecione **Confirmar** para mudar para a concha bash.
 1. Digite `ssh-keygen -t rsa -b 2048` para criar a chave ssh. 
 1. Será solicitado a introduzir um ficheiro no qual salvar o par de chaves. Basta pressionar **Introduza** para guardar na localização predefinida, listada nos suportes. 
 1. Será-lhe pedido que introduza uma frase de passe. Pode escrever uma palavra-passe para a sua tecla SSH ou prima **Enter** para continuar sem uma frase de passe.
-1. O comando `ssh-keygen` gera chaves públicas e privadas com o nome padrão de `id_rsa` no `~/.ssh directory`. O comando devolve o caminho completo para a chave pública. Utilize o caminho para a chave pública para mostrar o seu conteúdo com `cat` digitando `cat ~/.ssh/id_rsa.pub`.
+1. O `ssh-keygen` comando gera chaves públicas e privadas com o nome padrão de `id_rsa` no `~/.ssh directory`. O comando devolve o caminho completo para a chave pública. Utilize o caminho para a chave `cat` pública `cat ~/.ssh/id_rsa.pub`para mostrar o seu conteúdo escrevendo .
 1. Copie a saída deste comando e guarde-o em algum lugar para usar mais tarde neste artigo. Esta é a sua chave pública e vai precisar dela ao configurar a sua conta de administrador para iniciar sessão no seu VM.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -64,7 +64,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com) se ainda não o fez.
 
     ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
-1. Em **Regras da porta de entrada** > **Portas de entrada públicas**, selecione **Permitir portas selecionadas** e, em seguida, selecione **SSH (22)** e **HTTP (80)** na lista pendente. 
+1. De acordo com **as regras** > de entrada nas portas de**entrada,** escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** e **HTTP (80)** a partir da queda. 
 
     ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -89,7 +89,7 @@ Crie uma ligação SSH à VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Utilizando a mesma concha de bash que usou para criar o seu par de teclas SSH (pode reabrir a Cloud Shell selecionando novamente `>_` ou indo https://shell.azure.com/bash), colar o comando de ligação SSH na casca para criar uma sessão SSH.
+3. Utilizando a mesma concha de bash que usou para criar o seu par `>_` de teclas SSH (pode reabrir a Cloud Shell selecionando novamente ou `https://shell.azure.com/bash`indo), cola o comando de ligação SSH na concha para criar uma sessão SSH.
 
 ## <a name="install-web-server"></a>Instalar o servidor Web
 

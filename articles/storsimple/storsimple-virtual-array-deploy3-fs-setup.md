@@ -1,5 +1,5 @@
 ---
-title: Configurar o StorSimple Virtual Array como servidor de ficheiros  Microsoft Docs
+title: Configurar o StorSimple Virtual Array como servidor de ficheiros [ Microsoft Docs
 description: Este terceiro tutorial na implementação storSimple Virtual Array instrui-o a configurar um dispositivo virtual como servidor de ficheiros.
 services: storsimple
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297637"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar O Conjunto Virtual StorSimple - Configurar como servidor de ficheiros através do portal Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -70,7 +70,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 6. Na página de definições do **Dispositivo:**
    
    1. Atribuir um **nome** único ao seu dispositivo. Este nome pode ser de 1-15 caracteres e pode conter letras, números e hífenes.
-   2. Clique no ícone do **servidor de ficheiros** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) para o **tipo** de dispositivo que está a criar. Um servidor de ficheiros permitir-lhe-á criar pastas partilhadas.
+   2. Clique no ícone ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) do **servidor de ficheiros** para o **tipo** de dispositivo que está a criar. Um servidor de ficheiros permitir-lhe-á criar pastas partilhadas.
    3. Como o seu dispositivo é um servidor de ficheiros, terá de se juntar ao dispositivo num domínio. Introduza um **nome de domínio**.
    4. Clique em **Aplicar**.
 7. Aparecerá uma caixa de diálogo. Introduza as suas credenciais de domínio no formato especificado. Clique no ícone de verificação. As credenciais de domínio são verificadas. Vê uma mensagem de erro se as credenciais estiverem incorretas.
@@ -84,13 +84,13 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    > Certifique-se de que a sua matriz virtual está na sua própria unidade organizacional (OU) para o Ative Directory e que não são aplicados ou herdados objetos de política de grupo (GPO). A política do grupo pode instalar aplicações como software antivírus no StorSimple Virtual Array. A instalação de software adicional não é suportada e pode levar à corrupção de dados. 
    > 
    > 
-9. (Opcionalmente) configure o seu servidor de procuração web. Embora a configuração de procuração web seja opcional, esteja ciente de que se utilizar um proxy web, só pode configurá-lo aqui.
+9. (Opcionalmente) configure o seu servidor de procuração web. Apesar de a configuração do proxy Web ser opcional, tenha em atenção que se utilizar um proxy Web, só pode configurá-lo aqui.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
    
    Na página de **procuração da Web:**
    
-   1. Forneça o URL de **procuração web** neste formato: *http://&lt;endereço IP do hospedeiro ou número :Port da FQDN*&gt;. Note que os URLs HTTPS não são suportados.
+   1. Forneça o URL de **procuração web** neste formato: *&lt;http:// endereço ip do anfitrião ou número&gt;fQDN :Port*. Note que os URLs HTTPS não são suportados.
    2. Especificar **autenticação** como **Básico** ou **Nenhum**.
    3. Se utilizar a autenticação, também terá de fornecer um nome de **utilizador** e **palavra-passe**.
    4. Clique em **Aplicar**. Isto validará e aplicará as definições configuradas de procuração web.
@@ -124,7 +124,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 Execute os seguintes passos no [portal Azure](https://portal.azure.com/) para completar a configuração do dispositivo necessário.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Para configurar o dispositivo como servidor de ficheiros
-1. Vá ao seu serviço StorSimple Device Manager e depois vá para **Management > Devices**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
+1. Vá ao seu serviço StorSimple Device Manager e depois vá para **a Management > Devices**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
    
    ![Configure um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Clique no dispositivo e verá uma mensagem de banner indicando que o dispositivo está pronto para configurar.
@@ -149,7 +149,7 @@ Execute os seguintes passos no [portal Azure](https://portal.azure.com/) para co
     
     3. A localização será automaticamente povoada com base na conta de armazenamento especificada. 
     
-    4. Ative o SSL para garantir um canal de comunicação de rede seguro entre o dispositivo e a nuvem.
+    4. Ative o TLS para garantir um canal de comunicação de rede seguro entre o dispositivo e a nuvem.
     
     5. Clique em **Adicionar** esta credencial de conta de armazenamento. 
    
@@ -185,7 +185,7 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
    3. Um **tipo** para a parte. O tipo pode ser **hierárquico** ou **fixado localmente,** sendo o nível do padrão. Para cargas de trabalho que requerem garantias locais, baixas lestabeleceções e maior desempenho, selecione uma parte **fixa local.** Para todos os outros dados, selecione uma parte **Tiered.**
       Uma parte fixada localmente é densamente aprovisionada e garante que os dados primários sobre a partilha permanecem locais no dispositivo e não derramam para a nuvem. Uma parte hierárquica, por outro lado, é escassamente provisionada. Quando se cria uma quota hierárquica, 10% do espaço é aprovisionado no nível local e 90% do espaço está aprovisionado na nuvem. Por exemplo, se você provisionasse um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seria usado na nuvem quando os níveis de dados. Isto, por sua vez, implica que se ficar sem todo o espaço local do dispositivo, não pode fornecer uma parte hierárquica.
    
-   4. No **Conjunto predefinido permissões completas para** o campo, atribua as permissões ao utilizador ou ao grupo que está a aceder a esta partilha. Especifique o nome do utilizador ou do grupo utilizador no formato *john\@contoso.com.* Recomendamos que utilize um grupo de utilizadores (em vez de um único utilizador) para permitir que os privilégios administrativos acedam a estas ações. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
+   4. No **Conjunto predefinido permissões completas para** o campo, atribua as permissões ao utilizador ou ao grupo que está a aceder a esta partilha. Especifique o nome do utilizador ou do grupo utilizador no formato *\@John contoso.com.* Recomendamos que utilize um grupo de utilizadores (em vez de um único utilizador) para permitir que os privilégios administrativos acedam a estas ações. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
    
    5. Clique em **Adicionar** para criar a parte. 
     
@@ -203,7 +203,7 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
 Terá agora de se ligar a uma ou mais ações que criou no passo anterior. Execute estes passos no seu anfitrião do Windows Server ligado ao seu StorSimple Virtual Array.
 
 #### <a name="to-connect-to-the-share"></a>Para ligar à parte
-1. Prima ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. Na janela Executar, especifique o  *&#92; &#92; nome do servidor de ficheiros&lt;&gt;* como caminho, substituindo o nome do servidor de *ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
+1. Prima ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. Na janela Executar, especifique o * &lt;&gt; nome do servidor de ficheiros&#92;&#92;* como o caminho, substituindo o nome do servidor de *ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Isto abre o File Explorer. Agora deve conseguir ver as partilhas que criou como pastas. Selecione e faça duplo clique numa partilha (pasta) para ver o conteúdo.

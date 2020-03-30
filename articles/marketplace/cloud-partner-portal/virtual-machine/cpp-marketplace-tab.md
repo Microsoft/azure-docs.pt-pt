@@ -1,69 +1,68 @@
 ---
-title: Guia Marketplace de máquina virtual no Portal do Cloud Partner para o Azure Marketplace
-description: Descreve a guia Marketplace usada na criação de uma oferta de VM do Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+title: Separador de mercado de máquinavirtual no Portal do Parceiro cloud para o Mercado Azure
+description: Descreve o separador Marketplace utilizado na criação de uma oferta De VM do Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: dsindona
+ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277726"
 ---
-# <a name="virtual-machine-marketplace-tab"></a>Guia Marketplace de máquina virtual
+# <a name="virtual-machine-marketplace-tab"></a>Separador mercado de máquina virtual
 
-A guia **Marketplace** da página **nova oferta** permite que você forneça a seus clientes potenciais com marketing, vendas e informações legais e contratos e gerencie clientes potenciais gerados no Marketplace. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de marketing**, **Gerenciamento de leads**e **ofício**.
+O separador **Marketplace** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes informações e acordos de marketing, vendas e informações legais e gerir pistas geradas a partir do mercado. Esta longa forma é dividida em quatro secções: **Visão Geral,** **Artefactos de Marketing,** **Gestão de Chumbo,** e **Legal.**
 
 
 ## <a name="overview-section"></a>Secção de descrição geral
-Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco anexado (*) no nome do campo indica que ele é necessário.
+Nesta secção, insira as informações gerais sobre a sua Oferta de Mercado Azure.  Um asterisco anexado (*) no nome do campo indica que é necessário.
 
-![Seção de visão geral da guia Marketplace para máquinas virtuais](./media/publishvm_008.png)
+![Secção de visão geral do separador Marketplace para máquinas virtuais](./media/publishvm_008.png)
 
-A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos obrigatórios são indicted por um asterisco (*).
+A tabela seguinte descreve o propósito e o conteúdo destes campos. Os campos necessários são indiciados por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Título\***                 | Título da oferta, geralmente o nome longo e formal. Este título será exibido em destaque no Marketplace.  Comprimento máximo de 50 caracteres. |
-| **Resumo\***               | Curto objetivo ou função da solução.  Comprimento máximo de 100 caracteres. |
-| **Resumo longo\***          | Finalidade ou função da solução.  Comprimento máximo de 256 caracteres. |
-| **Descrição\***           | Descrição da solução.  O comprimento máximo de 3000 caracteres oferece suporte à formatação HTML simples. |
-| **\* de canal do revendedor CSP da Microsoft** | A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP. |
-| **Identificador de marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui o nome da sua organização e da solução, o comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Visualizar IDs de assinatura\*** | Adicione um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à oferta depois de publicadas, antes de entrar em tempo real. |
-| **Links úteis**          | Adicione URLs às documentações, notas de versão, perguntas frequentes e assim por diante. |
-| **Categorias sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada. |
+| **Título\***                 | Título da oferta, muitas vezes o nome longo e formal. Este título será exibido de forma proeminente no mercado.  Comprimento máximo de 50 caracteres. |
+| **Resumo\***               | Breve finalidade ou função de solução.  Comprimento máximo de 100 caracteres. |
+| **Resumo longo\***          | Finalidade ou função de solução.  Comprimento máximo de 256 caracteres. |
+| **Descrição\***           | Descrição da solução.  O comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
+| **Canal revendedor Microsoft CSP\*** | O canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte os [Fornecedores de Soluções cloud](../../cloud-solution-providers.md) para obter mais informações sobre o marketing da sua oferta através dos canais parceiros do Microsoft CSP. |
+| **Identificador de Marketing\***  | Um URL único para associar a esta oferta, tipicamente inclui a sua organização e nome de solução, comprimento máximo 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **IDs de subscrição de pré-visualização\*** | Adicione um a 100 identificadores de subscrição de pré-telespectadores. Estas subscrições listadas em branco terão acesso à oferta uma vez publicada, antes de entrar em direto. |
+| **Links úteis**          | Adicione URLs às documentações, notas de lançamento, PERGUNTAS frequentes, e assim por diante. |
+| **Categorias Sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, a sua oferta ainda será detetável apenas na categoria selecionada. |
 |  |  |
 
 
-## <a name="marketing-artifacts-section"></a>Seção artefatos de marketing
+## <a name="marketing-artifacts-section"></a>Secção de Artefactos de Marketing
 
-Esta segunda seção é dividida em três subseções: **logotipos**, **capturas de tela**e **vídeos**. Os logotipos são os únicos artefatos de marketing necessários; no entanto, todos são altamente recomendados para melhor apelo ao cliente. 
+Esta segunda secção é dividida em três subsecções: **Logos,** **Screenshot**e **Vídeos**. Os logótipos são os únicos artefactos de marketing necessários, no entanto todos são altamente recomendados para o melhor apelo do cliente. 
 
-![Seção artefatos de marketing da guia Marketplace no formulário nova oferta para máquinas virtuais](./media/publishvm_009.png)
+![Secção de Artefactos de Marketing do separador Marketplace no formulário New Offer para máquinas virtuais](./media/publishvm_009.png)
 
-A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos obrigatórios são indicted por um asterisco (*).
+A tabela seguinte descreve o propósito e o conteúdo destes campos. Os campos necessários são indiciados por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logotipos*  |  |
-| **\* pequeno**                 | bitmap 40x40 pixel. ico                                                      |
-| **\* médio**                | bitmap 90x90 pixel. ico                                                      |
-| **\* grandes**                 | bitmap 115x115 pixel. ico                                                   |
-| **\* largo**                  | bitmap 255x115 pixel. ico                                                    |
-| **'**                  | bitmap 815x290.  Opcional, no entanto, uma vez carregado, o ícone Hero não pode ser excluído. |
-| *Capturas*  | Opcional, mas no máximo cinco capturas de tela por SKU. |
+| **Pequeno\***                 | 40x40 pixel .ico bitmap                                                      |
+| **Médio\***                | 90x90 pixel .ico bitmap                                                      |
+| **Grande\***                 | 115x115 pixel .ico bitmap                                                   |
+| **Largo\***                  | 255x115 pixel .ico bitmap                                                    |
+| **Herói**                  | Bitmap 815x290.  Opcional, no entanto, uma vez carregado o ícone herói não pode ser eliminado. |
+| *Capturas de Ecrã*  | Opcional, mas máximo de cinco imagens por SKU. |
 | **Nome**                  | Nome ou título <!-- TODO - max char length? none specified in UI -->                               |
-| **Imagem**                 | Imagem de captura de tela, 533x324 pixel                                         |
+| **Imagem**                 | Imagem de captura de ecrã, 533x324 pixel                                         |
 | *Vídeos*  |  |
 | **Nome**                  | Nome ou título  <!-- TODO - max char length? -->                              |
-| **Ligação**                  | URL de vídeo, hospedada no YouTube ou Vimeo                                        |
-| **Miniatura**             | bitmap 533x324                                                               |
+| **Ligação**                  | URL de vídeo, hospedado no YouTube ou Vimeo                                        |
+| **Miniatura**             | Bitmap 533x324                                                               |
 |   |   |
 
 ### <a name="logo-guidelines"></a>Diretrizes para logótipos
@@ -71,62 +70,62 @@ A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos o
 <!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
-Todos os logotipos carregados no Portal do Cloud Partner devem seguir as diretrizes:
+Todos os logótipos enviados para o Portal do Parceiro cloud devem seguir as orientações:
 
 *  O design do Azure tem uma paleta de cores simples. Mantenha o número de cores primárias e secundárias no seu logotipo baixo.
-*  As cores do tema dos portal do Azure são brancas e pretas. Portanto, evite usar essas cores como a cor do plano de fundo dos seus logotipos. Use alguma cor que torne seus logotipos proeminentes na portal do Azure. Recomendamos cores primárias simples. Se você estiver usando um plano de fundo transparente, verifique se os logotipos/texto não são brancos ou pretos ou azuis.
-*  Não use um plano de fundo de gradiente no seu logotipo.
-*  Evite colocar texto, até mesmo o nome da sua empresa ou marca, no logotipo. A aparência do seu logotipo deve ser "simples" e deve evitar gradientes.
-*  Não estique o logotipo.
+*  As cores temáticas do portal Azure são brancas e pretas. Portanto, evite usar estas cores como cor de fundo dos seus logotipos. Use alguma cor que tornaria os seus logótipos em destaque no portal Azure. Recomendamos cores primárias simples. Se estiver a utilizar fundos transparentes, certifique-se de que os logótipos/texto não são brancos ou pretos ou azuis.
+*  Não utilize um fundo de gradiente no seu logotipo.
+*  Evite colocar texto — mesmo a sua empresa ou nome de marca - no logotipo. A aparência e a sensação do seu logotipo devem ser "planas" e devem evitar gradientes.
+*  Não estique o logótipo.
 
 #### <a name="hero-logo"></a>Logótipo de destaque
 
-O logotipo do Hero é opcional; no entanto, uma vez carregado, o ícone Hero não pode ser excluído.  O ícone de logotipo Hero deve seguir as diretrizes:
+O logótipo herói é opcional; no entanto, uma vez carregado, o ícone do herói não pode ser eliminado.  O ícone do logotipo do Herói deve seguir as orientações:
 
-*  Planos de fundo pretos, brancos e transparentes não são permitidos para ícones Hero.
-*  Evite usar qualquer cor clara como o plano de fundo do ícone Hero.  O nome de exibição do Publicador, o título do plano e o resumo longo da oferta são exibidos em cor da fonte branca e devem se destacar em relação ao plano de fundo.
-*  Evite usar a maior parte do texto enquanto estiver projetando o logotipo Hero.  O nome do editor, o título do plano, o resumo longo da oferta e um botão criar são inseridos programaticamente dentro do ícone Hero quando a oferta lista. 
-* Inclua um retângulo não usado no lado direito do ícone do Hero, de tamanho 415x100 à direita pixel e offset 370 PX da esquerda.  
+*  Origens pretas, brancas e transparentes não são permitidas para ícones de herói.
+*  Evite utilizar qualquer cor clara como pano de fundo do ícone do herói.  O nome de exibição da Editora, o título do plano e o resumo da oferta são apresentados em cor de fonte branca, e devem destacar-se em segundo plano.
+*  Evite utilizar a maioria do texto enquanto está a desenhar o logótipo do herói.  O nome da editora, o título do plano, o resumo da oferta e um botão de criação estão incorporados programáticamente dentro do ícone do herói quando a oferta lista. 
+* Inclua um retângulo não utilizado no lado direito do seu ícone herói, de tamanho 415x100 pixel e compense 370 px do lado esquerdo.  
 
-Por exemplo, o seguinte ícone de Hero é para o serviço de contêiner do Azure.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
+Como exemplo, o seguinte ícone herói é para o Serviço de Contentores Azure.  <!-- TD: It would be nice to have the raw bitmap, e.g.before and after embedding. -->
 
-![Exemplo de ícone de Hero para o serviço de contêiner do Azure](./media/publishvm_010.png)
-
-
-### <a name="marketing-information-example"></a>Exemplo de informações de marketing 
-
-A imagem a seguir demonstra como as informações de marketing são exibidas na página principal do produto Microsoft Windows Server.
-
-![Exemplo de página de produtos para o Microsoft Windows Server](./media/publishvm_011.png)
+![Ícone herói exemplo para serviço de contentores Azure](./media/publishvm_010.png)
 
 
-## <a name="lead-management-section"></a>Seção Gerenciamento de leads
+### <a name="marketing-information-example"></a>Exemplo de informação de marketing 
 
-A terceira seção permite que você colete clientes potenciais gerados de suas ofertas do Azure Marketplace. Ele oferece as seguintes opções de armazenamento (de uma lista suspensa) para essas informações de Lead.
+A imagem que se segue demonstra como as informações de marketing são apresentadas na página principal do produto do Microsoft Windows Server.
 
-* **Nenhum** -o padrão, as informações de Lead não são coletadas.
-* Tabela do Azure-gravada na tabela do Azure especificada por uma cadeia de conexão.
-* Dynamics CRM Online – gravado na instância [online do Microsoft Dynamics 365](https://dynamics.microsoft.com/) , especificada por uma URL e credenciais de autenticação.
-* Ponto de extremidade HTTPS-gravado no ponto de extremidade HTTPS especificado como uma carga JSON.
-* Marketo-gravado na instância especificada do [marketo](https://www.marketo.com/) , especificada pela ID do servidor, ID do MUNCHKIN e ID do formulário.
-* Salesforce-gravado em um banco de dados do [Salesforce](https://www.salesforce.com/) , especificado por um identificador de objeto.
+![Página de produto de exemplo para Microsoft Windows Server](./media/publishvm_011.png)
 
-Depois de publicar com êxito sua oferta, a conexão de cliente potencial é validada e um cliente potencial de teste é enviado automaticamente para o destino configurado. As informações de Lead devem ser gerenciadas continuamente e essas configurações devem ser atualizadas imediatamente sempre que forem feitas alterações na sua arquitetura de gerenciamento de clientes.
+
+## <a name="lead-management-section"></a>Secção de Gestão de Chumbo
+
+A terceira secção permite-lhe recolher os leads gerados pelas suas ofertas do Azure Marketplace. Oferece as seguintes opções de armazenamento (a partir de uma lista de dropdown) para esta informação de chumbo.
+
+* **Nenhuma** - a informação por defeito, chumbo não é recolhida.
+* Tabela Azure - escrita na tabela Azure especificada por uma corda de ligação.
+* Dynamics CRM Online - escrito para a instância [Online Microsoft Dynamics 365,](https://dynamics.microsoft.com/) especificado por um URL e credenciais de autenticação.
+* HTTPS Endpoint - escrito para o ponto final HTTPS especificado como uma carga útil JSON.
+* Marketo - escrito para a instância de [Marketo](https://www.marketo.com/) especificada, especificado por ID do servidor, identificação de munchkin e id de formulário.
+* Salesforce - escrito para uma base de dados [salesforce,](https://www.salesforce.com/) especificado por um identificador de objetos.
+
+Depois de publicar com sucesso a sua oferta, a ligação de chumbo é validada e um fio de teste é automaticamente enviado para o destino configurado. As informações de chumbo devem ser continuamente geridas e estas configurações devem ser prontamente atualizadas sempre que forem feitas alterações na sua arquitetura de gestão de clientes.
 
 <!-- TD: For more info, see [Need a topic on lead information and processing that mimics the Appendix of the VM Pub Guide]. -->
 
-## <a name="legal-section"></a>Seção legal
+## <a name="legal-section"></a>Secção legal
 
-Esta última seção permite que você forneça os documentos legais necessários necessários para cada oferta.  
+Esta última secção permite-lhe fornecer os documentos legais necessários para cada oferta.  
 
 |  **Campo**                    |     **Descrição**                                        |
 |  ---------                    |     ---------------                                        |
-| **URL da política de privacidade\***      | URL para a política de privacidade postada                          |
-| **Usar contrato padrão?\***  |   |
-| **Termos de utilização\***            | política como texto sem formatação ou HTML simples.                       |
+| **URL de Política de Privacidade\***      | URL para a sua política de privacidade postada                          |
+| **Usar o Contrato Padrão?\***  |   |
+| **Termos de utilização\***            | política como texto simples ou html simples.                       |
 |  |  |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na próxima guia [suporte](./cpp-support-tab.md) , você fornecerá recursos técnicos e de suporte ao usuário para sua oferta.
+No próximo separador [Suporte,](./cpp-support-tab.md) irá fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.

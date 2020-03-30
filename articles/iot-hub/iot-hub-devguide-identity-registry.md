@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: d43ad2ce88108a728b26e10eecc7082262a4b637
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ccb840caea5d28975daaf8cbf6f0d4985bdf006d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499137"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu centro ioT
 
@@ -79,7 +79,7 @@ Utilize operações assíncronas no ponto final do fornecedor de [recursos IoT H
 
 Para obter mais informações sobre as APIs de importação e exportação, consulte o fornecedor de [recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource). Para saber mais sobre a gestão de postos de trabalho na importação e exportação, consulte a [gestão a granel das identidades do dispositivo IoT Hub.](iot-hub-bulk-identity-mgmt.md)
 
-As identidades do dispositivo também podem ser exportadas e importadas a partir de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/createimportexportjob) ou de um dos [SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)de Serviço IoT Hub .
+As identidades do dispositivo também podem ser exportadas e importadas a partir de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de um dos [SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)de Serviço IoT Hub .
 
 ## <a name="device-provisioning"></a>Fornecimento de dispositivos
 
@@ -103,21 +103,21 @@ Uma implementação mais complexa poderia incluir a informação do [Azure Monit
 
 O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT precisa de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas antes. A mensagem de notificação inclui propriedades e corpo.
 
-Propriedades: As propriedades do sistema de mensagens são pré-fixadas com o símbolo `$`.
+Propriedades: As propriedades do sistema `$` de mensagens são pré-fixadas com o símbolo.
 
 Mensagem de notificação para o dispositivo:
 
 | Nome | Valor |
 | --- | --- |
 |$content | application/json |
-|$iothub-enqueuedtime |  Hora da notificação ser enviada |
-|$iothub-message-source | dispositivoLifecycleEvents |
-|$content-encoding | utf-8 |
+|$iothub enqueuedtime |  Hora da notificação ser enviada |
+|$iothub-fonte de mensagem | dispositivoLifecycleEvents |
+|$content-codificação | utf-8 |
 |opType | **criarIdentidade de Dispositivoou** **excluirIdentidade do Dispositivo** |
 |hubName | Nome do Hub IoT |
 |deviceId | ID do dispositivo |
-|operationTimestamp | Carimbo de tempo ISO8601 de operação |
-|iothub-message-schema | deviceLifecycleNotification |
+|operaçãoTimestamp | Carimbo de tempo ISO8601 de operação |
+|iothub-mensagem-schema | dispositivoLifecycleNotification |
 
 Corpo: Esta secção encontra-se em formato JSON e representa o gémeo da identidade do dispositivo criado. Por exemplo,
 
@@ -146,14 +146,14 @@ Mensagem de notificação para módulo:
 | Nome | Valor |
 | --- | --- |
 $content | application/json |
-$iothub-enqueuedtime |  Hora da notificação ser enviada |
-$iothub-message-source | móduloLifecycleEvents |
-$content-encoding | utf-8 |
+$iothub enqueuedtime |  Hora da notificação ser enviada |
+$iothub-fonte de mensagem | móduloLifecycleEvents |
+$content-codificação | utf-8 |
 opType | **criarMóduloIdentidade** ou **excluirIdentidade do Módulo** |
 hubName | Nome do Hub IoT |
-moduleId | ID do módulo |
-operationTimestamp | Carimbo de tempo ISO8601 de operação |
-iothub-message-schema | moduleLifecycleNotification |
+móduloId | ID do módulo |
+operaçãoTimestamp | Carimbo de tempo ISO8601 de operação |
+iothub-mensagem-schema | móduloLifecycleNotification |
 
 Corpo: Esta secção encontra-se em formato JSON e representa o gémeo da identidade do módulo criado. Por exemplo,
 
@@ -186,22 +186,22 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
 | deviceId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| generationId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
+| geraçãoId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
 | etag |necessário, apenas leitura |Uma cadeia que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Um objeto composto contendo informações de autenticação e materiais de segurança. |
 | auth.symkey |opcional |Um objeto composto contendo uma chave primária e secundária, armazenado no formato base64. |
-| status |Necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
-| statusReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| status |necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
+| estadoReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |leitura-apenas |Um indicador temporal, mostrando a data e a hora da última atualização de estado. |
 | conexãoEstado |leitura-apenas |Um estado de ligação indicativo: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível protocole (pings MQTT, ou AMQP pings), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, tais como dispositivos relatados como conectados, mas que estão desligados. |
-| connectionStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
-| lastActivityTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
+| conexãoStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
+| últimaAtividadeTempo |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
 > [!NOTE]
 > O estado de ligação só pode representar a visão do Hub IoT do estado da ligação. As atualizações a este estado podem ser adiadas, dependendo das condições e configurações da rede.
 
 > [!NOTE]
-> Atualmente, os SDKs do dispositivo não suportam a utilização dos caracteres `+` e `#` no **dispositivoId**.
+> Atualmente, os SDKs do `+` dispositivo `#` não suportam a utilização dos e caracteres do **dispositivoId**.
 
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
@@ -210,20 +210,20 @@ As identidades dos módulos são representadas como documentos JSON com as segui
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
 | deviceId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| generationId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
+| móduloId |necessário, ler apenas em atualizações |Uma cadeia sensível a casos (até 128 caracteres de comprimento) de caracteres alfanuméricos de 7 bits ASCII mais certos caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| geraçãoId |necessário, apenas leitura |Uma cadeia ioT gerada por hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando foram eliminados e recriados. |
 | etag |necessário, apenas leitura |Uma cadeia que representa um ETag fraco para a identidade do dispositivo, de acordo com [o RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Um objeto composto contendo informações de autenticação e materiais de segurança. |
 | auth.symkey |opcional |Um objeto composto contendo uma chave primária e secundária, armazenado no formato base64. |
-| status |Necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
-| statusReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| status |necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado,** o dispositivo pode ligar-se. Se **desativado,** este dispositivo não pode aceder a qualquer ponto final virado para o dispositivo. |
+| estadoReason |opcional |Uma corda de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |leitura-apenas |Um indicador temporal, mostrando a data e a hora da última atualização de estado. |
 | conexãoEstado |leitura-apenas |Um estado de ligação indicativo: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível protocole (pings MQTT, ou AMQP pings), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, tais como dispositivos relatados como conectados, mas que estão desligados. |
-| connectionStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
-| lastActivityTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
+| conexãoStateUpdatedTime |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
+| últimaAtividadeTempo |leitura-apenas |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
 > [!NOTE]
-> Atualmente, os SDKs do dispositivo não suportam a utilização dos caracteres `+` e `#` no **dispositivoId** e **móduloId**.
+> Atualmente, os SDKs do `+` dispositivo `#` não suportam a utilização do **dispositivoId** e **móduloId**.
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 
@@ -239,7 +239,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o registo de identidade do IoT Hub, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 
@@ -253,7 +253,7 @@ Agora que aprendeu a usar o registo de identidade do IoT Hub, pode estar interes
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguinte tutorial IoT Hub:
 
-* [Introdução ao Hub IoT do Azure](quickstart-send-telemetry-dotnet.md)
+* [Começar com o Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
 
 Para explorar a utilização do Serviço de Provisionamento de Dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 

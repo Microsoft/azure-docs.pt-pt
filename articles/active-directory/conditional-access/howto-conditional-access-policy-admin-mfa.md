@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c08c8d5d4203ae90cedd826bb5dcb01011d07afa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148203"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295269"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso Condicional: Exigir MFA para administradores
 
@@ -26,7 +26,7 @@ A Microsoft recomenda que necessite de MFA nas seguintes funções no mínimo:
 
 * Administrador de faturação
 * Administrador de Acesso Condicional
-* Administrador de intercâmbio
+* Administrador do Exchange
 * Administrador global
 * Administrador de helpdesk (Password)
 * Administrador de palavras-passe
@@ -50,14 +50,15 @@ As políticas de Acesso Condicional são ferramentas poderosas, recomendamos exc
 Os seguintes passos ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem a autenticação de vários fatores.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **funções de Diretório (pré-visualização)** e escolha as seguintes funções no mínimo:
+      * Administrador de Autenticação
       * Administrador de faturação
       * Administrador de Acesso Condicional
-      * Administrador de intercâmbio
+      * Administrador do Exchange
       * Administrador global
       * Administrador de helpdesk
       * Administrador de palavras-passe
@@ -66,8 +67,9 @@ Os seguintes passos ajudarão a criar uma política de acesso condicional para e
       * Administrador de utilizadores
    1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou de vidro de emergência da sua organização. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações cloud** > **Incluir,** selecione **todas as aplicações em nuvem**, e selecione **Done**.
-1. Sob **os controlos** de acesso > **Grant**, selecione O acesso **ao Grant,** **exija a autenticação de vários fatores,** e selecione **Select**.
+1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **todas as aplicações em nuvem**, e selecione **Done**.
+1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos** > de acesso**Grant**, selecione Acesso **ao Grant,** **exija a autenticação de vários fatores,** e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar para ativar a sua política.
 

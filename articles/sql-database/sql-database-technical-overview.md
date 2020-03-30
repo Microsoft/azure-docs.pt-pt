@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500826"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -54,7 +54,7 @@ Pode definir a quantidade de recursos atribuídos.
 
 Pode construir a sua primeira aplicação numa pequena base de dados individual a um custo baixo por mês no nível de serviço de uso geral. Em seguida, pode alterar o seu nível de serviço manualou programáticamente a qualquer momento para o nível de serviço crítico do negócio, para atender às necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Paga-se apenas os recursos de que precisa quando se precisa deles.
 
-*A escalabilidade dinâmica* é diferente da *escala automática.* O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade. A opção de base de dados única suporta a escalabilidade dinâmica manual, mas não a escala automática. Para uma experiência mais automática, considere a utilização de piscinas elásticas, que permitem que as bases de dados partilhem recursos numa piscina baseada nas necessidades individuais da base de dados. Outra opção é usar scripts que podem ajudar a automatizar a escalabilidade para uma única base de dados. Por exemplo, consulte [o Use PowerShell para monitorizar e escalar uma única base de dados](scripts/sql-database-monitor-and-scale-database-powershell.md).
+*A escalabilidade dinâmica* é diferente da *escala automática.* O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade. A opção de base de dados única suporta a escalabilidade dinâmica manual, mas não a escala automática. Para uma experiência mais automática, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados. Outra opção é usar scripts que podem ajudar a automatizar a escalabilidade para uma única base de dados. Por exemplo, consulte [o Use PowerShell para monitorizar e escalar uma única base de dados](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="purchasing-models"></a>Modelos de compra
 
@@ -97,9 +97,9 @@ A Base de Dados Azure SQL fornece funcionalidades avançadas de monitorização 
 
 [A Consulta Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), uma funcionalidade de monitorização incorporada do SQL Server, regista o desempenho das suas consultas em tempo real e permite identificar os potenciais problemas de desempenho e os consumidores de recursos de topo. A finação automática e as recomendações fornecem conselhos sobre as consultas com o desempenho regredido e índices em falta ou duplicados. A sintonização automática na Base de Dados SQL permite-lhe aplicar manualmente as scripts que podem corrigir os problemas, ou deixar a Base de Dados SQL aplicar a correção. A Base de Dados SQL também pode testar e verificar se a correção proporciona algum benefício, e reter ou reverter a mudança dependendo do resultado. Além da Query Store e das capacidades de afinação automática, pode utilizar [DMVs padrão e XEvent](sql-database-monitoring-with-dmvs.md) para monitorizar o desempenho da carga de trabalho.
 
-O Azure fornece ferramentas [de monitorização](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho incorporadas, combinadas com classificações de desempenho, que lhe permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
+O Azure fornece ferramentas [de monitorização](sql-database-performance-guidance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho incorporadas, combinadas com classificações de desempenho, que lhe permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
-- **Armazenamento do Azure**: para arquivar grandes quantidades de telemetria a um preço baixo.
+- **Armazenamento Azure**: Para arquivar grandes quantidades de telemetria por um pequeno preço.
 - **Hubs de eventos Azure**: Para integrar a telemetria da Base de Dados SQL com a sua solução de monitorização personalizada ou oleodutos quentes.
 - **Registos do Monitor Azure**: Para uma solução de monitorização incorporada com capacidades de comunicação, alerta e mitigação.
 

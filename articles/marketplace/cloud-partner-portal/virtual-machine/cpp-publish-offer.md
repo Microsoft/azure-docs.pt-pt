@@ -1,41 +1,40 @@
 ---
-title: Publicar uma oferta de máquina virtual no Azure Marketplace
-description: Lista as etapas necessárias para publicar uma oferta de máquina virtual existente no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Publique uma oferta de máquina virtual no Azure Marketplace
+description: Lista as etapas necessárias para publicar uma oferta de máquina virtual existente no Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c35f721131b997dcfdb0f23a91a39329168b757c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824415"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277349"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicar uma oferta de máquina virtual
 
- A última etapa, depois de definir a oferta no portal e criar os ativos técnicos associados, é enviar a oferta para publicação. O diagrama a seguir ilustra as principais etapas do processo de publicação para "entrar ao vivo":
+ O último passo, depois de ter definido a oferta no portal e criado os ativos técnicos associados, é submeter a oferta para publicação. O diagrama seguinte retrata os principais passos do processo de publicação para "ir ao vivo":
 
-![Etapas de publicação para a oferta de máquina virtual](./media/publishvm_013.png)
+![Etapas de publicação para oferta de máquinavirtual](./media/publishvm_013.png)
 
-A tabela a seguir descreve essas etapas e fornece uma estimativa de tempo máxima para sua conclusão:
+O quadro seguinte descreve estes passos e fornece uma estimativa máxima de tempo para a sua conclusão:
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
+|  **Passo editorial**           | **Tempo**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Validar pré-requisitos         | 15 min   | As informações da oferta e as configurações da oferta são validadas.                        |
-| Validação da unidade de teste (opcional) | 2 horas | Se você tiver optado por habilitar o Test Drive, a Microsoft validará a configuração da unidade de teste, sua implantação e replicação por meio das regiões selecionadas. |
-| Certificação                  | 3 dias | A oferta é analisada pela equipe de certificação do Azure. Esta etapa executará verificações de vírus, malware, conformidade de segurança e problemas de segurança. Os comentários serão fornecidos se um problema for encontrado. |
-| Aprovisionamento                   | 4 dias   | A oferta de VM é replicada em sistemas de produção do Marketplace.               |
-| Empacotamento e registro de geração de cliente potencial | \< de 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
-|  Aprovação do Publicador             |  -        | Revisão final do Publicador e confirmação antes que a oferta fique ativa. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas de informações da oferta) para verificar se ela atende a todos os seus requisitos.  |
-| Aprovisionamento                   | 4 dias | A oferta de VM finalizada é replicada em regiões e sistemas de produção do Marketplace. | 
-| Em direto                           | 4 dias | A oferta de VM é liberada, replicada para as regiões necessárias e disponibilizada para o público. |
+| Validar pré-requisitos         | 15 min   | As informações de oferta e as configurações de oferta são validadas.                        |
+| Validação do test drive (opcional) | Duas horas | Se tiver selecionado para ativar o Test Drive, a Microsoft valida a configuração test drive, a sua implementação e replicação através das regiões selecionadas. |
+| Certificação                  | 3 dias | A oferta é analisada pela Equipa de Certificação Azure. Este passo irá realizar verificações para vírus, malware, conformidade de segurança e problemas de segurança. O feedback é fornecido se um problema for encontrado. |
+| Aprovisionamento                   | 4 dias   | A oferta vm é replicada em sistemas de produção de mercado.               |
+| Registo de embalagens e gerações de chumbo | \<1 hora  | Os ativos técnicos da Oferta são embalados para uso do cliente e os sistemas de chumbo são configurados e configurados. |
+|  Assinatura de editor             |  -        | Revisão final do editor e confirmação antes da oferta ir ao vivo. Pode implementar a sua oferta nas subscrições selecionadas (nas etapas de informação de oferta) para verificar se cumpre todos os seus requisitos.  |
+| Aprovisionamento                   | 4 dias | A oferta de VM finalizada é replicada em sistemas e regiões de produção de mercado. | 
+| Em direto                           | 4 dias | A oferta vm é lançada, replicada para as regiões necessárias, e disponibilizada ao público. |
 |  |  |
 
-Aguarde até 16 dias para que esse processo seja concluído.  Depois de percorrer essas etapas de publicação, sua oferta de VM será listada na [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
+Deixe-o até 16 dias para que este processo esteja concluído.  Depois de passar por estes passos de publicação, a sua oferta VM será listada no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
 

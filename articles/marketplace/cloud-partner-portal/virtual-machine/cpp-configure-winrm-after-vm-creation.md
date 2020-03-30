@@ -1,19 +1,18 @@
 ---
-title: Configure WinRM após criação de máquina virtual Azure  Mercado Azure
+title: Configure WinRM após criação de máquina virtual Azure [ Mercado Azure
 description: Explica como configurar a Gestão Remota do Windows (WinRM) após a criação de uma máquina virtual hospedada no Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: dsindona
+ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77481379"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278149"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configure winRM após criação de máquina virtual
 
@@ -27,13 +26,13 @@ Este artigo explica como configurar uma máquina virtual (VM) existente hospedad
 
 O protocolo WinRM over HTTPS utiliza a porta 5986, que não está ativada por padrão nos VMs windows pré-configurados oferecidos no Mercado Azure. Para ativar este protocolo, utilize os seguintes passos para adicionar uma nova regra ao grupo de segurança da rede (NSG) com o [portal Azure](https://portal.azure.com).  Para mais informações sobre nsgs, consulte [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navegue para a lâmina **Máquinas virtuais >**   <*nome vm*>   **> Definições/Networking**.
+1.  Navegue para a lâmina **Máquinas virtuais >**   < *nome* >   vm **> Definições/Networking**.
 2.  Clique no nome NSG (neste exemplo, **testvm11002**) para mostrar as suas propriedades:
 
     ![Propriedades do grupo de segurança da rede](./media/nsg-properties.png)
  
 3. Em **Definições,** selecione **as regras de segurança de entrada** para visualizar esta lâmina.
-4. Clique **+Adicionar** para criar uma nova regra chamada `WinRM_HTTPS` para a porta TCP 5986.
+4. Clique **+Adicionar** para criar `WinRM_HTTPS` uma nova regra chamada para a porta TCP 5986.
 
     ![Adicionar regra de segurança da rede de entrada](./media/nsg-new-rule.png)
 

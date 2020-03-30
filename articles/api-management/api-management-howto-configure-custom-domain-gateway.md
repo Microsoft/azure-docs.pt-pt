@@ -1,6 +1,6 @@
 ---
-title: Configurar um nome de domínio personalizado para o gateway de gerenciamento de API do Azure auto-hospedado | Microsoft Docs
-description: Este tópico descreve as etapas para configurar um nome de domínio personalizado para o gateway de gerenciamento de API do Azure de hospedagem interna.
+title: Configure um nome de domínio personalizado para o seu gateway de gestão de API Azure auto-hospedado [ Microsoft Docs
+description: Este tópico descreve os passos para configurar um nome de domínio personalizado para gateway de gestão de API Azure auto-hospedado.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,59 +11,59 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 1df2cce04021c1cd14c356311df921dd1c0298e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1f2184c7c62887a98a76877528b167d173c3d75b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335938"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
-Quando você provisiona um [Gateway de gerenciamento de API do Azure autohospedado](self-hosted-gateway-overview.md) , ele não recebe o nome do host e precisa ser referenciado por seu endereço IP. Este artigo mostra como mapear um nome DNS personalizado existente (também conhecido como hostname) de um gateway auto-hospedado.
+Quando você fornecer um gateway de [gestão Azure API auto-hospedado](self-hosted-gateway-overview.md) não é atribuído o nome de anfitrião e tem que ser referenciado pelo seu endereço IP. Este artigo mostra como mapear um nome dNS personalizado existente (também referido como nome de anfitrião) um gateway auto-hospedado.
 
 > [!NOTE]
-> O recurso de gateway auto-hospedado está em versão prévia. Durante a visualização, o gateway auto-hospedado está disponível apenas nas camadas desenvolvedor e Premium sem custo adicional. A camada de desenvolvedor é limitada a uma única implantação de gateway de hospedagem interna.
+> A funcionalidade de gateway auto-hospedada está em pré-visualização. Durante a pré-visualização, o gateway auto-hospedado só está disponível nos níveis Developer e Premium sem custos adicionais. O nível de desenvolvimento está limitado a uma única implementação de gateway auto-hospedada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar as etapas descritas neste artigo, você deve ter:
+Para realizar os passos descritos neste artigo, deve ter:
 
 -   Uma subscrição ativa do Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
--   Uma instância de gerenciamento de API. Para obter mais informações, consulte [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-- Um gateway auto-hospedado. Para obter mais informações, consulte [como provisionar o gateway](api-management-howto-provision-self-hosted-gateway.md) de hospedagem interna
--   Um nome de domínio personalizado que pertence a você ou à sua organização. Este tópico não fornece instruções sobre como adquirir um nome de domínio personalizado.
--   Um registro DNS hospedado em um servidor DNS que mapeia o nome de domínio personalizado para o endereço IP do gateway de hospedagem interna. Este tópico não fornece instruções sobre como hospedar um registro DNS.
--   Você deve ter um certificado válido com uma chave pública e privada (. PFX). A entidade ou o nome alternativo da entidade (SAN) deve corresponder ao nome de domínio (isso permite que a instância do gerenciamento de API exponha URLs com segurança por SSL).
+-   Uma instância de Gestão API. Para mais informações, consulte Criar uma instância de [Gestão API Azure.](get-started-create-service-instance.md)
+- Um portal auto-hospedado. Para mais informações, consulte [Como fornecer gateway auto-hospedado](api-management-howto-provision-self-hosted-gateway.md)
+-   Um nome de domínio personalizado que é propriedade de si ou da sua organização. Este tópico não fornece instruções sobre como obter um nome de domínio personalizado.
+-   Um disco DNS hospedado num servidor DNS que mapeia o nome de domínio personalizado para o endereço IP do gateway auto-hospedado. Este tópico não fornece instruções sobre como hospedar um registo DNS.
+-   Deve ter um certificado válido com chave pública e privada (. PFX). O nome alternativo sujeito ou sujeito (SAN) tem de corresponder ao nome de domínio (isto permite que a instância de Gestão API exponha os URLs de forma segura em TLS).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Adicionar um certificado de domínio personalizado ao serviço de gerenciamento de API
+## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Adicione certificado de domínio personalizado ao seu serviço de Gestão API
 
-1. Selecione **certificados** em **segurança**.
+1. Selecione **Certificados** a partir de âmbito de **segurança**.
 2. Selecione **+ Adicionar**.
-3. Insira um nome de recurso para o certificado no campo **ID** .
-4. Selecione o arquivo que contém o certificado (. PFX) selecionando o campo **certificado** ou o ícone de pasta adjacente a ele.
-5. Insira a senha do certificado no campo **senha** .
-6. Selecione **criar** para adicionar o certificado ao serviço de gerenciamento de API.
+3. Introduza um nome de recurso para o certificado no campo **id.**
+4. Selecione o ficheiro que contém o certificado (. PFX) selecionando o campo **Certificado** ou o ícone da pasta adjacente.
+5. Introduza a palavra-passe do certificado no campo **Password.**
+6. Selecione **Criar** para adicionar o certificado ao seu serviço de Gestão API.
 
-## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Use o portal do Azure para definir um nome de domínio personalizado para o gateway auto-hospedado
+## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Use o portal Azure para definir um nome de domínio personalizado para o seu gateway auto-hospedado
 
-1. Selecione os **gateways** em **configurações**.
-2. Selecione o gateway auto-hospedado para o qual você deseja configurar o nome de domínio.
-3. Selecione **nomes de host** em **configurações**.
+1. Selecione os **Gateways** a partir de **definições**.
+2. Selecione o gateway auto-hospedado para o que pretende configurar o nome de domínio.
+3. Selecione **nomes de anfitriões** em **Definições**.
 4. Selecione **+ Adicionar**
-5. Insira o nome do recurso para o nome do host no campo **Name** .
-6. Insira o nome de domínio no campo **hostname** .
-7. Selecione um certificado na lista suspensa **certificado** .
-8. Marque a caixa de seleção **negociar certificado de cliente** se qualquer uma das APIs expostas por esse gateway usar autenticação de certificado de cliente.
+5. Introduza o nome de recurso para o nome de anfitrião no campo **Nome.**
+6. Introduza o nome de domínio no campo **Hostname.**
+7. Selecione um certificado do **certificado** de entrega.
+8. Selecione Negociar caixa **de verificação** de certificado de cliente se alguma das APIs expostas através deste gateway usar autenticação de certificado de cliente.
     > [!WARNING]
-    > Essa configuração é compartilhada por todos os nomes de domínio configurados para o gateway.
-9. Selecione **Adicionar** para atribuir o nome de domínio personalizado para o gateway auto-hospedado selecionado.
+    > Esta definição é partilhada por todos os nomes de domínio configurados para o gateway.
+9. **Selecione Adicionar** para atribuir o nome de domínio personalizado ao gateway auto-hospedado selecionado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Atualizar e dimensionar seu serviço](upgrade-and-scale.md)
+[Atualizar e escalar o seu serviço](upgrade-and-scale.md)

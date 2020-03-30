@@ -1,6 +1,6 @@
 ---
 title: Gerencie o Azure Data Lake Analytics utilizando o portal Azure
-description: Este artigo descreve como usar o portal Azure para gerir contas data lake analytics, fontes de dados, utilizadores e empregos.
+description: Este artigo descreve como usar o portal Azure para gerir contas data lake analytics, fontes de dados, utilizadores, & empregos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,13 +10,13 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265704"
 ---
-# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics utilizando o portal Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics com o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Este artigo descreve como gerir contas de Azure Data Lake Analytics, fontes de dados, utilizadores e empregos através do portal Azure.
@@ -29,8 +29,8 @@ Este artigo descreve como gerir contas de Azure Data Lake Analytics, fontes de d
 
 ### <a name="create-an-account"></a>Criar uma conta
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique **em Criar um recurso** > Inteligência + **análise** > Data **Lake Analytics**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Clique **em Criar uma** > Inteligência de recursos **+ analytics** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: O nome da conta Data Lake Analytics.
    2. **Subscrição**: A subscrição Azure utilizada para a conta.
@@ -44,14 +44,14 @@ Este artigo descreve como gerir contas de Azure Data Lake Analytics, fontes de d
 Antes de eliminar uma conta Data Lake Analytics, elimine a sua conta padrão data lake store.
 
 1. No portal Azure, vá à sua conta data Lake Analytics.
-2. Clique em **Eliminar**.
+2. Clique em **Apagar**.
 3. Digite o nome da conta.
-4. Clique em **Eliminar**.
+4. Clique em **Apagar**.
 
 <!-- ################################ -->
 <!-- ################################ -->
 
-## <a name="manage-data-sources"></a>Gerir fontes de dados
+## <a name="manage-data-sources"></a>Gerir origens de dados
 
 Data Lake Analytics suporta as seguintes fontes de dados:
 
@@ -111,7 +111,7 @@ Utilize a função data lake analytics developer para permitir que os desenvolve
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Adicione utilizadores ou grupos de segurança a uma conta Data Lake Analytics
 
 1. No portal Azure, vá à sua conta data Lake Analytics.
-2. Clique no controlo de **acesso (IAM)**  > **Adicionar a atribuição de funções**.
+2. Clique no controlo de **acesso (IAM)** > **Adicionar atribuição de funções**.
 3. Selecione um papel.
 4. Adicione um utilizador.
 5. Clique em **OK**.
@@ -163,6 +163,6 @@ Para ver uma lista de empregos U-SQL que são recorrentes:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gerencie o Azure Data Lake Analytics utilizando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Gerir o Azure Data Lake Analytics usando políticas](data-lake-analytics-account-policies.md)
+* [Gerir o Azure Data Lake Analytics com políticas](data-lake-analytics-account-policies.md)

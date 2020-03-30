@@ -4,7 +4,7 @@ description: Funções para delegar em tarefas de identidade no Diretório Ativo
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1197eb074b9afeb74c6793835455611ab784a83b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259724"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284879"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Diretório Ativo azure
 
@@ -44,7 +44,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios Azure AD B2C | Todos os utilizadores não convidados[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Criar aplicações B2C | Administrador Global | 
-Criar aplicações empresariais | Administrador de aplicação em nuvem | Administrador da Aplicação
+Criar aplicações empresariais | Administrador de Aplicações na Cloud | Administrador da Aplicação
 Criar, ler, atualizar e eliminar políticas B2C | Administrador de Política B2C IEF | 
 Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador de Fornecedor de Identidade Externa | 
 Criar, ler, atualizar e eliminar fluxos de utilizadores de redefinição de palavras-passe | Administrador de fluxo de utilizador B2C | 
@@ -59,7 +59,7 @@ Ler registos de auditoria B2C | Leitor global[(ver documentação)](https://docs
 > [!NOTE]
 > Os leitores da Azure AD B2C Global não têm as mesmas permissões que os administradores globais da Azure AD. Se tiver privilégios de administrador global Azure AD B2C, certifique-se de que está num diretório Azure AD B2C e não num diretório Azure AD.
 
-## <a name="company-branding"></a>Marca da empresa
+## <a name="company-branding"></a>Imagem corporativa
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -104,7 +104,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 Gerir domínios | Administrador Global | 
 Leia todas as configurações | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
 
-## <a name="domain-services"></a>Active Directory
+## <a name="domain-services"></a>Serviços de Domínio
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -121,7 +121,7 @@ Ativar dispositivo | Administrador de dispositivos de nuvem |
 Ler configuração básica | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Ler teclas BitLocker | Leitor de Segurança | Administrador de passwords, administrador de segurança
 
-## <a name="enterprise-applications"></a>Aplicações empresariais
+## <a name="enterprise-applications"></a>Aplicações Empresariais
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -152,8 +152,8 @@ Adicionar sites Online SharePoint para catalogar | Administrador global
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Licença de atribuição | Administrador de utilizadores | 
-Criar grupo | Administrador de utilizadores | 
+Atribuir licença | Administrador de utilizadores | 
+Criar grupos | Administrador de utilizadores | 
 Criar, atualizar ou excluir a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
 Gerir a expiração do grupo | Administrador de utilizadores | 
 Gerir definições do grupo | Administrador de Grupos | Administrador de Utilizadores | 
@@ -184,7 +184,7 @@ Ler vulnerabilidades | Leitor de Segurança |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Licença de atribuição | Administrador de licença | Administrador de utilizadores
+Atribuir licença | Administrador de licença | Administrador de utilizadores
 Leia todas as configurações | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
 Revogar licença | Administrador de licença | Administrador de utilizadores
 Tente ou compre subscrição | Administrador de faturação | 
@@ -251,7 +251,7 @@ Configurar propriedades de reset de palavra-passe | Administrador de Utilizadore
 Configurar o registo | Administrador Global |
 Leia todas as configurações | Administrador de Segurança | Administrador de Utilizadores |
 
-## <a name="privileged-identity-management"></a>Gestão privilegiada da identidade
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -324,10 +324,10 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Adicionar o utilizador ao papel de diretório | Administrador privilegiado | 
 Adicionar utilizador ao grupo | Administrador de utilizadores | 
-Licença de atribuição | Administrador de licença | Administrador de utilizadores
+Atribuir licença | Administrador de licença | Administrador de utilizadores
 Criar o utilizador convidado | Convidado convidado | Administrador de utilizadores
 Criar utilizador | Administrador de utilizadores | 
-Excluir utilizadores | Administrador de utilizadores | 
+Eliminar utilizadores | Administrador de utilizadores | 
 Invalidar fichas de atualização de administradores limitados (ver documentação) | Administrador de utilizadores | 
 Invalidar fichas de atualização de não administradores (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
 Invalidar fichas de atualização de administradores privilegiados (ver documentação) | Administrador de Autenticação Privilegiada | 
@@ -348,7 +348,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Enviar bilhete de apoio | Administrador de Serviços | Administrador de aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação em Nuvem, Administrador de Conformidade, Administrador da Dynamics 365, Administrador de Análise de Desktop, Administrador de Câmbio, Palavra-passe Administrador, Administrador Intune, Skype para Administrador de Negócios, Administrador power BI, Administrador de Autenticação Privilegiada, Administrador de SharePoint, Administrador de Comunicações de Equipas, Administrador de Equipas, Administrador de Utilizadores, Administrador de Análise de Local de Trabalho
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como atribuir ou remover funções de administrador da AD azure](directory-manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](directory-assign-admin-roles.md)

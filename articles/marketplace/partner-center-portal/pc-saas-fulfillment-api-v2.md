@@ -1,21 +1,20 @@
 ---
-title: Realização do SaaS API v2  Mercado Azure
+title: Realização do SaaS API v2 [ Mercado Azure
 description: Este artigo explica como criar e gerir uma oferta SaaS no AppSource e Azure Marketplace utilizando o cumprimento associado v2 APIs.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: evansma
-ms.openlocfilehash: c0d5deef609796501515fc9c7064a96ca1419b3a
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.author: dsindona
+ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275769"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>ApIs de cumprimento saaS, versão 2 
+# <a name="saas-fulfillment-apis-version-2"></a>APIs de Cumprimento SaaS, versão 2 
 
 Este artigo detalha as APIs que permitem aos parceiros vender as suas aplicações SaaS no mercado appSource e no Azure Marketplace. Estas APIs são um requisito para ofertas transacionáveis do SaaS no AppSource e no Azure Marketplace.
 
@@ -32,7 +31,7 @@ A tabela seguinte lista os estados de provisionamento para uma subscrição SaaS
 
 #### <a name="provisioning"></a>Aprovisionamento
 
-Quando um cliente inicia uma compra, o parceiro recebe esta informação num código de autorização numa página web interativa do cliente que utiliza um parâmetro URL. Um exemplo é `https://contoso.com/signup?token=..`, enquanto o URL da página de aterragem no Partner Center é `https://contoso.com/signup`. O código de autorização pode ser validado e trocado pelos detalhes do serviço de provisionamento, ligando para a API resolve.  Quando um serviço SaaS termina o fornecimento, envia uma chamada ativa para sinalizar que o cumprimento está completo e que o cliente pode ser cobrado. 
+Quando um cliente inicia uma compra, o parceiro recebe esta informação num código de autorização numa página web interativa do cliente que utiliza um parâmetro URL. Um exemplo `https://contoso.com/signup?token=..`é, enquanto o URL `https://contoso.com/signup`da página de aterragem no Partner Center é . O código de autorização pode ser validado e trocado pelos detalhes do serviço de provisionamento, ligando para a API resolve.  Quando um serviço SaaS termina o fornecimento, envia uma chamada ativa para sinalizar que o cumprimento está completo e que o cliente pode ser cobrado. 
 
 O diagrama seguinte mostra a sequência de Chamadas API para um cenário de provisionamento.  
 
@@ -73,7 +72,7 @@ As subscrições chegam a este estado em resposta a um pedido explícito do clie
 
 ## <a name="api-reference"></a>Referência da API
 
-Esta secção documenta a API de *Subscrição* SaaS e API de *Operações.*  O valor do parâmetro `api-version` para as APIs da versão 2 é `2018-08-31`.  
+Esta secção documenta a API de *Subscrição* SaaS e API de *Operações.*  O valor `api-version` do parâmetro para as `2018-08-31`APIs da versão 2 é .  
 
 
 ### <a name="parameter-and-entity-definitions"></a>Definições de parâmetros e entidades
@@ -88,7 +87,7 @@ A tabela seguinte enumera as definições para parâmetros e entidades comuns ut
 | `offerId`                | Um identificador de cordas único para cada oferta (por exemplo: "oferta1").  |
 | `planId`                 | Um identificador de cordas único para cada plano/SKU (por exemplo: "prata"). |
 | `operationId`            | O identificador GUID para uma determinada operação.  |
-|  `action`                | A ação que está a ser realizada com recurso, quer `Unsubscribe`, `Suspend`, `Reinstate`, ou `ChangePlan`, `ChangeQuantity`, `Transfer`. |
+|  `action`                | A ação que está a `Unsubscribe` `Suspend`ser `Reinstate`executada `ChangePlan` `ChangeQuantity`com `Transfer`recurso, ou, ou, ou. |
 |   |   |
 
 Identificadores globalmente únicos[(GUIDs)](https://en.wikipedia.org/wiki/Universally_unique_identifier)são números de 128 bits (32-hexadecimal) que são tipicamente gerados automaticamente. 
@@ -97,7 +96,7 @@ Identificadores globalmente únicos[(GUIDs)](https://en.wikipedia.org/wiki/Unive
 
 O ponto final de resolução permite à editora resolver um símbolo de mercado para um ID de recursos persistente. O ID de recurso é o identificador único para uma subscrição SaaS. Quando um utilizador é redirecionado para o website de um parceiro, o URL contém um símbolo nos parâmetros de consulta. Espera-se que o parceiro utilize este símbolo e faça um pedido para resolvê-lo. A resposta contém o ID de subscrição exclusivo do SaaS, nome, id de oferta e plano para o recurso. Este token é válido por apenas uma hora. 
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Publicar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -109,11 +108,11 @@ O ponto final de resolução permite à editora resolver um símbolo de mercado 
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  O parâmetro de consulta simbólica no URL quando o utilizador é redirecionado para o website do parceiro SaaS a partir do Azure (por exemplo: `https://contoso.com/signup?token=..`). *Nota:* O URL descodifica o valor simbólico do navegador antes de o utilizar.  |
+|  x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo:`Bearer <access_token>`". |
+|  x-ms-marketplace-token  |  O parâmetro de consulta simbólica no URL quando o utilizador é redirecionado para o website do parceiro `https://contoso.com/signup?token=..`SaaS a partir de Azure (por exemplo: ). *Nota:* O URL descodifica o valor simbólico do navegador antes de o utilizar.  |
 
 *Códigos de resposta:*
 
@@ -173,10 +172,10 @@ Lista todas as subscrições do SaaS para um editor.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Tipo de conteúdo       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| authorization      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+| x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| autorização      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo:`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
@@ -184,7 +183,7 @@ Código: 200 <br/>
 Obtém a editora e subscrições correspondentes para todas as ofertas da editora, com base no símbolo de autenticação.
 
 >[!Note]
->[As APIs falsas](#mock-apis) são usadas quando desenvolve si pela primeira vez a oferta, enquanto as APIs reais precisam de ser usadas na publicação da oferta.  APIs reais e APIs falsos diferem pela primeira linha do código.  Na verdadeira API existe a secção `subscription`, enquanto esta secção não existe para simular a API.
+>[As APIs falsas](#mock-apis) são usadas quando desenvolve si pela primeira vez a oferta, enquanto as APIs reais precisam de ser usadas na publicação da oferta.  APIs reais e APIs falsos diferem pela primeira linha do código.  Na API real há `subscription` a secção, enquanto esta secção não existe para simular API.
 
 Carga útil de resposta para a API falsa:<br>
 
@@ -294,10 +293,10 @@ Obtém a assinatura SaaS especificada. Use esta chamada para obter informações
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo:`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
@@ -364,10 +363,10 @@ Use esta chamada para saber se existem ofertas privadas ou públicas para o edit
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Tipo de conteúdo     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid  | Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
+|  x-ms-correlação  | Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`". |
 
 *Códigos de resposta:*
 
@@ -403,7 +402,7 @@ Erro interno do servidor.<br>
 
 #### <a name="activate-a-subscription"></a>Ativar uma subscrição
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Publicar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -416,10 +415,10 @@ Erro interno do servidor.<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  | Um valor de cadeia único para a operação no cliente. Esta cadeia correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
+|  x-ms-correlação  | Um valor de cadeia único para a operação no cliente. Esta cadeia correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`". |
 
 *Solicitar carga útil:*
 
@@ -473,10 +472,10 @@ Atualize o plano sobre a subscrição.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
-| authorization      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
+| autorização      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`".  |
 
 *Solicitar carga útil:*
 
@@ -520,7 +519,7 @@ Erro interno do servidor.
 ```
 
 >[!Note]
->Apenas um plano ou quantidade pode ser remendado de uma só vez, não ambos. As edas numa subscrição com **Update** não estão em `allowedCustomerOperations`.
+>Apenas um plano ou quantidade pode ser remendado de uma só vez, não ambos. As edits numa **Update** subscrição com `allowedCustomerOperations`Update não estão em .
 
 #### <a name="change-the-quantity-on-the-subscription"></a>Alterar a quantidade na subscrição
 
@@ -539,10 +538,10 @@ Atualize a quantidade na subscrição.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
-| authorization      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
+| autorização      |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`".  |
 
 *Solicitar carga útil:*
 
@@ -587,7 +586,7 @@ Erro interno do servidor.
 ```
 
 >[!Note]
->Apenas um plano ou quantidade pode ser remendado de uma só vez, não ambos. As edas numa subscrição com **Update** não estão em `allowedCustomerOperations`.
+>Apenas um plano ou quantidade pode ser remendado de uma só vez, não ambos. As edits numa **Update** subscrição com `allowedCustomerOperations`Update não estão em .
 
 #### <a name="delete-a-subscription"></a>Eliminar uma subscrição
 
@@ -606,10 +605,10 @@ Cancelar a subscrição e apagar a subscrição especificada.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Tipo de conteúdo     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-|  x-ms-correlationid  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação  |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
@@ -617,7 +616,7 @@ Código: 202<br>
 O parceiro iniciou uma chamada para cancelar a subscrição do SaaS.<br>
 
 Código: 400<br>
-Apagar numa subscrição com **delete** não em `allowedCustomerOperations`.
+Apagar numa subscrição com `allowedCustomerOperations` **delete** não dentro .
 
 Código: 403<br>
 Não autorizado. O símbolo de autenticação não foi fornecido ou é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence à editora atual.
@@ -659,10 +658,10 @@ Lista as operações pendentes para o atual editor.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Tipo de conteúdo     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
@@ -708,7 +707,7 @@ Erro interno do servidor.
 
 #### <a name="get-operation-status"></a>Obtenha o estado de operação
 
-Permite ao editor acompanhar o estado da operação de asincronização desencadeada especificada (como `Subscribe`, `Unsubscribe`, `ChangePlan`ou `ChangeQuantity`).
+Permite ao editor rastrear o estado da operação de asincronização `ChangePlan`desencadeada `ChangeQuantity`especificada (tais como, `Subscribe` `Unsubscribe`ou ).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -722,10 +721,10 @@ Permite ao editor acompanhar o estado da operação de asincronização desencad
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Tipo de conteúdo      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo:`Bearer <access_token>`".  |
 
 *Códigos de resposta:*<br>
 
@@ -786,10 +785,10 @@ Atualize o estado de uma operação para indicar sucesso ou falha com os valores
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Tipo de conteúdo     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  authorization     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-ms-correlação |  Um valor de cadeia único para a operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  autorização     |  Obtenha ficha do portador da [JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo:`Bearer <access_token>`".  |
 
 *Solicitar carga útil:*
 
@@ -851,16 +850,16 @@ A editora deve implementar um webhook neste serviço SaaS para notificar proativ
 }
 ```
 Sempre que a ação possa ser uma das seguintes: 
-- `Unsubscribe` (quando o recurso tiver sido eliminado)
-- `ChangePlan` (quando a operação do plano de mudança estiver concluída)
-- `ChangeQuantity` (quando a operação de alteração da quantidade estiver concluída)
-- `Suspend` (quando o recurso tiver sido suspenso)
-- `Reinstate` (quando o recurso tiver sido reintegrado após a suspensão)
+- `Unsubscribe`(quando o recurso tiver sido suprimido)
+- `ChangePlan`(quando a operação do plano de mudança estiver concluída)
+- `ChangeQuantity`(quando a operação de alteração da quantidade estiver concluída)
+- `Suspend`(quando o recurso tiver sido suspenso)
+- `Reinstate`(quando o recurso tiver sido restabelecido após a suspensão)
 
 Sempre que o estatuto possa ser um dos seguintes: 
 - **Não Iniciado** <br>
  - **Inprogress** <br>
-- **Sucedido** <br>
+- **Bem-sucedido** <br>
 - **Falhou** <br>
 - **Conflito** <br>
 
@@ -870,11 +869,11 @@ Numa notificação webhook, os status acionáveis são **bem sucedidos** e **fal
 
 Você pode usar as nossas APIs falsas para ajudá-lo a começar com o desenvolvimento, particularmente prototipagem, bem como projetos de teste. 
 
-Ponto final do hospedeiro: `https://marketplaceapi.microsoft.com/api` (não é necessária autenticação)<br/>
-Versão API: `2018-09-15`<br/>
-Amostra URI: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+Ponto final `https://marketplaceapi.microsoft.com/api` do hospedeiro: (sem necessidade de autenticação)<br/>
+Versão API:`2018-09-15`<br/>
+Amostra URI:`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Os caminhos finais da API são os mesmos tanto em simulação como em APIs reais, mas as versões API são diferentes. A versão está `2018-09-15` para a versão mock e `2018-08-31` para a versão de produção. 
+Os caminhos finais da API são os mesmos tanto em simulação como em APIs reais, mas as versões API são diferentes. A versão `2018-09-15` é para `2018-08-31` a versão mock e para a versão de produção. 
 
 Qualquer uma das chamadas da API neste artigo pode ser feita para o ponto final do anfitrião simulado. Em geral, espere obter dados falsos de volta como resposta. As chamadas para os métodos de subscrição de atualização na API falsa saem sempre 500. 
 

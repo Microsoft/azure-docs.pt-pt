@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 99fed1d2b1246e4c099f275708f694e5d7ea2f22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3d71301534d56ef8eca68951c8c9f9a1570b3a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190828"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282261"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -49,7 +49,7 @@ A equipa de recuperação do site e o plano de equipa de gestão de capacidade s
 Sim. A Recuperação do Site suporta a recuperação de desastres de VMs que têm encriptação de disco azure ativada. Ao ativar a replicação, o Azure copia todas as chaves e segredos de encriptação de disco necessários da região de origem para a região alvo no contexto do utilizador. Se não tiver as permissões apropriadas, o seu administrador de segurança pode usar um guião para copiar as chaves e segredos.
 
 - A Recuperação do Site suporta a encriptação do disco Azure para VMs Azure que estão a executar o Windows.
-- O Site Recovery suporta a versão 0.1 da encriptação do disco Azure, que tem um esquema que requer o Diretório Ativo Azure (Azure AD). O Site Recovery também suporta a versão 1.1, que não requer AD Azure. [Saiba mais sobre os schematas de extensão para encriptação](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)de disco Azure .
+- O Site Recovery suporta a versão 0.1 da encriptação do disco Azure, que tem um esquema que requer o Diretório Ativo Azure (Azure AD). O Site Recovery também suporta a versão 1.1, que não requer AD Azure. Saiba mais sobre o esquema de [extensão para encriptação](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema)de disco Azure .
   - Para a versão 1.1 da Encriptação do Disco Azure, tem de utilizar os VMs do Windows com discos geridos.
   - [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre a replicação de VMs encriptados.
 
@@ -73,7 +73,7 @@ Sim, adicionar novos discos a VMs replicados e permitir a replicação para eles
 
 - Se ativar a proteção dos discos adicionados, o aviso desaparecerá após a replicação inicial.
 - Se não ativar a replicação do disco, pode dispensar o aviso.
-- Se falhar sobre um VM que tem um disco adicional e replicação ativado, existem pontos de replicação. Os pontos de replicação mostrarão os discos disponíveis para recuperação. 
+- Se falhar sobre um VM que tem um disco adicional e replicação ativado, existem pontos de replicação. Os pontos de replicação mostrarão os discos disponíveis para recuperação.
 
 Por exemplo, digamos que um VM tem um único disco e você adiciona um novo. Pode haver um ponto de replicação que foi criado antes de adicionar o disco. Este ponto de replicação mostrará que é composto por "1 de 2 discos".
 
@@ -159,7 +159,7 @@ Não, a Recuperação do Site manterá todos os seus pontos de recuperação ant
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois de a replicação ser ativada num VM, como posso alterar a política de replicação?
 
-Vá ao Cofre de **Recuperação** do Local > Infraestrutura de **Recuperação** do Local > políticas de **replicação.** Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á a todas as replicações existentes também.
+Vá para as políticas de**replicação**de**infraestruturade recuperação** > do local do cofre do **cofre.** >  Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á a todas as replicações existentes também.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa do VM ou um diferencial?
 
@@ -193,6 +193,10 @@ Pode replicar 16 máquinas virtuais juntas num grupo de replicação.
 
 Uma vez que a consistência multi-VM é intensiva em CPU, permitindo-lhe afetar o desempenho da carga de trabalho. Utilize a consistência multi-VM apenas se as máquinas estiverem a funcionar a mesma carga de trabalho e precisar de consistência em várias máquinas. Por exemplo, se tiver duas instâncias do SQL Server e dois servidores web numa aplicação, deve ter consistência multi-VM apenas para as instâncias do Servidor SQL.
 
+### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Pode adicionar um VM já replicando a um grupo de replicação?
+
+Pode adicionar um VM a um novo grupo de replicação, permitindo a replicação. Também pode adicionar um VM a um grupo de replicação existente, permitindo a replicação. No entanto, não é possível adicionar um VM já replicado a um novo grupo de replicação ou grupo de replicação existente.
+
 ## <a name="failover"></a>Ativação pós-falha
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como é assegurada a capacidade na região-alvo para os VMs Azure?
@@ -207,7 +211,7 @@ A ativação pós-falha não é automática. Pode iniciar falhas com um único c
 
 Não pode manter o endereço IP público do pedido de produção após uma falha.
 
-Quando se traz uma carga de trabalho como parte do processo de failover, é necessário atribuir um recurso IP público Azure à carga de trabalho. O recurso IP público azure tem de estar disponível na região-alvo. Pode atribuir manualmente o recurso IP público azure, ou pode automatizar com um plano de recuperação. Saiba como [configurar endereços IP públicos após o failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
+Quando se traz uma carga de trabalho como parte do processo de failover, é necessário atribuir um recurso IP público Azure à carga de trabalho. O recurso IP público azure tem de estar disponível na região-alvo. Pode atribuir manualmente o recurso IP público azure, ou pode automatizar com um plano de recuperação. Saiba como [configurar endereços IP públicos após o failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
 
 ### <a name="can-i-keep-a-private-ip-address-during-a-failover"></a>Posso manter um endereço IP privado durante uma falha?
 
@@ -277,11 +281,11 @@ Não. Quando se [falha mA](https://docs.microsoft.com/azure/site-recovery/azure-
 
 Depende da situação. Se a região de origem VM existir, apenas as alterações entre o disco de origem e o disco-alvo são sincronizadas. A Recuperação do Site calcula os diferenciais comparando os discos e, em seguida, transfere os dados. Este processo geralmente leva algumas horas. Para obter mais informações sobre o que acontece durante a reproteção, consulte a Reprotect falhada sobre os casos de [VM Azure para a região primária](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
-### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo leva para falhar?
+### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo demora a reativação pós-falha?
 
 Após a reprotecção, o recuo leva cerca do mesmo tempo que leva para falhar da região primária para uma região secundária.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a><a name="capacity"></a>Capacidade
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como é assegurada a capacidade na região-alvo para os VMs Azure?
 
@@ -295,7 +299,7 @@ Sim, você pode comprar [VMs Azure reservados](https://azure.microsoft.com/prici
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Sites?
 
-Não, a Recuperação do Site não interceta dados replicados, e não tem nenhuma informação sobre o que está a ser feito nos seus VMs. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
+Não, a Recuperação do Site não interceta dados replicados, e não tem nenhuma informação sobre o que está a ser feito nos seus VMs. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.
 
 A Recuperação do Site é certificada iso 27001:2013, 27018, HIPAA e DPA certificada. O serviço está a ser submetido a avaliações soc2 e FedRAMP JAB.
 

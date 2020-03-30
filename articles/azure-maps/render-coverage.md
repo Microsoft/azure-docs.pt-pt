@@ -1,19 +1,19 @@
 ---
 title: Cobertura render [ cobertura de renderização ] Microsoft Azure Maps
 description: Neste artigo, conheça regiões com o Microsoft Azure Maps que prestam cobertura juntamente com o seu nível de detalhes renderizados.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536756"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps renderiza cobertura
 
@@ -21,7 +21,7 @@ O Azure Maps usa azulejos raster e azulejos vetores para criar mapas. Na resolu�
 
 No entanto, o Maps não tem o mesmo nível de informação e precisão para todas as regiões. As tabelas seguintes detalham o nível de informação que pode fornecer para cada região.
 
-## <a name="legend"></a>Lenda
+## <a name="legend"></a>Legenda
 
 | Símbolo | Significado |
 |--------|---------|
@@ -43,11 +43,11 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
-| Rio Chade                             | ✓ | Ø |
-| Comores                          | ✓ | Ø |
+| Chade                             | ✓ | Ø |
+| Comoros                          | ✓ | Ø |
 | República Democrática do Congo | ✓ | ✓ |
-| Costa do Marfim                    | ✓ | Ø |
-| Djibuti                         | ✓ | Ø |
+| Costa do Marfim (Côte d’Ivoire)                    | ✓ | Ø |
+| Jibuti                         | ✓ | Ø |
 | Egito                            | ✓ | ✓ |
 | Guiné Equatorial                | ✓ | Ø |
 | Eritreia                          | ✓ | Ø |
@@ -66,7 +66,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurícia                        | ✓ | ✓ |
-| Mayotte                          | ✓ | ✓ |
+| Maiote                          | ✓ | ✓ |
 | Marrocos                          | ✓ | ✓ |
 | Moçambique                       | ✓ | ✓ |
 | Namíbia                          | ✓ | ✓ |
@@ -94,7 +94,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 
 | País/Região | Azulejos Raster Unificados | Azulejos vetores Unificados |
 | ------ | :------------------: | :------------------: |
-| Anguilla                  | ✓ | ✓ |
+| Anguila                  | ✓ | ✓ |
 | Antígua e Barbuda       | ✓ | ✓ |
 | Argentina                 | ✓ | ✓ |
 | Aruba                     | ✓ | ✓ |
@@ -111,7 +111,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Colômbia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
-| Curaçao                   | ✓ | ✓ |
+| Curaçau                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
@@ -127,7 +127,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Jamaica                   | ✓ | ✓ |
 | Martinica                | ✓ | ✓ |
 | México                    | ✓ | ✓ |
-| Montserrat                | ✓ | ✓ |
+| Montserrate                | ✓ | ✓ |
 | Nicarágua                 | ✓ | ✓ |
 | Ilhas Marianas do Norte  | ✓ | ✓ |
 | Panamá                    | ✓ | ✓ | 
@@ -142,7 +142,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | São Pierre e Miquelon | ✓ | ✓ |
 | São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (Holandês)      | ✓ | ✓ |
-| Geórgia do Sul e ilhas Sandwich do Sul | ✓ | ✓ |
+| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trindade e Tobago       | ✓ | ✓ |
 | Ilhas Turcas e Caicos  | ✓ | ✓ |
@@ -160,11 +160,11 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Barém                   | ✓ | ✓ |
 | Bangladeche                |   | Ø |
 | Butão                    |   | Ø |
-| Território britânico do Oceano Índico |   | Ø |
-| Rio Brunei                    | ✓ | ✓ |
+| Território Britânico do Oceano Índico |   | Ø |
+| Brunei                    | ✓ | ✓ |
 | Camboja                  |   | Ø |
 | China                     |   | Ø |
-| Ilhas Cocos (Keeling)   |   | Ø |
+| Ilhas dos Cocos (Keeling)   |   | Ø |
 | República Popular Democrática da Coreia |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
 | Índia                     | Ø | ✓ | 
@@ -191,7 +191,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Catar                     | ✓ | ✓ |
 | República da Coreia         | ✓ | Ø |
 | Arábia Saudita              | ✓ | ✓ |
-| Ilhas Senkaku/Diaoyutai           |   | ✓ |
+| Ilhas Senkaku           |   | ✓ |
 | Singapura                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
 | República Árabe Síria      |   | Ø |
@@ -215,23 +215,23 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Ilhas Cook              |   | Ø |
 | Fiji                      |   | Ø |
 | Polinésia Francesa          |   | Ø |
-| Rio Guam                      | ✓ | ✓ |
+| Guame                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
 | Ilhas Marshall          |   | Ø |
 | Micronésia                |   | Ø |
 | Nauru                     |   | Ø |
-| Nova Caledonia             |   | Ø |
+| Nova Caledónia             |   | Ø |
 | Nova Zelândia               | ✓ | ✓ |
-| Rio Niue                      |   | Ø |
+| Niuê                      |   | Ø |
 | Ilha Norfolk            |   | Ø |
 | Palau                     |   | Ø |
-| Papua Nova Guiné          |   | Ø |
+| Papua-Nova Guiné          |   | Ø |
 | Pitcairn                  |   | Ø |
 | Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
-| Rio Tokelau                   |   | Ø |
+| Toquelau                   |   | Ø |
 | Tonga                     |   | Ø |
-| Rio Tuvalu                    |   | Ø |
+| Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
 | Wallis e Futuna         |   | Ø |
 
@@ -247,7 +247,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Azerbaijão                | ✓ | Ø |
 | Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bosnia e Herzegovina        | ✓ | ✓ |
+| Bósnia-Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |
@@ -261,7 +261,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Alemanha                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grécia                    | ✓ | ✓ |
-| Guernsey                  | ✓ | ✓ |
+| Guernesey                  | ✓ | ✓ |
 | Hungria                   | ✓ | ✓ |
 | Islândia                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |

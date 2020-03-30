@@ -1,19 +1,19 @@
 ---
 title: Estruturas de dados do Serviço de Mobilidade no Azure Maps Microsoft Azure Maps
 description: Neste artigo, você aprenderá sobre campos comuns e estruturas de dados devolvidas através dos Serviços de Mobilidade Do Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 685810a6efa46c8eb3ad6cee0c2424299f0347d8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334452"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no Serviço de Mobilidade Do Azure Maps
 
@@ -23,7 +23,7 @@ Este artigo introduz o conceito de Área metropolitana no Serviço de [Mobilidad
 
 Os dados do Serviço de Mobilidade são agrupados por áreas de metro apoiadas. As áreas metropolitanas não seguem os limites da cidade. Uma área metropolitana pode conter várias cidades, cidades densamente povoadas, e cidades circundantes. Na verdade, um país/região pode ser uma área metropolitana. 
 
-O `metroID` é uma identificação de uma área metropolitana que pode ser usada para chamar a API de Informação da [Área metropolitana.](https://aka.ms/AzureMapsMobilityMetroAreaInfo) Utilize a API "Get Metro" da Azure Maps para solicitar tipos de trânsito, agências de trânsito, alertas ativos e detalhes adicionais para o metrô escolhido. Você também pode solicitar as áreas de metrô e metrô suportados. As iDs da área do metro estão sujeitas a mudanças.
+O `metroID` ID é uma área metropolitana que pode ser usada para chamar a API de Informação da [Área do Metrô.](https://aka.ms/AzureMapsMobilityMetroAreaInfo) Utilize a API "Get Metro" da Azure Maps para solicitar tipos de trânsito, agências de trânsito, alertas ativos e detalhes adicionais para o metrô escolhido. Você também pode solicitar as áreas de metrô e metrô suportados. As iDs da área do metro estão sujeitas a mudanças.
 
 **metroID:** 522 **Nome:** Seattle-Tacoma-Bellevue
 

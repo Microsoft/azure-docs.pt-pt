@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257787"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294299"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação de desastres de servidor físico
 
@@ -32,14 +32,14 @@ A tabela resume os pré-requisitos para a implementação da máquina de servido
 | Espaço livre no disco (cache do servidor de processos) | 600 GB
 | Espaço livre no disco (disco de retenção) | 600 GB|
 | Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
-| Região do sistema operativo | Inglês (EUA)|
-| Versão do VMware vSphere PowerCLI | Não é necessário|
+| Região do sistema operativo | Inglês (E.U.A.)|
+| Versão do VMware vSphere PowerCLI | Não é necessária|
 | Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
-| Políticas de grupo| Não permita estas políticas de grupo: <br> - Impedir o acesso ao pedido de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ativar a execução do guião <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| Políticas de grupo| Não permita estas políticas de grupo: <br> - Impedir o acesso ao pedido de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ativar a execução do guião <br> [Mais informações](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - Nenhum website preexistente <br> - Ativar [a autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a definição [de FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nenhum site/aplicação pré-existente ouvindo na porta 443<br>|
 | Tipo NIC | VMXNET3 (quando implantado como VMware VM) |
 | Tipo de endereço IP | Estático |
-| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não necessário para servidores de processo salonantes) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(não necessário para servidores de processos scale-out) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Descarregue o mais recente ficheiro de instalação
@@ -47,7 +47,7 @@ A tabela resume os pré-requisitos para a implementação da máquina de servido
 A versão mais recente do ficheiro de instalação do servidor de configuração está disponível no portal recovery do site. Além disso, pode ser descarregado diretamente do [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Inicie sessão no portal Azure e navegue até ao seu Cofre de Serviços de Recuperação.
-2. Navegue na **Infraestrutura** de Recuperação do Site > servidores de **configuração** (em VMware e Máquinas Físicas).
+2. Navegue nos servidores de**configuração** da **infraestrutura** > de recuperação do site (em VMware & máquinas físicas).
 3. Clique no botão **+Servers.**
 4. Na página **Add Server,** clique no botão Descarregamento para descarregar a tecla Registration. Precisa desta chave durante a instalação do Servidor de Configuração para registrá-la com o serviço de recuperação do site Azure.
 5. Clique no **descarregue o link de configuração unificado** de recuperação do site do Microsoft Azure para descarregar a versão mais recente do Servidor de Configuração.
@@ -87,7 +87,7 @@ A versão mais recente do ficheiro de instalação do servidor de configuração
 11. Em **Resumo**, consulte as informações e clique em **Instalar**. Quando a instalação estiver concluída, é gerada uma frase de acesso. Irá precisar dela, quando ativar a replicação, por isso, copie-a e mantenha-a numa localização segura.
 
 
-Após a conclusão de registo, o servidor é apresentado no painel **Definições** > **Servidores** no cofre.
+Após o registo terminar, o servidor é apresentado na lâmina **'Servidores de Definições'** > **Servers** no cofre.
 
 
 ## <a name="install-from-the-command-line"></a>Instalar a partir da linha de comando
@@ -155,7 +155,7 @@ Pode modificar as definições de proxy para a máquina de servidor de configura
 3. Clique no separador registo do **cofre.**
 4. Descarregue um novo ficheiro de registo do cofre a partir do portal e forneça-o como entrada para a ferramenta.
 
-   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![registro-configuração-servidor](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os novos detalhes da procuração e clique no botão **Registar.**
 6. Abra uma janela de comando Da Admin PowerShell.
 7. Execute o seguinte comando:
@@ -175,10 +175,10 @@ Pode modificar as definições de proxy para a máquina de servidor de configura
 2. Lance o cspsconfigtool.exe utilizando o atalho no seu ambiente de trabalho.
 3. Clique no separador registo do **cofre.**
 4. Descarregue um novo ficheiro de registo a partir do portal e forneça-o como entrada para a ferramenta.
-      ![](./media/physical-manage-configuration-server/register-csconfiguration-server.png) de servidor de configuração de registo
+      ![registro-configuração-servidor](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do Proxy Server e clique no botão **Registar.**  
 6. Abra uma janela de comando Da Admin PowerShell.
-7. Executar o seguinte comando
+7. Execute o seguinte comando
 
     ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -207,7 +207,7 @@ Pode modificar as definições de proxy para a máquina de servidor de configura
 5. Descarregue um novo ficheiro de registo a partir do portal e forneça-o como entrada para a ferramenta.
 6. Forneça os detalhes do Proxy Server e clique no botão **Registar.**  
 7. Abra uma janela de comando Da Admin PowerShell.
-8. Executar o seguinte comando
+8. Execute o seguinte comando
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
@@ -242,7 +242,7 @@ Atualize o servidor da seguinte forma:
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Eliminar o Servidor de Configuração do portal Azure
-1. No portal Azure, navegue até à Infraestrutura de **Recuperação** do Local > servidores de **configuração** do menu Vault.
+1. No portal Azure, navegue pelos servidores de > **configuração** da infraestrutura de **recuperação**do site a partir do menu Vault.
 2. Clique no servidor de configuração que pretende desativar.
 3. Na página de detalhes do Servidor de Configuração, clique no botão **Eliminar.**
 4. Clique **em Sim** para confirmar a eliminação do servidor.
@@ -252,7 +252,7 @@ Atualize o servidor da seguinte forma:
 >   Se planeia reutilizar novamente o Servidor de Configuração com a Recuperação do Site Azure, então pode saltar para o passo 4 diretamente
 
 1. Inicie sessão no Servidor de Configuração como Administrador.
-2. Abra o Painel de Controlo > Programa > Programas de desinstalação
+2. Abra o painel de controlo > programa > desinstalar programas
 3. Desinstale os programas na seguinte sequência:
    * Agente de Serviços de Recuperação do Microsoft Azure
    * Serviço de Mobilidade de Recuperação de Sites microsoft Azure/servidor master target
@@ -303,7 +303,7 @@ Para implementações de servidores de configuração antes de maio de 2016, a e
 
 ### <a name="renew-the-certificate"></a>Renovar o certificado
 
-1. No cofre, abra a **Infraestrutura** de Recuperação do Site > servidor de **configuração,** e clique no servidor de configuração necessário.
+1. No cofre, abra o Servidor de Configuração de > **Configuração**de **Infraestruturade Recuperação**do Site e clique no servidor de configuração necessário.
 2. A data de validade aparece sob **a saúde do Servidor** de Configuração
 3. Clique em **Renovar Certificados**. 
 

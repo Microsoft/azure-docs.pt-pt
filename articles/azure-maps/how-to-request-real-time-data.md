@@ -1,20 +1,20 @@
 ---
-title: Solicitar dados de trânsito em tempo real  Microsoft Azure Maps
+title: Solicitar dados de trânsito em tempo real [ Microsoft Azure Maps
 description: Solicite dados em tempo real utilizando o Serviço de Mobilidade Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9710366bdb7d8e86c8abb54b29b8dde3cc315692
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: d3145181a863bf8188dd0b0bb52cd2efc662ce2f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209907"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335487"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Solicite dados em tempo real utilizando o Serviço de Mobilidade Do Azure Maps
 
@@ -47,7 +47,7 @@ Vamos usar o "522" como identificação do metro, que é o ID do metrô para a �
 
     ![Criar um pedido no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
-3. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL para criar um pedido GET. Substitua `{subscription-key}`, com a chave primária do Azure Maps.
+3. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL para criar um pedido GET. Substitua- `{subscription-key}`com a chave primária do Azure Maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
@@ -130,7 +130,7 @@ Para fazer um pedido para a API da Doca de [Trânsito,](https://aka.ms/AzureMaps
 
 Para obter **dockID,** siga os passos abaixo para fazer um pedido para a API de trânsito próximo:
 
-1. No Carteiro, clique em **New Request** | **GET request** e nomeie-o Obter ID **da doca**.
+1. No Carteiro, clique em **New Request** | **GET request** e nomeie-o Obtenha ID **da doca**.
 
 2.  No separador Construtor, selecione o método **GET** HTTP, introduza o URL de pedido seguinte e clique em **Enviar**.
  

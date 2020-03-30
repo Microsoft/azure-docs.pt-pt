@@ -1,5 +1,5 @@
 ---
-title: Scale um cluster azure Kubernetes Service (AKS)
+title: Dimensionar um cluster do Azure Kubernetes Service (AKS)
 description: Aprenda a escalar o número de nós num cluster azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368422"
 ---
-# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Escala a contagem do nó num cluster azure Kubernetes Service (AKS)
+# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar uma contagem de nós num cluster do Azure Kubernetes Service (AKS)
 
-Se as necessidades de recursos das suas aplicações mudarem, pode escalar manualmente um cluster AKS para executar um número diferente de nós. Quando se reduz a escala, os nós são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar as perturbações nas aplicações de funcionamento. Quando se escala, o AKS aguarda até que os nós sejam marcados `Ready` pelo cluster Kubernetes antes de as cápsulas serem programadas.
+Se as necessidades de recursos das suas aplicações mudarem, pode escalar manualmente um cluster AKS para executar um número diferente de nós. Quando se reduz a escala, os nós são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar as perturbações nas aplicações de funcionamento. Quando se escala, o AKS espera até `Ready` que os nós sejam marcados pelo aglomerado kubernetes antes de as cápsulas serem programadas.
 
 ## <a name="scale-the-cluster-nodes"></a>Dimensionar nós de cluster
 

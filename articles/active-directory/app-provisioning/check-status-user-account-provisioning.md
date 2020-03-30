@@ -15,16 +15,16 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 289347474189d1fb57d95a2f424cf381e1e37875
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 19d76f69669ffa13d1d55ffa807e6c4818b8840c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282193"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador
 
-O Azure Ative Directory (Azure AD) inclui um serviço de [prestação](user-provisioning.md) de contas de utilizador que ajuda a automatizar o fornecimento de contas de utilizadores em aplicações SaaS e outros sistemas, para efeitos de gestão de ciclos de vida de identidade de ponta a ponta. A Azure AD suporta conectores de fornecimento de utilizadores pré-integrados para todas as aplicações e sistemas na secção "Em destaque" da [galeria de aplicações Azure AD.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
+O Azure Ative Directory (Azure AD) inclui um serviço de [prestação](user-provisioning.md) de contas de utilizador que ajuda a automatizar o fornecimento de contas de utilizadores em aplicações SaaS e outros sistemas, para efeitos de gestão de ciclos de vida de identidade de ponta a ponta. A Azure AD suporta conectores de fornecimento de utilizadores pré-integrados para todas as aplicações e sistemas com tutoriais de provisionamento de utilizadores [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
 Este artigo descreve como verificar o estado do fornecimento de postos de trabalho após a sua criação e como resolver o fornecimento de utilizadores e grupos individuais.
 
@@ -44,9 +44,9 @@ Este artigo utiliza os seguintes termos, definidos abaixo:
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtendo relatórios de provisionamento do portal Azure
 
-Para obter informações sobre o relatório de fornecimento para uma determinada aplicação, comece por lançar o [portal Azure](https://portal.azure.com) e **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; Registos de **Provisionamento (pré-visualização)** na secção **Atividade.** Também pode navegar na Aplicação da Empresa para a qual o fornecimento está configurado. Por exemplo, se estiver a fornecer utilizadores ao LinkedIn Elevate, a rota de navegação para os detalhes da aplicação é:
+Para obter informações sobre o relatório de fornecimento para uma determinada aplicação, comece por lançar o [portal Azure](https://portal.azure.com) e **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.** Também pode navegar na Aplicação da Empresa para a qual o fornecimento está configurado. Por exemplo, se estiver a fornecer utilizadores ao LinkedIn Elevate, a rota de navegação para os detalhes da aplicação é:
 
-**Azure Ative Directory > Enterprise Applications > Todas as aplicações > LinkedIn Elevate**
+**Azure Ative Directory > Aplicações empresariais > todas as aplicações > LinkedIn Elevate**
 
 A partir daqui, pode aceder tanto à barra de provisão de progresso como aos registos de provisionamento, descritos abaixo.
 
@@ -65,7 +65,7 @@ O **Estado atual** deve ser o primeiro local que os administradores procuram ver
 
 ## <a name="provisioning-logs-preview"></a>Registos de fornecimento (pré-visualização)
 
-Todas as atividades realizadas pelo serviço de provisionamento são registadas nos registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)da AD Azure. Pode aceder aos registos de fornecimento no portal Azure selecionando o **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade sessão incluem:
+Todas as atividades realizadas pelo serviço de provisionamento são registadas nos registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)da AD Azure. Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade sessão incluem:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282019"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
@@ -27,7 +27,7 @@ Os relatórios de saúde do sistema proporcionam visibilidade na funcionalidade 
 > 
 > 
 
-Os relatórios dos componentes do sistema são identificados pela fonte, que começa com o "**Sistema ".** prefixo. Os watchdogs não podem usar o mesmo prefixo para as suas fontes, uma vez que os relatórios com parâmetros inválidos são rejeitados.
+Os relatórios dos componentes do sistema são identificados pela fonte, que começa com o "**Sistema ".** . Os watchdogs não podem usar o mesmo prefixo para as suas fontes, uma vez que os relatórios com parâmetros inválidos são rejeitados.
 
 Vamos ver alguns relatórios do sistema para entender o que os desencadeia e para aprender a corrigir os potenciais problemas que representam.
 
@@ -380,7 +380,7 @@ Para cada réplica, o relatório de saúde contém:
 - Nó em que a réplica está correndo
 - Id de réplica
 
-Num caso como o exemplo, é necessária uma investigação mais aprofundada. Investigue a saúde de cada réplica individual começando com as réplicas marcadas como `Primary` e `Secondary` (131482789658160654 e 131482789688598467) no exemplo anterior.
+Num caso como o exemplo, é necessária uma investigação mais aprofundada. Investigue a saúde de cada réplica individual `Primary` começando com as réplicas marcadas como e `Secondary` (131482789658160654 e 131482789688598467) no exemplo anterior.
 
 ### <a name="replica-constraint-violation"></a>Violação de restrição de réplica
 **O System.PLB** informa um aviso se detetar uma violação de restrição de réplica e não conseguir colocar todas as réplicas de divisórias. Os detalhes do relatório mostram quais os constrangimentos e propriedades que impedem a colocação da réplica.
@@ -420,7 +420,7 @@ HealthEvents          :
 ```
 
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
-Esta propriedade é usada para indicar avisos ou falhas ao tentar abrir uma réplica, fechar uma réplica ou transitar uma réplica de uma função para outra. Para mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). As falhas podem ser exceções lançadas das chamadas da API ou falhas do processo de hospedamento de serviço durante este período. Para falhas devido a chamadas C# de API do código, o Service Fabric adiciona a exceção e empilha vestígios ao relatório de saúde.
+Esta propriedade é usada para indicar avisos ou falhas ao tentar abrir uma réplica, fechar uma réplica ou transitar uma réplica de uma função para outra. Para mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). As falhas podem ser exceções lançadas das chamadas da API ou falhas do processo de hospedamento de serviço durante este período. Para falhas devido a chamadas de API do código C#, o Service Fabric adiciona a exceção e empilha vestígios ao relatório de saúde.
 
 Estes avisos sanitários são levantados após a reexperimentação da ação local algumas vezes (dependendo da política). Serviço Tecido retenta a ação até um limiar máximo. Após o limiar máximo atingido, pode tentar agir para corrigir a situação. Esta tentativa pode fazer com que estes avisos se apurassem, uma vez que desiste da ação neste nó. Por exemplo, se uma réplica não abrir num nó, o Service Fabric levanta um aviso sanitário. Se a réplica continuar a não abrir, o Service Fabric atua para se autorreparar. Esta ação pode envolver tentar a mesma operação noutro nó. Esta tentativa faz com que o aviso levantado para que esta réplica seja apurada. 
 
@@ -428,7 +428,7 @@ Estes avisos sanitários são levantados após a reexperimentação da ação lo
 * **Propriedade**: **ReplicaOpenStatus,** **ReplicaCloseStatus**e **ReplicaChangeRoleStatus**.
 * **Próximos passos**: Investigue o código de serviço ou os despejos de colisão para identificar por que razão a operação está a falhar.
 
-O exemplo que se segue mostra a saúde de uma réplica que está a lançar `TargetInvocationException` do seu método aberto. A descrição contém o ponto de falha, **IStatefulServiceReplica.Open,** o tipo de exceção **TargetInvocationException**, e o traço da pilha.
+O exemplo que se segue mostra a `TargetInvocationException` saúde de uma réplica que está a lançar do seu método aberto. A descrição contém o ponto de falha, **IStatefulServiceReplica.Open,** o tipo de exceção **TargetInvocationException**, e o traço da pilha.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
@@ -639,29 +639,29 @@ HealthEvents          :
 
 A propriedade e o texto indicam que API ficou presa. Os próximos passos a dar para diferentes APIs presos são diferentes. Qualquer API no *IStatefulServiceReplica* ou *IStatelessServiceInstance* é geralmente um bug no código de serviço. A secção seguinte descreve como estes se traduzem para o [modelo de Serviços Fiáveis:](service-fabric-reliable-services-lifecycle.md)
 
-- **IStatefulServiceReplica.Open**: Este aviso indica que uma chamada para `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`, ou se sobrecorrida, `OnOpenAsync` está presa.
+- **IStatefulServiceReplica.Open**: Este aviso indica `CreateServiceInstanceListeners` `ICommunicationListener.OpenAsync`que uma chamada para `OnOpenAsync` , ou se sobreridden, está presa.
 
-- **IStatefulServiceReplica.Close** and **IStatefulServiceReplica.Abort**: O caso mais comum é um serviço que não honra o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync`, ou se sobressalado, `OnCloseAsync` está preso.
+- **IStatefulServiceReplica.Close** and **IStatefulServiceReplica.Abort**: O caso mais comum é um `RunAsync`serviço que não honra o símbolo de cancelamento passado para . Também pode ser `ICommunicationListener.CloseAsync`que, ou se `OnCloseAsync` ultrapassado, esteja preso.
 
-- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)** : O caso mais comum é um serviço que não honra o símbolo de cancelamento passado para `RunAsync`. Neste cenário, a melhor solução é reiniciar a réplica.
+- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: O caso mais comum é um `RunAsync`serviço que não honra o símbolo de cancelamento passado para . Neste cenário, a melhor solução é reiniciar a réplica.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : O caso mais comum é que o serviço não devolveu uma tarefa de `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P)**: O caso mais comum é que `RunAsync`o serviço não devolveu uma tarefa de .
 
 Outras chamadas DaPi que podem ficar presas estão na interface **IReplicator.** Por exemplo:
 
-- **IReplicator.CatchupReplicaSet**: Este aviso indica uma de duas coisas. Há réplicas insuficientes. Para ver se é esse o caso, veja o estado da réplica das réplicas na divisória ou o relatório de saúde System.FM para uma reconfiguração. Ou as réplicas não estão a reconhecer operações. O cmdlet PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser usado para determinar o progresso de todas as réplicas. O problema reside nas réplicas cujo valor `LastAppliedReplicationSequenceNumber` está por detrás do valor `CommittedSequenceNumber` do primário.
+- **IReplicator.CatchupReplicaSet**: Este aviso indica uma de duas coisas. Há réplicas insuficientes. Para ver se é esse o caso, veja o estado da réplica das réplicas na divisória ou o relatório de saúde System.FM para uma reconfiguração. Ou as réplicas não estão a reconhecer operações. O cmdlet `Get-ServiceFabricDeployedReplicaDetail` PowerShell pode ser usado para determinar o progresso de todas as réplicas. O problema reside em `LastAppliedReplicationSequenceNumber` réplicas cujo valor `CommittedSequenceNumber` está por trás do valor primário.
 
-- **IReplicator.BuildReplica(\<Remote ReplicaId>)** : Este aviso indica um problema no processo de construção. Para mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). Pode ser devido a uma configuração errada do endereço do replicador. Para mais informações, consulte [a Configure Statestate Reliable Services](service-fabric-reliable-services-configuration.md) e [especifique os recursos num manifesto](service-fabric-service-manifest-resources.md)de serviço . Também pode ser um problema no nó remoto.
+- **IReplicator.BuildReplica\<(Réplica remota>)**: Este aviso indica um problema no processo de construção. Para mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). Pode ser devido a uma configuração errada do endereço do replicador. Para mais informações, consulte [a Configure Statestate Reliable Services](service-fabric-reliable-services-configuration.md) e [especifique os recursos num manifesto](service-fabric-service-manifest-resources.md)de serviço . Também pode ser um problema no nó remoto.
 
 ### <a name="replicator-system-health-reports"></a>Relatórios de saúde do sistema de replicadores
-Fila de **replicação cheia:** 
+**Fila de replicação cheia:**
 **System.Replicator** reporta um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação geralmente fica cheia porque uma ou mais réplicas secundárias são lentas a reconhecer operações. No secundário, isto geralmente acontece quando o serviço é lento para aplicar as operações. O aviso é apagado quando a fila já não está cheia.
 
 * **SourceId**: System.Replicator
 * **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função de réplica.
 * **Seguintes passos**: Se o relatório estiver no principal, verifique a ligação entre os nós do agrupamento. Se todas as ligações forem saudáveis, pode haver pelo menos um secundário lento com uma latência de disco elevado para aplicar operações. Se o relatório estiver no secundário, verifique primeiro a utilização do disco e o desempenho no nó. Em seguida, verifique a ligação de saída do nó lento para a primária.
 
-**RemoteReplicatorConnectionStatus:** 
+**RemoteReplicatorConnectionStatus:**
 **System.Replicator** na réplica primária reporta um aviso quando a ligação a um replicador secundário (remoto) não é saudável. O endereço do replicador remoto é mostrado na mensagem do relatório, o que torna mais conveniente detetar se a configuração errada foi transmitida ou se existem problemas de rede entre os replicadores.
 
 * **SourceId**: System.Replicator
@@ -685,7 +685,7 @@ Fila de **replicação cheia:**
 Quando uma operação de nomeação demora mais tempo do que o esperado, a operação é sinalizada com um relatório de aviso sobre a réplica primária da partição do serviço Naming que serve a operação. Se a operação terminar com sucesso, o aviso é apurado. Se a operação estiver concluída com um erro, o relatório de saúde inclui detalhes sobre o erro.
 
 * **SourceId**: System.NamingService
-* **Propriedade**: Começa com o prefixo "**Duration_** " e identifica o funcionamento lento e o nome do Tecido de Serviço no qual a operação é aplicada. Por exemplo, se criar serviço no tecido de **nome:/MyApp/MyService** demora muito tempo, a propriedade é **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" aponta para o papel da partição de Nomeação para este nome e operação.
+* **Propriedade**: Começa com o prefixo "**Duration_**" e identifica o funcionamento lento e o nome do Tecido de Serviço no qual a operação é aplicada. Por exemplo, se criar serviço no tecido de **nome:/MyApp/MyService** demora muito tempo, a propriedade é **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" aponta para o papel da partição de Nomeação para este nome e operação.
 * **Próximos passos**: Verifique por que falha a operação Naming. Cada operação pode ter diferentes causas de raiz. Por exemplo, o serviço de eliminação pode ficar preso. O serviço pode ficar preso porque o anfitrião da aplicação continua a bater num nó devido a um bug de utilizador no código de serviço.
 
 O exemplo que se segue mostra uma operação de criação de serviço. A operação demorou mais tempo do que a duração configurada. "AO" tenta e envia trabalho para "NÃO". "NO" concluiu a última operação com a TIMEOUT. Neste caso, a mesma réplica é primária tanto para os papéis "AO" como para "NO".
@@ -794,7 +794,7 @@ Sistema.Hospedagem reporta como OK se a ativação do pacote de serviço no nó 
 Sistema.Hospedar relatórios como OK para cada pacote de código se a ativação for bem sucedida. Se a ativação falhar, reporta um aviso como configurado. Se o **CodePackage** não ativar ou terminar com um erro superior ao **Código ConfiguradoHealthErrorThreshold,** o anfitrião reporta um erro. Se um pacote de serviço contiver vários pacotes de código, um relatório de ativação é gerado para cada um deles.
 
 * **SourceId**: System.Hosting
-* **Propriedade**: Utiliza o código de pré-fixaçãoActivação e contém o nome da embalagem de código e o ponto de entrada como *CodePackageActivation:CodePackageName:SetentryPoint/EntryPoint*. Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.
+* **Propriedade**: Utiliza o código de pré-fixaçãoActivação e contém o nome da embalagem de código e o ponto de entrada como *CodePackageActivation:CodePackageName:SetentryPoint/EntryPoint*. **CodePackageActivation** Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Inscrição de tipo de serviço
 Sistema.Hospedagem reporta como OK se o tipo de serviço tiver sido registado com sucesso. Relata um erro se o registo não tiver sido feito a tempo, tal como configurado através da utilização do **ServiceTypeRegistrationTimeout**. Se o tempo de execução estiver fechado, o tipo de serviço não está registado a partir do nó e o alojamento reporta um aviso.
@@ -872,12 +872,12 @@ O Sistema.O alojamento reporta um aviso se as capacidades do nó não forem defi
 * **Propriedade**: **Governança de Recursos**.
 * **Próximos passos**: A forma preferida de ultrapassar este problema é alterar o manifesto de cluster para permitir a deteção automática dos recursos disponíveis. Outra forma é atualizar o manifesto do cluster com capacidades de nó corretamente especificadas para estas métricas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Ver relatórios de saúde de tecido de serviço](service-fabric-view-entities-aggregated-health.md)
 
 * [Como reportar e verificar a saúde do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-* [Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+* [Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Upgrade de aplicação de tecido de serviço](service-fabric-application-upgrade.md)
 

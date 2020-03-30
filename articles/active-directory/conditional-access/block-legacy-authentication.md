@@ -5,22 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331914"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação legado à Azure AD com acesso condicional   
 
 Para dar aos seus utilizadores um acesso fácil às suas aplicações na nuvem, o Azure Ative Directory (Azure AD) suporta uma ampla variedade de protocolos de autenticação, incluindo a autenticação do legado. No entanto, os protocolos legados não suportam a autenticação de vários fatores (MFA). O MFA é, em muitos ambientes, um requisito comum para lidar com o roubo de identidade. 
+
+Alex Weinert, Diretor de Segurança De Identidade da Microsoft, na sua publicação de blog de 12 de março de 2020 [Novas ferramentas para bloquear a autenticação do legado na sua organização](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) enfatiza por que as organizações devem bloquear a autenticação do legado e quais as ferramentas adicionais que a Microsoft fornece para realizar esta tarefa:
+
+> Para que o MFA seja eficaz, também precisa de bloquear a autenticação do legado. Isto porque protocolos de autenticação legados como POP, SMTP, IMAP e MAPI não podem impor o MFA, tornando-os pontos de entrada preferidos para adversários que atacam a sua organização...
+> 
+>... Os números sobre a autenticação do legado a partir de uma análise do tráfego de Diretório Ativo Azure (Azure AD) são gritantes:
+> 
+> - Mais de 99% dos ataques com spray de senha usam protocolos de autenticação legado
+> - Mais de 97% dos ataques de recheio de credenciais usam autenticação antiga
+> - Contas da AD Azure em organizações que têm desativado a autenticação do legado experimentam 67 por cento menos compromissos do que aqueles em que a autenticação do legado é ativada
+>
 
 Se o seu ambiente estiver pronto para bloquear a autenticação do legado para melhorar a proteção do seu inquilino, pode realizar esse objetivo com acesso condicional. Este artigo explica como pode configurar políticas de Acesso Condicional que bloqueiam a autenticação do legado para o seu inquilino.
 
@@ -65,13 +76,15 @@ As seguintes opções são consideradas protocolos de autenticação legado
 - Reporting Web Services - Usado para recuperar dados de relatório sintetizados em Exchange Online.
 - Outros clientes - Outros protocolos identificados como utilização da autenticação do legado.
 
+Para obter mais informações sobre estes protocolos e serviços de autenticação, consulte [os relatórios de atividade sinuoso no portal azure Ative Diretório](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+
 ### <a name="identify-legacy-authentication-use"></a>Identificar o uso da autenticação do legado
 
 Antes de poder bloquear a autenticação do legado no seu diretório, tem de perceber primeiro se os seus utilizadores têm aplicações que utilizam a autenticação do legado e como isso afeta o seu diretório geral. Os registos de entrada de AD Azure podem ser usados para entender se está a usar a autenticação do legado.
 
-1. Navegue para o **portal Azure** > **Diretório Ativo Azure** > **Sign-ins.**
-1. Adicione a coluna da Aplicação cliente se não for mostrada clicando em **Colunas** > **Aplicação do Cliente**.
-1. **Adicione filtros** > **App cliente** > selecione todos os protocolos de autenticação legados e clique **em Aplicar**.
+1. Navegue para o **portal** > **Azure Ative Directory** > **Sign-ins**.
+1. Adicione a coluna da Aplicação cliente se não for mostrada clicando na App do**Cliente**das **Colunas** > .
+1. **Adicione filtros** > **Aplicação cliente** > selecione todos os protocolos de autenticação legado, e clique em **Aplicar**.
 
 A filtragem só lhe mostrará tentativas de inscrição que foram feitas por protocolos de autenticação legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de aplicações do cliente** ao abrigo do separador **Informação Básica** indicará qual o protocolo de autenticação legado utilizado.
 
@@ -85,7 +98,7 @@ Numa política de Acesso Condicional, pode definir uma condição que está liga
 
 Para bloquear o acesso a estas aplicações, é necessário selecionar **o acesso**ao Bloco .
 
-![Acesso ao bloco](./media/block-legacy-authentication/02.png)
+![Bloquear acesso](./media/block-legacy-authentication/02.png)
 
 ### <a name="select-users-and-cloud-apps"></a>Selecione utilizadores e aplicações na nuvem
 
@@ -93,7 +106,7 @@ Se quiser bloquear a autenticação do legado para a sua organização, provavel
 
 - Todos os utilizadores
 - Todas as aplicações em nuvem
-- Acesso ao bloco
+- Bloquear acesso
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
 
@@ -107,7 +120,9 @@ A funcionalidade de segurança é necessária porque *bloqueie todos os utilizad
 
 Pode satisfazer esta função de segurança excluindo um utilizador da sua apólice. Idealmente, deve definir [algumas contas administrativas de acesso de emergência em Azure AD e excluí-las](../users-groups-roles/directory-emergency-access.md) da sua política.
 
-## <a name="policy-deployment"></a>Implementação de política
+A utilização [do modo apenas de relatório](concept-conditional-access-report-only.md) ao permitir que a sua política bloqueie a autenticação do legado proporciona à sua organização a oportunidade de monitorizar qual seria o impacto da apólice.
+
+## <a name="policy-deployment"></a>Implementação da Política
 
 Antes de colocar a sua política em produção, cuide-se:
  
@@ -136,5 +151,6 @@ Se bloquear a autenticação do legado utilizando a condição **de Outros clien
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional de diretório ativo Azure,](app-based-mfa.md) por exemplo.
 - Para mais informações sobre o suporte moderno à autenticação, consulte como funciona a autenticação moderna para as [aplicações de clientes do Office 2013 e do Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 

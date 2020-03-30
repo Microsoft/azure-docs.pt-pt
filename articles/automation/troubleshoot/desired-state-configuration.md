@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 99220fdf5dfb47f235637f83ba9be4ec015758bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294430"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Problemas de resolução de problemas com a Configuração do Estado Desejada pela Automação Azure (DSC)
 
@@ -52,7 +52,7 @@ O DSC depende dos módulos instalados no nó. Ao utilizar a Configuração do Es
 
 ## <a name="common-errors-when-working-with-dsc"></a>Erros comuns ao trabalhar com a DSC
 
-### <a name="unsupported-characters"></a>Cenário: Uma configuração com caracteres especiais não pode ser eliminada do portal
+### <a name="scenario-a-configuration-with-special-characters-cannot-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Cenário: Uma configuração com caracteres especiais não pode ser eliminada do portal
 
 #### <a name="issue"></a>Problema
 
@@ -72,11 +72,11 @@ Este erro é uma questão temporária que está prevista para ser resolvida.
 * A documentação para este cmdlet ainda não foi atualizada.  Até lá, consulte a documentação para o módulo AzureRM.
   * [Remover-AzureRmAutomationDSCConfiguração](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Cenário: Não registou o Agente DSC
+### <a name="scenario-failed-to-register-dsc-agent"></a><a name="failed-to-register-agent"></a>Cenário: Não registou o Agente DSC
 
 #### <a name="issue"></a>Problema
 
-Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet DSC, recebe o erro:
+Ao tentar correr `Set-DscLocalConfigurationManager` ou outro cmdlet DSC recebe o erro:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -97,7 +97,7 @@ Este erro é normalmente causado por uma firewall, a máquina estar por trás de
 
 Verifique se a sua máquina tem acesso aos pontos finais adequados para o Azure Automation DSC e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [o planeamento](../automation-dsc-overview.md#network-planning) da rede
 
-### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a>cenário <a/><a name="unauthorized">: Relatórios de estado devolvem código de resposta "Não autorizado"
+### <a name="a-nameunauthorizedscenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Cenário: Relatórios de estado devolvem código de resposta "Não autorizado"
 
 #### <a name="issue"></a>Problema
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Esta questão é causada por um certificado mau ou caducado.  Para mais informações, consulte a [caducidade do certificado e o reregisto](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+Esta questão é causada por um certificado mau ou caducado.  Para mais informações, consulte a [caducidade do certificado e o reregisto](../automation-dsc-onboarding.md#re-registering-a-node).
 
 ### <a name="resolution"></a>Resolução
 
@@ -121,13 +121,13 @@ Siga os passos listados abaixo para voltar a registar o nó DSC em falta.
 
 Primeiro, desregilhe o nó utilizando os seguintes passos.
 
-1. Do portal Azure, em **Contas** de Automação home ->  **->** {A sua conta de Automação} -> **Configuração do Estado (DSC)**
+1. A partir do portal Azure, **em** -> **contas de domótica**-> {A sua conta de Automação} -> **Configuração do Estado (DSC)**
 2. Clique em "Nós", e clique no nó com problemas.
 3. Clique em "Desregistar" para desregistar o nó.
 
 Em segundo lugar, desinstale a extensão DSC do nó.
 
-1. Do portal Azure, sob **home** -> **Virtual Machine** -> {Nó falhado} -> **Extensões**
+1. A partir do portal Azure, sob**a Máquina Virtual** **Doméstica** -> -> {Nó falhado} -> **extensões**
 2. Clique em "Microsoft.Powershell.DSC".
 3. Clique em "Desinstalar", para desinstalar a extensão DSC powerShell.
 
@@ -153,13 +153,13 @@ If (($certs.Count) -gt 0)
 
 Por último, registe novamente o nó em queda utilizando os seguintes passos.
 
-1. Do portal Azure, em **Contas** de Automação home ->  **->** {A sua conta de Automação} -> **Configuração do Estado (DSC)**
+1. A partir do portal Azure, **em** -> **contas de domótica** -> {A sua conta de Automação} -> **Configuração do Estado (DSC)**
 2. Clique em "Nóesos".
 3. Clique no botão "Adicionar".
 4. Selecione o nó de falha.
 5. Clique em "Connect", e selecione as opções desejadas.
 
-### <a name="failed-not-found"></a>Cenário: Nó está em estado falhado com um erro "Não encontrado"
+### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Cenário: Nó está em estado falhado com um erro "Não encontrado"
 
 #### <a name="issue"></a>Problema
 
@@ -181,7 +181,7 @@ Este erro ocorre tipicamente quando o nó é atribuído a um nome de configuraç
   * Para atribuir uma configuração do nó a um nó utilizando o portal Azure, abra a página **De nós DSC,** em seguida, selecione um nó e clique no botão de **configuração do nó de atribuir.**
   * Para atribuir uma configuração do nó a um nó utilizando o cmdlet PowerShell, utilize **o Set-AzureRmAutomationDscNode** cmdlet
 
-### <a name="no-mof-files"></a>Cenário: Não foram produzidas configurações de nó (ficheiros MOF) quando uma configuração é compilada
+### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a><a name="no-mof-files"></a>Cenário: Não foram produzidas configurações de nó (ficheiros MOF) quando uma configuração é compilada
 
 #### <a name="issue"></a>Problema
 
@@ -193,7 +193,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Causa
 
-Quando a expressão que segue a palavra-chave do **nó** na configuração DSC avalia para `$null`, então não são produzidas configurações de nó.
+Quando a expressão **Node** que segue a palavra-chave do `$null`nó na configuração DSC avalia, então não são produzidas configurações de nó.
 
 #### <a name="resolution"></a>Resolução
 
@@ -202,7 +202,7 @@ Qualquer uma das seguintes soluções resolve o problema:
 * Certifique-se de que a expressão ao lado da palavra-chave do **nó** na definição de configuração não está a avaliar para $null.
 * Se estiver a passar o ConfigurationData ao compilar a configuração, certifique-se de que está a passar os valores esperados que a configuração necessita do [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Cenário: O relatório do nó do CDS fica preso "em curso"
+### <a name="scenario-the-dsc-node-report-becomes-stuck-in-progress-state"></a><a name="dsc-in-progress"></a>Cenário: O relatório do nó do CDS fica preso "em curso"
 
 #### <a name="issue"></a>Problema
 
@@ -220,7 +220,7 @@ Atualizou a sua versão WMF e corrompeu o WMI.
 
 Para corrigir o problema, siga as instruções no artigo de [questões e limitações conhecidas do DSC.](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc)
 
-### <a name="issue-using-credential"></a>Cenário: Incapaz de utilizar uma credencial numa configuração DSC
+### <a name="scenario-unable-to-use-a-credential-in-a-dsc-configuration"></a><a name="issue-using-credential"></a>Cenário: Incapaz de utilizar uma credencial numa configuração DSC
 
 #### <a name="issue"></a>Problema
 
@@ -238,7 +238,7 @@ Usou uma credencial numa configuração, mas não forneceu o devida **Configura�
 
 * Certifique-se de passar no Tempo de **Configuração** adequado para definir **PSDscAllowPlainTextPassword** fiel para cada configuração do nó que é mencionada na configuração. Para mais informações, consulte a compilação de [configurações dSC na Configuração do Estado da Automação Azure](../automation-dsc-compile.md).
 
-### <a name="failure-processing-extension"></a>Cenário: Embarque a partir da extensão do DSC, erro de "extensão de processamento de falhas"
+### <a name="scenario-onboarding-from-dsc-extension-failure-processing-extension-error"></a><a name="failure-processing-extension"></a>Cenário: Embarque a partir da extensão do DSC, erro de "extensão de processamento de falhas"
 
 #### <a name="issue"></a>Problema
 
@@ -257,11 +257,11 @@ Este erro ocorre tipicamente quando o nó é atribuído um nome de configuraçã
 * Certifique-se de que está a atribuir o nó com um nome de configuração de nó que corresponda exatamente ao nome do serviço.
 * Você pode optar por não incluir o nome de configuração do nó, o que resultará em embarcar no nó, mas não atribuir uma configuração de nó
 
-### <a name="cross-subscription"></a>Cenário: Registar um nó com powerShell devolve o erro "Um ou mais erros ocorreram"
+### <a name="scenario-registering-a-node-with-powershell-returns-the-error-one-or-more-errors-occurred"></a><a name="cross-subscription"></a>Cenário: Registar um nó com powerShell devolve o erro "Um ou mais erros ocorreram"
 
 #### <a name="issue"></a>Problema
 
-Ao registar um nó utilizando `Register-AzAutomationDSCNode` ou `Register-AzureRMAutomationDSCNode`, recebe o seguinte erro.
+Ao registar um nó `Register-AzAutomationDSCNode` `Register-AzureRMAutomationDSCNode`usando ou, recebe o seguinte erro.
 
 ```error
 One or more errors occurred.
@@ -277,10 +277,10 @@ Trate o nó de subscrição cruzada como se vivesse numa nuvem separada, ou no l
 
 Siga os passos abaixo para registar o nó.
 
-* Windows - [Máquinas de Janelas Físicas/Virtuais no local, ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
-* Linux - [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure.](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure)
+* Windows - [Máquinas de Janelas Físicas/Virtuais no local, ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux - [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure.](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure)
 
-### <a name="agent-has-a-problem"></a>Cenário: Mensagem de erro - "Provisioning Failed"
+### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Cenário: Mensagem de erro - "Provisioning Failed"
 
 #### <a name="issue"></a>Problema
 
@@ -300,7 +300,7 @@ Determine se o seu nó está numa rede virtual privada ou tem outros problemas l
 
 Para mais informações, consulte [erros de resolução de problemas ao embarcar em soluções](onboarding.md).
 
-### <a name="failure-linux-temp-noexec"></a>Cenário: Aplicação de uma configuração em Linux, uma falha ocorre com um erro geral
+### <a name="scenario-applying-a-configuration-in-linux-a-failure-occurs-with-a-general-error"></a><a name="failure-linux-temp-noexec"></a>Cenário: Aplicação de uma configuração em Linux, uma falha ocorre com um erro geral
 
 #### <a name="issue"></a>Problema
 
@@ -312,13 +312,13 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Os clientes identificaram que se a localização `/tmp` for definida para `noexec`, a versão atual do DSC não aplicará configurações.
+Os clientes identificaram `/tmp` que, se `noexec`a localização for definida, a versão atual do DSC não aplicará configurações.
 
 #### <a name="resolution"></a>Resolução
 
-* Retire a opção `noexec` do local `/tmp`.
+* Retire `noexec` a opção do `/tmp` local.
 
-### <a name="compilation-node-name-overlap"></a>Cenário: Nomes de configuração do nó que se sobrepõem podem resultar em mau lançamento
+### <a name="scenario-node-configuration-names-that-overlap-could-result-in-bad-release"></a><a name="compilation-node-name-overlap"></a>Cenário: Nomes de configuração do nó que se sobrepõem podem resultar em mau lançamento
 
 #### <a name="issue"></a>Problema
 
@@ -334,10 +334,24 @@ Problema conhecido com o serviço de compilação.
 
 A melhor sucinta seria compilar localmente ou num oleoduto CI/CD e carregar os ficheiros MOF diretamente para o serviço.  Se a compilação no serviço for um requisito, a próxima melhor suposição seria dividir os trabalhos de compilação para que não haja sobreposição de nomes.
 
+### <a name="scenario-gateway-timeout-error-on-dsc-configuration-upload"></a><a name="gateway-timeout"></a>Cenário: Erro de tempo de saída de gateway no upload de configuração DSC
+
+#### <a name="issue"></a>Problema
+
+Recebe um `GatewayTimeout` erro ao carregar uma configuração DSC. 
+
+#### <a name="cause"></a>Causa
+
+As configurações dSC que demoram muito tempo a compilar podem causar este erro.
+
+#### <a name="resolution"></a>Resolução
+
+Pode fazer com que as suas configurações dSC analisem mais rapidamente, incluindo explicitamente o `ModuleName` parâmetro para quaisquer `Import-DscResource` chamadas. Para mais informações, consulte [A Utilização de Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

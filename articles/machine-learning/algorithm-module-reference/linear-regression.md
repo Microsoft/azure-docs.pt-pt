@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912794"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477566"
 ---
 # <a name="linear-regression-module"></a>Módulo de regressão linear
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
@@ -82,7 +82,7 @@ Este módulo suporta dois métodos para a montagem de um modelo de regressão, c
 
 7. Adicione o módulo [Modelo de Comboio](./train-model.md) ao seu pipeline e ligue um conjunto de dados rotulado.
 
-8. Executar o pipeline.
+8. Submeta o oleoduto.
 
 ### <a name="results-for-ordinary-least-squares-model"></a>Resultados do modelo comum menos quadrados
 
@@ -131,7 +131,7 @@ Após o treino estar completo:
 
     Se não estiver a utilizar uma varredura de parâmetros, utilize o módulo [Modelo de Comboio.](train-model.md)
 
-13. Executar o pipeline.
+13. Submeta o oleoduto.
 
 ### <a name="results-for-online-gradient-descent"></a>Resultados da descida do gradiente on-line
 

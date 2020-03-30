@@ -1,17 +1,17 @@
 ---
 title: Limites e limitação de pedidos
-description: Descreve como utilizar a limitação com pedidos do Azure Resource Manager, quando atingiu os limites de subscrição.
+description: Descreve como usar o estrangulamento com pedidos do Gestor de Recursos Azure quando os limites de subscrição foram atingidos.
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: eabc621ce02d4f30c5efb5bcef2635ea0e8dbcb2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944042"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239368"
 ---
-# <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
+# <a name="throttling-resource-manager-requests"></a>Limitação dos pedidos do Resource Manager
 
 Este artigo descreve como o Gestor de Recursos Azure solicita. Mostra como rastrear o número de pedidos que permanecem antes de atingir o limite, e como responder quando atingiu o limite.
 
@@ -21,7 +21,7 @@ O estrangulamento acontece a dois níveis. O Gestor de Recursos Azure acelera os
 
 ## <a name="subscription-and-tenant-limits"></a>Limites de subscrição e inquilino
 
-Todas as operações de nível de subscrição e de nível de inquilino estão sujeitas a limites de estrangulamento. Os pedidos de subscrição são aqueles que envolvem passar o seu ID de subscrição, como recuperar os grupos de recursos na sua subscrição. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
+Todas as operações de nível de subscrição e de nível de inquilino estão sujeitas a limites de estrangulamento. Os pedidos de subscrição são aqueles que envolvem passar o seu ID de subscrição, como recuperar os grupos de recursos na sua subscrição. Os pedidos de inquilinos não incluem o seu ID de subscrição, como a recuperação de localizações válidas do Azure.
 
 Os limites de estrangulamento predefinidos por hora são mostrados na tabela seguinte.
 
@@ -35,7 +35,7 @@ Os limites de estrangulamento predefinidos por hora são mostrados na tabela seg
 
 Estes limites estão circunscritos ao principal de segurança (utilizador ou aplicação) que faz os pedidos e o ID de subscrição ou ID de inquilino. Se os seus pedidos forem provenientes de mais de um principal de segurança, o limite da subscrição ou do inquilino é superior a 12 000 e 1200 por hora.
 
-Estes limites se aplicam a cada instância do Azure Resource Manager. Existem várias instâncias em cada região do Azure e Azure Resource Manager é implementado para todas as regiões do Azure.  Assim, na prática, os limites são mais elevados do que estes limites. Os pedidos de um utilizador são geralmente tratados por diferentes instâncias do Gestor de Recursos Azure.
+Estes limites aplicam-se a cada instância do Gestor de Recursos Azure. Existem múltiplas ocorrências em todas as regiões de Azure, e o Azure Resource Manager é implantado em todas as regiões de Azure.  Assim, na prática, os limites são mais elevados do que estes limites. Os pedidos de um utilizador são geralmente tratados por diferentes instâncias do Gestor de Recursos Azure.
 
 ## <a name="resource-provider-limits"></a>Limites de prestador de recursos
 
@@ -47,7 +47,7 @@ Esta secção discute os limites de estrangulamento de alguns fornecedores de re
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-### <a name="network-throttling"></a>Estrangulamento da rede
+### <a name="network-throttling"></a>Limitação da rede
 
 O fornecedor de recursos Microsoft.Network aplica os seguintes limites de aceleração:
 
@@ -66,13 +66,9 @@ Para verificar as instâncias de máquinas virtuais dentro de um conjunto de esc
 
 [O Azure Resource Graph](../../governance/resource-graph/overview.md) limita o número de pedidos às suas operações. As etapas deste artigo para determinar os pedidos restantes e como responder quando o limite é atingido também se aplicam ao Graph de Recursos. No entanto, o Resource Graph define o seu próprio limite e taxa de reset. Para mais informações, consulte [os cabeçalhos](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers)de estrangulamento do Resource Graph .
 
-## <a name="request-increase"></a>Aumento de pedidos
-
-Às vezes, os limites do acelerador podem ser aumentados. Para ver se os limites de estrangulamento para o seu cenário podem ser aumentados, crie um pedido de apoio. Os detalhes do seu padrão de chamada serão avaliados.
-
 ## <a name="error-code"></a>Código de erro
 
-Quando atinge o limite, recebe o código de estado **HTTP 429 Muitos pedidos**. A resposta inclui um valor **De Retry-After,** que especifica o número de segundos que a sua aplicação deve esperar (ou dormir) antes de enviar o próximo pedido. Se enviar um pedido antes do valor de repetição tiver sido decorrido, o pedido não é processado e é devolvido um novo valor de repetição.
+Quando atinge o limite, recebe o código de estado **HTTP 429 Muitos pedidos**. A resposta inclui um valor **De Retry-After,** que especifica o número de segundos que a sua aplicação deve esperar (ou dormir) antes de enviar o próximo pedido. Se enviar um pedido antes de decorrer o valor da retry, o seu pedido não é processado e um novo valor de retry é devolvido.
 
 Depois de esperar pelo tempo especificado, também pode fechar e reabrir a sua ligação ao Azure. Ao reajustar a ligação, poderá ligar-se a uma instância diferente do Gestor de Recursos Azure.
 
@@ -82,26 +78,26 @@ Alguns fornecedores de recursos retornam 429 para reportar um problema temporár
 
 ## <a name="remaining-requests"></a>Pedidos restantes
 
-Pode determinar o número de pedidos restantes, examinando os cabeçalhos de resposta. Leia os pedidos devolver um valor no cabeçalho para o número de pedidos restantes de leitura. Os pedidos de escrita incluem um valor para o número de pedidos de escrita restantes. A tabela seguinte descreve os cabeçalhos de resposta, que pode examinar para esses valores:
+Pode determinar o número de pedidos restantes examinando os cabeçalhos de resposta. Leia os pedidos devolver um valor no cabeçalho para o número de pedidos restantes de leitura. Os pedidos de escrita incluem um valor para o número de pedidos de escrita restantes. A tabela seguinte descreve os cabeçalhos de resposta que pode examinar para esses valores:
 
 | Cabeçalho de resposta | Descrição |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |Subscrição de âmbito lê restantes. Este valor é devolvido nas operações de leitura. |
-| x-ms-ratelimit-remaining-subscription-writes |Subscrição de âmbito escreve restantes. Este valor é devolvido nas operações de escrita. |
-| x-ms-ratelimit-remaining-tenant-reads |No âmbito do inquilino lê restantes |
-| x-ms-ratelimit-remaining-tenant-writes |No âmbito do inquilino escreve restantes |
-| x-ms-ratelimit-remaining-subscription-resource-requests |Pedidos de tipo de recurso restantes de âmbito da subscrição.<br /><br />Este valor de cabeçalho só é devolvido se um serviço tiver substituído o limite predefinido. Gestor de recursos adiciona esse valor em vez da subscrição leituras ou escritas. |
-| x-ms-ratelimit-remaining-subscription-resource-entities-read |Pedidos de coleção de tipo de recurso restantes de âmbito da subscrição.<br /><br />Este valor de cabeçalho só é devolvido se um serviço tiver substituído o limite predefinido. Este valor fornece o número de pedidos de recolha de restantes (recursos de lista). |
-| x-ms-ratelimit-remaining-tenant-resource-requests |Pedidos de tipo de recurso restantes de âmbito do inquilino.<br /><br />Este cabeçalho é adicionado apenas para pedidos no nível de inquilino e apenas se um serviço tiverem substituído o limite predefinido. Gestor de recursos adiciona esse valor em vez do inquilino leituras ou escritas. |
-| x-ms-ratelimit-remaining-tenant-resource-entities-read |Pedidos de coleção de tipo de recurso restantes de âmbito do inquilino.<br /><br />Este cabeçalho é adicionado apenas para pedidos no nível de inquilino e apenas se um serviço tiverem substituído o limite predefinido. |
+| x-ms-ratelimit-restante-subscrição-lê |O âmbito de subscrição lê as restantes leituras. Este valor é devolvido nas operações de leitura. |
+| x-ms-ratelimit-restante-subscrição-writes |O âmbito de subscrição escreve o restante. Este valor é devolvido em operações de escrita. |
+| x-ms-ratelimite-restante-inquilino-lê-lê |Leituras de alcance do inquilino restantes |
+| x-ms-ratelimit-remaining-inquilino-writes |O arrendatário escreve o restante |
+| x-ms-ratelimit-restante-pedidos de recursos de subscrição |Pedidos de recurso com âmbito de subscrição restantes.<br /><br />Este valor do cabeçalho só é devolvido se um serviço tiver ultrapassado o limite de predefinição. O Gestor de Recursos adiciona este valor em vez das leituras ou escritos de subscrição. |
+| x-ms-ratelimit-remaining-subscrição-entidades-ler |Pedidos de recolha de recursos de âmbito de subscrição restantes.<br /><br />Este valor do cabeçalho só é devolvido se um serviço tiver ultrapassado o limite de predefinição. Este valor fornece o número de pedidos de recolha restantes (recursos da lista). |
+| x-ms-ratelimit-restante-inquilino-recursos-pedidos |Pedidos de recursos de recursos com âmbito de arrendamento restantes.<br /><br />Este cabeçalho só é adicionado para pedidos ao nível do inquilino, e apenas se um serviço tiver ultrapassado o limite de incumprimento. O Gestor de Recursos adiciona este valor em vez de o inquilino ler ou escrever. |
+| x-ms-ratelimit-remaining-inquilino-entidades-recursos-ler |Pedidos de recolha de recursos com âmbito de arrendamento restantes.<br /><br />Este cabeçalho só é adicionado para pedidos ao nível do inquilino, e apenas se um serviço tiver ultrapassado o limite de incumprimento. |
 
 O fornecedor de recursos também pode devolver cabeçalhos de resposta com informações sobre os restantes pedidos. Para obter informações sobre os cabeçalhos de resposta devolvidos pelo fornecedor de recursos computacionais, consulte [os cabeçalhos](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers)de resposta informativo da taxa de chamada .
 
-## <a name="retrieving-the-header-values"></a>Recuperar os valores de cabeçalho
+## <a name="retrieving-the-header-values"></a>Recuperação dos valores do cabeçalho
 
-A obter estes valores de cabeçalho no seu código ou script não é diferente de qualquer valor de cabeçalho a obter. 
+Recuperar estes valores de cabeçalho no seu código ou script não é diferente de recuperar qualquer valor de cabeçalho. 
 
-Por exemplo, **C#** em , você recupera o valor cabeçalho de um objeto **HttpWebResponse** chamado **resposta** com o seguinte código:
+Por exemplo, em **C#**, você recupera o valor cabeçalho de um objeto **HttpWebResponse** chamado **resposta** com o seguinte código:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
@@ -122,7 +118,7 @@ Se quiser ver os restantes pedidos de depuração, pode fornecer o parâmetro **
 Get-AzResourceGroup -Debug
 ```
 
-Que retorna valores de muitos, incluindo o seguinte valor de resposta:
+O que devolve muitos valores, incluindo o seguinte valor de resposta:
 
 ```output
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -135,13 +131,13 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
-Para obter os limites de escrita, utilize uma operação de escrita: 
+Para obter limites de escrita, use uma operação de escrita: 
 
 ```powershell
 New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
-Que retorna valores de muitos, incluindo os seguintes valores:
+O que devolve muitos valores, incluindo os seguintes valores:
 
 ```output
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -160,7 +156,7 @@ No **Azure CLI,** recupera-se o valor do cabeçalho utilizando a opção mais ve
 az group list --verbose --debug
 ```
 
-Que retorna valores de muitos, incluindo os seguintes valores:
+O que devolve muitos valores, incluindo os seguintes valores:
 
 ```output
 msrest.http_logger : Response status: 200
@@ -174,13 +170,13 @@ msrest.http_logger :     'Vary': 'Accept-Encoding'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
-Para obter os limites de escrita, utilize uma operação de escrita: 
+Para obter limites de escrita, use uma operação de escrita: 
 
 ```azurecli
 az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
-Que retorna valores de muitos, incluindo os seguintes valores:
+O que devolve muitos valores, incluindo os seguintes valores:
 
 ```output
 msrest.http_logger : Response status: 201
@@ -193,7 +189,7 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter um exemplo completo da PowerShell, consulte limites de gestão de [recursos para uma subscrição](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e quotas, consulte os limites de subscrição e serviço do [Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)

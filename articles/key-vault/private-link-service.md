@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: c24be648e4ca1433c7c2af3d659bf4520a7a188c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080348"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457292"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o cofre chave com ligação privada azure
 
@@ -19,11 +19,11 @@ O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo
 
 Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado por Azure Private Link. O ponto final privado utiliza um endereço IP privado do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a uma instância de um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acesso.
 
-Para mais informações, consulte [O que é azure private link (Pré-visualização)?](../private-link/private-link-overview.md)
+Para mais informações, consulte [o que é azure private link?](../private-link/private-link-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para integrar um cofre chave com Ligação Privada Azure (Pré-visualização), necessitará do seguinte:
+Para integrar um cofre chave com ligação privada Azure, você precisará do seguinte:
 
 - Um cofre chave.
 - Uma rede virtual Azure.
@@ -46,7 +46,7 @@ Você pode criar um novo cofre chave seguindo os passos em [set e recuperar um s
 
 Depois de configurar o básico do cofre chave, selecione o separador de rede e siga estes passos:
 
-1. Selecione o botão de rádio Private Endpoint (pré-visualização) no separador Networking.
+1. Selecione o botão de rádio Private Endpoint no separador Networking.
 1. Clique no botão "+ Adicionar" para adicionar um ponto final privado.
 
     ![Imagem](./media/private-link-service-1.png)
@@ -69,15 +69,15 @@ Se já tiver um cofre chave, pode criar uma ligação de ligação privada segui
 1. Na barra de pesquisa, escreva em "cofres chave"
 1. Selecione o cofre chave da lista à qual pretende adicionar um ponto final privado.
 1. Selecione o separador "Networking" em Definições
-1. Selecione o separador de ligações de ponto final privado (pré-visualização) na parte superior da página
+1. Selecione o separador de ligações de ponto final privado na parte superior da página
 1. Selecione o botão "+ Ponto Final Privado" na parte superior da página.
 
-    ![Imagem](./media/private-link-service-3.png) ![Imagem](./media/private-link-service-4.png)
+    ![Imagem](./media/private-link-service-3.png) ![de imagem](./media/private-link-service-4.png)
 
 Pode optar por criar um ponto final privado para qualquer recurso Azure na utilização desta lâmina. Pode utilizar os menus de dropdown para selecionar um tipo de recurso e selecionar um recurso no seu diretório, ou pode ligar-se a qualquer recurso Azure utilizando um ID de recurso. Deixe inalterada a opção "integrar com a zona privada DNS".  
 
 ![Imagem](./media/private-link-service-3.png)
-![Imagem](./media/private-link-service-4.png)
+![de imagem](./media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Estabelecer uma ligação de ligação privada ao Cofre chave utilizando o CLI
 
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>Criar um novo Cofre-Chave
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Ligue a firewall do cofre da chave
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
 ```console
@@ -141,9 +145,9 @@ Existem quatro estados de provisionamento:
 
 | Serviço fornecer ação | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
-| Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
+| Rejeitar | Rejected | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
 ###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Como gerir uma ligação de ponto final privado ao Key Vault usando o portal Azure 
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e Considerações de Design
 
-**Preços**: Para obter informações sobre preços, consulte o preço do [Link Privado do Azure (pré-visualização).](https://azure.microsoft.com/pricing/details/private-link/)
+**Preços**: Para obter informações sobre preços, consulte os preços do [Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**: Private Endpoint for Azure Key Vault está em pré-visualização pública. Esta funcionalidade está disponível em todas as regiões públicas do Azure.
+**Limitações**: O Ponto Final Privado para o Cofre chave Azure só está disponível nas regiões públicas de Azure.
 
 **Número máximo de pontos finais privados por cofre chave:** 64.
 
@@ -232,5 +236,5 @@ Para mais informações, consulte [o serviço Azure Private Link: Limitações](
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [o Link Privado Azure (Pré-visualização)](../private-link/private-link-service-overview.md)
+- Saiba mais sobre [o Link Privado Azure](../private-link/private-link-service-overview.md)
 - Saiba mais sobre [o Cofre de Chaves Azure](key-vault-overview.md)

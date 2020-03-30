@@ -1,50 +1,49 @@
 ---
-title: Exibir o status das ofertas do Marketplace | Azure Marketplace
-description: Exibir o status das ofertas no Azure e AppSource Marketplaces usando o Portal do Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Veja o estado das ofertas de marketplace [ Mercado Azure
+description: Veja o estado das ofertas nos Mercados Azure e AppSource utilizando o Portal do Parceiro cloud
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: e58670d37e01bb6e453b73e42a87e42e890d10d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826709"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275973"
 ---
-# <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Exibir o status de publicação das ofertas do Azure Marketplace e do AppSource
+# <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Ver o estado editorial das ofertas do Azure Marketplace e appSource
 
-Depois de criar uma oferta e, especialmente durante o processo de publicação, você pode exibir o status de sua oferta no Portal do Cloud Partner.  O status de publicação geral está disponível nas páginas [**todas as ofertas**](../portal-tour/cpp-all-offers-page.md) e [**aprovações**](../portal-tour/cpp-approvals-page.md) do Portal.  Um dos seguintes indicadores de status deve ser exibido para cada oferta.  
+Depois de criar uma oferta, e especialmente durante o processo de publicação, pode ver o estado da sua oferta no Portal do Parceiro cloud.  O estado global de publicação está disponível nas páginas [**All Offers**](../portal-tour/cpp-all-offers-page.md) and [**Approvals**](../portal-tour/cpp-approvals-page.md) do portal.  Um dos seguintes indicadores de estado deve ser apresentado para cada oferta.  
 
 |            Estado              |   Descrição                                                           |
 |            ------              |   -----------                                                           |
-| **-**                          | A oferta foi criada, mas o processo de publicação não foi iniciado.            |
-| **Publicação em andamento**        | A oferta está funcionando de forma correspondente pelas etapas do processo de publicação.   |
-| **Falha na publicação**             | Foi descoberto um problema crítico durante a validação ou análise da Microsoft. |
-| **Publicação cancelada**           | O Publicador cancelou o processo de publicação da oferta.  Esse estado não lista uma oferta existente no Marketplace. | 
-| **Aguardando a saída do Publicador** | A oferta foi revisada pela Microsoft e agora aguarda uma verificação final pelo Publicador. |
-| **Deslistado**                   | Uma oferta publicada anteriormente no Marketplace foi removida.      | 
+| **-**                          | A oferta foi criada, mas o processo de publicação ainda não começou.            |
+| **Publicar em curso**        | A oferta está a percorrer os passos do processo de publicação.   |
+| **Publicação falhada**             | Um problema crítico foi descoberto durante a validação ou revisão pela Microsoft. |
+| **Publicar cancelado**           | A editora cancelou o processo de publicação da oferta.  Este Estado não deslista uma oferta existente no mercado. | 
+| **Aguardando a assinatura da editora** | A oferta foi revista pela Microsoft, e aguarda agora uma verificação final pela editora. |
+| **Despromovido**                   | Uma oferta anteriormente publicada no mercado foi removida.      | 
 |  |  |
 
 
-## <a name="publishing-status-details"></a>Detalhes do status da publicação 
+## <a name="publishing-status-details"></a>Detalhes do estado de publicação 
 
-Mais detalhes sobre o status em uma oferta à medida que eles passam pelo processo de publicação são encontrados na guia **status** da página **nova oferta** .  Esta página lista todas as etapas de publicação para esse tipo de oferta.  *Observe que o número e as etapas específicas muitas vezes são diferentes entre os tipos de oferta.*  Essa página também indica quaisquer problemas pendentes gerados pelas etapas de validação e revisão da Microsoft, que geralmente exigem ação do Publicador antes que o processo de publicação possa continuar.  Por exemplo, a imagem a seguir mostra a guia **status** para uma nova oferta de máquina virtual. 
+Mais detalhes sobre o estado de uma oferta à medida que passa pelo processo de publicação encontra-se no separador **Status** da página **New Offer.**  Esta página lista todos os passos de publicação para esse tipo de oferta.  *Note que o número e os passos específicos muitas vezes diferem entre os tipos de oferta.*  Esta página também indica quaisquer questões pendentes levantadas pelas etapas de validação e revisão da Microsoft, que muitas vezes requerem ação por parte da editora antes que o processo de publicação possa prosseguir.  Por exemplo, a imagem que se segue mostra o separador **Status** para uma nova oferta de máquina virtual. 
 
-![Guia status da oferta de VM](./media/vm-offer-pub-steps1.png)
+![Separador de estado para oferta VM](./media/vm-offer-pub-steps1.png)
 
-A próxima guia **status** de exemplo para um serviço de consultoria, mostrando um erro relatado nas configurações de gerenciamento de Lead.  Como o gerenciamento de Lead é necessário para os serviços de consultoria, esse erro deve ser corrigido para que a publicação possa continuar.
+O separador **status** seguinte para um serviço de consultoria, mostrando um erro reportado nas definições de gestão de chumbo.  Uma vez que a gestão de chumbo é necessária para serviços de consultoria, este erro deve ser corrigido antes de a publicação poder continuar.
 
-![Guia status para serviço de consultoria mostrando erro](./media/consulting-service-error.png)
+![Separador de estado para serviço de consultoria mostrando erro](./media/consulting-service-error.png)
 
-O status de exemplo final de um aplicativo do Azure mostra um problema crítico de revisão da Microsoft.  Ele contém um link ativo para o item DevOps do Azure que contém informações detalhadas sobre esse problema de revisão.  Para obter mais informações, consulte [publicar a oferta de aplicativo do Azure](cpp-publish-offer.md).
+O estatuto final de uma aplicação Azure mostra um problema crítico de revisão da Microsoft.  Contém uma ligação quente com o item Azure DevOps que contém informações detalhadas sobre este problema de revisão.  Para mais informações, consulte a oferta de [aplicação da Publish Azure.](cpp-publish-offer.md)
 
-![Guia status do aplicativo do Azure mostrando o problema de revisão](../azure-applications/media/status-tab-ms-review.png)
+![Separador de estado para app Azure que mostra problema de revisão](../azure-applications/media/status-tab-ms-review.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para corrigir problemas pendentes ou configurações da oferta de atualização, você deve [atualizar uma oferta](./cpp-update-offer.md). 
+Para corrigir as definições de oferta de problemas pendentes ou atualizar, tem de [atualizar uma oferta.](./cpp-update-offer.md) 

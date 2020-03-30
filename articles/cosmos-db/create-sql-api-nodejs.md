@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: 3c4634526e1f4f7d2ef03cfbacbfc472ddb4cdff
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 0b29f9c1f395e079c97d5877d08bd7bd73c7ea53
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365914"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240322"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Use Node.js para ligar e consultar dados da conta API Da Azure Cosmos DB SQL
 
@@ -21,17 +21,23 @@ ms.locfileid: "79365914"
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java](create-sql-api-java.md)
-> - [Node.js](create-sql-api-nodejs.md)
-> - [python](create-sql-api-python.md)
+> - [Nó.js](create-sql-api-nodejs.md)
+> - [Pitão](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Neste arranque rápido, cria e gere uma conta API Azure Cosmos DB SQL a partir do portal Azure, e utilizando uma aplicação Node.js clonada do GitHub. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
 
+## <a name="walkthrough-video"></a>Vídeo walkthrough
+
+Veja este vídeo para uma completa passagem pelo conteúdo deste artigo.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Use-Nodejs-to-connect-and-query-data-from-Azure-Cosmos-DB-SQL-API-account/player]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
 - [Node.js 6.0.0+](https://nodejs.org/).
-- [Git](https://www.git-scm.com/downloads).
+- [Git.](https://www.git-scm.com/downloads)
 
 ## <a name="create-an-azure-cosmos-account"></a>Criar uma conta do Azure Cosmos
 
@@ -45,7 +51,7 @@ Para este fim de arranque rápido, você pode usar o [experiment o Azure Cosmos 
 
 A opção "try Azure Cosmos DB gratuitamente" não requer uma subscrição Azure e oferece-lhe uma conta Azure Cosmos por um período limitado de 30 dias. Se quiser utilizar a conta Azure Cosmos por um período mais longo, [deverá,](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) em vez disso, criar a conta dentro da sua subscrição Azure.
 
-## <a name="add-a-container"></a>Adicione um recipiente
+## <a name="add-a-container"></a>Adicionar um contentor
 
 Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente.
 
@@ -53,20 +59,20 @@ Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
 
    A área **add container** é exibida na extrema-direita, pode ser necessário rolar para a direita para vê-lo.
 
-   ![O portal Azure Data Explorer, Adicionar painel de contentores](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
 
 2. Na página **'Adicionar',** introduza as definições para o novo recipiente.
 
    | Definição           | Valor sugerido | Descrição                                                                                                                                                                                                                                                                                                                                                                           |
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **ID da Base de Dados**   | Tarefas           | Designe a nova base de dados como _Tarefas_. Os nomes da base de dados devem conter de 1 a 255 caracteres, e não podem conter `/, \\, #, ?`, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
+   | **ID da Base de Dados**   | Tarefas           | Designe a nova base de dados como _Tarefas_. Os nomes da base de dados devem conter `/, \\, #, ?`de 1 a 255 caracteres, e não podem conter, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
    | **Débito**    | 400             | Deixe a entrada em 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.                                                                                                                                                                                                                                                    |
-   | **ID do contentor**  | Itens           | Introduza _itens_ como o nome do seu novo recipiente. Os IDs de contentores têm os mesmos requisitos de caracteres que os nomes da base de dados.                                                                                                                                                                                                                                                               |
+   | **ID do contentor**  | Itens           | Introduza _itens_ como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.                                                                                                                                                                                                                                                               |
    | **Chave de partição** | /categoria       | A amostra descrita neste artigo _utiliza/categoria_ como chave de partição.                                                                                                                                                                                                                                                                                                           |
 
    Além das definições anteriores, pode adicionar **opcionalmente chaves Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, você garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
 
-   Selecione **OK**. O Data Explorer exibe a nova base de dados e o recipiente.
+   Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -92,21 +98,21 @@ Este passo é opcional. Se estiver interessado em saber como os recursos da base
 
 Se estiver familiarizado com a versão anterior do SQL JavaScript SDK, poderá estar habituado a ver os termos _de recolha_ e _documento_. Uma vez que o Azure Cosmos DB suporta [vários modelos API](introduction.md), a [versão 2.0+ do JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) utiliza o _recipiente_de termos genéricos , que pode ser uma coleção, gráfico ou tabela, e _item_ para descrever o conteúdo do recipiente.
 
-O Cosmos DB JavaScript SDK chama-se "@azure/cosmos" e pode ser instalado a partir da npm...
+O Cosmos DB JavaScript SDK chama-se "@azure/cosmose pode ser instalado a partir do dia 12h...
 
 ```bash
 npm install @azure/cosmos
 ```
 
-Os seguintes fragmentos são retirados do ficheiro _app.js_.
+Os seguintes cortes são todos retirados do ficheiro _app.js._
 
-- O `CosmosClient` é importado do pacote `@azure/cosmos` npm.
+- O `CosmosClient` é importado `@azure/cosmos` do pacote da NPM.
 
   ```javascript
   const CosmosClient = require("@azure/cosmos").CosmosClient;
   ```
 
-- Um novo objeto `CosmosClient` é inicializado.
+- Um `CosmosClient` novo objeto é inicializado.
 
   ```javascript
   const client = new CosmosClient({ endpoint, key });
@@ -115,13 +121,13 @@ Os seguintes fragmentos são retirados do ficheiro _app.js_.
 - Selecione a base de dados "Tarefas".
 
   ```javascript
-  const database = await client.databases(databaseId);
+  const database = client.database(databaseId);
   ```
 
 - Selecione o recipiente/recolha "Itens".
 
   ```javascript
-  const container = await database.container(containerId);
+  const container = database.container(containerId);
   ```
 
 - Selecione todos os itens do recipiente "Itens".
@@ -132,7 +138,7 @@ Os seguintes fragmentos são retirados do ficheiro _app.js_.
     query: "SELECT * from c"
   };
 
-  const { resources: results } = await container.items
+  const { resources: items } = await container.items
     .query(querySpec)
     .fetchAll();
   ```
@@ -149,19 +155,19 @@ Os seguintes fragmentos são retirados do ficheiro _app.js_.
   const { id, category } = createdItem;
 
   createdItem.isComplete = true;
-  const { resource: itemToUpdate } = await container
+  const { resource: updatedItem } = await container
     .item(id, category)
-    .replace(itemToUpdate);
+    .replace(createdItem);
   ```
 
-- Apagar um item
+- Eliminar um item
 
   ```javascript
-  const { resource: result } = await this.container.item(id, category).delete();
+  const { resource: result } = await container.item(id, category).delete();
   ```
 
 > [!NOTE]
-> Tanto nos métodos de "atualização" como de "apagar", o item tem de ser selecionado a partir da base de dados, ligando para `container.item()`. Os dois parâmetros passados são a identificação do item e a chave de partição do item. Neste caso, a chave de parição é o valor do campo "categoria".
+> Tanto nos métodos de "atualização" como de "apagar", o `container.item()`item tem de ser selecionado a partir da base de dados através da chamada . Os dois parâmetros passados são a identificação do item e a chave de partição do item. Neste caso, a chave de parição é o valor do campo "categoria".
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
@@ -177,13 +183,13 @@ Agora volte ao portal Azure para obter os detalhes da linha de ligação da sua 
 
    `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. Em seguida, copie o seu valor PRINCIPAL CHAVE do portal e faça dele o valor do `config.key` em _config.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
+4. Em seguida, copie o seu valor PRINCIPAL CHAVE `config.key` do portal e faça dele o valor do in _fig.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
    `key: "<Your Azure Cosmos account key>"`
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. Executar `npm install` em um terminal para instalar o pacote "@azure/cosmos" npm
+1. Corra `npm install` num terminal para@azure/cosmosinstalar o pacote " npm "
 
 2. Execute `node app.js` num terminal para iniciar a aplicação Node.js.
 

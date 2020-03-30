@@ -1,41 +1,40 @@
 ---
-title: Guia de configurações da oferta de máquina virtual no Portal do Cloud Partner para o Azure Marketplace
-description: Descreve a guia de configurações de oferta usada na criação de uma oferta de VM do Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+title: Separador de definições de oferta de máquina virtual no portal do parceiro de nuvem para o Mercado Azure
+description: Descreve o separador Definições de Oferta utilizado na criação de uma oferta VM do Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 6f7b90f6b02999869026db24836091233692143c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e5353797aaa7d40e1b6a95685b79cb3fe99f5ecd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824447"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277655"
 ---
-# <a name="virtual-machine-offer-settings-tab"></a>Guia de configurações da oferta de máquina virtual
+# <a name="virtual-machine-offer-settings-tab"></a>Separador de oferta de máquina virtual
 
-A **nova** página de oferta para máquinas virtuais é aberta na primeira guia denominada **configurações da oferta**.  
+A página **New Offer** para máquinas virtuais abre no primeiro separador chamado **Definições**de Oferta .  
 
-![Nova página de oferta para máquinas virtuais](./media/publishvm_004.png)
+![Nova página de Oferta para máquinas virtuais](./media/publishvm_004.png)
 
 
-## <a name="offer-settings-fields"></a>Campos de configurações da oferta
+## <a name="offer-settings-fields"></a>Oferecer campos de Definições
 
-Na guia **configurações da oferta** , você deve fornecer os campos a seguir.  Um asterisco anexado (*) no nome do campo indica que ele é necessário. 
+No separador Definições de **Oferta,** deve fornecer os seguintes campos.  Um asterisco anexado (*) no nome do campo indica que é necessário. 
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID da oferta\***   | Um identificador exclusivo (dentro de um perfil de editor) para a oferta. Esse identificador será visível em URLs de produto, modelos de Azure Resource Manager e relatórios de cobrança. Ele tem um comprimento máximo de 50 caracteres, só pode ser composto por caracteres alfanuméricos minúsculos e traços (-), mas não pode terminar com um traço. Este campo não pode ser alterado depois que uma oferta é ativada. <br> Por exemplo, se a contoso publica uma oferta com a ID da oferta **Sample-VM**, ele recebe a URL do Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview`. |
-| **\* do Publicador**  | O identificador exclusivo da sua organização no Azure Marketplace. Todas as suas ofertas devem ser associadas à sua ID do editor. Esse valor não pode ser modificado depois que a oferta é salva. |
-| **Nome\***       | Nome de exibição para sua oferta. Esse nome será exibido no Azure Marketplace e no Portal do Cloud Partner. Pode ter um máximo de 50 carateres. Aqui está a orientação para incluir um nome de marca reconhecível para seu produto. Não inclua o nome da sua organização aqui, a menos que seja como ele é comercializado. Se você estiver comercializando esta oferta em outros sites e publicações, verifique se o nome é exatamente o mesmo em todas as publicações. |
+| **ID da oferta\***   | Um identificador único (dentro de um perfil de editor) para a oferta. Este identificador será visível em URLs de produto, modelos de Gestor de Recursos Azure e relatórios de faturação. Tem um comprimento máximo de 50 caracteres, só pode ser composto por caracteres alfanuméricos minúsculos e traços (-), mas não pode terminar num traço. Este campo não pode ser alterado depois de uma oferta ir ao vivo. <br> Por exemplo, se a Contoso publicar uma oferta com oferta de **id-vm,** é atribuído o URL `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview` azure Marketplace . |
+| **Editora\***  | O identificador único da sua organização no Mercado Azure. Todas as suas ofertas devem estar associadas à sua identificação do editor. Este valor não pode ser modificado uma vez que a oferta é guardada. |
+| **Nome\***       | Mostrar o nome da sua oferta. Este nome será exibido no Azure Marketplace e no Portal do Parceiro cloud. Pode ter um máximo de 50 carateres. A orientação aqui é incluir uma marca reconhecível para o seu produto. Não inclua o nome da sua organização aqui, a menos que seja assim que é comercializado. Se estiver a comercializar esta oferta noutros websites e publicações, certifique-se de que o nome é exatamente o mesmo em todas as publicações. |
 |   |   |
  
-Clique em **salvar** depois de fornecer todos os campos. 
+Clique em **Guardar** depois de ter fornecido todos os campos. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na próxima guia, você adicionará [SKUs](./cpp-skus-tab.md) à sua oferta.
+No separador seguinte, irá adicionar [SKUs](./cpp-skus-tab.md) à sua oferta.

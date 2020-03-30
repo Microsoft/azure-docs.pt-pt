@@ -1,61 +1,61 @@
 ---
-title: Solucionar problemas de conexão-banco de dados do Azure para MariaDB
-description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MariaDB, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
+title: Problemas de ligação - Base de Dados Azure para MariaDB
+description: Aprenda a resolver problemas de ligação à Base de Dados Azure para o MariaDB, incluindo erros transitórios que requerem tentativas, problemas de firewall e interrupções.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d134bcd0c5f9bfde0fdb095122d54848873174be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536365"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solucionar problemas de conexão no banco de dados do Azure para MariaDB
+# <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Resolver problemas de ligação ao Azure Database for MariaDB
 
-Problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
+Os problemas de ligação podem ser causados por uma variedade de coisas, incluindo:
 
 * Definições de firewall
-* Tempo limite da conexão
-* Informações de logon incorretas
-* Limite máximo atingido em alguns bancos de dados do Azure para recursos MariaDB
+* Tempo de ligação
+* Informações de login incorretas
+* Limite máximo atingido em alguma base de dados Azure para recursos MariaDB
 * Problemas com a infraestrutura do serviço
-* Manutenção sendo executada no serviço
-* A alocação de computação do servidor é alterada com o dimensionamento do número de vCores ou a mudança para uma camada de serviço diferente
+* Manutenção a ser realizada no serviço
+* A atribuição computacional do servidor é alterada escalando o número de vCores ou movendo-se para um nível de serviço diferente
 
-Geralmente, os problemas de conexão com o banco de dados do Azure para MariaDB podem ser classificados da seguinte maneira:
+Geralmente, as questões de ligação à Base de Dados Azure para MariaDB podem ser classificadas da seguinte forma:
 
-* Erros transitórios (curta duração ou intermitente)
-* Erros persistentes ou não transitórios (erros que periodicamente são recorrentes)
+* Erros transitórios (de curta duração ou intermitentes)
+* Erros persistentes ou não transitórios (erros que se repetem regularmente)
 
-## <a name="troubleshoot-transient-errors"></a>Solucionar erros transitórios
+## <a name="troubleshoot-transient-errors"></a>Erros transitórios de resolução de problemas
 
-Erros transitórios ocorrem quando a manutenção é executada, o sistema encontra um erro com o hardware ou software, ou você altera o vCores ou a camada de serviço do seu servidor. O banco de dados do Azure para o serviço MariaDB tem alta disponibilidade interna e foi projetado para atenuar esses tipos de problemas automaticamente. No entanto, seu aplicativo perde sua conexão com o servidor por um curto período de tempo, em geral, menos de 60 segundos. Algumas vezes, alguns eventos podem levar mais tempo para reduzir, como quando uma transação grande causa uma recuperação de longa execução.
+Erros transitórios ocorrem quando a manutenção é realizada, o sistema encontra um erro com o hardware ou software, ou muda o vCores ou o nível de serviço do seu servidor. A Base de Dados Azure para o serviço MariaDB tem uma elevada disponibilidade incorporada e foi concebida para mitigar este tipo de problemas automaticamente. No entanto, a sua aplicação perde a ligação ao servidor por um curto período de tempo de normalmente menos de 60 segundos no máximo. Alguns eventos podem ocasionalmente demorar mais tempo a atenuar, como quando uma grande transação causa uma recuperação a longo prazo.
 
-### <a name="steps-to-resolve-transient-connectivity-issues"></a>Etapas para resolver problemas de conectividade transitórios
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passos para resolver problemas transitórios de conectividade
 
-1. Verifique o [painel de serviço do Microsoft Azure](https://azure.microsoft.com/status) para qualquer interrupção conhecida que tenha ocorrido durante o tempo em que os erros foram relatados pelo aplicativo.
-2. Os aplicativos que se conectam a um serviço de nuvem como o banco de dados do Azure para MariaDB devem esperar erros transitórios e implementar a lógica de repetição para lidar com esses erros em vez de identificando-los como erros de aplicativo para os usuários. Examine o [tratamento de erros de conectividade transitórias para o banco de dados do Azure para MariaDB](concepts-connectivity.md) para obter práticas recomendadas e diretrizes de design para lidar com erros transitórios.
-3. Como um servidor se aproxima de seus limites de recursos, os erros podem parecer um problema de conectividade transitório. Consulte [limitações no banco de dados do Azure para MariaDB](concepts-limits.md).
-4. Se os problemas de conectividade continuarem, ou se a duração para a qual seu aplicativo encontra o erro exceder 60 segundos ou se você vir várias ocorrências do erro em um determinado dia, faça uma solicitação de suporte do Azure selecionando **obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options) .
+1. Verifique se o [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) está a verificar quaisquer falhas conhecidas que ocorreram durante o período em que os erros foram reportados pela aplicação.
+2. As aplicações que se ligam a um serviço na nuvem, como a Base de Dados Azure para o MariaDB, devem esperar erros transitórios e implementar a lógica de retry para lidar com estes erros em vez de os surcar como erros de aplicação para os utilizadores. Reveja o tratamento de erros transitórios de conectividade para a Base de [Dados Azure para O MariaDB](concepts-connectivity.md) para as melhores práticas e orientações de conceção para lidar com erros transitórios.
+3. À medida que um servidor se aproxima dos seus limites de recursos, os erros podem parecer um problema de conectividade transitório. Consulte [limitações na Base de Dados Azure para MariaDB.](concepts-limits.md)
+4. Se os problemas de conectividade continuarem, ou se a duração para a qual a sua aplicação se encontra o erro exceder 60 segundos ou se vir múltiplas ocorrências do erro num determinado dia, faça um pedido de suporte Azure selecionando **o Suporte** get no site do [Suporte Azure.](https://azure.microsoft.com/support/options)
 
-## <a name="troubleshoot-persistent-errors"></a>Solucionar erros persistentes
+## <a name="troubleshoot-persistent-errors"></a>Erros persistentes de resolução de problemas
 
-Se o aplicativo falhar de forma persistente ao se conectar ao banco de dados do Azure para MariaDB, isso geralmente indica um problema com um dos seguintes:
+Se a aplicação não conseguir ligar persistentemente à Base de Dados Azure para o MariaDB, normalmente indica um problema com um dos seguintes:
 
-* Configuração de firewall: o banco de dados do Azure para o servidor MariaDB ou o Firewall do lado do cliente está bloqueando conexões.
-* Reconfiguração de rede no lado do cliente: um novo endereço IP ou um servidor proxy foi adicionado.
-* Erro do usuário: por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo ausente do *\@ServerName* no nome de usuário.
+* Configuração da firewall: A Base de Dados Azure para servidor MariaDB ou firewall do lado do cliente está bloqueando ligações.
+* Reconfiguração da rede no lado do cliente: Foi adicionado um novo endereço IP ou um servidor proxy.
+* Erro do utilizador: Por exemplo, pode ter parâmetros de ligação enevoados, como o nome do servidor na cadeia de ligação ou um sufixo de nome de * \@servidor* em falta no nome do utilizador.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver problemas de conectividade persistente
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas persistentes de conectividade
 
-1. Configure [as regras de firewall](howto-manage-firewall-portal.md) para permitir o endereço IP do cliente. Somente para fins de teste temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver o problema de conectividade, remova essa regra e crie uma regra de firewall para um endereço IP ou intervalo de endereços apropriado limitado.
-2. Em todos os firewalls entre o cliente e a Internet, verifique se a porta 3306 está aberta para conexões de saída.
-3. Verifique a cadeia de conexão e outras configurações de conexão. Examine [como conectar aplicativos ao banco de dados do Azure para MariaDB](howto-connection-string.md).
-4. Verifique a integridade do serviço no painel. Se você considerar que há uma interrupção regional, consulte [visão geral da continuidade de negócios com o banco de dados do Azure para MariaDB](concepts-business-continuity.md) para obter as etapas para recuperar em uma nova região.
+1. Configurar regras de [firewall](howto-manage-firewall-portal.md) para permitir o endereço IP do cliente. Apenas para efeitos de testes temporários, criar uma regra de firewall utilizando 0.0.0.0 como endereço IP inicial e utilizando 255.255.255.255 como endereço IP final. Isto abrirá o servidor a todos os endereços IP. Se isto resolver o seu problema de conectividade, remova esta regra e crie uma regra de firewall para um endereço IP ou endereço adequadamente limitado.
+2. Em todas as firewalls entre o cliente e a internet, certifique-se de que a porta 3306 está aberta para ligações de saída.
+3. Verifique a sua cadeia de ligação e outras definições de ligação. Reveja como ligar aplicações à Base de [Dados Azure para MariaDB](howto-connection-string.md).
+4. Verifique a saúde do serviço no painel de instrumentos. Se acha que há uma paragem regional, consulte a visão geral da continuidade dos negócios com a Base de [Dados Azure para a MariaDB](concepts-business-continuity.md) para obter medidas para recuperar para uma nova região.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tratamento de erros de conectividade transitórios para o banco de dados do Azure para MariaDB](concepts-connectivity.md)
+* [Tratamento de erros transitórios de conectividade para a Base de Dados Azure para MariaDB](concepts-connectivity.md)

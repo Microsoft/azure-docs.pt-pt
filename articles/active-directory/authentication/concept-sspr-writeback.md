@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263923"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454436"
 ---
 # <a name="what-is-password-writeback"></a>O que é a redação da palavra-passe?
 
@@ -24,7 +24,7 @@ Ter um utilitário de redefinição de senha baseado na nuvem é ótimo, mas a m
 
 A reescrita de palavra-passe é suportada em ambientes que utilizam:
 
-* [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
+* [Serviços de Federação do Active Directory](../hybrid/how-to-connect-fed-management.md)
 * [Sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticação pass-through](../hybrid/how-to-connect-pta.md)
 
@@ -80,9 +80,9 @@ Quando um utilizador sincronizado de hash federado ou senha tenta redefinir ou a
    * O objeto do utilizador deve existir no espaço do conector ative diretório.
    * O objeto do utilizador deve ser ligado ao objeto metaverso correspondente (MV).
    * O objeto do utilizador deve estar ligado ao objeto de conector Ativo azure correspondente.
-   * O link do conector ative diretório para o MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no link.
+   * O link do objeto do conector ative diretório para `Microsoft.InfromADUserAccountEnabled.xxx` o MV deve ter a regra de sincronização no link.
    
-   Quando a chamada chega da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Diretório. Segue então a ligação de volta ao objeto MV e, em seguida, segue a ligação de volta ao objeto de Diretório Ativo. Como pode haver vários objetos de Diretório Ativo (multi-floresta) para o mesmo utilizador, o motor sincronizado baseia-se no link `Microsoft.InfromADUserAccountEnabled.xxx` para escolher o correto.
+   Quando a chamada chega da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Diretório. Segue então a ligação de volta ao objeto MV e, em seguida, segue a ligação de volta ao objeto de Diretório Ativo. Como pode haver vários objetos ative diretório (multi-floresta) para o `Microsoft.InfromADUserAccountEnabled.xxx` mesmo utilizador, o motor sincronizado depende do link para escolher o correto.
 
 1. Após a descoberta da conta de utilizador, é feita uma tentativa de redefinir a palavra-passe diretamente na floresta de Diretório Ativo apropriado.
 1. Se a operação de conjunto de passwords for bem sucedida, o utilizador é informado de que a sua palavra-passe foi alterada.
@@ -106,7 +106,7 @@ A reescrita de palavra-passe é um serviço altamente seguro. Para garantir que 
    * Após a criação do relé de ônibus de serviço, é criada uma chave simétrica forte que é usada para encriptar a palavra-passe à medida que vem sobre o fio. Esta chave só vive na loja secreta da sua empresa na nuvem, que é fortemente bloqueada e auditada, como qualquer outra palavra-passe no diretório.
 * **Segurança da camada de transporte padrão da indústria (TLS)**
    1. Quando ocorre uma redefinição de palavra-passe ou operação de alteração na nuvem, a palavra-passe de texto simples é encriptada com a sua chave pública.
-   1. A palavra-passe encriptada é colocada numa mensagem HTTPS que é enviada através de um canal encriptado utilizando certs Microsoft SSL para o seu retransmissor de ônibus de serviço.
+   1. A palavra-passe encriptada é colocada numa mensagem HTTPS que é enviada através de um canal encriptado utilizando as certs do Microsoft TLS/SSL para o seu retransmissor de ônibus de serviço.
    1. Depois de a mensagem chegar no autocarro de serviço, o seu agente no local acorda e autentica-se no autocarro de serviço utilizando a senha forte que foi gerada anteriormente.
    1. O agente no local capta a mensagem encriptada e desencripta-a utilizando a chave privada.
    1. O agente no local tenta definir a palavra-passe através da AD DS SetPassword API. Este passo é o que permite a aplicação da sua política de senhas de diretório ativo no local (como a complexidade, idade, história e filtros) na nuvem.
@@ -166,6 +166,6 @@ As palavras-passe *não* são redigidas em nenhuma das seguintes situações:
 > [!WARNING]
 > A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de sessão" em ferramentas administrativas de Diretório Ativo no local, como utilizadores e computadores de diretório ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para mais informações, consulte o artigo, Implemente a sincronização de hash de [palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ativar a reescrita da palavra-passe utilizando o Tutorial: Permitir a reescrita da [palavra-passe](tutorial-enable-writeback.md)

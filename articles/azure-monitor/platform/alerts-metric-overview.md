@@ -1,17 +1,17 @@
 ---
 title: Entenda como os alertas métricos funcionam no Monitor Azure.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Monitor Azure.
-ms.date: 12/5/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b6d8bc69a407838025c5e78e0a1c773ab457c409
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480237"
 ---
-# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entenda como os alertas métricos funcionam no Monitor Azure
+# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
 Alertas métricos no Azure Monitor funcionam em cima de métricas multidimensionais. Estas métricas podem ser métricas de [plataforma,](alerts-metric-near-real-time.md#metrics-and-dimensions-supported) [métricas personalizadas,](../../azure-monitor/platform/metrics-custom-overview.md) [registos populares do Azure Monitor convertidos em métricas](../../azure-monitor/platform/alerts-metric-logs.md) e métricas de Insights de Aplicação. Os alertas métricos avaliam periodicamente para verificar se as condições de uma ou mais séries de tempo métricas são verdadeiras e notificá-lo quando as avaliações são satisfeitas. Os alertas métricos são audais, ou seja, só enviam notificações quando o Estado muda.
 
@@ -122,11 +122,20 @@ O aumento dos períodos de retrospetiva e o número de violações também podem
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorização em escala utilizando alertas métricos no Monitor Azure
 
-Até agora, viu como um único alerta métrico poderia ser usado para monitorizar uma ou muitas séries métricas relacionadas com um único recurso Azure. Muitas vezes, pode querer que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também apoia a monitorização de múltiplos recursos (do mesmo tipo) com uma regra de alerta métrico, para os recursos que existem na mesma região do Azure. Esta funcionalidade é atualmente suportada apenas na nuvem pública do Azure e apenas para máquinas virtuais, bases de dados de servidores SQL, piscinas elásticas de servidor SQL e dispositivos de borda de caixa data. Além disso, esta funcionalidade está disponível apenas para métricas de plataforma, e não é suportada para métricas personalizadas.
+Até agora, viu como um único alerta métrico poderia ser usado para monitorizar uma ou muitas séries métricas relacionadas com um único recurso Azure. Muitas vezes, pode querer que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também apoia a monitorização de múltiplos recursos (do mesmo tipo) com uma regra de alerta métrico, para os recursos que existem na mesma região do Azure. 
 
-Pode especificar o âmbito de monitorização por uma única regra de alerta métrico de uma de três formas:
+Esta funcionalidade é atualmente suportada para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens Azure:
 
-- como uma lista de máquinas virtuais em uma região de Azure dentro de uma assinatura
+| Serviço | Azure Público | Governo | China |
+|:--------|:--------|:--------|:--------|
+| Virtual Machines  | **Sim** | Não | Não |
+| Bases de dados de servidores SQL | **Sim** | **Sim** | Não |
+| Piscinas elásticas de servidor SQL | **Sim** | **Sim** | Não |
+| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | Não |
+
+Pode especificar o âmbito de monitorização por uma regra de alerta métrica única de uma de três maneiras. Por exemplo, com máquinas virtuais pode especificar o âmbito como:  
+
+- uma lista de máquinas virtuais numa região do Azure dentro de uma subscrição
 - todas as máquinas virtuais (numa região do Azure) em um ou mais grupos de recursos numa subscrição
 - todas as máquinas virtuais (numa região do Azure) numa única subscrição
 

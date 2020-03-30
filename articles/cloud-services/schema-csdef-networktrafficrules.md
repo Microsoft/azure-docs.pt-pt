@@ -1,5 +1,6 @@
 ---
-title: Esquema de Def. NetworkTrafficRules do Azure Cloud Services | Microsoft Docs
+title: Azure Cloud Services Def. NetworkTrafficRules Schema Microsoft Docs
+description: Conheça as Regras de Tráfego de Rede, que limita as funções que podem aceder aos pontos finais internos de uma função. Combina com papéis num ficheiro de definição de serviço.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -12,23 +13,23 @@ ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449046"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534733"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição de serviços de nuvem do Azure
-O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções se comunicam entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; Ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
+# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Definição de serviços azure cloud NetworkTrafficRules Schema
+O `NetworkTrafficRules` nó é um elemento opcional no ficheiro de definição de serviço que especifica como as funções comunicam entre si. Limita as funções que podem aceder aos pontos finais internos do papel específico. O `NetworkTrafficRules` não é um elemento autónomo; é combinado com duas ou mais funções num ficheiro de definição de serviço.
 
-A extensão padrão para o arquivo de definição de serviço é. csdef.
+A extensão predefinida para o ficheiro de definição de serviço é .csdef.
 
 > [!NOTE]
->  O nó `NetworkTrafficRules` só está disponível usando o SDK do Azure versão 1,3 ou superior.
+>  O `NetworkTrafficRules` nó só está disponível utilizando a versão 1.3 do Azure SDK.
 
-## <a name="basic-service-definition-schema-for-the-network-traffic-rules"></a>Esquema de definição de serviço básico para as regras de tráfego de rede
-O formato básico de um arquivo de definição de serviço que contém definições de tráfego de rede é o seguinte.
+## <a name="basic-service-definition-schema-for-the-network-traffic-rules"></a>Esquema de definição de serviço básico para as regras de tráfego da rede
+O formato básico de um ficheiro de definição de serviço que contém definições de tráfego de rede é o seguinte.
 
 ```xml
 <ServiceDefinition …>
@@ -46,59 +47,59 @@ O formato básico de um arquivo de definição de serviço que contém definiç�
 </ServiceDefinition>
 ```
 
-## <a name="schema-elements"></a>Elementos de esquema
-O `NetworkTrafficRules` nó do arquivo de definição de serviço inclui esses elementos, descritos em detalhes nas seções subsequentes neste tópico:
+## <a name="schema-elements"></a>Elementos Schema
+O `NetworkTrafficRules` nó do ficheiro de definição de serviço inclui estes elementos, descritos em detalhe em secções posteriores neste tópico:
 
-[Elemento NetworkTrafficRules](#NetworkTrafficRules)
+[Elemento regras de tráfego de rede](#NetworkTrafficRules)
 
-[Elemento OnlyAllowTrafficTo](#OnlyAllowTrafficTo)
+[Elemento ApenasAllowTrafficto](#OnlyAllowTrafficTo)
 
-[Elemento destinos](#Destinations)
+[Elemento de destinos](#Destinations)
 
-[Elemento RoleEndpoint](#RoleEndpoint)
+[Elemento roleendpoint](#RoleEndpoint)
 
-Elemento AllowAllTraffic
+Permitir o elemento de tráfego
 
-[Elemento whenname](#WhenSource)
+[Elemento De Origem](#WhenSource)
 
-[Elemento FromRole](#FromRole)
+[Elemento de Fromrole](#FromRole)
 
-##  <a name="NetworkTrafficRules"></a>Elemento NetworkTrafficRules
-O elemento `NetworkTrafficRules` especifica quais funções podem se comunicar com qual ponto de extremidade em outra função. Um serviço pode conter uma definição de `NetworkTrafficRules`.
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>Elemento regras de tráfego de rede
+O `NetworkTrafficRules` elemento especifica quais as funções com que ponto final se refere a outro papel. Um serviço pode `NetworkTrafficRules` conter uma definição.
 
-##  <a name="OnlyAllowTrafficTo"></a>Elemento OnlyAllowTrafficTo
-O elemento `OnlyAllowTrafficTo` descreve uma coleção de pontos de extremidade de destino e as funções que podem se comunicar com eles. Você pode especificar vários nós de `OnlyAllowTrafficTo`.
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>Elemento ApenasAllowTrafficto
+O `OnlyAllowTrafficTo` elemento descreve uma coleção de pontos finais de destino e as funções que podem comunicar com eles. Pode especificar `OnlyAllowTrafficTo` vários nódosos.
 
-##  <a name="Destinations"></a>Elemento destinos
-O elemento `Destinations` descreve uma coleção de RoleEndpoints que pode ser comunicada com.
+##  <a name="destinations-element"></a><a name="Destinations"></a>Elemento de destinos
+O `Destinations` elemento descreve uma coleção de RoleEndpoints do que pode ser comunicado.
 
-##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
-O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função para permitir a comunicação com o. Você pode especificar vários elementos `RoleEndpoint` se houver mais de um ponto de extremidade na função.
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>Elemento roleendpoint
+O `RoleEndpoint` elemento descreve um ponto final sobre um papel para permitir comunicações com. Pode especificar `RoleEndpoint` vários elementos se houver mais de um ponto final sobre o papel.
 
 | Atributo      | Tipo     | Descrição |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Necessário. O nome do ponto de extremidade para o qual permitir o tráfego.|
-| `roleName`     | `string` | Necessário. O nome da função Web à qual permitir a comunicação.|
+| `endpointName` | `string` | Necessário. O nome do ponto final para permitir o tráfego.|
+| `roleName`     | `string` | Necessário. O nome do papel web para permitir a comunicação.|
 
-## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
-O elemento `AllowAllTraffic` é uma regra que permite que todas as funções se comuniquem com os pontos de extremidade definidos no nó `Destinations`.
+## <a name="allowalltraffic-element"></a>Permitir o elemento de tráfego
+O `AllowAllTraffic` elemento é uma regra que permite que todas `Destinations` as funções se comuniquem com os pontos finais definidos no nó.
 
-##  <a name="WhenSource"></a>Elemento whenname
-O elemento `WhenSource` descreve uma coleção de funções do que pode se comunicar com os pontos de extremidade definidos no nó `Destinations`.
+##  <a name="whensource-element"></a><a name="WhenSource"></a>Elemento De Origem
+O `WhenSource` elemento descreve uma coleção de papéis do `Destinations` que pode comunicar com os pontos finais definidos no nó.
 
 | Atributo | Tipo     | Descrição |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Necessário. Especifica a regra a ser aplicada ao permitir comunicações. O único valor válido é atualmente `AnyRule`.|
+| `matches` | `string` | Necessário. Especifica a regra a aplicar ao permitir comunicações. O único valor válido `AnyRule`é atualmente.|
   
-##  <a name="FromRole"></a>Elemento FromRole
-O elemento `FromRole` especifica as funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`. Você pode especificar vários elementos `FromRole` se houver mais de uma função que possa se comunicar com os pontos de extremidade.
+##  <a name="fromrole-element"></a><a name="FromRole"></a>Elemento de Fromrole
+O `FromRole` elemento especifica as funções que podem comunicar `Destinations` com os pontos finais definidos no nó. Pode especificar `FromRole` vários elementos se houver mais do que uma função que pode comunicar com os pontos finais.
 
 | Atributo  | Tipo     | Descrição |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Necessário. O nome da função da qual permitir a comunicação.|
+| `roleName` | `string` | Necessário. O nome do papel a partir do qual permitir a comunicação.|
 
 ## <a name="see-also"></a>Veja também
-[Esquema de definição do serviço de nuvem (clássico)](schema-csdef-file.md)
+[Serviço de Nuvem (clássico) Definição Schema](schema-csdef-file.md)
 
 
 

@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 245bcac81189ac8aa63f81fbe4ed30655a457bc8
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: fb982324b66c5ac0d2db00eb906ed850827bc72e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79533288"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrae Azure Data Lake Storage da Gen1 para gen2
 
@@ -47,9 +47,9 @@ Para migrar para a Gen2, recomendamos a seguinte abordagem.
 
 3. Reveja uma lista de [questões conhecidas](data-lake-storage-known-issues.md) para avaliar eventuais lacunas na funcionalidade.
 
-4. A Gen2 suporta funcionalidades de armazenamento Blob, tais como [registo de diagnóstico,](../common/storage-analytics-logging.md) [níveis de acesso](storage-blob-storage-tiers.md)e políticas de gestão de ciclo de vida de armazenamento [blob.](storage-lifecycle-management-concepts.md) Se você é interessante em usar qualquer uma destas funcionalidades, reveja o [nível atual de suporte](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support).
+4. A Gen2 suporta funcionalidades de armazenamento Blob, tais como [registo de diagnóstico,](../common/storage-analytics-logging.md) [níveis de acesso](storage-blob-storage-tiers.md)e políticas de gestão de ciclo de vida de armazenamento [blob.](storage-lifecycle-management-concepts.md) Se você é interessante em usar qualquer uma destas funcionalidades, reveja o [nível atual de suporte](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features).
 
-5. Reveja o estado atual do suporte ao [ecossistema Azure](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) para garantir que a Gen2 suporta quaisquer serviços de que as suas soluções dependam.
+5. Reveja o estado atual do suporte ao [ecossistema Azure](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access) para garantir que a Gen2 suporta quaisquer serviços de que as suas soluções dependam.
 
 ### <a name="step-2-prepare-to-migrate"></a>Passo 2: Preparar-se para migrar
 
@@ -79,7 +79,7 @@ Migrar dados, cargas de trabalho e aplicações utilizando o padrão que prefere
    
 5. Atualize scripts para utilizar data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), e [comandos Azure CLI](data-lake-storage-directory-file-acl-cli.md).
    
-6. Procure referências URI que contenham a `adl://` de cadeias em ficheiros de código, ou em cadernos databricks, ficheiros Apache Hive HQL ou qualquer outro ficheiro utilizado como parte das suas cargas de trabalho. Substitua estas referências pelo [URI formado gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` pode tornar-se `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
+6. Procure referências URI que `adl://` contenham a cadeia em ficheiros de código, ou em cadernos databricks, ficheiros Apache Hive HQL ou qualquer outro ficheiro utilizado como parte das suas cargas de trabalho. Substitua estas referências pelo [URI formado gen2](data-lake-storage-introduction-abfs-uri.md) da sua nova conta de armazenamento. Por exemplo: o Gen1 `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`URI: pode tornar-se . 
 
 7. Configure a segurança na sua conta para incluir [funções de controlo de acesso baseado em Funções (RBAC),](../common/storage-auth-aad-rbac-portal.md)segurança de nível de [ficheiros e pastas,](data-lake-storage-access-control.md)e firewalls de [armazenamento azure e redes virtuais](../common/storage-network-security.md).
 
@@ -96,12 +96,12 @@ Esta tabela compara as capacidades da Gen1 com a da Gen2.
 |Área |Gen1   |Gen2 |
 |---|---|---|
 |Organização de dados|[Espaço de nome hierárquico](data-lake-storage-namespace.md)<br>Suporte de ficheiros e pastas|[Espaço de nome hierárquico](data-lake-storage-namespace.md)<br>Suporte de contentores, ficheiros e pastas |
-|Redundância geográfica| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS,](../common/storage-redundancy.md#locally-redundant-storage) [ZRS,](../common/storage-redundancy.md#zone-redundant-storage) [GRS,](../common/storage-redundancy.md#geo-redundant-storage) [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
+|Geo-redundância| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS,](../common/storage-redundancy.md#locally-redundant-storage) [ZRS,](../common/storage-redundancy.md#zone-redundant-storage) [GRS,](../common/storage-redundancy.md#geo-redundant-storage) [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |Autenticação|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chave de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autorização|Gestão - [RBAC](../../role-based-access-control/overview.md)<br>Dados – [ACLs](data-lake-storage-access-control.md)|Gestão – [RBAC](../../role-based-access-control/overview.md)<br>Dados - [ACLs,](data-lake-storage-access-control.md) [RBAC](../../role-based-access-control/overview.md) |
-|Encriptação – Dados em repouso|Lado do servidor – com chaves [geridas](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#microsoft-managed-keys) pelo serviço ou [geridas pelo cliente](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault)|Lado do servidor – com chaves [geridas](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#microsoft-managed-keys) pelo serviço ou [geridas pelo cliente](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault)|
+|Encriptação – Dados em repouso|Lado do servidor – com chaves [geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lado do servidor – com chaves [geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos Finais de Serviço](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Pontos Finais Privados (pré-visualização pública)](../common/storage-private-endpoints.md)|
-|Experiência de desenvolvimento|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](https://review.docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2), [.NET](/data-lake-storage-directory-file-acl-dotnet.md), [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (Em pré-visualização pública)|
+|Experiência de desenvolvimento|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (Em pré-visualização pública)|
 |Registos de diagnósticos|Troncos clássicos<br>[Monitor Azure integrado](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Registos clássicos](../common/storage-analytics-logging.md) (Em pré-visualização pública)<br>Integração do monitor Azure – tbd de linha temporal|
 |Ecossistema|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 ou superior)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW,](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store) [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 ou superior)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md) [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
@@ -133,7 +133,7 @@ Este é o padrão mais simples.
 4. Desativação Gen1.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png) de elevação e mudança
+> ![padrão de elevação e mudança](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### <a name="considerations-for-using-the-lift-and-shift-pattern"></a>Considerações para usar o padrão de elevação e mudança
 
@@ -154,7 +154,7 @@ Este é o padrão mais simples.
 4. Desativação Gen1.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png) de padrão de cópia incremental
+> ![Padrão de cópia incremental](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 #### <a name="considerations-for-using-the-incremental-copy-pattern"></a>Considerações para a utilização do padrão de cópia incremental:
 
@@ -175,7 +175,7 @@ Este é o padrão mais simples.
 4. Pare todos os escritos para gen1 e depois desativa gen1.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png) de padrão de gasoduto duplo
+> ![Padrão de gasoduto duplo](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 #### <a name="considerations-for-using-the-dual-pipeline-pattern"></a>Considerações para a utilização do padrão de gasoduto duplo:
 
@@ -194,7 +194,7 @@ Este é o padrão mais simples.
 4. Desativação Gen1.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png) de padrão bidirecional
+> ![Padrão bidirecional](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 #### <a name="considerations-for-using-the-bi-directional-sync-pattern"></a>Considerações para a utilização do padrão de sincronização bidirecional:
 

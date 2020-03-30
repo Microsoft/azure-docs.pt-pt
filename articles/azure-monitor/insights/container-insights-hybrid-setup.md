@@ -4,10 +4,10 @@ description: Este artigo descreve como pode configurar o Monitor Azure para os c
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198059"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure aglomerados kubernetes híbridos com Monitor Azure para contentores
@@ -34,14 +34,14 @@ Antes de começar, certifique-se de que tem o seguinte:
 
     |Recursos do Agente|Portas |
     |------|---------|   
-    |*.ods.opinsights.azure.com |Porta 443 |  
-    |*.oms.opinsights.azure.com |Porta 443 |  
-    |*.blob.core.windows.net |Porta 443 |  
-    |*.dc.services.visualstudio.com |Porta 443 |
+    |*.ods.opinsights.azure.com |Porto 443 |  
+    |*.oms.opinsights.azure.com |Porto 443 |  
+    |*.blob.core.windows.net |Porto 443 |  
+    |*.dc.services.visualstudio.com |Porto 443 |
 
-* O agente contentorizado exige que a `cAdvisor secure port: 10250` ou `unsecure port :10255` de Kubelet seja aberta em todos os nós do cluster para recolher métricas de desempenho. Recomendamos que configure `secure port: 10250` no cAdvisor do Kubelet se ainda não estiver configurado.
+* O agente contentorizado requer kubelet's `cAdvisor secure port: 10250` ou `unsecure port :10255` para ser aberto em todos os nós do cluster para recolher métricas de desempenho. Recomendamos que `secure port: 10250` configure no cAdvisor do Kubelet se ainda não estiver configurado.
 
-* O agente contentorizado exige que sejam especificadas as seguintes variáveis ambientais no recipiente, a fim de comunicar com o serviço Kubernetes API dentro do cluster para recolher dados de inventário - `KUBERNETES_SERVICE_HOST` e `KUBERNETES_PORT_443_TCP_PORT`.
+* O agente contentorizado exige que sejam especificadas as seguintes variáveis ambientais no recipiente, a fim de comunicar `KUBERNETES_SERVICE_HOST` `KUBERNETES_PORT_443_TCP_PORT`com o serviço Kubernetes API dentro do cluster para recolher dados de inventário - e .
 
 >[!IMPORTANT]
 >A versão de agente mínimo suportada para monitorizar os clusters híbridos kubernetes é ciprod10182019 ou mais tarde.
@@ -66,22 +66,22 @@ A habilitação do Monitor Azure para os recipientes para o cluster híbrido Kub
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Como adicionar a solução de contentores do Monitor Azure
 
-Pode implantar a solução com o modelo de Gestor de Recursos Azure fornecido utilizando o cmdlet Azure PowerShell `New-AzResourceGroupDeployment` ou com o Azure CLI.
+Pode implementar a solução com o modelo de Gestor de Recursos `New-AzResourceGroupDeployment` Azure fornecido utilizando o cmdlet Azure PowerShell ou com o Azure CLI.
 
-Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
+Se não está familiarizado com o conceito de implantação de recursos utilizando um modelo, consulte:
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
 * [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Deve estar a executar a versão Azure CLI 2.0.59 ou mais tarde. Para identificar a sua versão, execute `az --version`. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.59 ou mais tarde. Para identificar a `az --version`sua versão, corra. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Esse método inclui dois modelos JSON. Um modelo especifica a configuração para ativar a monitorização e a outra contém valores de parâmetros que pode configurar para especificar o seguinte:
+Este método inclui dois modelos JSON. Um modelo especifica a configuração para ativar a monitorização, e o outro contém valores de parâmetros que configura para especificar o seguinte:
 
 - **workspaceResourceId** - o ID de recursos completos do seu espaço de trabalho Log Analytics.
 - **workspaceRegion** - a região onde o espaço de trabalho é criado, que também é referido como **Localização** nas propriedades do espaço de trabalho ao visualizar a partir do portal Azure.
 
-Para identificar primeiro o id completo do seu espaço de trabalho Log Analytics necessário para o valor do parâmetro `workspaceResourceId` no ficheiro **contentorSolutionParams.json,** execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
+Para identificar primeiro o id completo do seu espaço `workspaceResourceId` de trabalho Log Analytics necessário para o valor do parâmetro no ficheiro **contentorSolutionParams.json,** execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
 
 1. Enumerar todas as subscrições a que tem acesso utilizando o seguinte comando:
 
@@ -89,7 +89,7 @@ Para identificar primeiro o id completo do seu espaço de trabalho Log Analytics
     az account list --all -o table
     ```
 
-    A saída terá a seguinte aparência:
+    A saída assemelhar-se-á ao seguinte:
 
     ```azurecli
     Name                                  CloudName    SubscriptionId                        State    IsDefault
@@ -174,7 +174,7 @@ Para identificar primeiro o id completo do seu espaço de trabalho Log Analytics
 
 5. Guarde este ficheiro como recipienteSolution.json para uma pasta local.
 
-6. Cole a seguinte sintaxe JSON no seu ficheiro:
+6. Colhe a seguinte sintaxe JSON no seu ficheiro:
 
     ```json
     {
@@ -214,7 +214,7 @@ Para identificar primeiro o id completo do seu espaço de trabalho Log Analytics
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
 
-       A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
+       A mudança de configuração pode demorar alguns minutos a ser completada. Quando está concluída, é apresentada uma mensagem semelhante à seguinte e inclui o resultado:
 
        ```powershell
        provisioningState       : Succeeded
@@ -231,13 +231,13 @@ Para identificar primeiro o id completo do seu espaço de trabalho Log Analytics
        az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
-       A alteração de configuração pode demorar alguns minutos a concluir. Quando for concluído, será apresentada uma mensagem que é semelhante ao seguinte e inclui o resultado:
+       A mudança de configuração pode demorar alguns minutos a ser completada. Quando está concluída, é apresentada uma mensagem semelhante à seguinte e inclui o resultado:
 
        ```azurecli
        provisioningState       : Succeeded
        ```
 
-       Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster.
+       Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até ver as métricas de saúde para o cluster.
 
 ## <a name="install-the-chart"></a>Instale o gráfico
 
@@ -289,8 +289,8 @@ Se encontrar um erro ao tentar ativar a monitorização do seu cluster Híbrido 
 * As cápsulas damsAgent daemonset estão em execução
 * O serviço de saúde OmsAgent está em execução
 * O ID do espaço de trabalho Log Analytics e a chave configurada no agente contentorizado combinam com o espaço de trabalho com o insight configurado.
-* Valide todos os nós de trabalhador linux têm `kubernetes.io/role=agent` etiqueta para agendar rs pod. Se não existir, adicione.
-* Valide `cAdvisor secure port:10250` ou `unsecure port: 10255` é aberto em todos os nós do cluster.
+* Valide todos os nós de `kubernetes.io/role=agent` trabalhador linux têm etiqueta para agendar casulo rs. Se não existir, adicione.
+* `cAdvisor secure port:10250` Valide `unsecure port: 10255` ou seja aberto em todos os nós do cluster.
 
 Para executar com o Azure PowerShell, utilize os seguintes comandos na pasta que contém o script:
 

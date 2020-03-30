@@ -1,29 +1,28 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: search
 author: HeidiSteen
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 380a0a76de763df5f2cc6ff702750b36d233728d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee430241173a6c19e2a32e176f28411631d9cb19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818356"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80272719"
 ---
-Você pode criar vários serviços em uma assinatura. Cada uma pode ser provisionada em uma camada específica. Você está limitado apenas pelo número de serviços permitidos em cada camada. Por exemplo, você pode criar até 12 serviços na camada básica e outros 12 serviços na camada S1 dentro da mesma assinatura. Para obter mais informações sobre camadas, consulte [escolher uma SKU ou camada para o Azure pesquisa cognitiva](../articles/search/search-sku-tier.md).
+Pode criar vários serviços dentro de uma subscrição. Cada um pode ser provisionado a um nível específico. Está limitado apenas pelo número de serviços permitidos em cada nível. Por exemplo, pode criar até 12 serviços no nível Básico e outros 12 serviços no nível S1 dentro da mesma subscrição. Para mais informações sobre os níveis, consulte [Escolha um SKU ou um nível para Pesquisa Cognitiva Azure](../articles/search/search-sku-tier.md).
 
-Limites de serviço máximos podem ser gerados mediante solicitação. Se você precisar de mais serviços na mesma assinatura, entre em contato com o suporte do Azure.
+Os limites máximos de serviço podem ser aumentados mediante solicitação. Se precisar de mais serviços dentro da mesma subscrição, contacte o Suporte Azure.
 
-| Recurso            | Gratuito<sup>1</sup> | Básica | S1  | S2 | S3 | S3&nbsp;HD | L1 | Cache |
+| Recurso            | Grátis<sup>1</sup> | Básico | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
-| Máximo de serviços    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
-| Escala máxima em unidades de pesquisa (SU)<sup>2</sup> |N/D |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
+| Serviços máximos    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
+| Escala máxima em unidades de busca (SU)<sup>2</sup> |N/D |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup> o gratuito é baseado em recursos compartilhados, não dedicados. Não há suporte para a escala vertical em recursos compartilhados.
+<sup>1</sup> O Free baseia-se em recursos partilhados, não dedicados. A escala não é apoiada em recursos partilhados.
 
-<sup>2</sup> as unidades de pesquisa são unidades de cobrança, alocadas como uma *réplica* ou uma *partição*. Você precisa de ambos os recursos para armazenamento, indexação e operações de consulta. Para saber mais sobre os cálculos de SU, consulte [dimensionar níveis de recursos para cargas de trabalho de consulta e índice](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> As unidades de pesquisa são unidades de faturação, atribuídas como *uma réplica* ou uma *divisória*. Precisa de ambos os recursos para operações de armazenamento, indexação e consulta. Para saber mais sobre as computações da SU, consulte [os níveis de recursos de escala para consultas e cargas de trabalho indexadas](../articles/search/search-capacity-planning.md). 

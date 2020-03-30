@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 11c759dc8865da9de63e3acbfa1d4e26836d010a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501803"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Lojas de dados suportadas em Partilha de Dados Do Azure
 
@@ -50,7 +50,13 @@ A tabela abaixo detalha diferentes combinações e escolhas que os consumidores 
 A Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros do Lago De dados Azure Gen1 e do Lago de Dados Azure Gen2. Também suporta a partilha de bolhas, pastas e contentores do Armazenamento De Blob Azure. Atualmente, apenas a bolha de bloco é suportada. Quando as pastas são partilhadas na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha, ou alavancar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. Os ficheiros existentes com o mesmo nome serão substituídos.
 
 ## <a name="share-from-a-sql-based-source"></a>Partilhar de uma fonte baseada em SQL
-A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW). O consumidor de dados pode optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como csv ou arquivo parquet. O instantâneo completo substitui o conteúdo do ficheiro alvo. Alternativamente, o consumidor de dados pode aceitar os dados numa tabela SQL. Se a tabela SQL alvo não estiver disponível do lado do consumidor de dados, a Azure Data Share cria a tabela SQL com o esquema de origem. O instantâneo completo aparacom o conteúdo da tabela de origem para a tabela SQL alvo. O instantâneo incremental não é suportado atualmente.
+A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW). Os consumidores de dados podem optar por aceitar os dados na Azure Data Lake Store Gen2 ou no Azure Blob Storage como ficheiro csv ou parquet. Note que, por padrão, os formatos de ficheiro são csv. O consumidor de dados pode optar por receber os dados em formato parquet, se assim o desejar. Isto pode ser feito nas definições de mapeamento do conjunto de dados ao receber os dados. 
+
+Ao aceitar dados na Azure Data Lake Store Gen2 ou no Azure Blob Storage, as imagens completas sobreporem o conteúdo do ficheiro alvo. 
+
+Um consumidor de dados pode optar por receber dados numa tabela à sua escolha. Neste cenário, se a tabela-alvo já não existir, a Azure Data Share cria a tabela SQL com o esquema de origem. Se uma tabela de destino já existir com o mesmo nome, será largada e substituída com o mais recente instantâneo completo. Ao mapear a tabela de destino, pode especificar-se um esquema alternativo e um nome de mesa. Os instantâneos incrementais não são atualmente suportados. 
+
+A partilha de fontes baseadas em SQL tem pré-requisitos relacionados com regras e permissões de firewall. Consulte a secção de pré-requisitos do tutorial de [partilha](share-your-data.md) para obter mais detalhes.
 
 ## <a name="share-from-azure-data-explorer"></a>Partilhar do Azure Data Explorer
 A Azure Data Share suporta a capacidade de partilhar bases de dados em vigor a partir de clusters Do Azure Data Explorer. O fornecedor de dados pode partilhar na base de dados ou no nível do cluster. Quando partilhados ao nível da base de dados, o consumidor de dados só poderá aceder à(s) base de dados específica partilhada pelo fornecedor de dados. Quando partilhado ao nível do cluster, o consumidor de dados pode aceder a todas as bases de dados do cluster do fornecedor, incluindo quaisquer futuras bases de dados criadas pelo fornecedor de dados.

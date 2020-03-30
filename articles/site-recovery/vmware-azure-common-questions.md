@@ -1,18 +1,14 @@
 ---
 title: Perguntas comuns sobre recuperação de desastres da VMware com recuperação do site Azure
 description: Obtenha respostas a perguntas comuns sobre a recuperação de desastres de VMware VMs no local para Azure usando a Recuperação do Site Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ae16138ae44262f53a8f9948d6287f0acf621244
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240028"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -69,7 +65,7 @@ O Site Recovery precisa de ter acesso a servidores VMware para:
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>Os dados de replicação são enviados para a Recuperação do Site?
 
-Não, a Recuperação do Site não interceta dados replicados e não tem nenhuma informação sobre o que está a ser feito nos seus VMs. Os dados de replicação são trocados entre hipervisores VMware e Armazenamento Azure. A Recuperação de Sites não tem capacidade para intercetar esses dados. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
+Não, a Recuperação do Site não interceta dados replicados e não tem nenhuma informação sobre o que está a ser feito nos seus VMs. Os dados de replicação são trocados entre hipervisores VMware e Armazenamento Azure. A Recuperação de Sites não tem capacidade para intercetar esses dados. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.
 
 A Recuperação do Site está certificada para ISO 27001:2013 e 27018, HIPAA e DPA. Está em processo de avaliações soc2 e FedRAMP JAB.
 
@@ -286,7 +282,7 @@ Sim, mas note que a máquina física só pode ser falhada apenas para um VMware 
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Onde posso baixar as chaves de registo do cofre?
 
-No cofre dos Serviços de Recuperação, selecione **Servidores** de Configuração na **Infraestrutura** de recuperação do local > **Gerir**. Em seguida, em **Servers**, selecione a **chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
+No cofre dos Serviços de Recuperação, selecione **Servidores** de Configuração na**Gestão**da Infraestrutura > de **Recuperação**do Local . Em seguida, em **Servers**, selecione a **chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Pode um único servidor de configuração ser usado para proteger várias instâncias vCenter?
 
@@ -305,6 +301,10 @@ Atualizações nas versões 9.24 e mais tarde exibem agora a [saúde do servidor
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Como atualizo o servidor de processos para a versão 9.24 ou mais tarde para obter informações precisas sobre saúde?
 
 Começando pela [versão 9.24,](service-updates-how-to.md#links-to-currently-supported-update-rollups)foram adicionados mais alertas para indicar a saúde do servidor do processo. [Atualize os componentes da Recuperação do Site para a versão 9.24 ou posterior para](service-updates-how-to.md#links-to-currently-supported-update-rollups) que todos os alertas sejam gerados.
+
+### <a name="how-can-i-ensure-high-availability-of-the-process-server"></a>Como posso garantir uma alta disponibilidade do servidor de processos?
+
+Ao configurar mais de um servidor de processo, o design proporciona flexibilidade para mover máquinas protegidas de um servidor de processo pouco saudável para o servidor de processos de trabalho. O movimento de uma máquina de um servidor de processo para outro deve ser iniciado explicitamente/manualmente através dos passos definidos aqui: [mover VMs entre servidores](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load)de processos .
 
 ## <a name="failover-and-failback"></a>Ativação pós-falha e reativação pós-falha
 

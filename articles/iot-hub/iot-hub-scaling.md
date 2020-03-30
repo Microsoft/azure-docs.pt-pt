@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ecc1ae5138fe5a1e42fed9be2e31b5afa8b6d5b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284424"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497498"
 ---
-# <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o nível ioT hub certo para a sua solução
+# <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o direito de nível de Hub IoT para a sua solução
 
 Cada solução IoT é diferente, por isso o Azure IoT Hub oferece várias opções baseadas em preços e escala. Este artigo destina-se a ajudá-lo a avaliar as suas necessidades do Hub IoT. Para obter informações sobre os níveis IoT Hub, consulte [os preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub).
 
@@ -31,7 +31,7 @@ Cada nível IoT Hub está disponível em três tamanhos, com base na quantidade 
 
 ## <a name="basic-and-standard-tiers"></a>Níveis básicos e standard
 
-O nível padrão do IoT Hub permite todas as funcionalidades, e é necessário para quaisquer soluções IoT que queiram utilizar as capacidades de comunicação bidirecionais. O nível básico permite um subconjunto das funcionalidades e destina-se a soluções IoT que apenas precisam de comunicação unidirecional dos dispositivos para a nuvem. Ambos os níveis oferecem as mesmas funcionalidades de segurança e autenticação.
+O nível padrão do IoT Hub permite todas as funcionalidades, e é necessário para quaisquer soluções IoT que queiram utilizar as capacidades de comunicação bidirecionais. O escalão básico permite a utilização de um subconjunto de funcionalidades e destina-se a soluções IoT que necessitam apenas de comunicação unidirecional dos dispositivos para a cloud. Ambos os escalões oferecem as mesmas funcionalidades de segurança e autenticação.
 
 Apenas um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de um nível pode ser escolhido por IoT Hub. Por exemplo, pode criar um Hub IoT com múltiplas unidades de S1, mas não com uma mistura de unidades de diferentes edições, como S1 e S2.
 
@@ -72,44 +72,44 @@ A diferença nas capacidades suportadas entre os níveis básicos e standard do 
 
 | API | Escalão Basic | Nível livre/standard |
 | --- | ---------- | ------------- |
-| [Eliminar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sim | Sim |
-| [Obtenha o dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sim | Sim |
-| [Eliminar módulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sim | Sim |
-| [Obter módulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sim | Sim |
-| [Obtenha estatísticas de registo](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sim | Sim |
-| [Obtenha estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sim | Sim |
-| [Criar ou atualizar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sim | Sim |
-| [Criar ou atualizar módulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Sim | Sim |
-| [Centro ioT de consulta](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sim | Sim |
+| [Eliminar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Sim | Sim |
+| [Obtenha o dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Sim | Sim |
+| [Eliminar módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | Sim | Sim |
+| [Obter módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | Sim | Sim |
+| [Obtenha estatísticas de registo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | Sim | Sim |
+| [Obtenha estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | Sim | Sim |
+| [Criar ou atualizar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | Sim | Sim |
+| [Criar ou atualizar módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | Sim | Sim |
+| [Centro ioT de consulta](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | Sim | Sim |
 | [Criar upload de ficheiroS SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sim | Sim |
 | [Receber notificação vinculada ao dispositivo](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sim | Sim |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
 | Enviar evento de módulo | AMQP e MQTT apenas | AMQP e MQTT apenas |
 | [Atualizar o estado de upload do ficheiro](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação a granel](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sim, exceto as capacidades do IoT Edge | Sim |
-| [Cancelar trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Sim | Sim |
-| [Criar emprego de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Sim | Sim |
-| [Obter emprego de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Sim | Sim |
-| [Obter empregos de exportação de importações](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Sim | Sim |
-| [Purgar fila de comando](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sim |
-| [Obter dispositivo twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sim |
-| [Obter módulo twin](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sim |
-| [Invocar método do dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sim |
-| [Atualizar dispositivo twin](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sim |
-| [Atualizar módulo twin](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Sim |
+| [Operação a granel](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | Sim, exceto as capacidades do IoT Edge | Sim |
+| [Cancelar trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | Sim | Sim |
+| [Criar emprego de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | Sim | Sim |
+| [Obter emprego de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | Sim | Sim |
+| [Obter empregos de exportação de importações](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | Sim | Sim |
+| [Purgar fila de comando](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | Sim |
+| [Obter dispositivo twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | Sim |
+| [Obter módulo twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | Sim |
+| [Invocar método do dispositivo](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | Sim |
+| [Atualizar dispositivo twin](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | Sim |
+| [Atualizar módulo twin](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | Sim |
 | [Abandonar a notificação vinculada ao dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
 | [Notificação completa do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
-| [Cancelar o trabalho](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sim |
-| [Criar emprego](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Sim |
-| [Arranjar emprego](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Sim |
-| [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Sim |
+| [Cancelar o trabalho](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Sim |
+| [Criar tarefa](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Sim |
+| [Arranjar emprego](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Sim |
+| [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Sim |
 
 ## <a name="message-throughput"></a>Entrada de mensagem
 
 A melhor maneira de dimensionar uma solução IoT Hub é avaliar o tráfego por unidade. Em especial, considere o pico de saída necessário para as seguintes categorias de operações:
 
 * Mensagens do dispositivo para a cloud
-* Mensagens da cloud para dispositivo
+* Mensagens cloud-to-device
 * Operações de registo de identidade
 
 O tráfego é medido para o seu hub IoT numa base por unidade. Quando cria um hub IoT, escolhe o seu nível e edição e define o número de unidades disponíveis. Pode adquirir até 200 unidades para a edição B1, B2, S1 ou S2, ou até 10 unidades para a edição B3 ou S3. Após a criação do seu hub IoT, pode alterar o número de unidades disponíveis na sua edição, atualizar ou desvalorizar entre edições dentro do seu nível (B1 para B2), ou atualizar do nível básico para o nível padrão (B1 para S1) sem interromper as suas operações existentes. Para mais informações, consulte [Como atualizar o seu hub IoT](iot-hub-upgrade.md).  

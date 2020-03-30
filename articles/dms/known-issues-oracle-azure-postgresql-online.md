@@ -3,8 +3,8 @@ title: 'Questões conhecidas: Migrar da Oracle para a Base de Dados Azure para P
 titleSuffix: Azure Database Migration Service
 description: Conheça questões conhecidas e limitações de migração com migrações on-line da Oracle para a Base de Dados Azure para o servidor PostgreSQL-Single utilizando o Serviço de Migração de Bases de Dados Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 6ab1050290119a53ee0fb674e6939938a3b855e0
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: fcebc7eb170239e5d7efd8a32599a6e782f630bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648603"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235249"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Questões conhecidas/limitações de migração com migrações on-line de Oracle para Azure DB para o servidor PostgreSQL-Single
 

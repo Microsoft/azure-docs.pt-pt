@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246998"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -21,7 +21,7 @@ Mapeamento de Fluxos de Dados em Azure Data Factory fornecem uma interface sem c
 Ao conceber e testar fluxos de dados do ADF UX, certifique-se de ligar o modo de depuração para executar os seus fluxos de dados em tempo real sem esperar que um cluster se aqueça. Para mais informações, consulte [debug mode](concepts-data-flow-debug-mode.md).
 
 Este vídeo mostra alguns timings de amostra que transformam dados com fluxos de dados:
-> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## <a name="monitoring-data-flow-performance"></a>Monitorização do desempenho do fluxo de dados
 
@@ -79,7 +79,7 @@ No âmbito **das Opções de Origem** na transformação da fonte, as seguintes 
 
 Para evitar o processamento em linha dos seus fluxos de dados, detete o tamanho do **lote** no separador Definições para a pia de DW Azure SQL DB e Azure SQL DW. Se o tamanho do lote estiver definido, a base de dados de processos da ADF escreve em lotes com base no tamanho fornecido.
 
-![Pia](media/data-flow/sink4.png "Sink")
+![Sink](media/data-flow/sink4.png "Sink")
 
 ### <a name="partitioning-on-sink"></a>Partição na pia
 

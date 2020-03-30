@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: f27ad43fabbba92f97a4035b00f72a8a4af4cc5c
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500206"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245383"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com configuração de aplicações
 
@@ -27,13 +27,15 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione O Explorador de **Configuração** > **Criar** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Select Configuration Explorer** > **Create** > **Key-value** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
     | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
     Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
+
+7. Selecione **Aplicar**.
 
 ## <a name="create-a-net-core-console-app"></a>Criar uma aplicação de consola .NET Core
 
@@ -43,22 +45,22 @@ Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft
 
 2. Na nova pasta, execute o seguinte comando para criar um novo ASP.NET projeto de aplicação de consola Core:
 
-    ```CLI
-        dotnet new console
+    ```dotnetcli
+    dotnet new console
     ```
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Adicione uma referência ao pacote nuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` executando o seguinte comando:
+1. Adicione uma referência `Microsoft.Extensions.Configuration.AzureAppConfiguration` ao pacote NuGet executando o seguinte comando:
 
-    ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
 2. Execute o seguinte comando para restaurar as embalagens para o seu projeto:
 
-    ```CLI
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
     ```
 
 3. Abra *Program.cs*e adicione uma referência ao fornecedor de configuração de aplicações .NET Core.
@@ -68,7 +70,7 @@ Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Atualize o método `Main` para utilizar a Configuração da App, ligando para o método `builder.AddAzureAppConfiguration()`.
+4. Atualize `Main` o método para utilizar `builder.AddAzureAppConfiguration()` a Configuração da Aplicação, ligando para o método.
 
     ```csharp
     static void Main(string[] args)
@@ -83,32 +85,34 @@ Utiliza a interface de [linha de comando .NET Core (CLI)](https://docs.microsoft
 
 ## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
 
-1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Na linha de comando, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração faça efeito:
+1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Na linha de comando, executar o seguinte comando:
 
-    ```CLI
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```cmd
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     Se utilizar o Windows PowerShell, execute o seguinte comando:
 
     ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
     Se utilizar macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
+    Reinicie a solicitação de comando para permitir que a alteração faça efeito. Imprima o valor da variável ambiental para validar que está corretamente definida.
+
 2. Executar o seguinte comando para construir a aplicação de consola:
 
-    ```CLI
-        dotnet build
+    ```dotnetcli
+    dotnet build
     ```
 
 3. Depois de a construção concluída com sucesso, execute o seguinte comando para executar a app localmente:
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: ea0b173f12a1c80f276af3ce3f6222efaad07972
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370632"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536892"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte para alimentação em Armazenamento de Blob Azure (Pré-visualização)
 
@@ -21,7 +21,7 @@ O objetivo do feed de alteração é fornecer registos de transações de todas 
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-O feed de mudança é armazenado como [bolhas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a um custo padrão de [preços blob.](https://azure.microsoft.com/pricing/details/storage/blobs/) Pode controlar o período de retenção destes ficheiros com base nos seus requisitos (Consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquemas inline. Este formato é bastante usado no ecossistema Hadoop, o Stream Analytics e o Azure Data Factory.
+O feed de mudança é armazenado como [bolhas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a um custo padrão de [preços blob.](https://azure.microsoft.com/pricing/details/storage/blobs/) Pode controlar o período de retenção destes ficheiros com base nos seus requisitos (Consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquemas inline. Este formato é amplamente utilizado no ecossistema Hadoop, Stream Analytics e Azure Data Factory.
 
 Pode processar estes troncos de forma assíncrona, incremental ou na íntegra. Qualquer número de aplicações de clientes pode ler de forma independente o feed de mudança, em paralelo, e ao seu próprio ritmo. Aplicações de análise como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) podem consumir registos diretamente como ficheiros Avro, que permitem processá-los a baixo custo, com alta largura de banda, e sem ter que escrever uma aplicação personalizada.
 
@@ -89,7 +89,7 @@ Ativar o feed de alteração utilizando o PowerShell:
    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
    ```
 
-4. Inscreva-se na sua subscrição Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã para autenticar.
+4. Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e siga as instruções no ecrã para autenticar.
 
    ```powershell
    Connect-AzAccount
@@ -110,7 +110,7 @@ Utilize um modelo de Gestor de Recursos Azure para ativar o feed de alteração 
 
 3. Escolha **[implementar um modelo personalizado](https://portal.azure.com/#create/Microsoft.Template)** e, em seguida, escolha Construir o seu próprio modelo no **editor**.
 
-4. No editor de modelo, cola no seguinte json. Substitua o espaço reservado `<accountName>` com o nome da sua conta de armazenamento.
+4. No editor de modelo, cola no seguinte json. Substitua `<accountName>` o espaço reservado com o nome da sua conta de armazenamento.
 
    ```json
    {
@@ -154,7 +154,7 @@ Consulte os registos de alimentação de alteração de [processos no Armazename
 
 O feed de mudança é um registo de alterações que são organizadas em *segmentos* **de hora a hora,** mas anexadas e atualizadas a cada poucos minutos. Estes segmentos só são criados quando há eventos de mudança de bolha que ocorrem naquela hora. Isto permite ao seu cliente consumir alterações que ocorram dentro de intervalos de tempo específicos sem ter que pesquisar através de todo o registo. Para saber mais, consulte as [Especificações.](#specifications)
 
-Um segmento horária disponível do feed de mudança é descrito num ficheiro manifesto que especifica os caminhos para os ficheiros de alimentação de alteração para esse segmento. A listagem do diretório virtual `$blobchangefeed/idx/segments/` mostra estes segmentos encomendados pelo tempo. O percurso do segmento descreve o início da gama horária que o segmento representa. Pode utilizar essa lista para filtrar os segmentos de registos que lhe interessam.
+Um segmento horária disponível do feed de mudança é descrito num ficheiro manifesto que especifica os caminhos para os ficheiros de alimentação de alteração para esse segmento. A listagem `$blobchangefeed/idx/segments/` do diretório virtual mostra estes segmentos encomendados pelo tempo. O percurso do segmento descreve o início da gama horária que o segmento representa. Pode utilizar essa lista para filtrar os segmentos de registos que lhe interessam.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -166,9 +166,9 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> O `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` é automaticamente criado quando ativa o feed de mudança. Pode ignorar com segurança este ficheiro. É um ficheiro de inicialização sempre vazio. 
+> O `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` é automaticamente criado quando ativa o feed de alteração. Pode ignorar com segurança este ficheiro. É um ficheiro de inicialização sempre vazio. 
 
-O ficheiro manifesto do segmento (`meta.json`) mostra o caminho dos ficheiros de feed de alteração para esse segmento na propriedade `chunkFilePaths`. Aqui está um exemplo de um ficheiro manifesto de segmento.
+O ficheiro`meta.json`manifesto do segmento mostra o caminho dos ficheiros de feed de alteração para esse segmento na `chunkFilePaths` propriedade. Aqui está um exemplo de um ficheiro manifesto de segmento.
 
 ```json
 {
@@ -199,7 +199,7 @@ O ficheiro manifesto do segmento (`meta.json`) mostra o caminho dos ficheiros de
 ```
 
 > [!NOTE]
-> O recipiente `$blobchangefeed` só aparece depois de ter ativado a funcionalidade de alimentação de alterações na sua conta. Terá de esperar alguns minutos depois de ativar a alimentação antes de poder listar as bolhas no recipiente. 
+> O `$blobchangefeed` recipiente só aparece depois de ter ativado a funcionalidade de alimentação de alterações na sua conta. Terá de esperar alguns minutos depois de ativar a alimentação antes de poder listar as bolhas no recipiente. 
 
 <a id="log-files"></a>
 
@@ -207,7 +207,7 @@ O ficheiro manifesto do segmento (`meta.json`) mostra o caminho dos ficheiros de
 
 Os ficheiros de transmissão de alteração contêm uma série de registos de eventos de alteração. Cada registo de eventos de alteração corresponde a uma alteração a uma bolha individual. Os registos são serializados e escritos no ficheiro utilizando a especificação do formato [Apache Avro.](https://avro.apache.org/docs/1.8.2/spec.html) Os registos podem ser lidos utilizando a especificação do formato de ficheiro Avro. Existem várias bibliotecas disponíveis para processar ficheiros nesse formato.
 
-Os ficheiros de alimentação de alteração são armazenados no diretório virtual `$blobchangefeed/log/` como [bolhas de apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação de alteração em cada caminho terá `00000` no nome do ficheiro (por exemplo, `00000.avro`). O nome de cada ficheiro de registo subsequente adicionado a esse caminho irá aumentar em 1 (por exemplo: `00001.avro`).
+Os ficheiros de alimentação de alteração são armazenados no `$blobchangefeed/log/` diretório virtual como bolhas de [apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação `00000` de alteração em `00000.avro`cada caminho terá no nome do ficheiro (por exemplo). O nome de cada ficheiro de registo subsequente adicionado a `00001.avro`esse caminho irá aumentar em 1 (por exemplo: ).
 
 Aqui está um exemplo de alteração do registo de eventos do ficheiro de feed de mudança convertido para Json.
 
@@ -255,15 +255,15 @@ Para obter uma descrição de cada propriedade, consulte o esquema do [evento Az
 
 - Alterar os registos de eventos são serializados no ficheiro de registo utilizando a especificação do formato [Apache Avro 1.8.2.](https://avro.apache.org/docs/1.8.2/spec.html)
 
-- Altere os registos de eventos onde o `eventType` tem um valor de `Control` são registos internos do sistema e não reflete uma alteração nos objetos da sua conta. Podeignorar com segurança esses registos.
+- Altere os `eventType` registos de `Control` eventos onde os registos internos do sistema estão a não refletir uma alteração nos objetos da sua conta. Podeignorar com segurança esses registos.
 
-- Os valores no saco de propriedade `storageDiagnonstics` são apenas para uso interno e não foram concebidos para uso pela sua aplicação. As suas aplicações não devem ter uma dependência contratual desse saque. Pode ignorar com segurança essas propriedades.
+- Os valores no saco de `storageDiagnonstics` propriedade são apenas para uso interno e não foram concebidos para uso pela sua aplicação. As suas aplicações não devem ter uma dependência contratual desse saque. Pode ignorar com segurança essas propriedades.
 
 - O tempo representado pelo segmento é **aproximado** com limites de 15 minutos. Assim, para garantir o consumo de todos os registos num prazo determinado, consumir o segmento anterior e próximo consecutivo.
 
-- Cada segmento pode ter um número diferente de `chunkFilePaths` devido à divisão interna do fluxo de registo para gerir a entrada de publicação. Os ficheiros de registo em cada `chunkFilePath` são garantidos que contêm bolhas mutuamente exclusivas, e podem ser consumidos e processados em paralelo sem violar a ordem de modificações por bolha durante a iteração.
+- Cada segmento pode ter `chunkFilePaths` um número diferente de devido à divisão interna do fluxo de registo para gerir a entrada de publicação. Os ficheiros `chunkFilePath` de registo em cada um deles são garantidos que contêm bolhas mutuamente exclusivas, e podem ser consumidos e processados em paralelo sem violar a ordem de modificações por bolha durante a iteração.
 
-- Os Segmentos começam em `Publishing` estado. Uma vez concluída a despesa dos registos para o segmento, será `Finalized`. Os ficheiros de registo em qualquer segmento datado após a data da propriedade `LastConsumable` no ficheiro `$blobchangefeed/meta/Segments.json`, não devem ser consumidos pela sua aplicação. Aqui está um exemplo da propriedade `LastConsumable`num ficheiro `$blobchangefeed/meta/Segments.json`:
+- Os Segmentos começam `Publishing` em estado. Uma vez concluída a despesa dos registos para `Finalized`o segmento, será . Os ficheiros de registo em qualquer `LastConsumable` segmento datado após a data da propriedade no `$blobchangefeed/meta/Segments.json` ficheiro, não devem ser consumidos pela sua aplicação. Aqui está um exemplo `LastConsumable`da `$blobchangefeed/meta/Segments.json` propriedade em um arquivo:
 
 ```json
 {
@@ -300,7 +300,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 Em Azure Cloud Shell, execute estes comandos:
 
-```cli
+```azurecli
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```
@@ -314,8 +314,8 @@ Esta secção descreve questões e condições conhecidas na atual pré-visualiz
 - O feed de alteração captura apenas criar, atualizar, eliminar e copiar operações. As atualizações de metadados não são atualmente captadas na pré-visualização.
 - Alterar os registos de eventos para qualquer alteração pode aparecer mais de uma vez no seu feed de mudança.
 - Ainda não é possível gerir a vida útil da alteração dos ficheiros de registo de feed, definindo a política de retenção baseada no tempo e não pode eliminar as bolhas 
-- A propriedade `url` do ficheiro de registo está atualmente sempre vazia.
-- A propriedade `LastConsumable` do ficheiro segments.json não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão só ocorre após a finalção do primeiro segmento. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na propriedade `LastConsumable`.
+- A `url` propriedade do ficheiro de registo está atualmente sempre vazia.
+- A `LastConsumable` propriedade do ficheiro segments.json não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão só ocorre após a finalção do primeiro segmento. Todos os segmentos subsequentes após a `LastConsumable` primeira hora são capturados com precisão na propriedade.
 - Atualmente não pode ver o recipiente **$blobchangefeed** quando liga para a ListContainers API e o recipiente não aparece no portal Azure ou no Storage Explorer
 - As contas de armazenamento que tenham iniciado anteriormente uma falha de [conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o ficheiro de registo não aparecer. Quaisquer falhas futuras de conta também podem ter impacto no ficheiro de registo durante a pré-visualização.
 

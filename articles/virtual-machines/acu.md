@@ -1,10 +1,10 @@
 ---
-title: Visão geral da Unidade de Computação Azure  Microsoft Docs
+title: Visão geral da Unidade de Computação Azure [ Microsoft Docs
 description: Visão geral do conceito das unidades de computação Azure. A ACU fornece uma forma de comparar o desempenho da CPU em todas as UsS DoT.
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
-manager: gwallace
+manager: vashan
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 65d83e76d464da997c6933610ae97dc176df7964
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.author: mimckitt
+ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919792"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535702"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
-O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar o desempenho da computação (CPU) em todas as SKUs azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenho{1}{2}padrão.
+O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar o desempenho da computação (CPU) em todas as SKUs azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenhopadrão.
 
 > [!IMPORTANT]
 > A ACU é apenas uma orientação. Os resultados da sua carga de trabalho podem variar.

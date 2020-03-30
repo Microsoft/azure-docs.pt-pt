@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456409"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo modelo
 
@@ -62,7 +62,7 @@ Esta funcionalidade é útil porque pode facilmente comparar resultados de dois 
 
 1. Ligue a saída do conjunto de **dados pontuado** do [Modelo de Pontuação](score-model.md) à entrada do Modelo de **Avaliação**. 
 2. Ligue a saída do módulo 'Modelo de Pontuação' para o segundo modelo à entrada direita do Modelo de **Avaliação**.
-3. Executar o pipeline.
+3. Submeta o oleoduto.
 
 ## <a name="results"></a>Resultados
 

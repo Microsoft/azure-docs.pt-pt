@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files | Microsoft Docs
-description: Responde a perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files.
+title: FAQs sobre desempenho de SMB para Ficheiros Azure NetApp Microsoft Docs
+description: Respostas frequentemente colocadas perguntas sobre o desempenho de SMB para Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,113 +12,113 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 6391a3eeead6a52371c11011a65f4b4de7260156
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460454"
 ---
-# <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files
+# <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>FAQs sobre desempenho sMB para Ficheiros Azure NetApp
 
-Este artigo responde às perguntas frequentes sobre as práticas recomendadas de desempenho do SMB para Azure NetApp Files.
+Este artigo responde a perguntas frequentes (PERGUNTAS) sobre as melhores práticas de desempenho do SMB para ficheiros Azure NetApp.
 
-## <a name="is-smb-multichannel-enabled-in-smb-shares"></a>O SMB multicanal está habilitado em compartilhamentos SMB? 
+## <a name="is-smb-multichannel-enabled-in-smb-shares"></a>O SMB Multichannel está ativado em ações SMB? 
 
-Sim, o SMB multicanal está habilitado por padrão, uma alteração foi colocada no início de janeiro de 2020. Todos os compartilhamentos SMB já têm o recurso habilitado e todos os volumes recém-criados também terão o recurso habilitado no momento da criação. 
+Sim, o SMB Multichannel está ativado por padrão, uma alteração implementada no início de janeiro de 2020. Todos os volumes SMB existentes pré-datados já tinham a funcionalidade ativada, e todos os volumes recém-criados também terão a funcionalidade ativada no momento da criação. 
 
-Qualquer conexão SMB estabelecida antes da habilitação do recurso precisará ser redefinida para tirar proveito da funcionalidade de Fibre Channel do SMB. Para redefinir, você pode desconectar e reconectar o compartilhamento SMB.
+Qualquer ligação SMB estabelecida antes da ativação da funcionalidade terá de ser reativada para tirar partido da funcionalidade SMB Multichannel. Para redefinir, pode desligar e reconectar a parte SMB.
 
-## <a name="is-rss-supported"></a>Há suporte para RSS?
+## <a name="is-rss-supported"></a>O RSS é apoiado?
 
-Sim, Azure NetApp Files dá suporte ao RSS (recebimento em escala).
+Sim, o Azure NetApp Files suporta a escala ção lateral (RSS).
 
-Com o SMB multicanal habilitado, um cliente SMB3 estabelece várias conexões TCP com o servidor SMB Azure NetApp Files por meio de uma NIC (placa de interface de rede) com capacidade de RSS único. 
+Com o SMB Multichannel ativado, um cliente SMB3 estabelece múltiplas ligações TCP ao servidor SMB do Azure NetApp Files através de um cartão de interface de rede (NIC) que é único capaz de RSS. 
 
-## <a name="which-windows-versions-support-smb-multichannel"></a>Quais versões do Windows oferecem suporte a SMB Multichannel?
+## <a name="which-windows-versions-support-smb-multichannel"></a>Quais as versões do Windows suportam o SMB Multichannel?
 
-O Windows tem suporte para o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [implantar o SMB multicanal](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do SMB Multichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) para obter detalhes. 
+O Windows tem suportado o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [o Multicanal SMB](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do Multicanal SMB](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) para mais detalhes. 
 
 
-## <a name="does-my-azure-virtual-machine-support-rss"></a>Minha máquina virtual do Azure dá suporte a RSS?
+## <a name="does-my-azure-virtual-machine-support-rss"></a>A minha máquina virtual Azure suporta RSS?
 
-Para ver se suas NICs de máquina virtual do Azure dão suporte a RSS, execute o comando `Get-SmbClientNetworkInterface` da seguinte maneira e verifique o campo `RSS Capable`: 
+Para ver se os NICs da sua máquina virtual `Get-SmbClientNetworkInterface` Azure suportam `RSS Capable`RSS, execute o comando da seguinte forma e verifique o campo: 
 
-![Suporte de RSS para máquina virtual do Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Suporte RSS para máquina virtual Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
-## <a name="does-azure-netapp-files-support-smb-direct"></a>Azure NetApp Files dá suporte ao SMB Direct?
+## <a name="does-azure-netapp-files-support-smb-direct"></a>Os Ficheiros Azure NetApp suportam o SMB Direct?
 
-Não, o Azure NetApp Files não dá suporte ao SMB Direct. 
+Não, o Azure NetApp Files não suporta o SMB Direct. 
 
-## <a name="what-is-the-benefit-of-smb-multichannel"></a>Qual é o benefício do SMB multicanal? 
+## <a name="what-is-the-benefit-of-smb-multichannel"></a>Qual é o benefício do Multicanal SMB? 
 
-O recurso de vários canais SMB permite que um cliente SMB3 estabeleça um pool de conexões em uma única NIC (placa de interface de rede) ou em várias NICs e use-as para enviar solicitações para uma única sessão SMB. Por outro lado, por design, o SMB1 e o SMB2 exigem que o cliente estabeleça uma conexão e envie todo o tráfego SMB para uma determinada sessão por essa conexão. Essa conexão única limita o desempenho geral do protocolo que pode ser obtido de um único cliente.
+A funcionalidade SMB Multichannel permite a um cliente SMB3 estabelecer um conjunto de ligações através de um único cartão de interface de rede (NIC) ou de vários NICs e usá-los para enviar pedidos para uma única sessão de SMB. Em contrapartida, por design, sMB1 e SMB2 exigem que o cliente estabeleça uma ligação e envie todo o tráfego SMB para uma determinada sessão sobre essa ligação. Esta única ligação limita o desempenho global do protocolo que pode ser alcançado a partir de um único cliente.
 
-## <a name="should-i-configure-multiple-nics-on-my-client-for-smb"></a>Devo configurar várias NICs em meu cliente para SMB?
+## <a name="should-i-configure-multiple-nics-on-my-client-for-smb"></a>Devo configurar vários NICs no meu cliente para SMB?
 
-Não. O cliente SMB fará a correspondência da contagem de NIC retornada pelo servidor SMB.  Cada volume de armazenamento pode ser acessado somente de um ponto de extremidade de armazenamento.  Isso significa que apenas uma NIC será usada para qualquer relação SMB específica.  
+Não. O cliente SMB corresponderá à contagem nic devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
 
-Como a saída de `Get-SmbClientNetworkInterace` mostrada abaixo, a máquina virtual tem duas interfaces de rede--15 e 12.  Conforme mostrado abaixo na `Get-SmbMultichannelConnection`de comando, mesmo que haja duas NICS compatíveis com RSS, somente a interface 12 é usada em conexão com o compartilhamento SMB; a interface 15 não está em uso.
+Como mostra `Get-SmbClientNetworkInterace` a saída abaixo, a máquina virtual tem duas interfaces de rede : 15 e 12.  Como mostrado abaixo sob `Get-SmbMultichannelConnection`o comando , embora existam dois NICS com capacidade RSS, apenas a interface 12 é utilizada em conexão com a parte SMB; interface 15 não está a ser utilizado.
 
-![NICS compatíveis com RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![NICS com capacidade RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
-## <a name="is-nic-teaming-supported-in-azure"></a>O agrupamento NIC é compatível com o Azure?
+## <a name="is-nic-teaming-supported-in-azure"></a>Nic Teaming é apoiado em Azure?
 
-O agrupamento NIC não tem suporte no Azure. Embora haja suporte para várias interfaces de rede em máquinas virtuais do Azure, elas representam uma construção lógica em vez de um constructo físico. Dessa forma, eles não fornecem tolerância a falhas.  Além disso, a largura de banda disponível para uma máquina virtual do Azure é calculada para a própria máquina e não para qualquer interface de rede individual.
+Nic Teaming não é suportado em Azure. Embora várias interfaces de rede sejam suportadas em máquinas virtuais Azure, representam uma construção lógica e não física. Como tal, não oferecem tolerância a falhas.  Além disso, a largura de banda disponível para uma máquina virtual Azure é calculada para a própria máquina e não para qualquer interface de rede individual.
 
-## <a name="whats-the-performance-like-for-smb-multichannel"></a>Qual é o desempenho como para o Fibre Channel do SMB?
+## <a name="whats-the-performance-like-for-smb-multichannel"></a>Como é a performance para o SMB Multichannel?
 
-Os seguintes testes e grafos demonstram o poder do SMB multicanal em cargas de trabalho de instância única.
+Os seguintes testes e gráficos demonstram a potência do SMB Multichannel em cargas de trabalho de instância única.
 
-### <a name="random-io"></a>E/s aleatória  
+### <a name="random-io"></a>I/O aleatório  
 
-Com o SMB multicanal desabilitado no cliente, testes de leitura e gravação puros de 8 KiB eram executados usando FIO e um conjunto de trabalho 40-GiB.  O compartilhamento SMB foi desanexado entre cada teste, com incrementos da contagem de conexões de cliente SMB por configurações de interface de rede RSS de `1`,`4`,`8`,`16``set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. Os testes mostram que a configuração padrão de `4` é suficiente para cargas de trabalho com uso intensivo de e/s; incrementar para `8` e `16` não teve efeito. 
+Com o SMB Multichannel desativado no cliente, foram realizados testes puros de leitura e escrita de 8-KiB utilizando o FIO e um conjunto de trabalho de 40 GiB.  A quota SMB foi separada entre cada teste, com incrementos da contagem de `1``4`ligação ao cliente SMB por definições de interface de rede RSS`8`de, , ,`16`, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. Os ensaios mostram que `4` a definição padrão de cargas de trabalho intensivas em I/O; incrementando `8` `16` e não teve efeito. 
 
-O comando `netstat -na | findstr 445` provou que conexões adicionais foram estabelecidas com incrementos de `1` para `4` para `8` e `16`.  Quatro núcleos de CPU foram totalmente utilizados para SMB durante cada teste, conforme confirmado pela estatística de `Per Processor Network Activity Cycles` PerfMon (não incluído neste artigo).
+O `netstat -na | findstr 445` comando provou que foram estabelecidas `1` ligações adicionais com incrementos de e `4` `8` para `16`.  Quatro núcleos cpu foram totalmente utilizados para SMB durante `Per Processor Network Activity Cycles` cada teste, como confirmado pela estatística de perfmon (não incluído neste artigo.)
 
-![Testes de e/s aleatórios](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Testes de I/O aleatórios](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-A máquina virtual do Azure não afeta os limites de e/s de armazenamento SMB (nem NFS).  Como mostrado abaixo, o tipo de instância D16 tem uma taxa limitada de 32.000 para IOPS de armazenamento em cache e 25.600 para IOPS de armazenamento não armazenado em cache.  No entanto, o gráfico acima mostra significativamente mais e/s sobre SMB.
+A máquina virtual Azure não afeta os limites de armazenamento De SMB (nem NFS).  Como mostrado abaixo, o tipo de instância D16 tem uma taxa limitada de 32.000 para iOPS de armazenamento em cache e 25.600 para IOPS de armazenamento não cached.  No entanto, o gráfico acima mostra significativamente mais I/O sobre SMB.
 
-![Comparação de e/s aleatória](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Comparação aleatória de I/S](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
-### <a name="sequential-io"></a>E/s sequencial 
+### <a name="sequential-io"></a>IO sequencial 
 
-Testes semelhantes aos testes de e/s aleatórios descritos acima foram executados com e/s sequencial de 64-KiB. Embora o aumento na contagem de conexões de cliente por interface de rede RSS além de 4 ' não tenha nenhum efeito perceptível na e/s aleatória, o mesmo não se aplica à e/s sequencial. Como mostra o gráfico a seguir, cada aumento é associado a um aumento correspondente na taxa de transferência de leitura. A taxa de transferência de gravação permaneceu simples devido a restrições de largura de banda de rede colocadas pelo Azure para cada tipo/tamanho de instância. 
+Foram efetuados testes semelhantes aos testes de I/O aleatórios acima descritos com I/O sequencial de 64-KiB. Embora os aumentos na contagem de ligação ao cliente por interface de rede RSS para além de 4' não tenham tido um efeito notável em I/O aleatório, o mesmo não se aplica ao I/O sequencial. Como mostra o gráfico seguinte, cada aumento está associado a um aumento correspondente na entrada de leitura. A entrada de escrita permaneceu plana devido às restrições de largura de banda da rede colocadas pelo Azure para cada instância tipo/tamanho. 
 
-![Testes de e/s sequenciais](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Testes sequenciais de I/S](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-O Azure coloca limites de taxa de rede em cada tipo/tamanho de máquina virtual. O limite de taxa é imposto somente no tráfego de saída. O número de NICs presentes em uma máquina virtual não tem nenhuma influência sobre a quantidade total de largura de banda disponível para o computador.  Por exemplo, o tipo de instância D16 tem um limite de rede imposto de 8000 Mbps (1.000 MiB/s).  Como mostra o grafo sequencial acima, o limite afeta o tráfego de saída (gravações), mas não as leituras multicanal.
+O Azure coloca limites de taxa de rede em cada tipo/tamanho da máquina virtual. O limite de taxas é imposto apenas ao tráfego de saída. O número de NICs presentes numa máquina virtual não tem qualquer influência sobre a quantidade total de largura de banda disponível para a máquina.  Por exemplo, o tipo de instância D16 tem um limite de rede imposto de 8000 Mbps (1.000 MiB/s).  Como mostra o gráfico sequencial acima, o limite afeta o tráfego de saída (escreve) mas não o multicanal.
 
-![Comparação de e/s sequencial](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Comparação sequencial de I/S](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
-## <a name="is-advanced-networking-recommended"></a>A rede avançada é recomendada?
+## <a name="is-accelerated-networking-recommended"></a>Recomenda-se a Ligação Acelerada?
 
-Para obter o máximo de desempenho, é recomendável configurar a rede avançada sempre que possível. Tenha em mente as seguintes considerações:  
+Para um desempenho máximo, recomenda-se que configure a [Rede Acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) sempre que possível. Tenha em mente as seguintes considerações:  
 
-* O portal do Azure habilita a rede avançada por padrão para máquinas virtuais que dão suporte a esse recurso.  No entanto, outros métodos de implantação, como Ansible e ferramentas de configuração semelhantes, podem não.  A falha ao habilitar a rede avançada pode hobble o desempenho de um computador.  
-* Se a rede avançada não estiver habilitada na interface de rede de uma máquina virtual devido à sua falta de suporte para um tipo ou tamanho de instância, ela permanecerá desabilitada com tipos de instância maiores. Você precisará de intervenção manual nesses casos.
+* O portal Azure permite o Networking Acelerado por padrão para máquinas virtuais que suportam esta funcionalidade.  No entanto, outros métodos de implementação, tais como ferramentas de configuração ansíveis e similares, podem não.  A não ativação da rede acelerada pode dificultar o desempenho de uma máquina.  
+* Se a rede acelerada não estiver ativada na interface de rede de uma máquina virtual devido à sua falta de suporte para um tipo ou tamanho de instância, permanecerá desativada com tipos de instâncias maiores. Nesses casos, vai precisar de intervenção manual.
 
-## <a name="are-jumbo-frames-supported"></a>Há suporte para quadros Jumbo?
+## <a name="are-jumbo-frames-supported"></a>Os quadros jumbo são suportados?
 
-Não há suporte para quadros jumbo com máquinas virtuais do Azure.
+As molduras jumbo não são suportadas com máquinas virtuais Azure.
 
-## <a name="is-smb-signing-supported"></a>Há suporte para assinatura SMB? 
+## <a name="is-smb-signing-supported"></a>A Assinatura SMB é suportada? 
 
-O protocolo SMB fornece a base para o compartilhamento de arquivos e impressão e outras operações de rede, como a administração remota do Windows. Para evitar ataques man-in-the-Middle que modificam pacotes SMB em trânsito, o protocolo SMB dá suporte à assinatura digital de pacotes SMB. 
+O protocolo SMB fornece a base para a partilha de ficheiros e impressões e outras operações de networking, tais como a administração remota do Windows. Para evitar ataques man-in-the-middle que modificam pacotes SMB em trânsito, o protocolo SMB suporta a assinatura digital de pacotes SMB. 
 
-A assinatura SMB tem suporte para todas as versões de protocolo SMB com suporte pelo Azure NetApp Files. 
+A SMB Signing é suportada para todas as versões protocolares SMB que são suportadas por Ficheiros Azure NetApp. 
 
-## <a name="what-is-the-performance-impact-of-smb-signing"></a>Qual é o impacto no desempenho da assinatura SMB?  
+## <a name="what-is-the-performance-impact-of-smb-signing"></a>Qual é o impacto do desempenho da SMB Signing?  
 
-A assinatura SMB tem um efeito deletério sobre o desempenho do SMB. Entre outras causas potenciais da degradação do desempenho, a assinatura digital de cada pacote consome uma CPU adicional do lado do cliente, conforme mostrado na saída do Perfmon abaixo. Nesse caso, o núcleo 0 é exibido responsável por SMB, incluindo a assinatura SMB.  Uma comparação com os números de taxa de transferência de leitura sequencial não multicanal na seção anterior mostra que a assinatura SMB reduz a taxa de transferência geral de 875MiB/s para aproximadamente 250MiB/s. 
+A SMB Signing tem um efeito prejudicial no desempenho do SMB. Entre outras causas potenciais da degradação do desempenho, a assinatura digital de cada pacote consome CPU adicional do lado do cliente, como mostra a saída de perfmon abaixo. Neste caso, o Core 0 aparece responsável pela SMB, incluindo a SMB Signing.  Uma comparação com os números de entrada sequenciais não multicanal na secção anterior mostra que a Assinatura SMB reduz a entrada global de 875MiB/s para aproximadamente 250MiB/s. 
 
-![Impacto no desempenho de assinatura SMB](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Impacto de desempenho da Assinatura SMB](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Perguntas frequentes sobre Azure NetApp Files](azure-netapp-files-faqs.md)
-- Consulte o [Azure NetApp Files: compartilhamentos de arquivos corporativos gerenciados para cargas de trabalho SMB](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) sobre como usar compartilhamentos de arquivos smb com Azure NetApp files.
+- [PERGUNTAS FREQUENTES Sobre ficheiros Azure NetApp](azure-netapp-files-faqs.md)
+- Consulte os [Ficheiros Azure NetApp: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.

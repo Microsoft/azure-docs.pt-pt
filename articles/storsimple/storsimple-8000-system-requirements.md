@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297714"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software da série StorSimple 8000, alta disponibilidade e requisitos de networking
 
@@ -59,20 +59,20 @@ Os seguintes requisitos de software são para os componentes Opcionais StorSimpl
 | Snapshot Manager do StorSimple |Windows Server 2008 R2 SP1, 2012, 2012 R2 |A utilização do StorSimple Snapshot Manager no Windows Server é necessária para cópia de segurança/restauro de discos dinâmicos espelhados e para quaisquer cópias de segurança consistentes com aplicações.<br> O StorSimple Snapshot Manager é suportado apenas no Windows Server 2008 R2 SP1 (64-bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se estiver a utilizar o Window Server 2012, tem de instalar .NET 3.5-4.5 antes de instalar o StorSimple Snapshot Manager.</li><li>Se estiver a utilizar o Windows Server 2008 R2 SP1, tem de instalar o Windows Management Framework 3.0 antes de instalar o StorSimple Snapshot Manager.</li></ul> |
 | Adaptador do StorSimple para o SharePoint |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>O Adaptador StorSimple para O SharePoint só é suportado no SharePoint 2010 e no SharePoint 2013.</li><li>O RBS requer a SQL Server Enterprise Edition, versão 2008 R2 ou 2012.</li></ul> |
 
-## <a name="networking-requirements-for-your-storsimple-device"></a>Requisitos de networking para o seu dispositivo StorSimple
+## <a name="networking-requirements-for-your-storsimple-device"></a>Requisitos de rede para o seu dispositivo StorSimple
 
 O seu dispositivo StorSimple é um dispositivo de bloqueio. No entanto, as portas precisam de ser abertas na sua firewall para permitir o tráfego iSCSI, cloud e gestão. A tabela seguinte lista as portas que precisam de ser abertas na sua firewall. Nesta tabela, *dentro* ou *à entrada* refere-se à direção a partir da qual o cliente que chega acede ao seu dispositivo. *out* or *out refere-se* à direção em que o seu dispositivo StorSimple envia dados externamente, para além da implementação: por exemplo, saída para a Internet.
 
 | Porta nº<sup>1,2</sup> | Dentro ou fora | Âmbito do porto | Necessário | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Fora |WAN |Não |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O proxy web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Fora |WAN |Sim |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O proxy web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li><li>Esta porta também é utilizada em ambos os controladores para recolha de lixo.</li></ul> |
-| UDP 53 (DNS) |Fora |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. |
-| UDP 123 (NTP) |Fora |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet. |
-| TCP 9354 |Fora |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
-| 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
-| 5985 |Em |LAN |Não |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
-| 5986 |Em |LAN |Não |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple over HTTPS. |
+| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O proxy web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O proxy web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li><li>Esta porta também é utilizada em ambos os controladores para recolha de lixo.</li></ul> |
+| UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. |
+| UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet. |
+| TCP 9354 |Saída |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
+| 3260 (iSCSI) |Entrada |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| 5985 |Entrada |LAN |Não |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
+| 5986 |Entrada |LAN |Não |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple over HTTPS. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 
@@ -81,7 +81,7 @@ O seu dispositivo StorSimple é um dispositivo de bloqueio. No entanto, as porta
 <sup>3</sup> O controlador fixiu os IPs no seu dispositivo StorSimple deve ser repreensível e capaz de se ligar diretamente à Internet ou através do proxy web configurado. Os endereços IP fixos são utilizados para a manutenção das atualizações no dispositivo e para recolha de lixo. Se os controladores do dispositivo não conseguirem ligar-se à Internet através dos IPs fixos, não será possível atualizar o seu dispositivo StorSimple e a recolha de lixo não funcionará corretamente.
 
 > [!IMPORTANT]
-> Certifique-se de que a firewall não modifica nem desencripta qualquer tráfego SSL entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que a firewall não modifica nem desencripta qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
@@ -122,7 +122,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 Uma métrica de encaminhamento está associada às interfaces e ao portal que encaminha os dados para as redes especificadas. A métrica de encaminhamento é usada pelo protocolo de encaminhamento para calcular o melhor caminho para um determinado destino, se descobrir que existem múltiplos caminhos para o mesmo destino. Quanto mais baixa a métrica de encaminhamento, maior é a preferência.
 
-No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, pode utilizar o `Get-HcsRoutingTable` cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre o cmdlet Get-HcsRouttableTable na [implementação StorSimple](storsimple-troubleshoot-deployment.md)de resolução de problemas .
+No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, `Get-HcsRoutingTable` pode utilizar o cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre o cmdlet Get-HcsRouttableTable na [implementação StorSimple](storsimple-troubleshoot-deployment.md)de resolução de problemas .
 
 O algoritmo métrico de encaminhamento utilizado para atualização 2 e versões posteriores pode ser explicado da seguinte forma.
 
@@ -141,13 +141,13 @@ O algoritmo métrico de encaminhamento utilizado para atualização 2 e versões
 
 * A ordem em que o tráfego em nuvem será encaminhado através das interfaces da rede é:
   
-    *Dados 0 > Dados 1 > Data 2 > Dados 3 > Dados 4 > Dados 5*
+    *Dados 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
   
     Isto pode ser explicado pelo seguinte exemplo.
   
     Considere um dispositivo StorSimple com duas interfaces de rede ativadas pela nuvem, Dados 0 e Dados 5. Os dados 1 através do Data 4 são desativados em nuvem, mas têm um gateway configurado. A ordem em que o tráfego será encaminhado para este dispositivo será:
   
-    *Dados 0 (1) > Dados 5 (6) > Dados 1 (20) > Dados 2 (30) > Dados 3 (40) > Dados 4 (50)*
+    *Dados 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
   
     *Os números em parênteses indicam as respetivas métricas de encaminhamento.*
   
@@ -233,7 +233,7 @@ O modelo 8600 do dispositivo StorSimple inclui um invólucro extended bunch of D
 * Certifique-se de que ambos os módulos do controlador de comando eBOD, ambos os cabos SAS, e todas as unidades de disco rígido estão sempre instaladas.
 * Se um módulo de controlador de comando ebod falhar, solicite uma substituição imediatamente.
 * Se um módulo de controlador de comando eBOD falhar, certifique-se de que o outro módulo do controlador está ativo antes de substituir o módulo falhado. Para verificar se um controlador está ativo, vá identificar [o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante a substituição do módulo do controlador EBOD, monitorize continuamente o estado do componente no serviço StorSimple Device Manager acedendo ao **Monitor** > saúde de **hardware**.
+* Durante a substituição do módulo do controlador EBOD, monitorize continuamente o estado do componente no serviço StorSimple Device Manager acedendo à**saúde**do **hardware do Monitor** > .
 * Se um cabo SAS falhar ou necessitar de substituição (o Suporte microsoft deve estar envolvido para fazer tal determinação), certifique-se de que remove apenas o cabo SAS que necessita de substituição.
 * Não retire simultaneamente ambos os cabos SAS do sistema em nenhum momento.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282422"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
@@ -32,7 +32,7 @@ As entidades de saúde espelham as entidades do Tecido de Serviço. (Por exemplo
 
 As entidades de saúde e a hierarquia permitem que o cluster e as aplicações sejam efetivamente reportadas, depuradas e monitorizadas. O modelo de saúde proporciona uma representação precisa e *granular* da saúde das muitas peças móveis do cluster.
 
-entidades de saúde ![.][1]
+![Entidades de saúde.][1]
 As entidades de saúde, organizadas numa hierarquia baseada nas relações pai-filho.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
@@ -81,7 +81,7 @@ Por padrão, o Tecido de Serviço aplica regras rígidas (tudo deve ser saudáve
 A política de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) do cluster é usada para avaliar o estado de saúde do cluster e os estados de saúde do nó. A política pode ser definida no manifesto de cluster. Se não estiver presente, a política de incumprimento (zero falhas toleradas) é utilizada.
 A política de saúde do cluster contém:
 
-* [Considere o Erro de Advertências](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde como erros durante a avaliação da saúde. Padrão: falso.
+* [Considere o Erro de Advertências](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde como erros durante a avaliação da saúde. Predefinição: false.
 * [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Especifica a percentagem máxima tolerada de aplicações que podem ser insalubres antes de o cluster ser considerado por engano.
 * [MaxPercentUnhealthyNodes.](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes) Especifica a percentagem máxima tolerada de nós que pode ser insalubre antes que o cluster seja considerado errado. Em grandes aglomerados, alguns nós estão sempre para baixo ou para reparações, por isso esta percentagem deve ser configurada para tolerar isso.
 * [AplicatypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). O mapa de política de saúde do tipo de aplicação pode ser usado durante a avaliação de saúde do cluster para descrever tipos de aplicação especiais. Por padrão, todas as aplicações são colocadas numa piscina e avaliadas com Aplicações MaxPercentUnhealthy. Se alguns tipos de aplicações devem ser tratados de forma diferente, podem ser retirados do pool global. Em vez disso, são avaliados contra as percentagens associadas ao seu nome de tipo de aplicação no mapa. Por exemplo, num cluster existem milhares de aplicações de diferentes tipos, e algumas instâncias de aplicação de controlo de um tipo especial de aplicação. As aplicações de controlo nunca devem estar erradas. Pode especificar as Aplicações MaxPercentUnhealthy global a 20% para tolerar algumas falhas, mas para o tipo de aplicação "ControlApplicationType" definiu as Aplicações MaxPercentUnhealthy a 0. Desta forma, se algumas das muitas aplicações não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado ao Aviso. Um estado de saúde de alerta não afeta a atualização do cluster ou outra monitorização desencadeada pelo estado de saúde error. Mas mesmo uma aplicação de controlo por erro tornaria o cluster insalubre, o que dispara para trás ou pausa a atualização do cluster, dependendo da configuração de upgrade.
@@ -104,7 +104,7 @@ O exemplo que se segue é um excerto de um manifesto de cluster. Para definir as
 A política de saúde da [aplicação](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) descreve como a avaliação dos eventos e da agregação dos estados infantis é feita para aplicações e seus filhos. Pode ser definido no manifesto de aplicação, **ApplicationManifest.xml,** no pacote de aplicação. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de advertência ou erro.
 As políticas configuráveis são:
 
-* [Considere o Erro de Advertências](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde como erros durante a avaliação da saúde. Padrão: falso.
+* [Considere o Erro de Advertências](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde como erros durante a avaliação da saúde. Predefinição: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica a percentagem máxima tolerada de aplicações implementadas que podem ser insalubres antes de a aplicação ser considerada errada. Esta percentagem é calculada dividindo o número de aplicações implantadas pouco saudáveis em relação ao número de nós em que as aplicações são atualmente implantadas no cluster. A computação reúne-se para tolerar uma falha em pequenos números de nódosos. Percentagem de incumprimento: zero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica a política de saúde do tipo de serviço padrão, que substitui a política de saúde padrão para todos os tipos de serviço na aplicação.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fornece um mapa das políticas de saúde de serviço por tipo de serviço. Estas políticas substituem as políticas de saúde do tipo de serviço padrão para cada tipo de serviço especificado. Por exemplo, se uma aplicação tiver um tipo de serviço de gateway apátrida e um tipo de serviço de motor imponente, pode configurar as políticas de saúde para a sua avaliação de forma diferente. Quando especifica a política por tipo de serviço, pode obter um controlo mais granular da saúde do serviço.
@@ -179,7 +179,7 @@ Depois de a loja de saúde ter avaliado todas as crianças, agrega os seus estad
 ## <a name="health-reporting"></a>Relatórios de saúde
 Componentes do sistema, aplicações de Tecido system e cães de guarda internos/externos podem reportar contra entidades de Tecido de Serviço. Os jornalistas fazem determinações *locais* da saúde das entidades monitorizadas, com base nas condições que estão a monitorizar. Não precisam de olhar para nenhum estado global ou dados agregados. O comportamento desejado é ter repórteres simples, e não organismos complexos que precisam olhar para muitas coisas para inferir que informação enviar.
 
-Para enviar dados de saúde para a loja de saúde, um repórter precisa identificar a entidade afetada e criar um relatório de saúde. Para enviar o relatório, utilize a [API FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, reporte APIs de saúde expostos na `Partition` ou `CodePackageActivationContext` objetos, cmdlets PowerShell ou REST.
+Para enviar dados de saúde para a loja de saúde, um repórter precisa identificar a entidade afetada e criar um relatório de saúde. Para enviar o relatório, utilize a [API FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) `Partition` API, reporte APIs de saúde expostos nos ou `CodePackageActivationContext` objetos, cmdlets PowerShell ou REST.
 
 ### <a name="health-reports"></a>Relatórios de saúde
 Os relatórios de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) de cada uma das entidades do cluster contêm as seguintes informações:
@@ -194,7 +194,7 @@ Os relatórios de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.h
   * Partição. ID de partição (GUID). Representa o identificador único da partição.
   * Uma réplica. A réplica de serviço audato ID ou a instância de serviço apátrida ID (INT64).
   * Aplicação implantada. Nome de aplicação (URI) e nome do nó (corda).
-  * DeployedServicePackage. Nome da aplicação (URI), nome do nó (corda) e nome manifesto de serviço (corda).
+  * DeployservicePackage. Nome da aplicação (URI), nome do nó (corda) e nome manifesto de serviço (corda).
 * **Propriedade.** Uma *corda* (não uma enumeração fixa) que permite ao repórter categorizar o evento de saúde para uma propriedade específica da entidade. Por exemplo, o repórter A pode reportar a saúde da propriedade node01 "Armazenamento" e o repórter B pode reportar a saúde da propriedade node01 "Conectividade". Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para a entidade Nóde01.
 * **Descrição**. Uma corda que permite a um repórter fornecer informações detalhadas sobre o evento de saúde. **SourceId**, **Propriedade**e **Estado de Saúde** devem descrever totalmente o relatório. A descrição acrescenta informações legíveis pelo homem sobre o relatório. O texto facilita a compreensão do relatório de saúde por parte dos administradores e utilizadores.
 * **Estado de Saúde.** Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de saúde do relatório. Os valores aceites são OK, Aviso e Erro.
@@ -202,7 +202,7 @@ Os relatórios de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.h
 * **Remover Quando expirado**. Um booleano. Se for verdade, o relatório de saúde expirado é automaticamente removido da loja de saúde, e o relatório não impacta a avaliação de saúde da entidade. Usado quando o relatório é válido apenas por um período de tempo especificado, e o repórter não precisa explicitamente limpá-lo. Também é usado para apagar relatórios da loja de saúde (por exemplo, um cão de guarda é alterado e deixa de enviar relatórios com fonte e propriedade anteriores). Pode enviar um relatório com um breve TimeToLive juntamente com removeWhenExpired para limpar qualquer estado anterior da loja de saúde. Se o valor for definido como falso, o relatório expirado é tratado como um erro na avaliação de saúde. O valor falso indica para a loja de saúde que a fonte deve reportar periodicamente sobre esta propriedade. Se não, deve haver algo de errado com o cão de guarda. A saúde do cão de guarda é capturada considerando o evento como um erro.
 * **SequênciaNúmero**. Um inteiro positivo que precisa de ser cada vez maior, representa a ordem dos relatórios. É utilizado pela loja de saúde para detetar relatórios antigos que são recebidos tardiamente devido a atrasos na rede ou outros problemas. Um relatório é rejeitado se o número de sequência for inferior ou igual ao número mais recentemente aplicado para a mesma entidade, fonte e propriedade. Se não for especificado, o número da sequência é gerado automaticamente. É necessário colocar o número da sequência apenas quando se reporta sobre as transições estatais. Nesta situação, a fonte precisa de se lembrar quais os relatórios que enviou e manter a informação para recuperação sobre o fracasso.
 
-Estas quatro peças de informação--SourceId, identificador de entidades, propriedade e Estado de Saúde - são necessárias para cada relatório de saúde. A cadeia SourceId não está autorizada a começar com o prefixo "**System .** ", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma fonte e imóvel. Vários relatórios para a mesma fonte e propriedade sobrepõem-se uns aos outros, quer do lado do cliente de saúde (se forem loteados) quer do lado da loja de saúde. A substituição baseia-se em números de sequência; os relatórios mais recentes (com números de sequência mais elevados) substituem relatórios mais antigos.
+Estas quatro peças de informação--SourceId, identificador de entidades, propriedade e Estado de Saúde - são necessárias para cada relatório de saúde. A cadeia SourceId não está autorizada a começar com o prefixo "**System .**", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma fonte e imóvel. Vários relatórios para a mesma fonte e propriedade sobrepõem-se uns aos outros, quer do lado do cliente de saúde (se forem loteados) quer do lado da loja de saúde. A substituição baseia-se em números de sequência; os relatórios mais recentes (com números de sequência mais elevados) substituem relatórios mais antigos.
 
 ### <a name="health-events"></a>Eventos de saúde
 Internamente, a loja de saúde mantém eventos de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), que contêm toda a informação dos relatórios, e metadados adicionais. Os metadados incluem o tempo em que o relatório foi dado ao cliente de saúde e o tempo que foi modificado no lado do servidor. Os eventos de saúde são devolvidos por consultas de [saúde.](service-fabric-view-entities-aggregated-health.md#health-queries)
@@ -294,7 +294,7 @@ Outros sistemas têm um único serviço centralizado ao nível do cluster que an
 
 O modelo de saúde é fortemente utilizado para monitorização e diagnóstico, para avaliar a saúde do cluster e aplicação, e para atualizações monitorizadas. Outros serviços utilizam dados de saúde para realizar reparações automáticas, construir o histórico de saúde do cluster e emitir alertas sobre determinadas condições.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Ver relatórios de saúde de tecido de serviço](service-fabric-view-entities-aggregated-health.md)
 
 [Use relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -303,7 +303,7 @@ O modelo de saúde é fortemente utilizado para monitorização e diagnóstico, 
 
 [Adicione relatórios de saúde personalizados de tecido de serviço](service-fabric-report-health.md)
 
-[Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Upgrade de aplicação de tecido de serviço](service-fabric-application-upgrade.md)
 

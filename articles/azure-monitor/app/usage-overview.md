@@ -2,13 +2,13 @@
 title: Análise de utilização com insights de aplicação azure / Microsoft docs
 description: Compreenda os seus utilizadores e o que eles fazem com a sua aplicação.
 ms.topic: conceptual
-ms.date: 09/19/2019
-ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2019
+ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283961"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -22,7 +22,7 @@ A melhor experiência é obtida instalando Insights de Aplicação tanto no cód
 
     * *Não quer instalar o código do servidor? Basta [criar um recurso Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Código da página web:** Adicione o seguinte script à sua página web antes do ``</head>``de fecho . Substitua a chave de instrumentação pelo valor adequado para o seu recurso Application Insights:
+2. **Código da página web:** Adicione o seguinte script à sua ``</head>``página web antes do fecho . Substitua a chave de instrumentação pelo valor adequado para o seu recurso Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -123,16 +123,20 @@ No portal Application Insights, filtre e divida os seus dados sobre os valores d
 
 Para tal, [instale um infetante de telemetria:](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)
 
-**apps ASP.NET**
+**Aplicações ASP.NET**
 
 ```csharp
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 
@@ -148,12 +152,12 @@ No inicializador da aplicação web, como Global.asax.cs:
     }
 ```
 
-**ASP.NET aplicativos Core**
+**Aplicações ASP.NET Core**
 
 > [!NOTE]
-> Adicionar inicializador utilizando `ApplicationInsights.config` ou utilizar `TelemetryConfiguration.Active` não é válido para aplicações ASP.NET Core. 
+> Adicionar inicializador `ApplicationInsights.config` utilizando `TelemetryConfiguration.Active` ou utilizar não é válido para aplicações ASP.NET Core. 
 
-Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) a adição de um novo `TelemetryInitializer` é feita adicionando-a ao recipiente de Injeção de Dependência, como mostrado abaixo. Isto é feito em `ConfigureServices` método da sua aula de `Startup.cs`.
+Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) a adição de uma nova `TelemetryInitializer` é feita adicionando-a ao recipiente de injeção de dependência, como mostrado abaixo. Isto é `ConfigureServices` feito no `Startup.cs` método da sua classe.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

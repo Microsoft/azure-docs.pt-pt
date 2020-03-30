@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 224b69ab571f934f0bd3b05bbdeb9dc4013f96bf
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294122"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -40,7 +40,7 @@ Os componentes envolvidos na recuperação de desastres para os VMs Azure são r
 
 Quando ativa a replicação de um VM, a Recuperação do Site dá-lhe a opção de criar recursos-alvo automaticamente. 
 
-**Recurso-alvo** | **Definição padrão**
+**Recurso de destino** | **Definição predefinida**
 --- | ---
 **Subscrição de alvo** | O mesmo que a assinatura de origem.
 **Grupo de recursos-alvo** | O grupo de recursos a que os VMs pertencem após a falha.<br/><br/> Pode estar em qualquer região de Azure, exceto na região de origem.<br/><br/> A Recuperação do Site cria um novo grupo de recursos na região alvo, com um sufixo "asr".<br/><br/>
@@ -63,7 +63,7 @@ Pode gerir os recursos-alvo da seguinte forma:
 
 Quando ativa a replicação do Azure VM, por padrão, a Recuperação do Site cria uma nova política de replicação com as definições predefinidas resumidas na tabela.
 
-**Definição de políticas** | **Detalhes** | **Predefinição**
+**Definição de políticas** | **Detalhes** | **Padrão**
 --- | --- | ---
 **Retenção de pontos de recuperação** | Especifica quanto tempo a Recuperação do Site mantém os pontos de recuperação | 24 horas
 **Frequência instantânea consistente com aplicativos** | Quantas vezes a Recuperação do Site tira uma imagem consistente com aplicações. | A cada quatro horas
@@ -80,7 +80,7 @@ Se quiser que os VMs se reproduzam em conjunto, e partilhem pontos de recuperaç
 
 
 
-## <a name="snapshots-and-recovery-points"></a>Snapshots e pontos de recuperação
+## <a name="snapshots-and-recovery-points"></a>Instantâneos e pontos de recuperação
 
 Os pontos de recuperação são criados a partir de instantâneos de discos VM tirados num determinado momento. Quando falha um VM, utiliza um ponto de recuperação para restaurar o VM no local-alvo.
 
@@ -141,15 +141,15 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
 Para controlar a conectividade de saída dos VMs utilizando endereços IP, permita estes endereços.
-Por favor, note que detalhes dos requisitos de conectividade da rede podem ser encontrados em [papel branco em rede](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Por favor, note que detalhes dos requisitos de conectividade da rede podem ser encontrados em [papel branco em rede](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Regras da região de origem
 
 **Regra** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam a contas de armazenamento na região fonte | Um armazém.\<nome da região>
+Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam a contas de armazenamento na região fonte | Um armazém. \<> de nome da região
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Diretório Ativo Azure (Azure AD)  | AzureActiveDirectory
-Permitir saída de HTTPS: porta 443 | Permitir intervalos que correspondam ao Centro de Eventos na região alvo. | EventsHub.\<nome da região>
+Permitir saída de HTTPS: porta 443 | Permitir intervalos que correspondam ao Centro de Eventos na região alvo. | EventsHub. \<> de nome da região
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam à recuperação do site Azure  | Recuperação do AzureSite
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Cofre chave Azure (isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas pela ADE via portal) | AzureKeyVault
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Controlador de Automação Azure (isto é necessário apenas para permitir a tualização automática do agente de mobilidade para um item replicado via portal) | GuestAndHybridManagement
@@ -158,9 +158,9 @@ Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Control
 
 **Regra** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam a contas de armazenamento na região alvo | Um armazém.\<nome da região>
+Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam a contas de armazenamento na região alvo | Um armazém. \<> de nome da região
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam a Azure AD  | AzureActiveDirectory
-Permitir saída de HTTPS: porta 443 | Permitir intervalos que correspondam ao Centro de Eventos na região de origem. | EventsHub.\<nome da região>
+Permitir saída de HTTPS: porta 443 | Permitir intervalos que correspondam ao Centro de Eventos na região de origem. | EventsHub. \<> de nome da região
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam à recuperação do site Azure  | Recuperação do AzureSite
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Cofre chave Azure (isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas pela ADE via portal) | AzureKeyVault
 Permitir saída de HTTPS: porta 443 | Permitir gamas que correspondam ao Controlador de Automação Azure (isto é necessário apenas para permitir a tualização automática do agente de mobilidade para um item replicado via portal) | GuestAndHybridManagement
@@ -176,7 +176,7 @@ Se controlar a conectividade VM filtrando o tráfego da rede de e para as redes/
     - As etiquetas de serviço representam um grupo de prefixos de endereçoIP reunidos para minimizar a complexidade ao criar regras de segurança.
     - A Microsoft atualiza automaticamente as etiquetas de serviço ao longo do tempo. 
  
-Saiba mais sobre [a conectividade de saída](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) para a Recuperação do Site e controle a conectividade com [nsgs.](concepts-network-security-group-with-site-recovery.md)
+Saiba mais sobre [a conectividade de saída](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) para a Recuperação do Site e controle a conectividade com [nsgs.](concepts-network-security-group-with-site-recovery.md)
 
 
 ### <a name="connectivity-for-multi-vm-consistency"></a>Conectividade para a consistência multi-VM

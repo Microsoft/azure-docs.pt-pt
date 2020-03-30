@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 338541661b335e3d96a267f01590173f8ce8ee89
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 3aec50b8c8f2033b7340bde15ea7670c1a0b6bb9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969293"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534224"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição linux e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e terceira para a maioria das distribuições e ambientes de aplicações comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -24,7 +24,7 @@ Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define 
 ## <a name="create-azure-resource-group"></a>Criar grupo de recursos Azure
 Durante o processo de construção, a Packer cria recursos temporários azure à medida que constrói a fonte VM. Para capturar essa fonte VM para uso como imagem, você deve definir um grupo de recursos. A saída do processo de construção Packer é armazenada neste grupo de recursos.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -42,7 +42,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 
 Um exemplo da saída dos comandos anteriores é o seguinte:
 
-```azurecli
+```output
 {
     "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
     "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
@@ -66,10 +66,10 @@ Crie um ficheiro chamado *ubuntu.json* e colá-lo o seguinte conteúdo. Insira o
 
 | Parâmetro                           | Onde obter |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Primeira linha de saída de `az ad sp` criar comando - *appId* |
-| *client_secret*                     | Segunda linha de saída de `az ad sp` criar comando - *senha* |
-| *tenant_id*                         | Terceira linha de saída de `az ad sp` criar comando - *inquilino* |
-| *subscription_id*                   | Saída a partir do comando `az account show` |
+| *client_id*                         | Primeira linha de `az ad sp` saída a partir de criar comando - *appId* |
+| *client_secret*                     | Segunda linha de `az ad sp` saída a partir de criar comando - *senha* |
+| *tenant_id*                         | Terceira linha de `az ad sp` saída a partir de criar comando - *inquilino* |
+| *subscription_id*                   | Saída `az account show` a partir do comando |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
 | *managed_image_name*                | Nome para a imagem de disco gerida que é criada |
 
@@ -118,8 +118,8 @@ Crie um ficheiro chamado *ubuntu.json* e colá-lo o seguinte conteúdo. Insira o
 Este modelo constrói uma imagem Ubuntu 16.04 LTS, instala NGINX e, em seguida, desprovisiona o VM.
 
 > [!NOTE]
-> Se expandir este modelo para fornecer credenciais de utilizador, ajuste o comando do provisionador que desprovisiona o agente Azure para ler `-deprovision` em vez de `deprovision+user`.
-> A bandeira `+user` remove todas as contas de utilizador da Fonte VM.
+> Se expandir este modelo para fornecer credenciais de utilizador, ajuste o comando `-deprovision` do `deprovision+user`provisionador que desprovisiona o agente Azure para ler em vez de .
+> A `+user` bandeira remove todas as contas de utilizador da Fonte VM.
 
 
 ## <a name="build-packer-image"></a>Construir imagem Packer
@@ -133,7 +133,7 @@ Construa a imagem especificando o seu ficheiro de modelo Packer da seguinte form
 
 Um exemplo da saída dos comandos anteriores é o seguinte:
 
-```bash
+```output
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...
@@ -196,7 +196,7 @@ Leva alguns minutos para packer construir o VM, executar os provisionadores, e l
 
 
 ## <a name="create-vm-from-azure-image"></a>Criar VM a partir de Imagem Azure
-Agora pode criar um VM a partir da sua Imagem com [az vm criar](/cli/azure/vm). Especifique a Imagem criada com o parâmetro `--image`. O exemplo seguinte cria um VM chamado *myVM* a partir do *myPackerImage* e gera chaves SSH se ainda não existirem:
+Agora pode criar um VM a partir da sua Imagem com [az vm criar](/cli/azure/vm). Especifique a `--image` Imagem que criou com o parâmetro. O exemplo seguinte cria um VM chamado *myVM* a partir do *myPackerImage* e gera chaves SSH se ainda não existirem:
 
 ```azurecli
 az vm create \
@@ -209,7 +209,7 @@ az vm create \
 
 Se desejar criar VMs num grupo ou região diferente do seu Packer, especifique o ID de imagem em vez do nome da imagem. Pode obter o ID de imagem com um show de [imagem az](/cli/azure/image#az-image-show).
 
-Leva alguns minutos para criar o VM. Uma vez criado o VM, tome nota da `publicIpAddress` exibida pelo Azure CLI. Este endereço é utilizado para aceder ao site nginX através de um navegador web.
+Leva alguns minutos para criar o VM. Uma vez criado o VM, tome nota do `publicIpAddress` mostrado pelo Azure CLI. Este endereço é utilizado para aceder ao site nginX através de um navegador web.
 
 Para permitir que o tráfego da Web aceda à VM, abra a porta 80 a partir da Internet com [az vm open-port](/cli/azure/vm):
 

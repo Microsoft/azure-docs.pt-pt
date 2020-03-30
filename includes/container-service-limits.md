@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ac928d9087ba5db312540b8ec542d7a2a29e2a99
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 6b4678b381e769993b01bbedd1cb4c0aeefc0cc1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77179147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335061"
 ---
-| Recurso | Limite predefinido |
+| Recurso | Limite |
 | --- | :--- |
 | Clusters máximos por subscrição | 100 |
 | Nómáximo por cluster com conjuntos de disponibilidade de máquinas virtuais e Balancer de carga básica SKU  | 100 |

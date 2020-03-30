@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 616cdc0387d5c5cf3c2980ae1cfbc10e3c1119f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 39885782b55dca9c73f10990269d912f9b5727fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261362"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257976"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na Fábrica de Dados Azure
 
@@ -37,17 +37,17 @@ Um tempo de execução de integração tem de ser associado a cada fonte e afund
 
 Para copiar dados de uma fonte para um lavatório, o serviço que executa a atividade copy executa estes passos:
 
-1. Lê os dados de um arquivo de dados de origem.
+1. Lê dados de uma loja de dados de origem.
 2. Realiza serialização/desserialização, compressão/descompressão, mapeamento de colunas, e assim por diante. Executa estas operações com base na configuração do conjunto de dados de entrada, conjunto de dados de saída e atividade de Cópia.
-3. Escreve dados para o arquivo de dados de sink/destino.
+3. Escreve dados para a loja de dados pia/destino.
 
 ![Descrição geral da atividade de cópia](media/copy-activity-overview/copy-activity-overview.png)
 
-## <a name="supported-data-stores-and-formats"></a>Formatos e arquivos de dados suportados
+## <a name="supported-data-stores-and-formats"></a>Lojas e formatos de dados suportados
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
-### <a name="supported-file-formats"></a>Formatos de ficheiros suportados
+### <a name="supported-file-formats"></a>Formatos de ficheiro suportados
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
@@ -61,7 +61,7 @@ Pode utilizar a atividade Copy para copiar ficheiros como está entre duas lojas
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O serviço que permite a atividade do Copy está disponível globalmente nas regiões e geografias listadas em locais de execução de [integração Azure.](concepts-integration-runtime.md#integration-runtime-location) A topologia globalmente disponível garante que o movimento de dados eficiente que normalmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade da Data Factory e o movimento de dados numa região específica.
+O serviço que permite a atividade do Copy está disponível globalmente nas regiões e geografias listadas em locais de execução de [integração Azure.](concepts-integration-runtime.md#integration-runtime-location) A topologia globalmente disponível garante um movimento eficiente de dados que geralmente evita o lúpulo transversal. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade da Data Factory e o movimento de dados numa região específica.
 
 ## <a name="configuration"></a>Configuração
 
@@ -71,11 +71,11 @@ Em geral, para utilizar a atividade copy na Azure Data Factory, é necessário:
 
 1. **Crie serviços ligados para a loja de dados de origem e para a loja de dados do lavatório.** Pode encontrar a lista de conectores suportados nas lojas de dados suportadas e na secção de [formatos](#supported-data-stores-and-formats) deste artigo. Consulte a secção "Propriedades de serviço ligadas" do artigo conector para obter informações de configuração e propriedades suportadas. 
 2. **Crie conjuntos de dados para a fonte e afunde.** Consulte as secções "Dataset properties" da fonte e afunda artigos de conector para informações de configuração e propriedades suportadas.
-3. **Crie um oleoduto com a atividade copy.** A secção seguinte fornece um exemplo.
+3. **Crie um oleoduto com a atividade copy.** A próxima secção dá um exemplo.
 
 ### <a name="syntax"></a>Sintaxe
 
-O seguinte modelo de uma atividade de Cópia contém uma lista completa de propriedades suportadas. Especifique os que se adequam ao seu cenário.
+O seguinte modelo de uma atividade de Cópia contém uma lista completa de propriedades suportadas. Especifique os que se encaixam no seu cenário.
 
 ```json
 "activities":[
@@ -127,18 +127,18 @@ O seguinte modelo de uma atividade de Cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
-| tipo | Para uma atividade de Cópia, definida para `Copy` | Sim |
+| tipo | Para uma atividade de Cópia, definida para`Copy` | Sim |
 | inputs | Especifique o conjunto de dados que criou que aponta para os dados de origem. A atividade copy suporta apenas uma única entrada. | Sim |
-| outputs | Especifique o conjunto de dados que criou que aponta para os dados do lavatório. A atividade copy suporta apenas uma única saída. | Sim |
+| saídas | Especifique o conjunto de dados que criou que aponta para os dados do lavatório. A atividade copy suporta apenas uma única saída. | Sim |
 | typeProperties | Especifique propriedades para configurar a atividade da Cópia. | Sim |
 | source | Especifique o tipo de origem da cópia e as propriedades correspondentes para a recuperação de dados.<br/>Para mais informações, consulte a secção "Copiar propriedades de atividade" no artigo do conector listado em [lojas e formatos](#supported-data-stores-and-formats)de dados suportados . | Sim |
-| sink | Especifique o tipo de sumidouro de cópia e as propriedades correspondentes para a escrita de dados.<br/>Para mais informações, consulte a secção "Copiar propriedades de atividade" no artigo do conector listado em [lojas e formatos](#supported-data-stores-and-formats)de dados suportados . | Sim |
-| translator | Especifica mapeamentos de colunas explícita de origem para o sink. Esta propriedade aplica-se quando o comportamento predefinido da cópia não satisfaz as suas necessidades.<br/>Para mais informações, consulte [o mapeamento de Schema na atividade](copy-activity-schema-and-type-mapping.md)de cópia. | Não |
-| dataIntegrationUnits | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração azure](concepts-integration-runtime.md) utiliza para cópia de dados. Estas unidades eram anteriormente conhecidas como Unidades de Movimento de Dados em nuvem (DMU). <br/>Para mais informações, consulte Unidades de [Integração de Dados](copy-activity-performance.md#data-integration-units). | Não |
-| parallelCopies | Especifique o paralelismo que pretende que a atividade da Cópia utilize ao ler dados da fonte e escrever dados para o lavatório.<br/>Para mais informações, consulte [a cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
+| afundar | Especifique o tipo de sumidouro de cópia e as propriedades correspondentes para a escrita de dados.<br/>Para mais informações, consulte a secção "Copiar propriedades de atividade" no artigo do conector listado em [lojas e formatos](#supported-data-stores-and-formats)de dados suportados . | Sim |
+| tradutor | Especifique mapeamentos explícitos de colunas de origem a afundar. Esta propriedade aplica-se quando o comportamento predefinido da cópia não satisfaz as suas necessidades.<br/>Para mais informações, consulte [o mapeamento de Schema na atividade](copy-activity-schema-and-type-mapping.md)de cópia. | Não |
+| dataIntegraçãoUnidades | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração azure](concepts-integration-runtime.md) utiliza para cópia de dados. Estas unidades eram anteriormente conhecidas como Unidades de Movimento de Dados em nuvem (DMU). <br/>Para mais informações, consulte Unidades de [Integração de Dados](copy-activity-performance.md#data-integration-units). | Não |
+| paraleloCópias | Especifique o paralelismo que pretende que a atividade da Cópia utilize ao ler dados da fonte e escrever dados para o lavatório.<br/>Para mais informações, consulte [a cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
 | preservar | Especifique se deve preservar metadados/ACLs durante a cópia de dados. <br/>Para mais informações, consulte [Preservar metadados](copy-activity-preserve-metadata.md). |Não |
-| enableStaging<br/>stagingSettings | Especifique se deve ser a deestágio dos dados provisórios no armazenamento blob em vez de copiar diretamente os dados de origem para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [a cópia encenada](copy-activity-performance.md#staged-copy). | Não |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Escolha como lidar com linhas incompatíveis quando copia dados de origem para afundar.<br/>Para mais informações, consulte a [tolerância à falha.](copy-activity-fault-tolerance.md) | Não |
+| habilitarEncenação<br/>stagingDefinições | Especifique se deve ser a deestágio dos dados provisórios no armazenamento blob em vez de copiar diretamente os dados de origem para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [a cópia encenada](copy-activity-performance.md#staged-copy). | Não |
+| enableSkipIncompatívelRow<br/>redirecionamentoIncompatívelComDefinições RowSettings| Escolha como lidar com linhas incompatíveis quando copia dados de origem para afundar.<br/>Para mais informações, consulte a [tolerância à falha.](copy-activity-fault-tolerance.md) | Não |
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -175,16 +175,76 @@ Para outros cenários que não a cópia de ficheiros binários, a reexecução d
 
 Ao copiar dados de origem para afundar, em cenários como a migração de data lake, também pode optar por preservar os metadados e OSAc juntamente com os dados que utilizam a atividade de cópia. Consulte os [metadados da Preserve](copy-activity-preserve-metadata.md) para obter mais detalhes.
 
-## <a name="schema-and-data-type-mapping"></a>Esquema e o mapeamento de tipo de dados
+## <a name="schema-and-data-type-mapping"></a>Mapeamento de tipo de schema e dados
 
 Consulte [o Schema e](copy-activity-schema-and-type-mapping.md) o mapeamento do tipo de dados para obter informações sobre como a atividade da Cópia mapeia os seus dados de origem para a sua pia.
+
+## <a name="add-additional-columns-during-copy"></a>Adicione colunas adicionais durante a cópia
+
+Além de copiar dados da loja de dados de origem para afundar, também pode configurar para adicionar colunas de dados adicionais para copiar junto para afundar. Por exemplo:
+
+- Quando copiar a partir de fonte baseada em ficheiros, guarde o caminho relativo do ficheiro como uma coluna adicional para rastrear a partir do qual os dados são provenientes.
+- Adicione uma coluna com expressão ADF, para anexar variáveis do sistema ADF como o nome do pipeline/id do pipeline, ou armazenar outro valor dinâmico a partir da saída da atividade a montante.
+- Adicione uma coluna com valor estático para satisfazer as suas necessidades de consumo a jusante.
+
+Pode encontrar a seguinte configuração no separador fonte de origem da atividade da cópia: 
+
+![Adicionar colunas adicionais na atividade de cópia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+
+>[!TIP]
+>Esta funcionalidade funciona com o mais recente modelo dataset. Se não vir esta opção a partir da UI, tente criar um novo conjunto de dados.
+
+Para configurá-lo programáticamente, adicione a `additionalColumns` propriedade na sua fonte de atividade de cópia:
+
+| Propriedade | Descrição | Necessário |
+| --- | --- | --- |
+| colunas adicionais | Adicione colunas de dados adicionais para copiar para afundar.<br><br>Cada objeto `additionalColumns` sob a matriz representa uma coluna extra. O `name` define o nome da `value` coluna e o indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`**- uma variável reservada indica armazenar o caminho relativo dos ficheiros de origem para o caminho da pasta especificado no conjunto de dados. Aplicar à fonte baseada em ficheiros.<br>- **Expressão**<br>- **Valor estático** | Não |
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyWithAdditionalColumns",
+        "type": "Copy",
+        "inputs": [...],
+        "outputs": [...],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>",
+                "additionalColumns": [
+                    {
+                        "name": "filePath",
+                        "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "pipelineName",
+                        "value": {
+                            "value": "@pipeline().Pipeline",
+                            "type": "Expression"
+                        }
+                    },
+                    {
+                        "name": "staticValue",
+                        "value": "sampleValue"
+                    }
+                ],
+                ...
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
 
 ## <a name="fault-tolerance"></a>Tolerância a falhas
 
 Por padrão, a atividade copy sopre cede a cópia de dados e devolve uma falha quando as linhas de dados de origem são incompatíveis com as linhas de dados do lavatório. Para que a cópia tenha sucesso, pode configurar a atividade copy para saltar e registar as linhas incompatíveis e copiar apenas os dados compatíveis. Consulte a tolerância à [falha da atividade da Cópia](copy-activity-fault-tolerance.md) para detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes inícios rápidos, tutoriais e amostras:
+Consulte os seguintes quickstarts, tutoriais e amostras:
 
 - [Copiar dados de um local para outro local na mesma conta de armazenamento do Azure Blob](quickstart-create-data-factory-dot-net.md)
 - [Copiar dados do armazenamento da Blob Azure para a Base de Dados Azure SQL](tutorial-copy-data-dot-net.md)

@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar PostgreSQL para Azure Database para PostgreSQL online a
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de PostgreSQL no local para Azure Database for PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure através do CLI.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: fc2852aaa77dec9537aa8fc42f7f08ca441a129a
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 44df35957dfbd3aa4856d256dc1a7d9e6527fde0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240676"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL online usando DMS através do Azure CLI
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Monitorizar a migração.
 
 > [!NOTE]
-> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium.
+> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium. Encriptamos o disco para evitar o roubo de dados durante o processo de migração.
 
 > [!IMPORTANT]
 > Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Bases de Dados Azure na mesma região do Azure que a base de dados alvo. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -159,7 +159,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
 1. Instale a extensão dms sync:
    * Inicie sessão no Azure ao executar o seguinte comando:
-       ```
+       ```azurecli
        az login
        ```
 
@@ -167,24 +167,24 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    * Adicione a extensão dms:
        * Para listar as extensões disponíveis, execute o seguinte comando:
 
-           ```
+           ```azurecli
            az extension list-available –otable
            ```
 
        * Para instalar a extensão, execute o seguinte comando:
 
-           ```
+           ```azurecli
            az extension add –n dms-preview
            ```
 
    * Para verificar se tem a extensão dms correta instalada, execute o seguinte comando:
 
-       ```
+       ```azurecli
        az extension list -otable
        ```
        Deverá ver o resultado seguinte:
 
-       ```
+       ```output
        ExtensionType    Name
        ---------------  ------
        whl              dms
@@ -195,19 +195,19 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Em qualquer altura, veja todos os comandos suportados no DMS ao executar:
 
-       ```
+       ```azurecli
        az dms -h
        ```
 
    * Se tiver várias subscrições do Azure, execute o comando seguinte para definir a subscrição com que pretende aprovisionar uma instância do serviço DMS.
 
-        ```
+        ```azurecli
        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
 2. Aprovisione uma instância do DMS ao executar o seguinte comando:
 
-   ```
+   ```azurecli
    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
@@ -218,7 +218,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    * Nome de Grupo de Recursos: PostgresDemo
    * Nome do Serviço DMS: PostgresCLI
 
-   ```
+   ```azurecli
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
@@ -226,19 +226,19 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
 3. Para identificar o endereço IP do agente do DMS, para que o possa adicionar ao ficheiro pg_hba.conf do Postgres, execute o seguinte comando:
 
-    ```
+    ```azurecli
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     Por exemplo:
 
-    ```
+    ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     Deverá obter um resultado semelhante ao endereço seguinte: 
 
-    ```
+    ```output
     [
       "172.16.136.18"
     ]
@@ -256,20 +256,20 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
 5. Em seguida, crie um projeto de migração do PostgreSQL ao executar o seguinte comando:
     
-    ```
+    ```azurecli
     az dms project create -l <location> -g <ResourceGroupName> --service-name <yourServiceName> --source-platform PostgreSQL --target-platform AzureDbforPostgreSQL -n <newProjectName>
     ```
 
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
-   * Localização: E.U.A. Centro-Oeste
+   * Localização: West Central US
    * Nome de Grupo de Recursos: PostgresDemo
    * Nome do Serviço: PostgresCLI
    * Nome do projeto: PGMigration
    * Plataforma de origem: PostgreSQL
    * Plataforma de destino: AzureDbForPostgreSql
 
-     ```
+     ```azurecli
      az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
@@ -279,7 +279,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Para ver uma lista completa de opções, execute o comando:
 
-       ```
+       ```azurecli
        az dms project task create -h
        ```
 
@@ -287,7 +287,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
        O formato do objeto JSON de ligação para ligações do PostgreSQL.
         
-       ```
+       ```json
        {
                    "userName": "user name",    // if this is missing or null, you will be prompted
                    "password": null,           // if this is missing or null (highly recommended) you will
@@ -301,7 +301,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Há também um ficheiro Json de opção de base de dados que lista os objetos json. Para o PostgreSQL, o formato do objeto JSON de opções de base de dados é mostrado abaixo:
 
-       ```
+       ```json
        [
            {
                "name": "source database",
@@ -313,7 +313,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Crie um ficheiro json com o Bloco de notas, copie os seguintes comandos e cole-os no ficheiro e, em seguida, guarde o ficheiro em C:\DMS\source.json.
 
-        ```
+        ```json
        {
                    "userName": "postgres",    
                    "password": null,           
@@ -326,7 +326,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Crie outro ficheiro com o nome target.json e guarde-o como C:\DMS\target.json. Inclua os seguintes comandos:
 
-       ```
+       ```json
        {
                "userName": " dms@builddemotarget",    
                "password": null,           
@@ -338,7 +338,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Crie um ficheiro json de opções de base de dados que liste o inventário como a base de dados a migrar:
 
-       ``` 
+       ```json
        [
            {
                "name": "dvdrental",
@@ -349,7 +349,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Execute o seguinte comando, que aceita a origem, o destino e os ficheiros json de opções de BD.
 
-       ``` 
+       ```azurecli
        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
        ```
 
@@ -357,19 +357,19 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
 7. Para mostrar o progresso da tarefa, execute o seguinte comando:
 
-   ```
+   ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
    OU
 
-    ```
+    ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
 
 8. Pode também consultar o migrationState a na saída de expansão:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
@@ -377,7 +377,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
 No ficheiro de saída, existem diversos parâmetros que indicam o progresso da migração. Por exemplo, veja o ficheiro de saída abaixo:
 
-  ```
+  ```output
     "output": [                                 Database Level
           {
             "appliedChanges": 0,        //Total incremental sync applied after full load
@@ -472,19 +472,19 @@ Para garantir que todos os dados são capturados, valide as contagens de linhas 
 
 1. Execute a tarefa de migração da base de dados de transferência com o seguinte comando:
 
-    ```
+    ```azurecli
     az dms project task cutover -h
     ```
 
     Por exemplo:
 
-    ```
+    ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
     ```
 
 2. Para monitorizar o progresso da transferência, execute o seguinte comando:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
@@ -499,28 +499,28 @@ Se precisar de cancelar ou eliminar qualquer tarefa, projeto ou serviço do DMS,
 
 1. Para cancelar uma tarefa em execução, utilize o seguinte comando:
 
-    ```
+    ```azurecli
     az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
      ```
 
 2. Para eliminar uma tarefa em execução, utilize o seguinte comando:
-    ```
+    ```azurecli
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
 3. Para cancelar um projeto em execução, utilize o seguinte comando:
-     ```
+     ```azurecli
     az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
      ```
 
 4. Para eliminar um projeto em execução, utilize o seguinte comando:
-    ```
+    ```azurecli
     az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
 5. Para eliminar o serviço DMS, utilize o seguinte comando:
 
-     ```
+     ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 

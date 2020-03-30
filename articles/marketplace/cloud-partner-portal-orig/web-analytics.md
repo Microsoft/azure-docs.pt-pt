@@ -1,105 +1,103 @@
 ---
-title: Análise da Web
-description: .
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+title: Análise Web
+description: Este artigo fornece-lhe instruções sobre como aprender e usar o Web Analytics para melhor fazer crescer o seu negócio.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285338"
 ---
-<a name="web-analytics"></a>Análise da Web
+<a name="web-analytics"></a>Análise Web
 =============
 
-Este artigo fornece instruções sobre como aprender e usar o Web Analytics para aumentar melhor seus negócios. Atualmente, essa guia insights está disponível para qualquer oferta do AppSource.
+Este artigo fornece-lhe instruções sobre como aprender e usar o Web Analytics para melhor fazer crescer o seu negócio. Atualmente este separador Insights está disponível para quaisquer ofertas appSource.
 
-Agora que você criou e publicou sua oferta, a próxima parte da sua jornada é controlar e medir seu\' sucesso. Com o **Web Analytics**, adicionamos a capacidade de ver exatamente como cada uma de suas ofertas está fazendo no Marketplace. Para iniciar sua jornada, navegue até a página de informações no lado esquerdo da Portal do Cloud Partner para ver a nova guia análise.
+Agora que construiu e publicou a sua oferta, a próxima parte\' da sua viagem é acompanhar e medir o seu sucesso. Com o **Web Analytics,** adicionámos a capacidade de ver exatamente o quão bem cada uma das suas ofertas está a correr no mercado. Para iniciar a sua viagem, navegue para a página Insights no lado esquerdo do Cloud Partner Portal para ver o novo separador Analytics.
 
-![Página do WebAnalytics](./media/si-getting-started/WebAnalytics1.png)
+![Página WebAnalytics](./media/si-getting-started/WebAnalytics1.png)
 
-Você verá um painel avançado para sua ID de editor criado com o Microsoft Power BI e permitirá que você veja cada uma de suas ofertas\' dados, que são atualizados diariamente.
+Você verá um dashboard rico para o seu ID editor que foi construído com\' o Microsoft Power BI e permite-lhe ver cada uma das suas ofertas de dados, que é atualizado diariamente.
 
 <a name="microsoft-campaigns"></a>**Campanhas da Microsoft**
 -----------------------
 
-Para aumentar suas ofertas e acompanhar o crescimento de suas ofertas, habilitamos a capacidade de usar as campanhas da **Microsoft** no portal do Cloud Partner. As campanhas são um recurso com suporte recente para o Marketplace que permitirá que você acompanhe os diferentes canais que estão enviando clientes para a página de detalhes do aplicativo.
+Para aumentar as suas ofertas e acompanhar o crescimento das suas **ofertas,** permitimos a capacidade de utilizar as campanhas da Microsoft no Portal do Parceiro cloud. As campanhas são uma funcionalidade recentemente suportada para o mercado que lhe permitirá rastrear os diferentes canais que estão a enviar clientes para a sua página de detalhes da sua aplicação.
 
-### <a name="how-to-make-a-campaign"></a>**Como criar uma campanha**
+### <a name="how-to-make-a-campaign"></a>**Como fazer uma Campanha**
 
-A maneira mais simples de descrever campanhas é que você está adicionando uma palavra/termo personalizado à sua URL que chega à sua página de detalhes do aplicativo no Marketplace. O Google, Bing, LinkedIn e muitos outros sites incentivam você a criar um anúncio, vincular de seu site ao site desejado.
+A forma mais simples de descrever campanhas é que está a adicionar uma palavra/termo personalizado ao seu URL que aterra na página de detalhes da sua aplicação no mercado. Google, Bing, LinkedIn e muitos outros sites incentivam-no a construir um anúncio, link do seu site para o seu site pretendido.
 
-Em geral, esses esforços são ajudar a impulsionar novos clientes em seu produto e é essencial medir o sucesso de como cada um dos seus canais está se saindo. É aí que entram as campanhas.
+Em geral, estes esforços são para ajudar a impulsionar novos clientes no seu produto e é essencial medir o sucesso de como cada um dos seus canais está a fazer. É aqui que entram as campanhas.
 
-Há duas maneiras de gerar sua própria campanha.
+Há duas maneiras de gerar a sua própria campanha.
 
-1. Adicione à sua URL o parâmetro de consulta **mktcmpid** que descreve o que é a campanha e em qual página/evento os clientes estão vindo.
+1. Adicione ao seu URL o parâmetro de consulta **mktcmpid** que descreve o que é a campanha e de que página/evento estes clientes estão vindo.
 
-Por exemplo, você pode usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+Por exemplo, pode utilizar:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avançado): Use uma das nossas IDs de campanha genéricas com suporte na URL. Queremos ser acomodados com marcas ref adicionais que você precisa usar e, portanto, damos suporte à Convenção para reconhecer automaticamente essas marcas adicionais:
+1. (Avançado): Use uma das nossas identificações de campanha genéricas apoiadas no URL. Queremos acomodar-nos com etiquetas ref adicionais que você precisa usar, por isso apoiamos a convenção para reconhecer automaticamente estas tags adicionais:
     
-    1. **campanha de\_UTM**
-    2. **fonte de\_UTM**
-    3. **referência**
-    4. **orig**
+    1. **campanha\_utm**
+    2. **fonte\_utm**
+    3. **ref**
+    4. **src**
 
-Por exemplo, você pode usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+Por exemplo, pode utilizar:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
 
-Você pode optar por ter uma combinação de várias dessas IDs de campanha para identificar ainda mais várias fontes direcionando o tráfego para a campanha, como onde o cliente veio (email, blog, fonte de mídia social etc.).
+Pode optar por ter uma combinação de vários destes IDs de campanha para identificar ainda mais várias fontes que conduzem o tráfego para a campanha, como de onde o cliente veio (e-mail, blog, fonte de redes sociais, etc.).
 
 Por exemplo:
 
-1. Referenciador de boletim informativo: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. Referenciador do LinkedIn: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. Newsletter:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
+2. Referer LinkedIn:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
 
-### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Garantindo que as campanhas passem por todas as suas páginas**
+### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Garantir que as campanhas passem por todas as suas páginas**
 
-Pode haver um cenário em que suas campanhas têm uma página intermediária para a qual você está direcionando o tráfego e, em seguida, prossegue para enviar os clientes para o Marketplace. É importante passar por suas IDs de campanha inicial para a URL final que você envia para o Marketplace.
+Pode haver um cenário em que as suas campanhas tenham uma página intermédia para que esteja a conduzir o tráfego para que, em seguida, proceda ao envio dos clientes para o mercado. É importante passar as suas iDs de campanha iniciais para o URL final que envia para o mercado.
 
 Segue-se um exemplo:
 
-1. O funcionário de marketing compra anúncios do Google para direcionar o tráfego para a página inicial da empresa\'s <https://contoso.com>. Esta página de aterrissagem tem um \"experimentar meu produto\" link que vai para <https://appsource.com>.
-2. Um usuário clica no anúncio e chega na página inicial de sua empresa\'s.
+1. Funcionário de marketing compra anúncios da Google\'para conduzir <https://contoso.com>o tráfego para a página de aterragem da empresa . Esta página de \"aterragem\" tem uma <https://appsource.com>tentativa do meu link de produto que vai para .
+2. Um utilizador clica no anúncio e\'aterra na página de aterragem da sua empresa.
     1.  URL de referência = google.com
-    2.  URL da página de aterrissagem = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-3. O usuário clica no \"experimentar o meu produto\" link e entra em AppSource.
-    1. URL de referência = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL da página de aterrissagem (**Verifique se essa URL tem utm\_campanha e utm\_fonte adicionada a esta URL**) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**UTM\_campanha = MyCampaignAdName & UTM\_origem = MySourceAdName** ](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2.  URL da página de aterragem =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+3. O utilizador clica no link do \"meu produto\" e entra no AppSource.
+    1. URL de referência =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2. URL da página de aterragem (**Certifique-se de que este URL tem a\_campanha utm e a fonte utm\_adicionada a este URL**) = [ https://appsource.microsoft.com/product/dynamics-365/contoso.offername?campanha utm=MyCampaignAdName\_&utm\_source=MySourceAdName](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
-<a name="how-to-evaluate-the-success-of-a-campaign"></a>Como avaliar o sucesso de uma campanha
+<a name="how-to-evaluate-the-success-of-a-campaign"></a>Como avaliar o sucesso de uma Campanha
 -----------------------------------------
 
-### <a name="page-visits-by-campaign"></a>**Visitas à página por campanha**
+### <a name="page-visits-by-campaign"></a>**Visitas de página por campanha**
 
 ![WebAnalytics2](./media/si-getting-started/WebAnalytics2.png)
 
-Esta é a divisão de cada uma das suas visitas de página diárias pela campanha da qual vieram.
+Esta é a desagregação de cada uma das suas visitas diárias pela campanha de onde vieram.
 
 ### <a name="conversion-rate-by-campaign"></a>**Taxa de conversão por campanha**
 
 ![WebAnalytics3](./media/si-getting-started/WebAnalytics3.png)
 
-Assim como mostramos a taxa de conversão de toda a sua oferta, neste gráfico, você pode ver a análise de como as diferentes campanhas estão fazendo. Este gráfico deve ajudá-lo a identificar onde são provenientes suas campanhas de taxa de conversão mais altas.
+À semelhança de como mostramos a taxa de conversão de toda a sua oferta, neste gráfico pode ver a desagregação de como estão as suas diferentes campanhas. Este gráfico deve ajudá-lo a identificar de onde vêm as suas campanhas de taxa de conversão mais elevadas.
 
 ### <a name="distribution-by-campaign"></a>**Distribuição por campanha**
 
 ![WebAnalytics4](./media/si-getting-started/WebAnalytics4.png)
 
-Assim como examinamos os domínios de seus clientes, esse gráfico permite que você veja a distribuição de seus dados por campanha que os usuários estão chegando ao Marketplace em. \_nocampaign significa que o cliente não tinha uma ID de campanha na URL quando navegou para o Marketplace.
+À semelhança da forma como olhamos para os domínios dos seus clientes, este gráfico permite-lhe ver a distribuição dos seus dados por campanha em que os utilizadores estão a chegar ao mercado. \_NoCampaign significa que o cliente não tinha um ID de campanha na url quando navegava para o mercado.
 
-<a name="next-steps"></a>**Passos seguintes**
+<a name="next-steps"></a>**Próximos Passos**
 --------------
 
-Agora que você tem a capacidade de acompanhar o sucesso de suas ofertas, queremos incentivar você a criar suas próprias campanhas.
+Agora que tem a capacidade de acompanhar o sucesso das suas ofertas, queremos encorajá-lo a criar as suas próprias campanhas.
 
-Se você tiver perguntas/solicitações de recursos, compartilhe-as por meio de comentários, localizadas no canto superior direito.
+Se tiver pedidos de perguntas/funcionalidades, partilhe-os através do Feedback, localizado no canto superior direito.
 
-![Comentários em Portal do Cloud Partner](./media/si-getting-started/WebAnalytics5.png)
+![Feedback no Portal do Parceiro cloud](./media/si-getting-started/WebAnalytics5.png)

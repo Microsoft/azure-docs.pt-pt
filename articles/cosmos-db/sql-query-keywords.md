@@ -4,21 +4,22 @@ description: Saiba sobre as palavras-chave SQL para Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246581"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498550"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
+
 Este artigo detalha palavras-chave que podem ser usadas em consultas De SQL do Azure Cosmos DB.
 
-## <a name="between"></a>ENTRE
+## <a name="between"></a>BETWEEN
 
-Tal como no ANSI SQL, pode utilizar a palavra-chave ENTRE para expressar consultas contra gamas de cordas ou valores numéricos. Por exemplo, a seguinte consulta devolve todos os itens em que a nota da primeira criança é 1-5, inclusive.
+Pode utilizar `BETWEEN` a palavra-chave para expressar consultas contra gamas de cordas ou valores numéricos. Por exemplo, a seguinte consulta devolve todos os itens em que a nota da primeira criança é 1-5, inclusive.
 
 ```sql
     SELECT *
@@ -26,21 +27,21 @@ Tal como no ANSI SQL, pode utilizar a palavra-chave ENTRE para expressar consult
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Ao contrário do QUE acontece no ANSI SQL, também pode utilizar a cláusula ENTRE na cláusula FROM, como no exemplo seguinte.
+Também pode utilizar `BETWEEN` a palavra-chave na `SELECT` cláusula, como no exemplo seguinte.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-Na SQL API, ao contrário do ANSI SQL, pode expressar consultas de gama contra propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma corda como `grade4` em outros. Nestes casos, tal como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined`, pelo que o item é ignorado.
+Na SQL API, ao contrário do ANSI SQL, pode expressar consultas de gama contra propriedades de tipos mistos. Por exemplo, `grade` pode ser `5` um número como em `grade4` alguns itens e uma corda como em outros. Nestes casos, tal como no JavaScript, a `Undefined`comparação entre os dois tipos diferentes resulta em , pelo que o item é ignorado.
 
 > [!TIP]
-> Para tempos de execução de consultas mais rápidas, crie uma política de indexação que utilize um tipo de índice de alcance contra quaisquer propriedades ou caminhos numéricos que a cláusula ENTRE filtra.
+> Para tempos de execução de consultas mais rápidas, crie uma política de `BETWEEN` indexação que utilize um tipo de índice de alcance contra quaisquer propriedades ou caminhos numéricos que a cláusula filtra.
 
-## <a name="distinct"></a>DISTINTO
+## <a name="distinct"></a>DISTINCT
 
-A palavra-chave DISTINTA elimina duplicados na projeção da consulta.
+A `DISTINCT` palavra-chave elimina duplicados na projeção da consulta.
 
 Neste exemplo, os projetos de consulta valorizam para cada apelido:
 
@@ -102,7 +103,7 @@ Os resultados são:
 ]
 ```
 
-Não são suportadas consultas com uma função de sistema agregado e uma subqueria com DISTINCT. Por exemplo, a seguinte consulta não é suportada:
+Consultas com uma função de sistema `DISTINCT` agregado e uma subqueria com não são suportadas. Por exemplo, a seguinte consulta não é suportada:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -110,7 +111,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Utilize a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor numa lista. Por exemplo, a seguinte consulta devolve todos os itens familiares onde o `id` é `WakefieldFamily` ou `AndersenFamily`.
+Utilize a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor numa lista. Por exemplo, a seguinte consulta devolve todos `id` os `WakefieldFamily` `AndersenFamily`itens familiares onde está ou .
 
 ```sql
     SELECT *
@@ -128,11 +129,11 @@ O exemplo seguinte devolve todos os itens em que o estado é um dos valores espe
 
 A SQL API fornece suporte para [iterar sobre matrizes JSON,](sql-query-object-array.md#Iteration)com uma nova construção adicionada através da palavra-chave na fonte DA.
 
-Se incluir a chave de partição no filtro `IN`, a sua consulta filtrará automaticamente apenas as divisórias relevantes.
+Se incluir a chave `IN` de partição no filtro, a sua consulta filtrará automaticamente apenas as divisórias relevantes.
 
 ## <a name="top"></a>Início
 
-A palavra-chave TOP devolve o primeiro `N` número de consultas resulta numa ordem indefinida. Como uma boa prática, utilize top com a cláusula ORDER BY para limitar os resultados ao primeiro `N` número de valores encomendados. Combinar estas duas cláusulas é a única forma de indicar previsivelmente quais as linhas que o TOP afeta.
+A palavra-chave TOP `N` devolve o primeiro número de consultas resulta numa ordem indefinida. Como uma boa prática, `ORDER BY` use top com a `N` cláusula para limitar os resultados ao primeiro número de valores encomendados. Combinar estas duas cláusulas é a única forma de indicar previsivelmente quais as linhas que o TOP afeta.
 
 Pode utilizar top com um valor constante, como no exemplo seguinte, ou com um valor variável usando consultas parametrizadas.
 
@@ -165,6 +166,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
-- [Junta-se](sql-query-join.md)
+- [Começar](sql-query-getting-started.md)
+- [Associações](sql-query-join.md)
 - [Subqueides](sql-query-subquery.md)

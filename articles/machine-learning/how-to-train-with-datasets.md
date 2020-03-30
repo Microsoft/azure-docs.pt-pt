@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.openlocfilehash: 401383f2d483836bf725051810d78167869f7b22
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283501"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Aprendizagem automática Azure
@@ -33,7 +33,7 @@ Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfe
 
 Para criar e treinar com conjuntos de dados, precisa de:
 
-* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 * Um [espaço de trabalho azure machine learning.](how-to-manage-workspace.md)
 
@@ -44,7 +44,7 @@ Para criar e treinar com conjuntos de dados, precisa de:
 
 ## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Opção 1: Utilizar conjuntos de dados diretamente em scripts de treino
 
-Neste exemplo, cria-se um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e utiliza-o como entrada direta para o seu `estimator` objeto para treino. 
+Neste exemplo, cria-se um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e utiliza-o `estimator` como entrada direta para o seu objeto para treino. 
 
 ### <a name="create-a-tabulardataset"></a>Criar um Conjunto TabularDataset
 
@@ -61,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 Os objetos TabularDataset fornecem a capacidade de carregar os dados em pandas ou spark DataFrame para que possa trabalhar com bibliotecas familiares de preparação e formação de dados. Para alavancar esta capacidade, pode passar um TabularDataset como entrada na configuração de treino e, em seguida, recuperá-la no seu script.
 
-Para isso, aceda ao conjunto de dados de entrada através [do](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py)`Run`objeto no seu script de treino e utilize o método [`to_pandas_dataframe()`.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 
+Para isso, aceda ao conjunto de [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) dados de entrada através [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) do objeto no seu script de treino e utilize o método. 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -79,11 +79,11 @@ df = dataset.to_pandas_dataframe()
 
 Um objeto [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) é usado para submeter a execução da experiência. O Azure Machine Learning tem estimativas pré-configuradas para quadros comuns de aprendizagem automática, bem como um estimador genérico.
 
-Este código cria um objeto estimador genérico, `est`, que especifica
+Este código cria um objeto `est`estimador genérico, que especifica
 
 * Um diretório para os seus guiões. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
 * O guião de treino, *train_titanic.py.*
-* O conjunto de dados de entrada para treino, `titanic`. `as_named_input()` é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído no seu script de treino. 
+* O conjunto de dados `titanic`de entrada para treino, . `as_named_input()`é necessário para que o conjunto de dados de entrada possa ser referenciado pelo nome atribuído no seu script de treino. 
 * O alvo da computação para a experiência.
 * A definição de ambiente para a experiência.
 
@@ -113,7 +113,7 @@ Quando monta um conjunto de dados, fixa-se os ficheiros referenciados pelo conju
 
 Se o seu script processar todos os ficheiros referenciados pelo conjunto de dados, e o seu disco computacional puder encaixar no seu conjunto de dados completo, recomenda-se o download para evitar a sobrecarga de dados de streaming dos serviços de armazenamento. Se o tamanho dos seus dados exceder o tamanho do disco computacional, o download não é possível. Para este cenário, recomendamos a montagem, uma vez que apenas os ficheiros de dados utilizados pelo seu script são carregados no momento do processamento.
 
-O código seguinte `dataset` ao diretório temporário em `mounted_path`
+O código seguinte `dataset` monta para o diretório temporário em`mounted_path`
 
 ```python
 import tempfile
@@ -147,7 +147,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configure o estimador
 
-Além de passar o conjunto de dados através do parâmetro `inputs` no estimador, também pode passar o conjunto de dados através de `script_params` e obter o caminho de dados (ponto de montagem) no seu script de treino através de argumentos. Desta forma, pode manter o seu guião de treino independente do azureml-sdk. Por outras palavras, poderá utilizar o mesmo roteiro de treino para depuração local e treino remoto em qualquer plataforma de nuvem.
+Além de passar o `inputs` conjunto de dados através do parâmetro no estimador, também pode passar o conjunto de dados e `script_params` obter o caminho de dados (ponto de montagem) no seu script de treino através de argumentos. Desta forma, pode manter o seu guião de treino independente do azureml-sdk. Por outras palavras, poderá utilizar o mesmo roteiro de treino para depuração local e treino remoto em qualquer plataforma de nuvem.
 
 Um objeto estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para submeter a corrida para experiências de aprendizagem de scikit. Saiba mais sobre formação com o [estimador SKlearn.](how-to-train-scikit-learn.md)
 
@@ -173,7 +173,7 @@ run.wait_for_completion(show_output=True)
 
 ### <a name="retrieve-the-data-in-your-training-script"></a>Recupere os dados do seu roteiro de treino
 
-Depois de submeter a execução, os ficheiros de dados referidos pelo conjunto de dados `mnist` serão montados no alvo do cálculo. O código que se segue mostra como recuperar os dados do seu script.
+Depois de submeter a execução, `mnist` os ficheiros de dados referidos pelo conjunto de dados serão montados no alvo do cálculo. O código que se segue mostra como recuperar os dados do seu script.
 
 ```Python
 %%writefile $script_folder/train_mnist.py
@@ -211,7 +211,7 @@ y_test = load_data(y_test, True).reshape(-1)
 
 Os [cadernos conjuntos](https://aka.ms/dataset-tutorial) de dados demonstram e expandem-se sobre conceitos neste artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Modelos](how-to-auto-train-remote.md) de aprendizagem automática de máquinas de comboio com TabularDatasets
 

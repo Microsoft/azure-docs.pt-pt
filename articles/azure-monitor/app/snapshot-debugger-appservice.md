@@ -1,25 +1,25 @@
 ---
-title: Ativar o Snapshot Debugger para aplicações .NET no Serviço de Aplicações Azure  Microsoft Docs
+title: Ativar o Snapshot Debugger para aplicações .NET no Serviço de Aplicações Azure [ Microsoft Docs
 description: Ativar snapshot Debugger para .NET apps no Serviço de Aplicações Azure
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
-ms.date: 03/07/2019
+ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c23da585034e74d85be5a3c41b124f00408a0f4a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298278"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar snapshot Debugger para .NET apps no Serviço de Aplicações Azure
 
 O Snapshot Debugger trabalha atualmente para ASP.NET e ASP.NET aplicações Core que estão a funcionar no Azure App Service nos planos de serviço do Windows.
 
-## <a id="installation"></a>Ativar o Debugger Snapshot
+## <a name="enable-snapshot-debugger"></a><a id="installation"></a>Ativar o Debugger Snapshot
 Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para ativar o Snapshot Debugger noutras plataformas suportadas:
-* [Serviços em Nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Cloud do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviço Azure Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais azure e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [No local máquinas virtuais ou físicas](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -29,13 +29,13 @@ Se estiver a utilizar uma versão de pré-visualização de .NET Core, siga as i
 A aplicação Insights Snapshot Debugger está pré-instalada como parte do tempo de funcionamento dos Serviços de Aplicações, mas precisa de o ligar para obter fotografias para a sua aplicação App Service. Depois de ter implementado uma aplicação, mesmo que tenha incluído o SDK de Insights de Aplicação no código fonte, siga os passos abaixo para ativar o desbugger instantâneo.
 
 1. Vá ao painel de Serviços de **Aplicações** no portal Azure.
-2. Navegue para **Configurações > Painel de Insights de Aplicação.**
+2. Navegue para Definições > painel **insights de aplicação.**
 
-   ![Ativar o App Insights no portal dos serviços de aplicações](./media/snapshot-debugger/applicationinsights-appservices.png)
+   ![Ativar insights de aplicações no portal de serviços de aplicações](./media/snapshot-debugger/applicationinsights-appservices.png)
 
 3. Siga as instruções no painel para criar um novo recurso ou selecione um recurso app Insights existente para monitorizar a sua aplicação. Certifique-se também de que os dois interruptores para Snapshot Debugger estão **ligados**.
 
-   ![Adicionar extensão de site do App Insights][Enablement UI]
+   ![Adicionar extensão do site App Insights][Enablement UI]
 
 4. O Snapshot Debugger está agora ativado através de uma definição de app services.
 
@@ -45,6 +45,48 @@ A aplicação Insights Snapshot Debugger está pré-instalada como parte do temp
 
 Siga os mesmos passos que para **Enable Snapshot Debugger**, mas mude ambos os interruptores para Snapshot Debugger to **Off**.
 Recomendamos que tenha o Snapshot Debugger habilitado em todas as suas aplicações para facilitar o diagnóstico das exceções à aplicação.
+
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+
+Para um Serviço de Aplicações Azure, pode definir as definições de aplicativos num modelo de Gestor de Recursos Azure para ativar o Snapshot Debugger e o Profiler. Você adiciona um recurso config que contém as definições da aplicação como um recurso infantil do site:
+
+```json
+{
+  "apiVersion": "2015-08-01",
+  "name": "[parameters('webSiteName')]",
+  "type": "Microsoft.Web/sites",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  "tags": { 
+    "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "empty",
+    "displayName": "Website"
+  },
+  "properties": {
+    "name": "[parameters('webSiteName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "name": "appsettings",
+      "type": "config",
+      "dependsOn": [
+        "[parameters('webSiteName')]",
+        "[concat('AppInsights', parameters('webSiteName'))]"
+      ],
+      "properties": {
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(resourceId('Microsoft.Insights/components', concat('AppInsights', parameters('webSiteName'))), '2014-04-01').InstrumentationKey]",
+        "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+        "APPINSIGHTS_SNAPSHOTFEATURE_VERSION": "1.0.0",
+        "DiagnosticServices_EXTENSION_VERSION": "~3",
+        "ApplicationInsightsAgent_EXTENSION_VERSION": "~2"
+      }
+    }
+  ]
+},
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

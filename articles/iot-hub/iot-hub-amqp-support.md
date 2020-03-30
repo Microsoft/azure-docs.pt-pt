@@ -1,5 +1,5 @@
 ---
-title: Compreender o suporte amqp do Hub Azure IoT  Microsoft Docs
+title: Compreender o suporte amqp do Hub Azure IoT [ Microsoft Docs
 description: Guia de desenvolvimento - suporte para dispositivos que liguem a pontos finais virados para dispositivos IoT Hub e virados para o serviço utilizando o Protocolo AMQP. Inclui informações sobre suporte AMQP incorporado nos SDKs do dispositivo Azure IoT.
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284788"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunique com o seu hub IoT utilizando o Protocolo AMQP
@@ -31,7 +31,7 @@ As seguintes informações são necessárias para o cliente de serviço:
 | Nome de anfitrião do hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nome da chave | `service` |
 | Chave de acesso | Uma chave primária ou secundária que está associada ao serviço |
-| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`curta duração no seguinte formato: . Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
 O seguinte código snippet usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para ligar a um hub IoT através de uma ligação de remetente.
 
@@ -67,7 +67,7 @@ Para saber sobre a troca de mensagens cloud-to-device entre o serviço e o hub I
 
 | Criado por | Tipo de ligação | Caminho de ligação | Descrição |
 |------------|-----------|-----------|-------------|
-| Serviço | Ligação do remetente | `/messages/devicebound` | As mensagens cloud-to-device destinadas aos dispositivos são enviadas para este link pelo serviço. As mensagens enviadas através deste link têm a sua propriedade `To` definida para o caminho de ligação do recetor do dispositivo alvo, `/devices/<deviceID>/messages/devicebound`. |
+| Serviço | Ligação do remetente | `/messages/devicebound` | As mensagens cloud-to-device destinadas aos dispositivos são enviadas para este link pelo serviço. As mensagens enviadas `To` através deste link têm a sua `/devices/<deviceID>/messages/devicebound`propriedade definida para o caminho de ligação do dispositivo-alvo, . |
 | Serviço | Ligação do recetor | `/messages/serviceBound/feedback` | Mensagens de conclusão, rejeição e abandono que provêm de dispositivos recebidos neste link por serviço. Para obter mais informações sobre mensagens de feedback, consulte [Enviar mensagens cloud-to-device a partir de um hub IoT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 O seguinte código de snippet demonstra como criar uma mensagem cloud-to-device e enviá-la para um dispositivo utilizando a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python).
@@ -128,9 +128,9 @@ for msg in batch:
 
 Como mostrado no código anterior, uma mensagem de feedback cloud-to-device tem um tipo de conteúdo de *aplicação/vnd.microsoft.iothub.feedback.json*. Pode utilizar as propriedades do corpo JSON da mensagem para inferir o estado de entrega da mensagem original:
 
-* A chave `statusCode` no corpo de feedback tem um dos seguintes valores: *Sucesso,* *Expirado,* *DeliveryCountExceeded,* *Rejeitado*ou *Purgado*.
+* A `statusCode` chave no corpo de feedback tem um dos seguintes valores: *Sucesso*, *Expirado,* *DeliveryCountExceeded,* *Rejeitado*ou *Purgado*.
 
-* As principais `deviceId` no corpo de feedback têm a identificação do dispositivo-alvo.
+* A `deviceId` chave no corpo de feedback tem a identificação do dispositivo alvo.
 
 * A `originalMessageId` chave no corpo de feedback tem a identificação da mensagem original cloud-to-device que foi enviada pelo serviço. Pode utilizar este estado de entrega para correlacionar o feedback com as mensagens cloud-to-device.
 
@@ -144,7 +144,7 @@ Em cada passo, o cliente precisa apresentar as seguintes informações:
 
 * Credenciais de serviço válidas (ficha de assinatura de acesso partilhado de serviço).
 
-* Um caminho bem formatado para a partilha do grupo de consumidores de que pretende recuperar mensagens. Para um determinado grupo de consumidores e id de partição, o caminho tem o seguinte formato: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (o grupo de consumidores padrão é `$Default`).
+* Um caminho bem formatado para a partilha do grupo de consumidores de que pretende recuperar mensagens. Para um determinado grupo de consumidores e id `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` de partição, o caminho tem o seguinte formato: (o grupo de consumidores predefinido é `$Default`).
 
 * Um predicado de filtragem opcional para designar um ponto de partida na divisória. Este predicado pode ser sob a forma de um número de sequência, offset ou carimbo de tempo enqueuado.
 
@@ -226,7 +226,7 @@ São necessárias as seguintes informações para o cliente do dispositivo:
 |-------------|--------------|
 | Nome de anfitrião do hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Chave de acesso | Uma chave primária ou secundária que está associada ao dispositivo |
-| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`curta duração no seguinte formato: . Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
 O seguinte código snippet usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para ligar a um hub IoT através de uma ligação de remetente.
 
@@ -267,7 +267,7 @@ Os seguintes caminhos de ligação são suportados como operações do dispositi
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Receba comandos cloud-to-device (cliente do dispositivo)
 
-Os comandos cloud-to-device que são enviados para dispositivos chegam numa ligação `/devices/<deviceID>/messages/devicebound`. Os dispositivos podem receber estas mensagens em lotes e usar a carga útil dos dados da mensagem, propriedades de mensagens, anotações ou propriedades de aplicação na mensagem, conforme necessário.
+Os comandos cloud-to-device que são enviados para dispositivos chegam num `/devices/<deviceID>/messages/devicebound` link. Os dispositivos podem receber estas mensagens em lotes e usar a carga útil dos dados da mensagem, propriedades de mensagens, anotações ou propriedades de aplicação na mensagem, conforme necessário.
 
 O seguinte código de snippet utiliza a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python)para receber mensagens cloud-to-device por um dispositivo.
 

@@ -1,5 +1,6 @@
 ---
-title: Esquema de função dos serviços de nuvem do Azure | Microsoft Docs
+title: Papel de Serviços azure Cloud Schema Microsoft Docs
+description: O elemento Role de um ficheiro de configuração de serviço especifica quantas instâncias de função devem ser implementadas para cada função, valores de configuração e impressões de polegares de certificado.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -8,21 +9,21 @@ ms.topic: reference
 caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 0f0e79b462726b1aa6a953a4b8c92334d6b16492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528426"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Esquema da função de configuração dos serviços de nuvem do Azure
+# <a name="azure-cloud-services-config-role-schema"></a>Serviços azure cloud Config Role Schema
 
-O elemento `Role` do arquivo de configuração especifica o número de instâncias de função a serem implantadas para cada função no serviço, os valores de quaisquer parâmetros de configuração e as impressões digitais de quaisquer certificados associados a uma função.
+O `Role` elemento do ficheiro de configuração especifica o número de instâncias de função a implementar para cada função no serviço, os valores de quaisquer configurações de configuração e as impressões digitais para quaisquer certificados associados a uma função.
 
-Para obter mais informações sobre o esquema de configuração do serviço do Azure, consulte [esquema de configuração do serviço de nuvem (clássico)](schema-cscfg-file.md). Para obter mais informações sobre o esquema de definição de serviço do Azure, consulte [esquema de definição do serviço de nuvem (clássico)](schema-csdef-file.md).
+Para mais informações sobre o Esquema de Configuração de Serviço Azure, consulte [o Cloud Service (clássico) Configuração Schema](schema-cscfg-file.md). Para mais informações sobre o Schema de Definição de Serviço Azure, consulte [o Cloud Service (clássico) Definition Schema](schema-csdef-file.md).
 
-##  <a name="Role"></a>Elemento Role
-O exemplo a seguir mostra o elemento `Role` e seus elementos filho.
+##  <a name="role-element"></a><a name="Role"></a>Elemento de Papel
+O exemplo que `Role` se segue mostra o elemento e os elementos infantis.
 
 ```xml 
 <ServiceConfiguration>
@@ -38,20 +39,20 @@ O exemplo a seguir mostra o elemento `Role` e seus elementos filho.
 </ServiceConfiguration>
 ```
 
-A tabela a seguir descreve os atributos para o elemento `Role`.
+A tabela seguinte descreve `Role` os atributos para o elemento.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-| nome   | Necessário. Especifica o nome da função. O nome deve corresponder ao nome fornecido para a função no arquivo de definição de serviço.|
-| vmName | Opcional. Especifica o nome DNS para uma máquina virtual. O nome deve ter 10 caracteres ou menos.|
+| nome   | Necessário. Especifica o nome do papel. O nome deve coincidir com o nome previsto para o papel no ficheiro de definição de serviço.|
+| vmName | Opcional. Especifica o nome DNS para uma Máquina Virtual. O nome deve ser de 10 caracteres ou menos.|
 
-A tabela a seguir descreve os elementos filho do elemento `Role`.
+A tabela seguinte descreve os `Role` elementos infantis do elemento.
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| Instâncias | Necessário. Especifica o número de instâncias a serem implantadas para a função. O número de instâncias é definido por um inteiro para o atributo `count`.|
-| Definição   | Opcional. Especifica um nome de configuração e um valor em uma coleção de configurações para uma função. O nome da configuração é definido por uma cadeia de caracteres para o atributo `name` e o valor da configuração é definido por uma cadeia de caracteres para o atributo `value`.|
-| Certificado | Opcional. Especifica o nome, a impressão digital e o algoritmo de um certificado de serviço que deve ser associado à função. O nome do certificado é definido por uma cadeia de caracteres para o atributo `name`. A impressão digital do certificado é definida por uma cadeia de caracteres de números hexadecimais que não contém espaços para o atributo `thumbprint`. Os números hexadecimais devem ser representados usando dígitos e caracteres alfabéticos maiúsculos. O algoritmo de certificado é definido por uma cadeia de caracteres para o atributo `thumbprintAlgorithm`.|
+| de Instâncias | Necessário. Especifica o número de instâncias a implementar para o papel. O número de instâncias é definido por `count` um inteiro para o atributo.|
+| Definição   | Opcional. Especifica um nome e valor de definição numa coleção de configurações para uma função. O nome de definição é `name` definido por uma corda para o `value` atributo e o valor de definição é definido por uma corda para o atributo.|
+| Certificado | Opcional. Especifica o nome, impressão digital e algoritmo de um certificado de serviço que deve ser associado ao papel. O nome do certificado é `name` definido por uma corda para o atributo. A impressão digital do certificado é definida por uma série de `thumbprint` números hexadecimais que não contêm espaços para o atributo. Os números hexadecimais devem ser representados utilizando dígitos e caracteres alfa maiúsculos. O algoritmo de certificado é `thumbprintAlgorithm` definido por uma corda para o atributo.|
 
 ## <a name="see-also"></a>Veja também
-[Esquema de configuração do serviço de nuvem (clássico)](schema-cscfg-file.md)
+[Cloud Service (clássico) Configuração Schema](schema-cscfg-file.md)

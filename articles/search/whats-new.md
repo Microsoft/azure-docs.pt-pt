@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/10/2020
-ms.openlocfilehash: 3150eed063413d0665adfc104a603f9f2b5755c3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/24/2020
+ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241571"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247202"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -21,13 +21,15 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name"></a>Novo nome de serviço
+## <a name="new-service-name"></a>Novo nome do serviço
 
 A Azure Search é agora renomeada para **Azure Cognitive Search** para refletir o uso expandido (mas opcional) de habilidades cognitivas e processamento de IA em operações nucleares. As versões API, pacotes NuGet, espaços de nome e pontos finais mantêm-se inalteradas. As novas e existentes soluções de pesquisa não são afetadas pela mudança de nome do serviço.
 
 ## <a name="feature-announcements"></a>Anúncios de funcionalidades
 
 ### <a name="march-2020"></a>março de 2020
+
++ [A eliminação suave de bolhas nativas (pré-visualização)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa que o indexante de armazenamento de Blob Azure em Pesquisa Cognitiva Azure reconhecerá bolhas que se encontram em estado suave mente eliminada e removerá o documento de pesquisa correspondente durante a indexação.
 
 + A Nova [Estável Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) já está disponível. 
 
@@ -39,11 +41,11 @@ A Azure Search é agora renomeada para **Azure Cognitive Search** para refletir 
 
 ### <a name="january-2020"></a>Janeiro de 2020
 
-+ As [chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) estão agora geralmente disponíveis. Se estiver a utilizar o REST, pode aceder à funcionalidade utilizando `api-version=2019-05-06`. Para o código gerido, o pacote correto ainda é [a versão 8.0 do SDK .NET,](search-dotnet-sdk-migration-version-9.md) mesmo que a funcionalidade esteja fora de pré-visualização. 
++ As [chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) estão agora geralmente disponíveis. Se estiver a utilizar o REST, `api-version=2019-05-06`pode aceder à funcionalidade utilizando . Para o código gerido, o pacote correto ainda é [a versão 8.0 do SDK .NET,](search-dotnet-sdk-migration-version-9.md) mesmo que a funcionalidade esteja fora de pré-visualização. 
 
 + O acesso privado a um serviço de pesquisa está disponível através de dois mecanismos, ambos atualmente em pré-visualização:
 
-  + Pode restringir o acesso a endereços IP específicos utilizando a `api-version=2019-10-01-Preview` de Gestão REST API para criar o serviço. A API de pré-visualização tem novas propriedades **IpRule** e **NetworkRuleSet** no [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Esta função de pré-visualização está disponível em regiões selecionadas. Para mais informações, consulte [Como utilizar a API DE GESTÃO REST](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Pode restringir o acesso a endereços IP específicos utilizando a API `api-version=2019-10-01-Preview` MANAGEMENT REST para criar o serviço. A API de pré-visualização tem novas propriedades **IpRule** e **NetworkRuleSet** no [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Esta função de pré-visualização está disponível em regiões selecionadas. Para mais informações, consulte [Como utilizar a API DE GESTÃO REST](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Atualmente disponível através de uma pré-visualização de acesso limitado, pode fornecer um serviço de Pesquisa Azure que suporta o Azure Private Endpoint para ligações de clientes na mesma rede virtual. Para mais informações, consulte [Criar um Ponto Final Privado para uma ligação segura](service-create-private-endpoint.md).
 

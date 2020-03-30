@@ -1,22 +1,21 @@
 ---
-title: Guia de unidade de teste da oferta de aplicativo do Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Artigo de CPP preterido, artigo vinculado ao PC; foi "como configurar test drive para uma oferta de aplicativo do Dynamics 365 for Customer Engagement no AppSource Marketplace".
-services: Azure, Marketplace, AppSource, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-author: ChJenk
+title: Dynamics 365 para aplicação de envolvimento com o cliente oferece separador Test Drive [ Mercado Azure
+description: Artigo de CPP precatied, ligado ao artigo pc; foi "Como configurar o test drive para uma oferta de aplicação de envolvimento com o cliente Dynamics 365 no Mercado appSource."
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 0e201f6d54d46fab7120239b26a58e1d2b92020e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ef464ad288127ad0440d4a80a2a3745887dea973
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824638"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286613"
 ---
-# <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Guia da unidade de teste do aplicativo do Dynamics 365 for Customer Engagement
+# <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dinâmica 365 para aplicação de envolvimento com o cliente Test Drive
 
-O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
+O [Portal do Parceiro cloud](https://cloudpartner.azure.com/) já não suporta a criação e gestão das ofertas de Envolvimento com o Cliente Da Dynamics 365. Em vez disso, esta funcionalidade foi transferida para o portal Microsoft [Partner Center](https://partner.microsoft.com/). Para mais informações, consulte [Criar uma nova Dinâmica 365 para o envolvimento com o cliente & oferta powerApps.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer)
 
-Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.
+Antes de criar uma nova oferta de Participação do Cliente Da Dynamics 365, deve ler [Criar uma conta partner center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o dashboard do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **'Overview'** selecionada. Siga as instruções em [Create a new Dynamics 365 for Customer Engagement & PowerApps oferecem](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar a sua oferta.

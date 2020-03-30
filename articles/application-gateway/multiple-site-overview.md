@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257415"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
-O alojamento de vários sites permite configurar mais do que uma aplicação web na mesma porta de um portal de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um portal de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway da aplicação serve tráfego para `contoso.com` e `fabrikam.com` de dois conjuntos de servidores de back-end chamadoS ContosoServerPool e FabrikamServerPool.
+O alojamento de vários sites permite configurar mais do que uma aplicação web na mesma porta de um portal de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um portal de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway `contoso.com` `fabrikam.com` da aplicação serve tráfego para e a partir de dois conjuntos de servidores de back-end chamadoS ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -25,7 +25,7 @@ O alojamento de vários sites permite configurar mais do que uma aplicação web
 
 Os pedidos de `http://contoso.com` são encaminhados para ContosoServerPool e os pedidos de `http://fabrikam.com` são encaminhados para FabrikamServerPool.
 
-Da mesma forma, pode alojar vários subdomínios do mesmo domínio principal na mesma implementação de gateway de aplicação. Por exemplo, pode hospedar `http://blog.contoso.com` e `http://app.contoso.com` numa única implementação de gateway de aplicação.
+Da mesma forma, pode alojar vários subdomínios do mesmo domínio principal na mesma implementação de gateway de aplicação. Por exemplo, pode `http://blog.contoso.com` `http://app.contoso.com` hospedar e numa única implementação de gateway de aplicação.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de anfitrião e Indicação do Nome de Servidor (SNI)
 
@@ -39,7 +39,7 @@ Atualmente, o Application Gateway suporta um único endereço IP público onde o
 
 Application Gateway suporta múltiplas aplicações cada escuta em diferentes portas, mas este cenário requer que as aplicações aceitem o tráfego em portas não standard. Esta não é, muitas vezes, uma configuração que se quer.
 
-O Gateway de Aplicação conta com os cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta. Os sites alojados no gateway de aplicação também podem suportar descarga de SSL com a extensão TLS da Indicação do Nome de Servidor (SNI). Neste cenário, o browser cliente e o web farm de back-end têm de suportar HTTP/1.1 e a extensão TLS conforme definido em RFC 6066.
+O Gateway de Aplicação conta com os cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta. Os sites hospedados no gateway da aplicação também podem suportar a descarga de TLS com a extensão TLS de indicação de nome do servidor (SNI) TLS. Neste cenário, o browser cliente e o web farm de back-end têm de suportar HTTP/1.1 e a extensão TLS conforme definido em RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 42888060f206c89a597a1a18783070d0a805dfb9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6f1c211a8110d95adb5e6802313c5b7deafe3864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276466"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Quickstart: Criar um projeto de funções Azure usando o Código de Estúdio Visual
 
@@ -25,23 +25,23 @@ Antes de começar, certifique-se de que tem os seguintes requisitos no lugar:
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node.js](https://nodejs.org/), exigido pelo Windows para as npm. Apenas [versões LTS ativas e de Manutenção LTS. ](https://nodejs.org/about/releases/) Use o comando `npm --version` para verificar a sua versão.
++ [Node.js](https://nodejs.org/), exigido pelo Windows para as npm. Apenas [versões LTS ativas e de Manutenção LTS. ](https://nodejs.org/about/releases/) Use `npm --version` o comando para verificar a sua versão.
     Não é necessário para o desenvolvimento local em MacOS e Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js,](https://nodejs.org/)versões Ative LTS e Manutenção LTS (10.14.1 recomendado). Use o comando `npm --version` para verificar a sua versão.
++ [Node.js,](https://nodejs.org/)versões Ative LTS e Manutenção LTS (10.14.1 recomendado). Use `npm --version` o comando para verificar a sua versão.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
-+ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Funções Azure.
++ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Funções Azure (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [Núcleo PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 + O [Núcleo .NET SDK 2.2+](https://www.microsoft.com/net/download)  
 ::: zone-end  
 + [Código de Estúdio Visual](https://code.visualstudio.com/) numa das [plataformas suportadas.](https://code.visualstudio.com/docs/supporting/requirements#_platforms)  
 ::: zone pivot="programming-language-csharp"  
-+ A [ C# extensão](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para Visual Studio Code.  
++ A [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para Visual Studio Code.  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + A [extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code.  
@@ -52,7 +52,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos no lugar:
 
 + A [extensão de funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual. 
 
-## <a name="create-an-azure-functions-project"></a>Crie o seu projeto local 
+## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Crie o seu projeto local 
 
 Nesta secção, você usa o Código de Estúdio Visual para criar um projeto local de Funções Azure no seu idioma escolhido. Mais tarde neste artigo, publicará o seu código de função ao Azure. 
 
@@ -87,15 +87,15 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
 
     + **Selecione um modelo para a primeira função do seu projeto:** Escolha `HTTP trigger`.
     
-    + **Forneça um nome de função**: Escreva `HttpExample`.
+    + **Forneça um nome de função**: Tipo `HttpExample`.
     
     ::: zone pivot="programming-language-csharp"
-    + **Forneça um espaço de nome**: Type `My.Functions`. 
+    + **Forneça um espaço** `My.Functions`de nome : Tipo . 
     ::: zone-end
 
-    + **Nível de autorização**: Escolha `Anonymous`, que permite a qualquer pessoa ligar para o seu ponto final de função. Para saber mais sobre o nível de autorização, consulte [as teclas de autorização.](functions-bindings-http-webhook-trigger.md#authorization-keys)
+    + **Nível**de `Anonymous`autorização : Escolha , que permite a qualquer pessoa ligar para o seu ponto final de função. Para saber mais sobre o nível de autorização, consulte [as teclas de autorização.](functions-bindings-http-webhook-trigger.md#authorization-keys)
 
-    + **Selecione como pretende abrir o seu projeto**: Escolha `Add to workspace`.
+    + **Selecione como pretende abrir**o `Add to workspace`seu projeto : Escolha .
 
 1. Utilizando esta informação, o Visual Studio Code gera um projeto de Funções Azure com um gatilho HTTP. Pode ver os ficheiros do projeto local no Explorer. Para saber mais sobre os ficheiros que são criados, consulte [ficheiros de projetos gerados](functions-develop-vs-code.md#generated-project-files). 
 
@@ -123,7 +123,7 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
     ![Copiar o URL de função para o novo gatilho HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-1. Colá-lo este URL para o pedido http na barra de endereços do seu navegador, adicione a cadeia de consulta `name` como `?name=Functions` ao final deste URL e, em seguida, execute o pedido. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
+1. Colá-lo este URL para o pedido http na `name` barra de `?name=Functions` endereços do seu navegador, adicione a cadeia de consulta quanto ao final deste URL e, em seguida, execute o pedido. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
         http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
         

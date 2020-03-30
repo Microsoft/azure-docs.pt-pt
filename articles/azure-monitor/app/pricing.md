@@ -1,5 +1,5 @@
 ---
-title: Gerir o uso e os custos para insights de aplicação azure  Microsoft Docs
+title: Gerir o uso e os custos para insights de aplicação azure [ Microsoft Docs
 description: Gerir volumes de telemetria e monitorizar os custos em Insights de Aplicação.
 ms.topic: conceptual
 author: DaleKoetke
@@ -7,13 +7,13 @@ ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275948"
 ---
-# <a name="manage-usage-and-costs-for-application-insights"></a>Gerir o uso e os custos para insights de aplicação
+# <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
 > [!NOTE]
 > Este artigo descreve como compreender e controlar os seus custos para Insights de Aplicação.  Um artigo relacionado, [monitorização da utilização e custos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) descreve como visualizar o uso e os custos estimados em várias funcionalidades de monitorização do Azure para diferentes modelos de preços.
@@ -50,7 +50,7 @@ A Aplicação Insights torna fácil entender quais os seus custos provavelmente 
 
 ![Escolha preços](./media/pricing/pricing-001.png)
 
-A. Reveja o volume de dados do mês. Isto inclui todos os dados recebidos e retidos (após qualquer [amostragem)](../../azure-monitor/app/sampling.md)das suas aplicações de servidor e cliente, e de testes de disponibilidade.  
+R. Reveja o volume de dados do mês. Isto inclui todos os dados recebidos e retidos (após qualquer [amostragem)](../../azure-monitor/app/sampling.md)das suas aplicações de servidor e cliente, e de testes de disponibilidade.  
 B. É feita uma carga separada para [testes web em várias etapas](../../azure-monitor/app/availability-multistep.md). (Isto não inclui testes de disponibilidade simples, que estão incluídos na carga de volume de dados.)  
 C. Veja as tendências de volume de dados do mês passado.  
 D. Ativar [a amostragem de](../../azure-monitor/app/sampling.md)ingestão de dados .
@@ -67,17 +67,17 @@ As despesas com insights de aplicação são adicionadas à sua conta Azure. Pod
 ### <a name="using-data-volume-metrics"></a>Utilização de métricas de volume de dados
 <a id="understanding-ingested-data-volume"></a>
 
-Para saber mais sobre os seus volumes de dados, selecionando **Métricas** para o seu recurso Application Insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em Registos,** selecione volume de **ponto de dados**. Clique **em Aplicar divisão**, e selecione grupo por`Telemetryitem` **tipo**.
+Para saber mais sobre os seus volumes de dados, selecionando **Métricas** para o seu recurso Application Insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em Registos,** selecione volume de **ponto de dados**. Clique **em Aplicar divisão**, e selecione grupo por ** `Telemetryitem` tipo**.
 
 ![Use métricas para olhar para o volume de dados](./media/pricing/10-billing.png)
 
 ### <a name="queries-to-understand-data-volume-details"></a>Consultas para compreender detalhes do volume de dados
 
-Existem duas abordagens para investigar volumes de dados para Insights de Aplicação. O primeiro utiliza informação agregada na tabela `systemEvents`, e a segunda utiliza o imóvel `_BilledSize`, que está disponível em cada evento ingerido.
+Existem duas abordagens para investigar volumes de dados para Insights de Aplicação. O primeiro utiliza informação `systemEvents` agregada na `_BilledSize` tabela, e o segundo utiliza o imóvel, que está disponível em cada evento ingerido.
 
 #### <a name="using-aggregated-data-volume-information"></a>Utilização de informações agregadas sobre volume de dados
 
-Por exemplo, pode utilizar a tabela `systemEvents` para ver o volume de dados ingerido nas últimas 24 horas com a consulta:
+Por exemplo, pode `systemEvents` utilizar a tabela para ver o volume de dados ingerido nas últimas 24 horas com a consulta:
 
 ```kusto
 systemEvents
@@ -114,9 +114,9 @@ systemEvents
 
 #### <a name="using-data-size-per-event-information"></a>Utilização do tamanho dos dados por informação do evento
 
-Para saber mais detalhes sobre a origem dos seus volumes de dados, pode utilizar a propriedade `_BilledSize` que está presente em cada evento ingerido.
+Para saber mais detalhes sobre a origem dos seus `_BilledSize` volumes de dados, pode utilizar a propriedade que está presente em cada evento ingerido.
 
-Por exemplo, para ver quais as operações que geram mais volume de dados nos últimos 30 dias, podemos resumir `_BilledSize` para todos os eventos de dependência:
+Por exemplo, para ver quais as operações que geram mais volume `_BilledSize` de dados nos últimos 30 dias, podemos resumir para todos os eventos de dependência:
 
 ```kusto
 dependencies
@@ -162,7 +162,7 @@ Pode utilizar a tampa de volume diária para limitar os dados recolhidos. No ent
 
 Em vez de utilizar a tampa diária de volume, utilize [amostras](../../azure-monitor/app/sampling.md) para afinar o volume de dados ao nível que deseja. Em seguida, utilize a tampa diária apenas como um "último recurso" caso a sua aplicação comece inesperadamente a enviar volumes muito mais elevados de telemetria.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diários a definir
 
 Reveja a utilização de Insights de Aplicação e custos estimados para compreender a tendência de ingestão de dados e qual é a tampa de volume diária a definir. Deve ser considerado com cuidado, uma vez que não poderá monitorizar os seus recursos após o limite ser atingido.
 
@@ -172,7 +172,7 @@ Para alterar a tampa diária, na secção **Configure** do seu recurso Applicati
 
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-003.png)
 
-Para [alterar a tampa diária via Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a mudar é a `dailyQuota`.  Via Azure Resource Manager também pode definir o `dailyQuotaResetTime` e o `warningThreshold`da tampa diária.
+Para [alterar a tampa diária via Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a mudar é a `dailyQuota`.  Via Azure Resource Manager também `dailyQuotaResetTime` pode definir a `warningThreshold`tampa diária.
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o Daily Cap
 
@@ -206,9 +206,9 @@ Para descobrir a taxa de amostragem real, não importa onde tenha sido aplicada,
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
     | render areachart
 
-Em cada registo retido, `itemCount` indica o número de registos originais que representa. É igual a 1 + o número de registos anteriores descartados.
+Em cada registo `itemCount` retido, indica o número de registos originais que representa. É igual a 1 + o número de registos anteriores descartados.
 
-## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
+## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
 A retenção padrão dos recursos da Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso Desinformação de Aplicação. O conjunto completo de períodos de retenção disponíveis é de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias.
 
@@ -216,7 +216,7 @@ Para alterar a retenção, a partir do seu recurso Application Insights, vá à 
 
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando powerShell](powershell.md#set-the-data-retention) usando o parâmetro de `retentionInDays`. Além disso, se definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, o que pode ser útil para cenários relacionados com conformidade. Esta funcionalidade de purga só é exposta através do Azure Resource Manager e deve ser utilizada com extremo cuidado. O tempo de reset diário para a tampa de volume de dados pode ser configurado utilizando o Gestor de Recursos Azure para definir o parâmetro `dailyQuotaResetTime`.
+A retenção também pode ser [definida programaticamente usando powerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Além disso, se definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos usando o parâmetro, o `immediatePurgeDataOn30Days` que pode ser útil para cenários relacionados com conformidade. Esta funcionalidade de purga só é exposta através do Azure Resource Manager e deve ser utilizada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado utilizando o Gestor de Recursos Azure para definir o parâmetro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Encargos de transferência de dados usando Insights de Aplicação
 
@@ -263,7 +263,7 @@ Como este nível é aplicável apenas a clientes com uma subscrição de Suite d
 * Embora as acusações sejam citadas por mês, é cobrado apenas por qualquer hora em que um nó envia telemetria de uma aplicação. A carga horária é a taxa mensal citada dividida por 744 (o número de horas num mês de 31 dias).
 * É dada uma alocação de volume de dados de 200 MB por dia para cada nó detetado (com granularidade horária). A atribuição de dados não utilizados não é transportada de um dia para o outro.
   * Se escolher o nível de preços Per Nó, cada subscrição recebe uma mesada diária de dados com base no número de nós que enviam telemetria para os recursos da Aplicação Insights nessa subscrição. Assim, se tiver cinco nós que enviam dados durante todo o dia, terá um subsídio conjunto de 1 GB aplicado a todos os recursos da Application Insights nessa subscrição. Não importa se certos nós enviam mais dados do que outros nós porque os dados incluídos são partilhados em todos os nós. Se num determinado dia, os recursos do Application Insights receberem mais dados do que os incluídos na atribuição diária de dados para esta subscrição, aplicam-se os encargos de dados por GB. 
-  * O subsídio diário de dados é calculado como o número de horas do dia (utilizando UTC) que cada nó envia telemetria dividida por 24 multiplicados por 200 MB. Assim, se tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados &#215; incluídos nesse dia &#215; seriam ((4 15) / 24) 200 MB = 500 MB. Ao preço de 2,30 USD por GB para sobrecarga de dados, a taxa seria de 1,15 USD se os nós enviassem 1 GB de dados nesse dia.
+  * O subsídio diário de dados é calculado como o número de horas do dia (utilizando UTC) que cada nó envia telemetria dividida por 24 multiplicados por 200 MB. Assim, se tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos nesse dia seriam ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Ao preço de 2,30 USD por GB para sobrecarga de dados, a taxa seria de 1,15 USD se os nós enviassem 1 GB de dados nesse dia.
   * O subsídio diário per nó não é partilhado com pedidos para os quais escolheu o nível Per GB. A mesada não utilizada não é transportada do dia-a-dia.
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem distinta do nó

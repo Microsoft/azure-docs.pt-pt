@@ -1,41 +1,39 @@
 ---
-title: Práticas recomendadas de marketing do Test Drive | Azure Marketplace
-description: Testar práticas recomendadas de marketing para Publicadores
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+title: Test Drive Marketing Boas Práticas [ Mercado Azure
+description: Test Drive marketing boas práticas para editores
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 3520e2c16f9a0c891db0d641fa7c9b811cac7b10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278251"
 ---
-<a name="test-drive-marketing-and-best-practices"></a>Testar o marketing e as práticas recomendadas
+<a name="test-drive-marketing-and-best-practices"></a>Marketing test drive e boas práticas
 =======================================
 
-O Azure Marketplace Test Drive é uma excelente ferramenta para os profissionais de marketing, e recomendamos ser incorporados em seus esforços de entrada no mercado quando você iniciar o. Temos várias práticas recomendadas que recomendamos que você faça imediatamente quando publicar isso dará suporte muito a gerar mais clientes potenciais do Test Drive:
+O Azure Marketplace Test Drive é uma excelente ferramenta para os marketers, e recomendamos que seja incorporado nos seus esforços de ir ao mercado quando lançar. Dispomos de várias boas práticas que recomendamos que faça imediatamente quando publicar que irá suportar muito a geração de mais leads do Test Drive:
 
-- **Página de referência**: poste uma página na sua presença na Web que conversa tudo sobre o seu test drive do Azure e poste vários links de referência direcionando o tráfego para seu Test Drive
-- **Mídia social**: criar uma agenda onde você posta em seus canais de mídia social sobre seu Test Drive regularmente
-- **Blogs**: escreva uma postagem de blog sobre sua test drive do Azure. Destaque os recursos e benefícios que o usuário terá para experimentar gratuitamente e em muito pouco tempo. Certifique-se de vincular-se à sua página de test drive do Azure em vários locais na cópia do blog. Aqui está um link para uma postagem de blog de exemplo sobre o Azure test drive. Melhor ainda? Poste links para sua postagem de blog em seus canais de mídia social.
-- **Incentivá de email**: Informe os clientes potenciais que se envolver com sua marca por meio de outros canais por email para informá-los sobre o Test Drive e incentive-os a experimentá-los gratuitamente.
-- **Treinamento e ferramentas de vendas**: Configure uma sessão de treinamento com suas equipes de vendas para demonstrar a experiência de Test Drive e apresentar algumas maneiras de que elas podem envolver seus clientes potenciais e clientes com ele. O pessoal de vendas pode configurar uma demonstração com vários contatos em uma empresa e, em seguida, enviar cada um deles o link para o test drive posteriormente para levá-lo.
-- **Feiras de negócios e conferências**: tem um estande em um evento do setor que os clientes potenciais estarão participando? Configure alguns laptops na cabine e faça com que suas unidades de teste sejam executadas para que os clientes possam pegar o test drive no seu estande e, em seguida, conversar com eles sobre o produto durante e após sua experiência!
+- **Página de referência**: Publique uma página na sua presença web que fale tudo sobre o seu Disco de Teste Azure e publique vários links de encaminhamento direcionando o tráfego para o seu test drive
+- **Redes Sociais**: Crie um horário onde publique nas suas redes sociais sobre o seu test drive regularmente
+- **Blogs**: Escreva uma publicação de blog sobre o seu test drive Azure. Destaque as funcionalidades e benefícios que o utilizador irá experimentar gratuitamente e em muito pouco tempo. Certifique-se de ligar-se à sua página de test drive Azure em vários lugares da cópia do blog. Aqui está um link para uma publicação de blog de amostra sobre o test drive Azure. Melhor ainda? Publique links para a sua publicação de blog nas suas redes sociais.
+- **Nutrição por e-mail**: Informe os leads que se envolveram com a sua marca através de outros canais através de e-mail para informá-los sobre o test drive e encorajá-los a experimentá-lo gratuitamente.
+- **Treino de vendas e ferramentas**: Marque uma sessão de formação com as suas equipas de vendas para despromover a experiência de test drive e criar algumas formas de envolver as suas pistas e clientes com ela. Os vendedores podem configurar uma demonstração com múltiplos contactos numa empresa e enviar a cada um deles o link para o test drive depois para levá-lo eles mesmos.
+- **Feiras e conferências**: Tem uma cabine num evento da indústria onde estarão presentes potenciais clientes? Instale alguns portáteis na cabine e coloque os seus test drives em funcionamento para que os clientes possam fazer o test drive na sua cabine, em seguida, falar com eles sobre o produto durante e após a sua experiência!
 
-<a name="lead-management"></a>Gerenciamento de leads
+<a name="lead-management"></a>Gestão de Chumbo
 ---------------
 
-Agora que você está gerando leads altamente qualificados de test drive, você desejará garantir que tenha incorporado esses leads em seus canais de vendas e marketing e se envolver com clientes potenciais para transformá-los em clientes pagantes. Aqui estão algumas práticas recomendadas com relação à condução de clientes potenciais pelo seu ciclo de vendas:
+Agora que está a gerar pistas altamente qualificadas a partir do test drive, vai querer garantir que incorporou estas pistas nos seus canais de vendas e marketing e se envolve com perspetivas para transformá-las em clientes pagadores. Aqui estão algumas práticas recomendadas no que diz respeito à condução de pistas através do seu ciclo de vendas:
 
-- Faça contato com o cliente potencial dentro de 24 horas, levando a test drive. Você obterá o líder no CRM de sua escolha imediatamente depois que o cliente implantar o test drive--Lembre-se de enviar um email nas primeiras 24 horas enquanto eles ainda estiverem quentes. Solicitar o agendamento de um telefonema com eles para entender melhor quais problemas estão tentando resolver e ver se o produto pode ajudar.
-- Acompanhe algumas ocasiões, mas não Bombard-las. É recomendável que você envie um email para essas vezes antes de fechá-las, mas não desistir após a primeira tentativa. Lembre-se: esses clientes estão diretamente envolvidos em seu produto e gastaram tempo em uma avaliação gratuita.
-- Eles são ótimos clientes potenciais!
-- Se você fechar um negócio com um test drive Lead, não se esqueça de registrá-lo no parceiro Sales Connect. Além disso, adoraríamos saber sobre seu cliente vence onde test drive desempenhasse uma função!
+- Contacte o chumbo dentro de 24 horas após a sua tomada de teste. Você receberá a liderança no seu CRM de eleição imediatamente após o cliente implementar o test drive - certifique-se de enviar-lhes um e-mail dentro das primeiras 24 horas enquanto eles ainda estão quentes. Solicite agendar uma chamada telefónica com eles para entender melhor os problemas que estão a tentar resolver e para ver se o seu produto pode ajudar.
+- Acompanhem-nos algumas vezes, mas não os bombardeiem. Recomendamos que envie por e-mail estas pistas algumas vezes antes de fechá-las, mas não desista após a primeira tentativa. Lembre-se, estes clientes se envolveram diretamente com o seu produto e passaram algum tempo num teste gratuito.
+- São grandes perspetivas!
+- Se fechar um acordo com um fio de test drive, certifique-se de que o regista na ligação de vendas do Partner. Além disso, adoraríamos ouvir sobre as vitórias do seu cliente onde o test drive desempenhou um papel!
 
-As perguntas frequentes do Test Drive estão localizadas aqui: <https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices>
+Test Drive FAQ está localizado aqui:<https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices>

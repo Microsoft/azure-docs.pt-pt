@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: dd0343fc2e25a50f9aa9a9fdc3ef5ebb9615bc56
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531457"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -35,7 +35,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 | Categoria              | Sugestões de otimização do desempenho                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Data store específico   | Carregar dados no **Azure Synpase Analytics (anteriormente SQL DW)** : sugerir a utilização da declaração PolyBase ou COPY se não for utilizado. |
+| Data store específico   | Carregar dados no **Azure Synpase Analytics (anteriormente SQL DW)**: sugerir a utilização da declaração PolyBase ou COPY se não for utilizado. |
 | &nbsp;                | Copiar dados de/para a Base de **Dados SQL do Azure:** quando o DTU estiver em alta utilização, sugere a atualização para um nível mais elevado. |
 | &nbsp;                | Copiar dados de/para **Azure Cosmos DB:** quando a RU estiver em alta utilização, sugerir a atualização para ru maior. |
 | &nbsp;                | Ingerir dados da **Amazon Redshift**: sugira a utilização do UNLOAD se não for utilizado. |
@@ -43,7 +43,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 | Tempo de execução de integração  | Se utilizar um Tempo de Execução de **Integração Auto-hospedado (IR)** e a atividade de cópia aguarda muito tempo na fila até que o IR tenha recursos disponíveis para executar, sugira que se esgote/suba o seu IR. |
 | &nbsp;                | Se utilizar um Tempo de Funcionamento de **Integração Azure** que se encontra numa região não ótima, resultando em leitura/escrita lenta, sugira configurar a utilização de um IR noutra região. |
 | Tolerância a falhas       | Se configurar a tolerância à falha e saltar linhas incompatíveis resulta num desempenho lento, sugira que os dados de origem e de sumo sejam compatíveis. |
-| Cópia faseada           | Se a cópia encenada estiver configurada, mas não útil para o seu par de sumidouros, sugira removê-la. |
+| Cópia encenada           | Se a cópia encenada estiver configurada, mas não útil para o seu par de sumidouros, sugira removê-la. |
 | Retomar                | Quando a atividade de cópia é retomada a partir do último ponto de falha, mas por acaso altera a definição de DIU após a execução original, note que a nova definição de DIU não entra em vigor. |
 
 ## <a name="understand-copy-activity-execution-details"></a>Compreender detalhes de execução de atividade de cópia
@@ -54,7 +54,7 @@ Os detalhes e durações de execução na parte inferior da visão de monitoriza
 | --------------- | ------------------------------------------------------------ |
 | Filas           | O tempo decorrido até que a atividade de cópia realmente comece no tempo de execução da integração. |
 | Roteiro pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para pias de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
-| Transferência        | O tempo decorrido entre o final do passo anterior e o IR transferindo todos os dados de origem para afundar. Subpassos em "Transferência" corre em paralelo.<br><br>- **Tempo para primeiro byte:** O tempo decorrido entre o final do passo anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de ficheiros de origem ou partições de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura de fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrever para afundar:** A quantidade de tempo gasto na escrita de dados para afundar a loja de dados. |
+| Transferência        | O tempo decorrido entre o final do passo anterior e o IR transferindo todos os dados de origem para afundar. Subpassos em "Transferência" corre em paralelo.<br><br>- **Hora de primeiro passar:** O tempo decorrido entre o final do passo anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto na enumeração de ficheiros de origem ou partições de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura a partir da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrever para afundar:** A quantidade de tempo gasto na escrita de dados para afundar a loja de dados. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Atividade de cópia de resolução de problemas no Azure IR
 
@@ -68,7 +68,7 @@ Quando o desempenho da atividade de cópia não corresponder às suas expectativ
 
 - **"Transferência - Fonte de listagem" experimentou uma longa duração de trabalho:** significa que enumerar ficheiros de origem ou divisórias de dados de base de dados de origem é lenta.
 
-  - Ao copiar dados a partir de fonte baseada em ficheiros, se utilizar o **filtro wildcard** na trajetória da pasta ou nome de ficheiro (`wildcardFolderPath` ou `wildcardFileName`), ou utilizar o último filtro de **tempo modificado** (`modifiedDatetimeStart` ou`modifiedDatetimeEnd`), note que esse filtro resultaria na utilização da atividade de cópia, listando todos os ficheiros sob a pasta especificada para o lado do cliente, e depois aplicao o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
+  - Ao copiar dados da fonte baseada em ficheiros, se utilizar`wildcardFolderPath` o `wildcardFileName` **filtro wildcard** no caminho da pasta ou no nome do ficheiro (ou ), ou utilizar o **último filtro de tempo modificado** (ou),`modifiedDatetimeStart` `modifiedDatetimeEnd`note que esse filtro resultaria na listagem de todos os ficheiros sob a pasta especificada para o lado do cliente e aplicaria o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
 
     - Verifique se pode copiar ficheiros com base no caminho ou nome de [ficheiro seleção em data](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Tal forma não traz encargos para o lado da fonte de listagem.
 
@@ -122,7 +122,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
   - Verifique se a máquina de infravermelhos auto-hospedada tem baixa latência ligada à loja de dados de origem. Se a sua fonte estiver em Azure, pode utilizar [esta ferramenta](http://www.azurespeed.com/Azure/Latency) para verificar a latência da máquina de infravermelhos auto-hospedada para a região de Azure, quanto melhor.
 
-  - Ao copiar dados a partir de fonte baseada em ficheiros, se utilizar o **filtro wildcard** na trajetória da pasta ou nome de ficheiro (`wildcardFolderPath` ou `wildcardFileName`), ou utilizar o último filtro de **tempo modificado** (`modifiedDatetimeStart` ou`modifiedDatetimeEnd`), note que esse filtro resultaria na utilização da atividade de cópia, listando todos os ficheiros sob a pasta especificada para o lado do cliente, e depois aplicao o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
+  - Ao copiar dados da fonte baseada em ficheiros, se utilizar`wildcardFolderPath` o `wildcardFileName` **filtro wildcard** no caminho da pasta ou no nome do ficheiro (ou ), ou utilizar o **último filtro de tempo modificado** (ou),`modifiedDatetimeStart` `modifiedDatetimeEnd`note que esse filtro resultaria na listagem de todos os ficheiros sob a pasta especificada para o lado do cliente e aplicaria o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
 
     - Verifique se pode copiar ficheiros com base no caminho ou nome de [ficheiro seleção em data](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Tal forma não traz encargos para o lado da fonte de listagem.
 
@@ -138,7 +138,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
   - Verifique se a máquina de infravermelhos auto-hospedada tem largura de banda de entrada suficiente para ler e transferir os dados de forma eficiente. Se a sua loja de dados de origem estiver em Azure, pode utilizar [esta ferramenta](https://www.azurespeed.com/Azure/Download) para verificar a velocidade de descarregamento.
 
-  - Consulte a CPU do IR auto-hospedado e a tendência de utilização da memória no portal Azure -> a sua fábrica de dados -> página geral. Considere [aumentar/sair o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso do CPU for elevado ou a memória disponível for baixa.
+  - Verifique a CPU do IR auto-hospedado e a tendência de utilização da memória no portal Azure - > a sua página geral de > de dados. Considere [aumentar/sair o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso do CPU for elevado ou a memória disponível for baixa.
 
   - Adote as melhores práticas de carregamento de dados específicos do conector, se aplicável. Por exemplo:
 
@@ -164,7 +164,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
   - Verifique se a máquina de infravermelhos auto-hospedada tem largura de banda de saída suficiente para transferir e escrever os dados de forma eficiente. Se a sua loja de dados estiver em Azure, pode utilizar [esta ferramenta](https://www.azurespeed.com/Azure/UploadLargeFile) para verificar a velocidade de carregamento.
 
-  - Verifique se o CPU do IR auto-hospedado e a tendência de utilização da memória no portal Azure -> a sua fábrica de dados -> página geral. Considere [aumentar/sair o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso do CPU for elevado ou a memória disponível for baixa.
+  - Verifique se o CPU do IR auto-hospedado e a tendência de utilização da memória no portal Azure -> a sua página geral de > fábrica de dados. Considere [aumentar/sair o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso do CPU for elevado ou a memória disponível for baixa.
 
   - Verifique se a ADF reporta algum erro de estrangulamento na pia ou se o seu armazenamento de dados está em alta utilização. Em caso afirmativo, reduza as suas cargas de trabalho na loja de dados ou tente contactar o administrador da sua loja de dados para aumentar o limite de estrangulamento ou o recurso disponível.
 
@@ -172,12 +172,12 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
 ## <a name="other-references"></a>Outras referências
 
-Aqui está o desempenho de monitorização e otimização de referências para alguns dos arquivos de dados suportados:
+Aqui está a monitorização de desempenho e referências de afinação para algumas das lojas de dados suportadas:
 
 * Armazenamento Azure Blob: Metas de [escalabilidade e desempenho para armazenamento blob](../storage/blobs/scalability-targets.md) e performance e lista de verificação de [escalabilidade para armazenamento Blob](../storage/blobs/storage-performance-checklist.md).
 * Armazenamento de mesa azul: Metas de [escalabilidade e desempenho para armazenamento](../storage/tables/scalability-targets.md) de mesa e performance e lista de verificação de [escalabilidade para armazenamento](../storage/tables/storage-performance-checklist.md)de mesa .
 * Base de dados Azure SQL: Pode [monitorizar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem da Unidade de Transações de Bases de Dados (DTU).
-* Armazém de Dados Azure SQL: A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Ver Gerir a potência da computação no Armazém de [Dados Azure SQL (visão geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Armazém de Dados Azure SQL: A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Ver Gerir a potência da computação no Armazém de [Dados Azure SQL (visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Níveis de desempenho em Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * No local, SQL Server: [Monitor e sintonização para desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 * Servidor de ficheiros no local: [Sintonização de desempenho para servidores](https://msdn.microsoft.com/library/dn567661.aspx)de ficheiros .
@@ -185,8 +185,8 @@ Aqui está o desempenho de monitorização e otimização de referências para a
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade de cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Copiar guia de desempenho e escalabilidade da atividade](copy-activity-performance.md)
 - [Copiar funcionalidades de otimização de desempenho de atividade](copy-activity-performance-features.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para o Azure](data-migration-guidance-overview.md)
-- [Migrar dados da Amazon S3 para o Armazenamento Azure](data-migration-guidance-s3-azure-storage.md)
+- [Migrar dados do Amazon S3 para o Armazenamento do Azure](data-migration-guidance-s3-azure-storage.md)

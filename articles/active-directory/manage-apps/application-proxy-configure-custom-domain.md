@@ -1,5 +1,5 @@
 ---
-title: Domínios personalizados no Proxy de aplicações do Azure AD | Documentos da Microsoft
+title: Domínios personalizados em Procuração de Aplicação AD Azure [ Microsoft Docs
 description: Configure e gerencie domínios personalizados em Procuração de Aplicação AD Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481386"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com procuração de aplicação ad azure
 
-Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação chamada *Despesas* do seu inquilino chamada *Contoso,* o URL externo é *https:\//expenses-contoso.msappproxy.net*. Se quiser usar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
+Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação chamada *Despesas* do seu inquilino chamada *Contoso,* o URL externo é *\/https: /expenses-contoso.msappproxy.net*. Se quiser usar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
 
 ## <a name="benefits-of-custom-domains"></a>Benefícios dos domínios personalizados
 
@@ -49,7 +49,7 @@ Existem várias opções para configurar a sua configuração DNS, dependendo do
 
 Se não quiser que os seus utilizadores internos sejam direcionados através do Proxy de Aplicação, pode configurar um *DNS de cérebro dividido*. Uma infraestrutura DNS dividida direciona os anfitriões internos para um servidor de nome de domínio interno, e anfitriões externos para um servidor de nome de domínio externo, para resolução de nomes. 
 
-![DNS Dividido](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+![DNS "Split-brain"](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
 ### <a name="different-internal-and-external-urls"></a>URLs internos e externos diferentes 
 
@@ -93,7 +93,7 @@ Para publicar a sua aplicação através do Application Proxy com um domínio pe
    
 6. Se o domínio já tiver um certificado, o campo **certificado** apresenta as informações do certificado. Caso contrário, selecione o campo **Certificado.** 
    
-   ![Clique aqui para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
+   ![Clique para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
    
 7. Na página de **certificadoS SSL,** navegue e selecione o seu ficheiro de certificado PFX. Introduza a palavra-passe para o certificado e **selecione'Sou Certificado de Upload**. Para obter mais informações sobre certificados, consulte a secção [Certificados para domínios personalizados.](#certificates-for-custom-domains)
    
@@ -120,7 +120,7 @@ Para obter instruções mais detalhadas para o Proxy da Aplicação, consulte [T
 
 ## <a name="certificates-for-custom-domains"></a>Certificados para domínios personalizados
 
-Um certificado cria a ligação SSL segura para o seu domínio personalizado. 
+Um certificado cria a ligação TLS segura para o seu domínio personalizado. 
 
 ### <a name="certificate-formats"></a>Formatos de certificados
 
@@ -128,7 +128,7 @@ Deve utilizar um certificado PFX, para garantir que todos os certificados interm
 
 Não há restrições nos métodos de assinatura de certificado. Criptografia da Curva Elíptica (ECC), Nome Alternativo sujeito (SAN) e outros tipos de certificados comuns são suportados. 
 
-Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para *\*.adventure-works.com* não funcionará para *\*.apps.adventure-works.com* a menos que adicione *\*.apps.adventure-works.com* como um nome alternativo sujeito. 
+Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para * \*.adventure-works.com* não funcionará para * \*.apps.adventure-works.com* a menos que adicione * \*.apps.adventure-works.com* como um nome alternativo. 
 
 Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos seus dispositivos clientes. Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, tem de instalar manualmente estes certificados. 
 

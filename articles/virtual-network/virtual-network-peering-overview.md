@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
 ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279549"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
@@ -84,7 +84,7 @@ Também pode resolver a conectividade com uma máquina virtual numa rede virtual
 
 Também pode experimentar os [problemas de observação da rede virtual Troubleshoot.](virtual-network-troubleshoot-peering-issues.md)
 
-## Constrangimentos para redes virtuais espreitadas<a name="requirements-and-constraints"></a>
+## <a name="constraints-for-peered-virtual-networks"></a>Constrangimentos para redes virtuais espreitadas<a name="requirements-and-constraints"></a>
 
 Os seguintes constrangimentos só se aplicam quando as redes virtuais são globalmente peered:
 

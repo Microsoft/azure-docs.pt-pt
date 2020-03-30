@@ -1,57 +1,56 @@
 ---
-title: Pré-requisitos de máquina virtual para Microsoft Azure | Azure Marketplace
-description: Lista de pré-requisitos necessários para publicar uma oferta de VM no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal
-author: v-miclar
+title: Pré-requisitos da máquina virtual para o Microsoft Azure Mercado Azure
+description: Lista de pré-requisitos necessários para publicar uma oferta VM ao Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: a657ceaacf3680de54dc0d639a3f1a0aff6a6a03
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 24c560aff9e8ba7ca0858fdb7fa11a59301c2360
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277621"
 ---
-# <a name="virtual-machine-prerequisites"></a>Pré-requisitos de máquina virtual
+# <a name="virtual-machine-prerequisites"></a>Pré-requisitos da máquina virtual
 
-Este artigo lista os requisitos técnicos e de negócios que você deve atender antes de publicar uma oferta de VM no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).  Se você ainda não tiver feito isso, examine o [Guia de publicação da oferta da máquina virtual](../../marketplace-virtual-machines.md).
+Este artigo lista os requisitos técnicos e empresariais que deve cumprir antes de poder publicar uma oferta VM no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/)  Se ainda não o fez, reveja o Guia de Publicação da [Oferta Virtual de Máquinas.](../../marketplace-virtual-machines.md)
 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
-Os pré-requisitos técnicos para publicar uma solução de máquina virtual (VM) são simples:
+Os pré-requisitos técnicos para a publicação de uma solução de máquina virtual (VM) são simples:
 
-- Você deve ter uma conta ativa do Azure. Se você não tiver um, poderá se inscrever no site do [Microsoft Azure](https://azure.microsoft.com).  
-- Você deve ter um ambiente configurado para oferecer suporte ao desenvolvimento de VM Windows ou Linux.  Para obter mais informações, consulte o site de documentação da VM associada:
-    - [Documentação de VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/)
-    - [Documentação de VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/)
+- Deve ter uma conta Azure ativa. Se não tiver um, pode inscrever-se no site do [Microsoft Azure](https://azure.microsoft.com).  
+- Deve ter um ambiente configurado para suportar o desenvolvimento de VM Windows ou Linux.  Para mais informações, consulte o site de documentação VM associado:
+    - [Documentação sobre as VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/)
+    - [Documentação sobre as VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/)
 
 
-## <a name="business-requirements"></a>Requisitos comerciais
+## <a name="business-requirements"></a>Requisitos empresariais
 
-Os requisitos de negócios incluem as obrigações legais, contratuais e de procedimento: 
+Os requisitos comerciais incluem obrigações processuais, contratuais e legais: 
 
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- Você deve ser um Publicador do Cloud Marketplace registrado.  Se você ainda não estiver registrado, siga as etapas no artigo [tornar-se um editor de Marketplace de nuvem](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Deve ser um Editor de Cloud Marketplace registado.  Se ainda não estiver registado, siga os passos do artigo [Torne-se um Editor do Mercado de Nuvem](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE]
-    > Você deve usar a mesma conta de registro do Microsoft Developer Center para se inscrever no [portal do Cloud Partner](https://cloudpartner.azure.com).
-    > Você deve ter apenas um conta Microsoft para suas ofertas do Azure Marketplace. Ele não deve ser específico para serviços individuais ou ofertas.
+    > Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no [Portal do Parceiro cloud](https://cloudpartner.azure.com).
+    > Você deve ter apenas uma conta Microsoft para as suas ofertas do Azure Marketplace. Não deve ser específico para serviços ou ofertas individuais.
     
-- Sua empresa (ou sua subsidiária) deve estar localizada em uma região de venda/país com suporte do Azure Marketplace.  Para obter uma lista atual desses países/regiões, consulte [Microsoft Azure Marketplace políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-- Seu produto deve ser licenciado de forma que seja compatível com modelos de cobrança com suporte no Azure Marketplace.  Para obter mais informações, consulte [Opções de cobrança no Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
-- Você é responsável por disponibilizar o suporte técnico aos clientes de maneira comercialmente razoável. Esse suporte pode ser gratuito, pago ou por meio de abordagens da Comunidade.
-- Você é responsável por licenciar seu software e quaisquer dependências de software de terceiros.
-- Você deve fornecer conteúdo que atenda aos critérios de sua oferta a ser listado no Azure Marketplace e no portal do Azure. <!-- TD: Meaning/links? -->
-- Você deve concordar com os termos das [políticas de participação Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) e o contrato do editor.
-- Você deve obedecer à [Microsoft Azure termos de uso do site](https://azure.microsoft.com/support/legal/website-terms-of-use/), [política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)e [contrato de programa certificado Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+- A sua empresa (ou sua subsidiária) deve estar localizada numa região de venda/região apoiada pelo Azure Marketplace.  Para obter uma lista atual destes países/regiões, consulte as Políticas de [Participação no Mercado do Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- O seu produto deve ser licenciado de forma compatível com modelos de faturação suportados pelo Azure Marketplace.  Para mais informações, consulte [as opções de Faturação no Mercado Azure.](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace) 
+- É responsável por disponibilizar apoio técnico aos clientes de forma comercialmente razoável. Este apoio pode ser gratuito, pago ou através de abordagens comunitárias.
+- É responsável pelo licenciamento do seu software e de quaisquer dependências de software de terceiros.
+- Deve fornecer conteúdo que satisfaça os critérios para a sua oferta ser listada no Azure Marketplace e no portal Azure. <!-- TD: Meaning/links? -->
+- Deve concordar com os termos das Políticas de Participação no [Mercado do Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) e do Acordo de Editor.
+- Deve cumprir os [Termos de Utilização do Website Microsoft Azure,](https://azure.microsoft.com/support/legal/website-terms-of-use/) [a Declaração](https://privacy.microsoft.com/privacystatement)de Privacidade da Microsoft e o Acordo de Programa Certificado [Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de atender a esses pré-requisitos, você poderá [criar sua oferta de VM](./cpp-create-offer.md).
+Depois de ter cumprido estes pré-requisitos, pode [criar a sua oferta vm](./cpp-create-offer.md).

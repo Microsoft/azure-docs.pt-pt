@@ -1,6 +1,6 @@
 ---
 title: Registe um novo dispositivo Azure IoT Edge Microsoft Docs
-description: Utilizar a extensão de IoT para a CLI do Azure para registar um novo dispositivo IoT Edge e obter a cadeia de ligação
+description: Utilize a extensão IoT para o Azure CLI para registar um novo dispositivo IoT Edge e recuperar a cadeia de ligação
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f7facb539a84d39e6659627e80ecc560fc87591c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6fb776b4c1ff537401a23eb272526b3043fdb1e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79285100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235729"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registe um dispositivo Azure IoT Edge
 
@@ -41,78 +41,78 @@ No seu IoT Hub no portal Azure, os dispositivos IoT Edge são criados e geridos 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 2. No painel esquerdo, selecione **IoT Edge** do menu.
 3. **Selecione Adicionar um dispositivo IoT Edge**.
-4. Forneça um ID de dispositivo descritivo. Utilize as definições predefinidas para gerar automaticamente chaves de autenticação e ligar o novo dispositivo ao seu hub.
+4. Forneça uma identificação descritiva do dispositivo. Utilize as definições predefinidas para gerar automaticamente chaves de autenticação e ligar o novo dispositivo ao seu hub.
 5. Selecione **Guardar**.
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>Ver dispositivos IoT Edge no portal Azure
 
 Todos os dispositivos com borda que se ligam ao seu hub IoT estão listados na página **IoT Edge.**
 
-![Ver todos os dispositivos do IoT Edge no seu hub IoT](./media/how-to-register-device/portal-view-devices.png)
+![Veja todos os dispositivos IoT Edge no seu hub IoT](./media/how-to-register-device/portal-view-devices.png)
 
 ### <a name="retrieve-the-connection-string-in-the-azure-portal"></a>Recupere a corda de ligação no portal Azure
 
-Quando estiver pronto para configurar o dispositivo, terá da cadeia de ligação que liga o dispositivo físico com a respetiva identidade no IoT hub.
+Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no centro IoT.
 
 1. A partir da página **IoT Edge** no portal, clique no ID do dispositivo a partir da lista de dispositivos IoT Edge.
 2. Copie o valor da cadeia de **ligação primária** ou da cadeia de **ligação secundária**.
 
 ## <a name="register-with-visual-studio-code"></a>Registe-se com o Código do Estúdio Visual
 
-Existem várias maneiras de executar a maioria das operações no VS Code. Este artigo utiliza o Explorer, mas também pode usar a Paleta de Comando para executar os passos.
+Existem várias formas de realizar a maioria das operações no Código VS. Este artigo utiliza o Explorer, mas também pode usar a Paleta de Comando para executar os passos.
 
 ### <a name="prerequisites-for-visual-studio-code"></a>Pré-requisitos para Código de Estúdio Visual
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua subscrição Azure
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Código de estúdio visual](https://code.visualstudio.com/)
 * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para Código de Estúdio Visual
 
-### <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o seu hub IoT
+### <a name="sign-in-to-access-your-iot-hub"></a>Inscreva-se para aceder ao seu hub IoT
 
 Pode utilizar as extensões Azure IoT para O Código do Estúdio Visual para realizar operações com o seu Hub IoT. Para que estas operações funcionem, tem de iniciar sessão na sua conta Azure e selecionar o seu IoT Hub.
 
 1. No Visual Studio Code, abra a vista **Explorer.**
 1. Na parte inferior do Explorer, expanda a secção **Azure IoT Hub.**
 
-   ![Expanda a secção de dispositivos de Hub IoT do Azure](./media/how-to-register-device/azure-iot-hub-devices.png)
+   ![Expandir secção de dispositivos hub Azure IoT](./media/how-to-register-device/azure-iot-hub-devices.png)
 
-1. Clique no **...** no cabeçalho da secção **Azure IoT Hub.** Se não vir o botão de reticências, clique em ou coloque o cursor sobre o cabeçalho.
+1. Clique no **...** no cabeçalho da secção **Azure IoT Hub.** Se não vir a elipse, clique ou paire sobre o cabeçalho.
 1. Escolha **Selecione Selecione IoT Hub**.
 1. Se não estiver inscrito na sua conta Azure, siga as instruções para o fazer.
 1. Selecione a sua subscrição do Azure.
-1. Selecione o seu hub IoT.
+1. Selecione o seu hub ioT.
 
 ### <a name="create-an-iot-edge-device-with-visual-studio-code"></a>Crie um dispositivo IoT Edge com Código de Estúdio Visual
 
 1. No Vs Code Explorer, expanda a secção **dispositivos Hub Azure IoT.**
-1. Clique no **...** no cabeçalho da secção **dispositivos do Hub Azure IoT.** Se não vir o botão de reticências, clique em ou coloque o cursor sobre o cabeçalho.
+1. Clique no **...** no cabeçalho da secção **dispositivos do Hub Azure IoT.** Se não vir a elipse, clique ou paire sobre o cabeçalho.
 1. Selecione **Criar dispositivo de borda IoT**.
-1. Na caixa de texto que aparece, dê o seu dispositivo um ID.
+1. Na caixa de texto que abre, dê ao seu dispositivo uma identificação.
 
-No ecrã da saída, pode ver o resultado do comando. A informação do dispositivo está impressa, que inclui o **dispositivoId** que forneceu e a **ligaçãoString** que pode utilizar para ligar o seu dispositivo físico ao seu hub IoT.
+No ecrã de saída, vê-se o resultado do comando. A informação do dispositivo está impressa, que inclui o **dispositivoId** que forneceu e a **ligaçãoString** que pode utilizar para ligar o seu dispositivo físico ao seu hub IoT.
 
-No ecrã da saída, pode ver o resultado do comando. A informação do dispositivo está impressa, que inclui o **dispositivoId** que forneceu e a **ligaçãoString** que pode utilizar para ligar o seu dispositivo físico ao seu hub IoT.
+No ecrã de saída, vê-se o resultado do comando. A informação do dispositivo está impressa, que inclui o **dispositivoId** que forneceu e a **ligaçãoString** que pode utilizar para ligar o seu dispositivo físico ao seu hub IoT.
 
 ### <a name="view-iot-edge-devices-with-visual-studio-code"></a>Ver dispositivos IoT Edge com Código de Estúdio Visual
 
 Todos os dispositivos que se ligam ao seu hub IoT estão listados na secção **Azure IoT Hub** do Visual Studio Code Explorer. Os dispositivos IoT Edge distinguem-se de dispositivos não-Edge com um ícone diferente, e o facto de os módulos **$edgeAgent** e **$edgeHub** serem implantados em cada dispositivo IoT Edge.
 
-![Ver todos os dispositivos do IoT Edge no seu hub IoT](./media/how-to-register-device/view-devices.png)
+![Veja todos os dispositivos IoT Edge no seu hub IoT](./media/how-to-register-device/view-devices.png)
 
 ### <a name="retrieve-the-connection-string-with-visual-studio-code"></a>Recupere a cadeia de ligação com o Código do Estúdio Visual
 
-Quando estiver pronto para configurar o dispositivo, terá da cadeia de ligação que liga o dispositivo físico com a respetiva identidade no IoT hub.
+Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no centro IoT.
 
 1. Clique na identificação do seu dispositivo na secção **Hub Azure IoT.**
 1. Selecione **copy device Connection String**.
 
-   A cadeia de ligação é copiada para a área de transferência.
+   A corda de ligação é copiada para a sua prancheta.
 
 Também pode selecionar **Obter Informações** do Dispositivo do menu de clique satisfizer para ver todas as informações do dispositivo, incluindo a cadeia de ligação, na janela de saída.
 
 ## <a name="register-with-the-azure-cli"></a>Registe-se no Azure CLI
 
-O [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Edge. Permite-lhe gerir recursos, instâncias de serviço aprovisionamento de dispositivos e hubs ligados a caixa do IoT Hub do Azure. A extensão IoT enriquece o Azure CLI com funcionalidades como a gestão do dispositivo e a capacidade completa do IoT Edge.
+O [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Edge. Permite-lhe gerir os recursos do Azure IoT Hub, as instâncias de serviço de fornecimento de dispositivos e os centros ligados fora da caixa. A extensão IoT enriquece o Azure CLI com funcionalidades como a gestão do dispositivo e a capacidade completa do IoT Edge.
 
 ### <a name="prerequisites-for-the-azure-cli"></a>Pré-requisitos para o Azure CLI
 
@@ -124,7 +124,7 @@ O [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma
 
 Utilize o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) comando para criar uma nova identidade de dispositivo no seu hub IoT. Por exemplo:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
    ```
 
@@ -134,13 +134,13 @@ Este comando inclui três parâmetros:
 * **nome do hub**: Forneça o nome do seu hub IoT.
 * **Ativado pela borda**: Este parâmetro declara que o dispositivo é para ser utilizado com borda ioT.
 
-   ![saída de criar AZ iot hub-identidade de dispositivo](./media/how-to-register-device/Create-edge-device.png)
+   ![az iot hub dispositivo-identidade criar saída](./media/how-to-register-device/Create-edge-device.png)
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Ver dispositivos IoT Edge com o Azure CLI
 
 Utilize o comando de identidade de dispositivo do [hub az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) para visualizar todos os dispositivos no seu hub IoT. Por exemplo:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity list --hub-name [hub name]
    ```
 
@@ -148,13 +148,13 @@ Qualquer dispositivo que esteja registado como um dispositivo IoT Edge terá as 
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Recupere a corda de ligação com o Azure CLI
 
-Quando estiver pronto para configurar o dispositivo, terá da cadeia de ligação que liga o dispositivo físico com a respetiva identidade no IoT hub. Utilize o comando de cadeia de ligação de [dispositivo-identidade az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) para devolver a corda de ligação para um único dispositivo:
+Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no centro IoT. Utilize o comando de cadeia de ligação de [dispositivo-identidade az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) para devolver a corda de ligação para um único dispositivo:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
    ```
 
-O valor para o parâmetro `device-id` é sensível a casos. Não copia as aspas à volta a cadeia de ligação.
+O valor `device-id` para o parâmetro é sensível a casos. Não copie as aspas à volta da corda de ligação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
